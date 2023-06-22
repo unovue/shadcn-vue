@@ -1,0 +1,62 @@
+{
+  "name": "strip-literal",
+  "version": "1.0.1",
+  "packageManager": "pnpm@7.0.0",
+  "description": "Strip comments and string literals from JavaScript code",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/antfu",
+  "homepage": "https://github.com/antfu/strip-literal#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antfu/strip-literal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antfu/strip-literal/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "start": "esmo src/index.ts",
+    "test": "vitest",
+    "bench": "vitest bench",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "acorn": "^8.8.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.35.1",
+    "@antfu/ni": "^0.19.0",
+    "@types/node": "^18.11.18",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.33.0",
+    "esmo": "^0.16.3",
+    "pnpm": "^7.26.3",
+    "rimraf": "^4.1.2",
+    "three": "^0.149.0",
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.1",
+    "vite": "^4.1.1",
+    "vitest": "^0.28.3",
+    "vue": "^3.2.47"
+  }
+}

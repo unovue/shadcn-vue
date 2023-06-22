@@ -1,0 +1,34 @@
+{
+  "env": {
+    "lib": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "loose": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "loose": true
+          }
+        ]
+      ]
+    }
+  },
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "loose": true,
+        "modules": false
+      }
+    ]
+  ]
+}

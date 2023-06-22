@@ -1,0 +1,13 @@
+{
+	"name": "@morev/vue-modals-nuxt",
+	"private": "true",
+	"exports": {
+		".": {
+			"import": "./module.mjs",
+			"require": "./module.cjs"
+		}
+	},
+	"main": "./module.cjs",
+	"module": "./module.mjs",
+	"types": "./types.d.ts"
+}
