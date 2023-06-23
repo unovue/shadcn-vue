@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui-float/vue": "^0.11.2",
     "@headlessui/vue": "^1.7.14",
     "vue": "^3.2.47"
   },

@@ -1,17 +1,18 @@
 <template>
-	<div class="relative w-full pb-[50%] overflow-clip">
-	<div class="absolute inset-0">
-		<slot />
-	</div>
-</div></template>
+  <div :class="`relative w-full`" :style="`padding-bottom: ${aspect}%`">
+    <div class="absolute inset-0">
+      <slot />
+    </div>
+  </div>
+</template>
 
 <script setup>
-import {computed} from 'vue'
+import { computed } from "vue";
 const props = defineProps({
-	ratio: String
-})
+  ratio: Number,
+});
 
-const aspect = computed(()=>{
-	return 
-})
+const aspect = computed(() => {
+  return 1/props.ratio*100;
+});
 </script>
