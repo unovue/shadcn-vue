@@ -28,7 +28,7 @@ import { Listbox } from "@headlessui/vue";
 import { Float } from "@headlessui-float/vue";
 
 const props = defineProps({
-  modelValue: Boolean,
+  modelValue: Number,
 });
 
 const emit = defineEmits(["update:modelValue", "close"]);

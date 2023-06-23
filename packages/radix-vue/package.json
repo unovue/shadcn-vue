@@ -11,9 +11,11 @@
   "dependencies": {
     "@headlessui-float/vue": "^0.11.2",
     "@headlessui/vue": "^1.7.14",
+    "@morev/vue-transitions": "^2.3.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@iconify/vue": "^4.1.1",
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",

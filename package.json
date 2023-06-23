@@ -1,8 +1,1 @@
-{
-	"devDependencies": {
-		"@iconify/vue": "^4.1.1"
-	},
-	"dependencies": {
-		"@morev/vue-transitions": "^2.3.6"
-	}
-}
+{}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import {
 	Accordion,
 	AccordionTrigger,
@@ -41,10 +41,9 @@ import {
 	CollapsibleContent,
 } from "./components/Collapsible";
 import { Select, SelectContent, SelectItem, SelectLabel, SelectTrigger } from "./components/Select";
-import { Float } from "@headlessui-float/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "./components/Popover";
 import { Separator } from "./components/Separator";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./components/Tooltip";
+import { Tooltip, TooltipTrigger } from "./components/Tooltip";
 import { RadioGroup, RadioGroupItem } from "./components/RadioGroup";
 
 const alertDialogIsOpen = ref(false);
@@ -53,7 +52,6 @@ const enabled = ref(false);
 const checkboxEnabled = ref(false);
 const checkboxEnabled2 = ref(false);
 const toggleEnabled = ref(false);
-const collapsibleIsOpen = ref(false);
 
 const people = [
 	{ id: 1, name: "Durward Reynolds", unavailable: false },
@@ -64,15 +62,6 @@ const people = [
 ];
 const selectedPerson = ref(people[0]);
 
-const people2 = [
-	"Durward Reynolds",
-	"Kenton Towne",
-	"Therese Wunsch",
-	"Benedict Kessler",
-	"Katelyn Rohan",
-];
-const selectedPerson2 = ref(people2[0]);
-
 const radioOptions = [
 	"Default",
 	"Comfortable",
@@ -80,15 +69,6 @@ const radioOptions = [
 ];
 
 const radioValue = ref(radioOptions[0]);
-const query = ref("");
-
-const filteredPeople = computed(() =>
-	query.value === ""
-		? people
-		: people.filter((person) => {
-			return person.toLowerCase().includes(query.value.toLowerCase());
-		})
-);
 
 const components = [
 	"Accordion",
@@ -342,13 +322,13 @@ const components = [
 				</InternalCard>
 				<InternalCard title="Scroll Area"></InternalCard>
 				<InternalCard title="Select">
-					<Select v-model="selectedPerson">
+					<Select v-model="selectedPerson.id">
 						<SelectTrigger class="w-[210px]">
 							{{ selectedPerson.name }}
 						</SelectTrigger>
 						<SelectContent>
 							<SelectLabel>Fruits</SelectLabel>
-							<SelectItem v-for="person in people" :key="person.id" :value="person"
+							<SelectItem v-for="person in people" :key="person.id" :value="person.id"
 								:disabled="person.unavailable">{{ person.name }}</SelectItem>
 						</SelectContent>
 					</Select>

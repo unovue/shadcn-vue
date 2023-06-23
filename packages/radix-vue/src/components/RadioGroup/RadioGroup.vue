@@ -9,7 +9,7 @@ import { ref, computed } from 'vue'
 import { RadioGroup } from '@headlessui/vue';
 
 const props = defineProps({
-	modelValue: Boolean
+	modelValue: String
 })
 
 const emit = defineEmits(['update:modelValue', 'close'])
