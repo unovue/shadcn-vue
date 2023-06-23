@@ -40,13 +40,7 @@ import {
 	CollapsibleTrigger,
 	CollapsibleContent,
 } from "./components/Collapsible";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectLabel,
-} from "./components/Select";
+import { Select, SelectContent, SelectItem, SelectLabel, SelectTrigger } from "./components/Select";
 import { Float } from "@headlessui-float/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "./components/Popover";
 import { Separator } from "./components/Separator";
@@ -287,10 +281,11 @@ const components = [
 								and remove your data from our servers.
 							</DialogDescription>
 						</DialogHeader>
-						<DialogFooter><Button variant="outline"
-								@click="dialogIsOpen = false">Cancel</Button><Button>CTA Button</Button>
+						<DialogFooter><Button variant="outline" @click="dialogIsOpen = false">Cancel</Button><Button>CTA
+								Button</Button>
 						</DialogFooter>
-					</Dialog></InternalCard>
+					</Dialog>
+				</InternalCard>
 				<InternalCard title="Dropdown Menu"></InternalCard>
 				<InternalCard title="Hover Card"></InternalCard>
 				<InternalCard title="Input">
