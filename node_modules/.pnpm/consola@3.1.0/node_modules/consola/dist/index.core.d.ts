@@ -1,1 +1,0 @@
-export { c as Consola, a as ConsolaInstance, C as ConsolaOptions, g as ConsolaReporter, F as FormatOptions, I as InputLogObject, d as LogLevel, L as LogLevels, f as LogObject, e as LogType, b as LogTypes, h as createConsola } from './consola-3fef035a.js';
