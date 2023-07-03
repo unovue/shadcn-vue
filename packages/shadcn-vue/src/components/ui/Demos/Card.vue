@@ -1,7 +1,7 @@
 
 <script setup>
 import { Icon } from "@iconify/vue";
-import { Button } from "@/src/components/Button"
+import { Button } from "@/src/components/ui/Button"
 import {
 	Card,
 	CardContent,
@@ -9,7 +9,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/src/components/Card"
+} from "@/src/components/ui/Card"
 
 const notifications = [
 	{
