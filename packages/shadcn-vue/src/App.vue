@@ -45,6 +45,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./components/ui/Popover
 import { Separator } from "./components/ui/Separator";
 import { Tooltip, TooltipTrigger } from "./components/ui/Tooltip";
 import { RadioGroup, RadioGroupItem } from "./components/ui/RadioGroup";
+import AccordionDemo2 from "./components/uiv2/AccordionDemo.vue"
 
 const alertDialogIsOpen = ref(false);
 const dialogIsOpen = ref(false);
@@ -131,7 +132,7 @@ const components = [
           </button>
         </nav>
       </div>
-      <div class="flex-grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-4">
         <InternalCard title="Accordion">
           <div class="w-full max-w-[400px]">
             <Accordion>
@@ -162,6 +163,9 @@ const components = [
               </AccordionItem>
             </Accordion>
           </div>
+        </InternalCard>
+        <InternalCard title="Accordionv22">
+          <AccordionDemo2 />
         </InternalCard>
         <InternalCard title="Alert">
           <div class="max-w-[400px]">

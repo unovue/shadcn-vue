@@ -17,6 +17,12 @@ importers:
       '@morev/vue-transitions':
         specifier: ^2.3.6
         version: 2.3.6(vue@3.2.47)
+      class-variance-authority:
+        specifier: ^0.6.1
+        version: 0.6.1
+      radix-vue:
+        specifier: ^0.1.6
+        version: 0.1.6(vue@3.2.47)
       vue:
         specifier: ^3.2.47
         version: 3.2.47
@@ -33,6 +39,9 @@ importers:
       postcss:
         specifier: ^8.4.24
         version: 8.4.24
+      tailwind-merge:
+        specifier: ^1.14.0
+        version: 1.14.0
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.2
@@ -477,6 +486,16 @@ packages:
       '@floating-ui/dom': 1.4.3
       vue: 3.2.47
       vue-demi: 0.13.11(vue@3.2.47)
+    dev: false
+
+  /@floating-ui/vue@1.0.1(vue@3.2.47):
+    resolution: {integrity: sha512-HZmmNWaztKYKOQxXvMzJYCYtfgG07cL/bPQvZ92AFG3Ktw71bvvLKXsZDAyIxGpqRo9WiTPsYknnSuLV2H/riA==}
+    dependencies:
+      '@floating-ui/dom': 1.4.3
+      vue-demi: 0.13.11(vue@3.2.47)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@headlessui-float/vue@0.11.2(vue@3.2.47):
@@ -974,6 +993,17 @@ packages:
   /chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+    dev: false
+
+  /class-variance-authority@0.6.1:
+    resolution: {integrity: sha512-eurOEGc7YVx3majOrOb099PNKgO3KnKSApOprXI4BTq6bcfbqbQXPN2u+rPPmIJ2di23bMwhk0SxCCthBmszEQ==}
+    dependencies:
+      clsx: 1.2.1
+    dev: false
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert@1.9.3:
@@ -1669,6 +1699,16 @@ packages:
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  /radix-vue@0.1.6(vue@3.2.47):
+    resolution: {integrity: sha512-peTAHm7yabsa6L1p3cwcEGc0acPZY6jjDF+fqgsYF/LFt7EKOmZly1TXQkPL0wVex3JHBSrt5tmfWf7ufIVUvQ==}
+    dependencies:
+      '@floating-ui/dom': 1.4.3
+      '@floating-ui/vue': 1.0.1(vue@3.2.47)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
   /rc9@2.1.1:
     resolution: {integrity: sha512-lNeOl38Ws0eNxpO3+wD1I9rkHGQyj1NU1jlzv4go2CtEnEQEUfqnIvZG7W+bC/aXdJ27n5x/yUjb6RoT9tko+Q==}
     dependencies:
@@ -1804,6 +1844,10 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /tailwind-merge@1.14.0:
+    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
     dev: true
 
   /tailwindcss@3.3.2:

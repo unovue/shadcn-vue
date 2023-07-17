@@ -1,15 +1,17 @@
 {
   "name": "radix-vue",
   "version": "0.0.1",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/radix-vue.umd.js",
   "module": "./dist/radix-vue.es.js",
   "exports": {
-	".": {
-		"import": "./dist/radix-vue.es.js",
-		"require": "./dist/radix-vue.umd.js"
-	},
-	"./dist/style.css": "./dist/style.css"
+    ".": {
+      "import": "./dist/radix-vue.es.js",
+      "require": "./dist/radix-vue.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "type": "module",
   "scripts": {
@@ -21,6 +23,8 @@
     "@headlessui-float/vue": "^0.11.2",
     "@headlessui/vue": "^1.7.14",
     "@morev/vue-transitions": "^2.3.6",
+    "class-variance-authority": "^0.6.1",
+    "radix-vue": "^0.1.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
@@ -28,6 +32,7 @@
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
+    "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
