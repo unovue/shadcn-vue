@@ -46,6 +46,7 @@ import { Separator } from "./components/ui/Separator";
 import { Tooltip, TooltipTrigger } from "./components/ui/Tooltip";
 import { RadioGroup, RadioGroupItem } from "./components/ui/RadioGroup";
 import AccordionDemo2 from "./components/uiv2/AccordionDemo.vue"
+import SwitchDemo2 from "./components/uiv2/SwitchDemo.vue"
 
 const alertDialogIsOpen = ref(false);
 const dialogIsOpen = ref(false);
@@ -166,6 +167,9 @@ const components = [
         </InternalCard>
         <InternalCard title="Accordionv22">
           <AccordionDemo2 />
+        </InternalCard>
+        <InternalCard title="Switchv2">
+          <SwitchDemo2 />
         </InternalCard>
         <InternalCard title="Alert">
           <div class="max-w-[400px]">

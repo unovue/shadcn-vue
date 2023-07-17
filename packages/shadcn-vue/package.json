@@ -23,6 +23,7 @@
     "@headlessui-float/vue": "^0.11.2",
     "@headlessui/vue": "^1.7.14",
     "@morev/vue-transitions": "^2.3.6",
+    "@vueuse/core": "^10.2.1",
     "class-variance-authority": "^0.6.1",
     "radix-vue": "^0.1.6",
     "vue": "^3.2.47"

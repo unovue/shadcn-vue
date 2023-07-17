@@ -50,6 +50,10 @@ export default {
 				md: `calc(var(--radius) - 2px)`,
 				sm: "calc(var(--radius) - 4px)",
 			},
+			boxShadow: {
+				switch:
+					"rgba(0, 0, 0, 0.3) 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 1px 2px",
+			},
 			keyframes: {
 				"accordion-down": {
 					from: { height: 0 },
