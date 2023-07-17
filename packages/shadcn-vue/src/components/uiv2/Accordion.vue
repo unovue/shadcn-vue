@@ -21,7 +21,7 @@ interface AccordionProps {
   collapsible: boolean,
 }
 
-withDefaults(defineProps<AccordionProps>(),{
+withDefaults(defineProps<AccordionProps>(), {
   variant: 'default',
   type: 'single',
   collapsible: true,
@@ -51,7 +51,9 @@ withDefaults(defineProps<AccordionProps>(),{
           </AccordionTrigger>
         </AccordionHeader>
         <AccordionContent :class="AccordionClass({ variant, component: 'content' })">
-          <div class="px-5 py-4">{{ item.content }}</div>
+          <div :class="AccordionClass({ variant, component: 'contentWrapper' })">
+            {{ item.content }}
+          </div>
         </AccordionContent>
       </AccordionItem>
     </template>
