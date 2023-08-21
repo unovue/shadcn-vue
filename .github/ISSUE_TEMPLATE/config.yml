@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  # - name: 📚 Documentation
+  #   url: https://www.radix-vue.com/
+  #   about: Check the documentation for usage of Radix Vue.
+  - name: 🗨️ Discord
+    url: https://chat.radix-vue.com/
+    about: Join the Radix Vue Discord server.
