@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vueuse/core": "^10.2.1",
     "class-variance-authority": "^0.6.1",
     "clsx": "^2.0.0",
