@@ -1,7 +1,8 @@
 import type { ClassValue } from 'clsx'
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
+import type { FunctionalComponent } from 'vue'
+import { camelize, defineComponent, getCurrentInstance, h, toHandlerKey } from 'vue'
 
 export type ParseEmits<T extends Record<string, any>> = {
   [K in keyof T]: (...args: T[K]) => void;
@@ -30,4 +31,10 @@ export function useEmitAsProps<Name extends string>(
     result[toHandlerKey(camelize(ev))] = (...arg: any) => emit(ev, ...arg)
   })
   return result
+}
+
+export function convertToVNode(component: FunctionalComponent) {
+  return defineComponent({
+    setup() { return () => h(component) },
+  })
 }
