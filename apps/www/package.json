@@ -26,7 +26,7 @@
     "class-variance-authority": "^0.6.1",
     "clsx": "^2.0.0",
     "lucide-vue-next": "^0.268.0",
-    "radix-vue": "file:../../../radix-vue/packages/radix-vue",
+    "radix-vue": "latest",
     "tailwindcss-animate": "^1.0.6",
     "vue": "^3.3.4"
   },
