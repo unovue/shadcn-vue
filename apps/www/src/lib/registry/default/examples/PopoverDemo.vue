@@ -3,7 +3,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from './Popover'
+} from '../ui/popover'
 </script>
 
 <template>

@@ -20,7 +20,7 @@ export const AccordionContent = defineComponent<AccordionContentProps>(
 )
 
 export const AccordionTrigger = defineComponent<AccordionTriggerProps>(
-  (props, { attrs, slots }) => {
+  (_props, { attrs, slots }) => {
     return () => h(AccordionHeaderPrimitive, { class: 'flex' },
       () => h(AccordionTriggerPrimitive,
         { class: cn('flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180', attrs.class) },

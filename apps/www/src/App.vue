@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AccordionDemo from './components/ui/AccordionDemo.vue'
-import PopoverDemo from './components/ui/PopoverDemo.vue'
+import AccordionDemo from '@/lib/registry/default/examples/AccordionDemo.vue'
+import PopoverDemo from '@/lib/registry/default/examples/PopoverDemo.vue'
 </script>
 
 <template>

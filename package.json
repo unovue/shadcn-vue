@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm --filter shadcn-vue dev",
+    "dev": "pnpm --filter www dev",
     "prepare": "pnpm simple-git-hooks",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore"
