@@ -3,15 +3,18 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '../ui/popover'
+} from '@/registry/default/ui/popover'
+import { Button } from '@/registry/default/ui/button'
+import { Label } from '@/registry/default/ui/label'
+import { Input } from '@/registry/default/ui/input'
 </script>
 
 <template>
   <Popover>
     <PopoverTrigger as-child>
-      <button>
+      <Button variant="outline">
         Open popover
-      </button>
+      </Button>
     </PopoverTrigger>
     <PopoverContent class="w-80" @open-auto-focus.prevent>
       <div class="grid gap-4">
@@ -25,40 +28,40 @@ import {
         </div>
         <div class="grid gap-2">
           <div class="grid grid-cols-3 items-center gap-4">
-            <label for="width">Width</label>
-            <input
+            <Label for="width">Width</Label>
+            <Input
               id="width"
               type="text"
               default-value="100%"
               class="col-span-2 h-8"
-            >
+            />
           </div>
           <div class="grid grid-cols-3 items-center gap-4">
-            <label for="maxWidth">Max. width</label>
-            <input
+            <Label for="maxWidth">Max. width</Label>
+            <Input
               id="maxWidth"
               type="text"
               default-value="300px"
               class="col-span-2 h-8"
-            >
+            />
           </div>
           <div class="grid grid-cols-3 items-center gap-4">
-            <label for="height">Height</label>
-            <input
+            <Label for="height">Height</Label>
+            <Input
               id="height"
               type="text"
               default-value="25px"
               class="col-span-2 h-8"
-            >
+            />
           </div>
           <div class="grid grid-cols-3 items-center gap-4">
-            <label for="maxHeight">Max. height</label>
-            <input
+            <Label for="maxHeight">Max. height</Label>
+            <Input
               id="maxHeight"
               type="text"
               default-value="none"
               class="col-span-2 h-8"
-            >
+            />
           </div>
         </div>
       </div>

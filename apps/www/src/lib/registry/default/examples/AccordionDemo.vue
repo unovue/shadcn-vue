@@ -1,5 +1,5 @@
 <script setup>
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/registry/default/ui/accordion'
 
 const defaultValue = 'item-1'
 
@@ -32,4 +32,3 @@ const accordionItems = [
     </AccordionItem>
   </Accordion>
 </template>
-../ui/accordion
