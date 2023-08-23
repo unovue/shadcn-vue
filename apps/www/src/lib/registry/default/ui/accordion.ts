@@ -6,6 +6,7 @@ import {
   type AccordionItemProps, AccordionRoot as AccordionRootPrimitive,
   AccordionTrigger as AccordionTriggerPrimitive, type AccordionTriggerProps,
 } from 'radix-vue'
+import { ChevronDown } from 'lucide-vue-next'
 import { cn } from '@/utils'
 
 export const Accordion = AccordionRootPrimitive
@@ -24,7 +25,7 @@ export const AccordionTrigger = defineComponent<AccordionTriggerProps>(
     return () => h(AccordionHeaderPrimitive, { class: 'flex' },
       () => h(AccordionTriggerPrimitive,
         { class: cn('flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180', attrs.class) },
-        slots,
+        () => [slots.default(), h(ChevronDown, { class: 'h-4 w-4 shrink-0 transition-transform duration-200' })],
       ),
     )
   },
