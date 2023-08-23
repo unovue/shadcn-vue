@@ -33,7 +33,7 @@ export function useEmitAsProps<Name extends string>(
   return result
 }
 
-export function convertToVNode(component: FunctionalComponent) {
+export function convertToComponent(component: FunctionalComponent) {
   return defineComponent({
     setup() { return () => h(component) },
   })

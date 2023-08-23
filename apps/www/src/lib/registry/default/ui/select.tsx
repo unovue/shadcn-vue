@@ -13,15 +13,15 @@ import {
 } from 'radix-vue'
 import { Check, ChevronDown } from 'lucide-vue-next'
 import type { ParseEmits } from '@/utils'
-import { cn, convertToVNode, useEmitAsProps } from '@/utils'
+import { cn, convertToComponent, useEmitAsProps } from '@/utils'
 
 export const Select = SelectRoot
 export const SelectGroup = SelectGroupPrimitive
 export const SelectValue = SelectValuePrimitive
 
 // Convert Functional component to valid VNode to be use in JSX
-const IChevrondown = convertToVNode(ChevronDown)
-const ICheck = convertToVNode(Check)
+const IChevrondown = convertToComponent(ChevronDown)
+const ICheck = convertToComponent(Check)
 
 export const SelectTrigger = defineComponent<SelectTriggerProps>(
   (props, { attrs, slots }) => {
