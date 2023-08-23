@@ -6,6 +6,7 @@ module.exports = {
   extends: '@antfu',
 
   rules: {
+    'vue/one-component-per-file': 'off',
     'vue/no-reserved-component-names': 'off',
     'symbol-description': 'off',
     'no-console': 'warn',
