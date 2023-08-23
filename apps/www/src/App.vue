@@ -3,6 +3,7 @@ import AccordionDemo from '@/registry/default/examples/AccordionDemo.vue'
 import PopoverDemo from '@/registry/default/examples/PopoverDemo.vue'
 import DialogDemo from '@/registry/default/examples/DialogDemo.vue'
 import AlertDialogDemo from '@/registry/default/examples/AlertDialogDemo.vue'
+import SelectDemo from '@/registry/default/examples/SelectDemo.vue'
 </script>
 
 <template>
@@ -14,5 +15,7 @@ import AlertDialogDemo from '@/registry/default/examples/AlertDialogDemo.vue'
     <DialogDemo />
 
     <AlertDialogDemo />
+
+    <SelectDemo />
   </div>
 </template>
