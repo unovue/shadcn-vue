@@ -23,7 +23,7 @@ const accordionItems = [
 </script>
 
 <template>
-  <Accordion type="single" collapsible :default-value="defaultValue">
+  <Accordion type="single" class="w-full" collapsible :default-value="defaultValue">
     <AccordionItem v-for="item in accordionItems" :key="item.value" :value="item.value">
       <AccordionTrigger>{{ item.title }}</AccordionTrigger>
       <AccordionContent>
