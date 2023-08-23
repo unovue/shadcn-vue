@@ -1,32 +1,31 @@
 {
-  "name": "radix-vue",
+  "name": "shadcn-vue",
+  "type": "module",
   "version": "0.0.1",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/radix-vue.umd.js",
-  "module": "./dist/radix-vue.es.js",
   "exports": {
     ".": {
-      "import": "./dist/radix-vue.es.js",
-      "require": "./dist/radix-vue.umd.js"
+      "require": "./dist/radix-vue.umd.js",
+      "import": "./dist/radix-vue.es.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "type": "module",
+  "main": "./dist/radix-vue.umd.js",
+  "module": "./dist/radix-vue.es.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@headlessui-float/vue": "^0.11.2",
-    "@headlessui/vue": "^1.7.14",
     "@morev/vue-transitions": "^2.3.6",
     "@vueuse/core": "^10.2.1",
     "class-variance-authority": "^0.6.1",
-    "radix-vue": "^0.1.6",
-    "vue": "^3.2.47"
+    "clsx": "^2.0.0",
+    "radix-vue": "file:../../../radix-vue/packages/radix-vue",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.1",
