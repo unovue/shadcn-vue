@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV"],
+  "pipeline": {
+    "lint": {
+      "cache": false,
+      "outputs": []
+    },
+    "lint:fix": {
+      "cache": false,
+      "outputs": []
+    },
+    "typecheck": {},
+    "dev": {
+      "cache": false
+    },
+    "check": {
+      "cache": false
+    },
+    "test": {
+      "cache": false
+    }
+  }
+}
