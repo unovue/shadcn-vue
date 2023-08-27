@@ -1,0 +1,75 @@
+{
+  "name": "shadcn-vue",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Add components to your apps.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radix-vue/shadcn-vue.git",
+    "directory": "packages/cli"
+  },
+  "keywords": [
+    "components",
+    "ui",
+    "vue",
+    "nuxt",
+    "tailwind",
+    "radix-ui",
+    "radix-vue",
+    "shadcn",
+    "shadcn-vue"
+  ],
+  "exports": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist && rimraf components",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3000 node dist/index.js",
+    "start": "node dist/index.js",
+    "release": "changeset version",
+    "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
+    "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
+    "pub:release": "pnpm build && pnpm publish --access public",
+    "test": "vitest run",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@antfu/ni": "^0.21.6",
+    "chalk": "5.3.0",
+    "commander": "^11.0.0",
+    "cosmiconfig": "^8.2.0",
+    "diff": "^5.1.0",
+    "execa": "^8.0.1",
+    "fs-extra": "^11.1.1",
+    "https-proxy-agent": "^7.0.1",
+    "lodash.template": "^4.5.0",
+    "node-fetch": "^3.3.2",
+    "ora": "^7.0.1",
+    "prompts": "^2.4.2",
+    "recast": "^0.23.4",
+    "ts-morph": "^19.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.0.3",
+    "@types/fs-extra": "^11.0.1",
+    "@types/lodash.template": "^4.5.1",
+    "@types/prompts": "^2.4.4",
+    "rimraf": "^5.0.1",
+    "tsup": "^7.2.0",
+    "type-fest": "^4.3.0",
+    "typescript": "^5.2.2"
+  }
+}
