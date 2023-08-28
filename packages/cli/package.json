@@ -35,7 +35,7 @@
     "clean": "rimraf dist && rimraf components",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3000 node dist/index.js",
+    "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3001 node dist/index.js",
     "start": "node dist/index.js",
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
@@ -46,6 +46,9 @@
   },
   "dependencies": {
     "@antfu/ni": "^0.21.6",
+    "@babel/core": "^7.22.11",
+    "@babel/parser": "^7.22.11",
+    "@babel/plugin-transform-typescript": "^7.22.11",
     "chalk": "5.3.0",
     "commander": "^11.0.0",
     "cosmiconfig": "^8.2.0",
@@ -63,10 +66,12 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.1",
     "@types/diff": "^5.0.3",
     "@types/fs-extra": "^11.0.1",
     "@types/lodash.template": "^4.5.1",
     "@types/prompts": "^2.4.4",
+    "@vitest/ui": "^0.34.3",
     "rimraf": "^5.0.1",
     "tsup": "^7.2.0",
     "type-fest": "^4.3.0",
