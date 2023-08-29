@@ -35,7 +35,7 @@ const attrs = computed(() => {
   >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuItemIndicatorPrimitive>
-        <CircleIcon class="h-4 w-4 fill-current" />
+        <CircleIcon class="h-2 w-2 fill-current" />
       </DropdownMenuItemIndicatorPrimitive>
     </span>
     <slot />
