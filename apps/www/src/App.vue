@@ -4,6 +4,7 @@ import PopoverDemo from '@/registry/default/examples/PopoverDemo.vue'
 import DialogDemo from '@/registry/default/examples/DialogDemo.vue'
 import AlertDialogDemo from '@/registry/default/examples/AlertDialogDemo.vue'
 import SelectDemo from '@/registry/default/examples/SelectDemo.vue'
+import AvatarDemo from '@/registry/default/examples/AvatarDemo.vue'
 </script>
 
 <template>
@@ -17,5 +18,7 @@ import SelectDemo from '@/registry/default/examples/SelectDemo.vue'
     <AlertDialogDemo />
 
     <SelectDemo />
+
+    <AvatarDemo />
   </div>
 </template>
