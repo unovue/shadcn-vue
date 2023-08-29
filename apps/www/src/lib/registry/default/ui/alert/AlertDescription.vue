@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cn } from '@/utils';
-import { computed, useAttrs } from 'vue';
+import { computed, useAttrs } from 'vue'
+import { cn } from '@/utils'
 
 defineOptions({
   name: 'AlertDescription',
@@ -12,7 +12,7 @@ const attrs = computed(() => {
   const { class: className, ...rest } = allAttrs
   return {
     className,
-    rest: rest
+    rest,
   }
 })
 </script>

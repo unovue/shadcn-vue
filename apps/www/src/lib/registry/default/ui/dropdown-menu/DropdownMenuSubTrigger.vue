@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
-import { DropdownMenuSubTrigger as DropdownMenuSubTriggerPrimitive, type DropdownMenuSubTriggerProps } from 'radix-vue';
-import { cn } from '@/utils';
-import { ChevronRight } from 'lucide-vue-next';
-
-const props = defineProps<DropdownMenuSubTriggerProps & {
-  inset?: boolean;
-}>();
+import { computed, useAttrs } from 'vue'
+import { DropdownMenuSubTrigger as DropdownMenuSubTriggerPrimitive, type DropdownMenuSubTriggerProps } from 'radix-vue'
+import { ChevronRight } from 'lucide-vue-next'
+import { cn } from '@/utils'
 
 defineOptions({
   name: 'DropdownMenuSubTrigger',
   inheritAttrs: false,
-});
+})
+
+const props = defineProps<DropdownMenuSubTriggerProps & {
+  inset?: boolean
+}>()
 
 const allAttrs = useAttrs()
 const attrs = computed(() => {
   const { class: className, ...rest } = allAttrs
   return {
     className,
-    rest: rest
+    rest,
   }
 })
 </script>
@@ -30,7 +30,8 @@ const attrs = computed(() => {
       inset && 'pl-8',
       attrs.className ?? '',
     )"
-    v-bind="{ ...attrs.rest, ...props }">
+    v-bind="{ ...attrs.rest, ...props }"
+  >
     <slot />
     <ChevronRight class="ml-auto w-4 h-4" />
   </DropdownMenuSubTriggerPrimitive>

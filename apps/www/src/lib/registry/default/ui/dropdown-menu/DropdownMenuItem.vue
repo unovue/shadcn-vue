@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
-import { DropdownMenuItem as DropdownMenuItemPrimitive, type DropdownMenuItemProps, type DropdownMenuItemEmits } from 'radix-vue';
-import { cn, useEmitAsProps } from '@/utils';
-
-const props = defineProps<DropdownMenuItemProps & {
-  inset?: boolean
-}>();
-const emits = defineEmits<DropdownMenuItemEmits>();
-const emitsAsProps = useEmitAsProps(emits);
+import { computed, useAttrs } from 'vue'
+import { type DropdownMenuItemEmits, DropdownMenuItem as DropdownMenuItemPrimitive, type DropdownMenuItemProps } from 'radix-vue'
+import { cn, useEmitAsProps } from '@/utils'
 
 defineOptions({
   name: 'DropdownMenuItem',
   inheritAttrs: false,
-});
+})
+const props = defineProps<DropdownMenuItemProps & {
+  inset?: boolean
+}>()
+const emits = defineEmits<DropdownMenuItemEmits>()
+const emitsAsProps = useEmitAsProps(emits)
 
 const allAttrs = useAttrs()
 const attrs = computed(() => {
   const { class: className, ...rest } = allAttrs
   return {
     className,
-    rest: rest
+    rest,
   }
 })
 </script>
@@ -31,7 +30,8 @@ const attrs = computed(() => {
       inset && 'pl-8',
       attrs.className ?? '',
     )"
-    v-bind="{ ...attrs.rest, ...props, ...emitsAsProps }">
+    v-bind="{ ...attrs.rest, ...props, ...emitsAsProps }"
+  >
     <slot />
   </DropdownMenuItemPrimitive>
 </template>

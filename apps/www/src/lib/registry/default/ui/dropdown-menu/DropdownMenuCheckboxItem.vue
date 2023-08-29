@@ -1,25 +1,26 @@
 <script setup lang="ts">
-  import { computed, useAttrs } from 'vue';
-import { DropdownMenuCheckboxItem as DropdownMenuCheckboxItemPrimitive, type DropdownMenuCheckboxItemProps, type DropdownMenuCheckboxItemEmits,
-DropdownMenuItemIndicator as DropdownMenuItemIndicatorPrimitive } from 'radix-vue';
-import { cn, useEmitAsProps } from '@/utils';
-import { CheckIcon } from 'lucide-vue-next';
-
-const props = defineProps<DropdownMenuCheckboxItemProps>();
-const emits = defineEmits<DropdownMenuCheckboxItemEmits>();
-const emitsAsProps = useEmitAsProps(emits);
+import { computed, useAttrs } from 'vue'
+import {
+  type DropdownMenuCheckboxItemEmits, DropdownMenuCheckboxItem as DropdownMenuCheckboxItemPrimitive, type DropdownMenuCheckboxItemProps,
+  DropdownMenuItemIndicator as DropdownMenuItemIndicatorPrimitive,
+} from 'radix-vue'
+import { CheckIcon } from 'lucide-vue-next'
+import { cn, useEmitAsProps } from '@/utils'
 
 defineOptions({
   name: 'DropdownMenuCheckboxItem',
   inheritAttrs: false,
-});
+})
+const props = defineProps<DropdownMenuCheckboxItemProps>()
+const emits = defineEmits<DropdownMenuCheckboxItemEmits>()
+const emitsAsProps = useEmitAsProps(emits)
 
 const allAttrs = useAttrs()
 const attrs = computed(() => {
   const { class: className, ...rest } = allAttrs
   return {
     className,
-    rest: rest
+    rest,
   }
 })
 </script>
@@ -31,12 +32,13 @@ const attrs = computed(() => {
       attrs.className ?? '',
     )"
     :checked="checked"
-    v-bind="{ ...attrs.rest, ...props, ...emitsAsProps }">
+    v-bind="{ ...attrs.rest, ...props, ...emitsAsProps }"
+  >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-          <DropdownMenuItemIndicatorPrimitive>
-            <CheckIcon class="h-4 w-4" />
-          </DropdownMenuItemIndicatorPrimitive>
-        </span>
+      <DropdownMenuItemIndicatorPrimitive>
+        <CheckIcon class="h-4 w-4" />
+      </DropdownMenuItemIndicatorPrimitive>
+    </span>
     <slot />
   </DropdownMenuCheckboxItemPrimitive>
 </template>
