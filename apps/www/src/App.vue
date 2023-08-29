@@ -6,6 +6,7 @@ import AlertDialogDemo from '@/registry/default/examples/AlertDialogDemo.vue'
 import SelectDemo from '@/registry/default/examples/SelectDemo.vue'
 import AvatarDemo from '@/registry/default/examples/AvatarDemo.vue'
 import AlertDemo from '@/registry/default/examples/AlertDemo.vue'
+import DropdownMenuDemo from '@/registry/default/examples/DropdownMenuDemo.vue'
 </script>
 
 <template>
@@ -23,5 +24,7 @@ import AlertDemo from '@/registry/default/examples/AlertDemo.vue'
     <AvatarDemo />
 
     <AlertDemo />
+
+    <DropdownMenuDemo />
   </div>
 </template>
