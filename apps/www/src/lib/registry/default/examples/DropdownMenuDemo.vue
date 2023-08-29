@@ -15,11 +15,15 @@ import {
   UserPlus,
   Users,
 } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { Button } from '@/registry/default/ui/button'
 import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel,
-  DropdownMenuPortal, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger,
+  DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel,
+  DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger,
 } from '@/registry/default/ui/dropdown-menu'
+
+const dark = ref(true)
+const radio = ref('top')
 </script>
 
 <template>
@@ -102,6 +106,22 @@ import {
         <Cloud class="mr-2 h-4 w-4" />
         <span>API</span>
       </DropdownMenuItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuCheckboxItem v-model:checked="dark">
+        <span>Dark</span>
+        <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
+      </DropdownMenuCheckboxItem>
+      <DropdownMenuRadioGroup v-model="radio">
+        <DropdownMenuRadioItem value="top">
+          Top
+        </DropdownMenuRadioItem>
+        <DropdownMenuRadioItem value="bottom">
+          Bottom
+        </DropdownMenuRadioItem>
+        <DropdownMenuRadioItem value="right">
+          Right
+        </DropdownMenuRadioItem>
+      </DropdownMenuRadioGroup>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
         <LogOut class="mr-2 h-4 w-4" />
