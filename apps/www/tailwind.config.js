@@ -2,8 +2,8 @@ import tailwindcssAnimate from 'tailwindcss-animate'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ['class'],
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx,md}', './vitepress/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx,md}', './.vitepress/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     container: {
       center: true,
@@ -68,8 +68,8 @@ export default {
         },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        'accordion-down': 'accordion-down 0.2s ease-in-out',
+        'accordion-up': 'accordion-up 0.2s ease-in-out',
       },
     },
   },
