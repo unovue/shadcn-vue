@@ -3,10 +3,10 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/default/ui/popover'
-import { Button } from '@/registry/default/ui/button'
-import { Label } from '@/registry/default/ui/label'
-import { Input } from '@/registry/default/ui/input'
+} from '@/lib/registry/default/ui/popover'
+import { Button } from '@/lib/registry/default/ui/button'
+import { Label } from '@/lib/registry/default/ui/label'
+import { Input } from '@/lib/registry/default/ui/input'
 </script>
 
 <template>

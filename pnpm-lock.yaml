@@ -78,6 +78,9 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.1.89
         version: 1.1.89
+      '@iconify/json':
+        specifier: ^2.2.108
+        version: 2.2.108
       '@iconify/vue':
         specifier: ^4.1.1
         version: 4.1.1(vue@3.3.4)
@@ -1541,6 +1544,13 @@ packages:
     resolution: {integrity: sha512-G2NFjRcmAeMO08I+6uJh05NmMrL74kU+tbbd4DSmlAfnkcCZg9ugojOPCRkT33IBlPSr7pXAO2EXHJwrAKP2lg==}
     dependencies:
       '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/json@2.2.108:
+    resolution: {integrity: sha512-s6iHOPNaTgrl3SxcIHruoE05MiGqhQllZd/pXJlZAC652vzLXfJhCe5SNQiiI3V1RqiXCmdU1Z2dZydk86UaTQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.1
     dev: true
 
   /@iconify/types@2.0.0:

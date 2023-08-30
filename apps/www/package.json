@@ -25,6 +25,7 @@
   "devDependencies": {
     "@iconify-json/radix-icons": "^1.1.11",
     "@iconify-json/tabler": "^1.1.89",
+    "@iconify/json": "^2.2.108",
     "@iconify/vue": "^4.1.1",
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
