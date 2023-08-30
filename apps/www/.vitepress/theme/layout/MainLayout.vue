@@ -57,7 +57,7 @@ const links = [
 
 <template>
   <div class="flex min-h-screen flex-col bg-background">
-    <header class="sticky z-40 top-0 border-b border-border">
+    <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
         class="max-w-8xl flex h-[58px] items-center justify-between p-4 mx-auto"
       >
@@ -88,8 +88,8 @@ const links = [
             class="w-72 h-8 px-3 hidden lg:flex lg:justify-between lg:items-center"
           >
             <div class="flex items-center">
-              <LucideSearch class="w-4 h-4 mr-2 text-muted" />
-              <span class="text-muted"> Search for anything... </span>
+              <LucideSearch class="w-4 h-4 mr-2 text-muted-foreground" />
+              <span class="text-muted-foreground"> Search for anything... </span>
             </div>
             <div class="flex items-center gap-x-1">
               <Kbd>⌘</Kbd>
@@ -128,7 +128,7 @@ const links = [
       </div>
     </header>
 
-    <div class="flex-1">
+    <div class="flex-1  bg-background">
       <component :is="'docs'" v-if="$route.path.includes('docs')">
         <Content />
       </component>
@@ -140,7 +140,7 @@ const links = [
       </main>
     </div>
 
-    <footer class="z-40 border-t border-border text-foreground">
+    <footer class="bg-background z-40 border-t border-border text-foreground">
       <div class="max-w-8xl h-20 flex items-center justify-between p-4 mx-auto">
         <div class="flex justify-center items-center">
           <span class="text-sm">

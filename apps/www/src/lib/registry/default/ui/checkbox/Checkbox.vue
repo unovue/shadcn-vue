@@ -1,42 +1,24 @@
 <script setup lang="ts">
-import RadixIconsCheck from '~icons/radix-icons/check'
+import type { CheckboxRootEmits, CheckboxRootProps } from 'radix-vue'
+import { CheckboxIndicator, CheckboxRoot } from 'radix-vue'
+import { Check } from 'lucide-vue-next'
+import { cn, useEmitAsProps } from '@/lib/utils'
 
-interface CheckBoxProps {
-  id?: string
-  modelValue?: boolean
-  required?: boolean
-  disabled?: boolean
-  invalid?: boolean
-  checked?: boolean
-}
+const props = defineProps<CheckboxRootProps>()
+const emits = defineEmits<CheckboxRootEmits>()
 
-const props = defineProps<CheckBoxProps>()
-
-const emit = defineEmits(['update:modelValue'])
+const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
-  <div class="flex items-center">
-    <input
-      :id="props.id"
-      type="checkbox"
-      :value="props.modelValue"
-      :required="props.required"
-      :disabled="props.disabled"
-      :class="{
-        'ring-destructive-light dark:ring-destructive': props.invalid,
-        '!cursor-not-allowed opacity-50': props.disabled,
-      }"
-      :checked="props.checked"
-      class="w-4 h-4 peer cursor-pointer shrink-0 relative checked:bg-primary appearance-none text-foreground border border-primary rounded"
-      @input="
-        ($event) =>
-          emit('update:modelValue', ($event.target as HTMLInputElement).checked)
-      "
-    >
-
-    <RadixIconsCheck
-      class="absolute pointer-events-none hidden peer-checked:block w-4 h-3 text-background"
-    />
-  </div>
+  <CheckboxRoot
+    v-bind="{ ...props, ...emitsAsProps }"
+    :class="
+      cn('peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
+         $attrs.class ?? '')"
+  >
+    <CheckboxIndicator class="flex items-center justify-center text-current">
+      <Check class="h-4 w-4" />
+    </CheckboxIndicator>
+  </CheckboxRoot>
 </template>

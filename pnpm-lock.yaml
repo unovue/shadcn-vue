@@ -59,9 +59,6 @@ importers:
       lucide-vue-next:
         specifier: ^0.268.0
         version: 0.268.0(vue@3.3.4)
-      radix-vue:
-        specifier: ^0.1.24
-        version: 0.1.24(vue@3.3.4)
       tailwindcss-animate:
         specifier: ^1.0.6
         version: 1.0.6(tailwindcss@3.3.2)
@@ -93,6 +90,9 @@ importers:
       postcss:
         specifier: ^8.4.24
         version: 8.4.24
+      radix-vue:
+        specifier: ^0.1.29
+        version: 0.1.29(vue@3.3.4)
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0
@@ -1491,18 +1491,18 @@ packages:
     resolution: {integrity: sha512-jk3WqquEJRlcyu7997NtR5PibI+y5bi+LS3hPmguVClypenMsCY3CBa3LAQnozRCtCrYWSEtAdiskpamuJRFOQ==}
     dependencies:
       '@floating-ui/utils': 0.1.1
-    dev: false
+    dev: true
 
   /@floating-ui/dom@1.5.1:
     resolution: {integrity: sha512-KwvVcPSXg6mQygvA1TjbN/gh///36kKtllIF8SUm0qpFj8+rvYrpvlYdL1JoA71SHpDqgSSdGOSoQ0Mp3uY5aw==}
     dependencies:
       '@floating-ui/core': 1.4.1
       '@floating-ui/utils': 0.1.1
-    dev: false
+    dev: true
 
   /@floating-ui/utils@0.1.1:
     resolution: {integrity: sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==}
-    dev: false
+    dev: true
 
   /@floating-ui/vue@1.0.2(vue@3.3.4):
     resolution: {integrity: sha512-sImlAl9mAoCKZLNlwWz2P2ZMJIDlOEDXrRD6aD2sIHAka1LPC+nWtB+D3lPe7IE7FGWSbwBPTnlSdlABa3Fr0A==}
@@ -1512,7 +1512,7 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: false
+    dev: true
 
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
@@ -5438,15 +5438,15 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /radix-vue@0.1.24(vue@3.3.4):
-    resolution: {integrity: sha512-XKEPi4K/DfTRHMZ6Y9PEP87Xn+zwFahhJFp/8vhc0DQEx/flev8izVYll6EwH931Tt7dwm+Vy1/edkxBnjJXkA==}
+  /radix-vue@0.1.29(vue@3.3.4):
+    resolution: {integrity: sha512-CMxjLRWykFgHIUm9y2nyWtDfcAfgaDeS2A8KabjBzNlW1csl9nmuByGjMD5VBsbA0YBKk+bgtVLychr/oPcAjQ==}
     dependencies:
       '@floating-ui/dom': 1.5.1
       '@floating-ui/vue': 1.0.2(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-    dev: false
+    dev: true
 
   /rc9@2.1.1:
     resolution: {integrity: sha512-lNeOl38Ws0eNxpO3+wD1I9rkHGQyj1NU1jlzv4go2CtEnEQEUfqnIvZG7W+bC/aXdJ27n5x/yUjb6RoT9tko+Q==}
@@ -6719,7 +6719,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.3.4
-    dev: false
 
   /vue-eslint-parser@9.3.1(eslint@8.43.0):
     resolution: {integrity: sha512-Clr85iD2XFZ3lJ52/ppmUDG/spxQu6+MAeHXjjyI4I1NUYZ9xmenQp4N0oaHJhrA8OOxltCVxMRfANGa70vU0g==}

@@ -3,6 +3,7 @@ import { useData, useRoute } from 'vitepress'
 import { docsConfig } from '../config/docs'
 import TableOfContentVue from '../components/TableOfContent.vue'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
+import { Badge } from '@/lib/registry/default/ui/badge'
 import RadixIconsCode from '~icons/radix-icons/code'
 import ChevronRightIcon from '~icons/lucide/chevron-right'
 
@@ -39,6 +40,10 @@ const { frontmatter } = useData()
                 }"
               >
                 {{ doc.title }}
+
+                <Badge v-if="doc.label" class="ml-2" :variant="'secondary'">
+                  {{ doc.label }}
+                </Badge>
               </a>
             </div>
           </div>
