@@ -16,7 +16,7 @@ import { Input } from '@/lib/registry/default/ui/input'
         Open popover
       </Button>
     </PopoverTrigger>
-    <PopoverContent class="w-80" @open-auto-focus.prevent>
+    <PopoverContent class="w-80">
       <div class="grid gap-4">
         <div class="space-y-2">
           <h4 class="font-medium leading-none">
