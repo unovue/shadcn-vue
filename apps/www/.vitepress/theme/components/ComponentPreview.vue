@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
+import Spinner from './Spinner.vue'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
 import { cn } from '@/lib/utils'
-import LucideSpinner from '~icons/lucide/loader-2'
 
 const props = withDefaults(defineProps<{
   name: string
@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
 }>(), { align: 'center' })
 
 const Component = defineAsyncComponent({
-  loadingComponent: LucideSpinner,
+  loadingComponent: Spinner,
   loader: () => import(`../../../src/lib/registry/default/examples/${props.name}.vue`),
   timeout: 5000,
 })

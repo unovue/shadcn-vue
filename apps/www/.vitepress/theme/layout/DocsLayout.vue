@@ -4,6 +4,7 @@ import { docsConfig } from '../config/docs'
 import TableOfContentVue from '../components/TableOfContent.vue'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import RadixIconsCode from '~icons/radix-icons/code'
+import ChevronRightIcon from '~icons/lucide/chevron-right'
 
 const $route = useRoute()
 const { frontmatter } = useData()
@@ -47,6 +48,16 @@ const { frontmatter } = useData()
 
     <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div class="mx-auto w-full min-w-0">
+        <div class="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+          <div class="overflow-hidden text-ellipsis whitespace-nowrap">
+            Docs
+          </div>
+          <ChevronRightIcon class="h-4 w-4" />
+          <div class="font-medium text-foreground">
+            {{ frontmatter.title }}
+          </div>
+        </div>
+
         <div class="space-y-2">
           <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">
             {{ frontmatter.title }}

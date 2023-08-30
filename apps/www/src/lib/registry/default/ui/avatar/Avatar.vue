@@ -1,46 +1,22 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { AvatarRoot } from 'radix-vue'
-import { cva } from 'class-variance-authority'
+import { avatarVariant } from '.'
 import { cn } from '@/lib/utils'
 
-interface AvatarProps {
-  size?: 'sm' | 'base' | 'lg'
-  shape?: 'circle' | 'square'
+interface Props {
+  size?: NonNullable<Parameters<typeof avatarVariant>[0]>['size']
+  shape?: NonNullable<Parameters<typeof avatarVariant>[0]>['shape']
   class?: string
 }
 
-const props = withDefaults(defineProps<AvatarProps>(), {
-  name: 'Anonymous',
-  size: 'base',
+const props = withDefaults(defineProps<Props>(), {
+  size: 'sm',
   shape: 'circle',
-})
-
-const avatarClass = computed(() => {
-  return cva(
-    'inline-flex items-center justify-center font-normal text-foregorund select-none shrink-0 bg-secondary overflow-hidden',
-    {
-      variants: {
-        size: {
-          sm: 'h-10 w-10 text-xs',
-          base: 'h-16 w-16 text-2xl',
-          lg: 'h-32 w-32 text-5xl',
-        },
-        shape: {
-          circle: 'rounded-full',
-          square: 'rounded-md',
-        },
-      },
-    },
-  )({
-    size: props.size,
-    shape: props.shape,
-  })
 })
 </script>
 
 <template>
-  <AvatarRoot :class="cn(avatarClass, props.class)">
+  <AvatarRoot :class="cn(avatarVariant({ size, shape }), props.class)">
     <slot />
   </AvatarRoot>
 </template>
