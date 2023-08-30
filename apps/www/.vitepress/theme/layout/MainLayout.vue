@@ -57,7 +57,7 @@ const links = [
 
 <template>
   <div class="flex min-h-screen flex-col bg-background">
-    <header class="sticky z-40 top-0 bg-background border-b border-border">
+    <header class="sticky z-40 top-0 border-b border-border">
       <div
         class="max-w-8xl flex h-[58px] items-center justify-between p-4 mx-auto"
       >
@@ -140,7 +140,7 @@ const links = [
       </main>
     </div>
 
-    <footer class="bg-background z-40 border-t border-border text-foreground">
+    <footer class="z-40 border-t border-border text-foreground">
       <div class="max-w-8xl h-20 flex items-center justify-between p-4 mx-auto">
         <div class="flex justify-center items-center">
           <span class="text-sm">

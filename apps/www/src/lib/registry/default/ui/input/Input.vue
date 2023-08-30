@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils'
 
 defineProps<{
-  defaultValue: string | number
+  defaultValue?: string | number
 }>()
 </script>
 
