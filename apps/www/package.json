@@ -2,22 +2,13 @@
   "name": "www",
   "type": "module",
   "version": "0.0.1",
-  "exports": {
-    ".": {
-      "require": "./dist/radix-vue.umd.js",
-      "import": "./dist/radix-vue.es.js"
-    },
-    "./dist/style.css": "./dist/style.css"
-  },
-  "main": "./dist/radix-vue.umd.js",
-  "module": "./dist/radix-vue.es.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
@@ -28,6 +19,7 @@
     "lucide-vue-next": "^0.268.0",
     "radix-vue": "^0.1.24",
     "tailwindcss-animate": "^1.0.6",
+    "vitepress": "^1.0.0-rc.10",
     "vue": "^3.3.4"
   },
   "devDependencies": {
