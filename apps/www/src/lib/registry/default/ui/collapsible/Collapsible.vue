@@ -5,12 +5,10 @@ import { useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<CollapsibleRootProps>()
 const emits = defineEmits<CollapsibleRootEmits>()
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
-  <CollapsibleRoot v-slot="{ open }" v-bind="{ ...props, ...emitsAsProps }">
+  <CollapsibleRoot v-slot="{ open }" v-bind="{ ...props, ...useEmitAsProps(emits) }">
     <slot :open="open" />
   </CollapsibleRoot>
 </template>

@@ -4,23 +4,22 @@ import {
   type ContextMenuItemEmits,
   type ContextMenuItemProps,
 } from 'radix-vue'
-import { cn } from '@/lib/utils'
+import { cn, useEmitAsProps } from '@/lib/utils'
 
-const props = defineProps<ContextMenuItemProps & { class?: string }>()
-
+const props = defineProps<ContextMenuItemProps & { class?: string; inset?: boolean }>()
 const emits = defineEmits<ContextMenuItemEmits>()
 </script>
 
 <template>
   <ContextMenuItem
-    v-bind="props"
+    v-bind="{ ...props, ...useEmitAsProps(emits) }"
     :class="[
       cn(
-        'flex items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none focus:bg-outline-hover px-2 py-1.5 text-sm outline-none select-none cursor-default',
+        'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        inset && 'pl-8',
         props.class,
       ),
     ]"
-    @select="emits('select', $event)"
   >
     <slot />
   </ContextMenuItem>

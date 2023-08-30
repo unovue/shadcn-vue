@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { ContextMenuLabel, type ContextMenuLabelProps } from 'radix-vue'
+import { cn } from '@/lib/utils'
 
-const props = defineProps<ContextMenuLabelProps>()
+const props = defineProps<ContextMenuLabelProps & { class?: string; inset?: boolean }>()
 </script>
 
 <template>
-  <div class="px-2 py-1.5 text-sm font-semibold">
-    <ContextMenuLabel v-bind="props">
-      <slot />
-    </ContextMenuLabel>
-  </div>
+  <ContextMenuLabel
+    v-bind="props"
+    :class="
+      cn('px-2 py-1.5 text-sm font-semibold text-foreground',
+         inset && 'pl-8', props.class ?? '',
+      )"
+  >
+    <slot />
+  </ContextMenuLabel>
 </template>
