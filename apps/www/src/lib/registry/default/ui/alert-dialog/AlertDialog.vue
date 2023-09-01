@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { type AlertDialogProps, AlertDialogRoot } from 'radix-vue'
+import { type AlertDialogEmits, type AlertDialogProps, AlertDialogRoot } from 'radix-vue'
+import { useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<AlertDialogProps>()
+
+const emits = defineEmits<AlertDialogEmits>()
+
+const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
-  <AlertDialogRoot :default-open="props.defaultOpen" :open="props.open">
+  <AlertDialogRoot v-bind="{ ...props, ...emitsAsProps }">
     <slot />
   </AlertDialogRoot>
 </template>
