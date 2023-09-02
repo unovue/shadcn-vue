@@ -5,7 +5,7 @@ const props = defineProps<{ class?: string }>()
 </script>
 
 <template>
-  <thead :class="cn('[&_tr]:border-b', props.class)">
+  <tfoot :class="cn('bg-primary font-medium text-primary-foreground', props.class)">
     <slot />
-  </thead>
+  </tfoot>
 </template>

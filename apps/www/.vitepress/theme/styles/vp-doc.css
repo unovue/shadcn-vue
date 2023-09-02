@@ -165,7 +165,7 @@
  * Table
  * -------------------------------------------------------------------------- */
 
-.vp-doc table {
+/* .vp-doc table {
   display: block;
   border-collapse: collapse;
   margin: 20px 0;
@@ -197,7 +197,7 @@
 
 .vp-doc td {
   font-size: 14px;
-}
+} */
 
 /**
  * Decorational elements

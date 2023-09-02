@@ -2,7 +2,7 @@
 import { MenubarSubTrigger, type MenubarSubTriggerProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<MenubarSubTriggerProps & { class?: string }>()
+const props = defineProps<MenubarSubTriggerProps & { inset?: boolean; class?: string }>()
 </script>
 
 <template>
@@ -10,7 +10,8 @@ const props = defineProps<MenubarSubTriggerProps & { class?: string }>()
     v-bind="props"
     :class="[
       cn(
-        'flex items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none focus:bg-outline-hover px-2 py-1.5 text-sm outline-none select-none cursor-default',
+        'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
+        inset && 'pl-8',
         props.class,
       ),
     ]"
