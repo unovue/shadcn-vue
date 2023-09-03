@@ -16,8 +16,10 @@
     "@vueuse/core": "^10.2.1",
     "class-variance-authority": "^0.6.1",
     "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
     "lucide-vue-next": "^0.268.0",
     "tailwindcss-animate": "^1.0.6",
+    "v-calendar": "^3.0.3",
     "vitepress": "^1.0.0-rc.10",
     "vue": "^3.3.4"
   },

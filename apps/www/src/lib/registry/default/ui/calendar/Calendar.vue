@@ -1,63 +1,110 @@
 <script setup lang="ts">
-import { useDark } from '@vueuse/core'
-import { Calendar } from 'v-calendar'
-import 'v-calendar/style.css'
+import { useVModel } from '@vueuse/core'
+import type { Calendar } from 'v-calendar'
+import { DatePicker } from 'v-calendar'
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { computed, nextTick, onMounted, ref } from 'vue'
+import { buttonVariants } from '../button'
+import { cn } from '@/lib/utils'
 
-const isDark = useDark()
+const props = withDefaults(defineProps< {
+  modelValue?: string | number | Date | Partial<{
+    start: Date
+    end: Date
+  }>
+  modelModifiers?: object
+  columns?: number
+  type?: 'single' | 'range'
+}>(), {
+  type: 'single',
+  columns: 1,
+})
+const emits = defineEmits<{
+  (e: 'update:modelValue', payload: typeof props.modelValue): void
+}>()
+
+const modelValue = useVModel(props, 'modelValue', emits, {
+  passive: true,
+})
+
+const datePicker = ref<InstanceType<typeof DatePicker>>()
+// @ts-expect-error in this current version of v-calendar has the calendaRef instance, which is required to handle arrow nav.
+const calendarRef = computed<InstanceType<typeof Calendar>>(() => datePicker.value.calendarRef)
+
+function handleNav(direction: 'prev' | 'next') {
+  if (!calendarRef.value)
+    return
+
+  if (direction === 'prev')
+    calendarRef.value.movePrev()
+  else calendarRef.value.moveNext()
+}
+
+onMounted(async () => {
+  await nextTick()
+  await nextTick()
+  if (modelValue.value instanceof Date && calendarRef.value)
+    calendarRef.value.focusDate(modelValue.value)
+})
 </script>
 
 <template>
-  <Calendar :is-dark="isDark" borderless trim-weeks expanded />
+  <div class="relative">
+    <div class="absolute top-3 flex justify-between w-full px-4">
+      <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
+        <ChevronLeft class="w-4 h-4" />
+      </button>
+      <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('next')">
+        <ChevronRight class="w-4 h-4" />
+      </button>
+    </div>
+
+    <DatePicker ref="datePicker" v-model="modelValue" :model-modifiers="modelModifiers" class="calendar" trim-weeks :transition="'none'" :columns="columns" />
+  </div>
 </template>
 
-<style>
-:root {
-  --vc-font-family: "Inter", sans-serif;
-  --vc-rounded-full: var(--radius);
-  --vc-font-bold: 500;
-  --vc-font-semibold: 600;
-  --vc-text-lg: 14px;
+<style lang="postcss">
+.calendar {
+  @apply p-3 text-center;
 }
-
-.vc-light,
-.vc-dark {
-  --vc-bg: var(--background);
-  --vc-border: var(--border);
-  --vc-focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.2);
-  --vc-weekday-color: var(--muted);
-  --vc-popover-content-color: var(--muted);
-  --vc-popover-content-bg: var(--background);
-  --vc-popover-content-border: var(--border);
-
-  &.vc-attr,
-  & .vc-attr {
-    --vc-content-color: var(--primary);
-    --vc-highlight-outline-bg: var(--primary);
-    --vc-highlight-outline-border: var(--primary);
-    --vc-highlight-outline-content-color: var(--primary-foreground);
-    --vc-highlight-light-bg: var(
-      --vc-accent-200
-    ); /* Highlighted color between two dates */
-    --vc-highlight-light-content-color: var(--secondary-foreground);
-    --vc-highlight-solid-bg: var(--primary);
-    --vc-highlight-solid-content-color: var(--primary-foreground);
-    --vc-dot-bg: var(--primary);
-    --vc-bar-bg: var(--primary);
-  }
+.calendar .vc-pane-layout {
+  @apply grid gap-4;
 }
-
-.vc-blue {
-  --vc-accent-200: var(--secondary);
-  --vc-accent-400: var(--primary);
-  --vc-accent-500: var(--primary);
-  --vc-accent-600: var(--primary);
+.calendar .vc-title {
+  @apply text-sm font-medium pointer-events-none;
 }
-
-.dark {
-  .vc-blue {
-    --vc-accent-200: var(--secondary);
-    --vc-accent-400: var(--primary);
-    --vc-accent-500: var(--secondary);
-  }
+.calendar .vc-pane-header-wrapper {
+  @apply hidden;
+}
+.calendar .vc-weeks {
+  @apply mt-4;
+}
+.calendar .vc-weekdays {
+  @apply flex;
+}
+.calendar .vc-weekday {
+  @apply text-muted-foreground rounded-md w-9 font-normal text-[0.8rem];
+}
+.calendar .vc-weeks {
+  @apply w-full space-y-2 flex flex-col [&>_div]:grid [&>_div]:grid-cols-7;
+}
+.calendar .vc-day:has(.vc-highlights) {
+  @apply bg-accent first:rounded-l-md last:rounded-r-md overflow-hidden;
+}
+.calendar .vc-day-content  {
+  @apply text-center text-sm p-0 relative focus-within:relative focus-within:z-20 inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground h-9 w-9  font-normal aria-selected:opacity-100 select-none;
+}
+.calendar .vc-day-content:not(.vc-highlight-content-light) {
+  @apply rounded-md;
+}
+.calendar .is-not-in-month:not(:has(.vc-highlight-content-solid)):not(:has(.vc-highlight-content-light)):not(:has(.vc-highlight-content-outline)),
+.calendar .vc-disabled {
+  @apply text-muted-foreground opacity-50;
+}
+.calendar .vc-highlight-content-solid, .calendar .vc-highlight-content-outline {
+  @apply bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground;
+}
+.calendar .vc-highlight-content-light {
+  @apply bg-accent text-accent-foreground;
 }
 </style>

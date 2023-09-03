@@ -133,13 +133,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/button',
           items: [],
         },
-        // {
-        //   title: "Calendar",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Calendar',
+          href: '/docs/components/calendar',
+          items: [],
+        },
         {
           title: 'Card',
           href: '/docs/components/card',
@@ -179,13 +177,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/data-table',
           items: [],
         },
-        // {
-        //   title: "Date Picker",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Date Picker',
+          href: '/docs/components/date-picker',
+          items: [],
+        },
         {
           title: 'Dialog',
           href: '/docs/components/dialog',
