@@ -11,7 +11,7 @@ const emits = defineEmits<AccordionRootEmits>()
 </script>
 
 <template>
-  <AccordionRoot v-bind="{ ...props, ...useEmitAsProps(emits) }">
+  <AccordionRoot v-bind="{ ...props, ...useEmitAsProps(emits) }" class="accordion">
     <slot />
   </AccordionRoot>
 </template>

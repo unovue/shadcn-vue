@@ -6,11 +6,7 @@ primitive: https://www.radix-vue.com/components/collapsible.html
 ---
 
 
-<ComponentPreview name="CollapsibleDemo"  >
-
-<<< ../../../lib/registry/default/examples/CollapsibleDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="CollapsibleDemo" /> 
 
 
 

@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/radio-group.html
 ---
 
-<ComponentPreview name="RadioGroupDemo" >
-
-<<< ../../../lib/registry/default/examples/RadioGroupDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="RadioGroupDemo" /> 
 
 
 

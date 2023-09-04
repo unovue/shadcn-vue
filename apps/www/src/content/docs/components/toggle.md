@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/toggle.html
 ---
 
-<ComponentPreview name="ToggleDemo" >
-
-<<< ../../../lib/registry/default/examples/ToggleDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="ToggleDemo" /> 
 
 
 

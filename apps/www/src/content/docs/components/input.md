@@ -4,11 +4,7 @@ description: Displays a form input field or a component that looks like an input
 ---
 
 
-<ComponentPreview name="InputDemo" class="[&_input]:max-w-xs" >
-
-<<< ../../../lib/registry/default/examples/InputDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="InputDemo" class="[&_input]:max-w-xs" /> 
 
 
 

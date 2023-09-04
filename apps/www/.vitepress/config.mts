@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { defineConfig } from 'vitepress'
 import Icons from 'unplugin-icons/vite'
+import ComponentPreviewPlugin from './theme/plugins/previewer'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,6 +10,9 @@ export default defineConfig({
   srcDir: path.resolve(__dirname, '../src/content'),
   markdown: {
     theme: 'css-variables',
+    config(md) {
+      md.use(ComponentPreviewPlugin)
+    },
   },
   vite: {
     plugins: [

@@ -6,11 +6,7 @@ primitive: https://www.radix-vue.com/components/popover.html
 ---
 
 
-<ComponentPreview name="PopoverDemo" >
-
-<<< ../../../lib/registry/default/examples/PopoverDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="PopoverDemo" /> 
 
 
 

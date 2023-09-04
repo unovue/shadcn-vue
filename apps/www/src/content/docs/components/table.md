@@ -3,12 +3,7 @@ title: Table
 description: A responsive table component.
 ---
 
-<ComponentPreview name="TableDemo" >
-
-<<< ../../../lib/registry/default/examples/TableDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="TableDemo" /> 
 
 
 ## Installation

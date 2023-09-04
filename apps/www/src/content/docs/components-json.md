@@ -42,11 +42,7 @@ The style for your components. **This cannot be changed after initialization.**
 }
 ```
 
-<ComponentPreview name="card-with-form">
-
-<div />
-
-</ComponentPreview>
+<ComponentPreview name="CardWithForm" />
 
 ## tailwind
 

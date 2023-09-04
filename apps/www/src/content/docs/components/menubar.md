@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/menubar.html
 ---
 
-<ComponentPreview name="MenubarDemo" >
-
-<<< ../../../lib/registry/default/examples/MenubarDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="MenubarDemo" /> 
 
 
 

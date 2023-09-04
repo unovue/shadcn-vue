@@ -5,12 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/tooltip.html
 ---
 
-<ComponentPreview name="TooltipDemo" >
-
-<<< ../../../lib/registry/default/examples/TooltipDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="TooltipDemo" /> 
 
 
 ## Installation

@@ -3,12 +3,7 @@ title: Skeleton
 description: Use to show a placeholder while content is loading. 
 ---
 
-<ComponentPreview name="SkeletonDemo" >
-
-<<< ../../../lib/registry/default/examples/SkeletonDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="SkeletonDemo" /> 
 
 
 ## Installation

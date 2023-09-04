@@ -6,11 +6,7 @@ primitive: https://www.radix-vue.com/components/context-menu.html
 ---
 
 
-<ComponentPreview name="ContextMenuDemo"  >
-
-<<< ../../../lib/registry/default/examples/ContextMenuDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="ContextMenuDemo"  /> 
 
 
 

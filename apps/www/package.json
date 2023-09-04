@@ -30,6 +30,7 @@
     "@iconify/vue": "^4.1.1",
     "@types/node": "^20.5.7",
     "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/compiler-core": "^3.3.4",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
     "radix-vue": "^0.1.29",

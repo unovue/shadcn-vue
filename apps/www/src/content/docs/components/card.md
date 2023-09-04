@@ -4,12 +4,7 @@ description: Displays a card with header, content, and footer.
 ---
 
 
-<ComponentPreview name="CardDemo"  >
-
-<<< ../../../lib/registry/default/examples/CardDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="CardDemo"  /> 
 
 
 ## Installation

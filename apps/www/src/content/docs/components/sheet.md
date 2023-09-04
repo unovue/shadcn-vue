@@ -5,12 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
-<ComponentPreview name="SheetDemo" >
-
-<<< ../../../lib/registry/default/examples/SheetDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="SheetDemo" /> 
 
 
 ## Installation

@@ -7,6 +7,8 @@ import { cn } from '@/lib/utils'
 const props = withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
+  sfcTsCode?: string
+  sfcTsHtml?: string
 }>(), { align: 'center' })
 
 const Component = defineAsyncComponent({
@@ -17,7 +19,9 @@ const Component = defineAsyncComponent({
 </script>
 
 <template>
-  <div class="not-docs group relative my-4 flex flex-col space-y-2">
+  <div
+    class="not-docs group relative my-4 flex flex-col space-y-2"
+  >
     <Tabs default-value="preview" class="relative mr-auto w-full">
       <div class="flex items-center justify-between pb-3">
         <TabsList class="w-full justify-start rounded-none border-b bg-transparent p-0">
@@ -47,7 +51,8 @@ const Component = defineAsyncComponent({
         </div>
       </TabsContent>
       <TabsContent value="code">
-        <slot />
+        <div v-if="sfcTsHtml" class="language-vue" style="flex: 1;" v-html="decodeURIComponent(sfcTsHtml)" />
+        <slot v-else />
       </TabsContent>
     </Tabs>
   </div>

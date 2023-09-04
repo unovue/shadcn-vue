@@ -4,11 +4,7 @@ description: Displays a callout for user attention.
 ---
 
 
-<ComponentPreview name="AlertDemo"  >
-
-<<< ../../../lib/registry/default/examples/AlertDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="AlertDemo"  /> 
 
 
 

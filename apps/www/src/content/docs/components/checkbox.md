@@ -6,12 +6,7 @@ primitive: https://www.radix-vue.com/components/checkbox.html
 ---
 
 
-<ComponentPreview name="CheckboxDemo"  >
-
-<<< ../../../lib/registry/default/examples/CheckboxDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="CheckboxDemo"  /> 
 
 
 ## Installation

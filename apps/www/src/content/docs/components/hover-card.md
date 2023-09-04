@@ -6,12 +6,7 @@ primitive: https://www.radix-vue.com/components/hover-card.html
 ---
 
 
-<ComponentPreview name="HoverCardDemo" >
-
-<<< ../../../lib/registry/default/examples/HoverCardDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="HoverCardDemo" /> 
 
 
 ## Installation

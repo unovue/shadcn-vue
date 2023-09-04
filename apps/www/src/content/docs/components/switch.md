@@ -5,12 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/switch.html
 ---
 
-<ComponentPreview name="SwitchDemo" >
-
-<<< ../../../lib/registry/default/examples/SwitchDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="SwitchDemo" /> 
 
 
 ## Installation

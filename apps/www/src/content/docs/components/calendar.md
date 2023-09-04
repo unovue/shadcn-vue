@@ -4,11 +4,7 @@ description: A date field component that allows users to enter and edit date.
 ---
 
 
-<ComponentPreview name="CalendarDemo"  >
-
-<<< ../../../lib/registry/default/examples/CalendarDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="CalendarDemo"  /> 
 
 ## About
 

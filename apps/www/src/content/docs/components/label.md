@@ -5,12 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/label.html
 ---
 
-<ComponentPreview name="LabelDemo" >
-
-<<< ../../../lib/registry/default/examples/LabelDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="LabelDemo" /> 
 
 
 ## Installation

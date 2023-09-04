@@ -6,13 +6,7 @@ primitive: https://www.radix-vue.com/components/aspect-ratio.html
 ---
 
 
-<ComponentPreview name="AspectRatioDemo"  >
-
-<<< ../../../lib/registry/default/examples/AspectRatioDemo.vue
-
-</ComponentPreview>
-
-
+<ComponentPreview name="AspectRatioDemo" />
 
 ## Installation
 

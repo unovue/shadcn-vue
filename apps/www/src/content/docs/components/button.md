@@ -4,13 +4,7 @@ description: Displays a button or a component that looks like a button.
 ---
 
 
-<ComponentPreview name="ButtonDemo"  >
-
-<<< ../../../lib/registry/default/examples/ButtonDemo.vue
-
-</ComponentPreview>
-
-
+<ComponentPreview name="ButtonDemo"  /> 
 
 ## Installation
 

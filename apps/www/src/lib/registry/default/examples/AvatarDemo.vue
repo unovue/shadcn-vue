@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/lib/registry/default/ui/a
 
 <template>
   <Avatar>
-    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
     <AvatarFallback>CN</AvatarFallback>
   </Avatar>
 </template>

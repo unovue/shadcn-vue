@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "pnpm --filter www dev",
     "build": "pnpm --filter www build",
+    "preview": "pnpm --filter www preview",
     "prepare": "pnpm simple-git-hooks",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore"

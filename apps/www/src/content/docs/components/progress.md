@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/progress.html
 ---
 
-<ComponentPreview name="ProgressDemo" >
-
-<<< ../../../lib/registry/default/examples/ProgressDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="ProgressDemo" /> 
 
 
 

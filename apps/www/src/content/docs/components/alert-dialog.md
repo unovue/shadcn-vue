@@ -4,22 +4,19 @@ description: A modal dialog that interrupts the user with important content and 
 source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/alert-dialog 
 primitive: https://www.radix-vue.com/components/alert-dialog.html
 ---
-
-
-<ComponentPreview name="AlertDialogDemo" >
-
-<<< ../../../lib/registry/default/examples/AlertDialogDemo.vue
-
-</ComponentPreview>
+    
+ 
+<ComponentPreview name="AlertDialogDemo" />
 
 
 
+ 
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add alert-dialog
-```
-
+npx shadcn-vue@latest add alert-dialog 
+```  
+  
 <ManualInstall>
 
 1. Install `radix-vue`:

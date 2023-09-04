@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/slider.html
 ---
 
-<ComponentPreview name="SliderDemo" >
-
-<<< ../../../lib/registry/default/examples/SliderDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="SliderDemo" /> 
 
 
 

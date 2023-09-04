@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/separator.html
 ---
 
-<ComponentPreview name="SeparatorDemo" >
-
-<<< ../../../lib/registry/default/examples/SeparatorDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="SeparatorDemo" /> 
 
 
 

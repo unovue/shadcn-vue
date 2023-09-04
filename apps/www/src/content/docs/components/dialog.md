@@ -6,12 +6,7 @@ primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
 
-<ComponentPreview name="DialogDemo" >
-
-<<< ../../../lib/registry/default/examples/DialogDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="DialogDemo" /> 
 
 
 ## Installation

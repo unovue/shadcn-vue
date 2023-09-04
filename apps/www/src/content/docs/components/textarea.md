@@ -3,12 +3,7 @@ title: Textarea
 description: Displays a form textarea or a component that looks like a textarea.
 ---
 
-<ComponentPreview name="TextareaDemo" >
-
-<<< ../../../lib/registry/default/examples/TextareaDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="TextareaDemo" /> 
 
 
 ## Installation

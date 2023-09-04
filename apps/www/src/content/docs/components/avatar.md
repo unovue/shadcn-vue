@@ -6,12 +6,7 @@ primitive: https://www.radix-vue.com/components/avatar.html
 ---
 
 
-<ComponentPreview name="AvatarDemo"  >
-
-<<< ../../../lib/registry/default/examples/AvatarDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="AvatarDemo" /> 
 
 
 ## Installation

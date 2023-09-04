@@ -4,11 +4,7 @@ description: A date picker component with range and presets.
 ---
 
 
-<ComponentPreview name="DatePickerDemo"  >
-
-<<< ../../../lib/registry/default/examples/DatePickerDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="DatePickerDemo"  /> 
 
 ## Installation
 
@@ -62,18 +58,10 @@ const date = ref<Date>()
 
 ### Date Range Picker
 
-<ComponentPreview name="DatePickerWithRange"  >
-
-<<< ../../../lib/registry/default/examples/DatePickerWithRange.vue
-
-</ComponentPreview>
+<ComponentPreview name="DatePickerWithRange"  /> 
 
 
 ### Date Picker
 
 
-<ComponentPreview name="DatePickerDemo"  >
-
-<<< ../../../lib/registry/default/examples/DatePickerDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="DatePickerDemo"  />

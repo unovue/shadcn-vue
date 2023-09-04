@@ -5,11 +5,7 @@ source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/regis
 primitive: https://www.radix-vue.com/components/scroll-area.html
 ---
 
-<ComponentPreview name="ScrollAreaDemo" >
-
-<<< ../../../lib/registry/default/examples/ScrollAreaDemo.vue
-
-</ComponentPreview>
+<ComponentPreview name="ScrollAreaDemo" /> 
 
 
 

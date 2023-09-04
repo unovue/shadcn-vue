@@ -4,12 +4,7 @@ description: Displays a badge or a component that looks like a badge.
 ---
 
 
-<ComponentPreview name="BadgeDemo"  >
-
-<<< ../../../lib/registry/default/examples/BadgeDemo.vue
-
-</ComponentPreview>
-
+<ComponentPreview name="BadgeDemo"  /> 
 
 
 ## Installation
