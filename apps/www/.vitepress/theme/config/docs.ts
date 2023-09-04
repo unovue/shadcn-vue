@@ -24,7 +24,7 @@ export const docsConfig: DocsConfig = {
   mainNav: [
     {
       title: 'Documentation',
-      href: '/docs',
+      href: '/docs/introduction',
     },
     {
       title: 'Components',
@@ -40,7 +40,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: 'GitHub',
-      href: 'https://github.com/huntabyte/shadcn-svelte',
+      href: 'https://github.com/radix-vue/shadcn-vue',
       external: true,
     },
   ],
@@ -50,7 +50,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: 'Introduction',
-          href: '/docs',
+          href: '/docs/introduction',
           items: [],
         },
         {

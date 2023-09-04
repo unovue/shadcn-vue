@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 import { Content, useData, useRoute } from 'vitepress'
+import { docsConfig } from '../config/docs'
 import { Button } from '@/lib/registry/default/ui/button'
 import { Kbd } from '@/lib/registry/default/ui/kbd'
 import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
@@ -65,19 +66,19 @@ const links = [
           <a href="/" class="text-md font-bold"> shadcn-vue </a>
 
           <nav
-            v-for="route in routes"
-            :key="route.name"
+            v-for="route in docsConfig.mainNav"
+            :key="route.title"
             class="flex items-center space-x-6 text-sm font-medium"
           >
             <a
-              :href="route.path"
-              :target="route.target"
+              :href="route.href"
+              :target="route.external ? '_target' : undefined"
               class="transition-colors hover:text-foreground/80 text-foreground/60"
               :class="{
-                'font-semibold !text-foreground': $route.path === `${route.path}.html`,
+                'font-semibold !text-foreground': $route.path === `${route.href}.html`,
               }"
             >
-              {{ route.name }}
+              {{ route.title }}
             </a>
           </nav>
         </div>

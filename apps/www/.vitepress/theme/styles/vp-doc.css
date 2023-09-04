@@ -10,24 +10,24 @@
  * Headings
  * -------------------------------------------------------------------------- */
 
-.vp-doc h1,
-.vp-doc h2,
-.vp-doc h3,
-.vp-doc h4,
-.vp-doc h5,
-.vp-doc h6 {
+.vp-doc h1:not(:where(.not-docs *)),
+.vp-doc h2:not(:where(.not-docs *)),
+.vp-doc h3:not(:where(.not-docs *)),
+.vp-doc h4:not(:where(.not-docs *)),
+.vp-doc h5:not(:where(.not-docs *)),
+.vp-doc h6:not(:where(.not-docs *)) {
   position: relative;
   font-weight: 600;
   outline: none;
 }
 
-.vp-doc h1 {
+.vp-doc h1:not(:where(.not-docs *)) {
   letter-spacing: -0.02em;
   line-height: 40px;
   font-size: 28px;
 }
 
-.vp-doc h2 {
+.vp-doc h2:not(:where(.not-docs *)) {
   /* margin: 48px 0 16px; */
   margin: 16px 0 16px;
   border-top: 1px solid var(--vp-c-divider);
@@ -37,14 +37,14 @@
   font-size: 24px;
 }
 
-.vp-doc h3 {
+.vp-doc h3:not(:where(.not-docs *)) {
   margin: 32px 0 0;
   letter-spacing: -0.01em;
   line-height: 28px;
   font-size: 20px;
 }
 
-.vp-doc .header-anchor {
+.vp-doc .header-anchor:not(:where(.not-docs *)) {
   position: absolute;
   top: 0;
   left: 0;
@@ -58,7 +58,7 @@
     opacity 0.25s;
 }
 
-.vp-doc .header-anchor:before {
+.vp-doc .header-anchor:before:not(:where(.not-docs *)) {
   content: var(--vp-header-anchor-symbol);
 }
 
@@ -78,14 +78,14 @@
 }
 
 @media (min-width: 768px) {
-  .vp-doc h1 {
+  .vp-doc h1:not(:where(.not-docs *)) {
     letter-spacing: -0.02em;
     line-height: 40px;
     font-size: 32px;
   }
 }
 
-.vp-doc h2 .header-anchor {
+.vp-doc h2 .header-anchor:not(:where(.not-docs *)) {
   top: 24px;
 }
 
@@ -93,30 +93,30 @@
  * Paragraph and inline elements
  * -------------------------------------------------------------------------- */
 
-/* .vp-doc p,
-.vp-doc summary {
+.vp-doc p:not(:where(.not-docs *)),
+.vp-doc summary:not(:where(.not-docs *)) {
   margin: 16px 0;
 }
 
-.vp-doc p {
+.vp-doc p:not(:where(.not-docs *)) {
   line-height: 28px;
 }
 
-.vp-doc blockquote {
+.vp-doc blockquote:not(:where(.not-docs *)) {
   margin: 16px 0;
   border-left: 2px solid var(--vp-c-divider);
   padding-left: 16px;
   transition: border-color 0.5s;
 }
 
-.vp-doc blockquote > p {
+.vp-doc blockquote > p:not(:where(.not-docs *)) {
   margin: 0;
   font-size: 16px;
   color: var(--vp-c-text-2);
   transition: color 0.5s;
 }
 
-.vp-doc a {
+.vp-doc a:not(:where(.not-docs *)) {
   font-weight: 500;
   color: var(--vp-c-brand-1);
   text-decoration: underline;
@@ -126,38 +126,38 @@
     opacity 0.25s;
 }
 
-.vp-doc a:hover {
+.vp-doc a:hover:not(:where(.not-docs *)) {
   color: var(--vp-c-brand-2);
 }
 
-.vp-doc strong {
+.vp-doc strong:not(:where(.not-docs *)) {
   font-weight: 600;
-} */
+}
 
 /**
  * Lists
  * -------------------------------------------------------------------------- */
 
-.vp-doc ul:not(:where(.preview *)),
-.vp-doc ol:not(:where(.preview *)) {
+.vp-doc ul:not(:where(.not-docs *)),
+.vp-doc ol:not(:where(.not-docs *)) {
   padding-left: 1.25rem;
   margin: 16px 0;
 }
 
-.vp-doc ul:not(:where(.preview *)) {
+.vp-doc ul:not(:where(.not-docs *)) {
   list-style: disc;
 }
 
-.vp-doc ol:not(:where(.preview *)) {
+.vp-doc ol:not(:where(.not-docs *)) {
   list-style: decimal;
 }
 
-.vp-doc li + li:not(:where(.preview *)) {
+.vp-doc li + li:not(:where(.not-docs *)) {
   margin-top: 8px;
 }
 
-.vp-doc li > ol:not(:where(.preview *)),
-.vp-doc li > ul:not(:where(.preview *)) {
+.vp-doc li > ol:not(:where(.not-docs *)),
+.vp-doc li > ul:not(:where(.not-docs *)) {
   margin: 8px 0 0;
 }
 
@@ -247,7 +247,7 @@
 
 /* inline code */
 .vp-doc :not(pre, h1, h2, h3, h4, h5, h6) > code {
-  font-size: var(--vp-code-font-size);
+  font-size: 14px;
   color: var(--vp-code-color);
 }
 
@@ -343,10 +343,10 @@
 }
 
 .vp-doc [class*='language-'] code .highlighted {
-  background-color: var(--vp-code-line-highlight-color);
+  background-color: hsl(var(--muted));
   transition: background-color 0.5s;
-  margin: 0 -24px;
-  padding: 0 24px;
+  /* margin: 0 -24px;
+  padding: 0 24px; */
   width: calc(100% + 2 * 24px);
   display: inline-block;
 }

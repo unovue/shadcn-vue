@@ -8,7 +8,7 @@ const props = defineProps<AccordionItemProps & { class?: string }>()
 <template>
   <AccordionItem
     v-bind="props"
-    :class="cn('border-b text-foreground border-border', props.class ?? '')"
+    :class="cn('border-b', props.class ?? '')"
   >
     <slot />
   </AccordionItem>
