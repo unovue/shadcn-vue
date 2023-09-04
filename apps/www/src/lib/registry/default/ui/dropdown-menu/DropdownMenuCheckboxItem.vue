@@ -5,31 +5,26 @@ import {
   type DropdownMenuCheckboxItemProps,
   DropdownMenuItemIndicator,
 } from 'radix-vue'
-import { cn } from '@/lib/utils'
-import RadixIconsCheck from '~icons/radix-icons/check'
+import { Check } from 'lucide-vue-next'
+import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuCheckboxItemProps & { class?: string }>()
-
 const emits = defineEmits<DropdownMenuCheckboxItemEmits>()
 </script>
 
 <template>
   <DropdownMenuCheckboxItem
-    v-bind="props"
-    :class="[
-      cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
-        props.class,
-      ),
-    ]"
-    @update:checked="emits('update:checked', $event)"
-    @select="emits('select', $event)"
+    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    :class=" cn(
+      'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      props.class,
+    )"
   >
-    <DropdownMenuItemIndicator
-      class="absolute left-1.5 inline-flex w-4 h-4 items-center justify-center"
-    >
-      <RadixIconsCheck />
-    </DropdownMenuItemIndicator>
+    <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <DropdownMenuItemIndicator>
+        <Check class="w-4 h-4" />
+      </DropdownMenuItemIndicator>
+    </span>
     <slot />
   </DropdownMenuCheckboxItem>
 </template>

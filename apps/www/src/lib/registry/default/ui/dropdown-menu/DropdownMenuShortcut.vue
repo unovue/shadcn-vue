@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import { cn } from '@/lib/utils'
+</script>
+
 <template>
-  <div class="text-xxs ml-auto tracking-widest opacity-50">
+  <span :class="cn('ml-auto text-xs tracking-widest opacity-60', $attrs.class ?? '')">
     <slot />
-  </div>
+  </span>
 </template>

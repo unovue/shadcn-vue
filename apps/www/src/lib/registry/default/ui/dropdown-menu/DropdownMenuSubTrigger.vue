@@ -3,6 +3,7 @@ import {
   DropdownMenuSubTrigger,
   type DropdownMenuSubTriggerProps,
 } from 'radix-vue'
+import { ChevronRight } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuSubTriggerProps & { class?: string }>()
@@ -13,11 +14,12 @@ const props = defineProps<DropdownMenuSubTriggerProps & { class?: string }>()
     v-bind="props"
     :class="[
       cn(
-        'flex items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover px-2 py-1.5 text-sm outline-none select-none cursor-default',
+        'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent',
         props.class,
       ),
     ]"
   >
     <slot />
+    <ChevronRight class="ml-auto h-4 w-4" />
   </DropdownMenuSubTrigger>
 </template>

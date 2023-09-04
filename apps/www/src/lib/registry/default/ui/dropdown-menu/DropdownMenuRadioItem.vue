@@ -5,8 +5,8 @@ import {
   type DropdownMenuRadioItemEmits,
   type DropdownMenuRadioItemProps,
 } from 'radix-vue'
-import { cn } from '@/lib/utils'
-import RiCheckboxBlankCircleFill from '~icons/ri/checkbox-blank-circle-fill'
+import { Circle } from 'lucide-vue-next'
+import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuRadioItemProps & { class?: string }>()
 
@@ -15,20 +15,18 @@ const emits = defineEmits<DropdownMenuRadioItemEmits>()
 
 <template>
   <DropdownMenuRadioItem
-    v-bind="props"
-    :class="[
-      cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
-        props.class,
-      ),
-    ]"
-    @select="emits('select', $event)"
+    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    :class="cn(
+      'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+      props.class,
+    )"
   >
-    <DropdownMenuItemIndicator
-      class="absolute left-2 inline-flex w-2 h-2 items-center justify-center"
-    >
-      <RiCheckboxBlankCircleFill class="text-foreground" />
-    </DropdownMenuItemIndicator>
+    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+
+      <DropdownMenuItemIndicator>
+        <Circle class="h-2 w-2 fill-current" />
+      </DropdownMenuItemIndicator>
+    </span>
     <slot />
   </DropdownMenuRadioItem>
 </template>
