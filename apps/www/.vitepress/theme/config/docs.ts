@@ -219,13 +219,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/menubar',
           items: [],
         },
-        // {
-        //   title: "Navigation Menu",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Navigation Menu',
+          href: '/docs/components/navigation-menu',
+          items: [],
+        },
         {
           title: 'Popover',
           href: '/docs/components/popover',
@@ -241,13 +239,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/radio-group',
           items: [],
         },
-        // {
-        //   title: "Scroll Area",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Scroll Area',
+          href: '/docs/components/scroll-area',
+          items: [],
+        },
         {
           title: 'Select',
           href: '/docs/components/select',

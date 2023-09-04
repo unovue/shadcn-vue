@@ -138,26 +138,26 @@
  * Lists
  * -------------------------------------------------------------------------- */
 
-.vp-doc ul,
-.vp-doc ol {
+.vp-doc ul:not(:where(.preview *)),
+.vp-doc ol:not(:where(.preview *)) {
   padding-left: 1.25rem;
   margin: 16px 0;
 }
 
-.vp-doc ul {
+.vp-doc ul:not(:where(.preview *)) {
   list-style: disc;
 }
 
-.vp-doc ol {
+.vp-doc ol:not(:where(.preview *)) {
   list-style: decimal;
 }
 
-.vp-doc li + li {
+.vp-doc li + li:not(:where(.preview *)) {
   margin-top: 8px;
 }
 
-.vp-doc li > ol,
-.vp-doc li > ul {
+.vp-doc li > ol:not(:where(.preview *)),
+.vp-doc li > ul:not(:where(.preview *)) {
   margin: 8px 0 0;
 }
 

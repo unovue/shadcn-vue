@@ -4,7 +4,7 @@ import {
   type NavigationMenuContentEmits,
   type NavigationMenuContentProps,
 } from 'radix-vue'
-import { cn } from '@/lib/utils'
+import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<NavigationMenuContentProps & { class?: string }>()
 
@@ -13,10 +13,10 @@ const emits = defineEmits<NavigationMenuContentEmits>()
 
 <template>
   <NavigationMenuContent
-    v-bind="props"
+    v-bind="{ ...props, ...useEmitAsProps(emits) }"
     :class="
       cn(
-        'data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 left-0 w-full sm:w-auto',
+        'left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ',
         props.class,
       )
     "
