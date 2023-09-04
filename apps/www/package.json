@@ -33,7 +33,7 @@
     "@vue/compiler-core": "^3.3.4",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
-    "radix-vue": "^0.1.29",
+    "radix-vue": "^0.1.30",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",
