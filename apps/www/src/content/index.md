@@ -3,7 +3,7 @@ home: true
 ---
 
  <script setup>
-  import Dashboard from "@/examples/dashboard/Example.vue"
+  import LandingPage from "../../.vitepress/theme/components/LandingPage.vue"
 </script>
 
-<Dashboard />
+<LandingPage />

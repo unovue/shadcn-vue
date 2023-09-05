@@ -109,6 +109,9 @@ const links = [
       <component :is="'docs'" v-if="$route.path.includes('docs')">
         <Content />
       </component>
+      <component :is="'examples'" v-else-if="$route.path.includes('examples')">
+        <Content />
+      </component>
       <component :is="frontmatter.layout" v-else-if="frontmatter.layout">
         <slot />
       </component>

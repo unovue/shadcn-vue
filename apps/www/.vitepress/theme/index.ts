@@ -2,6 +2,7 @@
 // https://vitepress.dev/guide/custom-theme
 import Layout from './layout/MainLayout.vue'
 import DocsLayout from './layout/DocsLayout.vue'
+import ExamplesLayout from './layout/ExamplesLayout.vue'
 import * as components from './components'
 import './style.css'
 import './styles/vp-doc.css'
@@ -12,6 +13,7 @@ export default {
   enhanceApp({ app }) {
     // ...
     app.component('docs', DocsLayout)
+    app.component('examples', ExamplesLayout)
 
     for (const component of Object.keys(components))
       app.component(component, components[component])
