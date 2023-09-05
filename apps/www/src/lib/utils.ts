@@ -1,7 +1,8 @@
+import type { Updater } from '@tanstack/vue-table'
 import type { ClassValue } from 'clsx'
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import type { FunctionalComponent } from 'vue'
+import type { FunctionalComponent, Ref } from 'vue'
 import { camelize, defineComponent, getCurrentInstance, h, toHandlerKey } from 'vue'
 
 export type ParseEmits<T extends Record<string, any>> = {
@@ -37,4 +38,11 @@ export function convertToComponent(component: FunctionalComponent) {
   return defineComponent({
     setup() { return () => h(component) },
   })
+}
+
+export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
+  ref.value
+    = typeof updaterOrValue === 'function'
+      ? updaterOrValue(ref.value)
+      : updaterOrValue
 }
