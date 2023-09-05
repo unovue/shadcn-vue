@@ -105,7 +105,7 @@ const links = [
       </div>
     </header>
 
-    <div class="container flex-1  bg-background">
+    <div class="flex-1  bg-background">
       <component :is="'docs'" v-if="$route.path.includes('docs')">
         <Content />
       </component>
@@ -115,16 +115,16 @@ const links = [
       <component :is="frontmatter.layout" v-else-if="frontmatter.layout">
         <slot />
       </component>
-      <main v-else>
+      <main v-else class="container">
         <Content />
       </main>
     </div>
 
-    <footer class="bg-background z-40 border-t border-border text-foreground">
-      <div class="container h-20 flex items-center justify-between p-4 mx-auto">
-        <div class="flex justify-center items-center">
+    <footer class="py-6 md:px-8 md:py-0">
+      <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+        <div class="text-center text-sm leading-loose text-muted-foreground md:text-left">
           <span class="text-sm">
-            Built and designed by {{ " " }}
+            Built and designed by
             <a
               href="https://twitter.com/shadcn"
               target="_blank"
@@ -135,7 +135,7 @@ const links = [
           </span>
           <span class="text-sm ml-0.5"> . </span>
           <span class="text-sm ml-2">
-            Ported to Vue by {{ " " }}
+            Ported to Vue by
             <a
               href="https://twitter.com"
               target="_blank"
@@ -146,7 +146,7 @@ const links = [
           </span>
           <span class="text-sm ml-0.5"> . </span>
           <span class="text-sm ml-2">
-            The code source is available on {{ " " }}
+            The code source is available on
             <a
               href="https://github.com/radix-vue/shadcn-vue"
               target="_blank"
