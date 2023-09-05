@@ -18,30 +18,6 @@ const isDark = useDark()
 
 const toggleDark = useToggle(isDark)
 
-const routes = [
-  {
-    name: 'Documentation',
-    path: '/docs',
-  },
-  {
-    name: 'Components',
-    path: '/docs/components/accordion',
-  },
-  {
-    name: 'Themes',
-    path: '/themes',
-  },
-  {
-    name: 'Examples',
-    path: '/examples/dashboard',
-  },
-  {
-    name: 'GitHub',
-    path: 'https://github.com/radix-vue/shadcn-vue',
-    target: '_blank',
-  },
-]
-
 const links = [
   {
     name: 'GitHub',
@@ -60,7 +36,7 @@ const links = [
   <div class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
-        class="max-w-8xl flex h-[58px] items-center justify-between p-4 mx-auto"
+        class="container flex h-[58px] items-center justify-between p-4 mx-auto"
       >
         <div class="flex gap-6 md:gap-8">
           <a href="/" class="text-md font-bold"> shadcn-vue </a>
@@ -129,7 +105,7 @@ const links = [
       </div>
     </header>
 
-    <div class="flex-1  bg-background">
+    <div class="container flex-1  bg-background">
       <component :is="'docs'" v-if="$route.path.includes('docs')">
         <Content />
       </component>
@@ -142,7 +118,7 @@ const links = [
     </div>
 
     <footer class="bg-background z-40 border-t border-border text-foreground">
-      <div class="max-w-8xl h-20 flex items-center justify-between p-4 mx-auto">
+      <div class="container h-20 flex items-center justify-between p-4 mx-auto">
         <div class="flex justify-center items-center">
           <span class="text-sm">
             Built and designed by {{ " " }}

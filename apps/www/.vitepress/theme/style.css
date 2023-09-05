@@ -106,17 +106,6 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-  pre {
-    @apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border !bg-zinc-950 py-4 dark:!bg-zinc-900
-
-  }
-  pre code {
-    @apply relative rounded font-mono text-sm ;
-  }
-
-	pre code .line {
-		@apply  px-4 min-h-[1.5rem] !py-0.5 w-full inline-block;
-	} 
 }
 
 
@@ -138,5 +127,15 @@
 	}
 }
 
+pre {
+	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border !bg-zinc-950 py-4 dark:!bg-zinc-900
 
+}
+pre code {
+	@apply relative rounded font-mono text-sm ;
+}
+
+pre code .line {
+	@apply  px-4 min-h-[1.5rem] !py-0.5 w-full inline-block;
+} 
 
