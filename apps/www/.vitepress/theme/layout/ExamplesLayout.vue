@@ -37,13 +37,13 @@ import { cn } from '@/lib/utils'
 
       <section class="flex w-full items-center space-x-4 pb-8 pt-4 md:pb-10">
         <a
-          href="/docs"
+          href="/docs/introduction"
           :class="cn(buttonVariants(), 'rounded-[6px]')"
         >
           Get Started
         </a>
         <a
-          href="/components"
+          href="/docs/components/accordion"
           :class="cn(
             buttonVariants({ variant: 'outline' }),
             'rounded-[6px]',
