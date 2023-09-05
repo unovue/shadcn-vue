@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "build:registry": "ts-node --esm --project ./tsconfig.json ./scripts/build-registry.ts"
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
@@ -32,12 +33,15 @@
     "@iconify-json/tabler": "^1.1.89",
     "@iconify/json": "^2.2.108",
     "@iconify/vue": "^4.1.1",
+    "@types/lodash.template": "^4.5.1",
     "@types/node": "^20.5.7",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/compiler-core": "^3.3.4",
     "autoprefixer": "^10.4.14",
+    "lodash.template": "^4.5.0",
     "postcss": "^8.4.24",
     "radix-vue": "^0.1.30",
+    "rimraf": "^5.0.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
