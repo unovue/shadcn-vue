@@ -24,7 +24,7 @@ import {
 </script>
 
 <template>
-  <div class="md:hidden">
+  <!-- <div class="md:hidden">
     <img
       src="/examples/dashboard-light.png"
       width="1280"
@@ -39,7 +39,7 @@ import {
       alt="Dashboard"
       class="hidden dark:block"
     >
-  </div>
+  </div> -->
   <div class="hidden flex-col md:flex">
     <div class="border-b">
       <div class="flex h-16 items-center px-4">
