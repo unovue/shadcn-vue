@@ -13,6 +13,7 @@
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
     "@tanstack/vue-table": "^8.9.3",
+    "@unovis/ts": "^1.2.1",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vueuse/core": "^10.2.1",
     "class-variance-authority": "^0.6.1",
