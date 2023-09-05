@@ -8,6 +8,6 @@ export function resolveImport(
     importPath,
     undefined,
     () => true,
-    ['.ts', '.tsx'],
+    ['.ts', '.tsx', '.vue'],
   )
 }

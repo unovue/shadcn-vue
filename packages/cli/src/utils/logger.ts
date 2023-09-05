@@ -1,4 +1,4 @@
-import chalk from "chalk"
+import chalk from 'chalk'
 
 export const logger = {
   error(...args: unknown[]) {
@@ -14,6 +14,6 @@ export const logger = {
     console.log(chalk.green(...args))
   },
   break() {
-    console.log("")
+    console.log('')
   },
 }

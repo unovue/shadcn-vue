@@ -7,12 +7,15 @@ import ComponentPreviewPlugin from './theme/plugins/previewer'
 export default defineConfig({
   title: 'shadcn-vue',
   description: 'A VitePress Site',
-  srcDir: path.resolve(__dirname, '../src/content'),
+  srcDir: path.resolve(__dirname, '../src'),
   markdown: {
     theme: 'css-variables',
     config(md) {
       md.use(ComponentPreviewPlugin)
     },
+  },
+  rewrites: {
+    'content/(.*)': '(.*)',
   },
   vite: {
     plugins: [

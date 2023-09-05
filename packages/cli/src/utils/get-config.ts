@@ -1,8 +1,8 @@
-import path from "path"
-import { resolveImport } from "@/src/utils/resolve-import"
+import path from 'node:path'
 import { cosmiconfig } from 'cosmiconfig'
 import { loadConfig } from 'tsconfig-paths'
 import * as z from 'zod'
+import { resolveImport } from '@/src/utils/resolve-import'
 
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
@@ -33,21 +33,21 @@ export const rawConfigSchema = z
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
-    })
+    }),
   })
   .strict()
 
 export type RawConfig = z.infer<typeof rawConfigSchema>
 
 export const configSchema = rawConfigSchema
-.extend({
-  resolvedPaths: z.object({
-    tailwindConfig: z.string(),
-    tailwindCss: z.string(),
-    utils: z.string(),
-    components: z.string(),
-  }),
-})
+  .extend({
+    resolvedPaths: z.object({
+      tailwindConfig: z.string(),
+      tailwindCss: z.string(),
+      utils: z.string(),
+      components: z.string(),
+    }),
+  })
 
 export type Config = z.infer<typeof configSchema>
 

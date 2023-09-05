@@ -13,7 +13,9 @@
     "preview": "pnpm --filter www preview",
     "prepare": "pnpm simple-git-hooks",
     "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --fix --ignore-path .gitignore"
+    "lint:fix": "eslint . --fix --ignore-path .gitignore",
+    "dev:cli": "pnpm --filter shadcn-vue dev",
+    "build:cli": "pnpm --filter shadcn-vue build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.7",

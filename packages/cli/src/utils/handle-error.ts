@@ -1,17 +1,16 @@
-// import { logger } from '@/src/utils/logger'
-import {consola} from 'consola'
+import { logger } from './logger'
 
 export function handleError(error: unknown) {
   if (typeof error === 'string') {
-    consola.error(error)
+    logger.error(error)
     process.exit(1)
   }
 
   if (error instanceof Error) {
-    consola.error(error.message)
+    logger.error(error.message)
     process.exit(1)
   }
 
-  consola.error('Something went wrong. Please try again.')
+  logger.error('Something went wrong. Please try again.')
   process.exit(1)
 }
