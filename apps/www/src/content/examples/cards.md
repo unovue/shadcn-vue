@@ -1,5 +1,5 @@
 <script setup>
-import Cards from "@/examples/cards/Example.vue"
+import CardsExample from "@/examples/cards/Example.vue"
 </script>
 
-<Cards />
+<CardsExample />

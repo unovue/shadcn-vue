@@ -1,5 +1,5 @@
 <script setup>
-import Dashboard from "@/examples/dashboard/Example.vue"
+import DashboardExample from "@/examples/dashboard/Example.vue"
 </script>
 
-<Dashboard />
+<DashboardExample />
