@@ -24,7 +24,8 @@
     "v-calendar": "^3.0.3",
     "vitepress": "^1.0.0-rc.10",
     "vue": "^3.3.4",
-    "vue-wrap-balancer": "^1.1.3"
+    "vue-wrap-balancer": "^1.1.3",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
     "@iconify-json/radix-icons": "^1.1.11",
