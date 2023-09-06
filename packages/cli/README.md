@@ -36,7 +36,7 @@ npx shadcn-vue add
 
 ## Documentation
 
-Visit http://ui.shadcn.com/docs to view the documentation.
+Visit http://shadcn-vue.com to view the documentation.
 
 ## License
 
