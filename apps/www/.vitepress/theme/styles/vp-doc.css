@@ -278,7 +278,7 @@
 .vp-doc div[class*='language-'],
 .vp-block {
   position: relative;
-  margin: 16px -24px;
+  margin: 16px -16px;
   background-color: var(--vp-code-block-bg);
   overflow-x: auto;
   transition: background-color 0.5s;

@@ -15,7 +15,7 @@
       </defs>
     </svg>
 
-    <span class="hidden font-bold sm:inline-block">
+    <span class="font-bold ">
       shadcn-vue
     </span>
   </a>

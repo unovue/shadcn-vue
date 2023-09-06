@@ -128,14 +128,14 @@
 }
 
 div[class^="language-"] {
-	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border !bg-zinc-950 dark:!bg-zinc-900
+	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto md:rounded-lg border !bg-zinc-950 dark:!bg-zinc-900
 }
 pre {
-	@apply  py-4;
+	@apply py-4;
 }
 
 pre code {
-	@apply relative rounded font-mono text-sm ;
+	@apply relative  font-mono text-sm ;
 }
 
 pre code .line {
