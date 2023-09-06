@@ -38,11 +38,11 @@ import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-grou
   <RadioGroup default-value="option-one">
     <div className="flex items-center space-x-2">
       <RadioGroupItem id="option-one" value="option-one" />
-      <Label html-for="option-one">Option One</Label>
+      <Label for="option-one">Option One</Label>
     </div>
     <div className="flex items-center space-x-2">
       <RadioGroupItem id="option-two" value="option-two" />
-      <Label html-for="option-two">Option Two</Label>
+      <Label for="option-two">Option Two</Label>
     </div>
   </RadioGroup>
 </template>

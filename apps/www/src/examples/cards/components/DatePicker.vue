@@ -8,7 +8,7 @@ import { Label } from '@/lib/registry/default/ui/label'
   <Card>
     <CardContent class="pt-6">
       <div class="space-y-2">
-        <Label html-for="date" class="shrink-0">
+        <Label for="date" class="shrink-0">
           Pick a date
         </Label>
         <DatePickerWithRange class="[&>button]:w-[260px]" />

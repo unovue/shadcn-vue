@@ -9,8 +9,7 @@ import RadixIconsCode from '~icons/radix-icons/code'
 import ChevronRightIcon from '~icons/lucide/chevron-right'
 
 const $route = useRoute()
-const { frontmatter, ...a } = useData()
-console.log(a)
+const { frontmatter } = useData()
 </script>
 
 <template>

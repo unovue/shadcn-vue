@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'
+import { useToggle } from '@vueuse/core'
 import { Content, useData, useRoute } from 'vitepress'
 import { docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
@@ -13,11 +13,9 @@ import TablerBrandX from '~icons/tabler/brand-x'
 import RadixIconsMoon from '~icons/radix-icons/moon'
 import RadixIconsSun from '~icons/radix-icons/sun'
 
-const { frontmatter } = useData()
+const { frontmatter, isDark } = useData()
 
 const $route = useRoute()
-const isDark = useDark()
-
 const toggleDark = useToggle(isDark)
 
 const links = [

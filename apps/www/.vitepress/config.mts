@@ -27,7 +27,6 @@ export default defineConfig({
     },
   },
 
-  appearance: false,
   lastUpdated: true,
   themeConfig: {
     search: {

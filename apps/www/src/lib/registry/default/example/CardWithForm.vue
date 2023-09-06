@@ -29,11 +29,11 @@ import {
       <form>
         <div class="grid w-full items-center gap-4">
           <div class="flex flex-col space-y-1.5">
-            <Label html-for="name">Name</Label>
+            <Label for="name">Name</Label>
             <Input id="name" placeholder="Name of your project" />
           </div>
           <div class="flex flex-col space-y-1.5">
-            <Label html-for="framework">Framework</Label>
+            <Label for="framework">Framework</Label>
             <Select>
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />

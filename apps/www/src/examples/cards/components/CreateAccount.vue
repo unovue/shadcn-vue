@@ -50,11 +50,11 @@ import { Label } from '@/lib/registry/default/ui/label'
         </div>
       </div>
       <div class="grid gap-2">
-        <Label html-for="email">Email</Label>
+        <Label for="email">Email</Label>
         <Input id="email" type="email" placeholder="m@example.com" />
       </div>
       <div class="grid gap-2">
-        <Label html-for="password">Password</Label>
+        <Label for="password">Password</Label>
         <Input id="password" type="password" />
       </div>
     </CardContent>
