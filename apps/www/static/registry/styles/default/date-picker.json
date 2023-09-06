@@ -1,0 +1,16 @@
+{
+  "name": "date-picker",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "DatePicker.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useDark } from '@vueuse/core'\nimport { DatePicker } from 'v-calendar'\nimport 'v-calendar/style.css'\n\nconst isDark = useDark()\n</script>\n\n<template>\n  <DatePicker :is-dark=\"isDark\" borderless trim-weeks expanded />\n</template>\n\n<style>\n:root {\n  --vc-font-family: \"Inter\", sans-serif;\n  --vc-rounded-full: var(--radius);\n  --vc-font-bold: 500;\n  --vc-font-semibold: 600;\n  --vc-text-lg: 14px;\n}\n\n.vc-light,\n.vc-dark {\n  --vc-bg: var(--background);\n  --vc-border: var(--border);\n  --vc-focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.2);\n  --vc-weekday-color: var(--muted);\n  --vc-popover-content-color: var(--muted);\n  --vc-popover-content-bg: var(--background);\n  --vc-popover-content-border: var(--border);\n\n  &.vc-attr,\n  & .vc-attr {\n    --vc-content-color: var(--primary);\n    --vc-highlight-outline-bg: var(--primary);\n    --vc-highlight-outline-border: var(--primary);\n    --vc-highlight-outline-content-color: var(--primary-foreground);\n    --vc-highlight-light-bg: var(\n      --vc-accent-200\n    ); /* Highlighted color between two dates */\n    --vc-highlight-light-content-color: var(--secondary-foreground);\n    --vc-highlight-solid-bg: var(--primary);\n    --vc-highlight-solid-content-color: var(--primary-foreground);\n    --vc-dot-bg: var(--primary);\n    --vc-bar-bg: var(--primary);\n  }\n}\n\n.vc-blue {\n  --vc-accent-200: var(--secondary);\n  --vc-accent-400: var(--primary);\n  --vc-accent-500: var(--primary);\n  --vc-accent-600: var(--primary);\n}\n\n.dark {\n  .vc-blue {\n    --vc-accent-200: var(--secondary);\n    --vc-accent-400: var(--primary);\n    --vc-accent-500: var(--secondary);\n  }\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as DatePicker } from './DatePicker.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

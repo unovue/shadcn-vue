@@ -1,0 +1,50 @@
+{
+  "name": "table",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "Table.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <div class=\"w-full overflow-auto\">\n    <table :class=\"cn('w-full caption-bottom text-sm', props.class)\">\n      <slot />\n    </table>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "TableBody.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <tbody :class=\"cn('[&_tr:last-child]:border-0', props.class)\">\n    <slot />\n  </tbody>\n</template>\n"
+    },
+    {
+      "name": "TableCaption.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <caption :class=\"cn('mt-4 text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </caption>\n</template>\n"
+    },
+    {
+      "name": "TableCell.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <td\n    :class=\"\n      cn(\n        'p-4 align-middle [&:has([role=checkbox])]:pr-0',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </td>\n</template>\n"
+    },
+    {
+      "name": "TableEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport TableRow from './TableRow.vue'\nimport TableCell from './TableCell.vue'\nimport { cn } from '@/lib/utils'\n\ninterface Props {\n  class?: string\n  colspan?: number\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  class: '',\n  colspan: 1,\n})\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      :colspan=\"props.colspan\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n"
+    },
+    {
+      "name": "TableFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <tfoot :class=\"cn('bg-primary font-medium text-primary-foreground', props.class)\">\n    <slot />\n  </tfoot>\n</template>\n"
+    },
+    {
+      "name": "TableHead.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <th :class=\"cn('h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0', props.class)\">\n    <slot />\n  </th>\n</template>\n"
+    },
+    {
+      "name": "TableHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <thead :class=\"cn('[&_tr]:border-b', props.class)\">\n    <slot />\n  </thead>\n</template>\n"
+    },
+    {
+      "name": "TableRow.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <tr :class=\"cn('border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted', props.class)\">\n    <slot />\n  </tr>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableRow } from './TableRow.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

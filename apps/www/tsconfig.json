@@ -1,5 +1,6 @@
 {
   "include": ["/**/*.vue", ".vitepress/**/*.vue", "/**/*.ts", ".vitepress/**/*.mts", "src/lib/**/*"],
+  "exclude": ["node_modules", "./scripts/build-registry.ts"],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",

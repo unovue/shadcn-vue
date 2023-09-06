@@ -1,0 +1,24 @@
+{
+  "name": "radio-group",
+  "dependencies": [
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "RadioGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { RadioGroupRoot, type RadioGroupRootProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<RadioGroupRootProps & { class?: string }>()\n</script>\n\n<template>\n  <RadioGroupRoot :class=\"cn('grid gap-2', props.class)\">\n    <slot />\n  </RadioGroupRoot>\n</template>\n"
+    },
+    {
+      "name": "RadioGroupItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  RadioGroupIndicator,\n  RadioGroupItem,\n  type RadioGroupItemProps,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport RiCheckboxBlankCircleFill from '~icons/ri/checkbox-blank-circle-fill'\n\nconst props = defineProps<RadioGroupItemProps & { class?: string }>()\n</script>\n\n<template>\n  <RadioGroupItem\n    v-bind=\"props\"\n    :class=\"\n      cn(\n        'aspect-square h-4 w-4 rounded-full cursor-pointer flex justify-center items-center border border-primary disabled:cursor-not-allowed disabled:opacity-50',\n        props.class,\n      )\n    \"\n  >\n    <RadioGroupIndicator\n      :class=\"cn('flex items-center justify-center', props.class)\"\n    >\n      <RiCheckboxBlankCircleFill class=\"w-2.5 h-2.5 text-foreground\" />\n    </RadioGroupIndicator>\n  </RadioGroupItem>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as RadioGroup } from './RadioGroup.vue'\nexport { default as RadioGroupItem } from './RadioGroupItem.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

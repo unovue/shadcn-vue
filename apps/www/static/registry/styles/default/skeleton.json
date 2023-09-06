@@ -1,0 +1,18 @@
+{
+  "name": "skeleton",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "Skeleton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\ninterface SkeletonProps {\n  class?: string\n}\n\nconst props = defineProps<SkeletonProps>()\n</script>\n\n<template>\n  <div :class=\"cn('animate-pulse rounded-md bg-secondary', props.class)\" />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Skeleton } from './Skeleton.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

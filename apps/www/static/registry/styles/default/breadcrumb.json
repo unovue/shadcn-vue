@@ -1,0 +1,20 @@
+{
+  "name": "breadcrumb",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "BreadCrumb.vue",
+      "content": "<template>\n  <ol class=\"flex items-center whitespace-nowrap min-w-0\">\n    <slot />\n  </ol>\n</template>\n"
+    },
+    {
+      "name": "BreadCrumbItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ChevronRight } from 'lucide-vue-next'\n\ninterface BreadCrumbItemProps {\n  path?: string\n  lastItem?: boolean\n  as?: string | object\n}\n\nconst props = withDefaults(defineProps<BreadCrumbItemProps>(), {\n  as: 'span',\n})\n</script>\n\n<template>\n  <li class=\"text-sm text-muted\">\n    <component\n      :is=\"props.as\"\n      :to=\"props.path\"\n      class=\"flex items-center\"\n      :class=\"{\n        '!font-semibold !text-foreground': $route.path === props.path,\n      }\"\n    >\n      <slot />\n      <ChevronRight\n        v-if=\"!props.lastItem\"\n        class=\"flex-shrink-0 h-3 w-3 text-muted mx-2\"\n      />\n    </component>\n  </li>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as BreadCrumb } from './BreadCrumb.vue'\nexport { default as BreadCrumbItem } from './BreadCrumbItem.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

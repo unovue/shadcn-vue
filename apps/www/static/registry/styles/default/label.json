@@ -1,0 +1,20 @@
+{
+  "name": "label",
+  "dependencies": [
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "Label.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label, type LabelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<LabelProps & { class?: string }>()\n</script>\n\n<template>\n  <Label\n    v-bind=\"props\"\n    :class=\"\n      cn(\n        'block text-sm tracking-tight font-medium text-foreground text-left',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Label } from './Label.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}
