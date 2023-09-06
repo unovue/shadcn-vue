@@ -6,8 +6,8 @@ import { resolveImport } from '@/src/utils/resolve-import'
 
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
-export const DEFAULT_UTILS = '@/utils'
-export const DEFAULT_TAILWIND_CSS = 'src/style.css'
+export const DEFAULT_UTILS = '@/lib/utils'
+export const DEFAULT_TAILWIND_CSS = 'src/assets/index.css'
 export const DEFAULT_TAILWIND_CSS_NUXT = 'assets/style/tailwind.css'
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
@@ -61,8 +61,17 @@ export async function getConfig(cwd: string) {
 }
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
+  const TSCONFIG_PATH = config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json'
+  // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
+  const FALLBACK_TSCONFIG_PATH = './tsconfig.app.json'
+
   // Read tsconfig.json.
-  const tsConfig = await loadConfig(cwd)
+  const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH)
+  let tsConfig = loadConfig(tsconfigPath)
+
+  // If no paths were found, we load the fallback tsconfig
+  if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0)
+    tsConfig = loadConfig(path.resolve(cwd, FALLBACK_TSCONFIG_PATH))
 
   if (tsConfig.resultType === 'failed') {
     throw new Error(

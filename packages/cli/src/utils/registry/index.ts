@@ -144,7 +144,6 @@ async function fetchRegistry(paths: string[]) {
         return await response.json()
       }),
     )
-
     return results
   }
   catch (error) {

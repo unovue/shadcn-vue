@@ -112,8 +112,8 @@ export async function promptForConfig(
       name: 'framework',
       message: `Which ${highlight('framework')} are you using?`,
       choices: [
-        { title: 'Nuxt', value: 'nuxt' },
         { title: 'Vite + Vue', value: 'vue' },
+        { title: 'Nuxt', value: 'nuxt' },
       ],
     },
     {
@@ -140,7 +140,7 @@ export async function promptForConfig(
       type: 'text',
       name: 'tailwindCss',
       message: `Where is your ${highlight('Tailwind CSS')} file?`,
-      initial: (prev, values) => defaultConfig?.tailwind.css ?? values.framework === 'nuxt' ? DEFAULT_TAILWIND_CSS_NUXT : DEFAULT_TAILWIND_CSS,
+      initial: (prev, values) => defaultConfig?.tailwind.css ?? (values.framework === 'nuxt' ? DEFAULT_TAILWIND_CSS_NUXT : DEFAULT_TAILWIND_CSS),
     },
     {
       type: 'toggle',

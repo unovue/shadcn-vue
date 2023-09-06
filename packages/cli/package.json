@@ -72,6 +72,7 @@
     "@types/lodash.template": "^4.5.1",
     "@types/prompts": "^2.4.4",
     "@vitest/ui": "^0.34.3",
+    "magic-string": "^0.30.3",
     "rimraf": "^5.0.1",
     "tsup": "^7.2.0",
     "type-fest": "^4.3.0",

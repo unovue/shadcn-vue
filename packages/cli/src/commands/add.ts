@@ -7,6 +7,7 @@ import { execa } from 'execa'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
+import { transformImport } from '../utils/transformers/transform-import'
 import { getConfig } from '@/src/utils/get-config'
 import { getPackageManager } from '@/src/utils/get-package-manager'
 import { handleError } from '@/src/utils/handle-error'
@@ -18,7 +19,6 @@ import {
   getRegistryIndex,
   resolveTree,
 } from '@/src/utils/registry'
-import { transform } from '@/src/utils/transformers'
 
 const addOptionsSchema = z.object({
   components: z.array(z.string()).optional(),
@@ -107,6 +107,7 @@ export const add = new Command()
       }
 
       const spinner = ora('Installing components...').start()
+      const skippedDeps = new Set<string>()
       for (const item of payload) {
         spinner.text = `Installing ${item.name}...`
         const targetDir = await getItemTargetPath(
@@ -122,41 +123,49 @@ export const add = new Command()
           await fs.mkdir(targetDir, { recursive: true })
 
         const existingComponent = item.files.filter(file =>
-          existsSync(path.resolve(targetDir, file.name)),
+          existsSync(path.resolve(targetDir, item.name, file.name)),
         )
 
         if (existingComponent.length && !options.overwrite) {
           if (selectedComponents.includes(item.name)) {
             logger.warn(
-              `Component ${item.name} already exists. Use ${chalk.green(
-                '--overwrite',
-              )} to overwrite.`,
+							`\nComponent ${
+								item.name
+							} already exists. Use ${chalk.green(
+								'--overwrite',
+							)} to overwrite.`,
             )
-            process.exit(1)
+            spinner.stop()
+            process.exitCode = 1
+            return
           }
 
           continue
         }
 
         for (const file of item.files) {
-          const filePath = path.resolve(targetDir, file.name)
+          const componentDir = path.resolve(targetDir, item.name)
+          const filePath = path.resolve(
+            targetDir,
+            item.name,
+            file.name,
+          )
 
           // Run transformers.
-          const content = await transform({
-            filename: file.name,
-            raw: file.content,
-            config,
-            baseColor,
-          })
+          const content = transformImport(file.content, config)
 
-          // if (!config.tsx)
-          //   filePath = filePath.replace(/\.tsx$/, '.jsx')
+          if (!existsSync(componentDir))
+            await fs.mkdir(componentDir, { recursive: true })
 
           await fs.writeFile(filePath, content)
         }
 
         // Install dependencies.
         if (item.dependencies?.length) {
+          item.dependencies.forEach(dep =>
+            skippedDeps.add(dep),
+          )
+
           const packageManager = await getPackageManager(cwd)
           await execa(
             packageManager,
