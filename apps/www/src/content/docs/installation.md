@@ -7,21 +7,23 @@ description: How to install dependencies and structure your app.
   import { Alert, AlertDescription } from "@/lib/registry/default/ui/alert";
 </script>
 
-Unlike the original [shadcn/ui](https://ui.shadcn.com) for React, where the full components can exist in a single file, components in this port are split into multiple files. This is because Svelte doesn't support defining multiple components in a single file, so utilizing the CLI to add components will be the optimal approach.
+Unlike the original [shadcn/ui](https://ui.shadcn.com) for React, where the full components can exist in a single file, components in this port are split into multiple files due to majority vote from [Vue community](https://twitter.com/zernonia/status/1694351679540580524) to use `SFC` rather than `h()` render function or `JSX`, so utilizing the CLI to add components will be the optimal approach.
+ 
+ 
 
-The CLI will create a folder for _each_ component, which will sometimes just contain a single Svelte file, and in other times, multiple files. Within each folder, there will be an `index.ts` file that exports the component(s), so you can import them from a single file.
+The CLI will create a folder for _each_ component, which will sometimes just contain a single Vue file, and in other times, multiple files. Within each folder, there will be an `index.ts` file that exports the component(s), so you can import them from a single file.
 
-For example, the Accordion component is split into four `.svelte` files:
+For example, the Accordion component is split into four `.vue` files:
 
-- `Accordion.svelte`
-- `AccordionContent.svelte`
-- `AccordionItem.svelte`
-- `AccordionTrigger.svelte`
+- `Accordion.vue`
+- `AccordionContent.vue`
+- `AccordionItem.vue`
+- `AccordionTrigger.vue`
 
 They can then be imported from the `accordion/index.ts` file like so:
 
 ```ts
-import * as Accordion from '$lib/components/ui/accordion'
+import * as Accordion from '@/components/ui/accordion'
 
 // or
 import {
@@ -29,7 +31,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from '$lib/components/ui/accordion'
+} from '@/components/ui/accordion'
 ```
 
 Regardless of the import approach you take, the components will be tree-shaken by Rollup, so you don't have to worry about unused components being bundled into your app.
@@ -40,18 +42,20 @@ Regardless of the import approach you take, the components will be tree-shaken b
 
 ### Create project
 
-Use the SvelteKit CLI to create a new project.
+Use the Vue CLI to create a new project.
 
 ```bash
-npm create svelte@latest my-app
+npm create vue@latest 
 ```
 
-### Add TailwindCSS
+### Add Tailwind and its configuration
 
-Use the `svelte-add` CLI to add Tailwind CSS to your project.
+Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files:
 
 ```bash
-npx svelte-add@latest tailwindcss
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
 ```
 
 ### Install dependencies
@@ -63,320 +67,63 @@ npm install
 ### Run the CLI
 
 ```bash
-npx shadcn-svelte@latest init
+npx shadcn-vue@latest init
 ```
 
 ### Configure components.json
 
 You will be asked a few questions to configure `components.json`:
 
-```txt showLineNumbers
+```txt:line-numbers
+Would you like to use TypeScript (recommended)? no / yes
+Which framework are you using? Vite + Vue / Nuxt
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
-Where is your global CSS file? › src/app.postcss
-Where is your tailwind.config.[cjs|js|ts] located? › tailwind.config.js
-Configure the import alias for components: › $lib/components
-Configure the import alias for utils: › $lib/utils
+Where is your global CSS file? › › src/index.css
+Do you want to use CSS variables for colors? › no / yes
+Where is your tailwind.config.js located? › tailwind.config.js
+Configure the import alias for components: › @/components
+Configure the import alias for utils: › @/lib/utils
+Are you using React Server Components? › no / yes (no)
 ```
 
-### Setup path aliases
+### Edit tsconfig.json
 
-If you changed the path aliases from the default, you'll also need to update your `svelte.config.js` file to include those aliases.
+By default your `tsconfig.json` for new project should be configured nicely. However, make sure the code below is added in the compilerOptions of your tsconfig.json so your app can resolve paths without error
 
-```js title="svelte.config.js"
-const config = {
-  // ... other config
-  kit: {
-    // ... other config
-    alias: {
-      '$lib': './src/lib',
-      '$lib/*': './src/lib/*'
+```json 
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
     }
   }
 }
 ```
 
-</Steps>
 
-## Manual Installation
+### That's it
 
-<Steps>
-
-### Create project
-
-Use the SvelteKit CLI to create a new project.
+You can now start adding components to your project.
 
 ```bash
-npm create svelte@latest my-app
+npx shadcn-vue@latest add button
 ```
 
-### Add Tailwind
+The command above will add the `Button` component to your project. You can then import it like this:
 
-Use the `svelte-add` CLI to add Tailwind CSS to your project.
-
-```bash
-npx svelte-add@latest tailwindcss
-```
-
-### Add dependencies
-
-Add the following dependencies to your project:
-
-```bash
-npm install tailwind-variants clsx tailwind-merge
-```
-
-### Configure tailwind.config.js
-
-This is what this project's `tailwind.config.js` file looks like:
-
-```javascript title="tailwind.config.js"
-import { fontFamily } from "tailwindcss/defaultTheme";
-
-/** @type {import('tailwindcss').Config} */
-const config = {
-  darkMode: ["class"],
-  content: ["./src/**/*.{html,js,svelte,ts}"],
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px"
-      }
-    },
-    extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))"
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))"
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))"
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))"
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))"
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))"
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))"
-        }
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)"
-      },
-      fontFamily: {
-        sans: ["Inter", ...fontFamily.sans]
-      }
-    }
-  },
-  plugins: [tailwindcssAnimate]
-};
-
-export default config;
-```
-
-Feel free to add or modify as needed to suit your project.
-
-### Configure styles
-
-Add the following to your `src/app.postcss` file. You can learn more about using CSS variables for theming in the [theming section](/docs/theming).
-
-```css title="src/app.postcss"
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 92% 38%;
-    --destructive-foreground: 210 40% 98%;
-
-    --ring: 215 20.2% 65.1%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
-
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
-
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 1.2%;
-
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
-
-    --destructive: 359 51% 48%;
-    --destructive-foreground: 210 40% 98%;
-
-    --ring: 216 34% 17%;
-
-    --radius: 0.5rem;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-}
-```
-
-### Configure utils
-
-You'll want to create a `cn` helper to make it easier to conditionally add Tailwind CSS classes. Additionally, you'll want to add the custom transition that is used by various components.
-
-```ts title="src/lib/utils.ts"
-import type { Updater } from '@tanstack/vue-table'
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-import { type Ref, camelize, getCurrentInstance, toHandlerKey } from 'vue'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
-// Vue doesn't have emits forwarding, in order to bind the emits we have to convert events into `onXXX` handlers
-// issue: https://github.com/vuejs/core/issues/5917
-export function useEmitAsProps<Name extends string>(
-  emit: (name: Name, ...args: any[]) => void,
-) {
-  const vm = getCurrentInstance()
-
-  const events = vm?.type.emits as Name[]
-  const result: Record<string, any> = {}
-  if (!events?.length) {
-    console.warn(
-      `No emitted event found. Please check component: ${vm?.type.__name}`,
-    )
-  }
-
-  events?.forEach((ev) => {
-    result[toHandlerKey(camelize(ev))] = (...arg: any) => emit(ev, ...arg)
-  })
-  return result
-}
-
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value
-    = typeof updaterOrValue === 'function'
-      ? updaterOrValue(ref.value)
-      : updaterOrValue
-}
-```
-
-### Import styles to your app
-
-Create `src/routes/+layout.svelte` and import the styles:
-
-```svelte title="src/routes/+layout.svelte"
-<script lang="ts">
-  import "../app.postcss";
+```vue {2,7}
+<script setup lang="ts">
+import { Button } from '@/components/ui/button'
 </script>
 
-<slot />
+<template>
+  <div>
+    <Button>Click me</Button>
+  </div>
+</template>
 ```
 
 </Steps>
-
-## Icons
-
-This project uses icons from [Lucide](https://lucide.dev/) for the `default` style, and [Radix](https://radix-ui.com/icons) for the `new-york` style, but feel free to use any icon library.
-
-## App structure
-
-Here's a recommended, but not required app structure:
-
-```txt {4-11,15,19}
-src
-├── lib
-│   ├── components
-│   │   ├── ui
-│   │   │   ├── alert-dialog
-│   │   │   │   ├── index.ts
-│   │   │   │   └── alert.svelte
-│   │   │   ├── button
-│   │   │   │   ├── index.ts
-│   │   │   │   └── button.svelte
-│   │   │   └── ...
-│   │   ├── navigation.svelte
-│   │   ├── page-header.svelte
-│   │   └── ...
-│   └── utils.ts
-├── routes
-│   ├── +page.svelte
-│   └── +layout.svelte
-├── app.postcss
-```
-
-- Place the UI components in the `lib/components/ui` folder.
-- The rest of the components such as `<PageHeader />` and `<Navigation />` are placed in the `lib/components` folder.
-- The `lib/utils.ts` file is where you can define the `cn` helper.
-- The `app.postcss` file contains the global CSS.
-
-That's it. You can now start adding components to your project.
+  

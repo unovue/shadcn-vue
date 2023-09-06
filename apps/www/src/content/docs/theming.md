@@ -4,23 +4,66 @@ description: Use CSS Variables to customize the look and feel of your applicatio
 ---
 
  
-We use CSS variables for styling. This allows you to easily change the colors of components without having to update class names.
+You can choose between using CSS variables or Tailwind CSS utility classes for theming.
 
-**CSS variables must be defined without the color space function**. See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information.
+## Utility classes
 
-## Hex -> Color Channel
+```html /bg-zinc-950/ /text-zinc-50/ /dark:bg-white/ /dark:text-zinc-950/
+<div class="bg-zinc-950 dark:bg-white" />
+```
 
-You can use this tool to convert your HEX color to HSL without the color space function. Simply add your color in hex format, copy one of the generated values, then add them to the CSS variable.
+To use utility classes for theming set `tailwind.cssVariables` to `false` in your `components.json` file.
 
-<!-- <HexToChannels /> -->
+```json {8} title="components.json"
+{
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": false
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
 
-## Convention
+## CSS Variables
+
+```html /bg-background/ /text-foreground/
+<div class="bg-background text-foreground" />
+```
+
+To use CSS variables for theming set `tailwind.cssVariables` to `true` in your `components.json` file.
+ 
+
+```json {8} title="components.json"
+{
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+### Convention
 
 We use a simple `background` and `foreground` convention for colors. The `background` variable is used for the background color of the component and the `foreground` variable is used for the text color.
 
-<Callout>
+<Callout class="mt-4">
 
-The `background` suffix can be omitted if the variable is used for the background color of the component.
+The `background` suffix is omitted when the variable is used for the background color of the component.
 
 </Callout>
 
@@ -33,152 +76,138 @@ Given the following CSS variables:
 
 The `background` color of the following component will be `hsl(var(--primary))` and the `foreground` color will be `hsl(var(--primary-foreground))`.
 
-```svelte
+```html
 <div class="bg-primary text-primary-foreground">Hello</div>
 ```
 
-## CSS Variables
+<Callout>
+
+**CSS variables must be defined without color space function**. See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information.
+
+</Callout>
+
+### List of variables
 
 Here's the list of variables available for customization:
 
-```css title="Default background color of <body />...etc"
+<Steps>
+
+```css
+/* Default background color of <body />...etc */
 --background: 0 0% 100%;
 --foreground: 222.2 47.4% 11.2%;
 ```
 
-```css title="Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch />"
+```css 
+/* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
 --muted: 210 40% 96.1%;
 --muted-foreground: 215.4 16.3% 46.9%;
 ```
 
-```css title="Background color for <Card />"
+```css 
+/* Background color for <Card /> */
 --card: 0 0% 100%;
 --card-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css title="Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover />"
+```css 
+/* Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover /> */
 --popover: 0 0% 100%;
 --popover-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css title="Default border color"
+```css 
+/* Default border color */
 --border: 214.3 31.8% 91.4%;
 ```
 
-```css title="Border color for inputs such as <Input />, <Select />, <Textarea />"
+```css 
+/* Border color for inputs such as <Input />, <Select />, <Textarea /> */
 --input: 214.3 31.8% 91.4%;
 ```
 
-```css title="Primary colors for <Button />"
+```css 
+/* Primary colors for <Button /> */
 --primary: 222.2 47.4% 11.2%;
 --primary-foreground: 210 40% 98%;
 ```
 
-```css title="Secondary colors for <Button />"
+```css 
+/* Secondary colors for <Button /> */
 --secondary: 210 40% 96.1%;
 --secondary-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css title="Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc"
+```css 
+/* Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc */
 --accent: 210 40% 96.1%;
 --accent-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css title="Used for destructive actions such as <Button variant='destructive'>"
+```css 
+/* Used for destructive actions such as <Button variant="destructive"> */
 --destructive: 0 100% 50%;
 --destructive-foreground: 210 40% 98%;
 ```
 
-```css title="Used for focus ring"
+```css 
+/* Used for focus ring */
 --ring: 215 20.2% 65.1%;
 ```
 
-```css title="Border radius for card, input and buttons"
+```css 
+/* Border radius for card, input and buttons */
 --radius: 0.5rem;
 ```
 
-## Default
+</Steps>
 
-The following is the default color palette used by the components.
+### Adding new colors
 
-```css title="src/app.postcss"
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+To add new colors, you need to add them to your CSS file and to your `tailwind.config.js` file.
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --ring: 240 5% 64.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
-
-    --ring: 240 3.7% 15.9%;
-  }
+```css title="app/globals.css"
+:root {
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 89%;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+.dark {
+  --warning: 48 96% 89%;
+  --warning-foreground: 38 92% 50%;
 }
 ```
+
+```js {5-6} title="tailwind.config.js"
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'warning': 'hsl(var(--warning))',
+        'warning-foreground': 'hsl(var(--warning-foreground))',
+      },
+    },
+  },
+}
+```
+
+You can now use the `warning` utility class in your components.
+
+```html /bg-warning/ /text-warning-foreground/
+<div class="bg-warning text-warning-foreground" />
+```
+
+### Other color formats
+
+I recommend using [HSL colors](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) for theming but you can also use other color formats if you prefer.
+
+See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information on using `rgb`, `rgba` or `hsl` colors.
+
+
+
+
+## Hex -> Color Channel
+
+You can use this tool to convert your HEX color to HSL without the color space function. Simply add your color in hex format, copy one of the generated values, then add them to the CSS variable.
+
+<!-- <HexToChannels /> -->

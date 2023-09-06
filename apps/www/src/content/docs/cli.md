@@ -5,9 +5,9 @@ description: Use the CLI to add components to your project.
 
 ## init
 
-Use the `init` command to initialize dependencies for a new project.
+Use the `init` command to initialize configuration and dependencies for a new project.
 
-The `init` command installs dependencies, adds the `cn` util, configures `tailwind.config.cjs`, and creates CSS variables for the project.
+The `init` command installs dependencies, adds the `cn`, `useEmitsAsProps` utils, configures `tailwind.config.cjs`, and creates CSS variables for the project.
 
 ```bash
 npx shadcn-vue@latest init
@@ -15,13 +15,17 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```txt showLineNumbers
+```txt:line-numbers
+Would you like to use TypeScript (recommended)? no / yes
+Which framework are you using? Vite + Vue / Nuxt
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
-Where is your global CSS file? › src/app.postcss
-Where is your tailwind.config.[cjs|js|ts] located? › tailwind.config.js
-Configure the import alias for components: › $lib/components
-Configure the import alias for utils: › $lib/utils
+Where is your global CSS file? › › src/index.css
+Do you want to use CSS variables for colors? › no / yes
+Where is your tailwind.config.js located? › tailwind.config.js
+Configure the import alias for components: › @/components
+Configure the import alias for utils: › @/lib/utils
+Are you using React Server Components? › no / yes (no)
 ```
 
 ### Options

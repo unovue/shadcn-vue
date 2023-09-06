@@ -127,10 +127,13 @@
 	}
 }
 
-pre {
-	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border !bg-zinc-950 py-4 dark:!bg-zinc-900
-
+div[class^="language-"] {
+	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border !bg-zinc-950 dark:!bg-zinc-900
 }
+pre {
+	@apply  py-4;
+}
+
 pre code {
 	@apply relative rounded font-mono text-sm ;
 }
@@ -139,3 +142,6 @@ pre code .line {
 	@apply  px-4 min-h-[1.5rem] !py-0.5 w-full inline-block;
 } 
 
+.line-number {
+	@apply min-h-[1.375rem] !text-sm !inline-block text-muted-foreground;
+}
