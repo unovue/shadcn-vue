@@ -24,22 +24,17 @@ import {
 </script>
 
 <template>
-  <!-- <div class="md:hidden">
-    <img
-      src="/examples/dashboard-light.png"
+  <div class="md:hidden">
+    <VPImage
+      alt="Dashboard"
       width="1280"
-      height="866"
-      alt="Dashboard"
-      class="block dark:hidden"
-    >
-    <img
-      src="/examples/dashboard-dark.png"
-      width="{1280}"
-      height="{866}"
-      alt="Dashboard"
-      class="hidden dark:block"
-    >
-  </div> -->
+      height="1214" class="block" :image="{
+        dark: '/examples/dashboard-dark.png',
+        light: 'examples/dashboard-light.png',
+      }"
+    />
+  </div>
+
   <div class="hidden flex-col md:flex">
     <div class="border-b">
       <div class="flex h-16 items-center px-4">

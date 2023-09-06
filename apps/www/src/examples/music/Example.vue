@@ -19,22 +19,16 @@ import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 </script>
 
 <template>
-  <!-- <div class="md:hidden">
-        <Image
-          src="/examples/music-light.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          class="block dark:hidden"
-        />
-        <Image
-          src="/examples/music-dark.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          class="hidden dark:block"
-        />
-      </div> -->
+  <div class="md:hidden">
+    <VPImage
+      alt="Music"
+      width="1280"
+      height="1214" class="block" :image="{
+        dark: '/examples/music-dark.png',
+        light: 'examples/music-light.png',
+      }"
+    />
+  </div>
   <div class="hidden md:block">
     <Menu />
     <div class="border-t">

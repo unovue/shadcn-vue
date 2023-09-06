@@ -29,21 +29,16 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
 
 <template>
   <div class="md:hidden">
-    <Image
-      src="/examples/playground-light.png"
-      width="{1280}"
-      height="{916}"
+    <VPImage
       alt="Playground"
-      class="block dark:hidden"
-    />
-    <Image
-      src="/examples/playground-dark.png"
-      width="{1280}"
-      height="{916}"
-      alt="Playground"
-      class="hidden dark:block"
+      width="1280"
+      height="1214" class="block" :image="{
+        dark: '/examples/playground-dark.png',
+        light: 'examples/playground-light.png',
+      }"
     />
   </div>
+
   <div class="hidden h-full flex-col md:flex">
     <div class="container flex flex-col items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
       <h2 class="text-lg font-semibold">

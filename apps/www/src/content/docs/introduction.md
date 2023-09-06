@@ -22,13 +22,11 @@ _Use this as a reference to build your own component libraries._
 ## FAQ
 
 
-<AccordionRoot multiple>
+<Accordion  type="multiple">
 
 <AccordionItem value="faq-1">
 <AccordionTrigger>
-
 Why not packaged as a dependency?
-
 </AccordionTrigger>
 <AccordionContent>
 
@@ -60,4 +58,4 @@ Yes. Free to use for personal and commercial projects. No attribution required.
 But let us know if you do use it. We'd love to see what you build with it.
 </AccordionContent>
 </AccordionItem>
-</AccordionRoot>
+</Accordion>

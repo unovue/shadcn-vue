@@ -9,6 +9,7 @@ import GitHubIcon from '~icons/radix-icons/github-logo'
 import { buttonVariants } from '@/lib/registry/default/ui/button'
 import { Separator } from '@/lib/registry/default/ui/separator'
 import { cn } from '@/lib/utils'
+
 import DashboardExample from '@/examples/dashboard/Example.vue'
 </script>
 
@@ -53,20 +54,14 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
   </PageHeader>
   <ExamplesNav />
   <section class="space-y-8 overflow-hidden rounded-lg border-2 border-primary dark:border-muted md:hidden">
-    <!-- <Image
-          src="/examples/dashboard-light.png"
-          width={1280}
-          height={866}
-          alt="Dashboard"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/dashboard-dark.png"
-          width={1280}
-          height={866}
-          alt="Dashboard"
-          className="hidden dark:block"
-        /> -->
+    <VPImage
+      alt="Dashboard"
+      width="1280"
+      height="866" class="block" :image="{
+        dark: '/examples/dashboard-dark.png',
+        light: 'examples/dashboard-light.png',
+      }"
+    />
   </section>
   <section class="hidden md:block">
     <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">

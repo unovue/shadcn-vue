@@ -6,22 +6,17 @@ import { columns } from './components/columns'
 </script>
 
 <template>
-  <!-- <div className="md:hidden">
-        <Image
-          src="/examples/tasks-light.png"
-          width={1280}
-          height={998}
-          alt="Playground"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/tasks-dark.png"
-          width={1280}
-          height={998}
-          alt="Playground"
-          className="hidden dark:block"
-        />
-      </div> -->
+  <div class="md:hidden">
+    <VPImage
+      alt="Tasks"
+      width="1280"
+      height="1214" class="block" :image="{
+        dark: '/examples/tasks-dark.png',
+        light: 'examples/tasks-light.png',
+      }"
+    />
+  </div>
+
   <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
     <div className="flex items-center justify-between space-y-2">
       <div>
