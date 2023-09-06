@@ -16,7 +16,9 @@
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "build:cli": "pnpm --filter shadcn-vue build",
-    "build:registry": "pnpm --filter=www build:registry"
+    "build:registry": "pnpm --filter=www build:registry",
+    "pub:beta": "cd packages/cli && pnpm pub:beta",
+    "pub:release": "cd packages/cli && pnpm pub:release"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.7",
