@@ -17,7 +17,7 @@ export async function buildRegistry() {
   const ui_path = resolve('./src/lib/registry/default/ui')
   const uiRegistry = await crawlUI(ui_path)
 
-  const example_path = resolve('./src/lib/registry/default/examples')
+  const example_path = resolve('./src/lib/registry/default/example')
   const exampleRegistry = await crawlExample(example_path)
 
   return uiRegistry.concat(exampleRegistry)
