@@ -26,7 +26,6 @@
     "lint-staged": "^14.0.0",
     "pnpm": "^8.6.12",
     "simple-git-hooks": "^2.9.0",
-    "turbo": "^1.10.13",
     "typescript": "^5.2.2",
     "vitest": "^0.34.3"
   },
