@@ -112,8 +112,8 @@ export async function promptForConfig(
       name: 'framework',
       message: `Which ${highlight('framework')} are you using?`,
       choices: [
-        {title: 'Nuxt', value: 'nuxt'},
-        {title: 'Vite + Vue', value: 'vue'},
+        { title: 'Nuxt', value: 'nuxt' },
+        { title: 'Vite + Vue', value: 'vue' },
       ],
     },
     {
@@ -140,7 +140,7 @@ export async function promptForConfig(
       type: 'text',
       name: 'tailwindCss',
       message: `Where is your ${highlight('Tailwind CSS')} file?`,
-      initial: (prev,values) => defaultConfig?.tailwind.css ?? values.framework === 'nuxt' ? DEFAULT_TAILWIND_CSS_NUXT : DEFAULT_TAILWIND_CSS
+      initial: (prev, values) => defaultConfig?.tailwind.css ?? values.framework === 'nuxt' ? DEFAULT_TAILWIND_CSS_NUXT : DEFAULT_TAILWIND_CSS,
     },
     {
       type: 'toggle',
@@ -271,7 +271,7 @@ export async function runInit(cwd: string, config: Config) {
   const packageManager = await getPackageManager(cwd)
 
   // TODO: add support for other icon libraries.
-  const deps =  PROJECT_DEPENDENCIES.base.concat(
+  const deps = PROJECT_DEPENDENCIES.base.concat(
     config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : PROJECT_DEPENDENCIES.vue,
   ).concat(
     config.style === 'new-york' ? [] : ['lucide-vue-next'],

@@ -57,7 +57,7 @@ export const add = new Command()
       const config = await getConfig(cwd)
       if (!config) {
         logger.warn(
-          `Configuration is missing. Please run ${chalk.green( 'init' )} to create a components.json file.`,
+          `Configuration is missing. Please run ${chalk.green('init')} to create a components.json file.`,
         )
         process.exit(1)
       }
@@ -139,7 +139,7 @@ export const add = new Command()
         }
 
         for (const file of item.files) {
-          let filePath = path.resolve(targetDir, file.name)
+          const filePath = path.resolve(targetDir, file.name)
 
           // Run transformers.
           const content = await transform({

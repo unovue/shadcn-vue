@@ -286,7 +286,7 @@ for (const baseColor of ['slate', 'gray', 'zinc', 'neutral', 'stone', 'lime']) {
         const color = scale
           ? colorsData[resolvedBase].find(
             (item: any) => item.scale === Number.parseInt(scale),
-					  )
+          )
           : colorsData[resolvedBase]
         if (color)
           base.cssVars[mode][key] = color.hslChannel
