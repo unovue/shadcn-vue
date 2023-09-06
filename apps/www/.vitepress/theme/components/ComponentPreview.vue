@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<{
 
 const Component = defineAsyncComponent({
   loadingComponent: Spinner,
-  loader: () => import(`../../../src/lib/registry/default/examples/${props.name}.vue`),
+  loader: () => import(`../../../src/lib/registry/default/example/${props.name}.vue`),
   timeout: 5000,
 })
 </script>

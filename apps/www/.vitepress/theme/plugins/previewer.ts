@@ -17,7 +17,7 @@ export default function (md: MarkdownRenderer) {
 
       const { name, attrs } = props
       const pluginPath = dirname(__dirname)
-      const srcPath = resolve(pluginPath, '../../src/lib/registry/default/examples/', `${name}.vue`).replace(/\\/g, '/')
+      const srcPath = resolve(pluginPath, '../../src/lib/registry/default/example/', `${name}.vue`).replace(/\\/g, '/')
 
       if (!fs.existsSync(srcPath)) {
         console.error(`rendering ${path}: ${srcPath} does not exist`)
