@@ -66,7 +66,7 @@ onMounted(async () => {
   const bar = new StackedBar<typeof data[0]>({
     x: (d, i) => i,
     y: d => d.total,
-    color: '#adfa1d',
+    color: '#41b883',
     roundedCorners: 4,
     barPadding: 0.15,
   })
