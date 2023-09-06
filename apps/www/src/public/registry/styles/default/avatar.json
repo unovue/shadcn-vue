@@ -1,12 +1,27 @@
 {
   "name": "avatar",
   "dependencies": [
-    "@radix-ui/react-avatar"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "avatar.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as AvatarPrimitive from \"@radix-ui/react-avatar\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Avatar = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Root\n    ref={ref}\n    className={cn(\n      \"relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full\",\n      className\n    )}\n    {...props}\n  />\n))\nAvatar.displayName = AvatarPrimitive.Root.displayName\n\nconst AvatarImage = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Image>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Image\n    ref={ref}\n    className={cn(\"aspect-square h-full w-full\", className)}\n    {...props}\n  />\n))\nAvatarImage.displayName = AvatarPrimitive.Image.displayName\n\nconst AvatarFallback = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Fallback>,\n  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Fallback\n    ref={ref}\n    className={cn(\n      \"flex h-full w-full items-center justify-center rounded-full bg-muted\",\n      className\n    )}\n    {...props}\n  />\n))\nAvatarFallback.displayName = AvatarPrimitive.Fallback.displayName\n\nexport { Avatar, AvatarImage, AvatarFallback }\n"
+      "name": "Avatar.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AvatarRoot } from 'radix-vue'\nimport { avatarVariant } from '.'\nimport { cn } from '@/lib/utils'\n\ninterface Props {\n  size?: NonNullable<Parameters<typeof avatarVariant>[0]>['size']\n  shape?: NonNullable<Parameters<typeof avatarVariant>[0]>['shape']\n  class?: string\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  size: 'sm',\n  shape: 'circle',\n})\n</script>\n\n<template>\n  <AvatarRoot :class=\"cn(avatarVariant({ size, shape }), props.class)\">\n    <slot />\n  </AvatarRoot>\n</template>\n"
+    },
+    {
+      "name": "AvatarFallback.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AvatarFallback, type AvatarFallbackProps } from 'radix-vue'\n\nconst props = defineProps<AvatarFallbackProps>()\n</script>\n\n<template>\n  <AvatarFallback v-bind=\"props\">\n    <slot />\n  </AvatarFallback>\n</template>\n"
+    },
+    {
+      "name": "AvatarImage.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AvatarImage, type AvatarImageProps } from 'radix-vue'\n\nconst props = defineProps<AvatarImageProps>()\n</script>\n\n<template>\n  <AvatarImage v-bind=\"props\" class=\"h-full w-full object-cover\" />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "import { cva } from 'class-variance-authority'\n\nexport { default as Avatar } from './Avatar.vue'\nexport { default as AvatarImage } from './AvatarImage.vue'\nexport { default as AvatarFallback } from './AvatarFallback.vue'\n\nexport const avatarVariant = cva(\n  'inline-flex items-center justify-center font-normal text-foregorund select-none shrink-0 bg-secondary overflow-hidden',\n  {\n    variants: {\n      size: {\n        sm: 'h-10 w-10 text-xs',\n        base: 'h-16 w-16 text-2xl',\n        lg: 'h-32 w-32 text-5xl',\n      },\n      shape: {\n        circle: 'rounded-full',\n        square: 'rounded-md',\n      },\n    },\n  },\n)\n"
     }
   ],
   "type": "components:ui"

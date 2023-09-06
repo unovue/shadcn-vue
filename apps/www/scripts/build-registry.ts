@@ -9,7 +9,7 @@ import { styles } from '../src/lib/registry/styles'
 import { themes } from '../src/lib/registry/themes'
 import { buildRegistry } from '../src/lib/registry/registry'
 
-const REGISTRY_PATH = path.join(process.cwd(), 'static/registry')
+const REGISTRY_PATH = path.join(process.cwd(), 'src/public/registry')
 
 const registry = await buildRegistry()
 const result = registrySchema.safeParse(registry)

@@ -1,12 +1,19 @@
 {
   "name": "switch",
   "dependencies": [
-    "@radix-ui/react-switch"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "switch.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as SwitchPrimitives from \"@radix-ui/react-switch\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Switch = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitives.Root>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>\n>(({ className, ...props }, ref) => (\n  <SwitchPrimitives.Root\n    className={cn(\n      \"peer inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input\",\n      className\n    )}\n    {...props}\n    ref={ref}\n  >\n    <SwitchPrimitives.Thumb\n      className={cn(\n        \"pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0\"\n      )}\n    />\n  </SwitchPrimitives.Root>\n))\nSwitch.displayName = SwitchPrimitives.Root.displayName\n\nexport { Switch }\n"
+      "name": "Switch.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  SwitchRoot,\n  type SwitchRootEmits,\n  type SwitchRootProps,\n  SwitchThumb,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SwitchRootProps & { class?: string }>()\n\nconst emits = defineEmits<SwitchRootEmits>()\n</script>\n\n<template>\n  <SwitchRoot\n    v-bind=\"props\"\n    :class=\"\n      cn(\n        'peer inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',\n        props.class,\n      )\n    \"\n    @update:checked=\"emits('update:checked', $event)\"\n  >\n    <SwitchThumb\n      :class=\"\n        cn(\n          'pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0',\n        )\n      \"\n    />\n  </SwitchRoot>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Switch } from './Switch.vue'\n"
     }
   ],
   "type": "components:ui"

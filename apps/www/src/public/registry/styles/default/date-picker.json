@@ -1,6 +1,8 @@
 {
   "name": "date-picker",
-  "dependencies": [],
+  "dependencies": [
+    "v-calendar"
+  ],
   "registryDependencies": [],
   "files": [
     {

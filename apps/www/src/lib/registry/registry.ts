@@ -6,6 +6,8 @@ import type { Registry } from '../../lib/registry'
 
 const DEPENDENCIES = new Map<string, string[]>([
   ['radix-vue', []],
+  ['v-calendar', []],
+  ['@tanstack/vue-table', []],
   ['formsnap', ['zod']],
 ])
 const REGISTRY_DEPENDENCY = '@/'

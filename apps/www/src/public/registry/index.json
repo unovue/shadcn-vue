@@ -2,369 +2,615 @@
   {
     "name": "accordion",
     "dependencies": [
-      "@radix-ui/react-accordion"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/accordion.tsx"
+      "ui/accordion/Accordion.vue",
+      "ui/accordion/AccordionContent.vue",
+      "ui/accordion/AccordionItem.vue",
+      "ui/accordion/AccordionTrigger.vue",
+      "ui/accordion/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "alert",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
     "files": [
-      "ui/alert.tsx"
+      "ui/alert/Alert.vue",
+      "ui/alert/AlertDescription.vue",
+      "ui/alert/AlertTitle.vue",
+      "ui/alert/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "alert-dialog",
     "dependencies": [
-      "@radix-ui/react-alert-dialog"
+      "radix-vue"
     ],
     "registryDependencies": [
+      "utils",
       "button"
     ],
     "files": [
-      "ui/alert-dialog.tsx"
+      "ui/alert-dialog/AlertDialog.vue",
+      "ui/alert-dialog/AlertDialogAction.vue",
+      "ui/alert-dialog/AlertDialogCancel.vue",
+      "ui/alert-dialog/AlertDialogContent.vue",
+      "ui/alert-dialog/AlertDialogDescription.vue",
+      "ui/alert-dialog/AlertDialogFooter.vue",
+      "ui/alert-dialog/AlertDialogHeader.vue",
+      "ui/alert-dialog/AlertDialogTitle.vue",
+      "ui/alert-dialog/AlertDialogTrigger.vue",
+      "ui/alert-dialog/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "aspect-ratio",
     "dependencies": [
-      "@radix-ui/react-aspect-ratio"
+      "radix-vue"
     ],
+    "registryDependencies": [],
     "files": [
-      "ui/aspect-ratio.tsx"
+      "ui/aspect-ratio/AspectRatio.vue",
+      "ui/aspect-ratio/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "avatar",
     "dependencies": [
-      "@radix-ui/react-avatar"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/avatar.tsx"
+      "ui/avatar/Avatar.vue",
+      "ui/avatar/AvatarFallback.vue",
+      "ui/avatar/AvatarImage.vue",
+      "ui/avatar/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "badge",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
     "files": [
-      "ui/badge.tsx"
+      "ui/badge/Badge.vue",
+      "ui/badge/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "breadcrumb",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "ui/breadcrumb/BreadCrumb.vue",
+      "ui/breadcrumb/BreadCrumbItem.vue",
+      "ui/breadcrumb/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "button",
-    "dependencies": [
-      "@radix-ui/react-slot"
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/button.tsx"
+      "ui/button/Button.vue",
+      "ui/button/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "calendar",
     "dependencies": [
-      "react-day-picker",
-      "date-fns"
+      "v-calendar"
     ],
     "registryDependencies": [
-      "button"
+      "utils"
     ],
     "files": [
-      "ui/calendar.tsx"
+      "ui/calendar/Calendar.vue",
+      "ui/calendar/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "card",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
     "files": [
-      "ui/card.tsx"
+      "ui/card/Card.vue",
+      "ui/card/CardContent.vue",
+      "ui/card/CardDescription.vue",
+      "ui/card/CardFooter.vue",
+      "ui/card/CardHeader.vue",
+      "ui/card/CardTitle.vue",
+      "ui/card/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "checkbox",
     "dependencies": [
-      "@radix-ui/react-checkbox"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/checkbox.tsx"
+      "ui/checkbox/Checkbox.vue",
+      "ui/checkbox/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "collapsible",
     "dependencies": [
-      "@radix-ui/react-collapsible"
-    ],
-    "files": [
-      "ui/collapsible.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "command",
-    "dependencies": [
-      "cmdk"
+      "radix-vue"
     ],
     "registryDependencies": [
-      "dialog"
+      "utils"
     ],
     "files": [
-      "ui/command.tsx"
+      "ui/collapsible/Collapsible.vue",
+      "ui/collapsible/CollapsibleContent.vue",
+      "ui/collapsible/CollapsibleTrigger.vue",
+      "ui/collapsible/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "context-menu",
     "dependencies": [
-      "@radix-ui/react-context-menu"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/context-menu.tsx"
+      "ui/context-menu/ContextMenu.vue",
+      "ui/context-menu/ContextMenuCheckboxItem.vue",
+      "ui/context-menu/ContextMenuContent.vue",
+      "ui/context-menu/ContextMenuGroup.vue",
+      "ui/context-menu/ContextMenuItem.vue",
+      "ui/context-menu/ContextMenuLabel.vue",
+      "ui/context-menu/ContextMenuPortal.vue",
+      "ui/context-menu/ContextMenuRadioGroup.vue",
+      "ui/context-menu/ContextMenuRadioItem.vue",
+      "ui/context-menu/ContextMenuSeparator.vue",
+      "ui/context-menu/ContextMenuShortcut.vue",
+      "ui/context-menu/ContextMenuSub.vue",
+      "ui/context-menu/ContextMenuSubContent.vue",
+      "ui/context-menu/ContextMenuSubTrigger.vue",
+      "ui/context-menu/ContextMenuTrigger.vue",
+      "ui/context-menu/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "data-table",
+    "dependencies": [
+      "@tanstack/vue-table"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "ui/data-table/DataTable.vue",
+      "ui/data-table/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "date-picker",
+    "dependencies": [
+      "v-calendar"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "ui/date-picker/DatePicker.vue",
+      "ui/date-picker/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "dialog",
     "dependencies": [
-      "@radix-ui/react-dialog"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/dialog.tsx"
+      "ui/dialog/Dialog.vue",
+      "ui/dialog/DialogContent.vue",
+      "ui/dialog/DialogDescription.vue",
+      "ui/dialog/DialogFooter.vue",
+      "ui/dialog/DialogHeader.vue",
+      "ui/dialog/DialogTitle.vue",
+      "ui/dialog/DialogTrigger.vue",
+      "ui/dialog/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "dropdown-menu",
     "dependencies": [
-      "@radix-ui/react-dropdown-menu"
-    ],
-    "files": [
-      "ui/dropdown-menu.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "form",
-    "dependencies": [
-      "@radix-ui/react-label",
-      "@radix-ui/react-slot",
-      "@hookform/resolvers",
-      "zod",
-      "react-hook-form"
+      "radix-vue"
     ],
     "registryDependencies": [
-      "button",
-      "label"
+      "utils"
     ],
     "files": [
-      "ui/form.tsx"
+      "ui/dropdown-menu/DropdownMenu.vue",
+      "ui/dropdown-menu/DropdownMenuCheckboxItem.vue",
+      "ui/dropdown-menu/DropdownMenuContent.vue",
+      "ui/dropdown-menu/DropdownMenuGroup.vue",
+      "ui/dropdown-menu/DropdownMenuItem.vue",
+      "ui/dropdown-menu/DropdownMenuLabel.vue",
+      "ui/dropdown-menu/DropdownMenuRadioGroup.vue",
+      "ui/dropdown-menu/DropdownMenuRadioItem.vue",
+      "ui/dropdown-menu/DropdownMenuSeparator.vue",
+      "ui/dropdown-menu/DropdownMenuShortcut.vue",
+      "ui/dropdown-menu/DropdownMenuSub.vue",
+      "ui/dropdown-menu/DropdownMenuSubContent.vue",
+      "ui/dropdown-menu/DropdownMenuSubTrigger.vue",
+      "ui/dropdown-menu/DropdownMenuTrigger.vue",
+      "ui/dropdown-menu/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "hover-card",
     "dependencies": [
-      "@radix-ui/react-hover-card"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/hover-card.tsx"
+      "ui/hover-card/HoverCard.vue",
+      "ui/hover-card/HoverCardContent.vue",
+      "ui/hover-card/HoverCardTrigger.vue",
+      "ui/hover-card/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "input",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
     "files": [
-      "ui/input.tsx"
+      "ui/input/Input.vue",
+      "ui/input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "kbd",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      "ui/kbd/Kbd.vue",
+      "ui/kbd/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "label",
     "dependencies": [
-      "@radix-ui/react-label"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/label.tsx"
+      "ui/label/Label.vue",
+      "ui/label/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "menubar",
     "dependencies": [
-      "@radix-ui/react-menubar"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/menubar.tsx"
+      "ui/menubar/Menubar.vue",
+      "ui/menubar/MenubarCheckboxItem.vue",
+      "ui/menubar/MenubarContent.vue",
+      "ui/menubar/MenubarGroup.vue",
+      "ui/menubar/MenubarItem.vue",
+      "ui/menubar/MenubarLabel.vue",
+      "ui/menubar/MenubarMenu.vue",
+      "ui/menubar/MenubarRadioGroup.vue",
+      "ui/menubar/MenubarRadioItem.vue",
+      "ui/menubar/MenubarSeparator.vue",
+      "ui/menubar/MenubarShortcut.vue",
+      "ui/menubar/MenubarSub.vue",
+      "ui/menubar/MenubarSubContent.vue",
+      "ui/menubar/MenubarSubTrigger.vue",
+      "ui/menubar/MenubarTrigger.vue",
+      "ui/menubar/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "navigation-menu",
     "dependencies": [
-      "@radix-ui/react-navigation-menu"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/navigation-menu.tsx"
+      "ui/navigation-menu/NavigationMenu.vue",
+      "ui/navigation-menu/NavigationMenuContent.vue",
+      "ui/navigation-menu/NavigationMenuIndicator.vue",
+      "ui/navigation-menu/NavigationMenuItem.vue",
+      "ui/navigation-menu/NavigationMenuLink.vue",
+      "ui/navigation-menu/NavigationMenuList.vue",
+      "ui/navigation-menu/NavigationMenuTrigger.vue",
+      "ui/navigation-menu/NavigationMenuViewport.vue",
+      "ui/navigation-menu/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "popover",
     "dependencies": [
-      "@radix-ui/react-popover"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/popover.tsx"
+      "ui/popover/Popover.vue",
+      "ui/popover/PopoverContent.vue",
+      "ui/popover/PopoverTrigger.vue",
+      "ui/popover/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "progress",
     "dependencies": [
-      "@radix-ui/react-progress"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/progress.tsx"
+      "ui/progress/Progress.vue",
+      "ui/progress/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "radio-group",
     "dependencies": [
-      "@radix-ui/react-radio-group"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/radio-group.tsx"
+      "ui/radio-group/RadioGroup.vue",
+      "ui/radio-group/RadioGroupItem.vue",
+      "ui/radio-group/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "scroll-area",
     "dependencies": [
-      "@radix-ui/react-scroll-area"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/scroll-area.tsx"
+      "ui/scroll-area/ScrollArea.vue",
+      "ui/scroll-area/ScrollBar.vue",
+      "ui/scroll-area/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "select",
     "dependencies": [
-      "@radix-ui/react-select"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/select.tsx"
+      "ui/select/Select.vue",
+      "ui/select/SelectContent.vue",
+      "ui/select/SelectGroup.vue",
+      "ui/select/SelectItem.vue",
+      "ui/select/SelectItemText.vue",
+      "ui/select/SelectLabel.vue",
+      "ui/select/SelectSeparator.vue",
+      "ui/select/SelectTrigger.vue",
+      "ui/select/SelectValue.vue",
+      "ui/select/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "separator",
     "dependencies": [
-      "@radix-ui/react-separator"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/separator.tsx"
+      "ui/separator/Separator.vue",
+      "ui/separator/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "sheet",
     "dependencies": [
-      "@radix-ui/react-dialog"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/sheet.tsx"
+      "ui/sheet/Sheet.vue",
+      "ui/sheet/SheetClose.vue",
+      "ui/sheet/SheetContent.vue",
+      "ui/sheet/SheetDescription.vue",
+      "ui/sheet/SheetFooter.vue",
+      "ui/sheet/SheetHeader.vue",
+      "ui/sheet/SheetTitle.vue",
+      "ui/sheet/SheetTrigger.vue",
+      "ui/sheet/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "skeleton",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
     "files": [
-      "ui/skeleton.tsx"
+      "ui/skeleton/Skeleton.vue",
+      "ui/skeleton/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "slider",
     "dependencies": [
-      "@radix-ui/react-slider"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/slider.tsx"
+      "ui/slider/Slider.vue",
+      "ui/slider/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "switch",
     "dependencies": [
-      "@radix-ui/react-switch"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/switch.tsx"
+      "ui/switch/Switch.vue",
+      "ui/switch/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "table",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
     "files": [
-      "ui/table.tsx"
+      "ui/table/Table.vue",
+      "ui/table/TableBody.vue",
+      "ui/table/TableCaption.vue",
+      "ui/table/TableCell.vue",
+      "ui/table/TableEmpty.vue",
+      "ui/table/TableFooter.vue",
+      "ui/table/TableHead.vue",
+      "ui/table/TableHeader.vue",
+      "ui/table/TableRow.vue",
+      "ui/table/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "tabs",
     "dependencies": [
-      "@radix-ui/react-tabs"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/tabs.tsx"
+      "ui/tabs/Tabs.vue",
+      "ui/tabs/TabsContent.vue",
+      "ui/tabs/TabsList.vue",
+      "ui/tabs/TabsTrigger.vue",
+      "ui/tabs/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "textarea",
-    "files": [
-      "ui/textarea.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "toast",
-    "dependencies": [
-      "@radix-ui/react-toast"
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/toast.tsx",
-      "ui/use-toast.ts",
-      "ui/toaster.tsx"
+      "ui/textarea/Textarea.vue",
+      "ui/textarea/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "toggle",
     "dependencies": [
-      "@radix-ui/react-toggle"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/toggle.tsx"
+      "ui/toggle/Toggle.vue",
+      "ui/toggle/index.ts"
     ],
     "type": "components:ui"
   },
   {
     "name": "tooltip",
     "dependencies": [
-      "@radix-ui/react-tooltip"
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
     ],
     "files": [
-      "ui/tooltip.tsx"
+      "ui/tooltip/Tooltip.vue",
+      "ui/tooltip/TooltipContent.vue",
+      "ui/tooltip/TooltipProvider.vue",
+      "ui/tooltip/TooltipTrigger.vue",
+      "ui/tooltip/index.ts"
     ],
     "type": "components:ui"
   }
