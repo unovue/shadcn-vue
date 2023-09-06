@@ -17,6 +17,17 @@ Accessible and customizable components that you can copy and paste into your app
 
 Visit https://shadcn-vue.com/docs to view the documentation.
 
+## Credits
+
+All credits go to these open-source works and resources
+
+- [Shadnc UI](https://ui.shadcn.com) for creating this beautiful project
+- [Shadnc Svelte](https://shadcn-svelte.com) for some inspiration for registry
+- [Radix Vue](https://radix-vue.com) for doing all the hard work to make sure components are accessible
+- [VueUse](https://vueuse.org) for providing many useful utilities.
+
+- [ahmedmayara](https://github.com/ahmedmayara/shadcn-vue) for populating many components
+
 ## License
 
 Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
