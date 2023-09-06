@@ -165,13 +165,13 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="free">
-                  <span class="font-medium">Free</span> -{" "}
+                  <span class="font-medium">Free</span> -
                   <span class="text-muted-foreground">
                     Trial for two weeks
                   </span>
                 </SelectItem>
                 <SelectItem value="pro">
-                  <span class="font-medium">Pro</span> -{" "}
+                  <span class="font-medium">Pro</span> -
                   <span class="text-muted-foreground">
                     $9/month per user
                   </span>
