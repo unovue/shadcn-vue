@@ -8,15 +8,15 @@ import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
-import * as templates from '@/src/utils/templates'
+import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
   getRegistryBaseColors,
   getRegistryStyles,
-} from '@/src/utils/registry'
-import { logger } from '@/src/utils/logger'
-import { handleError } from '@/src/utils/handle-error'
-import { getPackageManager } from '@/src/utils/get-package-manager'
+} from '../utils/registry'
+import { logger } from '../utils/logger'
+import { handleError } from '../utils/handle-error'
+import { getPackageManager } from '../utils/get-package-manager'
 import {
   type Config,
   DEFAULT_COMPONENTS,
@@ -27,7 +27,7 @@ import {
   getConfig,
   rawConfigSchema,
   resolveConfigPaths,
-} from '@/src/utils/get-config'
+} from '../utils/get-config'
 
 const PROJECT_DEPENDENCIES = {
   base: [
