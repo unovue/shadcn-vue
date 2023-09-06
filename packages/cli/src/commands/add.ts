@@ -110,7 +110,7 @@ export const add = new Command()
       const skippedDeps = new Set<string>()
       for (const item of payload) {
         spinner.text = `Installing ${item.name}...`
-        const targetDir = await getItemTargetPath(
+        const targetDir = getItemTargetPath(
           config,
           item,
           options.path ? path.resolve(cwd, options.path) : undefined,

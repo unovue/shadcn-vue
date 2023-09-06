@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
@@ -40,7 +40,7 @@
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
     "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
-    "pub:release": "pnpm build && pnpm publish --access public",
+    "pub:release": "pnpm build && pnpm publish  --no-git-checks --access public",
     "test": "vitest run",
     "test:ui": "vitest --ui"
   },
