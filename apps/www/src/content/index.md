@@ -1,5 +1,6 @@
 ---
 home: true
+title: Shadcn for Vue
 ---
 
 <script setup>

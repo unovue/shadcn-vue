@@ -34,7 +34,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
       width="1280"
       height="1214" class="block" :image="{
         dark: '/examples/playground-dark.png',
-        light: 'examples/playground-light.png',
+        light: '/examples/playground-light.png',
       }"
     />
   </div>

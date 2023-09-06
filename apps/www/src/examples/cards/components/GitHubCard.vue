@@ -50,7 +50,6 @@ import { Separator } from '@/lib/registry/default/ui/separator'
             align="end"
             :align-offset="-5"
             class="w-[200px]"
-            force-mount
           >
             <DropdownMenuLabel>Suggested Lists</DropdownMenuLabel>
             <DropdownMenuSeparator />

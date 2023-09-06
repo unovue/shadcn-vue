@@ -59,7 +59,7 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
       width="1280"
       height="866" class="block" :image="{
         dark: '/examples/dashboard-dark.png',
-        light: 'examples/dashboard-light.png',
+        light: '/examples/dashboard-light.png',
       }"
     />
   </section>

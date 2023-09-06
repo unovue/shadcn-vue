@@ -4,13 +4,14 @@ import { Content, useData, useRoute } from 'vitepress'
 import { docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Kbd } from '@/lib/registry/default/ui/kbd'
+
+// import { Button } from '@/lib/registry/default/ui/button'
+// import { Kbd } from '@/lib/registry/default/ui/kbd'
+// import LucideSearch from '~icons/lucide/search'
 import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
 import TablerBrandX from '~icons/tabler/brand-x'
 import RadixIconsMoon from '~icons/radix-icons/moon'
 import RadixIconsSun from '~icons/radix-icons/sun'
-import LucideSearch from '~icons/lucide/search'
 
 const { frontmatter } = useData()
 
@@ -37,8 +38,10 @@ const links = [
   <div class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
-        class="container flex h-14 items-center"
+        class="container flex justify-between h-14 items-center"
       >
+        <MobileNav />
+
         <div class="mr-4 hidden md:flex">
           <Logo />
 
@@ -60,8 +63,8 @@ const links = [
           </nav>
         </div>
 
-        <div class="md:flex flex-1 items-center justify-end space-x-4 hidden">
-          <Button
+        <div class=" flex items-center justify-end space-x-4 ">
+          <!-- <Button
             variant="outline"
             class="w-72 h-8 px-3 hidden lg:flex lg:justify-between lg:items-center"
           >
@@ -73,7 +76,7 @@ const links = [
               <Kbd>⌘</Kbd>
               <Kbd>K</Kbd>
             </div>
-          </Button>
+          </Button> -->
 
           <div
             v-for="link in links"
@@ -96,8 +99,6 @@ const links = [
             />
           </button>
         </div>
-
-        <MobileNav />
       </div>
     </header>
 

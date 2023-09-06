@@ -2,13 +2,15 @@
 import { useData, useRoute } from 'vitepress'
 import { docsConfig } from '../config/docs'
 import TableOfContentVue from '../components/TableOfContent.vue'
+import EditLink from '../components/EditLink.vue'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import { Badge } from '@/lib/registry/default/ui/badge'
 import RadixIconsCode from '~icons/radix-icons/code'
 import ChevronRightIcon from '~icons/lucide/chevron-right'
 
 const $route = useRoute()
-const { frontmatter } = useData()
+const { frontmatter, ...a } = useData()
+console.log(a)
 </script>
 
 <template>
@@ -90,6 +92,8 @@ const { frontmatter } = useData()
           <div class="vp-doc">
             <slot />
           </div>
+
+          <EditLink />
         </div>
 
         <div class="hidden text-sm xl:block">

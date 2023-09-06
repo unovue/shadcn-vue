@@ -18,7 +18,7 @@ import TeamMembers from './components/TeamMembers.vue'
       width="1280"
       height="1214" class="block" :image="{
         dark: '/examples/cards-dark.png',
-        light: 'examples/cards-light.png',
+        light: '/examples/cards-light.png',
       }"
     />
   </div>

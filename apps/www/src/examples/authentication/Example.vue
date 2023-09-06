@@ -11,7 +11,7 @@ import { buttonVariants } from '@/lib/registry/default/ui/button'
       width="1280"
       height="1214" class="block" :image="{
         dark: '/examples/authentication-dark.png',
-        light: 'examples/authentication-light.png',
+        light: '/examples/authentication-light.png',
       }"
     />
   </div>

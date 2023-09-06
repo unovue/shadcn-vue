@@ -25,7 +25,7 @@ import PlusCircledIcon from '~icons/radix-icons/plus-circled'
       width="1280"
       height="1214" class="block" :image="{
         dark: '/examples/music-dark.png',
-        light: 'examples/music-light.png',
+        light: '/examples/music-light.png',
       }"
     />
   </div>

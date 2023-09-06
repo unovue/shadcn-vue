@@ -12,7 +12,7 @@ import { columns } from './components/columns'
       width="1280"
       height="1214" class="block" :image="{
         dark: '/examples/tasks-dark.png',
-        light: 'examples/tasks-light.png',
+        light: '/examples/tasks-light.png',
       }"
     />
   </div>

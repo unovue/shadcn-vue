@@ -30,7 +30,7 @@ import {
       width="1280"
       height="1214" class="block" :image="{
         dark: '/examples/dashboard-dark.png',
-        light: 'examples/dashboard-light.png',
+        light: '/examples/dashboard-light.png',
       }"
     />
   </div>

@@ -200,7 +200,7 @@ import {
       <MenubarTrigger class="hidden md:block">
         Account
       </MenubarTrigger>
-      <MenubarContent force-mount>
+      <MenubarContent>
         <MenubarLabel inset>
           Switch Account
         </MenubarLabel>
