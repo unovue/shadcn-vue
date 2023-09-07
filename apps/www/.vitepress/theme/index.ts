@@ -7,6 +7,7 @@ import * as components from './components'
 import './style.css'
 import './styles/vp-doc.css'
 import './styles/shiki.css'
+import './styles/themes.css'
 
 export default {
   Layout,
