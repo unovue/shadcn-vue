@@ -1,7 +1,7 @@
 ---
 title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content. 
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/accordion 
+source: apps/www/src/lib/registry/default/ui/accordion 
 primitive: https://www.radix-vue.com/components/accordion.html
 ---
 

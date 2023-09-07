@@ -1,7 +1,7 @@
 ---
 title: Avatar
 description: An image element with a fallback for representing the user.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/avatar 
+source: apps/www/src/lib/registry/default/ui/avatar 
 primitive: https://www.radix-vue.com/components/avatar.html
 ---
 

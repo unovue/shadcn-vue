@@ -1,7 +1,7 @@
 ---
 title: Progress
 description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/progress 
+source: apps/www/src/lib/registry/default/ui/progress 
 primitive: https://www.radix-vue.com/components/progress.html
 ---
 

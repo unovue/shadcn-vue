@@ -38,7 +38,7 @@ export default defineConfig({
       provider: 'local',
     },
     editLink: {
-      pattern: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/:path',
+      pattern: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/:path',
       text: 'Edit this page on GitHub',
     },
   },

@@ -1,7 +1,7 @@
 ---
 title: Navigation Menu
 description: A collection of links for navigating websites.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/navigation-menu 
+source: apps/www/src/lib/registry/default/ui/navigation-menu 
 primitive: https://www.radix-vue.com/components/navigation-menu.html
 ---
 

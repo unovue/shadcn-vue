@@ -1,7 +1,7 @@
 ---
 title: Menubar
 description: A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/menubar 
+source: apps/www/src/lib/registry/default/ui/menubar 
 primitive: https://www.radix-vue.com/components/menubar.html
 ---
 

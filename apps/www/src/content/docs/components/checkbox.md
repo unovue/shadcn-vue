@@ -1,7 +1,7 @@
 ---
 title: Checkbox
 description: A control that allows the user to toggle between checked and not checked.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/checkbox 
+source: apps/www/src/lib/registry/default/ui/checkbox 
 primitive: https://www.radix-vue.com/components/checkbox.html
 ---
 

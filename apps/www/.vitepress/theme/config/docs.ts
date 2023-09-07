@@ -321,37 +321,37 @@ export const examples: Example[] = [
   {
     name: 'Dashboard',
     href: '/examples/dashboard',
-    code: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/examples/dashboard',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/dashboard',
   },
   {
     name: 'Cards',
     href: '/examples/cards',
-    code: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/examples/cards',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/cards',
   },
   // {
   // 	name: "Tasks",
   // 	href: "/examples/tasks",
   // 	label: "New",
-  // 	code: "https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/examples/tasks"
+  // 	code: "https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/tasks"
   // },
   {
     name: 'Playground',
     href: '/examples/playground',
-    code: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/examples/playground',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/playground',
   },
   {
     name: 'Music',
     href: '/examples/music',
-    code: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/examples/music',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/music',
   },
   {
     name: 'Authentication',
     href: '/examples/authentication',
-    code: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/examples/authentication',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/authentication',
   },
   {
     name: 'Forms',
     href: '/examples/forms',
-    code: 'https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/routes/examples/forms',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/routes/examples/forms',
   },
 ]

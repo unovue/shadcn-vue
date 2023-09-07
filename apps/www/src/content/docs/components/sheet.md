@@ -1,7 +1,7 @@
 ---
 title: Sheet
 description: Extends the Dialog component to display content that complements the main content of the screen.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/dialog 
+source: apps/www/src/lib/registry/default/ui/dialog 
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Scroll-area
 description: Augments native scroll functionality for custom, cross-browser styling.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/scroll-area 
+source: apps/www/src/lib/registry/default/ui/scroll-area 
 primitive: https://www.radix-vue.com/components/scroll-area.html
 ---
 

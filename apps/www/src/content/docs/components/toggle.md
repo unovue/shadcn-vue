@@ -1,7 +1,7 @@
 ---
 title: Toggle
 description: A two-state button that can be either on or off.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/toggle 
+source: apps/www/src/lib/registry/default/ui/toggle 
 primitive: https://www.radix-vue.com/components/toggle.html
 ---
 

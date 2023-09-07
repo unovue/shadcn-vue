@@ -1,7 +1,7 @@
 --- 
 title: Collapsible
 description: An interactive component which expands/collapses a panel.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/collapsible 
+source: apps/www/src/lib/registry/default/ui/collapsible 
 primitive: https://www.radix-vue.com/components/collapsible.html
 ---
 

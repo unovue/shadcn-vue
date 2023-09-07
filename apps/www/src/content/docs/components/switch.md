@@ -1,7 +1,7 @@
 ---
 title: Switch
 description: A control that allows the user to toggle between checked and not checked.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/switch 
+source: apps/www/src/lib/registry/default/ui/switch 
 primitive: https://www.radix-vue.com/components/switch.html
 ---
 

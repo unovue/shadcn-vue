@@ -1,7 +1,7 @@
 ---
 title: Separator
 description: Visually or semantically separates content.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/separator 
+source: apps/www/src/lib/registry/default/ui/separator 
 primitive: https://www.radix-vue.com/components/separator.html
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Radio Group
 description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/radio-group 
+source: apps/www/src/lib/registry/default/ui/radio-group 
 primitive: https://www.radix-vue.com/components/radio-group.html
 ---
 

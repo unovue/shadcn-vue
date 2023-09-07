@@ -1,7 +1,7 @@
 ---
 title: Popover
 description: Displays rich content in a portal, triggered by a button.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/popover 
+source: apps/www/src/lib/registry/default/ui/popover 
 primitive: https://www.radix-vue.com/components/popover.html
 ---
 

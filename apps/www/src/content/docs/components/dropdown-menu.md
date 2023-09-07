@@ -1,7 +1,7 @@
 ---
 title: Dropdown Menu
 description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/dropdown-menu 
+source: apps/www/src/lib/registry/default/ui/dropdown-menu 
 primitive: https://www.radix-vue.com/components/dropdown-menu.html
 ---
 

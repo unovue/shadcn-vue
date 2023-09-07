@@ -10,6 +10,8 @@ import ChevronRightIcon from '~icons/lucide/chevron-right'
 
 const $route = useRoute()
 const { frontmatter } = useData()
+
+const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
 </script>
 
 <template>
@@ -79,7 +81,7 @@ const { frontmatter } = useData()
           </div>
 
           <div class="flex items-center space-x-2 pt-4">
-            <a v-if="frontmatter.source" :href="frontmatter.source" target="_blank" class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
+            <a v-if="frontmatter.source" :href="sourceLink + frontmatter.source" target="_blank" class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
               <RadixIconsCode class="mr-1" />
               Component Source
             </a>

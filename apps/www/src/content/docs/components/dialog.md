@@ -1,7 +1,7 @@
 ---
 title: Dialog
 description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
-source: https://github.com/radix-vue/shadcn-vue/tree/main/apps/www/src/lib/registry/default/ui/dialog 
+source: apps/www/src/lib/registry/default/ui/dialog 
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
