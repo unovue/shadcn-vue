@@ -1,12 +1,19 @@
 {
   "name": "separator",
   "dependencies": [
-    "@radix-ui/react-separator"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "separator.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as SeparatorPrimitive from \"@radix-ui/react-separator\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Separator = React.forwardRef<\n  React.ElementRef<typeof SeparatorPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>\n>(\n  (\n    { class, orientation = \"horizontal\", decorative = true, ...props },\n    ref\n  ) => (\n    <SeparatorPrimitive.Root\n      ref={ref}\n      decorative={decorative}\n      orientation={orientation}\n      class={cn(\n        \"shrink-0 bg-border\",\n        orientation === \"horizontal\" ? \"h-[1px] w-full\" : \"h-full w-[1px]\",\n        class\n      )}\n      {...props}\n    />\n  )\n)\nSeparator.displayName = SeparatorPrimitive.Root.displayName\n\nexport { Separator }\n"
+      "name": "Separator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Separator, type SeparatorProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SeparatorProps & { class?: string }>()\n</script>\n\n<template>\n  <Separator\n    :class=\"[\n      cn('shrink-0 bg-secondary', props.class),\n      props.orientation === 'vertical' ? 'w-px h-full' : 'h-px w-full',\n    ]\"\n  />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Separator } from './Separator.vue'\n"
     }
   ],
   "type": "components:ui"

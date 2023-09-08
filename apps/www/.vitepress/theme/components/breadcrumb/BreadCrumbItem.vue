@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ChevronRight } from 'lucide-vue-next'
+import { useRoute } from 'vitepress'
 
 interface BreadCrumbItemProps {
   path?: string
@@ -10,6 +11,7 @@ interface BreadCrumbItemProps {
 const props = withDefaults(defineProps<BreadCrumbItemProps>(), {
   as: 'span',
 })
+const route = useRoute()
 </script>
 
 <template>
@@ -19,7 +21,7 @@ const props = withDefaults(defineProps<BreadCrumbItemProps>(), {
       :to="props.path"
       class="flex items-center"
       :class="{
-        '!font-semibold !text-foreground': $route.path === props.path,
+        '!font-semibold !text-foreground': route.path === props.path,
       }"
     >
       <slot />

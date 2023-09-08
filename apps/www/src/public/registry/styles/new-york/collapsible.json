@@ -1,12 +1,27 @@
 {
   "name": "collapsible",
   "dependencies": [
-    "@radix-ui/react-collapsible"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "collapsible.tsx",
-      "content": "\"use client\"\n\nimport * as CollapsiblePrimitive from \"@radix-ui/react-collapsible\"\n\nconst Collapsible = CollapsiblePrimitive.Root\n\nconst CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger\n\nconst CollapsibleContent = CollapsiblePrimitive.CollapsibleContent\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent }\n"
+      "name": "Collapsible.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleRoot } from 'radix-vue'\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from 'radix-vue'\nimport { useEmitAsProps } from '@/lib/utils'\n\nconst props = defineProps<CollapsibleRootProps>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n</script>\n\n<template>\n  <CollapsibleRoot v-slot=\"{ open }\" v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot :open=\"open\" />\n  </CollapsibleRoot>\n</template>\n"
+    },
+    {
+      "name": "CollapsibleContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'radix-vue'\n\nconst props = defineProps<CollapsibleContentProps>()\n</script>\n\n<template>\n  <CollapsibleContent v-bind=\"props\">\n    <slot />\n  </CollapsibleContent>\n</template>\n"
+    },
+    {
+      "name": "CollapsibleTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleTrigger, type CollapsibleTriggerProps } from 'radix-vue'\n\nconst props = defineProps<CollapsibleTriggerProps>()\n</script>\n\n<template>\n  <CollapsibleTrigger v-bind=\"props\">\n    <slot />\n  </CollapsibleTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Collapsible } from './Collapsible.vue'\nexport { default as CollapsibleTrigger } from './CollapsibleTrigger.vue'\nexport { default as CollapsibleContent } from './CollapsibleContent.vue'\n"
     }
   ],
   "type": "components:ui"

@@ -1,12 +1,19 @@
 {
   "name": "toggle",
   "dependencies": [
-    "@radix-ui/react-toggle"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "toggle.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as TogglePrimitive from \"@radix-ui/react-toggle\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst toggleVariants = cva(\n  \"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-transparent\",\n        outline:\n          \"border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground\",\n      },\n      size: {\n        default: \"h-9 px-3\",\n        sm: \"h-8 px-2\",\n        lg: \"h-10 px-3\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\nconst Toggle = React.forwardRef<\n  React.ElementRef<typeof TogglePrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &\n    VariantProps<typeof toggleVariants>\n>(({ class, variant, size, ...props }, ref) => (\n  <TogglePrimitive.Root\n    ref={ref}\n    class={cn(toggleVariants({ variant, size, class }))}\n    {...props}\n  />\n))\n\nToggle.displayName = TogglePrimitive.Root.displayName\n\nexport { Toggle, toggleVariants }\n"
+      "name": "Toggle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ToggleEmits, ToggleProps } from 'radix-vue'\nimport { Toggle } from 'radix-vue'\nimport type { VariantProps } from 'class-variance-authority'\nimport { computed } from 'vue'\nimport { toggleVariants } from '.'\nimport { cn, useEmitAsProps } from '@/lib/utils'\n\ninterface ToggleVariantProps extends VariantProps<typeof toggleVariants> {}\n\ninterface Props extends ToggleProps {\n  variant?: ToggleVariantProps['variant']\n  size?: ToggleVariantProps['size']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  variant: 'default',\n  size: 'default',\n})\nconst emits = defineEmits<ToggleEmits>()\n\nconst toggleProps = computed(() => {\n  // eslint-disable-next-line unused-imports/no-unused-vars\n  const { variant, size, ...otherProps } = props\n  return otherProps\n})\n</script>\n\n<template>\n  <Toggle\n    v-bind=\"{ ...toggleProps, ...useEmitAsProps(emits) }\"\n    :class=\"cn(toggleVariants({ variant, size, class: $attrs.class ?? '' }))\"\n  >\n    <slot />\n  </Toggle>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "import { cva } from 'class-variance-authority'\n\nexport { default as Toggle } from './Toggle.vue'\n\nexport const toggleVariants = cva(\n  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground',\n  {\n    variants: {\n      variant: {\n        default: 'bg-transparent',\n        outline:\n          'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground',\n      },\n      size: {\n        default: 'h-9 px-3',\n        sm: 'h-8 px-2',\n        lg: 'h-10 px-3',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n)\n"
     }
   ],
   "type": "components:ui"

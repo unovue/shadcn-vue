@@ -1,12 +1,31 @@
 {
   "name": "tooltip",
   "dependencies": [
-    "@radix-ui/react-tooltip"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "tooltip.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst TooltipProvider = TooltipPrimitive.Provider\n\nconst Tooltip = TooltipPrimitive.Root\n\nconst TooltipTrigger = TooltipPrimitive.Trigger\n\nconst TooltipContent = React.forwardRef<\n  React.ElementRef<typeof TooltipPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>\n>(({ class, sideOffset = 4, ...props }, ref) => (\n  <TooltipPrimitive.Content\n    ref={ref}\n    sideOffset={sideOffset}\n    class={cn(\n      \"z-50 overflow-hidden rounded-md bg-primary px-3 py-1.5 text-xs text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\n      class\n    )}\n    {...props}\n  />\n))\nTooltipContent.displayName = TooltipPrimitive.Content.displayName\n\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }\n"
+      "name": "Tooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TooltipRoot, type TooltipRootEmits, type TooltipRootProps } from 'radix-vue'\nimport { useEmitAsProps } from '@/lib/utils'\n\nconst props = defineProps<TooltipRootProps>()\nconst emits = defineEmits<TooltipRootEmits>()\n</script>\n\n<template>\n  <TooltipRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot />\n  </TooltipRoot>\n</template>\n"
+    },
+    {
+      "name": "TooltipContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TooltipContent, type TooltipContentEmits, type TooltipContentProps } from 'radix-vue'\nimport { cn, useEmitAsProps } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<TooltipContentProps>(), {\n  sideOffset: 4,\n})\nconst emits = defineEmits<TooltipContentEmits>()\n</script>\n\n<template>\n  <TooltipContent v-bind=\"{ ...props, ...useEmitAsProps(emits) }\" :class=\"cn('z-50 overflow-hidden rounded-md bg-primary px-3 py-1.5 text-xs text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2', $attrs.class ?? '')\">\n    <slot />\n  </TooltipContent>\n</template>\n"
+    },
+    {
+      "name": "TooltipProvider.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TooltipProvider, type TooltipProviderProps } from 'radix-vue'\n\nconst props = defineProps<TooltipProviderProps>()\n</script>\n\n<template>\n  <TooltipProvider v-bind=\"props\">\n    <slot />\n  </TooltipProvider>\n</template>\n"
+    },
+    {
+      "name": "TooltipTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { TooltipTrigger, type TooltipTriggerProps } from 'radix-vue'\n\nconst props = defineProps<TooltipTriggerProps>()\n</script>\n\n<template>\n  <TooltipTrigger v-bind=\"props\">\n    <slot />\n  </TooltipTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Tooltip } from './Tooltip.vue'\nexport { default as TooltipContent } from './TooltipContent.vue'\nexport { default as TooltipTrigger } from './TooltipTrigger.vue'\nexport { default as TooltipProvider } from './TooltipProvider.vue'\n"
     }
   ],
   "type": "components:ui"

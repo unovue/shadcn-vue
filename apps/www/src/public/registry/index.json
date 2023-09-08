@@ -94,17 +94,6 @@
     "type": "components:ui"
   },
   {
-    "name": "breadcrumb",
-    "dependencies": [],
-    "registryDependencies": [],
-    "files": [
-      "ui/breadcrumb/BreadCrumb.vue",
-      "ui/breadcrumb/BreadCrumbItem.vue",
-      "ui/breadcrumb/index.ts"
-    ],
-    "type": "components:ui"
-  },
-  {
     "name": "button",
     "dependencies": [],
     "registryDependencies": [
@@ -206,30 +195,6 @@
     "type": "components:ui"
   },
   {
-    "name": "data-table",
-    "dependencies": [
-      "@tanstack/vue-table"
-    ],
-    "registryDependencies": [],
-    "files": [
-      "ui/data-table/DataTable.vue",
-      "ui/data-table/index.ts"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "date-picker",
-    "dependencies": [
-      "v-calendar"
-    ],
-    "registryDependencies": [],
-    "files": [
-      "ui/date-picker/DatePicker.vue",
-      "ui/date-picker/index.ts"
-    ],
-    "type": "components:ui"
-  },
-  {
     "name": "dialog",
     "dependencies": [
       "radix-vue"
@@ -301,16 +266,6 @@
     "files": [
       "ui/input/Input.vue",
       "ui/input/index.ts"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "kbd",
-    "dependencies": [],
-    "registryDependencies": [],
-    "files": [
-      "ui/kbd/Kbd.vue",
-      "ui/kbd/index.ts"
     ],
     "type": "components:ui"
   },

@@ -1,9 +1,17 @@
 {
   "name": "textarea",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
-      "name": "textarea.tsx",
-      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport interface TextareaProps\n  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}\n\nconst Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(\n  ({ class, ...props }, ref) => {\n    return (\n      <textarea\n        class={cn(\n          \"flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50\",\n          class\n        )}\n        ref={ref}\n        {...props}\n      />\n    )\n  }\n)\nTextarea.displayName = \"Textarea\"\n\nexport { Textarea }\n"
+      "name": "Textarea.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useVModel } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  defaultValue?: string | number\n  modelValue?: string | number\n}>()\n\nconst emits = defineEmits<{\n  (e: 'update:modelValue', payload: string | number): void\n}>()\n\nconst modelValue = useVModel(props, 'modelValue', emits, {\n  passive: true,\n  defaultValue: props.defaultValue,\n})\n</script>\n\n<template>\n  <textarea v-model=\"modelValue\" :class=\"cn('flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')\" />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Textarea } from './Textarea.vue'\n"
     }
   ],
   "type": "components:ui"

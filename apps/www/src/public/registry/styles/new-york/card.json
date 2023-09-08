@@ -1,9 +1,37 @@
 {
   "name": "card",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
   "files": [
     {
-      "name": "card.tsx",
-      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Card = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ class, ...props }, ref) => (\n  <div\n    ref={ref}\n    class={cn(\n      \"rounded-xl border bg-card text-card-foreground shadow\",\n      class\n    )}\n    {...props}\n  />\n))\nCard.displayName = \"Card\"\n\nconst CardHeader = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ class, ...props }, ref) => (\n  <div\n    ref={ref}\n    class={cn(\"flex flex-col space-y-1.5 p-6\", class)}\n    {...props}\n  />\n))\nCardHeader.displayName = \"CardHeader\"\n\nconst CardTitle = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLHeadingElement>\n>(({ class, ...props }, ref) => (\n  <h3\n    ref={ref}\n    class={cn(\"font-semibold leading-none tracking-tight\", class)}\n    {...props}\n  />\n))\nCardTitle.displayName = \"CardTitle\"\n\nconst CardDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.HTMLAttributes<HTMLParagraphElement>\n>(({ class, ...props }, ref) => (\n  <p\n    ref={ref}\n    class={cn(\"text-sm text-muted-foreground\", class)}\n    {...props}\n  />\n))\nCardDescription.displayName = \"CardDescription\"\n\nconst CardContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ class, ...props }, ref) => (\n  <div ref={ref} class={cn(\"p-6 pt-0\", class)} {...props} />\n))\nCardContent.displayName = \"CardContent\"\n\nconst CardFooter = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ class, ...props }, ref) => (\n  <div\n    ref={ref}\n    class={cn(\"flex items-center p-6 pt-0\", class)}\n    {...props}\n  />\n))\nCardFooter.displayName = \"CardFooter\"\n\nexport { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }\n"
+      "name": "Card.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'rounded-xl border bg-card text-card-foreground shadow',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CardContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div :class=\"cn('p-6 pt-0', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CardDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <p :class=\"cn('text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </p>\n</template>\n"
+    },
+    {
+      "name": "CardFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div :class=\"cn('flex items-center p-6 pt-0', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CardHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col space-y-1.5 p-6', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CardTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <h3\n    :class=\"\n      cn('font-semibold leading-none tracking-tight', props.class)\n    \"\n  >\n    <slot />\n  </h3>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Card } from './Card.vue'\nexport { default as CardHeader } from './CardHeader.vue'\nexport { default as CardTitle } from './CardTitle.vue'\nexport { default as CardDescription } from './CardDescription.vue'\nexport { default as CardContent } from './CardContent.vue'\nexport { default as CardFooter } from './CardFooter.vue'\n"
     }
   ],
   "type": "components:ui"

@@ -1,12 +1,19 @@
 {
   "name": "progress",
   "dependencies": [
-    "@radix-ui/react-progress"
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils"
   ],
   "files": [
     {
-      "name": "progress.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as ProgressPrimitive from \"@radix-ui/react-progress\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Progress = React.forwardRef<\n  React.ElementRef<typeof ProgressPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>\n>(({ class, value, ...props }, ref) => (\n  <ProgressPrimitive.Root\n    ref={ref}\n    class={cn(\n      \"relative h-2 w-full overflow-hidden rounded-full bg-primary/20\",\n      class\n    )}\n    {...props}\n  >\n    <ProgressPrimitive.Indicator\n      class=\"h-full w-full flex-1 bg-primary transition-all\"\n      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}\n    />\n  </ProgressPrimitive.Root>\n))\nProgress.displayName = ProgressPrimitive.Root.displayName\n\nexport { Progress }\n"
+      "name": "Progress.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  ProgressIndicator,\n  ProgressRoot,\n  type ProgressRootProps,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(\n  defineProps<ProgressRootProps & { class?: string }>(),\n  {\n    class: '',\n    modelValue: 0,\n  },\n)\n</script>\n\n<template>\n  <ProgressRoot\n    :class=\"\n      cn(\n        'relative h-2 w-full overflow-hidden rounded-full bg-primary/20',\n        props.class,\n      )\n    \"\n    v-bind=\"props\"\n  >\n    <ProgressIndicator\n      :class=\"\n        cn(\n          'h-full w-full flex-1 bg-primary transition-all',\n          props.class,\n        )\n      \"\n      :style=\"`transform: translateX(-${100 - (props.modelValue ?? 0)}%);`\"\n    />\n  </ProgressRoot>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Progress } from './Progress.vue'\n"
     }
   ],
   "type": "components:ui"
