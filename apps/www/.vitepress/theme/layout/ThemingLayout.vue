@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import { useDark } from '@vueuse/core'
 import { Paintbrush } from 'lucide-vue-next'
+import { useData } from 'vitepress'
 import PageHeader from '../components/PageHeader.vue'
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
@@ -47,26 +47,7 @@ const allColors: Color[] = [
 ]
 
 const { theme, radius, setRadius, setTheme } = useConfigStore()
-
-const isDark = useDark()
-
-// Store an object called config in local storage with the theme and radius values
-watch([theme, radius], ([theme, radius]) => {
-  localStorage.setItem(
-    'config',
-    JSON.stringify({
-      theme,
-      radius,
-    }),
-  )
-})
-
-// If there is a config object in local storage, set the theme and radius values to the values in local storage
-if (localStorage.getItem('config')) {
-  const config = JSON.parse(localStorage.getItem('config')!)
-  setTheme(config.theme)
-  setRadius(config.radius)
-}
+const { isDark } = useData()
 
 // Whenever the component is mounted, update the document class list
 onMounted(() => {

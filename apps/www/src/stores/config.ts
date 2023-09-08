@@ -1,4 +1,5 @@
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
+import { useSessionStorage } from '@vueuse/core'
 import type { Theme } from './../lib/registry/themes'
 
 interface Config {
@@ -9,7 +10,7 @@ interface Config {
 export const RADII = [0, 0.25, 0.5, 0.75, 1]
 
 export function useConfigStore() {
-  const config = ref<Config>({
+  const config = useSessionStorage<Config>('config', {
     theme: 'zinc',
     radius: 0.5,
   })
