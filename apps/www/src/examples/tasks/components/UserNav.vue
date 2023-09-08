@@ -3,8 +3,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/lib/registry/default/ui/avatar'
-import { Button } from '@/lib/registry/default/ui/button'
+} from '@/lib/registry/new-york/ui/avatar'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
 </script>
 
 <template>

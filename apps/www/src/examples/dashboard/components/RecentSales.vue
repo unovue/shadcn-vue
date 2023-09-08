@@ -3,7 +3,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/lib/registry/default/ui/avatar'
+} from '@/lib/registry/new-york/ui/avatar'
 </script>
 
 <template>

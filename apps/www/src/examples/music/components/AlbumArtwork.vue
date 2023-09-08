@@ -12,7 +12,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from '@/lib/registry/default/ui/context-menu'
+} from '@/lib/registry/new-york/ui/context-menu'
 
 interface AlbumArtworkProps {
   album: Album

@@ -10,8 +10,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/lib/registry/default/ui/alert-dialog'
-import { Button } from '@/lib/registry/default/ui/button'
+} from '@/lib/registry/new-york/ui/alert-dialog'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -19,18 +19,18 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/lib/registry/default/ui/dialog'
+} from '@/lib/registry/new-york/ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
-import { Label } from '@/lib/registry/default/ui/label'
-import { Switch } from '@/lib/registry/default/ui/switch'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Label } from '@/lib/registry/new-york/ui/label'
+import { Switch } from '@/lib/registry/new-york/ui/switch'
 
-// import { toast } from "@/lib/registry/default/ui/use-toast"
+// import { toast } from "@/lib/registry/new-york/ui/use-toast"
 
 const open = ref(false)
 const showDeleteDialog = ref(false)

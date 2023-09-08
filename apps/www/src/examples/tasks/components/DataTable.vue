@@ -28,7 +28,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
+} from '@/lib/registry/new-york/ui/table'
 
 interface DataTableProps {
   columns: ColumnDef<Task, any>[]

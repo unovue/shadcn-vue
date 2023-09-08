@@ -11,10 +11,10 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/default/ui/tabs'
-import { Separator } from '@/lib/registry/default/ui/separator'
-import { Button } from '@/lib/registry/default/ui/button'
-import { ScrollArea, ScrollBar } from '@/lib/registry/default/ui/scroll-area'
+} from '@/lib/registry/new-york/ui/tabs'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { ScrollArea, ScrollBar } from '@/lib/registry/new-york/ui/scroll-area'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 </script>
 

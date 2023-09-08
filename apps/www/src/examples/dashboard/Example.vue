@@ -7,20 +7,20 @@ import Search from './components/Search.vue'
 import TeamSwitcher from './components/TeamSwitcher.vue'
 import UserNav from './components/UserNav.vue'
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from '@/lib/registry/new-york/ui/card'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/default/ui/tabs'
+} from '@/lib/registry/new-york/ui/tabs'
 </script>
 
 <template>

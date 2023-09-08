@@ -5,8 +5,8 @@ import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
 import ArrowRightIcon from '~icons/radix-icons/arrow-right'
 
-import { buttonVariants } from '@/lib/registry/default/ui/button'
-import { Separator } from '@/lib/registry/default/ui/separator'
+import { buttonVariants } from '@/lib/registry/new-york/ui/button'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 </script>
 

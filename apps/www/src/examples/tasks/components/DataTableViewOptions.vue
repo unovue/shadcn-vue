@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { type Task } from '../data/schema'
 import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -12,7 +12,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
 
 interface DataTableViewOptionsProps {
   table: Table<Task>

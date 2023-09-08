@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
+} from '@/lib/registry/new-york/ui/dialog'
 </script>
 
 <template>

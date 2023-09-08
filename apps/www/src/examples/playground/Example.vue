@@ -9,21 +9,21 @@ import PresetShare from './components/PresetShare.vue'
 import TemperatureSelector from './components/TemperatureSelector.vue'
 import TopPSelector from './components/TopPSelector.vue'
 
-import { Textarea } from '@/lib/registry/default/ui/textarea'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/default/ui/tabs'
-import { Separator } from '@/lib/registry/default/ui/separator'
-import { Label } from '@/lib/registry/default/ui/label'
-import { Button } from '@/lib/registry/default/ui/button'
+} from '@/lib/registry/new-york/ui/tabs'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Label } from '@/lib/registry/new-york/ui/label'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/lib/registry/default/ui/hover-card'
+} from '@/lib/registry/new-york/ui/hover-card'
 import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-clock'
 </script>
 

@@ -4,14 +4,14 @@ import CircleIcon from '~icons/radix-icons/circle'
 import PlusIcon from '~icons/radix-icons/plus'
 import StarIcon from '~icons/radix-icons/star'
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from '@/lib/registry/new-york/ui/card'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -20,8 +20,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
-import { Separator } from '@/lib/registry/default/ui/separator'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
 </script>
 
 <template>

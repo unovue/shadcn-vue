@@ -7,8 +7,8 @@ import { priorities, statuses } from '../data/data'
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue'
 import DataTableViewOptions from './DataTableViewOptions.vue'
 import Cross2Icon from '~icons/radix-icons/cross-2'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Input } from '@/lib/registry/default/ui/input'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Input } from '@/lib/registry/new-york/ui/input'
 
 interface DataTableToolbarProps {
   table: Table<Task>

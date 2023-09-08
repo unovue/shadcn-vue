@@ -7,14 +7,14 @@ import CaretSortIcon from '~icons/radix-icons/caret-sort'
 import EyeNoneIcon from '~icons/radix-icons/eye-none'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
 
 interface DataTableColumnHeaderProps {
   column: Column<Task, any>

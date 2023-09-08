@@ -7,8 +7,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/lib/registry/default/ui/avatar'
-import { Button } from '@/lib/registry/default/ui/button'
+} from '@/lib/registry/new-york/ui/avatar'
+import { Button } from '@/lib/registry/new-york/ui/button'
 
 import {
   Dialog,
@@ -17,21 +17,21 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/lib/registry/default/ui/dialog'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+} from '@/lib/registry/new-york/ui/dialog'
+import { Input } from '@/lib/registry/new-york/ui/input'
+import { Label } from '@/lib/registry/new-york/ui/label'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from '@/lib/registry/new-york/ui/popover'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
+} from '@/lib/registry/new-york/ui/select'
 
 const groups = [
   {

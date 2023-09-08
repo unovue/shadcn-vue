@@ -4,13 +4,13 @@ import { Calendar as CalendarIcon } from 'lucide-vue-next'
 
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from '@/lib/registry/new-york/ui/popover'
 
 const date = ref({
   start: new Date(2023, 0, 20),

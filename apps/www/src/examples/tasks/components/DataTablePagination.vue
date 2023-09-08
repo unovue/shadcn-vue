@@ -6,14 +6,14 @@ import ChevronRightIcon from '~icons/radix-icons/chevron-right'
 import DoubleArrowLeftIcon from '~icons/radix-icons/double-arrow-left'
 import DoubleArrowRightIcon from '~icons/radix-icons/double-arrow-right'
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
+} from '@/lib/registry/new-york/ui/select'
 
 interface DataTablePaginationProps {
   table: Table<Task>

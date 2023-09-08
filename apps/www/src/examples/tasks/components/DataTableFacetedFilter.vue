@@ -5,15 +5,15 @@ import { computed } from 'vue'
 import { type Task } from '../data/schema'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 
-import { Badge } from '@/lib/registry/default/ui/badge'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Badge } from '@/lib/registry/new-york/ui/badge'
+import { Button } from '@/lib/registry/new-york/ui/button'
 
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
-import { Separator } from '@/lib/registry/default/ui/separator'
+} from '@/lib/registry/new-york/ui/popover'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
 
 interface DataTableFacetedFilter {
   column?: Column<Task, any>

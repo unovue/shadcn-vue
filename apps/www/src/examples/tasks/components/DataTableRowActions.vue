@@ -6,7 +6,7 @@ import { taskSchema } from '../data/schema'
 import { type Task } from '../data/schema'
 import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,7 +19,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
 
 interface DataTableRowActionsProps {
   row: Row<Task>

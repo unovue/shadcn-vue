@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+} from '@/lib/registry/new-york/ui/dialog'
+import { Input } from '@/lib/registry/new-york/ui/input'
+import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>

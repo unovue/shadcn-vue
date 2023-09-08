@@ -14,7 +14,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from '@/lib/registry/default/ui/menubar'
+} from '@/lib/registry/new-york/ui/menubar'
 </script>
 
 <template>

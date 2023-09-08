@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GitHubIcon from '~icons/radix-icons/github-logo'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
@@ -8,9 +8,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+} from '@/lib/registry/new-york/ui/card'
+import { Input } from '@/lib/registry/new-york/ui/input'
+import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>

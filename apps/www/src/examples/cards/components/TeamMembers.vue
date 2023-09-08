@@ -5,21 +5,21 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/lib/registry/default/ui/avatar'
-import { Button } from '@/lib/registry/default/ui/button'
+} from '@/lib/registry/new-york/ui/avatar'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from '@/lib/registry/new-york/ui/card'
 
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from '@/lib/registry/new-york/ui/popover'
 </script>
 
 <template>
