@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
-import Spinner from './Spinner.vue'
+import StyleSwitcher from './StyleSwitcher.vue'
+import ComponentLoader from './ComponentLoader.vue'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
+import { useConfigStore } from '@/stores/config'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<{
@@ -11,11 +12,7 @@ const props = withDefaults(defineProps<{
   sfcTsHtml?: string
 }>(), { align: 'center' })
 
-const Component = defineAsyncComponent({
-  loadingComponent: Spinner,
-  loader: () => import(`../../../src/lib/registry/default/example/${props.name}.vue`),
-  timeout: 5000,
-})
+const { style } = useConfigStore()
 </script>
 
 <template>
@@ -40,6 +37,9 @@ const Component = defineAsyncComponent({
         </TabsList>
       </div>
       <TabsContent value="preview" class="relative rounded-md border">
+        <div className="flex items-center justify-between p-4">
+          <StyleSwitcher />
+        </div>
         <div
           :class="cn('preview flex min-h-[350px] w-full justify-center p-10', {
             'items-center': align === 'center',
@@ -47,7 +47,7 @@ const Component = defineAsyncComponent({
             'items-end': align === 'end',
           })"
         >
-          <Component :is="Component" />
+          <ComponentLoader :key="style" :name="name" />
         </div>
       </TabsContent>
       <TabsContent value="code">
