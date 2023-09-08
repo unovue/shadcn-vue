@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core'
 import { Content, useData, useRoute } from 'vitepress'
+import { onMounted } from 'vue'
 import { docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
@@ -12,6 +13,14 @@ import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
 import TablerBrandX from '~icons/tabler/brand-x'
 import RadixIconsMoon from '~icons/radix-icons/moon'
 import RadixIconsSun from '~icons/radix-icons/sun'
+import { useConfigStore } from '@/stores/config'
+
+const { radius, theme } = useConfigStore()
+// Whenever the component is mounted, update the document class list
+onMounted(() => {
+  document.documentElement.style.setProperty('--radius', `${radius.value}rem`)
+  document.documentElement.classList.add(`theme-${theme.value}`)
+})
 
 const { frontmatter, isDark } = useData()
 
