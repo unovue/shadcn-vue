@@ -4,21 +4,28 @@ import { ChevronDown, Minus, Plus, Send } from 'lucide-vue-next'
 import { addDays, startOfToday } from 'date-fns'
 import ThemingLayout from './../../layout/ThemingLayout.vue'
 import {
+  months,
+  payments,
+  roles,
+  teamMembers,
+  years,
+} from './utils/data'
+import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from './../../../../src/lib/registry/new-york/ui/card'
+} from '@/lib/registry/new-york/ui/card'
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from './../../../../src/lib/registry/new-york/ui/avatar'
-import { Button } from './../../../../src/lib/registry/new-york/ui/button'
-import { Textarea } from './../../../../src/lib/registry/new-york/ui/textarea'
-import { Calendar } from './../../../../src/lib/registry/new-york/ui/calendar'
+} from '@/lib/registry/new-york/ui/avatar'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,9 +34,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from './../../../../src/lib/registry/new-york/ui/dropdown-menu'
-import { Label } from './../../../../src/lib/registry/new-york/ui/label'
-import { Switch } from './../../../../src/lib/registry/new-york/ui/switch'
+} from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Label } from '@/lib/registry/new-york/ui/label'
+import { Switch } from '@/lib/registry/new-york/ui/switch'
 import {
   Select,
   SelectContent,
@@ -37,21 +44,15 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './../../../../src/lib/registry/new-york/ui/select'
-import { Input } from './../../../../src/lib/registry/new-york/ui/input'
+} from '@/lib/registry/new-york/ui/select'
+import { Input } from '@/lib/registry/new-york/ui/input'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from './../../../../src/lib/registry/new-york/ui/tooltip'
-import {
-  months,
-  payments,
-  roles,
-  teamMembers,
-  years,
-} from './utils/data'
+} from '@/lib/registry/new-york/ui/tooltip'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
 import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
 import RiGoogleLine from '~icons/ri/google-line'
 
