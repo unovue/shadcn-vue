@@ -9,7 +9,7 @@
 //       filename: 'test.ts',
 //       raw: `import * as React from "react"
 // export function Foo() {
-// 	return <div className="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">foo</div>
+// 	return <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">foo</div>
 // }"
 //     `,
 //       config: {
@@ -32,7 +32,7 @@
 //       filename: 'test.ts',
 //       raw: `import * as React from "react"
 // export function Foo() {
-// 	return <div className="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">foo</div>
+// 	return <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">foo</div>
 // }"
 //     `,
 //       config: {
@@ -55,7 +55,7 @@
 //       filename: 'test.ts',
 //       raw: `import * as React from "react"
 // export function Foo() {
-// 	return <div className={cn("bg-background hover:bg-muted", true && "text-primary-foreground sm:focus:text-accent-foreground")}>foo</div>
+// 	return <div class={cn("bg-background hover:bg-muted", true && "text-primary-foreground sm:focus:text-accent-foreground")}>foo</div>
 // }"
 //     `,
 //       config: {

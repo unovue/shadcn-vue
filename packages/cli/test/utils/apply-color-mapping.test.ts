@@ -2,11 +2,11 @@ import { describe, expect, test } from 'vitest'
 
 import {
   applyColorMapping,
-  splitClassName,
+  splitclass,
 } from '../../src/utils/transformers/transform-css-vars'
 import baseColor from '../fixtures/colors/slate.json'
 
-describe('split className', () => {
+describe('split class', () => {
   test.each([
     {
       input: 'bg-popover',
@@ -44,8 +44,8 @@ describe('split className', () => {
       input: 'sm:focus:text-accent-foreground/30',
       output: ['sm:focus', 'text-accent-foreground', '30'],
     },
-  ])('splitClassName($input) -> $output', ({ input, output }) => {
-    expect(splitClassName(input)).toStrictEqual(output)
+  ])('splitclass($input) -> $output', ({ input, output }) => {
+    expect(splitclass(input)).toStrictEqual(output)
   })
 })
 

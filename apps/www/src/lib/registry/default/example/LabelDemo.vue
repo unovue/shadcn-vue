@@ -5,7 +5,7 @@ import { Label } from '@/lib/registry/default/ui/label'
 
 <template>
   <div>
-    <div className="flex items-center space-x-2">
+    <div class="flex items-center space-x-2">
       <Checkbox id="terms" />
       <Label for="terms">Accept terms and conditions</Label>
     </div>

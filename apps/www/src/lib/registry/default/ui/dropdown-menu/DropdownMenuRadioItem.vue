@@ -21,7 +21,7 @@ const emits = defineEmits<DropdownMenuRadioItemEmits>()
       props.class,
     )"
   >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+    <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
 
       <DropdownMenuItemIndicator>
         <Circle class="h-2 w-2 fill-current" />

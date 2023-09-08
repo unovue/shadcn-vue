@@ -3,11 +3,11 @@ import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 </script>
 
 <template>
-  <div className="flex items-center space-x-2">
+  <div class="flex items-center space-x-2">
     <Checkbox id="terms" />
     <label
       htmlFor="terms"
-      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
     >
       Accept terms and conditions
     </label>

@@ -37,11 +37,11 @@ import {
           </CardDescription>
         </CardHeader>
         <CardContent class="space-y-2">
-          <div className="space-y-1">
+          <div class="space-y-1">
             <Label for="name">Name</Label>
             <Input id="name" default-value="Pedro Duarte" />
           </div>
-          <div className="space-y-1">
+          <div class="space-y-1">
             <Label for="username">Username</Label>
             <Input id="username" default-value="@peduarte" />
           </div>
@@ -60,11 +60,11 @@ import {
           </CardDescription>
         </CardHeader>
         <CardContent class="space-y-2">
-          <div className="space-y-1">
+          <div class="space-y-1">
             <Label for="current">Current password</Label>
             <Input id="current" type="password" />
           </div>
-          <div className="space-y-1">
+          <div class="space-y-1">
             <Label for="new">New password</Label>
             <Input id="new" type="password" />
           </div>

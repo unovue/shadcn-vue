@@ -37,7 +37,7 @@ const { style } = useConfigStore()
         </TabsList>
       </div>
       <TabsContent value="preview" class="relative rounded-md border">
-        <div className="flex items-center justify-between p-4">
+        <div class="flex items-center justify-between p-4">
           <StyleSwitcher />
         </div>
         <div

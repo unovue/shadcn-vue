@@ -6,7 +6,7 @@ const props = defineProps<RadioGroupRootProps & { class?: string }>()
 </script>
 
 <template>
-  <RadioGroupRoot :class="cn('grid gap-2', props.class)">
+  <RadioGroupRoot :class="cn('grid gap-2', props.class)" v-bind="props">
     <slot />
   </RadioGroupRoot>
 </template>
