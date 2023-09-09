@@ -141,7 +141,7 @@ const links = [
           <span class="inline-block ml-2">
             Ported to Vue by
             <a
-              href="https://twitter.com"
+              href="https://github.com/radix-vue"
               target="_blank"
               class="underline underline-offset-4 font-bold decoration-foreground"
             >
