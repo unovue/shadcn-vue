@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { existsSync } from 'node:fs'
 import { cosmiconfig } from 'cosmiconfig'
 import { loadConfig } from 'tsconfig-paths'
 import * as z from 'zod'
@@ -62,16 +63,19 @@ export async function getConfig(cwd: string) {
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   const TSCONFIG_PATH = config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json'
-  // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
-  const FALLBACK_TSCONFIG_PATH = './tsconfig.app.json'
 
   // Read tsconfig.json.
   const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH)
   let tsConfig = loadConfig(tsconfigPath)
 
-  // If no paths were found, we load the fallback tsconfig
-  if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0)
-    tsConfig = loadConfig(path.resolve(cwd, FALLBACK_TSCONFIG_PATH))
+  // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
+  // If no paths were found, try to load tsconfig.app.json.
+  if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
+    const FALLBACK_TSCONFIG_PATH = path.resolve(cwd, './tsconfig.app.json')
+    if (!existsSync(FALLBACK_TSCONFIG_PATH))
+      return
+    tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
+  }
 
   if (tsConfig.resultType === 'failed') {
     throw new Error(
