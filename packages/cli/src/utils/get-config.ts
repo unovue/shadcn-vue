@@ -72,9 +72,8 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   // If no paths were found, try to load tsconfig.app.json.
   if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
     const FALLBACK_TSCONFIG_PATH = path.resolve(cwd, './tsconfig.app.json')
-    if (!existsSync(FALLBACK_TSCONFIG_PATH))
-      return
-    tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
+    if (existsSync(FALLBACK_TSCONFIG_PATH))
+      tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
   }
 
   if (tsConfig.resultType === 'failed') {
