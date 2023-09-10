@@ -16,6 +16,32 @@ primitive: https://www.radix-vue.com/components/accordion.html
 npx shadcn-vue@latest add accordion
 ```
 
+```bash{5-22}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./**/*.vue'],
+  theme: {
+    extend: {
+      keyframes: {
+        slideDown: {
+          from: { height: 0 },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        slideUp: {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        slideDown: 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+        slideUp: 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
 <ManualInstall>
 
 1. Install `radix-vue`:
@@ -31,7 +57,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/default/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 </script>
 
 <AccordionRoot>
