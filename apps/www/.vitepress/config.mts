@@ -1,6 +1,8 @@
 import path from 'node:path'
 import { defineConfig } from 'vitepress'
 import Icons from 'unplugin-icons/vite'
+import tailwind from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
 
@@ -54,8 +56,16 @@ export default defineConfig({
     'content/(.*)': '(.*)',
   },
   vite: {
+    css: {
+      postcss: {
+        plugins: [
+          tailwind(),
+          autoprefixer(),
+        ],
+      },
+    },
     plugins: [
-      Icons({ compiler: 'vue3', autoInstall: true }) as any,
+      Icons({ compiler: 'vue3', autoInstall: true }),
     ],
     resolve: {
       alias: {
