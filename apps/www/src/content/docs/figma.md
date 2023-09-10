@@ -18,4 +18,8 @@ The Figma UI Kit is open sourced by [Pietro Schirano](https://twitter.com/skiran
 
 ## Grab a copy
 
+<div class="break-words">
+
 https://www.figma.com/community/file/1203061493325953101
+
+</div>
