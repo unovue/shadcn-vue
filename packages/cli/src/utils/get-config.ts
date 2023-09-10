@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { existsSync } from 'node:fs'
 import { cosmiconfig } from 'cosmiconfig'
+import type { ConfigLoaderResult } from 'tsconfig-paths'
 import { loadConfig } from 'tsconfig-paths'
 import * as z from 'zod'
 import { resolveImport } from '@/src/utils/resolve-import'
@@ -62,24 +63,27 @@ export async function getConfig(cwd: string) {
 }
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
-  const TSCONFIG_PATH = config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json'
+  let tsConfig: ConfigLoaderResult | undefined
+  if (config.typescript) {
+    const TSCONFIG_PATH = config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json'
 
-  // Read tsconfig.json.
-  const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH)
-  let tsConfig = loadConfig(tsconfigPath)
+    // Read tsconfig.json.
+    const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH)
+    tsConfig = loadConfig(tsconfigPath)
 
-  // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
-  // If no paths were found, try to load tsconfig.app.json.
-  if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
-    const FALLBACK_TSCONFIG_PATH = path.resolve(cwd, './tsconfig.app.json')
-    if (existsSync(FALLBACK_TSCONFIG_PATH))
-      tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
-  }
+    // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
+    // If no paths were found, try to load tsconfig.app.json.
+    if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
+      const FALLBACK_TSCONFIG_PATH = path.resolve(cwd, './tsconfig.app.json')
+      if (existsSync(FALLBACK_TSCONFIG_PATH))
+        tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
+    }
 
-  if (tsConfig.resultType === 'failed') {
-    throw new Error(
-      `Failed to load tsconfig.json. ${tsConfig.message ?? ''}`.trim(),
-    )
+    if (tsConfig.resultType === 'failed') {
+      throw new Error(
+        `Failed to load tsconfig.json. ${tsConfig.message ?? ''}`.trim(),
+      )
+    }
   }
 
   return configSchema.parse({
@@ -87,8 +91,8 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     resolvedPaths: {
       tailwindConfig: path.resolve(cwd, config.tailwind.config),
       tailwindCss: path.resolve(cwd, config.tailwind.css),
-      utils: await resolveImport(config.aliases.utils, tsConfig),
-      components: await resolveImport(config.aliases.components, tsConfig),
+      utils: tsConfig ? await resolveImport(config.aliases.utils, tsConfig) : config.aliases.utils,
+      components: tsConfig ? await resolveImport(config.aliases.components, tsConfig) : config.aliases.components,
     },
   })
 }
