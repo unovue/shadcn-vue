@@ -23,7 +23,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/default/ui/popover'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 
 const accountForm = ref({
   name: '',

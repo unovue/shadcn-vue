@@ -16,32 +16,30 @@ const items = [
   {
     id: 'recents',
     label: 'Recents',
-    checked: true,
   },
   {
     id: 'home',
     label: 'Home',
-    checked: true,
   },
   {
     id: 'applications',
     label: 'Applications',
-    checked: false,
+
   },
   {
     id: 'desktop',
     label: 'Desktop',
-    checked: false,
+
   },
   {
     id: 'downloads',
     label: 'Downloads',
-    checked: false,
+
   },
   {
     id: 'documents',
     label: 'Documents',
-    checked: false,
+
   },
 ] as const
 
@@ -87,7 +85,7 @@ async function handleSubmit() {
     </div>
     <div v-for="item in items" :key="item.id" class="pb-1">
       <div class="flex flex-row items-center space-x-3 space-y-0">
-        <Checkbox :id="item.id" v-model:checked="item.checked" :value="item.id" />
+        <Checkbox :id="item.id" :checked="displayForm.items.includes(item.id)" @change="displayForm.items.includes(item.id) ? displayForm.items.splice(displayForm.items.indexOf(item.id), 1) : displayForm.items.push(item.id)" />
         <Label :for="item.id">{{ item.label }}</Label>
       </div>
     </div>
