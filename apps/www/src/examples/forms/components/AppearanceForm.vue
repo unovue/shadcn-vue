@@ -17,7 +17,7 @@ import {
 import { Button } from '@/lib/registry/new-york/ui/button'
 
 const appearenceForm = ref({
-  theme: '',
+  theme: 'light',
   font: '',
 })
 
