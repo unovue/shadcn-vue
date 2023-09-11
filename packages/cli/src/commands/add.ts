@@ -8,6 +8,7 @@ import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
 import { transformImport } from '../utils/transformers/transform-import'
+import { transformSFC } from '../utils/transformers/transform-sfc'
 import { getConfig } from '@/src/utils/get-config'
 import { getPackageManager } from '@/src/utils/get-package-manager'
 import { handleError } from '@/src/utils/handle-error'
@@ -152,7 +153,8 @@ export const add = new Command()
           )
 
           // Run transformers.
-          const content = transformImport(file.content, config)
+          let content = await transformSFC(file, config)
+          content = transformImport(content, config)
 
           if (!existsSync(componentDir))
             await fs.mkdir(componentDir, { recursive: true })
