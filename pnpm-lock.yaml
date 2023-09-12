@@ -42,8 +42,8 @@ importers:
         specifier: ^2.3.6
         version: 2.3.6(vue@3.3.4)
       '@tanstack/vue-table':
-        specifier: ^8.9.7
-        version: 8.9.7(vue@3.3.4)
+        specifier: ^8.9.8
+        version: 8.9.8(vue@3.3.4)
       '@unovis/ts':
         specifier: ^1.2.1
         version: 1.2.1
@@ -60,8 +60,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       lucide-vue-next:
-        specifier: ^0.268.0
-        version: 0.268.0(vue@3.3.4)
+        specifier: ^0.276.0
+        version: 0.276.0(vue@3.3.4)
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.3.3)
@@ -115,8 +115,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       radix-vue:
-        specifier: ^0.1.32
-        version: 0.1.32(vue@3.3.4)
+        specifier: ^0.1.33
+        version: 0.1.33(vue@3.3.4)
       rimraf:
         specifier: ^5.0.1
         version: 5.0.1
@@ -139,8 +139,8 @@ importers:
         specifier: ^4.4.9
         version: 4.4.9(@types/node@20.5.7)
       vitepress:
-        specifier: ^1.0.0-rc.11
-        version: 1.0.0-rc.11(@algolia/client-search@4.19.1)(@types/node@20.5.7)(search-insights@2.7.0)
+        specifier: ^1.0.0-rc.12
+        version: 1.0.0-rc.12(@algolia/client-search@4.19.1)(@types/node@20.5.7)(search-insights@2.7.0)
       vue-tsc:
         specifier: ^1.8.10
         version: 1.8.10(typescript@5.2.2)
@@ -1889,7 +1889,7 @@ packages:
       ignore: 5.2.4
       jiti: 1.19.3
       knitwork: 1.0.0
-      mlly: 1.4.0
+      mlly: 1.4.1
       pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
@@ -1912,7 +1912,7 @@ packages:
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       std-env: 3.4.3
-      ufo: 1.2.0
+      ufo: 1.3.0
       unimport: 3.1.3
       untyped: 1.4.0
     transitivePeerDependencies:
@@ -1952,18 +1952,18 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@tanstack/table-core@8.9.7:
-    resolution: {integrity: sha512-lkhVcGDxa9GSoDFPkplPDvzsiUACPZrxT3U1edPs0DCMKFhBDgZ7d1DPd7cqHH0JoybfbQ/qiTQYOQBg8sinJg==}
+  /@tanstack/table-core@8.9.8:
+    resolution: {integrity: sha512-f2Y/BcJy3IBkdDxWEk6WX6zJSmCDBI5iS0icr5DyeSbWsbnfaBtOIaeBjfnTEedt9Kk3xPmfciA6uSNOQ1BEXA==}
     engines: {node: '>=12'}
     dev: false
 
-  /@tanstack/vue-table@8.9.7(vue@3.3.4):
-    resolution: {integrity: sha512-wPuspBjGxIjbSB/ks9w4KyXNyxx58mjjo2sOzeKsLAb1+142oUMU7PHVsAeXRV461N0VsyUjtN7AqjgU9Bs+Cg==}
+  /@tanstack/vue-table@8.9.8(vue@3.3.4):
+    resolution: {integrity: sha512-xHhwelXxSAZ/A5JRNmFXydSGPgBOLEFcHWMlUF1jh6z8kfuc2CsrKhwxV3SyLMvQyUpJGP+/ODEojBnyywOngA==}
     engines: {node: '>=12'}
     peerDependencies:
       vue: ^3.2.33
     dependencies:
-      '@tanstack/table-core': 8.9.7
+      '@tanstack/table-core': 8.9.8
       vue: 3.3.4
     dev: false
 
@@ -5671,8 +5671,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-vue-next@0.268.0(vue@3.3.4):
-    resolution: {integrity: sha512-tw5Ah8RZcgoIySeyuK36KlEPJK+1IPQ+gzPfRg8wugQt4kbbX4rrvREtWyuhRXtnTjb1ztk78rTtAWJgqRySRA==}
+  /lucide-vue-next@0.276.0(vue@3.3.4):
+    resolution: {integrity: sha512-yQmIaTbVjG2TMwFQr98Biva99I+eDcMh0wPepJsDajk2d2lio9VGBsKhIUtAUPYwqnsvVg2+dSYsyvX21BJ5yw==}
     peerDependencies:
       vue: '>=3.0.1'
     dependencies:
@@ -5878,14 +5878,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dev: false
-
-  /mlly@1.4.0:
-    resolution: {integrity: sha512-ua8PAThnTwpprIaU47EPeZ/bPUVp2QYBbWMphUQpVdBI3Lgqzm5KZQ45Agm3YJedHXaIHl6pBGabaLSUPPSptg==}
-    dependencies:
-      acorn: 8.10.0
-      pathe: 1.1.1
-      pkg-types: 1.0.3
-      ufo: 1.2.0
 
   /mlly@1.4.1:
     resolution: {integrity: sha512-SCDs78Q2o09jiZiE2WziwVBEqXQ02XkGdUy45cbJf+BpYRIjArXRJ1Wbowxkb+NaM9DWvS3UC9GiO/6eqvQ/pg==}
@@ -6248,7 +6240,7 @@ packages:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
     dependencies:
       jsonc-parser: 3.2.0
-      mlly: 1.4.0
+      mlly: 1.4.1
       pathe: 1.1.1
 
   /pluralize@8.0.0:
@@ -6399,6 +6391,17 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+    dev: false
+
+  /radix-vue@0.1.33(vue@3.3.4):
+    resolution: {integrity: sha512-2nwcjrXNXML//iOxUeqyh2bBXQtQt3Xy1NqM2oHZJTNNEaL2QnMjlSN51DXMzx3QB2uex2IwqA1cFTHbJ34tyw==}
+    dependencies:
+      '@floating-ui/dom': 1.5.1
+      '@floating-ui/vue': 1.0.2(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
 
   /rc9@2.1.1:
     resolution: {integrity: sha512-lNeOl38Ws0eNxpO3+wD1I9rkHGQyj1NU1jlzv4go2CtEnEQEUfqnIvZG7W+bC/aXdJ27n5x/yUjb6RoT9tko+Q==}
@@ -6675,8 +6678,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shiki@0.14.3:
-    resolution: {integrity: sha512-U3S/a+b0KS+UkTyMjoNojvTgrBHjgp7L6ovhFVZsXmBGnVdQ4K4U9oK0z63w538S91ATngv1vXigHCSWOwnr+g==}
+  /shiki@0.14.4:
+    resolution: {integrity: sha512-IXCRip2IQzKwxArNNq1S+On4KPML3Yyn8Zzs/xRgcgOWIr8ntIK3IKzjFPfjy/7kt9ZMjc+FItfqHRBg8b6tNQ==}
     dependencies:
       ansi-sequence-parser: 1.1.1
       jsonc-parser: 3.2.0
@@ -7335,9 +7338,6 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /ufo@1.2.0:
-    resolution: {integrity: sha512-RsPyTbqORDNDxqAdQPQBpgqhWle1VcTSou/FraClYlHf6TZnQcGslpLcAphNR+sQW4q5lLWLbOsRlh9j24baQg==}
-
   /ufo@1.3.0:
     resolution: {integrity: sha512-bRn3CsoojyNStCZe0BG0Mt4Nr/4KF+rhFlnNXybgqt5pXHNFRlqinSoQaTrGyzE4X8aHplSb+TorH+COin9Yxw==}
 
@@ -7367,7 +7367,7 @@ packages:
       fast-glob: 3.3.1
       local-pkg: 0.4.3
       magic-string: 0.30.3
-      mlly: 1.4.0
+      mlly: 1.4.1
       pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
@@ -7639,8 +7639,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress@1.0.0-rc.11(@algolia/client-search@4.19.1)(@types/node@20.5.7)(search-insights@2.7.0):
-    resolution: {integrity: sha512-HUnfYOadqwLSahtgQxKt9/wiNHdd80BaUfQ+DIMpfq03Iv9CWX1SCBK4gxK/bMWns3Q0ArhXajQbU/fmBwYUMg==}
+  /vitepress@1.0.0-rc.12(@algolia/client-search@4.19.1)(@types/node@20.5.7)(search-insights@2.7.0):
+    resolution: {integrity: sha512-mZknN5l9lgbBjXwumwdOQQDM+gPivswFEykEQeenY0tv7eocS+bb801IpFZT3mFV6YRhSddmbutHlFgPPADjEg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.2
@@ -7651,7 +7651,7 @@ packages:
       focus-trap: 7.5.2
       mark.js: 8.11.1
       minisearch: 6.1.0
-      shiki: 0.14.3
+      shiki: 0.14.4
       vite: 4.4.9(@types/node@20.5.7)
       vue: 3.3.4
     transitivePeerDependencies:
