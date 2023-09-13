@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "private": true,
-  "packageManager": "pnpm@8.6.3",
+  "packageManager": "pnpm@8.7.5",
   "license": "MIT",
   "repository": "radix-vue/shadcn-vue",
   "workspaces": [
@@ -19,18 +19,21 @@
     "build:registry": "pnpm --filter=www build:registry",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",
-    "test": "pnpm --filter shadcn-vue test"
+    "test": "pnpm --filter shadcn-vue test",
+    "taze": "taze major -frI --ignore-paths ./packages/cli/test/** --exclude typescript,/@iconify/",
+    "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.7",
+    "@antfu/eslint-config": "^0.41.3",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "eslint": "^8.43.0",
-    "lint-staged": "^14.0.0",
-    "pnpm": "^8.6.12",
+    "eslint": "^8.49.0",
+    "lint-staged": "^14.0.1",
+    "pnpm": "^8.7.5",
     "simple-git-hooks": "^2.9.0",
+    "taze": "^0.11.2",
     "typescript": "^5.2.2",
-    "vitest": "^0.34.3"
+    "vitest": "^0.34.4"
   },
   "commitlint": {
     "extends": [
