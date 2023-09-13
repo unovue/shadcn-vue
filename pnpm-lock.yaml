@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   detype@0.6.3:
-    hash: 6ktqwatz2smalcxwhreeceligi
+    hash: tlxqopreogk7nma7uu7ixdzk3u
     path: patches/detype@0.6.3.patch
 
 importers:
@@ -245,7 +245,7 @@ importers:
         version: 0.34.3(vitest@0.34.3)
       detype:
         specifier: ^0.6.3
-        version: 0.6.3(patch_hash=6ktqwatz2smalcxwhreeceligi)
+        version: 0.6.3(patch_hash=tlxqopreogk7nma7uu7ixdzk3u)
       tsup:
         specifier: ^7.2.0
         version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
@@ -3978,7 +3978,7 @@ packages:
     resolution: {integrity: sha512-M1Ob1zPSIvlARiJUkKqvAZ3VAqQY6Jcuth/pBKQ2b1dX/Qx0OnJ8Vux6J2H5PTMQeRzWrrbTu70VxBfv/OPDJA==}
     dev: false
 
-  /detype@0.6.3(patch_hash=6ktqwatz2smalcxwhreeceligi):
+  /detype@0.6.3(patch_hash=tlxqopreogk7nma7uu7ixdzk3u):
     resolution: {integrity: sha512-b42ytoZGAOo2U9V4zAMqtiWHgeG8F6kRQsg1E6n0uARMxOItxlWWS+pSsNbvmejInhfui0Q0mn9Bd4lwqhLaSA==}
     engines: {node: '>=14.19.3'}
     hasBin: true
