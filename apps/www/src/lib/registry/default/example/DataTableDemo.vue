@@ -103,7 +103,7 @@ const columns: ColumnDef<Payment>[] = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, ['Email', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => ['Email', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   },
@@ -128,9 +128,9 @@ const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => {
       const payment = row.original
 
-      return h(DropdownAction, {
+      return h('div', { class: 'relative' }, h(DropdownAction, {
         payment,
-      })
+      }))
     },
   },
 ]
@@ -162,7 +162,7 @@ const table = useVueTable({
 
 <template>
   <div class="w-full">
-    <div class="flex items-center py-4">
+    <div class="flex gap-2 items-center py-4">
       <Input
         class="max-w-sm"
         placeholder="Filter emails..."
@@ -244,7 +244,6 @@ const table = useVueTable({
           :disabled="!table.getCanNextPage()"
           @click="table.nextPage()"
         >
-          >
           Next
         </Button>
       </div>

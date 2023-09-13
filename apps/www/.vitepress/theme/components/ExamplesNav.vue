@@ -30,7 +30,7 @@ const examples = [
   },
   {
     name: 'Forms',
-    href: '/examples/forms',
+    href: '/examples/forms/forms',
     code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/forms',
   },
   {

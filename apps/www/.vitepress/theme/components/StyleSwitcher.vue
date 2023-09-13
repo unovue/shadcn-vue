@@ -20,9 +20,7 @@ const { config } = useConfigStore()
   <Select v-model="config.style">
     <SelectTrigger :class="cn('h-7 w-[145px] text-xs [&_svg]:h-4 [&_svg]:w-4', props.class)">
       <span class="text-muted-foreground">Style: </span>
-      <SelectValue placeholder="Select style">
-        {{ styles.find(s => s.name === config.style)?.label }}
-      </SelectValue>
+      <SelectValue placeholder="Select style" />
     </SelectTrigger>
     <SelectContent>
       <SelectItem v-for="style in styles" :key="style.name" :value="style.name" class="text-xs">
