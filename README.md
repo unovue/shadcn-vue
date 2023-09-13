@@ -17,6 +17,50 @@ Accessible and customizable components that you can copy and paste into your app
 
 [View documentation here](https://www.shadcn-vue.com/docs/introduction.html)
 
+## TODO
+
+| Component                                                                          | Usable | Complete API | Complete Accessibility |
+| :--------------------------------------------------------------------------------- | :----: | ------------ | ---------------------- |
+| [Accordion](https://www.shadcn-vue.com/docs/components/accordion.html)             |   ✅    | ➖            | ➖                      |
+| [Alert Dialog](https://www.shadcn-vue.com/docs/components/alert.html)              |   ✅    | ➖            | ➖                      |
+| [Aspect Ratio](https://www.shadcn-vue.com/docs/components/aspect-ratio.html)       |   ✅    | ➖            | ➖                      |
+| [Avatar](https://www.shadcn-vue.com/docs/components/avatar.html)                   |   ✅    | ➖            | ➖                      |
+| [Badge](https://www.shadcn-vue.com/docs/components/badge.html)                     |   ✅    | ➖            | ➖                      |
+| [Button](https://www.shadcn-vue.com/docs/components/button.html)                   |   ✅    | ➖            | ➖                      |
+| [Calendar](https://www.shadcn-vue.com/docs/components/calendar.html)               |   ✅    | ➖            | ➖                      |
+| [Card](https://www.shadcn-vue.com/docs/components/card.html)                       |   ✅    | ➖            | ➖                      |
+| [Checkbox](https://www.shadcn-vue.com/docs/components/checkbox.html)               |   ✅    | ➖            | ➖                      |
+| [Collapsible](https://www.shadcn-vue.com/docs/components/collapsible.html)         |   ✅    | ➖            | ➖                      |
+| [Combobox](https://www.shadcn-vue.com/docs/components/combobox.html)               |   ➖    | ➖            | ➖                      |
+| [Context Menu](https://www.shadcn-vue.com/docs/components/context-menu.html)       |   ✅    | ➖            | ➖                      |
+| [Data Table](https://www.shadcn-vue.com/docs/components/data-table.html)           |   ✅    | ➖            | ➖                      |
+| [Date-picker](https://www.shadcn-vue.com/docs/components/date-picker.html)         |   ✅    | ➖            | ➖                      |
+| [Dialog](https://www.shadcn-vue.com/docs/components/dialog.html)                   |   ✅    | ➖            | ➖                      |
+| [Dropdown Menu](https://www.shadcn-vue.com/docs/components/dropdown-menu.html)     |   ✅    | ➖            | ➖                      |
+| [Form](https://www.shadcn-vue.com/docs/components/form.html)                       |   ➖    | ➖            | ➖                      |
+| [Hover Card](https://www.shadcn-vue.com/docs/components/hover-card.html)           |   ✅    | ➖            | ➖                      |
+| [Input](https://www.shadcn-vue.com/docs/components/input.html)                     |   ✅    | ➖            | ➖                      |
+| [Label](https://www.shadcn-vue.com/docs/components/label.html)                     |   ✅    | ➖            | ➖                      |
+| [Menubar](https://www.shadcn-vue.com/docs/components/menubar.html)                 |   ✅    | ➖            | ➖                      |
+| [Navigation Menu](https://www.shadcn-vue.com/docs/components/navigation-menu.html) |   ✅    | ➖            | ➖                      |
+| [Popover](https://www.shadcn-vue.com/docs/components/popover.html)                 |   ✅    | ➖            | ➖                      |
+| [Progress](https://www.shadcn-vue.com/docs/components/progress.html)               |   ✅    | ➖            | ➖                      |
+| [Radio Group](https://www.shadcn-vue.com/docs/components/radio-group.html)         |   ✅    | ➖            | ➖                      |
+| [Scroll Area](https://www.shadcn-vue.com/docs/components/scroll-area.html)         |   ✅    | ➖            | ➖                      |
+| [Select](https://www.shadcn-vue.com/docs/components/select.html)                   |   ✅    | ➖            | ➖                      |
+| [Separator](https://www.shadcn-vue.com/docs/components/separator.html)             |   ✅    | ➖            | ➖                      |
+| [Sheet](https://www.shadcn-vue.com/docs/components/sheet.html)                     |   ✅    | ➖            | ➖                      |
+| [Skeleton](https://www.shadcn-vue.com/docs/components/skeleton.html)               |   ✅    | ➖            | ➖                      |
+| [Slider](https://www.shadcn-vue.com/docs/components/slider.html)                   |   ✅    | ➖            | ➖                      |
+| [Switch](https://www.shadcn-vue.com/docs/components/switch.html)                   |   ✅    | ➖            | ➖                      |
+| [Table](https://www.shadcn-vue.com/docs/components/table.html)                     |   ✅    | ➖            | ➖                      |
+| [Tabs](https://www.shadcn-vue.com/docs/components/tabs.html)                       |   ✅    | ➖            | ➖                      |
+| [Textarea](https://www.shadcn-vue.com/docs/components/textarea.html)               |   ✅    | ➖            | ➖                      |
+| [Toggle](https://www.shadcn-vue.com/docs/components/toggle.html)                   |   ➖    | ➖            | ➖                      |
+| [Toggle Group](https://www.shadcn-vue.com/docs/components/toggle-group.html)       |   ➖    | ➖            | ➖                      |
+| [Toolbar](https://www.shadcn-vue.com/docs/components/toolbar.html)                 |   ➖    | ➖            | ➖                      |
+| [Tooltip](https://www.shadcn-vue.com/docs/components/tooltip.html)                 |   ✅    | ➖            | ➖                      |
+
 ## Credits
 
 All credits go to these open-source works and resources
