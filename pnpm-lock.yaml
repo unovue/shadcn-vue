@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  detype@0.6.3:
+    hash: g5z5gyssezsozt6u6tz5kefv34
+    path: patches/detype@0.6.3.patch
+
 importers:
 
   .:
@@ -240,7 +245,7 @@ importers:
         version: 0.34.3(vitest@0.34.3)
       detype:
         specifier: ^0.6.3
-        version: 0.6.3
+        version: 0.6.3(patch_hash=g5z5gyssezsozt6u6tz5kefv34)
       tsup:
         specifier: ^7.2.0
         version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
@@ -3996,7 +4001,7 @@ packages:
     resolution: {integrity: sha512-M1Ob1zPSIvlARiJUkKqvAZ3VAqQY6Jcuth/pBKQ2b1dX/Qx0OnJ8Vux6J2H5PTMQeRzWrrbTu70VxBfv/OPDJA==}
     dev: false
 
-  /detype@0.6.3:
+  /detype@0.6.3(patch_hash=g5z5gyssezsozt6u6tz5kefv34):
     resolution: {integrity: sha512-b42ytoZGAOo2U9V4zAMqtiWHgeG8F6kRQsg1E6n0uARMxOItxlWWS+pSsNbvmejInhfui0Q0mn9Bd4lwqhLaSA==}
     engines: {node: '>=14.19.3'}
     hasBin: true
@@ -4012,6 +4017,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+    patched: true
 
   /didyoumean@1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}

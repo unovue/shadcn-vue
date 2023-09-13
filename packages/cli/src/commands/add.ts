@@ -146,11 +146,14 @@ export const add = new Command()
 
         for (const file of item.files) {
           const componentDir = path.resolve(targetDir, item.name)
-          const filePath = path.resolve(
+          let filePath = path.resolve(
             targetDir,
             item.name,
             file.name,
           )
+
+          if (!config.typescript)
+            filePath = filePath.replace(/\.ts$/, '.js')
 
           // Run transformers.
           let content = await transformSFC(file, config)
