@@ -37,7 +37,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 </script>
 
 <template>

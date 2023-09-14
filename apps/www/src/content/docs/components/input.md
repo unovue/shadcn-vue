@@ -29,7 +29,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Input } from '@/lib/registry/default/ui/input'
+import { Input } from '@/components/ui/input'
 </script>
 
 <template>

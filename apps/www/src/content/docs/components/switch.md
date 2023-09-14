@@ -29,7 +29,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Switch } from '@/lib/registry/default/ui/switch'
+import { Switch } from '@/components/ui/switch'
 </script>
 
 <template>

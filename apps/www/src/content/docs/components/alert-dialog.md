@@ -42,7 +42,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/lib/registry/default/ui/alert-dialog'
+} from '@/components/ui/alert-dialog'
 </script>
 
 <template>

@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
+import { ScrollArea } from '@/components/ui/scroll-area'
 </script>
 
 <template>

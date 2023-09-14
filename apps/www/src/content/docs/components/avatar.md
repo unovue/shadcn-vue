@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@/lib/registry/default/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 </script>
 
 <template>

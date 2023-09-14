@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Separator } from '@/lib/registry/default/ui/separator'
+import { Separator } from '@/components/ui/separator'
 </script>
 
 <template>

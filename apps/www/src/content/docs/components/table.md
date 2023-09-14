@@ -35,7 +35,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
+} from '@/components/ui/table'
 </script>
 
 <template>

@@ -30,8 +30,8 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Label } from '@/lib/registry/default/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-group'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 </script>
 
 <template>

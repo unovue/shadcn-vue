@@ -35,7 +35,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from '@/components/ui/card'
 </script>
 
 <template>

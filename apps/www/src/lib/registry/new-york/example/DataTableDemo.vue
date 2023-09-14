@@ -18,15 +18,15 @@ import DropdownAction from './DataTableDemoColumn.vue'
 import RadixIconsCaretSort from '~icons/radix-icons/caret-sort'
 import RadixIconsChevronDown from '~icons/radix-icons/chevron-down'
 
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/lib/registry/new-york/ui/input'
+} from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -34,7 +34,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/new-york/ui/table'
+} from '@/components/ui/table'
 import { valueUpdater } from '@/lib/utils'
 
 export interface Payment {

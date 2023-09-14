@@ -45,7 +45,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from '@/lib/registry/default/ui/context-menu'
+} from '@/components/ui/context-menu'
 </script>
 
 <template>

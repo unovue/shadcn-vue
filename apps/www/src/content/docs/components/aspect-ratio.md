@@ -29,14 +29,14 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { AspectRatio } from '@/lib/registry/default/ui/aspect-ratio'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 </script>
 
 <template>
-  <AspectRatio>
-    <img
-      src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-    >
-  </AspectRatio>
+  <div class="w-[450px]">
+    <AspectRatio :ratio="16 / 9">
+      <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80">
+    </AspectRatio>
+  </div>
 </template>
 ```

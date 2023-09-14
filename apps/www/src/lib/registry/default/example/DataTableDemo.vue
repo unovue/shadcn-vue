@@ -17,15 +17,15 @@ import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
 
 import { h, ref } from 'vue'
 import DropdownAction from './DataTableDemoColumn.vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Checkbox } from '@/lib/registry/default/ui/checkbox'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
-import { Input } from '@/lib/registry/default/ui/input'
+} from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -33,7 +33,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
+} from '@/components/ui/table'
 import { valueUpdater } from '@/lib/utils'
 
 export interface Payment {

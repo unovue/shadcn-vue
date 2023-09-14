@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Checkbox } from '@/lib/registry/default/ui/checkbox'
+import { Checkbox } from '@/components/ui/checkbox'
 </script>
 
 <template>

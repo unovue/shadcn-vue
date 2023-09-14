@@ -38,7 +38,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
+} from '@/components/ui/dialog'
 </script>
 
 <template>

@@ -35,7 +35,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from '@/components/ui/popover'
 </script>
 
 <template>

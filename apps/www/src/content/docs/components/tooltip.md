@@ -34,7 +34,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/lib/registry/default/ui/tooltip'
+} from '@/components/ui/tooltip'
 </script>
 
 <template>

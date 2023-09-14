@@ -29,7 +29,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 </script>
 
 <template>

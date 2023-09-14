@@ -38,7 +38,7 @@ import {
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
-} from '@/lib/registry/default/ui/menubar'
+} from '@/components/ui/menubar'
 </script>
 
 <template>
