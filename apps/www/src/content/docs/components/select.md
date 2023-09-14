@@ -39,7 +39,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
+} from '@/components/ui/select'
 </script>
 
 <template>

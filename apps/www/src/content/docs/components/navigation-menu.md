@@ -38,7 +38,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-} from '@/lib/registry/default/ui/navigation-menu'
+} from '@/components/ui/navigation-menu'
 </script>
 
 <template>

@@ -11,7 +11,7 @@ primitive: https://www.radix-vue.com/components/label.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add input
+npx shadcn-vue@latest add label
 ```
 
 <ManualInstall>
@@ -29,7 +29,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Label } from '@/lib/registry/default/ui/label'
+import { Label } from '@/components/ui/label'
 </script>
 
 <template>

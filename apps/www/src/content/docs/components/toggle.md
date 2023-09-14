@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Toggle } from '@/lib/registry/default/ui/toggle'
+import { Toggle } from '@/components/ui/toggle'
 </script>
 
 <template>

@@ -34,14 +34,14 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/lib/registry/default/ui/hover-card'
+} from '@/components/ui/hover-card'
 </script>
 
 <template>
   <HoverCard>
     <HoverCardTrigger>Hover</HoverCardTrigger>
     <HoverCardContent>
-      The React Framework – created and maintained by @vercel.
+      The Vue Framework – created and maintained by @vuejs.
     </HoverCardContent>
   </HoverCard>
 </template>

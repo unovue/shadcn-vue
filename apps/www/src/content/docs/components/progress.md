@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Progress } from '@/lib/registry/default/ui/progress'
+import { Progress } from '@/components/ui/progress'
 </script>
 
 <template>

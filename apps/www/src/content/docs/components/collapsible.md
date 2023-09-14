@@ -31,24 +31,22 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
+import { ref } from 'vue'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/lib/registry/default/ui/collapsible'
+} from '@/components/ui/collapsible'
 
 const isOpen = ref(false)
 </script>
 
 <template>
-  <Collapsible
-    v-model:open="isOpen"
-  >
-    <CollapsibleTrigger>
-      Trigger
-    </CollapsibleTrigger>
+  <Collapsible v-model:open="isOpen">
+    <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
     <CollapsibleContent>
-      Content
+      Yes. Free to use for personal and commercial projects. No attribution
+      required.
     </CollapsibleContent>
   </Collapsible>
 </template>

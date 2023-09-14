@@ -30,7 +30,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Slider } from '@/lib/registry/default/ui/slider'
+import { Slider } from '@/components/ui/slider'
 </script>
 
 <template>

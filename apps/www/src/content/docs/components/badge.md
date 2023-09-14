@@ -28,7 +28,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Badge } from '@/lib/registry/default/ui/badge'
+import { Badge } from '@/components/ui/badge'
 </script>
 
 <template>

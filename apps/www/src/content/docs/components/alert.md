@@ -29,7 +29,7 @@ npm install radix-vue
 
 ```vue
 <script setup lang="ts">
-import { Alert, AlertDescription, AlertTitle } from '@/lib/registry/default/ui/alert'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 </script>
 
 <template>

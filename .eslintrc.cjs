@@ -11,5 +11,6 @@ module.exports = {
     'symbol-description': 'off',
     'no-console': 'warn',
     'no-tabs': 'off',
+    'no-invalid-character': 'off',
   },
 }

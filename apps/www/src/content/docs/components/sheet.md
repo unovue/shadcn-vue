@@ -36,7 +36,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/lib/registry/default/ui/sheet'
+} from '@/components/ui/sheet'
 </script>
 
 <template>
