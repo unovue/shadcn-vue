@@ -129,6 +129,7 @@ export function getItemTargetPath(
     return null
 
   return path.join(
+    config.typescript ? '' : config.root,
     config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
     type,
   )

@@ -117,6 +117,12 @@ export async function promptForConfig(
       ],
     },
     {
+      type: 'text',
+      name: 'root',
+      message: `Where is your ${highlight('source code')} folder located`,
+      initial: (prev, values) => defaultConfig?.root ?? values.framework === 'nuxt' ? '.' : 'src',
+    },
+    {
       type: 'select',
       name: 'style',
       message: `Which ${highlight('style')} would you like to use?`,
@@ -174,6 +180,7 @@ export async function promptForConfig(
 
   const config = rawConfigSchema.parse({
     // $schema: 'https://ui.shadcn.com/schema.json',
+    root: options.root,
     style: options.style,
     typescript: options.typescript,
     framework: options.framework,
