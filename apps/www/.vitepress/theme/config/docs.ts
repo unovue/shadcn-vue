@@ -155,18 +155,14 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: 'Combobox',
-          disabled: true,
-          label: 'Soon',
-          href: '#',
+          href: '/docs/components/combobox',
           items: [],
         },
-        // {
-        //   title: "Command",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Command',
+          href: '/docs/components/command',
+          items: [],
+        },
         {
           title: 'Context Menu',
           href: '/docs/components/context-menu',
