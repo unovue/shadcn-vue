@@ -13,7 +13,7 @@ export interface TransformOpts {
 export function transformImport(content: string, config: Config) {
   const s = new MagicString(content)
   s.replaceAll(/@\/registry\/[^/]+/g, config.aliases.components)
-  s.replaceAll(/\$lib\/utils/g, config.aliases.utils)
+  s.replaceAll(/@\/lib\/utils/g, config.aliases.utils)
   return s.toString()
 }
 
