@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 
 import {
@@ -14,12 +15,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/new-york/ui/card'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/lib/registry/new-york/ui/command'
 
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/new-york/ui/popover'
+
+const sofiaRole = ref('Owner')
+const jacksonRole = ref('Member')
 </script>
 
 <template>
@@ -49,43 +54,43 @@ import {
         <Popover>
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
-              Owner
+              {{ sofiaRole }}
               <ChevronDownIcon class="ml-2 h-4 w-4 text-muted-foreground" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">
-            <!-- <Command>
-                <CommandInput placeholder="Select new role..." />
-                <CommandList>
-                  <CommandEmpty>No roles found.</CommandEmpty>
-                  <CommandGroup>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Viewer</p>
-                      <p class="text-sm text-muted-foreground">
-                        Can view and comment.
-                      </p>
-                    </CommandItem>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Developer</p>
-                      <p class="text-sm text-muted-foreground">
-                        Can view, comment and edit.
-                      </p>
-                    </CommandItem>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Billing</p>
-                      <p class="text-sm text-muted-foreground">
-                        Can view, comment and manage billing.
-                      </p>
-                    </CommandItem>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Owner</p>
-                      <p class="text-sm text-muted-foreground">
-                        Admin-level access to all resources.
-                      </p>
-                    </CommandItem>
-                  </CommandGroup>
-                </CommandList>
-              </Command> -->
+            <Command v-model="sofiaRole">
+              <CommandInput placeholder="Select new role..." />
+              <CommandList>
+                <CommandEmpty>No roles found.</CommandEmpty>
+                <CommandGroup>
+                  <CommandItem value="Viewer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Viewer</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view and comment.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Developer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Developer</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view, comment and edit.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Billing" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Billing</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view, comment and manage billing.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Owner" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Owner</p>
+                    <p class="text-sm text-muted-foreground">
+                      Admin-level access to all resources.
+                    </p>
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
+            </Command>
           </PopoverContent>
         </Popover>
       </div>
@@ -107,43 +112,43 @@ import {
         <Popover>
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
-              Member
+              {{ jacksonRole }}
               <ChevronDownIcon class="ml-2 h-4 w-4 text-muted-foreground" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">
-            <!-- <Command>
-                <CommandInput placeholder="Select new role..." />
-                <CommandList>
-                  <CommandEmpty>No roles found.</CommandEmpty>
-                  <CommandGroup class="p-1.5">
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Viewer</p>
-                      <p class="text-sm text-muted-foreground">
-                        Can view and comment.
-                      </p>
-                    </CommandItem>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Developer</p>
-                      <p class="text-sm text-muted-foreground">
-                        Can view, comment and edit.
-                      </p>
-                    </CommandItem>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Billing</p>
-                      <p class="text-sm text-muted-foreground">
-                        Can view, comment and manage billing.
-                      </p>
-                    </CommandItem>
-                    <CommandItem class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
-                      <p>Owner</p>
-                      <p class="text-sm text-muted-foreground">
-                        Admin-level access to all resources.
-                      </p>
-                    </CommandItem>
-                  </CommandGroup>
-                </CommandList>
-              </Command> -->
+            <Command v-model="jacksonRole">
+              <CommandInput placeholder="Select new role..." />
+              <CommandList>
+                <CommandEmpty>No roles found.</CommandEmpty>
+                <CommandGroup>
+                  <CommandItem value="Viewer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Viewer</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view and comment.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Developer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Developer</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view, comment and edit.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Billing" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Billing</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view, comment and manage billing.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Owner" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Owner</p>
+                    <p class="text-sm text-muted-foreground">
+                      Admin-level access to all resources.
+                    </p>
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
+            </Command>
           </PopoverContent>
         </Popover>
       </div>
