@@ -4,7 +4,16 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
 </script>
 
 <template>
-  <div class="md:hidden" />
+  <div class="md:hidden">
+    <VPImage
+      alt="Forms"
+      width="1280"
+      height="1214" class="block" :image="{
+        dark: '/examples/forms-dark.png',
+        light: '/examples/forms-light.png',
+      }"
+    />
+  </div>
   <div class="hidden space-y-6 p-10 pb-16 md:block">
     <div class="space-y-0.5">
       <h2 class="text-2xl font-bold tracking-tight">
