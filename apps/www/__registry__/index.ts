@@ -86,6 +86,20 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/CollapsibleDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/CollapsibleDemo.vue'],
     },
+    ComboboxDemo: {
+      name: 'ComboboxDemo',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'command', 'popover'],
+      component: () => import('../src/lib/registry/default/example/ComboboxDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ComboboxDemo.vue'],
+    },
+    CommandDemo: {
+      name: 'CommandDemo',
+      type: 'components:example',
+      registryDependencies: ['command'],
+      component: () => import('../src/lib/registry/default/example/CommandDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/CommandDemo.vue'],
+    },
     ContextMenuDemo: {
       name: 'ContextMenuDemo',
       type: 'components:example',
@@ -465,6 +479,20 @@ export const Index = {
       registryDependencies: ['button', 'collapsible'],
       component: () => import('../src/lib/registry/new-york/example/CollapsibleDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CollapsibleDemo.vue'],
+    },
+    ComboboxDemo: {
+      name: 'ComboboxDemo',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'command', 'popover'],
+      component: () => import('../src/lib/registry/new-york/example/ComboboxDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ComboboxDemo.vue'],
+    },
+    CommandDemo: {
+      name: 'CommandDemo',
+      type: 'components:example',
+      registryDependencies: ['command'],
+      component: () => import('../src/lib/registry/new-york/example/CommandDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CommandDemo.vue'],
     },
     ContextMenuDemo: {
       name: 'ContextMenuDemo',
