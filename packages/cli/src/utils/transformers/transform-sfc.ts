@@ -1,25 +1,18 @@
 import { createRequire } from 'node:module'
+import { type SourceFile, SyntaxKind } from 'ts-morph'
+import { transform as transformByDetype } from 'detype'
 import type { Config } from '../get-config'
 import { transformImport } from './transform-import'
+import type { Transformer } from '@/src/utils/transformers'
 
-const require = createRequire(import.meta.url)
-const { transform } = require('detype')
+export const transformSFC: Transformer<string> = async ({ sourceFile, config }) => {
+  const output = sourceFile?.getFullText()
+  if (config?.typescript)
+    return output
 
-export async function transformByDetype(content: string, filename: string) {
-  return await transform(content, filename, {
+  const clean = await transformByDetype(output, 'app.vue', {
     removeTsComments: true,
   })
-}
 
-interface File {
-  name: string
-  content: string
-}
-
-export async function transformSFC(file: File, config: Config) {
-  let content = transformImport(file.content, config)
-  if (!config.typescript)
-    content = await transformByDetype(content, file.name)
-
-  return content
+  return clean
 }

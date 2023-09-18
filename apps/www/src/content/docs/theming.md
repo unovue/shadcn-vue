@@ -17,7 +17,6 @@ To use utility classes for theming set `tailwind.cssVariables` to `false` in you
 ```json {8} title="components.json"
 {
   "style": "default",
-  "rsc": true,
   "tailwind": {
     "config": "tailwind.config.js",
     "css": "app/globals.css",
@@ -43,7 +42,6 @@ To use CSS variables for theming set `tailwind.cssVariables` to `true` in your `
 ```json {8} title="components.json"
 {
   "style": "default",
-  "rsc": true,
   "tailwind": {
     "config": "tailwind.config.js",
     "css": "app/globals.css",

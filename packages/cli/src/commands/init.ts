@@ -8,6 +8,7 @@ import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
+import { transform as transformByDetype } from 'detype'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
@@ -28,7 +29,6 @@ import {
   rawConfigSchema,
   resolveConfigPaths,
 } from '../utils/get-config'
-import { transformByDetype } from '../utils/transformers/transform-sfc'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -36,11 +36,6 @@ const PROJECT_DEPENDENCIES = {
     'class-variance-authority',
     'clsx',
     'tailwind-merge',
-  ],
-  vue: [
-    'tailwindcss',
-    'postcss',
-    'autoprefixer',
   ],
   nuxt: [
     '@nuxtjs/tailwindcss',
@@ -276,7 +271,7 @@ export async function runInit(cwd: string, config: Config) {
     config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : PROJECT_DEPENDENCIES.vue,
   ).concat(
     config.style === 'new-york' ? [] : ['lucide-vue-next'],
-  )
+  ).filter(Boolean)
 
   await execa(
     packageManager,

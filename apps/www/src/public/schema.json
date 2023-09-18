@@ -23,13 +23,7 @@
         }
       },
       "required": ["config", "css", "baseColor", "cssVariables"]
-    },
-    "rsc": {
-      "type": "boolean"
-    },
-    "tsx": {
-      "type": "boolean"
-    },
+    },  
     "aliases": {
       "type": "object",
       "properties": {
@@ -43,5 +37,5 @@
       "required": ["utils", "components"]
     }
   },
-  "required": ["style", "tailwind", "rsc", "aliases"]
+  "required": ["style", "tailwind", "aliases"]
 }
