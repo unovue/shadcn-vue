@@ -120,37 +120,39 @@ test('get config', async () => {
     typescript: true,
   })
 
-  // expect(
-  //   await getConfig(path.resolve(__dirname, '../fixtures/config-jsx')),
-  // ).toEqual({
-  //   style: 'default',
-  //   tailwind: {
-  //     config: './tailwind.config.js',
-  //     css: './src/assets/css/tailwind.css',
-  //     baseColor: 'neutral',
-  //     cssVariables: false,
-  //   },
-  //   aliases: {
-  //     components: '@/components',
-  //     utils: '@/lib/utils',
-  //   },
-  //   resolvedPaths: {
-  //     tailwindConfig: path.resolve(
-  //       __dirname,
-  //       '../fixtures/config-jsx',
-  //       'tailwind.config.js',
-  //     ),
-  //     tailwindCss: path.resolve(
-  //       __dirname,
-  //       '../fixtures/config-jsx',
-  //       './src/assets/css/tailwind.css',
-  //     ),
-  //     components: path.resolve(
-  //       __dirname,
-  //       '../fixtures/config-jsx',
-  //       './components',
-  //     ),
-  //     utils: path.resolve(__dirname, '../fixtures/config-jsx', './lib/utils'),
-  //   },
-  // })
+  expect(
+    await getConfig(path.resolve(__dirname, '../fixtures/config-js')),
+  ).toEqual({
+    style: 'default',
+    tailwind: {
+      config: './tailwind.config.js',
+      css: './src/assets/css/tailwind.css',
+      baseColor: 'neutral',
+      cssVariables: false,
+    },
+    typescript: false,
+    aliases: {
+      components: '@/components',
+      utils: '@/lib/utils',
+    },
+    framework: 'Vite',
+    resolvedPaths: {
+      tailwindConfig: path.resolve(
+        __dirname,
+        '../fixtures/config-js',
+        'tailwind.config.js',
+      ),
+      tailwindCss: path.resolve(
+        __dirname,
+        '../fixtures/config-js',
+        './src/assets/css/tailwind.css',
+      ),
+      components: path.resolve(
+        __dirname,
+        '../fixtures/config-js',
+        './components',
+      ),
+      utils: path.resolve(__dirname, '../fixtures/config-js', './lib/utils'),
+    },
+  })
 })

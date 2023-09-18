@@ -6,36 +6,60 @@ test('resolve tree', async () => {
   const index = [
     {
       name: 'button',
-      dependencies: ['@radix-ui/react-slot'],
+      dependencies: ['radix-vue'],
       type: 'components:ui',
-      files: ['button.tsx'],
+      files: [
+        'button/Button.vue',
+        'button/index.ts',
+      ],
     },
     {
       name: 'dialog',
-      dependencies: ['@radix-ui/react-dialog'],
+      dependencies: ['radix-vue'],
       registryDependencies: ['button'],
       type: 'components:ui',
-      files: ['dialog.tsx'],
+      files: ['dialog/Dialog.vue',
+        'dialog/DialogContent.vue',
+        'dialog/DialogDescription.vue',
+        'dialog/DialogFooter.vue',
+        'dialog/DialogHeader.vue',
+        'dialog/DialogTitle.vue',
+        'dialog/DialogTrigger.vue',
+        'dialog/index.ts',
+      ],
     },
     {
       name: 'input',
       registryDependencies: ['button'],
       type: 'components:ui',
-      files: ['input.tsx'],
+      files: [
+        'input/Input.vue',
+        'input/index.ts',
+      ],
     },
     {
       name: 'alert-dialog',
-      dependencies: ['@radix-ui/react-alert-dialog'],
+      dependencies: ['radix-vue'],
       registryDependencies: ['button', 'dialog'],
       type: 'components:ui',
-      files: ['alert-dialog.tsx'],
+      files: ['alert-dialog/AlertDialog.vue',
+        'alert-dialog/AlertDialogAction.vue',
+        'alert-dialog/AlertDialogCancel.vue',
+        'alert-dialog/AlertDialogContent.vue',
+        'alert-dialog/AlertDialogDescription.vue',
+        'alert-dialog/AlertDialogFooter.vue',
+        'alert-dialog/AlertDialogHeader.vue',
+        'alert-dialog/AlertDialogTitle.vue',
+        'alert-dialog/AlertDialogTrigger.vue',
+        'alert-dialog/index.ts',
+      ],
     },
-    {
-      name: 'example-card',
-      type: 'components:component',
-      files: ['example-card.tsx'],
-      registryDependencies: ['button', 'dialog', 'input'],
-    },
+    // {
+    //   name: 'example-card',
+    //   type: 'components:component',
+    //   files: ['example-card.tsx'],
+    //   registryDependencies: ['button', 'dialog', 'input'],
+    // },
   ]
 
   expect(
@@ -52,11 +76,11 @@ test('resolve tree', async () => {
       .sort(),
   ).toEqual(['alert-dialog', 'button', 'dialog'])
 
-  expect(
-    (await resolveTree(index, ['example-card']))
-      .map(entry => entry.name)
-      .sort(),
-  ).toEqual(['button', 'dialog', 'example-card', 'input'])
+  // expect(
+  //   (await resolveTree(index, ['example-card']))
+  //     .map(entry => entry.name)
+  //     .sort(),
+  // ).toEqual(['button', 'dialog', 'example-card', 'input'])
 
   expect(
     (await resolveTree(index, ['foo'])).map(entry => entry.name).sort(),

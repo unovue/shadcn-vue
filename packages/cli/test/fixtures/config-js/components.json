@@ -1,6 +1,5 @@
 {
   "style": "default",
-  "tsx": false,
   "tailwind": {
     "config": "./tailwind.config.js",
     "css": "./src/assets/css/tailwind.css",
@@ -10,5 +9,6 @@
   "aliases": {
     "utils": "@/lib/utils",
     "components": "@/components"
-  }
+  },
+  "typescript": false
 }
