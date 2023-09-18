@@ -8,7 +8,7 @@ import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
 
 import Kbd from '../components/Kbd.vue'
-import { Command, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
 
 import { Button } from '@/lib/registry/default/ui/button'
 import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
@@ -196,6 +196,9 @@ function openInNewTab(url: string | undefined) {
       <DialogContent class="p-0">
         <Command>
           <CommandInput placeholder="Type a command or search..." />
+          <CommandEmpty>
+            No results found.
+          </CommandEmpty>
           <CommandList>
             <CommandGroup heading="Links">
               <CommandItem
