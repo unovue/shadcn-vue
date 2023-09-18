@@ -1,30 +1,38 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core'
-import { Content, useData, useRoute } from 'vitepress'
-import { onMounted } from 'vue'
+import { Content, useData, useRoute, useRouter } from 'vitepress'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { SearchIcon } from 'lucide-vue-next'
 import { docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
 
-// import { Button } from '@/lib/registry/default/ui/button'
-// import { Kbd } from '@/lib/registry/default/ui/kbd'
-// import LucideSearch from '~icons/lucide/search'
+import Kbd from '../components/Kbd.vue'
+import { Command, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
+
+import { Button } from '@/lib/registry/default/ui/button'
 import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
 import TablerBrandX from '~icons/tabler/brand-x'
 import RadixIconsMoon from '~icons/radix-icons/moon'
 import RadixIconsSun from '~icons/radix-icons/sun'
 import { useConfigStore } from '@/stores/config'
+import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
+
+import File from '~icons/radix-icons/file'
+import Circle from '~icons/radix-icons/circle'
 
 const { radius, theme } = useConfigStore()
 // Whenever the component is mounted, update the document class list
 onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${radius.value}rem`)
   document.documentElement.classList.add(`theme-${theme.value}`)
+  window.addEventListener('keydown', onKeyDown)
 })
 
 const { frontmatter, isDark } = useData()
 
 const $route = useRoute()
+const $router = useRouter()
 const toggleDark = useToggle(isDark)
 
 const links = [
@@ -39,6 +47,27 @@ const links = [
     icon: TablerBrandX,
   },
 ]
+
+const isOpen = ref<boolean>(false)
+
+function onKeyDown(event: KeyboardEvent) {
+  if (isOpen.value)
+    return
+
+  if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+    event.preventDefault()
+    isOpen.value = true
+  }
+}
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKeyDown)
+})
+
+function openInNewTab(url: string | undefined) {
+  const win = window.open(url, '_blank')
+  win?.focus()
+}
 </script>
 
 <template>
@@ -71,19 +100,19 @@ const links = [
         </div>
 
         <div class=" flex items-center justify-end space-x-4 ">
-          <!-- <Button
+          <Button
             variant="outline"
             class="w-72 h-8 px-3 hidden lg:flex lg:justify-between lg:items-center"
+            @click="isOpen = true"
           >
             <div class="flex items-center">
-              <LucideSearch class="w-4 h-4 mr-2 text-muted-foreground" />
+              <SearchIcon class="w-4 h-4 mr-2 text-muted-foreground" />
               <span class="text-muted-foreground"> Search for anything... </span>
             </div>
             <div class="flex items-center gap-x-1">
-              <Kbd>⌘</Kbd>
-              <Kbd>K</Kbd>
+              <Kbd> <span>⌘</span>K </Kbd>
             </div>
-          </Button> -->
+          </Button>
 
           <div
             v-for="link in links"
@@ -162,5 +191,77 @@ const links = [
         </div>
       </div>
     </footer>
+
+    <Dialog v-model:open="isOpen">
+      <DialogContent class="p-0">
+        <Command>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandGroup heading="Links">
+              <CommandItem
+                v-for="item in docsConfig.mainNav"
+                :key="item.title"
+                :heading="item.title"
+                :value="item.title"
+                class="py-3"
+                @select="() => {
+                  if (item.external) {
+                    openInNewTab(item.href);
+                  }
+                  else {
+                    $router.go(`${item.href}.html`);
+                  }
+                  isOpen = false;
+                }"
+              >
+                <File class="mr-2 h-5 w-5" />
+                <span>{{ item.title }}</span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup v-for="item in docsConfig.sidebarNav" :key="item.title" :heading="item.title">
+              <CommandItem
+                v-for="subItem in item.items" :key="subItem.title" :heading="subItem.title" :value="subItem.title" class="py-3" @select="() => {
+                  $router.go(`${subItem.href}.html`)
+                  isOpen = false
+                }"
+              >
+                <Circle class="mr-2 h-5 w-5" />
+                <span>{{ subItem.title }}</span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Theme">
+              <CommandItem
+                value="light-theme"
+                class="py-3"
+                @select="
+                  () => {
+                    isDark = false;
+                    isOpen = false;
+                  }
+                "
+              >
+                <RadixIconsSun class="mr-2 h-5 w-5" />
+                <span>Light Theme</span>
+              </CommandItem>
+              <CommandItem
+                value="dark-theme"
+                class="py-3"
+                @select="
+                  () => {
+                    isDark = true;
+                    isOpen = false;
+                  }
+                "
+              >
+                <RadixIconsMoon class="mr-2 h-5 w-5" />
+                <span>Dark Theme</span>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </DialogContent>
+    </Dialog>
   </div>
 </template>
