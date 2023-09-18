@@ -70,7 +70,6 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.11",
     "@types/babel__core": "^7.20.1",
     "@types/diff": "^5.0.3",
     "@types/fs-extra": "^11.0.1",
