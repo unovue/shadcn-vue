@@ -28,6 +28,7 @@ import {
   rawConfigSchema,
   resolveConfigPaths,
 } from '../utils/get-config'
+import { transformByDetype } from '../utils/transformers/transform-sfc'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -267,7 +268,7 @@ export async function runInit(cwd: string, config: Config) {
   // Write cn file.
   await fs.writeFile(
     `${config.resolvedPaths.utils}.${extension}`,
-    extension === 'ts' ? templates.UTILS : templates.UTILS_JS,
+    extension === 'ts' ? templates.UTILS : await transformByDetype(templates.UTILS, '.ts'),
     'utf8',
   )
 

@@ -152,15 +152,14 @@ export const add = new Command()
             file.name,
           )
 
-          if (!config.typescript)
-            filePath = filePath.replace(/\.ts$/, '.js')
-
           // Run transformers.
-          let content = await transformSFC(file, config)
-          content = transformImport(content, config)
+          const content = await transformSFC(file, config)
 
           if (!existsSync(componentDir))
             await fs.mkdir(componentDir, { recursive: true })
+
+          if (!config.typescript)
+            filePath = filePath.replace(/\.ts$/, '.js')
 
           await fs.writeFile(filePath, content)
         }
