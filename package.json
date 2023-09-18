@@ -40,6 +40,11 @@
       "@commitlint/config-conventional"
     ]
   },
+  "pnpm": {
+    "patchedDependencies": {
+      "detype@0.6.3": "patches/detype@0.6.3.patch"
+    }
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "commit-msg": "pnpm commitlint --edit ${1}"

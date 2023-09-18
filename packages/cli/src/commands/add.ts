@@ -8,6 +8,7 @@ import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
 import { transformImport } from '../utils/transformers/transform-import'
+import { transformSFC } from '../utils/transformers/transform-sfc'
 import { getConfig } from '@/src/utils/get-config'
 import { getPackageManager } from '@/src/utils/get-package-manager'
 import { handleError } from '@/src/utils/handle-error'
@@ -145,17 +146,20 @@ export const add = new Command()
 
         for (const file of item.files) {
           const componentDir = path.resolve(targetDir, item.name)
-          const filePath = path.resolve(
+          let filePath = path.resolve(
             targetDir,
             item.name,
             file.name,
           )
 
           // Run transformers.
-          const content = transformImport(file.content, config)
+          const content = await transformSFC(file, config)
 
           if (!existsSync(componentDir))
             await fs.mkdir(componentDir, { recursive: true })
+
+          if (!config.typescript)
+            filePath = filePath.replace(/\.ts$/, '.js')
 
           await fs.writeFile(filePath, content)
         }
