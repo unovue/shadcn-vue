@@ -8,7 +8,6 @@ import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
-import { transform as transformByDetype } from 'detype'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
@@ -18,6 +17,7 @@ import {
 import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
 import { getPackageManager } from '../utils/get-package-manager'
+import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
   type Config,
   DEFAULT_COMPONENTS,
