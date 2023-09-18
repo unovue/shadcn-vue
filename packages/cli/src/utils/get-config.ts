@@ -23,7 +23,6 @@ const explorer = cosmiconfig('components', {
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
-    root: z.string(),
     style: z.string(),
     typescript: z.boolean().default(false),
     tailwind: z.object({
@@ -65,26 +64,31 @@ export async function getConfig(cwd: string) {
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   let tsConfig: ConfigLoaderResult | undefined
+  let tsConfigPath = path.resolve(
+    cwd,
+    config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json',
+  )
+
   if (config.typescript) {
-    const TSCONFIG_PATH = config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json'
-
     // Read tsconfig.json.
-    const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH)
-    tsConfig = loadConfig(tsconfigPath)
-
+    tsConfig = loadConfig(tsConfigPath)
     // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
     // If no paths were found, try to load tsconfig.app.json.
     if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
-      const FALLBACK_TSCONFIG_PATH = path.resolve(cwd, './tsconfig.app.json')
-      if (existsSync(FALLBACK_TSCONFIG_PATH))
-        tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
+      tsConfigPath = path.resolve(cwd, './tsconfig.app.json')
+      if (existsSync(tsConfigPath))
+        tsConfig = loadConfig(tsConfigPath)
     }
+  }
+  else {
+    tsConfigPath = path.resolve(cwd, './jsconfig.json')
+    tsConfig = loadConfig(tsConfigPath)
+  }
 
-    if (tsConfig.resultType === 'failed') {
-      throw new Error(
-        `Failed to load tsconfig.json. ${tsConfig.message ?? ''}`.trim(),
-      )
-    }
+  if (tsConfig.resultType === 'failed') {
+    throw new Error(
+        `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
+    )
   }
 
   return configSchema.parse({
@@ -92,8 +96,8 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     resolvedPaths: {
       tailwindConfig: path.resolve(cwd, config.tailwind.config),
       tailwindCss: path.resolve(cwd, config.tailwind.css),
-      utils: tsConfig ? await resolveImport(config.aliases.utils, tsConfig) : config.aliases.utils,
-      components: tsConfig ? await resolveImport(config.aliases.components, tsConfig) : config.aliases.components,
+      utils: await resolveImport(config.aliases.utils, tsConfig),
+      components: await resolveImport(config.aliases.components, tsConfig),
     },
   })
 }

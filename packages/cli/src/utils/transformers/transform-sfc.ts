@@ -18,7 +18,7 @@ interface File {
 
 export async function transformSFC(file: File, config: Config) {
   let content = transformImport(file.content, config)
-  if (config.typescript)
+  if (!config.typescript)
     content = await transformByDetype(content, file.name)
 
   return content
