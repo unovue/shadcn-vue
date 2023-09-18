@@ -6,9 +6,9 @@ test('transform import', async () => {
     await transform({
       filename: 'app.vue',
       raw: `import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/lib/registry/new-york/ui/button"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/lib/registry/new-york/box"
 
     import { cn } from "@/lib/utils"
     `,
@@ -29,9 +29,9 @@ test('transform import', async () => {
     await transform({
       filename: 'app.vue',
       raw: `import { Foo } from "bar"
-      import { Button } from "@/registry/new-york/ui/button"
+      import { Button } from "@/lib/registry/new-york/ui/button"
       import { Label} from "ui/label"
-      import { Box } from "@/registry/new-york/box"
+      import { Box } from "@/lib/registry/new-york/box"
 
       import { cn, foo, bar } from "@/lib/utils"
       import { bar } from "@/lib/utils/bar"
@@ -49,9 +49,9 @@ test('transform import', async () => {
     await transform({
       filename: 'app.vue',
       raw: `import { Foo } from "bar"
-      import { Button } from "@/registry/new-york/ui/button"
+      import { Button } from "@/lib/registry/new-york/ui/button"
       import { Label} from "ui/label"
-      import { Box } from "@/registry/new-york/box"
+      import { Box } from "@/lib/registry/new-york/box"
 
     import { cn } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"

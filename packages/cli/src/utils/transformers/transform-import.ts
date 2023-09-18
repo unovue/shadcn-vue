@@ -6,11 +6,11 @@ export const transformImport: Transformer = async ({ sourceFile, config }) => {
   for (const importDeclaration of importDeclarations) {
     const moduleSpecifier = importDeclaration.getModuleSpecifierValue()
 
-    // Replace @/registry/[style] with the components alias.
-    if (moduleSpecifier.startsWith('@/registry/')) {
+    // Replace @/lib/registry/[style] with the components alias.
+    if (moduleSpecifier.startsWith('@/lib/registry/')) {
       importDeclaration.setModuleSpecifier(
         moduleSpecifier.replace(
-          /^@\/registry\/[^/]+/,
+          /^@\/lib\/registry\/[^/]+/,
           config.aliases.components,
         ),
       )

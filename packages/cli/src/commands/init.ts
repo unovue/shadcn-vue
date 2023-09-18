@@ -266,9 +266,8 @@ export async function runInit(cwd: string, config: Config) {
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
   const packageManager = await getPackageManager(cwd)
 
-  // TODO: add support for other icon libraries.
   const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : PROJECT_DEPENDENCIES.vue,
+    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
   ).concat(
     config.style === 'new-york' ? [] : ['lucide-vue-next'],
   ).filter(Boolean)
