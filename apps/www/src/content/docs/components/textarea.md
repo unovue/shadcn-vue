@@ -8,20 +8,40 @@ description: Displays a form textarea or a component that looks like a textarea.
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add textarea
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
+
+### Install the following dependency:
 
 ```bash
 npm install radix-vue
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+### Copy and paste the following code into your project
+
+```vue
+<script setup lang="ts">
+import { cn } from '@/lib/utils'
+</script>
+
+<template>
+  <textarea :class="cn('flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50', $attrs.class ?? '')" />
+</template>
+```
+
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 

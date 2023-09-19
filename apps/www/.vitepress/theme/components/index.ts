@@ -1,4 +1,5 @@
 export { default as ComponentPreview } from './ComponentPreview.vue'
+export { default as TabPreview } from './TabPreview.vue'
 export { default as Callout } from './Callout.vue'
 export { default as LinkedCard } from './LinkedCard.vue'
 export { default as ManualInstall } from './ManualInstall.vue'

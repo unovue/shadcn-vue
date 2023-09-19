@@ -11,20 +11,75 @@ primitive: https://www.radix-vue.com/components/toggle.html
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add toggle
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
+
+### Install the following dependencies:
 
 ```bash
 npm install radix-vue
+
+npm install --save-dev @iconify/vue
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+### Copy and paste the following code into your project
+
+```vue
+<script setup lang="ts">
+import { Toggle } from 'radix-vue'
+import { Icon } from '@iconify/vue'
+import { ref } from 'vue'
+
+const toggleState = ref(false)
+</script>
+
+<template>
+  <Toggle
+    v-model:pressed="toggleState" aria-label="Toggle italic"
+    class="hover:bg-green3 text-mauve11 data-[state=on]:bg-green6 data-[state=on]:text-violet12 shadow-blackA7 flex h-[35px] w-[35px] items-center justify-center rounded bg-white text-base leading-4 shadow-[0_2px_10px] focus-within:shadow-[0_0_0_2px] focus-within:shadow-black"
+  >
+    <Icon icon="radix-icons:font-italic" class="w-[15px] h-[15px]" />
+  </Toggle>
+</template>
+```
+
+### Update `tailwind.config.js`
+
+Add the following code into your `tailwind.config.js` file:
+
+```ts
+const { blackA, green, grass, mauve } = require('@radix-ui/colors')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./**/*.vue'],
+  theme: {
+    extend: {
+      colors: {
+        ...blackA,
+        ...green,
+        ...grass,
+        ...mauve,
+      },
+    },
+  },
+  plugins: [],
+}
+```
+
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 

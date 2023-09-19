@@ -8,20 +8,40 @@ description: Use to show a placeholder while content is loading.
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add skeleton
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
 
-```bash
-npm install radix-vue
+### Copy and paste the following code into your project
+
+```vue
+<script setup lang="ts">
+import { cn } from '@/lib/utils'
+
+interface SkeletonProps {
+  class?: string
+}
+
+const props = defineProps<SkeletonProps>()
+</script>
+
+<template>
+  <div :class="cn('animate-pulse rounded-md bg-secondary', props.class)" />
+</template>
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 

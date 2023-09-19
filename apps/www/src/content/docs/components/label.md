@@ -10,20 +10,53 @@ primitive: https://www.radix-vue.com/components/label.html
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add label
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
+
+### Install the following dependency:
 
 ```bash
 npm install radix-vue
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+### Copy and paste the following code into your project:
+
+```vue
+<script setup lang="ts">
+import { Label, type LabelProps } from 'radix-vue'
+import { cn } from '@/lib/utils'
+
+const props = defineProps<LabelProps & { class?: string }>()
+</script>
+
+<template>
+  <Label
+    v-bind="props"
+    :class="
+      cn(
+        'block text-sm tracking-tight font-medium text-foreground text-left',
+        props.class,
+      )
+    "
+  >
+    <slot />
+  </Label>
+</template>
+```
+
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 
