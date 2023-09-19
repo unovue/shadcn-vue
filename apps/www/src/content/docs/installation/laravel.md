@@ -140,7 +140,7 @@ The command above will add the `Button` component to your project. You can then 
 
 ```vue {2,7}
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import { Button } from '@/Components/ui/button'
 </script>
 
 <template>
