@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core'
 import { Content, useData, useRoute } from 'vitepress'
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import { docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
@@ -30,15 +30,25 @@ const toggleDark = useToggle(isDark)
 const links = [
   {
     name: 'GitHub',
-    href: 'https://github.com/radix-vue',
+    href: 'https://github.com/radix-vue/shadcn-vue',
     icon: RadixIconsGithubLogo,
   },
-  {
-    name: 'X',
-    href: 'https://x.com',
-    icon: TablerBrandX,
-  },
+  // {
+  //   name: 'X',
+  //   href: 'https://x.com',
+  //   icon: TablerBrandX,
+  // },
 ]
+
+watch(() => $route.path, (n) => {
+  // @ts-expect-error View Transition API not supported by all the browser yet
+  if (document.startViewTransition) {
+    // @ts-expect-error View Transition API not supported by all the browser yet
+    document.startViewTransition(() => {
+      console.log('soft navigating to: ', n)
+    })
+  }
+})
 </script>
 
 <template>
@@ -110,18 +120,26 @@ const links = [
     </header>
 
     <div class="flex-1  bg-background">
-      <component :is="'docs'" v-if="$route.path.includes('docs')">
-        <Content />
-      </component>
-      <component :is="'examples'" v-else-if="$route.path.includes('examples')">
-        <Content />
-      </component>
-      <component :is="frontmatter.layout" v-else-if="frontmatter.layout">
-        <slot />
-      </component>
-      <main v-else class="container">
-        <Content />
-      </main>
+      <Transition name="fade" mode="out-in">
+        <component :is="'docs'" v-if="$route.path.includes('docs')">
+          <Transition name="fade" mode="out-in">
+            <Content :key="$route.path" />
+          </Transition>
+        </component>
+        <component :is="'examples'" v-else-if="$route.path.includes('examples')">
+          <Transition name="fade" mode="out-in">
+            <Content :key="$route.path" />
+          </Transition>
+        </component>
+        <component :is="frontmatter.layout" v-else-if="frontmatter.layout">
+          <slot />
+        </component>
+        <main v-else class="container">
+          <Transition name="fade" mode="out-in">
+            <Content :key="$route.path" />
+          </Transition>
+        </main>
+      </Transition>
     </div>
 
     <footer class="py-6 md:px-8 md:py-0">
