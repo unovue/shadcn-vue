@@ -1,4 +1,5 @@
 import path from 'node:path'
+import process from 'node:process'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import fetch from 'node-fetch'
 import type * as z from 'zod'

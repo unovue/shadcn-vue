@@ -5,6 +5,7 @@ import { useData } from 'vitepress'
 import PageHeader from '../components/PageHeader.vue'
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
+import CustomizerCode from '../components/CustomizerCode.vue'
 import { RADII, useConfigStore } from '@/stores/config'
 import { colors } from '@/lib/registry'
 import { Button } from '@/lib/registry/new-york/ui/button'
@@ -231,6 +232,7 @@ watch(radius, (radius) => {
                     Copy and paste the following code into your CSS file.
                   </DialogDescription>
                 </DialogHeader>
+                <CustomizerCode />
               </DialogContent>
             </Dialog>
           </div>

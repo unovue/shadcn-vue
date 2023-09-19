@@ -9,10 +9,14 @@ import { resolveImport } from '@/src/utils/resolve-import'
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
-export const DEFAULT_TAILWIND_CSS = 'src/assets/index.css'
-export const DEFAULT_TAILWIND_CSS_NUXT = 'assets/style/tailwind.css'
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
+
+export const TAILWIND_CSS_PATH = {
+  nuxt: 'assets/css/tailwind.css',
+  vite: 'src/assets/index.css',
+  laravel: 'resources/css/app.css',
+}
 
 // TODO: Figure out if we want to support all cosmiconfig formats.
 // A simple components.json file would be nice.
@@ -24,14 +28,14 @@ export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
     style: z.string(),
-    typescript: z.boolean().default(false),
+    typescript: z.boolean().default(true),
     tailwind: z.object({
       config: z.string(),
       css: z.string(),
       baseColor: z.string(),
       cssVariables: z.boolean().default(true),
     }),
-    framework: z.string(),
+    framework: z.string().default('Vite'),
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
@@ -64,26 +68,31 @@ export async function getConfig(cwd: string) {
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   let tsConfig: ConfigLoaderResult | undefined
+  let tsConfigPath = path.resolve(
+    cwd,
+    config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json',
+  )
+
   if (config.typescript) {
-    const TSCONFIG_PATH = config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json'
-
     // Read tsconfig.json.
-    const tsconfigPath = path.resolve(cwd, TSCONFIG_PATH)
-    tsConfig = loadConfig(tsconfigPath)
-
+    tsConfig = loadConfig(tsConfigPath)
     // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
     // If no paths were found, try to load tsconfig.app.json.
     if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
-      const FALLBACK_TSCONFIG_PATH = path.resolve(cwd, './tsconfig.app.json')
-      if (existsSync(FALLBACK_TSCONFIG_PATH))
-        tsConfig = loadConfig(FALLBACK_TSCONFIG_PATH)
+      tsConfigPath = path.resolve(cwd, './tsconfig.app.json')
+      if (existsSync(tsConfigPath))
+        tsConfig = loadConfig(tsConfigPath)
     }
+  }
+  else {
+    tsConfigPath = path.resolve(cwd, './jsconfig.json')
+    tsConfig = loadConfig(tsConfigPath)
+  }
 
-    if (tsConfig.resultType === 'failed') {
-      throw new Error(
-        `Failed to load tsconfig.json. ${tsConfig.message ?? ''}`.trim(),
-      )
-    }
+  if (tsConfig.resultType === 'failed') {
+    throw new Error(
+        `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
+    )
   }
 
   return configSchema.parse({
@@ -91,8 +100,8 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     resolvedPaths: {
       tailwindConfig: path.resolve(cwd, config.tailwind.config),
       tailwindCss: path.resolve(cwd, config.tailwind.css),
-      utils: tsConfig ? await resolveImport(config.aliases.utils, tsConfig) : config.aliases.utils,
-      components: tsConfig ? await resolveImport(config.aliases.components, tsConfig) : config.aliases.components,
+      utils: resolveImport(config.aliases.utils, tsConfig),
+      components: resolveImport(config.aliases.components, tsConfig),
     },
   })
 }

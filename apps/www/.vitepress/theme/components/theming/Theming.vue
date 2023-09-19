@@ -376,30 +376,24 @@ const range = ref({
               <CardContent>
                 <div class="space-y-4">
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm bg-secondary"
+                    class="flex w-auto max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm bg-muted"
                   >
-                    <p class="text-foreground">
-                      Hi There!, I'm Bear, the founder of Bear Studios. I'm here
-                      to help you with anything you need.
-                    </p>
+                    Hi, how can I help you today?
                   </div>
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm ml-auto bg-primary text-primary-foreground"
+                    class="flex w-auto max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm ml-auto bg-primary text-primary-foreground"
                   >
-                    <p>Hey, I'm having trouble with my account.</p>
+                    Hey, I'm having trouble with my account.
                   </div>
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm bg-secondary"
+                    class="flex w-auto max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm bg-muted"
                   >
-                    <p class="text-foreground">
-                      Sure, I can help you with that. What seems to be the
-                      problem?
-                    </p>
+                    Sure, I can help you with that. What seems to be the problem?
                   </div>
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm ml-auto bg-primary text-primary-foreground"
+                    class="flex w-auto max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm ml-auto bg-primary text-primary-foreground"
                   >
-                    <p>I can't log in.</p>
+                    I can't log in.
                   </div>
                 </div>
               </CardContent>

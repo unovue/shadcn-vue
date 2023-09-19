@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CaretSortIcon from '~icons/radix-icons/caret-sort'
+import CheckIcon from '~icons/radix-icons/check'
+import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 
 import { cn } from '@/lib/utils'
 import {
@@ -17,7 +19,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from '@/lib/registry/new-york/ui/dialog'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/new-york/ui/command'
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import {
@@ -88,60 +92,58 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
         </Button>
       </PopoverTrigger>
       <PopoverContent class="w-[200px] p-0">
-        <!-- <Command>
-            <CommandList>
-              <CommandInput placeholder="Search team..." />
-              <CommandEmpty>No team found.</CommandEmpty>
-              {groups.map((group) => (
-                <CommandGroup key={group.label} heading={group.label}>
-                  {group.teams.map((team) => (
-                    <CommandItem
-                      key={team.value}
-                      onSelect={() => {
-                        setSelectedTeam(team)
-                        setOpen(false)
-                      }}
-                      class="text-sm"
-                    >
-                      <Avatar class="mr-2 h-5 w-5">
-                        <AvatarImage
-                          src={`https://avatar.vercel.sh/${team.value}.png`}
-                          alt={team.label}
-                          class="grayscale"
-                        />
-                        <AvatarFallback>SC</AvatarFallback>
-                      </Avatar>
-                      {team.label}
-                      <CheckIcon
-                        class={cn(
-                          "ml-auto h-4 w-4",
-                          selectedTeam.value === team.value
-                            ? "opacity-100"
-                            : "opacity-0"
-                        )}
-                      />
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              ))}
-            </CommandList>
-            <CommandSeparator />
-            <CommandList>
-              <CommandGroup>
-                <DialogTrigger asChild>
-                  <CommandItem
-                    onSelect={() => {
-                      setOpen(false)
-                      setShowNewTeamDialog(true)
-                    }}
-                  >
-                    <PlusCircledIcon class="mr-2 h-5 w-5" />
-                    Create Team
-                  </CommandItem>
-                </DialogTrigger>
-              </CommandGroup>
-            </CommandList>
-          </Command> -->
+        <Command :filter-function="(list, term) => list.filter(i => i.label?.toLowerCase()?.includes(term)) ">
+          <CommandList>
+            <CommandInput placeholder="Search team..." />
+            <CommandEmpty>No team found.</CommandEmpty>
+            <CommandGroup v-for="group in groups" :key="group.label" :heading="group.label">
+              <CommandItem
+                v-for="team in group.teams"
+                :key="team.value"
+                :value="team"
+                class="text-sm"
+                @select="() => {
+                  selectedTeam = team
+                  open = false
+                }"
+              >
+                <Avatar class="mr-2 h-5 w-5">
+                  <AvatarImage
+                    :src="`https://avatar.vercel.sh/${team.value}.png`"
+                    :alt="team.label"
+                    class="grayscale"
+                  />
+                  <AvatarFallback>SC</AvatarFallback>
+                </Avatar>
+                {{ team.label }}
+                <CheckIcon
+                  :class="cn('ml-auto h-4 w-4',
+                             selectedTeam.value === team.value
+                               ? 'opacity-100'
+                               : 'opacity-0',
+                  )"
+                />
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+          <CommandSeparator />
+          <CommandList>
+            <CommandGroup>
+              <DialogTrigger as-child>
+                <CommandItem
+                  :value="{ label: 'Create Team' }"
+                  @select="() => {
+                    open = false
+                    showNewTeamDialog = true
+                  }"
+                >
+                  <PlusCircledIcon class="mr-2 h-5 w-5" />
+                  Create Team
+                </CommandItem>
+              </DialogTrigger>
+            </CommandGroup>
+          </CommandList>
+        </Command>
       </PopoverContent>
     </Popover>
     <DialogContent>

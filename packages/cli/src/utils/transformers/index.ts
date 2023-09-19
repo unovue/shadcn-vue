@@ -6,6 +6,8 @@ import type * as z from 'zod'
 import type { Config } from '@/src/utils/get-config'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
+import { transformImport } from '@/src/utils/transformers/transform-import'
+import { transformSFC } from '@/src/utils/transformers/transform-sfc'
 
 export interface TransformOpts {
   filename: string
@@ -22,6 +24,7 @@ export type Transformer<Output = SourceFile> = (
 
 const transformers: Transformer[] = [
   transformCssVars,
+  transformImport,
 ]
 
 const project = new Project({
@@ -36,14 +39,14 @@ async function createTempSourceFile(filename: string) {
 export async function transform(opts: TransformOpts) {
   const tempFile = await createTempSourceFile(opts.filename)
   const sourceFile = project.createSourceFile(tempFile, opts.raw, {
-    scriptKind: ScriptKind.TSX,
+    scriptKind: ScriptKind.Unknown,
   })
 
   for (const transformer of transformers)
     transformer({ sourceFile, ...opts })
 
-  // return await transformJsx({
-  //   sourceFile,
-  //   ...opts,
-  // })
+  return await transformSFC({
+    sourceFile,
+    ...opts,
+  })
 }
