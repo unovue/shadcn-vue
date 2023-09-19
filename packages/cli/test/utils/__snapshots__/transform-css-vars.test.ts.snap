@@ -1,25 +1,22 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`transform css vars 1`] = `
-"import * as React from \\"react\\"
-export function Foo() {
-	return <div class=\\"bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground\\">foo</div>
-}\\"
-    "
+"<script setup lang=\\"ts\\"></script>
+<template>
+<div class=\\"bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground\\">foo</div>
+</template>\\""
 `;
 
 exports[`transform css vars 2`] = `
-"import * as React from \\"react\\"
-export function Foo() {
-	return <div class=\\"bg-white hover:bg-stone-100 text-stone-50 sm:focus:text-stone-900 dark:bg-stone-950 dark:hover:bg-stone-800 dark:text-stone-900 dark:sm:focus:text-stone-50\\">foo</div>
-}\\"\\"
-    "
+"<script setup lang=\\"ts\\"></script>
+<template>
+<div class=\\"bg-white hover:bg-stone-100 text-stone-50 sm:focus:text-stone-900 dark:bg-stone-950 dark:hover:bg-stone-800 dark:text-stone-900 dark:sm:focus:text-stone-50\\">foo</div>
+</template>\\""
 `;
 
 exports[`transform css vars 3`] = `
-"import * as React from \\"react\\"
-export function Foo() {
-	return <div class={cn(\\"bg-white hover:bg-stone-100 dark:bg-stone-950 dark:hover:bg-stone-800\\", true && \\"text-stone-50 sm:focus:text-stone-900 dark:text-stone-900 dark:sm:focus:text-stone-50\\")}>foo</div>
-}\\"\\"
-    "
+"<script setup lang=\\"ts\\"></script>
+<template>
+<div :class=\\"cn( 'bg-white hover:bg-stone-100 dark:bg-stone-950 dark:hover:bg-stone-800', true &&  'text-stone-50 sm:focus:text-stone-900 dark:text-stone-900 dark:sm:focus:text-stone-50')\\" >foo</div>
+</template>\\""
 `;

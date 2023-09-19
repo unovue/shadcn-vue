@@ -17,6 +17,7 @@ import {
 import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
 import { getPackageManager } from '../utils/get-package-manager'
+import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
   type Config,
   DEFAULT_COMPONENTS,
@@ -35,11 +36,6 @@ const PROJECT_DEPENDENCIES = {
     'class-variance-authority',
     'clsx',
     'tailwind-merge',
-  ],
-  vue: [
-    'tailwindcss',
-    'postcss',
-    'autoprefixer',
   ],
   nuxt: [
     '@nuxtjs/tailwindcss',
@@ -260,7 +256,7 @@ export async function runInit(cwd: string, config: Config) {
   // Write cn file.
   await fs.writeFile(
     `${config.resolvedPaths.utils}.${extension}`,
-    extension === 'ts' ? templates.UTILS : templates.UTILS_JS,
+    extension === 'ts' ? templates.UTILS : await transformByDetype(templates.UTILS, '.ts'),
     'utf8',
   )
 
@@ -270,12 +266,11 @@ export async function runInit(cwd: string, config: Config) {
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
   const packageManager = await getPackageManager(cwd)
 
-  // TODO: add support for other icon libraries.
   const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : PROJECT_DEPENDENCIES.vue,
+    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
   ).concat(
     config.style === 'new-york' ? [] : ['lucide-vue-next'],
-  )
+  ).filter(Boolean)
 
   await execa(
     packageManager,

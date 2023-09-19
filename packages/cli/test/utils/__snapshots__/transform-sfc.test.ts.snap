@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transformSFC > basic 1`] = `
+"<script setup>
+const array = [1, 2, 3];
+</script>
+
+<template>
+  <div v-bind=\\"{ array }\\">template</div>
+</template>
+
+<style scoped></style>
+"
+`;

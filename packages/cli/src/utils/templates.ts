@@ -15,7 +15,7 @@ export function useEmitAsProps<Name extends string>(
   const result: Record<string, any> = {}
   if (!events?.length) {
     console.warn(
-      'No emitted event found. Please check component: \${vm?.type.__name}',
+      \`No emitted event found. Please check component: \${vm?.type.__name}\`,
     )
   }
 
@@ -24,31 +24,6 @@ export function useEmitAsProps<Name extends string>(
   })
   return result
 }`
-
-export const UTILS_JS = `import { clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs) {
-  return twMerge(clsx(inputs))
-}
-
-export function useEmitAsProps(emit) {
-  const vm = getCurrentInstance()
-
-  const events = vm?.type.emits
-  const result = {}
-  if (!events?.length) {
-    console.warn(
-      'No emitted event found. Please check component: \${vm?.type.__name}',
-    )
-  }
-
-  events?.forEach((ev) => {
-    result[toHandlerKey(camelize(ev))] = (...arg) => emit(ev, ...arg)
-  })
-  return result
-}
-`
 
 export const TAILWIND_CONFIG = `/** @type {import('tailwindcss').Config} */
 module.exports = {
