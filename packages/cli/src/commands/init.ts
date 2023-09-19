@@ -22,9 +22,8 @@ import {
   type Config,
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
-  DEFAULT_TAILWIND_CSS,
-  DEFAULT_TAILWIND_CSS_NUXT,
   DEFAULT_UTILS,
+  TAILWIND_CSS_PATH,
   getConfig,
   rawConfigSchema,
   resolveConfigPaths,
@@ -108,8 +107,9 @@ export async function promptForConfig(
       name: 'framework',
       message: `Which ${highlight('framework')} are you using?`,
       choices: [
-        { title: 'Vite + Vue', value: 'vue' },
+        { title: 'Vite', value: 'vite' },
         { title: 'Nuxt', value: 'nuxt' },
+        { title: 'Laravel', value: 'laravel' },
       ],
     },
     {
@@ -136,7 +136,7 @@ export async function promptForConfig(
       type: 'text',
       name: 'tailwindCss',
       message: `Where is your ${highlight('Tailwind CSS')} file?`,
-      initial: (prev, values) => defaultConfig?.tailwind.css ?? (values.framework === 'nuxt' ? DEFAULT_TAILWIND_CSS_NUXT : DEFAULT_TAILWIND_CSS),
+      initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel'],
     },
     {
       type: 'toggle',
@@ -236,8 +236,8 @@ export async function runInit(cwd: string, config: Config) {
   await fs.writeFile(
     config.resolvedPaths.tailwindConfig,
     config.tailwind.cssVariables
-      ? template(config.framework === 'nuxt' ? templates.NUXT_TAILWIND_CONFIG_WITH_VARIABLES : templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension })
-      : template(config.framework === 'nuxt' ? templates.NUXT_TAILWIND_CONFIG : templates.TAILWIND_CONFIG)({ extension }),
+      ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension })
+      : template(templates.TAILWIND_CONFIG)({ extension }),
     'utf8',
   )
 

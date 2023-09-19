@@ -7,7 +7,7 @@ description: Install and configure Laravel with Inertia
 
 ### Create project
 
-Start by creating a new Laravel project with Inertia and Vue using the laravel installer `laravel new my-app`:
+Start by creating a new Laravel project with Inertia and Vue using the Laravel installer `laravel new my-app`:
 
 ```bash
 laravel new my-app --typescript --breeze --stack=vue --git --no-interaction
@@ -30,10 +30,10 @@ Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › src/index.css
+Where is your global CSS file? › resources/css/app.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
+Configure the import alias for components: › @/Components
 Configure the import alias for utils: › @/lib/utils 
 ```
 

@@ -19,11 +19,23 @@ npx nuxi@latest init my-app
 npm install -D @nuxtjs/tailwindcss
 ```
 
+### Configure `nuxt.config.ts`
+
 ```ts
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss']
+  modules: ['@nuxtjs/tailwindcss'],
+  components: [
+    {
+      path: '~/components/ui',
+      // this is required else Nuxt will autoImport `.ts` file
+      extensions: ['.vue'],
+      // prefix for your components, eg: UiButton
+      prefix: 'Ui'
+    },
+  ],
 })
 ```
+
 
 
 ### Run the CLI
@@ -89,7 +101,7 @@ Here's the default structure of Nuxt app. You can use this as a reference:
 - I place the UI components in the `components/ui` folder.
 - The rest of the components such as `<PageHeader />` and `<MainNav />` are placed in the `components` folder.
 - The `lib` folder contains all the utility functions. I have a `utils.ts` where I define the `cn` helper.
-- The `styles` folder contains the global CSS.
+- The `assets/css` folder contains the global CSS.
 
 ### That's it
 
@@ -99,16 +111,12 @@ You can now start adding components to your project.
 npx shadcn-vue@latest add button
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+The command above will add the `Button` component to your project. Nuxt autoImport will handle importing the components, you can just use it as such:
 
-```vue {2,7}
-<script setup lang="ts">
-import { Button } from '@/components/ui/button'
-</script>
-
+```vue {3}
 <template>
   <div>
-    <Button>Click me</Button>
+    <UiButton>Click me</UiButton>
   </div>
 </template>
 ```
