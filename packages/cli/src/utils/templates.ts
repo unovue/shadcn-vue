@@ -65,12 +65,21 @@ module.exports = {
 export const TAILWIND_CONFIG_WITH_VARIABLES = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  <% if (framework === 'vite') { %>
   content: [
-    './pages/**/*.{<%- extension %>,<%- extension %>x}',
-    './components/**/*.{<%- extension %>,<%- extension %>x}',
-    './app/**/*.{<%- extension %>,<%- extension %>x}',
-    './src/**/*.{<%- extension %>,<%- extension %>x}',
+    './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',
+    './components/**/*.{<%- extension %>,<%- extension %>x,vue}',
+    './app/**/*.{<%- extension %>,<%- extension %>x,vue}',
+    './src/**/*.{<%- extension %>,<%- extension %>x,vue}',
 	],
+  <% } else if (framework === 'laravel') { %>
+  content: [
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+    "./storage/framework/views/*.php",
+    "./resources/views/**/*.blade.php",
+    "./resources/js/**/*.{<%- extension %>,<%- extension %>x,vue}",
+  ],
+  <% } %>
   theme: {
     container: {
       center: true,
