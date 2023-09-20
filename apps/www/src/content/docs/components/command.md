@@ -1,8 +1,8 @@
 ---
 title: Command
-description: Displays a list of options for the user to pick from—triggered by a button.
-source: apps/www/src/lib/registry/default/ui/popover 
-primitive: https://www.radix-vue.com/components/popover.html
+description: Fast, composable, unstyled command menu.
+source: apps/www/src/lib/registry/default/ui/command 
+primitive: https://www.radix-vue.com/components/combobox.html
 ---
 
 
