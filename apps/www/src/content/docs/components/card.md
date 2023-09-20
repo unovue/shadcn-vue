@@ -6,23 +6,13 @@ description: Displays a card with header, content, and footer.
 
 <ComponentPreview name="CardDemo"  /> 
 
-
 ## Installation
+
+ 
 
 ```bash
 npx shadcn-vue@latest add card
-```
-
-<ManualInstall>
-
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+``` 
 
 ## Usage
 
@@ -35,7 +25,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
+} from '@/components/ui/card'
 </script>
 
 <template>

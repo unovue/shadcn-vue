@@ -63,7 +63,8 @@ test('init config-full', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/src\/lib\/utils.ts$/),
-    expect.stringContaining('import { type ClassValue, clsx } from "clsx"'),
+    // eslint-disable-next-line @typescript-eslint/quotes
+    expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
     'utf8',
   )
   expect(execa).toHaveBeenCalledWith(
@@ -74,7 +75,6 @@ test('init config-full', async () => {
       'class-variance-authority',
       'clsx',
       'tailwind-merge',
-      '@radix-ui/react-icons',
     ],
     {
       cwd: targetDir,
@@ -133,7 +133,8 @@ test('init config-partial', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/utils.ts$/),
-    expect.stringContaining('import { type ClassValue, clsx } from "clsx"'),
+    // eslint-disable-next-line @typescript-eslint/quotes
+    expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
     'utf8',
   )
   expect(execa).toHaveBeenCalledWith(
@@ -144,7 +145,7 @@ test('init config-partial', async () => {
       'class-variance-authority',
       'clsx',
       'tailwind-merge',
-      'lucide-react',
+      'lucide-vue-next',
     ],
     {
       cwd: targetDir,

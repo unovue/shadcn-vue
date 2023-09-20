@@ -11,27 +11,42 @@ description: A date field component that allows users to enter and edit date.
 The `Calendar` component is built on top of [VCalendar](https://vcalendar.io/getting-started/installation.html).
 
 ## Installation
- 
+
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add calendar
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
+
+### Install the following dependency
 
 ```bash
-npm install radix-vue
+npm install v-calendar
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+### Copy and paste the following code into your project
+
+
+<<< @/lib/registry/default/ui/calendar/Calendar.vue
+
+
+</Steps>
+
+
+</template>
+</TabPreview>
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Calendar } from '@/components/ui/calendar'
 </script>
 
 <template>

@@ -33,7 +33,7 @@ const emitsAsProps = useEmitAsProps(emits)
     >
       <SelectViewport
         :class="
-          cn('p-1',
+          cn('p-0',
              position === 'popper'
                && 'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]')"
       >

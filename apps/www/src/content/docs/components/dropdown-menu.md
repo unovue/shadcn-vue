@@ -8,24 +8,11 @@ primitive: https://www.radix-vue.com/components/dropdown-menu.html
 
 <ComponentPreview name="DropdownMenuDemo" /> 
 
-
 ## Installation
 
 ```bash
 npx shadcn-vue@latest add dropdown-menu
-```
-
-<ManualInstall>
-
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
-
+``` 
 ## Usage
 
 ```vue
@@ -37,7 +24,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/default/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 </script>
 
 <template>

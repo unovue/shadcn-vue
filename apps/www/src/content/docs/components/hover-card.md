@@ -8,24 +8,11 @@ primitive: https://www.radix-vue.com/components/hover-card.html
 
 <ComponentPreview name="HoverCardDemo" /> 
 
-
 ## Installation
 
 ```bash
 npx shadcn-vue@latest add hover-card
-```
-
-<ManualInstall>
-
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
-
+``` 
 ## Usage
 
 ```vue
@@ -34,14 +21,14 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/lib/registry/default/ui/hover-card'
+} from '@/components/ui/hover-card'
 </script>
 
 <template>
   <HoverCard>
     <HoverCardTrigger>Hover</HoverCardTrigger>
     <HoverCardContent>
-      The React Framework – created and maintained by @vercel.
+      The Vue Framework – created and maintained by @vuejs.
     </HoverCardContent>
   </HoverCard>
 </template>

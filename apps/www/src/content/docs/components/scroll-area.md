@@ -7,30 +7,17 @@ primitive: https://www.radix-vue.com/components/scroll-area.html
 
 <ComponentPreview name="ScrollAreaDemo" /> 
 
-
-
 ## Installation
+
 
 ```bash
 npx shadcn-vue@latest add scroll-area
 ```
-
-<ManualInstall>
-
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
-
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
+import { ScrollArea } from '@/components/ui/scroll-area'
 </script>
 
 <template>

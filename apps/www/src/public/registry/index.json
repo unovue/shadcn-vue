@@ -167,6 +167,29 @@
     "type": "components:ui"
   },
   {
+    "name": "command",
+    "dependencies": [
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils",
+      "dialog"
+    ],
+    "files": [
+      "ui/command/Command.vue",
+      "ui/command/CommandDialog.vue",
+      "ui/command/CommandEmpty.vue",
+      "ui/command/CommandGroup.vue",
+      "ui/command/CommandInput.vue",
+      "ui/command/CommandItem.vue",
+      "ui/command/CommandList.vue",
+      "ui/command/CommandSeparator.vue",
+      "ui/command/CommandShortcut.vue",
+      "ui/command/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "context-menu",
     "dependencies": [
       "radix-vue"

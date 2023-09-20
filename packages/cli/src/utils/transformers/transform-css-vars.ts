@@ -14,7 +14,12 @@ export const transformCssVars: Transformer = async ({
 
   sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
     const value = node.getText()
-    if (value) {
+
+    if (value.includes('cn(')) {
+      const splitted = value.split('\'').map(i => applyColorMapping(i, baseColor.inlineColors))
+      node.replaceWithText(`${splitted.join('\'')}`)
+    }
+    else if (value) {
       const valueWithColorMapping = applyColorMapping(
         value.replace(/"/g, ''),
         baseColor.inlineColors,

@@ -7,24 +7,12 @@ primitive: https://www.radix-vue.com/components/menubar.html
 
 <ComponentPreview name="MenubarDemo" /> 
 
-
-
 ## Installation
+ 
 
 ```bash
 npx shadcn-vue@latest add menubar
 ```
-
-<ManualInstall>
-
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
 
 ## Usage
 
@@ -38,7 +26,7 @@ import {
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
-} from '@/lib/registry/default/ui/menubar'
+} from '@/components/ui/menubar'
 </script>
 
 <template>

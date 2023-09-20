@@ -10,33 +10,45 @@ primitive: https://www.radix-vue.com/components/aspect-ratio.html
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add aspect-ratio
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
+
+### Install the following dependency:
 
 ```bash
 npm install radix-vue
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+### Copy and paste the following code into your project:
+
+<<< @/lib/registry/default/ui/aspect-ratio/AspectRatio.vue
+
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { AspectRatio } from '@/lib/registry/default/ui/aspect-ratio'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 </script>
 
 <template>
-  <AspectRatio>
-    <img
-      src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-    >
-  </AspectRatio>
+  <div class="w-[450px]">
+    <AspectRatio :ratio="16 / 9">
+      <img src="..." alt="Image" class="rounded-md object-cover">
+    </AspectRatio>
+  </div>
 </template>
 ```

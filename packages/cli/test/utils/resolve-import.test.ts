@@ -6,7 +6,7 @@ import { resolveImport } from '../../src/utils/resolve-import'
 
 test('resolve import', async () => {
   expect(
-    await resolveImport('@/foo/bar', {
+    resolveImport('@/foo/bar', {
       absoluteBaseUrl: '/Users/shadcn/Projects/foobar',
       paths: {
         '@/*': ['./src/*'],
@@ -17,7 +17,7 @@ test('resolve import', async () => {
   ).toEqual('/Users/shadcn/Projects/foobar/src/foo/bar')
 
   expect(
-    await resolveImport('~/components/foo/bar/baz', {
+    resolveImport('~/components/foo/bar/baz', {
       absoluteBaseUrl: '/Users/shadcn/Projects/foobar',
       paths: {
         '@/*': ['./src/*'],
@@ -28,7 +28,7 @@ test('resolve import', async () => {
   ).toEqual('/Users/shadcn/Projects/foobar/src/components/foo/bar/baz')
 
   expect(
-    await resolveImport('components/foo/bar', {
+    resolveImport('components/foo/bar', {
       absoluteBaseUrl: '/Users/shadcn/Projects/foobar',
       paths: {
         'components/*': ['./src/app/components/*'],
@@ -39,7 +39,7 @@ test('resolve import', async () => {
   ).toEqual('/Users/shadcn/Projects/foobar/src/app/components/foo/bar')
 
   expect(
-    await resolveImport('lib/utils', {
+    resolveImport('lib/utils', {
       absoluteBaseUrl: '/Users/shadcn/Projects/foobar',
       paths: {
         'components/*': ['./src/app/components/*'],
@@ -52,30 +52,30 @@ test('resolve import', async () => {
 
 test('resolve import with base url', async () => {
   const cwd = path.resolve(__dirname, '../fixtures/with-base-url')
-  const config = (await loadConfig(cwd)) as ConfigLoaderSuccessResult
+  const config = (loadConfig(cwd)) as ConfigLoaderSuccessResult
 
-  expect(await resolveImport('@/components/ui', config)).toEqual(
+  expect(resolveImport('@/components/ui', config)).toEqual(
     path.resolve(cwd, 'components/ui'),
   )
-  expect(await resolveImport('@/lib/utils', config)).toEqual(
+  expect(resolveImport('@/lib/utils', config)).toEqual(
     path.resolve(cwd, 'lib/utils'),
   )
-  expect(await resolveImport('foo/bar', config)).toEqual(
+  expect(resolveImport('foo/bar', config)).toEqual(
     path.resolve(cwd, 'foo/bar'),
   )
 })
 
 test('resolve import without base url', async () => {
   const cwd = path.resolve(__dirname, '../fixtures/without-base-url')
-  const config = (await loadConfig(cwd)) as ConfigLoaderSuccessResult
+  const config = (loadConfig(cwd)) as ConfigLoaderSuccessResult
 
-  expect(await resolveImport('~/components/ui', config)).toEqual(
+  expect(resolveImport('~/components/ui', config)).toEqual(
     path.resolve(cwd, 'components/ui'),
   )
-  expect(await resolveImport('~/lib/utils', config)).toEqual(
+  expect(resolveImport('~/lib/utils', config)).toEqual(
     path.resolve(cwd, 'lib/utils'),
   )
-  expect(await resolveImport('foo/bar', config)).toEqual(
+  expect(resolveImport('foo/bar', config)).toEqual(
     path.resolve(cwd, 'foo/bar'),
   )
 })

@@ -96,6 +96,31 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
+      title: 'Installation',
+      items: [
+        {
+          title: 'Vite',
+          href: '/docs/installation/vite',
+          items: [],
+        },
+        {
+          title: 'Nuxt',
+          href: '/docs/installation/nuxt',
+          items: [],
+        },
+        // {
+        //   title: 'Astro',
+        //   href: '/docs/installation/astro',
+        //   items: [],
+        // },
+        {
+          title: 'Laravel',
+          href: '/docs/installation/laravel',
+          items: [],
+        },
+      ],
+    },
+    {
       title: 'Components',
       items: [
         {
@@ -155,18 +180,16 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: 'Combobox',
-          disabled: true,
-          label: 'Soon',
-          href: '#',
+          href: '/docs/components/combobox',
+          label: 'New',
           items: [],
         },
-        // {
-        //   title: "Command",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Command',
+          href: '/docs/components/command',
+          label: 'New',
+          items: [],
+        },
         {
           title: 'Context Menu',
           href: '/docs/components/context-menu',

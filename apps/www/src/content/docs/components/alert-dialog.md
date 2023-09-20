@@ -7,27 +7,15 @@ primitive: https://www.radix-vue.com/components/alert-dialog.html
     
  
 <ComponentPreview name="AlertDialogDemo" />
-
-
-
  
 ## Installation
 
-```bash
-npx shadcn-vue@latest add alert-dialog 
-```  
-  
-<ManualInstall>
-
-1. Install `radix-vue`:
+ 
 
 ```bash
-npm install radix-vue
+npx shadcn-vue@latest add alert-dialog
 ```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
-
+  
 ## Usage
 
 ```vue
@@ -42,20 +30,18 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/lib/registry/default/ui/alert-dialog'
+} from '@/components/ui/alert-dialog'
 </script>
 
 <template>
   <AlertDialog>
-    <AlertDialogTrigger>
-      Open
-    </AlertDialogTrigger>
+    <AlertDialogTrigger>Open</AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
         <AlertDialogDescription>
-          This action cannot be undone. This will permanently delete your
-          account and remove your data from our servers.
+          This action cannot be undone. This will permanently delete your account
+          and remove your data from our servers.
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>

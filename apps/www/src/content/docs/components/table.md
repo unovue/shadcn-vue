@@ -12,17 +12,6 @@ description: A responsive table component.
 npx shadcn-vue@latest add table
 ```
 
-<ManualInstall>
-
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
-
 ## Usage
 
 ```vue
@@ -35,7 +24,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/default/ui/table'
+} from '@/components/ui/table'
 </script>
 
 <template>

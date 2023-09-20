@@ -4,112 +4,56 @@ description: Styles for headings, paragraphs, lists...etc
 component: true
 ---
 
-<ComponentPreview name="TypographyDemo">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyDemo" />
 
 ## h1
 
-<ComponentPreview name="TypographyH1">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyH1" />
 
 ## h2
 
-<ComponentPreview name="TypographyH2">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyH2" />
 
 ## h3
 
-<ComponentPreview name="TypographyH3">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyH3" />
 
 ## h4
 
-<ComponentPreview name="TypographyH4">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyH4" />
 
 ## p
 
-<ComponentPreview name="TypographyP">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyP" />
 
 ## blockquote
 
-<ComponentPreview name="TypographyBlockquote">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyBlockquote" />
 
 ## table
 
-<ComponentPreview name="TypographyTable">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyTable" />
 
 ## list
 
-<ComponentPreview name="TypographyList">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyList" />
 
 ## Inline code
 
-<ComponentPreview name="TypographyInlineCode">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyInlineCode" />
 
 ## Lead
 
-<ComponentPreview name="TypographyLead">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyLead" />
 
 ## Large
 
-<ComponentPreview name="TypographyLarge">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyLarge" />
 
 ## Small
 
-<ComponentPreview name="TypographySmall">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographySmall" />
 
 ## Muted
 
-<ComponentPreview name="TypographyMuted">
-
-<div/>
-
-</ComponentPreview>
+<ComponentPreview name="TypographyMuted" />

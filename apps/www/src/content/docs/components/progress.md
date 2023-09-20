@@ -11,26 +11,38 @@ primitive: https://www.radix-vue.com/components/progress.html
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add progress
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
+
+### Install the following dependency:
 
 ```bash
 npm install radix-vue
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+### Copy and paste the following code into your project:
+
+ <<< @/lib/registry/default/ui/progress/Progress.vue
+
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { Progress } from '@/lib/registry/default/ui/progress'
+import { Progress } from '@/components/ui/progress'
 </script>
 
 <template>
