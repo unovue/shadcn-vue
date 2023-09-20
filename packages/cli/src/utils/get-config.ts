@@ -9,10 +9,14 @@ import { resolveImport } from '@/src/utils/resolve-import'
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
-export const DEFAULT_TAILWIND_CSS = 'src/assets/index.css'
-export const DEFAULT_TAILWIND_CSS_NUXT = 'assets/style/tailwind.css'
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
+
+export const TAILWIND_CSS_PATH = {
+  nuxt: 'assets/css/tailwind.css',
+  vite: 'src/assets/index.css',
+  laravel: 'resources/css/app.css',
+}
 
 // TODO: Figure out if we want to support all cosmiconfig formats.
 // A simple components.json file would be nice.
@@ -24,14 +28,14 @@ export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
     style: z.string(),
-    typescript: z.boolean().default(false),
+    typescript: z.boolean().default(true),
     tailwind: z.object({
       config: z.string(),
       css: z.string(),
       baseColor: z.string(),
       cssVariables: z.boolean().default(true),
     }),
-    framework: z.string(),
+    framework: z.string().default('Vite'),
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
@@ -96,8 +100,8 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     resolvedPaths: {
       tailwindConfig: path.resolve(cwd, config.tailwind.config),
       tailwindCss: path.resolve(cwd, config.tailwind.css),
-      utils: await resolveImport(config.aliases.utils, tsConfig),
-      components: await resolveImport(config.aliases.components, tsConfig),
+      utils: resolveImport(config.aliases.utils, tsConfig),
+      components: resolveImport(config.aliases.components, tsConfig),
     },
   })
 }

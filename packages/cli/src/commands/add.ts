@@ -7,8 +7,7 @@ import { execa } from 'execa'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
-import { transformImport } from '../utils/transformers/transform-import'
-import { transformSFC } from '../utils/transformers/transform-sfc'
+import { transform } from '@/src/utils/transformers'
 import { getConfig } from '@/src/utils/get-config'
 import { getPackageManager } from '@/src/utils/get-package-manager'
 import { handleError } from '@/src/utils/handle-error'
@@ -130,15 +129,11 @@ export const add = new Command()
         if (existingComponent.length && !options.overwrite) {
           if (selectedComponents.includes(item.name)) {
             logger.warn(
-							`\nComponent ${
-								item.name
-							} already exists. Use ${chalk.green(
-								'--overwrite',
-							)} to overwrite.`,
+              `Component ${item.name} already exists. Use ${chalk.green(
+                '--overwrite',
+              )} to overwrite.`,
             )
-            spinner.stop()
-            process.exitCode = 1
-            return
+            process.exit(1)
           }
 
           continue
@@ -152,14 +147,19 @@ export const add = new Command()
             file.name,
           )
 
-          // Run transformers.
-          const content = await transformSFC(file, config)
+          if (!config.typescript)
+            filePath = filePath.replace(/\.ts$/, '.js')
 
           if (!existsSync(componentDir))
             await fs.mkdir(componentDir, { recursive: true })
 
-          if (!config.typescript)
-            filePath = filePath.replace(/\.ts$/, '.js')
+          // Run transformers.
+          const content = await transform({
+            filename: file.name,
+            raw: file.content,
+            config,
+            baseColor,
+          })
 
           await fs.writeFile(filePath, content)
         }

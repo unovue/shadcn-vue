@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,16 +7,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/default/ui/card'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/default/ui/select'
+} from '@/components/ui/select'
 </script>
 
 <template>

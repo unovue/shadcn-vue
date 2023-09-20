@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core'
+import { onMounted, watch } from 'vue'
 import { Content, useData, useRoute, useRouter } from 'vitepress'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { SearchIcon } from 'lucide-vue-next'
@@ -38,16 +39,16 @@ const toggleDark = useToggle(isDark)
 const links = [
   {
     name: 'GitHub',
-    href: 'https://github.com/radix-vue',
+    href: 'https://github.com/radix-vue/shadcn-vue',
     icon: RadixIconsGithubLogo,
   },
-  {
-    name: 'X',
-    href: 'https://x.com',
-    icon: TablerBrandX,
-  },
+  // {
+  //   name: 'X',
+  //   href: 'https://x.com',
+  //   icon: TablerBrandX,
+  // },
 ]
-
+ 
 const isOpen = ref<boolean>(false)
 
 function onKeyDown(event: KeyboardEvent) {
@@ -68,6 +69,16 @@ function openInNewTab(url: string | undefined) {
   const win = window.open(url, '_blank')
   win?.focus()
 }
+
+watch(() => $route.path, (n) => {
+  // @ts-expect-error View Transition API not supported by all the browser yet
+  if (document.startViewTransition) {
+    // @ts-expect-error View Transition API not supported by all the browser yet
+    document.startViewTransition(() => {
+      console.log('soft navigating to: ', n)
+    })
+  }
+}) 
 </script>
 
 <template>
@@ -139,18 +150,26 @@ function openInNewTab(url: string | undefined) {
     </header>
 
     <div class="flex-1  bg-background">
-      <component :is="'docs'" v-if="$route.path.includes('docs')">
-        <Content />
-      </component>
-      <component :is="'examples'" v-else-if="$route.path.includes('examples')">
-        <Content />
-      </component>
-      <component :is="frontmatter.layout" v-else-if="frontmatter.layout">
-        <slot />
-      </component>
-      <main v-else class="container">
-        <Content />
-      </main>
+      <Transition name="fade" mode="out-in">
+        <component :is="'docs'" v-if="$route.path.includes('docs')">
+          <Transition name="fade" mode="out-in">
+            <Content :key="$route.path" />
+          </Transition>
+        </component>
+        <component :is="'examples'" v-else-if="$route.path.includes('examples')">
+          <Transition name="fade" mode="out-in">
+            <Content :key="$route.path" />
+          </Transition>
+        </component>
+        <component :is="frontmatter.layout" v-else-if="frontmatter.layout">
+          <slot />
+        </component>
+        <main v-else class="container">
+          <Transition name="fade" mode="out-in">
+            <Content :key="$route.path" />
+          </Transition>
+        </main>
+      </Transition>
     </div>
 
     <footer class="py-6 md:px-8 md:py-0">

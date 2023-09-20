@@ -6,29 +6,53 @@ description: Displays a badge or a component that looks like a badge.
 
 <ComponentPreview name="BadgeDemo"  /> 
 
-
 ## Installation
+
+<TabPreview name="CLI">
+<template #CLI>
 
 ```bash
 npx shadcn-vue@latest add badge
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
 
-```bash
-npm install radix-vue
+### Copy and paste the following code into your project
+
+```vue
+<script setup lang="ts">
+import type { VariantProps } from 'class-variance-authority'
+import { badgeVariants } from '.'
+import { cn } from '@/lib/utils'
+
+interface BadgeVariantProps extends VariantProps<typeof badgeVariants> {}
+
+interface Props {
+  variant?: BadgeVariantProps['variant']
+}
+defineProps<Props>()
+</script>
+
+<template>
+  <div :class="cn(badgeVariants({ variant }), $attrs.class ?? '')">
+    <slot />
+  </div>
+</template>
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+</Steps>
+
+</template>
+</TabPreview>
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { Badge } from '@/lib/registry/default/ui/badge'
+import { Badge } from '@/components/ui/badge'
 </script>
 
 <template>

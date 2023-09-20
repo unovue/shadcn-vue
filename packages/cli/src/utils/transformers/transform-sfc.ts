@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module'
-import type { Config } from '../get-config'
-import { transformImport } from './transform-import'
+import type { Transformer } from '@/src/utils/transformers'
 
+// required cause Error: Dynamic require of "@babel/core" is not supported
 const require = createRequire(import.meta.url)
 const { transform } = require('detype')
 
@@ -11,15 +11,10 @@ export async function transformByDetype(content: string, filename: string) {
   })
 }
 
-interface File {
-  name: string
-  content: string
-}
+export const transformSFC: Transformer<string> = async ({ sourceFile, config }) => {
+  const output = sourceFile?.getFullText()
+  if (config?.typescript)
+    return output
 
-export async function transformSFC(file: File, config: Config) {
-  let content = transformImport(file.content, config)
-  if (!config.typescript)
-    content = await transformByDetype(content, file.name)
-
-  return content
+  return await transformByDetype(output, 'app.vue')
 }

@@ -145,3 +145,8 @@ pre code .line {
 .line-number {
 	@apply min-h-[1.375rem] !text-sm !inline-block text-muted-foreground;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}

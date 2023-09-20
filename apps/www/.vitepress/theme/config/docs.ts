@@ -96,6 +96,31 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
+      title: 'Installation',
+      items: [
+        {
+          title: 'Vite',
+          href: '/docs/installation/vite',
+          items: [],
+        },
+        {
+          title: 'Nuxt',
+          href: '/docs/installation/nuxt',
+          items: [],
+        },
+        // {
+        //   title: 'Astro',
+        //   href: '/docs/installation/astro',
+        //   items: [],
+        // },
+        {
+          title: 'Laravel',
+          href: '/docs/installation/laravel',
+          items: [],
+        },
+      ],
+    },
+    {
       title: 'Components',
       items: [
         {

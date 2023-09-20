@@ -22,7 +22,7 @@
     },
     {
       "name": "CommandGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ComboboxGroupProps } from 'radix-vue'\nimport { ComboboxGroup, ComboboxLabel } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxGroupProps & {\n  heading?: string\n}>()\n</script>\n\n<template>\n  <ComboboxGroup\n    v-bind=\"props\"\n    :class=\"cn('overflow-hidden p-1 text-foreground', $attrs.class ?? '')\"\n  >\n    <ComboboxLabel class=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\">\n      {{ heading }}\n    </ComboboxLabel>\n    <slot />\n  </ComboboxGroup>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxGroupProps } from 'radix-vue'\nimport { ComboboxGroup, ComboboxLabel } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxGroupProps & {\n  heading?: string\n}>()\n</script>\n\n<template>\n  <ComboboxGroup\n    v-bind=\"props\"\n    :class=\"cn('overflow-hidden p-1 text-foreground', $attrs.class ?? '')\"\n  >\n    <ComboboxLabel v-if=\"heading\" class=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\">\n      {{ heading }}\n    </ComboboxLabel>\n    <slot />\n  </ComboboxGroup>\n</template>\n"
     },
     {
       "name": "CommandInput.vue",

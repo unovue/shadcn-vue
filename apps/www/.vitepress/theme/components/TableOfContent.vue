@@ -42,6 +42,9 @@ function getHeadingsWithHierarchy(divId: string) {
     else if (level === 3 && currentLevel?.items) {
       currentLevel.items.push(item)
     }
+    else {
+      hierarchy.items.push(item)
+    }
   })
   return hierarchy
 }

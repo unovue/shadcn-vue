@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/default/ui/accordion'
 
 const defaultValue = 'item-1'
 

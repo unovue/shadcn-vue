@@ -5,7 +5,7 @@ const props = defineProps<PopoverTriggerProps>()
 </script>
 
 <template>
-  <PopoverTrigger v-bind="props">
+  <PopoverTrigger v-bind="props" class="">
     <slot />
   </PopoverTrigger>
 </template>

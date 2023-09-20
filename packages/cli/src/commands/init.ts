@@ -17,18 +17,17 @@ import {
 import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
 import { getPackageManager } from '../utils/get-package-manager'
+import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
   type Config,
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
-  DEFAULT_TAILWIND_CSS,
-  DEFAULT_TAILWIND_CSS_NUXT,
   DEFAULT_UTILS,
+  TAILWIND_CSS_PATH,
   getConfig,
   rawConfigSchema,
   resolveConfigPaths,
 } from '../utils/get-config'
-import { transformByDetype } from '../utils/transformers/transform-sfc'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -36,11 +35,6 @@ const PROJECT_DEPENDENCIES = {
     'class-variance-authority',
     'clsx',
     'tailwind-merge',
-  ],
-  vue: [
-    'tailwindcss',
-    'postcss',
-    'autoprefixer',
   ],
   nuxt: [
     '@nuxtjs/tailwindcss',
@@ -113,8 +107,9 @@ export async function promptForConfig(
       name: 'framework',
       message: `Which ${highlight('framework')} are you using?`,
       choices: [
-        { title: 'Vite + Vue', value: 'vue' },
+        { title: 'Vite', value: 'vite' },
         { title: 'Nuxt', value: 'nuxt' },
+        { title: 'Laravel', value: 'laravel' },
       ],
     },
     {
@@ -141,7 +136,7 @@ export async function promptForConfig(
       type: 'text',
       name: 'tailwindCss',
       message: `Where is your ${highlight('Tailwind CSS')} file?`,
-      initial: (prev, values) => defaultConfig?.tailwind.css ?? (values.framework === 'nuxt' ? DEFAULT_TAILWIND_CSS_NUXT : DEFAULT_TAILWIND_CSS),
+      initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel'],
     },
     {
       type: 'toggle',
@@ -241,8 +236,8 @@ export async function runInit(cwd: string, config: Config) {
   await fs.writeFile(
     config.resolvedPaths.tailwindConfig,
     config.tailwind.cssVariables
-      ? template(config.framework === 'nuxt' ? templates.NUXT_TAILWIND_CONFIG_WITH_VARIABLES : templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension })
-      : template(config.framework === 'nuxt' ? templates.NUXT_TAILWIND_CONFIG : templates.TAILWIND_CONFIG)({ extension }),
+      ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework })
+      : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework }),
     'utf8',
   )
 
@@ -271,12 +266,11 @@ export async function runInit(cwd: string, config: Config) {
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
   const packageManager = await getPackageManager(cwd)
 
-  // TODO: add support for other icon libraries.
   const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : PROJECT_DEPENDENCIES.vue,
+    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
   ).concat(
     config.style === 'new-york' ? [] : ['lucide-vue-next'],
-  )
+  ).filter(Boolean)
 
   await execa(
     packageManager,
