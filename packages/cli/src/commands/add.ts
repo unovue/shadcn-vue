@@ -25,6 +25,7 @@ const addOptionsSchema = z.object({
   yes: z.boolean(),
   overwrite: z.boolean(),
   cwd: z.string(),
+  all: z.boolean(),
   path: z.string().optional(),
 })
 
@@ -39,6 +40,7 @@ export const add = new Command()
     'the working directory. defaults to the current directory.',
     process.cwd(),
   )
+  .option('-a, --all', 'add all available components', false)
   .option('-p, --path <path>', 'the path to add the component to.')
   .action(async (components, opts) => {
     try {
@@ -64,8 +66,10 @@ export const add = new Command()
 
       const registryIndex = await getRegistryIndex()
 
-      let selectedComponents = options.components
-      if (!options.components?.length) {
+      let selectedComponents = options.all
+        ? registryIndex.map(entry => entry.name)
+        : options.components
+      if (!options.components?.length && !options.all) {
         const { components } = await prompts({
           type: 'autocompleteMultiselect',
           name: 'components',
@@ -75,6 +79,9 @@ export const add = new Command()
           choices: registryIndex.map(entry => ({
             title: entry.name,
             value: entry.name,
+            selected: options.all
+              ? true
+              : options.components?.includes(entry.name),
           })),
         })
         selectedComponents = components
