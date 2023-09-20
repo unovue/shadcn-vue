@@ -12,20 +12,19 @@ primitive: https://www.radix-vue.com/components/popover.html
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add command
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
-
-```bash
-npm install radix-vue
-```
-
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+#### Coming soon...
+</template>
+</TabPreview>
 
 ## Usage
 

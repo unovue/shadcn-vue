@@ -8,26 +8,55 @@ description: Displays a button or a component that looks like a button.
 
 ## Installation
 
+<TabPreview name="CLI">
+<template #CLI>
+
 ```bash
 npx shadcn-vue@latest add button
 ```
+</template>
 
-<ManualInstall>
+<template #Manual>
 
-1. Install `radix-vue`:
+<Steps>
 
-```bash
-npm install radix-vue
+### Copy and paste the following code into your project
+
+```vue
+<script setup lang="ts">
+import { buttonVariants } from '.'
+import { cn } from '@/lib/utils'
+
+interface Props {
+  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']
+  size?: NonNullable<Parameters<typeof buttonVariants>[0]>['size']
+  as?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  as: 'button',
+})
+</script>
+
+<template>
+  <component
+    :is="as"
+    :class="cn(buttonVariants({ variant, size }), $attrs.class ?? '')"
+  >
+    <slot />
+  </component>
+</template>
 ```
 
-2. Copy and paste the component source files linked at the top of this page into your project.
-</ManualInstall>
+</Steps>
+</template>
+</TabPreview>
 
 ## Usage
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/components/ui/button'
 </script>
 
 <template>
