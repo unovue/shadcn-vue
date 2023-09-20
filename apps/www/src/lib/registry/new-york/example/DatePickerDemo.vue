@@ -4,13 +4,13 @@ import { ref } from 'vue'
 import RadixIconsCalendar from '~icons/radix-icons/calendar'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover'
+} from '@/lib/registry/new-york/ui/popover'
 
 const date = ref<Date>()
 </script>

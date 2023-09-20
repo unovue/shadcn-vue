@@ -9,21 +9,10 @@ primitive: https://www.radix-vue.com/components/dialog.html
 
 
 ## Installation
-
-<TabPreview name="CLI">
-<template #CLI>
-
+ 
 ```bash
 npx shadcn-vue@latest add sheet
 ```
-</template>
-
-<template #Manual>
-
-#### Coming soon...
-
-</template>
-</TabPreview>
 
 ## Usage
 

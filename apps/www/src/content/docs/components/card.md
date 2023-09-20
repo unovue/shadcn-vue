@@ -8,19 +8,11 @@ description: Displays a card with header, content, and footer.
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
+ 
 
 ```bash
 npx shadcn-vue@latest add card
-```
-</template>
-
-<template #Manual>
-
-#### Coming soon...
-</template>
-</TabPreview>
+``` 
 
 ## Usage
 

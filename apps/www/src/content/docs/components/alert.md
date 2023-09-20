@@ -8,20 +8,11 @@ description: Displays a callout for user attention.
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
-
+ 
 ```bash
 npx shadcn-vue@latest add alert
 ```
-</template>
-
-<template #Manual>
-
-#### Coming soon...
-</template>
-</TabPreview>
-
+  
 ## Usage
 
 ```vue

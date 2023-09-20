@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useToggle } from '@vueuse/core'
-import { onMounted, watch } from 'vue'
+import { useMagicKeys, useToggle } from '@vueuse/core'
+import { onMounted, ref, watch } from 'vue'
 import { Content, useData, useRoute, useRouter } from 'vitepress'
-import { onMounted, onUnmounted, ref } from 'vue'
 import { SearchIcon } from 'lucide-vue-next'
-import { docsConfig } from '../config/docs'
+import { type NavItem, docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
 
@@ -27,7 +26,6 @@ const { radius, theme } = useConfigStore()
 onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${radius.value}rem`)
   document.documentElement.classList.add(`theme-${theme.value}`)
-  window.addEventListener('keydown', onKeyDown)
 })
 
 const { frontmatter, isDark } = useData()
@@ -48,26 +46,22 @@ const links = [
   //   icon: TablerBrandX,
   // },
 ]
- 
-const isOpen = ref<boolean>(false)
 
-function onKeyDown(event: KeyboardEvent) {
-  if (isOpen.value)
-    return
+const isOpen = ref(false)
+const { Meta_K, Ctrl_K } = useMagicKeys()
 
-  if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
-    event.preventDefault()
+watch([Meta_K, Ctrl_K], (v) => {
+  if (v[0] || v[1])
     isOpen.value = true
-  }
-}
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', onKeyDown)
 })
 
-function openInNewTab(url: string | undefined) {
-  const win = window.open(url, '_blank')
-  win?.focus()
+function handleSelectLink(item: NavItem) {
+  if (item.external)
+    window.open(item.href, '_blank')
+  else
+    $router.go(item.href)
+
+  isOpen.value = false
 }
 
 watch(() => $route.path, (n) => {
@@ -78,7 +72,7 @@ watch(() => $route.path, (n) => {
       console.log('soft navigating to: ', n)
     })
   }
-}) 
+})
 </script>
 
 <template>
@@ -218,7 +212,9 @@ watch(() => $route.path, (n) => {
           <CommandEmpty>
             No results found.
           </CommandEmpty>
-          <CommandList>
+          <CommandList
+            @escape-key-down=" isOpen = false"
+          >
             <CommandGroup heading="Links">
               <CommandItem
                 v-for="item in docsConfig.mainNav"
@@ -226,15 +222,7 @@ watch(() => $route.path, (n) => {
                 :heading="item.title"
                 :value="item.title"
                 class="py-3"
-                @select="() => {
-                  if (item.external) {
-                    openInNewTab(item.href);
-                  }
-                  else {
-                    $router.go(`${item.href}.html`);
-                  }
-                  isOpen = false;
-                }"
+                @select="handleSelectLink(item)"
               >
                 <File class="mr-2 h-5 w-5" />
                 <span>{{ item.title }}</span>
@@ -243,12 +231,15 @@ watch(() => $route.path, (n) => {
             <CommandSeparator />
             <CommandGroup v-for="item in docsConfig.sidebarNav" :key="item.title" :heading="item.title">
               <CommandItem
-                v-for="subItem in item.items" :key="subItem.title" :heading="subItem.title" :value="subItem.title" class="py-3" @select="() => {
-                  $router.go(`${subItem.href}.html`)
-                  isOpen = false
-                }"
+                v-for="subItem in item.items"
+                :key="subItem.title"
+                :heading="subItem.title"
+                :value="subItem.title"
+                class="py-3"
+                @select="
+                  handleSelectLink(subItem)"
               >
-                <Circle class="mr-2 h-5 w-5" />
+                <Circle class="mr-2 h-4 w-4" />
                 <span>{{ subItem.title }}</span>
               </CommandItem>
             </CommandGroup>

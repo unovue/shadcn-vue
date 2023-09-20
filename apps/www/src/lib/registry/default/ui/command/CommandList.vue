@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ComboboxContentEmits, ComboboxContentProps } from 'radix-vue'
-import { ComboboxContent } from 'radix-vue'
+import { ComboboxContent, ComboboxViewport } from 'radix-vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<ComboboxContentProps>()
@@ -11,6 +11,8 @@ const emitsAsProps = useEmitAsProps(emits)
 
 <template>
   <ComboboxContent v-bind="{ ...props, ...emitsAsProps }" :class="cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')">
-    <slot />
+    <div role="presentation">
+      <slot />
+    </div>
   </ComboboxContent>
 </template>

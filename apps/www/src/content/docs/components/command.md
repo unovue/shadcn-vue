@@ -12,20 +12,10 @@ primitive: https://www.radix-vue.com/components/popover.html
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
-
+ 
 ```bash
 npx shadcn-vue@latest add command
-```
-</template>
-
-<template #Manual>
-
-#### Coming soon...
-</template>
-</TabPreview>
-
+``` 
 ## Usage
 
 ```vue

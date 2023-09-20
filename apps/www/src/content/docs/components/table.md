@@ -8,20 +8,9 @@ description: A responsive table component.
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
-
 ```bash
 npx shadcn-vue@latest add table
 ```
-</template>
-
-<template #Manual>
-
-#### Coming soon...
-
-</template>
-</TabPreview>
 
 ## Usage
 
