@@ -34,7 +34,7 @@
     },
     {
       "name": "CommandList.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ComboboxContentEmits, ComboboxContentProps } from 'radix-vue'\nimport { ComboboxContent } from 'radix-vue'\nimport { cn, useEmitAsProps } from '@/lib/utils'\n\nconst props = defineProps<ComboboxContentProps>()\nconst emits = defineEmits<ComboboxContentEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <ComboboxContent v-bind=\"{ ...props, ...emitsAsProps }\" :class=\"cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')\">\n    <slot />\n  </ComboboxContent>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxContentEmits, ComboboxContentProps } from 'radix-vue'\nimport { ComboboxContent, ComboboxViewport } from 'radix-vue'\nimport { cn, useEmitAsProps } from '@/lib/utils'\n\nconst props = defineProps<ComboboxContentProps>()\nconst emits = defineEmits<ComboboxContentEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <ComboboxContent v-bind=\"{ ...props, ...emitsAsProps }\" :class=\"cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')\">\n    <div role=\"presentation\">\n      <slot />\n    </div>\n  </ComboboxContent>\n</template>\n"
     },
     {
       "name": "CommandSeparator.vue",
