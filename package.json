@@ -1,5 +1,6 @@
 {
   "name": "shadcn-vue",
+  "version": "0.1.8",
   "private": true,
   "packageManager": "pnpm@8.7.5",
   "license": "MIT",
@@ -17,11 +18,15 @@
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "build:cli": "pnpm --filter shadcn-vue build",
     "build:registry": "pnpm --filter=www build:registry",
+    "bumpp": "bumpp package.json packages/*/package.json",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",
     "test": "pnpm --filter shadcn-vue test",
     "taze": "taze major -frI --ignore-paths ./packages/cli/test/** --exclude typescript,/@iconify/",
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
+  },
+  "dependencies": {
+    "bumpp": "^9.2.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.3",
