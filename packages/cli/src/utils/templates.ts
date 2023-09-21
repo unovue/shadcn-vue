@@ -29,10 +29,10 @@ export const TAILWIND_CONFIG = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{<%- extension %>,<%- extension %>x}',
-    './components/**/*.{<%- extension %>,<%- extension %>x}',
-    './app/**/*.{<%- extension %>,<%- extension %>x}',
-    './src/**/*.{<%- extension %>,<%- extension %>x}',
+    './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',
+    './components/**/*.{<%- extension %>,<%- extension %>x,vue}',
+    './app/**/*.{<%- extension %>,<%- extension %>x,vue}',
+    './src/**/*.{<%- extension %>,<%- extension %>x,vue}',
 	],
   theme: {
     container: {
