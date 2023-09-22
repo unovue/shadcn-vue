@@ -13,6 +13,13 @@ Start by creating a new Nuxt project using `create-next-app`:
 npx nuxi@latest init my-app
 ```
 
+### Install TypeScript
+
+If you encounter the error `ERROR: Cannot read properties of undefined (reading 'sys') (x4)`, please proceed to install TypeScript as a dependency, as advised in this [issue](https://github.com/nuxt/nuxt/issues/20936)
+
+```bash
+npm install -D typescript
+```
 ### Install TailwindCSS module
 
 ```bash
