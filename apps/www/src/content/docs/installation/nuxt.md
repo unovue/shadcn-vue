@@ -15,6 +15,7 @@ npx nuxi@latest init my-app
 
 ### Install TypeScript
 
+If you encounter the error `ERROR: Cannot read properties of undefined (reading 'sys') (x4)`, please proceed to install TypeScript as a dependency, as advised in this [issue](https://github.com/nuxt/nuxt/issues/20936)
 
 ```bash
 npm install -D typescript
@@ -36,7 +37,7 @@ export default defineNuxtConfig({
       // this is required else Nuxt will autoImport `.ts` file
       extensions: ['.vue'],
       // prefix for your components, eg: UiButton
-      prefix: 'UI'
+      prefix: 'Ui'
     },
   ],
 })
@@ -122,7 +123,7 @@ The command above will add the `Button` component to your project. Nuxt autoImpo
 ```vue {3}
 <template>
   <div>
-    <UIButton>Click me</UIButton>
+    <UiButton>Click me</UiButton>
   </div>
 </template>
 ```
