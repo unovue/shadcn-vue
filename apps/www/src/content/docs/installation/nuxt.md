@@ -13,6 +13,12 @@ Start by creating a new Nuxt project using `create-next-app`:
 npx nuxi@latest init my-app
 ```
 
+### Install TypeScript
+
+
+```bash
+npm install -D typescript
+```
 ### Install TailwindCSS module
 
 ```bash
@@ -30,7 +36,7 @@ export default defineNuxtConfig({
       // this is required else Nuxt will autoImport `.ts` file
       extensions: ['.vue'],
       // prefix for your components, eg: UiButton
-      prefix: 'Ui'
+      prefix: 'UI'
     },
   ],
 })
@@ -116,7 +122,7 @@ The command above will add the `Button` component to your project. Nuxt autoImpo
 ```vue {3}
 <template>
   <div>
-    <UiButton>Click me</UiButton>
+    <UIButton>Click me</UIButton>
   </div>
 </template>
 ```
