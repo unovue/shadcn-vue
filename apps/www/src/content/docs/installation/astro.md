@@ -40,7 +40,7 @@ Install React using the Astro CLI:
 npx astro add react
 ```
 
-<Callout className="mt-4">
+<Callout class="mt-4">
 
 Answer `Yes` to all the question prompted by the CLI when installing React.
 
@@ -54,7 +54,7 @@ Install Tailwind CSS using the Astro CLI:
 npx astro add tailwind
 ```
 
-<Callout className="mt-4">
+<Callout class="mt-4">
 
 Answer `Yes` to all the question prompted by the CLI when installing Tailwind CSS.
 

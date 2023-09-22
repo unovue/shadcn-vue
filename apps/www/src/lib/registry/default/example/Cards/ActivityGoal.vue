@@ -42,7 +42,7 @@ const data = [
       <CardDescription>Set your daily activity goal.</CardDescription>
     </CardHeader>
     <CardContent class-name="pb-2">
-      <div className="flex items-center justify-center space-x-2">
+      <div class="flex items-center justify-center space-x-2">
         <Button
           variant="outline"
           size="icon"
@@ -51,13 +51,13 @@ const data = [
           @click="goal -= 10"
         >
           <Minus class-name="h-4 w-4" />
-          <span className="sr-only">Decrease</span>
+          <span class="sr-only">Decrease</span>
         </Button>
-        <div className="flex-1 text-center">
-          <div className="text-5xl font-bold tracking-tighter">
+        <div class="flex-1 text-center">
+          <div class="text-5xl font-bold tracking-tighter">
             {{ goal }}
           </div>
-          <div className="text-[0.70rem] uppercase text-muted-foreground">
+          <div class="text-[0.70rem] uppercase text-muted-foreground">
             Calories/day
           </div>
         </div>
@@ -69,10 +69,10 @@ const data = [
           @click="goal += 10 "
         >
           <Plus class-name="h-4 w-4" />
-          <span className="sr-only">Increase</span>
+          <span class="sr-only">Increase</span>
         </Button>
       </div>
-      <div className="my-3 h-[60px]">
+      <div class="my-3 h-[60px]">
         <!-- <ResponsiveContainer width="100%" height="100%">
           <BarChart data="{data}">
             <Bar
