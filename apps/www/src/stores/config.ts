@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import { useSessionStorage } from '@vueuse/core'
-import type { Theme } from './../lib/registry/themes'
+import { useData } from 'vitepress'
+import { type Theme, themes } from './../lib/registry/themes'
 import { styles } from '@/lib/registry/styles'
 
 interface Config {
@@ -12,6 +13,7 @@ interface Config {
 export const RADII = [0, 0.25, 0.5, 0.75, 1]
 
 export function useConfigStore() {
+  const { isDark } = useData()
   const config = useSessionStorage<Config>('config', {
     theme: 'zinc',
     radius: 0.5,
@@ -32,5 +34,12 @@ export function useConfigStore() {
     config.value.radius = newRadius
   }
 
-  return { config, theme, setTheme, radius, setRadius, themeClass, style }
+  const themePrimary = computed(() => {
+    const t = themes.find(t => t.name === theme.value)
+    return `hsl(${
+      t?.cssVars[isDark ? 'dark' : 'light'].primary
+    })`
+  })
+
+  return { config, theme, setTheme, radius, setRadius, themeClass, style, themePrimary }
 }

@@ -15,6 +15,7 @@
     "@morev/vue-transitions": "^2.3.6",
     "@tanstack/vue-table": "^8.9.9",
     "@unovis/ts": "^1.2.1",
+    "@unovis/vue": "1.3.0-alpha.3",
     "@vueuse/core": "^10.4.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
