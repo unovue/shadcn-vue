@@ -19,7 +19,7 @@ const emitsAsProps = useEmitAsProps(emits)
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="fixed inset-0 z-50 bg-white/80 dark:bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+      class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     />
     <DialogContent
       :class="
