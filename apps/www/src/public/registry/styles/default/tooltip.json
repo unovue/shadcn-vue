@@ -21,7 +21,7 @@
     },
     {
       "name": "TooltipTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TooltipTrigger, type TooltipTriggerProps } from 'radix-vue'\n\nconst props = defineProps<TooltipTriggerProps>()\n</script>\n\n<template>\n  <TooltipTrigger v-bind=\"props\" class=\"\">\n    <slot />\n  </TooltipTrigger>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TooltipTrigger, type TooltipTriggerProps } from 'radix-vue'\n\nconst props = defineProps<TooltipTriggerProps>()\n</script>\n\n<template>\n  <TooltipTrigger v-bind=\"props\">\n    <slot />\n  </TooltipTrigger>\n</template>\n"
     },
     {
       "name": "index.ts",

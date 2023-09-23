@@ -17,7 +17,7 @@
     },
     {
       "name": "PopoverTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PopoverTrigger, type PopoverTriggerProps } from 'radix-vue'\n\nconst props = defineProps<PopoverTriggerProps>()\n</script>\n\n<template>\n  <PopoverTrigger v-bind=\"props\" class=\"\">\n    <slot />\n  </PopoverTrigger>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { PopoverTrigger, type PopoverTriggerProps } from 'radix-vue'\n\nconst props = defineProps<PopoverTriggerProps>()\n</script>\n\n<template>\n  <PopoverTrigger v-bind=\"props\">\n    <slot />\n  </PopoverTrigger>\n</template>\n"
     },
     {
       "name": "index.ts",

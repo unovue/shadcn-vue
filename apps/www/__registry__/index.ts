@@ -58,12 +58,26 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/CalendarDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/CalendarDemo.vue'],
     },
+    CardChat: {
+      name: 'CardChat',
+      type: 'components:example',
+      registryDependencies: ['card', 'dialog', 'command', 'avatar', 'tooltip', 'button', 'input', 'utils'],
+      component: () => import('../src/lib/registry/default/example/CardChat.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/CardChat.vue'],
+    },
     CardDemo: {
       name: 'CardDemo',
       type: 'components:example',
       registryDependencies: ['button', 'card', 'switch', 'utils'],
       component: () => import('../src/lib/registry/default/example/CardDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/CardDemo.vue'],
+    },
+    CardStats: {
+      name: 'CardStats',
+      type: 'components:example',
+      registryDependencies: ['card', 'config', 'themes'],
+      component: () => import('../src/lib/registry/default/example/CardStats.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/CardStats.vue'],
     },
     CardWithForm: {
       name: 'CardWithForm',
@@ -459,12 +473,26 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/CalendarDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CalendarDemo.vue'],
     },
+    CardChat: {
+      name: 'CardChat',
+      type: 'components:example',
+      registryDependencies: ['card', 'dialog', 'command', 'avatar', 'tooltip', 'button', 'input', 'utils'],
+      component: () => import('../src/lib/registry/new-york/example/CardChat.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CardChat.vue'],
+    },
     CardDemo: {
       name: 'CardDemo',
       type: 'components:example',
       registryDependencies: ['button', 'card', 'switch', 'utils'],
       component: () => import('../src/lib/registry/new-york/example/CardDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CardDemo.vue'],
+    },
+    CardStats: {
+      name: 'CardStats',
+      type: 'components:example',
+      registryDependencies: ['card', 'config', 'themes'],
+      component: () => import('../src/lib/registry/new-york/example/CardStats.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CardStats.vue'],
     },
     CardWithForm: {
       name: 'CardWithForm',
