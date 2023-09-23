@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ChevronDown, Minus, Plus, Send } from 'lucide-vue-next'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
+import Minus from '~icons/radix-icons/minus'
+import Plus from '~icons/radix-icons/plus'
 import { Button } from '@/lib/registry/new-york/ui/button'
 
 import {
