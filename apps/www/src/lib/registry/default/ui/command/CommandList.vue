@@ -10,7 +10,7 @@ const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
-  <ComboboxContent v-bind="{ ...props, ...emitsAsProps }" :class="cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')">
+  <ComboboxContent v-bind="{ ...props, ...emitsAsProps }" :avoid-collisions="true" :class="cn('max-h-[300px] overflow-y-auto overflow-x-hidden', $attrs.class ?? '')">
     <div role="presentation">
       <slot />
     </div>
