@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 const props = defineProps<LabelProps>()
 
-const { error, id } = useFormField()
+const { error, id, formItemId } = useFormField()
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const { error, id } = useFormField()
       error && 'text-destructive',
       $attrs.class ?? '',
     )"
-    :for="`${id}-form-item`"
+    :for="formItemId"
   >
     <slot />
   </Label>
