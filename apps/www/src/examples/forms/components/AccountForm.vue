@@ -2,10 +2,13 @@
 import { ref } from 'vue'
 import * as z from 'zod'
 import { format } from 'date-fns'
+import { toTypedSchema } from '@vee-validate/zod'
+import { configure } from 'vee-validate'
 import { cn } from '@/lib/utils'
 
 import RadixIconsCalendar from '~icons/radix-icons/calendar'
 
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
@@ -25,6 +28,14 @@ import {
 } from '@/lib/registry/default/ui/popover'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 
+configure({
+  bails: true,
+  validateOnBlur: false,
+  validateOnChange: false,
+  validateOnInput: true,
+  validateOnModelUpdate: false,
+})
+
 const accountForm = ref({
   name: '',
   dob: null,
@@ -43,35 +54,38 @@ const languages = [
   { label: 'Chinese', value: 'zh' },
 ] as const
 
-const accountFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: 'Name must be at least 2 characters.',
-    })
-    .max(30, {
-      message: 'Name must not be longer than 30 characters.',
-    }),
-  dob: z.date({
-    required_error: 'A date of birth is required.',
-  }),
-  language: z.string().nonempty({
+const accountFormSchema = toTypedSchema(z.object({
+  // name: z
+  //   .string()
+  //   .min(2, {
+  //     message: 'Name must be at least 2 characters.',
+  //   })
+  //   .max(30, {
+  //     message: 'Name must not be longer than 30 characters.',
+  //   }),
+  // dob: z.date({
+  //   required_error: 'A date of birth is required.',
+  // }),
+  // language: z.string().nonempty({
+  //   message: 'Please select a language.',
+  // }),
+  example: z.string().nonempty({
     message: 'Please select a language.',
-  }),
-})
+  }).min(5),
+}))
 
-type AccountFormValues = z.infer<typeof accountFormSchema>
-const errors = ref<z.ZodFormattedError<AccountFormValues> | null>(null)
+// type AccountFormValues = z.infer<typeof accountFormSchema>
+// const errors = ref<z.ZodFormattedError<AccountFormValues> | null>(null)
 
 async function handleSubmit() {
-  const result = accountFormSchema.safeParse(accountForm.value)
-  if (!result.success) {
-    errors.value = result.error.format()
-    console.log(errors.value)
-    return
-  }
+  // const result = accountFormSchema.safeParse(accountForm.value)
+  // if (!result.success) {
+  //   errors.value = result.error.format()
+  //   console.log(errors.value)
+  //   return
+  // }
 
-  console.log('Form submitted!', accountForm.value)
+  // console.log('Form submitted!', accountForm.value)
 }
 </script>
 
@@ -85,8 +99,22 @@ async function handleSubmit() {
     </p>
   </div>
   <Separator />
-  <form class="space-y-8" @submit.prevent="handleSubmit">
-    <div class="grid gap-2">
+  <Form :validation-schema="accountFormSchema" class="space-y-8" @submit="handleSubmit">
+    <FormField v-slot="{ field }" name="example" type="password">
+      <FormItem>
+        <FormLabel>Name</FormLabel>
+        <FormControl>
+          <Input placeholder="Your name" v-bind="field" />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+
+    <Label for="dob">
+      Date of Birth
+    </Label>
+
+    <!-- <div class="grid gap-2">
       <Label for="name" :class="cn('text-sm', errors?.name && 'text-destructive')">
         Name
       </Label>
@@ -97,11 +125,9 @@ async function handleSubmit() {
       <div v-if="errors?.name" class="text-sm text-destructive">
         <span v-for="error in errors.name._errors" :key="error">{{ error }}</span>
       </div>
-    </div>
-    <div class="grid gap-2">
-      <Label for="dob" :class="cn('text-sm', errors?.dob && 'text-destructive')">
-        Date of Birth
-      </Label>
+    </div> -->
+    <!-- <div class="grid gap-2">
+
       <Popover>
         <PopoverTrigger as-child>
           <Button
@@ -148,11 +174,11 @@ async function handleSubmit() {
       <div v-if="errors?.language" class="text-sm text-destructive">
         <span v-for="error in errors.language._errors" :key="error">{{ error }}</span>
       </div>
-    </div>
+    </div> -->
     <div class="flex justify-start">
       <Button type="submit">
         Update account
       </Button>
     </div>
-  </form>
+  </Form>
 </template>
