@@ -28,14 +28,6 @@ import {
 } from '@/lib/registry/default/ui/popover'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 
-configure({
-  bails: true,
-  validateOnBlur: false,
-  validateOnChange: false,
-  validateOnInput: true,
-  validateOnModelUpdate: false,
-})
-
 const accountForm = ref({
   name: '',
   dob: null,
@@ -100,11 +92,11 @@ async function handleSubmit() {
   </div>
   <Separator />
   <Form :validation-schema="accountFormSchema" class="space-y-8" @submit="handleSubmit">
-    <FormField v-slot="{ field }" name="example" type="password">
+    <FormField v-slot="{ field }" name="example">
       <FormItem>
         <FormLabel>Name</FormLabel>
         <FormControl>
-          <Input placeholder="Your name" v-bind="field" />
+          <Input type="text" placeholder="Your name" v-bind="field" />
         </FormControl>
         <FormMessage />
       </FormItem>
