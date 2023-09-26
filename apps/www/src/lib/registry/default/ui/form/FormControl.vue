@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Slot from './Slot.vue'
+import { Slot } from 'radix-vue'
 import { useFormField } from './FormItem.vue'
 
 const { error, formItemId, formDescriptionId, formMessageId } = useFormField()

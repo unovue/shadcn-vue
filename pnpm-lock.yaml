@@ -136,8 +136,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
       radix-vue:
-        specifier: ^0.3.0
-        version: 0.3.0(vue@3.3.4)
+        specifier: ^0.3.1
+        version: 0.3.1(vue@3.3.4)
       rimraf:
         specifier: ^5.0.1
         version: 5.0.1
@@ -6846,8 +6846,8 @@ packages:
       - vue
     dev: false
 
-  /radix-vue@0.3.0(vue@3.3.4):
-    resolution: {integrity: sha512-maywNzZKUfp6Jhis01s2dXXArft3VZrAFylsqEkjEnznCTlt5+yd1g40XPH0EefAkgR1A6XTEA0l+FXFxNKk0w==}
+  /radix-vue@0.3.1(vue@3.3.4):
+    resolution: {integrity: sha512-izekMIzZq00rUJgJkTc5zGUREI4qzOavFHrJGb9g5eRiCO2njp8wsWXUpPGh6Z7f4UnAFLc5Z4QZTBIl5sx4TA==}
     dependencies:
       '@floating-ui/dom': 1.5.3
       '@floating-ui/vue': 1.0.2(vue@3.3.4)
