@@ -31,7 +31,7 @@ import {
     <CardContent class="grid gap-6">
       <RadioGroup default-value="card" class="grid grid-cols-3 gap-4">
         <div>
-          <RadioGroupItem id="card" model-value="card" class="peer sr-only" />
+          <RadioGroupItem id="card" value="card" class="peer sr-only" />
           <Label
             for="card"
             class="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
