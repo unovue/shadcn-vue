@@ -3,7 +3,7 @@ import {
   DropdownMenuSubTrigger,
   type DropdownMenuSubTriggerProps,
 } from 'radix-vue'
-import RadixIconsChevronRight from '~icons/radix-icons/chevron-right'
+import { ChevronRightIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuSubTriggerProps & { class?: string }>()
@@ -20,6 +20,6 @@ const props = defineProps<DropdownMenuSubTriggerProps & { class?: string }>()
     ]"
   >
     <slot />
-    <RadixIconsChevronRight class="ml-auto h-4 w-4" />
+    <ChevronRightIcon class="ml-auto h-4 w-4" />
   </DropdownMenuSubTrigger>
 </template>

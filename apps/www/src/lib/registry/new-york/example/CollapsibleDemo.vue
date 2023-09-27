@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import RadixIconsCaretSort from '~icons/radix-icons/caret-sort'
+import { CaretSortIcon } from '@radix-icons/vue'
 
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
@@ -23,7 +23,7 @@ const isOpen = ref(false)
       </h4>
       <CollapsibleTrigger as-child>
         <Button variant="ghost" size="sm" class="w-9 p-0">
-          <RadixIconsCaretSort class="h-4 w-4" />
+          <CaretSortIcon class="h-4 w-4" />
           <span class="sr-only">Toggle</span>
         </Button>
       </CollapsibleTrigger>

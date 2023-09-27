@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import Check from '~icons/radix-icons/check'
-import CaretSort from '~icons/radix-icons/caret-sort'
+import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/default/ui/button'
@@ -42,7 +41,7 @@ const filterFunction = (list: typeof frameworks, search: string) => list.filter(
         class="w-[200px] justify-between"
       >
         {{ value ? value.label : 'Select framework...' }}
-        <CaretSort class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0">
@@ -57,7 +56,7 @@ const filterFunction = (list: typeof frameworks, search: string) => list.filter(
             @select="open = false"
           >
             {{ framework.label }}
-            <Check
+            <CheckIcon
               :class="cn(
                 'ml-auto h-4 w-4',
                 value?.value === framework.value ? 'opacity-100' : 'opacity-0',

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import RadixIconsBell from '~icons/radix-icons/bell'
-import RadixIconsCheck from '~icons/radix-icons/check'
-
+import { BellIcon, CheckIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
@@ -38,7 +36,7 @@ const notifications = [
     </CardHeader>
     <CardContent class="grid gap-4">
       <div class=" flex items-center space-x-4 rounded-md border p-4">
-        <RadixIconsBell />
+        <BellIcon />
         <div class="flex-1 space-y-1">
           <p class="text-sm font-medium leading-none">
             Push Notifications
@@ -68,7 +66,7 @@ const notifications = [
     </CardContent>
     <CardFooter>
       <Button class="w-full">
-        <RadixIconsCheck class="mr-2 h-4 w-4" /> Mark all as read
+        <CheckIcon class="mr-2 h-4 w-4" /> Mark all as read
       </Button>
     </CardFooter>
   </Card>
