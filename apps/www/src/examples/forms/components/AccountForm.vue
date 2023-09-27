@@ -83,32 +83,29 @@ async function handleSubmit(values: any) {
   <Form
     v-slot="{
       setValues,
-    }" :validation-schema="accountFormSchema" class="space-y-8"
-    @submit="handleSubmit"
+    }" :validation-schema="accountFormSchema" class="space-y-8" @submit="handleSubmit"
   >
-    <FormField v-slot="{ field }" name="name">
+    <FormField v-slot="{ componentField }" name="name">
       <FormItem>
         <FormLabel>Name</FormLabel>
         <FormControl>
-          <Input type="text" placeholder="Your name" v-bind="field" />
+          <Input type="text" placeholder="Your name" v-bind="componentField" />
         </FormControl>
         <FormDescription>
-          This is your public display name. It can be your real name or a
-          pseudonym. You can only change this once every 30 days.
+          This is the name that will be displayed on your profile and in emails.
         </FormDescription>
         <FormMessage />
       </FormItem>
     </FormField>
 
-    <FormField v-slot="{ field, value }" name="dob">
+    <FormField v-slot="{ componentField, value }" name="dob">
       <FormItem>
         <FormLabel>Date of birth</FormLabel>
         <Popover>
           <PopoverTrigger as-child>
             <FormControl>
               <Button
-                variant="outline"
-                :class="cn(
+                variant="outline" :class="cn(
                   'w-[280px] pl-3 text-left font-normal',
                   !value && 'text-muted-foreground',
                 )"
@@ -119,7 +116,7 @@ async function handleSubmit(values: any) {
             </FormControl>
           </PopoverTrigger>
           <PopoverContent class="p-0">
-            <Calendar v-bind="field" />
+            <Calendar v-bind="componentField" />
           </PopoverContent>
         </Popover>
         <FormDescription>
@@ -137,10 +134,7 @@ async function handleSubmit(values: any) {
           <PopoverTrigger as-child>
             <FormControl>
               <Button
-                variant="outline"
-                role="combobox"
-                :aria-expanded="open"
-                :class="cn(
+                variant="outline" role="combobox" :aria-expanded="open" :class="cn(
                   'w-[200px] justify-between',
                   !value && 'text-muted-foreground',
                 )"
@@ -159,10 +153,7 @@ async function handleSubmit(values: any) {
               <CommandEmpty>No framework found.</CommandEmpty>
               <CommandGroup>
                 <CommandItem
-                  v-for="language in languages"
-                  :key="language.value"
-                  :value="language.value"
-                  @select="(val) => {
+                  v-for="language in languages" :key="language.value" :value="language.value" @select="(val) => {
                     setValues({ language: val })
                     open = false
                   }"
