@@ -269,7 +269,7 @@ export async function runInit(cwd: string, config: Config) {
   const deps = PROJECT_DEPENDENCIES.base.concat(
     config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
   ).concat(
-    config.style === 'new-york' ? [] : ['lucide-vue-next'],
+    config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
   ).filter(Boolean)
 
   await execa(
