@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { FieldArray, useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
+import { Cross1Icon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 import { Input } from '@/lib/registry/new-york/ui/input'
@@ -123,12 +124,8 @@ const onSubmit = handleSubmit((values, { resetForm }) => {
     </FormField>
 
     <div>
-      <FieldArray v-slot="{ fields, push }" name="urls">
-        <div v-for="(fieldq, index) in fields" :key="`urls-${fieldq.key}`">
-          <!-- <button type="button" @click="remove(index)">
-            Remove
-          </button> -->
-
+      <FieldArray v-slot="{ fields, push, remove }" name="urls">
+        <div v-for="(field, index) in fields" :key="`urls-${field.key}`">
           <FormField v-slot="{ componentField }" :name="`urls[${index}].value`">
             <FormItem>
               <FormLabel :class="cn(index !== 0 && 'sr-only')">
@@ -137,9 +134,14 @@ const onSubmit = handleSubmit((values, { resetForm }) => {
               <FormDescription :class="cn(index !== 0 && 'sr-only')">
                 Add links to your website, blog, or social media profiles.
               </FormDescription>
-              <FormControl>
-                <Input type="url" v-bind="componentField" />
-              </FormControl>
+              <div class="relative flex items-center">
+                <FormControl>
+                  <Input type="url" v-bind="componentField" />
+                </FormControl>
+                <button class="absolute py-2 pe-3 end-0 text-muted-foreground" @click="remove(index)">
+                  <Cross1Icon class="w-3" />
+                </button>
+              </div>
               <FormMessage />
             </FormItem>
           </FormField>
