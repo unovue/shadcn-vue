@@ -75,6 +75,7 @@ test('init config-full', async () => {
       'class-variance-authority',
       'clsx',
       'tailwind-merge',
+      '@radix-icons/vue',
     ],
     {
       cwd: targetDir,
