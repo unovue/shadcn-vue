@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CheckboxRootEmits, CheckboxRootProps } from 'radix-vue'
 import { CheckboxIndicator, CheckboxRoot } from 'radix-vue'
-import RadixIconsCheck from '~icons/radix-icons/check'
+import { CheckIcon } from '@radix-icons/vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<CheckboxRootProps>()
@@ -18,7 +18,7 @@ const emitsAsProps = useEmitAsProps(emits)
          $attrs.class ?? '')"
   >
     <CheckboxIndicator class="flex items-center justify-center text-current">
-      <RadixIconsCheck class="h-4 w-4" />
+      <CheckIcon class="h-4 w-4" />
     </CheckboxIndicator>
   </CheckboxRoot>
 </template>

@@ -14,9 +14,8 @@ import {
   useVueTable,
 } from '@tanstack/vue-table'
 import { h, ref } from 'vue'
+import { CaretSortIcon, ChevronDownIcon } from '@radix-icons/vue'
 import DropdownAction from './DataTableDemoColumn.vue'
-import RadixIconsCaretSort from '~icons/radix-icons/caret-sort'
-import RadixIconsChevronDown from '~icons/radix-icons/chevron-down'
 
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
@@ -104,7 +103,7 @@ const columns: ColumnDef<Payment>[] = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, ['Email', h(RadixIconsCaretSort, { class: 'ml-2 h-4 w-4' })])
+      }, ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   },
@@ -173,7 +172,7 @@ const table = useVueTable({
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
           <Button variant="outline" class="ml-auto">
-            Columns <RadixIconsChevronDown class="ml-2 h-4 w-4" />
+            Columns <ChevronDownIcon class="ml-2 h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">

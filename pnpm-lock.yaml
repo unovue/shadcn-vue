@@ -53,6 +53,9 @@ importers:
       '@morev/vue-transitions':
         specifier: ^2.3.6
         version: 2.3.6(vue@3.3.4)
+      '@radix-icons/vue':
+        specifier: ^1.0.0
+        version: 1.0.0(vue@3.3.4)
       '@tanstack/vue-table':
         specifier: ^8.9.9
         version: 8.9.9(vue@3.3.4)
@@ -1777,6 +1780,14 @@ packages:
 
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
+
+  /@radix-icons/vue@1.0.0(vue@3.3.4):
+    resolution: {integrity: sha512-gKWWk9tTK/laDRRNe5KLLR8A0qUwx4q4+DN8Fq48hJ904u78R82ayAO3TrxbNLgyn2D0h6rRiGdLzQWj7rPcvA==}
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: 3.3.4
     dev: false
 
   /@rollup/pluginutils@5.0.4:

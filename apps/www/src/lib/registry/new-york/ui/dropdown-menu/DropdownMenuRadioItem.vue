@@ -5,7 +5,7 @@ import {
   type DropdownMenuRadioItemEmits,
   type DropdownMenuRadioItemProps,
 } from 'radix-vue'
-import RadixIconsDotFilled from '~icons/radix-icons/dot-filled'
+import { DotFilledIcon } from '@radix-icons/vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuRadioItemProps & { class?: string }>()
@@ -24,7 +24,7 @@ const emits = defineEmits<DropdownMenuRadioItemEmits>()
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
 
       <DropdownMenuItemIndicator>
-        <RadixIconsDotFilled class="h-4 w-4 fill-current" />
+        <DotFilledIcon class="h-4 w-4 fill-current" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />

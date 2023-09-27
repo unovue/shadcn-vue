@@ -33,7 +33,7 @@
     },
     {
       "name": "NavigationMenuTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  NavigationMenuTrigger,\n  type NavigationMenuTriggerProps,\n} from 'radix-vue'\nimport { navigationMenuTriggerStyle } from '.'\nimport RadixIconsChevronDown from '~icons/radix-icons/chevron-down'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NavigationMenuTriggerProps & { class?: string }>()\n</script>\n\n<template>\n  <NavigationMenuTrigger\n    :class=\"cn(navigationMenuTriggerStyle(), 'group', props.class)\"\n    v-bind=\"props\"\n  >\n    <slot />\n    <RadixIconsChevronDown\n      class=\"relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180\"\n      aria-hidden=\"true\"\n    />\n  </NavigationMenuTrigger>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  NavigationMenuTrigger,\n  type NavigationMenuTriggerProps,\n} from 'radix-vue'\nimport { ChevronDownIcon } from '@radix-icons/vue'\nimport { navigationMenuTriggerStyle } from '.'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NavigationMenuTriggerProps & { class?: string }>()\n</script>\n\n<template>\n  <NavigationMenuTrigger\n    :class=\"cn(navigationMenuTriggerStyle(), 'group', props.class)\"\n    v-bind=\"props\"\n  >\n    <slot />\n    <ChevronDownIcon\n      class=\"relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180\"\n      aria-hidden=\"true\"\n    />\n  </NavigationMenuTrigger>\n</template>\n"
     },
     {
       "name": "NavigationMenuViewport.vue",

@@ -415,6 +415,27 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/TypographyTable.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/TypographyTable.vue'],
     },
+    ActivityGoal: {
+      name: 'ActivityGoal',
+      type: 'components:example',
+      registryDependencies: ['button', 'card', 'themes', 'config'],
+      component: () => import('../src/lib/registry/default/example/ActivityGoal.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ActivityGoal.vue'],
+    },
+    DataTable: {
+      name: 'DataTable',
+      type: 'components:example',
+      registryDependencies: ['button', 'checkbox', 'dropdown-menu', 'input', 'table', 'card', 'utils'],
+      component: () => import('../src/lib/registry/default/example/DataTable.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/DataTable.vue'],
+    },
+    Metric: {
+      name: 'Metric',
+      type: 'components:example',
+      registryDependencies: ['card', 'config'],
+      component: () => import('../src/lib/registry/default/example/Metric.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/Metric.vue'],
+    },
   },
   'new-york': {
     AccordionDemo: {
@@ -829,6 +850,27 @@ export const Index = {
       registryDependencies: [],
       component: () => import('../src/lib/registry/new-york/example/TypographyTable.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/TypographyTable.vue'],
+    },
+    ActivityGoal: {
+      name: 'ActivityGoal',
+      type: 'components:example',
+      registryDependencies: ['button', 'card', 'themes', 'config'],
+      component: () => import('../src/lib/registry/new-york/example/ActivityGoal.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ActivityGoal.vue'],
+    },
+    DataTable: {
+      name: 'DataTable',
+      type: 'components:example',
+      registryDependencies: ['button', 'checkbox', 'dropdown-menu', 'input', 'table', 'card', 'utils'],
+      component: () => import('../src/lib/registry/new-york/example/DataTable.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/DataTable.vue'],
+    },
+    Metric: {
+      name: 'Metric',
+      type: 'components:example',
+      registryDependencies: ['card', 'config'],
+      component: () => import('../src/lib/registry/new-york/example/Metric.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/Metric.vue'],
     },
   },
 }

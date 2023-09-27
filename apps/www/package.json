@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@morev/vue-transitions": "^2.3.6",
+    "@radix-icons/vue": "^1.0.0",
     "@tanstack/vue-table": "^8.9.9",
     "@unovis/ts": "^1.2.1",
     "@unovis/vue": "1.3.0-alpha.3",
