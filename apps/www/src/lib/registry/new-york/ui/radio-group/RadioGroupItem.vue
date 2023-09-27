@@ -4,8 +4,8 @@ import {
   RadioGroupItem,
   type RadioGroupItemProps,
 } from 'radix-vue'
+import { CheckIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
-import RadixIconsCheck from '~icons/radix-icons/check'
 
 const props = defineProps<RadioGroupItemProps & { class?: string }>()
 </script>
@@ -23,7 +23,7 @@ const props = defineProps<RadioGroupItemProps & { class?: string }>()
     <RadioGroupIndicator
       :class="cn('flex items-center justify-center', props.class)"
     >
-      <RadixIconsCheck class="h-3.5 w-3.5 fill-primary" />
+      <CheckIcon class="h-3.5 w-3.5 fill-primary" />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>

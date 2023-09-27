@@ -4,7 +4,7 @@ import {
   AccordionTrigger,
   type AccordionTriggerProps,
 } from 'radix-vue'
-import RadixIconsChevronDown from '~icons/radix-icons/chevron-down'
+import { ChevronDownIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<AccordionTriggerProps & { class?: string }>()
@@ -22,7 +22,7 @@ const props = defineProps<AccordionTriggerProps & { class?: string }>()
       "
     >
       <slot />
-      <RadixIconsChevronDown
+      <ChevronDownIcon
         class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200"
       />
     </AccordionTrigger>

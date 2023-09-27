@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SelectIcon, SelectTrigger, type SelectTriggerProps } from 'radix-vue'
-import RadixIconsChevronDown from '~icons/radix-icons/chevron-down'
+import { ChevronDownIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(
@@ -27,7 +27,7 @@ const props = withDefaults(
   >
     <slot />
     <SelectIcon as-child>
-      <RadixIconsChevronDown class="w-4 h-4 opacity-50" />
+      <ChevronDownIcon class="w-4 h-4 opacity-50" />
     </SelectIcon>
   </SelectTrigger>
 </template>

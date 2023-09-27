@@ -4,8 +4,8 @@ import {
   RadioGroupItem,
   type RadioGroupItemProps,
 } from 'radix-vue'
+import { Circle } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
-import RiCheckboxBlankCircleFill from '~icons/ri/checkbox-blank-circle-fill'
 
 const props = defineProps<RadioGroupItemProps & { class?: string }>()
 </script>
@@ -23,7 +23,7 @@ const props = defineProps<RadioGroupItemProps & { class?: string }>()
     <RadioGroupIndicator
       :class="cn('flex items-center justify-center', props.class)"
     >
-      <RiCheckboxBlankCircleFill class="w-2.5 h-2.5 text-foreground" />
+      <Circle class="w-2.5 h-2.5 text-foreground" />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>

@@ -5,8 +5,8 @@ import {
   type MenubarCheckboxItemProps,
   MenubarItemIndicator,
 } from 'radix-vue'
+import { CheckIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
-import RadixIconsCheck from '~icons/radix-icons/check'
 
 const props = defineProps<MenubarCheckboxItemProps & { class?: string }>()
 
@@ -28,7 +28,7 @@ const emit = defineEmits<MenubarCheckboxItemEmits>()
     <MenubarItemIndicator
       class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
     >
-      <RadixIconsCheck class="w-4 h-4" />
+      <CheckIcon class="w-4 h-4" />
     </MenubarItemIndicator>
     <slot />
   </MenubarCheckboxItem>

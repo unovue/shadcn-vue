@@ -7,7 +7,7 @@ import {
   DialogOverlay,
   DialogPortal,
 } from 'radix-vue'
-import RadixIconsCross2 from '~icons/radix-icons/cross-2'
+import { Cross2Icon } from '@radix-icons/vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<DialogContentProps & { class?: string }>()
@@ -35,7 +35,7 @@ const emitsAsProps = useEmitAsProps(emits)
       <DialogClose
         class="absolute top-4 right-4 p-0.5 transition-colors rounded-md hover:bg-secondary"
       >
-        <RadixIconsCross2 class="w-4 h-4" />
+        <Cross2Icon class="w-4 h-4" />
         <span class="sr-only">Close</span>
       </DialogClose>
     </DialogContent>

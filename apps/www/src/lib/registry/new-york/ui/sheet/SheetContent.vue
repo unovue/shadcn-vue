@@ -8,7 +8,7 @@ import {
   DialogPortal,
 } from 'radix-vue'
 import { cva } from 'class-variance-authority'
-import RadixIconsCross2 from '~icons/radix-icons/cross-2'
+import { Cross2Icon } from '@radix-icons/vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 
 interface SheetContentProps extends DialogContentProps {
@@ -56,7 +56,7 @@ const sheetVariants = cva(
       <DialogClose
         class="absolute top-4 right-4 p-0.5 transition-colors rounded-md hover:bg-secondary"
       >
-        <RadixIconsCross2 class="w-4 h-4 text-muted-foreground" />
+        <Cross2Icon class="w-4 h-4 text-muted-foreground" />
       </DialogClose>
     </DialogContent>
   </DialogPortal>

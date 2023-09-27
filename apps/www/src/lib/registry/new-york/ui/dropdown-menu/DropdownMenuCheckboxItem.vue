@@ -5,7 +5,7 @@ import {
   type DropdownMenuCheckboxItemProps,
   DropdownMenuItemIndicator,
 } from 'radix-vue'
-import RadixIconsCheck from '~icons/radix-icons/check'
+import { CheckIcon } from '@radix-icons/vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuCheckboxItemProps & { class?: string }>()
@@ -22,7 +22,7 @@ const emits = defineEmits<DropdownMenuCheckboxItemEmits>()
   >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuItemIndicator>
-        <RadixIconsCheck class="w-4 h-4" />
+        <CheckIcon class="w-4 h-4" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />
