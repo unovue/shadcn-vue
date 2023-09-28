@@ -57,8 +57,8 @@ const { handleSubmit, resetForm } = useForm({
   },
 })
 
-const onSubmit = handleSubmit((values, { resetForm }) => {
-  console.log(values)
+const onSubmit = handleSubmit((values) => {
+  console.log('Form submitted!', values)
 })
 </script>
 
@@ -89,20 +89,21 @@ const onSubmit = handleSubmit((values, { resetForm }) => {
     <FormField v-slot="{ componentField }" name="email">
       <FormItem>
         <FormLabel>Email</FormLabel>
-        <FormControl>
-          <Select v-bind="componentField">
+
+        <Select v-bind="componentField">
+          <FormControl>
             <SelectTrigger>
               <SelectValue placeholder="Select an email" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem v-for="email in verifiedEmails" :key="email" :value="email">
-                  {{ email }}
-                </SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </FormControl>
+          </FormControl>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem v-for="email in verifiedEmails" :key="email" :value="email">
+                {{ email }}
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
         <FormDescription>
           You can manage verified email addresses in your email settings.
         </FormDescription>

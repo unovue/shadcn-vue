@@ -58,14 +58,11 @@ const accountFormSchema = toTypedSchema(z.object({
   }),
 }))
 
-// type AccountFormValues = z.infer<typeof accountFormSchema>
-// const errors = ref<z.ZodFormattedError<AccountFormValues> | null>(null)
-
 const filterFunction = (list: typeof languages, search: string) => list.filter(i => i.value.toLowerCase().includes(search.toLowerCase()))
 
 // https://github.com/logaretm/vee-validate/issues/3521
 // https://github.com/logaretm/vee-validate/discussions/3571
-async function handleSubmit(values: any) {
+async function onSubmit(values: any) {
   console.log('Form submitted!', values)
 }
 </script>
@@ -83,7 +80,7 @@ async function handleSubmit(values: any) {
   <Form
     v-slot="{
       setValues,
-    }" :validation-schema="accountFormSchema" class="space-y-8" @submit="handleSubmit"
+    }" :validation-schema="accountFormSchema" class="space-y-8" @submit="onSubmit"
   >
     <FormField v-slot="{ componentField }" name="name">
       <FormItem>

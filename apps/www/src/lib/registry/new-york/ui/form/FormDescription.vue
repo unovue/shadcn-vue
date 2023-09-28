@@ -8,7 +8,7 @@ const { formDescriptionId } = useFormField()
 <template>
   <p
     :id="formDescriptionId"
-    :class="cn('text-sm text-muted-foreground', $attrs.class ?? '')"
+    :class="cn('text-[0.8rem] text-muted-foreground', $attrs.class ?? '')"
   >
     <slot />
   </p>

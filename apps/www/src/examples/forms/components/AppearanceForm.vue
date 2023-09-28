@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
-import { cn } from '@/lib/utils'
 
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-group'
 import {
@@ -28,16 +26,16 @@ const appearanceFormSchema = toTypedSchema(z.object({
   }),
 }))
 
-const { handleSubmit, resetForm } = useForm({
+const { handleSubmit } = useForm({
   validationSchema: appearanceFormSchema,
   initialValues: {
-    theme: 'dark',
+    theme: 'light',
     font: 'inter',
   },
 })
 
-const onSubmit = handleSubmit((values, { resetForm }) => {
-  console.log(values)
+const onSubmit = handleSubmit((values) => {
+  console.log('Form submitted!', values)
 })
 </script>
 
@@ -84,7 +82,7 @@ const onSubmit = handleSubmit((values, { resetForm }) => {
       </FormItem>
     </FormField>
 
-    <FormField v-slot="{ componentField, value }" type="radio" name="theme">
+    <FormField v-slot="{ componentField }" type="radio" name="theme">
       <FormItem class-name="space-y-1">
         <FormLabel>Theme</FormLabel>
         <FormDescription>
@@ -95,7 +93,6 @@ const onSubmit = handleSubmit((values, { resetForm }) => {
         <RadioGroup
           class="grid max-w-md grid-cols-2 gap-8 pt-2"
           v-bind="componentField"
-          :default-value="value"
         >
           <FormItem>
             <FormLabel class="[&:has([data-state=checked])>div]:border-primary">
