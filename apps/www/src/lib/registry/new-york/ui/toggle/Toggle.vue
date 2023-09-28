@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { ToggleEmits, ToggleProps } from 'radix-vue'
-import { Toggle } from 'radix-vue'
+import { Toggle, useEmitAsProps } from 'radix-vue'
 import type { VariantProps } from 'class-variance-authority'
 import { computed } from 'vue'
 import { toggleVariants } from '.'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface ToggleVariantProps extends VariantProps<typeof toggleVariants> {}
 

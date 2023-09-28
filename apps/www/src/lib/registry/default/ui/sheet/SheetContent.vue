@@ -6,10 +6,11 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
+  useEmitAsProps,
 } from 'radix-vue'
 import { X } from 'lucide-vue-next'
 import { cva } from 'class-variance-authority'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface SheetContentProps extends DialogContentProps {
   side?: 'left' | 'right' | 'top' | 'bottom'

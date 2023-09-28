@@ -6,10 +6,11 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
+  useEmitAsProps,
 } from 'radix-vue'
 import { cva } from 'class-variance-authority'
 import { Cross2Icon } from '@radix-icons/vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface SheetContentProps extends DialogContentProps {
   side?: 'left' | 'right' | 'top' | 'bottom'

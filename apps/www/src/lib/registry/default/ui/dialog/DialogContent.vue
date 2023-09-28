@@ -6,9 +6,10 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
+  useEmitAsProps,
 } from 'radix-vue'
 import { X } from 'lucide-vue-next'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogContentProps & { class?: string }>()
 const emits = defineEmits<DialogContentEmits>()
