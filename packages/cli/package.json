@@ -62,7 +62,7 @@
     "node-fetch": "^3.3.2",
     "ora": "^7.0.1",
     "prompts": "^2.4.2",
-    "radix-vue": "^0.3.2",
+    "radix-vue": "^0.4.0",
     "recast": "^0.23.4",
     "rimraf": "^5.0.1",
     "ts-morph": "^19.0.0",
