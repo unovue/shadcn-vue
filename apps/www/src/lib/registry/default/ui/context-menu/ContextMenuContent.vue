@@ -4,11 +4,14 @@ import {
   type ContextMenuContentEmits,
   type ContextMenuContentProps,
   ContextMenuPortal,
+  useForwardPropsEmits,
 } from 'radix-vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<ContextMenuContentProps & { class?: string }>()
 const emits = defineEmits<ContextMenuContentEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
@@ -21,7 +24,7 @@ const emits = defineEmits<ContextMenuContentEmits>()
           props.class,
         ),
       ]"
-      v-bind="{ ...props, ...useEmitAsProps(emits) }"
+      v-bind="forwarded"
     >
       <slot />
     </ContextMenuContent>

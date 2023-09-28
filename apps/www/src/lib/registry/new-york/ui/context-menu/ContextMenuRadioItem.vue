@@ -4,9 +4,10 @@ import {
   ContextMenuRadioItem,
   type ContextMenuRadioItemEmits,
   type ContextMenuRadioItemProps,
+  useEmitAsProps,
 } from 'radix-vue'
 import { DotFilledIcon } from '@radix-icons/vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<ContextMenuRadioItemProps & { class?: string }>()
 const emits = defineEmits<ContextMenuRadioItemEmits>()

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { DropdownMenuRoot, type DropdownMenuRootEmits, type DropdownMenuRootProps } from 'radix-vue'
-import { useEmitAsProps } from '@/lib/utils'
+import { DropdownMenuRoot, type DropdownMenuRootEmits, type DropdownMenuRootProps, useEmitAsProps } from 'radix-vue'
 
 const props = defineProps<DropdownMenuRootProps>()
 const emits = defineEmits<DropdownMenuRootEmits>()
