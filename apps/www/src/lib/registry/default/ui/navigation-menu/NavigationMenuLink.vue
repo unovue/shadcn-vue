@@ -3,8 +3,8 @@ import {
   NavigationMenuLink,
   type NavigationMenuLinkEmits,
   type NavigationMenuLinkProps,
+  useEmitAsProps,
 } from 'radix-vue'
-import { useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<NavigationMenuLinkProps>()
 const emits = defineEmits<NavigationMenuLinkEmits>()

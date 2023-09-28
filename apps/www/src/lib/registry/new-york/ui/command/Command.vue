@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ComboboxRootEmits, ComboboxRootProps } from 'radix-vue'
-import { ComboboxRoot } from 'radix-vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { ComboboxRoot, useEmitAsProps } from 'radix-vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<ComboboxRootProps>()
 const emits = defineEmits<ComboboxRootEmits>()

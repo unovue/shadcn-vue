@@ -4,9 +4,10 @@ import {
   type ContextMenuCheckboxItemEmits,
   type ContextMenuCheckboxItemProps,
   ContextMenuItemIndicator,
+  useEmitAsProps,
 } from 'radix-vue'
 import { Check } from 'lucide-vue-next'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<ContextMenuCheckboxItemProps & { class?: string }>()
 const emits = defineEmits<ContextMenuCheckboxItemEmits>()

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SliderRootEmits, SliderRootProps } from 'radix-vue'
-import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from 'radix-vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useEmitAsProps } from 'radix-vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<SliderRootProps>()
 const emits = defineEmits<SliderRootEmits>()

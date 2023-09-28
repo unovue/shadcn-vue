@@ -4,9 +4,10 @@ import {
   DropdownMenuRadioItem,
   type DropdownMenuRadioItemEmits,
   type DropdownMenuRadioItemProps,
+  useEmitAsProps,
 } from 'radix-vue'
 import { DotFilledIcon } from '@radix-icons/vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuRadioItemProps & { class?: string }>()
 

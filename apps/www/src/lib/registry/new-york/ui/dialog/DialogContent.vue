@@ -6,9 +6,10 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
+  useEmitAsProps,
 } from 'radix-vue'
 import { Cross2Icon } from '@radix-icons/vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogContentProps & { class?: string }>()
 const emits = defineEmits<DialogContentEmits>()
