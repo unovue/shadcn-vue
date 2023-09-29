@@ -67,16 +67,16 @@ const selectedUsers = ref<User[]>([])
 <template>
   <Card>
     <CardHeader class="flex flex-row items-center justify-between">
-      <div className="flex items-center space-x-4">
+      <div class="flex items-center space-x-4">
         <Avatar>
           <AvatarImage src="/avatars/01.png" alt="Image" />
           <AvatarFallback>OM</AvatarFallback>
         </Avatar>
         <div>
-          <p className="text-sm font-medium leading-none">
+          <p class="text-sm font-medium leading-none">
             Sofia Davis
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p class="text-sm text-muted-foreground">
             m@example.com
           </p>
         </div>

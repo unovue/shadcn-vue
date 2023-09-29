@@ -169,7 +169,7 @@ const table = useVueTable({
     </CardHeader>
     <CardContent>
       <div class="w-full">
-        <div className="mb-4 flex items-center gap-4">
+        <div class="mb-4 flex items-center gap-4">
           <Input
             class="max-w-sm"
             placeholder="Filter emails..."

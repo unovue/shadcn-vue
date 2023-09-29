@@ -83,7 +83,7 @@ const onSubmit = handleSubmit((values) => {
     </FormField>
 
     <FormField v-slot="{ componentField }" type="radio" name="theme">
-      <FormItem class-name="space-y-1">
+      <FormItem class="space-y-1">
         <FormLabel>Theme</FormLabel>
         <FormDescription>
           Select the theme for the dashboard.
