@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "RadioGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport { RadioGroupRoot, type RadioGroupRootEmits, type RadioGroupRootProps } from 'radix-vue'\nimport { cn, useEmitAsProps } from '@/lib/utils'\n\nconst props = defineProps<RadioGroupRootProps & { class?: string }>()\n\nconst emits = defineEmits<RadioGroupRootEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <RadioGroupRoot :class=\"cn('grid gap-2', props.class)\" v-bind=\"{ ...props, ...emitsAsProps }\">\n    <slot />\n  </RadioGroupRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { RadioGroupRoot, type RadioGroupRootEmits, type RadioGroupRootProps, useEmitAsProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<RadioGroupRootProps & { class?: string }>()\nconst emits = defineEmits<RadioGroupRootEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <RadioGroupRoot :class=\"cn('grid gap-2', props.class)\" v-bind=\"{ ...props, ...emitsAsProps }\">\n    <slot />\n  </RadioGroupRoot>\n</template>\n"
     },
     {
       "name": "RadioGroupItem.vue",

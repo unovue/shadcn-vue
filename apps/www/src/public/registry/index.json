@@ -155,9 +155,7 @@
     "dependencies": [
       "radix-vue"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       "ui/collapsible/Collapsible.vue",
       "ui/collapsible/CollapsibleContent.vue",
