@@ -73,11 +73,11 @@ const onSubmit = handleSubmit((values) => {
   </div>
   <Separator />
   <form class="space-y-8" @submit="onSubmit">
-    <FormField v-slot="{ field }" name="username">
+    <FormField v-slot="{ componentField }" name="username">
       <FormItem>
         <FormLabel>Username</FormLabel>
         <FormControl>
-          <Input type="text" placeholder="shadcn" v-bind="field" />
+          <Input type="text" placeholder="shadcn" v-bind="componentField" />
         </FormControl>
         <FormDescription>
           This is your public display name. It can be your real name or a pseudonym. You can only change this once every 30 days.
