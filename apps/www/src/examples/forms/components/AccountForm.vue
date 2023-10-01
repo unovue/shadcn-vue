@@ -77,11 +77,7 @@ async function onSubmit(values: any) {
     </p>
   </div>
   <Separator />
-  <Form
-    v-slot="{
-      setValues,
-    }" :validation-schema="accountFormSchema" class="space-y-8" @submit="onSubmit"
-  >
+  <Form :validation-schema="accountFormSchema" class="space-y-8" @submit="onSubmit">
     <FormField v-slot="{ componentField }" name="name">
       <FormItem>
         <FormLabel>Name</FormLabel>
@@ -123,7 +119,7 @@ async function onSubmit(values: any) {
       </FormItem>
     </FormField>
 
-    <FormField v-slot="{ value }" name="language">
+    <FormField v-slot="{ value, componentField }" name="language">
       <FormItem>
         <FormLabel>Language</FormLabel>
 
@@ -145,13 +141,12 @@ async function onSubmit(values: any) {
             </FormControl>
           </PopoverTrigger>
           <PopoverContent class="w-[200px] p-0">
-            <Command>
+            <Command v-bind="componentField">
               <CommandInput placeholder="Search language..." />
               <CommandEmpty>No framework found.</CommandEmpty>
               <CommandGroup>
                 <CommandItem
-                  v-for="language in languages" :key="language.value" :value="language.value" @select="(val) => {
-                    setValues({ language: val })
+                  v-for="language in languages" :key="language.value" :value="language.value" @select="() => {
                     open = false
                   }"
                 >
