@@ -21,7 +21,7 @@
     },
     {
       "name": "index.ts",
-      "content": "import { cva } from 'class-variance-authority'\n\nexport { default as Avatar } from './Avatar.vue'\nexport { default as AvatarImage } from './AvatarImage.vue'\nexport { default as AvatarFallback } from './AvatarFallback.vue'\n\nexport const avatarVariant = cva(\n  'inline-flex items-center justify-center font-normal text-foregorund select-none shrink-0 bg-muted overflow-hidden',\n  {\n    variants: {\n      size: {\n        sm: 'h-10 w-10 text-xs',\n        base: 'h-16 w-16 text-2xl',\n        lg: 'h-32 w-32 text-5xl',\n      },\n      shape: {\n        circle: 'rounded-full',\n        square: 'rounded-md',\n      },\n    },\n  },\n)\n"
+      "content": "import { cva } from 'class-variance-authority'\n\nexport { default as Avatar } from './Avatar.vue'\nexport { default as AvatarImage } from './AvatarImage.vue'\nexport { default as AvatarFallback } from './AvatarFallback.vue'\n\nexport const avatarVariant = cva(\n  'inline-flex items-center justify-center font-normal text-foreground select-none shrink-0 bg-muted overflow-hidden',\n  {\n    variants: {\n      size: {\n        sm: 'h-10 w-10 text-xs',\n        base: 'h-16 w-16 text-2xl',\n        lg: 'h-32 w-32 text-5xl',\n      },\n      shape: {\n        circle: 'rounded-full',\n        square: 'rounded-md',\n      },\n    },\n  },\n)\n"
     }
   ],
   "type": "components:ui"
