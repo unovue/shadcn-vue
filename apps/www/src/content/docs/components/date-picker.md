@@ -58,10 +58,12 @@ const date = ref<Date>()
 
 ### Date Range Picker
 
-<ComponentPreview name="DatePickerWithRange"  /> 
-
+<ComponentPreview name="DatePickerWithRange"  />
 
 ### Date Picker
 
-
 <ComponentPreview name="DatePickerDemo"  />
+
+### Form
+
+<ComponentPreview name="DatePickerForm"  />

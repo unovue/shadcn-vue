@@ -42,3 +42,27 @@ import { Input } from '@/components/ui/input'
   <Input />
 </template>
 ```
+
+### Default
+
+<ComponentPreview name="InputDemo" class="[&_input]:max-w-xs" />
+
+### File
+
+<ComponentPreview name="InputFile" class="[&_input]:max-w-xs" />
+
+### Disabled
+
+<ComponentPreview name="InputDisabled" class="[&_input]:max-w-xs" />
+
+### With Label
+
+<ComponentPreview name="InputWithLabel" class="[&_input]:max-w-xs" />
+
+### With Button
+
+<ComponentPreview name="InputWithButton" class="[&_input]:max-w-xs" />
+
+### Form
+
+<ComponentPreview name="InputForm" />

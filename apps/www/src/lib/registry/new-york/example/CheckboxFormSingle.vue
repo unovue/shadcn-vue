@@ -1,0 +1,54 @@
+<script setup lang="ts">
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
+import * as z from 'zod'
+
+import { Button } from '@/lib/registry/new-york/ui/button'
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/lib/registry/new-york/ui/form'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+
+const formSchema = toTypedSchema(z.object({
+  mobile: z.boolean().default(false).optional(),
+}))
+
+const { handleSubmit } = useForm({
+  validationSchema: formSchema,
+  initialValues: {
+    mobile: true,
+  },
+})
+
+const onSubmit = handleSubmit((values) => {
+  console.log('Form submitted!', values)
+})
+</script>
+
+<template>
+  <form class="space-y-6" @submit="onSubmit">
+    <FormField v-slot="{ value, handleChange }" name="mobile">
+      <FormItem class="flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow">
+        <FormControl>
+          <Checkbox :checked="value" @update:checked="handleChange" />
+        </FormControl>
+        <div class="space-y-1 leading-none">
+          <FormLabel>Use different settings for my mobile devices</FormLabel>
+          <FormDescription>
+            You can manage your mobile notifications in the
+            <a href="/examples/forms">mobile settings</a> page.
+          </FormDescription>
+          <FormMessage />
+        </div>
+      </FormItem>
+    </FormField>
+    <Button type="submit">
+      Submit
+    </Button>
+  </Form>
+</template>

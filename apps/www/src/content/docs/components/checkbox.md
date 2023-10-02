@@ -30,6 +30,16 @@ import { Checkbox } from '@/components/ui/checkbox'
 
 ## Examples
 
+### With text
+
+<ComponentPreview name="CheckboxWithText" />
+
 ### Disabled
 
-<ComponentPreview name="CheckboxDisabled"  /> 
+<ComponentPreview name="CheckboxDisabled"  />
+
+### Form
+
+<ComponentPreview name="CheckboxFormSingle" />
+
+<ComponentPreview name="CheckboxFormMultiple" />

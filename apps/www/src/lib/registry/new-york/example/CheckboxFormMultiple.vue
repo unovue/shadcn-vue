@@ -3,10 +3,16 @@ import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
 
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/lib/registry/new-york/ui/form'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 
 const items = [
   {
@@ -20,33 +26,29 @@ const items = [
   {
     id: 'applications',
     label: 'Applications',
-
   },
   {
     id: 'desktop',
     label: 'Desktop',
-
   },
   {
     id: 'downloads',
     label: 'Downloads',
-
   },
   {
     id: 'documents',
     label: 'Documents',
-
   },
 ] as const
 
-const displayFormSchema = toTypedSchema(z.object({
+const formSchema = toTypedSchema(z.object({
   items: z.array(z.string()).refine(value => value.some(item => item), {
     message: 'You have to select at least one item.',
   }),
 }))
 
 const { handleSubmit } = useForm({
-  validationSchema: displayFormSchema,
+  validationSchema: formSchema,
   initialValues: {
     items: ['recents', 'home'],
   },
@@ -58,15 +60,6 @@ const onSubmit = handleSubmit((values) => {
 </script>
 
 <template>
-  <div>
-    <h3 class="text-lg font-medium">
-      Display
-    </h3>
-    <p class="text-sm text-muted-foreground">
-      Turn items on or off to control what's displayed in the app.
-    </p>
-  </div>
-  <Separator />
   <form @submit="onSubmit">
     <FormField name="items">
       <FormItem>
@@ -102,7 +95,7 @@ const onSubmit = handleSubmit((values) => {
 
     <div class="flex justify-start mt-4">
       <Button type="submit">
-        Update display
+        Submit
       </Button>
     </div>
   </form>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/lib/registry/default/ui/button'
+import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 
 const props = defineProps<AlertDialogActionProps>()
 </script>

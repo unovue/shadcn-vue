@@ -50,13 +50,13 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 </Form>
 ```
 
-## Examples
+## Example
 
 
 <TabPreview name="Component" :names="['Component', 'Native']">
 <template #Component>
 
-#### Input Component
+#### `Input` Component
 
 ```vue
 <FormField v-slot="{ componentField }">
@@ -75,7 +75,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 <template #Native>
 
-#### Native input element
+#### native `input` element
 
 ```vue
 <FormField v-slot="{ field }">
@@ -312,7 +312,20 @@ That's it. You now have a fully accessible form that is type-safe with client-si
 
 <ComponentPreview
   name="InputForm"
-  className="[&_[role=tablist]]:hidden [&>div>div:first-child]:hidden"
+  class="[&_[role=tablist]]:hidden [&>div>div:first-child]:hidden"
 />
 
 </Steps>
+
+## Examples
+
+See the following links for more examples on how to use the `vee-validate` features with other components:
+
+- [Checkbox](/docs/components/checkbox#form)
+- [Date Picker](/docs/components/date-picker#form)
+- [Input](/docs/components/input#form)
+- [Radio Group](/docs/components/radio-group#form)
+- [Select](/docs/components/select#form)
+- [Switch](/docs/components/switch#form)
+- [Textarea](/docs/components/textarea#form)
+- [Combobox](/docs/components/combobox#form)

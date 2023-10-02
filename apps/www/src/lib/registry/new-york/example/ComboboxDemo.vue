@@ -3,19 +3,19 @@ import { ref } from 'vue'
 import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from '@/lib/registry/default/ui/command'
+} from '@/lib/registry/new-york/ui/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from '@/lib/registry/new-york/ui/popover'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },
