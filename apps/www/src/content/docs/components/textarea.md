@@ -46,3 +46,29 @@ import { Textarea } from '@/components/ui/textarea'
   <Textarea />
 </template>
 ```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="TextareaDemo" />
+
+### Disabled
+
+<ComponentPreview name="TextareaDisabled" />
+
+### With Label
+
+<ComponentPreview name="TextareaWithLabel" className="[&_div.grid]:w-full" />
+
+### With Text
+
+<ComponentPreview name="TextareaWithText" />
+
+### With Button
+
+<ComponentPreview name="TextareaWithButton" />
+
+### Form
+
+<ComponentPreview name="TextareaForm" />

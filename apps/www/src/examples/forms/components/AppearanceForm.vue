@@ -3,18 +3,12 @@ import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
 
+import { ChevronDownIcon } from '@radix-icons/vue'
+import { cn } from '@/lib/utils'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-group'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/lib/registry/new-york/ui/select'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button, buttonVariants } from '@/lib/registry/new-york/ui/button'
 
 const appearanceFormSchema = toTypedSchema(z.object({
   theme: z.enum(['light', 'dark'], {
@@ -50,30 +44,30 @@ const onSubmit = handleSubmit((values) => {
   </div>
   <Separator />
   <form class="space-y-8" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="font">
+    <FormField v-slot="{ field }" name="font">
       <FormItem>
         <FormLabel>Email</FormLabel>
         <div class="relative w-[200px]">
           <FormControl>
-            <Select v-bind="componentField">
-              <SelectTrigger>
-                <SelectValue placeholder="Select a font" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="inter">
-                    Inter
-                  </SelectItem>
-                  <SelectItem value="manrope">
-                    Manrope
-                  </SelectItem>
-                  <SelectItem value="system">
-                    System
-                  </SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <select
+              :class="cn(
+                buttonVariants({ variant: 'outline' }),
+                'w-[200px] appearance-none bg-transparent font-normal',
+              )"
+              v-bind="field"
+            >
+              <option value="inter">
+                Inter
+              </option>
+              <option value="manrope">
+                Manrope
+              </option>
+              <option value="system">
+                System
+              </option>
+            </select>
           </FormControl>
+          <ChevronDownIcon class="absolute right-3 top-2.5 h-4 w-4 opacity-50" />
         </div>
         <FormDescription>
           Set the font you want to use in the dashboard.

@@ -35,3 +35,9 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
   </RadioGroup>
 </template>
 ```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="RadioGroupForm" />
