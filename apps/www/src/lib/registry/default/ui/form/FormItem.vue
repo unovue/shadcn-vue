@@ -6,16 +6,22 @@ export const FORMI_TEM_INJECTION_KEY
 </script>
 
 <script lang="ts" setup>
-import { provide } from 'vue'
+import { provide, useAttrs } from 'vue'
 import { useId } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const id = useId()
 provide(FORMI_TEM_INJECTION_KEY, id)
+
+const { class: className, ...rest } = useAttrs()
 </script>
 
 <template>
-  <div :class="cn('space-y-2', $attrs.class ?? '')">
+  <div :class="cn('space-y-2', className ?? '')" v-bind="rest">
     <slot />
   </div>
 </template>
