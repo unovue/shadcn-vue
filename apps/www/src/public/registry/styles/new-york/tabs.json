@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "Tabs.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useForwardPropsEmits } from 'radix-vue'\nimport type { TabsRootEmits, TabsRootProps } from 'radix-vue'\n\nconst props = defineProps<TabsRootProps>()\nconst emits = defineEmits<TabsRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <TabsRoot v-bind=\"forwarded\">\n    <slot />\n  </TabsRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TabsRoot, useForwardPropsEmits } from 'radix-vue'\nimport type { TabsRootEmits, TabsRootProps } from 'radix-vue'\n\nconst props = defineProps<TabsRootProps>()\nconst emits = defineEmits<TabsRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <TabsRoot v-bind=\"forwarded\">\n    <slot />\n  </TabsRoot>\n</template>\n"
     },
     {
       "name": "TabsContent.vue",
