@@ -217,9 +217,8 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: 'Form',
-          href: '#',
-          label: 'Soon',
-          disabled: true,
+          href: '/docs/components/form',
+          label: 'New',
           items: [],
         },
         {
@@ -352,10 +351,10 @@ export const examples: Example[] = [
     code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/cards',
   },
   // {
-  // 	name: "Tasks",
-  // 	href: "/examples/tasks",
-  // 	label: "New",
-  // 	code: "https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/tasks"
+  // name: "Tasks",
+  // href: "/examples/tasks",
+  // label: "New",
+  // code: "https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/tasks"
   // },
   {
     name: 'Playground',
