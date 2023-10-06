@@ -8,7 +8,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['radix-vue', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
-  ['formsnap', ['zod']],
+  ['vee-validate', ['@vee-validate/zod', 'zod']],
 ])
 const REGISTRY_DEPENDENCY = '@/'
 

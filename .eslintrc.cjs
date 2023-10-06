@@ -13,5 +13,6 @@ module.exports = {
     'no-tabs': 'off',
     'no-invalid-character': 'off',
     'import/first': 'off',
+    '@stylistic/js/no-tabs': 'off',
   },
 }

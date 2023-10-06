@@ -14,11 +14,11 @@
     },
     {
       "name": "AlertDialogAction.vue",
-      "content": "<script setup lang=\"ts\">\nimport { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<AlertDialogActionProps>()\n</script>\n\n<template>\n  <AlertDialogAction v-bind=\"props\" :class=\"cn(buttonVariants(), $attrs.class ?? '')\">\n    <slot />\n  </AlertDialogAction>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/new-york/ui/button'\n\nconst props = defineProps<AlertDialogActionProps>()\n</script>\n\n<template>\n  <AlertDialogAction v-bind=\"props\" :class=\"cn(buttonVariants(), $attrs.class ?? '')\">\n    <slot />\n  </AlertDialogAction>\n</template>\n"
     },
     {
       "name": "AlertDialogCancel.vue",
-      "content": "<script setup lang=\"ts\">\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<AlertDialogCancelProps>()\n</script>\n\n<template>\n  <AlertDialogCancel v-bind=\"props\" :class=\"cn(buttonVariants({ variant: 'outline' }), 'mt-2 sm:mt-0', $attrs.class ?? '')\">\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/new-york/ui/button'\n\nconst props = defineProps<AlertDialogCancelProps>()\n</script>\n\n<template>\n  <AlertDialogCancel v-bind=\"props\" :class=\"cn(buttonVariants({ variant: 'outline' }), 'mt-2 sm:mt-0', $attrs.class ?? '')\">\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
     },
     {
       "name": "AlertDialogContent.vue",

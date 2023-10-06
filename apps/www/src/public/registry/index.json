@@ -263,6 +263,28 @@
     "type": "components:ui"
   },
   {
+    "name": "form",
+    "dependencies": [
+      "radix-vue",
+      "vee-validate",
+      "@vee-validate/zod",
+      "zod"
+    ],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/form/FormControl.vue",
+      "ui/form/FormDescription.vue",
+      "ui/form/FormItem.vue",
+      "ui/form/FormLabel.vue",
+      "ui/form/FormMessage.vue",
+      "ui/form/index.ts",
+      "ui/form/useFormField.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "hover-card",
     "dependencies": [
       "radix-vue"
