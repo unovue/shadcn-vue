@@ -60,12 +60,12 @@ const invoices = [
     <TableCaption>A list of your recent invoices.</TableCaption>
     <TableHeader>
       <TableRow>
-        <TableHead class-name="w-[100px]">
+        <TableHead class="w-[100px]">
           Invoice
         </TableHead>
         <TableHead>Status</TableHead>
         <TableHead>Method</TableHead>
-        <TableHead class-name="text-right">
+        <TableHead class="text-right">
           Amount
         </TableHead>
       </TableRow>

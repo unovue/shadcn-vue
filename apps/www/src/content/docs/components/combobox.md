@@ -86,4 +86,20 @@ const value = ref({})
 </template>
 ```
 
- 
+## Examples
+
+### Combobox
+
+<ComponentPreview name="ComboboxDemo" />
+
+### Popover
+
+<ComponentPreview name="ComboboxPopover" />
+
+### Dropdown menu
+
+<ComponentPreview name="ComboboxDropdownMenu" />
+
+### Form
+
+<ComponentPreview name="ComboboxForm" />

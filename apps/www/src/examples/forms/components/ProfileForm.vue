@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { FieldArray, useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
+import { Cross1Icon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 import { Input } from '@/lib/registry/new-york/ui/input'
-import { Label } from '@/lib/registry/new-york/ui/label'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 import {
@@ -19,17 +22,7 @@ import { Button } from '@/lib/registry/new-york/ui/button'
 
 const verifiedEmails = ref(['m@example.com', 'm@google.com', 'm@support.com'])
 
-const profileForm = ref({
-  username: '',
-  email: '',
-  bio: 'I own a computer.',
-  urls: [
-    { value: 'https://shadcn.com' },
-    { value: 'http://twitter.com/shadcn' },
-  ],
-})
-
-const profileFormSchema = z.object({
+const profileFormSchema = toTypedSchema(z.object({
   username: z
     .string()
     .min(2, {
@@ -51,20 +44,22 @@ const profileFormSchema = z.object({
       }),
     )
     .optional(),
+}))
+
+const { handleSubmit, resetForm } = useForm({
+  validationSchema: profileFormSchema,
+  initialValues: {
+    bio: 'I own a computer.',
+    urls: [
+      { value: 'https://shadcn.com' },
+      { value: 'http://twitter.com/shadcn' },
+    ],
+  },
 })
 
-type ProfileFormValues = z.infer<typeof profileFormSchema>
-const errors = ref<z.ZodFormattedError<ProfileFormValues> | null>(null)
-
-async function handleSubmit() {
-  const result = profileFormSchema.safeParse(profileForm.value)
-  if (!result.success) {
-    errors.value = result.error.format()
-    return
-  }
-  errors.value = null
-  console.log('Form submitted!')
-}
+const onSubmit = handleSubmit((values) => {
+  console.log('Form submitted!', values)
+})
 </script>
 
 <template>
@@ -77,75 +72,105 @@ async function handleSubmit() {
     </p>
   </div>
   <Separator />
-  <form class="space-y-8" @submit.prevent="handleSubmit">
-    <div class="grid gap-2">
-      <Label for="username" :class="cn('text-sm', errors?.username && 'text-destructive')">
-        Username
-      </Label>
-      <Input id="username" v-model="profileForm.username" placeholder="shadcn" />
-      <span class="text-muted-foreground text-sm">
-        This is your public display name. It can be your real name or a pseudonym. You can only change this once every 30 days.
-      </span>
-      <div v-if="errors?.username" class="text-sm text-destructive">
-        <span v-for="error in errors.username._errors" :key="error">{{ error }}</span>
-      </div>
+  <form class="space-y-8" @submit="onSubmit">
+    <FormField v-slot="{ componentField }" name="username">
+      <FormItem>
+        <FormLabel>Username</FormLabel>
+        <FormControl>
+          <Input type="text" placeholder="shadcn" v-bind="componentField" />
+        </FormControl>
+        <FormDescription>
+          This is your public display name. It can be your real name or a pseudonym. You can only change this once every 30 days.
+        </FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+
+    <FormField v-slot="{ componentField }" name="email">
+      <FormItem>
+        <FormLabel>Email</FormLabel>
+
+        <Select v-bind="componentField">
+          <FormControl>
+            <SelectTrigger>
+              <SelectValue placeholder="Select an email" />
+            </SelectTrigger>
+          </FormControl>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem v-for="email in verifiedEmails" :key="email" :value="email">
+                {{ email }}
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <FormDescription>
+          You can manage verified email addresses in your email settings.
+        </FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+
+    <FormField v-slot="{ componentField }" name="bio">
+      <FormItem>
+        <FormLabel>Bio</FormLabel>
+        <FormControl>
+          <Textarea placeholder="Tell us a little bit about yourself" v-bind="componentField" />
+        </FormControl>
+        <FormDescription>
+          You can <span>@mention</span> other users and organizations to link to them.
+        </FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+
+    <div>
+      <FieldArray v-slot="{ fields, push, remove }" name="urls">
+        <div v-for="(field, index) in fields" :key="`urls-${field.key}`">
+          <FormField v-slot="{ componentField }" :name="`urls[${index}].value`">
+            <FormItem>
+              <FormLabel :class="cn(index !== 0 && 'sr-only')">
+                URLs
+              </FormLabel>
+              <FormDescription :class="cn(index !== 0 && 'sr-only')">
+                Add links to your website, blog, or social media profiles.
+              </FormDescription>
+              <div class="relative flex items-center">
+                <FormControl>
+                  <Input type="url" v-bind="componentField" />
+                </FormControl>
+                <button class="absolute py-2 pe-3 end-0 text-muted-foreground" @click="remove(index)">
+                  <Cross1Icon class="w-3" />
+                </button>
+              </div>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+        </div>
+
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          class="text-xs w-20 mt-2"
+          @click="push({ value: '' })"
+        >
+          Add URL
+        </Button>
+      </FieldArray>
     </div>
-    <div class="grid gap-2">
-      <Label for="email" :class="cn('text-sm', errors?.email && 'text-destructive')">
-        Email
-      </Label>
-      <Select id="email" v-model="profileForm.email">
-        <SelectTrigger>
-          <SelectValue placeholder="Select an email" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectItem v-for="email in verifiedEmails" :key="email" :value="email">
-              {{ email }}
-            </SelectItem>
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-      <span class="text-muted-foreground text-sm">
-        You can manage verified email addresses in your email settings.
-      </span>
-      <div v-if="errors?.email" class="text-sm text-destructive">
-        <span v-for="error in errors.email._errors" :key="error">{{ error }}</span>
-      </div>
-    </div>
-    <div class="grid gap-2">
-      <Label for="bio" :class="cn('text-sm', errors?.bio && 'text-destructive')">
-        Bio
-      </Label>
-      <Textarea id="bio" v-model="profileForm.bio" placeholder="Tell us about yourself." />
-      <span class="text-muted-foreground text-sm">
-        You can @mention other users and organizations to link to them.
-      </span>
-      <div v-if="errors?.bio" class="text-sm text-destructive">
-        <span v-for="error in errors.bio._errors" :key="error">{{ error }}</span>
-      </div>
-    </div>
-    <div class="grid gap-2">
-      <Label for="urls" :class="cn('text-sm', errors?.urls && 'text-destructive')">
-        URLs
-      </Label>
-      <Input v-for="(url, index) in profileForm.urls" id="urls" :key="index" v-model="url.value" />
-      <div v-if="errors?.urls" class="text-sm text-destructive">
-        <span v-for="error in errors.urls._errors" :key="error">{{ error }}</span>
-      </div>
+
+    <div class="flex gap-2 justify-start">
+      <Button type="submit">
+        Update profile
+      </Button>
+
       <Button
         type="button"
         variant="outline"
-        size="sm"
-        class="text-xs w-20 mt-2"
-        @click="profileForm.urls?.push({ value: '' })"
+        @click="resetForm"
       >
-        Add URL
-      </Button>
-    </div>
-    <div class="flex justify-start">
-      <Button type="submit">
-        Update profile
+        Reset form
       </Button>
     </div>
   </form>

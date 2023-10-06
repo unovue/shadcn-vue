@@ -12,5 +12,6 @@ module.exports = {
     'no-console': 'warn',
     'no-tabs': 'off',
     'no-invalid-character': 'off',
+    'import/first': 'off',
   },
 }

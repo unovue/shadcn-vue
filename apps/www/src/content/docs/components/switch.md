@@ -48,3 +48,9 @@ import { Switch } from '@/components/ui/switch'
   <Switch />
 </template>
 ```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="SwitchForm" />

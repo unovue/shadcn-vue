@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
-import { cn } from '@/lib/utils'
 
-import { Label } from '@/lib/registry/new-york/ui/label'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import { Button } from '@/lib/registry/new-york/ui/button'
-
-const displayForm = ref({
-  items: ['recents', 'home'],
-})
 
 const items = [
   {
@@ -43,25 +39,22 @@ const items = [
   },
 ] as const
 
-const displayFormSchema = z.object({
+const displayFormSchema = toTypedSchema(z.object({
   items: z.array(z.string()).refine(value => value.some(item => item), {
     message: 'You have to select at least one item.',
   }),
+}))
+
+const { handleSubmit } = useForm({
+  validationSchema: displayFormSchema,
+  initialValues: {
+    items: ['recents', 'home'],
+  },
 })
 
-type DisplayFormValues = z.infer<typeof displayFormSchema>
-const errors = ref<z.ZodFormattedError<DisplayFormValues> | null>(null)
-
-async function handleSubmit() {
-  const result = displayFormSchema.safeParse(displayForm.value)
-  if (!result.success) {
-    errors.value = result.error.format()
-    console.log(errors.value)
-    return
-  }
-
-  console.log('Form submitted!', displayForm.value)
-}
+const onSubmit = handleSubmit((values) => {
+  console.log('Form submitted!', values)
+})
 </script>
 
 <template>
@@ -74,21 +67,39 @@ async function handleSubmit() {
     </p>
   </div>
   <Separator />
-  <form @submit.prevent="handleSubmit">
-    <div class="mb-4">
-      <Label for="sidebar" :class="cn('text-md', errors?.items && 'text-destructive')">
-        Sidebar
-      </Label>
-      <span class="text-xs text-muted-foreground">
-        Select the items you want to display in the sidebar.
-      </span>
-    </div>
-    <div v-for="item in items" :key="item.id" class="pb-1">
-      <div class="flex flex-row items-center space-x-3 space-y-0">
-        <Checkbox :id="item.id" :checked="displayForm.items.includes(item.id)" @change="displayForm.items.includes(item.id) ? displayForm.items.splice(displayForm.items.indexOf(item.id), 1) : displayForm.items.push(item.id)" />
-        <Label :for="item.id">{{ item.label }}</Label>
-      </div>
-    </div>
+  <form @submit="onSubmit">
+    <FormField name="items">
+      <FormItem>
+        <div class="mb-4">
+          <FormLabel class="text-base">
+            Sidebar
+          </FormLabel>
+          <FormDescription>
+            Select the items you want to display in the sidebar.
+          </FormDescription>
+        </div>
+
+        <FormField v-for="item in items" v-slot="{ value, handleChange }" :key="item.id" name="items">
+          <FormItem :key="item.id" class="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                :checked="value.includes(item.id)"
+                @update:checked="(checked) => {
+                  if (Array.isArray(value)) {
+                    handleChange(checked ? [...value, item.id] : value.filter(id => id !== item.id))
+                  }
+                }"
+              />
+            </FormControl>
+            <FormLabel class="font-normal">
+              {{ item.label }}
+            </FormLabel>
+          </FormItem>
+        </FormField>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+
     <div class="flex justify-start mt-4">
       <Button type="submit">
         Update display
