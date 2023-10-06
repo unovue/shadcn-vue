@@ -62,7 +62,7 @@ const statuses: Status[] = [
 const open = ref(false)
 const value = ref<typeof statuses[number]>()
 
-const selectedStatus = ref<Status | null>(null)
+const selectedStatus = ref<Status>()
 </script>
 
 <template>
@@ -70,7 +70,7 @@ const selectedStatus = ref<Status | null>(null)
     <p class="text-sm text-muted-foreground">
       Status
     </p>
-    <Popover :open="open">
+    <Popover v-model:open="open">
       <PopoverTrigger as-child>
         <Button
           variant="outline"
@@ -78,7 +78,7 @@ const selectedStatus = ref<Status | null>(null)
           class="w-[150px] justify-start"
         >
           <template v-if="selectedStatus">
-            <component :is="h(selectedStatus?.icon)" class="mr-2 h-4 w-4 shrink-0" />
+            <component :is="selectedStatus?.icon" class="mr-2 h-4 w-4 shrink-0" />
             {{ selectedStatus?.label }}
           </template>
           <template v-else>
@@ -97,12 +97,12 @@ const selectedStatus = ref<Status | null>(null)
                 :key="status.value"
                 :value="status.value"
                 @select="(value) => {
-                  selectedStatus = statuses.find((priority) => priority.value === value) || null
+                  selectedStatus = status
                   open = false
                 }"
               >
                 <component
-                  :is="h(status.icon)"
+                  :is="status.icon"
                   :key="status.value"
                   :class="cn('mr-2 h-4 w-4', status.value === selectedStatus?.value ? 'opacity-100' : 'opacity-40',
                   )"

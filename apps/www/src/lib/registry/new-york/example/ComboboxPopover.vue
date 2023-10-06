@@ -45,7 +45,7 @@ const statuses: Status[] = [
 ]
 
 const open = ref(false)
-const selectedStatus = ref<Status | null>(null)
+const selectedStatus = ref<Status>()
 </script>
 
 <template>
@@ -53,7 +53,7 @@ const selectedStatus = ref<Status | null>(null)
     <p class="text-sm text-muted-foreground">
       Status
     </p>
-    <Popover :open="open">
+    <Popover v-model:open="open">
       <PopoverTrigger as-child>
         <Button
           variant="outline"
@@ -77,9 +77,9 @@ const selectedStatus = ref<Status | null>(null)
               <CommandItem
                 v-for="status in statuses"
                 :key="status.value"
-                :value="status"
-                @select="(value) => {
-                  selectedStatus = statuses.find((priority) => priority.value === value) || null
+                :value="status.value"
+                @select="() => {
+                  selectedStatus = status
                   open = false
                 }"
               >

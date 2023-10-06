@@ -45,7 +45,7 @@ const formSchema = toTypedSchema(z.object({
   }),
 }))
 
-const { handleSubmit, setValues } = useForm({
+const { handleSubmit, setValues, values } = useForm({
   validationSchema: formSchema,
 })
 
@@ -56,7 +56,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ value }" name="language">
+    <FormField name="language">
       <FormItem class="flex flex-col">
         <FormLabel>Language</FormLabel>
         <Popover>
@@ -65,10 +65,10 @@ const onSubmit = handleSubmit((values) => {
               <Button
                 variant="outline"
                 role="combobox"
-                :class="cn('w-[200px] justify-between', !value && 'text-muted-foreground')"
+                :class="cn('w-[200px] justify-between', !values.language && 'text-muted-foreground')"
               >
-                {{ value ? languages.find(
-                  (language) => language.value === value,
+                {{ values.language ? languages.find(
+                  (language) => language.value === values.language,
                 )?.label : 'Select language...' }}
                 <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
@@ -90,7 +90,7 @@ const onSubmit = handleSubmit((values) => {
                   }"
                 >
                   <Check
-                    :class="cn('mr-2 h-4 w-4', language.value === value ? 'opacity-100' : 'opacity-0')"
+                    :class="cn('mr-2 h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
                   />
                   {{ language.label }}
                 </CommandItem>
