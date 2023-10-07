@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  detype@0.6.3:
-    hash: tlxqopreogk7nma7uu7ixdzk3u
-    path: patches/detype@0.6.3.patch
-
 importers:
 
   .:
@@ -193,8 +188,8 @@ importers:
         specifier: ^8.3.6
         version: 8.3.6(typescript@5.2.2)
       detype:
-        specifier: ^0.6.3
-        version: 0.6.3(patch_hash=tlxqopreogk7nma7uu7ixdzk3u)
+        specifier: npm:detypes@^0.7.0
+        version: /detypes@0.7.0
       diff:
         specifier: ^5.1.0
         version: 5.1.0
@@ -4054,14 +4049,15 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /detype@0.6.3(patch_hash=tlxqopreogk7nma7uu7ixdzk3u):
-    resolution: {integrity: sha512-b42ytoZGAOo2U9V4zAMqtiWHgeG8F6kRQsg1E6n0uARMxOItxlWWS+pSsNbvmejInhfui0Q0mn9Bd4lwqhLaSA==}
-    engines: {node: '>=14.19.3'}
+  /detypes@0.7.0:
+    resolution: {integrity: sha512-W2ICgnPKbXbs9XEexlHXCL4XBRUvjtBLgw5iIYPxHzUnmQfE+gXEDrGlxOLkxvKm9irP810JUDoDlKof0dwI1g==}
+    engines: {node: '>=18'}
     hasBin: true
     dependencies:
       '@babel/core': 7.23.0
       '@babel/preset-typescript': 7.23.0(@babel/core@7.23.0)
       '@vue/compiler-dom': 3.3.4
+      '@vue/compiler-sfc': 3.3.4
       '@vuedx/compiler-sfc': 0.7.1
       '@vuedx/template-ast-types': 0.7.1
       fast-glob: 3.3.1
@@ -4070,7 +4066,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
-    patched: true
 
   /didyoumean@1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
@@ -7180,6 +7175,7 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    requiresBuild: true
 
   /scule@1.0.0:
     resolution: {integrity: sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==}
