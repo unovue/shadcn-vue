@@ -329,3 +329,10 @@ See the following links for more examples on how to use the `vee-validate` featu
 - [Switch](/docs/components/switch#form)
 - [Textarea](/docs/components/textarea#form)
 - [Combobox](/docs/components/combobox#form)
+
+
+## Extras
+
+This example shows how to add motion to your forms with [Formkit AutoAnimate](https://auto-animate.formkit.com/)
+
+<ComponentPreview name="InputFormAutoAnimate" />
