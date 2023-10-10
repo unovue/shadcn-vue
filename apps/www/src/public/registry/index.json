@@ -376,6 +376,25 @@
     "type": "components:ui"
   },
   {
+    "name": "pagination",
+    "dependencies": [
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/pagination/PaginationEllipsis.vue",
+      "ui/pagination/PaginationFirst.vue",
+      "ui/pagination/PaginationLast.vue",
+      "ui/pagination/PaginationNext.vue",
+      "ui/pagination/PaginationPrev.vue",
+      "ui/pagination/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "popover",
     "dependencies": [
       "radix-vue"

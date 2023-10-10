@@ -1,0 +1,37 @@
+{
+  "name": "pagination",
+  "dependencies": [
+    "radix-vue"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button"
+  ],
+  "files": [
+    {
+      "name": "PaginationEllipsis.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue'\nimport { PaginationEllipsis, type PaginationEllipsisProps, useForwardProps } from 'radix-vue'\nimport { DotsHorizontalIcon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<PaginationEllipsisProps>()\nconst forwarded = useForwardProps(props)\nconst { class: className, ...rest } = useAttrs()\n</script>\n\n<template>\n  <PaginationEllipsis :class=\"cn('w-9 h-9 flex items-center justify-center', className ?? '')\" v-bind=\"{ ...forwarded, ...rest }\">\n    <slot>\n      <DotsHorizontalIcon />\n    </slot>\n  </PaginationEllipsis>\n</template>\n"
+    },
+    {
+      "name": "PaginationFirst.vue",
+      "content": "<script setup lang=\"ts\">\nimport { PaginationFirst, type PaginationFirstProps, useForwardProps } from 'radix-vue'\nimport { DoubleArrowLeftIcon } from '@radix-icons/vue'\nimport {\n  Button,\n} from '@/lib/registry/new-york/ui/button'\n\nconst props = withDefaults(defineProps<PaginationFirstProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationFirst v-bind=\"forwarded\">\n    <Button class=\"w-9 h-9 p-0\" variant=\"outline\">\n      <slot>\n        <DoubleArrowLeftIcon />\n      </slot>\n    </Button>\n  </PaginationFirst>\n</template>\n"
+    },
+    {
+      "name": "PaginationLast.vue",
+      "content": "<script setup lang=\"ts\">\nimport { PaginationLast, type PaginationLastProps, useForwardProps } from 'radix-vue'\nimport { DoubleArrowRightIcon } from '@radix-icons/vue'\nimport {\n  Button,\n} from '@/lib/registry/new-york/ui/button'\n\nconst props = withDefaults(defineProps<PaginationLastProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationLast v-bind=\"forwarded\">\n    <Button class=\"w-9 h-9 p-0\" variant=\"outline\">\n      <slot>\n        <DoubleArrowRightIcon />\n      </slot>\n    </Button>\n  </PaginationLast>\n</template>\n"
+    },
+    {
+      "name": "PaginationNext.vue",
+      "content": "<script setup lang=\"ts\">\nimport { PaginationNext, type PaginationNextProps, useForwardProps } from 'radix-vue'\nimport { ChevronRightIcon } from '@radix-icons/vue'\nimport {\n  Button,\n} from '@/lib/registry/new-york/ui/button'\n\nconst props = withDefaults(defineProps<PaginationNextProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationNext v-bind=\"forwarded\">\n    <Button class=\"w-9 h-9 p-0\" variant=\"outline\">\n      <slot>\n        <ChevronRightIcon />\n      </slot>\n    </Button>\n  </PaginationNext>\n</template>\n"
+    },
+    {
+      "name": "PaginationPrev.vue",
+      "content": "<script setup lang=\"ts\">\nimport { PaginationPrev, type PaginationPrevProps, useForwardProps } from 'radix-vue'\nimport { ChevronLeftIcon } from '@radix-icons/vue'\nimport {\n  Button,\n} from '@/lib/registry/new-york/ui/button'\n\nconst props = withDefaults(defineProps<PaginationPrevProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationPrev v-bind=\"forwarded\">\n    <Button class=\"w-9 h-9 p-0\" variant=\"outline\">\n      <slot>\n        <ChevronLeftIcon />\n      </slot>\n    </Button>\n  </PaginationPrev>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export {\n  PaginationRoot as Pagination,\n  PaginationList,\n  PaginationListItem,\n} from 'radix-vue'\nexport { default as PaginationEllipsis } from './PaginationEllipsis.vue'\nexport { default as PaginationFirst } from './PaginationFirst.vue'\nexport { default as PaginationLast } from './PaginationLast.vue'\nexport { default as PaginationNext } from './PaginationNext.vue'\nexport { default as PaginationPrev } from './PaginationPrev.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}
