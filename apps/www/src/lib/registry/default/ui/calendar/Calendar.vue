@@ -7,6 +7,10 @@ import { computed, nextTick, onMounted, ref } from 'vue'
 import { buttonVariants } from '../button'
 import { cn } from '@/lib/utils'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = withDefaults(defineProps<{
   modelValue?: string | number | Date | Partial<{
     start: Date
@@ -41,7 +45,6 @@ function handleNav(direction: 'prev' | 'next') {
 }
 
 onMounted(async () => {
-  await nextTick()
   await nextTick()
   if (modelValue.value instanceof Date && calendarRef.value)
     calendarRef.value.focusDate(modelValue.value)
