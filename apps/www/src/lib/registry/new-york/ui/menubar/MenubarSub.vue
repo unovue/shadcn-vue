@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import {
-  MenubarSub,
-  type MenubarSubEmits,
-} from 'radix-vue'
+import { MenubarSub, type MenubarSubEmits, useForwardPropsEmits } from 'radix-vue'
 
 interface MenubarSubRootProps {
   defaultOpen?: boolean
@@ -10,12 +7,13 @@ interface MenubarSubRootProps {
 }
 
 const props = defineProps<MenubarSubRootProps>()
-
 const emits = defineEmits<MenubarSubEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <MenubarSub v-bind="props" @update:open="emits('update:open', $event)">
+  <MenubarSub v-bind="forwarded">
     <slot />
   </MenubarSub>
 </template>

@@ -4,24 +4,26 @@ import {
   type SwitchRootEmits,
   type SwitchRootProps,
   SwitchThumb,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<SwitchRootProps & { class?: string }>()
-
 const emits = defineEmits<SwitchRootEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
+console.log(props, forwarded)
 </script>
 
 <template>
   <SwitchRoot
-    v-bind="props"
+    v-bind="forwarded"
     :class="
       cn(
         'peer inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',
         props.class,
       )
     "
-    @update:checked="emits('update:checked', $event)"
   >
     <SwitchThumb
       :class="

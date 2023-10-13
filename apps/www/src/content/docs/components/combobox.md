@@ -96,9 +96,9 @@ const value = ref({})
 
 <ComponentPreview name="ComboboxPopover" />
 
-<!-- ### Dropdown menu
+### Dropdown menu
 
-<ComponentPreview name="ComboboxDropdownMenu" /> -->
+<ComponentPreview name="ComboboxDropdownMenu" />
 
 ### Form
 
