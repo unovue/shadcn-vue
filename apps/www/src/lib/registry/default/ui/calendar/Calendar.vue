@@ -7,7 +7,7 @@ import { computed, nextTick, onMounted, ref } from 'vue'
 import { buttonVariants } from '../button'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps< {
+const props = withDefaults(defineProps<{
   modelValue?: string | number | Date | Partial<{
     start: Date
     end: Date
@@ -59,7 +59,16 @@ onMounted(async () => {
       </button>
     </div>
 
-    <DatePicker ref="datePicker" v-model="modelValue" :model-modifiers="modelModifiers" class="calendar" trim-weeks :transition="'none'" :columns="columns" />
+    <DatePicker
+      ref="datePicker"
+      v-model="modelValue"
+      v-bind="$attrs"
+      :model-modifiers="modelModifiers"
+      class="calendar"
+      trim-weeks
+      :transition="'none'"
+      :columns="columns"
+    />
   </div>
 </template>
 

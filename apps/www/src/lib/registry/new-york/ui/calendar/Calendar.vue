@@ -59,7 +59,16 @@ onMounted(async () => {
       </button>
     </div>
 
-    <DatePicker ref="datePicker" v-model="modelValue" :model-modifiers="modelModifiers" class="calendar" trim-weeks :transition="'none'" :columns="columns" />
+    <DatePicker
+      ref="datePicker"
+      v-bind="$attrs"
+      v-model="modelValue"
+      :model-modifiers="modelModifiers"
+      class="calendar"
+      trim-weeks
+      :transition="'none'"
+      :columns="columns"
+    />
   </div>
 </template>
 
