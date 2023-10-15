@@ -111,6 +111,7 @@ export async function promptForConfig(
         { title: 'Vite', value: 'vite' },
         { title: 'Nuxt', value: 'nuxt' },
         { title: 'Laravel', value: 'laravel' },
+        { title: 'Astro', value: 'astro' },
       ],
     },
     {
@@ -137,7 +138,7 @@ export async function promptForConfig(
       type: 'text',
       name: 'tailwindCss',
       message: `Where is your ${highlight('Tailwind CSS')} file?`,
-      initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel'],
+      initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
       type: 'toggle',
@@ -152,8 +153,8 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindConfig',
-      message: `Where is your ${highlight('tailwind.config.js')} located?`,
-      initial: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
+      message: `Where is your ${highlight('tailwind.config')} located?`,
+      initial: (prev, values) => defaultConfig?.tailwind.config ?? values.framework === 'astro' ? 'tailwind.config.mjs' : DEFAULT_TAILWIND_CONFIG,
     },
     {
       type: 'text',

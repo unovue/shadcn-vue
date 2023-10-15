@@ -67,6 +67,10 @@ module.exports = {
     "./resources/views/**/*.blade.php",
     "./resources/js/**/*.{<%- extension %>,<%- extension %>x,vue}",
   ],
+  <% } else if (framework === 'astro') { %>
+    content: [
+      './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    ],
   <% } %>
   theme: {
     container: {
@@ -133,5 +137,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [animate],
 }`
