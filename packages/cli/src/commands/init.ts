@@ -28,6 +28,7 @@ import {
   rawConfigSchema,
   resolveConfigPaths,
 } from '../utils/get-config'
+import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -235,9 +236,12 @@ export async function runInit(cwd: string, config: Config) {
   // Write tailwind config.
   await fs.writeFile(
     config.resolvedPaths.tailwindConfig,
-    config.tailwind.cssVariables
-      ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework })
-      : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework }),
+    transformCJSToESM(
+      config.resolvedPaths.tailwindConfig,
+      config.tailwind.cssVariables
+        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework })
+        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework }),
+    ),
     'utf8',
   )
 

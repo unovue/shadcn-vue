@@ -7,7 +7,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 `
 
-export const TAILWIND_CONFIG = `/** @type {import('tailwindcss').Config} */
+export const TAILWIND_CONFIG = `
+const animate = require("tailwindcss-animate")
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -41,10 +44,13 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 }`
 
-export const TAILWIND_CONFIG_WITH_VARIABLES = `/** @type {import('tailwindcss').Config} */
+export const TAILWIND_CONFIG_WITH_VARIABLES = `\n
+const animate = require("tailwindcss-animate")
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   <% if (framework === 'vite') { %>
@@ -127,5 +133,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 }`
