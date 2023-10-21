@@ -1,5 +1,6 @@
-import { SyntaxKind } from 'ts-morph'
 import type * as z from 'zod'
+import MagicString from 'magic-string'
+import { parse, walk } from '@vue/compiler-sfc'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import type { Transformer } from '@/src/utils/transformers'
 
@@ -9,23 +10,46 @@ export const transformCssVars: Transformer = async ({
   baseColor,
 }) => {
   // No transform if using css variables.
-  if (config.tailwind?.cssVariables || !baseColor?.inlineColors)
+  if (config.tailwind?.cssVariables || !baseColor?.inlineColors || sourceFile.getFilePath().endsWith('ts'))
     return sourceFile
 
-  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    const value = node.getText()
+  const parsed = parse(sourceFile.getText())
+  const template = parsed.descriptor.template
 
-    if (value.includes('cn(')) {
-      const splitted = value.split('\'').map(i => applyColorMapping(i, baseColor.inlineColors))
-      node.replaceWithText(`${splitted.join('\'')}`)
+  if (!template)
+    return sourceFile
+
+  type ElementNode = typeof template.ast
+  type ElementNodeChildren = ElementNode['children']
+
+  const parseChildren = (children: ElementNodeChildren) => {
+    for (const child of children) {
+      if ('children' in child)
+        parseChildren(child.children as ElementNodeChildren)
+
+      if ('props' in child) {
+        for (const prop of child.props) {
+          if ('arg' in prop && prop.arg && 'content' in prop.exp! && prop.exp) {
+            if ('content' in prop.arg && prop.arg?.content === 'class') {
+              const s = new MagicString(prop.exp.content)
+              s.replace(/'(.*?)'/g, (substring) => {
+                return applyColorMapping(substring,
+                  baseColor.inlineColors,
+                )
+              })
+              sourceFile.replaceText([prop.exp.loc.start.offset, prop.exp.loc.end.offset], s.toString())
+            }
+          }
+        }
+      }
     }
-    else if (value) {
-      const valueWithColorMapping = applyColorMapping(
-        value.replace(/"/g, ''),
-        baseColor.inlineColors,
-      )
-      node.replaceWithText(`"${valueWithColorMapping.trim()}"`)
-    }
+  }
+
+  walk(template?.ast, {
+    enter(node: ElementNode) {
+      if (node.children)
+        parseChildren(node.children)
+    },
   })
 
   return sourceFile
@@ -104,5 +128,6 @@ export function applyColorMapping(
       lightMode.push(className)
   }
 
-  return `${lightMode.join(' ')} ${darkMode.join(' ').trim()}`
+  const combined = `${lightMode.join(' ').replace(/\'/g, '')} ${darkMode.join(' ').trim()}`.trim()
+  return `'${combined}'`
 }
