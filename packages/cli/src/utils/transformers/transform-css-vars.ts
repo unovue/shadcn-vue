@@ -1,5 +1,7 @@
-import { SyntaxKind } from 'ts-morph'
 import type * as z from 'zod'
+import MagicString from 'magic-string'
+import { parse, walk } from '@vue/compiler-sfc'
+import { SyntaxKind } from 'ts-morph'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import type { Transformer } from '@/src/utils/transformers'
 
@@ -9,22 +11,32 @@ export const transformCssVars: Transformer = async ({
   baseColor,
 }) => {
   // No transform if using css variables.
-  if (config.tailwind?.cssVariables || !baseColor?.inlineColors)
+  if (config.tailwind?.cssVariables || !baseColor?.inlineColors || sourceFile.getFilePath().endsWith('ts'))
+    return sourceFile
+
+  const parsed = parse(sourceFile.getText())
+  const template = parsed.descriptor.template
+
+  if (!template)
     return sourceFile
 
   sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
+    if (template.loc.start.offset >= node.getPos())
+      return sourceFile
+
     const value = node.getText()
 
-    if (value.includes('cn(')) {
-      const splitted = value.split('\'').map(i => applyColorMapping(i, baseColor.inlineColors))
-      node.replaceWithText(`${splitted.join('\'')}`)
+    const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
+    if (value.search('\'') === -1 && hasClosingDoubleQuote) {
+      const mapped = applyColorMapping(value.replace(/"/g, ''), baseColor.inlineColors)
+      node.replaceWithText(`"${mapped}"`)
     }
-    else if (value) {
-      const valueWithColorMapping = applyColorMapping(
-        value.replace(/"/g, ''),
-        baseColor.inlineColors,
-      )
-      node.replaceWithText(`"${valueWithColorMapping.trim()}"`)
+    else {
+      const s = new MagicString(value)
+      s.replace(/'(.*?)'/g, (substring) => {
+        return `'${applyColorMapping(substring.replace(/\'/g, ''), baseColor.inlineColors)}'`
+      })
+      node.replaceWithText(s.toString())
     }
   })
 
@@ -103,6 +115,6 @@ export function applyColorMapping(
     if (!lightMode.includes(className))
       lightMode.push(className)
   }
-
-  return `${lightMode.join(' ')} ${darkMode.join(' ').trim()}`
+  const combined = `${lightMode.join(' ').replace(/\'/g, '')} ${darkMode.join(' ').trim()}`.trim()
+  return `${combined}`
 }

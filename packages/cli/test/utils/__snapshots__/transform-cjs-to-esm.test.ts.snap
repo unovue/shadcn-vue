@@ -1,8 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`handle tailwind config template correctly 1`] = `
-"
-import animate from \\"tailwindcss-animate\\"
+"import animate from \\"tailwindcss-animate\\"
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -43,9 +42,7 @@ export default {
 `;
 
 exports[`handle tailwind config template correctly 2`] = `
-"
-
-import animate from \\"tailwindcss-animate\\"
+"import animate from \\"tailwindcss-animate\\"
 
 /** @type {import('tailwindcss').Config} */
 export default {
