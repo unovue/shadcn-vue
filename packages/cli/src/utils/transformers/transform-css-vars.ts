@@ -1,6 +1,7 @@
 import type * as z from 'zod'
 import MagicString from 'magic-string'
 import { parse, walk } from '@vue/compiler-sfc'
+import { SyntaxKind } from 'ts-morph'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import type { Transformer } from '@/src/utils/transformers'
 
@@ -19,34 +20,24 @@ export const transformCssVars: Transformer = async ({
   if (!template)
     return sourceFile
 
-  type ElementNode = typeof template.ast
-  type TemplateNode = ElementNode['children'][number]
+  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
+    if (template.loc.start.offset >= node.getPos())
+      return sourceFile
 
-  const parseNode = (node: ElementNode | TemplateNode) => {
-    if ('props' in node) {
-      for (const prop of node.props) {
-        // for component
-        if ('arg' in prop && prop.arg && 'content' in prop.exp! && prop.exp) {
-          if ('content' in prop.arg && prop.arg?.content === 'class') {
-            const s = new MagicString(prop.exp.content)
-            s.replace(/'(.*?)'/g, (substring) => {
-              return `'${applyColorMapping(substring, baseColor.inlineColors)}'`
-            })
-            sourceFile.replaceText([prop.exp.loc.start.offset, prop.exp.loc.end.offset], s.toString())
-          }
-        }
-      }
-    }
-    if ('children' in node) {
-      for (const child of node.children)
-        parseNode(child as TemplateNode)
-    }
-  }
+    const value = node.getText()
 
-  walk(template?.ast, {
-    enter(node: ElementNode) {
-      parseNode(node)
-    },
+    const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
+    if (value.search('\'') === -1 && hasClosingDoubleQuote) {
+      const mapped = applyColorMapping(value.replace(/"/g, ''), baseColor.inlineColors)
+      node.replaceWithText(`"${mapped}"`)
+    }
+    else {
+      const s = new MagicString(value)
+      s.replace(/'(.*?)'/g, (substring) => {
+        return `'${applyColorMapping(substring.replace(/\'/g, ''), baseColor.inlineColors)}'`
+      })
+      node.replaceWithText(s.toString())
+    }
   })
 
   return sourceFile
@@ -124,7 +115,6 @@ export function applyColorMapping(
     if (!lightMode.includes(className))
       lightMode.push(className)
   }
-
   const combined = `${lightMode.join(' ').replace(/\'/g, '')} ${darkMode.join(' ').trim()}`.trim()
   return `${combined}`
 }
