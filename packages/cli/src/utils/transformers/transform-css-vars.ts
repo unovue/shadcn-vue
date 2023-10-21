@@ -20,35 +20,32 @@ export const transformCssVars: Transformer = async ({
     return sourceFile
 
   type ElementNode = typeof template.ast
-  type ElementNodeChildren = ElementNode['children']
+  type TemplateNode = ElementNode['children'][number]
 
-  const parseChildren = (children: ElementNodeChildren) => {
-    for (const child of children) {
-      if ('children' in child)
-        parseChildren(child.children as ElementNodeChildren)
-
-      if ('props' in child) {
-        for (const prop of child.props) {
-          if ('arg' in prop && prop.arg && 'content' in prop.exp! && prop.exp) {
-            if ('content' in prop.arg && prop.arg?.content === 'class') {
-              const s = new MagicString(prop.exp.content)
-              s.replace(/'(.*?)'/g, (substring) => {
-                return applyColorMapping(substring,
-                  baseColor.inlineColors,
-                )
-              })
-              sourceFile.replaceText([prop.exp.loc.start.offset, prop.exp.loc.end.offset], s.toString())
-            }
+  const parseNode = (node: ElementNode | TemplateNode) => {
+    if ('props' in node) {
+      for (const prop of node.props) {
+        // for component
+        if ('arg' in prop && prop.arg && 'content' in prop.exp! && prop.exp) {
+          if ('content' in prop.arg && prop.arg?.content === 'class') {
+            const s = new MagicString(prop.exp.content)
+            s.replace(/'(.*?)'/g, (substring) => {
+              return `'${applyColorMapping(substring, baseColor.inlineColors)}'`
+            })
+            sourceFile.replaceText([prop.exp.loc.start.offset, prop.exp.loc.end.offset], s.toString())
           }
         }
       }
+    }
+    if ('children' in node) {
+      for (const child of node.children)
+        parseNode(child as TemplateNode)
     }
   }
 
   walk(template?.ast, {
     enter(node: ElementNode) {
-      if (node.children)
-        parseChildren(node.children)
+      parseNode(node)
     },
   })
 
@@ -129,5 +126,5 @@ export function applyColorMapping(
   }
 
   const combined = `${lightMode.join(' ').replace(/\'/g, '')} ${darkMode.join(' ').trim()}`.trim()
-  return `'${combined}'`
+  return `${combined}`
 }
