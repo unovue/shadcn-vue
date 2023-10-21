@@ -2,12 +2,12 @@ import { computed } from 'vue'
 import { useSessionStorage } from '@vueuse/core'
 import { useData } from 'vitepress'
 import { type Theme, themes } from './../lib/registry/themes'
-import { styles } from '@/lib/registry/styles'
+import { type Style, styles } from '@/lib/registry/styles'
 
 interface Config {
   theme: Theme['name']
   radius: number
-  style: string
+  style: Style
 }
 
 export const RADII = [0, 0.25, 0.5, 0.75, 1]
