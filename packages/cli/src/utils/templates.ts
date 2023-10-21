@@ -7,8 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 `
 
-export const TAILWIND_CONFIG = `
-const animate = require("tailwindcss-animate")
+export const TAILWIND_CONFIG = `const animate = require("tailwindcss-animate")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -47,8 +46,7 @@ module.exports = {
   plugins: [animate],
 }`
 
-export const TAILWIND_CONFIG_WITH_VARIABLES = `\n
-const animate = require("tailwindcss-animate")
+export const TAILWIND_CONFIG_WITH_VARIABLES = `const animate = require("tailwindcss-animate")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

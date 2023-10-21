@@ -154,7 +154,13 @@ export async function promptForConfig(
       type: 'text',
       name: 'tailwindConfig',
       message: `Where is your ${highlight('tailwind.config')} located?`,
-      initial: (prev, values) => defaultConfig?.tailwind.config ?? values.framework === 'astro' ? 'tailwind.config.mjs' : DEFAULT_TAILWIND_CONFIG,
+      initial: (prev, values) => {
+        if (defaultConfig?.tailwind.config)
+          return defaultConfig?.tailwind.config
+        if (values.framework === 'astro')
+          return 'tailwind.config.mjs'
+        else return DEFAULT_TAILWIND_CONFIG
+      },
     },
     {
       type: 'text',
