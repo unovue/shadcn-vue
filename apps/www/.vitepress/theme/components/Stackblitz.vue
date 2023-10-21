@@ -7,16 +7,14 @@ import { type Style } from '@/lib/registry/styles'
 
 const props = defineProps<{
   name: string
+  code: string
   style: Style
 }>()
 
 const sources = ref<Record<string, string>>({})
 
 onMounted(() => {
-  const importName = `../../../src/lib/registry/${props.style}/example/${props.name}.vue?raw`
-  import(/* @vite-ignore */importName).then(
-    res => (sources.value['App.vue'] = res.default),
-  )
+  sources.value['App.vue'] = props.code
 })
 
 function handleClick() {

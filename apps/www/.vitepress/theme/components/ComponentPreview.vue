@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default
 import { useConfigStore } from '@/stores/config'
 import { cn } from '@/lib/utils'
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
   sfcTsCode?: string
@@ -40,7 +40,7 @@ const { style } = useConfigStore()
       <TabsContent value="preview" class="relative rounded-md border">
         <div class="flex items-center justify-between p-4">
           <StyleSwitcher />
-          <Stackblitz :key="style" :style="style" :name="name" />
+          <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
         </div>
         <div
           :class="cn('preview flex min-h-[350px] w-full justify-center p-6 lg:p-10', {
