@@ -10,12 +10,20 @@ const props = defineProps<{
   name: string
   code: string
   style: Style
+  extraFiles?: string[]
 }>()
 
 const sources = ref<Record<string, string>>({})
 
 onMounted(() => {
   sources.value['App.vue'] = props.code
+  if (props.extraFiles) {
+    props.extraFiles.forEach((file) => {
+      import(`../../../src/lib/registry/${props.style}/example/${file}.vue?raw`).then((module) => {
+        sources.value[`${file}.vue`] = module.default
+      })
+    })
+  }
 })
 
 function handleClick() {

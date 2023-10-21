@@ -4,7 +4,7 @@ description: Powerful table and datagrids built using TanStack Table.
 ---
 
 
-<ComponentPreview name="DataTableDemo"  /> 
+<ComponentPreview name="DataTableDemo" :extra-files='["DataTableDemoColumn"]' /> 
 
 ## Introduction
 

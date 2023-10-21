@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<{
   align?: 'center' | 'start' | 'end'
   sfcTsCode?: string
   sfcTsHtml?: string
+  extraFiles?: string[]
 }>(), { align: 'center' })
 
 const { style } = useConfigStore()
@@ -43,8 +44,8 @@ const { style } = useConfigStore()
           <StyleSwitcher />
 
           <div class="flex items-center gap-x-1">
-            <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
-            <CodeSandbox :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+            <Stackblitz :key="style" :extra-files="extraFiles" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+            <CodeSandbox :key="style" :extra-files="extraFiles" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
           </div>
         </div>
         <div

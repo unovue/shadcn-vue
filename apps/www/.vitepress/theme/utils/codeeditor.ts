@@ -75,8 +75,10 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     },
   }
 
+  const isDataTableDemo = componentName.includes('DataTable')
   const iconPackage = style === 'default' ? 'lucide-vue-next' : '@radix-icons/vue'
   const dependencies = {
+    '@vueuse/core': 'latest',
     'vue': 'latest',
     'radix-vue': deps['radix-vue'],
     '@radix-ui/colors': 'latest',
@@ -88,6 +90,8 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'shadcn-vue': 'latest',
     'typescript': 'latest',
   }
+  if (isDataTableDemo)
+    dependencies['@tanstack/vue-table'] = 'latest'
 
   const devDependencies = {
     'vite': 'latest',
@@ -97,6 +101,29 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'postcss': 'latest',
     'autoprefixer': 'latest',
   }
+
+  const baseUtilsString = `import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))`
+
+  const baseUtilsStringWithUpdater = `import type { Updater } from '@tanstack/vue-table'
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+import { type Ref, camelize, getCurrentInstance, toHandlerKey } from 'vue'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
+  ref.value
+    = typeof updaterOrValue === 'function'
+      ? updaterOrValue(ref.value)
+      : updaterOrValue
+}`
 
   const transformImportPath = (code: string) => {
     let parsed = code
@@ -159,13 +186,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     },
     'src/utils.ts': {
       isBinary: false,
-      content: `import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}`,
+      content: isDataTableDemo ? baseUtilsStringWithUpdater : baseUtilsString,
     },
     'src/assets/index.css': {
       content: cssRaw,
