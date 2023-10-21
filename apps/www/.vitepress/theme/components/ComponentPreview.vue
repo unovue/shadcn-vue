@@ -2,6 +2,7 @@
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
 import Stackblitz from './Stackblitz.vue'
+import CodeSandbox from './CodeSandbox.vue'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
 import { useConfigStore } from '@/stores/config'
 import { cn } from '@/lib/utils'
@@ -40,7 +41,11 @@ const { style } = useConfigStore()
       <TabsContent value="preview" class="relative rounded-md border">
         <div class="flex items-center justify-between p-4">
           <StyleSwitcher />
-          <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+
+          <div class="flex items-center gap-x-1">
+            <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+            <CodeSandbox :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+          </div>
         </div>
         <div
           :class="cn('preview flex min-h-[350px] w-full justify-center p-6 lg:p-10', {

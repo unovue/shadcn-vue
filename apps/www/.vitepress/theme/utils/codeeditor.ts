@@ -86,6 +86,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'tailwindcss-animate': 'latest',
     [iconPackage]: 'latest',
     'shadcn-vue': 'latest',
+    'typescript': 'latest',
   }
 
   const devDependencies = {
@@ -119,8 +120,8 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
   const files = {
     'package.json': {
       content: {
-        name: `radix-vue-${componentName.toLowerCase().replace(/ /g, '-')}`,
-        scripts: { start: `npx shadcn-vue@latest add ${registryDependencies.join(' ')}  -y && vite` },
+        name: `shadcn-vue-${componentName.toLowerCase().replace(/ /g, '-')}`,
+        scripts: { start: `shadcn-vue add ${registryDependencies.join(' ')}  -y && vite` },
         dependencies,
         devDependencies,
       },
@@ -201,7 +202,7 @@ createApp(App).mount('#app')`,
 } 
 
 #app {
-  @apply w-full flex items-center justify-center;
+  @apply w-full flex items-center justify-center px-12;
 }`,
       isBinary: false,
     },

@@ -3,26 +3,19 @@ import { onMounted, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { makeCodeSandboxParams } from '../utils/codeeditor'
 import Tooltip from './Tooltip.vue'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { type Style } from '@/lib/registry/styles'
 
 const props = defineProps<{
   name: string
+  code: string
+  style: Style
 }>()
 
 const sources = ref<Record<string, string>>({})
 
 onMounted(() => {
-  // props.files?.forEach((file) => {
-  //   if (file.endsWith('.vue')) {
-  //     import(`../components/demo/${props.name}/${file.replace('.vue', '')}.vue?raw`).then(
-  //       res => (sources.value[file] = res.default),
-  //     )
-  //   }
-  //   else if (file.endsWith('.js')) {
-  //     import(`../components/demo/${props.name}/${file.replace('.js', '')}.js?raw`).then(
-  //       res => (sources.value[file] = res.default),
-  //     )
-  //   }
-  // })
+  sources.value['App.vue'] = props.code
 })
 </script>
 
@@ -31,12 +24,12 @@ onMounted(() => {
     <input type="hidden" name="query" value="file=src/App.vue">
     <input type="hidden" name="environment" value="server">
     <input type="hidden" name="hidedevtools" value="1">
-    <input type="hidden" name="parameters" :value="makeCodeSandboxParams(name, sources)">
+    <input type="hidden" name="parameters" :value="makeCodeSandboxParams(name, style, sources)">
 
     <Tooltip :content="`Open ${name} in CodeSandbox`">
-      <button type="submit">
+      <Button :variant="'ghost'" :size="'icon'" type="submit">
         <Icon icon="ph-codesandbox-logo" />
-      </button>
+      </Button>
     </Tooltip>
   </form>
 </template>

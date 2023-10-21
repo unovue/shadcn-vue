@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { makeStackblitzParams } from '../utils/codeeditor'
 import Tooltip from './Tooltip.vue'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import { type Style } from '@/lib/registry/styles'
 
 const props = defineProps<{
@@ -25,9 +26,9 @@ function handleClick() {
 <template>
   <div>
     <Tooltip :content="`Open ${name} in Stackblitz`">
-      <button @click="handleClick">
+      <Button :variant="'ghost'" :size="'icon'" @click="handleClick">
         <Icon icon="simple-icons:stackblitz" />
-      </button>
+      </Button>
     </Tooltip>
   </div>
 </template>
