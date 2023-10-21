@@ -48,6 +48,14 @@ Answer `Yes` to all the question prompted by the CLI when installing Vue.
 
 This will install `vue` and `@astrojs/vue` as dependencies and automatically set them up in the `astro.config.mjs` file.
 
+### Install TypeScript
+
+If you encounter the error `Cannot find module 'typescript'`, please proceed to install TypeScript as a dev dependency, as discussed [here](https://github.com/radix-vue/shadcn-vue/pull/118)
+
+```bash
+npm install -D typescript
+```
+
 ### Add Tailwind CSS to your project
 
 Install Tailwind CSS using the Astro CLI:
@@ -93,27 +101,28 @@ You will be asked a few questions to configure `components.json`:
 
 ```txt showLineNumbers
 Would you like to use TypeScript (recommended)? no / yes
-Which framework are you using? Vite
+Which framework are you using? Astro
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
-Where is your global CSS file? › src/index.css
+Where is your global CSS file? › src/styles/globals.css
 Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.mjs
+Where is your tailwind.config located? › tailwind.config.mjs
 Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils 
+Configure the import alias for utils: › @/lib/utils
+Write configuration to components.json. Proceed? > Y/n
 ```
 
-### Import the index.css file
+### Import the globals.css file
 
-Import the `index.css` file in the `src/index.astro` file:
+Import the `globals.css` file in the `src/index.astro` file:
 
 ```ts {2} showLineNumbers
-import '@/index.css'
+import '@/styles/globals.css'
 ```
 
 ### Update astro tailwind config
 
-To prevent serving the Tailwind base styles twice, we need to tell Astro not to apply the base styles, since we already include them in our own `index.css` file. To do this, set the `applyBaseStyles` config option for the tailwind plugin in `astro.config.mjs` to `false`.
+To prevent serving the Tailwind base styles twice, we need to tell Astro not to apply the base styles, since we already include them in our own `globals.css` file. To do this, set the `applyBaseStyles` config option for the tailwind plugin in `astro.config.mjs` to `false`.
 
 ```ts {3-5} showLineNumbers
 export default defineConfig({
