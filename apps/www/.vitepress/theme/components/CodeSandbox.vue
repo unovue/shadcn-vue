@@ -9,6 +9,7 @@ import { type Style } from '@/lib/registry/styles'
 const props = defineProps<{
   name: string
   code: string
+  newYorkCode: string
   style: Style
   extraFiles?: string[]
 }>()
@@ -16,7 +17,7 @@ const props = defineProps<{
 const sources = ref<Record<string, string>>({})
 
 onMounted(() => {
-  sources.value['App.vue'] = props.code
+  sources.value['App.vue'] = props.style === 'default' ? props.code : props.newYorkCode
   if (props.extraFiles) {
     props.extraFiles.forEach((file) => {
       import(`../../../src/lib/registry/${props.style}/example/${file}.vue?raw`).then((module) => {
