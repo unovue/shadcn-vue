@@ -9,4 +9,4 @@ export const styles = [
   },
 ] as const
 
-export type Style = (typeof styles)[number]
+export type Style = typeof styles[number]['name']

@@ -16,6 +16,7 @@ export const TAILWIND_CSS_PATH = {
   nuxt: 'assets/css/tailwind.css',
   vite: 'src/assets/index.css',
   laravel: 'resources/css/app.css',
+  astro: 'src/styles/globals.css',
 }
 
 // TODO: Figure out if we want to support all cosmiconfig formats.
