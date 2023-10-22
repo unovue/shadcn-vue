@@ -12,3 +12,19 @@ const array = [1, 2, 3];
 <style scoped></style>
 "
 `;
+
+exports[`transformSFC > defineEmits 1`] = `
+"<script setup>
+const emit = defineEmits([\\"foo\\"]);
+</script>
+"
+`;
+
+exports[`transformSFC > defineProps 1`] = `
+"<script setup>
+const props = defineProps({
+  foo: { type: String, required: true },
+});
+</script>
+"
+`;

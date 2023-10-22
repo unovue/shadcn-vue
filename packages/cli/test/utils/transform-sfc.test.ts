@@ -22,4 +22,28 @@ describe('transformSFC', () => {
     })
     expect(result).toMatchSnapshot()
   })
+
+  test('defineProps', async () => {
+    const result = await transform({
+      filename: 'app.vue',
+      raw: `<script lang="ts" setup>
+      const props = defineProps<{ foo: string }>()
+      </script>
+      `,
+      config: {},
+    })
+    expect(result).toMatchSnapshot()
+  })
+
+  test('defineEmits', async () => {
+    const result = await transform({
+      filename: 'app.vue',
+      raw: `<script lang="ts" setup>
+      const emit = defineEmits<{ foo: string }>()
+      </script>
+      `,
+      config: {},
+    })
+    expect(result).toMatchSnapshot()
+  })
 })
