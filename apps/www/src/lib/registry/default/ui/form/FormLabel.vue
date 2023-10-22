@@ -16,7 +16,7 @@ const { class: className, ...rest } = useAttrs()
 <template>
   <Label
     :class="cn(
-      'block text-sm tracking-tight font-medium text-foreground text-left',
+      'block text-sm tracking-tight font-medium text-foreground text-justify',
       error && 'text-destructive',
       className ?? '',
     )"

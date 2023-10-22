@@ -10,7 +10,7 @@ const props = defineProps<LabelProps & { class?: string }>()
     v-bind="props"
     :class="
       cn(
-        'block text-sm tracking-tight font-medium text-foreground text-left',
+        'block text-sm tracking-tight font-medium text-foreground text-justify',
         props.class,
       )
     "

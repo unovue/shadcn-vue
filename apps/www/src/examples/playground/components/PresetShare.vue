@@ -19,7 +19,7 @@ import {
       </Button>
     </PopoverTrigger>
     <PopoverContent align="end" class="w-[520px]">
-      <div class="flex flex-col space-y-2 text-center sm:text-left">
+      <div class="flex flex-col space-y-2 text-center sm:text-justify">
         <h3 class="text-lg font-semibold">
           Share preset
         </h3>

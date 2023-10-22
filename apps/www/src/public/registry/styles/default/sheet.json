@@ -29,7 +29,7 @@
     },
     {
       "name": "SheetHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn('flex flex-col space-y-2 text-center sm:text-left', props.class)\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn('flex flex-col space-y-2 text-center sm:text-justify', props.class)\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "SheetTitle.vue",

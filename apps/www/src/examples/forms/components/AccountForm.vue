@@ -99,7 +99,7 @@ async function onSubmit(values: any) {
             <FormControl>
               <Button
                 variant="outline" :class="cn(
-                  'w-[280px] pl-3 text-left font-normal',
+                  'w-[280px] pl-3 text-justify font-normal',
                   !value && 'text-muted-foreground',
                 )"
               >

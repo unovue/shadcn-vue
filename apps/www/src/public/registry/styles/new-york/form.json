@@ -24,7 +24,7 @@
     },
     {
       "name": "FormLabel.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Label, type LabelProps } from 'radix-vue'\nimport { useFormField } from './useFormField'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<LabelProps>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    :class=\"cn(\n      'block text-sm tracking-tight font-medium text-foreground text-left',\n      error && 'text-destructive',\n      $attrs.class ?? '',\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport { Label, type LabelProps } from 'radix-vue'\nimport { useFormField } from './useFormField'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<LabelProps>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    :class=\"cn(\n      'block text-sm tracking-tight font-medium text-foreground text-justify',\n      error && 'text-destructive',\n      $attrs.class ?? '',\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n"
     },
     {
       "name": "FormMessage.vue",

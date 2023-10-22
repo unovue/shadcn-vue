@@ -26,7 +26,7 @@ const date = ref({
           id="date"
           :variant="'outline'"
           :class="cn(
-            'w-[260px] justify-start text-left font-normal',
+            'w-[260px] justify-start text-justify font-normal',
             !date && 'text-muted-foreground',
           )"
         >

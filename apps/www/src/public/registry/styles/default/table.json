@@ -31,7 +31,7 @@
     },
     {
       "name": "TableHead.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <th :class=\"cn('h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0', props.class)\">\n    <slot />\n  </th>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <th :class=\"cn('h-12 px-4 text-justify align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0', props.class)\">\n    <slot />\n  </th>\n</template>\n"
     },
     {
       "name": "TableHeader.vue",

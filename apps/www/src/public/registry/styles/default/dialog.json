@@ -25,7 +25,7 @@
     },
     {
       "name": "DialogHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\ninterface DialogHeaderProps {\n  class?: string\n}\n\nconst props = defineProps<DialogHeaderProps>()\n</script>\n\n<template>\n  <div\n    :class=\"cn('flex flex-col space-y-2 text-center sm:text-left', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\ninterface DialogHeaderProps {\n  class?: string\n}\n\nconst props = defineProps<DialogHeaderProps>()\n</script>\n\n<template>\n  <div\n    :class=\"cn('flex flex-col space-y-2 text-center sm:text-justify', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "DialogTitle.vue",
