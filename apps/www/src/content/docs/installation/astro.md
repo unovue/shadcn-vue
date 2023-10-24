@@ -32,19 +32,29 @@ Strict
 Yes/No
 ```
 
-### Add React to your project
+### Add Vue to your project
 
-Install React using the Astro CLI:
+Install Vue using the Astro CLI:
 
 ```bash
-npx astro add react
+npx astro add vue
 ```
 
 <Callout class="mt-4">
 
-Answer `Yes` to all the question prompted by the CLI when installing React.
+Answer `Yes` to all the question prompted by the CLI when installing Vue.
 
 </Callout>
+
+This will install `vue` and `@astrojs/vue` as dependencies and automatically set them up in the `astro.config.mjs` file.
+
+### Install TypeScript
+
+If you encounter the error `Cannot find module 'typescript'`, please proceed to install TypeScript as a dev dependency, as discussed [here](https://github.com/radix-vue/shadcn-vue/pull/118)
+
+```bash
+npm install -D typescript
+```
 
 ### Add Tailwind CSS to your project
 
@@ -59,6 +69,8 @@ npx astro add tailwind
 Answer `Yes` to all the question prompted by the CLI when installing Tailwind CSS.
 
 </Callout>
+
+This will install `tailwindcss` and `@astrojs/tailwind` as dependencies and set them up in your `astro.config.mjs` file. It will also create a `tailwind.config.mjs` file with the needed configurations.
 
 ### Edit tsconfig.json file
 
@@ -77,10 +89,10 @@ Add the code below to the tsconfig.json file to resolve paths:
 
 ### Run the CLI
 
-Run the `shadcn-ui` init command to setup your project:
+Run the `shadcn-vue` init command to setup your project:
 
 ```bash
-npx shadcn-ui@latest init
+npx shadcn-vue@latest init
 ```
 
 ### Configure components.json
@@ -89,14 +101,15 @@ You will be asked a few questions to configure `components.json`:
 
 ```txt showLineNumbers
 Would you like to use TypeScript (recommended)? no / yes
+Which framework are you using? Astro
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › ./src/styles/globals.css
+Where is your global CSS file? › src/styles/globals.css
 Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.cjs
+Where is your tailwind.config located? › tailwind.config.mjs
 Configure the import alias for components: › @/components
 Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no
+Write configuration to components.json. Proceed? > Y/n
 ```
 
 ### Import the globals.css file
@@ -126,7 +139,7 @@ export default defineConfig({
 You can now start adding components to your project.
 
 ```bash
-npx shadcn-ui@latest add button
+npx shadcn-vue@latest add button
 ```
 
 The command above will add the `Button` component to your project. You can then import it like this:
