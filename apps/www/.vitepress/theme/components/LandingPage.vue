@@ -16,12 +16,12 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
 <template>
   <PageHeader class="page-header pb-8">
     <a
-      href="/docs/changelog"
+      href="/docs/components/form"
       class="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
     >
-      🚧   <Separator class="mx-2 h-4" orientation="vertical" />
-      <span class="sm:hidden">WIP</span>
-      <span class="hidden sm:inline">WIP
+      🎉   <Separator class="mx-2 h-4" orientation="vertical" />
+      <span class="sm:hidden">New form & pagination component</span>
+      <span class="hidden sm:inline">New form & pagination component
       </span>
       <!-- <ArrowRightIcon class="ml-1 h-4 w-4" /> -->
     </a>

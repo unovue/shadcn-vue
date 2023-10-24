@@ -7,7 +7,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default
 import { useConfigStore } from '@/stores/config'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<{
+defineOptions({
+  inheritAttrs: false,
+})
+
+withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
   sfcTsCode?: string
@@ -54,7 +58,7 @@ const { style } = useConfigStore()
             'items-end': align === 'end',
           })"
         >
-          <ComponentLoader :key="style" :name="name" />
+          <ComponentLoader v-bind="$attrs" :key="style" :name="name" />
         </div>
       </TabsContent>
       <TabsContent value="code">

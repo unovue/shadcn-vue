@@ -3,18 +3,17 @@ import {
   ContextMenuRadioGroup,
   type ContextMenuRadioGroupEmits,
   type ContextMenuRadioGroupProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 
 const props = defineProps<ContextMenuRadioGroupProps>()
-
 const emits = defineEmits<ContextMenuRadioGroupEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <ContextMenuRadioGroup
-    v-bind="props"
-    @update:model-value="emits('update:modelValue', $event)"
-  >
+  <ContextMenuRadioGroup v-bind="forwarded">
     <slot />
   </ContextMenuRadioGroup>
 </template>

@@ -3,15 +3,17 @@ import {
   ContextMenuSub,
   type ContextMenuSubEmits,
   type ContextMenuSubProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 
 const props = defineProps<ContextMenuSubProps>()
-
 const emits = defineEmits<ContextMenuSubEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <ContextMenuSub v-bind="props" @update:open="emits('update:open', $event)">
+  <ContextMenuSub v-bind="forwarded">
     <slot />
   </ContextMenuSub>
 </template>

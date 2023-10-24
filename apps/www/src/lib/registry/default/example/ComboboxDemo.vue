@@ -45,7 +45,7 @@ const filterFunction = (list: typeof frameworks, search: string) => list.filter(
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0">
-      <Command v-model="value" :filter-function="filterFunction">
+      <Command :filter-function="filterFunction">
         <CommandInput placeholder="Search framework..." />
         <CommandEmpty>No framework found.</CommandEmpty>
         <CommandGroup>
@@ -53,7 +53,10 @@ const filterFunction = (list: typeof frameworks, search: string) => list.filter(
             v-for="framework in frameworks"
             :key="framework.value"
             :value="framework"
-            @select="open = false"
+            @select="(ev) => {
+              value = ev.detail.value as typeof framework
+              open = false
+            }"
           >
             <Check
               :class="cn(

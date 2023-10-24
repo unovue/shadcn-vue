@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ToggleEmits, ToggleProps } from 'radix-vue'
-import { Toggle, useEmitAsProps } from 'radix-vue'
+import { Toggle, useForwardPropsEmits } from 'radix-vue'
 import type { VariantProps } from 'class-variance-authority'
 import { computed } from 'vue'
 import { toggleVariants } from '.'
@@ -23,11 +23,13 @@ const toggleProps = computed(() => {
   const { variant, size, ...otherProps } = props
   return otherProps
 })
+
+const forwarded = useForwardPropsEmits(toggleProps, emits)
 </script>
 
 <template>
   <Toggle
-    v-bind="{ ...toggleProps, ...useEmitAsProps(emits) }"
+    v-bind="forwarded"
     :class="cn(toggleVariants({ variant, size, class: $attrs.class ?? '' }))"
   >
     <slot />
