@@ -14,13 +14,13 @@ import { cn } from '@/lib/utils'
   <div class="container relative">
     <PageHeader class="page-header pb-8">
       <a
-        href="/docs/changelog"
+        href="/docs/components/form"
         class="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
       >
         🎉 <Separator class="mx-2 h-4" orientation="vertical" />
-        <span class="sm:hidden">Style, a new CLI and more.</span>
+        <span class="sm:hidden">New form & pagination component</span>
         <span class="hidden sm:inline">
-          Introducing Style, a new CLI and more.
+          New form & pagination component
         </span>
         <ArrowRightIcon class="ml-1 h-4 w-4" />
       </a>
