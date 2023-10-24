@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "Accordion.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  AccordionRoot,\n  type AccordionRootEmits,\n  type AccordionRootProps,\n  useEmitAsProps,\n} from 'radix-vue'\n\nconst props = defineProps<AccordionRootProps>()\nconst emits = defineEmits<AccordionRootEmits>()\n</script>\n\n<template>\n  <AccordionRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\" class=\"accordion\">\n    <slot />\n  </AccordionRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  AccordionRoot,\n  type AccordionRootEmits,\n  type AccordionRootProps,\n  useEmitAsProps,\n} from 'radix-vue'\n\nconst props = defineProps<AccordionRootProps>()\nconst emits = defineEmits<AccordionRootEmits>()\n</script>\n\n<template>\n  <AccordionRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot />\n  </AccordionRoot>\n</template>\n"
     },
     {
       "name": "AccordionContent.vue",

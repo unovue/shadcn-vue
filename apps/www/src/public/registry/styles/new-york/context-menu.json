@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "ContextMenu.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ContextMenuRoot, useEmitAsProps } from 'radix-vue'\nimport type { ContextMenuRootEmits, ContextMenuRootProps } from 'radix-vue'\n\nconst props = defineProps<ContextMenuRootProps>()\nconst emits = defineEmits<ContextMenuRootEmits>()\n</script>\n\n<template>\n  <ContextMenuRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot />\n  </ContextMenuRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { ContextMenuRoot, useForwardPropsEmits } from 'radix-vue'\nimport type { ContextMenuRootEmits, ContextMenuRootProps } from 'radix-vue'\n\nconst props = defineProps<ContextMenuRootProps>()\nconst emits = defineEmits<ContextMenuRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <ContextMenuRoot v-bind=\"forwarded\">\n    <slot />\n  </ContextMenuRoot>\n</template>\n"
     },
     {
       "name": "ContextMenuCheckboxItem.vue",
@@ -37,11 +37,11 @@
     },
     {
       "name": "ContextMenuRadioGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuRadioGroup,\n  type ContextMenuRadioGroupEmits,\n  type ContextMenuRadioGroupProps,\n} from 'radix-vue'\n\nconst props = defineProps<ContextMenuRadioGroupProps>()\n\nconst emits = defineEmits<ContextMenuRadioGroupEmits>()\n</script>\n\n<template>\n  <ContextMenuRadioGroup\n    v-bind=\"props\"\n    @update:model-value=\"emits('update:modelValue', $event)\"\n  >\n    <slot />\n  </ContextMenuRadioGroup>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuRadioGroup,\n  type ContextMenuRadioGroupEmits,\n  type ContextMenuRadioGroupProps,\n  useForwardPropsEmits,\n} from 'radix-vue'\n\nconst props = defineProps<ContextMenuRadioGroupProps>()\nconst emits = defineEmits<ContextMenuRadioGroupEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <ContextMenuRadioGroup v-bind=\"forwarded\">\n    <slot />\n  </ContextMenuRadioGroup>\n</template>\n"
     },
     {
       "name": "ContextMenuRadioItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuItemIndicator,\n  ContextMenuRadioItem,\n  type ContextMenuRadioItemEmits,\n  type ContextMenuRadioItemProps,\n  useEmitAsProps,\n} from 'radix-vue'\nimport { DotFilledIcon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ContextMenuRadioItemProps & { class?: string }>()\nconst emits = defineEmits<ContextMenuRadioItemEmits>()\n</script>\n\n<template>\n  <ContextMenuRadioItem\n    v-bind=\"{ ...props, ...useEmitAsProps(emits) }\"\n    :class=\"[\n      cn(\n        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',\n        props.class,\n      ),\n    ]\"\n  >\n    <span class=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\">\n      <ContextMenuItemIndicator>\n        <DotFilledIcon class=\"h-4 w-4 fill-current\" />\n      </ContextMenuItemIndicator>\n    </span>\n    <slot />\n  </ContextMenuRadioItem>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuItemIndicator,\n  ContextMenuRadioItem,\n  type ContextMenuRadioItemEmits,\n  type ContextMenuRadioItemProps,\n  useForwardPropsEmits,\n} from 'radix-vue'\nimport { DotFilledIcon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ContextMenuRadioItemProps & { class?: string }>()\nconst emits = defineEmits<ContextMenuRadioItemEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <ContextMenuRadioItem\n    v-bind=\"forwarded\"\n    :class=\"[\n      cn(\n        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',\n        props.class,\n      ),\n    ]\"\n  >\n    <span class=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\">\n      <ContextMenuItemIndicator>\n        <DotFilledIcon class=\"h-4 w-4 fill-current\" />\n      </ContextMenuItemIndicator>\n    </span>\n    <slot />\n  </ContextMenuRadioItem>\n</template>\n"
     },
     {
       "name": "ContextMenuSeparator.vue",
@@ -53,7 +53,7 @@
     },
     {
       "name": "ContextMenuSub.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuSub,\n  type ContextMenuSubEmits,\n  type ContextMenuSubProps,\n} from 'radix-vue'\n\nconst props = defineProps<ContextMenuSubProps>()\n\nconst emits = defineEmits<ContextMenuSubEmits>()\n</script>\n\n<template>\n  <ContextMenuSub v-bind=\"props\" @update:open=\"emits('update:open', $event)\">\n    <slot />\n  </ContextMenuSub>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuSub,\n  type ContextMenuSubEmits,\n  type ContextMenuSubProps,\n  useForwardPropsEmits,\n} from 'radix-vue'\n\nconst props = defineProps<ContextMenuSubProps>()\nconst emits = defineEmits<ContextMenuSubEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <ContextMenuSub v-bind=\"forwarded\">\n    <slot />\n  </ContextMenuSub>\n</template>\n"
     },
     {
       "name": "ContextMenuSubContent.vue",
@@ -61,7 +61,7 @@
     },
     {
       "name": "ContextMenuSubTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuSubTrigger,\n  type ContextMenuSubTriggerProps,\n} from 'radix-vue'\nimport { ChevronRight } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ContextMenuSubTriggerProps & { class?: string; inset?: boolean }>()\n</script>\n\n<template>\n  <ContextMenuSubTrigger\n    v-bind=\"props\"\n    :class=\"[\n      cn(\n        'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',\n        inset && 'pl-8',\n        props.class,\n      ),\n    ]\"\n  >\n    <slot />\n    <ChevronRight class=\"ml-auto h-4 w-4\" />\n  </ContextMenuSubTrigger>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  ContextMenuSubTrigger,\n  type ContextMenuSubTriggerProps,\n} from 'radix-vue'\nimport { ChevronRightIcon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ContextMenuSubTriggerProps & { class?: string; inset?: boolean }>()\n</script>\n\n<template>\n  <ContextMenuSubTrigger\n    v-bind=\"props\"\n    :class=\"[\n      cn(\n        'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',\n        inset && 'pl-8',\n        props.class,\n      ),\n    ]\"\n  >\n    <slot />\n    <ChevronRightIcon class=\"ml-auto h-4 w-4\" />\n  </ContextMenuSubTrigger>\n</template>\n"
     },
     {
       "name": "ContextMenuTrigger.vue",
