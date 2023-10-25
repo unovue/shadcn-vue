@@ -108,11 +108,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/installation/nuxt',
           items: [],
         },
-        // {
-        //   title: 'Astro',
-        //   href: '/docs/installation/astro',
-        //   items: [],
-        // },
+        {
+          title: 'Astro',
+          href: '/docs/installation/astro',
+          items: [],
+        },
         {
           title: 'Laravel',
           href: '/docs/installation/laravel',
@@ -242,6 +242,12 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Navigation Menu',
           href: '/docs/components/navigation-menu',
+          items: [],
+        },
+        {
+          title: 'Pagination',
+          href: '/docs/components/pagination',
+          label: 'New',
           items: [],
         },
         {

@@ -261,6 +261,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/InputForm.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/InputForm.vue'],
     },
+    InputFormAutoAnimate: {
+      name: 'InputFormAutoAnimate',
+      type: 'components:example',
+      registryDependencies: ['button', 'form', 'input'],
+      component: () => import('../src/lib/registry/default/example/InputFormAutoAnimate.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/InputFormAutoAnimate.vue'],
+    },
     InputWithButton: {
       name: 'InputWithButton',
       type: 'components:example',
@@ -302,6 +309,13 @@ export const Index = {
       registryDependencies: ['utils', 'navigation-menu'],
       component: () => import('../src/lib/registry/default/example/NavigationMenuDemoItem.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/NavigationMenuDemoItem.vue'],
+    },
+    PaginationDemo: {
+      name: 'PaginationDemo',
+      type: 'components:example',
+      registryDependencies: ['pagination', 'button'],
+      component: () => import('../src/lib/registry/default/example/PaginationDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/PaginationDemo.vue'],
     },
     PopoverDemo: {
       name: 'PopoverDemo',
@@ -562,27 +576,7 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/TypographyTable.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/TypographyTable.vue'],
     },
-    ActivityGoal: {
-      name: 'ActivityGoal',
-      type: 'components:example',
-      registryDependencies: ['button', 'card', 'themes', 'config'],
-      component: () => import('../src/lib/registry/default/example/ActivityGoal.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ActivityGoal.vue'],
-    },
-    DataTable: {
-      name: 'DataTable',
-      type: 'components:example',
-      registryDependencies: ['button', 'checkbox', 'dropdown-menu', 'input', 'table', 'card', 'utils'],
-      component: () => import('../src/lib/registry/default/example/DataTable.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/DataTable.vue'],
-    },
-    Metric: {
-      name: 'Metric',
-      type: 'components:example',
-      registryDependencies: ['card', 'config'],
-      component: () => import('../src/lib/registry/default/example/Metric.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/Metric.vue'],
-    },
+
   },
   'new-york': {
     AccordionDemo: {
@@ -844,6 +838,13 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/InputForm.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/InputForm.vue'],
     },
+    InputFormAutoAnimate: {
+      name: 'InputFormAutoAnimate',
+      type: 'components:example',
+      registryDependencies: ['button', 'form', 'input'],
+      component: () => import('../src/lib/registry/new-york/example/InputFormAutoAnimate.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/InputFormAutoAnimate.vue'],
+    },
     InputWithButton: {
       name: 'InputWithButton',
       type: 'components:example',
@@ -885,6 +886,13 @@ export const Index = {
       registryDependencies: ['utils', 'navigation-menu'],
       component: () => import('../src/lib/registry/new-york/example/NavigationMenuDemoItem.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/NavigationMenuDemoItem.vue'],
+    },
+    PaginationDemo: {
+      name: 'PaginationDemo',
+      type: 'components:example',
+      registryDependencies: ['pagination', 'button'],
+      component: () => import('../src/lib/registry/new-york/example/PaginationDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/PaginationDemo.vue'],
     },
     PopoverDemo: {
       name: 'PopoverDemo',
@@ -1144,27 +1152,6 @@ export const Index = {
       registryDependencies: [],
       component: () => import('../src/lib/registry/new-york/example/TypographyTable.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/TypographyTable.vue'],
-    },
-    ActivityGoal: {
-      name: 'ActivityGoal',
-      type: 'components:example',
-      registryDependencies: ['button', 'card', 'themes', 'config'],
-      component: () => import('../src/lib/registry/new-york/example/ActivityGoal.vue').then(m => m.default),
-      files: ['../src/lib/registry/new-york/example/ActivityGoal.vue'],
-    },
-    DataTable: {
-      name: 'DataTable',
-      type: 'components:example',
-      registryDependencies: ['button', 'checkbox', 'dropdown-menu', 'input', 'table', 'card', 'utils'],
-      component: () => import('../src/lib/registry/new-york/example/DataTable.vue').then(m => m.default),
-      files: ['../src/lib/registry/new-york/example/DataTable.vue'],
-    },
-    Metric: {
-      name: 'Metric',
-      type: 'components:example',
-      registryDependencies: ['card', 'config'],
-      component: () => import('../src/lib/registry/new-york/example/Metric.vue').then(m => m.default),
-      files: ['../src/lib/registry/new-york/example/Metric.vue'],
     },
   },
 }

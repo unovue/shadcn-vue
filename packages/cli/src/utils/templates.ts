@@ -7,7 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 `
 
-export const TAILWIND_CONFIG = `/** @type {import('tailwindcss').Config} */
+export const TAILWIND_CONFIG = `const animate = require("tailwindcss-animate")
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -41,10 +43,12 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 }`
 
-export const TAILWIND_CONFIG_WITH_VARIABLES = `/** @type {import('tailwindcss').Config} */
+export const TAILWIND_CONFIG_WITH_VARIABLES = `const animate = require("tailwindcss-animate")
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   <% if (framework === 'vite') { %>
@@ -61,6 +65,10 @@ module.exports = {
     "./resources/views/**/*.blade.php",
     "./resources/js/**/*.{<%- extension %>,<%- extension %>x,vue}",
   ],
+  <% } else if (framework === 'astro') { %>
+    content: [
+      './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    ],
   <% } %>
   theme: {
     container: {
@@ -127,5 +135,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 }`

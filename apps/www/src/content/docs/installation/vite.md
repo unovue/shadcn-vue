@@ -11,10 +11,10 @@ Start by creating a new Vue project using `vite`:
 
 ```bash
 # npm 6.x
-npm create vite@latest my-vue-app --template vue
+npm create vite@latest my-vue-app --template vue-ts
 
 # npm 7+, extra double-dash is needed:
-npm create vite@latest my-vue-app -- --template vue
+npm create vite@latest my-vue-app -- --template vue-ts
 ```
 
 ### Add Tailwind and its configuration
