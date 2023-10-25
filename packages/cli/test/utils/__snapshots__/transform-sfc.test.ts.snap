@@ -22,8 +22,17 @@ const emit = defineEmits([\\"foo\\"]);
 
 exports[`transformSFC > defineProps 1`] = `
 "<script setup>
+const defineProps({
+    foo: { type: String, required: true }
+  });
+</script>
+"
+`;
+
+exports[`transformSFC > defineProps with withDefaults 1`] = `
+"<script setup>
 const props = defineProps({
-  foo: { type: String, required: true },
+  foo: { type: String, required: true, default: \\"bar\\" },
 });
 </script>
 "

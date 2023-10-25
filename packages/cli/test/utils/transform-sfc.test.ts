@@ -35,6 +35,20 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
+  test('defineProps with withDefaults', async () => {
+    const result = await transform({
+      filename: 'app.vue',
+      raw: `<script lang="ts" setup>
+      const props = withDefaults(defineProps<{ foo: string }>(), {
+        foo: 'bar'
+      })
+      </script>
+      `,
+      config: {},
+    })
+    expect(result).toMatchSnapshot()
+  })
+
   test('defineEmits', async () => {
     const result = await transform({
       filename: 'app.vue',
