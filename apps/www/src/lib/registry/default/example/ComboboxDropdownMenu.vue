@@ -47,7 +47,7 @@ const open = ref(false)
       </span>
       <span class="text-muted-foreground">Create a new project</span>
     </p>
-    <DropdownMenu :open="open">
+    <DropdownMenu v-model:open="open">
       <DropdownMenuTrigger as-child>
         <Button variant="ghost" size="sm">
           <MoreHorizontal />
@@ -83,8 +83,8 @@ const open = ref(false)
                       v-for="label in labels"
                       :key="label"
                       :value="label"
-                      @select="(value) => {
-                        labelRef = value as string
+                      @select="(ev) => {
+                        labelRef = ev.detail.value as string
                         open = false
                       }"
                     >

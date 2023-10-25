@@ -53,7 +53,10 @@ const filterFunction = (list: typeof frameworks, search: string) => list.filter(
             v-for="framework in frameworks"
             :key="framework.value"
             :value="framework"
-            @select="open = false"
+            @select="(ev) => {
+              value = ev.detail.value as typeof framework
+              open = false
+            }"
           >
             {{ framework.label }}
             <CheckIcon

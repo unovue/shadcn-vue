@@ -10,7 +10,7 @@
   "files": [
     {
       "name": "Command.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ComboboxRootEmits, ComboboxRootProps } from 'radix-vue'\nimport { ComboboxRoot, useEmitAsProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxRootProps>()\nconst emits = defineEmits<ComboboxRootEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <ComboboxRoot\n    v-bind=\"{ ...props, ...emitsAsProps }\"\n    :open=\"true\"\n    :model-value=\"''\"\n    :class=\"cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxRootEmits, ComboboxRootProps } from 'radix-vue'\nimport { ComboboxRoot, useForwardPropsEmits } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxRootProps>()\nconst emits = defineEmits<ComboboxRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <ComboboxRoot\n    v-bind=\"forwarded\"\n    :open=\"true\"\n    :model-value=\"''\"\n    :class=\"cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxRoot>\n</template>\n"
     },
     {
       "name": "CommandDialog.vue",
@@ -30,7 +30,7 @@
     },
     {
       "name": "CommandItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemEmits, ComboboxItemProps } from 'radix-vue'\nimport { ComboboxItem, useEmitAsProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxItemProps>()\nconst emits = defineEmits<ComboboxItemEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <ComboboxItem\n    v-bind=\"{ ...props, ...emitsAsProps }\"\n    :class=\"cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', $attrs.class ?? '')\"\n  >\n    <slot />\n  </ComboboxItem>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemEmits, ComboboxItemProps } from 'radix-vue'\nimport { ComboboxItem, useEmitAsProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxItemProps>()\nconst emits = defineEmits<ComboboxItemEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <ComboboxItem\n    v-bind=\"{ ...props, ...emitsAsProps }\"\n    :class=\"cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', $attrs.class ?? '')\"\n    @select.prevent\n  >\n    <slot />\n  </ComboboxItem>\n</template>\n"
     },
     {
       "name": "CommandList.vue",

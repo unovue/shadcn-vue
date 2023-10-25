@@ -11,7 +11,7 @@
     },
     {
       "name": "CollapsibleContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'radix-vue'\n\nconst props = defineProps<CollapsibleContentProps>()\n</script>\n\n<template>\n  <CollapsibleContent v-bind=\"props\">\n    <slot />\n  </CollapsibleContent>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'radix-vue'\n\nconst props = defineProps<CollapsibleContentProps>()\n</script>\n\n<template>\n  <CollapsibleContent v-bind=\"props\" class=\"overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\n    <slot />\n  </CollapsibleContent>\n</template>\n"
     },
     {
       "name": "CollapsibleTrigger.vue",

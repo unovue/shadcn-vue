@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "Tooltip.vue",
-      "content": "<script setup lang=\"ts\">\nimport { TooltipRoot, type TooltipRootEmits, type TooltipRootProps, useEmitAsProps } from 'radix-vue'\n\nconst props = defineProps<TooltipRootProps>()\nconst emits = defineEmits<TooltipRootEmits>()\n</script>\n\n<template>\n  <TooltipRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot />\n  </TooltipRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { TooltipRoot, type TooltipRootEmits, type TooltipRootProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<TooltipRootProps>()\nconst emits = defineEmits<TooltipRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <TooltipRoot v-bind=\"forwarded\">\n    <slot />\n  </TooltipRoot>\n</template>\n"
     },
     {
       "name": "TooltipContent.vue",

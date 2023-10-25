@@ -1,8 +1,8 @@
 {
   "name": "shadcn-vue",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "private": true,
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.9.2",
   "license": "MIT",
   "repository": "radix-vue/shadcn-vue",
   "workspaces": [
@@ -32,13 +32,13 @@
     "@antfu/eslint-config": "^0.43.1",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "eslint": "^8.50.0",
+    "eslint": "^8.52.0",
     "lint-staged": "^14.0.1",
-    "pnpm": "^8.8.0",
+    "pnpm": "^8.9.2",
     "simple-git-hooks": "^2.9.0",
-    "taze": "^0.11.3",
+    "taze": "^0.11.4",
     "typescript": "^5.2.2",
-    "vitest": "^0.34.4"
+    "vitest": "^0.34.6"
   },
   "commitlint": {
     "extends": [

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from 'lucide-vue-next'
+  CalendarIcon,
+  EnvelopeClosedIcon,
+  FaceIcon,
+  GearIcon,
+  PersonIcon,
+  RocketIcon,
+} from '@radix-icons/vue'
 
 import {
   Command,
@@ -27,32 +27,32 @@ import {
       <CommandEmpty>No results found.</CommandEmpty>
       <CommandGroup heading="Suggestions">
         <CommandItem value="Calendar">
-          <Calendar class="mr-2 h-4 w-4" />
+          <CalendarIcon class="mr-2 h-4 w-4" />
           <span>Calendar</span>
         </CommandItem>
         <CommandItem value="Search Emoji">
-          <Smile class="mr-2 h-4 w-4" />
+          <FaceIcon class="mr-2 h-4 w-4" />
           <span>Search Emoji</span>
         </CommandItem>
-        <CommandItem value="Calculator">
-          <Calculator class="mr-2 h-4 w-4" />
-          <span>Calculator</span>
+        <CommandItem value="Launch">
+          <RocketIcon class="mr-2 h-4 w-4" />
+          <span>Launch</span>
         </CommandItem>
       </CommandGroup>
       <CommandSeparator />
       <CommandGroup heading="Settings">
         <CommandItem value="Profile">
-          <User class="mr-2 h-4 w-4" />
+          <PersonIcon class="mr-2 h-4 w-4" />
           <span>Profile</span>
           <CommandShortcut>⌘P</CommandShortcut>
         </CommandItem>
-        <CommandItem value="Billing">
-          <CreditCard class="mr-2 h-4 w-4" />
-          <span>Billing</span>
+        <CommandItem value="Mail">
+          <EnvelopeClosedIcon class="mr-2 h-4 w-4" />
+          <span>Mail</span>
           <CommandShortcut>⌘B</CommandShortcut>
         </CommandItem>
         <CommandItem value="Settings">
-          <Settings class="mr-2 h-4 w-4" />
+          <GearIcon class="mr-2 h-4 w-4" />
           <span>Settings</span>
           <CommandShortcut>⌘S</CommandShortcut>
         </CommandItem>

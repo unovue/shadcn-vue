@@ -6,7 +6,7 @@ primitive: https://www.radix-vue.com/components/accordion.html
 ---
 
 
-<ComponentPreview name="AccordionDemo" class="[&_.accordion]:sm:max-w-[70%]" />
+<ComponentPreview name="AccordionDemo" class="sm:max-w-[70%]" />
 
 ## Installation
  
