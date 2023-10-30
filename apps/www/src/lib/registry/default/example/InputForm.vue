@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { h } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
 
-import { h } from 'vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from '@/lib/registry/default/ui/form'
 import { Input } from '@/lib/registry/default/ui/input'
-import { toast } from '@/lib/registry/default/ui/toast/use-toast'
+import { toast } from '@/lib/registry/default/ui/toast'
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),

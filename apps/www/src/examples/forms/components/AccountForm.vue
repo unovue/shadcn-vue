@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { h, ref } from 'vue'
 import * as z from 'zod'
 import { format } from 'date-fns'
 import { toTypedSchema } from '@vee-validate/zod'
@@ -26,6 +26,7 @@ import {
   PopoverTrigger,
 } from '@/lib/registry/default/ui/popover'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const open = ref(false)
 
@@ -63,7 +64,10 @@ const filterFunction = (list: typeof languages, search: string) => list.filter(i
 // https://github.com/logaretm/vee-validate/issues/3521
 // https://github.com/logaretm/vee-validate/discussions/3571
 async function onSubmit(values: any) {
-  console.log('Form submitted!', values)
+  toast({
+    title: 'You submitted the following values:',
+    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+  })
 }
 </script>
 

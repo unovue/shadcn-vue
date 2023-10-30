@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { h } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
@@ -14,6 +15,7 @@ import {
   FormMessage,
 } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
+import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
@@ -24,7 +26,10 @@ const { isFieldDirty, handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('Form submitted!', values)
+  toast({
+    title: 'You submitted the following values:',
+    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+  })
 })
 </script>
 
