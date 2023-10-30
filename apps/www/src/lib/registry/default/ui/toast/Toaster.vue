@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isVNode } from 'vue'
 import { useToast } from './use-toast'
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from '.'
 
@@ -12,9 +13,14 @@ const { toasts } = useToast()
         <ToastTitle v-if="toast.title">
           {{ toast.title }}
         </ToastTitle>
-        <ToastDescription v-if="toast.description">
-          {{ toast.description }}
-        </ToastDescription>
+        <template v-if="toast.description">
+          <ToastDescription v-if="isVNode(toast.description)">
+            <component :is="toast.description" />
+          </ToastDescription>
+          <ToastDescription v-else>
+            {{ toast.description }}
+          </ToastDescription>
+        </template>
         <ToastClose />
       </div>
       <component :is="toast.action" />
