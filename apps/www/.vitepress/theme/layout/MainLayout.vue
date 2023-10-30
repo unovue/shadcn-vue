@@ -120,26 +120,29 @@ watch(() => $route.path, (n) => {
             </div>
           </Button>
 
-          <div
-            v-for="link in links"
-            :key="link.name"
-            class="flex items-center space-x-1"
-          >
-            <a :href="link.href" target="_blank" class="text-foreground">
-              <component :is="link.icon" class="w-5 h-5" />
-            </a>
-          </div>
+          <div class="flex items-center gap-x-1">
+            <Button
+              v-for="link in links"
+              :key="link.name"
+              as="a"
+              :href="link.href" target="_blank"
+              :variant="'ghost'" :size="'icon'"
+            >
+              <component :is="link.icon" class="w-[20px] h-[20px]" />
+            </Button>
 
-          <button
-            class="flex items-center justify-center"
-            aria-label="Toggle dark mode"
-            @click="toggleDark()"
-          >
-            <component
-              :is="isDark ? RadixIconsSun : RadixIconsMoon"
-              class="w-5 h-5 text-foreground"
-            />
-          </button>
+            <Button
+              class="flex items-center justify-center"
+              aria-label="Toggle dark mode"
+              :variant="'ghost'"
+              :size="'icon'" @click="toggleDark()"
+            >
+              <component
+                :is="isDark ? RadixIconsSun : RadixIconsMoon"
+                class="w-[20px] h-[20px] text-foreground"
+              />
+            </Button>
+          </div>
         </div>
       </div>
     </header>

@@ -10,7 +10,7 @@
   "files": [
     {
       "name": "AlertDialog.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type AlertDialogEmits, type AlertDialogProps, AlertDialogRoot, useEmitAsProps } from 'radix-vue'\n\nconst props = defineProps<AlertDialogProps>()\nconst emits = defineEmits<AlertDialogEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <AlertDialogRoot v-bind=\"{ ...props, ...emitsAsProps }\">\n    <slot />\n  </AlertDialogRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type AlertDialogEmits, type AlertDialogProps, AlertDialogRoot, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<AlertDialogProps>()\nconst emits = defineEmits<AlertDialogEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <AlertDialogRoot v-bind=\"forwarded\">\n    <slot />\n  </AlertDialogRoot>\n</template>\n"
     },
     {
       "name": "AlertDialogAction.vue",

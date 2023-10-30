@@ -2,10 +2,14 @@
 import { useVModel } from '@vueuse/core'
 import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
-import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
 import { computed, nextTick, onMounted, ref } from 'vue'
 import { buttonVariants } from '../button'
 import { cn } from '@/lib/utils'
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const props = withDefaults(defineProps< {
   modelValue?: string | number | Date | Partial<{
@@ -42,7 +46,6 @@ function handleNav(direction: 'prev' | 'next') {
 
 onMounted(async () => {
   await nextTick()
-  await nextTick()
   if (modelValue.value instanceof Date && calendarRef.value)
     calendarRef.value.focusDate(modelValue.value)
 })
@@ -52,14 +55,23 @@ onMounted(async () => {
   <div class="relative">
     <div class="absolute top-3 flex justify-between w-full px-4">
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
-        <ChevronLeft class="w-4 h-4" />
+        <ChevronLeftIcon class="w-4 h-4" />
       </button>
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('next')">
-        <ChevronRight class="w-4 h-4" />
+        <ChevronRightIcon class="w-4 h-4" />
       </button>
     </div>
 
-    <DatePicker ref="datePicker" v-model="modelValue" :model-modifiers="modelModifiers" class="calendar" trim-weeks :transition="'none'" :columns="columns" />
+    <DatePicker
+      ref="datePicker"
+      v-bind="$attrs"
+      v-model="modelValue"
+      :model-modifiers="modelModifiers"
+      class="calendar"
+      trim-weeks
+      :transition="'none'"
+      :columns="columns"
+    />
   </div>
 </template>
 

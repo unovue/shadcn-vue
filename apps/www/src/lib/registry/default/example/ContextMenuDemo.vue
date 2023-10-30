@@ -56,7 +56,7 @@ import {
       </ContextMenuCheckboxItem>
       <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
       <ContextMenuSeparator />
-      <ContextMenuRadioGroup value="pedro">
+      <ContextMenuRadioGroup model-value="pedro">
         <ContextMenuLabel inset>
           People
         </ContextMenuLabel>

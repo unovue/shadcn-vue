@@ -108,11 +108,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/installation/nuxt',
           items: [],
         },
-        // {
-        //   title: 'Astro',
-        //   href: '/docs/installation/astro',
-        //   items: [],
-        // },
+        {
+          title: 'Astro',
+          href: '/docs/installation/astro',
+          items: [],
+        },
         {
           title: 'Laravel',
           href: '/docs/installation/laravel',

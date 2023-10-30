@@ -20,7 +20,7 @@ import { Label } from '@/lib/registry/default/ui/label'
         Edit Profile
       </Button>
     </DialogTrigger>
-    <DialogContent class="sm:max-w-[425px]" @escape-key-down.prevent>
+    <DialogContent class="sm:max-w-[425px]">
       <DialogHeader>
         <DialogTitle>Edit profile</DialogTitle>
         <DialogDescription>

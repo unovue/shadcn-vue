@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "Popover.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PopoverRoot, useEmitAsProps } from 'radix-vue'\nimport type { PopoverRootEmits, PopoverRootProps } from 'radix-vue'\n\nconst props = defineProps<PopoverRootProps>()\nconst emits = defineEmits<PopoverRootEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <PopoverRoot v-bind=\"{ ...props, ...emitsAsProps }\">\n    <slot />\n  </PopoverRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { PopoverRoot, useForwardPropsEmits } from 'radix-vue'\nimport type { PopoverRootEmits, PopoverRootProps } from 'radix-vue'\n\nconst props = defineProps<PopoverRootProps>()\nconst emits = defineEmits<PopoverRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <PopoverRoot v-bind=\"forwarded\">\n    <slot />\n  </PopoverRoot>\n</template>\n"
     },
     {
       "name": "PopoverContent.vue",

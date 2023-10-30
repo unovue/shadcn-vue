@@ -59,7 +59,7 @@ import { Textarea } from '@/components/ui/textarea'
 
 ### With Label
 
-<ComponentPreview name="TextareaWithLabel" className="[&_div.grid]:w-full" />
+<ComponentPreview name="TextareaWithLabel"   />
 
 ### With Text
 

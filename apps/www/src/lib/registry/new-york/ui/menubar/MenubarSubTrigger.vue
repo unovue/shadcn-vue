@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { MenubarSubTrigger, type MenubarSubTriggerProps } from 'radix-vue'
+import { ChevronRightIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<MenubarSubTriggerProps & { inset?: boolean; class?: string }>()
@@ -17,5 +18,6 @@ const props = defineProps<MenubarSubTriggerProps & { inset?: boolean; class?: st
     ]"
   >
     <slot />
+    <ChevronRightIcon class="ml-auto h-4 w-4" />
   </MenubarSubTrigger>
 </template>

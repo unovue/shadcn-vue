@@ -3,7 +3,7 @@ import {
   ContextMenuSubTrigger,
   type ContextMenuSubTriggerProps,
 } from 'radix-vue'
-import { ChevronRight } from 'lucide-vue-next'
+import { ChevronRightIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<ContextMenuSubTriggerProps & { class?: string; inset?: boolean }>()
@@ -21,6 +21,6 @@ const props = defineProps<ContextMenuSubTriggerProps & { class?: string; inset?:
     ]"
   >
     <slot />
-    <ChevronRight class="ml-auto h-4 w-4" />
+    <ChevronRightIcon class="ml-auto h-4 w-4" />
   </ContextMenuSubTrigger>
 </template>

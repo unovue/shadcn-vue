@@ -3,15 +3,17 @@ import {
   DropdownMenuSub,
   type DropdownMenuSubEmits,
   type DropdownMenuSubProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 
 const props = defineProps<DropdownMenuSubProps>()
-
 const emits = defineEmits<DropdownMenuSubEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <DropdownMenuSub v-bind="props" @update:open="emits('update:open', $event)">
+  <DropdownMenuSub v-bind="forwarded">
     <slot />
   </DropdownMenuSub>
 </template>

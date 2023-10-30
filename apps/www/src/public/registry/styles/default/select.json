@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "Select.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { SelectRootEmits, SelectRootProps } from 'radix-vue'\nimport { SelectRoot, useEmitAsProps } from 'radix-vue'\n\nconst props = defineProps<SelectRootProps>()\nconst emits = defineEmits<SelectRootEmits>()\n</script>\n\n<template>\n  <SelectRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot />\n  </SelectRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { SelectRootEmits, SelectRootProps } from 'radix-vue'\nimport { SelectRoot, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<SelectRootProps>()\nconst emits = defineEmits<SelectRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <SelectRoot v-bind=\"forwarded\">\n    <slot />\n  </SelectRoot>\n</template>\n"
     },
     {
       "name": "SelectContent.vue",

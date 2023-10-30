@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "DropdownMenu.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DropdownMenuRoot, type DropdownMenuRootEmits, type DropdownMenuRootProps, useEmitAsProps } from 'radix-vue'\n\nconst props = defineProps<DropdownMenuRootProps>()\nconst emits = defineEmits<DropdownMenuRootEmits>()\n</script>\n\n<template>\n  <DropdownMenuRoot v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot />\n  </DropdownMenuRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { DropdownMenuRoot, type DropdownMenuRootEmits, type DropdownMenuRootProps, useEmitAsProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<DropdownMenuRootProps>()\nconst emits = defineEmits<DropdownMenuRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DropdownMenuRoot v-bind=\"forwarded\">\n    <slot />\n  </DropdownMenuRoot>\n</template>\n"
     },
     {
       "name": "DropdownMenuCheckboxItem.vue",
@@ -49,7 +49,7 @@
     },
     {
       "name": "DropdownMenuSub.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  DropdownMenuSub,\n  type DropdownMenuSubEmits,\n  type DropdownMenuSubProps,\n} from 'radix-vue'\n\nconst props = defineProps<DropdownMenuSubProps>()\n\nconst emits = defineEmits<DropdownMenuSubEmits>()\n</script>\n\n<template>\n  <DropdownMenuSub v-bind=\"props\" @update:open=\"emits('update:open', $event)\">\n    <slot />\n  </DropdownMenuSub>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport {\n  DropdownMenuSub,\n  type DropdownMenuSubEmits,\n  type DropdownMenuSubProps,\n  useForwardPropsEmits,\n} from 'radix-vue'\n\nconst props = defineProps<DropdownMenuSubProps>()\nconst emits = defineEmits<DropdownMenuSubEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DropdownMenuSub v-bind=\"forwarded\">\n    <slot />\n  </DropdownMenuSub>\n</template>\n"
     },
     {
       "name": "DropdownMenuSubContent.vue",

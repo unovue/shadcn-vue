@@ -7,7 +7,11 @@ import { computed, nextTick, onMounted, ref } from 'vue'
 import { buttonVariants } from '../button'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps< {
+defineOptions({
+  inheritAttrs: false,
+})
+
+const props = withDefaults(defineProps<{
   modelValue?: string | number | Date | Partial<{
     start: Date
     end: Date
@@ -42,7 +46,6 @@ function handleNav(direction: 'prev' | 'next') {
 
 onMounted(async () => {
   await nextTick()
-  await nextTick()
   if (modelValue.value instanceof Date && calendarRef.value)
     calendarRef.value.focusDate(modelValue.value)
 })
@@ -59,7 +62,16 @@ onMounted(async () => {
       </button>
     </div>
 
-    <DatePicker ref="datePicker" v-model="modelValue" :model-modifiers="modelModifiers" class="calendar" trim-weeks :transition="'none'" :columns="columns" />
+    <DatePicker
+      ref="datePicker"
+      v-model="modelValue"
+      v-bind="$attrs"
+      :model-modifiers="modelModifiers"
+      class="calendar"
+      trim-weeks
+      :transition="'none'"
+      :columns="columns"
+    />
   </div>
 </template>
 

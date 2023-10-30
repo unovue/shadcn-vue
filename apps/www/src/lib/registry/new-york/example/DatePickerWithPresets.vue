@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { addDays, format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { CalendarIcon } from '@radix-icons/vue'
 
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
