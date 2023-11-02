@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
 import Stackblitz from './Stackblitz.vue'
@@ -18,7 +19,7 @@ withDefaults(defineProps<{
   sfcTsHtml?: string
 }>(), { align: 'center' })
 
-const { style } = useConfigStore()
+const { style } = storeToRefs(useConfigStore())
 </script>
 
 <template>

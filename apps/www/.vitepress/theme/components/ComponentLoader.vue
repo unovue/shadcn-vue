@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { defineAsyncComponent } from 'vue'
 import Spinner from './Spinner.vue'
 import { useConfigStore } from '@/stores/config'
@@ -6,7 +7,7 @@ import { useConfigStore } from '@/stores/config'
 const props = defineProps<{
   name: string
 }>()
-const { style } = useConfigStore()
+const { style } = storeToRefs(useConfigStore())
 
 const Component = defineAsyncComponent({
   loadingComponent: Spinner,

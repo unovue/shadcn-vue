@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { useMagicKeys, useToggle } from '@vueuse/core'
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch, watchEffect } from 'vue'
 import { Content, useData, useRoute, useRouter } from 'vitepress'
 import { SearchIcon } from 'lucide-vue-next'
 import { type NavItem, docsConfig } from '../config/docs'
@@ -21,14 +22,23 @@ import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
 import File from '~icons/radix-icons/file'
 import Circle from '~icons/radix-icons/circle'
 
-const { radius, theme } = useConfigStore()
+const { frontmatter, isDark } = useData()
+
+const { radius, theme } = storeToRefs(useConfigStore())
 // Whenever the component is mounted, update the document class list
-onMounted(() => {
+// onMounted(() => {
+//   document.documentElement.style.setProperty('--radius', `${radius.value}rem`)
+//   document.documentElement.classList.add(`theme-${theme.value}`)
+// })
+
+watchEffect(() => {
+  document.documentElement.className = ''
+  if (isDark.value)
+    document.documentElement.classList.add('dark')
+
   document.documentElement.style.setProperty('--radius', `${radius.value}rem`)
   document.documentElement.classList.add(`theme-${theme.value}`)
 })
-
-const { frontmatter, isDark } = useData()
 
 const $route = useRoute()
 const $router = useRouter()

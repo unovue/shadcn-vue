@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
 import { Line } from '@unovis/ts'
 import {
@@ -10,7 +11,7 @@ import {
 } from '@/lib/registry/default/ui/card'
 import { useConfigStore } from '@/stores/config'
 
-const { themePrimary } = useConfigStore()
+const { themePrimary } = storeToRefs(useConfigStore())
 
 type Data = typeof data[number]
 const data = [

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { computed } from 'vue'
 import { useData } from 'vitepress'
@@ -18,10 +19,10 @@ const data = [
   { revenue: 26475, subscription: 189 },
 ]
 
-const cfg = useConfigStore()
+const { theme: themeStore } = storeToRefs(useConfigStore())
 
 const { isDark } = useData()
-const theme = computed(() => themes.find(theme => theme.name === cfg.config.value.theme))
+const theme = computed(() => themes.find(theme => theme.name === themeStore.value))
 
 const lineX = (d: Data, i: number) => i
 const lineY = (d: Data) => d.revenue

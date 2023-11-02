@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 import { useConfigStore } from '@/stores/config'
@@ -7,7 +8,7 @@ import { Button } from '@/lib/registry/new-york/ui/button'
 import CheckIcon from '~icons/radix-icons/check'
 import CopyIcon from '~icons/radix-icons/copy'
 
-const { theme, config } = useConfigStore()
+const { theme, radius } = storeToRefs(useConfigStore())
 
 const activeTheme = computed(() => themes.find(i => i.name === theme.value))
 
@@ -34,7 +35,7 @@ async function copyCode() {
   <span class="line text-white">&nbsp;&nbsp;--border:{{ activeTheme?.cssVars.light.border }};</span>
   <span class="line text-white">&nbsp;&nbsp;--input:{{ activeTheme?.cssVars.light.input }};</span>
   <span class="line text-white">&nbsp;&nbsp;--ring:{{ activeTheme?.cssVars.light.ring }};</span>
-  <span class="line text-white">&nbsp;&nbsp;--radius: {{ config.radius }}rem;</span>
+  <span class="line text-white">&nbsp;&nbsp;--radius: {{ radius }}rem;</span>
   <span class="line text-white">&#125;</span>
   <span class="line text-white">&nbsp;</span>
   <span class="line text-white">.dark &#123;</span>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { type SelectTriggerProps } from 'radix-vue'
 import { useConfigStore } from '@/stores/config'
 
@@ -13,11 +14,11 @@ import {
 import { styles } from '@/lib/registry/styles'
 
 const props = defineProps<SelectTriggerProps & { class?: string }>()
-const { config } = useConfigStore()
+const { style } = storeToRefs(useConfigStore())
 </script>
 
 <template>
-  <Select v-model="config.style">
+  <Select v-model="style">
     <SelectTrigger :class="cn('h-7 w-[145px] text-xs [&_svg]:h-4 [&_svg]:w-4', props.class)">
       <span class="text-muted-foreground">Style: </span>
       <SelectValue placeholder="Select style" />

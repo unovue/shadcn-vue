@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { ChevronDown, Minus, Plus, Send } from 'lucide-vue-next'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
@@ -17,8 +18,8 @@ import { themes } from '@/lib/registry/themes'
 import { useConfigStore } from '@/stores/config'
 
 const { isDark } = useData()
-const cfg = useConfigStore()
-const theme = computed(() => themes.find(theme => theme.name === cfg.config.value.theme))
+const { theme: themeStore } = storeToRefs(useConfigStore())
+const theme = computed(() => themes.find(theme => theme.name === themeStore.value))
 
 const goal = ref(350)
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { MinusIcon, PlusIcon } from '@radix-icons/vue'
@@ -14,7 +15,7 @@ import {
 } from '@/lib/registry/new-york/ui/card'
 import { useConfigStore } from '@/stores/config'
 
-const { themePrimary } = useConfigStore()
+const { themePrimary } = storeToRefs(useConfigStore())
 
 const goal = ref(350)
 

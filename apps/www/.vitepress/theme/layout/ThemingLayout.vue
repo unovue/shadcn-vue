@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { onMounted, watch } from 'vue'
 import { Paintbrush } from 'lucide-vue-next'
 import { useData } from 'vitepress'
@@ -13,9 +14,13 @@ import { Label } from '@/lib/registry/new-york/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/lib/registry/new-york/ui/tooltip'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/lib/registry/new-york/ui/dialog'
+
 import RadixIconsCheck from '~icons/radix-icons/check'
 import RadixIconsSun from '~icons/radix-icons/sun'
 import RadixIconsMoon from '~icons/radix-icons/moon'
+
+// import { Input } from '@/lib/registry/new-york/ui/input'
+// import ArrowTopRight from '~icons/radix-icons/arrow-top-right'
 
 type Color =
   | 'zinc'
@@ -47,7 +52,7 @@ const allColors: Color[] = [
   'violet',
 ]
 
-const { theme, radius, setRadius, setTheme } = useConfigStore()
+const { theme, radius, alias } = storeToRefs(useConfigStore())
 const { isDark } = useData()
 
 // Whenever the component is mounted, update the document class list
@@ -101,7 +106,7 @@ watch(radius, (radius) => {
                           ? 'border-foreground'
                           : 'border-transparent'
                       "
-                      @click="setTheme(color)"
+                      @click="theme = color"
                     >
                       <span
                         class="flex h-6 w-6 items-center justify-center rounded-full"
@@ -154,7 +159,7 @@ watch(radius, (radius) => {
                             ? 'border-foreground border-2'
                             : ''
                         "
-                        @click="setTheme(color)"
+                        @click="theme = color"
                       >
                         <span
                           class="h-5 w-5 rounded-full flex items-center justify-center"
@@ -184,7 +189,7 @@ watch(radius, (radius) => {
                             ? 'border-foreground border-2'
                             : ''
                         "
-                        @click="setRadius(r)"
+                        @click="radius = r"
                       >
                         <span class="text-xs">
                           {{ r }}
@@ -216,6 +221,20 @@ watch(radius, (radius) => {
                       </Button>
                     </div>
                   </div>
+
+                  <!-- <div class="space-y-1.5 pt-6">
+                    <Label for="alias" class="text-xs text-primary"> <a class="flex gap-1 items-center text-primary" href="/docs/components-json.html#aliases-components">Alias <ArrowTopRight width="8" /></a> </Label>
+
+                    <div class="flex space-x-2 py-1.5">
+                      <input id="alias" v-model.lazy="alias" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                    </div>
+                  </div> -->
+
+                  <!-- <div class="space-y-1.5 pt-6">
+                    <Button @click="resetToDefault">
+                      Reset configs
+                    </Button>
+                  </div> -->
                 </div>
               </PopoverContent>
             </Popover>
