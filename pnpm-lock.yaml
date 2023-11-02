@@ -200,8 +200,8 @@ importers:
         specifier: ^8.3.6
         version: 8.3.6(typescript@5.2.2)
       detype:
-        specifier: npm:detypes@^0.7.5
-        version: /detypes@0.7.5
+        specifier: npm:detypes@^0.7.6
+        version: /detypes@0.7.6
       diff:
         specifier: ^5.1.0
         version: 5.1.0
@@ -4406,8 +4406,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /detypes@0.7.5:
-    resolution: {integrity: sha512-Us4d/UUzhwj/pqqFgy43pbD2frcsIaMG4X9ZGET++VWr5Noflyp3fsURxxLXJOgLRSi8QTSoLYThJOdehelseA==}
+  /detypes@0.7.6:
+    resolution: {integrity: sha512-u4FNjEoBY/Wxhtim3JX5sIZzfRsjYiaaWX0SCPbNkU0NbIcvcVPW0TzFPXdq1td6XoCxIMdmY/B/XmMLYOCqPA==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
