@@ -12,3 +12,53 @@ const array = [1, 2, 3];
 <style scoped></style>
 "
 `;
+
+exports[`transformSFC > defineEmits 1`] = `
+"<script setup>
+const emit = defineEmits([\\"foo\\"]);
+</script>
+"
+`;
+
+exports[`transformSFC > defineProps 1`] = `
+"<script setup>
+const props = defineProps({
+  foo: { type: String, required: true },
+});
+</script>
+"
+`;
+
+exports[`transformSFC > defineProps with external props 1`] = `
+"<script setup>
+const props = defineProps({
+  foo: { type: String, required: false, default: \\"bar\\" },
+  a: { type: String, required: true },
+  b: { type: Number, required: true },
+});
+export {};
+</script>
+"
+`;
+
+exports[`transformSFC > defineProps with package props 1`] = `
+"<script setup>
+const props = defineProps({
+  foo: { type: String, required: false, default: \\"bar\\" },
+  for: { type: String, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: [String, Object], required: false },
+});
+export {};
+</script>
+"
+`;
+
+exports[`transformSFC > defineProps with withDefaults 1`] = `
+"<script setup>
+const props = defineProps({
+  foo: { type: String, required: true, default: \\"bar\\" },
+});
+</script>
+"
+`;

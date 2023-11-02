@@ -11,10 +11,10 @@ export async function transformByDetype(content: string, filename: string) {
   })
 }
 
-export const transformSFC: Transformer<string> = async ({ sourceFile, config }) => {
+export const transformSFC: Transformer<string> = async ({ sourceFile, config, filename }) => {
   const output = sourceFile?.getFullText()
   if (config?.typescript)
     return output
 
-  return await transformByDetype(output, 'app.vue')
+  return await transformByDetype(output, filename)
 }
