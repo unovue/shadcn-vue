@@ -7,7 +7,7 @@ interface ToastVariantProps extends VariantProps<typeof toastVariants> {}
 export interface ToastProps extends ToastRootProps {
   class?: string
   variant?: ToastVariantProps['variant']
-  'onUpdate:open'?: ((value: boolean) => void) | undefined
+  'onOpenChange'?: ((value: boolean) => void) | undefined
 };
 </script>
 
@@ -18,14 +18,14 @@ import { toastVariants } from '.'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<ToastProps>()
-const emits = defineEmits<Omit<ToastRootEmits, 'update:open'>>()
+const emits = defineEmits<ToastRootEmits>()
 </script>
 
 <template>
   <ToastRoot
-    v-bind="{ ...props, ...useEmitAsProps(emits) }" :class="cn(toastVariants({
-      variant: props.variant,
-    }), props.class)"
+    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    :class="cn(toastVariants({ variant: props.variant }), props.class)"
+    @update:open="onOpenChange"
   >
     <slot />
   </ToastRoot>
