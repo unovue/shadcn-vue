@@ -12,3 +12,9 @@ export const siteConfig = {
   },
   keywords: 'shadcn,Vue,Nuxt,Vue Components,TailwindCSS,Radix Vue',
 }
+
+export const announcementConfig = {
+  icon: '✨',
+  title: 'New Toast compoent',
+  link: '/docs/components/toast',
+}
