@@ -51,7 +51,7 @@ const onSubmit = handleSubmit((values) => {
   <form class="space-y-8" @submit="onSubmit">
     <FormField v-slot="{ field }" name="font">
       <FormItem>
-        <FormLabel>Email</FormLabel>
+        <FormLabel>Font</FormLabel>
         <div class="relative w-[200px]">
           <FormControl>
             <select
