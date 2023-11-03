@@ -12,11 +12,12 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 
 import { Button } from '@/lib/registry/default/ui/button'
 import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
-import TablerBrandX from '~icons/tabler/brand-x'
 import RadixIconsMoon from '~icons/radix-icons/moon'
 import RadixIconsSun from '~icons/radix-icons/sun'
 import { useConfigStore } from '@/stores/config'
 import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
+import { Toaster as DefaultToaster } from '@/lib/registry/default/ui/toast'
+import { Toaster as NewYorkToaster } from '@/lib/registry/new-york/ui/toast'
 
 import File from '~icons/radix-icons/file'
 import Circle from '~icons/radix-icons/circle'
@@ -279,5 +280,7 @@ watch(() => $route.path, (n) => {
         </Command>
       </DialogContent>
     </Dialog>
+    <DefaultToaster />
+    <NewYorkToaster />
   </div>
 </template>

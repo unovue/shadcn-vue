@@ -12,7 +12,6 @@ const props = defineProps<SwitchRootProps & { class?: string }>()
 const emits = defineEmits<SwitchRootEmits>()
 
 const forwarded = useForwardPropsEmits(props, emits)
-console.log(props, forwarded)
 </script>
 
 <template>

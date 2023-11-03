@@ -216,7 +216,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Form',
           href: '/docs/components/form',
-          label: 'New',
           items: [],
         },
         {
@@ -247,7 +246,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Pagination',
           href: '/docs/components/pagination',
-          label: 'New',
           items: [],
         },
         {
@@ -315,13 +313,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/textarea',
           items: [],
         },
-        // {
-        //   title: "Toast",
-        //   href: "#",
-        //   label: "Soon",
-        //   disabled: true,
-        //   items: []
-        // },
+        {
+          title: 'Toast',
+          href: '/docs/components/toast',
+          label: 'New',
+          items: [],
+        },
         {
           title: 'Toggle',
           href: '/docs/components/toggle',

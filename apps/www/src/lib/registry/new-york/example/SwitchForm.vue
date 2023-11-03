@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { h } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
@@ -12,6 +13,7 @@ import {
   FormLabel,
 } from '@/lib/registry/new-york/ui/form'
 import { Switch } from '@/lib/registry/new-york/ui/switch'
+import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const formSchema = toTypedSchema(z.object({
   marketing_emails: z.boolean().default(false).optional(),
@@ -26,7 +28,10 @@ const { handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('Form submitted!', values)
+  toast({
+    title: 'You submitted the following values:',
+    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+  })
 })
 </script>
 

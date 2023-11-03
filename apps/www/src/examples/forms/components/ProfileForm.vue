@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { h, ref } from 'vue'
 import { FieldArray, useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const verifiedEmails = ref(['m@example.com', 'm@google.com', 'm@support.com'])
 
@@ -58,7 +59,10 @@ const { handleSubmit, resetForm } = useForm({
 })
 
 const onSubmit = handleSubmit((values) => {
-  console.log('Form submitted!', values)
+  toast({
+    title: 'You submitted the following values:',
+    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+  })
 })
 </script>
 

@@ -3,6 +3,7 @@ import PageHeader from '../components/PageHeader.vue'
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
+import { announcementConfig } from '../config/site'
 import ArrowRightIcon from '~icons/radix-icons/arrow-right'
 
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
@@ -14,13 +15,13 @@ import { cn } from '@/lib/utils'
   <div class="container relative">
     <PageHeader class="page-header pb-8">
       <a
-        href="/docs/components/form"
+        :href="announcementConfig.link"
         class="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
       >
-        🎉 <Separator class="mx-2 h-4" orientation="vertical" />
-        <span class="sm:hidden">New form & pagination component</span>
+        {{ announcementConfig.icon }} <Separator class="mx-2 h-4" orientation="vertical" />
+        <span class="sm:hidden">{{ announcementConfig.title }}</span>
         <span class="hidden sm:inline">
-          New form & pagination component
+          {{ announcementConfig.title }}
         </span>
         <ArrowRightIcon class="ml-1 h-4 w-4" />
       </a>

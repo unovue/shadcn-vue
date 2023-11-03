@@ -601,6 +601,28 @@
     "type": "components:ui"
   },
   {
+    "name": "toast",
+    "dependencies": [
+      "radix-vue"
+    ],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/toast/Toast.vue",
+      "ui/toast/ToastAction.vue",
+      "ui/toast/ToastClose.vue",
+      "ui/toast/ToastDescription.vue",
+      "ui/toast/ToastProvider.vue",
+      "ui/toast/ToastTitle.vue",
+      "ui/toast/ToastViewport.vue",
+      "ui/toast/Toaster.vue",
+      "ui/toast/index.ts",
+      "ui/toast/use-toast.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "toggle",
     "dependencies": [
       "radix-vue"
