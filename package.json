@@ -18,7 +18,7 @@
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "build:cli": "pnpm --filter shadcn-vue build",
     "build:registry": "pnpm --filter=www build:registry",
-    "bumpp": "bumpp package.json packages/*/package.json",
+    "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",
     "test": "pnpm --filter shadcn-vue test",
