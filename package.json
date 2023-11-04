@@ -2,7 +2,7 @@
   "name": "shadcn-vue",
   "version": "0.8.0",
   "private": true,
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@8.10.2",
   "license": "MIT",
   "repository": "radix-vue/shadcn-vue",
   "workspaces": [
@@ -25,18 +25,16 @@
     "taze": "taze major -frI --ignore-paths ./packages/cli/test/** --exclude typescript,/@iconify/",
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
-  "dependencies": {
-    "bumpp": "^9.2.0"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "bumpp": "^9.2.0",
     "eslint": "^8.52.0",
     "lint-staged": "^14.0.1",
-    "pnpm": "^8.9.2",
+    "pnpm": "^8.10.2",
     "simple-git-hooks": "^2.9.0",
-    "taze": "^0.11.4",
+    "taze": "^0.12.0",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
   },
