@@ -24,10 +24,16 @@ export default function (md: MarkdownRenderer) {
         return defaultRender!(tokens, idx, options, env, self)
       }
 
+      let code = fs.readFileSync(srcPath, 'utf-8')
+      code = code.replaceAll(
+        '@/lib/registry/default/',
+        '@/components/',
+      )
+
       const demoScripts = generateDemoComponent(md, env, {
         attrs,
         props,
-        code: fs.readFileSync(srcPath, 'utf-8'),
+        code,
         path: srcPath,
       })
 

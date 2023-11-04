@@ -146,7 +146,7 @@ Import alias for your components.
 ```json title="components.json"
 {
   "aliases": {
-    "components": "@/lib/components"
+    "components": "@/components"
   }
 }
 ```
