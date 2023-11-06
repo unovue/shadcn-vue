@@ -4,7 +4,7 @@ import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
 import { computed, nextTick, onMounted, ref } from 'vue'
-import { buttonVariants } from '../button'
+import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
 
 defineOptions({

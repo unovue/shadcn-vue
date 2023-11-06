@@ -112,6 +112,7 @@
       "v-calendar@next"
     ],
     "registryDependencies": [
+      "button",
       "utils"
     ],
     "files": [

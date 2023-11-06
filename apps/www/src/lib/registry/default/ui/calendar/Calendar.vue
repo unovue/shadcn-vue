@@ -4,7 +4,7 @@ import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { computed, nextTick, onMounted, ref } from 'vue'
-import { buttonVariants } from '../button'
+import { buttonVariants } from '@/lib/registry/default/ui/button'
 import { cn } from '@/lib/utils'
 
 defineOptions({
