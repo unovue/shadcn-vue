@@ -1,6 +1,6 @@
 {
   "name": "shadcn-vue",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "packageManager": "pnpm@8.10.2",
   "license": "MIT",
