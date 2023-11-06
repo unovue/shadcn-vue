@@ -67,7 +67,7 @@ async function crawlExample(rootPath: string) {
 
     if (dirent.isFile()) {
       const [name] = dirent.name.split('.vue')
-      const file_path = join('example', dirent.name)
+      const file_path = join('example', dirent.path.split('/example')[1], dirent.name)
       const { dependencies, registryDependencies }
       = await getDependencies(join(dirent.path, dirent.name))
 
