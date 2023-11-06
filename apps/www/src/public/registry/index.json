@@ -108,7 +108,8 @@
   {
     "name": "calendar",
     "dependencies": [
-      "v-calendar"
+      "@vueuse/core",
+      "v-calendar@next"
     ],
     "registryDependencies": [
       "utils"
@@ -302,7 +303,9 @@
   },
   {
     "name": "input",
-    "dependencies": [],
+    "dependencies": [
+      "@vueuse/core"
+    ],
     "registryDependencies": [
       "utils"
     ],
@@ -590,7 +593,9 @@
   },
   {
     "name": "textarea",
-    "dependencies": [],
+    "dependencies": [
+      "@vueuse/core"
+    ],
     "registryDependencies": [
       "utils"
     ],

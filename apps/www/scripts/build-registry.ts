@@ -46,9 +46,7 @@ for (const style of styles) {
       name: "${item.name}",
       type: "${item.type}",
       registryDependencies: ${JSON.stringify(item.registryDependencies)},
-      component: () => import("../src/lib/registry/${style.name}/${type}/${
-			item.name
-		}.vue").then((m) => m.default),
+      component: () => import("${resolveFiles[0]}").then((m) => m.default),
       files: [${resolveFiles.map(file => `"${file}"`)}],
     },`
   }
@@ -375,7 +373,7 @@ export const THEME_STYLES_WITH_VARIABLES = `
     --ring: <%- colors.dark["ring"] %>;
   }`
 
-const themeCSS = []
+const themeCSS: Array<string> = []
 for (const theme of themes) {
   themeCSS.push(
     template(THEME_STYLES_WITH_VARIABLES)({

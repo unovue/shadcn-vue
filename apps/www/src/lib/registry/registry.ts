@@ -6,9 +6,14 @@ import type { Registry } from '../../lib/registry'
 
 const DEPENDENCIES = new Map<string, string[]>([
   ['radix-vue', []],
+  ['@vueuse/core', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
   ['vee-validate', ['@vee-validate/zod', 'zod']],
+])
+// Some dependencies latest tag were not compatible with Vue3.
+const DEPENDENCIES_WITH_TAGS = new Map<string, string>([
+  ['v-calendar', 'v-calendar@next'],
 ])
 const REGISTRY_DEPENDENCY = '@/'
 
@@ -62,7 +67,7 @@ async function crawlExample(rootPath: string) {
 
     if (dirent.isFile()) {
       const [name] = dirent.name.split('.vue')
-      const file_path = join('example', dirent.name)
+      const file_path = join('example', dirent.path.split('/example')[1], dirent.name)
       const { dependencies, registryDependencies }
       = await getDependencies(join(dirent.path, dirent.name))
 
@@ -139,8 +144,12 @@ async function getDependencies(filename: string) {
     Object.values(compiled.imports!).forEach((value) => {
       const source = value.source
       const peerDeps = DEPENDENCIES.get(source)
+      const taggedDeps = DEPENDENCIES_WITH_TAGS.get(source)
       if (peerDeps !== undefined) {
-        dependencies.add(source)
+        if (taggedDeps !== undefined)
+          dependencies.add(taggedDeps)
+        else
+          dependencies.add(source)
         peerDeps.forEach(dep => dependencies.add(dep))
       }
 

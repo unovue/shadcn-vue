@@ -1,6 +1,8 @@
 {
   "name": "textarea",
-  "dependencies": [],
+  "dependencies": [
+    "@vueuse/core"
+  ],
   "registryDependencies": [
     "utils"
   ],

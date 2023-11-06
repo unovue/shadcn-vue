@@ -14,5 +14,6 @@ module.exports = {
     'no-invalid-character': 'off',
     'import/first': 'off',
     '@stylistic/js/no-tabs': 'off',
+    'n/prefer-global/process': 'off',
   },
 }

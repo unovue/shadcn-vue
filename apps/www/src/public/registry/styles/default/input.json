@@ -1,6 +1,8 @@
 {
   "name": "input",
-  "dependencies": [],
+  "dependencies": [
+    "@vueuse/core"
+  ],
   "registryDependencies": [
     "utils"
   ],
