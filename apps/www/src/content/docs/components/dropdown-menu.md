@@ -41,3 +41,8 @@ import {
   </DropdownMenu>
 </template>
 ```
+
+## Examples
+
+### Checkboxes
+

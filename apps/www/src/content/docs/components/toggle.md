@@ -49,3 +49,37 @@ import { Toggle } from '@/components/ui/toggle'
   <Toggle>Toggle</Toggle>
 </template>
 ```
+
+## Examples
+
+### Default 
+
+<ComponentPreview name="ToggleDemo" /> 
+
+
+### Outline
+
+<ComponentPreview name="ToggleItalicDemo" /> 
+
+
+### With Text
+
+<ComponentPreview name="ToggleItalicWithTextDemo" />
+
+
+### Small
+
+<ComponentPreview name="ToggleSmallDemo" />
+
+
+### Large
+
+<ComponentPreview name="ToggleLargeDemo" />
+
+
+### Disabled
+
+<ComponentPreview name="ToggleDisabledDemo" />
+
+
+

@@ -44,7 +44,7 @@ const onSubmit = handleSubmit((values) => {
 </script>
 
 <template>
-  <form className="w-2/3 space-y-6" @submit="onSubmit">
+  <form class="w-2/3 space-y-6" @submit="onSubmit">
     <FormField v-slot="{ componentField }" name="email">
       <FormItem>
         <FormLabel>Email</FormLabel>

@@ -31,3 +31,10 @@ import { ScrollArea } from '@/components/ui/scroll-area'
   </ScrollArea>
 </template>
 ```
+
+## Examples
+
+### Horizontal Scrolling
+
+<ComponentPreview name="ScrollAreaHorizontalDemo" />
+

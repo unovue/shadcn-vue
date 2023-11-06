@@ -29,3 +29,16 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
   </Alert>
 </template>
 ```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="AlertDemo"  /> 
+
+
+### Destructive
+
+<ComponentPreview name="AlertDestructiveDemo"  /> 
+
+

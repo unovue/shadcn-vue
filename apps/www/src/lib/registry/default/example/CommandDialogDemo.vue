@@ -1,27 +1,8 @@
----
-title: Command
-description: Fast, composable, unstyled command menu.
-source: apps/www/src/lib/registry/default/ui/command 
-primitive: https://www.radix-vue.com/components/combobox.html
----
-
-
-<ComponentPreview name="CommandDemo" /> 
-
-
-
-## Installation
-
- 
-```bash
-npx shadcn-vue@latest add command
-``` 
-## Usage
-
-```vue
 <script setup lang="ts">
+import { useMagicKeys } from '@vueuse/core'
+
+import { ref, watch } from 'vue'
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -29,56 +10,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
-} from '@/components/ui/command'
-</script>
-
-<template>
-  <Command>
-    <CommandInput placeholder="Type a command or search..." />
-    <CommandList>
-      <CommandEmpty>No results found.</CommandEmpty>
-      <CommandGroup heading="Suggestions">
-        <CommandItem value="calendar">
-          Calendar
-        </CommandItem>
-        <CommandItem value="search-emoji">
-          Search Emoji
-        </CommandItem>
-        <CommandItem value="calculator">
-          Calculator
-        </CommandItem>
-      </CommandGroup>
-      <CommandSeparator />
-      <CommandGroup heading="Settings">
-        <CommandItem value="profile">
-          Profile
-        </CommandItem>
-        <CommandItem value="billing">
-          Billing
-        </CommandItem>
-        <CommandItem value="settings">
-          Settings
-        </CommandItem>
-      </CommandGroup>
-    </CommandList>
-  </Command>
-</template>
-```
-
-## Examples 
-
-### Dialog 
-
-<ComponentPreview name="CommandDialogDemo" />
-
-To show the command menu in a dialog, use the `<CommandDialog />` component.
-
-```vue
-<script setup lang="ts">
-import { useMagicKeys } from '@vueuse/core'
-
-import { ref, watch } from 'vue'
+} from '@/lib/registry/default/ui/command'
 
 const open = ref(false)
 
@@ -136,8 +68,3 @@ watch(CmdJ, (v) => {
     </CommandDialog>
   </div>
 </template>
-```
-
-### Combobox
-
-You can use the `<Command />` component as a combobox. See the [Combobox](/docs/components/combobox) page for more information.
