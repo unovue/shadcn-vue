@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'New Toast compoent',
+  title: 'New Toast component',
   link: '/docs/components/toast',
 }
