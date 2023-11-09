@@ -93,3 +93,49 @@ import { Button } from '@/components/ui/button'
   <Button>Button</Button>
 </template>
 ```
+
+
+## Examples
+
+### Primary
+
+<ComponentPreview name="ButtonDemo"  /> 
+
+
+### Secondary
+
+<ComponentPreview name="ButtonSecondaryDemo" />
+
+
+### Destructive
+
+<ComponentPreview name="ButtonDestructiveDemo" />
+
+
+### Outline
+
+<ComponentPreview name="ButtonOutlineDemo" />
+
+### Ghost
+
+<ComponentPreview name="ButtonGhostDemo" />
+
+### Link
+
+<ComponentPreview name="ButtonLinkDemo" />
+
+### Icon
+
+<ComponentPreview name="ButtonIconDemo" />
+
+### With Icon
+
+<ComponentPreview name="ButtonWithIconDemo" />
+
+### Loading
+
+<ComponentPreview name="ButtonLoadingDemo" />
+
+### As Child
+
+<ComponentPreview name="ButtonAsChildDemo" />

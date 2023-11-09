@@ -4,7 +4,7 @@ description: Displays a card with header, content, and footer.
 ---
 
 
-<ComponentPreview name="CardDemo"  /> 
+<ComponentPreview name="CardFormDemo"  /> 
 
 ## Installation
 
@@ -43,3 +43,7 @@ import {
   </Card>
 </template>
 ```
+
+## Examples
+
+<ComponentPreview name="CardDemo"  /> 

@@ -79,3 +79,23 @@ import { Badge } from '@/components/ui/badge'
   <Badge>Badge</Badge>
 </template>
 ```
+
+
+## Examples
+
+### Default
+
+<ComponentPreview name="BadgeDemo"  /> 
+
+
+### Secondary
+
+<ComponentPreview name="BadgeSecondaryDemo" />
+
+### Outline
+
+<ComponentPreview name="BadgeOutlineDemo" />
+
+### Destructive
+
+<ComponentPreview name="BadgeDestructiveDemo" />

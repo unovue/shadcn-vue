@@ -57,3 +57,11 @@ import {
   </Table>
 </template>
 ```
+
+## Data Table
+
+You can use the `<Table />` component to build more complex data tables. Combine it with [@tanstack/vue-table](https://tanstack.com/table/v8) to create tables with sorting, filtering and pagination.
+
+See the [Data Table](/docs/components/data-table) documentation for more information.
+
+You can also see an example of a data table in the [Tasks](/examples/tasks) demo.

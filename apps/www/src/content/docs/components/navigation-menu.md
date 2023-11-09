@@ -42,3 +42,26 @@ import {
   </NavigationMenu>
 </template>
 ```
+
+## Examples 
+
+### Link Component
+
+When using the Nuxt.js <NuxtLink /> component, you can use `navigationMenuTriggerStyle()` to apply the correct styles to the trigger.
+
+```ts
+import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
+```
+
+```vue
+<template>
+  <NavigationMenuItem>
+    <NuxtLink to="/docs">
+      <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+        Documentation
+      </NavigationMenuLink>
+    </NuxtLink>
+  </NavigationMenuItem>
+</template>
+```
+

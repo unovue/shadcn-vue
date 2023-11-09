@@ -53,3 +53,6 @@ import { Calendar } from '@/components/ui/calendar'
   <Calendar />
 </template>
 ```
+
+See the [VCalendar](https://vcalendar.io/getting-started/installation.html) documentation for more information.
+
