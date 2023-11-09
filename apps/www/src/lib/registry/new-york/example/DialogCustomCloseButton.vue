@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { Copy } from 'lucide-vue-next'
+import { CopyIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -41,7 +42,7 @@ import { Label } from '@/lib/registry/new-york/ui/label'
         </div>
         <Button type="submit" size="sm" class="px-3">
           <span class="sr-only">Copy</span>
-          <Copy class="w-4 h-4" />
+          <CopyIcon class="w-4 h-4" />
         </Button>
       </div>
       <DialogFooter class="sm:justify-start">

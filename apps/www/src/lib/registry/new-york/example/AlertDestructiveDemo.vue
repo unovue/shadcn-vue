@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AlertTriangle } from 'lucide-vue-next'
+import { AlertTriangle } from '@radix-icons/vue'
 import { Alert, AlertDescription, AlertTitle } from '@/lib/registry/new-york/ui/alert'
 </script>
 
