@@ -57,7 +57,7 @@ Use the `side` property to `<SheetContent />` to indicate the edge of the screen
 
 You can adjust the size of the sheet using CSS classes:
 
-```vue:showLineNumbers{4}
+```vue:line-numbers showLineNumbers{4}
 <template>
   <Sheet>
     <SheetTrigger>Open</SheetTrigger>

@@ -809,6 +809,13 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/AlertDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/AlertDemo.vue'],
     },
+    AlertDestructiveDemo: {
+      name: 'AlertDestructiveDemo',
+      type: 'components:example',
+      registryDependencies: ['alert'],
+      component: () => import('../src/lib/registry/new-york/example/AlertDestructiveDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/AlertDestructiveDemo.vue'],
+    },
     AlertDialogDemo: {
       name: 'AlertDialogDemo',
       type: 'components:example',
@@ -837,12 +844,103 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/BadgeDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/BadgeDemo.vue'],
     },
+    BadgeDestructiveDemo: {
+      name: 'BadgeDestructiveDemo',
+      type: 'components:example',
+      registryDependencies: ['badge'],
+      component: () => import('../src/lib/registry/new-york/example/BadgeDestructiveDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/BadgeDestructiveDemo.vue'],
+    },
+
+    BadgeOutlineDemo: {
+      name: 'BadgeOutlineDemo',
+      type: 'components:example',
+      registryDependencies: ['badge'],
+      component: () => import('../src/lib/registry/new-york/example/BadgeOutlineDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/BadgeOutlineDemo.vue'],
+    },
+
+    BadgeSecondaryDemo: {
+      name: 'BadgeSecondaryDemo',
+      type: 'components:example',
+      registryDependencies: ['badge'],
+      component: () => import('../src/lib/registry/new-york/example/BadgeSecondaryDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/BadgeSecondaryDemo.vue'],
+    },
     ButtonDemo: {
       name: 'ButtonDemo',
       type: 'components:example',
       registryDependencies: ['button'],
       component: () => import('../src/lib/registry/new-york/example/ButtonDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonDemo.vue'],
+    },
+    ButtonAsChildDemo: {
+      name: 'ButtonAsChildDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonAsChildDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonAsChildDemo.vue'],
+    },
+    ButtonDestructiveDemo: {
+      name: 'ButtonDestructiveDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonDestructiveDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonDestructiveDemo.vue'],
+    },
+    ButtonGhostDemo: {
+      name: 'ButtonGhostDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonGhostDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonGhostDemo.vue'],
+    },
+
+    ButtonIconDemo: {
+      name: 'ButtonIconDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonIconDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonIconDemo.vue'],
+    },
+
+    ButtonLinkDemo: {
+      name: 'ButtonLinkDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonLinkDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonLinkDemo.vue'],
+    },
+
+    ButtonLoadingDemo: {
+      name: 'ButtonLoadingDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonLoadingDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonLoadingDemo.vue'],
+    },
+    ButtonOutlineDemo: {
+      name: 'ButtonOutlineDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonOutlineDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonOutlineDemo.vue'],
+    },
+
+    ButtonSecondaryDemo: {
+      name: 'ButtonSecondaryDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonSecondaryDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonSecondaryDemo.vue'],
+    },
+
+    ButtonWithIconDemo: {
+      name: 'ButtonWithIconDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonWithIconDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonWithIconDemo.vue'],
     },
     CalendarDemo: {
       name: 'CalendarDemo',
@@ -864,6 +962,13 @@ export const Index = {
       registryDependencies: ['button', 'card', 'switch', 'utils'],
       component: () => import('../src/lib/registry/new-york/example/CardDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CardDemo.vue'],
+    },
+    CardFormDemo: {
+      name: 'CardFormDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'card', 'switch', 'utils'],
+      component: () => import('../src/lib/registry/new-york/example/CardFormDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CardFormDemo.vue'],
     },
     CardStats: {
       name: 'CardStats',
@@ -956,6 +1061,13 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/CommandDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CommandDemo.vue'],
     },
+    CommandDialogDemo: {
+      name: 'CommandDialogDemo',
+      type: 'components:example',
+      registryDependencies: ['command'],
+      component: () => import('../src/lib/registry/new-york/example/CommandDialogDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CommandDialogDemo.vue'],
+    },
     ContextMenuDemo: {
       name: 'ContextMenuDemo',
       type: 'components:example',
@@ -1004,6 +1116,13 @@ export const Index = {
       registryDependencies: ['utils', 'button', 'calendar', 'popover'],
       component: () => import('../src/lib/registry/new-york/example/DatePickerWithRange.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/DatePickerWithRange.vue'],
+    },
+    DialogCustomCloseButton: {
+      name: 'DialogCustomCloseButton',
+      type: 'components:example',
+      registryDependencies: ['button', 'dialog', 'input', 'label'],
+      component: () => import('../src/lib/registry/new-york/example/DialogCustomCloseButton.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/DialogCustomCloseButton.vue'],
     },
     DialogDemo: {
       name: 'DialogDemo',
@@ -1145,6 +1264,13 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ScrollAreaDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ScrollAreaDemo.vue'],
     },
+    ScrollAreaHorizontalDemo: {
+      name: 'ScrollAreaHorizontalDemo',
+      type: 'components:example',
+      registryDependencies: ['scroll-area', 'separator'],
+      component: () => import('../src/lib/registry/new-york/example/ScrollAreaHorizontalDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ScrollAreaHorizontalDemo.vue'],
+    },
     SelectDemo: {
       name: 'SelectDemo',
       type: 'components:example',
@@ -1172,6 +1298,13 @@ export const Index = {
       registryDependencies: ['button', 'input', 'label', 'sheet'],
       component: () => import('../src/lib/registry/new-york/example/SheetDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/SheetDemo.vue'],
+    },
+    SheetSideDemo: {
+      name: 'SheetSideDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'input', 'label', 'sheet'],
+      component: () => import('../src/lib/registry/new-york/example/SheetSideDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/SheetSideDemo.vue'],
     },
     SkeletonDemo: {
       name: 'SkeletonDemo',
@@ -1298,6 +1431,43 @@ export const Index = {
       registryDependencies: ['toggle'],
       component: () => import('../src/lib/registry/new-york/example/ToggleDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ToggleDemo.vue'],
+    },
+    ToggleDisabledDemo: {
+      name: 'ToggleDisabledDemo',
+      type: 'components:example',
+      registryDependencies: ['toggle'],
+      component: () => import('../src/lib/registry/new-york/example/ToggleDisabledDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ToggleDisabledDemo.vue'],
+    },
+
+    ToggleItalicDemo: {
+      name: 'ToggleItalicDemo',
+      type: 'components:example',
+      registryDependencies: ['toggle'],
+      component: () => import('../src/lib/registry/new-york/example/ToggleItalicDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ToggleItalicDemo.vue'],
+    },
+
+    ToggleItalicWithTextDemo: {
+      name: 'ToggleItalicWithTextDemo',
+      type: 'components:example',
+      registryDependencies: ['toggle'],
+      component: () => import('../src/lib/registry/new-york/example/ToggleItalicWithTextDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ToggleItalicWithTextDemo.vue'],
+    },
+    ToggleLargeDemo: {
+      name: 'ToggleLargeDemo',
+      type: 'components:example',
+      registryDependencies: ['toggle'],
+      component: () => import('../src/lib/registry/new-york/example/ToggleLargeDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ToggleLargeDemo.vue'],
+    },
+    ToggleSmallDemo: {
+      name: 'ToggleSmallDemo',
+      type: 'components:example',
+      registryDependencies: ['toggle'],
+      component: () => import('../src/lib/registry/new-york/example/ToggleSmallDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ToggleSmallDemo.vue'],
     },
     TooltipDemo: {
       name: 'TooltipDemo',

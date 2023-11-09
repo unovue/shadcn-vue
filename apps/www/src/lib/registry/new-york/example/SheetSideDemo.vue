@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Label } from '@/lib/registry/default/ui/label'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Input } from '@/lib/registry/new-york/ui/input'
+import { Label } from '@/lib/registry/new-york/ui/label'
 import {
   Sheet,
   SheetClose,
@@ -12,7 +12,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/lib/registry/default/ui/sheet'
+} from '@/lib/registry/new-york/ui/sheet'
 
 const SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const
 
