@@ -51,12 +51,12 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/BadgeDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/BadgeDemo.vue'],
     },
-    BadgeSecondaryDemo: {
-      name: 'BadgeSecondaryDemo',
+    BadgeDestructiveDemo: {
+      name: 'BadgeDestructiveDemo',
       type: 'components:example',
       registryDependencies: ['badge'],
-      component: () => import('../src/lib/registry/default/example/BadgeSecondaryDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/BadgeSecondaryDemo.vue'],
+      component: () => import('../src/lib/registry/default/example/BadgeDestructiveDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/BadgeDestructiveDemo.vue'],
     },
     BadgeOutlineDemo: {
       name: 'BadgeOutlineDemo',
@@ -65,12 +65,19 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/BadgeOutlineDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/BadgeOutlineDemo.vue'],
     },
-    BadgeDestructiveDemo: {
-      name: 'BadgeDestructiveDemo',
+    BadgeSecondaryDemo: {
+      name: 'BadgeSecondaryDemo',
       type: 'components:example',
       registryDependencies: ['badge'],
-      component: () => import('../src/lib/registry/default/example/BadgeDestructiveDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/BadgeDestructiveDemo.vue'],
+      component: () => import('../src/lib/registry/default/example/BadgeSecondaryDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/BadgeSecondaryDemo.vue'],
+    },
+    ButtonAsChildDemo: {
+      name: 'ButtonAsChildDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/default/example/ButtonAsChildDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ButtonAsChildDemo.vue'],
     },
     ButtonDemo: {
       name: 'ButtonDemo',
@@ -79,26 +86,12 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ButtonDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ButtonDemo.vue'],
     },
-    ButtonSecondaryDemo: {
-      name: 'ButtonSecondaryDemo',
-      type: 'components:example',
-      registryDependencies: ['button'],
-      component: () => import('../src/lib/registry/default/example/ButtonSecondaryDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ButtonSecondaryDemo.vue'],
-    },
     ButtonDestructiveDemo: {
       name: 'ButtonDestructiveDemo',
       type: 'components:example',
       registryDependencies: ['button'],
       component: () => import('../src/lib/registry/default/example/ButtonDestructiveDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ButtonDestructiveDemo.vue'],
-    },
-    ButtonOutlineDemo: {
-      name: 'ButtonOutlineDemo',
-      type: 'components:example',
-      registryDependencies: ['button'],
-      component: () => import('../src/lib/registry/default/example/ButtonOutlineDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ButtonOutlineDemo.vue'],
     },
     ButtonGhostDemo: {
       name: 'ButtonGhostDemo',
@@ -107,13 +100,6 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ButtonGhostDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ButtonGhostDemo.vue'],
     },
-    ButtonLinkDemo: {
-      name: 'ButtonLinkDemo',
-      type: 'components:example',
-      registryDependencies: ['button'],
-      component: () => import('../src/lib/registry/default/example/ButtonLinkDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ButtonLinkDemo.vue'],
-    },
     ButtonIconDemo: {
       name: 'ButtonIconDemo',
       type: 'components:example',
@@ -121,12 +107,12 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ButtonIconDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ButtonIconDemo.vue'],
     },
-    ButtonWithIconDemo: {
-      name: 'ButtonWithIconDemo',
+    ButtonLinkDemo: {
+      name: 'ButtonLinkDemo',
       type: 'components:example',
       registryDependencies: ['button'],
-      component: () => import('../src/lib/registry/default/example/ButtonWithIconDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ButtonWithIconDemo.vue'],
+      component: () => import('../src/lib/registry/default/example/ButtonLinkDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ButtonLinkDemo.vue'],
     },
     ButtonLoadingDemo: {
       name: 'ButtonLoadingDemo',
@@ -135,12 +121,26 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ButtonLoadingDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ButtonLoadingDemo.vue'],
     },
-    ButtonAsChildDemo: {
-      name: 'ButtonAsChildDemo',
+    ButtonOutlineDemo: {
+      name: 'ButtonOutlineDemo',
       type: 'components:example',
       registryDependencies: ['button'],
-      component: () => import('../src/lib/registry/default/example/ButtonAsChildDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ButtonAsChildDemo.vue'],
+      component: () => import('../src/lib/registry/default/example/ButtonOutlineDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ButtonOutlineDemo.vue'],
+    },
+    ButtonSecondaryDemo: {
+      name: 'ButtonSecondaryDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/default/example/ButtonSecondaryDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ButtonSecondaryDemo.vue'],
+    },
+    ButtonWithIconDemo: {
+      name: 'ButtonWithIconDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/default/example/ButtonWithIconDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ButtonWithIconDemo.vue'],
     },
     CalendarDemo: {
       name: 'CalendarDemo',
@@ -166,7 +166,7 @@ export const Index = {
     CardFormDemo: {
       name: 'CardFormDemo',
       type: 'components:example',
-      registryDependencies: ['button', 'card', 'switch', 'utils'],
+      registryDependencies: ['card', 'select', 'input', 'label', 'button'],
       component: () => import('../src/lib/registry/default/example/CardFormDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/CardFormDemo.vue'],
     },
@@ -317,19 +317,19 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/DatePickerWithRange.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/DatePickerWithRange.vue'],
     },
-    DialogDemo: {
-      name: 'DialogDemo',
-      type: 'components:example',
-      registryDependencies: ['button', 'dialog', 'input', 'label'],
-      component: () => import('../src/lib/registry/default/example/DialogDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/DialogDemo.vue'],
-    },
     DialogCustomCloseButton: {
       name: 'DialogCustomCloseButton',
       type: 'components:example',
       registryDependencies: ['button', 'dialog', 'input', 'label'],
       component: () => import('../src/lib/registry/default/example/DialogCustomCloseButton.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/DialogCustomCloseButton.vue'],
+    },
+    DialogDemo: {
+      name: 'DialogDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'dialog', 'input', 'label'],
+      component: () => import('../src/lib/registry/default/example/DialogDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/DialogDemo.vue'],
     },
     DropdownMenuDemo: {
       name: 'DropdownMenuDemo',
@@ -467,7 +467,7 @@ export const Index = {
     ScrollAreaHorizontalDemo: {
       name: 'ScrollAreaHorizontalDemo',
       type: 'components:example',
-      registryDependencies: ['scroll-area', 'separator'],
+      registryDependencies: ['scroll-area'],
       component: () => import('../src/lib/registry/default/example/ScrollAreaHorizontalDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ScrollAreaHorizontalDemo.vue'],
     },
@@ -632,6 +632,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ToggleDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ToggleDemo.vue'],
     },
+    ToggleDisabledDemo: {
+      name: 'ToggleDisabledDemo',
+      type: 'components:example',
+      registryDependencies: ['toggle'],
+      component: () => import('../src/lib/registry/default/example/ToggleDisabledDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ToggleDisabledDemo.vue'],
+    },
     ToggleItalicDemo: {
       name: 'ToggleItalicDemo',
       type: 'components:example',
@@ -646,13 +653,6 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ToggleItalicWithTextDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ToggleItalicWithTextDemo.vue'],
     },
-    ToggleSmallDemo: {
-      name: 'ToggleSmallDemo',
-      type: 'components:example',
-      registryDependencies: ['toggle'],
-      component: () => import('../src/lib/registry/default/example/ToggleSmallDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ToggleSmallDemo.vue'],
-    },
     ToggleLargeDemo: {
       name: 'ToggleLargeDemo',
       type: 'components:example',
@@ -660,12 +660,12 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ToggleLargeDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ToggleLargeDemo.vue'],
     },
-    ToggleDisabledDemo: {
-      name: 'ToggleDisabledDemo',
+    ToggleSmallDemo: {
+      name: 'ToggleSmallDemo',
       type: 'components:example',
       registryDependencies: ['toggle'],
-      component: () => import('../src/lib/registry/default/example/ToggleDisabledDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/ToggleDisabledDemo.vue'],
+      component: () => import('../src/lib/registry/default/example/ToggleSmallDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/ToggleSmallDemo.vue'],
     },
     TooltipDemo: {
       name: 'TooltipDemo',
@@ -851,7 +851,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/BadgeDestructiveDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/BadgeDestructiveDemo.vue'],
     },
-
     BadgeOutlineDemo: {
       name: 'BadgeOutlineDemo',
       type: 'components:example',
@@ -859,7 +858,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/BadgeOutlineDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/BadgeOutlineDemo.vue'],
     },
-
     BadgeSecondaryDemo: {
       name: 'BadgeSecondaryDemo',
       type: 'components:example',
@@ -867,19 +865,19 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/BadgeSecondaryDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/BadgeSecondaryDemo.vue'],
     },
-    ButtonDemo: {
-      name: 'ButtonDemo',
-      type: 'components:example',
-      registryDependencies: ['button'],
-      component: () => import('../src/lib/registry/new-york/example/ButtonDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/new-york/example/ButtonDemo.vue'],
-    },
     ButtonAsChildDemo: {
       name: 'ButtonAsChildDemo',
       type: 'components:example',
       registryDependencies: ['button'],
       component: () => import('../src/lib/registry/new-york/example/ButtonAsChildDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonAsChildDemo.vue'],
+    },
+    ButtonDemo: {
+      name: 'ButtonDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/ButtonDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/ButtonDemo.vue'],
     },
     ButtonDestructiveDemo: {
       name: 'ButtonDestructiveDemo',
@@ -895,7 +893,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ButtonGhostDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonGhostDemo.vue'],
     },
-
     ButtonIconDemo: {
       name: 'ButtonIconDemo',
       type: 'components:example',
@@ -903,7 +900,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ButtonIconDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonIconDemo.vue'],
     },
-
     ButtonLinkDemo: {
       name: 'ButtonLinkDemo',
       type: 'components:example',
@@ -911,7 +907,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ButtonLinkDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonLinkDemo.vue'],
     },
-
     ButtonLoadingDemo: {
       name: 'ButtonLoadingDemo',
       type: 'components:example',
@@ -926,7 +921,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ButtonOutlineDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonOutlineDemo.vue'],
     },
-
     ButtonSecondaryDemo: {
       name: 'ButtonSecondaryDemo',
       type: 'components:example',
@@ -934,7 +928,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ButtonSecondaryDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ButtonSecondaryDemo.vue'],
     },
-
     ButtonWithIconDemo: {
       name: 'ButtonWithIconDemo',
       type: 'components:example',
@@ -966,7 +959,7 @@ export const Index = {
     CardFormDemo: {
       name: 'CardFormDemo',
       type: 'components:example',
-      registryDependencies: ['button', 'card', 'switch', 'utils'],
+      registryDependencies: ['card', 'select', 'input', 'label', 'button'],
       component: () => import('../src/lib/registry/new-york/example/CardFormDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CardFormDemo.vue'],
     },
@@ -1267,7 +1260,7 @@ export const Index = {
     ScrollAreaHorizontalDemo: {
       name: 'ScrollAreaHorizontalDemo',
       type: 'components:example',
-      registryDependencies: ['scroll-area', 'separator'],
+      registryDependencies: ['scroll-area'],
       component: () => import('../src/lib/registry/new-york/example/ScrollAreaHorizontalDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ScrollAreaHorizontalDemo.vue'],
     },
@@ -1439,7 +1432,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ToggleDisabledDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ToggleDisabledDemo.vue'],
     },
-
     ToggleItalicDemo: {
       name: 'ToggleItalicDemo',
       type: 'components:example',
@@ -1447,7 +1439,6 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/ToggleItalicDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ToggleItalicDemo.vue'],
     },
-
     ToggleItalicWithTextDemo: {
       name: 'ToggleItalicWithTextDemo',
       type: 'components:example',
