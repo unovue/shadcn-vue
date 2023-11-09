@@ -46,7 +46,9 @@ export default defineNuxtConfig({
         // this is required else Nuxt will autoImport `.ts` file
         extensions: ['.vue'],
         // prefix for your components, eg: UiButton
-        prefix: 'Ui'
+        prefix: 'Ui',
+        // prevent adding another prefix component by it's path.
+        pathPrefix: false
       })
     }
   }
