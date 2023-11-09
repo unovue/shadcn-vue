@@ -3,6 +3,7 @@ import { Copy } from 'lucide-vue-next'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
