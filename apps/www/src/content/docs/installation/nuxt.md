@@ -28,22 +28,32 @@ npm install -D @nuxtjs/tailwindcss
 
 ### Configure `nuxt.config.ts`
 
+<Callout class="mt-4">
+
+**Tip:** It's better to use Nuxt `components:dirs` hook to extend auto-import components directories. 
+
+If you use `components` key in `nuxt.config.ts` default config will disposed
+
+</Callout>
+
 ```ts
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
-  components: [
-    {
-      path: '~/components/ui',
-      // this is required else Nuxt will autoImport `.ts` file
-      extensions: ['.vue'],
-      // prefix for your components, eg: UiButton
-      prefix: 'Ui'
-    },
-  ],
+  hooks: {
+    'components:dirs': (dirs) => {
+      dirs.unshift({
+        path: '~/components/ui',
+        // this is required else Nuxt will autoImport `.ts` file
+        extensions: ['.vue'],
+        // prefix for your components, eg: UiButton
+        prefix: 'Ui',
+        // prevent adding another prefix component by it's path.
+        pathPrefix: false
+      })
+    }
+  }
 })
 ```
-
-
 
 ### Run the CLI
 
