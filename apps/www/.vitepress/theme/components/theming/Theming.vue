@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ChevronDown, Minus, Plus, Send } from 'lucide-vue-next'
 import { addDays, startOfToday } from 'date-fns'
 import ThemingLayout from './../../layout/ThemingLayout.vue'
 
-import Container from '@/examples/cards/components/Container.vue'
 import CookieSettings from '@/examples/cards/components/CookieSettings.vue'
 import CreateAccount from '@/examples/cards/components/CreateAccount.vue'
-import DatePicker from '@/examples/cards/components/DatePicker.vue'
-import GitHubCard from '@/examples/cards/components/GitHubCard.vue'
-import Notifications from '@/examples/cards/components/Notifications.vue'
 import PaymentMethod from '@/examples/cards/components/PaymentMethod.vue'
 import ReportAnIssue from '@/examples/cards/components/ReportAnIssue.vue'
 import ShareDocument from '@/examples/cards/components/ShareDocument.vue'
@@ -21,18 +16,8 @@ import Metric from '@/lib/registry/new-york/example/Cards/Metric.vue'
 import DataTable from '@/lib/registry/new-york/example/Cards/DataTable.vue'
 import CardStats from '@/lib/registry/default/example/CardStats.vue'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/lib/registry/new-york/ui/card'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Card } from '@/lib/registry/new-york/ui/card'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
-
-const goal = ref(350)
 
 const range = ref({
   start: startOfToday(),
