@@ -52,14 +52,9 @@ const lineY = (d: Data) => d.revenue
               left: 10,
               bottom: 0,
             }"
-            :style="{
-              '--theme-primary': `hsl(${
-                theme?.cssVars[isDark ? 'dark' : 'light'].primary
-              })`,
-            }"
           >
-            <VisLine :x="lineX" :y="lineY" color="var(--theme-primary)" />
-            <VisScatter :x="lineX" :y="lineY" :size="6" stroke-color="var(--theme-primary)" :stroke-width="2" color="white" />
+            <VisLine :x="lineX" :y="lineY" color="hsl(var(--primary))" />
+            <VisScatter :x="lineX" :y="lineY" :size="6" stroke-color="hsl(var(--primary))" :stroke-width="2" color="white" />
           </VisXYContainer>
         </div>
       </CardContent>
@@ -91,7 +86,7 @@ const lineY = (d: Data) => d.revenue
               :x="lineX"
               :y="(d: Data) => d.subscription"
               :bar-padding="0.1"
-              :rounded-corners="0" color="var(--theme-primary)"
+              :rounded-corners="0" color="hsl(var(--primary))"
             />
           </VisXYContainer>
         </div>

@@ -12,9 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/new-york/ui/card'
-import { useConfigStore } from '@/stores/config'
-
-const { themePrimary } = useConfigStore()
 
 const goal = ref(350)
 
@@ -80,14 +77,13 @@ const data = [
           :data="data"
           height="60px"
           :style="{
-            'opacity': 0.2,
-            '--theme-primary': themePrimary,
+            opacity: 0.2,
           }"
         >
           <VisStackedBar
             :x="(d: Data, i :number) => i"
             :y="(d: Data) => d.goal"
-            color="var(--theme-primary)"
+            color="hsl(var(--primary))"
             :bar-padding="0.1"
             :rounded-corners="0"
           />

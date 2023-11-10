@@ -16,10 +16,6 @@ import {
 import { themes } from '@/lib/registry/themes'
 import { useConfigStore } from '@/stores/config'
 
-const { isDark } = useData()
-const cfg = useConfigStore()
-const theme = computed(() => themes.find(theme => theme.name === cfg.config.value.theme))
-
 const goal = ref(350)
 
 type Data = typeof data[number]
@@ -84,16 +80,13 @@ const data = [
           :data="data"
           height="60px"
           :style="{
-            'opacity': 0.2,
-            '--theme-primary': `hsl(${
-              theme?.cssVars[isDark ? 'dark' : 'light'].primary
-            })`,
+            opacity: 0.2,
           }"
         >
           <VisStackedBar
             :x="(d: Data, i :number) => i"
             :y="(d: Data) => d.goal"
-            color="var(--theme-primary)"
+            color="hsl(var(--primary))"
             :bar-padding="0.1"
             :rounded-corners="0"
           />

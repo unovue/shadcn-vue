@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { computed } from 'vue'
-import { useData } from 'vitepress'
 import { Card, CardContent, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
-import { useConfigStore } from '@/stores/config'
-import { themes } from '@/lib/registry/themes'
 
 type Data = typeof data[number]
 const data = [
@@ -17,11 +13,6 @@ const data = [
   { revenue: 11244, subscription: 278 },
   { revenue: 26475, subscription: 189 },
 ]
-
-const cfg = useConfigStore()
-
-const { isDark } = useData()
-const theme = computed(() => themes.find(theme => theme.name === cfg.config.value.theme))
 
 const lineX = (d: Data, i: number) => i
 const lineY = (d: Data) => d.revenue
@@ -52,14 +43,9 @@ const lineY = (d: Data) => d.revenue
               left: 10,
               bottom: 0,
             }"
-            :style="{
-              '--theme-primary': `hsl(${
-                theme?.cssVars[isDark ? 'dark' : 'light'].primary
-              })`,
-            }"
           >
-            <VisLine :x="lineX" :y="lineY" color="var(--theme-primary)" />
-            <VisScatter :x="lineX" :y="lineY" :size="6" stroke-color="var(--theme-primary)" :stroke-width="2" color="white" />
+            <VisLine :x="lineX" :y="lineY" color="hsl(var(--primary))" />
+            <VisScatter :x="lineX" :y="lineY" :size="6" stroke-color="hsl(var(--primary))" :stroke-width="2" color="white" />
           </VisXYContainer>
         </div>
       </CardContent>
@@ -81,17 +67,13 @@ const lineY = (d: Data) => d.revenue
 
         <div class="mt-4 h-[80px]">
           <VisXYContainer
-            height="80px" :data="data" :style="{
-              '--theme-primary': `hsl(${
-                theme?.cssVars[isDark ? 'dark' : 'light'].primary
-              })`,
-            }"
+            height="80px" :data="data"
           >
             <VisStackedBar
               :x="lineX"
               :y="(d: Data) => d.subscription"
               :bar-padding="0.1"
-              :rounded-corners="0" color="var(--theme-primary)"
+              :rounded-corners="0" color="hsl(var(--primary))"
             />
           </VisXYContainer>
         </div>
