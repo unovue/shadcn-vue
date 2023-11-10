@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { VisAxis, VisStackedBar, VisXYContainer } from '@unovis/vue'
+import { VisArea, VisAxis, VisXYContainer } from '@unovis/vue'
+import { Area } from '@unovis/ts'
 
 type Data = typeof data[number]
 const data = [
@@ -20,10 +21,24 @@ const data = [
 
 <template>
   <VisXYContainer height="350px" :margin="{ left: 20, right: 20 }" :data="data">
-    <VisStackedBar
+    <svg width="0" height="0">
+      <defs>
+        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stop-color="hsl(var(--primary))" stop-opacity="0.8" />
+          <stop offset="95%" stop-color="hsl(var(--primary))" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <VisArea
       :x="(d: Data, i: number) => i"
       :y="(d: Data) => d.total"
-      color="hsl(var(--primary))"
+      color="auto"
+      :attributes="{
+        [Area.selectors.area]: {
+          fill: 'url(#colorUv)',
+        },
+      }"
       :rounded-corners="4"
       :bar-padding="0.15"
     />
@@ -32,7 +47,8 @@ const data = [
       :num-ticks="data.length"
       :tick-format="(index: number) => data[index]?.name"
       :grid-line="false"
-      :tick-line="false" color="#888888"
+      :tick-line="false"
+      tick-text-color="hsl(var(--muted-foreground))"
     />
     <VisAxis
       type="y"
@@ -40,7 +56,8 @@ const data = [
       :tick-format="(index: number) => data[index]?.name"
       :grid-line="false"
       :tick-line="false"
-      :domain-line="false" color="#888888"
+      :domain-line="false"
+      tick-text-color="hsl(var(--muted-foreground))"
     />
   </VisXYContainer>
 </template>
