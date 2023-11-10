@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VisArea, VisAxis, VisXYContainer } from '@unovis/vue'
+import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 import { Area } from '@unovis/ts'
 
 type Data = typeof data[number]
@@ -24,7 +24,7 @@ const data = [
     <svg width="0" height="0">
       <defs>
         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stop-color="hsl(var(--primary))" stop-opacity="0.8" />
+          <stop offset="5%" stop-color="hsl(var(--primary))" stop-opacity="0.6" />
           <stop offset="95%" stop-color="hsl(var(--primary))" stop-opacity="0" />
         </linearGradient>
       </defs>
@@ -41,6 +41,11 @@ const data = [
       }"
       :rounded-corners="4"
       :bar-padding="0.15"
+    />
+    <VisLine
+      :x="(d: Data, i: number) => i"
+      :y="(d: Data) => d.total"
+      color="hsl(var(--primary))"
     />
     <VisAxis
       type="x"

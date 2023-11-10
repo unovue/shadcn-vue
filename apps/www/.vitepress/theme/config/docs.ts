@@ -121,6 +121,16 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
+      title: 'Charts',
+      items: [
+        {
+          title: 'Area',
+          href: '/docs/charts/area',
+          items: [],
+        },
+      ],
+    },
+    {
       title: 'Components',
       items: [
         {
