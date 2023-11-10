@@ -227,6 +227,7 @@
     ],
     "files": [
       "ui/dialog/Dialog.vue",
+      "ui/dialog/DialogClose.vue",
       "ui/dialog/DialogContent.vue",
       "ui/dialog/DialogDescription.vue",
       "ui/dialog/DialogFooter.vue",
