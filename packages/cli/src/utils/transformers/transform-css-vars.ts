@@ -1,5 +1,6 @@
 import type * as z from 'zod'
 import MagicString from 'magic-string'
+import type { SFCTemplateBlock } from '@vue/compiler-sfc'
 import { parse, walk } from '@vue/compiler-sfc'
 import { SyntaxKind } from 'ts-morph'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
@@ -10,18 +11,23 @@ export const transformCssVars: Transformer = async ({
   config,
   baseColor,
 }) => {
+  const isVueFile = sourceFile.getFilePath().endsWith('vue')
   // No transform if using css variables.
-  if (config.tailwind?.cssVariables || !baseColor?.inlineColors || sourceFile.getFilePath().endsWith('ts'))
+  if (config.tailwind?.cssVariables || !baseColor?.inlineColors)
     return sourceFile
 
-  const parsed = parse(sourceFile.getText())
-  const template = parsed.descriptor.template
+  let template: SFCTemplateBlock | null = null
 
-  if (!template)
-    return sourceFile
+  if (isVueFile) {
+    const parsed = parse(sourceFile.getText())
+    template = parsed.descriptor.template
+
+    if (!template)
+      return sourceFile
+  }
 
   sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    if (template.loc.start.offset >= node.getPos())
+    if (template && template.loc.start.offset >= node.getPos())
       return sourceFile
 
     const value = node.getText()
