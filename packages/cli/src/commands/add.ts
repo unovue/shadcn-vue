@@ -33,7 +33,7 @@ export const add = new Command()
   .name('add')
   .description('add a component to your project')
   .argument('[components...]', 'the components to add')
-  .option('-y, --yes', 'skip confirmation prompt.', false)
+  .option('-y, --yes', 'skip confirmation prompt.', true)
   .option('-o, --overwrite', 'overwrite existing files.', false)
   .option(
     '-c, --cwd <cwd>',
@@ -71,7 +71,7 @@ export const add = new Command()
         : options.components
       if (!options.components?.length && !options.all) {
         const { components } = await prompts({
-          type: 'autocompleteMultiselect',
+          type: 'multiselect',
           name: 'components',
           message: 'Which components would you like to add?',
           hint: 'Space to select. A to toggle all. Enter to submit.',
