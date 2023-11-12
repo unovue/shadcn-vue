@@ -9,6 +9,9 @@ import { type Style } from '@/lib/registry/styles'
 export function makeCodeSandboxParams(componentName: string, style: Style, sources: Record<string, string>) {
   let files = {}
   files = constructFiles(componentName, style, sources)
+  files['.codesandbox/Dockerfile'] = {
+    content: 'FROM node:18',
+  }
   return getParameters({ files, template: 'node' })
 }
 
@@ -121,7 +124,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'package.json': {
       content: {
         name: `shadcn-vue-${componentName.toLowerCase().replace(/ /g, '-')}`,
-        scripts: { start: `shadcn-vue add ${registryDependencies.join(' ')}  -y && vite` },
+        scripts: { start: `shadcn-vue add ${registryDependencies.join(' ')} -y && vite` },
         dependencies,
         devDependencies,
       },
