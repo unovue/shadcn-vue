@@ -373,6 +373,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/InputForm.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/InputForm.vue'],
     },
+    InputLazyForm: {
+      name: 'InputLazyForm',
+      type: 'components:example',
+      registryDependencies: ['button', 'form', 'input', 'toast'],
+      component: () => import('../src/lib/registry/default/example/InputLazyForm.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/InputLazyForm.vue'],
+    },
     InputFormAutoAnimate: {
       name: 'InputFormAutoAnimate',
       type: 'components:example',

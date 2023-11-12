@@ -66,3 +66,7 @@ import { Input } from '@/components/ui/input'
 ### Form
 
 <ComponentPreview name="InputForm" />
+
+#### v-model.lazy binding
+
+<ComponentPreview name="InputLazyForm" />
