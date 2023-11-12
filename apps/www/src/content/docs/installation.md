@@ -93,3 +93,15 @@ To configure import aliases, you can use the following `jsconfig.json`:
     }
   }
 }
+```
+
+## VSCode extension
+
+Install the [shadcn-vue](https://marketplace.visualstudio.com/items?itemName=Selemondev.shadcn-vue) extension by [@selemondev](https://github.com/selemondev) in Visual Studio Code to easily add Shadcn Vue components to your project. 
+
+This extension offers a range of features:
+- Ability to initialize the Shadcn Vue CLI
+- Install components
+- Open documentation
+- Navigate to a specific component's documentation page directly from your IDE. 
+- Handy snippets for quick and straightforward component imports and markup.
