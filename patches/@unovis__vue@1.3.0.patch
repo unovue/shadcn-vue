@@ -1,0 +1,13 @@
+diff --git a/package.json b/package.json
+index cf65a07e0d7abc8bf22e213d9746287cacb336cd..89eddfee2e4a7de93631d33d8280180915fc62ae 100644
+--- a/package.json
++++ b/package.json
+@@ -51,7 +51,7 @@
+     "gallery": "vite"
+   },
+   "peerDependencies": {
+-    "@unovis/ts": "1.2.1",
++    "@unovis/ts": "^1.2.1",
+     "vue": "^3"
+   },
+   "devDependencies": {
