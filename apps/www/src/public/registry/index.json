@@ -54,6 +54,19 @@
     "type": "components:ui"
   },
   {
+    "name": "area-chart",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "ui/area-chart/AreaChart.vue",
+      "ui/area-chart/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "aspect-ratio",
     "dependencies": [
       "radix-vue"

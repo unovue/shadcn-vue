@@ -1,0 +1,19 @@
+{
+  "name": "area-chart",
+  "dependencies": [
+    "@unovis/vue",
+    "@unovis/ts"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "AreaChart.vue",
+      "content": "<script setup lang=\"ts\">\nimport { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'\nimport { Area } from '@unovis/ts'\n\ntype Data = typeof data[number]\nconst data = [\n  { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Feb', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Mar', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Apr', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'May', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Jun', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Jul', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Aug', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Sep', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Oct', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Nov', total: Math.floor(Math.random() * 5000) + 1000 },\n  { name: 'Dec', total: Math.floor(Math.random() * 5000) + 1000 },\n]\n</script>\n\n<template>\n  <VisXYContainer height=\"350px\" :margin=\"{ left: 20, right: 20 }\" :data=\"data\">\n    <svg width=\"0\" height=\"0\">\n      <defs>\n        <linearGradient id=\"colorUv\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n          <stop offset=\"5%\" stop-color=\"hsl(var(--primary))\" stop-opacity=\"0.6\" />\n          <stop offset=\"95%\" stop-color=\"hsl(var(--primary))\" stop-opacity=\"0\" />\n        </linearGradient>\n      </defs>\n    </svg>\n\n    <VisArea\n      :x=\"(d: Data, i: number) => i\"\n      :y=\"(d: Data) => d.total\"\n      color=\"auto\"\n      :attributes=\"{\n        [Area.selectors.area]: {\n          fill: 'url(#colorUv)',\n        },\n      }\"\n      :rounded-corners=\"4\"\n      :bar-padding=\"0.15\"\n    />\n    <VisLine\n      :x=\"(d: Data, i: number) => i\"\n      :y=\"(d: Data) => d.total\"\n      color=\"hsl(var(--primary))\"\n    />\n    <VisAxis\n      type=\"x\"\n      :num-ticks=\"data.length\"\n      :tick-format=\"(index: number) => data[index]?.name\"\n      :grid-line=\"false\"\n      :tick-line=\"false\"\n      tick-text-color=\"hsl(var(--muted-foreground))\"\n    />\n    <VisAxis\n      type=\"y\"\n      :num-ticks=\"data.length\"\n      :tick-format=\"(index: number) => data[index]?.name\"\n      :grid-line=\"false\"\n      :tick-line=\"false\"\n      :domain-line=\"false\"\n      tick-text-color=\"hsl(var(--muted-foreground))\"\n    />\n  </VisXYContainer>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as AreaChart } from './AreaChart.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

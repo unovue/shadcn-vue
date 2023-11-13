@@ -121,7 +121,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'package.json': {
       content: {
         name: `shadcn-vue-${componentName.toLowerCase().replace(/ /g, '-')}`,
-        scripts: { start: `shadcn-vue add ${registryDependencies.join(' ')}  -y && vite` },
+        scripts: { start: registryDependencies ? `shadcn-vue add ${registryDependencies.join(' ')}  -y && vite` : 'vite' },
         dependencies,
         devDependencies,
       },
