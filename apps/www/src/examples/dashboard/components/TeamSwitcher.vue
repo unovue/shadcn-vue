@@ -131,7 +131,7 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
             <CommandGroup>
               <DialogTrigger as-child>
                 <CommandItem
-                  :value="{ label: 'Create Team' }"
+                  value="create-team"
                   @select="() => {
                     open = false
                     showNewTeamDialog = true
