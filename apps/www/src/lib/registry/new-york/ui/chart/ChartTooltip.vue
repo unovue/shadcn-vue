@@ -33,7 +33,7 @@ defineProps<{
           </span>
           <span>{{ item.name }}</span>
         </div>
-        <span class="font-semibold">{{ item.value }}</span>
+        <span class="font-semibold ml-4">{{ item.value }}</span>
       </div>
     </CardContent>
   </Card>

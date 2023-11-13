@@ -43,11 +43,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "@unovis/vue@1.3.0": "patches/@unovis__vue@1.3.0.patch"
-    }
-  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "commit-msg": "pnpm commitlint --edit ${1}"

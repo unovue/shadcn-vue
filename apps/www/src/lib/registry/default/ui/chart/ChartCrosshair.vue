@@ -25,7 +25,7 @@ function template(d: any, ...a: any) {
       const legendReference = props.items.find(i => i.name === key)
       return { ...legendReference, value }
     })
-    createApp(ChartTooltip, { title: d[props.index], data: omittedData }).mount(componentDiv)
+    createApp(ChartTooltip, { title: d[props.index].toString(), data: omittedData }).mount(componentDiv)
     wm.set(d, componentDiv.innerHTML)
     return componentDiv.innerHTML
   }
