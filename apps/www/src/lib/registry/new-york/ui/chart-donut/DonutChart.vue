@@ -13,11 +13,14 @@ const props = withDefaults(defineProps<{
   colors?: string[]
   type?: 'donut' | 'pie'
   filterOpacity?: number
-  valueFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
+  sortFunction?: (a: any, b: any) => number | undefined
+  valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string
   showTooltip?: boolean
   showLegend?: boolean
 }>(), {
   colors: () => defaultColors,
+  sortFunction: () => undefined,
+  valueFormatter: (tick: number) => `${tick}`,
   type: 'donut',
   filterOpacity: 0.2,
   showTooltip: true,
@@ -34,19 +37,29 @@ const legendItems = computed(() => props.data.map((item, i) => ({
   color: props.colors[i],
   inactive: false,
 })))
+
+const totalValue = computed(() => props.data.reduce((prev, curr) => {
+  return prev + curr[props.category]
+}, 0))
 </script>
 
 <template>
   <div :class="cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')">
     <VisSingleContainer :style="{ height: isMounted ? '100%' : 'auto' }" :margin="{ left: 20, right: 20 }" :data="data">
-      <ChartSingleTooltip :selector="Donut.selectors.segment" :index="category" :items="legendItems" />
+      <ChartSingleTooltip
+        :selector="Donut.selectors.segment"
+        :index="category"
+        :items="legendItems"
+        :value-formatter="valueFormatter"
+      />
 
       <VisDonut
         :value="(d: Data) => d[category]"
-        :sort-function="(a: Data, b: Data) => (a[category] - b[category])"
+        :sort-function="sortFunction"
         :color="colors"
         :arc-width="type === 'donut' ? 20 : 0"
         :show-background="false"
+        :central-label="valueFormatter(totalValue)"
         :events="{
           [Donut.selectors.segment]: {
             click: (d: any, ev: PointerEvent, i: number, elements: HTMLElement[]) => {

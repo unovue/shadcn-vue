@@ -49,7 +49,11 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
   <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
     <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
 
-    <VisXYContainer :style="{ height: isMounted ? '100%' : 'auto' }" :margin="{ left: 20, right: 20 }" :data="data">
+    <VisXYContainer
+      :margin="{ left: 20, right: 20 }"
+      :data="data"
+      :style="{ height: isMounted ? '100%' : 'auto' }"
+    >
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
 
       <template v-for="(category, i) in categories" :key="category">
@@ -68,7 +72,6 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
       <VisAxis
         v-if="showXAxis"
         type="x"
-        :num-ticks="data.length"
         :tick-format="xFormatter ?? ((v: number) => data[v]?.[index])"
         :grid-line="false"
         :tick-line="false"
@@ -77,7 +80,6 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
       <VisAxis
         v-if="showYAxis"
         type="y"
-        :num-ticks="data.length"
         :tick-line="false"
         :tick-format="yFormatter"
         :domain-line="false"
