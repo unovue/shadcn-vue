@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'New Toast component',
-  link: '/docs/components/toast',
+  title: 'VSCode extension',
+  link: '/docs/installation.html#vscode-extension',
 }

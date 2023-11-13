@@ -16,4 +16,3 @@ import { Label } from '@/lib/registry/new-york/ui/label'
     </CardContent>
   </Card>
 </template>
-@/lib/registry/default/example/DatePickerWithRange.vue

@@ -1,0 +1,23 @@
+{
+  "name": "chart-donut",
+  "dependencies": [
+    "@unovis/vue",
+    "@unovis/ts",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "chart",
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "DonutChart.vue",
+      "content": "<script setup lang=\"ts\">\nimport { VisDonut, VisSingleContainer } from '@unovis/vue'\nimport { Donut } from '@unovis/ts'\nimport { computed, ref } from 'vue'\nimport { useMounted } from '@vueuse/core'\nimport { ChartSingleTooltip, defaultColors } from '@/lib/registry/new-york/ui/chart'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<{\n  data: any[]\n  index: string\n  category: string\n  colors?: string[]\n  type?: 'donut' | 'pie'\n  filterOpacity?: number\n  sortFunction?: (a: any, b: any) => number | undefined\n  valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string\n  showTooltip?: boolean\n  showLegend?: boolean\n}>(), {\n  colors: () => defaultColors,\n  sortFunction: () => undefined,\n  valueFormatter: (tick: number) => `${tick}`,\n  type: 'donut',\n  filterOpacity: 0.2,\n  showTooltip: true,\n  showLegend: true,\n})\n\ntype Data = typeof props.data[number]\n\nconst isMounted = useMounted()\n\nconst activeSegmentKey = ref<string>()\nconst legendItems = computed(() => props.data.map((item, i) => ({\n  name: item[props.index],\n  color: props.colors[i],\n  inactive: false,\n})))\n\nconst totalValue = computed(() => props.data.reduce((prev, curr) => {\n  return prev + curr[props.category]\n}, 0))\n</script>\n\n<template>\n  <div :class=\"cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')\">\n    <VisSingleContainer :style=\"{ height: isMounted ? '100%' : 'auto' }\" :margin=\"{ left: 20, right: 20 }\" :data=\"data\">\n      <ChartSingleTooltip\n        :selector=\"Donut.selectors.segment\"\n        :index=\"category\"\n        :items=\"legendItems\"\n        :value-formatter=\"valueFormatter\"\n      />\n\n      <VisDonut\n        :value=\"(d: Data) => d[category]\"\n        :sort-function=\"sortFunction\"\n        :color=\"colors\"\n        :arc-width=\"type === 'donut' ? 20 : 0\"\n        :show-background=\"false\"\n        :central-label=\"valueFormatter(totalValue)\"\n        :events=\"{\n          [Donut.selectors.segment]: {\n            click: (d: any, ev: PointerEvent, i: number, elements: HTMLElement[]) => {\n              if (d?.data?.[index] === activeSegmentKey) {\n                activeSegmentKey = undefined\n                elements.forEach(el => el.style.opacity = '1')\n              }\n              else {\n                activeSegmentKey = d?.data?.[index]\n                elements.forEach(el => el.style.opacity = `${filterOpacity}`)\n                elements[i].style.opacity = '1'\n              }\n            },\n          },\n        }\"\n      />\n    </VisSingleContainer>\n  </div>\n</template>\n\n<style>\n:root {\n  --vis-tooltip-background-color: none;\n  --vis-tooltip-border-color: none;\n  --vis-tooltip-text-color: none;\n  --vis-tooltip-shadow-color: none;\n  --vis-tooltip-backdrop-filter: none;\n  --vis-tooltip-padding: none;\n}\n</style>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as DonutChart } from './DonutChart.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}
