@@ -209,7 +209,7 @@ const onSubmit = form.handleSubmit((values) => {
 <template>
   <form @submit="onSubmit">
     ...
-  </Form>
+  </form>
 </template>
 ```
 
@@ -302,7 +302,7 @@ const onSubmit = form.handleSubmit((values) => {
     <Button type="submit">
       Submit
     </Button>
-  </Form>
+  </form>
 </template>
 ```
 
