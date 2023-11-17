@@ -283,6 +283,7 @@
       "ui/form/FormLabel.vue",
       "ui/form/FormMessage.vue",
       "ui/form/index.ts",
+      "ui/form/InjectionKey.ts",
       "ui/form/useFormField.ts"
     ],
     "type": "components:ui"
@@ -312,8 +313,8 @@
       "utils"
     ],
     "files": [
-      "ui/input/Input.vue",
-      "ui/input/index.ts"
+      "ui/input/index.ts",
+      "ui/input/Input.vue"
     ],
     "type": "components:ui"
   },
@@ -326,8 +327,8 @@
       "utils"
     ],
     "files": [
-      "ui/label/Label.vue",
-      "ui/label/index.ts"
+      "ui/label/index.ts",
+      "ui/label/Label.vue"
     ],
     "type": "components:ui"
   },
@@ -340,6 +341,7 @@
       "utils"
     ],
     "files": [
+      "ui/menubar/index.ts",
       "ui/menubar/Menubar.vue",
       "ui/menubar/MenubarCheckboxItem.vue",
       "ui/menubar/MenubarContent.vue",
@@ -354,8 +356,7 @@
       "ui/menubar/MenubarSub.vue",
       "ui/menubar/MenubarSubContent.vue",
       "ui/menubar/MenubarSubTrigger.vue",
-      "ui/menubar/MenubarTrigger.vue",
-      "ui/menubar/index.ts"
+      "ui/menubar/MenubarTrigger.vue"
     ],
     "type": "components:ui"
   },
@@ -368,6 +369,7 @@
       "utils"
     ],
     "files": [
+      "ui/navigation-menu/index.ts",
       "ui/navigation-menu/NavigationMenu.vue",
       "ui/navigation-menu/NavigationMenuContent.vue",
       "ui/navigation-menu/NavigationMenuIndicator.vue",
@@ -375,8 +377,7 @@
       "ui/navigation-menu/NavigationMenuLink.vue",
       "ui/navigation-menu/NavigationMenuList.vue",
       "ui/navigation-menu/NavigationMenuTrigger.vue",
-      "ui/navigation-menu/NavigationMenuViewport.vue",
-      "ui/navigation-menu/index.ts"
+      "ui/navigation-menu/NavigationMenuViewport.vue"
     ],
     "type": "components:ui"
   },
@@ -390,12 +391,12 @@
       "button"
     ],
     "files": [
+      "ui/pagination/index.ts",
       "ui/pagination/PaginationEllipsis.vue",
       "ui/pagination/PaginationFirst.vue",
       "ui/pagination/PaginationLast.vue",
       "ui/pagination/PaginationNext.vue",
-      "ui/pagination/PaginationPrev.vue",
-      "ui/pagination/index.ts"
+      "ui/pagination/PaginationPrev.vue"
     ],
     "type": "components:ui"
   },
@@ -408,10 +409,10 @@
       "utils"
     ],
     "files": [
+      "ui/popover/index.ts",
       "ui/popover/Popover.vue",
       "ui/popover/PopoverContent.vue",
-      "ui/popover/PopoverTrigger.vue",
-      "ui/popover/index.ts"
+      "ui/popover/PopoverTrigger.vue"
     ],
     "type": "components:ui"
   },
@@ -424,8 +425,8 @@
       "utils"
     ],
     "files": [
-      "ui/progress/Progress.vue",
-      "ui/progress/index.ts"
+      "ui/progress/index.ts",
+      "ui/progress/Progress.vue"
     ],
     "type": "components:ui"
   },
@@ -438,9 +439,9 @@
       "utils"
     ],
     "files": [
+      "ui/radio-group/index.ts",
       "ui/radio-group/RadioGroup.vue",
-      "ui/radio-group/RadioGroupItem.vue",
-      "ui/radio-group/index.ts"
+      "ui/radio-group/RadioGroupItem.vue"
     ],
     "type": "components:ui"
   },
@@ -453,9 +454,9 @@
       "utils"
     ],
     "files": [
+      "ui/scroll-area/index.ts",
       "ui/scroll-area/ScrollArea.vue",
-      "ui/scroll-area/ScrollBar.vue",
-      "ui/scroll-area/index.ts"
+      "ui/scroll-area/ScrollBar.vue"
     ],
     "type": "components:ui"
   },
@@ -468,6 +469,7 @@
       "utils"
     ],
     "files": [
+      "ui/select/index.ts",
       "ui/select/Select.vue",
       "ui/select/SelectContent.vue",
       "ui/select/SelectGroup.vue",
@@ -476,8 +478,7 @@
       "ui/select/SelectLabel.vue",
       "ui/select/SelectSeparator.vue",
       "ui/select/SelectTrigger.vue",
-      "ui/select/SelectValue.vue",
-      "ui/select/index.ts"
+      "ui/select/SelectValue.vue"
     ],
     "type": "components:ui"
   },
@@ -490,8 +491,8 @@
       "utils"
     ],
     "files": [
-      "ui/separator/Separator.vue",
-      "ui/separator/index.ts"
+      "ui/separator/index.ts",
+      "ui/separator/Separator.vue"
     ],
     "type": "components:ui"
   },
@@ -504,6 +505,7 @@
       "utils"
     ],
     "files": [
+      "ui/sheet/index.ts",
       "ui/sheet/Sheet.vue",
       "ui/sheet/SheetClose.vue",
       "ui/sheet/SheetContent.vue",
@@ -511,8 +513,7 @@
       "ui/sheet/SheetFooter.vue",
       "ui/sheet/SheetHeader.vue",
       "ui/sheet/SheetTitle.vue",
-      "ui/sheet/SheetTrigger.vue",
-      "ui/sheet/index.ts"
+      "ui/sheet/SheetTrigger.vue"
     ],
     "type": "components:ui"
   },
@@ -523,8 +524,8 @@
       "utils"
     ],
     "files": [
-      "ui/skeleton/Skeleton.vue",
-      "ui/skeleton/index.ts"
+      "ui/skeleton/index.ts",
+      "ui/skeleton/Skeleton.vue"
     ],
     "type": "components:ui"
   },
@@ -537,8 +538,8 @@
       "utils"
     ],
     "files": [
-      "ui/slider/Slider.vue",
-      "ui/slider/index.ts"
+      "ui/slider/index.ts",
+      "ui/slider/Slider.vue"
     ],
     "type": "components:ui"
   },
@@ -551,8 +552,8 @@
       "utils"
     ],
     "files": [
-      "ui/switch/Switch.vue",
-      "ui/switch/index.ts"
+      "ui/switch/index.ts",
+      "ui/switch/Switch.vue"
     ],
     "type": "components:ui"
   },
@@ -563,6 +564,7 @@
       "utils"
     ],
     "files": [
+      "ui/table/index.ts",
       "ui/table/Table.vue",
       "ui/table/TableBody.vue",
       "ui/table/TableCaption.vue",
@@ -571,8 +573,7 @@
       "ui/table/TableFooter.vue",
       "ui/table/TableHead.vue",
       "ui/table/TableHeader.vue",
-      "ui/table/TableRow.vue",
-      "ui/table/index.ts"
+      "ui/table/TableRow.vue"
     ],
     "type": "components:ui"
   },
@@ -585,11 +586,11 @@
       "utils"
     ],
     "files": [
+      "ui/tabs/index.ts",
       "ui/tabs/Tabs.vue",
       "ui/tabs/TabsContent.vue",
       "ui/tabs/TabsList.vue",
-      "ui/tabs/TabsTrigger.vue",
-      "ui/tabs/index.ts"
+      "ui/tabs/TabsTrigger.vue"
     ],
     "type": "components:ui"
   },
@@ -602,8 +603,8 @@
       "utils"
     ],
     "files": [
-      "ui/textarea/Textarea.vue",
-      "ui/textarea/index.ts"
+      "ui/textarea/index.ts",
+      "ui/textarea/Textarea.vue"
     ],
     "type": "components:ui"
   },
@@ -616,15 +617,15 @@
       "utils"
     ],
     "files": [
+      "ui/toast/index.ts",
       "ui/toast/Toast.vue",
       "ui/toast/ToastAction.vue",
       "ui/toast/ToastClose.vue",
       "ui/toast/ToastDescription.vue",
+      "ui/toast/Toaster.vue",
       "ui/toast/ToastProvider.vue",
       "ui/toast/ToastTitle.vue",
       "ui/toast/ToastViewport.vue",
-      "ui/toast/Toaster.vue",
-      "ui/toast/index.ts",
       "ui/toast/use-toast.ts"
     ],
     "type": "components:ui"
@@ -638,8 +639,8 @@
       "utils"
     ],
     "files": [
-      "ui/toggle/Toggle.vue",
-      "ui/toggle/index.ts"
+      "ui/toggle/index.ts",
+      "ui/toggle/Toggle.vue"
     ],
     "type": "components:ui"
   },
@@ -652,11 +653,11 @@
       "utils"
     ],
     "files": [
+      "ui/tooltip/index.ts",
       "ui/tooltip/Tooltip.vue",
       "ui/tooltip/TooltipContent.vue",
       "ui/tooltip/TooltipProvider.vue",
-      "ui/tooltip/TooltipTrigger.vue",
-      "ui/tooltip/index.ts"
+      "ui/tooltip/TooltipTrigger.vue"
     ],
     "type": "components:ui"
   }
