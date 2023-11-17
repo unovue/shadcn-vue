@@ -36,6 +36,9 @@ async function crawlUI(rootPath: string) {
     withFileTypes: true,
   })
 
+  // Sort to ensure consistent order across platforms
+  dir.sort()
+
   const uiRegistry: Registry = []
 
   for (const dirent of dir) {
@@ -58,6 +61,9 @@ async function crawlExample(rootPath: string) {
     recursive: true,
     withFileTypes: true,
   })
+
+  // Sort to ensure consistent order across platforms
+  dir.sort()
 
   const exampleRegistry: Registry = []
 
@@ -99,6 +105,8 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
   const dir = await readdir(componentPath, {
     withFileTypes: true,
   })
+  // Sort to ensure consistent order across platforms
+  dir.sort()
 
   const files: string[] = []
   const dependencies = new Set<string>()
