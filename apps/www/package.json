@@ -9,6 +9,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
+    "vue-tsc": "vue-tsc --noEmit",
     "build:registry": "tsx ./scripts/build-registry.ts"
   },
   "dependencies": {
