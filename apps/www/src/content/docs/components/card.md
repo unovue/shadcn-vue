@@ -3,6 +3,12 @@ title: Card
 description: Displays a card with header, content, and footer.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="CardFormDemo"  /> 
 
@@ -16,31 +22,31 @@ npx shadcn-vue@latest add card
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+  {{codeConfig.prefix}}Card,
+  {{codeConfig.prefix}}CardContent,
+  {{codeConfig.prefix}}CardDescription,
+  {{codeConfig.prefix}}CardFooter,
+  {{codeConfig.prefix}}CardHeader,
+  {{codeConfig.prefix}}CardTitle,
+} from '{{codeConfig.aliases.components}}/ui/card'
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle>Card Title</CardTitle>
-      <CardDescription>Card Description</CardDescription>
-    </CardHeader>
-    <CardContent>
+  <{{codeConfig.prefix}}Card>
+    <{{codeConfig.prefix}}CardHeader>
+      <{{codeConfig.prefix}}CardTitle>Card Title</{{codeConfig.prefix}}CardTitle>
+      <{{codeConfig.prefix}}CardDescription>Card Description</{{codeConfig.prefix}}CardDescription>
+    </{{codeConfig.prefix}}CardHeader>
+    <{{codeConfig.prefix}}CardContent>
       Card Content
-    </CardContent>
-    <CardFooter>
+    </{{codeConfig.prefix}}CardContent>
+    <{{codeConfig.prefix}}CardFooter>
       Card Footer
-    </CardFooter>
-  </Card>
+    </{{codeConfig.prefix}}CardFooter>
+  </{{codeConfig.prefix}}Card>
 </template>
 ```
 

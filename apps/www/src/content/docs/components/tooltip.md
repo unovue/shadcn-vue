@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/tooltip
 primitive: https://www.radix-vue.com/components/tooltip.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="TooltipDemo" /> 
 
 
@@ -16,24 +23,24 @@ npx shadcn-vue@latest add tooltip
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/components/ui/tooltip'
+  {{codeConfig.prefix}}Tooltip,
+  {{codeConfig.prefix}}TooltipContent,
+  {{codeConfig.prefix}}TooltipProvider,
+  {{codeConfig.prefix}}TooltipTrigger
+} from '{{codeConfig.aliases.components}}/ui/tooltip'
 </script>
 
 <template>
-  <TooltipProvider>
-    <Tooltip>
-      <TooltipTrigger>Hover</TooltipTrigger>
-      <TooltipContent>
+  <{{codeConfig.prefix}}TooltipProvider>
+    <{{codeConfig.prefix}}Tooltip>
+      <{{codeConfig.prefix}}TooltipTrigger>Hover</{{codeConfig.prefix}}TooltipTrigger>
+      <{{codeConfig.prefix}}TooltipContent>
         <p>Add to library</p>
-      </TooltipContent>
-    </Tooltip>
-  </TooltipProvider>
+      </{{codeConfig.prefix}}TooltipContent>
+    </{{codeConfig.prefix}}Tooltip>
+  </{{codeConfig.prefix}}TooltipProvider>
 </template>
 ```

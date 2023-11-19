@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/label
 primitive: https://www.radix-vue.com/components/label.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="LabelDemo" /> 
 
 
@@ -39,12 +46,12 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Label } from '@/components/ui/label'
+import { {{codeConfig.prefix}}Label } from '{{codeConfig.aliases.components}}/ui/label'
 </script>
 
 <template>
-  <Label for="email">Your email address</Label>
+  <{{codeConfig.prefix}}Label for="email">Your email address</{{codeConfig.prefix}}Label>
 </template>
 ```

@@ -3,6 +3,12 @@ title: Button
 description: Displays a button or a component that looks like a button.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="ButtonDemo"  /> 
 
@@ -22,10 +28,10 @@ npx shadcn-vue@latest add button
 
 ### Copy and paste the following code into your project
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import { cva } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import { cn } from '{{codeConfig.aliases.utils}}'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -84,13 +90,13 @@ withDefaults(defineProps<Props>(), {
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import { {{codeConfig.prefix}}Button } from '{{codeConfig.aliases.components}}/ui/button'
 </script>
 
 <template>
-  <Button>Button</Button>
+  <{{codeConfig.prefix}}Button>Button</{{codeConfig.prefix}}Button>
 </template>
 ```
 

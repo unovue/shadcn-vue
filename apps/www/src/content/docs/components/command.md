@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/command
 primitive: https://www.radix-vue.com/components/combobox.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="CommandDemo" /> 
 
@@ -18,51 +24,51 @@ npx shadcn-vue@latest add command
 ``` 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from '@/components/ui/command'
+  {{codeConfig.prefix}}Command,
+  {{codeConfig.prefix}}CommandDialog,
+  {{codeConfig.prefix}}CommandEmpty,
+  {{codeConfig.prefix}}CommandGroup,
+  {{codeConfig.prefix}}CommandInput,
+  {{codeConfig.prefix}}CommandItem,
+  {{codeConfig.prefix}}CommandList,
+  {{codeConfig.prefix}}CommandSeparator,
+  {{codeConfig.prefix}}CommandShortcut,
+} from '{{codeConfig.aliases.components}}/ui/command'
 </script>
 
 <template>
-  <Command>
-    <CommandInput placeholder="Type a command or search..." />
-    <CommandList>
-      <CommandEmpty>No results found.</CommandEmpty>
-      <CommandGroup heading="Suggestions">
-        <CommandItem value="calendar">
+  <{{codeConfig.prefix}}Command>
+    <{{codeConfig.prefix}}CommandInput placeholder="Type a command or search..." />
+    <{{codeConfig.prefix}}CommandList>
+      <{{codeConfig.prefix}}CommandEmpty>No results found.</{{codeConfig.prefix}}CommandEmpty>
+      <{{codeConfig.prefix}}CommandGroup heading="Suggestions">
+        <{{codeConfig.prefix}}CommandItem value="calendar">
           Calendar
-        </CommandItem>
-        <CommandItem value="search-emoji">
+        </{{codeConfig.prefix}}CommandItem>
+        <{{codeConfig.prefix}}CommandItem value="search-emoji">
           Search Emoji
-        </CommandItem>
-        <CommandItem value="calculator">
+        </{{codeConfig.prefix}}CommandItem>
+        <{{codeConfig.prefix}}CommandItem value="calculator">
           Calculator
-        </CommandItem>
-      </CommandGroup>
-      <CommandSeparator />
-      <CommandGroup heading="Settings">
-        <CommandItem value="profile">
+        </{{codeConfig.prefix}}CommandItem>
+      </{{codeConfig.prefix}}CommandGroup>
+      <{{codeConfig.prefix}}CommandSeparator />
+      <{{codeConfig.prefix}}CommandGroup heading="Settings">
+        <{{codeConfig.prefix}}CommandItem value="profile">
           Profile
-        </CommandItem>
-        <CommandItem value="billing">
+        </{{codeConfig.prefix}}CommandItem>
+        <{{codeConfig.prefix}}CommandItem value="billing">
           Billing
-        </CommandItem>
-        <CommandItem value="settings">
+        </{{codeConfig.prefix}}CommandItem>
+        <{{codeConfig.prefix}}CommandItem value="settings">
           Settings
-        </CommandItem>
-      </CommandGroup>
-    </CommandList>
-  </Command>
+        </{{codeConfig.prefix}}CommandItem>
+      </{{codeConfig.prefix}}CommandGroup>
+    </{{codeConfig.prefix}}CommandList>
+  </{{codeConfig.prefix}}Command>
 </template>
 ```
 

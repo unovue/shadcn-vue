@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/hover-card
 primitive: https://www.radix-vue.com/components/hover-card.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="HoverCardDemo" /> 
 
@@ -15,21 +21,21 @@ npx shadcn-vue@latest add hover-card
 ``` 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card'
+  {{codeConfig.prefix}}HoverCard,
+  {{codeConfig.prefix}}HoverCardContent,
+  {{codeConfig.prefix}}HoverCardTrigger,
+} from '{{codeConfig.aliases.components}}/ui/hover-card'
 </script>
 
 <template>
-  <HoverCard>
-    <HoverCardTrigger>Hover</HoverCardTrigger>
-    <HoverCardContent>
+  <{{codeConfig.prefix}}HoverCard>
+    <{{codeConfig.prefix}}HoverCardTrigger>Hover</{{codeConfig.prefix}}HoverCardTrigger>
+    <{{codeConfig.prefix}}HoverCardContent>
       The Vue Framework – created and maintained by @vuejs.
-    </HoverCardContent>
-  </HoverCard>
+    </{{codeConfig.prefix}}HoverCardContent>
+  </{{codeConfig.prefix}}HoverCard>
 </template>
 ```

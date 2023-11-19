@@ -3,6 +3,12 @@ title: Badge
 description: Displays a badge or a component that looks like a badge.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="BadgeDemo"  /> 
 
@@ -22,10 +28,10 @@ npx shadcn-vue@latest add badge
 
 ### Copy and paste the following code into your project
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import { type VariantProps, cva } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import { cn } from '{{codeConfig.aliases.utils}}'
 
 defineProps<Props>()
 
@@ -70,13 +76,13 @@ interface Props {
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Badge } from '@/components/ui/badge'
+import { {{codeConfig.prefix}}Badge } from '{{codeConfig.aliases.components}}/ui/badge'
 </script>
 
 <template>
-  <Badge>Badge</Badge>
+  <{{codeConfig.prefix}}Badge>Badge</{{codeConfig.prefix}}Badge>
 </template>
 ```
 

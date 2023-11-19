@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/select
 primitive: https://www.radix-vue.com/components/select.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="SelectDemo" /> 
 
@@ -17,33 +23,33 @@ npx shadcn-vue@latest add select
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+  {{codeConfig.prefix}}Select,
+  {{codeConfig.prefix}}SelectContent,
+  {{codeConfig.prefix}}SelectGroup,
+  {{codeConfig.prefix}}SelectItem,
+  {{codeConfig.prefix}}SelectLabel,
+  {{codeConfig.prefix}}SelectTrigger,
+  {{codeConfig.prefix}}SelectValue,
+} from '{{codeConfig.aliases.components}}/ui/select'
 </script>
 
 <template>
-  <Select>
-    <SelectTrigger>
-      <SelectValue placeholder="Select a fruit" />
-    </SelectTrigger>
-    <SelectContent>
-      <SelectGroup>
-        <SelectLabel>Fruits</SelectLabel>
-        <SelectItem value="apple">
+  <{{codeConfig.prefix}}Select>
+    <{{codeConfig.prefix}}SelectTrigger>
+      <{{codeConfig.prefix}}SelectValue placeholder="Select a fruit" />
+    </{{codeConfig.prefix}}SelectTrigger>
+    <{{codeConfig.prefix}}SelectContent>
+      <{{codeConfig.prefix}}SelectGroup>
+        <{{codeConfig.prefix}}SelectLabel>Fruits</{{codeConfig.prefix}}SelectLabel>
+        <{{codeConfig.prefix}}SelectItem value="apple">
           Apple
-        </SelectItem>
-      </SelectGroup>
-    </SelectContent>
-  </Select>
+        </{{codeConfig.prefix}}SelectItem>
+      </{{codeConfig.prefix}}SelectGroup>
+    </{{codeConfig.prefix}}SelectContent>
+  </{{codeConfig.prefix}}Select>
 </template>
 ```
 

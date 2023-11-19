@@ -3,6 +3,13 @@ title: VeeValidate
 description: Building forms with VeeValidate and Zod.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.
 
 Well-designed HTML forms are:
@@ -35,19 +42,33 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 ## Anatomy
 
-```vue
-<Form>
-  <FormField v-slot="{ ... }">
-    <FormItem>
-      <FormLabel />
-      <FormControl>
+```vue-vue
+<script setup lang="ts">
+import {
+  {{codeConfig.prefix}}Form,
+  {{codeConfig.prefix}}FormField,
+  {{codeConfig.prefix}}FormItem,
+  {{codeConfig.prefix}}FormLabel,
+  {{codeConfig.prefix}}FormControl,
+  {{codeConfig.prefix}}FormDescription,
+  {{codeConfig.prefix}}FormMessage,
+} from '{{codeConfig.aliases.components}}/ui/form'
+</script>
+```
+
+```vue-vue
+<{{codeConfig.prefix}}Form>
+  <{{codeConfig.prefix}}FormField v-slot="{ ... }">
+    <{{codeConfig.prefix}}FormItem>
+      <{{codeConfig.prefix}}FormLabel />
+      <{{codeConfig.prefix}}FormControl>
         <!-- any Form Input component or native input elements -->
-      </FormControl>
-      <FormDescription />
-      <FormMessage />
-    </FormItem>
-  </FormField>
-</Form>
+      </{{codeConfig.prefix}}FormControl>
+      <{{codeConfig.prefix}}FormDescription />
+      <{{codeConfig.prefix}}FormMessage />
+    </{{codeConfig.prefix}}FormItem>
+  </{{codeConfig.prefix}}FormField>
+</{{codeConfig.prefix}}Form>
 ```
 
 ## Example
@@ -58,17 +79,17 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 #### `Input` Component
 
-```vue
-<FormField v-slot="{ componentField }">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
-      <Input placeholder="shadcn" v-bind="componentField" />
-    </FormControl>
-    <FormDescription />
-    <FormMessage />
-  </FormItem>
-</FormField>
+```vue-vue
+<{{codeConfig.prefix}}FormField v-slot="{ componentField }">
+  <{{codeConfig.prefix}}FormItem>
+    <{{codeConfig.prefix}}FormLabel>Username</{{codeConfig.prefix}}FormLabel>
+    <{{codeConfig.prefix}}FormControl>
+      <{{codeConfig.prefix}}Input placeholder="shadcn" v-bind="componentField" />
+    </{{codeConfig.prefix}}FormControl>
+    <{{codeConfig.prefix}}FormDescription />
+    <{{codeConfig.prefix}}FormMessage />
+  </{{codeConfig.prefix}}FormItem>
+</{{codeConfig.prefix}}FormField>
 ```
 
 </template>
@@ -77,17 +98,17 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 #### native `input` element
 
-```vue
-<FormField v-slot="{ field }">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
+```vue-vue
+<{{codeConfig.prefix}}FormField v-slot="{ field }">
+  <{{codeConfig.prefix}}FormItem>
+    <{{codeConfig.prefix}}FormLabel>Username</{{codeConfig.prefix}}FormLabel>
+    <{{codeConfig.prefix}}FormControl>
       <input placeholder="shadcn" v-bind="field" />
-    </FormControl>
-    <FormDescription />
-    <FormMessage />
-  </FormItem>
-</FormField>
+    </{{codeConfig.prefix}}FormControl>
+    <{{codeConfig.prefix}}FormDescription />
+    <{{codeConfig.prefix}}FormMessage />
+  </{{codeConfig.prefix}}FormItem>
+</{{codeConfig.prefix}}FormField>
 ```
 
 </template>

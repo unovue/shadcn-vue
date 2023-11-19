@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/progress
 primitive: https://www.radix-vue.com/components/progress.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="ProgressDemo" /> 
 
 
@@ -40,12 +47,12 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Progress } from '@/components/ui/progress'
+import { {{codeConfig.prefix}}Progress } from '{{codeConfig.aliases.components}}/ui/progress'
 </script>
 
 <template>
-  <Progress :model-value="33" />
+  <{{codeConfig.prefix}}Progress :model-value="33" />
 </template>
 ```

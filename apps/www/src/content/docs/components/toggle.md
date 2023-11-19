@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/toggle
 primitive: https://www.radix-vue.com/components/toggle.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="ToggleDemo" /> 
 
 
@@ -40,13 +47,13 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Toggle } from '@/components/ui/toggle'
+import { {{codeConfig.prefix}}Toggle } from '{{codeConfig.aliases.components}}/ui/toggle'
 </script>
 
 <template>
-  <Toggle>Toggle</Toggle>
+  <{{codeConfig.prefix}}Toggle>Toggle</{{codeConfig.prefix}}Toggle>
 </template>
 ```
 

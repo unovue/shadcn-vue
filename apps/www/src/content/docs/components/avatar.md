@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/avatar
 primitive: https://www.radix-vue.com/components/avatar.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="AvatarDemo" /> 
 
@@ -18,15 +24,15 @@ npx shadcn-vue@latest add avatar
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { {{codeConfig.prefix}}Avatar, {{codeConfig.prefix}}AvatarFallback, {{codeConfig.prefix}}AvatarImage } from '{{codeConfig.aliases.components}}/ui/avatar'
 </script>
 
 <template>
-  <Avatar>
-    <AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
-    <AvatarFallback>CN</AvatarFallback>
-  </Avatar>
+  <{{codeConfig.prefix}}Avatar>
+    <{{codeConfig.prefix}}AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
+    <{{codeConfig.prefix}}AvatarFallback>CN</{{codeConfig.prefix}}AvatarFallback>
+  </{{codeConfig.prefix}}Avatar>
 </template>
 ```

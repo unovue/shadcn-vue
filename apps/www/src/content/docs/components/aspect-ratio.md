@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/aspect-ratio
 primitive: https://www.radix-vue.com/components/aspect-ratio.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="AspectRatioDemo" />
 
@@ -39,16 +45,16 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { {{codeConfig.prefix}}AspectRatio } from '{{codeConfig.aliases.components}}/ui/aspect-ratio'
 </script>
 
 <template>
   <div class="w-[450px]">
-    <AspectRatio :ratio="16 / 9">
+    <{{codeConfig.prefix}}AspectRatio :ratio="16 / 9">
       <img src="..." alt="Image" class="rounded-md object-cover">
-    </AspectRatio>
+    </{{codeConfig.prefix}}AspectRatio>
   </div>
 </template>
 ```

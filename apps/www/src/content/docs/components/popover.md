@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/popover
 primitive: https://www.radix-vue.com/components/popover.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 
 <ComponentPreview name="PopoverDemo" /> 
 
@@ -17,21 +24,21 @@ npx shadcn-vue@latest add popover
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
+  {{codeConfig.prefix}}Popover,
+  {{codeConfig.prefix}}PopoverContent,
+  {{codeConfig.prefix}}PopoverTrigger,
+} from '{{codeConfig.aliases.components}}/ui/popover'
 </script>
 
 <template>
-  <Popover>
-    <PopoverTrigger>
+  <{{codeConfig.prefix}}Popover>
+    <{{codeConfig.prefix}}PopoverTrigger>
       Open popover
-    </PopoverTrigger>
-    <PopoverContent />
-  </Popover>
+    </{{codeConfig.prefix}}PopoverTrigger>
+    <{{codeConfig.prefix}}PopoverContent>...</{{codeConfig.prefix}}PopoverContent>
+  </{{codeConfig.prefix}}Popover>
 </template>
 ```

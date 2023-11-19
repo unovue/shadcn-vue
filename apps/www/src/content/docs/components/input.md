@@ -3,6 +3,13 @@ title: Input
 description: Displays a form input field or a component that looks like an input field.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 
 <ComponentPreview name="InputDemo" class="max-w-xs" /> 
 
@@ -33,13 +40,13 @@ npx shadcn-vue@latest add input
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Input } from '@/components/ui/input'
+import { {{codeConfig.prefix}}Input } from '{{codeConfig.aliases.components}}/ui/input'
 </script>
 
 <template>
-  <Input />
+  <{{codeConfig.prefix}}Input />
 </template>
 ```
 

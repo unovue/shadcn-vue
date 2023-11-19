@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/dialog
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="DialogDemo" /> 
  
@@ -15,37 +21,37 @@ npx shadcn-vue@latest add dialog
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
+  {{codeConfig.prefix}}Dialog,
+  {{codeConfig.prefix}}DialogContent,
+  {{codeConfig.prefix}}DialogDescription,
+  {{codeConfig.prefix}}DialogFooter,
+  {{codeConfig.prefix}}DialogHeader,
+  {{codeConfig.prefix}}DialogTitle,
+  {{codeConfig.prefix}}DialogTrigger,
+} from '{{codeConfig.aliases.components}}/ui/dialog'
 </script>
 
 <template>
-  <Dialog>
-    <DialogTrigger>
+  <{{codeConfig.prefix}}Dialog>
+    <{{codeConfig.prefix}}DialogTrigger>
       Edit Profile
-    </DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogTitle>Edit profile</DialogTitle>
-        <DialogDescription>
+    </{{codeConfig.prefix}}DialogTrigger>
+    <{{codeConfig.prefix}}DialogContent>
+      <{{codeConfig.prefix}}DialogHeader>
+        <{{codeConfig.prefix}}DialogTitle>Edit profile</{{codeConfig.prefix}}DialogTitle>
+        <{{codeConfig.prefix}}DialogDescription>
           Make changes to your profile here. Click save when you're done.
-        </DialogDescription>
-      </DialogHeader>
+        </{{codeConfig.prefix}}DialogDescription>
+      </{{codeConfig.prefix}}DialogHeader>
 
-      <DialogFooter>
+      <{{codeConfig.prefix}}DialogFooter>
         Save changes
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
+      </{{codeConfig.prefix}}DialogFooter>
+    </{{codeConfig.prefix}}DialogContent>
+  </{{codeConfig.prefix}}Dialog>
 </template>
 ```
 

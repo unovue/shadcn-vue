@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/accordion
 primitive: https://www.radix-vue.com/components/accordion.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="AccordionDemo" class="sm:max-w-[70%]" />
 
@@ -52,20 +58,25 @@ module.exports = {
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { 
+  {{codeConfig.prefix}}Accordion,
+  {{codeConfig.prefix}}AccordionContent,
+  {{codeConfig.prefix}}AccordionItem,
+  {{codeConfig.prefix}}AccordionTrigger 
+} from '{{codeConfig.aliases.components}}/ui/accordion'
 </script>
 
 <template>
-  <Accordion type="single" collapsible>
-    <AccordionItem value="item-1">
-      <AccordionTrigger>Is it accessible?</AccordionTrigger>
-      <AccordionContent>
+  <{{codeConfig.prefix}}Accordion type="single" collapsible>
+    <{{codeConfig.prefix}}AccordionItem value="item-1">
+      <{{codeConfig.prefix}}AccordionTrigger>Is it accessible?</{{codeConfig.prefix}}AccordionTrigger>
+      <{{codeConfig.prefix}}AccordionContent>
         Yes. It adheres to the WAI-ARIA design pattern.
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>
+      </{{codeConfig.prefix}}AccordionContent>
+    </{{codeConfig.prefix}}AccordionItem>
+  </{{codeConfig.prefix}}Accordion>
 </template>
 ```
 

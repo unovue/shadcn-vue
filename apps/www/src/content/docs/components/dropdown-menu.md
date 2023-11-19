@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/dropdown-menu
 primitive: https://www.radix-vue.com/components/dropdown-menu.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="DropdownMenuDemo" /> 
 
@@ -15,29 +21,29 @@ npx shadcn-vue@latest add dropdown-menu
 ``` 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+  {{codeConfig.prefix}}DropdownMenu,
+  {{codeConfig.prefix}}DropdownMenuContent,
+  {{codeConfig.prefix}}DropdownMenuItem,
+  {{codeConfig.prefix}}DropdownMenuLabel,
+  {{codeConfig.prefix}}DropdownMenuSeparator,
+  {{codeConfig.prefix}}DropdownMenuTrigger,
+} from '{{codeConfig.aliases.components}}/ui/dropdown-menu'
 </script>
 
 <template>
-  <DropdownMenu>
-    <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-    <DropdownMenuContent>
-      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>Profile</DropdownMenuItem>
-      <DropdownMenuItem>Billing</DropdownMenuItem>
-      <DropdownMenuItem>Team</DropdownMenuItem>
-      <DropdownMenuItem>Subscription</DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
+  <{{codeConfig.prefix}}DropdownMenu>
+    <{{codeConfig.prefix}}DropdownMenuTrigger>Open</{{codeConfig.prefix}}DropdownMenuTrigger>
+    <{{codeConfig.prefix}}DropdownMenuContent>
+      <{{codeConfig.prefix}}DropdownMenuLabel>My Account</{{codeConfig.prefix}}DropdownMenuLabel>
+      <{{codeConfig.prefix}}DropdownMenuSeparator />
+      <{{codeConfig.prefix}}DropdownMenuItem>Profile</{{codeConfig.prefix}}DropdownMenuItem>
+      <{{codeConfig.prefix}}DropdownMenuItem>Billing</{{codeConfig.prefix}}DropdownMenuItem>
+      <{{codeConfig.prefix}}DropdownMenuItem>Team</{{codeConfig.prefix}}DropdownMenuItem>
+      <{{codeConfig.prefix}}DropdownMenuItem>Subscription</{{codeConfig.prefix}}DropdownMenuItem>
+    </{{codeConfig.prefix}}DropdownMenuContent>
+  </{{codeConfig.prefix}}DropdownMenu>
 </template>
 ```

@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/collapsible
 primitive: https://www.radix-vue.com/components/collapsible.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="CollapsibleDemo" /> 
 
@@ -52,25 +58,25 @@ module.exports = {
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import { ref } from 'vue'
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+  {{codeConfig.prefix}}Collapsible,
+  {{codeConfig.prefix}}CollapsibleContent,
+  {{codeConfig.prefix}}CollapsibleTrigger,
+} from '{{codeConfig.aliases.components}}/ui/collapsible'
 
 const isOpen = ref(false)
 </script>
 
 <template>
-  <Collapsible v-model:open="isOpen">
-    <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
-    <CollapsibleContent>
+  <{{codeConfig.prefix}}Collapsible v-model:open="isOpen">
+    <{{codeConfig.prefix}}CollapsibleTrigger>Can I use this in my project?</{{codeConfig.prefix}}CollapsibleTrigger>
+    <{{codeConfig.prefix}}CollapsibleContent>
       Yes. Free to use for personal and commercial projects. No attribution
       required.
-    </CollapsibleContent>
-  </Collapsible>
+    </{{codeConfig.prefix}}CollapsibleContent>
+  </{{codeConfig.prefix}}Collapsible>
 </template>
 ```

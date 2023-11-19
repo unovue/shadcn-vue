@@ -3,6 +3,13 @@ title: Textarea
 description: Displays a form textarea or a component that looks like a textarea.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="TextareaDemo" /> 
 
 
@@ -37,13 +44,13 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Textarea } from '@/components/ui/textarea'
+import { {{codeConfig.prefix}}Textarea } from '{{codeConfig.aliases.components}}/ui/textarea'
 </script>
 
 <template>
-  <Textarea />
+  <{{codeConfig.prefix}}Textarea />
 </template>
 ```
 

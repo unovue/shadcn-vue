@@ -3,6 +3,12 @@ title: Calendar
 description: A date field component that allows users to enter and edit date.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="CalendarDemo"  /> 
 
@@ -44,13 +50,13 @@ npm install v-calendar
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Calendar } from '@/components/ui/calendar'
+import { {{codeConfig.prefix}}Calendar } from '{{codeConfig.aliases.components}}/ui/calendar'
 </script>
 
 <template>
-  <Calendar />
+  <{{codeConfig.prefix}}Calendar />
 </template>
 ```
 

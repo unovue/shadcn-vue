@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/switch
 primitive: https://www.radix-vue.com/components/switch.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="SwitchDemo" /> 
 
 
@@ -39,13 +46,13 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Switch } from '@/components/ui/switch'
+import { {{codeConfig.prefix}}Switch } from '{{codeConfig.aliases.components}}/ui/switch'
 </script>
 
 <template>
-  <Switch />
+  <{{codeConfig.prefix}}Switch />
 </template>
 ```
 

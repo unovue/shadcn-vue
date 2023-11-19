@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/slider
 primitive: https://www.radix-vue.com/components/slider.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="SliderDemo" /> 
 
 ## Installation
@@ -15,14 +22,12 @@ npx shadcn-vue@latest add slider
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Slider } from '@/components/ui/slider'
+import { {{codeConfig.prefix}}Slider } from '{{codeConfig.aliases.components}}/ui/slider'
 </script>
 
 <template>
-  <Slider
-    :default-value="[33]" :max="100" :step="1"
-  />
+  <{{codeConfig.prefix}}Slider :default-value="[33]" :max="100" :step="1" />
 </template>
 ```

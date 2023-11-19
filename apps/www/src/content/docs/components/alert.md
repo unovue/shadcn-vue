@@ -3,6 +3,11 @@ title: Alert
 description: Displays a callout for user attention.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
 
 <ComponentPreview name="AlertDemo"  /> 
 
@@ -15,18 +20,18 @@ npx shadcn-vue@latest add alert
   
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { {{codeConfig.prefix}}Alert, {{codeConfig.prefix}}AlertDescription, {{codeConfig.prefix}}AlertTitle } from '{{codeConfig.aliases.components}}/ui/alert'
 </script>
 
 <template>
-  <Alert>
-    <AlertTitle>Heads up!</AlertTitle>
-    <AlertDescription>
+  <{{codeConfig.prefix}}Alert>
+    <{{codeConfig.prefix}}AlertTitle>Heads up!</{{codeConfig.prefix}}AlertTitle>
+    <{{codeConfig.prefix}}AlertDescription>
       You can add components to your app using the cli.
-    </AlertDescription>
-  </Alert>
+    </{{codeConfig.prefix}}AlertDescription>
+  </{{codeConfig.prefix}}Alert>
 </template>
 ```
 

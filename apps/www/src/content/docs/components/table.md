@@ -3,6 +3,13 @@ title: Table
 description: A responsive table component.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="TableDemo" /> 
 
 
@@ -14,47 +21,47 @@ npx shadcn-vue@latest add table
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
+  {{codeConfig.prefix}}Table,
+  {{codeConfig.prefix}}TableBody,
+  {{codeConfig.prefix}}TableCaption,
+  {{codeConfig.prefix}}TableCell,
+  {{codeConfig.prefix}}TableHead,
+  {{codeConfig.prefix}}TableHeader,
+  {{codeConfig.prefix}}TableRow,
+} from '{{codeConfig.aliases.components}}/ui/table'
 </script>
 
 <template>
-  <Table>
-    <TableCaption>A list of your recent invoices.</TableCaption>
-    <TableHeader>
-      <TableRow>
-        <TableHead class="w-[100px]">
+  <{{codeConfig.prefix}}Table>
+    <{{codeConfig.prefix}}TableCaption>A list of your recent invoices.</{{codeConfig.prefix}}TableCaption>
+    <{{codeConfig.prefix}}TableHeader>
+      <{{codeConfig.prefix}}TableRow>
+        <{{codeConfig.prefix}}TableHead class="w-[100px]">
           Invoice
-        </TableHead>
-        <TableHead>Status</TableHead>
-        <TableHead>Method</TableHead>
-        <TableHead class="text-right">
+        </{{codeConfig.prefix}}TableHead>
+        <{{codeConfig.prefix}}TableHead>Status</{{codeConfig.prefix}}TableHead>
+        <{{codeConfig.prefix}}TableHead>Method</{{codeConfig.prefix}}TableHead>
+        <{{codeConfig.prefix}}TableHead class="text-right">
           Amount
-        </TableHead>
-      </TableRow>
-    </TableHeader>
-    <TableBody>
-      <TableRow>
-        <TableCell class="font-medium">
+        </{{codeConfig.prefix}}TableHead>
+      </{{codeConfig.prefix}}TableRow>
+    </{{codeConfig.prefix}}TableHeader>
+    <{{codeConfig.prefix}}TableBody>
+      <{{codeConfig.prefix}}TableRow>
+        <{{codeConfig.prefix}}TableCell class="font-medium">
           INV001
-        </TableCell>
-        <TableCell>Paid</TableCell>
-        <TableCell>Credit Card</TableCell>
-        <TableCell class="text-right">
+        </{{codeConfig.prefix}}TableCell>
+        <{{codeConfig.prefix}}TableCell>Paid</{{codeConfig.prefix}}TableCell>
+        <{{codeConfig.prefix}}TableCell>Credit Card</{{codeConfig.prefix}}TableCell>
+        <{{codeConfig.prefix}}TableCell class="text-right">
           $250.00
-        </TableCell>
-      </TableRow>
-    </TableBody>
-  </Table>
+        </{{codeConfig.prefix}}TableCell>
+      </{{codeConfig.prefix}}TableRow>
+    </{{codeConfig.prefix}}TableBody>
+  </{{codeConfig.prefix}}Table>
 </template>
 ```
 

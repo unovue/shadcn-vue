@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/separator
 primitive: https://www.radix-vue.com/components/separator.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="SeparatorDemo" /> 
 
 
@@ -40,12 +47,12 @@ npm install radix-vue
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Separator } from '@/components/ui/separator'
+import { {{codeConfig.prefix}}Separator } from '{{codeConfig.aliases.components}}/ui/separator'
 </script>
 
 <template>
-  <Separator />
+  <{{codeConfig.prefix}}Separator />
 </template>
 ```

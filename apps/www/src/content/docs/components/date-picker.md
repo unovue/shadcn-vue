@@ -3,6 +3,13 @@ title: Date Picker
 description: A date picker component with range and presets.
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 
 <ComponentPreview name="DatePickerDemo"  /> 
 
@@ -14,28 +21,28 @@ See installation instructions for the [Popover](/docs/components/popover#install
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import { format } from 'date-fns'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
 
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
+import { cn } from '{{codeConfig.aliases.utils}}'
+import { {{codeConfig.prefix}}Button } from '{{codeConfig.aliases.components}}/ui/button'
+import { {{codeConfig.prefix}}Calendar } from '{{codeConfig.aliases.components}}/ui/calendar'
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
+  {{codeConfig.prefix}}Popover,
+  {{codeConfig.prefix}}PopoverContent,
+  {{codeConfig.prefix}}PopoverTrigger,
+} from '{{codeConfig.aliases.components}}/ui/popover'
 
 const date = ref<Date>()
 </script>
 
 <template>
-  <Popover>
-    <PopoverTrigger as-child>
-      <Button
+  <{{codeConfig.prefix}}Popover>
+    <{{codeConfig.prefix}}PopoverTrigger as-child>
+      <{{codeConfig.prefix}}Button
         :variant="'outline'"
         :class="cn(
           'w-[280px] justify-start text-left font-normal',
@@ -44,12 +51,12 @@ const date = ref<Date>()
       >
         <CalendarIcon class="mr-2 h-4 w-4" />
         <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" />
-    </PopoverContent>
-  </Popover>
+      </{{codeConfig.prefix}}Button>
+    </{{codeConfig.prefix}}PopoverTrigger>
+    <{{codeConfig.prefix}}PopoverContent class="w-auto p-0">
+      <{{codeConfig.prefix}}Calendar v-model="date" />
+    </{{codeConfig.prefix}}PopoverContent>
+  </{{codeConfig.prefix}}Popover>
 </template>
 ```
 

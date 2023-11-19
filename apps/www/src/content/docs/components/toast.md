@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/toast
 primitive: https://www.radix-vue.com/components/toast.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="ToastDemo" />
 
@@ -40,20 +46,20 @@ import Toaster from '@/components/ui/toast/Toaster.vue'
 
 The `useToast` hook returns a `toast` function that you can use to display a toast.
 
-```tsx
-import { useToast } from '@/components/ui/toast/use-toast'
+```tsx-vue
+import { useToast } from '{{codeConfig.aliases.components}}/ui/toast/use-toast'
 ```
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
-import { useToast } from '@/components/ui/toast/use-toast'
+import { {{codeConfig.prefix}}Button } from '{{codeConfig.aliases.components}}/ui/button'
+import { useToast } from '{{codeConfig.aliases.components}}/ui/toast/use-toast'
 
 const { toast } = useToast()
 </script>
 
 <template>
-  <Button
+  <{{codeConfig.prefix}}Button
     @click="() => {
       toast({
         title: 'Scheduled: Catch up',
@@ -62,7 +68,7 @@ const { toast } = useToast()
     }"
   >
     Add to calander
-  </Button>
+  </{{codeConfig.prefix}}Button>
 </template>
 ```
 

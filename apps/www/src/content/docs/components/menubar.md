@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/menubar
 primitive: https://www.radix-vue.com/components/menubar.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="MenubarDemo" /> 
 
 ## Installation
@@ -16,34 +23,34 @@ npx shadcn-vue@latest add menubar
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from '@/components/ui/menubar'
+  {{codeConfig.prefix}}Menubar,
+  {{codeConfig.prefix}}MenubarContent,
+  {{codeConfig.prefix}}MenubarItem,
+  {{codeConfig.prefix}}MenubarMenu,
+  {{codeConfig.prefix}}MenubarSeparator,
+  {{codeConfig.prefix}}MenubarShortcut,
+  {{codeConfig.prefix}}MenubarTrigger,
+} from '{{codeConfig.aliases.components}}/ui/menubar'
 </script>
 
 <template>
-  <Menubar>
-    <MenubarMenu>
-      <MenubarTrigger>File</MenubarTrigger>
-      <MenubarContent>
-        <MenubarItem>
-          New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-        </MenubarItem>
-        <MenubarItem>New Window</MenubarItem>
-        <MenubarSeparator />
-        <MenubarItem>Share</MenubarItem>
-        <MenubarSeparator />
-        <MenubarItem>Print</MenubarItem>
-      </MenubarContent>
-    </MenubarMenu>
-  </Menubar>
+  <{{codeConfig.prefix}}Menubar>
+    <{{codeConfig.prefix}}MenubarMenu>
+      <{{codeConfig.prefix}}MenubarTrigger>File</{{codeConfig.prefix}}MenubarTrigger>
+      <{{codeConfig.prefix}}MenubarContent>
+        <{{codeConfig.prefix}}MenubarItem>
+          New Tab <{{codeConfig.prefix}}MenubarShortcut>⌘T</{{codeConfig.prefix}}MenubarShortcut>
+        </{{codeConfig.prefix}}MenubarItem>
+        <{{codeConfig.prefix}}MenubarItem>New Window</{{codeConfig.prefix}}MenubarItem>
+        <{{codeConfig.prefix}}MenubarSeparator />
+        <{{codeConfig.prefix}}MenubarItem>Share</{{codeConfig.prefix}}MenubarItem>
+        <{{codeConfig.prefix}}MenubarSeparator />
+        <{{codeConfig.prefix}}MenubarItem>Print</{{codeConfig.prefix}}MenubarItem>
+      </{{codeConfig.prefix}}MenubarContent>
+    </{{codeConfig.prefix}}MenubarMenu>
+  </{{codeConfig.prefix}}Menubar>
 </template>
 ```

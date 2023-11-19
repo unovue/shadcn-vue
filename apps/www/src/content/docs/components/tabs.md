@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/tabs
 primitive: https://www.radix-vue.com/components/tabs.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="TabsDemo" /> 
 
 
@@ -18,27 +25,27 @@ npx shadcn-vue@latest add tabs
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { {{codeConfig.prefix}}Tabs, {{codeConfig.prefix}}TabsContent, {{codeConfig.prefix}}TabsList, {{codeConfig.prefix}}TabsTrigger } from '{{codeConfig.aliases.components}}/ui/tabs'
 </script>
 
 <template>
-  <Tabs default-value="account" class="w-[400px]">
-    <TabsList>
-      <TabsTrigger value="account">
+  <{{codeConfig.prefix}}Tabs default-value="account" class="w-[400px]">
+    <{{codeConfig.prefix}}TabsList>
+      <{{codeConfig.prefix}}TabsTrigger value="account">
         Account
-      </TabsTrigger>
-      <TabsTrigger value="password">
+      </{{codeConfig.prefix}}TabsTrigger>
+      <{{codeConfig.prefix}}TabsTrigger value="password">
         Password
-      </TabsTrigger>
-    </TabsList>
-    <TabsContent value="account">
+      </{{codeConfig.prefix}}TabsTrigger>
+    </{{codeConfig.prefix}}TabsList>
+    <{{codeConfig.prefix}}TabsContent value="account">
       Make changes to your account here.
-    </TabsContent>
-    <TabsContent value="password">
+    </{{codeConfig.prefix}}TabsContent>
+    <{{codeConfig.prefix}}TabsContent value="password">
       Change your password here.
-    </TabsContent>
-  </Tabs>
+    </{{codeConfig.prefix}}TabsContent>
+  </{{codeConfig.prefix}}Tabs>
 </template>
 ```

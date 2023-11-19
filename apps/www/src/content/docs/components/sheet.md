@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/dialog
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="SheetDemo" /> 
 
 
@@ -16,31 +23,31 @@ npx shadcn-vue@latest add sheet
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
+  {{codeConfig.prefix}}Sheet,
+  {{codeConfig.prefix}}SheetContent,
+  {{codeConfig.prefix}}SheetDescription,
+  {{codeConfig.prefix}}SheetHeader,
+  {{codeConfig.prefix}}SheetTitle,
+  {{codeConfig.prefix}}SheetTrigger,
+} from '{{codeConfig.aliases.components}}/ui/sheet'
 </script>
 
 <template>
-  <Sheet>
-    <SheetTrigger>Open</SheetTrigger>
-    <SheetContent>
-      <SheetHeader>
-        <SheetTitle>Are you sure absolutely sure?</SheetTitle>
-        <SheetDescription>
+  <{{codeConfig.prefix}}Sheet>
+    <{{codeConfig.prefix}}SheetTrigger>Open</{{codeConfig.prefix}}SheetTrigger>
+    <{{codeConfig.prefix}}SheetContent>
+      <{{codeConfig.prefix}}SheetHeader>
+        <{{codeConfig.prefix}}SheetTitle>Are you sure absolutely sure?</{{codeConfig.prefix}}SheetTitle>
+        <{{codeConfig.prefix}}SheetDescription>
           This action cannot be undone. This will permanently delete your account
           and remove your data from our servers.
-        </SheetDescription>
-      </SheetHeader>
-    </SheetContent>
-  </Sheet>
+        </{{codeConfig.prefix}}SheetDescription>
+      </{{codeConfig.prefix}}SheetHeader>
+    </{{codeConfig.prefix}}SheetContent>
+  </{{codeConfig.prefix}}Sheet>
 </template>
 ```
 

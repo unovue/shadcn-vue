@@ -5,6 +5,13 @@ source: apps/www/src/lib/registry/default/ui/navigation-menu
 primitive: https://www.radix-vue.com/components/navigation-menu.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
+
 <ComponentPreview name="NavigationMenuDemo" /> 
 
 ## Installation 
@@ -15,31 +22,31 @@ npx shadcn-vue@latest add navigation-menu
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from '@/components/ui/navigation-menu'
+  {{codeConfig.prefix}}NavigationMenu,
+  {{codeConfig.prefix}}NavigationMenuContent,
+  {{codeConfig.prefix}}NavigationMenuIndicator,
+  {{codeConfig.prefix}}NavigationMenuItem,
+  {{codeConfig.prefix}}NavigationMenuLink,
+  {{codeConfig.prefix}}NavigationMenuList,
+  {{codeConfig.prefix}}NavigationMenuTrigger,
+  {{codeConfig.prefix}}NavigationMenuViewport,
+} from '{{codeConfig.aliases.components}}/ui/navigation-menu'
 </script>
 
 <template>
-  <NavigationMenu>
-    <NavigationMenuList>
-      <NavigationMenuItem>
-        <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <NavigationMenuLink>Link</NavigationMenuLink>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    </NavigationMenuList>
-  </NavigationMenu>
+  <{{codeConfig.prefix}}NavigationMenu>
+    <{{codeConfig.prefix}}NavigationMenuList>
+      <{{codeConfig.prefix}}NavigationMenuItem>
+        <{{codeConfig.prefix}}NavigationMenuTrigger>Item One</{{codeConfig.prefix}}NavigationMenuTrigger>
+        <{{codeConfig.prefix}}NavigationMenuContent>
+          <{{codeConfig.prefix}}NavigationMenuLink>Link</{{codeConfig.prefix}}NavigationMenuLink>
+        </{{codeConfig.prefix}}NavigationMenuContent>
+      </{{codeConfig.prefix}}NavigationMenuItem>
+    </{{codeConfig.prefix}}NavigationMenuList>
+  </{{codeConfig.prefix}}NavigationMenu>
 </template>
 ```
 

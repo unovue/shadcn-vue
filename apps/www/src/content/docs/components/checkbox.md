@@ -5,6 +5,12 @@ source: apps/www/src/lib/registry/default/ui/checkbox
 primitive: https://www.radix-vue.com/components/checkbox.html
 ---
 
+<script setup>
+import { useConfigStore } from '@/stores/config'
+
+const { codeConfig } = useConfigStore()
+</script>
+
 
 <ComponentPreview name="CheckboxDemo"  /> 
 
@@ -18,13 +24,13 @@ npx shadcn-vue@latest add checkbox
 
 ## Usage
 
-```vue
+```vue-vue
 <script setup lang="ts">
-import { Checkbox } from '@/components/ui/checkbox'
+import { {{codeConfig.prefix}}Checkbox } from '{{codeConfig.aliases.components}}/ui/checkbox'
 </script>
 
 <template>
-  <Checkbox id="terms" />
+  <{{codeConfig.prefix}}Checkbox id="terms" />
 </template>
 ```
 

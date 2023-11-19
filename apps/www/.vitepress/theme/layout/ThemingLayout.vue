@@ -16,6 +16,10 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import RadixIconsCheck from '~icons/radix-icons/check'
 import RadixIconsSun from '~icons/radix-icons/sun'
 import RadixIconsMoon from '~icons/radix-icons/moon'
+import RadixIconsReset from '~icons/radix-icons/reset'
+import RadixIconsInfoCircled from '~icons/radix-icons/info-circled'
+
+import { cn } from '@/lib/utils'
 
 type Color =
   | 'zinc'
@@ -47,7 +51,7 @@ const allColors: Color[] = [
   'violet',
 ]
 
-const { theme, radius, setRadius, setTheme } = useConfigStore()
+const { theme, radius, setRadius, setTheme, codeConfig, config } = useConfigStore()
 const { isDark } = useData()
 
 // Whenever the component is mounted, update the document class list
@@ -131,17 +135,101 @@ watch(radius, (radius) => {
                   Customize
                 </Button>
               </PopoverTrigger>
-              <PopoverContent :side-offset="8" align="end" class="w-96">
-                <div class="p-4">
-                  <div class="grid space-y-1">
-                    <h1 class="text-md text-foreground font-semibold">
-                      Customize
-                    </h1>
-                    <p class="text-xs text-muted-foreground">
-                      Pick a style and color for your components.
-                    </p>
+              <PopoverContent :side-offset="8" align="end" class="p-6 w-96">
+                <div>
+                  <div class="flex items-start">
+                    <div class="space-y-1 pr-2">
+                      <h1 class="text-md text-foreground font-semibold">
+                        Customize
+                      </h1>
+                      <p class="text-xs text-muted-foreground">
+                        Pick a style and color for your components.
+                      </p>
+                    </div>
+                    <Button
+                      variant="ghost" size="icon" class="ml-auto rounded-[0.5rem]" @click="() => {
+                        config = {
+                          ...config,
+                          theme: 'zinc',
+                          radius: 0.5,
+                        }
+
+                        codeConfig = {
+                          prefix: '',
+                          aliases: {
+                            components: '@/components',
+                            utils: '@/lib/utils',
+                          },
+                        }
+                      }"
+                    >
+                      <RadixIconsReset />
+                    </Button>
                   </div>
-                  <div class="space-y-1.5 pt-6">
+                  <div class="flex flex-1 flex-col space-y-4 md:space-y-6 pt-4">
+                    <div class="space-y-1.5">
+                      <div class="flex w-full items-center">
+                        <Label class="text-xs">Style</Label>
+                        <Popover>
+                          <PopoverTrigger>
+                            <RadixIconsInfoCircled class="ml-1 h-3 w-3" />
+                            <span class="sr-only">About styles</span>
+                          </PopoverTrigger>
+                          <PopoverContent
+                            class="space-y-3 rounded-[0.5rem] text-sm"
+                            side="right"
+                            align="start"
+                            :align-offset="-20"
+                          >
+                            <p class="font-medium">
+                              What is the difference between the New York and Default style?
+                            </p>
+                            <p>
+                              A style comes with its own set of components, animations,
+                              icons and more.
+                            </p>
+                            <p>
+                              The <span class="font-medium">Default</span> style has
+                              larger inputs, uses lucide-react for icons and
+                              tailwindcss-animate for animations.
+                            </p>
+                            <p>
+                              The <span class="font-medium">New York</span> style ships
+                              with smaller buttons and cards with shadows. It uses icons
+                              from Radix Icons.
+                            </p>
+                          </PopoverContent>
+                        </Popover>
+                      </div>
+                      <div class="grid grid-cols-3 gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          :class="cn(
+                            config.style === 'default' && 'border-2 border-primary',
+                          )"
+                          @click="() => {
+                            config = { ...config, style: 'default' }
+                          }"
+                        >
+                          Default
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          :class="cn(
+                            config.style === 'new-york' && 'border-2 border-primary',
+                          )"
+                          @click="() => {
+                            config = { ...config, style: 'new-york' }
+                          }"
+                        >
+                          New York
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-1.5 pt-4">
                     <Label for="color" class="text-xs"> Color </Label>
                     <div class="grid grid-cols-3 gap-2 py-1.5">
                       <Button
@@ -171,7 +259,7 @@ watch(radius, (radius) => {
                       </Button>
                     </div>
                   </div>
-                  <div class="space-y-1.5 pt-6">
+                  <div class="space-y-1.5 pt-4">
                     <Label for="radius" class="text-xs"> Radius </Label>
                     <div class="grid grid-cols-5 gap-2 py-1.5">
                       <Button
@@ -192,7 +280,7 @@ watch(radius, (radius) => {
                       </Button>
                     </div>
                   </div>
-                  <div class="space-y-1.5 pt-6">
+                  <div class="space-y-1.5 pt-4">
                     <Label for="theme" class="text-xs"> Theme </Label>
 
                     <div class="flex space-x-2 py-1.5">
@@ -214,6 +302,28 @@ watch(radius, (radius) => {
                         <RadixIconsMoon class="w-4 h-4 mr-2" />
                         <span class="text-xs">Dark</span>
                       </Button>
+                    </div>
+                  </div>
+                  <div class="space-y-1.5 pt-4">
+                    <div class="flex">
+                      <div>
+                        <Label for="components" class="text-xs"> Alias (components) </Label>
+                        <div class="flex py-1.5">
+                          <input id="components" v-model.lazy="codeConfig.aliases.components" class="flex h-9 w-full rounded-s-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                      </div>
+                      <div>
+                        <Label for="utils" class="text-xs"> Alias (utils) </Label>
+                        <div id="utils" class="flex py-1.5">
+                          <input v-model.lazy="codeConfig.aliases.utils" class="flex h-9 w-full rounded-e-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-1.5 pt-3">
+                    <Label for="radius" class="text-xs"> Prefix </Label>
+                    <div class="py-1.5">
+                      <input v-model.lazy="codeConfig.prefix" placeholder="Ui" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
                     </div>
                   </div>
                 </div>
