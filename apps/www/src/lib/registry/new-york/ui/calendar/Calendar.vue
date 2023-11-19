@@ -4,6 +4,7 @@ import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
 import { computed, nextTick, onMounted, ref } from 'vue'
+import type { DatePickerModel } from 'v-calendar/dist/types/src/use/datePicker'
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -12,10 +13,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps< {
-  modelValue?: string | number | Date | Partial<{
-    start: Date
-    end: Date
-  }>
+  modelValue?: string | number | Date | DatePickerModel
   modelModifiers?: object
   columns?: number
   type?: 'single' | 'range'
