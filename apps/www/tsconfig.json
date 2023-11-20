@@ -1,23 +1,17 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["esnext", "dom"],
-    "jsx": "preserve",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "moduleResolution": "Node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
     "types": ["unplugin-icons/types/vue", "node"],
-    "resolveJsonModule": true,
     "declaration": false,
     "sourceMap": true,
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true
+    "outDir": "dist"
   },
-  "include": ["/**/*.vue", "src", ".vitepress/**/*.vue", "/**/*.ts", ".vitepress/**/*.mts", ".vitepress/**/*.vue", "src/lib/**/*"],
+  "include": ["src", ".vitepress/**/*.vue", ".vitepress/**/*.mts", ".vitepress/**/*.vue", "src/lib/**/*"],
   "exclude": ["node_modules", "./scripts/build-registry.ts"]
 }

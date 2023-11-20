@@ -236,7 +236,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                 </TabsTrigger>
               </TabsList>
             </div>
-            <ModelSelector :types="types" :models="models" />
+            <ModelSelector />
             <TemperatureSelector :default-value="[0.56]" />
             <MaxLengthSelector :default-value="[256]" />
             <TopPSelector :default-value="[0.9]" />

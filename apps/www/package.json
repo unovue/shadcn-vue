@@ -9,7 +9,9 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "build:registry": "tsx ./scripts/build-registry.ts"
+    "typecheck": "vue-tsc --noEmit",
+    "typecheck:registry": "vue-tsc --noEmit -p tsconfig.registry.json",
+    "build:registry": "typecheck:registry && tsx ./scripts/build-registry.ts"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
@@ -45,6 +47,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/compiler-core": "^3.3.7",
     "@vue/compiler-dom": "^3.3.7",
+    "@vue/tsconfig": "^0.4.0",
     "autoprefixer": "^10.4.16",
     "lodash.template": "^4.5.0",
     "pathe": "^1.1.1",
