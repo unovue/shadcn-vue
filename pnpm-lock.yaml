@@ -138,12 +138,18 @@ importers:
       '@vue/compiler-dom':
         specifier: ^3.3.7
         version: 3.3.7
+      '@vue/tsconfig':
+        specifier: ^0.4.0
+        version: 0.4.0
       autoprefixer:
         specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.31)
       lodash.template:
         specifier: ^4.5.0
         version: 4.5.0
+      pathe:
+        specifier: ^1.1.1
+        version: 1.1.1
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -2859,6 +2865,10 @@ packages:
 
   /@vue/shared@3.3.7:
     resolution: {integrity: sha512-N/tbkINRUDExgcPTBvxNkvHGu504k8lzlNQRITVnm6YjOjwa4r0nnbd4Jb01sNpur5hAllyRJzSK5PvB9PPwRg==}
+
+  /@vue/tsconfig@0.4.0:
+    resolution: {integrity: sha512-CPuIReonid9+zOG/CGTT05FXrPYATEqoDGNrEaqS4hwcw5BUNM2FguC0mOwJD4Jr16UpRVl9N0pY3P+srIbqmg==}
+    dev: true
 
   /@vuedx/compiler-sfc@0.7.1:
     resolution: {integrity: sha512-M+j3COLqmTFgtsDOJEeeijUFCk7FF8x7vQsdORPPxipZF1S2vPvlcLg1bKVE6NF4wh7Gaq9Wvwv0zPi87pWRVA==}
