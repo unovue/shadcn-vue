@@ -4,14 +4,30 @@ import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
 import { computed, nextTick, onMounted, ref } from 'vue'
-import type { DatePickerModel } from 'v-calendar/dist/types/src/use/datePicker'
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
+
+/* Extracted from v-calendar */
+type DatePickerModel = DatePickerDate | DatePickerRangeObject
+type DateSource = Date | string | number
+type DatePickerDate = DateSource | Partial<SimpleDateParts> | null
+interface DatePickerRangeObject {
+  start: Exclude<DatePickerDate, null>
+  end: Exclude<DatePickerDate, null>
+}
+interface SimpleDateParts {
+  year: number
+  month: number
+  day: number
+  hours: number
+  minutes: number
+  seconds: number
+  milliseconds: number
+}
 
 defineOptions({
   inheritAttrs: false,
 })
-
 const props = withDefaults(defineProps< {
   modelValue?: string | number | Date | DatePickerModel
   modelModifiers?: object
