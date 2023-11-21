@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends Record<string, any>">
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
@@ -8,7 +8,7 @@ import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-y
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<{
-  data: any[]
+  data: T[]
   categories: string[]
   index: string
   colors?: string[]
@@ -31,8 +31,6 @@ const props = withDefaults(defineProps<{
   showLegend: true,
   showGridLine: true,
 })
-
-type Data = typeof props.data[number]
 
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
@@ -58,14 +56,14 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
 
       <VisBarComponent
-        :x="(d: Data, i: number) => i"
-        :y="categories.map(category => (d: Data) => d[category]) "
+        :x="(d: T, i: number) => i"
+        :y="categories.map(category => (d: T) => d[category]) "
         :color="colors"
         :rounded-corners="4"
         :bar-padding="0.1"
         :attributes="{
           [selectorsBar]: {
-            opacity: (d: Data, i:number) => {
+            opacity: (d: T, i:number) => {
               const pos = i % categories.length
               return legendItems[pos]?.inactive ? filterOpacity : 1
             },
@@ -98,14 +96,3 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
     </VisXYContainer>
   </div>
 </template>
-
-<style>
-:root {
-  --vis-tooltip-background-color: none;
-  --vis-tooltip-border-color: none;
-  --vis-tooltip-text-color: none;
-  --vis-tooltip-shadow-color: none;
-  --vis-tooltip-backdrop-filter: none;
-  --vis-tooltip-padding: none;
-}
-</style>

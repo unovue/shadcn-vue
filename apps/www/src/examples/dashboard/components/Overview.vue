@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
-import { Area } from '@unovis/ts'
+import { BarChart } from '@/lib/registry/new-york/ui/chart-bar'
 
-type Data = typeof data[number]
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },
   { name: 'Feb', total: Math.floor(Math.random() * 5000) + 1000 },
@@ -20,49 +18,5 @@ const data = [
 </script>
 
 <template>
-  <VisXYContainer height="350px" :margin="{ left: 20, right: 20 }" :data="data">
-    <svg width="0" height="0">
-      <defs>
-        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stop-color="hsl(var(--primary))" stop-opacity="0.6" />
-          <stop offset="95%" stop-color="hsl(var(--primary))" stop-opacity="0" />
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <VisArea
-      :x="(d: Data, i: number) => i"
-      :y="(d: Data) => d.total"
-      color="auto"
-      :attributes="{
-        [Area.selectors.area]: {
-          fill: 'url(#colorUv)',
-        },
-      }"
-      :rounded-corners="4"
-      :bar-padding="0.15"
-    />
-    <VisLine
-      :x="(d: Data, i: number) => i"
-      :y="(d: Data) => d.total"
-      color="hsl(var(--primary))"
-    />
-    <VisAxis
-      type="x"
-      :num-ticks="data.length"
-      :tick-format="(index: number) => data[index]?.name"
-      :grid-line="false"
-      :tick-line="false"
-      tick-text-color="hsl(var(--muted-foreground))"
-    />
-    <VisAxis
-      type="y"
-      :num-ticks="data.length"
-      :tick-format="(index: number) => data[index]?.name"
-      :grid-line="false"
-      :tick-line="false"
-      :domain-line="false"
-      tick-text-color="hsl(var(--muted-foreground))"
-    />
-  </VisXYContainer>
+  <BarChart :data="data" :categories="['total']" :index="'name'" />
 </template>
