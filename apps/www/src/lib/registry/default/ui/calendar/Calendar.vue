@@ -7,15 +7,30 @@ import { computed, nextTick, onMounted, ref } from 'vue'
 import { buttonVariants } from '@/lib/registry/default/ui/button'
 import { cn } from '@/lib/utils'
 
+/* Extracted from v-calendar */
+type DatePickerModel = DatePickerDate | DatePickerRangeObject
+type DateSource = Date | string | number
+type DatePickerDate = DateSource | Partial<SimpleDateParts> | null
+interface DatePickerRangeObject {
+  start: Exclude<DatePickerDate, null>
+  end: Exclude<DatePickerDate, null>
+}
+interface SimpleDateParts {
+  year: number
+  month: number
+  day: number
+  hours: number
+  minutes: number
+  seconds: number
+  milliseconds: number
+}
+
 defineOptions({
   inheritAttrs: false,
 })
 
 const props = withDefaults(defineProps<{
-  modelValue?: string | number | Date | Partial<{
-    start: Date
-    end: Date
-  }>
+  modelValue?: string | number | Date | DatePickerModel
   modelModifiers?: object
   columns?: number
   type?: 'single' | 'range'

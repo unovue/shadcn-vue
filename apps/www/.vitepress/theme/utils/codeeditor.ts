@@ -7,7 +7,7 @@ import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/ta
 import { type Style } from '@/lib/registry/styles'
 
 export function makeCodeSandboxParams(componentName: string, style: Style, sources: Record<string, string>) {
-  let files = {}
+  let files: Record<string, any> = {}
   files = constructFiles(componentName, style, sources)
   files['.codesandbox/Dockerfile'] = {
     content: 'FROM node:18',
