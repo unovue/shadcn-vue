@@ -13,6 +13,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from '@/lib/registry/new-york/ui/command'
 import {
   FormControl,
@@ -86,23 +87,25 @@ const onSubmit = handleSubmit((values) => {
             <Command>
               <CommandInput placeholder="Search language..." />
               <CommandEmpty>Nothing found.</CommandEmpty>
-              <CommandGroup>
-                <CommandItem
-                  v-for="language in languages"
-                  :key="language.value"
-                  :value="language.label"
-                  @select="() => {
-                    setValues({
-                      language: language.value,
-                    })
-                  }"
-                >
-                  {{ language.label }}
-                  <CheckIcon
-                    :class="cn('ml-auto h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
-                  />
-                </CommandItem>
-              </CommandGroup>
+              <CommandList>
+                <CommandGroup>
+                  <CommandItem
+                    v-for="language in languages"
+                    :key="language.value"
+                    :value="language.label"
+                    @select="() => {
+                      setValues({
+                        language: language.value,
+                      })
+                    }"
+                  >
+                    {{ language.label }}
+                    <CheckIcon
+                      :class="cn('ml-auto h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
+                    />
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
             </Command>
           </PopoverContent>
         </Popover>

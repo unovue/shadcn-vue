@@ -6,6 +6,14 @@ component: true
 
 <ComponentPreview name="ComboboxDemo" /> 
 
+<br>
+<Callout title="Note" class="bg-destructive">
+
+[Radix Vue](https://github.com/radix-vue/radix-vue/releases/tag/v1.2.0) introduced a breaking change. You will need to wrap `ComboboxGroup` and `ComboboxItem` inside of `ComboboxList` now.
+
+</Callout>
+ 
+
 ## Installation
 
 The Combobox is built using a composition of the `<Popover />` and the `<Command />` components.
@@ -27,6 +35,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList
 } from '@/components/ui/command'
 import {
   Popover,
@@ -64,22 +73,24 @@ const value = ref({})
       <Command v-model="value">
         <CommandInput placeholder="Search framework..." />
         <CommandEmpty>No framework found.</CommandEmpty>
-        <CommandGroup>
-          <CommandItem
-            v-for="framework in frameworks"
-            :key="framework.value"
-            :value="framework"
-            @select="open = false"
-          >
-            <Check
-              :class="cn(
-                'mr-2 h-4 w-4',
-                value === framework.value ? 'opacity-100' : 'opacity-0',
-              )"
-            />
-            {{ framework.label }}
-          </CommandItem>
-        </CommandGroup>
+        <CommandList>
+          <CommandGroup>
+            <CommandItem
+              v-for="framework in frameworks"
+              :key="framework.value"
+              :value="framework"
+              @select="open = false"
+            >
+              <Check
+                :class="cn(
+                  'mr-2 h-4 w-4',
+                  value === framework.value ? 'opacity-100' : 'opacity-0',
+                )"
+              />
+              {{ framework.label }}
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
       </Command>
     </PopoverContent>
   </Popover>
