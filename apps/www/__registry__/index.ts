@@ -401,6 +401,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/InputWithLabel.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/InputWithLabel.vue'],
     },
+    InputLazyDemo: {
+      name: 'InputLazyDemo',
+      type: 'components:example',
+      registryDependencies: ['input', 'button'],
+      component: () => import('../src/lib/registry/default/example/InputLazyDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/InputLazyDemo.vue'],
+    },
     LabelDemo: {
       name: 'LabelDemo',
       type: 'components:example',

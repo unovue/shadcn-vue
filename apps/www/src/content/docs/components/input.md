@@ -63,10 +63,18 @@ import { Input } from '@/components/ui/input'
 
 <ComponentPreview name="InputWithButton" class="max-w-xs" />
 
+### Lazy (v-model.lazy)
+
+<Callout class="mt-4">
+
+`v-model` modifiers don't work on custom Vue components,
+
+instead you can use `@change` event on custom Vue component
+
+</Callout>
+
+<ComponentPreview name="InputLazyDemo" class="max-w-xs" />
+
 ### Form
 
 <ComponentPreview name="InputForm" />
-
-#### v-model.lazy binding
-
-<ComponentPreview name="InputLazyForm" />

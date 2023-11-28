@@ -336,3 +336,16 @@ See the following links for more examples on how to use the `vee-validate` featu
 This example shows how to add motion to your forms with [Formkit AutoAnimate](https://auto-animate.formkit.com/)
 
 <ComponentPreview name="InputFormAutoAnimate" />
+
+
+This example show how to use `v-model.lazy`-like in VeeValidate with `validateOnChange`
+
+<Callout class="mt-4">
+
+`v-model` modifiers don't work on custom Vue components
+
+</Callout>
+
+<ComponentPreview name="InputLazyForm" />
+
+
