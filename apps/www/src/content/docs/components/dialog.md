@@ -76,7 +76,7 @@ To activate the `Dialog` component from within a `Context Menu` or `Dropdown Men
   </ContextMenu>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you sure absolutely sure?</DialogTitle>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
       <DialogDescription>
         This action cannot be undone. Are you sure you want to permanently
         delete this file from our servers?
