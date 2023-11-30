@@ -1,7 +1,7 @@
 {
-  "name": "module",
+  "name": "shadcn-nuxt",
   "type": "module",
-  "version": "0.8.3",
+  "version": "0.1.0",
   "description": "Add shadcn-vue module to Nuxt",
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,8 @@
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "release": "pnpm run prepack && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
