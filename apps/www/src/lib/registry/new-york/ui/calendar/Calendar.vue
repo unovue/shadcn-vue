@@ -67,7 +67,7 @@ onMounted(async () => {
 
 <template>
   <div class="relative">
-    <div class="absolute flex justify-between w-full px-4 top-3">
+    <div class="absolute flex justify-between w-full px-4 top-3 z-[1]">
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
         <ChevronLeftIcon class="w-4 h-4" />
       </button>
@@ -132,6 +132,12 @@ onMounted(async () => {
 }
 .calendar .vc-highlight-content-light {
   @apply bg-accent text-accent-foreground;
+}
+.calendar .vc-pane-container.in-transition {
+  @apply overflow-hidden;
+}
+.calendar .vc-pane-container {
+  @apply w-full relative;
 }
 :root {
 	--vc-slide-translate: 22px;
