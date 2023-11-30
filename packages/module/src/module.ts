@@ -1,5 +1,5 @@
 import { readdirSync } from 'node:fs'
-import { addComponent, createResolver, defineNuxtModule } from 'nuxt/kit'
+import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { Project } from 'ts-morph'
 
 // Module options TypeScript interface definition

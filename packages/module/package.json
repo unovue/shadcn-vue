@@ -1,10 +1,17 @@
 {
   "name": "module",
   "type": "module",
-  "version": "1.0.0",
-  "description": "My new Nuxt module",
+  "version": "0.8.3",
+  "description": "Add shadcn-vue module to Nuxt",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
-  "repository": "your-org/my-module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radix-vue/shadcn-vue.git",
+    "directory": "packages/module"
+  },
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
@@ -27,7 +34,8 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.8.2"
+    "@nuxt/kit": "^3.8.2",
+    "ts-morph": "^19.0.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -37,7 +45,6 @@
     "@nuxt/test-utils": "^3.8.1",
     "@types/node": "^20.9.3",
     "nuxt": "^3.8.2",
-    "ts-morph": "^19.0.0",
     "vitest": "^0.33.0"
   }
 }
