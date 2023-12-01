@@ -14,7 +14,7 @@ You can choose between using CSS variables or Tailwind CSS utility classes for t
 
 To use utility classes for theming set `tailwind.cssVariables` to `false` in your `components.json` file.
 
-```json {8} title="components.json"
+```json {7} title="components.json"
 {
   "style": "default",
   "tailwind": {
@@ -39,7 +39,7 @@ To use utility classes for theming set `tailwind.cssVariables` to `false` in you
 To use CSS variables for theming set `tailwind.cssVariables` to `true` in your `components.json` file.
  
 
-```json {8} title="components.json"
+```json {7} title="components.json"
 {
   "style": "default",
   "tailwind": {
