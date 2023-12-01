@@ -47,7 +47,18 @@ npm install --save-dev shadcn-nuxt
 export default defineNuxtConfig({
   modules: [
     'shadcn-nuxt'
-  ]
+  ],
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
+  }
 })
 ```
 
