@@ -105,7 +105,7 @@ watch(radius, (radius) => {
                     >
                       <span
                         class="flex h-6 w-6 items-center justify-center rounded-full"
-                        :style="{ backgroundColor: colors[color][7].rgb }"
+                        :style="{ backgroundColor: colors[color][6].rgb }"
                       >
                         <RadixIconsCheck
                           v-if="color === theme"
