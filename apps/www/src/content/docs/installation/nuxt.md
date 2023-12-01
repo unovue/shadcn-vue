@@ -130,7 +130,7 @@ The command above will add the `Button` component to your project. Nuxt autoImpo
 ```vue {3}
 <template>
   <div>
-    <UiButton>Click me</UiButton>
+    <Button>Click me</Button>
   </div>
 </template>
 ```
