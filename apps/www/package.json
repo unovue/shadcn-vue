@@ -28,7 +28,7 @@
     "codesandbox": "^2.2.3",
     "date-fns": "^2.30.0",
     "lucide-vue-next": "^0.276.0",
-    "radix-vue": "^1.2.2",
+    "radix-vue": "^1.2.3",
     "tailwindcss-animate": "^1.0.7",
     "v-calendar": "^3.1.2",
     "vee-validate": "4.11.8",

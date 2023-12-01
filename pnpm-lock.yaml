@@ -87,8 +87,8 @@ importers:
         specifier: ^0.276.0
         version: 0.276.0(vue@3.3.7)
       radix-vue:
-        specifier: ^1.2.2
-        version: 1.2.2(vue@3.3.7)
+        specifier: ^1.2.3
+        version: 1.2.3(vue@3.3.7)
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.3.5)
@@ -235,8 +235,8 @@ importers:
         specifier: ^2.4.2
         version: 2.4.2
       radix-vue:
-        specifier: ^1.2.2
-        version: 1.2.2(vue@3.3.9)
+        specifier: ^1.2.3
+        version: 1.2.3(vue@3.3.9)
       recast:
         specifier: ^0.23.4
         version: 0.23.4
@@ -11145,8 +11145,8 @@ packages:
     resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
     dev: false
 
-  /radix-vue@1.2.2(vue@3.3.7):
-    resolution: {integrity: sha512-34Z+Oy4AuiajdGmkcfi2H6LthT5qMeby6jP9DaNzcf9299KQfm8PHUuo754XnguL2PnfgePa9T7IF+hSkwYwmQ==}
+  /radix-vue@1.2.3(vue@3.3.7):
+    resolution: {integrity: sha512-iR4D3SoIoCzKeCldxwxjLv0roGBZNSKAxE5/CgB8V1P7Mk7RtVhnFmOIWL/Z3XNzR9XfU03s8FZLIs+1LCEXnQ==}
     dependencies:
       '@floating-ui/dom': 1.5.3
       '@floating-ui/vue': 1.0.2(vue@3.3.7)
@@ -11156,8 +11156,8 @@ packages:
       - vue
     dev: false
 
-  /radix-vue@1.2.2(vue@3.3.9):
-    resolution: {integrity: sha512-34Z+Oy4AuiajdGmkcfi2H6LthT5qMeby6jP9DaNzcf9299KQfm8PHUuo754XnguL2PnfgePa9T7IF+hSkwYwmQ==}
+  /radix-vue@1.2.3(vue@3.3.9):
+    resolution: {integrity: sha512-iR4D3SoIoCzKeCldxwxjLv0roGBZNSKAxE5/CgB8V1P7Mk7RtVhnFmOIWL/Z3XNzR9XfU03s8FZLIs+1LCEXnQ==}
     dependencies:
       '@floating-ui/dom': 1.5.3
       '@floating-ui/vue': 1.0.2(vue@3.3.9)
