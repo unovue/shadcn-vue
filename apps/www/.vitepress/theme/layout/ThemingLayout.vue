@@ -98,7 +98,7 @@ watch(radius, (radius) => {
                       class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-xs"
                       :class="
                         color === theme
-                          ? 'border-foreground'
+                          ? 'border-primary'
                           : 'border-transparent'
                       "
                       @click="setTheme(color)"
