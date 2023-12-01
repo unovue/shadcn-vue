@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { ChevronDown, Minus, Plus, Send } from 'lucide-vue-next'
+import { Minus, Plus } from 'lucide-vue-next'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { useData } from 'vitepress'
 import { Button } from '@/lib/registry/default/ui/button'

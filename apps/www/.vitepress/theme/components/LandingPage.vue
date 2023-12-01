@@ -4,7 +4,6 @@ import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
 import { announcementConfig } from '../config/site'
-import ArrowRightIcon from '~icons/radix-icons/arrow-right'
 import GitHubIcon from '~icons/radix-icons/github-logo'
 
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
