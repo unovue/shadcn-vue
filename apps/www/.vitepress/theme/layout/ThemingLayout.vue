@@ -117,7 +117,7 @@ watch(radius, (radius) => {
                   <TooltipContent
                     align="center"
                     :side-offset="1"
-                    class="capitalize bg-zinc-900"
+                    class="capitalize bg-zinc-900 text-zinc-50"
                   >
                     {{ allColors[index] }}
                   </TooltipContent>
