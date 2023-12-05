@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { useMagicKeys, useToggle } from '@vueuse/core'
 import { onMounted, ref, watch } from 'vue'
-import { Content, useData, useRoute, useRouter } from 'vitepress'
+//import { Content, useData, useRoute, useRouter } from 'vitepress'
+import { useData, useRoute, useRouter } from 'vitepress'
+//import { Content } from '../../../node_modules/vitepress/dist/client/app/components/Content'
+import { Content } from 'vitepress/dist/client/app/components/Content'
+
 import { SearchIcon } from 'lucide-vue-next'
 import { type NavItem, docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
