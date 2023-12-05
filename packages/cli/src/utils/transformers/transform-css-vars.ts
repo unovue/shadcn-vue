@@ -1,7 +1,7 @@
 import type * as z from 'zod'
 import MagicString from 'magic-string'
 import type { SFCTemplateBlock } from '@vue/compiler-sfc'
-import { parse, walk } from '@vue/compiler-sfc'
+import { parse } from '@vue/compiler-sfc'
 import { SyntaxKind } from 'ts-morph'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import type { Transformer } from '@/src/utils/transformers'

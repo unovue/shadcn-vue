@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "0.8.2",
+  "version": "0.8.4",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
@@ -63,7 +63,7 @@
     "node-fetch": "^3.3.2",
     "ora": "^7.0.1",
     "prompts": "^2.4.2",
-    "radix-vue": "^1.1.0",
+    "radix-vue": "^1.2.3",
     "recast": "^0.23.4",
     "rimraf": "^5.0.1",
     "ts-morph": "^19.0.0",

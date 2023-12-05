@@ -1,0 +1,51 @@
+{
+  "name": "shadcn-nuxt",
+  "type": "module",
+  "version": "0.8.4",
+  "description": "Add shadcn-vue module to Nuxt",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radix-vue/shadcn-vue.git",
+    "directory": "packages/module"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "release": "pnpm run prepack && pnpm publish && git push --follow-tags"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.8.2",
+    "ts-morph": "^19.0.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/module-builder": "^0.5.4",
+    "@nuxt/schema": "^3.8.2",
+    "@nuxt/test-utils": "^3.8.1",
+    "@types/node": "^20.9.3",
+    "nuxt": "^3.8.2",
+    "vitest": "^0.33.0"
+  }
+}

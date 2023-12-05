@@ -7,7 +7,7 @@ import { Cross1Icon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 import { Input } from '@/lib/registry/new-york/ui/input'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 import {

@@ -3,7 +3,6 @@ import { h, ref } from 'vue'
 import * as z from 'zod'
 import { format } from 'date-fns'
 import { toTypedSchema } from '@vee-validate/zod'
-import { configure } from 'vee-validate'
 import { Check, ChevronsUpDown } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 

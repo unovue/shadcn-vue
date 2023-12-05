@@ -44,14 +44,14 @@ const { theme, setTheme } = useConfigStore()
                       class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-xs"
                       :class="
                         color === theme
-                          ? 'border-foreground'
+                          ? 'border-primary'
                           : 'border-transparent'
                       "
                       @click="setTheme(color)"
                     >
                       <span
                         class="flex h-6 w-6 items-center justify-center rounded-full"
-                        :style="{ backgroundColor: colors[color][7].rgb }"
+                        :style="{ backgroundColor: colors[color][6].rgb }"
                       >
                         <RadixIconsCheck
                           v-if="color === theme"
@@ -63,7 +63,7 @@ const { theme, setTheme } = useConfigStore()
                   <TooltipContent
                     align="center"
                     :side-offset="1"
-                    class="capitalize"
+                    class="capitalize bg-zinc-900 text-zinc-50"
                   >
                     {{ allColors[index] }}
                   </TooltipContent>

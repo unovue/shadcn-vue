@@ -17,6 +17,9 @@ export default defineConfig({
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
     ['link', { rel: 'manifest', href: '/site.webmanifest' }],
 
+    ['meta', { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' }],
+    ['meta', { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: 'black' }],
+
     ['meta', { name: 'creator', content: 'radix-vue' }],
     ['meta', { name: 'theme-color', content: '#41b883' }],
     ['meta', { name: 'og:type', content: 'website' }],

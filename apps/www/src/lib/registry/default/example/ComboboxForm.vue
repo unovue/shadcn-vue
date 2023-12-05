@@ -13,6 +13,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from '@/lib/registry/default/ui/command'
 import {
   FormControl,
@@ -83,23 +84,25 @@ const onSubmit = handleSubmit((values) => {
             <Command>
               <CommandInput placeholder="Search language..." />
               <CommandEmpty>Nothing found.</CommandEmpty>
-              <CommandGroup>
-                <CommandItem
-                  v-for="language in languages"
-                  :key="language.value"
-                  :value="language.label"
-                  @select="() => {
-                    setValues({
-                      language: language.value,
-                    })
-                  }"
-                >
-                  <Check
-                    :class="cn('mr-2 h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
-                  />
-                  {{ language.label }}
-                </CommandItem>
-              </CommandGroup>
+              <CommandList>
+                <CommandGroup>
+                  <CommandItem
+                    v-for="language in languages"
+                    :key="language.value"
+                    :value="language.label"
+                    @select="() => {
+                      setValues({
+                        language: language.value,
+                      })
+                    }"
+                  >
+                    <Check
+                      :class="cn('mr-2 h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
+                    />
+                    {{ language.label }}
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
             </Command>
           </PopoverContent>
         </Popover>

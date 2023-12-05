@@ -26,31 +26,28 @@ npm install -D typescript
 npm install -D @nuxtjs/tailwindcss
 ```
 
+### Install `shadcn-nuxt` module (New ✨)
+
+```bash
+npm install -D shadcn-nuxt
+```
+
+
 ### Configure `nuxt.config.ts`
-
-<Callout class="mt-4">
-
-**Tip:** It's better to use Nuxt `components:dirs` hook to extend auto-import components directories. 
-
-If you use `components` key in `nuxt.config.ts` default config will disposed
-
-</Callout>
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
-  hooks: {
-    'components:dirs': (dirs) => {
-      dirs.unshift({
-        path: '~/components/ui',
-        // this is required else Nuxt will autoImport `.ts` file
-        extensions: ['.vue'],
-        // prefix for your components, eg: UiButton
-        prefix: 'Ui',
-        // prevent adding another prefix component by it's path.
-        pathPrefix: false
-      })
-    }
+  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
   }
 })
 ```
@@ -133,7 +130,7 @@ The command above will add the `Button` component to your project. Nuxt autoImpo
 ```vue {3}
 <template>
   <div>
-    <UiButton>Click me</UiButton>
+    <Button>Click me</Button>
   </div>
 </template>
 ```

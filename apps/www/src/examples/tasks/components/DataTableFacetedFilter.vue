@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import type { Component } from 'vue'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { type Task } from '../data/schema'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import CheckIcon from '~icons/radix-icons/check'

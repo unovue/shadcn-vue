@@ -10,6 +10,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from '@/lib/registry/default/ui/command'
 import {
   Popover,
@@ -48,25 +49,28 @@ const filterFunction = (list: typeof frameworks, search: string) => list.filter(
       <Command :filter-function="filterFunction">
         <CommandInput placeholder="Search framework..." />
         <CommandEmpty>No framework found.</CommandEmpty>
-        <CommandGroup>
-          <CommandItem
-            v-for="framework in frameworks"
-            :key="framework.value"
-            :value="framework"
-            @select="(ev) => {
-              value = ev.detail.value as typeof framework
-              open = false
-            }"
-          >
-            <Check
-              :class="cn(
-                'mr-2 h-4 w-4',
-                value?.value === framework.value ? 'opacity-100' : 'opacity-0',
-              )"
-            />
-            {{ framework.label }}
-          </CommandItem>
-        </CommandGroup>
+        <CommandList>
+          <CommandGroup>
+            <CommandItem
+              v-for="framework in frameworks"
+              :key="framework.value"
+              :value="framework"
+              @select="(ev) => {
+                value = ev.detail.value
+                console.log(ev)
+                open = false
+              }"
+            >
+              <Check
+                :class="cn(
+                  'mr-2 h-4 w-4',
+                  value?.value === framework.value ? 'opacity-100' : 'opacity-0',
+                )"
+              />
+              {{ framework.label }}
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
       </Command>
     </PopoverContent>
   </Popover>

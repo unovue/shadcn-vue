@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
+import { ref } from 'vue'
 import {
   ArrowUpCircle,
   CheckCircle2,
