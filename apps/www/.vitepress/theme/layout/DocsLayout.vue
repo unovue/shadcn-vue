@@ -28,7 +28,7 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
               >
                 {{ docsGroup.title }}
 
-                <Badge v-if="docsGroup.label" class="ml-2" :variant="'secondary'">
+                <Badge v-if="docsGroup.label" class="ml-2">
                   {{ docsGroup.label }}
                 </Badge>
               </h4>
@@ -49,7 +49,7 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
                 >
                   {{ doc.title }}
 
-                  <Badge v-if="doc.label" class="ml-2" :variant="'secondary'">
+                  <Badge v-if="doc.label" class="ml-2">
                     {{ doc.label }}
                   </Badge>
                 </a>
@@ -76,9 +76,14 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
           </div>
 
           <div class="space-y-2">
-            <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">
-              {{ frontmatter.title }}
-            </h1>
+            <div class="flex items-center space-x-4">
+              <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">
+                {{ frontmatter.title }}
+              </h1>
+              <Badge v-if="frontmatter.label">
+                {{ frontmatter.label }}
+              </Badge>
+            </div>
             <p class="text-lg text-muted-foreground">
               {{ frontmatter.description }}
             </p>
