@@ -38,14 +38,3 @@ defineProps<{
     </CardContent>
   </Card>
 </template>
-
-<style>
-:root {
-  --vis-tooltip-background-color: none;
-  --vis-tooltip-border-color: none;
-  --vis-tooltip-text-color: none;
-  --vis-tooltip-shadow-color: none;
-  --vis-tooltip-backdrop-filter: none;
-  --vis-tooltip-padding: none;
-}
-</style>

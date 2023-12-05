@@ -8,21 +8,66 @@ import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-y
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<{
+  /**
+   * The source data, in which each entry is a dictionary.
+   */
   data: T[]
+  /**
+   * Select the categories from your data. Used to populate the legend and toolip.
+   */
   categories: string[]
+  /**
+   * Sets the key to map the data to the axis.
+   */
   index: string
+  /**
+   * Change the default colors.
+   */
   colors?: string[]
+  /**
+   * Change the opacity of the non-selected field
+   * @default 0.2
+   */
   filterOpacity?: number
+  /**
+   * Change the type of the chart
+   * @default "grouped"
+   */
   type?: 'stacked' | 'grouped'
+  /**
+   * Function to format X label
+   */
   xFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
+  /**
+   * Function to format Y label
+   */
   yFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
+  /**
+   * Controls the visibility of the X axis.
+   * @default true
+   */
   showXAxis?: boolean
+  /**
+   * Controls the visibility of the Y axis.
+   * @default true
+   */
   showYAxis?: boolean
+  /**
+   * Controls the visibility of tooltip.
+   * @default true
+   */
   showTooltip?: boolean
+  /**
+   * Controls the visibility of legend.
+   * @default true
+   */
   showLegend?: boolean
+  /**
+   * Controls the visibility of gridline.
+   * @default true
+   */
   showGridLine?: boolean
 }>(), {
-  colors: () => defaultColors,
   type: 'grouped',
   filterOpacity: 0.2,
   showXAxis: true,
@@ -32,9 +77,11 @@ const props = withDefaults(defineProps<{
   showGridLine: true,
 })
 
+type Data = typeof props.data[number]
+const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length))
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
-  color: props.colors[i],
+  color: colors.value[i],
   inactive: false,
 })))
 
@@ -56,14 +103,14 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
 
       <VisBarComponent
-        :x="(d: T, i: number) => i"
-        :y="categories.map(category => (d: T) => d[category]) "
+        :x="(d: Data, i: number) => i"
+        :y="categories.map(category => (d: Data) => d[category]) "
         :color="colors"
         :rounded-corners="4"
         :bar-padding="0.1"
         :attributes="{
           [selectorsBar]: {
-            opacity: (d: T, i:number) => {
+            opacity: (d: Data, i:number) => {
               const pos = i % categories.length
               return legendItems[pos]?.inactive ? filterOpacity : 1
             },

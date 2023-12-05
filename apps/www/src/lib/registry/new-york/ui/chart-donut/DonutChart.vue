@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends Record<string, any>">
 import { VisDonut, VisSingleContainer } from '@unovis/vue'
 import { Donut } from '@unovis/ts'
 import { computed, ref } from 'vue'
@@ -7,18 +7,51 @@ import { ChartSingleTooltip, defaultColors } from '@/lib/registry/new-york/ui/ch
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<{
-  data: any[]
+  /**
+   * The source data, in which each entry is a dictionary.
+   */
+  data: T[]
+  /**
+   * Sets the key to map the data to the chart.
+   */
   index: string
+  /**
+   * Sets the name of the key containing the quantitative chart values.
+   */
   category: string
+  /**
+   * Change the default colors.
+   */
   colors?: string[]
+  /**
+   * Change the type of the chart
+   * @default "donut"
+   */
   type?: 'donut' | 'pie'
+  /**
+   * Change the opacity of the non-selected field
+   * @default 0.2
+   */
   filterOpacity?: number
+  /**
+   * Function to sort the segment
+   */
   sortFunction?: (a: any, b: any) => number | undefined
+  /**
+   * Controls the formatting for the label.
+   */
   valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string
+  /**
+   * Controls the visibility of tooltip.
+   * @default true
+   */
   showTooltip?: boolean
+  /**
+   * Controls the visibility of legend.
+   * @default true
+   */
   showLegend?: boolean
 }>(), {
-  colors: () => defaultColors,
   sortFunction: () => undefined,
   valueFormatter: (tick: number) => `${tick}`,
   type: 'donut',
@@ -30,11 +63,11 @@ const props = withDefaults(defineProps<{
 type Data = typeof props.data[number]
 
 const isMounted = useMounted()
-
 const activeSegmentKey = ref<string>()
+const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.data.filter(d => d[props.category]).filter(Boolean).length))
 const legendItems = computed(() => props.data.map((item, i) => ({
   name: item[props.index],
-  color: props.colors[i],
+  color: colors.value[i],
   inactive: false,
 })))
 
@@ -62,7 +95,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
         :central-label="valueFormatter(totalValue)"
         :events="{
           [Donut.selectors.segment]: {
-            click: (d: any, ev: PointerEvent, i: number, elements: HTMLElement[]) => {
+            click: (d: Data, ev: PointerEvent, i: number, elements: HTMLElement[]) => {
               if (d?.data?.[index] === activeSegmentKey) {
                 activeSegmentKey = undefined
                 elements.forEach(el => el.style.opacity = '1')
@@ -79,14 +112,3 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
     </VisSingleContainer>
   </div>
 </template>
-
-<style>
-:root {
-  --vis-tooltip-background-color: none;
-  --vis-tooltip-border-color: none;
-  --vis-tooltip-text-color: none;
-  --vis-tooltip-shadow-color: none;
-  --vis-tooltip-backdrop-filter: none;
-  --vis-tooltip-padding: none;
-}
-</style>

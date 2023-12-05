@@ -1,28 +1,73 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends Record<string, any>">
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 import { Area, Axis, Line } from '@unovis/ts'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
 import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/default/ui/chart'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<{
-  data: any[]
+  /**
+   * The source data, in which each entry is a dictionary.
+   */
+  data: T[]
+  /**
+   * Select the categories from your data. Used to populate the legend and toolip.
+   */
   categories: string[]
+  /**
+   * Sets the key to map the data to the axis.
+   */
   index: string
+  /**
+   * Change the default colors.
+   */
   colors?: string[]
+  /**
+   * Change the opacity of the non-selected field
+   * @default 0.2
+   */
   filterOpacity?: number
+  /**
+   * Function to format X label
+   */
   xFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
+  /**
+   * Function to format Y label
+   */
   yFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
+  /**
+   * Controls the visibility of the X axis.
+   * @default true
+   */
   showXAxis?: boolean
+  /**
+   * Controls the visibility of the Y axis.
+   * @default true
+   */
   showYAxis?: boolean
+  /**
+   * Controls the visibility of tooltip.
+   * @default true
+   */
   showTooltip?: boolean
+  /**
+   * Controls the visibility of legend.
+   * @default true
+   */
   showLegend?: boolean
+  /**
+   * Controls the visibility of gridline.
+   * @default true
+   */
   showGridLine?: boolean
+  /**
+   * Controls the visibility of gradient.
+   * @default true
+   */
   showGradiant?: boolean
 }>(), {
-  colors: () => defaultColors,
   filterOpacity: 0.2,
   showXAxis: true,
   showYAxis: true,
@@ -33,10 +78,11 @@ const props = withDefaults(defineProps<{
 })
 
 type Data = typeof props.data[number]
+const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length))
 
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
-  color: props.colors[i],
+  color: colors.value[i],
   inactive: false,
 })))
 
@@ -118,14 +164,3 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
     </VisXYContainer>
   </div>
 </template>
-
-<style>
-:root {
-  --vis-tooltip-background-color: none;
-  --vis-tooltip-border-color: none;
-  --vis-tooltip-text-color: none;
-  --vis-tooltip-shadow-color: none;
-  --vis-tooltip-backdrop-filter: none;
-  --vis-tooltip-padding: none;
-}
-</style>
