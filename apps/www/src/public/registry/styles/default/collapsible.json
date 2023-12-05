@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "Collapsible.vue",
-      "content": "<script setup lang=\"ts\">\nimport { CollapsibleRoot, useEmitAsProps } from 'radix-vue'\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from 'radix-vue'\n\nconst props = defineProps<CollapsibleRootProps>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n</script>\n\n<template>\n  <CollapsibleRoot v-slot=\"{ open }\" v-bind=\"{ ...props, ...useEmitAsProps(emits) }\">\n    <slot :open=\"open\" />\n  </CollapsibleRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { CollapsibleRoot, useForwardPropsEmits } from 'radix-vue'\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from 'radix-vue'\n\nconst props = defineProps<CollapsibleRootProps>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <CollapsibleRoot v-slot=\"{ open }\" v-bind=\"forwarded\">\n    <slot :open=\"open\" />\n  </CollapsibleRoot>\n</template>\n"
     },
     {
       "name": "CollapsibleContent.vue",
