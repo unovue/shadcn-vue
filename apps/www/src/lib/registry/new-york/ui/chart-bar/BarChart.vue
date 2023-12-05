@@ -15,11 +15,11 @@ const props = withDefaults(defineProps<{
   /**
    * Select the categories from your data. Used to populate the legend and toolip.
    */
-  categories: string[]
+  categories: Array<KeyOfT>
   /**
    * Sets the key to map the data to the axis.
    */
-  index: string
+  index: KeyOfT
   /**
    * Change the default colors.
    */
@@ -77,7 +77,10 @@ const props = withDefaults(defineProps<{
   showGridLine: true,
 })
 
+type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
+
+const index = computed(() => props.index as KeyOfT)
 const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length))
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,

@@ -14,11 +14,11 @@ const props = withDefaults(defineProps<{
   /**
    * Sets the key to map the data to the chart.
    */
-  index: string
+  index: KeyOfT
   /**
    * Sets the name of the key containing the quantitative chart values.
    */
-  category: string
+  category: KeyOfT
   /**
    * Change the default colors.
    */
@@ -60,7 +60,11 @@ const props = withDefaults(defineProps<{
   showLegend: true,
 })
 
+type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
+
+const category = computed(() => props.category as KeyOfT)
+const index = computed(() => props.index as KeyOfT)
 
 const isMounted = useMounted()
 const activeSegmentKey = ref<string>()
