@@ -1,13 +1,15 @@
 {
   "name": "button",
-  "dependencies": [],
+  "dependencies": [
+    "radix-vue"
+  ],
   "registryDependencies": [
     "utils"
   ],
   "files": [
     {
       "name": "Button.vue",
-      "content": "<script setup lang=\"ts\">\nimport { buttonVariants } from '.'\nimport { cn } from '@/lib/utils'\n\ninterface Props {\n  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']\n  size?: NonNullable<Parameters<typeof buttonVariants>[0]>['size']\n  as?: string\n}\n\nwithDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    :class=\"cn(buttonVariants({ variant, size }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </component>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps } from 'radix-vue'\nimport { buttonVariants } from '.'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  variant?: NonNullable<Parameters<typeof buttonVariants>[0]>['variant']\n  size?: NonNullable<Parameters<typeof buttonVariants>[0]>['size']\n  as?: string\n}\n\nwithDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), $attrs.class ?? '')\"\n  >\n    <slot />\n  </Primitive>\n</template>\n"
     },
     {
       "name": "index.ts",
