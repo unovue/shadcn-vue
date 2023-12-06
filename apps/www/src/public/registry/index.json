@@ -95,7 +95,9 @@
   },
   {
     "name": "button",
-    "dependencies": [],
+    "dependencies": [
+      "radix-vue"
+    ],
     "registryDependencies": [
       "utils"
     ],

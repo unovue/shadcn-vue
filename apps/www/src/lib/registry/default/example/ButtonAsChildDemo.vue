@@ -4,8 +4,8 @@ import { Button } from '@/lib/registry/default/ui/button'
 
 <template>
   <Button as-child>
-    <NuxtLink to="/login">
+    <a href="/login">
       Login
-    </NuxtLink>
+    </a>
   </Button>
 </template>

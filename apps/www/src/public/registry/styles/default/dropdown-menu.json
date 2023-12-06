@@ -9,7 +9,7 @@
   "files": [
     {
       "name": "DropdownMenu.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DropdownMenuRoot, type DropdownMenuRootEmits, type DropdownMenuRootProps, useEmitAsProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<DropdownMenuRootProps>()\nconst emits = defineEmits<DropdownMenuRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DropdownMenuRoot v-bind=\"forwarded\">\n    <slot />\n  </DropdownMenuRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { DropdownMenuRoot, type DropdownMenuRootEmits, type DropdownMenuRootProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<DropdownMenuRootProps>()\nconst emits = defineEmits<DropdownMenuRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DropdownMenuRoot v-bind=\"forwarded\">\n    <slot />\n  </DropdownMenuRoot>\n</template>\n"
     },
     {
       "name": "DropdownMenuCheckboxItem.vue",
