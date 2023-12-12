@@ -31,7 +31,7 @@ import { Label } from '@/lib/registry/new-york/ui/label'
       </DialogHeader>
       <div class="flex items-center space-x-2">
         <div class="grid flex-1 gap-2">
-          <Label html-for="link" class="sr-only">
+          <Label for="link" class="sr-only">
             Link
           </Label>
           <Input
