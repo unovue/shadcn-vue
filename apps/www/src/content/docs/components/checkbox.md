@@ -40,6 +40,8 @@ import { Checkbox } from '@/components/ui/checkbox'
 
 ### Form
 
+Please first read `vee-validate` section for [Checkbox and Radio Inputs](https://vee-validate.logaretm.com/v4/examples/checkboxes-and-radio/)
+
 <ComponentPreview name="CheckboxFormSingle" />
 
 <ComponentPreview name="CheckboxFormMultiple" />

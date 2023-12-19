@@ -35,7 +35,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="type">
+    <FormField v-slot="{ componentField }" type="radio" name="type">
       <FormItem class="space-y-3">
         <FormLabel>Notify me about...</FormLabel>
 
