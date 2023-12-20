@@ -36,6 +36,7 @@ const PROJECT_DEPENDENCIES = {
     'class-variance-authority',
     'clsx',
     'tailwind-merge',
+    'radix-vue',
   ],
   nuxt: [
     '@nuxtjs/tailwindcss',
