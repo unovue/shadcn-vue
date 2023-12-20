@@ -5,7 +5,6 @@ import { compileScript, parse } from 'vue/compiler-sfc'
 import type { Registry } from '../../lib/registry'
 
 const DEPENDENCIES = new Map<string, string[]>([
-  ['radix-vue', []],
   ['@vueuse/core', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
