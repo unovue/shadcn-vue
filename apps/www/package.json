@@ -54,11 +54,11 @@
     "rimraf": "^5.0.5",
     "tailwind-merge": "^2.0.0",
     "tailwindcss": "^3.3.5",
-    "tsx": "^3.14.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.2.2",
     "unplugin-icons": "^0.17.1",
     "vite": "^4.5.0",
     "vitepress": "^1.0.0-rc.24",
-    "vue-tsc": "^1.8.22"
+    "vue-tsc": "^1.8.25"
   }
 }
