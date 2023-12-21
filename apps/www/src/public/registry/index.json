@@ -1,9 +1,7 @@
 [
   {
     "name": "accordion",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -32,9 +30,7 @@
   },
   {
     "name": "alert-dialog",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
@@ -55,9 +51,7 @@
   },
   {
     "name": "aspect-ratio",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [],
     "files": [
       "ui/aspect-ratio/AspectRatio.vue",
@@ -67,9 +61,7 @@
   },
   {
     "name": "avatar",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -95,9 +87,7 @@
   },
   {
     "name": "button",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -142,9 +132,7 @@
   },
   {
     "name": "checkbox",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -156,9 +144,7 @@
   },
   {
     "name": "collapsible",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [],
     "files": [
       "ui/collapsible/Collapsible.vue",
@@ -170,9 +156,7 @@
   },
   {
     "name": "command",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "dialog"
@@ -193,9 +177,7 @@
   },
   {
     "name": "context-menu",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -221,9 +203,7 @@
   },
   {
     "name": "dialog",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -242,9 +222,7 @@
   },
   {
     "name": "dropdown-menu",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -270,7 +248,6 @@
   {
     "name": "form",
     "dependencies": [
-      "radix-vue",
       "vee-validate",
       "@vee-validate/zod",
       "zod"
@@ -291,9 +268,7 @@
   },
   {
     "name": "hover-card",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -321,9 +296,7 @@
   },
   {
     "name": "label",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -335,9 +308,7 @@
   },
   {
     "name": "menubar",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -363,9 +334,7 @@
   },
   {
     "name": "navigation-menu",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -384,9 +353,7 @@
   },
   {
     "name": "pagination",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
@@ -403,9 +370,7 @@
   },
   {
     "name": "popover",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -419,9 +384,7 @@
   },
   {
     "name": "progress",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -433,9 +396,7 @@
   },
   {
     "name": "radio-group",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -448,9 +409,7 @@
   },
   {
     "name": "scroll-area",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -463,9 +422,7 @@
   },
   {
     "name": "select",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -485,9 +442,7 @@
   },
   {
     "name": "separator",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -499,9 +454,7 @@
   },
   {
     "name": "sheet",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -532,9 +485,7 @@
   },
   {
     "name": "slider",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -546,9 +497,7 @@
   },
   {
     "name": "switch",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -580,9 +529,7 @@
   },
   {
     "name": "tabs",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -611,9 +558,7 @@
   },
   {
     "name": "toast",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -633,9 +578,7 @@
   },
   {
     "name": "toggle",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -647,9 +590,7 @@
   },
   {
     "name": "tooltip",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],

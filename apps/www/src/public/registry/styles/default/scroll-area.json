@@ -1,8 +1,6 @@
 {
   "name": "scroll-area",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

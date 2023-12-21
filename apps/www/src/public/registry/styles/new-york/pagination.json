@@ -1,8 +1,6 @@
 {
   "name": "pagination",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils",
     "button"

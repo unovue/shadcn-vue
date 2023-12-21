@@ -1,8 +1,6 @@
 {
   "name": "alert-dialog",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils",
     "button"

@@ -1,8 +1,6 @@
 {
   "name": "navigation-menu",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

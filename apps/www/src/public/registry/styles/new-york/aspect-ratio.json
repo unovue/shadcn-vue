@@ -1,8 +1,6 @@
 {
   "name": "aspect-ratio",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [],
   "files": [
     {

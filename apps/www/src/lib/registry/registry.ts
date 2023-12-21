@@ -1,11 +1,10 @@
 import { readFile, readdir } from 'node:fs/promises'
-import { join, resolve } from 'pathe'
+import { join, normalize, resolve } from 'pathe'
 import { compileScript, parse } from 'vue/compiler-sfc'
 
 import type { Registry } from '../../lib/registry'
 
 const DEPENDENCIES = new Map<string, string[]>([
-  ['radix-vue', []],
   ['@vueuse/core', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
@@ -67,7 +66,7 @@ async function crawlExample(rootPath: string) {
 
     if (dirent.isFile()) {
       const [name] = dirent.name.split('.vue')
-      const file_path = join('example', dirent.path.split('/example')[1], dirent.name)
+      const file_path = join('example', normalize(dirent.path).split('/example')[1], dirent.name)
       const { dependencies, registryDependencies }
       = await getDependencies(join(dirent.path, dirent.name))
 

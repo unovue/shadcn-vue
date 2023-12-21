@@ -35,7 +35,7 @@
     "clean": "rimraf dist && rimraf components",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start:dev": "cross-env COMPONENTS_REGISTRY_URL=http://localhost:3001 node dist/index.js",
+    "start:dev": "COMPONENTS_REGISTRY_URL=http://localhost:3001 node dist/index.js",
     "start": "node dist/index.js",
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
