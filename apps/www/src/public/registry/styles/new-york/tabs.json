@@ -1,8 +1,6 @@
 {
   "name": "tabs",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

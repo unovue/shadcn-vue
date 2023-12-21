@@ -1,8 +1,6 @@
 {
   "name": "slider",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

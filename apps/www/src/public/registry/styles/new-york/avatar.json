@@ -1,8 +1,6 @@
 {
   "name": "avatar",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

@@ -1,7 +1,6 @@
 {
   "name": "form",
   "dependencies": [
-    "radix-vue",
     "vee-validate",
     "@vee-validate/zod",
     "zod"

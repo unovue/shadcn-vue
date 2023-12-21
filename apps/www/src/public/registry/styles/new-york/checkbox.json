@@ -1,8 +1,6 @@
 {
   "name": "checkbox",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

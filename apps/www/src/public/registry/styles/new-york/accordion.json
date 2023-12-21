@@ -1,8 +1,6 @@
 {
   "name": "accordion",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

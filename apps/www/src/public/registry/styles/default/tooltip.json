@@ -1,8 +1,6 @@
 {
   "name": "tooltip",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],

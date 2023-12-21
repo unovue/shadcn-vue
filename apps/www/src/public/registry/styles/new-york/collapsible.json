@@ -1,8 +1,6 @@
 {
   "name": "collapsible",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
