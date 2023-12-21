@@ -47,7 +47,7 @@ const props = defineProps({
   foo: { type: String, required: false, default: \\"bar\\" },
   for: { type: String, required: false },
   asChild: { type: Boolean, required: false },
-  as: { type: [String, Object], required: false },
+  as: { type: null, required: false },
 });
 export {};
 </script>

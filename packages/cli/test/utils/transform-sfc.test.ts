@@ -77,8 +77,8 @@ describe('transformSFC', () => {
       `,
       config: {},
     })
-    // TODO: Ignore test until https://github.com/radix-vue/shadcn-vue/issues/187 is resolved
-    // expect(result).toMatchSnapshot()
+    // TODO: We need to improve this. https://github.com/radix-vue/shadcn-vue/issues/187
+    expect(result).toMatchSnapshot()
   })
 
   test('defineEmits', async () => {
