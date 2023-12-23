@@ -1,6 +1,7 @@
 ---
 title: VeeValidate
 description: Building forms with VeeValidate and Zod.
+primitive: https://vee-validate.logaretm.com/v4/guide/overview/
 ---
 
 Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.

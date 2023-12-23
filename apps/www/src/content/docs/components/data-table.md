@@ -1,6 +1,7 @@
 ---
 title: Data Table
 description: Powerful table and datagrids built using TanStack Table.
+primitive: https://tanstack.com/table/v8/docs/guide/introduction
 ---
 
 

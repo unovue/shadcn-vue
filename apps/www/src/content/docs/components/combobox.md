@@ -1,7 +1,6 @@
 ---
 title: Combobox
-description: Autocomplete input and command palette with a list of suggestions.
-component: true
+description: Autocomplete input and command palette with a list of suggestions. 
 ---
 
 <ComponentPreview name="ComboboxDemo" /> 
