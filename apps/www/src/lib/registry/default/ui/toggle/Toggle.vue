@@ -41,7 +41,7 @@ const forwarded = useForwardPropsEmits(toggleProps.value, emits)
       ...forwarded,
       ...rest,
     }"
-    :class="cn(toggleVariants({ variant, size, class: className ?? '' }))"
+    :class="cn(toggleVariants({ variant, size }), className ?? '')"
     :disabled="props.disabled"
   >
     <slot />
