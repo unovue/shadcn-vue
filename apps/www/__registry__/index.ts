@@ -991,6 +991,20 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/CardWithForm.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CardWithForm.vue'],
     },
+    CarouselDemo: {
+      name: 'CarouselDemo',
+      type: 'components:example',
+      registryDependencies: ['carousel', 'button'],
+      component: () => import('../src/lib/registry/new-york/example/CarouselDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CarouselDemo.vue'],
+    },
+    CarouselOrientation: {
+      name: 'CarouselOrientation',
+      type: 'components:example',
+      registryDependencies: ['carousel', 'button'],
+      component: () => import('../src/lib/registry/new-york/example/CarouselOrientation.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CarouselOrientation.vue'],
+    },
     CheckboxDemo: {
       name: 'CheckboxDemo',
       type: 'components:example',

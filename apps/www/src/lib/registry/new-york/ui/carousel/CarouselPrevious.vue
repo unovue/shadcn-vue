@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ChevronLeft } from 'lucide-vue-next'
+import { ChevronLeftIcon } from '@radix-icons/vue'
 import { useCarousel } from './useCarousel'
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 
 const { orientation, canScrollPrev, scrollPrev } = useCarousel()
 </script>
@@ -20,6 +20,6 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
     variant="outline"
     @click="scrollPrev"
   >
-    <ChevronLeft class="h-4 w-4 text-white" />
+    <ChevronLeftIcon class="h-4 w-4 text-white" />
   </Button>
 </template>
