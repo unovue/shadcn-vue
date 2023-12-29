@@ -1,5 +1,5 @@
 import { readdirSync } from 'node:fs'
-import { join } from 'node:path'
+import { join } from 'pathe'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { Project } from 'ts-morph'
 
