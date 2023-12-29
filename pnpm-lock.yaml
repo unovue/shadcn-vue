@@ -83,6 +83,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      embla-carousel-vue:
+        specifier: 8.0.0-rc17
+        version: 8.0.0-rc17(vue@3.3.7)
       lucide-vue-next:
         specifier: ^0.276.0
         version: 0.276.0(vue@3.3.7)
@@ -6893,6 +6896,28 @@ packages:
 
   /elkjs@0.8.2:
     resolution: {integrity: sha512-L6uRgvZTH+4OF5NE/MBbzQx/WYpru1xCBE9respNj6qznEewGUIfhzmm7horWWxbNO2M0WckQypGctR8lH79xQ==}
+    dev: false
+
+  /embla-carousel-reactive-utils@8.0.0-rc17(embla-carousel@8.0.0-rc17):
+    resolution: {integrity: sha512-eluEOK/u5HdjYaTLC4bUG3iTCnyX7RsYix3il0aH4ZECOKa5fS+pVK2vrM17Mgw6C5Hyjcr3r3lfJtGerVzVsQ==}
+    peerDependencies:
+      embla-carousel: 8.0.0-rc17
+    dependencies:
+      embla-carousel: 8.0.0-rc17
+    dev: false
+
+  /embla-carousel-vue@8.0.0-rc17(vue@3.3.7):
+    resolution: {integrity: sha512-+LHBImxj5Z8OhQHuBxbLhBNZ9cyS1UvXpCbPwlYvUllZ5XbzN08eFNiG7aBnOzxx2WzX2mc6tFzToN+HbO3QPg==}
+    peerDependencies:
+      vue: ^3.2.37
+    dependencies:
+      embla-carousel: 8.0.0-rc17
+      embla-carousel-reactive-utils: 8.0.0-rc17(embla-carousel@8.0.0-rc17)
+      vue: 3.3.7(typescript@5.2.2)
+    dev: false
+
+  /embla-carousel@8.0.0-rc17:
+    resolution: {integrity: sha512-evF49b88VOitvqFtlvhvKVSu96Y8A+QSFdhok87Bfm8R7OYuk95FT+o8+M1GQLi/EhGDUlT193HTVAR0Wt2neQ==}
     dev: false
 
   /emoji-regex@10.2.1:
