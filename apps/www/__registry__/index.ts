@@ -184,6 +184,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/CardWithForm.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/CardWithForm.vue'],
     },
+    CarouselApi: {
+      name: 'CarouselApi',
+      type: 'components:example',
+      registryDependencies: ['carousel', 'button'],
+      component: () => import('../src/lib/registry/default/example/CarouselApi.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/CarouselApi.vue'],
+    },
     CarouselDemo: {
       name: 'CarouselDemo',
       type: 'components:example',
@@ -1004,6 +1011,13 @@ export const Index = {
       registryDependencies: ['button', 'card', 'input', 'label', 'select'],
       component: () => import('../src/lib/registry/new-york/example/CardWithForm.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CardWithForm.vue'],
+    },
+    CarouselApi: {
+      name: 'CarouselApi',
+      type: 'components:example',
+      registryDependencies: ['carousel', 'button'],
+      component: () => import('../src/lib/registry/new-york/example/CarouselApi.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CarouselApi.vue'],
     },
     CarouselDemo: {
       name: 'CarouselDemo',

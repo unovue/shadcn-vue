@@ -172,3 +172,46 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
   </Carousel>
 </template>
 ```
+
+## API
+
+Use the `useCarousel` hook to get the instance of the API.
+
+<ComponentPreview name="CarouselApi" />
+
+## Events
+
+You can listen to events using the api instance from `useCarousel()`.
+
+```vue
+<script setup>
+import { nextTick, ref, watch } from 'vue'
+import { useCarousel } from '@/components/ui/carousel'
+
+const api = ref<CarouselApi>()
+
+function setApi(val: CarouselApi) {
+  api.value = val
+}
+
+const stop = watch(api, (api) => {
+  if (!api)
+    return
+
+  // Watch only once or use watchOnce() in @vueuse/core
+  nextTick(() => stop())
+
+  api.on('select', () => {
+    // Do something on select.
+  })
+})
+</script>
+
+<template>
+  <Carousel @init-api="setApi">
+    ...
+  </Carousel>
+</template>
+```
+
+See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
