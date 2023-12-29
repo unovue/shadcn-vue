@@ -1,4 +1,5 @@
 import { readdirSync } from 'node:fs'
+import { join } from 'pathe'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { Project } from 'ts-morph'
 
@@ -29,7 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
     const COMPONENT_DIR_PATH = options.componentDir!
     const ROOT_DIR_PATH = nuxt.options.rootDir
 
-    const { resolve } = createResolver(ROOT_DIR_PATH)
+    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
 
     nuxt.options.ignore.push(IGNORE_DIR)
     nuxt._ignore?.add(IGNORE_DIR)
@@ -38,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
     try {
       readdirSync(resolve(COMPONENT_DIR_PATH))
         .forEach(async (dir) => {
-          const filePath = resolve(COMPONENT_DIR_PATH, dir, 'index.ts')
+          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
 
           const project = new Project()
           project.addSourceFileAtPath(filePath)
