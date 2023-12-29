@@ -83,6 +83,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      embla-carousel-autoplay:
+        specifier: 8.0.0-rc17
+        version: 8.0.0-rc17(embla-carousel@8.0.0-rc17)
       embla-carousel-vue:
         specifier: 8.0.0-rc17
         version: 8.0.0-rc17(vue@3.3.7)
@@ -6896,6 +6899,14 @@ packages:
 
   /elkjs@0.8.2:
     resolution: {integrity: sha512-L6uRgvZTH+4OF5NE/MBbzQx/WYpru1xCBE9respNj6qznEewGUIfhzmm7horWWxbNO2M0WckQypGctR8lH79xQ==}
+    dev: false
+
+  /embla-carousel-autoplay@8.0.0-rc17(embla-carousel@8.0.0-rc17):
+    resolution: {integrity: sha512-U8YweUZg2DJd3IXxTV3UsjFyJEsQuCHOBRyJxoJZ8r1L/SYbYnk7BbknH6N0yfgzeMn6pL27RPEf0vIz+JtFYw==}
+    peerDependencies:
+      embla-carousel: 8.0.0-rc17
+    dependencies:
+      embla-carousel: 8.0.0-rc17
     dev: false
 
   /embla-carousel-reactive-utils@8.0.0-rc17(embla-carousel@8.0.0-rc17):

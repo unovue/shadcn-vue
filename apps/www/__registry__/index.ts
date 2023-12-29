@@ -205,6 +205,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/CarouselOrientation.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/CarouselOrientation.vue'],
     },
+    CarouselPlugin: {
+      name: 'CarouselPlugin',
+      type: 'components:example',
+      registryDependencies: ['carousel', 'button'],
+      component: () => import('../src/lib/registry/default/example/CarouselPlugin.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/CarouselPlugin.vue'],
+    },
     CarouselSize: {
       name: 'CarouselSize',
       type: 'components:example',
@@ -1032,6 +1039,13 @@ export const Index = {
       registryDependencies: ['carousel', 'button'],
       component: () => import('../src/lib/registry/new-york/example/CarouselOrientation.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/CarouselOrientation.vue'],
+    },
+    CarouselPlugin: {
+      name: 'CarouselPlugin',
+      type: 'components:example',
+      registryDependencies: ['carousel', 'button'],
+      component: () => import('../src/lib/registry/new-york/example/CarouselPlugin.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/CarouselPlugin.vue'],
     },
     CarouselSize: {
       name: 'CarouselSize',

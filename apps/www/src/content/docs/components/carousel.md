@@ -215,3 +215,28 @@ const stop = watch(api, (api) => {
 ```
 
 See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
+
+## Plugins
+
+You can use the `plugins` prop to add plugins to the carousel.
+
+```vue showLineNumbers {2,8-10}
+<script setup lang="ts">
+import Autoplay from 'embla-carousel-autoplay'
+</script>
+
+<template>
+  <Carousel
+    class="w-full max-w-xs"
+    :plugins="[Autoplay({
+      delay: 2000,
+    })]"
+  >
+    ...
+  </Carousel>
+</template>
+```
+
+<ComponentPreview name="CarouselPlugin" />
+
+See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.

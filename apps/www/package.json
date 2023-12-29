@@ -27,6 +27,7 @@
     "clsx": "^2.0.0",
     "codesandbox": "^2.2.3",
     "date-fns": "^2.30.0",
+    "embla-carousel-autoplay": "8.0.0-rc17",
     "embla-carousel-vue": "8.0.0-rc17",
     "lucide-vue-next": "^0.276.0",
     "radix-vue": "^1.2.5",
