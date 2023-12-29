@@ -3,12 +3,12 @@ import emblaCarouselVue, {
   type EmblaCarouselType as CarouselApi,
 } from 'embla-carousel-vue'
 import { onMounted, ref } from 'vue'
-import type { CarouselProps } from './interface'
+import type { CarouselEmits, CarouselProps } from './interface'
 
 const [useProvideCarousel, useInjectCarousel] = createInjectionState(
   ({
     opts, orientation, plugins,
-  }: CarouselProps) => {
+  }: CarouselProps, emits: CarouselEmits) => {
     const [emblaNode, emblaApi] = emblaCarouselVue({
       ...opts,
       axis: orientation === 'horizontal' ? 'x' : 'y',
@@ -36,6 +36,8 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
       emblaApi.value?.on('init', onSelect)
       emblaApi.value?.on('reInit', onSelect)
       emblaApi.value?.on('select', onSelect)
+
+      emits('init-api', emblaApi.value)
     })
 
     return { carouselRef: emblaNode, carouselApi: emblaApi, canScrollPrev, canScrollNext, scrollPrev, scrollNext, orientation }
