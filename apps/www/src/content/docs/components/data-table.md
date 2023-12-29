@@ -5,7 +5,7 @@ primitive: https://tanstack.com/table/v8/docs/guide/introduction
 ---
 
 
-<ComponentPreview name="DataTableDemo"  /> 
+<ComponentPreview name="DataTableDemo"  />
 
 ## Introduction
 
@@ -23,7 +23,7 @@ We'll start with the basic `<Table />` component and build a complex data table 
 
 </Callout>
 
-## Table of Contents 
+## Table of Contents
 
 This guide will show you how to use [TanStack Table](https://tanstack.com/table/v8) and the <Table /> component to build your own custom data table. We'll cover the following topics:
 
@@ -173,8 +173,8 @@ const props = defineProps<{
 }>()
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
 })
 </script>
@@ -389,8 +389,8 @@ import {
 } from "@tanstack/vue-table"
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
 })
@@ -408,8 +408,8 @@ We can add pagination controls to our table using the `<Button />` component and
 import { Button } from "@/components/ui/button"
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
 })
@@ -519,8 +519,8 @@ const props = defineProps<{
 const sorting = ref<SortingState>([])
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -621,8 +621,8 @@ const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -715,11 +715,11 @@ const columnFilters = ref<ColumnFiltersState>([])
 const columnVisibility = ref<VisibilityState>({})
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(), 
+    getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
     onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
@@ -842,11 +842,11 @@ const columnVisibility = ref<VisibilityState>({})
 const rowSelection = ref({})
 
 const table = useVueTable({
-    data: props.data,
-    columns: props.columns,
+    get data() { return props.data },
+    get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(), 
+    getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
     onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
