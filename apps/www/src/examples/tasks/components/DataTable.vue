@@ -42,8 +42,8 @@ const columnVisibility = ref<VisibilityState>({})
 const rowSelection = ref({})
 
 const table = useVueTable({
-  data: props.data,
-  columns: props.columns,
+  get data() { return props.data },
+  get columns() { return props.columns },
   state: {
     get sorting() { return sorting.value },
     get columnFilters() { return columnFilters.value },
