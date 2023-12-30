@@ -15,7 +15,7 @@ const { copy, copied } = useClipboard()
 
 const codeRef = ref<HTMLElement>()
 async function copyCode() {
-  await copy(codeRef.value?.innerText ?? '')
+  await copy(codeRef.value?.innerText.replace(/\u00A0/g, " ") ?? '')
 }
 </script>
 
