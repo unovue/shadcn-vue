@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useForwardPropsEmits } from 'radix-vue'
 import { useProvideCarousel } from './useCarousel'
 import type { CarouselEmits, CarouselProps } from './interface'
 import { cn } from '@/lib/utils'
@@ -10,20 +9,23 @@ const props = withDefaults(defineProps<CarouselProps>(), {
 
 const emits = defineEmits<CarouselEmits>()
 
-const forwarded = useForwardPropsEmits(props)
 const carouselArgs = useProvideCarousel(props, emits)
 
 function onKeyDown(event: KeyboardEvent) {
-  event.preventDefault()
-
   const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'
   const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'
 
-  if (event.key === prevKey)
+  if (event.key === prevKey) {
+    event.preventDefault()
     carouselArgs.scrollPrev()
 
-  else if (event.key === nextKey)
+    return
+  }
+
+  if (event.key === nextKey) {
+    event.preventDefault()
     carouselArgs.scrollNext()
+  }
 }
 </script>
 
@@ -32,7 +34,7 @@ function onKeyDown(event: KeyboardEvent) {
     :class="cn('relative', $attrs.class ?? '')"
     role="region"
     aria-roledescription="carousel"
-    v-bind="forwarded"
+    tabindex="0"
     @keydown="onKeyDown"
   >
     <slot v-bind="carouselArgs" />
