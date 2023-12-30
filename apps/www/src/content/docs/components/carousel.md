@@ -216,6 +216,20 @@ const stop = watch(api, (api) => {
 
 See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
 
+## Slot Props
+
+You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scrollNext..Prev` using the `v-slot` directive in the `<Carousel v-slot="slotProps" />` component to extend the functionality.
+
+```vue showLineNumbers {2}
+<template>
+  <Carousel v-slot="{ canScrollNext, canScrollPrev }">
+    ...
+    <CarouselPrevious v-if="canScrollPrev" />
+    <CarouselNext v-if="canScrollNext" />
+  </Carousel>
+</template>
+```
+
 ## Plugins
 
 You can use the `plugins` prop to add plugins to the carousel.
