@@ -142,7 +142,9 @@
       "ui/carousel/CarouselItem.vue",
       "ui/carousel/CarouselNext.vue",
       "ui/carousel/CarouselPrev.vue",
-      "ui/carousel/index.ts"
+      "ui/carousel/index.ts",
+      "ui/carousel/interface.ts",
+      "ui/carousel/useCarousel.ts"
     ],
     "type": "components:ui"
   },
