@@ -11,6 +11,8 @@ const emits = defineEmits<CarouselEmits>()
 
 const carouselArgs = useProvideCarousel(props, emits)
 
+defineExpose(carouselArgs)
+
 function onKeyDown(event: KeyboardEvent) {
   const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'
   const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'

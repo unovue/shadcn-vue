@@ -175,9 +175,31 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 ## API
 
+### Method 1
+
 Use the `@init-api` emit method on `<Carousel />` component to set the instance of the API.
 
 <ComponentPreview name="CarouselApi" />
+
+### Method 2
+
+You can access it through setting a template ref on the `<Carousel />` component.
+
+```vue showLineNumbers {2,5,9}
+<script setup>
+const carouselContainerRef = ref<InstanceType<typeof Carousel> | null>(null)
+
+function accessApi() {
+  carouselContainerRef.value?.carouselApi.on('select', () => {})
+}
+</script>
+
+<template>
+  <Carousel ref="carouselContainerRef">
+    ...
+  </Carousel>
+</template>
+```
 
 ## Events
 
