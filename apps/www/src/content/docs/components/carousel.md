@@ -175,15 +175,15 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 ## API
 
-Use the `useCarousel` hook to get the instance of the API.
+Use the `@init-api` emit method on `<Carousel />` component to set the instance of the API.
 
 <ComponentPreview name="CarouselApi" />
 
 ## Events
 
-You can listen to events using the api instance from `useCarousel()`.
+You can listen to events using the API. To get the API instance use the `@init-api` emit method on the `<Carousel />` component
 
-```vue
+```vue showLineNumbers {5,7-9,25}
 <script setup>
 import { nextTick, ref, watch } from 'vue'
 import { useCarousel } from '@/components/ui/carousel'
