@@ -110,6 +110,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 
     const file_path = join('ui', componentName, dirent.name)
     files.push(file_path)
+    files.sort()
 
     // only grab deps from the vue files
     if (dirent.name === 'index.ts')
