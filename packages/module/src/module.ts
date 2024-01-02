@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { addComponent, createResolver, defineNuxtModule } from 'nuxt/kit'
+import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { parse } from 'recast'
 
 // Module options TypeScript interface definition
