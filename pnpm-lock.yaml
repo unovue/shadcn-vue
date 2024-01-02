@@ -289,6 +289,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.8.2
         version: 3.8.2(rollup@3.29.3)
+      recast:
+        specifier: ^0.23.4
+        version: 0.23.4
       ts-morph:
         specifier: ^19.0.0
         version: 19.0.0
