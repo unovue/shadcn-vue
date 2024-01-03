@@ -1,11 +1,8 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
-interface DialogFooterProps {
-  class?: string
-}
-
-const props = defineProps<DialogFooterProps>()
+const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </script>
 
 <template>

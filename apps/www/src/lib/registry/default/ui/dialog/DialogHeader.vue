@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
-interface DialogHeaderProps {
-  class?: string
-}
-
-const props = defineProps<DialogHeaderProps>()
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+}>()
 </script>
 
 <template>

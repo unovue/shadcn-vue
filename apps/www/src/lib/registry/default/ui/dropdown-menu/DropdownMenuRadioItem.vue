@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,
@@ -9,14 +10,20 @@ import {
 import { Circle } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<DropdownMenuRadioItemProps & { class?: string }>()
+const props = defineProps<DropdownMenuRadioItemProps & { class?: HTMLAttributes['class'] }>()
 
 const emits = defineEmits<DropdownMenuRadioItemEmits>()
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
   <DropdownMenuRadioItem
-    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }"
     :class="cn(
       'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
       props.class,
