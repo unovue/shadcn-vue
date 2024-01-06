@@ -49,7 +49,13 @@ const links = [
 ]
 
 const isOpen = ref(false)
-const { Meta_K, Ctrl_K } = useMagicKeys()
+const { Meta_K, Ctrl_K } = useMagicKeys({
+  passive: false,
+  onEventFired(e) {
+    if (e.key === 'k' && (e.metaKey || e.ctrlKey))
+      e.preventDefault()
+  },
+})
 
 watch([Meta_K, Ctrl_K], (v) => {
   if (v[0] || v[1])
