@@ -11,7 +11,7 @@ interface Props extends PrimitiveProps {
   class?: HTMLAttributes['class']
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   as: 'button',
 })
 </script>
@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
   <Primitive
     :as="as"
     :as-child="asChild"
-    :class="cn(buttonVariants({ variant, size }), $attrs.class ?? '')"
+    :class="cn(buttonVariants({ variant, size }), props.class)"
   >
     <slot />
   </Primitive>

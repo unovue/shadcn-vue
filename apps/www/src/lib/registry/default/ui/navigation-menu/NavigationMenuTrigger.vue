@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   NavigationMenuTrigger,
   type NavigationMenuTriggerProps,
@@ -7,13 +8,19 @@ import { ChevronDown } from 'lucide-vue-next'
 import { navigationMenuTriggerStyle } from '.'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<NavigationMenuTriggerProps & { class?: string }>()
+const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes['class'] }>()
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
   <NavigationMenuTrigger
+    v-bind="delegatedProps"
     :class="cn(navigationMenuTriggerStyle(), 'group', props.class)"
-    v-bind="props"
   >
     <slot />
     <ChevronDown

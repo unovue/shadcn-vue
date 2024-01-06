@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   SelectItem,
   SelectItemIndicator,
@@ -8,12 +9,18 @@ import {
 import { Check } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<SelectItemProps & { class?: string }>()
+const props = defineProps<SelectItemProps & { class?: HTMLAttributes['class'] }>()
+
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
   <SelectItem
-    v-bind="props"
+    v-bind="delegatedProps"
     :class="
       cn(
         'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
