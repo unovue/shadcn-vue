@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "Dialog.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogRoot } from 'radix-vue'\n</script>\n\n<template>\n  <DialogRoot>\n    <slot />\n  </DialogRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<DialogRootProps>()\nconst emits = defineEmits<DialogRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DialogRoot v-bind=\"forwarded\">\n    <slot />\n  </DialogRoot>\n</template>\n"
     },
     {
       "name": "DialogClose.vue",
