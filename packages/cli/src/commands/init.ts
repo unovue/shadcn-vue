@@ -138,7 +138,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindCss',
-      message: `Where is your ${highlight('Tailwind CSS')} file?`,
+      message: `Where is your ${highlight('global CSS')} file?`,
       initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
