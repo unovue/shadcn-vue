@@ -40,7 +40,7 @@ export default defineNuxtModule<ModuleOptions>({
     try {
       readdirSync(resolve(COMPONENT_DIR_PATH))
         .forEach(async (dir) => {
-          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', 'js'] })
+          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
           const content = readFileSync(filePath, { encoding: 'utf8' })
           const ast = parse(content)
 
