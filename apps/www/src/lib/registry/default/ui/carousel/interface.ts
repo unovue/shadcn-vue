@@ -2,7 +2,7 @@ import type {
   EmblaCarouselType as CarouselApi,
   EmblaOptionsType as CarouselOptions,
   EmblaPluginType as CarouselPlugin,
-} from 'embla-carousel-vue'
+} from 'embla-carousel'
 
 export interface CarouselProps {
   opts?: CarouselOptions
