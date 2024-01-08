@@ -9,9 +9,10 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "typecheck": "vue-tsc --noEmit",
-    "typecheck:registry": "vue-tsc --noEmit -p tsconfig.registry.json",
-    "build:registry": "pnpm typecheck:registry && tsx ./scripts/build-registry.ts"
+    "typecheck": "vue-tsc",
+    "typecheck:registry": "vue-tsc -p tsconfig.registry.json",
+    "build:registry": "tsx ./scripts/build-registry.ts",
+    "build:registry-strict": "pnpm typecheck:registry && tsx ./scripts/build-registry.ts"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
@@ -27,6 +28,9 @@
     "clsx": "^2.0.0",
     "codesandbox": "^2.2.3",
     "date-fns": "^2.30.0",
+    "embla-carousel": "8.0.0-rc19",
+    "embla-carousel-autoplay": "8.0.0-rc19",
+    "embla-carousel-vue": "8.0.0-rc19",
     "lucide-vue-next": "^0.276.0",
     "radix-vue": "^1.2.5",
     "tailwindcss-animate": "^1.0.7",
@@ -47,7 +51,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/compiler-core": "^3.3.7",
     "@vue/compiler-dom": "^3.3.7",
-    "@vue/tsconfig": "^0.4.0",
+    "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.16",
     "lodash.template": "^4.5.0",
     "pathe": "^1.1.1",
@@ -59,6 +63,6 @@
     "unplugin-icons": "^0.17.1",
     "vite": "^4.5.0",
     "vitepress": "^1.0.0-rc.24",
-    "vue-tsc": "^1.8.25"
+    "vue-tsc": "^1.8.27"
   }
 }

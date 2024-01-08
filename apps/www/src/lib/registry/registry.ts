@@ -8,6 +8,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['@vueuse/core', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
+  ['embla-carousel-vue', ['embla-carousel']],
   ['vee-validate', ['@vee-validate/zod', 'zod']],
 ])
 // Some dependencies latest tag were not compatible with Vue3.
@@ -133,7 +134,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 
 async function getDependencies(filename: string) {
   const code = await readFile(filename, { encoding: 'utf8' })
-  const parsed = parse(code)
+  const parsed = parse(code, { filename })
 
   const registryDependencies = new Set<string>()
   const dependencies = new Set<string>()
