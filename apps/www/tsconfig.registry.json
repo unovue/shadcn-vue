@@ -9,5 +9,5 @@
     "declaration": false
   },
   "include": ["src/lib/**/*"],
-  "exclude": ["node_modules", "src/lib/registry/**/example/**/*", "src/lib/registry/default/ui/carousel/*", "src/lib/registry/new-york/ui/carousel/*"]
+  "exclude": ["node_modules", "src/lib/registry/**/example/**/*"]
 }
