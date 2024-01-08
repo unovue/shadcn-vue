@@ -4,13 +4,11 @@ import { AvatarRoot } from 'radix-vue'
 import { type AvatarVariants, avatarVariant } from '.'
 import { cn } from '@/lib/utils'
 
-interface Props {
+const props = withDefaults(defineProps<{
+  class?: HTMLAttributes['class']
   size?: AvatarVariants['size']
   shape?: AvatarVariants['shape']
-  class?: HTMLAttributes['class']
-}
-
-const props = withDefaults(defineProps<Props>(), {
+}>(), {
   size: 'sm',
   shape: 'circle',
 })

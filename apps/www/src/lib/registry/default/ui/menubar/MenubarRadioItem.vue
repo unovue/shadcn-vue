@@ -11,7 +11,6 @@ import { Circle } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<MenubarRadioItemProps & { class?: HTMLAttributes['class'] }>()
-
 const emits = defineEmits<MenubarRadioItemEmits>()
 
 const delegatedProps = computed(() => {
@@ -19,15 +18,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
   <MenubarRadioItem
     v-bind="{
       ...delegatedProps,
-      ...emitsAsProps,
+      ...useEmitAsProps(emits),
     }"
     :class="[
       cn(

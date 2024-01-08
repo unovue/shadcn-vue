@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type HTMLAttributes, computed } from 'vue'
 import type { ComboboxRootEmits, ComboboxRootProps } from 'radix-vue'
-import { ComboboxRoot, useEmitAsProps, useForwardPropsEmits } from 'radix-vue'
+import { ComboboxRoot, useEmitAsProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<ComboboxRootProps & { class?: HTMLAttributes['class'] }>(), {
@@ -15,15 +15,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
   <ComboboxRoot
     v-bind="{
       ...delegatedProps,
-      ...emitsAsProps,
+      ...useEmitAsProps(emits),
     }"
     :class="cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', props.class)"
   >

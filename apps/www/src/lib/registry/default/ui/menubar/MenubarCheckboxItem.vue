@@ -19,15 +19,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
   <MenubarCheckboxItem
     v-bind="{
       ...delegatedProps,
-      ...emitsAsProps,
+      ...useEmitAsProps(emits),
     }"
     :class="[
       cn(

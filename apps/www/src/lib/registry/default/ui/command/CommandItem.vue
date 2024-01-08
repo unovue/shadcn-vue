@@ -7,8 +7,6 @@ import { cn } from '@/lib/utils'
 const props = defineProps<ComboboxItemProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<ComboboxItemEmits>()
 
-const emitsAsProps = useEmitAsProps(emits)
-
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
 
@@ -18,7 +16,7 @@ const delegatedProps = computed(() => {
 
 <template>
   <ComboboxItem
-    v-bind="{ ...delegatedProps, ...emitsAsProps }"
+    v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }"
     :class="cn('relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50', props.class)"
     @select.prevent
   >

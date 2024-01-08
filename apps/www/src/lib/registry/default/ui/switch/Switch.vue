@@ -1,22 +1,30 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   SwitchRoot,
   type SwitchRootEmits,
   type SwitchRootProps,
   SwitchThumb,
-  useForwardPropsEmits,
+  useEmitAsProps,
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<SwitchRootProps & { class?: string }>()
+const props = defineProps<SwitchRootProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<SwitchRootEmits>()
 
-const forwarded = useForwardPropsEmits(props, emits)
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
   <SwitchRoot
-    v-bind="forwarded"
+    v-bind="{
+      ...delegatedProps,
+      ...useEmitAsProps(emits),
+    }"
     :class="
       cn(
         'peer inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',

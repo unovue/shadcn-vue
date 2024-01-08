@@ -12,12 +12,10 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
-  <ComboboxContent v-bind="{ ...delegatedProps, ...emitsAsProps }" :class="cn('max-h-[300px] overflow-y-auto overflow-x-hidden', props.class)">
+  <ComboboxContent v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }" :class="cn('max-h-[300px] overflow-y-auto overflow-x-hidden', props.class)">
     <div role="presentation">
       <slot />
     </div>

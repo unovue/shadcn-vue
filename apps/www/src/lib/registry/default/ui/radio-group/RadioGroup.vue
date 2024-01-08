@@ -11,8 +11,6 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
@@ -20,7 +18,7 @@ const emitsAsProps = useEmitAsProps(emits)
     :class="cn('grid gap-2', props.class)"
     v-bind="{
       ...delegatedProps,
-      ...emitsAsProps,
+      ...useEmitAsProps(emits),
     }"
   >
     <slot />

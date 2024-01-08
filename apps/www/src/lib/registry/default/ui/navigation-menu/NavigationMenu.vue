@@ -18,15 +18,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
-
-const emitsAsProps = useEmitAsProps(emits)
 </script>
 
 <template>
   <NavigationMenuRoot
     v-bind="{
       ...delegatedProps,
-      ...emitsAsProps,
+      ...useEmitAsProps(emits),
     }"
     :class="cn('relative z-10 flex max-w-max flex-1 items-center justify-center', props.class)"
   >

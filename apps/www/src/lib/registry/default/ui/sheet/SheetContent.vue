@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   DialogClose,
   DialogContent,
@@ -14,14 +15,11 @@ import { cn } from '@/lib/utils'
 
 interface SheetContentProps extends DialogContentProps {
   side?: 'left' | 'right' | 'top' | 'bottom'
-  class?: string
+  class?: HTMLAttributes['class']
 }
 
 const props = defineProps<SheetContentProps>()
-
 const emits = defineEmits<DialogContentEmits>()
-
-const emitsAsProps = useEmitAsProps(emits)
 
 const sheetVariants = cva(
   'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
@@ -41,6 +39,12 @@ const sheetVariants = cva(
     },
   },
 )
+
+const delegatedProps = computed(() => {
+  const { class: _, side, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
@@ -49,8 +53,8 @@ const sheetVariants = cva(
       class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     />
     <DialogContent
-      :class="cn(sheetVariants({ side: props.side }), props.class)"
-      v-bind="{ ...props, ...emitsAsProps }"
+      :class="cn(sheetVariants({ side }), props.class)"
+      v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }"
     >
       <slot />
 
