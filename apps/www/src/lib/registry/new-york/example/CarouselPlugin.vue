@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import Autoplay from 'embla-carousel-autoplay'
-import { ref } from 'vue'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/new-york/ui/carousel'
 import { Card, CardContent } from '@/lib/registry/new-york/ui/card'
 
-const plugin = ref(Autoplay({
+const plugin = Autoplay({
   delay: 2000,
   stopOnMouseEnter: true,
   stopOnInteraction: false,
-}))
+})
 </script>
 
 <template>
@@ -17,7 +16,7 @@ const plugin = ref(Autoplay({
       class="w-full max-w-xs"
       :plugins="[plugin]"
       @mouseenter="plugin.stop"
-      @mouseleave="[plugin.reset(), plugin.play(), console.log('Rungin')];"
+      @mouseleave="[plugin.reset(), plugin.play(), console.log('Runing')];"
     >
       <CarouselContent>
         <CarouselItem v-for="(_, index) in 5" :key="index">
