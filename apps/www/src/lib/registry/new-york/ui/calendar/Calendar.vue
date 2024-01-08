@@ -117,7 +117,7 @@ onMounted(async () => {
 .calendar .vc-day:has(.vc-highlights) {
   @apply bg-accent first:rounded-l-md last:rounded-r-md overflow-hidden;
 }
-.calendar .vc-day.is-today {
+.calendar .vc-day.is-today:not(:has(.vc-day-layer)) {
   @apply bg-secondary rounded-md;
 }
 .calendar .vc-day:has(.vc-highlight-base-start) {
