@@ -14,17 +14,22 @@ import {
 
 const open = ref(false)
 
-const keys = useMagicKeys()
-const CmdJ = keys['Cmd+J']
+const { Meta_J, Ctrl_J } = useMagicKeys({
+  passive: false,
+  onEventFired(e) {
+    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
+      e.preventDefault()
+  },
+})
+
+watch([Meta_J, Ctrl_J], (v) => {
+  if (v[0] || v[1])
+    handleOpenChange()
+})
 
 function handleOpenChange() {
   open.value = !open.value
 }
-
-watch(CmdJ, (v) => {
-  if (v)
-    handleOpenChange()
-})
 </script>
 
 <template>
@@ -37,7 +42,7 @@ watch(CmdJ, (v) => {
         <span class="text-xs">⌘</span>J
       </kbd>
     </p>
-    <CommandDialog :open="open" :on-open-change="handleOpenChange">
+    <CommandDialog v-model:open="open">
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

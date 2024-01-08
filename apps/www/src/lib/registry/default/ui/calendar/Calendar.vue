@@ -118,8 +118,20 @@ onMounted(async () => {
 .calendar .vc-day:has(.vc-highlights) {
   @apply bg-accent first:rounded-l-md last:rounded-r-md overflow-hidden;
 }
+.calendar .vc-day.is-today:not(:has(.vc-day-layer)) {
+  @apply bg-secondary rounded-md;
+}
+.calendar .vc-day:has(.vc-highlight-base-start) {
+  @apply rounded-l-md;
+}
+.calendar .vc-day:has(.vc-highlight-base-end) {
+  @apply rounded-r-md;
+}
+.calendar .vc-day:has(.vc-highlight-bg-outline):not(:has(.vc-highlight-base-start)):not(:has(.vc-highlight-base-end)) {
+  @apply rounded-md;
+}
 .calendar .vc-day-content  {
-  @apply text-center text-sm p-0 relative focus-within:relative focus-within:z-20 inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground h-9 w-9  font-normal aria-selected:opacity-100 select-none;
+  @apply text-center text-sm p-0 relative focus-within:relative focus-within:z-20 inline-flex items-center justify-center ring-offset-background hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground h-9 w-9  font-normal aria-selected:opacity-100 select-none;
 }
 .calendar .vc-day-content:not(.vc-highlight-content-light) {
   @apply rounded-md;
