@@ -3,6 +3,10 @@ import type { WithClassAsProps } from './interface'
 import { useCarousel } from './useCarousel'
 import { cn } from '@/lib/utils'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps<WithClassAsProps>()
 
 const { carouselRef, orientation } = useCarousel()
@@ -17,6 +21,7 @@ const { carouselRef, orientation } = useCarousel()
           orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
           props.class,
         )"
+      v-bind="$attrs"
     >
       <slot />
     </div>
