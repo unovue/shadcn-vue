@@ -256,6 +256,11 @@ You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scro
 
 You can use the `plugins` prop to add plugins to the carousel.
 
+```bash
+npm i embla-carousel-autoplay
+```
+
+
 ```vue showLineNumbers {2,8-10}
 <script setup lang="ts">
 import Autoplay from 'embla-carousel-autoplay'
