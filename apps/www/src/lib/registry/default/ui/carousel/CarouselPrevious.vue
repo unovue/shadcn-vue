@@ -23,6 +23,8 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
     variant="outline"
     @click="scrollPrev"
   >
-    <ChevronLeft class="h-4 w-4 text-white" />
+    <slot>
+      <ChevronLeft class="h-4 w-4 text-current" />
+    </slot>
   </Button>
 </template>
