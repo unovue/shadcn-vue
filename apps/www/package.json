@@ -9,9 +9,10 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "typecheck": "vue-tsc --noEmit",
-    "typecheck:registry": "vue-tsc --noEmit -p tsconfig.registry.json",
-    "build:registry": "pnpm typecheck:registry && tsx ./scripts/build-registry.ts"
+    "typecheck": "vue-tsc",
+    "typecheck:registry": "vue-tsc -p tsconfig.registry.json",
+    "build:registry": "tsx ./scripts/build-registry.ts",
+    "build:registry-strict": "pnpm typecheck:registry && tsx ./scripts/build-registry.ts"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
