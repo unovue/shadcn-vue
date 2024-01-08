@@ -133,7 +133,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 
 async function getDependencies(filename: string) {
   const code = await readFile(filename, { encoding: 'utf8' })
-  const parsed = parse(code)
+  const parsed = parse(code, { filename })
 
   const registryDependencies = new Set<string>()
   const dependencies = new Set<string>()
