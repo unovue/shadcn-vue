@@ -3,11 +3,11 @@ import type {
   EmblaOptionsType as CarouselOptions,
   EmblaPluginType as CarouselPlugin,
 } from 'embla-carousel'
-import type { HTMLAttributes } from 'vue'
+import type { HTMLAttributes, Ref } from 'vue'
 
 export interface CarouselProps {
-  opts?: CarouselOptions
-  plugins?: CarouselPlugin[]
+  opts?: CarouselOptions | Ref<CarouselOptions>
+  plugins?: CarouselPlugin[] | Ref<CarouselPlugin[]>
   orientation?: 'horizontal' | 'vertical'
 }
 

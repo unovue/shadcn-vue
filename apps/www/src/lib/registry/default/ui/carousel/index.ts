@@ -5,6 +5,6 @@ export { default as CarouselPrevious } from './CarouselPrevious.vue'
 export { default as CarouselNext } from './CarouselNext.vue'
 export { useCarousel } from './useCarousel'
 
-export {
-  type EmblaCarouselType as CarouselApi,
-} from 'embla-carousel-vue'
+export type {
+  EmblaCarouselType as CarouselApi,
+} from 'embla-carousel'
