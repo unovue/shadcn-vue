@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useProvideCarousel } from './useCarousel'
-import type { CarouselEmits, CarouselProps } from './interface'
+import type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<CarouselProps>(), {
+const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
   orientation: 'horizontal',
 })
 
@@ -33,7 +33,7 @@ function onKeyDown(event: KeyboardEvent) {
 
 <template>
   <div
-    :class="cn('relative', $attrs.class ?? '')"
+    :class="cn('relative', props.class)"
     role="region"
     aria-roledescription="carousel"
     tabindex="0"
