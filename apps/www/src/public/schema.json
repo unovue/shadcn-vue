@@ -6,6 +6,10 @@
       "type": "string",
       "enum": ["default", "new-york"]
     },
+    "typescript": {
+      "type": "boolean",
+      "default": true
+    },
     "tailwind": {
       "type": "object",
       "properties": {
@@ -19,11 +23,17 @@
           "type": "string"
         },
         "cssVariables": {
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         }
       },
       "required": ["config", "css", "baseColor", "cssVariables"]
-    },  
+    },
+    "framework": {
+      "type": "string",
+      "enum": ["nuxt", "vite", "laravel", "astro"],
+      "default": "vite"
+    },
     "aliases": {
       "type": "object",
       "properties": {
