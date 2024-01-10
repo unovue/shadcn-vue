@@ -178,7 +178,7 @@ export async function promptForConfig(
   ])
 
   const config = rawConfigSchema.parse({
-    // $schema: 'https://ui.shadcn.com/schema.json',
+    $schema: 'https://shadcn-vue.com/schema.json',
     style: options.style,
     typescript: options.typescript,
     framework: options.framework,
