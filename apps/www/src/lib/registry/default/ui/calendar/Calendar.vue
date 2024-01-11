@@ -236,4 +236,49 @@ onMounted(async () => {
 	-webkit-transform: translateY(calc(-1 * var(--vc-slide-translate)));
 	transform: translateY(calc(-1 * var(--vc-slide-translate)));
 }
+/**
+ * Timepicker styles
+ */
+.vc-time-picker {
+  @apply flex flex-col items-center p-2;
+}
+.vc-time-picker.vc-invalid {
+  @apply pointer-events-none opacity-50;
+}
+.vc-time-picker.vc-attached {
+  @apply border-t border-solid border-secondary;
+}
+.vc-time-picker > * + * {
+  @apply mt-1;
+}
+.vc-time-header {
+  @apply flex items-center text-sm font-semibold uppercase mt-1 px-1 leading-6;
+}
+.vc-time-select-group {
+  @apply inline-flex items-center px-1 rounded-md bg-primary-foreground border border-solid border-secondary;
+}
+.vc-time-select-group .vc-base-icon {
+  @apply mr-1 text-primary stroke-primary;
+}
+.vc-time-select-group select {
+  @apply bg-transparent p-1 appearance-none outline-none text-center;
+}
+.vc-time-weekday {
+  @apply text-muted-foreground tracking-wide;
+}
+.vc-time-month {
+  @apply text-primary ml-2;
+}
+.vc-time-day {
+  @apply text-primary ml-1;
+}
+.vc-time-year {
+  @apply text-muted-foreground ml-2;
+}
+.vc-time-colon {
+  @apply mb-0.5;
+}
+.vc-time-decimal {
+  @apply ml-0.5;
+}
 </style>
