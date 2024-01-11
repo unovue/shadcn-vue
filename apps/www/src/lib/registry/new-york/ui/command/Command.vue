@@ -1,19 +1,29 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import type { ComboboxRootEmits, ComboboxRootProps } from 'radix-vue'
-import { ComboboxRoot, useForwardPropsEmits } from 'radix-vue'
+import { ComboboxRoot, useEmitAsProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<ComboboxRootProps>()
+const props = withDefaults(defineProps<ComboboxRootProps & { class?: HTMLAttributes['class'] }>(), {
+  open: true,
+  modelValue: '',
+})
 const emits = defineEmits<ComboboxRootEmits>()
 
-const forwarded = useForwardPropsEmits(props, emits)
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
   <ComboboxRoot
-    v-bind="forwarded"
-    :open="true"
-    :class="cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', $attrs.class ?? '')"
+    v-bind="{
+      ...delegatedProps,
+      ...useEmitAsProps(emits),
+    }"
+    :class="cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', props.class)"
   >
     <slot />
   </ComboboxRoot>

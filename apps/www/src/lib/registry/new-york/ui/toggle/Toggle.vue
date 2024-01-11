@@ -1,22 +1,19 @@
 <script setup lang="ts">
 import type { ToggleEmits, ToggleProps } from 'radix-vue'
-import { Toggle, useForwardPropsEmits } from 'radix-vue'
+import { Toggle, useEmitAsProps } from 'radix-vue'
 import type { VariantProps } from 'class-variance-authority'
-import { computed, useAttrs } from 'vue'
+import { type HTMLAttributes, computed } from 'vue'
 import { toggleVariants } from '.'
 import { cn } from '@/lib/utils'
 
 interface ToggleVariantProps extends VariantProps<typeof toggleVariants> {}
 
 interface Props extends ToggleProps {
+  class?: HTMLAttributes['class']
   variant?: ToggleVariantProps['variant']
   size?: ToggleVariantProps['size']
   disabled?: boolean
 }
-
-defineOptions({
-  inheritAttrs: false,
-})
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
@@ -25,24 +22,20 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const emits = defineEmits<ToggleEmits>()
 
-const toggleProps = computed(() => {
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const { variant, size, disabled, ...otherProps } = props
-  return otherProps
-})
+const delegatedProps = computed(() => {
+  const { class: _, size, variant, ...delegated } = props
 
-const { class: className, ...rest } = useAttrs()
-const forwarded = useForwardPropsEmits(toggleProps.value, emits)
+  return delegated
+})
 </script>
 
 <template>
   <Toggle
     v-bind="{
-      ...forwarded,
-      ...rest,
+      ...delegatedProps,
+      ...useEmitAsProps(emits),
     }"
-    :class="cn(toggleVariants({ variant, size }), className ?? '')"
-    :disabled="props.disabled"
+    :class="cn(toggleVariants({ variant, size }), props.class)"
   >
     <slot />
   </Toggle>
