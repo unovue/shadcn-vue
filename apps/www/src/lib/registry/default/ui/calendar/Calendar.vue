@@ -246,7 +246,7 @@ onMounted(async () => {
   @apply pointer-events-none opacity-50;
 }
 .vc-time-picker.vc-attached {
-  @apply border-t border-solid border-secondary;
+  @apply border-t border-solid border-secondary mt-2;
 }
 .vc-time-picker > * + * {
   @apply mt-1;
@@ -261,7 +261,7 @@ onMounted(async () => {
   @apply mr-1 text-primary stroke-primary;
 }
 .vc-time-select-group select {
-  @apply bg-transparent p-1 appearance-none outline-none text-center;
+  @apply bg-primary-foreground p-1 appearance-none outline-none text-center;
 }
 .vc-time-weekday {
   @apply text-muted-foreground tracking-wide;
