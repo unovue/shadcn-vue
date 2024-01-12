@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
 import oxc from 'oxc-parser'
 
+// TODO: add test to make sure all registry is being parse correctly
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
