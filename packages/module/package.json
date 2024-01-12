@@ -36,8 +36,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.8.2",
-    "recast": "^0.23.4",
-    "ts-morph": "^19.0.0"
+    "oxc-parser": "^0.2.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
