@@ -51,7 +51,7 @@ const notifications = [
       <div>
         <div
           v-for="(notification, index) in notifications" :key="index"
-          class="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+          class="mb-4 grid grid-cols-[25px_minmax(0,1fr)] items-start pb-4 last:mb-0 last:pb-0"
         >
           <span class="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
           <div class="space-y-1">

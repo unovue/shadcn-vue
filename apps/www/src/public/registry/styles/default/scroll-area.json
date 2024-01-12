@@ -11,7 +11,7 @@
     },
     {
       "name": "ScrollBar.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {\n  orientation: 'vertical',\n})\n</script>\n\n<template>\n  <ScrollAreaScrollbar\n    v-bind=\"props\"\n    :class=\"\n      cn('flex touch-none select-none transition-colors',\n         orientation === 'vertical'\n           && 'h-full w-2.5 border-l border-l-transparent p-[1px]',\n         orientation === 'horizontal'\n           && 'h-2.5 border-t border-t-transparent p-[1px]',\n         $attrs.class ?? '')\"\n  >\n    <ScrollAreaThumb class=\"relative flex-1 rounded-full bg-border\" />\n  </ScrollAreaScrollbar>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {\n  orientation: 'vertical',\n})\n</script>\n\n<template>\n  <ScrollAreaScrollbar\n    v-bind=\"props\"\n    :class=\"\n      cn('flex touch-none select-none transition-colors',\n         orientation === 'vertical'\n           && 'h-full w-2.5 border-l border-l-transparent p-px',\n         orientation === 'horizontal'\n           && 'h-2.5 border-t border-t-transparent p-px',\n         $attrs.class ?? '')\"\n  >\n    <ScrollAreaThumb class=\"relative flex-1 rounded-full bg-border\" />\n  </ScrollAreaScrollbar>\n</template>\n"
     },
     {
       "name": "index.ts",
