@@ -359,6 +359,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/DatePickerWithRange.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/DatePickerWithRange.vue'],
     },
+    DateTimePickerDemo: {
+      name: 'DateTimePickerDemo',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'calendar', 'popover'],
+      component: () => import('../src/lib/registry/default/example/DateTimePickerDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/DateTimePickerDemo.vue'],
+    },
     DialogCustomCloseButton: {
       name: 'DialogCustomCloseButton',
       type: 'components:example',
@@ -1193,6 +1200,13 @@ export const Index = {
       registryDependencies: ['utils', 'button', 'calendar', 'popover'],
       component: () => import('../src/lib/registry/new-york/example/DatePickerWithRange.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/DatePickerWithRange.vue'],
+    },
+    DateTimePickerDemo: {
+      name: 'DateTimePickerDemo',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'calendar', 'popover'],
+      component: () => import('../src/lib/registry/new-york/example/DateTimePickerDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/DateTimePickerDemo.vue'],
     },
     DialogCustomCloseButton: {
       name: 'DialogCustomCloseButton',
