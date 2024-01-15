@@ -52,7 +52,7 @@ const { style } = useConfigStore()
           </div>
         </div>
         <div
-          :class="cn('preview flex min-h-[350px] w-full justify-center p-6 lg:p-10', {
+          :class="cn('preview flex min-h-[350px] w-full justify-center p-10 items-center', {
             'items-center': align === 'center',
             'items-start': align === 'start',
             'items-end': align === 'end',
