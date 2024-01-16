@@ -156,6 +156,9 @@ importers:
       lodash.template:
         specifier: ^4.5.0
         version: 4.5.0
+      oxc-parser:
+        specifier: ^0.2.0
+        version: 0.2.0
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -3123,7 +3126,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-darwin-x64@0.2.0:
@@ -3131,7 +3133,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-linux-arm64-gnu@0.2.0:
@@ -3139,7 +3140,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-linux-x64-gnu@0.2.0:
@@ -3147,7 +3147,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-win32-arm64-msvc@0.2.0:
@@ -3155,7 +3154,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-win32-x64-msvc@0.2.0:
@@ -3163,7 +3161,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@parcel/watcher-android-arm64@2.3.0:
@@ -11115,7 +11112,6 @@ packages:
       '@oxc-parser/binding-linux-x64-gnu': 0.2.0
       '@oxc-parser/binding-win32-arm64-msvc': 0.2.0
       '@oxc-parser/binding-win32-x64-msvc': 0.2.0
-    dev: false
 
   /p-finally@1.0.0:
     resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}
