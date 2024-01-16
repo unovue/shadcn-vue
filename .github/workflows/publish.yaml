@@ -11,55 +11,21 @@ on:
       - dev
     paths:
       - 'apps/www/**'
-  pull_request_target:
-    types:
-      # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
-      - opened
-      # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
-      - labeled
-    paths:
-      - 'apps/www/**'
   # Allows you to run this workflow manually from the Actions tab
   # eslint-disable-next-line yml/no-empty-mapping-value
   workflow_dispatch:
 
-permissions:
-  # default contents: read & write (in forked repos, only read)
-  contents: write
-  # default deployments: read & write (in forked repos, only read)
-  deployments: write
-  # default pull-requests: read & write (in forked repos, only read)
-  pull-requests: write
-
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     name: Publish to Cloudflare Pages
-    # push event in main branch
-    # workflow_dispatch event
-    # pull_request event from not forked repo
-    # pull_request_target event with label "🚀request-deploy" from forked repo
-    if: ${{
-      github.event_name == 'push' ||
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
-      (github.event_name == 'pull_request_target' &&
-      github.event.action == 'labeled' &&
-      github.event.pull_request.head.repo.fork == true &&
-      contains(github.event.label.name, '🚀request-deploy'))
-      }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.ref }}
-          fetch-depth: 0
-
-      - name: Print pull request head information
-        run: |
-          echo "Pull Request SHA: ${{ github.event.pull_request.head.sha }}"
-          echo "Pull Request Ref: ${{ github.event.pull_request.head.ref }}"
 
       # Run a build step here
       - name: Setup Node.js environment
@@ -94,72 +60,25 @@ jobs:
 
       # Run a action to publish docs
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1.5.0
+        uses: unlike-ltd/github-actions-cloudflare-pages@v1.1.2
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: shadcn-vue
+          cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          cloudflare-account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          cloudflare-project-name: shadcn-vue
           directory: .vitepress/dist
-          # Optional: Enable this if you want to have GitHub Deployments triggered
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional: Switch what branch you are publishing to.
-          # By default this will be the branch which triggered this workflow
-          branch: refs/pull/${{ github.event.number }}/merge
-          # Optional: Change the working directory
-          workingDirectory: apps/www
-          wranglerVersion: '3'
-
-      - name: Create PR comment
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }}
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: |
-            ### ⚡ Successfully Cloudflare Pages deployed!
-            | Name | Link |
-            | :--- | :--- |
-            | <span aria-hidden="true">🔨</span> Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
-            | <span aria-hidden="true">🔍</span> Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | <span aria-hidden="true">😎</span> Deploy Preview Url | [${{ steps.cloudflare-pages-deploy.outputs.url }}](${{ steps.cloudflare-pages-deploy.outputs.url }}) |
-            | <span aria-hidden="true">🌳</span> Environment | ${{ steps.cloudflare-pages-deploy.outputs.environment }} |
-
-      - name: Remove label
-        if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
-        uses: actions/github-script@v6
-        with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.rest.issues.removeLabel({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              name: ['🚀request-deploy']
-            })
-
-  # Comment on PR from the fork
-  comment:
-    name: Comment
-    runs-on: ubuntu-latest
-
-    # pull_request_target opened event from forked repo
-    if: ${{
-      github.event_name == 'pull_request_target' &&
-      github.event.action == 'opened' &&
-      github.event.pull_request.head.repo.fork == true
-      }}
-
-    steps:
-      - name: Create PR comment
-        run: |
-          cat << EOF > comment.md
-          # ⚠️ \`🚀request-deploy\` label is required for deployment
-
-          This repository is a forked repository.
-          Due to security reasons, deployment from forked repositories does not happen automatically.
-
-          To request deployment, please add the \`🚀request-deploy\` label to this pull request.
-          (Only certain members have the ability to add labels.)
-          EOF
-
-          gh pr comment ${{ github.event.number }} -R ${{ github.repository }} -F comment.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-environment: ${{ github.event.pull_request.head.ref }}
+        # uses: cloudflare/pages-action@v1.5.0
+        # with:
+        #   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        #   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        #   projectName: shadcn-vue
+        #   directory: .vitepress/dist
+        #   # Optional: Enable this if you want to have GitHub Deployments triggered
+        #   gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        #   # Optional: Switch what branch you are publishing to.
+        #   # By default this will be the branch which triggered this workflow
+        #   branch: refs/pull/${{ github.event.number }}/merge
+        #   # Optional: Change the working directory
+        #   workingDirectory: apps/www
+        #   wranglerVersion: '3'
