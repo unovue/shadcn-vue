@@ -5,7 +5,7 @@ description: Powered by amazing open source projects.
 
 ## About
 
-[shadcn-vue](https://shadcn-vuee.com) is a port of [shadcn/ui](https://ui.shadcn.com) for Vue/Nuxt. It's maintained by [radix-vue](https://github.com/radix-vue).
+[shadcn-vue](https://shadcn-vue.com) is a port of [shadcn/ui](https://ui.shadcn.com) for Vue/Nuxt. It's maintained by [radix-vue](https://github.com/radix-vue).
 
 ## Credits
 
