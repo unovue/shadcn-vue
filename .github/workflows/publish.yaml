@@ -50,10 +50,10 @@ jobs:
       }}
 
     steps:
-      - name: Checkout
+      - name: Checkout test
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          ref: test
           fetch-depth: 0
 
       - name: Print pull request head information
@@ -104,7 +104,7 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          # branch: main
+          branch: test
           # Optional: Change the working directory
           workingDirectory: apps/www
           wranglerVersion: '3'
