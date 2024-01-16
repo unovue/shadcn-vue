@@ -12,13 +12,13 @@ on:
     paths:
       - 'apps/www/**'
   pull_request_target:
+    branches:
+      - dev
     types:
       # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
       - opened
       # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
       - labeled
-    paths:
-      - 'apps/www/**'
   # Allows you to run this workflow manually from the Actions tab
   # eslint-disable-next-line yml/no-empty-mapping-value
   workflow_dispatch:
@@ -55,6 +55,11 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref || github.ref }}
           fetch-depth: 0
+
+      - name: Print pull request head information
+        run: |
+          echo "Pull Request SHA: ${{ github.event.pull_request.head.sha }}"
+          echo "Pull Request Ref: ${{ github.event.pull_request.head.ref }}"
 
       # Run a build step here
       - name: Setup Node.js environment
