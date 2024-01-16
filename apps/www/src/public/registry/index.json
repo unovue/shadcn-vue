@@ -133,6 +133,7 @@
   {
     "name": "carousel",
     "dependencies": [
+      "@vueuse/core",
       "embla-carousel-vue",
       "embla-carousel"
     ],
@@ -614,6 +615,7 @@
     "name": "toggle-group",
     "dependencies": [],
     "registryDependencies": [
+      "toggle",
       "utils"
     ],
     "files": [
