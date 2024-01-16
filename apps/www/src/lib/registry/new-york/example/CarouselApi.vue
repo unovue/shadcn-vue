@@ -27,8 +27,8 @@ watchOnce(api, (api) => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center space-x-2">
-    <Carousel class="w-full max-w-xs" @init-api="setApi">
+  <div class="w-full sm:w-auto">
+    <Carousel class="relative w-full max-w-xs" @init-api="setApi">
       <CarouselContent>
         <CarouselItem v-for="(_, index) in 5" :key="index">
           <div class="p-1">
