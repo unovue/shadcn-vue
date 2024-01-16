@@ -12,8 +12,6 @@ on:
     paths:
       - 'apps/www/**'
   pull_request_target:
-    branches:
-      - dev
     types:
       # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
       - opened
@@ -50,10 +48,10 @@ jobs:
       }}
 
     steps:
-      - name: Checkout test
+      - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: test
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
 
       - name: Print pull request head information
@@ -104,7 +102,7 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          branch: test
+          # branch: main
           # Optional: Change the working directory
           workingDirectory: apps/www
           wranglerVersion: '3'
