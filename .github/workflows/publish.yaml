@@ -89,7 +89,7 @@ jobs:
 
       # Run a action to publish docs
       - name: Publish to Cloudflare Pages
-        uses: zernonia/cloudflare-pages-action@v0.0.6
+        uses: zernonia/cloudflare-pages-action@v0.0.7
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
