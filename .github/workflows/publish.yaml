@@ -34,9 +34,6 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_HEAD_REF: ${{ github.event.pull_request.head.sha }}
-
     name: Publish to Cloudflare Pages
     # push event in main branch
     # workflow_dispatch event
@@ -58,12 +55,6 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0
-
-      - name: Print pull request head information
-        run: |
-          echo "Pull Request SHA: ${{ github.event.pull_request.head.sha }}"
-          echo "Pull Request Ref: ${{ github.event.pull_request.head.ref }}"
-          echo "Pull Request Env: ${{ env.GITHUB_HEAD_REF }}"
 
       # Run a build step here
       - name: Setup Node.js environment
@@ -98,7 +89,7 @@ jobs:
 
       # Run a action to publish docs
       - name: Publish to Cloudflare Pages
-        uses: zernonia/cloudflare-pages-action@v0.0.2
+        uses: zernonia/cloudflare-pages-action@v0.0.6
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -108,7 +99,7 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          # branch: main
+          branch: refs/pull/${{ github.event.number }}/merge
           # Optional: Change the working directory
           workingDirectory: apps/www
           wranglerVersion: '3'
