@@ -11,21 +11,50 @@ on:
       - dev
     paths:
       - 'apps/www/**'
+  pull_request_target:
+    types:
+      # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
+      - opened
+      # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
+      - labeled
+    paths:
+      - 'apps/www/**'
   # Allows you to run this workflow manually from the Actions tab
   # eslint-disable-next-line yml/no-empty-mapping-value
   workflow_dispatch:
 
+permissions:
+  # default contents: read & write (in forked repos, only read)
+  contents: write
+  # default deployments: read & write (in forked repos, only read)
+  deployments: write
+  # default pull-requests: read & write (in forked repos, only read)
+  pull-requests: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
     name: Publish to Cloudflare Pages
+    # push event in main branch
+    # workflow_dispatch event
+    # pull_request event from not forked repo
+    # pull_request_target event with label "🚀request-deploy" from forked repo
+    if: ${{
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
+      (github.event_name == 'pull_request_target' &&
+      github.event.action == 'labeled' &&
+      github.event.pull_request.head.repo.fork == true &&
+      contains(github.event.label.name, '🚀request-deploy'))
+      }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          fetch-depth: 0
 
       # Run a build step here
       - name: Setup Node.js environment
@@ -60,17 +89,17 @@ jobs:
 
       # Run a action to publish docs
       - name: Publish to Cloudflare Pages
-        uses: zernonia/cloudflare-pages-action@v0.0.6
+        uses: zernonia/cloudflare-pages-action@v0.0.7
         with:
-          cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          cloudflare-account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          cloudflare-project-name: shadcn-vue
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: shadcn-vue
           directory: .vitepress/dist
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          branch: refs/pull/${{ github.event.number }}/merge
+          branch: ${{ github.ref == 'refs/heads/dev' && 'dev' || format('refs/pull/{0}/merge', github.event.number) }}
           # Optional: Change the working directory
           workingDirectory: apps/www
           wranglerVersion: '3'
