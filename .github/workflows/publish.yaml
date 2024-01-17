@@ -52,6 +52,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+          fetch-depth: 0
 
       # Run a build step here
       - name: Setup Node.js environment
@@ -86,7 +89,7 @@ jobs:
 
       # Run a action to publish docs
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1.5.0
+        uses: zernonia/cloudflare-pages-action@v0.0.6
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -96,23 +99,10 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          # branch: main
+          branch: refs/pull/${{ github.event.number }}/merge
           # Optional: Change the working directory
           workingDirectory: apps/www
           wranglerVersion: '3'
-
-      - name: Create PR comment
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }}
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: |
-            ### ⚡ Successfully Cloudflare Pages deployed!
-            | Name | Link |
-            | :--- | :--- |
-            | <span aria-hidden="true">🔨</span> Latest commit | ${{ github.event.pull_request.head.sha || github.sha }} |
-            | <span aria-hidden="true">🔍</span> Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | <span aria-hidden="true">😎</span> Deploy Preview Url | [${{ steps.cloudflare-pages-deploy.outputs.url }}](${{ steps.cloudflare-pages-deploy.outputs.url }}) |
-            | <span aria-hidden="true">🌳</span> Environment | ${{ steps.cloudflare-pages-deploy.outputs.environment }} |
 
       - name: Remove label
         if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
@@ -126,32 +116,3 @@ jobs:
               repo: context.repo.repo,
               name: ['🚀request-deploy']
             })
-
-  # Comment on PR from the fork
-  comment:
-    name: Comment
-    runs-on: ubuntu-latest
-
-    # pull_request_target opened event from forked repo
-    if: ${{
-      github.event_name == 'pull_request_target' &&
-      github.event.action == 'opened' &&
-      github.event.pull_request.head.repo.fork == true
-      }}
-
-    steps:
-      - name: Create PR comment
-        run: |
-          cat << EOF > comment.md
-          # ⚠️ \`🚀request-deploy\` label is required for deployment
-
-          This repository is a forked repository.
-          Due to security reasons, deployment from forked repositories does not happen automatically.
-
-          To request deployment, please add the \`🚀request-deploy\` label to this pull request.
-          (Only certain members have the ability to add labels.)
-          EOF
-
-          gh pr comment ${{ github.event.number }} -R ${{ github.repository }} -F comment.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
