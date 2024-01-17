@@ -55,11 +55,11 @@ import {
 
 <ComponentPreview name="DialogCustomCloseButton" /> 
 
-### Dialog with Scroll Content
+### Scroll body
 
-<ComponentPreview name="DialogScrollContentDemo" />
+<ComponentPreview name="DialogScrollBodyDemo" />
 
-### Dialog with Scroll Overlay
+### Scroll overlay
 
 <ComponentPreview name="DialogScrollOverlayDemo" />
 
