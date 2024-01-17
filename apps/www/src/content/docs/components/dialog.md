@@ -59,6 +59,10 @@ import {
 
 <ComponentPreview name="DialogScrollContentDemo" />
 
+### Dialog with Scroll Overlay
+
+<ComponentPreview name="DialogScrollOverlayDemo" />
+
 ## Notes
 
 To activate the `Dialog` component from within a `Context Menu` or `Dropdown Menu`, you must encase the `Context Menu` or `Dropdown Menu` component in the `Dialog` component. For more information, refer to the linked issue [here](https://github.com/radix-ui/primitives/issues/1836).
