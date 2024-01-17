@@ -3,7 +3,8 @@ import { useVModel } from '@vueuse/core'
 import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref, useSlots } from 'vue'
+import { isVCalendarSlot } from '.'
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -63,6 +64,16 @@ onMounted(async () => {
   if (modelValue.value instanceof Date && calendarRef.value)
     calendarRef.value.focusDate(modelValue.value)
 })
+
+const $slots = useSlots()
+const vCalendarSlots = computed(() => {
+  return Object.keys($slots)
+    .filter(name => isVCalendarSlot(name))
+    .reduce((obj: Record<string, any>, key: string) => {
+      obj[key] = $slots[key]
+      return obj
+    }, {})
+})
 </script>
 
 <template>
@@ -85,7 +96,11 @@ onMounted(async () => {
       trim-weeks
       :transition="'none'"
       :columns="columns"
-    />
+    >
+      <template v-for="(_, slot) of vCalendarSlots" #[slot]="scope">
+        <slot :name="slot" v-bind="scope" />
+      </template>
+    </DatePicker>
   </div>
 </template>
 
