@@ -166,15 +166,15 @@ import {
 
 const open = ref(false)
 
-const { Meta_J, Ctrl_J } = useMagicKeys({
+const { Meta_M, Ctrl_M } = useMagicKeys({
   passive: false,
   onEventFired(e) {
-    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
+    if (e.key === 'm' && (e.metaKey || e.ctrlKey))
       e.preventDefault()
   },
 })
 
-watch([Meta_J, Ctrl_J], (v) => {
+watch([Meta_M, Ctrl_M], (v) => {
   if (v[0] || v[1])
     handleOpenChange()
 })
@@ -202,7 +202,7 @@ function customFiltering(val: string[], term: string) {
       <kbd
         class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100"
       >
-        <span class="text-xs">⌘</span>J
+        <span class="text-xs">⌘</span>M
       </kbd>
     </p>
     <CommandDialog v-model:open="open" :filter-function="customFiltering">
