@@ -614,6 +614,7 @@
     "name": "toggle-group",
     "dependencies": [],
     "registryDependencies": [
+      "toggle",
       "utils"
     ],
     "files": [
