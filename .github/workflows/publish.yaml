@@ -99,7 +99,7 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           # Optional: Switch what branch you are publishing to.
           # By default this will be the branch which triggered this workflow
-          branch: ${{ if(github.ref == 'refs/heads/dev', 'dev', refs/pull/${{ github.event.number }}/merge') }}
+          branch: ${{ if eq(github.ref, 'refs/heads/dev') }}dev{{ else }}refs/pull/${{ github.event.number }}/merge{{ endif }}
           # Optional: Change the working directory
           workingDirectory: apps/www
           wranglerVersion: '3'
