@@ -68,7 +68,7 @@ onMounted(async () => {
 
 <template>
   <div class="relative">
-    <div class="absolute flex justify-between w-full px-4 top-3 z-[1]">
+    <div v-if="$attrs.mode !== 'time'" class="absolute flex justify-between w-full px-4 top-3 z-[1]">
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
         <ChevronLeft class="w-4 h-4" />
       </button>
