@@ -236,6 +236,7 @@
       "ui/dialog/DialogDescription.vue",
       "ui/dialog/DialogFooter.vue",
       "ui/dialog/DialogHeader.vue",
+      "ui/dialog/DialogScrollContent.vue",
       "ui/dialog/DialogTitle.vue",
       "ui/dialog/DialogTrigger.vue",
       "ui/dialog/index.ts"

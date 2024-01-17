@@ -383,9 +383,16 @@ export const Index = {
     DialogScrollContentDemo: {
       name: 'DialogScrollContentDemo',
       type: 'components:example',
-      registryDependencies: ['button', 'dialog', 'input', 'label'],
+      registryDependencies: ['button', 'dialog'],
       component: () => import('../src/lib/registry/default/example/DialogScrollContentDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/DialogScrollContentDemo.vue'],
+    },
+    DialogScrollOverlayDemo: {
+      name: 'DialogScrollOverlayDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'dialog'],
+      component: () => import('../src/lib/registry/default/example/DialogScrollOverlayDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/DialogScrollOverlayDemo.vue'],
     },
     DropdownMenuDemo: {
       name: 'DropdownMenuDemo',
@@ -1274,9 +1281,16 @@ export const Index = {
     DialogScrollContentDemo: {
       name: 'DialogScrollContentDemo',
       type: 'components:example',
-      registryDependencies: ['button', 'dialog', 'input', 'label'],
+      registryDependencies: ['button', 'dialog'],
       component: () => import('../src/lib/registry/new-york/example/DialogScrollContentDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/DialogScrollContentDemo.vue'],
+    },
+    DialogScrollOverlayDemo: {
+      name: 'DialogScrollOverlayDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'dialog'],
+      component: () => import('../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue'],
     },
     DropdownMenuDemo: {
       name: 'DropdownMenuDemo',

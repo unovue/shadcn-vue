@@ -30,6 +30,10 @@
       "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\ninterface DialogHeaderProps {\n  class?: string\n}\n\nconst props = defineProps<DialogHeaderProps>()\n</script>\n\n<template>\n  <div\n    :class=\"cn('flex flex-col space-y-2 text-center sm:text-left', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
+      "name": "DialogScrollContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  DialogClose,\n  DialogContent,\n  type DialogContentEmits,\n  type DialogContentProps,\n  DialogOverlay,\n  DialogPortal,\n  useEmitAsProps,\n} from 'radix-vue'\nimport { Cross2Icon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<DialogContentProps & { class?: string }>()\nconst emits = defineEmits<DialogContentEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n</script>\n\n<template>\n  <DialogPortal>\n    <DialogOverlay\n      class=\"fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\"\n    >\n      <DialogContent\n        :class=\"\n          cn(\n            'relative z-50 grid w-full max-w-lg my-8 gap-4 border border-border bg-background p-6 shadow-lg duration-200 sm:rounded-lg md:w-full',\n            props.class,\n          )\n        \"\n        v-bind=\"{ ...props, ...emitsAsProps }\"\n      >\n        <slot />\n\n        <DialogClose\n          class=\"absolute top-4 right-4 p-0.5 transition-colors rounded-md hover:bg-secondary\"\n        >\n          <Cross2Icon class=\"w-4 h-4\" />\n          <span class=\"sr-only\">Close</span>\n        </DialogClose>\n      </DialogContent>\n    </DialogOverlay>\n  </DialogPortal>\n</template>\n"
+    },
+    {
       "name": "DialogTitle.vue",
       "content": "<script setup lang=\"ts\">\nimport { DialogTitle, type DialogTitleProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<DialogTitleProps & { class?: string }>()\n</script>\n\n<template>\n  <DialogTitle\n    v-bind=\"props\"\n    :class=\"\n      cn(\n        'text-lg text-foreground font-semibold leading-none tracking-tight',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </DialogTitle>\n</template>\n"
     },
@@ -39,7 +43,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { default as Dialog } from './Dialog.vue'\nexport { default as DialogClose } from './DialogClose.vue'\nexport { default as DialogTrigger } from './DialogTrigger.vue'\nexport { default as DialogHeader } from './DialogHeader.vue'\nexport { default as DialogTitle } from './DialogTitle.vue'\nexport { default as DialogDescription } from './DialogDescription.vue'\nexport { default as DialogContent } from './DialogContent.vue'\nexport { default as DialogFooter } from './DialogFooter.vue'\n"
+      "content": "export { default as Dialog } from './Dialog.vue'\nexport { default as DialogClose } from './DialogClose.vue'\nexport { default as DialogTrigger } from './DialogTrigger.vue'\nexport { default as DialogHeader } from './DialogHeader.vue'\nexport { default as DialogTitle } from './DialogTitle.vue'\nexport { default as DialogDescription } from './DialogDescription.vue'\nexport { default as DialogContent } from './DialogContent.vue'\nexport { default as DialogScrollContent } from './DialogScrollContent.vue'\nexport { default as DialogFooter } from './DialogFooter.vue'\n"
     }
   ],
   "type": "components:ui"
