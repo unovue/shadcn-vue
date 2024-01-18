@@ -9,12 +9,20 @@ import {
   useEmitAsProps,
 } from 'radix-vue'
 import { Cross2Icon } from '@radix-icons/vue'
+import type { PointerDownOutsideEvent } from 'radix-vue/dist/DismissableLayer'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogContentProps & { class?: string }>()
 const emits = defineEmits<DialogContentEmits>()
 
 const emitsAsProps = useEmitAsProps(emits)
+
+function handlePointerDown(event: PointerDownOutsideEvent) {
+  const originalEvent = event.detail.originalEvent
+  // Ignore click events on the scrollbar.
+  if (originalEvent.offsetX > originalEvent.target?.clientWidth || originalEvent.offsetY > originalEvent.target?.clientHeight)
+    event.preventDefault()
+}
 </script>
 
 <template>
@@ -30,6 +38,7 @@ const emitsAsProps = useEmitAsProps(emits)
           )
         "
         v-bind="{ ...props, ...emitsAsProps }"
+        @pointer-down-outside="handlePointerDown"
       >
         <slot />
 
