@@ -76,7 +76,7 @@ The slots available are [those currently supported](https://github.com/nathanrey
 - `page`
 - `time-header`
 
-Example using the `dp-footer` slot:
+Example using the `day-content` slot:
 
 ```vue
 <script setup lang="ts">
