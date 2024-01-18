@@ -1,25 +1,19 @@
 <script setup lang="ts">
-import type { ToggleEmits, ToggleProps } from 'radix-vue'
-import { Toggle, useEmitAsProps } from 'radix-vue'
-import type { VariantProps } from 'class-variance-authority'
 import { type HTMLAttributes, computed } from 'vue'
-import { toggleVariants } from '.'
+import { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from 'radix-vue'
+import { type ToggleVariants, toggleVariants } from '.'
 import { cn } from '@/lib/utils'
 
-interface ToggleVariantProps extends VariantProps<typeof toggleVariants> {}
-
-interface Props extends ToggleProps {
+const props = withDefaults(defineProps<ToggleProps & {
   class?: HTMLAttributes['class']
-  variant?: ToggleVariantProps['variant']
-  size?: ToggleVariantProps['size']
-  disabled?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
+  variant?: ToggleVariants['variant']
+  size?: ToggleVariants['size']
+}>(), {
   variant: 'default',
   size: 'default',
   disabled: false,
 })
+
 const emits = defineEmits<ToggleEmits>()
 
 const delegatedProps = computed(() => {
@@ -27,14 +21,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwarded = useForwardPropsEmits(delegatedProps.value, emits)
 </script>
 
 <template>
   <Toggle
-    v-bind="{
-      ...delegatedProps,
-      ...useEmitAsProps(emits),
-    }"
+    v-bind="forwarded"
     :class="cn(toggleVariants({ variant, size }), props.class)"
   >
     <slot />

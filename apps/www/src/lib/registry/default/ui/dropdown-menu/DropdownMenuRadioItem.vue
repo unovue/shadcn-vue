@@ -5,7 +5,7 @@ import {
   DropdownMenuRadioItem,
   type DropdownMenuRadioItemEmits,
   type DropdownMenuRadioItemProps,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import { Circle } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
@@ -19,18 +19,19 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwarded = useForwardPropsEmits(delegatedProps.value, emits)
 </script>
 
 <template>
   <DropdownMenuRadioItem
-    v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }"
+    v-bind="forwarded"
     :class="cn(
-      'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+      'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       props.class,
     )"
   >
     <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-
       <DropdownMenuItemIndicator>
         <Circle class="h-2 w-2 fill-current" />
       </DropdownMenuItemIndicator>

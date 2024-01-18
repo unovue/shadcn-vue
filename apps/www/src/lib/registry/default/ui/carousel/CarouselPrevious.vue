@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronLeft } from 'lucide-vue-next'
+import { ArrowLeft } from 'lucide-vue-next'
 import { useCarousel } from './useCarousel'
 import type { WithClassAsProps } from './interface'
 import { cn } from '@/lib/utils'
@@ -24,7 +24,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
     @click="scrollPrev"
   >
     <slot>
-      <ChevronLeft class="h-4 w-4 text-current" />
+      <ArrowLeft class="h-4 w-4 text-current" />
     </slot>
   </Button>
 </template>

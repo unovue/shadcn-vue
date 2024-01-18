@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type HTMLAttributes, computed } from 'vue'
-import { MenubarTrigger, type MenubarTriggerProps } from 'radix-vue'
+import { MenubarTrigger, type MenubarTriggerProps, useForwardProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<MenubarTriggerProps & { class?: HTMLAttributes['class'] }>()
@@ -10,11 +10,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwardedProps = useForwardProps(delegatedProps.value)
 </script>
 
 <template>
   <MenubarTrigger
-    v-bind="delegatedProps"
+    v-bind="forwardedProps"
     :class="
       cn(
         'flex cursor-default select-none items-center rounded-sm px-3 py-1.5 text-sm font-medium outline-none focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',

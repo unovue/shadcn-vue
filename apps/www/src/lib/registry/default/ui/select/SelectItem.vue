@@ -5,6 +5,7 @@ import {
   SelectItemIndicator,
   type SelectItemProps,
   SelectItemText,
+  useForwardProps,
 } from 'radix-vue'
 import { Check } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
@@ -16,11 +17,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwardedProps = useForwardProps(delegatedProps.value)
 </script>
 
 <template>
   <SelectItem
-    v-bind="delegatedProps"
+    v-bind="forwardedProps"
     :class="
       cn(
         'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',

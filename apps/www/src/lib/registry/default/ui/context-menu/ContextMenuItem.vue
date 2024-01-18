@@ -4,7 +4,7 @@ import {
   ContextMenuItem,
   type ContextMenuItemEmits,
   type ContextMenuItemProps,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
@@ -16,11 +16,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwarded = useForwardPropsEmits(delegatedProps.value, emits)
 </script>
 
 <template>
   <ContextMenuItem
-    v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }"
+    v-bind="forwarded"
     :class="[
       cn(
         'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',

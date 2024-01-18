@@ -5,7 +5,7 @@ import {
   type DropdownMenuCheckboxItemEmits,
   type DropdownMenuCheckboxItemProps,
   DropdownMenuItemIndicator,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import { Check } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
@@ -18,11 +18,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwarded = useForwardPropsEmits(delegatedProps.value, emits)
 </script>
 
 <template>
   <DropdownMenuCheckboxItem
-    v-bind="{ ...delegatedProps, ...useEmitAsProps(emits) }"
+    v-bind="forwarded"
     :class=" cn(
       'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       props.class,

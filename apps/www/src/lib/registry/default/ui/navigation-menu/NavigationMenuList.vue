@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type HTMLAttributes, computed } from 'vue'
-import { NavigationMenuList, type NavigationMenuListProps } from 'radix-vue'
+import { NavigationMenuList, type NavigationMenuListProps, useForwardProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<NavigationMenuListProps & { class?: HTMLAttributes['class'] }>()
@@ -10,14 +10,16 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwardedProps = useForwardProps(delegatedProps.value)
 </script>
 
 <template>
   <NavigationMenuList
-    v-bind="delegatedProps"
+    v-bind="forwardedProps"
     :class="
       cn(
-        'group flex flex-1 list-none items-center justify-center space-x-1',
+        'group flex flex-1 list-none items-center justify-center gap-x-1',
         props.class,
       )
     "

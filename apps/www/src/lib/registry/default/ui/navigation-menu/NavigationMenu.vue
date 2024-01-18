@@ -4,7 +4,7 @@ import {
   NavigationMenuRoot,
   type NavigationMenuRootEmits,
   type NavigationMenuRootProps,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import NavigationMenuViewport from './NavigationMenuViewport.vue'
 import { cn } from '@/lib/utils'
@@ -18,14 +18,13 @@ const delegatedProps = computed(() => {
 
   return delegated
 })
+
+const forwarded = useForwardPropsEmits(delegatedProps.value, emits)
 </script>
 
 <template>
   <NavigationMenuRoot
-    v-bind="{
-      ...delegatedProps,
-      ...useEmitAsProps(emits),
-    }"
+    v-bind="forwarded"
     :class="cn('relative z-10 flex max-w-max flex-1 items-center justify-center', props.class)"
   >
     <slot />
