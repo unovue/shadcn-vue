@@ -42,6 +42,11 @@ Add the code below to the compilerOptions of your tsconfig.json so your app can 
 
 Add the code below to the vite.config.ts so your app can resolve paths without error
 
+```bash
+# (so you can import "path" without error)
+npm i -D @types/node
+```
+
 ```typescript
 import path from "path"
 import vue from "@vitejs/plugin-vue"
