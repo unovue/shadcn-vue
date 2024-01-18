@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import type { HTMLAttributes } from 'vue'
 import { Label, type LabelProps } from 'radix-vue'
 import { useFormField } from './useFormField'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<LabelProps>()
+const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()
 
 const { error, formItemId } = useFormField()
 </script>
@@ -13,7 +14,7 @@ const { error, formItemId } = useFormField()
     :class="cn(
       'block text-sm tracking-tight font-medium text-foreground text-left',
       error && 'text-destructive',
-      $attrs.class ?? '',
+      props.class,
     )"
     :for="formItemId"
   >

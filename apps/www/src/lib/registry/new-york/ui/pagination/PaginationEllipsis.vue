@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { useAttrs } from 'vue'
-import { PaginationEllipsis, type PaginationEllipsisProps, useForwardProps } from 'radix-vue'
-import { DotsHorizontalIcon } from '@radix-icons/vue'
+import { type HTMLAttributes, computed } from 'vue'
+import { PaginationEllipsis, type PaginationEllipsisProps } from 'radix-vue'
+import { MoreHorizontal } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
-defineOptions({
-  inheritAttrs: false,
-})
+const props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes['class'] }>()
 
-const props = defineProps<PaginationEllipsisProps>()
-const forwarded = useForwardProps(props)
-const { class: className, ...rest } = useAttrs()
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
 </script>
 
 <template>
-  <PaginationEllipsis :class="cn('w-9 h-9 flex items-center justify-center', className ?? '')" v-bind="{ ...forwarded, ...rest }">
+  <PaginationEllipsis v-bind="delegatedProps" :class="cn('w-9 h-9 flex items-center justify-center', props.class)">
     <slot>
-      <DotsHorizontalIcon />
+      <MoreHorizontal />
     </slot>
   </PaginationEllipsis>
 </template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   ContextMenuItemIndicator,
   ContextMenuRadioItem,
@@ -9,10 +10,16 @@ import {
 import { DotFilledIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<ContextMenuRadioItemProps & { class?: string }>()
+const props = defineProps<ContextMenuRadioItemProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<ContextMenuRadioItemEmits>()
 
-const forwarded = useForwardPropsEmits(props, emits)
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
+
+const forwarded = useForwardPropsEmits(delegatedProps.value, emits)
 </script>
 
 <template>

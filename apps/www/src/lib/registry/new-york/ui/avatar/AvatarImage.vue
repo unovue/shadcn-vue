@@ -5,5 +5,5 @@ const props = defineProps<AvatarImageProps>()
 </script>
 
 <template>
-  <AvatarImage v-bind="props" class="h-full w-full aspect-square" />
+  <AvatarImage v-bind="props" class="h-full w-full object-cover" />
 </template>

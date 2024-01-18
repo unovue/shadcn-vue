@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { alertVariants } from '.'
+import type { HTMLAttributes } from 'vue'
+import { type AlertVariants, alertVariants } from '.'
 import { cn } from '@/lib/utils'
 
-interface Props {
-  variant?: NonNullable<Parameters<typeof alertVariants>[0]>['variant']
-  class?: string
-}
-
-const props = defineProps<Props>()
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+  variant?: AlertVariants['variant']
+}>()
 </script>
 
 <template>
-  <div :class="cn(alertVariants({ variant }), props.class ?? '')">
+  <div :class="cn(alertVariants({ variant }), props.class)">
     <slot />
   </div>
 </template>
