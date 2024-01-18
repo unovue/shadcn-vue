@@ -51,6 +51,7 @@ export const TAILWIND_CONFIG_WITH_VARIABLES = `const animate = require("tailwind
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  safelist: ["dark"],
   <% if (framework === 'vite') { %>
   content: [
     './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',

@@ -173,7 +173,7 @@ const formSchema = toTypedSchema(z.object({
 
 ### Define a form
 
-Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a from.
+Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a form.
 
 
 <TabPreview name="Composition" :names="['Composition', 'Component']">

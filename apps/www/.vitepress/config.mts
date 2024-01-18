@@ -3,8 +3,16 @@ import { defineConfig } from 'vitepress'
 import Icons from 'unplugin-icons/vite'
 import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import { createCssVariablesTheme } from 'shikiji'
 import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
+
+const cssVariables = createCssVariablesTheme({
+  name: 'css-variables',
+  variablePrefix: '--shiki-',
+  variableDefaults: {},
+  fontStyle: true,
+})
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -50,7 +58,7 @@ export default defineConfig({
 
   srcDir: path.resolve(__dirname, '../src'),
   markdown: {
-    theme: 'css-variables',
+    theme: cssVariables,
     config(md) {
       md.use(ComponentPreviewPlugin)
     },

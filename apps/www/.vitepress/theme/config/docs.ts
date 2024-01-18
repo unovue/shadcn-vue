@@ -169,6 +169,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Carousel',
+          href: '/docs/components/carousel',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Checkbox',
           href: '/docs/components/checkbox',
           items: [],
@@ -322,6 +328,11 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Toggle',
           href: '/docs/components/toggle',
+          items: [],
+        },
+        {
+          title: 'Toggle Group',
+          href: '/docs/components/toggle-group',
           items: [],
         },
         {

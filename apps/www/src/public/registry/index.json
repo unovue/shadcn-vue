@@ -131,6 +131,28 @@
     "type": "components:ui"
   },
   {
+    "name": "carousel",
+    "dependencies": [
+      "embla-carousel-vue",
+      "embla-carousel"
+    ],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/carousel/Carousel.vue",
+      "ui/carousel/CarouselContent.vue",
+      "ui/carousel/CarouselItem.vue",
+      "ui/carousel/CarouselNext.vue",
+      "ui/carousel/CarouselPrevious.vue",
+      "ui/carousel/index.ts",
+      "ui/carousel/interface.ts",
+      "ui/carousel/useCarousel.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "checkbox",
     "dependencies": [],
     "registryDependencies": [
@@ -585,6 +607,20 @@
     "files": [
       "ui/toggle/Toggle.vue",
       "ui/toggle/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "toggle-group",
+    "dependencies": [],
+    "registryDependencies": [
+      "toggle",
+      "utils"
+    ],
+    "files": [
+      "ui/toggle-group/ToggleGroup.vue",
+      "ui/toggle-group/ToggleGroupItem.vue",
+      "ui/toggle-group/index.ts"
     ],
     "type": "components:ui"
   },
