@@ -506,6 +506,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/RadioGroupForm.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/RadioGroupForm.vue'],
     },
+    RangePickerWithSlot: {
+      name: 'RangePickerWithSlot',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'calendar', 'popover'],
+      component: () => import('../src/lib/registry/default/example/RangePickerWithSlot.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/RangePickerWithSlot.vue'],
+    },
     ScrollAreaDemo: {
       name: 'ScrollAreaDemo',
       type: 'components:example',
@@ -1389,6 +1396,13 @@ export const Index = {
       registryDependencies: ['button', 'form', 'radio-group', 'toast'],
       component: () => import('../src/lib/registry/new-york/example/RadioGroupForm.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/RadioGroupForm.vue'],
+    },
+    RangePickerWithSlot: {
+      name: 'RangePickerWithSlot',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'calendar', 'popover'],
+      component: () => import('../src/lib/registry/new-york/example/RangePickerWithSlot.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/RangePickerWithSlot.vue'],
     },
     ScrollAreaDemo: {
       name: 'ScrollAreaDemo',
