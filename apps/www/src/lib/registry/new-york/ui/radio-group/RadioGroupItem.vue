@@ -17,7 +17,7 @@ const delegatedProps = computed(() => {
   return delegated
 })
 
-const forwardedProps = useForwardProps(delegatedProps.value)
+const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps.value)
     v-bind="forwardedProps"
     :class="
       cn(
-        'aspect-square h-4 w-4 rounded-full cursor-pointer flex justify-center items-center border border-primary disabled:cursor-not-allowed disabled:opacity-50',
+        'aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "
@@ -33,7 +33,7 @@ const forwardedProps = useForwardProps(delegatedProps.value)
     <RadioGroupIndicator
       class="flex items-center justify-center"
     >
-      <Circle class="w-2.5 h-2.5 text-foreground" />
+      <Circle class="h-2.5 w-2.5 fill-current text-current" />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>

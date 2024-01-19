@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ChevronRightIcon } from '@radix-icons/vue'
+import { ArrowRight } from 'lucide-vue-next'
 import { useCarousel } from './useCarousel'
 import type { WithClassAsProps } from './interface'
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/lib/registry/default/ui/button'
 
 const props = defineProps<WithClassAsProps>()
 
@@ -24,7 +24,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     @click="scrollNext"
   >
     <slot>
-      <ChevronRightIcon class="h-4 w-4 text-current" />
+      <ArrowRight class="h-4 w-4 text-current" />
     </slot>
   </Button>
 </template>

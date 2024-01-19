@@ -11,7 +11,7 @@ const delegatedProps = computed(() => {
   return delegated
 })
 
-const forwardedProps = useForwardProps(delegatedProps.value)
+const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const forwardedProps = useForwardProps(delegatedProps.value)
     v-bind="forwardedProps"
     :class="
       cn(
-        'group flex flex-1 list-none items-center justify-center space-x-1',
+        'group flex flex-1 list-none items-center justify-center gap-x-1',
         props.class,
       )
     "

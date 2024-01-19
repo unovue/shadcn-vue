@@ -5,7 +5,7 @@ import {
   type ContextMenuSubTriggerProps,
   useForwardProps,
 } from 'radix-vue'
-import { ChevronRightIcon } from '@radix-icons/vue'
+import { ChevronRight } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<ContextMenuSubTriggerProps & { class?: HTMLAttributes['class']; inset?: boolean }>()
@@ -16,7 +16,7 @@ const delegatedProps = computed(() => {
   return delegated
 })
 
-const forwardedProps = useForwardProps(delegatedProps.value)
+const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
@@ -31,6 +31,6 @@ const forwardedProps = useForwardProps(delegatedProps.value)
     ]"
   >
     <slot />
-    <ChevronRightIcon class="ml-auto h-4 w-4" />
+    <ChevronRight class="ml-auto h-4 w-4" />
   </ContextMenuSubTrigger>
 </template>
