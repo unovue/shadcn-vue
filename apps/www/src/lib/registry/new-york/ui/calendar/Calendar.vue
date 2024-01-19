@@ -2,9 +2,10 @@
 import { useVModel } from '@vueuse/core'
 import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
-import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
-import { computed, nextTick, onMounted, ref } from 'vue'
-import { buttonVariants } from '@/lib/registry/default/ui/button'
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
+import { computed, nextTick, onMounted, ref, useSlots } from 'vue'
+import { isVCalendarSlot } from '.'
+import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
 
 /* Extracted from v-calendar */
@@ -63,16 +64,26 @@ onMounted(async () => {
   if (modelValue.value instanceof Date && calendarRef.value)
     calendarRef.value.focusDate(modelValue.value)
 })
+
+const $slots = useSlots()
+const vCalendarSlots = computed(() => {
+  return Object.keys($slots)
+    .filter(name => isVCalendarSlot(name))
+    .reduce((obj: Record<string, any>, key: string) => {
+      obj[key] = $slots[key]
+      return obj
+    }, {})
+})
 </script>
 
 <template>
   <div class="relative">
-    <div class="absolute flex justify-between w-full px-4 top-3 z-[1]">
+    <div v-if="$attrs.mode !== 'time'" class="absolute flex justify-between w-full px-4 top-3 z-[1]">
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
-        <ChevronLeft class="w-4 h-4" />
+        <ChevronLeftIcon class="w-4 h-4" />
       </button>
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('next')">
-        <ChevronRight class="w-4 h-4" />
+        <ChevronRightIcon class="w-4 h-4" />
       </button>
     </div>
 
@@ -85,7 +96,11 @@ onMounted(async () => {
       trim-weeks
       :transition="'none'"
       :columns="columns"
-    />
+    >
+      <template v-for="(_, slot) of vCalendarSlots" #[slot]="scope">
+        <slot :name="slot" v-bind="scope" />
+      </template>
+    </DatePicker>
   </div>
 </template>
 
@@ -241,5 +256,50 @@ onMounted(async () => {
 .calendar .vc-slide-fade-leave-to.direction-bottom {
 	-webkit-transform: translateY(calc(-1 * var(--vc-slide-translate)));
 	transform: translateY(calc(-1 * var(--vc-slide-translate)));
+}
+/**
+ * Timepicker styles
+ */
+.vc-time-picker {
+  @apply flex flex-col items-center p-2;
+}
+.vc-time-picker.vc-invalid {
+  @apply pointer-events-none opacity-50;
+}
+.vc-time-picker.vc-attached {
+  @apply border-t border-solid border-secondary mt-2;
+}
+.vc-time-picker > * + * {
+  @apply mt-1;
+}
+.vc-time-header {
+  @apply flex items-center text-sm font-semibold uppercase mt-1 px-1 leading-6;
+}
+.vc-time-select-group {
+  @apply inline-flex items-center px-1 rounded-md bg-primary-foreground border border-solid border-secondary;
+}
+.vc-time-select-group .vc-base-icon {
+  @apply mr-1 text-primary stroke-primary;
+}
+.vc-time-select-group select {
+  @apply bg-primary-foreground p-1 appearance-none outline-none text-center;
+}
+.vc-time-weekday {
+  @apply text-muted-foreground tracking-wide;
+}
+.vc-time-month {
+  @apply text-primary ml-2;
+}
+.vc-time-day {
+  @apply text-primary ml-1;
+}
+.vc-time-year {
+  @apply text-muted-foreground ml-2;
+}
+.vc-time-colon {
+  @apply mb-0.5;
+}
+.vc-time-decimal {
+  @apply ml-0.5;
 }
 </style>

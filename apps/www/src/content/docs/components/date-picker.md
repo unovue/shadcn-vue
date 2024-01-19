@@ -64,9 +64,17 @@ const date = ref<Date>()
 
 <ComponentPreview name="DatePickerWithRange"  />
 
+### Date Time Picker
+
+<ComponentPreview name="DateTimePickerDemo"  />
+
 ### With Presets
 
 <ComponentPreview name="DatePickerWithPresets"  />
+
+### With Slot
+
+<ComponentPreview name="RangePickerWithSlot"  />
 
 ### Form
 

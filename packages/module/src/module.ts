@@ -1,8 +1,9 @@
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { parse } from 'recast'
+import oxc from 'oxc-parser'
 
+// TODO: add test to make sure all registry is being parse correctly
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
@@ -40,24 +41,34 @@ export default defineNuxtModule<ModuleOptions>({
     try {
       readdirSync(resolve(COMPONENT_DIR_PATH))
         .forEach(async (dir) => {
-          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
-          const content = readFileSync(filePath, { encoding: 'utf8' })
-          const ast = parse(content)
-
-          const exportedKeys: string[] = ast.program.body
-          // @ts-expect-error parse return any
-            .filter(node => node.type === 'ExportNamedDeclaration')
-          // @ts-expect-error parse return any
-            .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
-            .filter((key: string) => /^[A-Z]/.test(key))
-
-          exportedKeys.forEach((key) => {
-            addComponent({
-              name: `${prefix}${key}`, // name of the component to be used in vue templates
-              export: key, // (optional) if the component is a named (rather than default) export
-              filePath: resolve(filePath),
+          try {
+            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+            const content = readFileSync(filePath, { encoding: 'utf8' })
+            const ast = oxc.parseSync(content, {
+              sourceType: 'module',
+              sourceFilename: filePath,
             })
-          })
+            const program = JSON.parse(ast.program)
+
+            const exportedKeys: string[] = program.body
+            // @ts-expect-error parse return any
+              .filter(node => node.type === 'ExportNamedDeclaration')
+            // @ts-expect-error parse return any
+              .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
+              .filter((key: string) => /^[A-Z]/.test(key))
+
+            exportedKeys.forEach((key) => {
+              addComponent({
+                name: `${prefix}${key}`, // name of the component to be used in vue templates
+                export: key, // (optional) if the component is a named (rather than default) export
+                filePath: resolve(filePath),
+              })
+            })
+          }
+          catch (err) {
+            if (err instanceof Error)
+              console.warn('Module error: ', err.message)
+          }
         })
     }
     catch (err) {

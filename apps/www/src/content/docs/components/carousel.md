@@ -48,18 +48,6 @@ import {
 
 ## Examples
 
-### Orientation
-
-Use the `orientation` prop to set the orientation of the carousel.
-
-<ComponentPreview name="CarouselOrientation" />
-
-```vue
-<Carousel orientation="vertical | horizontal">
-  ...
-</Carousel>
-```
-
 ### Sizes
 
 To set the size of the items, you can use the `basis` utility class on the `<CarouselItem />`.
@@ -151,6 +139,17 @@ Responsive
 </template>
 ```
 
+### Orientation
+
+Use the `orientation` prop to set the orientation of the carousel.
+
+<ComponentPreview name="CarouselOrientation" />
+
+```vue
+<Carousel orientation="vertical | horizontal">
+  ...
+</Carousel>
+```
 
 ## Options
 

@@ -47,6 +47,7 @@ exports[`handle tailwind config template correctly 2`] = `
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: [\\"class\\"],
+  safelist: [\\"dark\\"],
   <% if (framework === 'vite') { %>
   content: [
     './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',

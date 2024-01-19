@@ -611,6 +611,20 @@
     "type": "components:ui"
   },
   {
+    "name": "toggle-group",
+    "dependencies": [],
+    "registryDependencies": [
+      "toggle",
+      "utils"
+    ],
+    "files": [
+      "ui/toggle-group/ToggleGroup.vue",
+      "ui/toggle-group/ToggleGroupItem.vue",
+      "ui/toggle-group/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "tooltip",
     "dependencies": [],
     "registryDependencies": [
