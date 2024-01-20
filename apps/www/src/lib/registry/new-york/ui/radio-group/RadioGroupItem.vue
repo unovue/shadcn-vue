@@ -6,7 +6,7 @@ import {
   type RadioGroupItemProps,
   useForwardProps,
 } from 'radix-vue'
-import { Circle } from 'lucide-vue-next'
+import { CheckIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<RadioGroupItemProps & { class?: HTMLAttributes['class'] }>()
@@ -25,15 +25,13 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
     :class="
       cn(
-        'aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+        'aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "
   >
-    <RadioGroupIndicator
-      class="flex items-center justify-center"
-    >
-      <Circle class="h-2.5 w-2.5 fill-current text-current" />
+    <RadioGroupIndicator class="flex items-center justify-center">
+      <CheckIcon class="h-3.5 w-3.5 fill-primary" />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>
