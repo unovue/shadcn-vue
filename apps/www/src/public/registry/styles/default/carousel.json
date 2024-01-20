@@ -15,11 +15,11 @@
     },
     {
       "name": "CarouselContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { WithClassAsProps } from './interface'\nimport { useCarousel } from './useCarousel'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { carouselRef, orientation } = useCarousel()\n</script>\n\n<template>\n  <div ref=\"carouselRef\" class=\"overflow-hidden\">\n    <div\n      :class=\"\n        cn(\n          'flex',\n          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',\n          props.class,\n        )\"\n      v-bind=\"$attrs\"\n    >\n      <slot />\n    </div>\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { useCarousel } from './useCarousel'\nimport type { WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { carouselRef, orientation } = useCarousel()\n</script>\n\n<template>\n  <div ref=\"carouselRef\" class=\"overflow-hidden\">\n    <div\n      :class=\"\n        cn(\n          'flex',\n          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',\n          props.class,\n        )\"\n      v-bind=\"$attrs\"\n    >\n      <slot />\n    </div>\n  </div>\n</template>\n"
     },
     {
       "name": "CarouselItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { WithClassAsProps } from './interface'\nimport { useCarousel } from './useCarousel'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { orientation } = useCarousel()\n</script>\n\n<template>\n  <div\n    role=\"group\"\n    aria-roledescription=\"slide\"\n    :class=\"cn(\n      'min-w-0 shrink-0 grow-0 basis-full',\n      orientation === 'horizontal' ? 'pl-4' : 'pt-4',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { useCarousel } from './useCarousel'\nimport type { WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { orientation } = useCarousel()\n</script>\n\n<template>\n  <div\n    role=\"group\"\n    aria-roledescription=\"slide\"\n    :class=\"cn(\n      'min-w-0 shrink-0 grow-0 basis-full',\n      orientation === 'horizontal' ? 'pl-4' : 'pt-4',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "CarouselNext.vue",

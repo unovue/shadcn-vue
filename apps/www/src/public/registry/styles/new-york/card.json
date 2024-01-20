@@ -7,27 +7,27 @@
   "files": [
     {
       "name": "Card.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'rounded-lg border bg-card text-card-foreground shadow',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'rounded-xl border bg-card text-card-foreground shadow',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "CardContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div :class=\"cn('p-6 pt-0', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('p-6 pt-0', props.class)\">\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "CardDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <p :class=\"cn('text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </p>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <p :class=\"cn('text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </p>\n</template>\n"
     },
     {
       "name": "CardFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div :class=\"cn('flex items-center p-6 pt-0', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('flex items-center p-6 pt-0', props.class)\">\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "CardHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col space-y-1.5 p-6', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col gap-y-1.5 p-6', props.class)\">\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "CardTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps({\n  class: {\n    type: String,\n    default: '',\n  },\n})\n</script>\n\n<template>\n  <h3\n    :class=\"\n      cn('font-semibold leading-none tracking-tight', props.class)\n    \"\n  >\n    <slot />\n  </h3>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <h3\n    :class=\"\n      cn('font-semibold leading-none tracking-tight', props.class)\n    \"\n  >\n    <slot />\n  </h3>\n</template>\n"
     },
     {
       "name": "index.ts",

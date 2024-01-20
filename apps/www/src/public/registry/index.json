@@ -275,7 +275,8 @@
       "zod"
     ],
     "registryDependencies": [
-      "utils"
+      "utils",
+      "label"
     ],
     "files": [
       "ui/form/FormControl.vue",
@@ -455,6 +456,8 @@
       "ui/select/SelectItem.vue",
       "ui/select/SelectItemText.vue",
       "ui/select/SelectLabel.vue",
+      "ui/select/SelectScrollDownButton.vue",
+      "ui/select/SelectScrollUpButton.vue",
       "ui/select/SelectSeparator.vue",
       "ui/select/SelectTrigger.vue",
       "ui/select/SelectValue.vue",
