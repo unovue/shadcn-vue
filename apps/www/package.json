@@ -19,7 +19,7 @@
     "@morev/vue-transitions": "^2.3.6",
     "@radix-icons/vue": "^1.0.0",
     "@stackblitz/sdk": "^1.9.0",
-    "@tanstack/vue-table": "^8.11.6",
+    "@tanstack/vue-table": "^8.11.7",
     "@unovis/ts": "^1.3.1",
     "@unovis/vue": "^1.3.1",
     "@vee-validate/zod": "^4.12.4",
@@ -36,7 +36,7 @@
     "tailwindcss-animate": "^1.0.7",
     "v-calendar": "^3.1.2",
     "vee-validate": "4.12.4",
-    "vue": "^3.4.14",
+    "vue": "^3.4.15",
     "vue-wrap-balancer": "^1.1.3",
     "zod": "^3.22.4"
   },
@@ -56,14 +56,15 @@
     "lodash.template": "^4.5.0",
     "pathe": "^1.1.2",
     "rimraf": "^5.0.5",
-    "shikiji": "^0.10.0-beta.2",
+    "shikiji": "^0.10.0-beta.9",
+    "shikiji-transformers": "^0.10.0-beta.9",
     "tailwind-merge": "^2.2.0",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "unplugin-icons": "^0.17.1",
-    "vite": "^5.0.11",
-    "vitepress": "^1.0.0-rc.37",
+    "vite": "^5.0.12",
+    "vitepress": "^1.0.0-rc.39",
     "vue-tsc": "^1.8.27"
   }
 }
