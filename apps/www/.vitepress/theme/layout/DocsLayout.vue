@@ -20,7 +20,7 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
       <aside
         class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block overflow-y-auto"
       >
-        <ScrollArea orientation="vertical" class="h-full py-6 pl-8 pr-6 lg:py-8" :type="'auto'">
+        <ScrollArea orientation="vertical" class="relative overflow-hidden h-full py-6 pr-6 lg:py-8" :type="'auto'">
           <div class="w-full">
             <div v-for="docsGroup in docsConfig.sidebarNav" :key="docsGroup.title" class="pb-4">
               <h4

@@ -10,10 +10,8 @@ import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
 
 const cssVariables = createCssVariablesTheme({
-  name: 'css-variables',
   variablePrefix: '--shiki-',
   variableDefaults: {},
-  fontStyle: true,
 })
 
 // https://vitepress.dev/reference/site-config
