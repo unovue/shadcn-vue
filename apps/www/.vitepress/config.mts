@@ -4,6 +4,8 @@ import Icons from 'unplugin-icons/vite'
 import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import { createCssVariablesTheme } from 'shikiji'
+
+// import { transformerMetaWordHighlight } from 'shikiji-transformers'
 import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
 
@@ -59,6 +61,9 @@ export default defineConfig({
   srcDir: path.resolve(__dirname, '../src'),
   markdown: {
     theme: cssVariables,
+    codeTransformers: [
+      // transformerMetaWordHighlight(),
+    ],
     config(md) {
       md.use(ComponentPreviewPlugin)
     },
