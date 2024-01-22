@@ -17,6 +17,7 @@ import RadixIconsSun from '~icons/radix-icons/sun'
 import { useConfigStore } from '@/stores/config'
 import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
 import { Toaster as DefaultToaster } from '@/lib/registry/default/ui/toast'
+import { Toaster as NewYorkSonner } from '@/lib/registry/new-york/ui/sonner'
 import { Toaster as NewYorkToaster } from '@/lib/registry/new-york/ui/toast'
 
 import File from '~icons/radix-icons/file'
@@ -287,6 +288,7 @@ watch(() => $route.path, (n) => {
       </DialogContent>
     </Dialog>
     <DefaultToaster />
+    <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
     <NewYorkToaster />
   </div>
 </template>
