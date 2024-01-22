@@ -110,6 +110,9 @@ importers:
       vue:
         specifier: ^3.4.15
         version: 3.4.15(typescript@5.3.3)
+      vue-sonner:
+        specifier: ^1.0.2
+        version: 1.0.2
       vue-wrap-balancer:
         specifier: ^1.1.3
         version: 1.1.3(vue@3.4.15)
@@ -14609,6 +14612,10 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.4.15(typescript@5.3.3)
+    dev: false
+
+  /vue-sonner@1.0.2:
+    resolution: {integrity: sha512-BXIyb9lGSMUjTpOukISp7oV9nrczgbfYz+TnDeoap3io3ayGXiWv+/3eQ9UKnmofwUlC4nh/H5jzBOO89lRItQ==}
     dev: false
 
   /vue-template-compiler@2.7.14:
