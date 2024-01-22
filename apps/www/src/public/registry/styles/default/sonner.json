@@ -1,6 +1,8 @@
 {
   "name": "sonner",
-  "dependencies": [],
+  "dependencies": [
+    "vue-sonner"
+  ],
   "registryDependencies": [],
   "files": [
     {

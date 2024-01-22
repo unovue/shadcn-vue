@@ -519,7 +519,9 @@
   },
   {
     "name": "sonner",
-    "dependencies": [],
+    "dependencies": [
+      "vue-sonner"
+    ],
     "registryDependencies": [],
     "files": [
       "ui/sonner/Sonner.vue",
