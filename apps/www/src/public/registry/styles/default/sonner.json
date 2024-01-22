@@ -1,0 +1,16 @@
+{
+  "name": "sonner",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "Sonner.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Toaster as Sonner, type ToasterProps } from 'vue-sonner'\n\nconst props = defineProps<ToasterProps>()\n</script>\n\n<template>\n  <Sonner\n    class=\"toaster group\"\n    :class-names=\"{\n      toast:\n        'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',\n      description: 'group-[.toast]:text-muted-foreground',\n      actionButton:\n        'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',\n      cancelButton:\n        'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',\n    }\"\n    v-bind=\"props\"\n  />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Toaster } from './Sonner.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

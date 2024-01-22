@@ -579,7 +579,7 @@ export const Index = {
     SonnerDemo: {
       name: 'SonnerDemo',
       type: 'components:example',
-      registryDependencies: ['vue-sonner', 'button'],
+      registryDependencies: ['button'],
       component: () => import('../src/lib/registry/default/example/SonnerDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/SonnerDemo.vue'],
     },
@@ -1477,7 +1477,7 @@ export const Index = {
     SonnerDemo: {
       name: 'SonnerDemo',
       type: 'components:example',
-      registryDependencies: ['vue-sonner', 'button'],
+      registryDependencies: ['button'],
       component: () => import('../src/lib/registry/new-york/example/SonnerDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/SonnerDemo.vue'],
     },
