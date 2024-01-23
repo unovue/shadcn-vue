@@ -1,7 +1,10 @@
 <script lang="ts" setup>
+import { useForwardProps } from 'radix-vue'
 import { Toaster as Sonner, type ToasterProps } from 'vue-sonner'
 
 const props = defineProps<ToasterProps>()
+
+const forwardedProps = useForwardProps(props)
 </script>
 
 <template>
@@ -16,6 +19,6 @@ const props = defineProps<ToasterProps>()
       cancelButton:
         'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',
     }"
-    v-bind="props"
+    v-bind="forwardedProps"
   />
 </template>
