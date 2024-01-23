@@ -521,6 +521,18 @@
     "type": "components:ui"
   },
   {
+    "name": "sonner",
+    "dependencies": [
+      "vue-sonner"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "ui/sonner/Sonner.vue",
+      "ui/sonner/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "switch",
     "dependencies": [],
     "registryDependencies": [

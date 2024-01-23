@@ -225,7 +225,7 @@ const table = useVueTable({
 
 Finally, we'll render our table in our index component.
 
-```ts:line-numbers showLineNumbers{28}
+```ts:line-numbers {28}
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { columns } from "./components/columns"
@@ -272,7 +272,7 @@ Let's format the amount cell to display the dollar amount. We'll also align the 
 Update the `header` and `cell` definitions for amount as follows:
 
 
-```ts:line-numbers showLineNumbers title="components/payments/columns.ts" {5-17}
+```ts:line-numbers title="components/payments/columns.ts" {5-17}
 import { h } from 'vue'
 
 export const columns: ColumnDef<Payment>[] = [
@@ -380,7 +380,7 @@ Next, we'll add pagination to our table.
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{4,12}
+```ts:line-numbers {4,12}
 import {
     FlexRender,
     getCoreRowModel,
@@ -402,7 +402,7 @@ This will automatically paginate your rows into pages of 10. See the [pagination
 
 We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
 
-```ts:line-numbers showLineNumbers{3,15,21-39}
+```ts:line-numbers {3,15,21-39}
 // components/payments/DataTable.vue
 <script lang="ts" generic="TData, TValue">
 import { Button } from "@/components/ui/button"
@@ -458,7 +458,7 @@ Let's make the email column sortable.
 
 ### Add the following into your `utils` file:
 
-```ts:line-numbers showLineNumbers{5,6,12-17}
+```ts:line-numbers {5,6,12-17}
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
@@ -482,7 +482,7 @@ The `valueUpdater` function updates a Vue `ref` object's value. It handles both 
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{4,7,16,34,41-44}
+```ts:line-numbers {4,7,16,34,41-44}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
@@ -545,7 +545,7 @@ const table = useVueTable({
 
 We can now update the `email` header cell to add sorting controls.
 
-```ts:line-numbers showLineNumbers{5,10-17}
+```ts:line-numbers {5,10-17}
 // components/payments/columns.ts
 import type {
   ColumnDef,
@@ -579,7 +579,7 @@ Let's add a search input to filter emails in our table.
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{4,11,19,39,48-49,52,60-64}
+```ts:line-numbers {4,11,19,39,48-49,52,60-64}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
@@ -664,7 +664,7 @@ Adding column visibility is fairly simple using `@tanstack/vue-table` visibility
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{6,9-14,48,59,63,75-91}
+```ts:line-numbers {6,9-14,48,59,63,75-91}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
@@ -803,7 +803,7 @@ Next, we're going to add row selection to our table.
 
 ### Update column definitions
 
-```ts:line-numbers showLineNumbers{3,6-20}
+```ts:line-numbers {3,6-20}
 import type { ColumnDef } from '@tanstack/vue-table'
 
 import { Checkbox } from '@/components/ui/checkbox'
@@ -829,7 +829,7 @@ export const columns: ColumnDef<Payment>[] = [
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{10,22,27}
+```ts:line-numbers {10,22,27}
 <script setup lang="ts" generic="TData, TValue">
 const props = defineProps<{
     columns: ColumnDef<TData, TValue>[]

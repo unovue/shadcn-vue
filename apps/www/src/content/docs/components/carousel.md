@@ -57,7 +57,7 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
 
 Example
 
-```vue title="Example" showLineNumbers {4-6}
+```vue:line-numbers title="Example" {4-6}
 // 33% of the carousel width.
 <Carousel>
   <CarouselContent>
@@ -71,7 +71,7 @@ Example
 
 Responsive
 
-```vue title="Responsive" showLineNumbers {4-6}
+```vue:line-numbers title="Responsive" {4-6}
 // 50% on small screens and 33% on larger screens.
 <Carousel>
   <CarouselContent>
@@ -101,7 +101,7 @@ You can always adjust this in your own project if you need to.
 
 Example
 
-```vue showLineNumbers /-ml-4/ /pl-4/
+```vue:line-numbers /-ml-4/ /pl-4/
 <template>
   <Carousel>
     <CarouselContent class="-ml-4">
@@ -121,7 +121,7 @@ Example
 
 Responsive
 
-```vue showLineNumbers /-ml-2/ /pl-2/ /md:-ml-4/ /md:pl-4/
+```vue:line-numbers /-ml-2/ /pl-2/ /md:-ml-4/ /md:pl-4/
 <template>
   <Carousel>
     <CarouselContent class="-ml-2 md:-ml-4">
@@ -155,7 +155,7 @@ Use the `orientation` prop to set the orientation of the carousel.
 
 You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for more information.
 
-```vue showLineNumbers {3-6}
+```vue:line-numbers {3-6}
 <template>
   <Carousel
     :opts="{
@@ -184,7 +184,7 @@ Use the `@init-api` emit method on `<Carousel />` component to set the instance 
 
 You can access it through setting a template ref on the `<Carousel />` component.
 
-```vue showLineNumbers {2,5,9}
+```vue:line-numbers {2,5,9}
 <script setup>
 const carouselContainerRef = ref<InstanceType<typeof Carousel> | null>(null)
 
@@ -204,7 +204,7 @@ function accessApi() {
 
 You can listen to events using the API. To get the API instance use the `@init-api` emit method on the `<Carousel />` component
 
-```vue showLineNumbers {5,7-9,25}
+```vue:line-numbers {5,7-9,25}
 <script setup>
 import { nextTick, ref, watch } from 'vue'
 import { useCarousel } from '@/components/ui/carousel'
@@ -241,7 +241,7 @@ See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for mo
 
 You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scrollNext..Prev` using the `v-slot` directive in the `<Carousel v-slot="slotProps" />` component to extend the functionality.
 
-```vue showLineNumbers {2}
+```vue:line-numbers {2}
 <template>
   <Carousel v-slot="{ canScrollNext, canScrollPrev }">
     ...
@@ -260,7 +260,7 @@ npm i embla-carousel-autoplay
 ```
 
 
-```vue showLineNumbers {2,8-10}
+```vue:line-numbers {2,8-10}
 <script setup lang="ts">
 import Autoplay from 'embla-carousel-autoplay'
 </script>
