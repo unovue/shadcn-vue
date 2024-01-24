@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineProps, withDefaults } from 'vue'
 import { AvatarRoot } from 'radix-vue'
 import { avatarVariant } from '.'
 import { cn } from '@/lib/utils'
@@ -13,10 +14,11 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'sm',
   shape: 'circle',
 })
+const computedClasses = cn(avatarVariant({ size: props.size, shape: props.shape }), props.class)
 </script>
 
 <template>
-  <AvatarRoot :class="cn(avatarVariant({ size, shape }), props.class)">
+  <AvatarRoot :class="computedClasses">
     <slot />
   </AvatarRoot>
 </template>
