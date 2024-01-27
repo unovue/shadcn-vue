@@ -3,11 +3,11 @@ import path from 'node:path'
 import process from 'node:process'
 import chalk from 'chalk'
 import { Command } from 'commander'
-import { execa } from 'execa'
 import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
+import { addDependency, addDevDependency } from 'nypm'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
@@ -16,7 +16,6 @@ import {
 } from '../utils/registry'
 import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
-import { getPackageManager } from '../utils/get-package-manager'
 import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
   type Config,
@@ -276,20 +275,20 @@ export async function runInit(cwd: string, config: Config) {
 
   // Install dependencies.
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
-  const packageManager = await getPackageManager(cwd)
 
   const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
-  ).concat(
     config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
   ).filter(Boolean)
 
-  await execa(
-    packageManager,
-    [packageManager === 'npm' ? 'install' : 'add', ...deps],
-    {
+  if (config.framework === 'nuxt') {
+    await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
       cwd,
-    },
-  )
+    })
+  }
+
+  await addDependency(deps, {
+    cwd,
+  })
+
   dependenciesSpinner?.succeed()
 }

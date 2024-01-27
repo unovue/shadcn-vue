@@ -3,13 +3,12 @@ import path from 'node:path'
 import process from 'node:process'
 import chalk from 'chalk'
 import { Command } from 'commander'
-import { execa } from 'execa'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
+import { addDependency, addDevDependency } from 'nypm'
 import { transform } from '@/src/utils/transformers'
 import { getConfig } from '@/src/utils/get-config'
-import { getPackageManager } from '@/src/utils/get-package-manager'
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 import {
@@ -190,17 +189,15 @@ export const add = new Command()
             skippedDeps.add(dep),
           )
 
-          const packageManager = await getPackageManager(cwd)
-          await execa(
-            packageManager,
-            [
-              packageManager === 'npm' ? 'install' : 'add',
-              ...item.dependencies,
-            ],
-            {
-              cwd,
-            },
-          )
+          await addDependency(item.dependencies, {
+            cwd,
+          })
+        }
+
+        if (item.devDependencies?.length) {
+          await addDevDependency(item.devDependencies, {
+            cwd,
+          })
         }
       }
       spinner.succeed('Done.')
