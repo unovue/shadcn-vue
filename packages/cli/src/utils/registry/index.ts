@@ -122,8 +122,11 @@ export function getItemTargetPath(
   override?: string,
 ) {
   // Allow overrides for all items but ui.
-  if (override && item.type !== 'components:ui')
+  if (override)
     return override
+
+  if (item.type === 'components:ui' && config.aliases.ui)
+    return config.resolvedPaths.ui
 
   const [parent, type] = item.type.split(':')
   if (!(parent in config.resolvedPaths))

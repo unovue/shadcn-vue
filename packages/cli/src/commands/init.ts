@@ -7,7 +7,7 @@ import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
-import { addDependency, addDevDependency } from 'nypm'
+import { addDependency, addDevDependency, ensureDependencyInstalled } from 'nypm'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
@@ -280,15 +280,22 @@ export async function runInit(cwd: string, config: Config) {
     config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
   ).filter(Boolean)
 
-  if (config.framework === 'nuxt') {
-    await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
-      cwd,
-    })
-  }
-
-  await addDependency(deps, {
-    cwd,
-  })
+  await Promise.all(
+    [
+      async () => {
+        if (config.framework === 'nuxt') {
+          await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
+            cwd,
+          })
+        }
+      },
+      Promise.all(deps.map((d) => {
+        return ensureDependencyInstalled(d, {
+          cwd,
+        })
+      })),
+    ],
+  )
 
   dependenciesSpinner?.succeed()
 }

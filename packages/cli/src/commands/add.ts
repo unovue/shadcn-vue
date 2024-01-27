@@ -113,7 +113,6 @@ export const add = new Command()
       }
 
       const spinner = ora('Installing components...').start()
-      const skippedDeps = new Set<string>()
       for (const item of payload) {
         spinner.text = `Installing ${item.name}...`
         const targetDir = getItemTargetPath(
@@ -185,10 +184,6 @@ export const add = new Command()
 
         // Install dependencies.
         if (item.dependencies?.length) {
-          item.dependencies.forEach(dep =>
-            skippedDeps.add(dep),
-          )
-
           await addDependency(item.dependencies, {
             cwd,
           })
