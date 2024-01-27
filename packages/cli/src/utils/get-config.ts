@@ -40,7 +40,7 @@ export const rawConfigSchema = z
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
-      ui: z.string(),
+      ui: z.string().optional(),
     }),
   })
   .strict()
