@@ -18,6 +18,6 @@ const props = withDefaults(defineProps<ScrollAreaScrollbarProps>(), {
            && 'h-2.5 border-t border-t-transparent p-[1px]',
          $attrs.class ?? '')"
   >
-    <ScrollAreaThumb class="relative rounded-full bg-border" />
+    <ScrollAreaThumb class="relative flex-1 rounded-full bg-border" />
   </ScrollAreaScrollbar>
 </template>
