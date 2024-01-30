@@ -25,7 +25,7 @@ We'll start with the basic `<Table />` component and build a complex data table 
 
 ## Table of Contents
 
-This guide will show you how to use [TanStack Table](https://tanstack.com/table/v8) and the <Table /> component to build your own custom data table. We'll cover the following topics:
+This guide will show you how to use [TanStack Table](https://tanstack.com/table/v8) and the `<Table />` component to build your own custom data table. We'll cover the following topics:
 
 - [Basic Table](#basic-table)
 - [Row Actions](#row-actions)

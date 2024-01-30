@@ -1,5 +1,12 @@
 <script setup lang='ts'>
-import { Card, CardContent, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/lib/registry/default/ui/card'
 import {
   Select,
   SelectContent,
