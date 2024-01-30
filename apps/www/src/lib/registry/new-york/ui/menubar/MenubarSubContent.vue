@@ -9,13 +9,7 @@ import {
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(
-  defineProps<MenubarSubContentProps & { class?: HTMLAttributes['class'] }>(),
-  {
-    sideOffset: 2,
-    alignOffset: 0,
-  },
-)
+const props = defineProps<MenubarSubContentProps & { class?: HTMLAttributes['class'] }>()
 
 const emits = defineEmits<MenubarSubContentEmits>()
 

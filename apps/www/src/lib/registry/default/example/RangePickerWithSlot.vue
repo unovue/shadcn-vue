@@ -40,7 +40,7 @@ const date = ref({
           </span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent class="w-auto p-0" align="start" :avoid-collisions="true">
+      <PopoverContent class="w-auto p-0" align="start">
         <Calendar
           v-model.range="date"
           mode="date"
