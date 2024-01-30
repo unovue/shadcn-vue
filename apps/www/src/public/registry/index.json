@@ -132,10 +132,7 @@
   },
   {
     "name": "carousel",
-    "dependencies": [
-      "embla-carousel-vue",
-      "embla-carousel"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
