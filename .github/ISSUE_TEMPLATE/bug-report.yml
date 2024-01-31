@@ -41,6 +41,9 @@ body:
       label: System Info
       description: Output of `npx envinfo --system --npmPackages vue,@vueuse/core,radix-vue,nuxt,shadcn-vue,shadcn-nuxt,unplugin-auto-import --binaries --browsers`
       render: bash
+      placeholder: System, Binaries, Browsers
+    validations:
+      required: true
   - type: checkboxes
     id: contributes
     attributes:
@@ -48,6 +51,3 @@ body:
       options:
         - label: I am willing to submit a PR to fix this issue
         - label: I am willing to submit a PR with failing tests 
-      placeholder: System, Binaries, Browsers
-    validations:
-      required: true
