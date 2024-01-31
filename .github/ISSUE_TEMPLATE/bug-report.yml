@@ -22,6 +22,8 @@ body:
         
         To get started, you can use the StackBlitz and CodeSandbox playgrounds in shadcn-vue demos:
         https://www.shadcn-vue.com/docs/components/accordion.html
+
+        or use template presets
         https://vite.new
         https://nuxt.new
       placeholder: Reproduction
