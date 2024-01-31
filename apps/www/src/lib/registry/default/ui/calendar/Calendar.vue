@@ -137,10 +137,10 @@ const vCalendarSlots = computed(() => {
   @apply w-full space-y-2 flex flex-col [&>_div]:grid [&>_div]:grid-cols-7;
 }
 .calendar .vc-day:has(.vc-highlights) {
-  @apply bg-accent first:rounded-l-md last:rounded-r-md overflow-hidden;
+  @apply first:rounded-l-md last:rounded-r-md;
 }
-.calendar .vc-day.is-today:not(:has(.vc-day-layer)) {
-  @apply bg-secondary rounded-md;
+.calendar .vc-day.is-today:not(:has(.vc-day-layer)) .vc-day-content {
+  @apply bg-secondary text-primary rounded-md;
 }
 .calendar .vc-day:has(.vc-highlight-base-start) {
   @apply rounded-l-md;
