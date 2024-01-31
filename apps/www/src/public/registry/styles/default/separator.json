@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "Separator.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Separator, type SeparatorProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SeparatorProps & { class?: string }>()\n</script>\n\n<template>\n  <Separator\n    :class=\"[\n      cn('shrink-0 bg-secondary', props.class),\n      props.orientation === 'vertical' ? 'w-px h-full' : 'h-px w-full',\n    ]\"\n  />\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { Separator, type SeparatorProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SeparatorProps & { class?: string }>()\n</script>\n\n<template>\n  <Separator\n    :class=\"[\n      cn('shrink-0 bg-border', props.class),\n      props.orientation === 'vertical' ? 'w-px h-full' : 'h-px w-full',\n    ]\"\n  />\n</template>\n"
     },
     {
       "name": "index.ts",
