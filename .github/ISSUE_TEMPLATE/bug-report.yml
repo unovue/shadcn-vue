@@ -6,62 +6,27 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Before You Start...**
-
+        Thanks for taking the time to fill out this bug report!
         This form is only for submitting bug reports. If you have a usage question
         or are unsure if this is really a bug, make sure to:
 
         - Read the [docs](https://radix-vue.com/)
         - Ask on [Discord Chat](https://chat.radix-vue.com/)
         - Ask on [GitHub Discussions](https://github.com/shadcn-vue/shadcn-vue/discussions)
-
-        Also try to search for your issue - it may have already been answered or even fixed.
-        However, if you find that an old, closed issue still persists in the latest version,
-        you should open a new issue using the form below instead of commenting on the old issue.
-  - type: textarea
-    id: bug-env
-    attributes:
-      label: Environment
-      description: Please provide the following information about your environment.
-      value: |
-        Developement/Production OS: Windows 10 19043.1110
-        Node version: 16.0.0
-        Package manager: pnpm@8.6.0
-        Radix Vue version: 1.0.0
-        Shadcn Vue version: 1.0.0
-        Vue version: 3.0.0
-        Nuxt version: 3.0.0
-        Nuxt mode: universal
-        Nuxt target: server
-        CSS framework: tailwindcss@3.3.3
-        Client OS: Windows 10 19043.1110
-        Browser: Chrome 90.0.4430.212
-      render: bash
-    validations:
-      required: true
   - type: input
-    id: reproduction-link
+    id: reproduction
     attributes:
-      label: Link to minimal reproduction
+      label: Reproduction
       description: |
-        Please provide a link to a minimal reproduction of the bug.
-        A minimal reproduction is a CodeSandbox, CodePen, or a StackBlitz that contains the bare minimum amount of code needed to show the bug.
-        A minimal reproduction is required unless you are absolutely sure that the issue is obvious and the provided information is enough to understand the problem
+        A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is **required**, otherwise the issue might be closed without further notice. [**Why?**](https://antfu.me/posts/why-reproductions-are-required)
+        
+        To get started, you can use the StackBlitz and CodeSandbox playgrounds in shadcn-vue demos:
+        https://www.shadcn-vue.com/docs/components/accordion.html
 
-        This is **required** for us to be able to triage your issue in a timely manner.
-
-        Please do not just fill in a random link. The issue will be closed if no valid reproduction is provided.
-      placeholder: Reproduction Link
-    validations:
-      required: true
-  - type: textarea
-    id: steps-to-reproduce
-    attributes:
-      label: Steps to reproduce
-      description: |
-        How do you trigger this bug? Please walk us through it step by step.
-        Note that you can use [Markdown](https://guides.github.com/features/mastering-markdown/) to format lists and code.
-      placeholder: Steps to reproduce
+        or use template presets
+        https://vite.new
+        https://nuxt.new
+      placeholder: Reproduction
     validations:
       required: true
   - type: textarea
@@ -73,14 +38,18 @@ body:
     validations:
       required: true
   - type: textarea
-    id: expected-behavior
+    id: system-info
     attributes:
-      label: Expected behavior
-      description: A clear and concise description of what you expected to happen.
-  - type: textarea
-    id: screenshots
+      label: System Info
+      description: Output of `npx envinfo --system --npmPackages vue,@vueuse/core,radix-vue,nuxt,shadcn-vue,shadcn-nuxt,unplugin-auto-import --binaries --browsers`
+      render: bash
+      placeholder: System, Binaries, Browsers
+    validations:
+      required: true
+  - type: checkboxes
+    id: contributes
     attributes:
-      label: Conext & Screenshots (if applicable)
-      description: |
-        If applicable, provide any additional context or screenshots of the bug.
-        You can drag and drop images here to add them to the issue.
+      label: Contributes
+      options:
+        - label: I am willing to submit a PR to fix this issue
+        - label: I am willing to submit a PR with failing tests 
