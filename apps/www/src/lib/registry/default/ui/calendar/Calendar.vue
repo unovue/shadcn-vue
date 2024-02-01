@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import type { Calendar } from 'v-calendar'
 import { DatePicker } from 'v-calendar'
-import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { computed, nextTick, onMounted, ref, useSlots } from 'vue'
 import { isVCalendarSlot } from '.'
-import { buttonVariants } from '@/lib/registry/default/ui/button'
 import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/lib/registry/default/ui/button'
 
 /* Extracted from v-calendar */
 type DatePickerModel = DatePickerDate | DatePickerRangeObject
@@ -105,7 +105,7 @@ const vCalendarSlots = computed(() => {
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="css">
 .calendar {
   @apply p-3 text-center;
 }
@@ -113,7 +113,25 @@ const vCalendarSlots = computed(() => {
   @apply grid gap-4;
 }
 .calendar .vc-title {
-  @apply text-sm font-medium pointer-events-none;
+  @apply text-sm font-medium relative z-20;
+}
+.vc-popover-content-wrapper .vc-popover-content {
+  @apply rounded-md max-w-xs border bg-slate-700;
+}
+.vc-popover-content-wrapper .vc-nav-header {
+  @apply flex justify-between items-center p-2;
+}
+.vc-popover-content-wrapper .vc-nav-items {
+  @apply grid grid-cols-4 gap-2 p-2;
+}
+.vc-popover-content-wrapper .vc-nav-items .vc-nav-item {
+  @apply rounded-md px-2 py-1;
+}
+.vc-popover-content-wrapper .vc-nav-items .vc-nav-item:hover {
+  @apply text-muted-foreground bg-muted;
+}
+.vc-popover-content-wrapper .vc-nav-items .vc-nav-item.is-active {
+  @apply bg-primary text-primary-foreground;
 }
 .calendar .vc-pane-header-wrapper {
   @apply hidden;
