@@ -56,6 +56,7 @@
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.17",
     "lodash.template": "^4.5.0",
+    "oxc-parser": "^0.2.0",
     "pathe": "^1.1.2",
     "rimraf": "^5.0.5",
     "shiki": "^1.0.0-beta.3",

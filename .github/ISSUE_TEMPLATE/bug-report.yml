@@ -19,7 +19,7 @@ body:
       label: Reproduction
       description: |
         A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is **required**, otherwise the issue might be closed without further notice. [**Why?**](https://antfu.me/posts/why-reproductions-are-required)
-        
+
         To get started, you can use the StackBlitz and CodeSandbox playgrounds in shadcn-vue demos:
         https://www.shadcn-vue.com/docs/components/accordion.html
 
@@ -52,4 +52,4 @@ body:
       label: Contributes
       options:
         - label: I am willing to submit a PR to fix this issue
-        - label: I am willing to submit a PR with failing tests 
+        - label: I am willing to submit a PR with failing tests

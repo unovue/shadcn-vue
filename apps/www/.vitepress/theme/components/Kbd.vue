@@ -18,9 +18,9 @@ const kbdClass = computed(() => {
     {
       variants: {
         size: {
-          xs: 'min-h-[16px] text-[10px] h-4 px-1',
-          sm: 'min-h-[20px] text-[11px] h-5 px-1',
-          md: 'min-h-[24px] text-[12px] h-6 px-1.5',
+          xs: 'min-h-4 text-[10px] h-4 px-1',
+          sm: 'min-h-5 text-[11px] h-5 px-1',
+          md: 'min-h-6 text-[12px] h-6 px-1.5',
         },
       },
     },

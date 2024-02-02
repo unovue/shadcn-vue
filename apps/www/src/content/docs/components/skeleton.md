@@ -37,6 +37,6 @@ import { Skeleton } from '@/components/ui/skeleton'
 </script>
 
 <template>
-  <Skeleton class="w-[100px] h-[20px] rounded-full" />
+  <Skeleton class="w-[100px] h-5 rounded-full" />
 </template>
 ```

@@ -328,7 +328,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Toast',
           href: '/docs/components/toast',
-          label: 'New',
           items: [],
         },
         {
