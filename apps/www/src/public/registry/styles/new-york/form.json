@@ -6,7 +6,8 @@
     "zod"
   ],
   "registryDependencies": [
-    "utils"
+    "utils",
+    "label"
   ],
   "files": [
     {
@@ -15,15 +16,15 @@
     },
     {
       "name": "FormDescription.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { useFormField } from './useFormField'\nimport { cn } from '@/lib/utils'\n\nconst { formDescriptionId } = useFormField()\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    :class=\"cn('text-[0.8rem] text-muted-foreground', $attrs.class ?? '')\"\n  >\n    <slot />\n  </p>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { useFormField } from './useFormField'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { formDescriptionId } = useFormField()\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    :class=\"cn('text-sm text-muted-foreground', props.class)\"\n  >\n    <slot />\n  </p>\n</template>\n"
     },
     {
       "name": "FormItem.vue",
-      "content": "<script lang=\"ts\">\nimport { type InjectionKey } from 'vue'\n\nexport const FORM_ITEM_INJECTION_KEY\n  = Symbol() as InjectionKey<string>\n</script>\n\n<script lang=\"ts\" setup>\nimport { provide } from 'vue'\nimport { useId } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst id = useId()\nprovide(FORM_ITEM_INJECTION_KEY, id)\n</script>\n\n<template>\n  <div :class=\"cn('space-y-2', $attrs.class ?? '')\">\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script lang=\"ts\">\nimport type { HTMLAttributes, InjectionKey } from 'vue'\n\nexport const FORM_ITEM_INJECTION_KEY\n  = Symbol() as InjectionKey<string>\n</script>\n\n<script lang=\"ts\" setup>\nimport { provide } from 'vue'\nimport { useId } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst id = useId()\nprovide(FORM_ITEM_INJECTION_KEY, id)\n</script>\n\n<template>\n  <div :class=\"cn('space-y-2', props.class)\">\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "FormLabel.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Label, type LabelProps } from 'radix-vue'\nimport { useFormField } from './useFormField'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<LabelProps>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    :class=\"cn(\n      'block text-sm tracking-tight font-medium text-foreground text-left',\n      error && 'text-destructive',\n      $attrs.class ?? '',\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport type { LabelProps } from 'radix-vue'\nimport { useFormField } from './useFormField'\nimport { cn } from '@/lib/utils'\nimport { Label } from '@/lib/registry/new-york/ui/label'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    :class=\"cn(\n      error && 'text-destructive',\n      props.class,\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n"
     },
     {
       "name": "FormMessage.vue",

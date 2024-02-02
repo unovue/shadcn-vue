@@ -56,5 +56,40 @@ import { Calendar } from '@/components/ui/calendar'
 </template>
 ```
 
-See the [VCalendar](https://vcalendar.io/getting-started/installation.html) documentation for more information.
+The API is essentially the same, i.e. props and slots. See the [VCalendar](https://vcalendar.io/getting-started/installation.html) documentation for more information.
 
+### Slots
+
+The slots available are [those currently supported](https://github.com/nathanreyes/v-calendar/blob/v3.1.2/src/components/Calendar/CalendarSlot.vue#L16-L28) by VCalendar, namely :
+
+- `day-content`
+- `day-popover`
+- `dp-footer`
+- `footer`
+- `header-title-wrapper`
+- `header-title`
+- `header-prev-button`
+- `header-next-button`
+- `nav`
+- `nav-prev-button`
+- `nav-next-button`
+- `page`
+- `time-header`
+
+Example using the `day-content` slot:
+
+```vue
+<script setup lang="ts">
+import { Calendar } from '@/components/ui/calendar'
+</script>
+
+<template>
+  <Calendar>
+    <template #day-content="{ day, dayProps, dayEvents }">
+      <div v-bind="dayProps" v-on="dayEvents">
+        {{ day.label }}
+      </div>
+    </template>
+  </Calendar>
+</template>
+```

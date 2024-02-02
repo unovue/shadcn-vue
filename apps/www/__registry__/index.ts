@@ -506,6 +506,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/RadioGroupForm.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/RadioGroupForm.vue'],
     },
+    RangePickerWithSlot: {
+      name: 'RangePickerWithSlot',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'calendar', 'popover'],
+      component: () => import('../src/lib/registry/default/example/RangePickerWithSlot.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/RangePickerWithSlot.vue'],
+    },
     ScrollAreaDemo: {
       name: 'ScrollAreaDemo',
       type: 'components:example',
@@ -568,6 +575,13 @@ export const Index = {
       registryDependencies: ['utils', 'slider'],
       component: () => import('../src/lib/registry/default/example/SliderDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/SliderDemo.vue'],
+    },
+    SonnerDemo: {
+      name: 'SonnerDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/default/example/SonnerDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/SonnerDemo.vue'],
     },
     SwitchDemo: {
       name: 'SwitchDemo',
@@ -1390,6 +1404,13 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/RadioGroupForm.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/RadioGroupForm.vue'],
     },
+    RangePickerWithSlot: {
+      name: 'RangePickerWithSlot',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'calendar', 'popover'],
+      component: () => import('../src/lib/registry/new-york/example/RangePickerWithSlot.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/RangePickerWithSlot.vue'],
+    },
     ScrollAreaDemo: {
       name: 'ScrollAreaDemo',
       type: 'components:example',
@@ -1452,6 +1473,13 @@ export const Index = {
       registryDependencies: ['utils', 'slider'],
       component: () => import('../src/lib/registry/new-york/example/SliderDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/SliderDemo.vue'],
+    },
+    SonnerDemo: {
+      name: 'SonnerDemo',
+      type: 'components:example',
+      registryDependencies: ['button'],
+      component: () => import('../src/lib/registry/new-york/example/SonnerDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/SonnerDemo.vue'],
     },
     SwitchDemo: {
       name: 'SwitchDemo',

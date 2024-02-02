@@ -1,10 +1,6 @@
 {
   "name": "carousel",
-  "dependencies": [
-    "@vueuse/core",
-    "embla-carousel-vue",
-    "embla-carousel"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils",
     "button"
