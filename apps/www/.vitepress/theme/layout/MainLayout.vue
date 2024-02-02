@@ -288,7 +288,9 @@ watch(() => $route.path, (n) => {
       </DialogContent>
     </Dialog>
     <DefaultToaster />
-    <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
+    <ClientOnly>
+      <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
+    </ClientOnly>
     <NewYorkToaster />
   </div>
 </template>
