@@ -104,8 +104,8 @@
       "v-calendar@next"
     ],
     "registryDependencies": [
-      "button",
-      "utils"
+      "utils",
+      "button"
     ],
     "files": [
       "ui/calendar/Calendar.vue",
@@ -132,7 +132,11 @@
   },
   {
     "name": "carousel",
-    "dependencies": [],
+    "dependencies": [
+      "@vueuse/core",
+      "embla-carousel-vue",
+      "embla-carousel"
+    ],
     "registryDependencies": [
       "utils",
       "button"
