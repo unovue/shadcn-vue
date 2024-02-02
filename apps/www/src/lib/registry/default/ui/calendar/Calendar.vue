@@ -29,8 +29,7 @@ interface SimpleDateParts {
 defineOptions({
   inheritAttrs: false,
 })
-
-const props = withDefaults(defineProps<{
+const props = withDefaults(defineProps< {
   modelValue?: string | number | Date | DatePickerModel
   modelModifiers?: object
   columns?: number
@@ -90,8 +89,8 @@ const vCalendarSlots = computed(() => {
 
     <DatePicker
       ref="datePicker"
-      v-model="modelValue"
       v-bind="$attrs"
+      v-model="modelValue"
       :model-modifiers="modelModifiers"
       class="calendar"
       trim-weeks
@@ -152,7 +151,7 @@ const vCalendarSlots = computed(() => {
   @apply rounded-md;
 }
 .calendar .vc-day-content  {
-  @apply text-center text-sm p-0 relative focus-within:relative focus-within:z-20 inline-flex items-center justify-center ring-offset-background hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground h-9 w-9  font-normal aria-selected:opacity-100 select-none;
+  @apply text-center text-sm p-0 relative focus-within:relative focus-within:z-20 inline-flex items-center justify-center ring-offset-background hover:transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground h-9 w-9 font-normal aria-selected:opacity-100 select-none;
 }
 .calendar .vc-day-content:not(.vc-highlight-content-light) {
   @apply rounded-md;
@@ -178,6 +177,7 @@ const vCalendarSlots = computed(() => {
 	--vc-slide-duration: 0.15s;
 	--vc-slide-timing: ease;
 }
+
 .calendar .vc-fade-enter-active,
 .calendar .vc-fade-leave-active,
 .calendar .vc-slide-left-enter-active,
@@ -204,6 +204,7 @@ const vCalendarSlots = computed(() => {
 	backface-visibility: hidden;
 	pointer-events: none;
 }
+
 .calendar .vc-none-leave-active,
 .calendar .vc-fade-leave-active,
 .calendar .vc-slide-left-leave-active,
@@ -213,6 +214,7 @@ const vCalendarSlots = computed(() => {
 	position: absolute !important;
 	width: 100%;
 }
+
 .calendar .vc-none-enter-from,
 .calendar .vc-none-leave-to,
 .calendar .vc-fade-enter-from,
@@ -229,6 +231,7 @@ const vCalendarSlots = computed(() => {
 .calendar .vc-slide-fade-leave-to {
 	opacity: 0;
 }
+
 .calendar .vc-slide-left-enter-from,
 .calendar .vc-slide-right-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-left,
@@ -236,6 +239,7 @@ const vCalendarSlots = computed(() => {
 	-webkit-transform: translateX(var(--vc-slide-translate));
 	transform: translateX(var(--vc-slide-translate));
 }
+
 .calendar .vc-slide-right-enter-from,
 .calendar .vc-slide-left-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-right,
@@ -243,6 +247,7 @@ const vCalendarSlots = computed(() => {
 	-webkit-transform: translateX(calc(-1 * var(--vc-slide-translate)));
 	transform: translateX(calc(-1 * var(--vc-slide-translate)));
 }
+
 .calendar .vc-slide-up-enter-from,
 .calendar .vc-slide-down-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-top,
@@ -250,6 +255,7 @@ const vCalendarSlots = computed(() => {
 	-webkit-transform: translateY(var(--vc-slide-translate));
 	transform: translateY(var(--vc-slide-translate));
 }
+
 .calendar .vc-slide-down-enter-from,
 .calendar .vc-slide-up-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-bottom,
