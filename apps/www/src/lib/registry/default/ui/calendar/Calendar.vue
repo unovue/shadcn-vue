@@ -101,6 +101,14 @@ const vCalendarSlots = computed(() => {
       <template v-for="(_, slot) of vCalendarSlots" #[slot]="scope">
         <slot :name="slot" v-bind="scope" />
       </template>
+
+      <template #nav-prev-button>
+        <ChevronLeft />
+      </template>
+
+      <template #nav-next-button>
+        <ChevronRight />
+      </template>
     </DatePicker>
   </div>
 </template>
@@ -116,7 +124,7 @@ const vCalendarSlots = computed(() => {
   @apply text-sm font-medium relative z-20;
 }
 .vc-popover-content-wrapper .vc-popover-content {
-  @apply rounded-md max-w-xs border bg-slate-700;
+  @apply mt-3 rounded-md max-w-xs border bg-background;
 }
 .vc-popover-content-wrapper .vc-nav-header {
   @apply flex justify-between items-center p-2;
