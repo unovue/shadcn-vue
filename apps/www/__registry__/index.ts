@@ -317,6 +317,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/ContextMenuDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/ContextMenuDemo.vue'],
     },
+    DataTableColumnPinningDemo: {
+      name: 'DataTableColumnPinningDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'checkbox', 'dropdown-menu', 'input', 'table', 'utils'],
+      component: () => import('../src/lib/registry/default/example/DataTableColumnPinningDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/DataTableColumnPinningDemo.vue'],
+    },
     DataTableDemo: {
       name: 'DataTableDemo',
       type: 'components:example',
@@ -1214,6 +1221,13 @@ export const Index = {
       registryDependencies: ['context-menu'],
       component: () => import('../src/lib/registry/new-york/example/ContextMenuDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/ContextMenuDemo.vue'],
+    },
+    DataTableColumnPinningDemo: {
+      name: 'DataTableColumnPinningDemo',
+      type: 'components:example',
+      registryDependencies: ['button', 'checkbox', 'dropdown-menu', 'input', 'table', 'utils'],
+      component: () => import('../src/lib/registry/new-york/example/DataTableColumnPinningDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/DataTableColumnPinningDemo.vue'],
     },
     DataTableDemo: {
       name: 'DataTableDemo',
