@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "Card.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'rounded-lg border bg-card text-card-foreground shadow',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'rounded-xl border bg-card text-card-foreground shadow',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "CardContent.vue",
