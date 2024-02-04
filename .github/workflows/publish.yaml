@@ -17,8 +17,6 @@ on:
       - opened
       # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
       - labeled
-    paths:
-      - 'apps/www/**'
   # Allows you to run this workflow manually from the Actions tab
   # eslint-disable-next-line yml/no-empty-mapping-value
   workflow_dispatch:
@@ -52,9 +50,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.ref }}
-          fetch-depth: 0
 
       # Run a build step here
       - name: Setup Node.js environment

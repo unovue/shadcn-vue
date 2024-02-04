@@ -46,9 +46,9 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
                 >
                   {{ doc.title }}
 
-                  <Badge v-if="doc.label" class="ml-2" :variant="'secondary'">
+                  <span v-if="doc.label" class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
                     {{ doc.label }}
-                  </Badge>
+                  </span>
                 </a>
               </div>
             </div>

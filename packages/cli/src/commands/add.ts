@@ -1,4 +1,4 @@
-import { existsSync, promises as fs } from 'node:fs'
+import { existsSync, promises as fs, rmSync } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 import chalk from 'chalk'
@@ -157,27 +157,45 @@ export const add = new Command()
           }
         }
 
-        for (const file of item.files) {
-          const componentDir = path.resolve(targetDir, item.name)
-          let filePath = path.resolve(
+        const componentDir = path.resolve(targetDir, item.name)
+        if (!existsSync(componentDir))
+          await fs.mkdir(componentDir, { recursive: true })
+
+        const files = item.files.map(file => ({
+          ...file,
+          path: path.resolve(
             targetDir,
             item.name,
             file.name,
-          )
+          ),
+        }))
 
-          if (!config.typescript)
-            filePath = filePath.replace(/\.ts$/, '.js')
+        // We need to write original files to disk if we're not using TypeScript.
+        // Rewrite or delete added files after transformed
+        if (!config.typescript) {
+          for (const file of files)
+            await fs.writeFile(file.path, file.content)
+        }
 
-          if (!existsSync(componentDir))
-            await fs.mkdir(componentDir, { recursive: true })
-
+        for (const file of files) {
           // Run transformers.
           const content = await transform({
-            filename: file.name,
+            filename: file.path,
             raw: file.content,
             config,
             baseColor,
           })
+
+          let filePath = file.path
+
+          if (!config.typescript) {
+            // remove original .ts file if we're not using TypeScript.
+            if (file.path.endsWith('.ts')) {
+              if (existsSync(file.path))
+                rmSync(file.path)
+            }
+            filePath = file.path.replace(/\.ts$/, '.js')
+          }
 
           await fs.writeFile(filePath, content)
         }

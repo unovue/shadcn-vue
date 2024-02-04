@@ -1,6 +1,7 @@
 {
   "name": "carousel",
   "dependencies": [
+    "@vueuse/core",
     "embla-carousel-vue",
     "embla-carousel"
   ],
@@ -11,7 +12,7 @@
   "files": [
     {
       "name": "Carousel.vue",
-      "content": "<script setup lang=\"ts\">\nimport emblaCarouselVue from 'embla-carousel-vue'\nimport { useProvideCarousel } from './useCarousel'\nimport type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {\n  orientation: 'horizontal',\n})\n\nconst emits = defineEmits<CarouselEmits>()\n\nconst carouselArgs = useProvideCarousel(props, emits)\n\ndefineExpose(carouselArgs)\n\nfunction onKeyDown(event: KeyboardEvent) {\n  const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'\n  const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'\n\n  if (event.key === prevKey) {\n    event.preventDefault()\n    carouselArgs.scrollPrev()\n\n    return\n  }\n\n  if (event.key === nextKey) {\n    event.preventDefault()\n    carouselArgs.scrollNext()\n  }\n}\n</script>\n\n<template>\n  <div\n    :class=\"cn('relative', props.class)\"\n    role=\"region\"\n    aria-roledescription=\"carousel\"\n    tabindex=\"0\"\n    @keydown=\"onKeyDown\"\n  >\n    <slot v-bind=\"carouselArgs\" />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { useProvideCarousel } from './useCarousel'\nimport type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {\n  orientation: 'horizontal',\n})\n\nconst emits = defineEmits<CarouselEmits>()\n\nconst carouselArgs = useProvideCarousel(props, emits)\n\ndefineExpose(carouselArgs)\n\nfunction onKeyDown(event: KeyboardEvent) {\n  const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'\n  const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'\n\n  if (event.key === prevKey) {\n    event.preventDefault()\n    carouselArgs.scrollPrev()\n\n    return\n  }\n\n  if (event.key === nextKey) {\n    event.preventDefault()\n    carouselArgs.scrollNext()\n  }\n}\n</script>\n\n<template>\n  <div\n    :class=\"cn('relative', props.class)\"\n    role=\"region\"\n    aria-roledescription=\"carousel\"\n    tabindex=\"0\"\n    @keydown=\"onKeyDown\"\n  >\n    <slot v-bind=\"carouselArgs\" />\n  </div>\n</template>\n"
     },
     {
       "name": "CarouselContent.vue",

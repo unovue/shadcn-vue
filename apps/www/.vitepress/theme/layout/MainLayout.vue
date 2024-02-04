@@ -135,7 +135,7 @@ watch(() => $route.path, (n) => {
               :href="link.href" target="_blank"
               :variant="'ghost'" :size="'icon'"
             >
-              <component :is="link.icon" class="w-[20px] h-[20px]" />
+              <component :is="link.icon" class="w-[20px] h-5" />
             </Button>
 
             <Button
@@ -146,7 +146,7 @@ watch(() => $route.path, (n) => {
             >
               <component
                 :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                class="w-[20px] h-[20px] text-foreground"
+                class="w-[20px] h-5 text-foreground"
               />
             </Button>
           </div>
@@ -288,7 +288,9 @@ watch(() => $route.path, (n) => {
       </DialogContent>
     </Dialog>
     <DefaultToaster />
-    <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
+    <ClientOnly>
+      <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
+    </ClientOnly>
     <NewYorkToaster />
   </div>
 </template>
