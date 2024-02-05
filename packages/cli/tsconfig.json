@@ -9,6 +9,6 @@
     },
     "isolatedModules": false
   },
-  "include": ["src/**/*.ts", "scripts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
