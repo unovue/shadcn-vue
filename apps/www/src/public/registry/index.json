@@ -584,8 +584,7 @@
     "name": "tags-input",
     "dependencies": [],
     "registryDependencies": [
-      "utils",
-      "button"
+      "utils"
     ],
     "files": [
       "ui/tags-input/TagsInput.vue",
