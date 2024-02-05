@@ -1,20 +1,20 @@
 import { existsSync, promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import chalk from 'chalk'
 import { Command } from 'commander'
 import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
 import * as z from 'zod'
-import { addDependency, addDevDependency, ensureDependencyInstalled } from 'nypm'
+import { addDependency, addDevDependency } from 'nypm'
+import { consola } from 'consola'
+import { colors } from 'consola/utils'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
   getRegistryBaseColors,
   getRegistryStyles,
 } from '../utils/registry'
-import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
 import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
@@ -63,7 +63,7 @@ export const init = new Command()
 
       // Ensure target directory exists.
       if (!existsSync(cwd)) {
-        logger.error(`The path ${cwd} does not exist. Please try again.`)
+        consola.error(`The path ${cwd} does not exist. Please try again.`)
         process.exit(1)
       }
 
@@ -73,11 +73,11 @@ export const init = new Command()
 
       await runInit(cwd, config)
 
-      logger.info('')
-      logger.info(
-        `${chalk.green('Success!')} Project initialization completed.`,
+      console.log('')
+      consola.info(
+        `${colors.green('Success!')} Project initialization completed.`,
       )
-      logger.info('')
+      console.log('')
     }
     catch (error) {
       handleError(error)
@@ -89,7 +89,7 @@ export async function promptForConfig(
   defaultConfig: Config | null = null,
   skip = false,
 ) {
-  const highlight = (text: string) => chalk.cyan(text)
+  const highlight = (text: string) => colors.cyan(text)
 
   const styles = await getRegistryStyles()
   const baseColors = await getRegistryBaseColors()
@@ -206,7 +206,7 @@ export async function promptForConfig(
   }
 
   // Write to file.
-  logger.info('')
+  console.log('')
   const spinner = ora('Writing components.json...').start()
   const targetPath = path.resolve(cwd, 'components.json')
   await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8')
@@ -280,20 +280,22 @@ export async function runInit(cwd: string, config: Config) {
     config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
   ).filter(Boolean)
 
-  await Promise.all(
+  async function addNuxtDevDeps() {
+    if (config.framework === 'nuxt') {
+      await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
+        cwd,
+        silent: true,
+      })
+    }
+  }
+
+  await Promise.allSettled(
     [
-      async () => {
-        if (config.framework === 'nuxt') {
-          await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
-            cwd,
-          })
-        }
-      },
-      Promise.all(deps.map((d) => {
-        return ensureDependencyInstalled(d, {
-          cwd,
-        })
-      })),
+      await addNuxtDevDeps(),
+      await addDependency(deps, {
+        cwd,
+        silent: true,
+      }),
     ],
   )
 

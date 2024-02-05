@@ -1,14 +1,14 @@
 import { existsSync, promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import chalk from 'chalk'
+import { consola } from 'consola'
+import { colors } from 'consola/utils'
 import { Command } from 'commander'
 import { type Change, diffLines } from 'diff'
 import * as z from 'zod'
 import type { Config } from '@/src/utils/get-config'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
-import { logger } from '@/src/utils/logger'
 import {
   fetchTree,
   getItemTargetPath,
@@ -45,14 +45,14 @@ export const diff = new Command()
       const cwd = path.resolve(options.cwd)
 
       if (!existsSync(cwd)) {
-        logger.error(`The path ${cwd} does not exist. Please try again.`)
+        consola.error(`The path ${cwd} does not exist. Please try again.`)
         process.exit(1)
       }
 
       const config = await getConfig(cwd)
       if (!config) {
-        logger.warn(
-          `Configuration is missing. Please run ${chalk.green(
+        consola.warn(
+          `Configuration is missing. Please run ${colors.green(
             'init',
           )} to create a components.json file.`,
         )
@@ -88,19 +88,20 @@ export const diff = new Command()
         }
 
         if (!componentsWithUpdates.length) {
-          logger.info('No updates found.')
+          consola.info('No updates found.')
           process.exit(0)
         }
 
-        logger.info('The following components have updates available:')
+        consola.info('The following components have updates available:')
         for (const component of componentsWithUpdates) {
-          logger.info(`- ${component.name}`)
+          consola.info(`- ${component.name}`)
           for (const change of component.changes)
-            logger.info(`  - ${change.filePath}`)
+            consola.info(`  - ${change.filePath}`)
         }
-        logger.break()
-        logger.info(
-          `Run ${chalk.green('diff <component>')} to see the changes.`,
+
+        console.log('')
+        consola.info(
+          `Run ${colors.green('diff <component>')} to see the changes.`,
         )
         process.exit(0)
       }
@@ -111,8 +112,8 @@ export const diff = new Command()
       )
 
       if (!component) {
-        logger.error(
-          `The component ${chalk.green(options.component)} does not exist.`,
+        consola.error(
+          `The component ${colors.green(options.component)} does not exist.`,
         )
         process.exit(1)
       }
@@ -120,14 +121,14 @@ export const diff = new Command()
       const changes = await diffComponent(component, config)
 
       if (!changes.length) {
-        logger.info(`No updates found for ${options.component}.`)
+        consola.info(`No updates found for ${options.component}.`)
         process.exit(0)
       }
 
       for (const change of changes) {
-        logger.info(`- ${change.filePath}`)
+        consola.info(`- ${change.filePath}`)
         printDiff(change.patch)
-        logger.info('')
+        console.log('')
       }
     }
     catch (error) {
@@ -184,10 +185,10 @@ function printDiff(diff: Change[]) {
   diff.forEach((part) => {
     if (part) {
       if (part.added)
-        return process.stdout.write(chalk.green(part.value))
+        return process.stdout.write(colors.green(part.value))
 
       if (part.removed)
-        return process.stdout.write(chalk.red(part.value))
+        return process.stdout.write(colors.red(part.value))
 
       return process.stdout.write(part.value)
     }

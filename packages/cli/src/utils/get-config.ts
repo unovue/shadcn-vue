@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { existsSync } from 'node:fs'
-import { cosmiconfig } from 'cosmiconfig'
+import { loadConfig as c12LoadConfig } from 'c12'
 import type { ConfigLoaderResult } from 'tsconfig-paths'
 import { loadConfig } from 'tsconfig-paths'
 import * as z from 'zod'
@@ -18,12 +18,6 @@ export const TAILWIND_CSS_PATH = {
   laravel: 'resources/css/app.css',
   astro: 'src/styles/globals.css',
 }
-
-// TODO: Figure out if we want to support all cosmiconfig formats.
-// A simple components.json file would be nice.
-const explorer = cosmiconfig('components', {
-  searchPlaces: ['components.json'],
-})
 
 export const rawConfigSchema = z
   .object({
@@ -114,7 +108,13 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
-    const configResult = await explorer.search(cwd)
+    // const configResult = await explorer.search(cwd)
+
+    const configResult = await c12LoadConfig({
+      name: 'components',
+      configFile: 'components.json',
+      cwd,
+    })
 
     if (!configResult)
       return null
