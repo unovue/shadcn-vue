@@ -618,6 +618,20 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/TabsDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/TabsDemo.vue'],
     },
+    TagsInputComboDemo: {
+      name: 'TagsInputComboDemo',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'command', 'popover', 'tags-input'],
+      component: () => import('../src/lib/registry/default/example/TagsInputComboDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/TagsInputComboDemo.vue'],
+    },
+    TagsInputDemo: {
+      name: 'TagsInputDemo',
+      type: 'components:example',
+      registryDependencies: ['tags-input'],
+      component: () => import('../src/lib/registry/default/example/TagsInputDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/TagsInputDemo.vue'],
+    },
     TextareaDemo: {
       name: 'TextareaDemo',
       type: 'components:example',
@@ -1522,6 +1536,20 @@ export const Index = {
       registryDependencies: ['button', 'card', 'input', 'label', 'tabs'],
       component: () => import('../src/lib/registry/new-york/example/TabsDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/TabsDemo.vue'],
+    },
+    TagsInputComboDemo: {
+      name: 'TagsInputComboDemo',
+      type: 'components:example',
+      registryDependencies: ['utils', 'button', 'command', 'popover', 'tags-input'],
+      component: () => import('../src/lib/registry/new-york/example/TagsInputComboDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/TagsInputComboDemo.vue'],
+    },
+    TagsInputDemo: {
+      name: 'TagsInputDemo',
+      type: 'components:example',
+      registryDependencies: ['tags-input'],
+      component: () => import('../src/lib/registry/new-york/example/TagsInputDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/TagsInputDemo.vue'],
     },
     TextareaDemo: {
       name: 'TextareaDemo',

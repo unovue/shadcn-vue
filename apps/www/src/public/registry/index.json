@@ -581,6 +581,23 @@
     "type": "components:ui"
   },
   {
+    "name": "tags-input",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/tags-input/TagsInput.vue",
+      "ui/tags-input/TagsInputInput.vue",
+      "ui/tags-input/TagsInputItem.vue",
+      "ui/tags-input/TagsInputItemDelete.vue",
+      "ui/tags-input/TagsInputItemText.vue",
+      "ui/tags-input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "textarea",
     "dependencies": [
       "@vueuse/core"
