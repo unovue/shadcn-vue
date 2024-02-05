@@ -144,10 +144,13 @@ watch(() => $route.path, (n) => {
               :variant="'ghost'"
               :size="'icon'" @click="toggleDark()"
             >
+              <!-- workaround for bug with component when refreshing the page -->
               <component
-                :is="isDark ? RadixIconsSun : RadixIconsMoon"
+                :is="RadixIconsMoon"
+                v-if="!isDark"
                 class="w-[20px] h-5 text-foreground"
               />
+              <RadixIconsSun v-if="isDark" class="w-[20px] h-5 text-foreground" />
             </Button>
           </div>
         </div>
