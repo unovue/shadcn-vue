@@ -1,0 +1,23 @@
+{
+  "name": "toggle-group",
+  "dependencies": [],
+  "registryDependencies": [
+    "toggle",
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "ToggleGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { VariantProps } from 'class-variance-authority'\nimport { type HTMLAttributes, computed, provide } from 'vue'\nimport { ToggleGroupRoot, type ToggleGroupRootEmits, type ToggleGroupRootProps, useForwardPropsEmits } from 'radix-vue'\nimport type { toggleVariants } from '@/lib/registry/default/ui/toggle'\nimport { cn } from '@/lib/utils'\n\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\n\nconst props = defineProps<ToggleGroupRootProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleGroupVariants['variant']\n  size?: ToggleGroupVariants['size']\n}>()\nconst emits = defineEmits<ToggleGroupRootEmits>()\n\nprovide('toggleGroup', {\n  variant: props.variant,\n  size: props.size,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <ToggleGroupRoot v-bind=\"forwarded\" :class=\"cn('flex items-center justify-center gap-1', props.class)\">\n    <slot />\n  </ToggleGroupRoot>\n</template>\n"
+    },
+    {
+      "name": "ToggleGroupItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { VariantProps } from 'class-variance-authority'\nimport { type HTMLAttributes, computed, inject } from 'vue'\nimport { ToggleGroupItem, type ToggleGroupItemProps, useForwardProps } from 'radix-vue'\nimport { toggleVariants } from '@/lib/registry/default/ui/toggle'\nimport { cn } from '@/lib/utils'\n\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\n\nconst props = defineProps<ToggleGroupItemProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleGroupVariants['variant']\n  size?: ToggleGroupVariants['size']\n}>()\n\nconst context = inject<ToggleGroupVariants>('toggleGroup')\n\nconst delegatedProps = computed(() => {\n  const { class: _, variant, size, ...delegated } = props\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ToggleGroupItem\n    v-bind=\"forwardedProps\" :class=\"cn(toggleVariants({\n      variant: context?.variant || variant,\n      size: context?.size || size,\n    }), props.class)\"\n  >\n    <slot />\n  </ToggleGroupItem>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as ToggleGroup } from './ToggleGroup.vue'\nexport { default as ToggleGroupItem } from './ToggleGroupItem.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

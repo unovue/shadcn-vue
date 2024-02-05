@@ -104,8 +104,8 @@
       "v-calendar@next"
     ],
     "registryDependencies": [
-      "button",
-      "utils"
+      "utils",
+      "button"
     ],
     "files": [
       "ui/calendar/Calendar.vue",
@@ -133,6 +133,7 @@
   {
     "name": "carousel",
     "dependencies": [
+      "@vueuse/core",
       "embla-carousel-vue",
       "embla-carousel"
     ],
@@ -275,7 +276,8 @@
       "zod"
     ],
     "registryDependencies": [
-      "utils"
+      "utils",
+      "label"
     ],
     "files": [
       "ui/form/FormControl.vue",
@@ -455,6 +457,8 @@
       "ui/select/SelectItem.vue",
       "ui/select/SelectItemText.vue",
       "ui/select/SelectLabel.vue",
+      "ui/select/SelectScrollDownButton.vue",
+      "ui/select/SelectScrollUpButton.vue",
       "ui/select/SelectSeparator.vue",
       "ui/select/SelectTrigger.vue",
       "ui/select/SelectValue.vue",
@@ -514,6 +518,18 @@
     "files": [
       "ui/slider/Slider.vue",
       "ui/slider/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "sonner",
+    "dependencies": [
+      "vue-sonner"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "ui/sonner/Sonner.vue",
+      "ui/sonner/index.ts"
     ],
     "type": "components:ui"
   },
@@ -614,6 +630,7 @@
     "name": "toggle-group",
     "dependencies": [],
     "registryDependencies": [
+      "toggle",
       "utils"
     ],
     "files": [

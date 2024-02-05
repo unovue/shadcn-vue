@@ -159,7 +159,7 @@ Use `@vee-validate/zod` to integrate Zod schema validation with `vee-validate`
 
 `toTypedSchema` also makes the form values and submitted values typed automatically and caters for both input and output types of that schema.
 
-```vue showLineNumbers {2-3,5-7}
+```vue:line-numbers {2-3,5-7}
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
@@ -173,13 +173,13 @@ const formSchema = toTypedSchema(z.object({
 
 ### Define a form
 
-Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a from.
+Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a form.
 
 
 <TabPreview name="Composition" :names="['Composition', 'Component']">
 <template #Composition>
 
-```vue showLineNumbers {2,19-21}
+```vue:line-numbers {2,19-21}
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
@@ -218,7 +218,7 @@ const onSubmit = form.handleSubmit((values) => {
 
 <template #Component>
 
-```vue showLineNumbers {5,24-26}
+```vue:line-numbers {5,24-26}
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
@@ -256,7 +256,7 @@ function onSubmit(values) {
 Based on last step we can either use `<Form />` component or `useForm` composable
 `useForm` is recommended cause values are typed automatically
 
-```vue showLineNumbers {2}
+```vue:line-numbers {2}
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'

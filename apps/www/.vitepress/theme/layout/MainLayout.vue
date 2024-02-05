@@ -17,6 +17,7 @@ import RadixIconsSun from '~icons/radix-icons/sun'
 import { useConfigStore } from '@/stores/config'
 import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
 import { Toaster as DefaultToaster } from '@/lib/registry/default/ui/toast'
+import { Toaster as NewYorkSonner } from '@/lib/registry/new-york/ui/sonner'
 import { Toaster as NewYorkToaster } from '@/lib/registry/new-york/ui/toast'
 
 import File from '~icons/radix-icons/file'
@@ -86,7 +87,7 @@ watch(() => $route.path, (n) => {
   <div class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
-        class="container flex justify-between h-14 items-center"
+        class="container flex justify-between h-14 max-w-screen-2xl items-center"
       >
         <MobileNav />
 
@@ -134,7 +135,7 @@ watch(() => $route.path, (n) => {
               :href="link.href" target="_blank"
               :variant="'ghost'" :size="'icon'"
             >
-              <component :is="link.icon" class="w-[20px] h-[20px]" />
+              <component :is="link.icon" class="w-[20px] h-5" />
             </Button>
 
             <Button
@@ -145,7 +146,7 @@ watch(() => $route.path, (n) => {
             >
               <component
                 :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                class="w-[20px] h-[20px] text-foreground"
+                class="w-[20px] h-5 text-foreground"
               />
             </Button>
           </div>
@@ -287,6 +288,9 @@ watch(() => $route.path, (n) => {
       </DialogContent>
     </Dialog>
     <DefaultToaster />
+    <ClientOnly>
+      <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
+    </ClientOnly>
     <NewYorkToaster />
   </div>
 </template>
