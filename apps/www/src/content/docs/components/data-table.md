@@ -5,7 +5,7 @@ primitive: https://tanstack.com/table/v8/docs/guide/introduction
 ---
 
 
-<ComponentPreview name="DataTableDemo"  />
+<ComponentPreview name="DataTableDemo" />
 
 ## Introduction
 
@@ -49,6 +49,13 @@ npx shadcn-vue@latest add table
 ```bash
 npm install @tanstack/vue-table
 ```
+
+## Examples
+
+### Column Pinning
+
+<ComponentPreview name="DataTableColumnPinningDemo" />
+
 
 ## Prerequisites
 
