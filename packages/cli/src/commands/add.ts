@@ -200,23 +200,16 @@ export const add = new Command()
         }
 
         // Install dependencies.
-
         await Promise.allSettled(
           [
-            () => {
-              if (item.dependencies?.length) {
-                return addDependency(item.dependencies, {
-                  cwd,
-                })
-              }
-            },
-            () => {
-              if (item.devDependencies?.length) {
-                return addDevDependency(item.devDependencies, {
-                  cwd,
-                })
-              }
-            },
+            item.dependencies?.length && await addDependency(item.dependencies, {
+              cwd,
+              silent: true,
+            }),
+            item.devDependencies?.length && await addDevDependency(item.devDependencies, {
+              cwd,
+              silent: true,
+            }),
           ],
         )
       }

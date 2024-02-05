@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "0.9.9123456",
+  "version": "0.9.0",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
