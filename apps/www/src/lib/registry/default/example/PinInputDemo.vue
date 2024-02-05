@@ -25,6 +25,4 @@ const handleComplete = (e: string[]) => alert(e.join(''))
       />
     </PinInput>
   </div>
-
-  {{ value }}
 </template>

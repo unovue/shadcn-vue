@@ -7,3 +7,15 @@ primitive: https://www.radix-vue.com/components/pin-input.html
 
 <ComponentPreview name="PinInputDemo" /> 
 
+
+## Installation
+
+```bash
+npx shadcn-vue@latest add pin-input
+```
+
+## Usage
+
+### Form
+
+<ComponentPreview name="PinInputFormDemo" /> 
