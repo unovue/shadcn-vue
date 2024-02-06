@@ -393,6 +393,19 @@
     "type": "components:ui"
   },
   {
+    "name": "pin-input",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/pin-input/PinInput.vue",
+      "ui/pin-input/PinInputInput.vue",
+      "ui/pin-input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "popover",
     "dependencies": [],
     "registryDependencies": [

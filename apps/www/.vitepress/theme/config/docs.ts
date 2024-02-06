@@ -255,6 +255,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Pin Input',
+          href: '/docs/components/pin-input',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Popover',
           href: '/docs/components/popover',
           items: [],

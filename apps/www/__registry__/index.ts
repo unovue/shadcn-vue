@@ -485,6 +485,20 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/PaginationDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/PaginationDemo.vue'],
     },
+    PinInputDemo: {
+      name: 'PinInputDemo',
+      type: 'components:example',
+      registryDependencies: ['pin-input'],
+      component: () => import('../src/lib/registry/default/example/PinInputDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/PinInputDemo.vue'],
+    },
+    PinInputFormDemo: {
+      name: 'PinInputFormDemo',
+      type: 'components:example',
+      registryDependencies: ['pin-input', 'button', 'form', 'toast'],
+      component: () => import('../src/lib/registry/default/example/PinInputFormDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/PinInputFormDemo.vue'],
+    },
     PopoverDemo: {
       name: 'PopoverDemo',
       type: 'components:example',
@@ -1389,6 +1403,20 @@ export const Index = {
       registryDependencies: ['pagination', 'button'],
       component: () => import('../src/lib/registry/new-york/example/PaginationDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/PaginationDemo.vue'],
+    },
+    PinInputDemo: {
+      name: 'PinInputDemo',
+      type: 'components:example',
+      registryDependencies: ['pin-input'],
+      component: () => import('../src/lib/registry/new-york/example/PinInputDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/PinInputDemo.vue'],
+    },
+    PinInputFormDemo: {
+      name: 'PinInputFormDemo',
+      type: 'components:example',
+      registryDependencies: ['pin-input', 'button', 'form', 'toast'],
+      component: () => import('../src/lib/registry/new-york/example/PinInputFormDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/PinInputFormDemo.vue'],
     },
     PopoverDemo: {
       name: 'PopoverDemo',
