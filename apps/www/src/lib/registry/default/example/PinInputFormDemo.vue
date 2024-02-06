@@ -19,7 +19,7 @@ import {
 import { toast } from '@/lib/registry/default/ui/toast'
 
 const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.string().min(1)).length(5),
+  pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
 }))
 
 const { handleSubmit, setValues } = useForm({
@@ -43,7 +43,7 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
   <form class="w-2/3 space-y-6 mx-auto" @submit="onSubmit">
     <FormField v-slot="{ componentField }" name="pin">
       <FormItem>
-        <FormLabel>Otp</FormLabel>
+        <FormLabel>OTP</FormLabel>
         <FormControl>
           <PinInput
             id="pin-input"
@@ -55,7 +55,7 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
             @complete="handleComplete"
             @update:model-value="(arrStr) => {
               setValues({
-                pin: arrStr,
+                pin: arrStr.filter(Boolean),
               })
             }"
           >
