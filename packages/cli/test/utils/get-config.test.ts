@@ -97,6 +97,7 @@ test('get config', async () => {
     },
     aliases: {
       components: '~/components',
+      ui: '~/ui',
       utils: '~/lib/utils',
     },
     framework: 'Vite',
@@ -119,7 +120,7 @@ test('get config', async () => {
       ui: path.resolve(
         __dirname,
         '../fixtures/config-full',
-        './src/components',
+        './src/ui',
       ),
       utils: path.resolve(
         __dirname,
