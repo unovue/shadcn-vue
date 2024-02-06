@@ -99,7 +99,7 @@ export const diff = new Command()
             consola.info(`  - ${change.filePath}`)
         }
 
-        console.log('')
+        consola.log('')
         consola.info(
           `Run ${colors.green('diff <component>')} to see the changes.`,
         )
@@ -128,7 +128,7 @@ export const diff = new Command()
       for (const change of changes) {
         consola.info(`- ${change.filePath}`)
         printDiff(change.patch)
-        console.log('')
+        consola.log('')
       }
     }
     catch (error) {

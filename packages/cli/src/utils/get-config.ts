@@ -100,23 +100,21 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       utils: resolveImport(config.aliases.utils, tsConfig),
       components: resolveImport(config.aliases.components, tsConfig),
       ui: config.aliases['ui']
-        ? await resolveImport(config.aliases['ui'], tsConfig)
-        : await resolveImport(config.aliases['components'], tsConfig),
+        ? resolveImport(config.aliases['ui'], tsConfig)
+        : resolveImport(config.aliases['components'], tsConfig),
     },
   })
 }
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
-    // const configResult = await explorer.search(cwd)
-
     const configResult = await c12LoadConfig({
       name: 'components',
       configFile: 'components.json',
       cwd,
     })
 
-    if (!configResult)
+    if (!configResult.config || Object.keys(configResult.config).length === 0)
       return null
 
     return rawConfigSchema.parse(configResult.config)

@@ -71,6 +71,11 @@ test('get config', async () => {
         '../fixtures/config-partial',
         './components',
       ),
+      ui: path.resolve(
+        __dirname,
+        '../fixtures/config-partial',
+        './components',
+      ),
       utils: path.resolve(
         __dirname,
         '../fixtures/config-partial',
@@ -107,6 +112,11 @@ test('get config', async () => {
         './src/app/globals.css',
       ),
       components: path.resolve(
+        __dirname,
+        '../fixtures/config-full',
+        './src/components',
+      ),
+      ui: path.resolve(
         __dirname,
         '../fixtures/config-full',
         './src/components',
@@ -148,6 +158,11 @@ test('get config', async () => {
         './src/assets/css/tailwind.css',
       ),
       components: path.resolve(
+        __dirname,
+        '../fixtures/config-js',
+        './components',
+      ),
+      ui: path.resolve(
         __dirname,
         '../fixtures/config-js',
         './components',

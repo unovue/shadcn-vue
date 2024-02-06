@@ -73,11 +73,11 @@ export const init = new Command()
 
       await runInit(cwd, config)
 
-      console.log('')
+      consola.log('')
       consola.info(
         `${colors.green('Success!')} Project initialization completed.`,
       )
-      console.log('')
+      consola.log('')
     }
     catch (error) {
       handleError(error)
@@ -206,7 +206,7 @@ export async function promptForConfig(
   }
 
   // Write to file.
-  console.log('')
+  consola.log('')
   const spinner = ora('Writing components.json...').start()
   const targetPath = path.resolve(cwd, 'components.json')
   await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8')
@@ -291,8 +291,8 @@ export async function runInit(cwd: string, config: Config) {
 
   await Promise.allSettled(
     [
-      await addNuxtDevDeps(),
-      await addDependency(deps, {
+      addNuxtDevDeps(),
+      addDependency(deps, {
         cwd,
         silent: true,
       }),
