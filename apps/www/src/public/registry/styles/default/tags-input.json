@@ -15,7 +15,7 @@
     },
     {
       "name": "TagsInputItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItem v-bind=\"forwardedProps\" :class=\"cn('flex h-6 items-center rounded-md bg-secondary', props.class)\">\n    <slot />\n  </TagsInputItem>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItem v-bind=\"forwardedProps\" :class=\"cn('flex h-6 items-center rounded bg-secondary data-[state=active]:ring-ring data-[state=active]:ring-2 data-[state=active]:ring-offset-2 ring-offset-background', props.class)\">\n    <slot />\n  </TagsInputItem>\n</template>\n"
     },
     {
       "name": "TagsInputItemDelete.vue",
