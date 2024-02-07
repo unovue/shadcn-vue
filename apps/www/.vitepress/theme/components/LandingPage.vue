@@ -2,6 +2,7 @@
 import PageHeader from '../components/PageHeader.vue'
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
+import PageAction from '../components/PageAction.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
 import { announcementConfig } from '../config/site'
 import GitHubIcon from '~icons/radix-icons/github-logo'
@@ -31,7 +32,7 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
       apps. Accessible. Customizable. Open Source.
     </PageHeaderDescription>
 
-    <section class="flex w-full items-center space-x-4 pb-8 pt-4 md:pb-10">
+    <PageAction>
       <a
         href="/docs/introduction"
         :class="cn(buttonVariants(), 'rounded-[6px]')"
@@ -49,7 +50,7 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
         <GitHubIcon class="mr-2 h-4 w-4" />
         GitHub
       </a>
-    </section>
+    </PageAction>
   </PageHeader>
   <ExamplesNav />
   <section class="space-y-8 overflow-hidden rounded-lg border-2 border-primary dark:border-muted md:hidden">
