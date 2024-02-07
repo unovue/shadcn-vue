@@ -95,7 +95,7 @@ async function onSubmit(values: any) {
     </FormField>
 
     <FormField v-slot="{ componentField, value }" name="dob">
-      <FormItem>
+      <FormItem class="flex flex-col">
         <FormLabel>Date of birth</FormLabel>
         <Popover>
           <PopoverTrigger as-child>
@@ -123,7 +123,7 @@ async function onSubmit(values: any) {
     </FormField>
 
     <FormField v-slot="{ value }" name="language">
-      <FormItem>
+      <FormItem class="flex flex-col">
         <FormLabel>Language</FormLabel>
 
         <Popover v-model:open="open">

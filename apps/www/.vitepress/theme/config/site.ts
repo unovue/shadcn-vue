@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'VSCode extension',
-  link: '/docs/installation.html#vscode-extension',
+  title: 'New components!',
+  link: '/docs/components/carousel.html',
 }

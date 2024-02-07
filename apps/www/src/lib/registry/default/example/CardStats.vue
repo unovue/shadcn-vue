@@ -43,7 +43,7 @@ const lineY = (d: Data) => d.revenue
           +20.1% from last month
         </p>
 
-        <div class="h-[80px]">
+        <div class="h-20">
           <VisXYContainer
             height="80px"
             :data="data" :margin="{
@@ -74,7 +74,7 @@ const lineY = (d: Data) => d.revenue
           +54.8% from last month
         </p>
 
-        <div class="mt-4 h-[80px]">
+        <div class="mt-4 h-20">
           <VisXYContainer
             height="80px" :data="data" :style="{
               '--theme-primary': `hsl(${

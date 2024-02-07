@@ -1,7 +1,7 @@
 ---
 title: Sheet
 description: Extends the Dialog component to display content that complements the main content of the screen.
-source: apps/www/src/lib/registry/default/ui/dialog 
+source: apps/www/src/lib/registry/default/ui/sheet 
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
@@ -57,7 +57,7 @@ Use the `side` property to `<SheetContent />` to indicate the edge of the screen
 
 You can adjust the size of the sheet using CSS classes:
 
-```vue:line-numbers showLineNumbers{4}
+```vue:line-numbers {4}
 <template>
   <Sheet>
     <SheetTrigger>Open</SheetTrigger>

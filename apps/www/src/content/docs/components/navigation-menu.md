@@ -47,7 +47,7 @@ import {
 
 ### Link Component
 
-When using the Nuxt.js <NuxtLink /> component, you can use `navigationMenuTriggerStyle()` to apply the correct styles to the trigger.
+When using the Nuxt.js `<NuxtLink />` component, you can use `navigationMenuTriggerStyle()` to apply the correct styles to the trigger.
 
 ```ts
 import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'

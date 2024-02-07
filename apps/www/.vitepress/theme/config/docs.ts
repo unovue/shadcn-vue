@@ -169,6 +169,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/card',
         },
         {
+          title: 'Carousel',
+          href: '/docs/components/carousel',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Checkbox',
           href: '/docs/components/checkbox',
         },
@@ -233,6 +239,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/pagination',
         },
         {
+          title: 'Pin Input',
+          href: '/docs/components/pin-input',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Popover',
           href: '/docs/components/popover',
         },
@@ -269,6 +281,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/slider',
         },
         {
+          title: 'Sonner',
+          href: '/docs/components/sonner',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Switch',
           href: '/docs/components/switch',
         },
@@ -291,6 +309,10 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Toggle',
           href: '/docs/components/toggle',
+        },
+        {
+          title: 'Toggle Group',
+          href: '/docs/components/toggle-group',
         },
         {
           title: 'Tooltip',

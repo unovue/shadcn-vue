@@ -75,6 +75,7 @@ test('init config-full', async () => {
       'class-variance-authority',
       'clsx',
       'tailwind-merge',
+      'radix-vue',
       '@radix-icons/vue',
     ],
     {
@@ -146,6 +147,7 @@ test('init config-partial', async () => {
       'class-variance-authority',
       'clsx',
       'tailwind-merge',
+      'radix-vue',
       'lucide-vue-next',
     ],
     {

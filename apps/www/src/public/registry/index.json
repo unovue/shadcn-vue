@@ -1,9 +1,7 @@
 [
   {
     "name": "accordion",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -32,9 +30,7 @@
   },
   {
     "name": "alert-dialog",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
@@ -55,9 +51,7 @@
   },
   {
     "name": "aspect-ratio",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [],
     "files": [
       "ui/aspect-ratio/AspectRatio.vue",
@@ -67,9 +61,7 @@
   },
   {
     "name": "avatar",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -112,8 +104,8 @@
       "v-calendar@next"
     ],
     "registryDependencies": [
-      "button",
-      "utils"
+      "utils",
+      "button"
     ],
     "files": [
       "ui/calendar/Calendar.vue",
@@ -135,6 +127,29 @@
       "ui/card/CardHeader.vue",
       "ui/card/CardTitle.vue",
       "ui/card/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "carousel",
+    "dependencies": [
+      "@vueuse/core",
+      "embla-carousel-vue",
+      "embla-carousel"
+    ],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/carousel/Carousel.vue",
+      "ui/carousel/CarouselContent.vue",
+      "ui/carousel/CarouselItem.vue",
+      "ui/carousel/CarouselNext.vue",
+      "ui/carousel/CarouselPrevious.vue",
+      "ui/carousel/index.ts",
+      "ui/carousel/interface.ts",
+      "ui/carousel/useCarousel.ts"
     ],
     "type": "components:ui"
   },
@@ -228,9 +243,7 @@
   },
   {
     "name": "checkbox",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -242,9 +255,7 @@
   },
   {
     "name": "collapsible",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [],
     "files": [
       "ui/collapsible/Collapsible.vue",
@@ -256,9 +267,7 @@
   },
   {
     "name": "command",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "dialog"
@@ -279,9 +288,7 @@
   },
   {
     "name": "context-menu",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -307,9 +314,7 @@
   },
   {
     "name": "dialog",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -328,9 +333,7 @@
   },
   {
     "name": "dropdown-menu",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -356,13 +359,13 @@
   {
     "name": "form",
     "dependencies": [
-      "radix-vue",
       "vee-validate",
       "@vee-validate/zod",
       "zod"
     ],
     "registryDependencies": [
-      "utils"
+      "utils",
+      "label"
     ],
     "files": [
       "ui/form/FormControl.vue",
@@ -377,9 +380,7 @@
   },
   {
     "name": "hover-card",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -407,9 +408,7 @@
   },
   {
     "name": "label",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -421,9 +420,7 @@
   },
   {
     "name": "menubar",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -449,9 +446,7 @@
   },
   {
     "name": "navigation-menu",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -470,9 +465,7 @@
   },
   {
     "name": "pagination",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
@@ -488,10 +481,21 @@
     "type": "components:ui"
   },
   {
-    "name": "popover",
-    "dependencies": [
-      "radix-vue"
+    "name": "pin-input",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
     ],
+    "files": [
+      "ui/pin-input/PinInput.vue",
+      "ui/pin-input/PinInputInput.vue",
+      "ui/pin-input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "popover",
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -505,9 +509,7 @@
   },
   {
     "name": "progress",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -519,9 +521,7 @@
   },
   {
     "name": "radio-group",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -534,9 +534,7 @@
   },
   {
     "name": "scroll-area",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -549,9 +547,7 @@
   },
   {
     "name": "select",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -562,6 +558,8 @@
       "ui/select/SelectItem.vue",
       "ui/select/SelectItemText.vue",
       "ui/select/SelectLabel.vue",
+      "ui/select/SelectScrollDownButton.vue",
+      "ui/select/SelectScrollUpButton.vue",
       "ui/select/SelectSeparator.vue",
       "ui/select/SelectTrigger.vue",
       "ui/select/SelectValue.vue",
@@ -571,9 +569,7 @@
   },
   {
     "name": "separator",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -585,9 +581,7 @@
   },
   {
     "name": "sheet",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -618,9 +612,7 @@
   },
   {
     "name": "slider",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -631,10 +623,20 @@
     "type": "components:ui"
   },
   {
-    "name": "switch",
+    "name": "sonner",
     "dependencies": [
-      "radix-vue"
+      "vue-sonner"
     ],
+    "registryDependencies": [],
+    "files": [
+      "ui/sonner/Sonner.vue",
+      "ui/sonner/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "switch",
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -666,9 +668,7 @@
   },
   {
     "name": "tabs",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -697,9 +697,7 @@
   },
   {
     "name": "toast",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -719,9 +717,7 @@
   },
   {
     "name": "toggle",
-    "dependencies": [
-      "radix-vue"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],
@@ -732,10 +728,22 @@
     "type": "components:ui"
   },
   {
-    "name": "tooltip",
-    "dependencies": [
-      "radix-vue"
+    "name": "toggle-group",
+    "dependencies": [],
+    "registryDependencies": [
+      "toggle",
+      "utils"
     ],
+    "files": [
+      "ui/toggle-group/ToggleGroup.vue",
+      "ui/toggle-group/ToggleGroupItem.vue",
+      "ui/toggle-group/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "tooltip",
+    "dependencies": [],
     "registryDependencies": [
       "utils"
     ],

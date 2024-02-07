@@ -1,19 +1,17 @@
 {
   "name": "hover-card",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],
   "files": [
     {
       "name": "HoverCard.vue",
-      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootProps, useForwardProps } from 'radix-vue'\n\nconst props = defineProps<HoverCardRootProps>()\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwarded\">\n    <slot />\n  </HoverCardRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootProps, useForwardProps } from 'radix-vue'\n\nconst props = defineProps<HoverCardRootProps>()\n\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwardedProps\">\n    <slot />\n  </HoverCardRoot>\n</template>\n"
     },
     {
       "name": "HoverCardContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  HoverCardContent,\n  type HoverCardContentProps,\n  HoverCardPortal,\n  useForwardProps,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps & { class?: string }>(),\n  {\n    sideOffset: 4,\n  },\n)\n\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      v-bind=\"forwarded\"\n      :class=\"\n        cn(\n          'z-50 w-64 rounded-md bg-background border border-border p-4 text-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport {\n  HoverCardContent,\n  type HoverCardContentProps,\n  HoverCardPortal,\n  useForwardProps,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps & { class?: HTMLAttributes['class'] }>(),\n  {\n    sideOffset: 4,\n  },\n)\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      v-bind=\"forwardedProps\"\n      :class=\"\n        cn(\n          'z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n"
     },
     {
       "name": "HoverCardTrigger.vue",

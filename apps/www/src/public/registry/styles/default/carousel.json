@@ -1,0 +1,47 @@
+{
+  "name": "carousel",
+  "dependencies": [
+    "@vueuse/core",
+    "embla-carousel-vue",
+    "embla-carousel"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button"
+  ],
+  "files": [
+    {
+      "name": "Carousel.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useProvideCarousel } from './useCarousel'\nimport type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {\n  orientation: 'horizontal',\n})\n\nconst emits = defineEmits<CarouselEmits>()\n\nconst carouselArgs = useProvideCarousel(props, emits)\n\ndefineExpose(carouselArgs)\n\nfunction onKeyDown(event: KeyboardEvent) {\n  const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'\n  const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'\n\n  if (event.key === prevKey) {\n    event.preventDefault()\n    carouselArgs.scrollPrev()\n\n    return\n  }\n\n  if (event.key === nextKey) {\n    event.preventDefault()\n    carouselArgs.scrollNext()\n  }\n}\n</script>\n\n<template>\n  <div\n    :class=\"cn('relative', props.class)\"\n    role=\"region\"\n    aria-roledescription=\"carousel\"\n    tabindex=\"0\"\n    @keydown=\"onKeyDown\"\n  >\n    <slot v-bind=\"carouselArgs\" />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CarouselContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useCarousel } from './useCarousel'\nimport type { WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { carouselRef, orientation } = useCarousel()\n</script>\n\n<template>\n  <div ref=\"carouselRef\" class=\"overflow-hidden\">\n    <div\n      :class=\"\n        cn(\n          'flex',\n          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',\n          props.class,\n        )\"\n      v-bind=\"$attrs\"\n    >\n      <slot />\n    </div>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CarouselItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useCarousel } from './useCarousel'\nimport type { WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { orientation } = useCarousel()\n</script>\n\n<template>\n  <div\n    role=\"group\"\n    aria-roledescription=\"slide\"\n    :class=\"cn(\n      'min-w-0 shrink-0 grow-0 basis-full',\n      orientation === 'horizontal' ? 'pl-4' : 'pt-4',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "CarouselNext.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ArrowRight } from 'lucide-vue-next'\nimport { useCarousel } from './useCarousel'\nimport type { WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { orientation, canScrollNext, scrollNext } = useCarousel()\n</script>\n\n<template>\n  <Button\n    :disabled=\"!canScrollNext\"\n    :class=\"cn(\n      'touch-manipulation absolute h-8 w-8 rounded-full p-0',\n      orientation === 'horizontal'\n        ? '-right-12 top-1/2 -translate-y-1/2'\n        : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',\n      props.class,\n    )\"\n    variant=\"outline\"\n    @click=\"scrollNext\"\n  >\n    <slot>\n      <ArrowRight class=\"h-4 w-4 text-current\" />\n    </slot>\n  </Button>\n</template>\n"
+    },
+    {
+      "name": "CarouselPrevious.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ArrowLeft } from 'lucide-vue-next'\nimport { useCarousel } from './useCarousel'\nimport type { WithClassAsProps } from './interface'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { orientation, canScrollPrev, scrollPrev } = useCarousel()\n</script>\n\n<template>\n  <Button\n    :disabled=\"!canScrollPrev\"\n    :class=\"cn(\n      'touch-manipulation absolute h-8 w-8 rounded-full p-0',\n      orientation === 'horizontal'\n        ? '-left-12 top-1/2 -translate-y-1/2'\n        : '-top-12 left-1/2 -translate-x-1/2 rotate-90',\n      props.class,\n    )\"\n    variant=\"outline\"\n    @click=\"scrollPrev\"\n  >\n    <slot>\n      <ArrowLeft class=\"h-4 w-4 text-current\" />\n    </slot>\n  </Button>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Carousel } from './Carousel.vue'\nexport { default as CarouselContent } from './CarouselContent.vue'\nexport { default as CarouselItem } from './CarouselItem.vue'\nexport { default as CarouselPrevious } from './CarouselPrevious.vue'\nexport { default as CarouselNext } from './CarouselNext.vue'\nexport { useCarousel } from './useCarousel'\n\nexport type {\n  EmblaCarouselType as CarouselApi,\n} from 'embla-carousel'\n"
+    },
+    {
+      "name": "interface.ts",
+      "content": "import type {\n  EmblaCarouselType as CarouselApi,\n  EmblaOptionsType as CarouselOptions,\n  EmblaPluginType as CarouselPlugin,\n} from 'embla-carousel'\nimport type { HTMLAttributes, Ref } from 'vue'\n\nexport interface CarouselProps {\n  opts?: CarouselOptions | Ref<CarouselOptions>\n  plugins?: CarouselPlugin[] | Ref<CarouselPlugin[]>\n  orientation?: 'horizontal' | 'vertical'\n}\n\nexport interface CarouselEmits {\n  (e: 'init-api', payload: CarouselApi): void\n}\n\nexport interface WithClassAsProps {\n  class?: HTMLAttributes['class']\n}\n"
+    },
+    {
+      "name": "useCarousel.ts",
+      "content": "import { createInjectionState } from '@vueuse/core'\nimport emblaCarouselVue from 'embla-carousel-vue'\nimport { onMounted, ref } from 'vue'\nimport type {\n  EmblaCarouselType as CarouselApi,\n} from 'embla-carousel'\nimport type { CarouselEmits, CarouselProps } from './interface'\n\nconst [useProvideCarousel, useInjectCarousel] = createInjectionState(\n  ({\n    opts, orientation, plugins,\n  }: CarouselProps, emits: CarouselEmits) => {\n    const [emblaNode, emblaApi] = emblaCarouselVue({\n      ...opts,\n      axis: orientation === 'horizontal' ? 'x' : 'y',\n    }, plugins)\n\n    function scrollPrev() {\n      emblaApi.value?.scrollPrev()\n    }\n    function scrollNext() {\n      emblaApi.value?.scrollNext()\n    }\n\n    const canScrollNext = ref(true)\n    const canScrollPrev = ref(true)\n\n    function onSelect(api: CarouselApi) {\n      canScrollNext.value = api.canScrollNext()\n      canScrollPrev.value = api.canScrollPrev()\n    }\n\n    onMounted(() => {\n      if (!emblaApi.value)\n        return\n\n      emblaApi.value?.on('init', onSelect)\n      emblaApi.value?.on('reInit', onSelect)\n      emblaApi.value?.on('select', onSelect)\n\n      emits('init-api', emblaApi.value)\n    })\n\n    return { carouselRef: emblaNode, carouselApi: emblaApi, canScrollPrev, canScrollNext, scrollPrev, scrollNext, orientation }\n  },\n)\n\nfunction useCarousel() {\n  const carouselState = useInjectCarousel()\n\n  if (!carouselState)\n    throw new Error('useCarousel must be used within a <Carousel />')\n\n  return carouselState\n}\n\nexport { useCarousel, useProvideCarousel }\n"
+    }
+  ],
+  "type": "components:ui"
+}

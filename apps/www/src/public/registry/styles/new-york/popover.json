@@ -1,8 +1,6 @@
 {
   "name": "popover",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],
@@ -13,15 +11,15 @@
     },
     {
       "name": "PopoverContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  PopoverContent,\n  type PopoverContentEmits,\n  type PopoverContentProps,\n  PopoverPortal,\n  useForwardPropsEmits,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(\n  defineProps<PopoverContentProps & { class?: string }>(),\n  {\n    sideOffset: 4,\n  },\n)\nconst emits = defineEmits<PopoverContentEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <PopoverPortal>\n    <PopoverContent\n      v-bind=\"{ ...forwarded, ...$attrs }\"\n      :class=\"\n        cn(\n          'z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </PopoverContent>\n  </PopoverPortal>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport {\n  PopoverContent,\n  type PopoverContentEmits,\n  type PopoverContentProps,\n  PopoverPortal,\n  useForwardPropsEmits,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(\n  defineProps<PopoverContentProps & { class?: HTMLAttributes['class'] }>(),\n  {\n    align: 'center',\n    sideOffset: 4,\n  },\n)\nconst emits = defineEmits<PopoverContentEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PopoverPortal>\n    <PopoverContent\n      v-bind=\"{ ...forwarded, ...$attrs }\"\n      :class=\"\n        cn(\n          'z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </PopoverContent>\n  </PopoverPortal>\n</template>\n"
     },
     {
       "name": "PopoverTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PopoverTrigger, type PopoverTriggerProps } from 'radix-vue'\n\nconst props = defineProps<PopoverTriggerProps>()\n</script>\n\n<template>\n  <PopoverTrigger v-bind=\"props\" class=\"\">\n    <slot />\n  </PopoverTrigger>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { PopoverTrigger, type PopoverTriggerProps } from 'radix-vue'\n\nconst props = defineProps<PopoverTriggerProps>()\n</script>\n\n<template>\n  <PopoverTrigger v-bind=\"props\">\n    <slot />\n  </PopoverTrigger>\n</template>\n"
     },
     {
       "name": "index.ts",
-      "content": "export { default as Popover } from './Popover.vue'\nexport { default as PopoverTrigger } from './PopoverTrigger.vue'\nexport { default as PopoverContent } from './PopoverContent.vue'\n"
+      "content": "export { PopoverAnchor } from 'radix-vue'\nexport { default as Popover } from './Popover.vue'\nexport { default as PopoverTrigger } from './PopoverTrigger.vue'\nexport { default as PopoverContent } from './PopoverContent.vue'\n"
     }
   ],
   "type": "components:ui"

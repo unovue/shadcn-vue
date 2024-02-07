@@ -11,6 +11,6 @@ const modelValue = ref([50])
     v-model="modelValue"
     :max="100"
     :step="1"
-    :class="cn('w-[60%]', $attrs.class ?? '')"
+    :class="cn('w-3/5', $attrs.class ?? '')"
   />
 </template>

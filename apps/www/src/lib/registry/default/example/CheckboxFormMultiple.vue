@@ -77,16 +77,12 @@ const onSubmit = handleSubmit((values) => {
           </FormDescription>
         </div>
 
-        <FormField v-for="item in items" v-slot="{ value, handleChange }" :key="item.id" name="items">
-          <FormItem :key="item.id" class="flex flex-row items-start space-x-3 space-y-0">
+        <FormField v-for="item in items" v-slot="{ value, handleChange }" :key="item.id" type="checkbox" :value="item.id" :unchecked-value="false" name="items">
+          <FormItem class="flex flex-row items-start space-x-3 space-y-0">
             <FormControl>
               <Checkbox
                 :checked="value.includes(item.id)"
-                @update:checked="(checked) => {
-                  if (Array.isArray(value)) {
-                    handleChange(checked ? [...value, item.id] : value.filter(id => id !== item.id))
-                  }
-                }"
+                @update:checked="handleChange"
               />
             </FormControl>
             <FormLabel class="font-normal">

@@ -57,7 +57,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
     <Separator />
     <Tabs default-value="complete" class="flex-1">
       <div class="container h-full py-6">
-        <div class="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
+        <div class="grid h-full items-stretch gap-6 md:grid-cols-[minmax(0,1fr)_200px]">
           <div class="hidden flex-col space-y-4 sm:flex md:order-2">
             <div class="grid gap-2">
               <HoverCard :open-delay="200">

@@ -18,6 +18,7 @@ import RadixIconsSun from '~icons/radix-icons/sun'
 import { useConfigStore } from '@/stores/config'
 import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
 import { Toaster as DefaultToaster } from '@/lib/registry/default/ui/toast'
+import { Toaster as NewYorkSonner } from '@/lib/registry/new-york/ui/sonner'
 import { Toaster as NewYorkToaster } from '@/lib/registry/new-york/ui/toast'
 
 import File from '~icons/radix-icons/file'
@@ -50,7 +51,13 @@ const links = [
 ]
 
 const isOpen = ref(false)
-const { Meta_K, Ctrl_K } = useMagicKeys()
+const { Meta_K, Ctrl_K } = useMagicKeys({
+  passive: false,
+  onEventFired(e) {
+    if (e.key === 'k' && (e.metaKey || e.ctrlKey))
+      e.preventDefault()
+  },
+})
 
 watch([Meta_K, Ctrl_K], (v) => {
   if (v[0] || v[1])
@@ -81,7 +88,7 @@ watch(() => $route.path, (n) => {
   <div class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
-        class="container flex justify-between h-14 items-center"
+        class="container flex justify-between h-14 max-w-screen-2xl items-center"
       >
         <MobileNav />
 
@@ -131,21 +138,22 @@ watch(() => $route.path, (n) => {
               :variant="'ghost'"
               :size="'sm'"
             >
-              <component :is="link.icon" />
+              <component :is="link.icon" class="w-[20px] h-5" />
             </Button>
 
-            <Button
-              class="flex items-center justify-center"
-              aria-label="Toggle dark mode"
-              :variant="'ghost'"
-              :size="'sm'"
-              @click="toggleDark()"
-            >
-              <component
-                :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                class="text-foreground"
-              />
-            </Button>
+            <ClientOnly>
+              <Button
+                class="flex items-center justify-center"
+                aria-label="Toggle dark mode"
+                :variant="'ghost'"
+                :size="'icon'" @click="toggleDark()"
+              >
+                <component
+                  :is="isDark ? RadixIconsSun : RadixIconsMoon"
+                  class="w-[20px] h-5 text-foreground"
+                />
+              </Button>
+            </ClientOnly>
           </div>
         </div>
       </div>
@@ -285,6 +293,9 @@ watch(() => $route.path, (n) => {
       </DialogContent>
     </Dialog>
     <DefaultToaster />
+    <ClientOnly>
+      <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
+    </ClientOnly>
     <NewYorkToaster />
   </div>
 </template>

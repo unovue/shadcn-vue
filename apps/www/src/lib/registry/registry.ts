@@ -1,15 +1,17 @@
 import { readFile, readdir } from 'node:fs/promises'
-import { join, resolve } from 'pathe'
+import { join, normalize, resolve } from 'pathe'
 import { compileScript, parse } from 'vue/compiler-sfc'
+import oxc from 'oxc-parser'
 
 import type { Registry } from '../../lib/registry'
 
 const DEPENDENCIES = new Map<string, string[]>([
-  ['radix-vue', []],
   ['@vueuse/core', []],
+  ['vue-sonner', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
   ['@unovis/vue', ['@unovis/ts']],
+  ['embla-carousel-vue', ['embla-carousel']],
   ['vee-validate', ['@vee-validate/zod', 'zod']],
 ])
 // Some dependencies latest tag were not compatible with Vue3.
@@ -68,7 +70,7 @@ async function crawlExample(rootPath: string) {
 
     if (dirent.isFile()) {
       const [name] = dirent.name.split('.vue')
-      const file_path = join('example', dirent.path.split('/example')[1], dirent.name)
+      const file_path = join('example', normalize(dirent.path).split('/example')[1], dirent.name)
       const { dependencies, registryDependencies }
       = await getDependencies(join(dirent.path, dirent.name))
 
@@ -112,6 +114,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 
     const file_path = join('ui', componentName, dirent.name)
     files.push(file_path)
+    files.sort()
 
     // only grab deps from the vue files
     if (dirent.name === 'index.ts')
@@ -134,31 +137,47 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 
 async function getDependencies(filename: string) {
   const code = await readFile(filename, { encoding: 'utf8' })
-  const parsed = parse(code)
 
   const registryDependencies = new Set<string>()
   const dependencies = new Set<string>()
 
-  if (parsed.descriptor.script?.content || parsed.descriptor.scriptSetup?.content) {
-    const compiled = compileScript(parsed.descriptor, { id: '' })
+  const populateDeps = (source: string) => {
+    const peerDeps = DEPENDENCIES.get(source)
+    const taggedDeps = DEPENDENCIES_WITH_TAGS.get(source)
+    if (peerDeps !== undefined) {
+      if (taggedDeps !== undefined)
+        dependencies.add(taggedDeps)
+      else
+        dependencies.add(source)
+      peerDeps.forEach(dep => dependencies.add(dep))
+    }
 
-    Object.values(compiled.imports!).forEach((value) => {
-      const source = value.source
-      const peerDeps = DEPENDENCIES.get(source)
-      const taggedDeps = DEPENDENCIES_WITH_TAGS.get(source)
-      if (peerDeps !== undefined) {
-        if (taggedDeps !== undefined)
-          dependencies.add(taggedDeps)
-        else
-          dependencies.add(source)
-        peerDeps.forEach(dep => dependencies.add(dep))
-      }
+    if (source.startsWith(REGISTRY_DEPENDENCY)) {
+      const component = source.split('/').at(-1)!
+      registryDependencies.add(component)
+    }
+  }
 
-      if (source.startsWith(REGISTRY_DEPENDENCY)) {
-        const component = source.split('/').at(-1)!
-        registryDependencies.add(component)
-      }
+  if (filename.endsWith('.ts')) {
+    const ast = oxc.parseSync(code, {
+      sourceType: 'module',
+      sourceFilename: filename,
     })
+
+    const sources = JSON.parse(ast.program).body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
+    sources.forEach((source: any) => {
+      populateDeps(source.value)
+    })
+  }
+  else {
+    const parsed = parse(code, { filename })
+    if (parsed.descriptor.script?.content || parsed.descriptor.scriptSetup?.content) {
+      const compiled = compileScript(parsed.descriptor, { id: '' })
+
+      Object.values(compiled.imports!).forEach((value) => {
+        populateDeps(value.source)
+      })
+    }
   }
 
   return { registryDependencies, dependencies }

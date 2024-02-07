@@ -36,6 +36,7 @@ const PROJECT_DEPENDENCIES = {
     'class-variance-authority',
     'clsx',
     'tailwind-merge',
+    'radix-vue',
   ],
   nuxt: [
     '@nuxtjs/tailwindcss',
@@ -137,7 +138,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindCss',
-      message: `Where is your ${highlight('Tailwind CSS')} file?`,
+      message: `Where is your ${highlight('global CSS')} file?`,
       initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
@@ -177,7 +178,7 @@ export async function promptForConfig(
   ])
 
   const config = rawConfigSchema.parse({
-    // $schema: 'https://ui.shadcn.com/schema.json',
+    $schema: 'https://shadcn-vue.com/schema.json',
     style: options.style,
     typescript: options.typescript,
     framework: options.framework,

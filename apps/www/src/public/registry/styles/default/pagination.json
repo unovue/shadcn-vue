@@ -1,8 +1,6 @@
 {
   "name": "pagination",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils",
     "button"
@@ -10,23 +8,23 @@
   "files": [
     {
       "name": "PaginationEllipsis.vue",
-      "content": "<script setup lang=\"ts\">\nimport { useAttrs } from 'vue'\nimport { PaginationEllipsis, type PaginationEllipsisProps, useForwardProps } from 'radix-vue'\nimport { MoreHorizontal } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<PaginationEllipsisProps>()\nconst forwarded = useForwardProps(props)\nconst { class: className, ...rest } = useAttrs()\n</script>\n\n<template>\n  <PaginationEllipsis :class=\"cn('w-9 h-9 flex items-center justify-center', className ?? '')\" v-bind=\"{ ...forwarded, ...rest }\">\n    <slot>\n      <MoreHorizontal />\n    </slot>\n  </PaginationEllipsis>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { PaginationEllipsis, type PaginationEllipsisProps } from 'radix-vue'\nimport { MoreHorizontal } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationEllipsis v-bind=\"delegatedProps\" :class=\"cn('w-9 h-9 flex items-center justify-center', props.class)\">\n    <slot>\n      <MoreHorizontal />\n    </slot>\n  </PaginationEllipsis>\n</template>\n"
     },
     {
       "name": "PaginationFirst.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PaginationFirst, type PaginationFirstProps, useForwardProps } from 'radix-vue'\nimport { ChevronsLeft } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\n\nconst props = withDefaults(defineProps<PaginationFirstProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationFirst v-bind=\"forwarded\">\n    <Button class=\"w-10 h-10 p-0\" variant=\"outline\">\n      <slot>\n        <ChevronsLeft class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationFirst>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { PaginationFirst, type PaginationFirstProps } from 'radix-vue'\nimport { ChevronsLeft } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PaginationFirstProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationFirst v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronsLeft class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationFirst>\n</template>\n"
     },
     {
       "name": "PaginationLast.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PaginationLast, type PaginationLastProps, useForwardProps } from 'radix-vue'\nimport { ChevronsRight } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\n\nconst props = withDefaults(defineProps<PaginationLastProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationLast v-bind=\"forwarded\">\n    <Button class=\"w-10 h-10 p-0\" variant=\"outline\">\n      <slot>\n        <ChevronsRight class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationLast>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { PaginationLast, type PaginationLastProps } from 'radix-vue'\nimport { ChevronsRight } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PaginationLastProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationLast v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronsRight class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationLast>\n</template>\n"
     },
     {
       "name": "PaginationNext.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PaginationNext, type PaginationNextProps, useForwardProps } from 'radix-vue'\nimport { ChevronRight } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\n\nconst props = withDefaults(defineProps<PaginationNextProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationNext v-bind=\"forwarded\">\n    <Button class=\"w-10 h-10 p-0\" variant=\"outline\">\n      <slot>\n        <ChevronRight class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationNext>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { PaginationNext, type PaginationNextProps } from 'radix-vue'\nimport { ChevronRight } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PaginationNextProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationNext v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronRight class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationNext>\n</template>\n"
     },
     {
       "name": "PaginationPrev.vue",
-      "content": "<script setup lang=\"ts\">\nimport { PaginationPrev, type PaginationPrevProps, useForwardProps } from 'radix-vue'\nimport { ChevronLeft } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\n\nconst props = withDefaults(defineProps<PaginationPrevProps>(), {\n  asChild: true,\n})\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <PaginationPrev v-bind=\"forwarded\">\n    <Button class=\"w-10 h-10 p-0\" variant=\"outline\">\n      <slot>\n        <ChevronLeft class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationPrev>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { PaginationPrev, type PaginationPrevProps } from 'radix-vue'\nimport { ChevronLeft } from 'lucide-vue-next'\nimport {\n  Button,\n} from '@/lib/registry/default/ui/button'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PaginationPrevProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationPrev v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronLeft class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationPrev>\n</template>\n"
     },
     {
       "name": "index.ts",

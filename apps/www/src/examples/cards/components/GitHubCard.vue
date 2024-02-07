@@ -26,7 +26,7 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
 
 <template>
   <Card>
-    <CardHeader class="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+    <CardHeader class="grid grid-cols-[minmax(0,1fr)_110px] items-start gap-4 space-y-0">
       <div class="space-y-1">
         <CardTitle>shadcn/ui</CardTitle>
         <CardDescription>
@@ -39,7 +39,7 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
           <StarIcon class="mr-2 h-4 w-4" />
           Star
         </Button>
-        <Separator orientation="vertical" class="h-[20px]" />
+        <Separator orientation="vertical" class="h-5" />
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" class="px-2 shadow-none">

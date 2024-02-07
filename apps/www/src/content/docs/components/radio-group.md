@@ -40,4 +40,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 ### Form
 
+Please first read `vee-validate` section for [Checkbox and Radio Inputs](https://vee-validate.logaretm.com/v4/examples/checkboxes-and-radio/)
+
 <ComponentPreview name="RadioGroupForm" />

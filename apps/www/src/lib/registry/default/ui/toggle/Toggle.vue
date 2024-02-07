@@ -1,39 +1,34 @@
 <script setup lang="ts">
-import type { ToggleEmits, ToggleProps } from 'radix-vue'
-import { Toggle, useForwardPropsEmits } from 'radix-vue'
-import type { VariantProps } from 'class-variance-authority'
-import { computed } from 'vue'
-import { toggleVariants } from '.'
+import { type HTMLAttributes, computed } from 'vue'
+import { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from 'radix-vue'
+import { type ToggleVariants, toggleVariants } from '.'
 import { cn } from '@/lib/utils'
 
-interface ToggleVariantProps extends VariantProps<typeof toggleVariants> {}
-
-interface Props extends ToggleProps {
-  variant?: ToggleVariantProps['variant']
-  size?: ToggleVariantProps['size']
-  disabled?: boolean
-}
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<ToggleProps & {
+  class?: HTMLAttributes['class']
+  variant?: ToggleVariants['variant']
+  size?: ToggleVariants['size']
+}>(), {
   variant: 'default',
   size: 'default',
   disabled: false,
 })
+
 const emits = defineEmits<ToggleEmits>()
 
-const toggleProps = computed(() => {
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  const { variant, size, disabled, ...otherProps } = props
-  return otherProps
+const delegatedProps = computed(() => {
+  const { class: _, size, variant, ...delegated } = props
+
+  return delegated
 })
 
-const forwarded = useForwardPropsEmits(toggleProps, emits)
+const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
   <Toggle
     v-bind="forwarded"
-    :class="cn(toggleVariants({ variant, size, class: $attrs.class ?? '' }))"
-    :disabled="props.disabled"
+    :class="cn(toggleVariants({ variant, size }), props.class)"
   >
     <slot />
   </Toggle>

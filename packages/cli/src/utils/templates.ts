@@ -51,6 +51,7 @@ export const TAILWIND_CONFIG_WITH_VARIABLES = `const animate = require("tailwind
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  safelist: ["dark"],
   <% if (framework === 'vite') { %>
   content: [
     './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',
@@ -115,6 +116,7 @@ module.exports = {
         },
       },
       borderRadius: {
+      	xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

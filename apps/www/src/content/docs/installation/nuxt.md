@@ -7,7 +7,7 @@ description: Install and configure Nuxt.
 
 ### Create project
 
-Start by creating a new Nuxt project using `create-next-app`:
+Start by creating a new Nuxt project using `create-nuxt-app`:
 
 ```bash
 npx nuxi@latest init my-app
@@ -26,11 +26,127 @@ npm install -D typescript
 npm install -D @nuxtjs/tailwindcss
 ```
 
-### Install `shadcn-nuxt` module (New ✨)
+### Add `Nuxt` module
+
+<br>
+
+<TabsMarkdown>
+  <TabMarkdown title="shadcn-nuxt">
+
+  Install the package below.
+
+  ```bash
+  npm install -D shadcn-nuxt
+  ```
+
+  </TabMarkdown>
+
+
+  <TabMarkdown title="manual">
+
+  Add the following code to `modules/shadcn.ts`.
 
 ```bash
-npm install -D shadcn-nuxt
+import {
+  defineNuxtModule,
+  addComponent,
+  addComponentsDir,
+  tryResolveModule,
+} from 'nuxt/kit';
+
+export interface ShadcnVueOptions {
+  /**
+   * Prefix for all the imported component
+   */
+  prefix: string;
+
+  /**
+   * Directory that the component lives in.
+   * @default "~/components/ui"
+   */
+  componentDir: string;
+}
+
+export default defineNuxtModule<ShadcnVueOptions>({
+  defaults: {
+    prefix: 'Ui',
+    componentDir: '~/components/ui',
+  },
+  meta: {
+    name: 'ShadcnVue',
+    configKey: 'shadcn',
+    version: '0.0.1',
+    compatibility: {
+      nuxt: '^3.9.0',
+      bridge: false,
+    },
+  },
+  async setup({ componentDir, prefix }) {
+    const isVeeValidateExist = await tryResolveModule('vee-validate');
+
+    addComponentsDir(
+      {
+        path: componentDir,
+        extensions: ['.vue'],
+        prefix,
+        pathPrefix: false,
+      },
+      {
+        prepend: true,
+      }
+    );
+
+    if (isVeeValidateExist !== undefined) {
+      addComponent({
+        filePath: 'vee-validate',
+        export: 'Form',
+        name: `${prefix}Form`,
+        priority: 999,
+      });
+
+      addComponent({
+        filePath: 'vee-validate',
+        export: 'Field',
+        name: `${prefix}FormField`,
+        priority: 999,
+      });
+    }
+
+    addComponent({
+      filePath: 'radix-vue',
+      export: 'PaginationRoot',
+      name: `${prefix}Pagination`,
+      priority: 999,
+    });
+
+    addComponent({
+      filePath: 'radix-vue',
+      export: 'PaginationList',
+      name: `${prefix}PaginationList`,
+      priority: 999,
+    });
+
+    addComponent({
+      filePath: 'radix-vue',
+      export: 'PaginationListItem',
+      name: `${prefix}PaginationListItem`,
+      priority: 999,
+    });
+  },
+});
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    shadcn?: ShadcnVueOptions;
+  }
+  interface NuxtOptions {
+    shadcn?: ShadcnVueOptions;
+  }
+}
 ```
+
+  </TabMarkdown>
+</TabsMarkdown>
 
 
 ### Configure `nuxt.config.ts`
@@ -64,7 +180,7 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```txt showLineNumbers
+```txt:line-numbers
 Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default

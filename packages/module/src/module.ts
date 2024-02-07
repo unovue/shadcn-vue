@@ -1,7 +1,9 @@
-import { readdirSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
+import { join } from 'node:path'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { Project } from 'ts-morph'
+import oxc from 'oxc-parser'
 
+// TODO: add test to make sure all registry is being parse correctly
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
@@ -24,37 +26,49 @@ export default defineNuxtModule<ModuleOptions>({
     prefix: '',
     componentDir: './components/ui',
   },
-  async setup(options, nuxt) {
-    const IGNORE_DIR = '**/components/ui'
-    const COMPONENT_DIR_PATH = options.componentDir!
+  async setup({ prefix, componentDir }, nuxt) {
+    const COMPONENT_DIR_PATH = componentDir!
     const ROOT_DIR_PATH = nuxt.options.rootDir
+    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
 
-    const { resolve } = createResolver(ROOT_DIR_PATH)
-
-    nuxt.options.ignore.push(IGNORE_DIR)
-    nuxt._ignore?.add(IGNORE_DIR)
-    nuxt._ignorePatterns?.push(IGNORE_DIR)
+    nuxt.hook('components:dirs', (dirs) => {
+      dirs.unshift({
+        path: resolve(COMPONENT_DIR_PATH),
+        extensions: [],
+      })
+    })
 
     try {
       readdirSync(resolve(COMPONENT_DIR_PATH))
         .forEach(async (dir) => {
-          const filePath = resolve(COMPONENT_DIR_PATH, dir, 'index.ts')
-
-          const project = new Project()
-          project.addSourceFileAtPath(filePath)
-          const sourceFile = project.getSourceFileOrThrow(filePath)
-          const exportedDeclarations = sourceFile.getExportedDeclarations()
-
-          // Filter out non-component export
-          const exportedKeys = Array.from(exportedDeclarations.keys()).filter(key => /^[A-Z]/.test(key))
-
-          exportedKeys.forEach((key) => {
-            addComponent({
-              name: `${options.prefix}${key}`, // name of the component to be used in vue templates
-              export: key, // (optional) if the component is a named (rather than default) export
-              filePath: resolve(filePath),
+          try {
+            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+            const content = readFileSync(filePath, { encoding: 'utf8' })
+            const ast = oxc.parseSync(content, {
+              sourceType: 'module',
+              sourceFilename: filePath,
             })
-          })
+            const program = JSON.parse(ast.program)
+
+            const exportedKeys: string[] = program.body
+            // @ts-expect-error parse return any
+              .filter(node => node.type === 'ExportNamedDeclaration')
+            // @ts-expect-error parse return any
+              .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
+              .filter((key: string) => /^[A-Z]/.test(key))
+
+            exportedKeys.forEach((key) => {
+              addComponent({
+                name: `${prefix}${key}`, // name of the component to be used in vue templates
+                export: key, // (optional) if the component is a named (rather than default) export
+                filePath: resolve(filePath),
+              })
+            })
+          }
+          catch (err) {
+            if (err instanceof Error)
+              console.warn('Module error: ', err.message)
+          }
         })
     }
     catch (err) {

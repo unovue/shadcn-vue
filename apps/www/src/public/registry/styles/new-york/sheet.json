@@ -1,15 +1,13 @@
 {
   "name": "sheet",
-  "dependencies": [
-    "radix-vue"
-  ],
+  "dependencies": [],
   "registryDependencies": [
     "utils"
   ],
   "files": [
     {
       "name": "Sheet.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogRoot } from 'radix-vue'\n</script>\n\n<template>\n  <DialogRoot>\n    <slot />\n  </DialogRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<DialogRootProps>()\nconst emits = defineEmits<DialogRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DialogRoot v-bind=\"forwarded\">\n    <slot />\n  </DialogRoot>\n</template>\n"
     },
     {
       "name": "SheetClose.vue",
@@ -17,23 +15,23 @@
     },
     {
       "name": "SheetContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  DialogClose,\n  DialogContent,\n  type DialogContentEmits,\n  type DialogContentProps,\n  DialogOverlay,\n  DialogPortal,\n  useEmitAsProps,\n} from 'radix-vue'\nimport { cva } from 'class-variance-authority'\nimport { Cross2Icon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\ninterface SheetContentProps extends DialogContentProps {\n  side?: 'left' | 'right' | 'top' | 'bottom'\n  class?: string\n}\n\nconst props = defineProps<SheetContentProps>()\n\nconst emits = defineEmits<DialogContentEmits>()\n\nconst emitsAsProps = useEmitAsProps(emits)\n\nconst sheetVariants = cva(\n  'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500',\n  {\n    variants: {\n      side: {\n        top: 'inset-x-0 top-0 border-b border-border data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',\n        bottom:\n          'inset-x-0 bottom-0 border-t border-border data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',\n        left: 'inset-y-0 left-0 h-full w-3/4 border-r border-border data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm',\n        right:\n          'inset-y-0 right-0 h-full w-3/4  border-l border-border data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm',\n      },\n    },\n    defaultVariants: {\n      side: 'right',\n    },\n  },\n)\n</script>\n\n<template>\n  <DialogPortal>\n    <DialogOverlay\n      class=\"fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\"\n    />\n    <DialogContent\n      :class=\"cn(sheetVariants({ side: props.side }), props.class)\"\n      v-bind=\"{ ...props, ...emitsAsProps }\"\n    >\n      <slot />\n\n      <DialogClose\n        class=\"absolute top-4 right-4 p-0.5 transition-colors rounded-md hover:bg-secondary\"\n      >\n        <Cross2Icon class=\"w-4 h-4 text-muted-foreground\" />\n      </DialogClose>\n    </DialogContent>\n  </DialogPortal>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport {\n  DialogClose,\n  DialogContent,\n  type DialogContentEmits,\n  type DialogContentProps,\n  DialogOverlay,\n  DialogPortal,\n  useForwardPropsEmits,\n} from 'radix-vue'\nimport { Cross2Icon } from '@radix-icons/vue'\nimport { type SheetVariants, sheetVariants } from '.'\nimport { cn } from '@/lib/utils'\n\ninterface SheetContentProps extends DialogContentProps {\n  class?: HTMLAttributes['class']\n  side?: SheetVariants['side']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<SheetContentProps>()\n\nconst emits = defineEmits<DialogContentEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, side, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <DialogPortal>\n    <DialogOverlay\n      class=\"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\"\n    />\n    <DialogContent\n      :class=\"cn(sheetVariants({ side }), props.class)\"\n      v-bind=\"{ ...forwarded, ...$attrs }\"\n    >\n      <slot />\n\n      <DialogClose\n        class=\"absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary\"\n      >\n        <Cross2Icon class=\"w-4 h-4\" />\n      </DialogClose>\n    </DialogContent>\n  </DialogPortal>\n</template>\n"
     },
     {
       "name": "SheetDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogDescription, type DialogDescriptionProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<DialogDescriptionProps & { class?: string }>()\n</script>\n\n<template>\n  <DialogDescription\n    :class=\"cn('text-sm text-muted-foreground', props.class)\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </DialogDescription>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { DialogDescription, type DialogDescriptionProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<DialogDescriptionProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DialogDescription\n    :class=\"cn('text-sm text-muted-foreground', props.class)\"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </DialogDescription>\n</template>\n"
     },
     {
       "name": "SheetFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn(\n        'flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-x-2',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "SheetHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: string }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn('flex flex-col space-y-2 text-center sm:text-left', props.class)\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div\n    :class=\"\n      cn('flex flex-col gap-y-2 text-center sm:text-left', props.class)\n    \"\n  >\n    <slot />\n  </div>\n</template>\n"
     },
     {
       "name": "SheetTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport { DialogTitle, type DialogTitleProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<DialogTitleProps & { class?: string }>()\n</script>\n\n<template>\n  <DialogTitle\n    :class=\"cn('text-lg font-semibold text-foreground', props.class)\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </DialogTitle>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { DialogTitle, type DialogTitleProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<DialogTitleProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DialogTitle\n    :class=\"cn('text-lg font-semibold text-foreground', props.class)\"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </DialogTitle>\n</template>\n"
     },
     {
       "name": "SheetTrigger.vue",
@@ -41,7 +39,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { default as Sheet } from './Sheet.vue'\nexport { default as SheetTrigger } from './SheetTrigger.vue'\nexport { default as SheetClose } from './SheetClose.vue'\nexport { default as SheetContent } from './SheetContent.vue'\nexport { default as SheetHeader } from './SheetHeader.vue'\nexport { default as SheetTitle } from './SheetTitle.vue'\nexport { default as SheetDescription } from './SheetDescription.vue'\nexport { default as SheetFooter } from './SheetFooter.vue'\n"
+      "content": "import { type VariantProps, cva } from 'class-variance-authority'\n\nexport { default as Sheet } from './Sheet.vue'\nexport { default as SheetTrigger } from './SheetTrigger.vue'\nexport { default as SheetClose } from './SheetClose.vue'\nexport { default as SheetContent } from './SheetContent.vue'\nexport { default as SheetHeader } from './SheetHeader.vue'\nexport { default as SheetTitle } from './SheetTitle.vue'\nexport { default as SheetDescription } from './SheetDescription.vue'\nexport { default as SheetFooter } from './SheetFooter.vue'\n\nexport const sheetVariants = cva(\n  'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500',\n  {\n    variants: {\n      side: {\n        top: 'inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',\n        bottom:\n            'inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',\n        left: 'inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm',\n        right:\n            'inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm',\n      },\n    },\n    defaultVariants: {\n      side: 'right',\n    },\n  },\n)\n\nexport type SheetVariants = VariantProps<typeof sheetVariants>\n"
     }
   ],
   "type": "components:ui"

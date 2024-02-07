@@ -3,18 +3,17 @@ import {
   DropdownMenuRadioGroup,
   type DropdownMenuRadioGroupEmits,
   type DropdownMenuRadioGroupProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 
 const props = defineProps<DropdownMenuRadioGroupProps>()
-
 const emits = defineEmits<DropdownMenuRadioGroupEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <DropdownMenuRadioGroup
-    v-bind="props"
-    @update:model-value="emits('update:modelValue', $event)"
-  >
+  <DropdownMenuRadioGroup v-bind="forwarded">
     <slot />
   </DropdownMenuRadioGroup>
 </template>

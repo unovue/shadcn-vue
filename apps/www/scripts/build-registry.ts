@@ -66,6 +66,8 @@ fs.writeFileSync(path.join(process.cwd(), '__registry__/index.ts'), index)
 // ----------------------------------------------------------------------------
 // Build registry/styles/[style]/[name].json.
 // ----------------------------------------------------------------------------
+const newLine = '\n'
+
 for (const style of styles) {
   const targetPath = path.join(REGISTRY_PATH, 'styles', style.name)
 
@@ -78,10 +80,13 @@ for (const style of styles) {
       continue
 
     const files = item.files?.map((file) => {
-      const content = fs.readFileSync(
+      let content = fs.readFileSync(
         path.join(process.cwd(), 'src/lib/registry', style.name, file),
         'utf8',
       )
+
+      // Replace Windows-style newlines with Unix-style newlines
+      content = content.replace(/\r\n/g, newLine)
 
       return {
         name: basename(file),
@@ -94,9 +99,11 @@ for (const style of styles) {
       files,
     }
 
+    const payloadStr = JSON.stringify(payload, null, 2).replace(/\r\n/g, newLine)
+
     fs.writeFileSync(
       path.join(targetPath, `${item.name}.json`),
-      JSON.stringify(payload, null, 2),
+      payloadStr,
       'utf8',
     )
   }
