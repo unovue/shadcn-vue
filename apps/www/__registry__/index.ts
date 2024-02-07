@@ -618,12 +618,12 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/TabsDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/TabsDemo.vue'],
     },
-    TagsInputComboDemo: {
-      name: 'TagsInputComboDemo',
+    TagsInputComboboxDemo: {
+      name: 'TagsInputComboboxDemo',
       type: 'components:example',
-      registryDependencies: ['utils', 'button', 'command', 'popover', 'tags-input'],
-      component: () => import('../src/lib/registry/default/example/TagsInputComboDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/default/example/TagsInputComboDemo.vue'],
+      registryDependencies: ['command', 'tags-input'],
+      component: () => import('../src/lib/registry/default/example/TagsInputComboboxDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/TagsInputComboboxDemo.vue'],
     },
     TagsInputDemo: {
       name: 'TagsInputDemo',
@@ -1537,12 +1537,12 @@ export const Index = {
       component: () => import('../src/lib/registry/new-york/example/TabsDemo.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/TabsDemo.vue'],
     },
-    TagsInputComboDemo: {
-      name: 'TagsInputComboDemo',
+    TagsInputComboboxDemo: {
+      name: 'TagsInputComboboxDemo',
       type: 'components:example',
-      registryDependencies: ['utils', 'button', 'command', 'popover', 'tags-input'],
-      component: () => import('../src/lib/registry/new-york/example/TagsInputComboDemo.vue').then(m => m.default),
-      files: ['../src/lib/registry/new-york/example/TagsInputComboDemo.vue'],
+      registryDependencies: ['command', 'tags-input'],
+      component: () => import('../src/lib/registry/new-york/example/TagsInputComboboxDemo.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/TagsInputComboboxDemo.vue'],
     },
     TagsInputDemo: {
       name: 'TagsInputDemo',
