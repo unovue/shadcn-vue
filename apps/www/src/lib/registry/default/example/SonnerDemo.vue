@@ -15,6 +15,6 @@ import { Button } from '@/lib/registry/default/ui/button'
       })
     }"
   >
-    Add to calander
+    Add to calendar
   </Button>
 </template>

@@ -57,7 +57,7 @@ import { Button } from '@/components/ui/button'
       })
     }"
   >
-    Add to calander
+    Add to calendar
   </Button>
 </template>
 ```
