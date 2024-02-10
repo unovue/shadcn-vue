@@ -97,7 +97,7 @@ Add the code below to the vite.config.ts so your app can resolve paths without e
 npm i -D @types/node
 ```
 
-```typescript
+```typescript {2,7-11}
 import path from "path"
 import vue from "@vitejs/plugin-vue"
 import { defineConfig } from "vite"
