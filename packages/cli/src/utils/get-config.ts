@@ -1,9 +1,9 @@
-import path from 'node:path'
 import { existsSync } from 'node:fs'
+import path from 'pathe'
 import { loadConfig as c12LoadConfig } from 'c12'
 import type { ConfigLoaderResult } from 'tsconfig-paths'
 import { loadConfig } from 'tsconfig-paths'
-import * as z from 'zod'
+import { z } from 'zod'
 import { resolveImport } from '@/src/utils/resolve-import'
 
 export const DEFAULT_STYLE = 'default'

@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import path from 'node:path'
+import path from 'pathe'
 import { addDependency, addDevDependency } from 'nypm'
 import { afterEach, expect, test, vi } from 'vitest'
 

@@ -1,12 +1,12 @@
 import { existsSync, promises as fs, rmSync } from 'node:fs'
-import path from 'node:path'
 import process from 'node:process'
+import path from 'pathe'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
 import { Command } from 'commander'
 import ora from 'ora'
 import prompts from 'prompts'
-import * as z from 'zod'
+import { z } from 'zod'
 import { addDependency, addDevDependency } from 'nypm'
 import { transform } from '@/src/utils/transformers'
 import { getConfig } from '@/src/utils/get-config'
@@ -56,6 +56,7 @@ export const add = new Command()
       }
 
       const config = await getConfig(cwd)
+
       if (!config) {
         consola.warn(`Configuration is missing. Please run ${colors.green('init')} to create a components.json file.`)
 

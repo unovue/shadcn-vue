@@ -1,5 +1,5 @@
-import path from 'node:path'
 import process from 'node:process'
+import path from 'pathe'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { ofetch } from 'ofetch'
 import type * as z from 'zod'
