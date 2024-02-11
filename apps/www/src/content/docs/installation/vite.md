@@ -24,7 +24,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
 
 <TabsMarkdown>
-  <TabMarkdown title="vite.config.ts">
+  <TabMarkdown title="vite.config">
 
   Vite already has [`postcss`](https://github.com/vitejs/vite/blob/main/packages/vite/package.json#L78) dependency so you don't have to install it again in your package.json
 
@@ -34,7 +34,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
   #### `vite.config`
 
-  ```typescript {5,6,10-14}
+  ```typescript {5,6,9-13}
   import path from "path"
   import { defineConfig } from "vite"
   import vue from "@vitejs/plugin-vue"
@@ -43,13 +43,17 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   import autoprefixer from "autoprefixer"
 
   export default defineConfig({
-    plugins: [vue()],
     css: {
       postcss: {
         plugins: [tailwind(), autoprefixer()],
       },
     },
-    resolve: {...}
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
   })
   ```
 
@@ -81,10 +85,16 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
 Add the code below to the compilerOptions of your tsconfig.json so your app can resolve paths without error
 
-```typescript
-"baseUrl": ".",
-"paths": {
-  "@/*": ["./src/*"]
+```json {4-7}
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+    // ...
+  }
 }
 ```
 
@@ -97,12 +107,17 @@ Add the code below to the vite.config.ts so your app can resolve paths without e
 npm i -D @types/node
 ```
 
-```typescript {2,7-11}
+```typescript {12-16}
 import path from "path"
 import vue from "@vitejs/plugin-vue"
 import { defineConfig } from "vite"
 
 export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [tailwind(), autoprefixer()],
+    },
+  },
   plugins: [vue()],
   resolve: {
     alias: {
