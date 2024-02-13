@@ -110,7 +110,7 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
     const configResult = await c12LoadConfig({
       name: 'components',
-      configFile: 'components.json',
+      configFile: 'components',
       cwd,
     })
 
