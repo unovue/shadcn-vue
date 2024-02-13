@@ -24,6 +24,11 @@ const examples = [
     code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/tasks',
   },
   {
+    name: 'Tasks (Big Data)',
+    href: '/examples/big-data',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/big-data',
+  },
+  {
     name: 'Playground',
     href: '/examples/playground',
     code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/playground',
