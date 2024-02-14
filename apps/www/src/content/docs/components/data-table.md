@@ -5,7 +5,7 @@ primitive: https://tanstack.com/table/v8/docs/guide/introduction
 ---
 
 
-<ComponentPreview name="DataTableDemo"  />
+<ComponentPreview name="DataTableDemo" />
 
 ## Introduction
 
@@ -25,7 +25,7 @@ We'll start with the basic `<Table />` component and build a complex data table 
 
 ## Table of Contents
 
-This guide will show you how to use [TanStack Table](https://tanstack.com/table/v8) and the <Table /> component to build your own custom data table. We'll cover the following topics:
+This guide will show you how to use [TanStack Table](https://tanstack.com/table/v8) and the `<Table />` component to build your own custom data table. We'll cover the following topics:
 
 - [Basic Table](#basic-table)
 - [Row Actions](#row-actions)
@@ -49,6 +49,13 @@ npx shadcn-vue@latest add table
 ```bash
 npm install @tanstack/vue-table
 ```
+
+## Examples
+
+### Column Pinning
+
+<ComponentPreview name="DataTableColumnPinningDemo" />
+
 
 ## Prerequisites
 
@@ -109,31 +116,23 @@ Let's start by building a basic table.
 
 First, we'll define our columns in the `columns.ts` file.
 
-```ts:line-numbers title="components/payments/columns.ts" {1,12-27}
-import type { ColumnDef } from '@tanstack/vue-table'
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export interface Payment {
-  id: string
-  amount: number
-  status: 'pending' | 'processing' | 'success' | 'failed'
-  email: string
-}
+```ts:line-numbers {1,12-27}
+import { h } from 'vue'
 
 export const columns: ColumnDef<Payment>[] = [
   {
-    accessorKey: 'status',
-    header: 'Status',
-  },
-  {
-    accessorKey: 'email',
-    header: 'Email',
-  },
-  {
     accessorKey: 'amount',
-    header: 'Amount',
-  },
+    header: () => h('div', { class: 'text-right' }, 'Amount'),
+    cell: ({ row }) => {
+      const amount = Number.parseFloat(row.getValue('amount'))
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(amount)
+
+      return h('div', { class: 'text-right font-medium' }, formatted)
+    },
+  }
 ]
 ```
 
@@ -149,7 +148,7 @@ formatted, sorted and filtered.
 
 Next, we'll create a `<DataTable />` component to render our table.
 
-```ts:line-numbers
+```vue:line-numbers
 <script setup lang="ts" generic="TData, TValue">
 import type { ColumnDef } from '@tanstack/vue-table'
 import {
@@ -225,7 +224,7 @@ const table = useVueTable({
 
 Finally, we'll render our table in our index component.
 
-```ts:line-numbers showLineNumbers{28}
+```vue:line-numbers {28}
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { columns } from "./components/columns"
@@ -272,7 +271,7 @@ Let's format the amount cell to display the dollar amount. We'll also align the 
 Update the `header` and `cell` definitions for amount as follows:
 
 
-```ts:line-numbers showLineNumbers title="components/payments/columns.ts" {5-17}
+```ts:line-numbers title="components/payments/columns.ts" {5-17}
 import { h } from 'vue'
 
 export const columns: ColumnDef<Payment>[] = [
@@ -302,7 +301,7 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 ### Add the following into your `DataTableDropDown.vue` component:
 
-```ts:line-numbers
+```vue:line-numbers
 // DataTableDropDown.vue
 <script setup lang="ts">
 import { MoreHorizontal } from 'lucide-vue-next'
@@ -380,7 +379,7 @@ Next, we'll add pagination to our table.
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{4,12}
+```ts:line-numbers {4,12}
 import {
     FlexRender,
     getCoreRowModel,
@@ -402,8 +401,7 @@ This will automatically paginate your rows into pages of 10. See the [pagination
 
 We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
 
-```ts:line-numbers showLineNumbers{3,15,21-39}
-// components/payments/DataTable.vue
+```vue:line-numbers {3,15,21-39}
 <script lang="ts" generic="TData, TValue">
 import { Button } from "@/components/ui/button"
 
@@ -458,7 +456,7 @@ Let's make the email column sortable.
 
 ### Add the following into your `utils` file:
 
-```ts:line-numbers showLineNumbers{5,6,12-17}
+```ts:line-numbers {5,6,12-17}
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
@@ -482,7 +480,7 @@ The `valueUpdater` function updates a Vue `ref` object's value. It handles both 
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{4,7,16,34,41-44}
+```vue:line-numbers {4,7,16,34,41-44}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
@@ -545,7 +543,7 @@ const table = useVueTable({
 
 We can now update the `email` header cell to add sorting controls.
 
-```ts:line-numbers showLineNumbers{5,10-17}
+```ts:line-numbers {5,10-17}
 // components/payments/columns.ts
 import type {
   ColumnDef,
@@ -579,7 +577,7 @@ Let's add a search input to filter emails in our table.
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{4,11,19,39,48-49,52,60-64}
+```vue:line-numbers {4,11,19,39,48-49,52,60-64}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
@@ -664,7 +662,7 @@ Adding column visibility is fairly simple using `@tanstack/vue-table` visibility
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{6,9-14,48,59,63,75-91}
+```vue:line-numbers {6,9-14,48,59,63,75-91}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
@@ -803,7 +801,7 @@ Next, we're going to add row selection to our table.
 
 ### Update column definitions
 
-```ts:line-numbers showLineNumbers{3,6-20}
+```ts:line-numbers {3,6-20}
 import type { ColumnDef } from '@tanstack/vue-table'
 
 import { Checkbox } from '@/components/ui/checkbox'
@@ -829,7 +827,7 @@ export const columns: ColumnDef<Payment>[] = [
 
 ### Update `<DataTable>`
 
-```ts:line-numbers showLineNumbers{10,22,27}
+```vue:line-numbers {10,22,27}
 <script setup lang="ts" generic="TData, TValue">
 const props = defineProps<{
     columns: ColumnDef<TData, TValue>[]
@@ -895,7 +893,7 @@ Here are some components you can use to build your data tables. This is from the
 
 Make any column header sortable and hideable.
 
-```ts:line-numbers
+```vue:line-numbers
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import { type Task } from '../data/schema'
@@ -988,7 +986,7 @@ export const columns = [
 
 Add pagination controls to your table including page size and selection count.
 
-```ts:line-numbers
+```vue:line-numbers
 <script setup lang="ts">
 import { type Table } from '@tanstack/vue-table'
 import { type Task } from '../data/schema'
@@ -1093,8 +1091,7 @@ defineProps<DataTablePaginationProps>()
 
 A component to toggle column visibility.
 
-```ts:line-numbers
-
+```vue:line-numbers
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table'
 import { computed } from 'vue'

@@ -2,11 +2,12 @@
 import { HoverCardRoot, type HoverCardRootProps, useForwardProps } from 'radix-vue'
 
 const props = defineProps<HoverCardRootProps>()
-const forwarded = useForwardProps(props)
+
+const forwardedProps = useForwardProps(props)
 </script>
 
 <template>
-  <HoverCardRoot v-bind="forwarded">
+  <HoverCardRoot v-bind="forwardedProps">
     <slot />
   </HoverCardRoot>
 </template>

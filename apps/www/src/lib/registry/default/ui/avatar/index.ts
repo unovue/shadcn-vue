@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority'
+import { type VariantProps, cva } from 'class-variance-authority'
 
 export { default as Avatar } from './Avatar.vue'
 export { default as AvatarImage } from './AvatarImage.vue'
@@ -20,3 +20,5 @@ export const avatarVariant = cva(
     },
   },
 )
+
+export type AvatarVariants = VariantProps<typeof avatarVariant>

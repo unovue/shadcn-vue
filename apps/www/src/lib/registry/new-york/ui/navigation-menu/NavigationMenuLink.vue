@@ -3,15 +3,17 @@ import {
   NavigationMenuLink,
   type NavigationMenuLinkEmits,
   type NavigationMenuLinkProps,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 
 const props = defineProps<NavigationMenuLinkProps>()
 const emits = defineEmits<NavigationMenuLinkEmits>()
+
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <NavigationMenuLink v-bind="{ ...props, ...useEmitAsProps(emits) }">
+  <NavigationMenuLink v-bind="forwarded">
     <slot />
   </NavigationMenuLink>
 </template>

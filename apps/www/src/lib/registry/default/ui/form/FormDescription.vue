@@ -1,21 +1,19 @@
 <script lang="ts" setup>
-import { useAttrs } from 'vue'
+import type { HTMLAttributes } from 'vue'
 import { useFormField } from './useFormField'
 import { cn } from '@/lib/utils'
 
-defineOptions({
-  inheritAttrs: false,
-})
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+}>()
 
 const { formDescriptionId } = useFormField()
-const { class: className, ...rest } = useAttrs()
 </script>
 
 <template>
   <p
     :id="formDescriptionId"
-    :class="cn('text-sm text-muted-foreground', className ?? '')"
-    v-bind="rest"
+    :class="cn('text-sm text-muted-foreground', props.class)"
   >
     <slot />
   </p>

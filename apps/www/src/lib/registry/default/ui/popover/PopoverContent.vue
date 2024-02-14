@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   PopoverContent,
   type PopoverContentEmits,
@@ -8,15 +9,26 @@ import {
 } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = withDefaults(
-  defineProps<PopoverContentProps & { class?: string }>(),
+  defineProps<PopoverContentProps & { class?: HTMLAttributes['class'] }>(),
   {
+    align: 'center',
     sideOffset: 4,
   },
 )
 const emits = defineEmits<PopoverContentEmits>()
 
-const forwarded = useForwardPropsEmits(props, emits)
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>

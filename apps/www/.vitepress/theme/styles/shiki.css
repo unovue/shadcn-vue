@@ -1,5 +1,5 @@
 :root {
-  --shiki-foreground: #EEEEEE;
+  --shiki-foreground: #FFF8;
   --shiki-color-background: #ffffff;
   --shiki-token-constant: #ffffff;
   --shiki-token-string: #ffffff88;
@@ -7,7 +7,14 @@
   --shiki-token-keyword: #ffffff88;
   --shiki-token-parameter: #AA0000;
   --shiki-token-function: #ffffff;
-  --shiki-token-string-expression: #ffffff88;
+  --shiki-token-string-expression: #ebebeb;
   --shiki-token-punctuation: #ffffff;
   --shiki-token-link: #EE0000;
+}
+
+.shiki .highlighted-word {
+	border-radius: calc(var(--radius) - 2px);
+    border-color: rgba(63,63,70,.7);
+    background-color: rgba(63,63,70,.5);
+    padding: 0.25rem;
 }
