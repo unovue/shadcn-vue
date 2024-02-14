@@ -48,6 +48,6 @@
     "commit-msg": "pnpm commitlint --edit ${1}"
   },
   "lint-staged": {
-    "*": "eslint --fix --ignore-path .gitignore --ignore-pattern '*.ttf' --ignore-pattern '*.woff' --ignore-pattern '*.woff2'"
+    "*": "eslint --fix"
   }
 }

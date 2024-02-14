@@ -1,19 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-@font-face {
-	font-family: "Geist";
-	font-style: normal;
-	font-weight: 100 900;
-	font-display: swap;
-	src: url("../assets/GeistVariableVF.ttf") format("truetype"), url("../assets/GeistVariableVF.woff2") format("woff2");
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
 	:root {
+		--font-geist-sans: "geist-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+			Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -75,6 +68,16 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 	html {
 		-webkit-tap-highlight-color: rgba(128, 128, 128, 0.5);
+	}
+
+	/* Font face Geist font */
+
+	@font-face {
+		font-family: "geist-sans";
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url("/fonts/Geist/GeistVariableVF.woff2") format("woff2");
 	}
 
 	/* === Scrollbars === */
