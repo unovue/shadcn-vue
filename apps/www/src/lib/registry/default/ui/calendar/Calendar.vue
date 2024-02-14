@@ -152,12 +152,6 @@ const vCalendarSlots = computed(() => {
 .calendar .vc-weekday {
   @apply text-muted-foreground rounded-md w-full font-normal text-[0.8rem];
 }
-.calendar .vc-weekday-1 {
-	@apply pr-3;
-}
-.calendar .vc-weekday-7 {
-	@apply pl-3;
-}
 .calendar .vc-weeks {
   @apply w-full space-y-2 flex flex-col [&>_div]:grid [&>_div]:grid-cols-7;
 }
