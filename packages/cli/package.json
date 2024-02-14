@@ -48,7 +48,7 @@
     "@babel/core": "^7.23.9",
     "@babel/parser": "^7.23.9",
     "@vue/compiler-sfc": "^3.4.19",
-    "c12": "^1.7.0",
+    "c12": "^1.8.0",
     "commander": "^12.0.0",
     "consola": "^3.2.3",
     "detype": "npm:detypes@^0.7.6",

@@ -211,8 +211,8 @@ importers:
         specifier: ^3.4.19
         version: 3.4.19
       c12:
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.0
+        version: 1.8.0
       commander:
         specifier: ^12.0.0
         version: 12.0.0
@@ -2422,7 +2422,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
       '@nuxt/schema': 3.10.0
-      c12: 1.7.0
+      c12: 1.8.0
       consola: 3.2.3
       defu: 6.1.4
       globby: 14.0.0
@@ -2449,7 +2449,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
       '@nuxt/schema': 3.10.0(rollup@3.29.4)
-      c12: 1.7.0
+      c12: 1.8.0
       consola: 3.2.3
       defu: 6.1.4
       globby: 14.0.0
@@ -2594,7 +2594,7 @@ packages:
     dependencies:
       '@nuxt/kit': 3.10.0(rollup@3.29.4)
       '@nuxt/schema': 3.10.0(rollup@3.29.4)
-      c12: 1.7.0
+      c12: 1.8.0
       consola: 3.2.3
       defu: 6.1.4
       destr: 2.0.2
@@ -5046,7 +5046,7 @@ packages:
     hasBin: true
     dependencies:
       '@jsdevtools/ez-spawn': 3.0.4
-      c12: 1.7.0
+      c12: 1.8.0
       cac: 6.7.14
       fast-glob: 3.3.2
       js-yaml: 4.1.0
@@ -5071,8 +5071,8 @@ packages:
       load-tsconfig: 0.2.5
     dev: true
 
-  /c12@1.7.0:
-    resolution: {integrity: sha512-luqIHUs5S5s4vcSa1TVIGxSC1dH8mBT8cxzRvrlHN/iZs+G/PkxsOb300ODuAdvRzUopyXYqg7cmdOGpcYaxwg==}
+  /c12@1.8.0:
+    resolution: {integrity: sha512-93U6RndoaAwFQPBcS9F/6lwtgBfrWh4695sQ/ChILkbj0C7zOZVptOU3Sxp0I/9xvfW/lzBWD90AXDQz4muSkA==}
     dependencies:
       chokidar: 3.5.3
       defu: 6.1.4
@@ -9298,7 +9298,7 @@ packages:
       '@types/http-proxy': 1.17.14
       '@vercel/nft': 0.24.4
       archiver: 6.0.1
-      c12: 1.7.0
+      c12: 1.8.0
       chalk: 5.3.0
       chokidar: 3.5.3
       citty: 0.1.5
@@ -9626,7 +9626,7 @@ packages:
       '@unhead/vue': 1.8.10(vue@3.4.15)
       '@vue/shared': 3.4.15
       acorn: 8.11.3
-      c12: 1.7.0
+      c12: 1.8.0
       chokidar: 3.5.3
       cookie-es: 1.0.0
       defu: 6.1.4
