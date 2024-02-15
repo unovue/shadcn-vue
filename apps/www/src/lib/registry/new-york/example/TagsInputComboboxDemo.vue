@@ -20,7 +20,7 @@ const filteredFrameworks = computed(() => frameworks.filter(i => !modelValue.val
 </script>
 
 <template>
-  <TagsInput class="px-0 gap-0" :model-value="modelValue">
+  <TagsInput class="px-0 gap-0 w-80" :model-value="modelValue">
     <div class="flex gap-2 flex-wrap items-center px-3">
       <TagsInputItem v-for="item in modelValue" :key="item" :value="item">
         <TagsInputItemText />
