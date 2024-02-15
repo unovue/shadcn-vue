@@ -16,6 +16,6 @@ npx shadcn-vue@latest add tags-input
 
 ## Usage
 
-### Multiple Combobox
+### Tags with Combobox
 
 <ComponentPreview name="TagsInputComboboxDemo" /> 
