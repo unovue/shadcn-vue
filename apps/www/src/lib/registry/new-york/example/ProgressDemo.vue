@@ -11,5 +11,5 @@ watchEffect((cleanupFn) => {
 </script>
 
 <template>
-  <Progress v-model="progress" class="w-[60%]" />
+  <Progress v-model="progress" class="w-3/5" />
 </template>

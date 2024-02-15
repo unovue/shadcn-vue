@@ -255,6 +255,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Pin Input',
+          href: '/docs/components/pin-input',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Popover',
           href: '/docs/components/popover',
           items: [],
@@ -300,6 +306,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Sonner',
+          href: '/docs/components/sonner',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Switch',
           href: '/docs/components/switch',
           items: [],
@@ -315,6 +327,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Tags Input',
+          href: '/docs/components/tags-input',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Textarea',
           href: '/docs/components/textarea',
           items: [],
@@ -322,7 +340,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Toast',
           href: '/docs/components/toast',
-          label: 'New',
           items: [],
         },
         {

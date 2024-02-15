@@ -14,6 +14,6 @@ const { toast } = useToast()
       });
     }"
   >
-    Add to calander
+    Add to calendar
   </Button>
 </template>

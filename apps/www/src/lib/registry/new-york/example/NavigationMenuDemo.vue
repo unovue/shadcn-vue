@@ -55,7 +55,7 @@ const components: { title: string; href: string; description: string }[] = [
       <NavigationMenuItem>
         <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+          <ul class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[minmax(0,.75fr)_minmax(0,1fr)]">
             <li class="row-span-3">
               <NavigationMenuLink as-child>
                 <a
