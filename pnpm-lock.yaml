@@ -96,8 +96,8 @@ importers:
         specifier: ^0.276.0
         version: 0.276.0(vue@3.4.15)
       radix-vue:
-        specifier: ^1.4.1
-        version: 1.4.1(vue@3.4.15)
+        specifier: ^1.4.6
+        version: 1.4.6(vue@3.4.15)
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.1)
@@ -256,8 +256,8 @@ importers:
         specifier: ^2.4.2
         version: 2.4.2
       radix-vue:
-        specifier: ^1.4.1
-        version: 1.4.1(vue@3.4.15)
+        specifier: ^1.4.6
+        version: 1.4.6(vue@3.4.15)
       recast:
         specifier: ^0.23.4
         version: 0.23.4
@@ -10848,8 +10848,8 @@ packages:
     resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
     dev: false
 
-  /radix-vue@1.4.1(vue@3.4.15):
-    resolution: {integrity: sha512-eJsyIHDZPfIdH0iqrfTODuklPqDXfO0iNDNI1isOYIr+ejmeCjP6Yw1LA7LtDryPnjsSkqj0t04DF7eBn2wtMQ==}
+  /radix-vue@1.4.6(vue@3.4.15):
+    resolution: {integrity: sha512-PWM4A0xyQV4bu8R+DfAGGEN4zRTM0Qer5rH+gLnQjjsz0kjteZhVOS0KUkpyrKVPprWFYRNqyzpjjkcYBDrlfQ==}
     dependencies:
       '@floating-ui/dom': 1.6.1
       '@floating-ui/vue': 1.0.6(vue@3.4.15)

@@ -2,6 +2,7 @@
 import PageHeader from '../components/PageHeader.vue'
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
+import PageAction from '../components/PageAction.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
 import { announcementConfig } from '../config/site'
 import ArrowRightIcon from '~icons/radix-icons/arrow-right'
@@ -36,7 +37,7 @@ import { cn } from '@/lib/utils'
         components. Use this as a guide to build your own.
       </PageHeaderDescription>
 
-      <section class="flex w-full items-center space-x-4 pb-8 pt-4 md:pb-10">
+      <PageAction>
         <a
           href="/docs/introduction"
           :class="cn(buttonVariants(), 'rounded-[6px]')"
@@ -52,7 +53,7 @@ import { cn } from '@/lib/utils'
         >
           Components
         </a>
-      </section>
+      </PageAction>
     </PageHeader>
     <section>
       <ExamplesNav />
