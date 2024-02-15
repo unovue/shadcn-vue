@@ -32,7 +32,7 @@
     "embla-carousel-autoplay": "^8.0.0-rc22",
     "embla-carousel-vue": "^8.0.0-rc22",
     "lucide-vue-next": "^0.276.0",
-    "radix-vue": "^1.4.1",
+    "radix-vue": "^1.4.5",
     "tailwindcss-animate": "^1.0.7",
     "v-calendar": "^3.1.2",
     "vee-validate": "4.12.5",
