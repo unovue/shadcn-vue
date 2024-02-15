@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   DialogClose,
   DialogContent,
@@ -6,21 +7,27 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
 import { X } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<DialogContentProps & { class?: string }>()
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DialogContentEmits>()
 
-const emitsAsProps = useEmitAsProps(emits)
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
+
+  return delegated
+})
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+      class="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     >
       <DialogContent
         :class="
@@ -29,7 +36,7 @@ const emitsAsProps = useEmitAsProps(emits)
             props.class,
           )
         "
-        v-bind="{ ...props, ...emitsAsProps }"
+        v-bind="forwarded"
       >
         <slot />
 

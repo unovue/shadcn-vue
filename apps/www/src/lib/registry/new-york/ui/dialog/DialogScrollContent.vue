@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type HTMLAttributes, computed } from 'vue'
 import {
   DialogClose,
   DialogContent,
@@ -6,29 +7,27 @@ import {
   type DialogContentProps,
   DialogOverlay,
   DialogPortal,
-  useEmitAsProps,
+  useForwardPropsEmits,
 } from 'radix-vue'
-import { Cross2Icon } from '@radix-icons/vue'
-import type { PointerDownOutsideEvent } from 'radix-vue/dist/DismissableLayer'
+import { X } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<DialogContentProps & { class?: string }>()
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DialogContentEmits>()
 
-const emitsAsProps = useEmitAsProps(emits)
+const delegatedProps = computed(() => {
+  const { class: _, ...delegated } = props
 
-function handlePointerDown(event: PointerDownOutsideEvent) {
-  const originalEvent = event.detail.originalEvent
-  // Ignore click events on the scrollbar.
-  if (originalEvent.offsetX > originalEvent.target?.clientWidth || originalEvent.offsetY > originalEvent.target?.clientHeight)
-    event.preventDefault()
-}
+  return delegated
+})
+
+const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+      class="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     >
       <DialogContent
         :class="
@@ -37,8 +36,7 @@ function handlePointerDown(event: PointerDownOutsideEvent) {
             props.class,
           )
         "
-        v-bind="{ ...props, ...emitsAsProps }"
-        @pointer-down-outside="handlePointerDown"
+        v-bind="forwarded"
       >
         <slot />
 
