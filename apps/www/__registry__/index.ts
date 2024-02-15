@@ -443,6 +443,13 @@ export const Index = {
       component: () => import('../src/lib/registry/default/example/InputWithButton.vue').then(m => m.default),
       files: ['../src/lib/registry/default/example/InputWithButton.vue'],
     },
+    InputWithIcon: {
+      name: 'InputWithIcon',
+      type: 'components:example',
+      registryDependencies: ['input'],
+      component: () => import('../src/lib/registry/default/example/InputWithIcon.vue').then(m => m.default),
+      files: ['../src/lib/registry/default/example/InputWithIcon.vue'],
+    },
     InputWithLabel: {
       name: 'InputWithLabel',
       type: 'components:example',
@@ -1361,6 +1368,13 @@ export const Index = {
       registryDependencies: ['input', 'button'],
       component: () => import('../src/lib/registry/new-york/example/InputWithButton.vue').then(m => m.default),
       files: ['../src/lib/registry/new-york/example/InputWithButton.vue'],
+    },
+    InputWithIcon: {
+      name: 'InputWithIcon',
+      type: 'components:example',
+      registryDependencies: ['input'],
+      component: () => import('../src/lib/registry/new-york/example/InputWithIcon.vue').then(m => m.default),
+      files: ['../src/lib/registry/new-york/example/InputWithIcon.vue'],
     },
     InputWithLabel: {
       name: 'InputWithLabel',
