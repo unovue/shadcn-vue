@@ -70,13 +70,6 @@ export default defineConfig({
   rewrites: {
     'content/(.*)': '(.*)',
   },
-  vue: {
-    template: {
-      compilerOptions: {
-        isCustomElement: tag => tag === 'option.icon',
-      },
-    },
-  },
   vite: {
     css: {
       postcss: {
