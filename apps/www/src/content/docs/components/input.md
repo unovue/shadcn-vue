@@ -63,6 +63,10 @@ import { Input } from '@/components/ui/input'
 
 <ComponentPreview name="InputWithButton" class="max-w-xs" />
 
+### With Icon
+
+<ComponentPreview name="InputWithIcon" class="max-w-xs" />
+
 ### Form
 
 <ComponentPreview name="InputForm" />

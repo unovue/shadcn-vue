@@ -15,6 +15,6 @@ import { Button } from '@/lib/registry/new-york/ui/button'
       })
     }"
   >
-    Add to calander
+    Add to calendar
   </Button>
 </template>

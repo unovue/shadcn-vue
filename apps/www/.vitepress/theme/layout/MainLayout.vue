@@ -138,17 +138,19 @@ watch(() => $route.path, (n) => {
               <component :is="link.icon" class="w-[20px] h-5" />
             </Button>
 
-            <Button
-              class="flex items-center justify-center"
-              aria-label="Toggle dark mode"
-              :variant="'ghost'"
-              :size="'icon'" @click="toggleDark()"
-            >
-              <component
-                :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                class="w-[20px] h-5 text-foreground"
-              />
-            </Button>
+            <ClientOnly>
+              <Button
+                class="flex items-center justify-center"
+                aria-label="Toggle dark mode"
+                :variant="'ghost'"
+                :size="'icon'" @click="toggleDark()"
+              >
+                <component
+                  :is="isDark ? RadixIconsSun : RadixIconsMoon"
+                  class="w-[20px] h-5 text-foreground"
+                />
+              </Button>
+            </ClientOnly>
           </div>
         </div>
       </div>
