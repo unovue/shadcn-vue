@@ -299,6 +299,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/tabs',
         },
         {
+          title: 'Tags Input',
+          href: '/docs/components/tags-input',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Textarea',
           href: '/docs/components/textarea',
         },

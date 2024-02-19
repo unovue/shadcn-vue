@@ -325,6 +325,7 @@
       "ui/dialog/DialogDescription.vue",
       "ui/dialog/DialogFooter.vue",
       "ui/dialog/DialogHeader.vue",
+      "ui/dialog/DialogScrollContent.vue",
       "ui/dialog/DialogTitle.vue",
       "ui/dialog/DialogTrigger.vue",
       "ui/dialog/index.ts"
@@ -678,6 +679,22 @@
       "ui/tabs/TabsList.vue",
       "ui/tabs/TabsTrigger.vue",
       "ui/tabs/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "tags-input",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/tags-input/TagsInput.vue",
+      "ui/tags-input/TagsInputInput.vue",
+      "ui/tags-input/TagsInputItem.vue",
+      "ui/tags-input/TagsInputItemDelete.vue",
+      "ui/tags-input/TagsInputItemText.vue",
+      "ui/tags-input/index.ts"
     ],
     "type": "components:ui"
   },
