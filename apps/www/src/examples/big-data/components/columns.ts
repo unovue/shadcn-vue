@@ -34,7 +34,7 @@ export const columns: ColumnDef<Task>[] = [
 
       return h('div', { class: 'flex space-x-2' }, [
         label && h(Badge, { variant: 'outline' }, label.label),
-        h('span', { class: 'max-w-[500px] truncate font-medium' }, row.getValue('title')),
+        h('span', { class: 'max-w-[180px] truncate font-medium' }, row.getValue('title')),
       ])
     },
   },

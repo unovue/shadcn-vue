@@ -20,8 +20,8 @@ const isFiltered = computed(() => props.table.getState().columnFilters.length > 
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
-    <div class="flex flex-1 items-center space-x-2">
+  <div class="flex items-start justify-between flex-wrap">
+    <div class="flex flex-1 items-center gap-2 flex-wrap">
       <Input
         placeholder="Filter tasks..."
         :model-value="(table.getColumn('title')?.getFilterValue() as string) ?? ''"

@@ -353,6 +353,16 @@ export const docsConfig: DocsConfig = {
         },
       ],
     },
+    {
+      title: 'Guides',
+      items: [
+        {
+          title: 'Render Large Data',
+          href: '/docs/guides/rendering-large-data',
+          items: [],
+        },
+      ],
+    },
   ],
 }
 

@@ -70,12 +70,16 @@ const table = useVueTable({
   },
 })
 
+// #region tableRows
 const tableRows = computed(() => table.getRowModel().rows)
+// #endregion tableRows
 
+// #region useVirtualList
 const { list, containerProps, wrapperProps } = useVirtualList(tableRows, {
   itemHeight: 49,
   overscan: 15,
 })
+// #endregion useVirtualList
 </script>
 
 <template>
@@ -85,7 +89,7 @@ const { list, containerProps, wrapperProps } = useVirtualList(tableRows, {
       <Table v-bind="wrapperProps">
         <TableHeader style="height: 49px">
           <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-            <TableHead v-for="header in headerGroup.headers" :key="header.id">
+            <TableHead v-for="header in headerGroup.headers" :key="header.id" class="sticky top-0 bg-black z-10 border-b">
               <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
             </TableHead>
           </TableRow>

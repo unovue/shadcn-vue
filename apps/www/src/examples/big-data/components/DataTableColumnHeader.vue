@@ -5,6 +5,7 @@ import ArrowDownIcon from '~icons/radix-icons/arrow-down'
 import ArrowUpIcon from '~icons/radix-icons/arrow-up'
 import CaretSortIcon from '~icons/radix-icons/caret-sort'
 import EyeNoneIcon from '~icons/radix-icons/eye-none'
+import ResetIcon from '~icons/radix-icons/reset'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/new-york/ui/button'
@@ -58,6 +59,10 @@ export default {
         <DropdownMenuItem @click="column.toggleVisibility(false)">
           <EyeNoneIcon class="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
           Hide
+        </DropdownMenuItem>
+        <DropdownMenuItem v-if="column.getIsSorted()" @click="column.clearSorting()">
+          <ResetIcon class="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+          Reset
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
