@@ -4,6 +4,10 @@ description: In some cases, you may need to render a large amount of data. This 
 sidebar: false
 ---
 
+## Introduction
+
+For Table logic we use [TanStack Table](https://tanstack.com/table/latest/) library. It's a powerful and flexible library for building tables in Vue, React and other frameworks. It's designed to be easy to use and flexible, while still providing the features you need.
+
 ## How to render large data
 
 When you have a large amount of data to render, you can use the [useVirtualList](https://vueuse.org/core/useVirtualList/#usevirtuallist) Component from [VueUse](https://vueuse.org/) library to render only the visible items. This can help to improve performance.
