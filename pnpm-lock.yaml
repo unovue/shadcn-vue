@@ -226,7 +226,7 @@ importers:
         specifier: ^11.2.0
         version: 11.2.0
       https-proxy-agent:
-        specifier: ^7.0.3
+        specifier: ^7.0.4
         version: 7.0.4
       lodash.template:
         specifier: ^4.5.0

@@ -54,7 +54,7 @@
     "detype": "npm:detypes@^0.7.6",
     "diff": "^5.2.0",
     "fs-extra": "^11.2.0",
-    "https-proxy-agent": "^7.0.3",
+    "https-proxy-agent": "^7.0.4",
     "lodash.template": "^4.5.0",
     "magic-string": "^0.30.7",
     "nypm": "^0.3.6",
