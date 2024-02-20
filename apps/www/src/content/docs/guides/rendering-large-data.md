@@ -16,6 +16,10 @@ Next step is to create a `useVirtualList` instance and pass our `tableRows` to i
 
 <<< @/examples/big-data/components/DataTable.vue#useVirtualList{2-3 ts}
 
+As you see `useVirtualList` function returns `list` object which contains `list` property with only visible items and `containerProps`, `wrapperProps` which should be passed to the container and wrapper element.
+
+<<< @/examples/big-data/components/DataTable.vue#template{4,5,14-24 vue:line-numbers}
+
 ## Example
 
 Here is an example of how to use `useVirtualList` to render a large amount of data. For test purposes, we will use 2000 rows for our table, you can change statuses, priorities, and view to see speed difference.

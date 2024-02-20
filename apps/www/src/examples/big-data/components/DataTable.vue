@@ -82,6 +82,7 @@ const { list, containerProps, wrapperProps } = useVirtualList(tableRows, {
 // #endregion useVirtualList
 </script>
 
+<!-- #region template -->
 <template>
   <div class="space-y-4">
     <DataTableToolbar :table="table" />
@@ -122,3 +123,4 @@ const { list, containerProps, wrapperProps } = useVirtualList(tableRows, {
     <DataTablePagination :table="table" />
   </div>
 </template>
+<!-- #endregion template -->
