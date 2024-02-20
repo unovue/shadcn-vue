@@ -57,7 +57,7 @@ onContentUpdated(() => {
 
 <template>
   <div class="hidden xl:block">
-    <ScrollArea orientation="vertical" class="h-[calc(100vh-6.5rem)] z-30 md:block overflow-y-auto" :type="'auto'">
+    <ScrollArea orientation="vertical" class="h-[calc(100vh-6.5rem)] z-30 md:block overflow-y-auto" type="hover">
       <div class="space-y-2">
         <p class="font-medium">
           On This Page
