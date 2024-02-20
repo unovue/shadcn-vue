@@ -5,6 +5,7 @@ import type { TableOfContents, TableOfContentsItem } from '../types/docs'
 import TableOfContentTree from './TableOfContentTree.vue'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/lib/registry/default/ui/collapsible'
 import { buttonVariants } from '@/lib/registry/default/ui/button'
+import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 
 const headers = shallowRef<TableOfContents>()
 
@@ -22,7 +23,7 @@ function getHeadingsWithHierarchy(divId: string) {
   headings.forEach((heading: HTMLHeadingElement) => {
     const level = Number.parseInt(heading.tagName.charAt(1))
     if (!heading.id) {
-      const newId = heading.innerText
+      const newId = heading.textContent
         .replaceAll(/[^a-zA-Z0-9 ]/g, '')
         .replaceAll(' ', '-')
         .toLowerCase()
@@ -55,11 +56,15 @@ onContentUpdated(() => {
 </script>
 
 <template>
-  <div class="space-y-2 hidden xl:block">
-    <p class="font-medium">
-      On This Page
-    </p>
-    <TableOfContentTree :tree="headers" :level="1" />
+  <div class="hidden xl:block">
+    <ScrollArea orientation="vertical" class="h-[calc(100vh-6.5rem)] z-30 md:block overflow-y-auto" type="hover">
+      <div class="space-y-2">
+        <p class="font-medium">
+          On This Page
+        </p>
+        <TableOfContentTree :tree="headers" :level="1" />
+      </div>
+    </ScrollArea>
   </div>
 
   <div class="block xl:hidden mb-6">
