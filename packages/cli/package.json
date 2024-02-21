@@ -51,7 +51,7 @@
     "c12": "^1.8.0",
     "commander": "^12.0.0",
     "consola": "^3.2.3",
-    "detype": "npm:detypes@^0.7.6",
+    "detype": "npm:detypes@^0.7.9",
     "diff": "^5.2.0",
     "fs-extra": "^11.2.0",
     "https-proxy-agent": "^7.0.4",
