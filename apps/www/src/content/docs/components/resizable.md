@@ -29,6 +29,18 @@ npm install radix-vue
 
 ### Copy and paste the following code into your project:
 
+`index.ts`
+
+<<< @/lib/registry/default/ui/resizable/index.ts
+
+`ResizablePanelGroup.vue`
+
+<<< @/lib/registry/default/ui/resizable/ResizablePanelGroup.vue
+
+`ResizableHandle.vue`
+
+<<< @/lib/registry/default/ui/resizable/ResizableHandle.vue
+
 </Steps>
 
 </template>
