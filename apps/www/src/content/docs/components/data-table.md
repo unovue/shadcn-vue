@@ -971,11 +971,9 @@ export const columns = [
   {
     accessorKey: "email",
     header: ({ column }) => (
-        return h(DataTableColumnHeader, {
-            props: {
-                column: column,
-                title: 'Email'
-            }
+        h(DataTableColumnHeader, {
+            column: column,
+            title: 'Email'
         })
     ),
   },
