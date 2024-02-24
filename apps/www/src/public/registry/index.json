@@ -446,6 +446,19 @@
     "type": "components:ui"
   },
   {
+    "name": "resizable",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/resizable/ResizableHandle.vue",
+      "ui/resizable/ResizablePanelGroup.vue",
+      "ui/resizable/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "scroll-area",
     "dependencies": [],
     "registryDependencies": [
