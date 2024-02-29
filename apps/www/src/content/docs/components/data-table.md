@@ -459,7 +459,6 @@ Let's make the email column sortable.
 ```ts:line-numbers {5,6,12-17}
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
 
 import type { Updater } from '@tanstack/vue-table'
 import { type Ref } from 'vue'
