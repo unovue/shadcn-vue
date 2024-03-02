@@ -4,7 +4,7 @@ import { dependencies as deps } from '../../../package.json'
 import { Index as demoIndex } from '../../../../www/__registry__'
 import tailwindConfigRaw from '../../../tailwind.config?raw'
 import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw'
-import { type Style } from '@/lib/registry/styles'
+import type { Style } from '@/lib/registry/styles'
 
 export function makeCodeSandboxParams(componentName: string, style: Style, sources: Record<string, string>) {
   let files: Record<string, any> = {}
@@ -164,7 +164,6 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
       isBinary: false,
       content: `import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
