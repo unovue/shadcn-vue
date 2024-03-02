@@ -157,6 +157,20 @@ export const add = new Command()
           }
         }
 
+        // Install dependencies.
+        await Promise.allSettled(
+          [
+            item.dependencies?.length && await addDependency(item.dependencies, {
+              cwd,
+              silent: true,
+            }),
+            item.devDependencies?.length && await addDevDependency(item.devDependencies, {
+              cwd,
+              silent: true,
+            }),
+          ],
+        )
+
         const componentDir = path.resolve(targetDir, item.name)
         if (!existsSync(componentDir))
           await fs.mkdir(componentDir, { recursive: true })
@@ -199,20 +213,6 @@ export const add = new Command()
 
           await fs.writeFile(filePath, content)
         }
-
-        // Install dependencies.
-        await Promise.allSettled(
-          [
-            item.dependencies?.length && await addDependency(item.dependencies, {
-              cwd,
-              silent: true,
-            }),
-            item.devDependencies?.length && await addDevDependency(item.devDependencies, {
-              cwd,
-              silent: true,
-            }),
-          ],
-        )
       }
       spinner.succeed('Done.')
     }
