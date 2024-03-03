@@ -402,6 +402,20 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DialogScrollOverlayDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DialogScrollOverlayDemo.vue"],
     },
+    "DrawerDemo": {
+      name: "DrawerDemo",
+      type: "components:example",
+      registryDependencies: ["button","drawer"],
+      component: () => import("../src/lib/registry/default/example/DrawerDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DrawerDemo.vue"],
+    },
+    "DrawerDialog": {
+      name: "DrawerDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog","drawer","label","input"],
+      component: () => import("../src/lib/registry/default/example/DrawerDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DrawerDialog.vue"],
+    },
     "DropdownMenuDemo": {
       name: "DropdownMenuDemo",
       type: "components:example",
@@ -1354,6 +1368,20 @@ export const Index = {
       registryDependencies: ["button","dialog"],
       component: () => import("../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue"],
+    },
+    "DrawerDemo": {
+      name: "DrawerDemo",
+      type: "components:example",
+      registryDependencies: ["button","drawer"],
+      component: () => import("../src/lib/registry/new-york/example/DrawerDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DrawerDemo.vue"],
+    },
+    "DrawerDialog": {
+      name: "DrawerDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog","drawer","label","input"],
+      component: () => import("../src/lib/registry/new-york/example/DrawerDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DrawerDialog.vue"],
     },
     "DropdownMenuDemo": {
       name: "DropdownMenuDemo",

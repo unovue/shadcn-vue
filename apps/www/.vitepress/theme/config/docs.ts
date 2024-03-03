@@ -215,6 +215,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Drawer',
+          href: '/docs/components/drawer',
+          items: [],
+          label: 'New',
+        },
+        {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
           items: [],
