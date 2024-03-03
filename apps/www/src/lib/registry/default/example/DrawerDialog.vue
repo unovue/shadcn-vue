@@ -23,9 +23,9 @@ import {
 import { Label } from '@/lib/registry/default/ui/label'
 import { Input } from '@/lib/registry/default/ui/input'
 
-const isDesktop = useMediaQuery('(min-width: 768px)')
 // Reuse `form` section
 const [UseTemplate, GridForm] = createReusableTemplate()
+const isDesktop = useMediaQuery('(min-width: 768px)')
 
 const isOpen = ref(false)
 </script>
