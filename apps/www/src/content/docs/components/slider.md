@@ -26,3 +26,10 @@ import { Slider } from '@/components/ui/slider'
   />
 </template>
 ```
+
+
+## Examples
+
+### Form
+
+<ComponentPreview name="SliderForm" />
