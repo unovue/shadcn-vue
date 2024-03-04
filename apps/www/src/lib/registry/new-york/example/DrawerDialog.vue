@@ -31,6 +31,22 @@ const isOpen = ref(false)
 </script>
 
 <template>
+  <UseTemplate>
+    <form class="grid items-start gap-4 px-4">
+      <div class="grid gap-2">
+        <Label html-for="email">Email</Label>
+        <Input id="email" type="email" default-value="shadcn@example.com" />
+      </div>
+      <div class="grid gap-2">
+        <Label html-for="username">Username</Label>
+        <Input id="username" default-value="@shadcn" />
+      </div>
+      <Button type="submit">
+        Save changes
+      </Button>
+    </form>
+  </UseTemplate>
+
   <Dialog v-if="isDesktop" v-model:open="isOpen">
     <DialogTrigger as-child>
       <Button variant="outline">
@@ -71,20 +87,4 @@ const isOpen = ref(false)
       </DrawerFooter>
     </DrawerContent>
   </Drawer>
-
-  <UseTemplate>
-    <form class="grid items-start gap-4 px-4">
-      <div class="grid gap-2">
-        <Label html-for="email">Email</Label>
-        <Input id="email" type="email" default-value="shadcn@example.com" />
-      </div>
-      <div class="grid gap-2">
-        <Label html-for="username">Username</Label>
-        <Input id="username" default-value="@shadcn" />
-      </div>
-      <Button type="submit">
-        Save changes
-      </Button>
-    </form>
-  </UseTemplate>
 </template>
