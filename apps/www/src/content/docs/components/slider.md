@@ -1,11 +1,11 @@
 ---
 title: Slider
 description: An input where the user selects a value from within a given range.
-source: apps/www/src/lib/registry/default/ui/slider 
+source: apps/www/src/lib/registry/default/ui/slider
 primitive: https://www.radix-vue.com/components/slider.html
 ---
 
-<ComponentPreview name="SliderDemo" /> 
+<ComponentPreview name="SliderDemo" />
 
 ## Installation
 
@@ -26,7 +26,6 @@ import { Slider } from '@/components/ui/slider'
   />
 </template>
 ```
-
 
 ## Examples
 

@@ -633,6 +633,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SliderDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SliderDemo.vue"],
     },
+    "SliderForm": {
+      name: "SliderForm",
+      type: "components:example",
+      registryDependencies: ["button","form","select","toast"],
+      component: () => import("../src/lib/registry/default/example/SliderForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SliderForm.vue"],
+    },
     "SonnerDemo": {
       name: "SonnerDemo",
       type: "components:example",
@@ -1599,6 +1606,13 @@ export const Index = {
       registryDependencies: ["utils","slider"],
       component: () => import("../src/lib/registry/new-york/example/SliderDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SliderDemo.vue"],
+    },
+    "SliderForm": {
+      name: "SliderForm",
+      type: "components:example",
+      registryDependencies: ["button","form","select","toast"],
+      component: () => import("../src/lib/registry/new-york/example/SliderForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SliderForm.vue"],
     },
     "SonnerDemo": {
       name: "SonnerDemo",

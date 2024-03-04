@@ -18,8 +18,8 @@ import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const formSchema = toTypedSchema(z.object({
   duration: z.array(
-      z.number().min(1).max(1440)
-    ),
+    z.number().min(0).max(60),
+  ),
 }))
 
 const { handleSubmit } = useForm({
