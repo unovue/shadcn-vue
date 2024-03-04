@@ -98,6 +98,9 @@ importers:
       v-calendar:
         specifier: ^3.1.2
         version: 3.1.2(@popperjs/core@2.11.8)(vue@3.4.21)
+      vaul-vue:
+        specifier: ^0.1.0
+        version: 0.1.0(typescript@5.3.3)
       vee-validate:
         specifier: 4.12.5
         version: 4.12.5(vue@3.4.21)
@@ -13144,6 +13147,17 @@ packages:
     dependencies:
       builtins: 5.0.1
     dev: true
+
+  /vaul-vue@0.1.0(typescript@5.3.3):
+    resolution: {integrity: sha512-3PYWMbN3cSdsciv3fzewskxZFnX61PYq1uNsbvizXDo/8sN4SMrWkYDqWaPdTD3GTEm6wpx7j5flRLg7A5ZXbQ==}
+    dependencies:
+      '@vueuse/core': 10.9.0(vue@3.4.21)
+      radix-vue: 1.4.9(vue@3.4.21)
+      vue: 3.4.21(typescript@5.3.3)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+    dev: false
 
   /vee-validate@4.12.5(vue@3.4.21):
     resolution: {integrity: sha512-rvaDfLPSLwTk+mf016XWE4drB8yXzOsKXiKHTb9gNXNLTtQSZ0Ww26O0/xbIFQe+n3+u8Wv1Y8uO/aLDX4fxOg==}
