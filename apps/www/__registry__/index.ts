@@ -423,12 +423,26 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DrawerDialog.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DrawerDialog.vue"],
     },
+    "DropdownMenuCheckboxes": {
+      name: "DropdownMenuCheckboxes",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/default/example/DropdownMenuCheckboxes.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DropdownMenuCheckboxes.vue"],
+    },
     "DropdownMenuDemo": {
       name: "DropdownMenuDemo",
       type: "components:example",
       registryDependencies: ["button","dropdown-menu"],
       component: () => import("../src/lib/registry/default/example/DropdownMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DropdownMenuDemo.vue"],
+    },
+    "DropdownMenuRadioGroup": {
+      name: "DropdownMenuRadioGroup",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/default/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DropdownMenuRadioGroup.vue"],
     },
     "HoverCardDemo": {
       name: "HoverCardDemo",
@@ -604,6 +618,13 @@ export const Index = {
       registryDependencies: ["button","form","select","toast"],
       component: () => import("../src/lib/registry/default/example/SelectForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SelectForm.vue"],
+    },
+    "SelectScrollable": {
+      name: "SelectScrollable",
+      type: "components:example",
+      registryDependencies: ["select"],
+      component: () => import("../src/lib/registry/default/example/SelectScrollable.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SelectScrollable.vue"],
     },
     "SeparatorDemo": {
       name: "SeparatorDemo",
@@ -1411,12 +1432,26 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/DrawerDialog.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DrawerDialog.vue"],
     },
+    "DropdownMenuCheckboxes": {
+      name: "DropdownMenuCheckboxes",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/new-york/example/DropdownMenuCheckboxes.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DropdownMenuCheckboxes.vue"],
+    },
     "DropdownMenuDemo": {
       name: "DropdownMenuDemo",
       type: "components:example",
       registryDependencies: ["button","dropdown-menu"],
       component: () => import("../src/lib/registry/new-york/example/DropdownMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DropdownMenuDemo.vue"],
+    },
+    "DropdownMenuRadioGroup": {
+      name: "DropdownMenuRadioGroup",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/new-york/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DropdownMenuRadioGroup.vue"],
     },
     "HoverCardDemo": {
       name: "HoverCardDemo",
@@ -1592,6 +1627,13 @@ export const Index = {
       registryDependencies: ["button","form","select","toast"],
       component: () => import("../src/lib/registry/new-york/example/SelectForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SelectForm.vue"],
+    },
+    "SelectScrollable": {
+      name: "SelectScrollable",
+      type: "components:example",
+      registryDependencies: ["select"],
+      component: () => import("../src/lib/registry/new-york/example/SelectScrollable.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SelectScrollable.vue"],
     },
     "SeparatorDemo": {
       name: "SeparatorDemo",
