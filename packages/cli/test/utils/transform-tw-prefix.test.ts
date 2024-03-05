@@ -86,7 +86,7 @@ it('transform tailwind prefix', async () => {
     await transform({
       filename: 'app.vue',
       raw: `<template>
-      <div :class="cn('bg-background hover:bg-muted', true && 'text-primary-foreground sm:focus:text-accent-foreground')">
+      <div id="testing" v-bind="props" @click="handleSomething" :data-test="true"  :class="cn('bg-background hover:bg-muted', true && 'text-primary-foreground sm:focus:text-accent-foreground')">
         foo
       </div>
     </template>

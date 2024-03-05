@@ -26,6 +26,10 @@ export const transformTwPrefixes: Transformer = async ({
     if (template && template.loc.start.offset >= node.getPos())
       return sourceFile
 
+    const attrName = sourceFile.getDescendantAtPos(node.getPos() - 2)?.getText()
+    if (isVueFile && attrName !== 'class')
+      return sourceFile
+
     const value = node.getText()
     const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
     if (value.search('\'') === -1 && hasClosingDoubleQuote) {
