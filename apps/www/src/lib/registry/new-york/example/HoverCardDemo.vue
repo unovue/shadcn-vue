@@ -22,7 +22,7 @@ import {
       </Button>
     </HoverCardTrigger>
     <HoverCardContent class="w-80">
-      <div class="flex justify-between space-x-4">
+      <div class="flex justify-between gap-4">
         <Avatar>
           <AvatarImage src="https://github.com/vuejs.png" />
           <AvatarFallback>VC</AvatarFallback>

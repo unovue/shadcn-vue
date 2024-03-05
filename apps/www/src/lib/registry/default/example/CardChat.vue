@@ -67,7 +67,7 @@ const selectedUsers = ref<User[]>([])
 <template>
   <Card>
     <CardHeader class="flex flex-row items-center justify-between">
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center gap-4">
         <Avatar>
           <AvatarImage src="/avatars/01.png" alt="Image" />
           <AvatarFallback>OM</AvatarFallback>
@@ -114,7 +114,7 @@ const selectedUsers = ref<User[]>([])
     </CardContent>
     <CardFooter>
       <form
-        class="flex w-full items-center space-x-2"
+        class="flex w-full items-center gap-2"
         @submit.prevent="() => {
           if (inputLength === 0) return
           messages.push({
@@ -182,7 +182,7 @@ const selectedUsers = ref<User[]>([])
         </CommandList>
       </Command>
       <DialogFooter class="flex items-center border-t p-4 sm:justify-between">
-        <div v-if="selectedUsers.length > 0" class="flex -space-x-2 overflow-hidden">
+        <div v-if="selectedUsers.length > 0" class="flex -flex gap-2 overflow-hidden">
           <Avatar
             v-for="user in selectedUsers"
             :key="user.email"

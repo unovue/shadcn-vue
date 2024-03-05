@@ -49,7 +49,7 @@ const selectedStatus = ref<Status>()
 </script>
 
 <template>
-  <div class="flex items-center space-x-4">
+  <div class="flex items-center gap-4">
     <p class="text-sm text-muted-foreground">
       Status
     </p>

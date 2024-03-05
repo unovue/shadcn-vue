@@ -3,7 +3,7 @@ import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 </script>
 
 <template>
-  <div class="flex items-center space-x-2">
+  <div class="flex items-center gap-2">
     <Checkbox id="terms" />
     <label
       for="terms"

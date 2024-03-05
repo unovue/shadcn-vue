@@ -13,7 +13,7 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
       </p>
     </div>
     <Separator class="my-4" />
-    <div class="flex h-5 items-center space-x-4 text-sm">
+    <div class="flex h-5 items-center gap-4 text-sm">
       <div>Blog</div>
       <Separator orientation="vertical" />
       <div>Docs</div>
