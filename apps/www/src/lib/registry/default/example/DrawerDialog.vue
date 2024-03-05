@@ -34,11 +34,11 @@ const isOpen = ref(false)
   <UseTemplate>
     <form class="grid items-start gap-4 px-4">
       <div class="grid gap-2">
-        <Label htms-for="email">Email</Label>
+        <Label for="email">Email</Label>
         <Input id="email" type="email" default-value="shadcn@example.com" />
       </div>
       <div class="grid gap-2">
-        <Label htms-for="username">Username</Label>
+        <Label for="username">Username</Label>
         <Input id="username" default-value="@shadcn" />
       </div>
       <Button type="submit">
