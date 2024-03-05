@@ -297,6 +297,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/ComboboxPopover.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/ComboboxPopover.vue"],
     },
+    "ComboboxResponsive": {
+      name: "ComboboxResponsive",
+      type: "components:example",
+      registryDependencies: ["button","command","drawer","popover"],
+      component: () => import("../src/lib/registry/default/example/ComboboxResponsive.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/ComboboxResponsive.vue"],
+    },
     "CommandDemo": {
       name: "CommandDemo",
       type: "components:example",
@@ -1277,6 +1284,13 @@ export const Index = {
       registryDependencies: ["utils","button","command","popover"],
       component: () => import("../src/lib/registry/new-york/example/ComboboxPopover.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/ComboboxPopover.vue"],
+    },
+    "ComboboxResponsive": {
+      name: "ComboboxResponsive",
+      type: "components:example",
+      registryDependencies: ["button","command","drawer","popover"],
+      component: () => import("../src/lib/registry/new-york/example/ComboboxResponsive.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/ComboboxResponsive.vue"],
     },
     "CommandDemo": {
       name: "CommandDemo",
