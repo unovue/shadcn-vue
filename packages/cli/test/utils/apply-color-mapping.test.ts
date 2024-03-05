@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import {
   applyColorMapping,
@@ -7,7 +7,7 @@ import {
 import baseColor from '../fixtures/colors/slate.json'
 
 describe('split class', () => {
-  test.each([
+  it.each([
     {
       input: 'bg-popover',
       output: [null, 'bg-popover', null],
@@ -50,7 +50,7 @@ describe('split class', () => {
 })
 
 describe('apply color mapping', async () => {
-  test.each([
+  it.each([
     {
       input: 'bg-background text-foreground',
       output: 'bg-white text-slate-950 dark:bg-slate-950 dark:text-slate-50',
