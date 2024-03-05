@@ -619,6 +619,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SheetSideDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SheetSideDemo.vue"],
     },
+    "SkeletonCard": {
+      name: "SkeletonCard",
+      type: "components:example",
+      registryDependencies: ["skeleton"],
+      component: () => import("../src/lib/registry/default/example/SkeletonCard.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SkeletonCard.vue"],
+    },
     "SkeletonDemo": {
       name: "SkeletonDemo",
       type: "components:example",
@@ -636,7 +643,7 @@ export const Index = {
     "SliderForm": {
       name: "SliderForm",
       type: "components:example",
-      registryDependencies: ["button","form","select","toast"],
+      registryDependencies: ["button","form","slider","toast"],
       component: () => import("../src/lib/registry/default/example/SliderForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SliderForm.vue"],
     },
@@ -1593,6 +1600,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/SheetSideDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SheetSideDemo.vue"],
     },
+    "SkeletonCard": {
+      name: "SkeletonCard",
+      type: "components:example",
+      registryDependencies: ["skeleton"],
+      component: () => import("../src/lib/registry/new-york/example/SkeletonCard.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SkeletonCard.vue"],
+    },
     "SkeletonDemo": {
       name: "SkeletonDemo",
       type: "components:example",
@@ -1610,7 +1624,7 @@ export const Index = {
     "SliderForm": {
       name: "SliderForm",
       type: "components:example",
-      registryDependencies: ["button","form","select","toast"],
+      registryDependencies: ["button","form","slider","toast"],
       component: () => import("../src/lib/registry/new-york/example/SliderForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SliderForm.vue"],
     },
