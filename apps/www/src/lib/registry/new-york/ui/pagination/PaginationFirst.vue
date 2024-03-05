@@ -22,7 +22,7 @@ const delegatedProps = computed(() => {
   <PaginationFirst v-bind="delegatedProps">
     <Button :class="cn('w-9 h-9 p-0', props.class)" variant="outline">
       <slot>
-        <DoubleArrowLeftIcon />
+        <DoubleArrowLeftIcon class="rtl:rotate-180" />
       </slot>
     </Button>
   </PaginationFirst>

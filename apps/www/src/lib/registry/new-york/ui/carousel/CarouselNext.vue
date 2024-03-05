@@ -24,7 +24,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     @click="scrollNext"
   >
     <slot>
-      <ArrowRightIcon class="h-4 w-4 text-current" />
+      <ArrowRightIcon class="h-4 w-4 text-current rtl:rotate-180" />
     </slot>
   </Button>
 </template>

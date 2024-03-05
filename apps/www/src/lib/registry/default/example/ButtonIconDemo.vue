@@ -5,6 +5,6 @@ import { Button } from '@/lib/registry/default/ui/button'
 
 <template>
   <Button variant="outline" size="icon">
-    <ChevronRight class="w-4 h-4" />
+    <ChevronRight class="w-4 h-4 rtl:rotate-180" />
   </Button>
 </template>

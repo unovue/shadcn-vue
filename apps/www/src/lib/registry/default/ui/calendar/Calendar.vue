@@ -80,10 +80,10 @@ const vCalendarSlots = computed(() => {
   <div class="relative">
     <div v-if="$attrs.mode !== 'time'" class="absolute flex justify-between w-full px-4 top-3 z-[1]">
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
-        <ChevronLeft class="w-4 h-4" />
+        <ChevronLeft class="w-4 h-4 rtl:rotate-180" />
       </button>
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('next')">
-        <ChevronRight class="w-4 h-4" />
+        <ChevronRight class="w-4 h-4 rtl:rotate-180" />
       </button>
     </div>
 
@@ -102,11 +102,11 @@ const vCalendarSlots = computed(() => {
       </template>
 
       <template #nav-prev-button>
-        <ChevronLeft />
+        <ChevronLeft class="rtl:rotate-180" />
       </template>
 
       <template #nav-next-button>
-        <ChevronRight />
+        <ChevronRight class="rtl:rotate-180" />
       </template>
     </DatePicker>
   </div>
