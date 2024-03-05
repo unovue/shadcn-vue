@@ -104,7 +104,7 @@ const columns: ColumnDef<Payment>[] = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
+      }, ['Email', h(CaretSortIcon, { class: 'ms-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   },
@@ -178,8 +178,8 @@ const table = useVueTable({
           />
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
-              <Button variant="outline" class="ml-auto">
-                Columns <ChevronDownIcon class="ml-2 h-4 w-4" />
+              <Button variant="outline" class="ms-auto">
+                Columns <ChevronDownIcon class="ms-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -201,7 +201,7 @@ const table = useVueTable({
           <Table>
             <TableHeader>
               <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-                <TableHead v-for="header in headerGroup.headers" :key="header.id" class="[&:has([role=checkbox])]:pl-3">
+                <TableHead v-for="header in headerGroup.headers" :key="header.id" class="[&:has([role=checkbox])]:ps-3">
                   <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
                 </TableHead>
               </TableRow>
@@ -213,7 +213,7 @@ const table = useVueTable({
                   :key="row.id"
                   :data-state="row.getIsSelected() && 'selected'"
                 >
-                  <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" class="[&:has([role=checkbox])]:pl-3">
+                  <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" class="[&:has([role=checkbox])]:ps-3">
                     <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
                   </TableCell>
                 </TableRow>

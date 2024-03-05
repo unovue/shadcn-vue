@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -88,7 +87,7 @@ const columns = [
       'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
       'ariaLabel': 'Select all',
     }),
-    cell: ({ row, column }) => {
+    cell: ({ row }) => {
       return h(Checkbox, {
         'checked': row.getIsSelected(),
         'onUpdate:checked': value => row.toggleSelected(!!value),
@@ -108,7 +107,7 @@ const columns = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
+      }, () => ['Email', h(CaretSortIcon, { class: 'ms-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   }),
@@ -165,8 +164,6 @@ const table = useVueTable({
     },
   },
 })
-
-const getState = table.getState()
 </script>
 
 <template>
@@ -180,8 +177,8 @@ const getState = table.getState()
       />
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <Button variant="outline" class="ml-auto">
-            Columns <ChevronDownIcon class="ml-2 h-4 w-4" />
+          <Button variant="outline" class="ms-auto">
+            Columns <ChevronDownIcon class="ms-2 h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">

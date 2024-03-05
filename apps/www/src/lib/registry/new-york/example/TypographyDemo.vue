@@ -23,7 +23,7 @@
       </a>
       : he would tax the jokes in the kingdom.
     </p>
-    <blockquote class="mt-6 border-l-2 pl-6 italic">
+    <blockquote class="mt-6 border-l-2 ps-6 italic">
       "After all," he said, "everyone enjoys a good joke, so it's only fair
       that they should pay for the privilege."
     </blockquote>
@@ -34,7 +34,7 @@
       The king's subjects were not amused. They grumbled and complained, but
       the king was firm:
     </p>
-    <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
+    <ul class="my-6 ms-6 list-disc [&>li]:mt-2">
       <li>1st level of puns: 5 gold coins</li>
       <li>2nd level of jokes: 10 gold coins</li>
       <li>3rd level of one-liners : 20 gold coins</li>

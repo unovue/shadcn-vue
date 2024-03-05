@@ -67,7 +67,7 @@ const notifications = [
     </CardContent>
     <CardFooter>
       <Button class="w-full">
-        <Check class="mr-2 h-4 w-4" /> Mark all as read
+        <Check class="me-2 h-4 w-4" /> Mark all as read
       </Button>
     </CardFooter>
   </Card>

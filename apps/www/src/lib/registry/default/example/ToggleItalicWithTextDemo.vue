@@ -6,7 +6,7 @@ import { Toggle } from '@/lib/registry/default/ui/toggle'
 
 <template>
   <Toggle aria-label="Toggle italic">
-    <Italic class="w-4 h-4 mr-2" />
+    <Italic class="w-4 h-4 me-2" />
     Italic
   </Toggle>
 </template>

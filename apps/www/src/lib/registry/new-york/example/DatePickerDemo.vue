@@ -25,7 +25,7 @@ const date = ref<Date>()
           !date && 'text-muted-foreground',
         )"
       >
-        <CalendarIcon class="mr-2 h-4 w-4" />
+        <CalendarIcon class="me-2 h-4 w-4" />
         <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
       </Button>
     </PopoverTrigger>

@@ -42,7 +42,7 @@ const open = ref(false)
 <template>
   <div class="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">
     <p class="text-sm font-medium leading-none">
-      <span class="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground">
+      <span class="me-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground">
         {{ labelRef }}
       </span>
       <span class="text-muted-foreground">Create a new project</span>
@@ -57,17 +57,17 @@ const open = ref(false)
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User class="mr-2 h-4 w-4" />
+            <User class="me-2 h-4 w-4" />
             Assign to...
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Calendar class="mr-2 h-4 w-4" />
+            <Calendar class="me-2 h-4 w-4" />
             Set due date...
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <Tags class="mr-2 h-4 w-4" />
+              <Tags class="me-2 h-4 w-4" />
               Apply label
             </DropdownMenuSubTrigger>
             <DropdownMenuSubContent class="p-0">
@@ -97,7 +97,7 @@ const open = ref(false)
           </DropdownMenuSub>
           <DropdownMenuSeparator />
           <DropdownMenuItem class="text-red-600">
-            <Trash class="mr-2 h-4 w-4" />
+            <Trash class="me-2 h-4 w-4" />
             Delete
             <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
           </DropdownMenuItem>

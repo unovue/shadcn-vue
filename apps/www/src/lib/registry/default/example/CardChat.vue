@@ -105,7 +105,7 @@ const selectedUsers = ref<User[]>([])
           :key="index"
           :class="cn(
             'flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm',
-            message.role === 'user' ? 'ml-auto bg-primary text-primary-foreground' : 'bg-muted',
+            message.role === 'user' ? 'ms-auto bg-primary text-primary-foreground' : 'bg-muted',
           )"
         >
           {{ message.content }}
@@ -168,7 +168,7 @@ const selectedUsers = ref<User[]>([])
                 <AvatarImage :src="user.avatar" alt="Image" />
                 <AvatarFallback>{{ user.name[0] }}</AvatarFallback>
               </Avatar>
-              <div class="ml-2">
+              <div class="ms-2">
                 <p class="text-sm font-medium leading-none">
                   {{ user.name }}
                 </p>
@@ -176,7 +176,7 @@ const selectedUsers = ref<User[]>([])
                   {{ user.email }}
                 </p>
               </div>
-              <Check v-if="selectedUsers.includes(user)" class="ml-auto flex h-5 w-5 text-primary" />
+              <Check v-if="selectedUsers.includes(user)" class="ms-auto flex h-5 w-5 text-primary" />
             </CommandItem>
           </CommandGroup>
         </CommandList>

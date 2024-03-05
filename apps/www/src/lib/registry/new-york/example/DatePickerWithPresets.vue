@@ -32,7 +32,7 @@ const date = ref<Date>()
           !date && 'text-muted-foreground',
         )"
       >
-        <CalendarIcon class="mr-2 h-4 w-4" />
+        <CalendarIcon class="me-2 h-4 w-4" />
         <template v-if="date">
           {{ format(date, "PPP") }}
         </template>

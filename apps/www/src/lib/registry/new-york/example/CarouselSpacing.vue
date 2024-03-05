@@ -10,8 +10,8 @@ import { Card, CardContent } from '@/lib/registry/new-york/ui/card'
       align: 'start',
     }"
   >
-    <CarouselContent class="-ml-1">
-      <CarouselItem v-for="(_, index) in 5" :key="index" class="pl-1 md:basis-1/2 lg:basis-1/3">
+    <CarouselContent class="-ms-1">
+      <CarouselItem v-for="(_, index) in 5" :key="index" class="ps-1 md:basis-1/2 lg:basis-1/3">
         <div class="p-1">
           <Card>
             <CardContent class="flex aspect-square items-center justify-center p-6">
