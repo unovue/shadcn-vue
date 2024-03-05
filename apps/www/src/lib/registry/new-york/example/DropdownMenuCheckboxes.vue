@@ -25,7 +25,7 @@ const showPanel = ref<Checked>(false)
         Open
       </Button>
     </DropdownMenuTrigger>
-    <DropdownMenuContent class-name="w-56">
+    <DropdownMenuContent class="w-56">
       <DropdownMenuLabel>Appearance</DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuCheckboxItem
