@@ -297,6 +297,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/ComboboxPopover.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/ComboboxPopover.vue"],
     },
+    "ComboboxResponsive": {
+      name: "ComboboxResponsive",
+      type: "components:example",
+      registryDependencies: ["button","command","drawer","popover"],
+      component: () => import("../src/lib/registry/default/example/ComboboxResponsive.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/ComboboxResponsive.vue"],
+    },
     "CommandDemo": {
       name: "CommandDemo",
       type: "components:example",
@@ -636,7 +643,7 @@ export const Index = {
     "SliderForm": {
       name: "SliderForm",
       type: "components:example",
-      registryDependencies: ["button","form","select","toast"],
+      registryDependencies: ["button","form","slider","toast"],
       component: () => import("../src/lib/registry/default/example/SliderForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SliderForm.vue"],
     },
@@ -1271,6 +1278,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/ComboboxPopover.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/ComboboxPopover.vue"],
     },
+    "ComboboxResponsive": {
+      name: "ComboboxResponsive",
+      type: "components:example",
+      registryDependencies: ["button","command","drawer","popover"],
+      component: () => import("../src/lib/registry/new-york/example/ComboboxResponsive.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/ComboboxResponsive.vue"],
+    },
     "CommandDemo": {
       name: "CommandDemo",
       type: "components:example",
@@ -1610,7 +1624,7 @@ export const Index = {
     "SliderForm": {
       name: "SliderForm",
       type: "components:example",
-      registryDependencies: ["button","form","select","toast"],
+      registryDependencies: ["button","form","slider","toast"],
       component: () => import("../src/lib/registry/new-york/example/SliderForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SliderForm.vue"],
     },
