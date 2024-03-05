@@ -1,9 +1,9 @@
 import path from 'pathe'
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 
 import { getConfig, getRawConfig } from '../../src/utils/get-config'
 
-test('get raw config', async () => {
+it('get raw config', async () => {
   expect(
     await getRawConfig(path.resolve(__dirname, '../fixtures/config-none')),
   ).toEqual(null)
@@ -31,7 +31,7 @@ test('get raw config', async () => {
   ).rejects.toThrowError()
 })
 
-test('get config', async () => {
+it('get config', async () => {
   expect(
     await getConfig(path.resolve(__dirname, '../fixtures/config-none')),
   ).toEqual(null)
@@ -94,6 +94,7 @@ test('get config', async () => {
       baseColor: 'zinc',
       css: 'src/app/globals.css',
       cssVariables: true,
+      prefix: 'tw-',
     },
     aliases: {
       components: '~/components',

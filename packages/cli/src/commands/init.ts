@@ -28,6 +28,7 @@ import {
   resolveConfigPaths,
 } from '../utils/get-config'
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm'
+import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -152,6 +153,14 @@ export async function promptForConfig(
     },
     {
       type: 'text',
+      name: 'tailwindPrefix',
+      message: `Are you using a custom ${highlight(
+        'tailwind prefix eg. tw-',
+      )}? (Leave blank if not)`,
+      initial: '',
+    },
+    {
+      type: 'text',
       name: 'tailwindConfig',
       message: `Where is your ${highlight('tailwind.config')} located?`,
       initial: (prev, values) => {
@@ -186,6 +195,7 @@ export async function promptForConfig(
       css: options.tailwindCss,
       baseColor: options.tailwindBaseColor,
       cssVariables: options.tailwindCssVariables,
+      prefix: options.tailwindPrefix,
     },
     aliases: {
       utils: options.utils,
@@ -246,8 +256,8 @@ export async function runInit(cwd: string, config: Config) {
     transformCJSToESM(
       config.resolvedPaths.tailwindConfig,
       config.tailwind.cssVariables
-        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework })
-        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework }),
+        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework, prefix: config.tailwind.prefix })
+        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework, prefix: config.tailwind.prefix }),
     ),
     'utf8',
   )
@@ -258,7 +268,9 @@ export async function runInit(cwd: string, config: Config) {
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       config.tailwind.cssVariables
-        ? baseColor.cssVarsTemplate
+        ? config.tailwind.prefix
+          ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
+          : baseColor.cssVarsTemplate
         : baseColor.inlineColorsTemplate,
       'utf8',
     )
