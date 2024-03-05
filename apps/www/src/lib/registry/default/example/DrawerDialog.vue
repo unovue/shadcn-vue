@@ -71,7 +71,7 @@ const isOpen = ref(false)
       </Button>
     </DrawerTrigger>
     <DrawerContent>
-      <DrawerHeader class="text-left">
+      <DrawerHeader class="text-start">
         <DrawerTitle>Edit profile</DrawerTitle>
         <DrawerDescription>
           Make changes to your profile here. Click save when you're done.
