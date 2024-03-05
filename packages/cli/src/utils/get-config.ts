@@ -29,6 +29,7 @@ export const rawConfigSchema = z
       css: z.string(),
       baseColor: z.string(),
       cssVariables: z.boolean().default(true),
+      prefix: z.string().optional(),
     }),
     framework: z.string().default('Vite'),
     aliases: z.object({
@@ -99,9 +100,9 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       tailwindCss: path.resolve(cwd, config.tailwind.css),
       utils: resolveImport(config.aliases.utils, tsConfig),
       components: resolveImport(config.aliases.components, tsConfig),
-      ui: config.aliases['ui']
-        ? resolveImport(config.aliases['ui'], tsConfig)
-        : resolveImport(config.aliases['components'], tsConfig),
+      ui: config.aliases.ui
+        ? resolveImport(config.aliases.ui, tsConfig)
+        : resolveImport(config.aliases.components, tsConfig),
     },
   })
 }
