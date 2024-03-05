@@ -1,15 +1,13 @@
 ---
 title: Select
 description: Displays a list of options for the user to pick from—triggered by a button.
-source: apps/www/src/lib/registry/default/ui/select 
+source: apps/www/src/lib/registry/default/ui/select
 primitive: https://www.radix-vue.com/components/select.html
 ---
 
-
-<ComponentPreview name="SelectDemo" /> 
+<ComponentPreview name="SelectDemo" />
 
 ## Installation
-
 
 ```bash
 npx shadcn-vue@latest add select
@@ -48,6 +46,10 @@ import {
 ```
 
 ## Examples
+
+### Scrollable
+
+<ComponentPreview name="SelectScrollable" />
 
 ### Form
 

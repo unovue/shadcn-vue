@@ -3,8 +3,7 @@ title: Input
 description: Displays a form input field or a component that looks like an input field.
 ---
 
-
-<ComponentPreview name="InputDemo" class="max-w-xs" /> 
+<ComponentPreview name="InputDemo" class="max-w-xs" />
 
 ## Installation
 
@@ -26,8 +25,6 @@ npx shadcn-vue@latest add input
 
 </Steps>
 
-
-
 </template>
 </TabPreview>
 
@@ -42,6 +39,8 @@ import { Input } from '@/components/ui/input'
   <Input />
 </template>
 ```
+
+## Examples
 
 ### Default
 
