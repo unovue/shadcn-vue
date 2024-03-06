@@ -24,6 +24,7 @@ export default antfu(
       'no-tabs': 0,
       'import/first': 0,
       'node/prefer-global/process': 0,
+      'style/no-tabs': 0,
     },
   },
 )

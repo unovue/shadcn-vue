@@ -1,4 +1,4 @@
-import path from 'node:path'
+import path from 'pathe'
 import { type ConfigLoaderSuccessResult, loadConfig } from 'tsconfig-paths'
 import { expect, test } from 'vitest'
 

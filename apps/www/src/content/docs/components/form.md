@@ -327,6 +327,7 @@ See the following links for more examples on how to use the `vee-validate` featu
 - [Input](/docs/components/input#form)
 - [Radio Group](/docs/components/radio-group#form)
 - [Select](/docs/components/select#form)
+- [Slider](/docs/components/slider#form)
 - [Switch](/docs/components/switch#form)
 - [Textarea](/docs/components/textarea#form)
 - [Combobox](/docs/components/combobox#form)

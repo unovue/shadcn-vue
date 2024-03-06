@@ -1,14 +1,13 @@
 import fs from 'node:fs'
-import path from 'node:path'
-import { execa } from 'execa'
+import path from 'pathe'
+import { addDependency, addDevDependency } from 'nypm'
 import { afterEach, expect, test, vi } from 'vitest'
 
 import { runInit } from '../../src/commands/init'
 import { getConfig } from '../../src/utils/get-config'
-import * as getPackageManger from '../../src/utils/get-package-manager'
 import * as registry from '../../src/utils/registry'
 
-vi.mock('execa')
+vi.mock('nypm')
 vi.mock('fs/promises', () => ({
   writeFile: vi.fn(),
   mkdir: vi.fn(),
@@ -16,7 +15,6 @@ vi.mock('fs/promises', () => ({
 vi.mock('ora')
 
 test('init config-full', async () => {
-  vi.spyOn(getPackageManger, 'getPackageManager').mockResolvedValue('pnpm')
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
     inlineColors: {},
     cssVars: {},
@@ -67,10 +65,8 @@ test('init config-full', async () => {
     expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
     'utf8',
   )
-  expect(execa).toHaveBeenCalledWith(
-    'pnpm',
+  expect(addDependency).toHaveBeenCalledWith(
     [
-      'add',
       'tailwindcss-animate',
       'class-variance-authority',
       'clsx',
@@ -80,6 +76,7 @@ test('init config-full', async () => {
     ],
     {
       cwd: targetDir,
+      silent: true,
     },
   )
 
@@ -88,7 +85,6 @@ test('init config-full', async () => {
 })
 
 test('init config-partial', async () => {
-  vi.spyOn(getPackageManger, 'getPackageManager').mockResolvedValue('npm')
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
     inlineColors: {},
     cssVars: {},
@@ -139,10 +135,8 @@ test('init config-partial', async () => {
     expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
     'utf8',
   )
-  expect(execa).toHaveBeenCalledWith(
-    'npm',
+  expect(addDependency).toHaveBeenCalledWith(
     [
-      'install',
       'tailwindcss-animate',
       'class-variance-authority',
       'clsx',
@@ -152,6 +146,7 @@ test('init config-partial', async () => {
     ],
     {
       cwd: targetDir,
+      silent: true,
     },
   )
 
