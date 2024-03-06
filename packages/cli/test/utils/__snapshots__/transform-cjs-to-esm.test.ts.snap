@@ -12,6 +12,7 @@ export default {
     './app/**/*.{<%- extension %>,<%- extension %>x,vue}',
     './src/**/*.{<%- extension %>,<%- extension %>x,vue}',
 	],
+  prefix: \\"<%- prefix %>\\",
   theme: {
     container: {
       center: true,
@@ -48,6 +49,7 @@ exports[`handle tailwind config template correctly 2`] = `
 export default {
   darkMode: [\\"class\\"],
   safelist: [\\"dark\\"],
+  prefix: \\"<%- prefix %>\\",
   <% if (framework === 'vite') { %>
   content: [
     './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',

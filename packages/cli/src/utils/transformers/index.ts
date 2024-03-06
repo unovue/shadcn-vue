@@ -1,12 +1,13 @@
 import { promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
-import path from 'node:path'
+import path from 'pathe'
 import { Project, ScriptKind, type SourceFile } from 'ts-morph'
 import type * as z from 'zod'
 import type { Config } from '@/src/utils/get-config'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
+import { transformTwPrefixes } from '@/src/utils/transformers/transform-tw-prefix'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
 
 export interface TransformOpts {
@@ -25,6 +26,7 @@ export type Transformer<Output = SourceFile> = (
 const transformers: Transformer[] = [
   transformCssVars,
   transformImport,
+  // transformTwPrefixes,
 ]
 
 const project = new Project({

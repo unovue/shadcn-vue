@@ -4,7 +4,6 @@ description: Powerful table and datagrids built using TanStack Table.
 primitive: https://tanstack.com/table/v8/docs/guide/introduction
 ---
 
-
 <ComponentPreview name="DataTableDemo" />
 
 ## Introduction
@@ -55,7 +54,6 @@ npm install @tanstack/vue-table
 ### Column Pinning
 
 <ComponentPreview name="DataTableColumnPinningDemo" />
-
 
 ## Prerequisites
 
@@ -219,7 +217,6 @@ const table = useVueTable({
 
 </Callout>
 
-
 ### Render the table
 
 Finally, we'll render our table in our index component.
@@ -269,7 +266,6 @@ Let's format the amount cell to display the dollar amount. We'll also align the 
 ### Update columns definition
 
 Update the `header` and `cell` definitions for amount as follows:
-
 
 ```ts:line-numbers title="components/payments/columns.ts" {5-17}
 import { h } from 'vue'
@@ -344,7 +340,6 @@ function copy(id: string) {
 ### Update columns definition
 
 Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
-
 
 ```ts:line-numbers showLineNumber{2,6-16}
 import { ColumnDef } from "@tanstack/vue-table"

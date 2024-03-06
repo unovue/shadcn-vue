@@ -4,10 +4,12 @@
     "config": "tailwind.config.ts",
     "css": "src/app/globals.css",
     "baseColor": "zinc",
-    "cssVariables": true
+    "cssVariables": true,
+    "prefix": "tw-"
   },
   "aliases": {
     "utils": "~/lib/utils",
-    "components": "~/components"
+    "components": "~/components",
+    "ui": "~/ui"
   }
 }
