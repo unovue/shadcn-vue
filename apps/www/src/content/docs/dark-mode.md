@@ -17,6 +17,7 @@ description: Adding dark mode to your site.
     </svg>
     <p class="mt-2 font-medium">Vite</p>
   </LinkedCard>
+
   <LinkedCard href="/docs/dark-mode/nuxt">
     <svg xmlns="http://www.w3.org/2000/svg"  class="w-12 h-12" viewBox="0 0 900 900" fill="none">
     <title>Nuxt</title>

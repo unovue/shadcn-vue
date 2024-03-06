@@ -1,6 +1,6 @@
 ---
-title: Vite
-description: Adding dark mode to your vite app.
+title: Nuxt
+description: Adding dark mode to your nuxt app.
 ---
 
 ## Dark mode

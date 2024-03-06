@@ -1,6 +1,6 @@
 ---
-title: Vite
-description: Adding dark mode to your vite app.
+title: Vitepress
+description: Adding dark mode to your vitepress app.
 ---
 
 ## Dark mode
