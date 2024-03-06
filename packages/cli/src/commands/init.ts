@@ -151,14 +151,14 @@ export async function promptForConfig(
       active: 'yes',
       inactive: 'no',
     },
-    {
-      type: 'text',
-      name: 'tailwindPrefix',
-      message: `Are you using a custom ${highlight(
-        'tailwind prefix eg. tw-',
-      )}? (Leave blank if not)`,
-      initial: '',
-    },
+    // {
+    //   type: 'text',
+    //   name: 'tailwindPrefix',
+    //   message: `Are you using a custom ${highlight(
+    //     'tailwind prefix eg. tw-',
+    //   )}? (Leave blank if not)`,
+    //   initial: '',
+    // },
     {
       type: 'text',
       name: 'tailwindConfig',
@@ -195,7 +195,7 @@ export async function promptForConfig(
       css: options.tailwindCss,
       baseColor: options.tailwindBaseColor,
       cssVariables: options.tailwindCssVariables,
-      prefix: options.tailwindPrefix,
+      // prefix: options.tailwindPrefix,
     },
     aliases: {
       utils: options.utils,

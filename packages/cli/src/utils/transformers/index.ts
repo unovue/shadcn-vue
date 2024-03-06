@@ -26,7 +26,7 @@ export type Transformer<Output = SourceFile> = (
 const transformers: Transformer[] = [
   transformCssVars,
   transformImport,
-  transformTwPrefixes,
+  // transformTwPrefixes,
 ]
 
 const project = new Project({
