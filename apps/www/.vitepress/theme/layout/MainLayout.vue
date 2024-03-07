@@ -120,7 +120,7 @@ watch(() => $route.path, (n) => {
           >
             <div class="flex items-center">
               <SearchIcon class="w-4 h-4 mr-2 text-muted-foreground" />
-              <span class="text-muted-foreground"> Search for anything... </span>
+              <span class="text-muted-foreground"> Search documentation... </span>
             </div>
             <div class="flex items-center gap-x-1">
               <Kbd> <span>⌘</span>K </Kbd>
