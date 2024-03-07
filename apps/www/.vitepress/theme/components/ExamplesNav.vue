@@ -9,6 +9,11 @@ const { path } = toRefs(useRoute())
 
 const examples = [
   {
+    name: 'Mail',
+    href: '/examples/mail',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/mail',
+  },
+  {
     name: 'Dashboard',
     href: '/examples/dashboard',
     code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/dashboard',
@@ -58,7 +63,7 @@ const currentExample = computed(() => examples.find(ex => path.value.startsWith(
           :href="example.href"
           :class="cn(
             'flex items-center px-4',
-            path?.startsWith(example.href) || (path === '/' && example.name === 'Dashboard')
+            path?.startsWith(example.href) || (path === '/' && example.name === 'Mail')
               ? 'font-bold text-primary'
               : 'font-medium text-muted-foreground',
           )"
