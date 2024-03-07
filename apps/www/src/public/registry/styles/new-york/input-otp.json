@@ -1,0 +1,30 @@
+{
+  "name": "input-otp",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "InputOtp.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { OTPInputProps } from 'vue-input-otp'\nimport { OTPInput } from 'vue-input-otp'\nimport { useForwardProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<OTPInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <OTPInput\n    v-slot=\"{ isFocused, isHovering, slots }\"\n    v-bind=\"forwardedProps\"\n    :container-class=\"cn('flex items-center gap-2 has-[:disabled]:opacity-50', props.class)\"\n    class=\"disabled:cursor-not-allowed\"\n  >\n    <slot :is-focused :is-hovering :slots />\n  </OTPInput>\n</template>\n"
+    },
+    {
+      "name": "InputOtpGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <Primitive v-bind=\"forwardedProps\" :class=\"cn('flex items-center', props.class)\">\n    <slot />\n  </primitive>\n</template>\n"
+    },
+    {
+      "name": "InputOtpSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'radix-vue'\nimport { DashIcon } from '@radix-icons/vue'\n\nconst props = defineProps<PrimitiveProps>()\n\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive v-bind=\"forwardedProps\">\n    <slot>\n      <DashIcon />\n    </slot>\n  </primitive>\n</template>\n"
+    },
+    {
+      "name": "InputOtpSlot.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { useForwardProps } from 'radix-vue'\nimport type { SlotProps } from 'vue-input-otp'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SlotProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div\n    :class=\"cn(\n      'relative flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md',\n      isActive && 'z-10 ring-2 ring-offset-background ring-ring',\n      props.class,\n    )\"\n    v-bind=\"forwardedProps\"\n  >\n    {{ char }}\n\n    <div v-if=\"hasFakeCaret\" class=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n      <div class=\"animate-caret-blink h-4 w-px bg-foreground duration-1000\" />\n    </div>\n  </div>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as InputOtp } from './InputOtp.vue'\nexport { default as InputOtpGroup } from './InputOtpGroup.vue'\nexport { default as InputOtpSeparator } from './InputOtpSeparator.vue'\nexport { default as InputOtpSlot } from './InputOtpSlot.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -35,7 +35,7 @@
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.9.0",
     "taze": "^0.13.3",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "vitest": "^0.34.6"
   },
   "commitlint": {

@@ -338,6 +338,21 @@
     "type": "components:ui"
   },
   {
+    "name": "input-otp",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/input-otp/InputOtp.vue",
+      "ui/input-otp/InputOtpGroup.vue",
+      "ui/input-otp/InputOtpSeparator.vue",
+      "ui/input-otp/InputOtpSlot.vue",
+      "ui/input-otp/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "label",
     "dependencies": [],
     "registryDependencies": [
