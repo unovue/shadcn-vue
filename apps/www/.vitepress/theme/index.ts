@@ -1,4 +1,3 @@
-/* eslint-disable vue/component-definition-name-casing */
 // https://vitepress.dev/guide/custom-theme
 import Layout from './layout/MainLayout.vue'
 import DocsLayout from './layout/DocsLayout.vue'

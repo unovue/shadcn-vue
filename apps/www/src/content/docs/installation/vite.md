@@ -21,8 +21,6 @@ npm create vite@latest my-vue-app -- --template vue-ts
 
 Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and configure `postcss` plugins
 
-
-
 <TabsMarkdown>
   <TabMarkdown title="vite.config">
 
@@ -59,7 +57,6 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
   </TabMarkdown>
 
-
   <TabMarkdown title="postcss.config.js">
 
   ```bash
@@ -79,7 +76,6 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
   </TabMarkdown>
 </TabsMarkdown>
-
 
 ### Edit tsconfig.json
 
@@ -107,10 +103,13 @@ Add the code below to the vite.config.ts so your app can resolve paths without e
 npm i -D @types/node
 ```
 
-```typescript {12-16}
+```typescript {15-19}
 import path from "path"
 import vue from "@vitejs/plugin-vue"
 import { defineConfig } from "vite"
+
+import tailwind from "tailwindcss"
+import autoprefixer from "autoprefixer"
 
 export default defineConfig({
   css: {
@@ -148,7 +147,7 @@ Where is your global CSS file? › › src/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils 
+Configure the import alias for utils: › @/lib/utils
 ```
 
 ### That's it
