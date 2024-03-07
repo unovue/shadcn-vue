@@ -152,10 +152,12 @@ function onExpand() {
 <template>
   <TooltipProvider :delay-duration="0">
     <ResizablePanelGroup
+      id="resize-panel-group-1"
       direction="horizontal"
       class="h-full max-h-[800px] items-stretch"
     >
       <ResizablePanel
+        id="resize-panel-1"
         :default-size="defaultLayout[0]"
         :collapsed-size="navCollapsedSize"
         collapsible
@@ -179,8 +181,8 @@ function onExpand() {
           :links="links2"
         />
       </ResizablePanel>
-      <ResizableHandle with-handle />
-      <ResizablePanel :default-size="defaultLayout[1]" :min-size="30">
+      <ResizableHandle id="resize-handle-1" with-handle />
+      <ResizablePanel id="resize-panel-2" :default-size="defaultLayout[1]" :min-size="30">
         <Tabs default-value="all">
           <div class="flex items-center px-4 py-2">
             <h1 class="text-xl font-bold">
@@ -212,8 +214,8 @@ function onExpand() {
           </TabsContent>
         </Tabs>
       </ResizablePanel>
-      <ResizableHandle with-handle />
-      <ResizablePanel :default-size="defaultLayout[2]">
+      <ResizableHandle id="resiz-handle-2" with-handle />
+      <ResizablePanel id="resize-panel-3" :default-size="defaultLayout[2]">
         <MailDisplay :mail="selectedMailData" />
       </ResizablePanel>
     </ResizablePanelGroup>
