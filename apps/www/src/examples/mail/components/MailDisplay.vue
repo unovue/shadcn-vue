@@ -9,7 +9,7 @@ import type { Mail } from '../data/mails'
 import Calendar from '@/lib/registry/default/ui/calendar/Calendar.vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem } from '@/lib/registry/default/ui/dropdown-menu'
 import { PopoverTrigger } from '@/lib/registry/default/ui/popover'
-import { Avatar, AvatarFallback, AvatarImage } from '@/lib/registry/new-york/ui/avatar'
+import { Avatar, AvatarFallback } from '@/lib/registry/new-york/ui/avatar'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
 import { Label } from '@/lib/registry/new-york/ui/label'
@@ -179,7 +179,6 @@ const today = new Date()
       <div class="flex items-start p-4">
         <div class="flex items-start gap-4 text-sm">
           <Avatar>
-            <AvatarImage src="" :alt="mail.name" />
             <AvatarFallback>
               {{ mailFallbackName }}
             </AvatarFallback>
