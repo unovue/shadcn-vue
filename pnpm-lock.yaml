@@ -117,12 +117,6 @@ importers:
         specifier: ^3.22.4
         version: 3.22.4
     devDependencies:
-      '@iconify-json/radix-icons':
-        specifier: ^1.1.14
-        version: 1.1.14
-      '@iconify-json/tabler':
-        specifier: ^1.1.106
-        version: 1.1.106
       '@iconify/json':
         specifier: ^2.2.189
         version: 2.2.189
@@ -2085,18 +2079,6 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.2:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
-    dev: true
-
-  /@iconify-json/radix-icons@1.1.14:
-    resolution: {integrity: sha512-AYBOyhnJ2hXlg3aIn8Ekphrr7zHRyz1l8x6bidM3PDUuTL+aRt8r6cpCvN3GeuTHy2JOhmihbVJRF0bt2FF7Ag==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
-  /@iconify-json/tabler@1.1.106:
-    resolution: {integrity: sha512-TcGGQ2nDhb2OmKsMPk3SuNxf259Rjirbvkz3gX1C8fexJmSWqR8AsH98/VMbK7VVYb2L2FIfX3QJxKpJvXEryw==}
-    dependencies:
-      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/json@2.2.189:

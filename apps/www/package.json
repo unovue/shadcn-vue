@@ -42,8 +42,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@iconify-json/radix-icons": "^1.1.14",
-    "@iconify-json/tabler": "^1.1.106",
     "@iconify/json": "^2.2.189",
     "@iconify/vue": "^4.1.1",
     "@shikijs/transformers": "^1.1.7",
