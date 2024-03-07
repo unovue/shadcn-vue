@@ -2,15 +2,15 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "moduleResolution": "Node",
     "baseUrl": ".",
+    "moduleResolution": "Node",
     "paths": {
       "@/*": ["./src/*"]
     },
     "types": ["unplugin-icons/types/vue", "node"],
     "declaration": false,
-    "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "sourceMap": true
   },
   "include": ["src", ".vitepress/**/*.vue", "scripts/build-registry.ts", ".vitepress/**/*.mts", ".vitepress/**/*.vue", "src/lib/**/*"],
   "exclude": ["node_modules"]
