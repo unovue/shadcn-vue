@@ -287,6 +287,12 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Resizable',
+          href: '/docs/components/resizable',
+          label: 'New',
+          items: [],
+        },
+        {
           title: 'Scroll Area',
           href: '/docs/components/scroll-area',
           items: [],

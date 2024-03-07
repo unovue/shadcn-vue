@@ -1,7 +1,7 @@
 {
   "name": "www",
   "type": "module",
-  "version": "0.9.0",
+  "version": "0.10.1",
   "files": [
     "dist"
   ],
@@ -31,7 +31,7 @@
     "embla-carousel-autoplay": "^8.0.0",
     "embla-carousel-vue": "^8.0.0",
     "lucide-vue-next": "^0.276.0",
-    "radix-vue": "^1.4.9",
+    "radix-vue": "^1.5.0",
     "tailwindcss-animate": "^1.0.7",
     "v-calendar": "^3.1.2",
     "vaul-vue": "^0.1.0",
@@ -42,9 +42,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@iconify-json/radix-icons": "^1.1.11",
-    "@iconify-json/tabler": "^1.1.89",
-    "@iconify/json": "^2.2.108",
+    "@iconify-json/radix-icons": "^1.1.14",
+    "@iconify-json/tabler": "^1.1.106",
+    "@iconify/json": "^2.2.189",
     "@iconify/vue": "^4.1.1",
     "@shikijs/transformers": "^1.1.7",
     "@types/lodash.template": "^4.5.3",
@@ -56,7 +56,7 @@
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.18",
     "lodash.template": "^4.5.0",
-    "oxc-parser": "^0.7.0",
+    "oxc-parser": "^0.8.0",
     "pathe": "^1.1.2",
     "rimraf": "^5.0.5",
     "shiki": "^1.1.7",
@@ -65,8 +65,8 @@
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
     "unplugin-icons": "^0.18.5",
-    "vite": "^5.1.4",
+    "vite": "^5.1.5",
     "vitepress": "^1.0.0-rc.44",
-    "vue-tsc": "^2.0.3"
+    "vue-tsc": "^2.0.5"
   }
 }

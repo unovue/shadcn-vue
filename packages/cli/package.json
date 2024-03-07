@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "0.9.0",
+  "version": "0.10.1",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
@@ -48,7 +48,7 @@
     "@babel/core": "^7.24.0",
     "@babel/parser": "^7.24.0",
     "@vue/compiler-sfc": "^3.4",
-    "c12": "^1.9.0",
+    "c12": "^1.10.0",
     "commander": "^12.0.0",
     "consola": "^3.2.3",
     "detype": "npm:detypes@^0.7.9",
@@ -62,7 +62,7 @@
     "ora": "^8.0.1",
     "pathe": "^1.1.2",
     "prompts": "^2.4.2",
-    "radix-vue": "^1.4.9",
+    "radix-vue": "^1.5.0",
     "ts-morph": "^21.0.1",
     "tsconfig-paths": "^4.2.0",
     "zod": "^3.22.4"
@@ -72,12 +72,12 @@
     "@types/diff": "^5.0.9",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash.template": "^4.5.3",
-    "@types/node": "^20.11.24",
+    "@types/node": "^20.11.25",
     "@types/prompts": "^2.4.9",
     "@vitest/ui": "^0.34.4",
     "tsup": "^8.0.2",
-    "type-fest": "^4.10.3",
-    "typescript": "^5.3.3",
+    "type-fest": "^4.11.1",
+    "typescript": "^5.4.2",
     "vite-tsconfig-paths": "^4.3.1"
   }
 }
