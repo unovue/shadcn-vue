@@ -36,7 +36,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: 'Examples',
-      href: '/examples/dashboard',
+      href: '/examples/mail',
     },
     {
       title: 'GitHub',
@@ -381,6 +381,11 @@ interface Example {
   code: string
 }
 export const examples: Example[] = [
+  {
+    name: 'Mail',
+    href: '/examples/mail',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/mail',
+  },
   {
     name: 'Dashboard',
     href: '/examples/dashboard',
