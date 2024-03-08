@@ -8,16 +8,17 @@ import {
 
 <template>
   <ResizablePanelGroup
+    id="vertical-demo-group-1"
     direction="vertical"
     class="min-h-[200px] max-w-md rounded-lg border"
   >
-    <ResizablePanel :default-size="25">
+    <ResizablePanel id="vertical-demo-panel-1" :default-size="25">
       <div class="flex h-full items-center justify-center p-6">
         <span class="font-semibold">Header</span>
       </div>
     </ResizablePanel>
-    <ResizableHandle />
-    <ResizablePanel :default-size="75">
+    <ResizableHandle id="vertical-demo-handle-1" />
+    <ResizablePanel id="vertical-demo-panel-2" :default-size="75">
       <div class="flex h-full items-center justify-center p-6">
         <span class="font-semibold">Content</span>
       </div>

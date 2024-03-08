@@ -14,7 +14,7 @@ import {
   >
     <ResizablePanel id="demo-panel-1" :default-size="50">
       <div class="flex h-[200px] items-center justify-center p-6">
-        <span class="font-semibold">Test</span>
+        <span class="font-semibold">One</span>
       </div>
     </ResizablePanel>
     <ResizableHandle id="demo-handle-1" />
