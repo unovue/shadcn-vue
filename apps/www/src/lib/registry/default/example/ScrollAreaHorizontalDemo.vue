@@ -28,7 +28,7 @@ const works: Artwork[] = [
 
 <template>
   <ScrollArea class="border rounded-md w-96 whitespace-nowrap">
-    <div class="flex p-4 space-x-4 w-max">
+    <div class="flex p-4 gap-4 w-max">
       <div v-for="artwork in works" :key="artwork.id">
         <figure class="shrink-0">
           <div class="overflow-hidden rounded-md">

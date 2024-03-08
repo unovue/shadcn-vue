@@ -67,7 +67,7 @@ const selectedUsers = ref<User[]>([])
 <template>
   <Card>
     <CardHeader class="flex flex-row items-center justify-between">
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center gap-4">
         <Avatar>
           <AvatarImage src="/avatars/01.png" alt="Image" />
           <AvatarFallback>OM</AvatarFallback>
@@ -105,7 +105,7 @@ const selectedUsers = ref<User[]>([])
           :key="index"
           :class="cn(
             'flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm',
-            message.role === 'user' ? 'ml-auto bg-primary text-primary-foreground' : 'bg-muted',
+            message.role === 'user' ? 'ms-auto bg-primary text-primary-foreground' : 'bg-muted',
           )"
         >
           {{ message.content }}
@@ -114,7 +114,7 @@ const selectedUsers = ref<User[]>([])
     </CardContent>
     <CardFooter>
       <form
-        class="flex w-full items-center space-x-2"
+        class="flex w-full items-center gap-2"
         @submit.prevent="() => {
           if (inputLength === 0) return
           messages.push({
@@ -168,7 +168,7 @@ const selectedUsers = ref<User[]>([])
                 <AvatarImage :src="user.avatar" alt="Image" />
                 <AvatarFallback>{{ user.name[0] }}</AvatarFallback>
               </Avatar>
-              <div class="ml-2">
+              <div class="ms-2">
                 <p class="text-sm font-medium leading-none">
                   {{ user.name }}
                 </p>
@@ -176,13 +176,13 @@ const selectedUsers = ref<User[]>([])
                   {{ user.email }}
                 </p>
               </div>
-              <CheckIcon v-if="selectedUsers.includes(user)" class="ml-auto flex h-5 w-5 text-primary" />
+              <CheckIcon v-if="selectedUsers.includes(user)" class="ms-auto flex h-5 w-5 text-primary" />
             </CommandItem>
           </CommandGroup>
         </CommandList>
       </Command>
       <DialogFooter class="flex items-center border-t p-4 sm:justify-between">
-        <div v-if="selectedUsers.length > 0" class="flex -space-x-2 overflow-hidden">
+        <div v-if="selectedUsers.length > 0" class="flex -flex gap-2 overflow-hidden">
           <Avatar
             v-for="user in selectedUsers"
             :key="user.email"

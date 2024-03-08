@@ -26,11 +26,11 @@ const date = ref({
           id="date"
           :variant="'outline'"
           :class="cn(
-            'w-[300px] justify-start text-left font-normal',
+            'w-[300px] justify-start text-start font-normal',
             !date && 'text-muted-foreground',
           )"
         >
-          <CalendarIcon class="mr-2 h-4 w-4" />
+          <CalendarIcon class="me-2 h-4 w-4" />
 
           <span>
             {{ date.start ? (

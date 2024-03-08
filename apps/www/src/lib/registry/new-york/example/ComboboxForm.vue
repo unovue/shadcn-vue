@@ -79,7 +79,7 @@ const onSubmit = handleSubmit((values) => {
                 {{ values.language ? languages.find(
                   (language) => language.value === values.language,
                 )?.label : 'Select language...' }}
-                <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                <CaretSortIcon class="ms-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </FormControl>
           </PopoverTrigger>
@@ -101,7 +101,7 @@ const onSubmit = handleSubmit((values) => {
                   >
                     {{ language.label }}
                     <CheckIcon
-                      :class="cn('ml-auto h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
+                      :class="cn('ms-auto h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
                     />
                   </CommandItem>
                 </CommandGroup>

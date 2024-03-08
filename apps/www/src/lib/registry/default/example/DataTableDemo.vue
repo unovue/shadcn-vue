@@ -103,7 +103,7 @@ const columns: ColumnDef<Payment>[] = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => ['Email', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => ['Email', h(ArrowUpDown, { class: 'ms-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   },
@@ -171,8 +171,8 @@ const table = useVueTable({
       />
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <Button variant="outline" class="ml-auto">
-            Columns <ChevronDown class="ml-2 h-4 w-4" />
+          <Button variant="outline" class="ms-auto">
+            Columns <ChevronDown class="ms-2 h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
@@ -224,12 +224,12 @@ const table = useVueTable({
       </Table>
     </div>
 
-    <div class="flex items-center justify-end space-x-2 py-4">
+    <div class="flex items-center justify-end gap-2 py-4">
       <div class="flex-1 text-sm text-muted-foreground">
         {{ table.getFilteredSelectedRowModel().rows.length }} of
         {{ table.getFilteredRowModel().rows.length }} row(s) selected.
       </div>
-      <div class="space-x-2">
+      <div class="flex gap-2">
         <Button
           variant="outline"
           size="sm"

@@ -76,7 +76,7 @@ const onSubmit = handleSubmit((values) => {
                 {{ values.language ? languages.find(
                   (language) => language.value === values.language,
                 )?.label : 'Select language...' }}
-                <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                <ChevronsUpDown class="ms-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </FormControl>
           </PopoverTrigger>
@@ -97,7 +97,7 @@ const onSubmit = handleSubmit((values) => {
                     }"
                   >
                     <Check
-                      :class="cn('mr-2 h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
+                      :class="cn('me-2 h-4 w-4', language.value === values.language ? 'opacity-100' : 'opacity-0')"
                     />
                     {{ language.label }}
                   </CommandItem>

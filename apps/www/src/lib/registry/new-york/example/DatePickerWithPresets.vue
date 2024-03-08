@@ -28,11 +28,11 @@ const date = ref<Date>()
       <Button
         variant="outline"
         :class="cn(
-          'w-[280px] justify-start text-left font-normal',
+          'w-[280px] justify-start text-start font-normal',
           !date && 'text-muted-foreground',
         )"
       >
-        <CalendarIcon class="mr-2 h-4 w-4" />
+        <CalendarIcon class="me-2 h-4 w-4" />
         <template v-if="date">
           {{ format(date, "PPP") }}
         </template>

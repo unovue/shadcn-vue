@@ -78,7 +78,7 @@ const onSubmit = handleSubmit((values) => {
         </div>
 
         <FormField v-for="item in items" v-slot="{ value, handleChange }" :key="item.id" type="checkbox" :value="item.id" :unchecked-value="false" name="items">
-          <FormItem class="flex flex-row items-start space-x-3 space-y-0">
+          <FormItem class="flex flex-row items-start gap-3 space-y-0">
             <FormControl>
               <Checkbox
                 :checked="value.includes(item.id)"

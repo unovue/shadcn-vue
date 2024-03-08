@@ -49,7 +49,7 @@ const data = [
       <CardDescription>Set your daily activity goal.</CardDescription>
     </CardHeader>
     <CardContent class="pb-2">
-      <div class="flex items-center justify-center space-x-2">
+      <div class="flex items-center justify-center gap-2">
         <Button
           variant="outline"
           size="icon"

@@ -29,7 +29,7 @@ import { Label } from '@/lib/registry/default/ui/label'
           Anyone who has this link will be able to view this.
         </DialogDescription>
       </DialogHeader>
-      <div class="flex items-center space-x-2">
+      <div class="flex items-center gap-2">
         <div class="grid flex-1 gap-2">
           <Label for="link" class="sr-only">
             Link

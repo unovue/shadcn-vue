@@ -22,7 +22,7 @@ import {
       </Button>
     </HoverCardTrigger>
     <HoverCardContent class="w-80">
-      <div class="flex justify-between space-x-4">
+      <div class="flex justify-between gap-4">
         <Avatar>
           <AvatarImage src="https://github.com/vuejs.png" />
           <AvatarFallback>VC</AvatarFallback>
@@ -35,7 +35,7 @@ import {
             Progressive JavaScript framework for building modern web interfaces.
           </p>
           <div class="flex items-center pt-2">
-            <CalendarIcon class="mr-2 h-4 w-4 opacity-70" />
+            <CalendarIcon class="me-2 h-4 w-4 opacity-70" />
             <span class="text-xs text-muted-foreground">
               Joined January 2014
             </span>

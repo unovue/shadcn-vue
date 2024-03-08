@@ -80,10 +80,10 @@ const vCalendarSlots = computed(() => {
   <div class="relative">
     <div v-if="$attrs.mode !== 'time'" class="absolute flex justify-between w-full px-4 top-3 z-[1]">
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('prev')">
-        <ChevronLeft class="w-4 h-4" />
+        <ChevronLeft class="w-4 h-4 rtl:rotate-180" />
       </button>
       <button :class="cn(buttonVariants({ variant: 'outline' }), 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100')" @click="handleNav('next')">
-        <ChevronRight class="w-4 h-4" />
+        <ChevronRight class="w-4 h-4 rtl:rotate-180" />
       </button>
     </div>
 
@@ -102,11 +102,11 @@ const vCalendarSlots = computed(() => {
       </template>
 
       <template #nav-prev-button>
-        <ChevronLeft />
+        <ChevronLeft class="rtl:rotate-180" />
       </template>
 
       <template #nav-next-button>
-        <ChevronRight />
+        <ChevronRight class="rtl:rotate-180" />
       </template>
     </DatePicker>
   </div>
@@ -193,9 +193,9 @@ const vCalendarSlots = computed(() => {
   @apply w-full relative;
 }
 :root {
-	--vc-slide-translate: 22px;
-	--vc-slide-duration: 0.15s;
-	--vc-slide-timing: ease;
+  --vc-slide-translate: 22px;
+  --vc-slide-duration: 0.15s;
+  --vc-slide-timing: ease;
 }
 
 .calendar .vc-fade-enter-active,
@@ -210,19 +210,19 @@ const vCalendarSlots = computed(() => {
 .calendar .vc-slide-down-leave-active,
 .calendar .vc-slide-fade-enter-active,
 .calendar .vc-slide-fade-leave-active {
-	transition:
-		opacity var(--vc-slide-duration) var(--vc-slide-timing),
-		-webkit-transform var(--vc-slide-duration) var(--vc-slide-timing);
-	transition:
-		transform var(--vc-slide-duration) var(--vc-slide-timing),
-		opacity var(--vc-slide-duration) var(--vc-slide-timing);
-	transition:
-		transform var(--vc-slide-duration) var(--vc-slide-timing),
-		opacity var(--vc-slide-duration) var(--vc-slide-timing),
-		-webkit-transform var(--vc-slide-duration) var(--vc-slide-timing);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	pointer-events: none;
+  transition:
+    opacity var(--vc-slide-duration) var(--vc-slide-timing),
+    -webkit-transform var(--vc-slide-duration) var(--vc-slide-timing);
+  transition:
+    transform var(--vc-slide-duration) var(--vc-slide-timing),
+    opacity var(--vc-slide-duration) var(--vc-slide-timing);
+  transition:
+    transform var(--vc-slide-duration) var(--vc-slide-timing),
+    opacity var(--vc-slide-duration) var(--vc-slide-timing),
+    -webkit-transform var(--vc-slide-duration) var(--vc-slide-timing);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  pointer-events: none;
 }
 
 .calendar .vc-none-leave-active,
@@ -231,8 +231,8 @@ const vCalendarSlots = computed(() => {
 .calendar .vc-slide-right-leave-active,
 .calendar .vc-slide-up-leave-active,
 .calendar .vc-slide-down-leave-active {
-	position: absolute !important;
-	width: 100%;
+  position: absolute !important;
+  width: 100%;
 }
 
 .calendar .vc-none-enter-from,
@@ -249,39 +249,39 @@ const vCalendarSlots = computed(() => {
 .calendar .vc-slide-down-leave-to,
 .calendar .vc-slide-fade-enter-from,
 .calendar .vc-slide-fade-leave-to {
-	opacity: 0;
+  opacity: 0;
 }
 
 .calendar .vc-slide-left-enter-from,
 .calendar .vc-slide-right-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-left,
 .calendar .vc-slide-fade-leave-to.direction-left {
-	-webkit-transform: translateX(var(--vc-slide-translate));
-	transform: translateX(var(--vc-slide-translate));
+  -webkit-transform: translateX(var(--vc-slide-translate));
+  transform: translateX(var(--vc-slide-translate));
 }
 
 .calendar .vc-slide-right-enter-from,
 .calendar .vc-slide-left-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-right,
 .calendar .vc-slide-fade-leave-to.direction-right {
-	-webkit-transform: translateX(calc(-1 * var(--vc-slide-translate)));
-	transform: translateX(calc(-1 * var(--vc-slide-translate)));
+  -webkit-transform: translateX(calc(-1 * var(--vc-slide-translate)));
+  transform: translateX(calc(-1 * var(--vc-slide-translate)));
 }
 
 .calendar .vc-slide-up-enter-from,
 .calendar .vc-slide-down-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-top,
 .calendar .vc-slide-fade-leave-to.direction-top {
-	-webkit-transform: translateY(var(--vc-slide-translate));
-	transform: translateY(var(--vc-slide-translate));
+  -webkit-transform: translateY(var(--vc-slide-translate));
+  transform: translateY(var(--vc-slide-translate));
 }
 
 .calendar .vc-slide-down-enter-from,
 .calendar .vc-slide-up-leave-to,
 .calendar .vc-slide-fade-enter-from.direction-bottom,
 .calendar .vc-slide-fade-leave-to.direction-bottom {
-	-webkit-transform: translateY(calc(-1 * var(--vc-slide-translate)));
-	transform: translateY(calc(-1 * var(--vc-slide-translate)));
+  -webkit-transform: translateY(calc(-1 * var(--vc-slide-translate)));
+  transform: translateY(calc(-1 * var(--vc-slide-translate)));
 }
 /**
  * Timepicker styles
@@ -305,7 +305,7 @@ const vCalendarSlots = computed(() => {
   @apply inline-flex items-center px-1 rounded-md bg-primary-foreground border border-solid border-secondary;
 }
 .vc-time-select-group .vc-base-icon {
-  @apply mr-1 text-primary stroke-primary;
+  @apply me-1 text-primary stroke-primary;
 }
 .vc-time-select-group select {
   @apply bg-primary-foreground p-1 appearance-none outline-none text-center;
@@ -314,18 +314,18 @@ const vCalendarSlots = computed(() => {
   @apply text-muted-foreground tracking-wide;
 }
 .vc-time-month {
-  @apply text-primary ml-2;
+  @apply text-primary ms-2;
 }
 .vc-time-day {
-  @apply text-primary ml-1;
+  @apply text-primary ms-1;
 }
 .vc-time-year {
-  @apply text-muted-foreground ml-2;
+  @apply text-muted-foreground ms-2;
 }
 .vc-time-colon {
   @apply mb-0.5;
 }
 .vc-time-decimal {
-  @apply ml-0.5;
+  @apply ms-0.5;
 }
 </style>

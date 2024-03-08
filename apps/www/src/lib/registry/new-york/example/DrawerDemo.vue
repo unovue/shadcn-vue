@@ -48,7 +48,7 @@ const data = [
           <DrawerDescription>Set your daily activity goal.</DrawerDescription>
         </DrawerHeader>
         <div class="p-4 pb-0">
-          <div class="flex items-center justify-center space-x-2">
+          <div class="flex items-center justify-center gap-2">
             <Button
               variant="outline"
               size="icon"

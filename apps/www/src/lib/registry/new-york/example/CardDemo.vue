@@ -35,7 +35,7 @@ const notifications = [
       <CardDescription>You have 3 unread messages.</CardDescription>
     </CardHeader>
     <CardContent class="grid gap-4">
-      <div class=" flex items-center space-x-4 rounded-md border p-4">
+      <div class=" flex items-center gap-4 rounded-md border p-4">
         <BellIcon />
         <div class="flex-1 space-y-1">
           <p class="text-sm font-medium leading-none">
@@ -66,7 +66,7 @@ const notifications = [
     </CardContent>
     <CardFooter>
       <Button class="w-full">
-        <CheckIcon class="mr-2 h-4 w-4" /> Mark all as read
+        <CheckIcon class="me-2 h-4 w-4" /> Mark all as read
       </Button>
     </CardFooter>
   </Card>

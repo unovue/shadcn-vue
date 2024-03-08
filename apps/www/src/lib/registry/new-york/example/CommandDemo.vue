@@ -27,32 +27,32 @@ import {
       <CommandEmpty>No results found.</CommandEmpty>
       <CommandGroup heading="Suggestions">
         <CommandItem value="Calendar">
-          <CalendarIcon class="mr-2 h-4 w-4" />
+          <CalendarIcon class="me-2 h-4 w-4" />
           <span>Calendar</span>
         </CommandItem>
         <CommandItem value="Search Emoji">
-          <FaceIcon class="mr-2 h-4 w-4" />
+          <FaceIcon class="me-2 h-4 w-4" />
           <span>Search Emoji</span>
         </CommandItem>
         <CommandItem value="Launch">
-          <RocketIcon class="mr-2 h-4 w-4" />
+          <RocketIcon class="me-2 h-4 w-4" />
           <span>Launch</span>
         </CommandItem>
       </CommandGroup>
       <CommandSeparator />
       <CommandGroup heading="Settings">
         <CommandItem value="Profile">
-          <PersonIcon class="mr-2 h-4 w-4" />
+          <PersonIcon class="me-2 h-4 w-4" />
           <span>Profile</span>
           <CommandShortcut>⌘P</CommandShortcut>
         </CommandItem>
         <CommandItem value="Mail">
-          <EnvelopeClosedIcon class="mr-2 h-4 w-4" />
+          <EnvelopeClosedIcon class="me-2 h-4 w-4" />
           <span>Mail</span>
           <CommandShortcut>⌘B</CommandShortcut>
         </CommandItem>
         <CommandItem value="Settings">
-          <GearIcon class="mr-2 h-4 w-4" />
+          <GearIcon class="me-2 h-4 w-4" />
           <span>Settings</span>
           <CommandShortcut>⌘S</CommandShortcut>
         </CommandItem>
