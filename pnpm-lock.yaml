@@ -108,8 +108,8 @@ importers:
         specifier: ^3.4.21
         version: 3.4.21(typescript@5.4.2)
       vue-input-otp:
-        specifier: ^0.0.11
-        version: 0.0.11(vue@3.4.21)
+        specifier: ^0.1.0
+        version: 0.1.0(vue@3.4.21)
       vue-sonner:
         specifier: ^1.1.2
         version: 1.1.2
@@ -13638,8 +13638,8 @@ packages:
       - supports-color
     dev: true
 
-  /vue-input-otp@0.0.11(vue@3.4.21):
-    resolution: {integrity: sha512-wy7e1zxB0R/QamWkB9lAvukVJJzQCsiUcx8Bws0Ezbh1OaddiF3wZRnk5hKKSB1Ohqv3VtWygRvB6lJTEcpJYg==}
+  /vue-input-otp@0.1.0(vue@3.4.21):
+    resolution: {integrity: sha512-vRkb/ECwMMPOH7YRFJBJ9lLhE3MiVuxNSqitY5l/KJ7FHzlMIjfyhAW2y9nkhE1NMY/kmtiusYjkNSfCVrFFTA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:

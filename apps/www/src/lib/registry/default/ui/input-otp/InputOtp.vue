@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { type HTMLAttributes, computed } from 'vue'
-import type { OTPInputProps } from 'vue-input-otp'
+import type { OTPInputEmits, OTPInputProps } from 'vue-input-otp'
 import { OTPInput } from 'vue-input-otp'
-import { useForwardProps } from 'radix-vue'
+import { useForwardPropsEmits } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<OTPInputProps & { class?: HTMLAttributes['class'] }>()
+
+const emits = defineEmits<OTPInputEmits>()
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
@@ -13,7 +15,7 @@ const delegatedProps = computed(() => {
   return delegated
 })
 
-const forwardedProps = useForwardProps(delegatedProps)
+const forwardedProps = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
