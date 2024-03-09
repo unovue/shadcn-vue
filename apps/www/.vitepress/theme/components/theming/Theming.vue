@@ -14,14 +14,12 @@ import CardChat from '@/lib/registry/new-york/example/CardChat.vue'
 import ActivityGoal from '@/lib/registry/new-york/example/Cards/ActivityGoal.vue'
 import Metric from '@/lib/registry/new-york/example/Cards/Metric.vue'
 import DataTable from '@/lib/registry/new-york/example/Cards/DataTable.vue'
-import CardStats from '@/lib/registry/default/example/CardStats.vue'
+import CardStats from '@/lib/registry/new-york/example/CardStats.vue'
 
 import {
   Card,
 } from '@/lib/registry/new-york/ui/card'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
-
-const goal = ref(350)
 
 const range = ref({
   start: startOfToday(),

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { Minus, Plus } from 'lucide-vue-next'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Drawer,
   DrawerClose,
@@ -12,7 +12,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/lib/registry/default/ui/drawer'
+} from '@/lib/registry/new-york/ui/drawer'
 
 const goal = ref(350)
 

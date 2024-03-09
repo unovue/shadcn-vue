@@ -227,6 +227,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/CarouselSpacing.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/CarouselSpacing.vue"],
     },
+    "CarouselThumbnails": {
+      name: "CarouselThumbnails",
+      type: "components:example",
+      registryDependencies: ["carousel","card"],
+      component: () => import("../src/lib/registry/default/example/CarouselThumbnails.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/CarouselThumbnails.vue"],
+    },
     "CheckboxDemo": {
       name: "CheckboxDemo",
       type: "components:example",
@@ -1256,6 +1263,13 @@ export const Index = {
       registryDependencies: ["carousel","card"],
       component: () => import("../src/lib/registry/new-york/example/CarouselSpacing.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/CarouselSpacing.vue"],
+    },
+    "CarouselThumbnails": {
+      name: "CarouselThumbnails",
+      type: "components:example",
+      registryDependencies: ["carousel","card"],
+      component: () => import("../src/lib/registry/new-york/example/CarouselThumbnails.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/CarouselThumbnails.vue"],
     },
     "CheckboxDemo": {
       name: "CheckboxDemo",
