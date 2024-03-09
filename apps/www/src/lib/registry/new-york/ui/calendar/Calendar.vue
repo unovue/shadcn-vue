@@ -103,11 +103,11 @@ const vCalendarSlots = computed(() => {
       </template>
 
       <template #nav-prev-button>
-        <ChevronLeft />
+        <ChevronLeftIcon />
       </template>
 
       <template #nav-next-button>
-        <ChevronRight />
+        <ChevronRightIcon />
       </template>
     </DatePicker>
   </div>

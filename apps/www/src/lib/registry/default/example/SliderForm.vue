@@ -24,6 +24,9 @@ const formSchema = toTypedSchema(z.object({
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
+  initialValues: {
+    duration: [30],
+  },
 })
 
 const onSubmit = handleSubmit((values) => {
@@ -36,20 +39,20 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="duration">
+    <FormField v-slot="{ componentField, value }" name="duration">
       <FormItem>
         <FormLabel>Duration</FormLabel>
         <FormControl>
           <Slider
             v-bind="componentField"
             :default-value="[30]"
-            :max="60"
-            :min="5"
+            :max="100"
+            :min="0"
             :step="5"
           />
           <FormDescription class="flex justify-between">
             <span>How many minutes are you available?</span>
-            <span>{{ componentField.modelValue?.[0] ?? "30" }} min</span>
+            <span>{{ value?.[0] }} min</span>
           </FormDescription>
         </FormControl>
         <FormMessage />

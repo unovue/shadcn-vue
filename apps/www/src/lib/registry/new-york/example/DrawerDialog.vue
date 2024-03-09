@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/lib/registry/default/ui/dialog'
+} from '@/lib/registry/new-york/ui/dialog'
 import {
   Drawer,
   DrawerClose,
@@ -19,9 +19,9 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/lib/registry/default/ui/drawer'
-import { Label } from '@/lib/registry/default/ui/label'
-import { Input } from '@/lib/registry/default/ui/input'
+} from '@/lib/registry/new-york/ui/drawer'
+import { Label } from '@/lib/registry/new-york/ui/label'
+import { Input } from '@/lib/registry/new-york/ui/input'
 
 // Reuse `form` section
 const [UseTemplate, GridForm] = createReusableTemplate()

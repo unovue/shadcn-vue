@@ -17,7 +17,7 @@ import {
 } from '@tanstack/vue-table'
 
 import { ref } from 'vue'
-import { type Task } from '../data/schema'
+import type { Task } from '../data/schema'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
 import { valueUpdater } from '@/lib/utils'

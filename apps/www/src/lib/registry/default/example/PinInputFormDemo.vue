@@ -6,7 +6,7 @@ import * as z from 'zod'
 import {
   PinInput,
   PinInputInput,
-} from '@/lib/registry/new-york/ui/pin-input'
+} from '@/lib/registry/default/ui/pin-input'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,

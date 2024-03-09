@@ -5,7 +5,7 @@ import { type Theme, themes } from './../lib/registry/themes'
 import { type Style, styles } from '@/lib/registry/styles'
 
 interface Config {
-  theme: Theme['name']
+  theme?: Theme['name']
   radius: number
   style: Style
 }
@@ -15,7 +15,6 @@ export const RADII = [0, 0.25, 0.5, 0.75, 1]
 export function useConfigStore() {
   const { isDark } = useData()
   const config = useSessionStorage<Config>('config', {
-    theme: 'zinc',
     radius: 0.5,
     style: styles[0].name,
   })

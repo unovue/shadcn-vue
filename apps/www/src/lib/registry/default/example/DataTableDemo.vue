@@ -80,7 +80,7 @@ const columns: ColumnDef<Payment>[] = [
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
-      'checked': table.getIsAllPageRowsSelected(),
+      'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
       'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
       'ariaLabel': 'Select all',
     }),

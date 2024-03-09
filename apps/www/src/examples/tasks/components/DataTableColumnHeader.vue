@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
-import { type Task } from '../data/schema'
+import type { Task } from '../data/schema'
 import ArrowDownIcon from '~icons/radix-icons/arrow-down'
 import ArrowUpIcon from '~icons/radix-icons/arrow-up'
 import CaretSortIcon from '~icons/radix-icons/caret-sort'
