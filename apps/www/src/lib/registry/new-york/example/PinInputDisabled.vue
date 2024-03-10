@@ -7,7 +7,6 @@ import {
 } from '@/lib/registry/new-york/ui/pin-input'
 
 const value = ref<string[]>([])
-const handleComplete = (e: string[]) => alert(e.join(''))
 </script>
 
 <template>
@@ -16,7 +15,7 @@ const handleComplete = (e: string[]) => alert(e.join(''))
       id="pin-input"
       v-model="value"
       placeholder="○"
-      @complete="handleComplete"
+      disabled
     >
       <PinInputGroup>
         <PinInputInput

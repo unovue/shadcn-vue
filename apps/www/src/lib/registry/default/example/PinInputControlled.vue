@@ -4,9 +4,9 @@ import {
   PinInput,
   PinInputGroup,
   PinInputInput,
-} from '@/lib/registry/new-york/ui/pin-input'
+} from '@/lib/registry/default/ui/pin-input'
 
-const value = ref<string[]>([])
+const value = ref<string[]>(['1', '2', '3'])
 const handleComplete = (e: string[]) => alert(e.join(''))
 </script>
 
