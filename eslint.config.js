@@ -17,6 +17,13 @@ export default antfu(
     },
   },
   {
+    files: ['**/lib/registry/default/example/*.vue', '**/lib/registry/new-york/example/*.vue'],
+    rules: {
+      'no-alert': 0,
+      'no-console': 0,
+    },
+  },
+  {
     // Without `files`, they are general rules for all files
     rules: {
       'symbol-description': 0,

@@ -5,8 +5,7 @@ source: apps/www/src/lib/registry/default/ui/pin-input
 primitive: https://www.radix-vue.com/components/pin-input.html
 ---
 
-<ComponentPreview name="PinInputDemo" /> 
-
+<ComponentPreview name="PinInputDemo" />
 
 ## Installation
 
@@ -16,6 +15,18 @@ npx shadcn-vue@latest add pin-input
 
 ## Usage
 
+### Controlled
+
+<ComponentPreview name="PinInputControlled" />
+
+### Disabled
+
+<ComponentPreview name="PinInputDisabled" />
+
+### Separator
+
+<ComponentPreview name="PinInputSeparatorDemo" />
+
 ### Form
 
-<ComponentPreview name="PinInputFormDemo" /> 
+<ComponentPreview name="PinInputFormDemo" />

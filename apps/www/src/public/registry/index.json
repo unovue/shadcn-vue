@@ -419,7 +419,9 @@
     ],
     "files": [
       "ui/pin-input/PinInput.vue",
+      "ui/pin-input/PinInputGroup.vue",
       "ui/pin-input/PinInputInput.vue",
+      "ui/pin-input/PinInputSeparator.vue",
       "ui/pin-input/index.ts"
     ],
     "type": "components:ui"

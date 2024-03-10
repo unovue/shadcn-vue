@@ -4,7 +4,8 @@ import {
   PinInput,
   PinInputGroup,
   PinInputInput,
-} from '@/lib/registry/new-york/ui/pin-input'
+  PinInputSeparator,
+} from '@/lib/registry/default/ui/pin-input'
 
 const value = ref<string[]>([])
 const handleComplete = (e: string[]) => alert(e.join(''))
@@ -18,12 +19,16 @@ const handleComplete = (e: string[]) => alert(e.join(''))
       placeholder="○"
       @complete="handleComplete"
     >
-      <PinInputGroup>
-        <PinInputInput
-          v-for="(id, index) in 5"
-          :key="id"
-          :index="index"
-        />
+      <PinInputGroup class="gap-1">
+        <template v-for="(id, index) in 5" :key="id">
+          <PinInputInput
+            class="rounded-md border"
+            :index="index"
+          />
+          <template v-if="index !== 4">
+            <PinInputSeparator />
+          </template>
+        </template>
       </PinInputGroup>
     </PinInput>
   </div>

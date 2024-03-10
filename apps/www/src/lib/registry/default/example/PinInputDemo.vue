@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import {
   PinInput,
+  PinInputGroup,
   PinInputInput,
 } from '@/lib/registry/default/ui/pin-input'
 
@@ -15,14 +16,15 @@ const handleComplete = (e: string[]) => alert(e.join(''))
       id="pin-input"
       v-model="value"
       placeholder="○"
-      class="flex gap-2 items-center mt-1"
       @complete="handleComplete"
     >
-      <PinInputInput
-        v-for="(id, index) in 5"
-        :key="id"
-        :index="index"
-      />
+      <PinInputGroup>
+        <PinInputInput
+          v-for="(id, index) in 5"
+          :key="id"
+          :index="index"
+        />
+      </PinInputGroup>
     </PinInput>
   </div>
 </template>
