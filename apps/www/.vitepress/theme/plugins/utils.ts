@@ -9,19 +9,24 @@ export interface GenerateOptions {
   props: Record<string, any>
   path: string
   code: string
+  codeNewYork: string
 }
 
 export function parse(
   md: MarkdownRenderer,
   env: MarkdownEnv,
-  { code, attrs: _attrs, props }: GenerateOptions,
+  { code, codeNewYork, attrs: _attrs, props }: GenerateOptions,
 ) {
   const highlightedHtml = md.options.highlight!(code, 'vue', _attrs || '')
+  const highlightedNewYorkHtml = md.options.highlight!(codeNewYork, 'vue', _attrs || '')
   const sfcTsHtml = highlightedHtml
+  const sfcTsHtmlNewYork = highlightedNewYorkHtml
 
   const attrs
    = `sfcTsCode="${encodeURIComponent(code)}"\n`
    + `sfcTsHtml="${encodeURIComponent(sfcTsHtml)}"\n`
+   + `sfcTsCodeNewYork="${encodeURIComponent(codeNewYork)}"\n`
+   + `sfcTsHtmlNewYork="${encodeURIComponent(sfcTsHtmlNewYork)}"\n`
    + `v-bind='${JSON.stringify(props)}'\n`
 
   return {
@@ -29,6 +34,8 @@ export function parse(
     highlightedHtml,
     sfcTsCode: code,
     sfcTsHtml,
+    sfcTsCodeNewYork: codeNewYork,
+    sfcTsHtmlNewYork,
   }
 }
 

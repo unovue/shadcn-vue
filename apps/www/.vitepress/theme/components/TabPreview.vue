@@ -7,6 +7,8 @@ const props = withDefaults(defineProps<{
   align?: 'center' | 'start' | 'end'
   sfcTsCode?: string
   sfcTsHtml?: string
+  sfcTsCodeNewYork?: string
+  sfcTsHtmlNewYork?: string
 }>(), {
   align: 'center',
   names: () => ['CLI', 'Manual'],

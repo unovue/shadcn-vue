@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
 import Stackblitz from './Stackblitz.vue'
@@ -11,14 +12,24 @@ defineOptions({
   inheritAttrs: false,
 })
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
   sfcTsCode?: string
   sfcTsHtml?: string
+  sfcTsCodeNewYork?: string
+  sfcTsHtmlNewYork?: string
 }>(), { align: 'center' })
 
 const { style } = useConfigStore()
+
+const sfcTsCodeComputed = computed(() => {
+  return style.value === 'default' ? decodeURIComponent(props.sfcTsCode ?? '') : decodeURIComponent(props.sfcTsCodeNewYork ?? '')
+})
+
+const sfcTsHtmlComputed = computed(() => {
+  return style.value === 'default' ? decodeURIComponent(props.sfcTsHtml ?? '') : decodeURIComponent(props.sfcTsHtmlNewYork ?? '')
+})
 </script>
 
 <template>
@@ -47,8 +58,8 @@ const { style } = useConfigStore()
           <StyleSwitcher />
 
           <div class="flex items-center gap-x-1">
-            <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
-            <CodeSandbox :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+            <Stackblitz :key="style" :style="style" :name="name" :code="sfcTsCodeComputed" />
+            <CodeSandbox :key="style" :style="style" :name="name" :code="sfcTsCodeComputed" />
           </div>
         </div>
         <div
@@ -62,7 +73,7 @@ const { style } = useConfigStore()
         </div>
       </TabsContent>
       <TabsContent value="code">
-        <div v-if="sfcTsHtml" class="language-vue" style="flex: 1;" v-html="decodeURIComponent(sfcTsHtml)" />
+        <div v-if="sfcTsHtml" class="language-vue" style="flex: 1;" v-html="sfcTsHtmlComputed" />
         <slot v-else />
       </TabsContent>
     </Tabs>
