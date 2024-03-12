@@ -333,6 +333,24 @@
     "type": "components:ui"
   },
   {
+    "name": "drawer",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/drawer/Drawer.vue",
+      "ui/drawer/DrawerContent.vue",
+      "ui/drawer/DrawerDescription.vue",
+      "ui/drawer/DrawerFooter.vue",
+      "ui/drawer/DrawerHeader.vue",
+      "ui/drawer/DrawerOverlay.vue",
+      "ui/drawer/DrawerTitle.vue",
+      "ui/drawer/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "dropdown-menu",
     "dependencies": [],
     "registryDependencies": [
@@ -489,7 +507,9 @@
     ],
     "files": [
       "ui/pin-input/PinInput.vue",
+      "ui/pin-input/PinInputGroup.vue",
       "ui/pin-input/PinInputInput.vue",
+      "ui/pin-input/PinInputSeparator.vue",
       "ui/pin-input/index.ts"
     ],
     "type": "components:ui"
@@ -530,6 +550,19 @@
       "ui/radio-group/RadioGroup.vue",
       "ui/radio-group/RadioGroupItem.vue",
       "ui/radio-group/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "resizable",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/resizable/ResizableHandle.vue",
+      "ui/resizable/ResizablePanelGroup.vue",
+      "ui/resizable/index.ts"
     ],
     "type": "components:ui"
   },

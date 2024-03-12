@@ -5,8 +5,9 @@ import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
 import {
   PinInput,
+  PinInputGroup,
   PinInputInput,
-} from '@/lib/registry/new-york/ui/pin-input'
+} from '@/lib/registry/default/ui/pin-input'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
@@ -25,7 +26,7 @@ const formSchema = toTypedSchema(z.object({
 const { handleSubmit, setValues } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    pin: [],
+    pin: ['1', '2', '3'],
   },
 })
 
@@ -59,11 +60,13 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
               })
             }"
           >
-            <PinInputInput
-              v-for="(id, index) in 5"
-              :key="id"
-              :index="index"
-            />
+            <PinInputGroup>
+              <PinInputInput
+                v-for="(id, index) in 5"
+                :key="id"
+                :index="index"
+              />
+            </PinInputGroup>
           </PinInput>
         </FormControl>
         <FormDescription>

@@ -1,9 +1,9 @@
-import path from 'node:path'
 import { existsSync } from 'node:fs'
-import { cosmiconfig } from 'cosmiconfig'
+import path from 'pathe'
+import { loadConfig as c12LoadConfig } from 'c12'
 import type { ConfigLoaderResult } from 'tsconfig-paths'
 import { loadConfig } from 'tsconfig-paths'
-import * as z from 'zod'
+import { z } from 'zod'
 import { resolveImport } from '@/src/utils/resolve-import'
 
 export const DEFAULT_STYLE = 'default'
@@ -19,12 +19,6 @@ export const TAILWIND_CSS_PATH = {
   astro: 'src/styles/globals.css',
 }
 
-// TODO: Figure out if we want to support all cosmiconfig formats.
-// A simple components.json file would be nice.
-const explorer = cosmiconfig('components', {
-  searchPlaces: ['components.json'],
-})
-
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
@@ -35,11 +29,13 @@ export const rawConfigSchema = z
       css: z.string(),
       baseColor: z.string(),
       cssVariables: z.boolean().default(true),
+      prefix: z.string().optional(),
     }),
     framework: z.string().default('Vite'),
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
+      ui: z.string().default('').optional(),
     }),
   })
   .strict()
@@ -53,6 +49,7 @@ export const configSchema = rawConfigSchema
       tailwindCss: z.string(),
       utils: z.string(),
       components: z.string(),
+      ui: z.string(),
     }),
   })
 
@@ -103,15 +100,22 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       tailwindCss: path.resolve(cwd, config.tailwind.css),
       utils: resolveImport(config.aliases.utils, tsConfig),
       components: resolveImport(config.aliases.components, tsConfig),
+      ui: config.aliases.ui
+        ? resolveImport(config.aliases.ui, tsConfig)
+        : resolveImport(config.aliases.components, tsConfig),
     },
   })
 }
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
-    const configResult = await explorer.search(cwd)
+    const configResult = await c12LoadConfig({
+      name: 'components',
+      configFile: 'components.json',
+      cwd,
+    })
 
-    if (!configResult)
+    if (!configResult.config || Object.keys(configResult.config).length === 0)
       return null
 
     return rawConfigSchema.parse(configResult.config)

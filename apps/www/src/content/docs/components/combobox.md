@@ -1,9 +1,9 @@
 ---
 title: Combobox
-description: Autocomplete input and command palette with a list of suggestions. 
+description: Autocomplete input and command palette with a list of suggestions.
 ---
 
-<ComponentPreview name="ComboboxDemo" /> 
+<ComponentPreview name="ComboboxDemo" />
 
 <br>
 <Callout title="Note" class="bg-destructive">
@@ -11,14 +11,13 @@ description: Autocomplete input and command palette with a list of suggestions.
 [Radix Vue](https://github.com/radix-vue/radix-vue/releases/tag/v1.2.0) introduced a breaking change. You will need to wrap `ComboboxGroup` and `ComboboxItem` inside of `ComboboxList` now.
 
 </Callout>
- 
 
 ## Installation
 
 The Combobox is built using a composition of the `<Popover />` and the `<Command />` components.
 
 See installation instructions for the [Popover](/docs/components/popover#installation) and the [Command](/docs/components/command#installation) components.
- 
+
 ## Usage
 
 ```vue
@@ -109,6 +108,12 @@ const value = ref({})
 ### Dropdown menu
 
 <ComponentPreview name="ComboboxDropdownMenu" />
+
+### Responsive
+
+You can create a responsive combobox by using the `<Popover />` on desktop and the `<Drawer />` components on mobile.
+
+<ComponentPreview name="ComboboxResponsive" />
 
 ### Form
 

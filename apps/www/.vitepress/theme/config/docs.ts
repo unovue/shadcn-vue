@@ -23,7 +23,7 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: 'Documentation',
+      title: 'Docs',
       href: '/docs/introduction',
     },
     {
@@ -36,7 +36,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: 'Examples',
-      href: '/examples/dashboard',
+      href: '/examples/mail',
     },
     {
       title: 'GitHub',
@@ -63,6 +63,11 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Theming',
           href: '/docs/theming',
+        },
+        {
+          title: 'Dark Mode',
+          href: '/docs/dark-mode',
+          items: [],
         },
         {
           title: 'CLI',
@@ -207,6 +212,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/dialog',
         },
         {
+          title: 'Drawer',
+          href: '/docs/components/drawer',
+          items: [],
+          label: 'New',
+        },
+        {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
         },
@@ -255,6 +266,12 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Radio Group',
           href: '/docs/components/radio-group',
+        },
+        {
+          title: 'Resizable',
+          href: '/docs/components/resizable',
+          label: 'New',
+          items: [],
         },
         {
           title: 'Scroll Area',
@@ -336,6 +353,11 @@ interface Example {
   code: string
 }
 export const examples: Example[] = [
+  {
+    name: 'Mail',
+    href: '/examples/mail',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/mail',
+  },
   {
     name: 'Dashboard',
     href: '/examples/dashboard',

@@ -1,24 +1,21 @@
 ---
 title: Carousel
 description: A carousel with motion and swipe built using Embla.
-source: apps/www/src/lib/registry/default/ui/carousel 
+source: apps/www/src/lib/registry/default/ui/carousel
 primitive: https://www.embla-carousel.com/api
 ---
 
-
-<ComponentPreview name="CarouselDemo"  /> 
-
+<ComponentPreview name="CarouselDemo"  />
 
 ## About
 
 The carousel component is built using the [Embla Carousel](https://www.embla-carousel.com/) library.
 
 ## Installation
- 
 
 ```bash
 npx shadcn-vue@latest add carousel
-``` 
+```
 
 ## Usage
 
@@ -54,7 +51,6 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
 
 <ComponentPreview name="CarouselSize" />
 
-
 Example
 
 ```vue:line-numbers title="Example" {4-6}
@@ -67,7 +63,6 @@ Example
   </CarouselContent>
 </Carousel>
 ```
-
 
 Responsive
 
@@ -150,6 +145,10 @@ Use the `orientation` prop to set the orientation of the carousel.
   ...
 </Carousel>
 ```
+
+### Thumbnails
+
+<ComponentPreview name="CarouselThumbnails" />
 
 ## Options
 
@@ -258,7 +257,6 @@ You can use the `plugins` prop to add plugins to the carousel.
 ```bash
 npm i embla-carousel-autoplay
 ```
-
 
 ```vue:line-numbers {2,8-10}
 <script setup lang="ts">

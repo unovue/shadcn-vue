@@ -1,8 +1,9 @@
-import path from 'node:path'
 import process from 'node:process'
+import path from 'pathe'
 import { HttpsProxyAgent } from 'https-proxy-agent'
-import fetch from 'node-fetch'
+import { ofetch } from 'ofetch'
 import type * as z from 'zod'
+import consola from 'consola'
 import {
   registryBaseColorSchema,
   registryIndexSchema,
@@ -122,8 +123,11 @@ export function getItemTargetPath(
   override?: string,
 ) {
   // Allow overrides for all items but ui.
-  if (override && item.type !== 'components:ui')
+  if (override)
     return override
+
+  if (item.type === 'components:ui' && config.aliases.ui)
+    return config.resolvedPaths.ui
 
   const [parent, type] = item.type.split(':')
   if (!(parent in config.resolvedPaths))
@@ -139,17 +143,18 @@ async function fetchRegistry(paths: string[]) {
   try {
     const results = await Promise.all(
       paths.map(async (path) => {
-        const response = await fetch(`${baseUrl}/registry/${path}`, {
+        const response = await ofetch(`${baseUrl}/registry/${path}`, {
+          // @ts-expect-error agent type
           agent,
         })
-        return await response.json()
+
+        return response
       }),
     )
     return results
   }
   catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error)
+    consola.error(error)
     throw new Error(`Failed to fetch registry from ${baseUrl}.`)
   }
 }

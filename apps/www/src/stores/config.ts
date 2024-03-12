@@ -5,7 +5,7 @@ import { type Theme, themes } from './../lib/registry/themes'
 import { type Style, styles } from '@/lib/registry/styles'
 
 interface Config {
-  theme: Theme['name']
+  theme?: Theme['name']
   radius: number
   style: Style
 }

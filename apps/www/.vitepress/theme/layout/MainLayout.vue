@@ -85,14 +85,12 @@ watch(() => $route.path, (n) => {
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col bg-background">
+  <div vaul-drawer-wrapper class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
-        class="container flex justify-between h-14 max-w-screen-2xl items-center"
+        class="container flex h-14 max-w-screen-2xl items-center"
       >
-        <MobileNav />
-
-        <div class="mr-4 hidden md:flex">
+        <div class="mr-4 md:mr-1 hidden md:flex">
           <Logo />
 
           <nav
@@ -106,30 +104,33 @@ watch(() => $route.path, (n) => {
               class="transition-colors hover:text-foreground/80 text-foreground/60"
               :class="{
                 'font-semibold !text-foreground': $route.path === `${route.href}.html`,
+                'hidden lg:block': route?.href?.includes('github'),
               }"
             >
               {{ route.title }}
             </a>
           </nav>
         </div>
+        <MobileNav />
 
-        <div class=" flex items-center justify-end space-x-2 ">
-          <Button
-            variant="outline"
-            class="w-72 h-9 px-3 hidden lg:flex lg:justify-between lg:items-center"
-            @click="isOpen = true"
-          >
-            <div class="flex items-center">
-              <SearchIcon class="w-4 h-4 mr-2 text-muted-foreground" />
-              <span class="text-muted-foreground"> Search for anything... </span>
-            </div>
-            <div class="flex items-center gap-x-1">
-              <Kbd> <span>⌘</span>K </Kbd>
-            </div>
-          </Button>
-          <ThemePopover />
+        <div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div class="w-full flex-1 md:w-auto md:flex-none">
+            <Button
+              variant="outline"
+              class="relative h-8 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+              @click="isOpen = true"
+            >
+              <span className="hidden lg:inline-flex">Search documentation...</span>
+              <span className="inline-flex lg:hidden">Search...</span>
+              <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
+          </div>
 
-          <div class="flex items-center gap-x-1">
+          <nav class="flex items-center gap-x-1">
+            <ThemePopover />
+
             <Button
               v-for="link in links"
               :key="link.name"
@@ -154,7 +155,7 @@ watch(() => $route.path, (n) => {
                 />
               </Button>
             </ClientOnly>
-          </div>
+          </nav>
         </div>
       </div>
     </header>
@@ -293,9 +294,7 @@ watch(() => $route.path, (n) => {
       </DialogContent>
     </Dialog>
     <DefaultToaster />
-    <ClientOnly>
-      <NewYorkSonner :theme="isDark ? 'dark' : 'light'" />
-    </ClientOnly>
+    <NewYorkSonner :theme="'system'" />
     <NewYorkToaster />
   </div>
 </template>

@@ -3,7 +3,7 @@ import type { Row } from '@tanstack/vue-table'
 import { computed } from 'vue'
 import { labels } from '../data/data'
 import { taskSchema } from '../data/schema'
-import { type Task } from '../data/schema'
+import type { Task } from '../data/schema'
 import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 
 import { Button } from '@/lib/registry/new-york/ui/button'

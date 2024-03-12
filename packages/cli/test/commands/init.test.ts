@@ -1,22 +1,20 @@
 import fs from 'node:fs'
-import path from 'node:path'
-import { execa } from 'execa'
-import { afterEach, expect, test, vi } from 'vitest'
+import path from 'pathe'
+import { addDependency, addDevDependency } from 'nypm'
+import { afterEach, expect, it, vi } from 'vitest'
 
 import { runInit } from '../../src/commands/init'
 import { getConfig } from '../../src/utils/get-config'
-import * as getPackageManger from '../../src/utils/get-package-manager'
 import * as registry from '../../src/utils/registry'
 
-vi.mock('execa')
+vi.mock('nypm')
 vi.mock('fs/promises', () => ({
   writeFile: vi.fn(),
   mkdir: vi.fn(),
 }))
 vi.mock('ora')
 
-test('init config-full', async () => {
-  vi.spyOn(getPackageManger, 'getPackageManager').mockResolvedValue('pnpm')
+it('init config-full', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
     inlineColors: {},
     cssVars: {},
@@ -63,14 +61,11 @@ test('init config-full', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/src\/lib\/utils.ts$/),
-    // eslint-disable-next-line @typescript-eslint/quotes
-    expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
+    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
     'utf8',
   )
-  expect(execa).toHaveBeenCalledWith(
-    'pnpm',
+  expect(addDependency).toHaveBeenCalledWith(
     [
-      'add',
       'tailwindcss-animate',
       'class-variance-authority',
       'clsx',
@@ -80,6 +75,7 @@ test('init config-full', async () => {
     ],
     {
       cwd: targetDir,
+      silent: true,
     },
   )
 
@@ -87,8 +83,7 @@ test('init config-full', async () => {
   mockWriteFile.mockRestore()
 })
 
-test('init config-partial', async () => {
-  vi.spyOn(getPackageManger, 'getPackageManager').mockResolvedValue('npm')
+it('init config-partial', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
     inlineColors: {},
     cssVars: {},
@@ -135,14 +130,11 @@ test('init config-partial', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/utils.ts$/),
-    // eslint-disable-next-line @typescript-eslint/quotes
-    expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
+    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
     'utf8',
   )
-  expect(execa).toHaveBeenCalledWith(
-    'npm',
+  expect(addDependency).toHaveBeenCalledWith(
     [
-      'install',
       'tailwindcss-animate',
       'class-variance-authority',
       'clsx',
@@ -152,6 +144,7 @@ test('init config-partial', async () => {
     ],
     {
       cwd: targetDir,
+      silent: true,
     },
   )
 

@@ -11,7 +11,7 @@ import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 
-import DashboardExample from '@/examples/dashboard/Example.vue'
+import MailExample from '@/examples/mail/Example.vue'
 </script>
 
 <template>
@@ -55,17 +55,17 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
   <ExamplesNav />
   <section class="space-y-8 overflow-hidden rounded-lg border-2 border-primary dark:border-muted md:hidden">
     <VPImage
-      alt="Dashboard"
+      alt="Mail"
       width="1280"
       height="866" class="block" :image="{
-        dark: '/examples/dashboard-dark.png',
-        light: '/examples/dashboard-light.png',
+        dark: '/examples/mail-dark.png',
+        light: '/examples/mail-light.png',
       }"
     />
   </section>
   <section class="hidden md:block">
     <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
-      <DashboardExample />
+      <MailExample />
     </div>
   </section>
 </template>

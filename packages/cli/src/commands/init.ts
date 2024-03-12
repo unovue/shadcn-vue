@@ -1,22 +1,21 @@
 import { existsSync, promises as fs } from 'node:fs'
-import path from 'node:path'
 import process from 'node:process'
-import chalk from 'chalk'
+import path from 'pathe'
 import { Command } from 'commander'
-import { execa } from 'execa'
 import template from 'lodash.template'
 import ora from 'ora'
 import prompts from 'prompts'
-import * as z from 'zod'
+import { z } from 'zod'
+import { addDependency, addDevDependency } from 'nypm'
+import { consola } from 'consola'
+import { colors } from 'consola/utils'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
   getRegistryBaseColors,
   getRegistryStyles,
 } from '../utils/registry'
-import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
-import { getPackageManager } from '../utils/get-package-manager'
 import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
   type Config,
@@ -29,6 +28,7 @@ import {
   resolveConfigPaths,
 } from '../utils/get-config'
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm'
+import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -64,7 +64,7 @@ export const init = new Command()
 
       // Ensure target directory exists.
       if (!existsSync(cwd)) {
-        logger.error(`The path ${cwd} does not exist. Please try again.`)
+        consola.error(`The path ${cwd} does not exist. Please try again.`)
         process.exit(1)
       }
 
@@ -74,11 +74,11 @@ export const init = new Command()
 
       await runInit(cwd, config)
 
-      logger.info('')
-      logger.info(
-        `${chalk.green('Success!')} Project initialization completed.`,
+      consola.log('')
+      consola.info(
+        `${colors.green('Success!')} Project initialization completed.`,
       )
-      logger.info('')
+      consola.log('')
     }
     catch (error) {
       handleError(error)
@@ -90,7 +90,7 @@ export async function promptForConfig(
   defaultConfig: Config | null = null,
   skip = false,
 ) {
-  const highlight = (text: string) => chalk.cyan(text)
+  const highlight = (text: string) => colors.cyan(text)
 
   const styles = await getRegistryStyles()
   const baseColors = await getRegistryBaseColors()
@@ -151,6 +151,14 @@ export async function promptForConfig(
       active: 'yes',
       inactive: 'no',
     },
+    // {
+    //   type: 'text',
+    //   name: 'tailwindPrefix',
+    //   message: `Are you using a custom ${highlight(
+    //     'tailwind prefix eg. tw-',
+    //   )}? (Leave blank if not)`,
+    //   initial: '',
+    // },
     {
       type: 'text',
       name: 'tailwindConfig',
@@ -187,6 +195,7 @@ export async function promptForConfig(
       css: options.tailwindCss,
       baseColor: options.tailwindBaseColor,
       cssVariables: options.tailwindCssVariables,
+      // prefix: options.tailwindPrefix,
     },
     aliases: {
       utils: options.utils,
@@ -207,7 +216,7 @@ export async function promptForConfig(
   }
 
   // Write to file.
-  logger.info('')
+  consola.log('')
   const spinner = ora('Writing components.json...').start()
   const targetPath = path.resolve(cwd, 'components.json')
   await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8')
@@ -247,8 +256,8 @@ export async function runInit(cwd: string, config: Config) {
     transformCJSToESM(
       config.resolvedPaths.tailwindConfig,
       config.tailwind.cssVariables
-        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework })
-        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework }),
+        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework, prefix: config.tailwind.prefix })
+        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework, prefix: config.tailwind.prefix }),
     ),
     'utf8',
   )
@@ -259,7 +268,9 @@ export async function runInit(cwd: string, config: Config) {
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       config.tailwind.cssVariables
-        ? baseColor.cssVarsTemplate
+        ? config.tailwind.prefix
+          ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
+          : baseColor.cssVarsTemplate
         : baseColor.inlineColorsTemplate,
       'utf8',
     )
@@ -276,20 +287,29 @@ export async function runInit(cwd: string, config: Config) {
 
   // Install dependencies.
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
-  const packageManager = await getPackageManager(cwd)
 
   const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
-  ).concat(
     config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
   ).filter(Boolean)
 
-  await execa(
-    packageManager,
-    [packageManager === 'npm' ? 'install' : 'add', ...deps],
-    {
-      cwd,
-    },
+  async function addNuxtDevDeps() {
+    if (config.framework === 'nuxt') {
+      await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
+        cwd,
+        silent: true,
+      })
+    }
+  }
+
+  await Promise.allSettled(
+    [
+      addNuxtDevDeps(),
+      addDependency(deps, {
+        cwd,
+        silent: true,
+      }),
+    ],
   )
+
   dependenciesSpinner?.succeed()
 }

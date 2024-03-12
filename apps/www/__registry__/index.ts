@@ -241,6 +241,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/CarouselSpacing.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/CarouselSpacing.vue"],
     },
+    "CarouselThumbnails": {
+      name: "CarouselThumbnails",
+      type: "components:example",
+      registryDependencies: ["carousel","card"],
+      component: () => import("../src/lib/registry/default/example/CarouselThumbnails.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/CarouselThumbnails.vue"],
+    },
     "CheckboxDemo": {
       name: "CheckboxDemo",
       type: "components:example",
@@ -310,6 +317,13 @@ export const Index = {
       registryDependencies: ["utils","button","command","popover"],
       component: () => import("../src/lib/registry/default/example/ComboboxPopover.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/ComboboxPopover.vue"],
+    },
+    "ComboboxResponsive": {
+      name: "ComboboxResponsive",
+      type: "components:example",
+      registryDependencies: ["button","command","drawer","popover"],
+      component: () => import("../src/lib/registry/default/example/ComboboxResponsive.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/ComboboxResponsive.vue"],
     },
     "CommandDemo": {
       name: "CommandDemo",
@@ -416,12 +430,26 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DialogScrollOverlayDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DialogScrollOverlayDemo.vue"],
     },
-    "DonutChartDemo": {
-      name: "DonutChartDemo",
+    "DrawerDemo": {
+      name: "DrawerDemo",
       type: "components:example",
-      registryDependencies: ["chart-donut"],
-      component: () => import("../src/lib/registry/default/example/DonutChartDemo.vue").then((m) => m.default),
-      files: ["../src/lib/registry/default/example/DonutChartDemo.vue"],
+      registryDependencies: ["button","drawer"],
+      component: () => import("../src/lib/registry/default/example/DrawerDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DrawerDemo.vue"],
+    },
+    "DrawerDialog": {
+      name: "DrawerDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog","drawer","label","input"],
+      component: () => import("../src/lib/registry/default/example/DrawerDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DrawerDialog.vue"],
+    },
+    "DropdownMenuCheckboxes": {
+      name: "DropdownMenuCheckboxes",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/default/example/DropdownMenuCheckboxes.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DropdownMenuCheckboxes.vue"],
     },
     "DropdownMenuDemo": {
       name: "DropdownMenuDemo",
@@ -429,6 +457,13 @@ export const Index = {
       registryDependencies: ["button","dropdown-menu"],
       component: () => import("../src/lib/registry/default/example/DropdownMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DropdownMenuDemo.vue"],
+    },
+    "DropdownMenuRadioGroup": {
+      name: "DropdownMenuRadioGroup",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/default/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DropdownMenuRadioGroup.vue"],
     },
     "HoverCardDemo": {
       name: "HoverCardDemo",
@@ -535,6 +570,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/PaginationDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/PaginationDemo.vue"],
     },
+    "PinInputControlled": {
+      name: "PinInputControlled",
+      type: "components:example",
+      registryDependencies: ["pin-input"],
+      component: () => import("../src/lib/registry/default/example/PinInputControlled.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/PinInputControlled.vue"],
+    },
     "PinInputDemo": {
       name: "PinInputDemo",
       type: "components:example",
@@ -542,12 +584,26 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/PinInputDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/PinInputDemo.vue"],
     },
+    "PinInputDisabled": {
+      name: "PinInputDisabled",
+      type: "components:example",
+      registryDependencies: ["pin-input"],
+      component: () => import("../src/lib/registry/default/example/PinInputDisabled.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/PinInputDisabled.vue"],
+    },
     "PinInputFormDemo": {
       name: "PinInputFormDemo",
       type: "components:example",
       registryDependencies: ["pin-input","button","form","toast"],
       component: () => import("../src/lib/registry/default/example/PinInputFormDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/PinInputFormDemo.vue"],
+    },
+    "PinInputSeparatorDemo": {
+      name: "PinInputSeparatorDemo",
+      type: "components:example",
+      registryDependencies: ["pin-input"],
+      component: () => import("../src/lib/registry/default/example/PinInputSeparatorDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/PinInputSeparatorDemo.vue"],
     },
     "PopoverDemo": {
       name: "PopoverDemo",
@@ -584,6 +640,27 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/RangePickerWithSlot.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/RangePickerWithSlot.vue"],
     },
+    "ResizableDemo": {
+      name: "ResizableDemo",
+      type: "components:example",
+      registryDependencies: ["resizable"],
+      component: () => import("../src/lib/registry/default/example/ResizableDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/ResizableDemo.vue"],
+    },
+    "ResizableHandleDemo": {
+      name: "ResizableHandleDemo",
+      type: "components:example",
+      registryDependencies: ["resizable"],
+      component: () => import("../src/lib/registry/default/example/ResizableHandleDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/ResizableHandleDemo.vue"],
+    },
+    "ResizableVerticalDemo": {
+      name: "ResizableVerticalDemo",
+      type: "components:example",
+      registryDependencies: ["resizable"],
+      component: () => import("../src/lib/registry/default/example/ResizableVerticalDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/ResizableVerticalDemo.vue"],
+    },
     "ScrollAreaDemo": {
       name: "ScrollAreaDemo",
       type: "components:example",
@@ -612,6 +689,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SelectForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SelectForm.vue"],
     },
+    "SelectScrollable": {
+      name: "SelectScrollable",
+      type: "components:example",
+      registryDependencies: ["select"],
+      component: () => import("../src/lib/registry/default/example/SelectScrollable.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SelectScrollable.vue"],
+    },
     "SeparatorDemo": {
       name: "SeparatorDemo",
       type: "components:example",
@@ -633,6 +717,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SheetSideDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SheetSideDemo.vue"],
     },
+    "SkeletonCard": {
+      name: "SkeletonCard",
+      type: "components:example",
+      registryDependencies: ["skeleton"],
+      component: () => import("../src/lib/registry/default/example/SkeletonCard.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SkeletonCard.vue"],
+    },
     "SkeletonDemo": {
       name: "SkeletonDemo",
       type: "components:example",
@@ -646,6 +737,13 @@ export const Index = {
       registryDependencies: ["utils","slider"],
       component: () => import("../src/lib/registry/default/example/SliderDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SliderDemo.vue"],
+    },
+    "SliderForm": {
+      name: "SliderForm",
+      type: "components:example",
+      registryDependencies: ["button","form","slider","toast"],
+      component: () => import("../src/lib/registry/default/example/SliderForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SliderForm.vue"],
     },
     "SonnerDemo": {
       name: "SonnerDemo",
@@ -1222,6 +1320,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/CarouselSpacing.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/CarouselSpacing.vue"],
     },
+    "CarouselThumbnails": {
+      name: "CarouselThumbnails",
+      type: "components:example",
+      registryDependencies: ["carousel","card"],
+      component: () => import("../src/lib/registry/new-york/example/CarouselThumbnails.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/CarouselThumbnails.vue"],
+    },
     "CheckboxDemo": {
       name: "CheckboxDemo",
       type: "components:example",
@@ -1291,6 +1396,13 @@ export const Index = {
       registryDependencies: ["utils","button","command","popover"],
       component: () => import("../src/lib/registry/new-york/example/ComboboxPopover.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/ComboboxPopover.vue"],
+    },
+    "ComboboxResponsive": {
+      name: "ComboboxResponsive",
+      type: "components:example",
+      registryDependencies: ["button","command","drawer","popover"],
+      component: () => import("../src/lib/registry/new-york/example/ComboboxResponsive.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/ComboboxResponsive.vue"],
     },
     "CommandDemo": {
       name: "CommandDemo",
@@ -1397,12 +1509,26 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue"],
     },
-    "DonutChartDemo": {
-      name: "DonutChartDemo",
+    "DrawerDemo": {
+      name: "DrawerDemo",
       type: "components:example",
-      registryDependencies: ["chart-donut"],
-      component: () => import("../src/lib/registry/new-york/example/DonutChartDemo.vue").then((m) => m.default),
-      files: ["../src/lib/registry/new-york/example/DonutChartDemo.vue"],
+      registryDependencies: ["button","drawer"],
+      component: () => import("../src/lib/registry/new-york/example/DrawerDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DrawerDemo.vue"],
+    },
+    "DrawerDialog": {
+      name: "DrawerDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog","drawer","label","input"],
+      component: () => import("../src/lib/registry/new-york/example/DrawerDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DrawerDialog.vue"],
+    },
+    "DropdownMenuCheckboxes": {
+      name: "DropdownMenuCheckboxes",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/new-york/example/DropdownMenuCheckboxes.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DropdownMenuCheckboxes.vue"],
     },
     "DropdownMenuDemo": {
       name: "DropdownMenuDemo",
@@ -1410,6 +1536,13 @@ export const Index = {
       registryDependencies: ["button","dropdown-menu"],
       component: () => import("../src/lib/registry/new-york/example/DropdownMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DropdownMenuDemo.vue"],
+    },
+    "DropdownMenuRadioGroup": {
+      name: "DropdownMenuRadioGroup",
+      type: "components:example",
+      registryDependencies: ["button","dropdown-menu"],
+      component: () => import("../src/lib/registry/new-york/example/DropdownMenuRadioGroup.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DropdownMenuRadioGroup.vue"],
     },
     "HoverCardDemo": {
       name: "HoverCardDemo",
@@ -1516,6 +1649,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/PaginationDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/PaginationDemo.vue"],
     },
+    "PinInputControlled": {
+      name: "PinInputControlled",
+      type: "components:example",
+      registryDependencies: ["pin-input"],
+      component: () => import("../src/lib/registry/new-york/example/PinInputControlled.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/PinInputControlled.vue"],
+    },
     "PinInputDemo": {
       name: "PinInputDemo",
       type: "components:example",
@@ -1523,12 +1663,26 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/PinInputDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/PinInputDemo.vue"],
     },
+    "PinInputDisabled": {
+      name: "PinInputDisabled",
+      type: "components:example",
+      registryDependencies: ["pin-input"],
+      component: () => import("../src/lib/registry/new-york/example/PinInputDisabled.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/PinInputDisabled.vue"],
+    },
     "PinInputFormDemo": {
       name: "PinInputFormDemo",
       type: "components:example",
       registryDependencies: ["pin-input","button","form","toast"],
       component: () => import("../src/lib/registry/new-york/example/PinInputFormDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/PinInputFormDemo.vue"],
+    },
+    "PinInputSeparatorDemo": {
+      name: "PinInputSeparatorDemo",
+      type: "components:example",
+      registryDependencies: ["pin-input"],
+      component: () => import("../src/lib/registry/new-york/example/PinInputSeparatorDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/PinInputSeparatorDemo.vue"],
     },
     "PopoverDemo": {
       name: "PopoverDemo",
@@ -1565,6 +1719,27 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/RangePickerWithSlot.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/RangePickerWithSlot.vue"],
     },
+    "ResizableDemo": {
+      name: "ResizableDemo",
+      type: "components:example",
+      registryDependencies: ["resizable"],
+      component: () => import("../src/lib/registry/new-york/example/ResizableDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/ResizableDemo.vue"],
+    },
+    "ResizableHandleDemo": {
+      name: "ResizableHandleDemo",
+      type: "components:example",
+      registryDependencies: ["resizable"],
+      component: () => import("../src/lib/registry/new-york/example/ResizableHandleDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/ResizableHandleDemo.vue"],
+    },
+    "ResizableVerticalDemo": {
+      name: "ResizableVerticalDemo",
+      type: "components:example",
+      registryDependencies: ["resizable"],
+      component: () => import("../src/lib/registry/new-york/example/ResizableVerticalDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/ResizableVerticalDemo.vue"],
+    },
     "ScrollAreaDemo": {
       name: "ScrollAreaDemo",
       type: "components:example",
@@ -1593,6 +1768,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/SelectForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SelectForm.vue"],
     },
+    "SelectScrollable": {
+      name: "SelectScrollable",
+      type: "components:example",
+      registryDependencies: ["select"],
+      component: () => import("../src/lib/registry/new-york/example/SelectScrollable.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SelectScrollable.vue"],
+    },
     "SeparatorDemo": {
       name: "SeparatorDemo",
       type: "components:example",
@@ -1614,6 +1796,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/SheetSideDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SheetSideDemo.vue"],
     },
+    "SkeletonCard": {
+      name: "SkeletonCard",
+      type: "components:example",
+      registryDependencies: ["skeleton"],
+      component: () => import("../src/lib/registry/new-york/example/SkeletonCard.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SkeletonCard.vue"],
+    },
     "SkeletonDemo": {
       name: "SkeletonDemo",
       type: "components:example",
@@ -1627,6 +1816,13 @@ export const Index = {
       registryDependencies: ["utils","slider"],
       component: () => import("../src/lib/registry/new-york/example/SliderDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SliderDemo.vue"],
+    },
+    "SliderForm": {
+      name: "SliderForm",
+      type: "components:example",
+      registryDependencies: ["button","form","slider","toast"],
+      component: () => import("../src/lib/registry/new-york/example/SliderForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SliderForm.vue"],
     },
     "SonnerDemo": {
       name: "SonnerDemo",

@@ -81,7 +81,7 @@ const columns: ColumnDef<Payment>[] = [
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
-      'checked': table.getIsAllPageRowsSelected(),
+      'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
       'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
       'ariaLabel': 'Select all',
     }),
@@ -104,7 +104,7 @@ const columns: ColumnDef<Payment>[] = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
+      }, () => ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   },

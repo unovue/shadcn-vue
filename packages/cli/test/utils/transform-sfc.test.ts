@@ -1,9 +1,9 @@
-import { resolve } from 'node:path'
-import { describe, expect, test } from 'vitest'
+import { resolve } from 'pathe'
+import { describe, expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
 
 describe('transformSFC', () => {
-  test('basic', async () => {
+  it('basic', async () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
@@ -24,7 +24,7 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
-  test('defineProps', async () => {
+  it('defineProps', async () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
@@ -36,7 +36,7 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
-  test('defineProps with withDefaults', async () => {
+  it('defineProps with withDefaults', async () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
@@ -50,7 +50,7 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
-  test('defineProps with external props', async () => {
+  it('defineProps with external props', async () => {
     const result = await transform({
       filename: resolve(__dirname, './test.vue'),
       raw: `<script lang="ts" setup>
@@ -65,7 +65,7 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
-  test('defineProps with package props', async () => {
+  it('defineProps with package props', async () => {
     const result = await transform({
       filename: resolve(__dirname, './test.vue'),
       raw: `<script lang="ts" setup>
@@ -81,7 +81,7 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
-  test('defineEmits', async () => {
+  it('defineEmits', async () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>

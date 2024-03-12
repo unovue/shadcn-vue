@@ -1,7 +1,7 @@
-import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import path from 'pathe'
 import fs from 'fs-extra'
-import { type PackageJson } from 'type-fest'
+import type { PackageJson } from 'type-fest'
 
 export function getPackageInfo() {
   const packageJsonPath = getPackageFilePath('../package.json')
