@@ -6,6 +6,7 @@ import { type NavItem, docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
 
+import Kbd from '../components/Kbd.vue'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
 
 import { Button } from '@/lib/registry/default/ui/button'
@@ -119,9 +120,9 @@ watch(() => $route.path, (n) => {
             >
               <span class="hidden lg:inline-flex">Search documentation...</span>
               <span class="inline-flex lg:hidden">Search...</span>
-              <kbd class="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+              <Kbd class="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
                 <span class="text-xs">⌘</span>K
-              </kbd>
+              </Kbd>
             </Button>
           </div>
 
