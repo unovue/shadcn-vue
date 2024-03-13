@@ -11,7 +11,7 @@
     },
     {
       "name": "BreadcrumbEllipsis.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { MoreHorizontal } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    role=\"presentation\"\n    aria-hidden=\"true\"\n    :class=\"cn('flex h-9 w-9 items-center justify-center', props.class)\"\n  >\n    <slot>\n      <MoreHorizontal class=\"h-4 w-4\" />\n    </slot>\n    <span class=\"sr-only\">More</span>\n  </span>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { DotsHorizontalIcon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    role=\"presentation\"\n    aria-hidden=\"true\"\n    :class=\"cn('flex h-9 w-9 items-center justify-center', props.class)\"\n  >\n    <slot>\n      <DotsHorizontalIcon class=\"h-4 w-4\" />\n    </slot>\n    <span class=\"sr-only\">More</span>\n  </span>\n</template>\n"
     },
     {
       "name": "BreadcrumbItem.vue",
@@ -31,7 +31,7 @@
     },
     {
       "name": "BreadcrumbSeparator.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRight } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <li\n    role=\"presentation\"\n    aria-hidden=\"true\"\n    :class=\"cn('[&>svg]:size-3.5', props.class)\"\n  >\n    <slot>\n      <ChevronRight />\n    </slot>\n  </li>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRightIcon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <li\n    role=\"presentation\"\n    aria-hidden=\"true\"\n    :class=\"cn('[&>svg]:size-3.5', props.class)\"\n  >\n    <slot>\n      <ChevronRightIcon />\n    </slot>\n  </li>\n</template>\n"
     },
     {
       "name": "index.ts",
