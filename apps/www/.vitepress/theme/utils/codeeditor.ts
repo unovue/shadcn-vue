@@ -18,6 +18,7 @@ export function makeCodeSandboxParams(componentName: string, style: Style, sourc
 export function makeStackblitzParams(componentName: string, style: Style, sources: Record<string, string>) {
   const files: Record<string, string> = {}
   Object.entries(constructFiles(componentName, style, sources)).forEach(([k, v]) => (files[`${k}`] = typeof v.content === 'object' ? JSON.stringify(v.content, null, 2) : v.content))
+  console.log({ files, componentName, style, sources })
   return sdk.openProject({
     title: `${componentName} - Radix Vue`,
     files,
