@@ -105,19 +105,12 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'autoprefixer': 'latest',
   }
 
-  const transformImportPath = (code: string) => {
-    let parsed = code
-    parsed = parsed.replaceAll(`@/lib/registry/${style}`, '@/components')
-    parsed = parsed.replaceAll('@/lib/utils', '@/utils')
-    return parsed
-  }
-
   const componentFiles = Object.keys(sources).filter(key => key.endsWith('.vue') && key !== 'index.vue')
   const components: Record<string, any> = {}
   componentFiles.forEach((i) => {
     components[`src/${i}`] = {
       isBinary: false,
-      content: transformImportPath(sources[i]),
+      content: sources[i],
     }
   })
 

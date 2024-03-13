@@ -17,8 +17,6 @@ defineOptions({
 const props = withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
-  sfcTsCode?: string
-  sfcTsHtml?: string
 }>(), { align: 'center' })
 
 const { style } = useConfigStore()
@@ -26,9 +24,16 @@ const { style } = useConfigStore()
 const codeString = ref('')
 const codeHtml = ref('')
 
+function transformImportPath(code: string) {
+  let parsed = code
+  parsed = parsed.replaceAll(`@/lib/registry/${style.value}`, '@/components')
+  parsed = parsed.replaceAll('@/lib/utils', '@/utils')
+  return parsed
+}
+
 watch(style, async () => {
   try {
-    codeString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
+    codeString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => transformImportPath(res.default.trim()))
     codeHtml.value = await codeToHtml(codeString.value, {
       lang: 'vue',
       theme: cssVariables,
