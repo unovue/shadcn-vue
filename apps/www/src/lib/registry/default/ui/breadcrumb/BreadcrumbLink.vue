@@ -1,18 +1,23 @@
 <script lang="ts" setup>
-import { type HTMLAttributes, computed } from 'vue'
-import { Slot } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
+import type { PrimitiveProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<{
+interface Props extends PrimitiveProps {
+  as?: string
   class?: HTMLAttributes['class']
-  asChild?: boolean
-}>()
-
-const Comp = computed(() => props.asChild ? Slot : 'a')
+}
+const props = withDefaults(defineProps<Props>(), {
+  as: 'a',
+})
 </script>
 
 <template>
-  <Comp :class="cn('transition-colors hover:text-foreground', props.class)">
+  <Primitive
+    :as="as"
+    :as-child="asChild"
+    :class="cn('transition-colors hover:text-foreground', props.class)"
+  >
     <slot />
-  </Comp>
+  </Primitive>
 </template>
