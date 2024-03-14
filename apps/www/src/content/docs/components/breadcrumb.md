@@ -8,7 +8,7 @@ description: Displays the path to the current resource using a hierarchy of link
 ## Installation
 
 ```bash
-npx shadcn-ui@latest add breadcrumb
+npx shadcn-vue@latest add breadcrumb
 ```
 
 ## Usage
