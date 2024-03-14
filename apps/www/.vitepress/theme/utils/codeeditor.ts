@@ -92,6 +92,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'shadcn-vue': 'latest',
     'typescript': 'latest',
     'vaul-vue': 'latest',
+    'vue-sonner': 'latest',
     '@unovis/vue': 'latest',
     '@unovis/ts': 'latest',
   }

@@ -67,7 +67,7 @@ const onSubmit = handleSubmit((values) => {
             <FormItem>
               <FormLabel>Components Path</FormLabel>
               <FormControl>
-                <Input placeholder="" v-bind="componentField" />
+                <Input placeholder="@/components" v-bind="componentField" />
               </FormControl>
               <FormDescription />
               <FormMessage />
@@ -77,7 +77,7 @@ const onSubmit = handleSubmit((values) => {
             <FormItem>
               <FormLabel>Utils Path</FormLabel>
               <FormControl>
-                <Input placeholder="" v-bind="componentField" />
+                <Input placeholder="@/utils" v-bind="componentField" />
               </FormControl>
               <FormDescription />
               <FormMessage />
