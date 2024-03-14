@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, toRefs, watch } from 'vue'
+import { ref, toRefs, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { makeCodeSandboxParams } from '../utils/codeeditor'
 import Tooltip from './Tooltip.vue'

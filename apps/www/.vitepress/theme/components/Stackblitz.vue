@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, toRefs, watch } from 'vue'
+import { ref, toRefs, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { makeStackblitzParams } from '../utils/codeeditor'
 import Tooltip from './Tooltip.vue'
@@ -15,12 +15,9 @@ const props = defineProps<{
 const { code } = toRefs(props)
 const sources = ref<Record<string, string>>({})
 
-onMounted(() => {
-})
-
 watch(code, () => {
   sources.value['App.vue'] = code.value
-})
+}, { immediate: true })
 
 function handleClick() {
   makeStackblitzParams(props.name, props.style, sources.value)
