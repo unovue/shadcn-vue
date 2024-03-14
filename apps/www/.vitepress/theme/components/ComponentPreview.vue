@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
+import MagicString from 'magic-string'
 import { cssVariables } from '../config/shiki'
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
@@ -19,19 +20,19 @@ const props = withDefaults(defineProps<{
   align?: 'center' | 'start' | 'end'
 }>(), { align: 'center' })
 
-const { style } = useConfigStore()
+const { style, codeConfig } = useConfigStore()
 
 const codeString = ref('')
 const codeHtml = ref('')
 
 function transformImportPath(code: string) {
-  let parsed = code
-  parsed = parsed.replaceAll(`@/lib/registry/${style.value}`, '@/components')
-  parsed = parsed.replaceAll('@/lib/utils', '@/utils')
-  return parsed
+  const s = new MagicString(code)
+  s.replaceAll(`@/lib/registry/${style.value}`, codeConfig.value.componentsPath)
+  s.replaceAll(`@/lib/utils`, codeConfig.value.utilsPath)
+  return s.toString()
 }
 
-watch(style, async () => {
+watch([style, codeConfig], async () => {
   try {
     codeString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => transformImportPath(res.default.trim()))
     codeHtml.value = await codeToHtml(codeString.value, {

@@ -89,6 +89,9 @@ importers:
       lucide-vue-next:
         specifier: ^0.350.0
         version: 0.350.0(vue@3.4.21)
+      magic-string:
+        specifier: ^0.30.8
+        version: 0.30.8
       radix-vue:
         specifier: ^1.5.2
         version: 1.5.2(vue@3.4.21)

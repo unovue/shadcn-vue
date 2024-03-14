@@ -5,6 +5,7 @@ import { Content, useData, useRoute, useRouter } from 'vitepress'
 import { type NavItem, docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
+import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue'
 
 import Kbd from '../components/Kbd.vue'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
@@ -126,27 +127,32 @@ watch(() => $route.path, (n) => {
             </Button>
           </div>
 
-          <nav class="flex items-center gap-x-1">
+          <nav class="flex items-center">
+            <CodeConfigCustomizer />
+
             <Button
               v-for="link in links"
               :key="link.name"
               as="a"
+              class="w-9 h-9"
               :href="link.href" target="_blank"
-              :variant="'ghost'" :size="'icon'"
+              :variant="'ghost'"
+              :size="'icon'"
             >
-              <component :is="link.icon" class="w-[20px] h-5" />
+              <component :is="link.icon" class="w-5 h-5" />
             </Button>
 
             <ClientOnly>
               <Button
-                class="flex items-center justify-center"
+                class="w-9 h-9"
                 aria-label="Toggle dark mode"
                 :variant="'ghost'"
-                :size="'icon'" @click="toggleDark()"
+                :size="'icon'"
+                @click="toggleDark()"
               >
                 <component
                   :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                  class="w-[20px] h-5 text-foreground"
+                  class="w-5 h-5 text-foreground"
                 />
               </Button>
             </ClientOnly>
@@ -292,4 +298,4 @@ watch(() => $route.path, (n) => {
     <NewYorkSonner :theme="'system'" />
     <NewYorkToaster />
   </div>
-</template>
+</template>../components/CodeConfigCustomizer.vue

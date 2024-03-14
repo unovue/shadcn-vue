@@ -31,6 +31,7 @@
     "embla-carousel-autoplay": "^8.0.0",
     "embla-carousel-vue": "^8.0.0",
     "lucide-vue-next": "^0.350.0",
+    "magic-string": "^0.30.8",
     "radix-vue": "^1.5.2",
     "tailwindcss-animate": "^1.0.7",
     "v-calendar": "^3.1.2",
