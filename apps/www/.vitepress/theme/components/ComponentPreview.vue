@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<{
 
 const { style, codeConfig } = useConfigStore()
 
-const codeString = ref('')
+const rawString = ref('')
 const codeHtml = ref('')
 
 function transformImportPath(code: string) {
@@ -34,8 +34,8 @@ function transformImportPath(code: string) {
 
 watch([style, codeConfig], async () => {
   try {
-    codeString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => transformImportPath(res.default.trim()))
-    codeHtml.value = await codeToHtml(codeString.value, {
+    rawString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
+    codeHtml.value = await codeToHtml(transformImportPath(rawString.value), {
       lang: 'vue',
       theme: cssVariables,
     })
@@ -72,8 +72,8 @@ watch([style, codeConfig], async () => {
           <StyleSwitcher />
 
           <div class="flex items-center gap-x-1">
-            <Stackblitz :key="style" :style="style" :name="name" :code="codeString" />
-            <CodeSandbox :key="style" :style="style" :name="name" :code="codeString" />
+            <Stackblitz :key="style" :style="style" :name="name" :code="rawString" />
+            <CodeSandbox :key="style" :style="style" :name="name" :code="rawString" />
           </div>
         </div>
         <div
