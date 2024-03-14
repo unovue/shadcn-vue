@@ -43,7 +43,7 @@ watch([style, codeConfig], async () => {
   catch (err) {
     console.error(err)
   }
-}, { immediate: true })
+}, { immediate: true, deep: true })
 </script>
 
 <template>
