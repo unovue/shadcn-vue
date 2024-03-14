@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, toRefs, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { makeCodeSandboxParams } from '../utils/codeeditor'
 import Tooltip from './Tooltip.vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
-import { type Style } from '@/lib/registry/styles'
+import type { Style } from '@/lib/registry/styles'
 
 const props = defineProps<{
   name: string
@@ -12,11 +12,12 @@ const props = defineProps<{
   style: Style
 }>()
 
+const { code } = toRefs(props)
 const sources = ref<Record<string, string>>({})
 
-onMounted(() => {
-  sources.value['App.vue'] = props.code
-})
+watch(code, () => {
+  sources.value['App.vue'] = code.value
+}, { immediate: true })
 </script>
 
 <template>

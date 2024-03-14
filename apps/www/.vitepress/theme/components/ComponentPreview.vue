@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
+import { codeToHtml } from 'shiki'
+import MagicString from 'magic-string'
+import { cssVariables } from '../config/shiki'
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
 import Stackblitz from './Stackblitz.vue'
@@ -11,14 +15,35 @@ defineOptions({
   inheritAttrs: false,
 })
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
-  sfcTsCode?: string
-  sfcTsHtml?: string
 }>(), { align: 'center' })
 
-const { style } = useConfigStore()
+const { style, codeConfig } = useConfigStore()
+
+const codeString = ref('')
+const codeHtml = ref('')
+
+function transformImportPath(code: string) {
+  const s = new MagicString(code)
+  s.replaceAll(`@/lib/registry/${style.value}`, codeConfig.value.componentsPath)
+  s.replaceAll(`@/lib/utils`, codeConfig.value.utilsPath)
+  return s.toString()
+}
+
+watch([style, codeConfig], async () => {
+  try {
+    codeString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => transformImportPath(res.default.trim()))
+    codeHtml.value = await codeToHtml(codeString.value, {
+      lang: 'vue',
+      theme: cssVariables,
+    })
+  }
+  catch (err) {
+    console.error(err)
+  }
+}, { immediate: true, deep: true })
 </script>
 
 <template>
@@ -47,8 +72,8 @@ const { style } = useConfigStore()
           <StyleSwitcher />
 
           <div class="flex items-center gap-x-1">
-            <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
-            <CodeSandbox :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+            <Stackblitz :key="style" :style="style" :name="name" :code="codeString" />
+            <CodeSandbox :key="style" :style="style" :name="name" :code="codeString" />
           </div>
         </div>
         <div
@@ -62,7 +87,7 @@ const { style } = useConfigStore()
         </div>
       </TabsContent>
       <TabsContent value="code">
-        <div v-if="sfcTsHtml" class="language-vue" style="flex: 1;" v-html="decodeURIComponent(sfcTsHtml)" />
+        <div v-if="codeHtml" class="language-vue" style="flex: 1;" v-html="codeHtml" />
         <slot v-else />
       </TabsContent>
     </Tabs>
