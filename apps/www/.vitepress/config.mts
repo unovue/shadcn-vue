@@ -8,6 +8,7 @@ import { cssVariables } from './theme/config/shiki'
 // import { transformerMetaWordHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
+import CodeWrapperPlugin from './theme/plugins/codewrapper'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -60,6 +61,7 @@ export default defineConfig({
     ],
     config(md) {
       md.use(ComponentPreviewPlugin)
+      md.use(CodeWrapperPlugin)
     },
   },
   rewrites: {

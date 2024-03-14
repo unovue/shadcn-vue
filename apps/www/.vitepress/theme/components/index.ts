@@ -1,3 +1,4 @@
+export { default as CodeWrapper } from './CodeWrapper'
 export { default as ComponentPreview } from './ComponentPreview.vue'
 export { default as TabPreview } from './TabPreview.vue'
 export { default as TabMarkdown } from './TabMarkdown.vue'
