@@ -6,7 +6,12 @@ export default defineComponent(
     const { codeConfig } = useConfigStore()
 
     return () => {
-      const clonedVNode = slots.default?.()?.[0] ? cloneVNode(slots.default?.()?.[0]) : undefined
+      const clonedVNode = slots.default?.()?.[0]
+        ? cloneVNode(slots.default?.()?.[0], {
+          key: JSON.stringify(codeConfig.value),
+        })
+        : undefined
+
       // @ts-expect-error  cloneVNode
       const preVNode = [...clonedVNode?.children].find((node: VNode) => node.type === 'pre') as VNode
       // @ts-expect-error  cloneVNode
