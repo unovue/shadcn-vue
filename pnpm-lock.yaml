@@ -308,8 +308,8 @@ importers:
         specifier: ^3.10.3
         version: 3.10.3(rollup@3.29.4)
       oxc-parser:
-        specifier: ^0.7.0
-        version: 0.7.0
+        specifier: ^0.8.0
+        version: 0.8.0
     devDependencies:
       '@nuxt/devtools':
         specifier: latest
@@ -2774,28 +2774,11 @@ packages:
       - vue-tsc
     dev: true
 
-  /@oxc-parser/binding-darwin-arm64@0.7.0:
-    resolution: {integrity: sha512-6ADI2g5zTvkywFdKTVZiJ8BdaWIhck7eX8H1WRuB2IomQec8Mc3mK6IoWz7xxGjbHq3sM7hL3y8bJEkUrFtn1w==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@oxc-parser/binding-darwin-arm64@0.8.0:
     resolution: {integrity: sha512-3Dws5Wzj9efojjqvhS4ZF+Abh0EoiI5ciOE2kdLifMzSg4fnmYAIOktoUnPEo87TNIb4SiFJ5JgPBgEyq42Eow==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-darwin-x64@0.7.0:
-    resolution: {integrity: sha512-OWqt1G/MuvVuefn0mzDbgrbs6a+e7rJfW+tnxSgdig+2vKduUezdaU7RsP04nljn/cU1zZ8yAdpk4HnZTJgthw==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-darwin-x64@0.8.0:
@@ -2803,15 +2786,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-linux-arm64-gnu@0.7.0:
-    resolution: {integrity: sha512-anPfPFlvVOVenxxoaUuYf7mjkC5shOtX1x2PxXjCIXpichtXW1wX/6QhOA+ttRjXzzy056ckKOa4f6GjdMZmqQ==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-linux-arm64-gnu@0.8.0:
@@ -2819,15 +2793,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-linux-arm64-musl@0.7.0:
-    resolution: {integrity: sha512-iHzwpm1W+HmejCNP8s7g2aISHE3yRYwE2eGGUKR39oVnW5nMkMeX+3OK8+UqwQwv2kXN3oOQaZovcswIr+CSLA==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-linux-arm64-musl@0.8.0:
@@ -2835,15 +2800,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-linux-x64-gnu@0.7.0:
-    resolution: {integrity: sha512-GzI2vXISF3lZ/DnoRfYRu1vv+DwjaBs6+/wjktluts/F6frsy901HODTaH90ZnsVHHeAgFuCDe0kyEeTodzx4Q==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-linux-x64-gnu@0.8.0:
@@ -2851,15 +2807,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-linux-x64-musl@0.7.0:
-    resolution: {integrity: sha512-xjfbQR9TGdodzWErAaBwGHx4NTwJzNx/xxspXbyym4gP9RQ77fnWaOAugvNv8RQgQi1InMJgvYY9wLmSzx0gZQ==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-linux-x64-musl@0.8.0:
@@ -2867,15 +2814,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-win32-arm64-msvc@0.7.0:
-    resolution: {integrity: sha512-LbW6MAkHqbOUoptuABmkHHGDILr6/uq66pNDcAjyqwVmsuqf6W7Z+4c+NzEB7WdM1dO9I0W8QbLkZB4n2Dsujg==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-win32-arm64-msvc@0.8.0:
@@ -2883,15 +2821,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
-    optional: true
-
-  /@oxc-parser/binding-win32-x64-msvc@0.7.0:
-    resolution: {integrity: sha512-+3H+bE2Dyns2uxP7LEMmcVkRLoiX4UPWUhHt/bi4SOFRqyHgTKxvw1L6sn1yP1Zd4t8aLRgMkRSrRxlLSvl5CA==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@oxc-parser/binding-win32-x64-msvc@0.8.0:
@@ -2899,7 +2828,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@parcel/watcher-android-arm64@2.4.0:
@@ -10307,19 +10235,6 @@ packages:
       os-tmpdir: 1.0.2
     dev: false
 
-  /oxc-parser@0.7.0:
-    resolution: {integrity: sha512-HmaOLQXPYvx39Zk+gCMXSGxeN+ZQqOE+EeH8Vh8noIua3oXW4SFauE2lH5vs/LhATENVjeXBYzuv3Z2hSvE8rA==}
-    optionalDependencies:
-      '@oxc-parser/binding-darwin-arm64': 0.7.0
-      '@oxc-parser/binding-darwin-x64': 0.7.0
-      '@oxc-parser/binding-linux-arm64-gnu': 0.7.0
-      '@oxc-parser/binding-linux-arm64-musl': 0.7.0
-      '@oxc-parser/binding-linux-x64-gnu': 0.7.0
-      '@oxc-parser/binding-linux-x64-musl': 0.7.0
-      '@oxc-parser/binding-win32-arm64-msvc': 0.7.0
-      '@oxc-parser/binding-win32-x64-msvc': 0.7.0
-    dev: false
-
   /oxc-parser@0.8.0:
     resolution: {integrity: sha512-ObPeMkbDX7igb7NyyAC8CbVC3fY+YmlMsxsRQ2oyFBkpQtI5tjoyqSDKbS9A9EcJvt2q89C4UoC+HjVBdLYYJg==}
     optionalDependencies:
@@ -10331,7 +10246,6 @@ packages:
       '@oxc-parser/binding-linux-x64-musl': 0.8.0
       '@oxc-parser/binding-win32-arm64-msvc': 0.8.0
       '@oxc-parser/binding-win32-x64-msvc': 0.8.0
-    dev: true
 
   /p-finally@1.0.0:
     resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}
