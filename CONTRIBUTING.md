@@ -19,7 +19,7 @@ This repository is structured as follows:
 ```
 apps
 └── www
-    ├── src 
+    ├── src
     │   └── content
     └── registry
         ├── default
@@ -32,12 +32,12 @@ packages
 └── cli
 ```
 
-| Path                  | Description                              |
-| --------------------- | ---------------------------------------- |
-| `apps/www/app`        | The Next.js application for the website. |
-| `apps/www/content`    | The content for the website.             |
-| `apps/www/registry`   | The registry for the components.         |
-| `packages/cli`        | The `shadcn-vue` package.                |
+| Path                        | Description                                |
+| ----------------------------| -------------------------------------------|
+| `apps/www/.vitepress`       | The Vitepress application for the website. |
+| `apps/www/src/content`      | The content for the website.               |
+| `apps/www/src/lib/registry` | The registry for the components.           |
+| `packages/cli`              | The `shadcn-vue` package.                  |
 
 ## Development
 
@@ -79,22 +79,24 @@ The documentation for this project is located in the `www` workspace. You can ru
 pnpm dev
 ```
 
-Documentation is written using [md](https://vitepress.dev/guide/markdown). You can find the documentation files in the `apps/www/content/docs` directory.
+Documentation is written using [md](https://vitepress.dev/guide/markdown). You can find the documentation files in the `apps/www/src/content` directory.
 
 ## Components
 
-We use a registry system for developing components. You can find the source code for the components under `apps/www/registry`. The components are organized by styles.
+We use a registry system for developing components. You can find the source code for the components under `apps/www/src/lib/registry`. The components are organized by styles.
 
 ```bash
 apps
 └── www
-    └── registry
-        ├── default
-        │   ├── example
-        │   └── ui
-        └── new-york
-            ├── example
-            └── ui
+    └── src
+        └── lib
+            └── registry
+                ├── default
+                │   ├── example
+                │   └── ui
+                └── new-york
+                    ├── example
+                    └── ui
 ```
 
 When adding or modifying components, please ensure that:
@@ -130,12 +132,9 @@ the following categories:
 
   e.g. `feat(components): add new prop to the avatar component`
 
-
 If you are interested in the detailed specification you can visit
 https://www.conventionalcommits.org/ or check out the
 [Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines).
-
-
 
 ## Requests for new components
 
