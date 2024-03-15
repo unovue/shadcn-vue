@@ -207,15 +207,15 @@ const props = withDefaults(defineProps<Props>(), {
 You'll need to extend `PrimitiveProps` in your props to support `Primitive` component. In most cases you would also need a default value for [`as`](https://www.radix-vue.com/utilities/primitive.html#changing-as-value) property.
 
 ## Debugging
-Here are tools and techniques that would help you better debug while contributing or even when developing your app !
+Here are some tools and techniques that can help you debug more effectively while contributing to `shadcn/vue` or developing your own projects.
 
 ### Install Vue Dev Tools
-To easily inspect component props, attrs, events and more, you could leverage the [`Vue Dev Tools`](https://devtools.vuejs.org/) extension for browsers.
+To easily inspect component props, attributes, events, and more, you can leverage the  [`Vue DevTools`](https://devtools.vuejs.org/)  extension for browsers. This extension provides a user-friendly interface for debugging Vue components and can improve your development experience.
 
 ### Enable Custom Formmaters
-Vue wrap values stores in a `ref` that when are logged, would reusult in a nested object and need manual inspection to reach the value stored in that ref.
+Vue wraps values stored in a `ref` in a way that, when logged, results in a nested object and requires manual inspection to access the value stored in the ref.
 
-You can Enable Custom Formatter in your browser to eliminate the manual part described before.
+You can enable Custom Formatters in your browser to automate this process.
 
 - [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html)
 - Chrome, Edge, Brave and other Chromium based [browsers](https://www.google.com/search?q=how+to+enable+custom++formatter+chrome)
