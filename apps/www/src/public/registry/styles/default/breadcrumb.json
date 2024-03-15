@@ -19,7 +19,7 @@
     },
     {
       "name": "BreadcrumbLink.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport type { PrimitiveProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  as?: string\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'a',\n})\n</script>\n\n<template>\n  <Primitive\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn('transition-colors hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive, type PrimitiveProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>(), {\n  as: 'a',\n})\n</script>\n\n<template>\n  <Primitive\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn('transition-colors hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n"
     },
     {
       "name": "BreadcrumbList.vue",
