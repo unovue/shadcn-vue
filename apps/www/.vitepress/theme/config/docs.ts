@@ -98,6 +98,12 @@ export const docsConfig: DocsConfig = {
           href: '/docs/about',
           items: [],
         },
+        {
+          title: 'Contribution',
+          href: '/docs/contribution',
+          items: [],
+          label: 'New',
+        },
       ],
     },
     {
