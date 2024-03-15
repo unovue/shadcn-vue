@@ -1,7 +1,7 @@
 {
   "name": "shadcn-nuxt",
   "type": "module",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Add shadcn-vue module to Nuxt",
   "publishConfig": {
     "access": "public"
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.10.3",
-    "oxc-parser": "^0.7.0"
+    "oxc-parser": "^0.8.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
