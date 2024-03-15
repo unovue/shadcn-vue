@@ -4,7 +4,19 @@ description: Learn on how to contribute to shadcn/vue.
 ---
 ## Introduction
 
-Thank you for considering contributing to `shadcn/vue`. To ensure a consistent codebase, please follow the established patterns when contributing code to `shadcn/vue`. This guide provides detailed information to help new contributors.
+Thanks for your interest in contributing to shadcn-vue.com. We're happy to have you here.
+
+Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
+
+If you need any help, feel free to reach out to the core team on [Discord](https://chat.radix-vue.com/).
+
+This guide provides detailed information to help new contributors.
+
+## About this repository
+
+This repository is a monorepo.
+
+- We use [pnpm](https://pnpm.io) and [`workspaces`](https://pnpm.io/workspaces) for development.
 
 ## Project Structure
 
@@ -52,6 +64,99 @@ We support two different styles for every component in `shadcn/vue`:
 
 Every component added to the repository must support both versions, including the main source code and associated demos.
 
+When adding or modifying components, please ensure that:
+
+1. You make the changes for every style.
+2. You update the documentation.
+3. You run `pnpm build:registry` to update the registry.
+
+## Development
+
+Start by cloning the repository:
+
+```bash
+git clone git@github.com:radix-vue/shadcn-vue.git
+```
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+### Run a workspace
+
+You can use the `pnpm --filter=[WORKSPACE]` command to start the development process for a workspace or some of the shortcut command that we have setup.
+
+#### Examples
+
+1. To run the `shadcn-vue.com` website:
+
+```
+pnpm dev
+```
+
+2. To run the `shadcn-vue` cli package:
+
+```
+pnpm dev:cli
+```
+
+## Documentation
+
+The documentation for this project is located in the `www` workspace. You can run the documentation locally by running the following command:
+
+```bash
+pnpm dev
+```
+
+Documentation is written using [md](https://vitepress.dev/guide/markdown). You can find the documentation files in the `apps/www/src/content` directory.
+
+## CLI
+
+The `shadcn-vue` package is a CLI for adding components to your project. You can find the documentation for the CLI [here](https://shadcn-vue.com/docs/cli).
+
+Any changes to the CLI should be made in the `packages/cli` directory. If you can, it would be great if you could add tests for your changes.
+
+## Testing
+
+Tests are written using [Vitest](https://vitest.dev). You can run all the tests from the root of the repository.
+
+```bash
+pnpm test
+```
+
+Please ensure that the tests are passing when submitting a pull request. If you're adding new features, please include tests.
+
+## Commit Convention
+
+Before you create a Pull Request, please check whether your commits comply with
+the commit conventions used in this repository.
+
+When you create a commit we kindly ask you to follow the convention
+`category(scope or module): message` in your commit message while using one of
+the following categories:
+
+- `feat / feature`: all changes that introduce completely new code or new
+  features
+- `fix`: changes that fix a bug (ideally you will additionally reference an
+  issue if present)
+- `refactor`: any code related change that is not a fix nor a feature
+- `docs`: changing existing or creating new documentation (i.e. README, docs for
+  usage of a lib or cli usage)
+- `build`: all changes regarding the build of the software, changes to
+  dependencies or the addition of new dependencies
+- `test`: all changes regarding tests (adding new tests or changing existing
+  ones)
+- `ci`: all changes regarding the configuration of continuous integration (i.e.
+  github actions, ci system)
+- `chore`: all changes to the repository that do not fit into any of the above
+  categories
+
+  e.g. `feat(components): add new prop to the avatar component`
+
+If you are interested in the detailed specification you can visit [Conventional Commits](https://www.conventionalcommits.org/).
+
 ## SFC - Single File Components
 
 Multiple components are integrated into one file in `shadcn/ui` - the React version of `shadcn` - while Vue only supports one component per file, hence the name Single File Component (SFC). In such cases, you need to create separate files for each component part and then export them all in an `index.ts` file.
@@ -98,9 +203,9 @@ const forwarded = useForwardPropsEmits(props, emits)
 As you can see, `AccordionRootEmits` and `AccordionRootProps` types are imported from radix, combined with `useForwardPropsEmits` and then are binded using `v-bind` syntaxt.
 
 ### CSS Classes
-There are cases when we want to accept `class` as a prop in our `shadcn/vue` components and then combine it with a default style on our `radix-vue` component.
+There are cases when we want to accept `class` as a prop in our `shadcn/vue` component and then combine it with a default tailwind class on our `radix-vue` component via `cn` utility function.
 
-In these cases, we can not use `v-bind` while `class` is declared as a prop, because this would lead in [double class binding](https://github.com/radix-vue/shadcn-vue/pull/241), so the `class` propert must be dealt specefically.
+In these cases, we can not use `v-bind`, because this would lead in [double class binding](https://github.com/radix-vue/shadcn-vue/pull/241).
 
 Take a look at `DrawerDescription.vue`.
 
@@ -131,6 +236,22 @@ As you can see, we have created a computed property named `delegatedProps` to re
 the returned value to our radix component (`DrawerDescription` in this case).
 
 As for our class, we first declared it as type of `HtmlHTMLAttributes['class']` and used `cn` to merge tailwind classes from `class` prop and our own classes.
+
+This pattern only needs to be applied when the `cn` utility is required. For instances where there are no default Tailwind classes that need to be merged with user-provided classes, this pattern is not necessary. A good example of this is the `SelectValue.vue` component.
+
+```vue
+<script setup lang="ts">
+import { SelectValue, type SelectValueProps } from 'radix-vue'
+
+const props = defineProps<SelectValueProps>()
+</script>
+
+<template>
+  <SelectValue v-bind="props">
+    <slot />
+  </SelectValue>
+</template>
+```
 
 ### Boolean Props
 When you are building a wrapper for a component, in some cases you want to ignore Vue [Props Boolean Casting](https://vuejs.org/guide/components/props.html#boolean-casting).
