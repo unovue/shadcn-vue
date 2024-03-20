@@ -4,7 +4,7 @@ import {
   NavigationMenuLink,
 } from '@/lib/registry/new-york/ui/navigation-menu'
 
-defineProps<{ title?: string; href?: string }>()
+defineProps<{ title?: string, href?: string }>()
 </script>
 
 <template>

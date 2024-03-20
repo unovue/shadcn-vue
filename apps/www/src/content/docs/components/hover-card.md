@@ -1,18 +1,17 @@
 ---
 title: Hover Card
 description: For sighted users to preview content available behind a link.
-source: apps/www/src/lib/registry/default/ui/hover-card 
+source: apps/www/src/lib/registry/default/ui/hover-card
 primitive: https://www.radix-vue.com/components/hover-card.html
 ---
 
-
-<ComponentPreview name="HoverCardDemo" /> 
+<ComponentPreview name="HoverCardDemo" />
 
 ## Installation
 
 ```bash
 npx shadcn-vue@latest add hover-card
-``` 
+```
 ## Usage
 
 ```vue

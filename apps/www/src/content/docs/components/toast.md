@@ -1,15 +1,13 @@
 ---
 title: Toast
 description: A succinct message that is displayed temporarily.
-source: apps/www/src/lib/registry/default/ui/toast 
+source: apps/www/src/lib/registry/default/ui/toast
 primitive: https://www.radix-vue.com/components/toast.html
 ---
-
 
 <ComponentPreview name="ToastDemo" />
 
 ## Installation
- 
 
 <Steps>
 
@@ -32,9 +30,8 @@ import Toaster from '@/components/ui/toast/Toaster.vue'
   <Toaster />
 </template>
 ```
-  
+
 </Steps>
- 
 
 ## Usage
 

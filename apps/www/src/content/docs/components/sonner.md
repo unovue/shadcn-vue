@@ -2,7 +2,7 @@
 title: Sonner
 description: An opinionated toast component for Vue.
 docs: https://vue-sonner.vercel.app
-source: apps/www/src/lib/registry/default/ui/sonner 
+source: apps/www/src/lib/registry/default/ui/sonner
 ---
 
 <ComponentPreview name="SonnerDemo" />
@@ -34,7 +34,7 @@ import { Toaster } from '@/components/ui/sonner'
   <Toaster />
 </template>
 ```
-  
+
 </Steps>
 
 ## Usage

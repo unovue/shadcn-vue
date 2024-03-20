@@ -3,16 +3,13 @@ title: Card
 description: Displays a card with header, content, and footer.
 ---
 
-
-<ComponentPreview name="CardFormDemo"  /> 
+<ComponentPreview name="CardFormDemo"  />
 
 ## Installation
 
- 
-
 ```bash
 npx shadcn-vue@latest add card
-``` 
+```
 
 ## Usage
 
@@ -46,4 +43,4 @@ import {
 
 ## Examples
 
-<ComponentPreview name="CardDemo"  /> 
+<ComponentPreview name="CardDemo"  />

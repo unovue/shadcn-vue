@@ -21,7 +21,6 @@ _Use this as a reference to build your own component libraries._
 
 ## FAQ
 
-
 <Accordion  type="multiple">
 
 <AccordionItem value="faq-1">

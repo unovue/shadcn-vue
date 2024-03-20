@@ -1,15 +1,14 @@
 ---
 title: Sheet
 description: Extends the Dialog component to display content that complements the main content of the screen.
-source: apps/www/src/lib/registry/default/ui/sheet 
+source: apps/www/src/lib/registry/default/ui/sheet
 primitive: https://www.radix-vue.com/components/dialog.html
 ---
 
-<ComponentPreview name="SheetDemo" /> 
-
+<ComponentPreview name="SheetDemo" />
 
 ## Installation
- 
+
 ```bash
 npx shadcn-vue@latest add sheet
 ```
@@ -50,8 +49,7 @@ import {
 
 Use the `side` property to `<SheetContent />` to indicate the edge of the screen where the component will appear. The values can be `top`, `right`, `bottom` or `left`.
 
-<ComponentPreview name="SheetSideDemo" /> 
-
+<ComponentPreview name="SheetSideDemo" />
 
 ### Size
 

@@ -3,8 +3,7 @@ title: Date Picker
 description: A date picker component with range and presets.
 ---
 
-
-<ComponentPreview name="DatePickerDemo"  /> 
+<ComponentPreview name="DatePickerDemo"  />
 
 ## Installation
 
@@ -52,7 +51,6 @@ const date = ref<Date>()
   </Popover>
 </template>
 ```
-
 
 ## Examples
 

@@ -1,13 +1,13 @@
 ---
 title: Navigation Menu
 description: A collection of links for navigating websites.
-source: apps/www/src/lib/registry/default/ui/navigation-menu 
+source: apps/www/src/lib/registry/default/ui/navigation-menu
 primitive: https://www.radix-vue.com/components/navigation-menu.html
 ---
 
-<ComponentPreview name="NavigationMenuDemo" /> 
+<ComponentPreview name="NavigationMenuDemo" />
 
-## Installation 
+## Installation
 
 ```bash
 npx shadcn-vue@latest add navigation-menu
@@ -43,7 +43,7 @@ import {
 </template>
 ```
 
-## Examples 
+## Examples
 
 ### Link Component
 
@@ -64,4 +64,3 @@ import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
   </NavigationMenuItem>
 </template>
 ```
-

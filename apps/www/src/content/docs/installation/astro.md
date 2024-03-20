@@ -126,7 +126,7 @@ import '@/styles/globals.css'
 
 To prevent serving the Tailwind base styles twice, we need to tell Astro not to apply the base styles, since we already include them in our own `globals.css` file. To do this, set the `applyBaseStyles` config option for the tailwind plugin in `astro.config.mjs` to `false`.
 
-```ts:line-numbers {3-5} 
+```ts:line-numbers {3-5}
 export default defineConfig({
   integrations: [
     tailwind({

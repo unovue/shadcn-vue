@@ -41,7 +41,6 @@ npm install -D @nuxtjs/tailwindcss
 
   </TabMarkdown>
 
-
   <TabMarkdown title="manual">
 
   Add the following code to `modules/shadcn.ts`.
@@ -148,7 +147,6 @@ declare module '@nuxt/schema' {
   </TabMarkdown>
 </TabsMarkdown>
 
-
 ### Configure `nuxt.config.ts`
 
 ```ts
@@ -189,7 +187,7 @@ Where is your global CSS file? › › src/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils 
+Configure the import alias for utils: › @/lib/utils
 ```
 
 ### App structure
@@ -197,7 +195,7 @@ Configure the import alias for utils: › @/lib/utils
 Here's the default structure of Nuxt app. You can use this as a reference:
 
 ```txt {6-16,20-21}
-. 
+.
 ├── pages
 │   ├── index.vue
 │   └── dashboard.vue

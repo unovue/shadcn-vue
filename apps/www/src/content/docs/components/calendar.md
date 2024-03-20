@@ -1,12 +1,11 @@
 ---
 title: Calendar
 description: A date field component that allows users to enter and edit date.
-source: apps/www/src/lib/registry/default/ui/calendar 
+source: apps/www/src/lib/registry/default/ui/calendar
 primitive: https://vcalendar.io/
 ---
 
-
-<ComponentPreview name="CalendarDemo"  /> 
+<ComponentPreview name="CalendarDemo"  />
 
 ## About
 
@@ -34,12 +33,9 @@ npm install v-calendar
 
 ### Copy and paste the following code into your project
 
-
 <<< @/lib/registry/default/ui/calendar/Calendar.vue
 
-
 </Steps>
-
 
 </template>
 </TabPreview>

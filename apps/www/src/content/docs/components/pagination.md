@@ -5,15 +5,14 @@ source: apps/www/src/lib/registry/default/ui/pagination
 primitive: https://www.radix-vue.com/components/pagination.html
 ---
 
-<ComponentPreview name="PaginationDemo" /> 
+<ComponentPreview name="PaginationDemo" />
 
 ## Installation
 
- 
 ```bash
 npx shadcn-vue@latest add pagination
 ```
-  
+
 ## Usage
 
 ```vue

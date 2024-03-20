@@ -93,7 +93,7 @@ watch(() => $route.path, (n) => {
           <Logo />
 
           <nav
-            class="flex items-center space-x-6 text-sm font-medium"
+            class="flex items-center max-lg:space-x-4 space-x-6 text-sm font-medium"
           >
             <a
               v-for="route in docsConfig.mainNav"

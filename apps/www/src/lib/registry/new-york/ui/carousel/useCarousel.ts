@@ -8,7 +8,9 @@ import type { CarouselEmits, CarouselProps } from './interface'
 
 const [useProvideCarousel, useInjectCarousel] = createInjectionState(
   ({
-    opts, orientation, plugins,
+    opts,
+    orientation,
+    plugins,
   }: CarouselProps, emits: CarouselEmits) => {
     const [emblaNode, emblaApi] = emblaCarouselVue({
       ...opts,
