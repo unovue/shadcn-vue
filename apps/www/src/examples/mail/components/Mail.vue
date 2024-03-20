@@ -46,8 +46,8 @@ const debouncedSearch = refDebounced(searchValue, 250)
 
 const filteredMailList = computed(() => {
   let output: Mail[] = []
-  const serachValue = debouncedSearch.value?.trim()
-  if (!serachValue) {
+  const searchValue = debouncedSearch.value?.trim()
+  if (!searchValue) {
     output = props.mails
   }
 
