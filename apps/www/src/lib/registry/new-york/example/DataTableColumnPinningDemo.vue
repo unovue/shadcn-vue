@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,

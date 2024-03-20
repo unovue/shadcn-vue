@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'pathe'
-import { addDependency, addDevDependency } from 'nypm'
-import { afterEach, expect, test, vi } from 'vitest'
+import { addDependency } from 'nypm'
+import { afterEach, expect, it, vi } from 'vitest'
 
 import { runInit } from '../../src/commands/init'
 import { getConfig } from '../../src/utils/get-config'
@@ -14,7 +14,7 @@ vi.mock('fs/promises', () => ({
 }))
 vi.mock('ora')
 
-test('init config-full', async () => {
+it('init config-full', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
     inlineColors: {},
     cssVars: {},
@@ -61,8 +61,7 @@ test('init config-full', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/src\/lib\/utils.ts$/),
-    // eslint-disable-next-line @typescript-eslint/quotes
-    expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
+    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
     'utf8',
   )
   expect(addDependency).toHaveBeenCalledWith(
@@ -84,7 +83,7 @@ test('init config-full', async () => {
   mockWriteFile.mockRestore()
 })
 
-test('init config-partial', async () => {
+it('init config-partial', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
     inlineColors: {},
     cssVars: {},
@@ -131,8 +130,7 @@ test('init config-partial', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/utils.ts$/),
-    // eslint-disable-next-line @typescript-eslint/quotes
-    expect.stringContaining("import { type ClassValue, clsx } from 'clsx'"),
+    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
     'utf8',
   )
   expect(addDependency).toHaveBeenCalledWith(

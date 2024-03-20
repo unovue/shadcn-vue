@@ -3,8 +3,7 @@ title: Button
 description: Displays a button or a component that looks like a button.
 ---
 
-
-<ComponentPreview name="ButtonDemo"  /> 
+<ComponentPreview name="ButtonDemo"  />
 
 ## Installation
 
@@ -94,23 +93,19 @@ import { Button } from '@/components/ui/button'
 </template>
 ```
 
-
 ## Examples
 
 ### Primary
 
-<ComponentPreview name="ButtonDemo"  /> 
-
+<ComponentPreview name="ButtonDemo"  />
 
 ### Secondary
 
 <ComponentPreview name="ButtonSecondaryDemo" />
 
-
 ### Destructive
 
 <ComponentPreview name="ButtonDestructiveDemo" />
-
 
 ### Outline
 

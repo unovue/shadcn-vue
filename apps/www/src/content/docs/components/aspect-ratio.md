@@ -1,10 +1,9 @@
 ---
 title: Aspect Ratio
 description: Displays content within a desired ratio.
-source: apps/www/src/lib/registry/default/ui/aspect-ratio 
+source: apps/www/src/lib/registry/default/ui/aspect-ratio
 primitive: https://www.radix-vue.com/components/aspect-ratio.html
 ---
-
 
 <ComponentPreview name="AspectRatioDemo" />
 

@@ -10,7 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/lib/registry/default/ui/navigation-menu'
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string, href: string, description: string }[] = [
   {
     title: 'Alert Dialog',
     href: '/docs/primitives/alert-dialog',

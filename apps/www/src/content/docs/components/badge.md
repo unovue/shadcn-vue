@@ -3,8 +3,7 @@ title: Badge
 description: Displays a badge or a component that looks like a badge.
 ---
 
-
-<ComponentPreview name="BadgeDemo"  /> 
+<ComponentPreview name="BadgeDemo"  />
 
 ## Installation
 
@@ -80,13 +79,11 @@ import { Badge } from '@/components/ui/badge'
 </template>
 ```
 
-
 ## Examples
 
 ### Default
 
-<ComponentPreview name="BadgeDemo"  /> 
-
+<ComponentPreview name="BadgeDemo"  />
 
 ### Secondary
 

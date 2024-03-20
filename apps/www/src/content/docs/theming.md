@@ -3,7 +3,6 @@ title: Theming
 description: Use CSS Variables to customize the look and feel of your application.
 ---
 
- 
 You can choose between using CSS variables or Tailwind CSS utility classes for theming.
 
 ## Utility classes
@@ -37,7 +36,6 @@ To use utility classes for theming set `tailwind.cssVariables` to `false` in you
 ```
 
 To use CSS variables for theming set `tailwind.cssVariables` to `true` in your `components.json` file.
- 
 
 ```json {7} title="components.json"
 {
@@ -96,64 +94,64 @@ Here's the list of variables available for customization:
 --foreground: 222.2 47.4% 11.2%;
 ```
 
-```css 
+```css
 /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
 --muted: 210 40% 96.1%;
 --muted-foreground: 215.4 16.3% 46.9%;
 ```
 
-```css 
+```css
 /* Background color for <Card /> */
 --card: 0 0% 100%;
 --card-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css 
+```css
 /* Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover /> */
 --popover: 0 0% 100%;
 --popover-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css 
+```css
 /* Default border color */
 --border: 214.3 31.8% 91.4%;
 ```
 
-```css 
+```css
 /* Border color for inputs such as <Input />, <Select />, <Textarea /> */
 --input: 214.3 31.8% 91.4%;
 ```
 
-```css 
+```css
 /* Primary colors for <Button /> */
 --primary: 222.2 47.4% 11.2%;
 --primary-foreground: 210 40% 98%;
 ```
 
-```css 
+```css
 /* Secondary colors for <Button /> */
 --secondary: 210 40% 96.1%;
 --secondary-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css 
+```css
 /* Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc */
 --accent: 210 40% 96.1%;
 --accent-foreground: 222.2 47.4% 11.2%;
 ```
 
-```css 
+```css
 /* Used for destructive actions such as <Button variant="destructive"> */
 --destructive: 0 100% 50%;
 --destructive-foreground: 210 40% 98%;
 ```
 
-```css 
+```css
 /* Used for focus ring */
 --ring: 215 20.2% 65.1%;
 ```
 
-```css 
+```css
 /* Border radius for card, input and buttons */
 --radius: 0.5rem;
 ```
@@ -200,9 +198,6 @@ You can now use the `warning` utility class in your components.
 I recommend using [HSL colors](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) for theming but you can also use other color formats if you prefer.
 
 See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information on using `rgb`, `rgba` or `hsl` colors.
-
-
-
 
 ## Hex -> Color Channel
 

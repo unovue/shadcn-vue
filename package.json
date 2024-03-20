@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.10.2",
   "private": true,
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "license": "MIT",
   "repository": "radix-vue/shadcn-vue",
   "workspaces": [
@@ -14,8 +14,8 @@
     "build": "pnpm --filter www build",
     "preview": "pnpm --filter www preview",
     "prepare": "pnpm simple-git-hooks",
-    "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --fix --ignore-path .gitignore",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "build:cli": "pnpm --filter shadcn-vue build",
     "build:registry": "pnpm --filter=www build:registry",
@@ -27,15 +27,15 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.8.2",
-    "@commitlint/cli": "^19.1.0",
+    "@antfu/eslint-config": "^2.8.3",
+    "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "bumpp": "^9.4.0",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
-    "simple-git-hooks": "^2.10.0",
+    "simple-git-hooks": "^2.11.0",
     "taze": "^0.13.3",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "vitest": "^0.34.6"
   },
   "commitlint": {

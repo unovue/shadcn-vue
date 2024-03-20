@@ -1,10 +1,10 @@
 import path from 'pathe'
 import { type ConfigLoaderSuccessResult, loadConfig } from 'tsconfig-paths'
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 
 import { resolveImport } from '../../src/utils/resolve-import'
 
-test('resolve import', async () => {
+it('resolve import', async () => {
   expect(
     resolveImport('@/foo/bar', {
       absoluteBaseUrl: '/Users/shadcn/Projects/foobar',
@@ -50,7 +50,7 @@ test('resolve import', async () => {
   ).toEqual('/Users/shadcn/Projects/foobar/lib/utils')
 })
 
-test('resolve import with base url', async () => {
+it('resolve import with base url', async () => {
   const cwd = path.resolve(__dirname, '../fixtures/with-base-url')
   const config = (loadConfig(cwd)) as ConfigLoaderSuccessResult
 
@@ -65,7 +65,7 @@ test('resolve import with base url', async () => {
   )
 })
 
-test('resolve import without base url', async () => {
+it('resolve import without base url', async () => {
   const cwd = path.resolve(__dirname, '../fixtures/without-base-url')
   const config = (loadConfig(cwd)) as ConfigLoaderSuccessResult
 
