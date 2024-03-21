@@ -62,7 +62,7 @@ const value = ref('')
         :aria-expanded="open"
         class="w-[200px] justify-between"
       >
-        {{ value ? frameworks.find((framework) => framework.value === value?.value)?.label : 'Select framework...' }}
+        {{ value ? frameworks.find((framework) => framework.value === value)?.label : 'Select framework...' }}
 
         <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
