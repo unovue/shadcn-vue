@@ -80,6 +80,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/BadgeSecondaryDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/BadgeSecondaryDemo.vue"],
     },
+    "BarChartDemo": {
+      name: "BarChartDemo",
+      type: "components:example",
+      registryDependencies: ["chart-bar"],
+      component: () => import("../src/lib/registry/default/example/BarChartDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/BarChartDemo.vue"],
+    },
     "BreadcrumbDemo": {
       name: "BreadcrumbDemo",
       type: "components:example",
@@ -464,6 +471,13 @@ export const Index = {
       registryDependencies: ["button","dialog"],
       component: () => import("../src/lib/registry/default/example/DialogScrollOverlayDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DialogScrollOverlayDemo.vue"],
+    },
+    "DonutChartDemo": {
+      name: "DonutChartDemo",
+      type: "components:example",
+      registryDependencies: ["chart-donut"],
+      component: () => import("../src/lib/registry/default/example/DonutChartDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DonutChartDemo.vue"],
     },
     "DrawerDemo": {
       name: "DrawerDemo",
@@ -1194,6 +1208,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/BadgeSecondaryDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/BadgeSecondaryDemo.vue"],
     },
+    "BarChartDemo": {
+      name: "BarChartDemo",
+      type: "components:example",
+      registryDependencies: ["chart-bar"],
+      component: () => import("../src/lib/registry/new-york/example/BarChartDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/BarChartDemo.vue"],
+    },
     "BreadcrumbDemo": {
       name: "BreadcrumbDemo",
       type: "components:example",
@@ -1578,6 +1599,13 @@ export const Index = {
       registryDependencies: ["button","dialog"],
       component: () => import("../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DialogScrollOverlayDemo.vue"],
+    },
+    "DonutChartDemo": {
+      name: "DonutChartDemo",
+      type: "components:example",
+      registryDependencies: ["chart-donut"],
+      component: () => import("../src/lib/registry/new-york/example/DonutChartDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DonutChartDemo.vue"],
     },
     "DrawerDemo": {
       name: "DrawerDemo",
