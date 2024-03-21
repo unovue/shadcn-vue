@@ -82,7 +82,7 @@ const value = ref('')
               <Check
                 :class="cn(
                   'mr-2 h-4 w-4',
-                  value?.value === framework.value ? 'opacity-100' : 'opacity-0',
+                  value === framework.value ? 'opacity-100' : 'opacity-0',
                 )"
               />
               {{ framework.label }}
