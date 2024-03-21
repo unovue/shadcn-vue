@@ -50,7 +50,7 @@ const frameworks = [
 ]
 
 const open = ref(false)
-const value = ref({})
+const value = ref(null)
 </script>
 
 <template>
