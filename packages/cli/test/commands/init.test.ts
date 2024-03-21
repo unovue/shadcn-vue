@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'pathe'
-import { addDependency, addDevDependency } from 'nypm'
+import { addDependency } from 'nypm'
 import { afterEach, expect, it, vi } from 'vitest'
 
 import { runInit } from '../../src/commands/init'

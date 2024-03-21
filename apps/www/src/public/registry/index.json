@@ -86,6 +86,24 @@
     "type": "components:ui"
   },
   {
+    "name": "breadcrumb",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/breadcrumb/Breadcrumb.vue",
+      "ui/breadcrumb/BreadcrumbEllipsis.vue",
+      "ui/breadcrumb/BreadcrumbItem.vue",
+      "ui/breadcrumb/BreadcrumbLink.vue",
+      "ui/breadcrumb/BreadcrumbList.vue",
+      "ui/breadcrumb/BreadcrumbPage.vue",
+      "ui/breadcrumb/BreadcrumbSeparator.vue",
+      "ui/breadcrumb/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "button",
     "dependencies": [],
     "registryDependencies": [

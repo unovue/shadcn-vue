@@ -2,23 +2,23 @@
   "compilerOptions": {
     "incremental": true,
     "target": "es2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "skipLibCheck": true
   },
   "include": [

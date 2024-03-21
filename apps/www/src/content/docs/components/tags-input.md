@@ -5,7 +5,7 @@ source: apps/www/src/lib/registry/default/ui/tags-input
 primitive: https://www.radix-vue.com/components/tags-input.html
 ---
 
-<ComponentPreview name="TagsInputDemo" /> 
+<ComponentPreview name="TagsInputDemo" />
 
 ## Installation
 
@@ -13,9 +13,8 @@ primitive: https://www.radix-vue.com/components/tags-input.html
 npx shadcn-vue@latest add tags-input
 ```
 
-
 ## Usage
 
 ### Tags with Combobox
 
-<ComponentPreview name="TagsInputComboboxDemo" /> 
+<ComponentPreview name="TagsInputComboboxDemo" />

@@ -89,6 +89,12 @@ export const docsConfig: DocsConfig = {
           title: 'About',
           href: '/docs/about',
         },
+        {
+          title: 'Contribution',
+          href: '/docs/contribution',
+          items: [],
+          label: 'New',
+        },
       ],
     },
     {
@@ -160,6 +166,12 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Badge',
           href: '/docs/components/badge',
+        },
+        {
+          title: 'Breadcrumb',
+          href: '/docs/components/breadcrumb',
+          items: [],
+          label: 'New',
         },
         {
           title: 'Button',

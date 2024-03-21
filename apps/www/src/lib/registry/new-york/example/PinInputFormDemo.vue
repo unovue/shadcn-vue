@@ -42,12 +42,13 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
 
 <template>
   <form class="w-2/3 space-y-6 mx-auto" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="pin">
+    <FormField v-slot="{ componentField, value }" name="pin">
       <FormItem>
         <FormLabel>OTP</FormLabel>
         <FormControl>
           <PinInput
             id="pin-input"
+            v-model="value!"
             placeholder="○"
             class="flex gap-2 items-center mt-1"
             otp

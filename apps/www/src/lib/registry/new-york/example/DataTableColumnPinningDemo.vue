@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -233,7 +232,7 @@ const table = useVueTable({
 
           <TableRow v-else>
             <TableCell
-              col-span="{columns.length}"
+              :colspan="columns.length"
               class="h-24 text-center"
             >
               No results.

@@ -1,7 +1,5 @@
-import { dirname, resolve } from 'node:path'
-import fs from 'node:fs'
-import type { MarkdownEnv, MarkdownRenderer } from 'vitepress'
-import { generateDemoComponent, parseProps } from './utils'
+import type { MarkdownRenderer } from 'vitepress'
+import { parseProps } from './utils'
 
 export default function (md: MarkdownRenderer) {
   function addRenderRule(type: string) {
@@ -12,31 +10,9 @@ export default function (md: MarkdownRenderer) {
       if (!content.match(/^<ComponentPreview\s/) || !content.endsWith('/>'))
         return defaultRender!(tokens, idx, options, env, self)
 
-      const { path } = env as MarkdownEnv
       const props = parseProps(content)
-
-      const { name, attrs } = props
-      const pluginPath = dirname(__dirname)
-      const srcPath = resolve(pluginPath, '../../src/lib/registry/default/example/', `${name}.vue`).replace(/\\/g, '/')
-
-      if (!fs.existsSync(srcPath)) {
-        console.error(`rendering ${path}: ${srcPath} does not exist`)
-        return defaultRender!(tokens, idx, options, env, self)
-      }
-
-      let code = fs.readFileSync(srcPath, 'utf-8')
-      code = code.replaceAll(
-        '@/lib/registry/default/',
-        '@/components/',
-      )
-
-      const demoScripts = generateDemoComponent(md, env, {
-        attrs,
-        props,
-        code,
-        path: srcPath,
-      })
-
+      const { attrs } = props
+      const demoScripts = `<ComponentPreview ${attrs ?? ''} v-bind='${JSON.stringify(props)}'></ComponentPreview>`.trim()
       return demoScripts
     }
   }

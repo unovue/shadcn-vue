@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
+import { Tabs, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
 
 const slots = useSlots()
 

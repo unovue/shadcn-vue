@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type SelectTriggerProps } from 'radix-vue'
+import type { SelectTriggerProps } from 'radix-vue'
 import { useConfigStore } from '@/stores/config'
 
 import { cn } from '@/lib/utils'

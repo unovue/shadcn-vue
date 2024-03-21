@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useSlots } from 'vue'
-import { TabsContent, TabsTrigger } from '@/lib/registry/default/ui/tabs'
+import { TabsContent } from '@/lib/registry/default/ui/tabs'
 
 withDefaults(defineProps<{
   title?: string

@@ -1,18 +1,17 @@
---- 
+---
 title: Context Menu
 description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
-source: apps/www/src/lib/registry/default/ui/context-menu 
+source: apps/www/src/lib/registry/default/ui/context-menu
 primitive: https://www.radix-vue.com/components/context-menu.html
 ---
 
-
-<ComponentPreview name="ContextMenuDemo"  /> 
+<ComponentPreview name="ContextMenuDemo"  />
 
 ## Installation
- 
+
 ```bash
 npx shadcn-vue@latest add context-menu
-``` 
+```
 
 ## Usage
 

@@ -34,5 +34,5 @@ type ToastVariants = VariantProps<typeof toastVariants>
 export interface ToastProps extends ToastRootProps {
   class?: HTMLAttributes['class']
   variant?: ToastVariants['variant']
-  'onOpenChange'?: ((value: boolean) => void) | undefined
+  onOpenChange?: ((value: boolean) => void) | undefined
 }

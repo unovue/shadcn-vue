@@ -7,7 +7,6 @@ import type { Config } from '@/src/utils/get-config'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
-import { transformTwPrefixes } from '@/src/utils/transformers/transform-tw-prefix'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
 
 export interface TransformOpts {

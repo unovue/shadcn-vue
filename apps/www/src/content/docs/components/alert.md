@@ -3,16 +3,14 @@ title: Alert
 description: Displays a callout for user attention.
 ---
 
-
-<ComponentPreview name="AlertDemo"  /> 
+<ComponentPreview name="AlertDemo"  />
 
 ## Installation
 
- 
 ```bash
 npx shadcn-vue@latest add alert
 ```
-  
+
 ## Usage
 
 ```vue
@@ -34,11 +32,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 ### Default
 
-<ComponentPreview name="AlertDemo"  /> 
-
+<ComponentPreview name="AlertDemo"  />
 
 ### Destructive
 
-<ComponentPreview name="AlertDestructiveDemo"  /> 
-
-
+<ComponentPreview name="AlertDestructiveDemo"  />

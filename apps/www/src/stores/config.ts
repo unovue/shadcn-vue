@@ -10,6 +10,12 @@ interface Config {
   style: Style
 }
 
+interface CodeConfig {
+  prefix: string
+  componentsPath: string
+  utilsPath: string
+}
+
 export const RADII = [0, 0.25, 0.5, 0.75, 1]
 
 export function useConfigStore() {
@@ -18,6 +24,11 @@ export function useConfigStore() {
     theme: 'zinc',
     radius: 0.5,
     style: styles[0].name,
+  })
+  const codeConfig = useStorage<CodeConfig>('code-config', {
+    prefix: '',
+    componentsPath: '@/components',
+    utilsPath: '@/utils',
   })
 
   const themeClass = computed(() => `theme-${config.value.theme}`)
@@ -41,5 +52,21 @@ export function useConfigStore() {
     })`
   })
 
-  return { config, theme, setTheme, radius, setRadius, themeClass, style, themePrimary }
+  const setCodeConfig = (payload: CodeConfig) => {
+    codeConfig.value = payload
+  }
+
+  return {
+    config,
+    theme,
+    setTheme,
+    radius,
+    setRadius,
+    themeClass,
+    style,
+    themePrimary,
+
+    codeConfig,
+    setCodeConfig,
+  }
 }

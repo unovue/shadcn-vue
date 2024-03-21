@@ -1,8 +1,4 @@
-import { expect, it } from 'vitest'
-
-import { transform } from '../../src/utils/transformers'
-import { applyPrefixesCss } from '../../src/utils/transformers/transform-tw-prefix'
-import stone from '../fixtures/colors/stone.json'
+import { it } from 'vitest'
 
 it('transform tailwind prefix', async () => {
   // expect(

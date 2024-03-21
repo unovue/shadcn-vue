@@ -2,10 +2,10 @@
 import { useMagicKeys, useToggle } from '@vueuse/core'
 import { onMounted, ref, watch } from 'vue'
 import { Content, useData, useRoute, useRouter } from 'vitepress'
-import { SearchIcon } from 'lucide-vue-next'
 import { type NavItem, docsConfig } from '../config/docs'
 import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
+import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue'
 
 import Kbd from '../components/Kbd.vue'
 import ThemePopover from '../components/ThemePopover.vue'
@@ -94,7 +94,7 @@ watch(() => $route.path, (n) => {
           <Logo />
 
           <nav
-            class="flex items-center space-x-6 text-sm font-medium"
+            class="flex items-center max-lg:space-x-4 space-x-6 text-sm font-medium"
           >
             <a
               v-for="route in docsConfig.mainNav"
@@ -120,38 +120,42 @@ watch(() => $route.path, (n) => {
               class="relative h-8 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
               @click="isOpen = true"
             >
-              <span className="hidden lg:inline-flex">Search documentation...</span>
-              <span className="inline-flex lg:hidden">Search...</span>
-              <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-                <span className="text-xs">⌘</span>K
-              </kbd>
+              <span class="hidden lg:inline-flex">Search documentation...</span>
+              <span class="inline-flex lg:hidden">Search...</span>
+              <Kbd class="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                <span class="text-xs">⌘</span>K
+              </Kbd>
             </Button>
           </div>
 
-          <nav class="flex items-center gap-x-1">
+          <nav class="flex items-center">
             <ThemePopover />
+
+            <CodeConfigCustomizer />
 
             <Button
               v-for="link in links"
               :key="link.name"
               as="a"
+              class="w-9 h-9"
               :href="link.href" target="_blank"
               :variant="'ghost'"
-              :size="'sm'"
+              :size="'icon'"
             >
-              <component :is="link.icon" class="w-[20px] h-5" />
+              <component :is="link.icon" class="w-5 h-5" />
             </Button>
 
             <ClientOnly>
               <Button
-                class="flex items-center justify-center"
+                class="w-9 h-9"
                 aria-label="Toggle dark mode"
                 :variant="'ghost'"
-                :size="'icon'" @click="toggleDark()"
+                :size="'icon'"
+                @click="toggleDark()"
               >
                 <component
                   :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                  class="w-[20px] h-5 text-foreground"
+                  class="w-5 h-5 text-foreground"
                 />
               </Button>
             </ClientOnly>
@@ -297,4 +301,4 @@ watch(() => $route.path, (n) => {
     <NewYorkSonner :theme="'system'" />
     <NewYorkToaster />
   </div>
-</template>
+</template>../components/CodeConfigCustomizer.vue

@@ -1,12 +1,11 @@
 ---
 title: Tooltip
 description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
-source: apps/www/src/lib/registry/default/ui/tooltip 
+source: apps/www/src/lib/registry/default/ui/tooltip
 primitive: https://www.radix-vue.com/components/tooltip.html
 ---
 
-<ComponentPreview name="TooltipDemo" /> 
-
+<ComponentPreview name="TooltipDemo" />
 
 ## Installation
 

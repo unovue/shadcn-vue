@@ -5,7 +5,7 @@ source: apps/www/src/lib/registry/default/ui/toggle-group
 primitive: https://www.radix-vue.com/components/toggle-group.html
 ---
 
-<ComponentPreview name="ToggleGroupDemo" /> 
+<ComponentPreview name="ToggleGroupDemo" />
 
 ## Installation
 
@@ -60,34 +60,26 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 
 ## Examples
 
-### Default 
+### Default
 
-<ComponentPreview name="ToggleGroupDemo" /> 
-
+<ComponentPreview name="ToggleGroupDemo" />
 
 ### Outline
 
-<ComponentPreview name="ToggleGroupOutlineDemo" /> 
-
+<ComponentPreview name="ToggleGroupOutlineDemo" />
 
 ### Single
 
 <ComponentPreview name="ToggleGroupSingleDemo" />
 
-
 ### Small
 
 <ComponentPreview name="ToggleGroupSmallDemo" />
-
 
 ### Large
 
 <ComponentPreview name="ToggleGroupLargeDemo" />
 
-
 ### Disabled
 
 <ComponentPreview name="ToggleGroupDisabledDemo" />
-
-
-

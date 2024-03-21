@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Minus, Plus } from 'lucide-vue-next'
+import { MinusIcon, PlusIcon } from '@radix-icons/vue'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
@@ -56,7 +56,7 @@ const data = [
               :disabled="goal <= 200"
               @click="goal -= 10"
             >
-              <Minus class="h-4 w-4" />
+              <MinusIcon class="h-4 w-4" />
               <span class="sr-only">Decrease</span>
             </Button>
             <div class="flex-1 text-center">
@@ -74,7 +74,7 @@ const data = [
               :disabled="goal >= 400"
               @click="goal += 10"
             >
-              <Plus class="h-4 w-4" />
+              <PlusIcon class="h-4 w-4" />
               <span class="sr-only">Increase</span>
             </Button>
           </div>

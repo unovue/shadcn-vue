@@ -84,7 +84,7 @@ import {
 </script>
 
 <template>
-  <ResizablePanelGroup direction="horizontal">
+  <ResizablePanelGroup direction="vertical">
     <ResizablePanel>One</ResizablePanel>
     <ResizableHandle />
     <ResizablePanel>Two</ResizablePanel>

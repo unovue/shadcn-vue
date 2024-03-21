@@ -18,6 +18,7 @@ export function makeCodeSandboxParams(componentName: string, style: Style, sourc
 export function makeStackblitzParams(componentName: string, style: Style, sources: Record<string, string>) {
   const files: Record<string, string> = {}
   Object.entries(constructFiles(componentName, style, sources)).forEach(([k, v]) => (files[`${k}`] = typeof v.content === 'object' ? JSON.stringify(v.content, null, 2) : v.content))
+
   return sdk.openProject({
     title: `${componentName} - Radix Vue`,
     files,
@@ -91,6 +92,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'shadcn-vue': 'latest',
     'typescript': 'latest',
     'vaul-vue': 'latest',
+    'vue-sonner': 'latest',
     '@unovis/vue': 'latest',
     '@unovis/ts': 'latest',
   }
@@ -104,6 +106,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'autoprefixer': 'latest',
   }
 
+  // We have static replace here as this is only showing for code reproduction, doesn't need dynamic codeConfig
   const transformImportPath = (code: string) => {
     let parsed = code
     parsed = parsed.replaceAll(`@/lib/registry/${style}`, '@/components')

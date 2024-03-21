@@ -14,7 +14,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Shadcn Vue module for Nuxt. 
+Shadcn Vue module for Nuxt.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/radix-vue/shadcn-vue?file=playground%2Fapp.vue) -->

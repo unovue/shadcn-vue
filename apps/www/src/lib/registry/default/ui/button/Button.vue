@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils'
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']
   size?: ButtonVariants['size']
-  as?: string
   class?: HTMLAttributes['class']
 }
 
