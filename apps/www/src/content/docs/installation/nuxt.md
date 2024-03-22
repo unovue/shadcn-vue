@@ -166,6 +166,8 @@ export default defineNuxtConfig({
 })
 ```
 
+
+
 ### Run the CLI
 
 Run the `shadcn-vue` init command to setup your project:
@@ -173,6 +175,13 @@ Run the `shadcn-vue` init command to setup your project:
 ```bash
 npx shadcn-vue@latest init
 ```
+
+Run the following command if you have *not found command* error
+
+```bash 
+npm install shadcn-vue@latest
+```
+
 
 ### Configure components.json
 
