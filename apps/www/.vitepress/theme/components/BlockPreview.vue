@@ -7,10 +7,9 @@ import MagicString from 'magic-string'
 import { cssVariables } from '../config/shiki'
 import StyleSwitcher from './StyleSwitcher.vue'
 import Spinner from './Spinner.vue'
+import BlockCopyButton from './BlockCopyButton.vue'
 import { useConfigStore } from '@/stores/config'
 
-// import { BlockCopyCodeButton } from '@/components/block-copy-code-button'
-// import { Icons } from '@/components/icons'
 // import { V0Button } from '@/components/v0-button'
 import { Badge } from '@/lib/registry/new-york/ui/badge'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
@@ -59,9 +58,11 @@ function transformImportPath(code: string) {
 
 watch([style, codeConfig], async () => {
   try {
-    rawString.value = await import(`../../../src/lib/registry/${style.value}/block/${props.name}.vue?raw`).then(res => res.default.trim())
+    const baseRawString = await import(`../../../src/lib/registry/${style.value}/block/${props.name}.vue?raw`).then(res => res.default.trim())
+    rawString.value = transformImportPath(removeScript(baseRawString))
+
     if (!metadata.description) {
-      const { descriptor } = parse(rawString.value)
+      const { descriptor } = parse(baseRawString)
       const ast = compileScript(descriptor, { id: '' })
       walk(ast.scriptAst, {
         enter(node: any) {
@@ -78,7 +79,7 @@ watch([style, codeConfig], async () => {
       })
     }
 
-    codeHtml.value = await codeToHtml(transformImportPath(removeScript(rawString.value)), {
+    codeHtml.value = await codeToHtml(rawString.value, {
       lang: 'vue',
       theme: cssVariables,
     })
@@ -196,9 +197,9 @@ watch([style, codeConfig], async () => {
             </p>
           </PopoverContent>
         </Popover>
-        <!-- <Separator orientation="vertical" class="mx-2 h-4" />
-        <BlockCopyCodeButton name="{block.name}" code="{block.code}" />
-        <V0Button
+        <Separator orientation="vertical" class="mx-2 h-4" />
+        <BlockCopyButton :code="rawString" />
+        <!-- <V0Button
           name="{block.name}"
           description="{block.description" || "Edit in v0"}
           code="{block.code}"
