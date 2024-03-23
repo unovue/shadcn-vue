@@ -28,9 +28,9 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
               >
                 {{ docsGroup.title }}
 
-                <Badge v-if="docsGroup.label" class="ml-2">
+                <span v-if="docsGroup.label" class="ml-2 font-normal rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
                   {{ docsGroup.label }}
-                </Badge>
+                </span>
               </h4>
 
               <div
@@ -80,9 +80,9 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
               <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">
                 {{ frontmatter.title }}
               </h1>
-              <Badge v-if="frontmatter.label">
+              <span v-if="frontmatter.label" class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
                 {{ frontmatter.label }}
-              </Badge>
+              </span>
             </div>
             <p class="text-lg text-muted-foreground">
               {{ frontmatter.description }}

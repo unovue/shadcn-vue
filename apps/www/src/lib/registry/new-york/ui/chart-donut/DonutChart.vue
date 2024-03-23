@@ -100,6 +100,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
         :events="{
           [Donut.selectors.segment]: {
             click: (d: Data, ev: PointerEvent, i: number, elements: HTMLElement[]) => {
+              console.log(d, ev, i, elements)
               if (d?.data?.[index] === activeSegmentKey) {
                 activeSegmentKey = undefined
                 elements.forEach(el => el.style.opacity = '1')

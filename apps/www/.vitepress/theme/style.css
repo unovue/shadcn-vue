@@ -28,6 +28,9 @@
 		--ring: 240 5% 64.9%;
 		--radius: 0.5rem;
 
+		--vis-font-family: inherit !important;
+		--vis-area-stroke-width: 2px !important;
+		--vis-donut-central-label-text-color: hsl(var(--muted-foreground)) !important;
 		--vis-tooltip-background-color: none !important;
     --vis-tooltip-border-color: none !important;
     --vis-tooltip-text-color: none !important;

@@ -2,7 +2,7 @@
 import { VisCrosshair, VisTooltip } from '@unovis/vue'
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { omit } from '@unovis/ts'
-import { createApp } from 'vue'
+import { createApp, watch } from 'vue'
 import { ChartTooltip } from '@/lib/registry/new-york/ui/chart'
 
 const props = withDefaults(defineProps<{
@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<{
 
 // Use weakmap to store reference to each datapoint for Tooltip
 const wm = new WeakMap()
-function template(d: any, ...a: any) {
+function template(d: any) {
   if (wm.has(d)) {
     return wm.get(d)
   }
@@ -34,5 +34,5 @@ function template(d: any, ...a: any) {
 
 <template>
   <VisTooltip :horizontal-shift="20" :vertical-shift="20" />
-  <VisCrosshair :color="colors" :template="template" />
+  <VisCrosshair :template="template" />
 </template>
