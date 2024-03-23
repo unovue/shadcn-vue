@@ -1,5 +1,5 @@
 ---
-title: Blocks - shadcn-vue
+title: Building Blocks
 ---
 
 <script setup>
