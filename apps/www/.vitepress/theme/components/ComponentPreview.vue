@@ -83,7 +83,7 @@ watch([style, codeConfig], async () => {
             'items-end': align === 'end',
           })"
         >
-          <ComponentLoader v-bind="$attrs" :key="style" :name="name" />
+          <ComponentLoader v-bind="$attrs" :key="style" :name="name" :type-name="'example'" />
         </div>
       </TabsContent>
       <TabsContent value="code">
