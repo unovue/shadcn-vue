@@ -24,7 +24,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/default/ui/popover'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
 import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const open = ref(false)
@@ -184,3 +184,4 @@ async function onSubmit(values: any) {
     </div>
   </Form>
 </template>
+@/lib/registry/new-york/ui/v-calendar

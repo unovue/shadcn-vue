@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  radix-vue@1.5.3:
+    hash: jnhemw3hcquqa2vjldfytqhpcy
+    path: patches/radix-vue@1.5.3.patch
+
 importers:
 
   .:
@@ -86,6 +91,9 @@ importers:
       embla-carousel-vue:
         specifier: ^8.0.0
         version: 8.0.0(vue@3.4.21)
+      flat-internationalized-date:
+        specifier: ^1.2.3
+        version: 1.2.3
       lucide-vue-next:
         specifier: ^0.359.0
         version: 0.359.0(vue@3.4.21)
@@ -94,7 +102,7 @@ importers:
         version: 0.30.8
       radix-vue:
         specifier: ^1.5.3
-        version: 1.5.3(vue@3.4.21)
+        version: 1.5.3(patch_hash=jnhemw3hcquqa2vjldfytqhpcy)(vue@3.4.21)
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.1)
@@ -257,7 +265,7 @@ importers:
         version: 2.4.2
       radix-vue:
         specifier: ^1.5.3
-        version: 1.5.3(vue@3.4.21)
+        version: 1.5.3(patch_hash=jnhemw3hcquqa2vjldfytqhpcy)(vue@3.4.21)
       ts-morph:
         specifier: ^22.0.0
         version: 22.0.0
@@ -5386,7 +5394,7 @@ packages:
       '@babel/helper-module-imports': 7.22.15
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/parser': 7.24.1
-      '@vue/compiler-sfc': 3.4.21
+      '@vue/compiler-sfc': 3.4.19
     dev: true
 
   /@vue/compiler-core@3.4.19:
@@ -8769,6 +8777,12 @@ packages:
       keyv: 4.5.4
       rimraf: 3.0.2
     dev: true
+
+  /flat-internationalized-date@1.2.3:
+    resolution: {integrity: sha512-qhNeqjiPSzfbaDXa+2HPVb+U2xNQKHpT9gAn8TJi1Hc2CvmgudR78oltH1YQLe91ffgk2paNcHZtX8YLEh7KMA==}
+    dependencies:
+      typescript: 5.4.2
+    dev: false
 
   /flat@5.0.2:
     resolution: {integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==}
@@ -12489,7 +12503,7 @@ packages:
     resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
     dev: false
 
-  /radix-vue@1.5.3(vue@3.4.21):
+  /radix-vue@1.5.3(patch_hash=jnhemw3hcquqa2vjldfytqhpcy)(vue@3.4.21):
     resolution: {integrity: sha512-K1JF8P238jGKRwwlWe0LNCd80bamfWFnDhLNBAgoWvSRORRIsoo7DODnC4TLE62JE55tf/6ABSs5JIvp2BvYPA==}
     dependencies:
       '@floating-ui/dom': 1.6.1
@@ -12501,6 +12515,7 @@ packages:
       - '@vue/composition-api'
       - vue
     dev: false
+    patched: true
 
   /radix3@1.1.1:
     resolution: {integrity: sha512-yUUd5VTiFtcMEx0qFUxGAv5gbMc1un4RvEO1JZdP7ZUl/RHygZK6PknIKntmQRZxnMY3ZXD2ISaw1ij8GYW1yg==}
@@ -14500,7 +14515,7 @@ packages:
     resolution: {integrity: sha512-3PYWMbN3cSdsciv3fzewskxZFnX61PYq1uNsbvizXDo/8sN4SMrWkYDqWaPdTD3GTEm6wpx7j5flRLg7A5ZXbQ==}
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.21)
-      radix-vue: 1.5.3(vue@3.4.21)
+      radix-vue: 1.5.3(patch_hash=jnhemw3hcquqa2vjldfytqhpcy)(vue@3.4.21)
       vue: 3.4.21(typescript@5.4.2)
     transitivePeerDependencies:
       - '@vue/composition-api'

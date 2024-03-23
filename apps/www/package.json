@@ -30,6 +30,7 @@
     "embla-carousel": "^8.0.0",
     "embla-carousel-autoplay": "^8.0.0",
     "embla-carousel-vue": "^8.0.0",
+    "flat-internationalized-date": "^1.2.3",
     "lucide-vue-next": "^0.359.0",
     "magic-string": "^0.30.8",
     "radix-vue": "^1.5.3",

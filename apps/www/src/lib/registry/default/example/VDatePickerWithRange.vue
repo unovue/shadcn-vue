@@ -5,7 +5,7 @@ import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Calendar } from '@/lib/registry/default/ui/v-calendar'
 import {
   Popover,
   PopoverContent,
@@ -43,26 +43,8 @@ const date = ref({
       <PopoverContent class="w-auto p-0" align="start">
         <Calendar
           v-model.range="date"
-          mode="date"
           :columns="2"
-        >
-          <template #footer>
-            <div class="w-full px-3 pb-3">
-              Entry time
-              <Calendar
-                v-model="date.start"
-                mode="time"
-                hide-time-header
-              />
-              Exit time
-              <Calendar
-                v-model="date.end"
-                mode="time"
-                hide-time-header
-              />
-            </div>
-          </template>
-        </Calendar>
+        />
       </PopoverContent>
     </Popover>
   </div>

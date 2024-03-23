@@ -3,7 +3,7 @@ title: Date Picker
 description: A date picker component with range and presets.
 ---
 
-<ComponentPreview name="DatePickerDemo"  />
+<ComponentPreview name="VDatePickerDemo"  />
 
 ## Installation
 
@@ -21,7 +21,7 @@ import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
+import { Calendar } from '@/components/ui/v-calendar'
 import {
   Popover,
   PopoverContent,
@@ -56,24 +56,24 @@ const date = ref<Date>()
 
 ### Date Picker
 
-<ComponentPreview name="DatePickerDemo"  />
+<ComponentPreview name="VDatePickerDemo"  />
 
 ### Date Range Picker
 
-<ComponentPreview name="DatePickerWithRange"  />
+<ComponentPreview name="VDatePickerWithRange"  />
 
 ### Date Time Picker
 
-<ComponentPreview name="DateTimePickerDemo"  />
+<ComponentPreview name="VDateTimePickerDemo"  />
 
 ### With Presets
 
-<ComponentPreview name="DatePickerWithPresets"  />
+<ComponentPreview name="VDatePickerWithPresets"  />
 
 ### With Slot
 
-<ComponentPreview name="RangePickerWithSlot"  />
+<ComponentPreview name="VRangePickerWithSlot"  />
 
 ### Form
 
-<ComponentPreview name="DatePickerForm"  />
+<ComponentPreview name="VDatePickerForm"  />

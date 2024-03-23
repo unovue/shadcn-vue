@@ -19,7 +19,7 @@ import CardStats from '@/lib/registry/new-york/example/CardStats.vue'
 import {
   Card,
 } from '@/lib/registry/new-york/ui/card'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
 
 const range = ref({
   start: startOfToday(),
@@ -73,3 +73,4 @@ const range = ref({
     </div>
   </ThemingLayout>
 </template>
+@/lib/registry/new-york/ui/v-calendar

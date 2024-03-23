@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { h, ref } from 'vue'
+import { DateFormatter, getLocalTimeZone, toDate, today } from 'flat-internationalized-date'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
+import { z } from 'zod'
 import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
   FormDescription,
@@ -17,22 +14,24 @@ import {
   FormLabel,
   FormMessage,
 } from '@/lib/registry/default/ui/form'
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
 import { toast } from '@/lib/registry/default/ui/toast'
+import { cn } from '@/lib/utils'
+
+const df = DateFormatter('en-US')
 
 const formSchema = toTypedSchema(z.object({
-  dob: z.date({
+  date: z.date({
     required_error: 'A date of birth is required.',
   }),
 }))
 
+const value = ref(today(getLocalTimeZone()))
+
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
+  initialValues: {
+    date: toDate(value.value, getLocalTimeZone()),
+  },
 })
 
 const onSubmit = handleSubmit((values) => {
@@ -44,6 +43,8 @@ const onSubmit = handleSubmit((values) => {
 </script>
 
 <template>
+  <Calendar v-model="value" :weekday-format="'short'" class="rounded-md border" />
+
   <form class="space-y-8" @submit="onSubmit">
     <FormField v-slot="{ componentField, value }" name="dob">
       <FormItem class="flex flex-col">
@@ -57,7 +58,7 @@ const onSubmit = handleSubmit((values) => {
                   !value && 'text-muted-foreground',
                 )"
               >
-                <span>{{ value ? format(value, "PPP") : "Pick a date" }}</span>
+                <span>{{ value ? df(value!) : "Pick a date" }}</span>
                 <CalendarIcon class="ms-auto h-4 w-4 opacity-50" />
               </Button>
             </FormControl>

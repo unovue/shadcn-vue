@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { format } from 'date-fns'
-import { CalendarIcon } from '@radix-icons/vue'
+import { h, ref } from 'vue'
+import { DateFormatter, type DateValue, createCalendarDate, getLocalTimeZone, parseDate, today } from 'flat-internationalized-date'
+import { useDateFormatter } from 'radix-vue'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { z } from 'zod'
+import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
   FormDescription,
@@ -16,23 +15,25 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/new-york/ui/form'
+} from '@/lib/registry/default/ui/form'
+import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
+import { toast } from '@/lib/registry/default/ui/toast'
+import { cn } from '@/lib/utils'
 
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
-import { toast } from '@/lib/registry/new-york/ui/toast'
+const df = useDateFormatter('en')
+const dateValue = ref<DateValue | undefined>()
 
 const formSchema = toTypedSchema(z.object({
-  dob: z.date({
-    required_error: 'A date of birth is required.',
-  }),
+  dob: z
+    .string()
+    .refine(v => v, { message: 'A date of birth is required.' }),
 }))
+
+const placeholder = ref()
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
+
 })
 
 const onSubmit = handleSubmit((values) => {
@@ -45,7 +46,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="space-y-8" @submit="onSubmit">
-    <FormField v-slot="{ componentField, value }" name="dob">
+    <FormField v-slot="{ value }" name="dob">
       <FormItem class="flex flex-col">
         <FormLabel>Date of birth</FormLabel>
         <Popover>
@@ -57,13 +58,28 @@ const onSubmit = handleSubmit((values) => {
                   !value && 'text-muted-foreground',
                 )"
               >
-                <span>{{ value ? format(value, "PPP") : "Pick a date" }}</span>
+                <span>{{ value ? JSON.stringify(value) : "Pick a date" }} {{ JSON.stringify(value) }}</span>
                 <CalendarIcon class="ms-auto h-4 w-4 opacity-50" />
               </Button>
+              <input hidden>
             </FormControl>
           </PopoverTrigger>
           <PopoverContent class="p-0">
-            <Calendar v-bind="componentField" />
+            <Calendar
+              v-model:placeholder="placeholder"
+              v-model="dateValue"
+              calendar-label="Date of birth"
+              initial-focus
+              :min-value="createCalendarDate({
+                day: 1,
+                month: 2,
+                year: 2024,
+              })"
+              :max-value="today(getLocalTimeZone())"
+              @update:model-value="(v) => {
+                console.log(v)
+              }"
+            />
           </PopoverContent>
         </Popover>
         <FormDescription>

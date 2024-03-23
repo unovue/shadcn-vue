@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { addDays, format } from 'date-fns'
-import { ref } from 'vue'
-import { CalendarIcon } from '@radix-icons/vue'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
 
+import { ref } from 'vue'
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Button } from '@/lib/registry/default/ui/button'
+import { Calendar } from '@/lib/registry/default/ui/v-calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
+} from '@/lib/registry/default/ui/popover'
 
 const date = ref({
   start: new Date(2022, 0, 20),
@@ -47,23 +47,19 @@ const date = ref({
           :columns="2"
         >
           <template #footer>
-            <div class="flex w-full mt-6 border-t border-accent pt-4">
-              <div class="w-1/2">
-                <strong>Entry time</strong>
-                <Calendar
-                  v-model="date.start"
-                  mode="time"
-                  hide-time-header
-                />
-              </div>
-              <div class="w-1/2">
-                <strong>Exit time</strong>
-                <Calendar
-                  v-model="date.end"
-                  mode="time"
-                  hide-time-header
-                />
-              </div>
+            <div class="w-full px-3 pb-3">
+              Entry time
+              <Calendar
+                v-model="date.start"
+                mode="time"
+                hide-time-header
+              />
+              Exit time
+              <Calendar
+                v-model="date.end"
+                mode="time"
+                hide-time-header
+              />
             </div>
           </template>
         </Calendar>

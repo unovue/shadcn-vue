@@ -2,90 +2,31 @@
 title: Calendar
 description: A date field component that allows users to enter and edit date.
 source: apps/www/src/lib/registry/default/ui/calendar
-primitive: https://vcalendar.io/
+primitive: https://www.radix-vue.com/components/calendar.html
 ---
 
-<ComponentPreview name="CalendarDemo"  />
+<ComponentPreview name="CalendarDemo" />
 
 ## About
 
-The `Calendar` component is built on top of [VCalendar](https://vcalendar.io/getting-started/installation.html).
+The `<Calendar />` component is built on top of the [RadixVue Calendar](https://www.radix-vue.com/components/calendar.html) component, which uses the [flat-internationalized-date](https://github.com/epr3/flat-internationalized-date) package to handle dates.
+
+If you're looking for a range calendar, check out the [Range Calendar](#asdasd) component.
 
 ## Installation
 
-<TabPreview name="CLI">
-<template #CLI>
-
-```bash
+```shell
 npx shadcn-vue@latest add calendar
 ```
-</template>
 
-<template #Manual>
+## Datepicker
 
-<Steps>
+You can use the `<Calendar />` component to build a date picker. See the [Date Picker](#asdasd) page for more information.
 
-### Install the following dependency
+## Examples
 
-```bash
-npm install v-calendar
-```
+### Form
 
-### Copy and paste the following code into your project
+<ComponentPreview name="CalendarWithSelect" />
 
-<<< @/lib/registry/default/ui/calendar/Calendar.vue
-
-</Steps>
-
-</template>
-</TabPreview>
-
-## Usage
-
-```vue
-<script setup lang="ts">
-import { Calendar } from '@/components/ui/calendar'
-</script>
-
-<template>
-  <Calendar />
-</template>
-```
-
-The API is essentially the same, i.e. props and slots. See the [VCalendar](https://vcalendar.io/getting-started/installation.html) documentation for more information.
-
-### Slots
-
-The slots available are [those currently supported](https://github.com/nathanreyes/v-calendar/blob/v3.1.2/src/components/Calendar/CalendarSlot.vue#L16-L28) by VCalendar, namely :
-
-- `day-content`
-- `day-popover`
-- `dp-footer`
-- `footer`
-- `header-title-wrapper`
-- `header-title`
-- `header-prev-button`
-- `header-next-button`
-- `nav`
-- `nav-prev-button`
-- `nav-next-button`
-- `page`
-- `time-header`
-
-Example using the `day-content` slot:
-
-```vue
-<script setup lang="ts">
-import { Calendar } from '@/components/ui/calendar'
-</script>
-
-<template>
-  <Calendar>
-    <template #day-content="{ day, dayProps, dayEvents }">
-      <div v-bind="dayProps" v-on="dayEvents">
-        {{ day.label }}
-      </div>
-    </template>
-  </Calendar>
-</template>
-```
+<ComponentPreview name="CalendarForm" />

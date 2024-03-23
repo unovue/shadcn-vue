@@ -5,7 +5,7 @@ import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Calendar } from '@/lib/registry/default/ui/v-calendar'
 import {
   Popover,
   PopoverContent,

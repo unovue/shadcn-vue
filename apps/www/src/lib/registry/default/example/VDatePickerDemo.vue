@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { format } from 'date-fns'
-import { ref } from 'vue'
-import { CalendarIcon } from '@radix-icons/vue'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
 
+import { ref } from 'vue'
 import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Button } from '@/lib/registry/default/ui/button'
+import { Calendar } from '@/lib/registry/default/ui/v-calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
+} from '@/lib/registry/default/ui/popover'
 
 const date = ref<Date>()
 </script>
