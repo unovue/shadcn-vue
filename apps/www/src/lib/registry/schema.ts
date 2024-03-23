@@ -10,6 +10,7 @@ export const registrySchema = z.array(
       'components:ui',
       'components:component',
       'components:example',
+      'components:block',
     ]),
   }),
 )

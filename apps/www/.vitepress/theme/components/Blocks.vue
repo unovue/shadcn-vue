@@ -1,34 +1,37 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import PageHeader from '../components/PageHeader.vue'
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 import PageAction from '../components/PageAction.vue'
-import ExamplesNav from '../components/ExamplesNav.vue'
 import Announcement from '../components/Announcement.vue'
+import BlockPreview from './BlockPreview.vue'
 import GitHubIcon from '~icons/radix-icons/github-logo'
 
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 
-import MailExample from '@/examples/mail/Example.vue'
+const blocks = ref<string[]>([])
+
+import('../../../__registry__/index').then((res) => {
+  blocks.value = Object.values(res.Index.default).filter(i => i.type === 'components:block').map(i => i.name)
+})
 </script>
 
 <template>
   <PageHeader class="page-header pb-8">
     <Announcement />
-    <PageHeaderHeading>Build your component library.</PageHeaderHeading>
+    <PageHeaderHeading>Building Blocks for the Web</PageHeaderHeading>
     <PageHeaderDescription>
-      Beautifully designed components that you can copy and paste into your
-      apps. Accessible. Customizable. Open Source.
+      Beautifully designed. Copy and paste into your apps. Open Source.
     </PageHeaderDescription>
 
     <PageAction>
       <a
-        href="/docs/introduction"
+        href="/blocks.html#blocks"
         :class="cn(buttonVariants(), 'rounded-[6px]')"
       >
-        Get Started
+        Browse
       </a>
       <a
         href="https://github.com/radix-vue/shadcn-vue"
@@ -43,20 +46,8 @@ import MailExample from '@/examples/mail/Example.vue'
       </a>
     </PageAction>
   </PageHeader>
-  <ExamplesNav />
-  <section class="space-y-8 overflow-hidden rounded-lg border-2 border-primary dark:border-muted md:hidden">
-    <VPImage
-      alt="Mail"
-      width="1280"
-      height="866" class="block" :image="{
-        dark: '/examples/mail-dark.png',
-        light: '/examples/mail-light.png',
-      }"
-    />
-  </section>
-  <section class="hidden md:block">
-    <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
-      <MailExample />
-    </div>
+
+  <section id="blocks" class="grid scroll-mt-24 gap-24 lg:gap-48">
+    <BlockPreview v-for="block in blocks" :key="block" :name="block" />
   </section>
 </template>
