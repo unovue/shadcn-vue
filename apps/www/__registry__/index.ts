@@ -1102,6 +1102,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/Cards/Metric.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/Cards/Metric.vue"],
     },
+    "Authentication01": {
+      name: "Authentication01",
+      type: "components:block",
+      registryDependencies: ["button","card","input","label"],
+      component: () => import("../src/lib/registry/default/block/Authentication01.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Authentication01.vue"],
+    },
   },  "new-york": {
     "AccordionDemo": {
       name: "AccordionDemo",
@@ -2201,6 +2208,13 @@ export const Index = {
       registryDependencies: ["card","config"],
       component: () => import("../src/lib/registry/new-york/example/Cards/Metric.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/Cards/Metric.vue"],
+    },
+    "Authentication01": {
+      name: "Authentication01",
+      type: "components:block",
+      registryDependencies: ["button","card","input","label"],
+      component: () => import("../src/lib/registry/new-york/block/Authentication01.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Authentication01.vue"],
     },
   },
 }

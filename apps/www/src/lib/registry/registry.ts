@@ -27,9 +27,12 @@ export async function buildRegistry() {
   const uiRegistry = await crawlUI(ui_path)
 
   const example_path = resolve('./src/lib/registry/default/example')
-  const exampleRegistry = await crawlExample(example_path)
+  const exampleRegistry = await crawlDirectory(example_path, 'example')
 
-  return uiRegistry.concat(exampleRegistry)
+  const block_path = resolve('./src/lib/registry/default/block')
+  const blockRegistry = await crawlDirectory(block_path, 'block')
+
+  return uiRegistry.concat(exampleRegistry).concat(blockRegistry)
 }
 
 async function crawlUI(rootPath: string) {
@@ -53,15 +56,15 @@ async function crawlUI(rootPath: string) {
   return uiRegistry
 }
 
-async function crawlExample(rootPath: string) {
-  const type = 'components:example'
+async function crawlDirectory(rootPath: string, typeName: 'example' | 'block') {
+  const type = `components:${typeName}` as const
 
   const dir = await readdir(rootPath, {
     recursive: true,
     withFileTypes: true,
   })
 
-  const exampleRegistry: Registry = []
+  const registry: Registry = []
 
   for (const dirent of dir) {
     if (dirent.name === 'index.ts')
@@ -69,11 +72,11 @@ async function crawlExample(rootPath: string) {
 
     if (dirent.isFile()) {
       const [name] = dirent.name.split('.vue')
-      const file_path = join('example', normalize(dirent.path).split('/example')[1], dirent.name)
+      const file_path = join(typeName, normalize(dirent.path).split(`/${typeName}`)[1], dirent.name)
       const { dependencies, registryDependencies }
       = await getDependencies(join(dirent.path, dirent.name))
 
-      exampleRegistry.push({
+      registry.push({
         name,
         type,
         files: [file_path],
@@ -87,14 +90,14 @@ async function crawlExample(rootPath: string) {
     // if (dirent.isDirectory()) {
     // 	const componentPath = resolve(rootPath, dirent.name);
     // 	const ui = await buildUIRegistry(componentPath, dirent.name);
-    // 	exampleRegistry.push({
+    // 	registry.push({
     // 		...ui,
     // 		type
     // 	});
     // }
   }
 
-  return exampleRegistry
+  return registry
 }
 
 async function buildUIRegistry(componentPath: string, componentName: string) {
