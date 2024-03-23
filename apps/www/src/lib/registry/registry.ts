@@ -8,6 +8,7 @@ import type { Registry } from '../../lib/registry'
 const DEPENDENCIES = new Map<string, string[]>([
   ['@vueuse/core', []],
   ['vue-sonner', []],
+  ['vaul-vue', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
   ['embla-carousel-vue', ['embla-carousel']],
