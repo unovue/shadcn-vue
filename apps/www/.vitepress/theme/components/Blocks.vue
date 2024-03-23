@@ -57,7 +57,7 @@ import('../../../__registry__/index').then((res) => {
     </PageAction>
   </PageHeader>
 
-  <section>
+  <section class="grid scroll-mt-24 gap-24 lg:gap-48">
     <BlockPreview v-for="block in blocks" :key="block" :name="block" />
   </section>
 </template>

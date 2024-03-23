@@ -7,7 +7,6 @@ import MagicString from 'magic-string'
 import { cssVariables } from '../config/shiki'
 import StyleSwitcher from './StyleSwitcher.vue'
 import Spinner from './Spinner.vue'
-import ComponentLoader from './ComponentLoader.vue'
 import { useConfigStore } from '@/stores/config'
 
 // import { BlockCopyCodeButton } from '@/components/block-copy-code-button'
@@ -26,7 +25,10 @@ const props = defineProps<{
 
 const { style, codeConfig } = useConfigStore()
 
+const isLoading = ref(true)
+const tabValue = ref('preview')
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>()
+
 const rawString = ref('')
 const codeHtml = ref('')
 const metadata = reactive({
@@ -90,10 +92,10 @@ watch([style, codeConfig], async () => {
 <template>
   <Tabs
     :id="name"
-    default-value="preview"
+    v-model="tabValue"
     class="relative grid w-full scroll-m-20 gap-4"
     :style=" {
-      '--container-height': metadata.iframeHeight,
+      '--container-height': metadata.iframeHeight ?? '600px',
     }"
   >
     <div class="flex flex-col items-center gap-4 sm:flex-row">
@@ -205,6 +207,8 @@ watch([style, codeConfig], async () => {
       </div>
     </div>
     <TabsContent
+      v-show="tabValue === 'preview'"
+      force-mount
       value="preview"
       class="relative after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-lg after:bg-muted h-[--container-height] px-0"
     >
@@ -216,9 +220,15 @@ watch([style, codeConfig], async () => {
           :default-size="100"
           :min-size="25"
         >
-          <div :class="metadata.containerClass">
-            <ComponentLoader :key="style" :name="name" :type-name="'block'" />
+          <div v-if="isLoading" class="flex items-center justify-center h-full">
+            <Spinner />
           </div>
+          <iframe
+            v-show="!isLoading"
+            :src="`/blocks/renderer#name=${name}&style=${style}&containerClass=${encodeURIComponent(metadata.containerClass ?? '')}`"
+            class="relative z-20 w-full bg-background h-[--container-height]"
+            @load="isLoading = false"
+          />
         </ResizablePanel>
         <ResizableHandle id="block-resizable-handle" class="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block" />
         <ResizablePanel id="block-resizable-panel-2" :default-size="0" :min-size="0" />
@@ -226,7 +236,7 @@ watch([style, codeConfig], async () => {
     </TabsContent>
     <TabsContent value="code" class="h-[--container-height]">
       <div
-        class="language-vue !h-full !mt-0"
+        class="language-vue !h-full !max-h-[none] !mt-0"
         v-html="codeHtml"
       />
     </TabsContent>

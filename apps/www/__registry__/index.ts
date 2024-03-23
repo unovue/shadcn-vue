@@ -1109,6 +1109,27 @@ export const Index = {
       component: () => import("../src/lib/registry/default/block/Authentication01.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/block/Authentication01.vue"],
     },
+    "Authentication02": {
+      name: "Authentication02",
+      type: "components:block",
+      registryDependencies: ["button","card","input","label"],
+      component: () => import("../src/lib/registry/default/block/Authentication02.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Authentication02.vue"],
+    },
+    "Authentication03": {
+      name: "Authentication03",
+      type: "components:block",
+      registryDependencies: ["button","card","input","label"],
+      component: () => import("../src/lib/registry/default/block/Authentication03.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Authentication03.vue"],
+    },
+    "Authentication04": {
+      name: "Authentication04",
+      type: "components:block",
+      registryDependencies: ["button","input","label"],
+      component: () => import("../src/lib/registry/default/block/Authentication04.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Authentication04.vue"],
+    },
   },  "new-york": {
     "AccordionDemo": {
       name: "AccordionDemo",
@@ -2215,6 +2236,27 @@ export const Index = {
       registryDependencies: ["button","card","input","label"],
       component: () => import("../src/lib/registry/new-york/block/Authentication01.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/block/Authentication01.vue"],
+    },
+    "Authentication02": {
+      name: "Authentication02",
+      type: "components:block",
+      registryDependencies: ["button","card","input","label"],
+      component: () => import("../src/lib/registry/new-york/block/Authentication02.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Authentication02.vue"],
+    },
+    "Authentication03": {
+      name: "Authentication03",
+      type: "components:block",
+      registryDependencies: ["button","card","input","label"],
+      component: () => import("../src/lib/registry/new-york/block/Authentication03.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Authentication03.vue"],
+    },
+    "Authentication04": {
+      name: "Authentication04",
+      type: "components:block",
+      registryDependencies: ["button","input","label"],
+      component: () => import("../src/lib/registry/new-york/block/Authentication04.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Authentication04.vue"],
     },
   },
 }

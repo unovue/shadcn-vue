@@ -84,7 +84,10 @@ watch(() => $route.path, (n) => {
 </script>
 
 <template>
-  <div vaul-drawer-wrapper class="flex min-h-screen flex-col bg-background">
+  <div v-if="$route.data.frontmatter.layout === false">
+    <Content :key="$route.path" />
+  </div>
+  <div v-else vaul-drawer-wrapper class="flex min-h-screen flex-col bg-background">
     <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
       <div
         class="container flex h-14 max-w-screen-2xl items-center"
@@ -298,4 +301,4 @@ watch(() => $route.path, (n) => {
     <NewYorkSonner :theme="'system'" />
     <NewYorkToaster />
   </div>
-</template>../components/CodeConfigCustomizer.vue
+</template>
