@@ -6,7 +6,7 @@ const params = useUrlSearchParams('hash-params')
 </script>
 
 <template>
-  <div :class="params.containerClass">
-    <ComponentLoader :name="params.name.toString()" :type-name="'block'" />
+  <div v-if="params.name" :class="params.containerClass">
+    <ComponentLoader :name="params.name?.toString()" :type-name="'block'" />
   </div>
 </template>

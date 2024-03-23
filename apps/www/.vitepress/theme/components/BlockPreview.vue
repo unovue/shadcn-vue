@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleHelp, Info, Monitor, Phone, Smartphone, Tablet } from 'lucide-vue-next'
+import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
 import { reactive, ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
 import { compileScript, parse, walk } from 'vue/compiler-sfc'
