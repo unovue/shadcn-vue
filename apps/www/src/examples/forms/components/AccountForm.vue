@@ -17,6 +17,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from '@/lib/registry/default/ui/command'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
@@ -146,26 +147,28 @@ async function onSubmit(values: any) {
           <PopoverContent class="w-[200px] p-0">
             <Command>
               <CommandInput placeholder="Search language..." />
-              <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandGroup>
-                <CommandItem
-                  v-for="language in languages" :key="language.value" :value="language.label"
-                  @select="() => {
-                    setValues({
-                      language: language.value,
-                    })
-                    open = false
-                  }"
-                >
-                  <Check
-                    :class="cn(
-                      'mr-2 h-4 w-4',
-                      value === language.value ? 'opacity-100' : 'opacity-0',
-                    )"
-                  />
-                  {{ language.label }}
-                </CommandItem>
-              </CommandGroup>
+              <CommandEmpty>No language found.</CommandEmpty>
+              <CommandList>
+                <CommandGroup>
+                  <CommandItem
+                    v-for="language in languages" :key="language.value" :value="language.label"
+                    @select="() => {
+                      setValues({
+                        language: language.value,
+                      })
+                      open = false
+                    }"
+                  >
+                    <Check
+                      :class="cn(
+                        'mr-2 h-4 w-4',
+                        value === language.value ? 'opacity-100' : 'opacity-0',
+                      )"
+                    />
+                    {{ language.label }}
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
             </Command>
           </PopoverContent>
         </Popover>
