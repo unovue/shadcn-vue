@@ -27,7 +27,7 @@ const frameworks = [
 ]
 
 const open = ref(false)
-const value = ref({})
+const value = ref<string>('')
 
 // const filterFunction = (list: typeof frameworks, search: string) => list.filter(i => i.value.toLowerCase().includes(search.toLowerCase()))
 </script>

@@ -39,6 +39,10 @@ export const docsConfig: DocsConfig = {
       href: '/examples/mail',
     },
     {
+      title: 'Blocks',
+      href: '/blocks',
+    },
+    {
       title: 'GitHub',
       href: 'https://github.com/radix-vue/shadcn-vue',
       external: true,
