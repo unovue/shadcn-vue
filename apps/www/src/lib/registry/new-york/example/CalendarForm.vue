@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { h, ref } from 'vue'
-import { DateFormatter, getLocalTimeZone, toDate, today } from 'flat-internationalized-date'
+import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { z } from 'zod'

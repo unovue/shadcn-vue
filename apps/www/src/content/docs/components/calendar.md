@@ -9,7 +9,7 @@ primitive: https://www.radix-vue.com/components/calendar.html
 
 ## About
 
-The `<Calendar />` component is built on top of the [RadixVue Calendar](https://www.radix-vue.com/components/calendar.html) component, which uses the [flat-internationalized-date](https://github.com/epr3/flat-internationalized-date) package to handle dates.
+The `<Calendar />` component is built on top of the [RadixVue Calendar](https://www.radix-vue.com/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
 If you're looking for a range calendar, check out the [Range Calendar](#asdasd) component.
 
@@ -27,6 +27,10 @@ You can use the `<Calendar />` component to build a date picker. See the [Date P
 
 ### Form
 
-<ComponentPreview name="CalendarWithSelect" />
-
 <ComponentPreview name="CalendarForm" />
+
+## Advanced Customization
+
+### Month & Year Selects
+
+<ComponentPreview name="CalendarWithSelect" />

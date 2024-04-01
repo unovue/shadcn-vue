@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
-import { DateFormatter, type DateValue, createCalendarDate, getLocalTimeZone, parseDate, today } from 'flat-internationalized-date'
-import { useDateFormatter } from 'radix-vue'
+import { computed, h, ref } from 'vue'
+import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
+import { toDate } from 'radix-vue'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
@@ -20,8 +20,9 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/
 import { toast } from '@/lib/registry/default/ui/toast'
 import { cn } from '@/lib/utils'
 
-const df = useDateFormatter('en')
-const dateValue = ref<DateValue | undefined>()
+const df = new DateFormatter('en-US', {
+  dateStyle: 'long',
+})
 
 const formSchema = toTypedSchema(z.object({
   dob: z
@@ -31,9 +32,16 @@ const formSchema = toTypedSchema(z.object({
 
 const placeholder = ref()
 
-const { handleSubmit } = useForm({
+const { handleSubmit, setValues, values } = useForm({
   validationSchema: formSchema,
+  initialValues: {
 
+  },
+})
+
+const value = computed({
+  get: () => values.dob ? parseDate(values.dob) : undefined,
+  set: val => val,
 })
 
 const onSubmit = handleSubmit((values) => {
@@ -46,7 +54,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="space-y-8" @submit="onSubmit">
-    <FormField v-slot="{ value }" name="dob">
+    <FormField name="dob">
       <FormItem class="flex flex-col">
         <FormLabel>Date of birth</FormLabel>
         <Popover>
@@ -58,7 +66,7 @@ const onSubmit = handleSubmit((values) => {
                   !value && 'text-muted-foreground',
                 )"
               >
-                <span>{{ value ? JSON.stringify(value) : "Pick a date" }} {{ JSON.stringify(value) }}</span>
+                <span>{{ value ? df.format(toDate(value)) : "Pick a date" }}</span>
                 <CalendarIcon class="ms-auto h-4 w-4 opacity-50" />
               </Button>
               <input hidden>
@@ -67,17 +75,23 @@ const onSubmit = handleSubmit((values) => {
           <PopoverContent class="p-0">
             <Calendar
               v-model:placeholder="placeholder"
-              v-model="dateValue"
+              v-model="value"
               calendar-label="Date of birth"
               initial-focus
-              :min-value="createCalendarDate({
-                day: 1,
-                month: 2,
-                year: 2024,
-              })"
+              :min-value="new CalendarDate(1900, 1, 1)"
               :max-value="today(getLocalTimeZone())"
               @update:model-value="(v) => {
-                console.log(v)
+                if (v) {
+                  setValues({
+                    dob: v.toString(),
+                  })
+                }
+                else {
+                  setValues({
+                    dob: '',
+                  })
+                }
+
               }"
             />
           </PopoverContent>
