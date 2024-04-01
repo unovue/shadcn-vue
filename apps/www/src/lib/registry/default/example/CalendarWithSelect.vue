@@ -6,9 +6,7 @@ import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, Cale
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/default/ui/select'
@@ -41,21 +39,16 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-bind="forwarded"
     :class="cn('rounded-md border p-3', props.class)"
   >
-    {{ JSON.stringify(placeholder) }}
     <CalendarHeader>
       <CalendarHeading class="flex w-full items-center justify-between gap-2">
         <Select
           :default-value="placeholder.month.toString()"
           @update:model-value="(v) => {
-
-            console.log(v)
-            // if (!v || !placeholder) return;
-            // if (Number(v) === placeholder?.month) return;
-
-            toRaw(placeholder).set({
-              month: 6,
+            if (!v || !placeholder) return;
+            if (Number(v) === placeholder?.month) return;
+            placeholder = placeholder.set({
+              month: +v,
             })
-            console.log(toRaw(placeholder))
           }"
         >
           <SelectTrigger aria-label="Select month" class="w-[60%]">
@@ -73,6 +66,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
         <Select
           :default-value="props.placeholder.year.toString()"
+          @update:model-value="(v) => {
+            if (!v || !placeholder) return;
+            if (Number(v) === placeholder?.year) return;
+            placeholder = placeholder.set({
+              year: +v,
+            })
+          }"
         >
           <SelectTrigger aria-label="Select year" class="w-[40%]">
             <SelectValue placeholder="Select year" />
