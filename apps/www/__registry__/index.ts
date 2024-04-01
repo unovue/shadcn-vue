@@ -1158,6 +1158,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/block/Dashboard04.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/block/Dashboard04.vue"],
     },
+    "Dashboard05": {
+      name: "Dashboard05",
+      type: "components:block",
+      registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
+      component: () => import("../src/lib/registry/default/block/Dashboard05.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Dashboard05.vue"],
+    },
   },  "new-york": {
     "AccordionDemo": {
       name: "AccordionDemo",
