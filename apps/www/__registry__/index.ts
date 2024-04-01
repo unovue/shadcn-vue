@@ -1161,7 +1161,7 @@ export const Index = {
     "Dashboard05": {
       name: "Dashboard05",
       type: "components:block",
-      registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
+      registryDependencies: ["badge","button","card","dropdown-menu","input","breadcrumb","sheet","pagination","progress","separator","table","tabs","tooltip","checkbox"],
       component: () => import("../src/lib/registry/default/block/Dashboard05.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/block/Dashboard05.vue"],
     },
@@ -2320,6 +2320,13 @@ export const Index = {
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       component: () => import("../src/lib/registry/new-york/block/Dashboard04.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/block/Dashboard04.vue"],
+    },
+    "Dashboard05": {
+      name: "Dashboard05",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","breadcrumb","sheet","pagination","progress","separator","table","tabs","tooltip","checkbox"],
+      component: () => import("../src/lib/registry/new-york/block/Dashboard05.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Dashboard05.vue"],
     },
   },
 }
