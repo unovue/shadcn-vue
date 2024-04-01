@@ -32,6 +32,9 @@ export const rawConfigSchema = z
       prefix: z.string().optional(),
     }),
     framework: z.string().default('Vite'),
+    nuxt: z.object({
+      buildDir: z.string().default('.nuxt'),
+    }).optional(),
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
@@ -68,7 +71,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   let tsConfig: ConfigLoaderResult | undefined
   let tsConfigPath = path.resolve(
     cwd,
-    config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json',
+    config.framework === 'nuxt' ? `${config.nuxt?.buildDir}/tsconfig.json` : './tsconfig.json',
   )
 
   if (config.typescript) {
