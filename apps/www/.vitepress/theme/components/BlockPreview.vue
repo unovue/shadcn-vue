@@ -156,7 +156,7 @@ watch([style, codeConfig], async () => {
               <Tablet class="h-3.5 w-3.5" />
             </ToggleGroupItem>
             <ToggleGroupItem
-              value="25"
+              value="30"
               class="h-[22px] w-[22px] rounded-sm p-0"
             >
               <Smartphone class="h-3.5 w-3.5" />
@@ -219,7 +219,7 @@ watch([style, codeConfig], async () => {
           ref="resizableRef"
           class="relative rounded-lg border bg-background transition-all "
           :default-size="100"
-          :min-size="25"
+          :min-size="30"
         >
           <div v-if="isLoading" class="flex items-center justify-center h-full">
             <Spinner />
