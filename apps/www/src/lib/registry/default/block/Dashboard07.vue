@@ -293,7 +293,7 @@ import {
                 <CardContent>
                   <div class="grid gap-6">
                     <div class="grid gap-3">
-                      <Label html-for="name">Name</Label>
+                      <Label for="name">Name</Label>
                       <Input
                         id="name"
                         type="text"
@@ -302,7 +302,7 @@ import {
                       />
                     </div>
                     <div class="grid gap-3">
-                      <Label html-for="description">Description</Label>
+                      <Label for="description">Description</Label>
                       <Textarea
                         id="description"
                         default-value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc."
@@ -339,7 +339,7 @@ import {
                           GGPC-001
                         </TableCell>
                         <TableCell>
-                          <Label html-for="stock-1" class="sr-only">
+                          <Label for="stock-1" class="sr-only">
                             Stock
                           </Label>
                           <Input
@@ -349,7 +349,7 @@ import {
                           />
                         </TableCell>
                         <TableCell>
-                          <Label html-for="price-1" class="sr-only">
+                          <Label for="price-1" class="sr-only">
                             Price
                           </Label>
                           <Input
@@ -381,7 +381,7 @@ import {
                           GGPC-002
                         </TableCell>
                         <TableCell>
-                          <Label html-for="stock-2" class="sr-only">
+                          <Label for="stock-2" class="sr-only">
                             Stock
                           </Label>
                           <Input
@@ -391,7 +391,7 @@ import {
                           />
                         </TableCell>
                         <TableCell>
-                          <Label html-for="price-2" class="sr-only">
+                          <Label for="price-2" class="sr-only">
                             Price
                           </Label>
                           <Input
@@ -423,7 +423,7 @@ import {
                           GGPC-003
                         </TableCell>
                         <TableCell>
-                          <Label html-for="stock-3" class="sr-only">
+                          <Label for="stock-3" class="sr-only">
                             Stock
                           </Label>
                           <Input
@@ -433,7 +433,7 @@ import {
                           />
                         </TableCell>
                         <TableCell>
-                          <Label html-for="price-3" class="sr-only">
+                          <Label for="price-3" class="sr-only">
                             Stock
                           </Label>
                           <Input
@@ -477,7 +477,7 @@ import {
                 <CardContent>
                   <div class="grid gap-6 sm:grid-cols-3">
                     <div class="grid gap-3">
-                      <Label html-for="category">Category</Label>
+                      <Label for="category">Category</Label>
                       <Select>
                         <SelectTrigger
                           id="category"
@@ -499,7 +499,7 @@ import {
                       </Select>
                     </div>
                     <div class="grid gap-3">
-                      <Label html-for="subcategory">
+                      <Label for="subcategory">
                         Subcategory (optional)
                       </Label>
                       <Select>
@@ -534,7 +534,7 @@ import {
                 <CardContent>
                   <div class="grid gap-6">
                     <div class="grid gap-3">
-                      <Label html-for="status">Status</Label>
+                      <Label for="status">Status</Label>
                       <Select>
                         <SelectTrigger id="status" aria-label="Select status">
                           <SelectValue placeholder="Select status" />
