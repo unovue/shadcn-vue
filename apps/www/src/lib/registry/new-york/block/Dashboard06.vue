@@ -1,6 +1,6 @@
 <script lang="ts">
-export const description = 'A products page.'
-export const iframeHeight = '780px'
+export const description = 'An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.'
+export const iframeHeight = '938px'
 export const containerClass = 'w-full h-full'
 </script>
 

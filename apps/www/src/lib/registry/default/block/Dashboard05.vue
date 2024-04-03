@@ -1,11 +1,11 @@
 <script lang="ts">
-export const description = 'A order tracking page. The order page has a sidebar navigation and a main content area.'
-export const iframeHeight = '780px'
+export const description = 'An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.'
+export const iframeHeight = '1112px'
 export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import { 
+import {
   ChevronLeft,
   ChevronRight,
   CircleUser,
@@ -23,10 +23,10 @@ import {
   Settings,
   ShoppingCart,
   Truck,
-  Users2
+  Users2,
 } from 'lucide-vue-next'
 
-import { Badge } from "@/lib/registry/default/ui/badge"
+import { Badge } from '@/lib/registry/default/ui/badge'
 import { Button } from '@/lib/registry/default/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/default/ui/card'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/default/ui/dropdown-menu'
@@ -38,7 +38,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/lib/registry/default/ui/breadcrumb"
+} from '@/lib/registry/default/ui/breadcrumb'
 import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
 import {
   Pagination,
@@ -49,9 +49,9 @@ import {
   PaginationListItem,
   PaginationNext,
   PaginationPrev,
-} from "@/lib/registry/default/ui/pagination"
-import { Progress } from "@/lib/registry/default/ui/progress"
-import { Separator } from "@/lib/registry/default/ui/separator"
+} from '@/lib/registry/default/ui/pagination'
+import { Progress } from '@/lib/registry/default/ui/progress'
+import { Separator } from '@/lib/registry/default/ui/separator'
 import {
   Table,
   TableBody,
@@ -59,18 +59,18 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/lib/registry/default/ui/table"
+} from '@/lib/registry/default/ui/table'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/lib/registry/default/ui/tabs"
+} from '@/lib/registry/default/ui/tabs'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/lib/registry/default/ui/tooltip"
+} from '@/lib/registry/default/ui/tooltip'
 import { Checkbox } from '@/lib/registry/default/ui/checkbox'
 </script>
 
@@ -95,7 +95,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <span class="sr-only">Dashboard</span>
             </a>
           </TooltipTrigger>
-          <TooltipContent side="right">Dashboard</TooltipContent>
+          <TooltipContent side="right">
+            Dashboard
+          </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger as-child>
@@ -107,7 +109,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <span class="sr-only">Orders</span>
             </a>
           </TooltipTrigger>
-          <TooltipContent side="right">Orders</TooltipContent>
+          <TooltipContent side="right">
+            Orders
+          </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger as-child>
@@ -119,7 +123,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <span class="sr-only">Products</span>
             </a>
           </TooltipTrigger>
-          <TooltipContent side="right">Products</TooltipContent>
+          <TooltipContent side="right">
+            Products
+          </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger as-child>
@@ -131,7 +137,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <span class="sr-only">Customers</span>
             </a>
           </TooltipTrigger>
-          <TooltipContent side="right">Customers</TooltipContent>
+          <TooltipContent side="right">
+            Customers
+          </TooltipContent>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger as-child>
@@ -143,7 +151,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <span class="sr-only">Analytics</span>
             </a>
           </TooltipTrigger>
-          <TooltipContent side="right">Analytics</TooltipContent>
+          <TooltipContent side="right">
+            Analytics
+          </TooltipContent>
         </Tooltip>
       </nav>
       <nav class="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
@@ -157,7 +167,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <span class="sr-only">Settings</span>
             </a>
           </TooltipTrigger>
-          <TooltipContent side="right">Settings</TooltipContent>
+          <TooltipContent side="right">
+            Settings
+          </TooltipContent>
         </Tooltip>
       </nav>
     </aside>
@@ -279,7 +291,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <Card>
               <CardHeader class="pb-2">
                 <CardDescription>This Week</CardDescription>
-                <CardTitle class="text-4xl">$1329</CardTitle>
+                <CardTitle class="text-4xl">
+                  $1329
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div class="text-xs text-muted-foreground">
@@ -293,7 +307,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <Card>
               <CardHeader class="pb-2">
                 <CardDescription>This Month</CardDescription>
-                <CardTitle class="text-3xl">$5,329</CardTitle>
+                <CardTitle class="text-3xl">
+                  $5,329
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div class="text-xs text-muted-foreground">
@@ -305,12 +321,18 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               </CardFooter>
             </Card>
           </div>
-          <Tabs defaultValue="week">
+          <Tabs default-value="week">
             <div class="flex items-center">
               <TabsList>
-                <TabsTrigger value="week">Week</TabsTrigger>
-                <TabsTrigger value="month">Month</TabsTrigger>
-                <TabsTrigger value="year">Year</TabsTrigger>
+                <TabsTrigger value="week">
+                  Week
+                </TabsTrigger>
+                <TabsTrigger value="month">
+                  Month
+                </TabsTrigger>
+                <TabsTrigger value="year">
+                  Year
+                </TabsTrigger>
               </TabsList>
               <div class="ml-auto flex items-center gap-2">
                 <DropdownMenu>
@@ -325,7 +347,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
                       <div class="items-top flex space-x-2">
-                        <Checkbox id="terms1"/>
+                        <Checkbox id="terms1" />
                         <label
                           for="terms2"
                           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -336,7 +358,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <div class="items-top flex space-x-2">
-                        <Checkbox id="terms1"/>
+                        <Checkbox id="terms1" />
                         <label
                           for="terms2"
                           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -347,7 +369,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <div class="items-top flex space-x-2">
-                        <Checkbox id="terms1"/>
+                        <Checkbox id="terms1" />
                         <label
                           for="terms2"
                           class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -386,13 +408,17 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableHead class="hidden md:table-cell">
                           Date
                         </TableHead>
-                        <TableHead class="text-right">Amount</TableHead>
+                        <TableHead class="text-right">
+                          Amount
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       <TableRow class="bg-accent">
                         <TableCell>
-                          <div class="font-medium">Liam Johnson</div>
+                          <div class="font-medium">
+                            Liam Johnson
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             liam@example.com
                           </div>
@@ -408,11 +434,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-23
                         </TableCell>
-                        <TableCell class="text-right">$250.00</TableCell>
+                        <TableCell class="text-right">
+                          $250.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Olivia Smith</div>
+                          <div class="font-medium">
+                            Olivia Smith
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             olivia@example.com
                           </div>
@@ -428,11 +458,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-24
                         </TableCell>
-                        <TableCell class="text-right">$150.00</TableCell>
+                        <TableCell class="text-right">
+                          $150.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Noah Williams</div>
+                          <div class="font-medium">
+                            Noah Williams
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             noah@example.com
                           </div>
@@ -448,11 +482,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-25
                         </TableCell>
-                        <TableCell class="text-right">$350.00</TableCell>
+                        <TableCell class="text-right">
+                          $350.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Emma Brown</div>
+                          <div class="font-medium">
+                            Emma Brown
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             emma@example.com
                           </div>
@@ -468,11 +506,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-26
                         </TableCell>
-                        <TableCell class="text-right">$450.00</TableCell>
+                        <TableCell class="text-right">
+                          $450.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Liam Johnson</div>
+                          <div class="font-medium">
+                            Liam Johnson
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             liam@example.com
                           </div>
@@ -488,11 +530,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-23
                         </TableCell>
-                        <TableCell class="text-right">$250.00</TableCell>
+                        <TableCell class="text-right">
+                          $250.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Liam Johnson</div>
+                          <div class="font-medium">
+                            Liam Johnson
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             liam@example.com
                           </div>
@@ -508,11 +554,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-23
                         </TableCell>
-                        <TableCell class="text-right">$250.00</TableCell>
+                        <TableCell class="text-right">
+                          $250.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Olivia Smith</div>
+                          <div class="font-medium">
+                            Olivia Smith
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             olivia@example.com
                           </div>
@@ -528,11 +578,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-24
                         </TableCell>
-                        <TableCell class="text-right">$150.00</TableCell>
+                        <TableCell class="text-right">
+                          $150.00
+                        </TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <div class="font-medium">Emma Brown</div>
+                          <div class="font-medium">
+                            Emma Brown
+                          </div>
                           <div class="hidden text-sm text-muted-foreground md:inline">
                             emma@example.com
                           </div>
@@ -548,7 +602,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                         <TableCell class="hidden md:table-cell">
                           2023-06-26
                         </TableCell>
-                        <TableCell class="text-right">$450.00</TableCell>
+                        <TableCell class="text-right">
+                          $450.00
+                        </TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
@@ -599,7 +655,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             </CardHeader>
             <CardContent class="p-6 text-sm">
               <div class="grid gap-3">
-                <div class="font-semibold">Order Details</div>
+                <div class="font-semibold">
+                  Order Details
+                </div>
                 <ul class="grid gap-3">
                   <li class="flex items-center justify-between">
                     <span class="text-muted-foreground">
@@ -637,7 +695,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               <Separator class="my-4" />
               <div class="grid grid-cols-2 gap-4">
                 <div class="grid gap-3">
-                  <div class="font-semibold">Shipping Information</div>
+                  <div class="font-semibold">
+                    Shipping Information
+                  </div>
                   <address class="grid gap-0.5 not-italic text-muted-foreground">
                     <span>Liam Johnson</span>
                     <span>1234 Main St.</span>
@@ -645,7 +705,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                   </address>
                 </div>
                 <div class="grid auto-rows-max gap-3">
-                  <div class="font-semibold">Billing Information</div>
+                  <div class="font-semibold">
+                    Billing Information
+                  </div>
                   <div class="text-muted-foreground">
                     Same as shipping address
                   </div>
@@ -653,20 +715,28 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               </div>
               <Separator class="my-4" />
               <div class="grid gap-3">
-                <div class="font-semibold">Customer Information</div>
+                <div class="font-semibold">
+                  Customer Information
+                </div>
                 <dl class="grid gap-3">
                   <div class="flex items-center justify-between">
-                    <dt class="text-muted-foreground">Customer</dt>
+                    <dt class="text-muted-foreground">
+                      Customer
+                    </dt>
                     <dd>Liam Johnson</dd>
                   </div>
                   <div class="flex items-center justify-between">
-                    <dt class="text-muted-foreground">Email</dt>
+                    <dt class="text-muted-foreground">
+                      Email
+                    </dt>
                     <dd>
                       <a href="mailto:">liam@acme.com</a>
                     </dd>
                   </div>
                   <div class="flex items-center justify-between">
-                    <dt class="text-muted-foreground">Phone</dt>
+                    <dt class="text-muted-foreground">
+                      Phone
+                    </dt>
                     <dd>
                       <a href="tel:">+1 234 567 890</a>
                     </dd>
@@ -675,7 +745,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               </div>
               <Separator class="my-4" />
               <div class="grid gap-3">
-                <div class="font-semibold">Payment Information</div>
+                <div class="font-semibold">
+                  Payment Information
+                </div>
                 <dl class="grid gap-3">
                   <div class="flex items-center justify-between">
                     <dt class="flex items-center gap-1 text-muted-foreground">

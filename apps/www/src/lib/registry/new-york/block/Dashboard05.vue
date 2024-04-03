@@ -1,6 +1,6 @@
 <script lang="ts">
-export const description = 'A order tracking page. The order page has a sidebar navigation and a main content area.'
-export const iframeHeight = '780px'
+export const description = 'An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.'
+export const iframeHeight = '1112px'
 export const containerClass = 'w-full h-full'
 </script>
 
