@@ -1158,6 +1158,27 @@ export const Index = {
       component: () => import("../src/lib/registry/default/block/Dashboard04.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/block/Dashboard04.vue"],
     },
+    "Dashboard05": {
+      name: "Dashboard05",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","breadcrumb","sheet","pagination","progress","separator","table","tabs","tooltip","checkbox"],
+      component: () => import("../src/lib/registry/default/block/Dashboard05.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Dashboard05.vue"],
+    },
+    "Dashboard06": {
+      name: "Dashboard06",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","breadcrumb","sheet","table","tabs","tooltip"],
+      component: () => import("../src/lib/registry/default/block/Dashboard06.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Dashboard06.vue"],
+    },
+    "Dashboard07": {
+      name: "Dashboard07",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","textarea","label","toggle-group","breadcrumb","sheet","table","select","tooltip"],
+      component: () => import("../src/lib/registry/default/block/Dashboard07.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Dashboard07.vue"],
+    },
   },  "new-york": {
     "AccordionDemo": {
       name: "AccordionDemo",
@@ -2313,6 +2334,27 @@ export const Index = {
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       component: () => import("../src/lib/registry/new-york/block/Dashboard04.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/block/Dashboard04.vue"],
+    },
+    "Dashboard05": {
+      name: "Dashboard05",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","breadcrumb","sheet","pagination","progress","separator","table","tabs","tooltip","checkbox"],
+      component: () => import("../src/lib/registry/new-york/block/Dashboard05.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Dashboard05.vue"],
+    },
+    "Dashboard06": {
+      name: "Dashboard06",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","breadcrumb","sheet","table","tabs","tooltip"],
+      component: () => import("../src/lib/registry/new-york/block/Dashboard06.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Dashboard06.vue"],
+    },
+    "Dashboard07": {
+      name: "Dashboard07",
+      type: "components:block",
+      registryDependencies: ["badge","button","card","dropdown-menu","input","textarea","label","toggle-group","breadcrumb","sheet","table","select","tooltip"],
+      component: () => import("../src/lib/registry/new-york/block/Dashboard07.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Dashboard07.vue"],
     },
   },
 }
