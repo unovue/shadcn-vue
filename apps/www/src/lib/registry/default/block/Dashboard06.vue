@@ -359,7 +359,9 @@ import {
                           Draft
                         </Badge>
                       </TableCell>
-                      <TableCell>$499.99</TableCell>
+                      <TableCell class="hidden md:table-cell">
+                        $499.99
+                      </TableCell>
                       <TableCell class="hidden md:table-cell">
                         25
                       </TableCell>
@@ -404,7 +406,9 @@ import {
                           Active
                         </Badge>
                       </TableCell>
-                      <TableCell>$129.99</TableCell>
+                      <TableCell class="hidden md:table-cell">
+                        $129.99
+                      </TableCell>
                       <TableCell class="hidden md:table-cell">
                         100
                       </TableCell>
@@ -449,7 +453,9 @@ import {
                           Active
                         </Badge>
                       </TableCell>
-                      <TableCell>$39.99</TableCell>
+                      <TableCell class="hidden md:table-cell">
+                        $39.99
+                      </TableCell>
                       <TableCell class="hidden md:table-cell">
                         50
                       </TableCell>
@@ -494,7 +500,9 @@ import {
                           Draft
                         </Badge>
                       </TableCell>
-                      <TableCell>$2.99</TableCell>
+                      <TableCell class="hidden md:table-cell">
+                        $2.99
+                      </TableCell>
                       <TableCell class="hidden md:table-cell">
                         0
                       </TableCell>
@@ -539,7 +547,9 @@ import {
                           Active
                         </Badge>
                       </TableCell>
-                      <TableCell>$59.99</TableCell>
+                      <TableCell class="hidden md:table-cell">
+                        $59.99
+                      </TableCell>
                       <TableCell class="hidden md:table-cell">
                         75
                       </TableCell>
@@ -584,7 +594,9 @@ import {
                           Active
                         </Badge>
                       </TableCell>
-                      <TableCell>$199.99</TableCell>
+                      <TableCell class="hidden md:table-cell">
+                        $199.99
+                      </TableCell>
                       <TableCell class="hidden md:table-cell">
                         30
                       </TableCell>
