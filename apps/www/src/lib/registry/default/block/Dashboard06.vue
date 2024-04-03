@@ -326,7 +326,9 @@ import {
                       </TableHead>
                       <TableHead>Name</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead>Price</TableHead>
+                      <TableHead class="hidden md:table-cell">
+                        Price
+                      </TableHead>
                       <TableHead class="hidden md:table-cell">
                         Total Sales
                       </TableHead>
