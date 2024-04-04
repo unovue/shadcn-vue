@@ -25,7 +25,7 @@ import { Label } from '@/lib/registry/new-york/ui/label'
     <CardContent>
       <div class="grid gap-4">
         <div class="grid grid-cols-2 gap-4">
-          <div class="space-y-2">
+          <div class="grid gap-2">
             <Label for="first-name">First name</Label>
             <Input id="first-name" placeholder="Max" required />
           </div>
