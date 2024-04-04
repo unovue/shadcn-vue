@@ -2,12 +2,12 @@
 import { computed, h, ref } from 'vue'
 import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
 import { toDate } from 'radix-vue'
-import { CalendarIcon } from '@radix-icons/vue'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { z } from 'zod'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
   FormDescription,
@@ -15,9 +15,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/lib/registry/new-york/ui/form'
-import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
-import { toast } from '@/lib/registry/new-york/ui/toast'
+} from '@/lib/registry/default/ui/form'
+import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
+import { toast } from '@/lib/registry/default/ui/toast'
 import { cn } from '@/lib/utils'
 
 const df = new DateFormatter('en-US', {

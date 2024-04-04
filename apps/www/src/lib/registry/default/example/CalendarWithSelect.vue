@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { type HTMLAttributes, type Ref, computed, onMounted, ref, toRaw, toRef } from 'vue'
+import { type HTMLAttributes, type Ref, computed, toRef } from 'vue'
 import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, toDate, useForwardPropsEmits } from 'radix-vue'
-import { type DateValue, GregorianCalendar, getLocalTimeZone, toCalendar, today } from '@internationalized/date'
+import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@/lib/registry/default/ui/calendar'
 import {
   Select,

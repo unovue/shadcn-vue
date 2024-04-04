@@ -28,7 +28,7 @@
     },
     {
       "name": "CalendarGridHead.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { CalendarGridHead, type CalendarGridHeadProps } from 'radix-vue'\n\nconst props = defineProps<CalendarGridHeadProps>()\n</script>\n\n<template>\n  <CalendarGridHead v-bind=\"props\">\n    <slot />\n  </CalendarGridHead>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport { CalendarGridHead, type CalendarGridHeadProps } from 'radix-vue'\n\nconst props = defineProps<CalendarGridHeadProps>()\n</script>\n\n<template>\n  <CalendarGridHead v-bind=\"props\">\n    <slot />\n  </CalendarGridHead>\n</template>\n"
     },
     {
       "name": "CalendarGridRow.vue",

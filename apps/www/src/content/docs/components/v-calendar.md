@@ -1,5 +1,5 @@
 ---
-title: Calendar
+title: VCalendar
 description: A date field component that allows users to enter and edit date.
 source: apps/www/src/lib/registry/default/ui/calendar
 primitive: https://vcalendar.io/
@@ -17,7 +17,7 @@ The `Calendar` component is built on top of [VCalendar](https://vcalendar.io/get
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add calendar
+npx shadcn-vue@latest add v-calendar
 ```
 </template>
 

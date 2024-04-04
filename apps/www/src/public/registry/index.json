@@ -494,6 +494,30 @@
     "type": "components:ui"
   },
   {
+    "name": "range-calendar",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/range-calendar/RangeCalendar.vue",
+      "ui/range-calendar/RangeCalendarCell.vue",
+      "ui/range-calendar/RangeCalendarCellTrigger.vue",
+      "ui/range-calendar/RangeCalendarGrid.vue",
+      "ui/range-calendar/RangeCalendarGridBody.vue",
+      "ui/range-calendar/RangeCalendarGridHead.vue",
+      "ui/range-calendar/RangeCalendarGridRow.vue",
+      "ui/range-calendar/RangeCalendarHeadCell.vue",
+      "ui/range-calendar/RangeCalendarHeader.vue",
+      "ui/range-calendar/RangeCalendarHeading.vue",
+      "ui/range-calendar/RangeCalendarNextButton.vue",
+      "ui/range-calendar/RangeCalendarPrevButton.vue",
+      "ui/range-calendar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "resizable",
     "dependencies": [],
     "registryDependencies": [

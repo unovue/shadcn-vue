@@ -1,5 +1,5 @@
 ---
-title: Date Picker
+title: VCalendar Date Picker
 description: A date picker component with range and presets.
 ---
 

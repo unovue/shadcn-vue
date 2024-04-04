@@ -183,7 +183,7 @@ export const docsConfig: DocsConfig = {
           title: 'Calendar',
           href: '/docs/components/calendar',
           items: [],
-          label: 'New',
+          label: 'Updated',
         },
         {
           title: 'Card',
@@ -225,6 +225,12 @@ export const docsConfig: DocsConfig = {
           title: 'Data Table',
           href: '/docs/components/data-table',
           items: [],
+        },
+        {
+          title: 'Date Picker',
+          href: '/docs/components/date-picker',
+          items: [],
+          label: 'Updated',
         },
         {
           title: 'Dialog',
@@ -297,6 +303,12 @@ export const docsConfig: DocsConfig = {
           title: 'Radio Group',
           href: '/docs/components/radio-group',
           items: [],
+        },
+        {
+          title: 'Range Calendar',
+          href: '/docs/components/range-calendar',
+          items: [],
+          label: 'New',
         },
         {
           title: 'Resizable',
