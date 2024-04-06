@@ -104,6 +104,7 @@ Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Astro
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
+Where is your typescript configuration file? › ./tsconfig.json
 Where is your global CSS file? › src/styles/globals.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config located? › tailwind.config.mjs
@@ -152,12 +153,12 @@ import { Button } from "@/components/ui/button"
 ---
 
 <html lang="en">
-	<head>
-		<title>Astro</title>
-	</head>
-	<body>
-		<Button>Hello World</Button>
-	</body>
+ <head>
+  <title>Astro</title>
+ </head>
+ <body>
+  <Button>Hello World</Button>
+ </body>
 </html>
 ```
 

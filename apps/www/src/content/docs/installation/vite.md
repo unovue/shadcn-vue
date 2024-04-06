@@ -30,7 +30,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   npm install -D tailwindcss autoprefixer
   ```
 
-  #### `vite.config`
+#### `vite.config`
 
   ```typescript {5,6,9-13}
   import path from "path"
@@ -63,7 +63,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   npm install -D tailwindcss autoprefixer postcss
   ```
 
-  #### `postcss.config.js`
+#### `postcss.config.js`
 
   ```js
   module.exports = {
@@ -143,6 +143,7 @@ Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
+Where is your typescript configuration file? › ./tsconfig.json
 Where is your global CSS file? › › src/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
