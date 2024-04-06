@@ -9,6 +9,7 @@ import { resolveImport } from '@/src/utils/resolve-import'
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
+export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
 
@@ -32,9 +33,7 @@ export const rawConfigSchema = z
       prefix: z.string().optional(),
     }),
     framework: z.string().default('Vite'),
-    nuxt: z.object({
-      buildDir: z.string().default('.nuxt'),
-    }).optional(),
+    tsConfigPath: z.string().default('./tsconfig.json'),
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
@@ -71,7 +70,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   let tsConfig: ConfigLoaderResult | undefined
   let tsConfigPath = path.resolve(
     cwd,
-    config.framework === 'nuxt' ? `${config.nuxt?.buildDir}/tsconfig.json` : './tsconfig.json',
+    config.tsConfigPath,
   )
 
   if (config.typescript) {
