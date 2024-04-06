@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
@@ -62,7 +62,7 @@
     "ora": "^8.0.1",
     "pathe": "^1.1.2",
     "prompts": "^2.4.2",
-    "radix-vue": "^1.5.3",
+    "radix-vue": "^1.6.2",
     "ts-morph": "^22.0.0",
     "tsconfig-paths": "^4.2.0",
     "zod": "^3.22.4"
