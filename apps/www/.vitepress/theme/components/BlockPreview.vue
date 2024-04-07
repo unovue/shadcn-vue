@@ -115,7 +115,7 @@ watch([style, codeConfig], async () => {
             class="mx-2 hidden h-4 md:flex"
           />
           <div class="flex items-center gap-2">
-            <a :href="`#${name}`">
+            <a :href="name">
               <Badge variant="outline">{{ name }}</Badge>
             </a>
             <Popover>
