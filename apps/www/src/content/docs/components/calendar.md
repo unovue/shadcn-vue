@@ -27,7 +27,7 @@ npx shadcn-vue@latest add calendar
 
 ## Datepicker
 
-You can use the `<Calendar />` component to build a date picker. See the [Date Picker](#asdasd) page for more information.
+You can use the `<Calendar />` component to build a date picker. See the [Date Picker](/docs/components/date-picker) page for more information.
 
 ## Examples
 
