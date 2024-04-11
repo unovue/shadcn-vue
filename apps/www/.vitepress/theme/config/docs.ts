@@ -106,7 +106,6 @@ export const docsConfig: DocsConfig = {
           title: 'Contribution',
           href: '/docs/contribution',
           items: [],
-          label: 'New',
         },
       ],
     },
@@ -172,7 +171,6 @@ export const docsConfig: DocsConfig = {
           title: 'Breadcrumb',
           href: '/docs/components/breadcrumb',
           items: [],
-          label: 'New',
         },
         {
           title: 'Button',
@@ -183,6 +181,7 @@ export const docsConfig: DocsConfig = {
           title: 'Calendar',
           href: '/docs/components/calendar',
           items: [],
+          label: 'Updated',
         },
         {
           title: 'Card',
@@ -192,7 +191,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Carousel',
           href: '/docs/components/carousel',
-          label: 'New',
           items: [],
         },
         {
@@ -229,6 +227,7 @@ export const docsConfig: DocsConfig = {
           title: 'Date Picker',
           href: '/docs/components/date-picker',
           items: [],
+          label: 'Updated',
         },
         {
           title: 'Dialog',
@@ -239,7 +238,6 @@ export const docsConfig: DocsConfig = {
           title: 'Drawer',
           href: '/docs/components/drawer',
           items: [],
-          label: 'New',
         },
         {
           title: 'Dropdown Menu',
@@ -284,7 +282,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Pin Input',
           href: '/docs/components/pin-input',
-          label: 'New',
           items: [],
         },
         {
@@ -303,9 +300,14 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Range Calendar',
+          href: '/docs/components/range-calendar',
+          items: [],
+          label: 'New',
+        },
+        {
           title: 'Resizable',
           href: '/docs/components/resizable',
-          label: 'New',
           items: [],
         },
         {
@@ -341,7 +343,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Sonner',
           href: '/docs/components/sonner',
-          label: 'New',
           items: [],
         },
         {
@@ -362,7 +363,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Tags Input',
           href: '/docs/components/tags-input',
-          label: 'New',
           items: [],
         },
         {

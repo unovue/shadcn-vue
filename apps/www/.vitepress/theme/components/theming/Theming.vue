@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { addDays, startOfToday } from 'date-fns'
+import { type Ref, ref } from 'vue'
+import type { DateRange } from 'radix-vue'
+import { getLocalTimeZone, today } from '@internationalized/date'
+
 import ThemingLayout from './../../layout/ThemingLayout.vue'
 
 import CookieSettings from '@/examples/cards/components/CookieSettings.vue'
@@ -19,12 +21,14 @@ import CardStats from '@/lib/registry/new-york/example/CardStats.vue'
 import {
   Card,
 } from '@/lib/registry/new-york/ui/card'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { RangeCalendar } from '@/lib/registry/new-york/ui/range-calendar'
+
+const now = today(getLocalTimeZone())
 
 const range = ref({
-  start: startOfToday(),
-  end: addDays(startOfToday(), 8),
-})
+  start: now,
+  end: now.add({ days: 8 }),
+}) as Ref<DateRange>
 </script>
 
 <template>
@@ -52,7 +56,7 @@ const range = ref({
       <div class="space-y-4 lg:col-span-6 xl:col-span-5 xl:space-y-4">
         <div class="hidden gap-1 sm:grid-cols-[280px_1fr] md:grid">
           <Card class="max-w-[280px]">
-            <Calendar v-model.range="range" />
+            <RangeCalendar v-model="range" />
           </Card>
 
           <div class="pt-3 sm:pl-2 sm:pt-0 xl:pl-3">

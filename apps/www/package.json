@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
+    "@internationalized/date": "^3.5.2",
     "@radix-icons/vue": "^1.0.0",
     "@stackblitz/sdk": "^1.9.0",
     "@tanstack/vue-table": "^8.14.0",
@@ -32,7 +33,7 @@
     "embla-carousel-vue": "^8.0.0",
     "lucide-vue-next": "^0.359.0",
     "magic-string": "^0.30.8",
-    "radix-vue": "^1.6.2",
+    "radix-vue": "^1.7.0",
     "tailwindcss-animate": "^1.0.7",
     "v-calendar": "^3.1.2",
     "vaul-vue": "^0.1.0",
@@ -67,8 +68,8 @@
     "tsx": "^4.7.1",
     "typescript": "^5.4.2",
     "unplugin-icons": "^0.18.5",
-    "vite": "^5.2.2",
-    "vitepress": "^1.0.0-rc.45",
+    "vite": "^5.2.7",
+    "vitepress": "^1.0.1",
     "vue-tsc": "^2.0.7"
   }
 }

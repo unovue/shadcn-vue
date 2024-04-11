@@ -117,16 +117,24 @@
   },
   {
     "name": "calendar",
-    "dependencies": [
-      "@vueuse/core",
-      "v-calendar@next"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
     ],
     "files": [
       "ui/calendar/Calendar.vue",
+      "ui/calendar/CalendarCell.vue",
+      "ui/calendar/CalendarCellTrigger.vue",
+      "ui/calendar/CalendarGrid.vue",
+      "ui/calendar/CalendarGridBody.vue",
+      "ui/calendar/CalendarGridHead.vue",
+      "ui/calendar/CalendarGridRow.vue",
+      "ui/calendar/CalendarHeadCell.vue",
+      "ui/calendar/CalendarHeader.vue",
+      "ui/calendar/CalendarHeading.vue",
+      "ui/calendar/CalendarNextButton.vue",
+      "ui/calendar/CalendarPrevButton.vue",
       "ui/calendar/index.ts"
     ],
     "type": "components:ui"
@@ -486,6 +494,30 @@
     "type": "components:ui"
   },
   {
+    "name": "range-calendar",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/range-calendar/RangeCalendar.vue",
+      "ui/range-calendar/RangeCalendarCell.vue",
+      "ui/range-calendar/RangeCalendarCellTrigger.vue",
+      "ui/range-calendar/RangeCalendarGrid.vue",
+      "ui/range-calendar/RangeCalendarGridBody.vue",
+      "ui/range-calendar/RangeCalendarGridHead.vue",
+      "ui/range-calendar/RangeCalendarGridRow.vue",
+      "ui/range-calendar/RangeCalendarHeadCell.vue",
+      "ui/range-calendar/RangeCalendarHeader.vue",
+      "ui/range-calendar/RangeCalendarHeading.vue",
+      "ui/range-calendar/RangeCalendarNextButton.vue",
+      "ui/range-calendar/RangeCalendarPrevButton.vue",
+      "ui/range-calendar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "resizable",
     "dependencies": [],
     "registryDependencies": [
@@ -735,6 +767,22 @@
       "ui/tooltip/TooltipProvider.vue",
       "ui/tooltip/TooltipTrigger.vue",
       "ui/tooltip/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "v-calendar",
+    "dependencies": [
+      "@vueuse/core",
+      "v-calendar@next"
+    ],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/v-calendar/Calendar.vue",
+      "ui/v-calendar/index.ts"
     ],
     "type": "components:ui"
   }

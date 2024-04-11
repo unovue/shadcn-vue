@@ -3,7 +3,6 @@
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
-    "moduleResolution": "Node",
     "paths": {
       "@/*": ["./src/*"]
     },
