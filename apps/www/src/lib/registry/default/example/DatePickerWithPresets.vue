@@ -29,7 +29,7 @@ const value = ref<DateValue>()
 </script>
 
 <template>
-  <Popover onfocus>
+  <Popover>
     <PopoverTrigger as-child>
       <Button
         variant="outline"
