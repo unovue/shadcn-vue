@@ -292,19 +292,13 @@ export async function runInit(cwd: string, config: Config) {
     config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
   ).filter(Boolean)
 
-  async function addNuxtDevDeps() {
-    if (config.framework === 'nuxt') {
-      await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
-        cwd,
-        silent: true,
-      })
-    }
-  }
-
   await Promise.allSettled(
     [
-      addNuxtDevDeps(),
-      addDependency(deps, {
+      config.framework === 'nuxt' && await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
+        cwd,
+        silent: true,
+      }),
+      await addDependency(deps, {
         cwd,
         silent: true,
       }),
