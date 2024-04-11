@@ -46,7 +46,7 @@ const value = ref({
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-auto p-0">
-      <RangeCalendar v-model="value" initial-focus :number-of-months="2" :placeholder="value?.start" />
+      <RangeCalendar v-model="value" initial-focus :number-of-months="2" :placeholder="value?.start" @update:start-value="(startDate) => value.start = startDate" />
     </PopoverContent>
   </Popover>
 </template>

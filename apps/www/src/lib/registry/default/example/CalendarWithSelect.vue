@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type HTMLAttributes, type Ref, computed, toRef } from 'vue'
-import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, toDate, useForwardPropsEmits } from 'radix-vue'
+import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'radix-vue'
+import { createDecade, createYear, toDate } from 'radix-vue/date'
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
 import { useVModel } from '@vueuse/core'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@/lib/registry/default/ui/calendar'
@@ -34,11 +35,13 @@ const placeholder = useVModel(props, 'modelValue', emits, {
 }) as Ref<DateValue>
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
+
+const formatter = useDateFormatter('en')
 </script>
 
 <template>
   <CalendarRoot
-    v-slot="{ getMonths, getYears, formatter, grid, weekDays }"
+    v-slot="{ date, grid, weekDays }"
     v-model:placeholder="placeholder"
     v-bind="forwarded"
     :class="cn('rounded-md border p-3', props.class)"
@@ -60,7 +63,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
           </SelectTrigger>
           <SelectContent class="max-h-[200px]">
             <SelectItem
-              v-for="month in getMonths"
+              v-for="month in createYear({ dateObj: date })"
               :key="month.toString()" :value="month.month.toString()"
             >
               {{ formatter.custom(toDate(month), { month: 'long' }) }}
@@ -83,7 +86,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
           </SelectTrigger>
           <SelectContent class="max-h-[200px]">
             <SelectItem
-              v-for="yearValue in getYears({ startIndex: -10, endIndex: 10 })"
+              v-for="yearValue in createDecade({ dateObj: date, startIndex: -10, endIndex: 10 })"
               :key="yearValue.toString()" :value="yearValue.year.toString()"
             >
               {{ yearValue.year }}
@@ -96,7 +99,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <div class="flex flex-col space-y-4 pt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0">
       <CalendarGrid v-for="month in grid" :key="month.value.toString()">
         <CalendarGridHead>
-          <CalendarGridRow class="mb-1 grid w-full grid-cols-7">
+          <CalendarGridRow>
             <CalendarHeadCell
               v-for="day in weekDays" :key="day"
             >
@@ -105,7 +108,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
           </CalendarGridRow>
         </CalendarGridHead>
         <CalendarGridBody class="grid">
-          <CalendarGridRow v-for="(weekDates, index) in month.rows" :key="`weekDate-${index}`" class="grid grid-cols-7">
+          <CalendarGridRow v-for="(weekDates, index) in month.rows" :key="`weekDate-${index}`" class="mt-2 w-full">
             <CalendarCell
               v-for="weekDate in weekDates"
               :key="weekDate.toString()"

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, h, ref } from 'vue'
 import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
-import { toDate } from 'radix-vue'
+import { toDate } from 'radix-vue/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
@@ -72,7 +72,7 @@ const onSubmit = handleSubmit((values) => {
               <input hidden>
             </FormControl>
           </PopoverTrigger>
-          <PopoverContent class="p-0">
+          <PopoverContent class="w-auto p-0">
             <Calendar
               v-model:placeholder="placeholder"
               v-model="value"

@@ -96,8 +96,8 @@ importers:
         specifier: ^0.30.8
         version: 0.30.8
       radix-vue:
-        specifier: ^1.6.2
-        version: 1.6.2(vue@3.4.21)
+        specifier: ^1.7.0
+        version: 1.7.0(vue@3.4.21)
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.1)
@@ -3784,6 +3784,10 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
+  /@tanstack/virtual-core@3.2.0:
+    resolution: {integrity: sha512-P5XgYoAw/vfW65byBbJQCw+cagdXDT/qH6wmABiLt4v4YBT2q2vqCOhihe+D1Nt325F/S/0Tkv6C5z0Lv+VBQQ==}
+    dev: false
+
   /@tanstack/vue-table@8.14.0(vue@3.4.21):
     resolution: {integrity: sha512-mQWgUe+cw2YybTC68x54XkMCeALW+NwO8FYWUripqfJUiWm9haR4tWlTWUU81d/3GPb7chAKaqwQ/9j2u6dXYw==}
     engines: {node: '>=12'}
@@ -3791,6 +3795,15 @@ packages:
       vue: ^3.2.33
     dependencies:
       '@tanstack/table-core': 8.14.0
+      vue: 3.4.21(typescript@5.4.2)
+    dev: false
+
+  /@tanstack/vue-virtual@3.2.0(vue@3.4.21):
+    resolution: {integrity: sha512-KbmQVvw1k5Js2Fk4DJw9aDxFT5+e8a2Ba4UBJAFCRnWBCnzd3NlmEHI9JCeLv1tYDZ/iHwwv+Z9Le0BENIEP8A==}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.2.0
       vue: 3.4.21(typescript@5.4.2)
     dev: false
 
@@ -12231,6 +12244,26 @@ packages:
       - '@vue/composition-api'
     dev: false
 
+  /radix-vue@1.7.0(vue@3.4.21):
+    resolution: {integrity: sha512-lyAllebKbEGECEIKdC74gjOxgCtHjGKbINH/RUOP6p0Qk2HOsV06WGONStDl+c3FZKzoiH0rhPSI85Y6gKhMnw==}
+    peerDependencies:
+      vue: '>= 3.2.0'
+    dependencies:
+      '@floating-ui/dom': 1.6.1
+      '@floating-ui/vue': 1.0.6(vue@3.4.21)
+      '@internationalized/date': 3.5.2
+      '@tanstack/vue-virtual': 3.2.0(vue@3.4.21)
+      '@vueuse/core': 10.9.0(vue@3.4.21)
+      '@vueuse/shared': 10.9.0(vue@3.4.21)
+      aria-hidden: 1.2.4
+      defu: 6.1.4
+      fast-deep-equal: 3.1.3
+      nanoid: 5.0.6
+      vue: 3.4.21(typescript@5.4.2)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+    dev: false
+
   /radix3@1.1.1:
     resolution: {integrity: sha512-yUUd5VTiFtcMEx0qFUxGAv5gbMc1un4RvEO1JZdP7ZUl/RHygZK6PknIKntmQRZxnMY3ZXD2ISaw1ij8GYW1yg==}
     dev: true
@@ -14229,7 +14262,7 @@ packages:
     resolution: {integrity: sha512-3PYWMbN3cSdsciv3fzewskxZFnX61PYq1uNsbvizXDo/8sN4SMrWkYDqWaPdTD3GTEm6wpx7j5flRLg7A5ZXbQ==}
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.21)
-      radix-vue: 1.6.2(vue@3.4.21)
+      radix-vue: 1.7.0(vue@3.4.21)
       vue: 3.4.21(typescript@5.4.2)
     transitivePeerDependencies:
       - '@vue/composition-api'

@@ -29,10 +29,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       <CalendarNextButton />
     </CalendarHeader>
 
-    <div class="flex flex-col space-y-4 pt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0">
+    <div class="flex flex-col gap-y-4 mt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0">
       <CalendarGrid v-for="month in grid" :key="month.value.toString()">
         <CalendarGridHead>
-          <CalendarGridRow class="mb-1 grid w-full grid-cols-7">
+          <CalendarGridRow>
             <CalendarHeadCell
               v-for="day in weekDays" :key="day"
             >
@@ -40,8 +40,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
             </CalendarHeadCell>
           </CalendarGridRow>
         </CalendarGridHead>
-        <CalendarGridBody class="grid">
-          <CalendarGridRow v-for="(weekDates, index) in month.rows" :key="`weekDate-${index}`" class="grid grid-cols-7">
+        <CalendarGridBody>
+          <CalendarGridRow v-for="(weekDates, index) in month.rows" :key="`weekDate-${index}`" class="mt-2 w-full">
             <CalendarCell
               v-for="weekDate in weekDates"
               :key="weekDate.toString()"

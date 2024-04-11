@@ -57,6 +57,7 @@ const value = ref({
           :number-of-months="2"
           initial-focus
           :placeholder="value.start"
+          @update:start-value="(startDate) => value.start = startDate"
         />
       </PopoverContent>
     </Popover>
