@@ -48,6 +48,9 @@ const value = ref({
               {{ df.format(value.start.toDate(getLocalTimeZone())) }}
             </template>
           </template>
+          <template v-else>
+            Pick a date
+          </template>
         </Button>
       </PopoverTrigger>
       <PopoverContent class="w-auto p-0" align="end">
