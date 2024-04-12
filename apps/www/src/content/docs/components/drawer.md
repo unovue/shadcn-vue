@@ -55,6 +55,7 @@ import {
 ```
 ### Scale Background
 If you want the background to have a zoom effect, you need to add the `vaul-drawer-wrapper` attribute to the root component.
+
 ```html
 <div vaul-drawer-wrapper id="app"></div>
 ```
