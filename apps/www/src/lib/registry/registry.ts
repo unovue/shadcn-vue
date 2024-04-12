@@ -1,7 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises'
 import { join, normalize, resolve } from 'pathe'
 import { compileScript, parse } from 'vue/compiler-sfc'
-import oxc from 'oxc-parser'
+import { parseSync } from '@oxc-parser/wasm'
 
 import type { Registry } from '../../lib/registry'
 
@@ -162,12 +162,12 @@ async function getDependencies(filename: string) {
   }
 
   if (filename.endsWith('.ts')) {
-    const ast = oxc.parseSync(code, {
+    const ast = parseSync(code, {
       sourceType: 'module',
       sourceFilename: filename,
     })
 
-    const sources = JSON.parse(ast.program).body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
+    const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
     sources.forEach((source: any) => {
       populateDeps(source.value)
     })
