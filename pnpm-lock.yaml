@@ -141,6 +141,9 @@ importers:
       '@iconify/vue':
         specifier: ^4.1.1
         version: 4.1.1(vue@3.4.21)
+      '@oxc-parser/wasm':
+        specifier: ^0.1.0
+        version: 0.1.0
       '@shikijs/transformers':
         specifier: ^1.3.0
         version: 1.3.0
@@ -171,9 +174,6 @@ importers:
       lodash.template:
         specifier: ^4.5.0
         version: 4.5.0
-      oxc-parser:
-        specifier: ^0.8.0
-        version: 0.8.0
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -310,9 +310,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.11.2
         version: 3.11.2(rollup@3.29.4)
-      oxc-parser:
-        specifier: ^0.8.0
-        version: 0.8.0
+      '@oxc-parser/wasm':
+        specifier: ^0.1.0
+        version: 0.1.0
     devDependencies:
       '@nuxt/devtools':
         specifier: latest
@@ -3031,61 +3031,8 @@ packages:
       - vue-tsc
     dev: true
 
-  /@oxc-parser/binding-darwin-arm64@0.8.0:
-    resolution: {integrity: sha512-3Dws5Wzj9efojjqvhS4ZF+Abh0EoiI5ciOE2kdLifMzSg4fnmYAIOktoUnPEo87TNIb4SiFJ5JgPBgEyq42Eow==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-darwin-x64@0.8.0:
-    resolution: {integrity: sha512-DAUJ/mfq0Jn2VDYn69bhHTsIWj+aZ/viamexFwaLL7ntkIFmGpzAJZUlWofpY1IRJynKWW+P5AOLYXMllw4qUw==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-linux-arm64-gnu@0.8.0:
-    resolution: {integrity: sha512-ZHQVey/O4K3zTIKtpfsbtJIE8MPTRHRxgY3dejaoeFQGf9C3HasgF132Yp4zN/jOUx+x8czKPVa/Af40ViyhGQ==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-linux-arm64-musl@0.8.0:
-    resolution: {integrity: sha512-Diw+Tnf5v+zAYXzDoSKCZsMaroU6GoqZMS7smfDtFnZYTHWZrsTmPBLUQe7AFiG7O7tkhsCdcWjOYgbVkrSVOA==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-linux-x64-gnu@0.8.0:
-    resolution: {integrity: sha512-WloqcRrtQUVEP/Sy8ZeEgF0HgBKQjOv3zLFZqbC5ipkerKriGcVbsq3fOIMOi/55AM6/UhIAjeZGnoeco72JjQ==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-linux-x64-musl@0.8.0:
-    resolution: {integrity: sha512-2j7BD9szwSXTvSj0Q8VE98UHGYvrgZzdLy4EyB0FilhQnopEfz+YV674rWGY2Il1VYxHJwGctrTJHvARolu37g==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-win32-arm64-msvc@0.8.0:
-    resolution: {integrity: sha512-mcomr1og17yCmnwn8Q7CRzrH9Va0HccWe4Ld3/u/elBsw0SEzYGVvECRzCyRglYAbKTtusz7as9Jee0RiMOMmg==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    optional: true
-
-  /@oxc-parser/binding-win32-x64-msvc@0.8.0:
-    resolution: {integrity: sha512-nIBkc1KZOVYUaHT3+U+gM354P3byMAIXMvlmLMbs0kWVRcI4vrzL8qwWpC6QdBQxWKZGqPEqGolv8H4dDYA9nQ==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    optional: true
+  /@oxc-parser/wasm@0.1.0:
+    resolution: {integrity: sha512-oA7XhTbg9rRBJhIzxCNhJwYmON/9LFAH4GBQxl7HWmGSS6HTrb2t6Peq82nxY0W7knguH52neh9T7zs27FVvsQ==}
 
   /@parcel/watcher-android-arm64@2.4.1:
     resolution: {integrity: sha512-LOi/WTbbh3aTn2RYddrO8pnapixAziFl6SMxHM69r3tvdSm94JtCenaKgk1GRg5FJ5wpMCpHeW+7yqPlvZv7kg==}
@@ -11404,18 +11351,6 @@ packages:
       os-homedir: 1.0.2
       os-tmpdir: 1.0.2
     dev: false
-
-  /oxc-parser@0.8.0:
-    resolution: {integrity: sha512-ObPeMkbDX7igb7NyyAC8CbVC3fY+YmlMsxsRQ2oyFBkpQtI5tjoyqSDKbS9A9EcJvt2q89C4UoC+HjVBdLYYJg==}
-    optionalDependencies:
-      '@oxc-parser/binding-darwin-arm64': 0.8.0
-      '@oxc-parser/binding-darwin-x64': 0.8.0
-      '@oxc-parser/binding-linux-arm64-gnu': 0.8.0
-      '@oxc-parser/binding-linux-arm64-musl': 0.8.0
-      '@oxc-parser/binding-linux-x64-gnu': 0.8.0
-      '@oxc-parser/binding-linux-x64-musl': 0.8.0
-      '@oxc-parser/binding-win32-arm64-msvc': 0.8.0
-      '@oxc-parser/binding-win32-x64-msvc': 0.8.0
 
   /p-finally@1.0.0:
     resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}

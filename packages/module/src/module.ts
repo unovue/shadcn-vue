@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
-import oxc from 'oxc-parser'
+import { parseSync } from '@oxc-parser/wasm'
 
 // TODO: add test to make sure all registry is being parse correctly
 // Module options TypeScript interface definition
@@ -44,14 +44,12 @@ export default defineNuxtModule<ModuleOptions>({
           try {
             const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
             const content = readFileSync(filePath, { encoding: 'utf8' })
-            const ast = oxc.parseSync(content, {
+            const ast = parseSync(content, {
               sourceType: 'module',
               sourceFilename: filePath,
             })
-            const program = JSON.parse(ast.program)
 
-            const exportedKeys: string[] = program.body
-            // @ts-expect-error parse return any
+            const exportedKeys: string[] = ast.program.body
               .filter(node => node.type === 'ExportNamedDeclaration')
             // @ts-expect-error parse return any
               .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))

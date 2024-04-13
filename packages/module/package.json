@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.11.2",
-    "oxc-parser": "^0.8.0"
+    "@oxc-parser/wasm": "^0.1.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
