@@ -4,8 +4,7 @@ description: Displays a callout for user attention.
 label: Alpha
 ---
 
-
-<ComponentPreview name="BarChartDemo"  /> 
+<ComponentPreview name="BarChartDemo"  />
 
 ## Installation
 
@@ -25,10 +24,11 @@ npx shadcn-vue@latest add chart-bar
 
 Add the following tooltip styling to your `tailwind.css` file:
 
-```css 
+```css
 @layer base {
   :root {
     /* ... */
+    --vis-secondary-color: 160 81% 40%;
     --vis-tooltip-background-color: none !important;
     --vis-tooltip-border-color: none !important;
     --vis-tooltip-text-color: none !important;
@@ -37,7 +37,5 @@ Add the following tooltip styling to your `tailwind.css` file:
     --vis-tooltip-padding: none !important;
   }
 ```
-  
+
 </Steps>
-
-

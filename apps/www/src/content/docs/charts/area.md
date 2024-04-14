@@ -4,15 +4,13 @@ description: Displays a callout for user attention.
 label: Alpha
 ---
 
-
-<ComponentPreview name="AreaChartDemo"  /> 
+<ComponentPreview name="AreaChartDemo"  />
 
 ## Installation
 
 <Callout>
   Only works with Vue >3.3
 </Callout>
-
 
 <Steps>
 
@@ -26,10 +24,11 @@ npx shadcn-vue@latest add chart-area
 
 Add the following tooltip styling to your `tailwind.css` file:
 
-```css 
+```css
 @layer base {
   :root {
     /* ... */
+    --vis-secondary-color: 160 81% 40%;
     --vis-tooltip-background-color: none !important;
     --vis-tooltip-border-color: none !important;
     --vis-tooltip-text-color: none !important;
@@ -38,7 +37,5 @@ Add the following tooltip styling to your `tailwind.css` file:
     --vis-tooltip-padding: none !important;
   }
 ```
-  
+
 </Steps>
-
-

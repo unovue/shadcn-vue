@@ -77,6 +77,10 @@ const props = withDefaults(defineProps<{
   showGradiant: true,
 })
 
+const emits = defineEmits<{
+  legendItemClick: [d: BulletLegendItemInterface, i: number]
+}>()
+
 type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
 
@@ -92,7 +96,7 @@ const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((categ
 const isMounted = useMounted()
 
 function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
-  // do something when clicked on legend
+  emits('legendItemClick', d, i)
 }
 </script>
 
@@ -129,7 +133,9 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
           }"
           :opacity="legendItems.find(item => item.name === category)?.inactive ? filterOpacity : 1"
         />
+      </template>
 
+      <template v-for="(category, i) in categories" :key="category">
         <VisLine
           :x="(d: Data, i: number) => i"
           :y="(d: Data) => d[category]"

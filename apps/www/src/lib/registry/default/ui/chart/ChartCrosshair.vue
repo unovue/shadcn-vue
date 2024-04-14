@@ -3,7 +3,7 @@ import { VisCrosshair, VisTooltip } from '@unovis/vue'
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { omit } from '@unovis/ts'
 import { createApp, watch } from 'vue'
-import { ChartTooltip } from '@/lib/registry/default/ui/chart'
+import { ChartTooltip } from '@/lib/registry/new-york/ui/chart'
 
 const props = withDefaults(defineProps<{
   colors: string[]
@@ -30,9 +30,13 @@ function template(d: any) {
     return componentDiv.innerHTML
   }
 }
+
+function color(d: unknown, i: number) {
+  return props.colors[i] ?? 'transparent'
+}
 </script>
 
 <template>
   <VisTooltip :horizontal-shift="20" :vertical-shift="20" />
-  <VisCrosshair :color="colors" :template="template" />
+  <VisCrosshair :template="template" :color="color" />
 </template>

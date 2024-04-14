@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{ items: BulletLegendItemInterface[] }>()
 })
 
 const emits = defineEmits<{
-  legendItemClick: [d: BulletLegendItemInterface, i: number]
+  'legendItemClick': [d: BulletLegendItemInterface, i: number]
   'update:items': [payload: BulletLegendItemInterface[]]
 }>()
 
@@ -21,7 +21,6 @@ onMounted(() => {
   nextTick(() => {
     const elements = elRef.value?.querySelectorAll(selector)
     const classes = buttonVariants({ variant: 'ghost', size: 'xs' }).split(' ')
-    console.log(elements, classes)
     elements?.forEach(el => el.classList.add(...classes, '!inline-flex', '!mr-2'))
   })
 })
