@@ -1,79 +1,38 @@
 ---
 title: Date Picker
 description: A date picker component with range and presets.
+source: apps/www/src/lib/registry/default/example/DatePickerDemo.vue
+primitive: https://www.radix-vue.com/components/calendar.html
 ---
 
-<ComponentPreview name="DatePickerDemo"  />
+<ComponentPreview name="DatePickerDemo" />
+
+<Callout class="text-base mt-12">
+
+If you're looking for **previous** Date Picker implementation, checkout to <span class="font-bold underline">[VCalendar Datepicker](/docs/components/v-date-picker)</span> component
+
+</Callout>
 
 ## Installation
 
-The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
+The Date Picker is built using a composition of the `<Popover />` and either the `<Calendar />` or `<RangeCalendar />` components.
 
-See installation instructions for the [Popover](/docs/components/popover#installation) and the [Calendar](/docs/components/calendar#installation) components.
-
-## Usage
-
-```vue
-<script setup lang="ts">
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
-
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-
-const date = ref<Date>()
-</script>
-
-<template>
-  <Popover>
-    <PopoverTrigger as-child>
-      <Button
-        :variant="'outline'"
-        :class="cn(
-          'w-[280px] justify-start text-left font-normal',
-          !date && 'text-muted-foreground',
-        )"
-      >
-        <CalendarIcon class="mr-2 h-4 w-4" />
-        <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" />
-    </PopoverContent>
-  </Popover>
-</template>
-```
+See installations instructions for the [Popover](/docs/components/popover), [Calendar](/docs/components/calendar), and [Range Calendar](/docs/components/range-calendar) components.
 
 ## Examples
 
 ### Date Picker
 
-<ComponentPreview name="DatePickerDemo"  />
+<ComponentPreview name="DatePickerDemo" />
 
 ### Date Range Picker
 
-<ComponentPreview name="DatePickerWithRange"  />
-
-### Date Time Picker
-
-<ComponentPreview name="DateTimePickerDemo"  />
+<ComponentPreview name="DatePickerWithRange" />
 
 ### With Presets
 
-<ComponentPreview name="DatePickerWithPresets"  />
-
-### With Slot
-
-<ComponentPreview name="RangePickerWithSlot"  />
+<ComponentPreview name="DatePickerWithPresets" />
 
 ### Form
 
-<ComponentPreview name="DatePickerForm"  />
+<ComponentPreview name="DatePickerForm" />

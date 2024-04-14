@@ -1,6 +1,8 @@
 {
   "name": "drawer",
-  "dependencies": [],
+  "dependencies": [
+    "vaul-vue"
+  ],
   "registryDependencies": [
     "utils"
   ],

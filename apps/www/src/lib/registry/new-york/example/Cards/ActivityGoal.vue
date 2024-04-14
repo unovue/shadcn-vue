@@ -34,7 +34,7 @@ const data = [
 </script>
 
 <template>
-  <Card>
+  <Card class="h-full">
     <CardHeader class="pb-4">
       <CardTitle class="text-base">
         Move Goal

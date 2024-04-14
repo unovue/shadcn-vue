@@ -45,11 +45,13 @@ import { useToast } from '@/components/ui/toast/use-toast'
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/toast/use-toast'
+import { Toaster } from '@/components/ui/toast'
 
 const { toast } = useToast()
 </script>
 
 <template>
+  <Toaster />
   <Button
     @click="() => {
       toast({

@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "HoverCard.vue",
-      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootProps, useForwardProps } from 'radix-vue'\n\nconst props = defineProps<HoverCardRootProps>()\n\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwardedProps\">\n    <slot />\n  </HoverCardRoot>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { HoverCardRoot, type HoverCardRootEmits, type HoverCardRootProps, useForwardPropsEmits } from 'radix-vue'\n\nconst props = defineProps<HoverCardRootProps>()\nconst emits = defineEmits<HoverCardRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwarded\">\n    <slot />\n  </HoverCardRoot>\n</template>\n"
     },
     {
       "name": "HoverCardContent.vue",

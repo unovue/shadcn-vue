@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'New components!',
-  link: '/docs/components/carousel.html',
+  title: 'Introducing Blocks!',
+  link: '/blocks',
 }
