@@ -132,6 +132,9 @@ importers:
       '@iconify-json/radix-icons':
         specifier: ^1.1.14
         version: 1.1.14
+      '@iconify-json/ri':
+        specifier: ^1.1.18
+        version: 1.1.18
       '@iconify-json/simple-icons':
         specifier: ^1.1.94
         version: 1.1.94
@@ -2214,6 +2217,12 @@ packages:
 
   /@iconify-json/radix-icons@1.1.14:
     resolution: {integrity: sha512-AYBOyhnJ2hXlg3aIn8Ekphrr7zHRyz1l8x6bidM3PDUuTL+aRt8r6cpCvN3GeuTHy2JOhmihbVJRF0bt2FF7Ag==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ri@1.1.18:
+    resolution: {integrity: sha512-/gm7OrzhX6iOklhSnhK102unCzA+5wB0OJzXPgvpMr19VOD+dkXzIxEAbGu5lhFCxgn5TJ2jJLc8DtvnZWsyrw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

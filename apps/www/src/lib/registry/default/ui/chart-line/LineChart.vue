@@ -71,6 +71,10 @@ const props = withDefaults(defineProps<{
   showGridLine: true,
 })
 
+const emits = defineEmits<{
+  legendItemClick: [d: BulletLegendItemInterface, i: number]
+}>()
+
 type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
 
@@ -86,7 +90,7 @@ const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((categ
 const isMounted = useMounted()
 
 function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
-  // do something when clicked on legend
+  emits('legendItemClick', d, i)
 }
 </script>
 

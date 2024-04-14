@@ -3,7 +3,7 @@ import { VisCrosshair, VisTooltip } from '@unovis/vue'
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { omit } from '@unovis/ts'
 import { createApp, watch } from 'vue'
-import { ChartTooltip } from '@/lib/registry/new-york/ui/chart'
+import { ChartTooltip } from '@/lib/registry/default/ui/chart'
 
 const props = withDefaults(defineProps<{
   colors: string[]

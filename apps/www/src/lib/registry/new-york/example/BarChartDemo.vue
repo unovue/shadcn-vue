@@ -10,15 +10,13 @@ const data = [
   { name: 'Jun', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
   { name: 'Jul', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },
 ]
-
-const categories = ['total', 'predicted']
 </script>
 
 <template>
   <BarChart
     :data="data"
     index="name"
-    :categories="categories"
+    :categories="['total', 'predicted']"
     :y-formatter="(tick, i) => {
       return typeof tick === 'number'
         ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`

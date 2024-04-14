@@ -5,6 +5,7 @@ import Logo from './Logo.vue'
 import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
 import { Button } from '@/lib/registry/default/ui/button'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
+import { Badge } from '@/lib/registry/new-york/ui/badge'
 
 const open = ref(false)
 </script>

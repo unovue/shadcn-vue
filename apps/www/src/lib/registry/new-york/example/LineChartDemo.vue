@@ -263,15 +263,13 @@ const data = [
     'Import Growth Rate': 2.51,
   },
 ]
-
-const categories = ['Export Growth Rate', 'Import Growth Rate']
 </script>
 
 <template>
   <LineChart
     :data="data"
     index="year"
-    :categories="categories"
+    :categories="['Export Growth Rate', 'Import Growth Rate']"
     :y-formatter="(tick, i) => {
       return typeof tick === 'number'
         ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
