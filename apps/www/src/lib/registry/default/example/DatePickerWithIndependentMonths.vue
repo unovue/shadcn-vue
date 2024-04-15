@@ -13,7 +13,7 @@ import {
 } from '@internationalized/date'
 
 import { type DateRange, RangeCalendarRoot, useDateFormatter } from 'radix-vue'
-import { createMonth, toDate } from 'radix-vue/date'
+import { type Grid, createMonth, toDate } from 'radix-vue/date'
 import {
   RangeCalendarCell,
   RangeCalendarCellTrigger,
@@ -48,7 +48,7 @@ const firstMonth = ref(
     fixedWeeks: true,
     weekStartsOn: 0,
   }),
-)
+) as Ref<Grid<DateValue>>
 const secondMonth = ref(
   createMonth({
     dateObj: secondMonthPlaceholder.value,
@@ -56,7 +56,7 @@ const secondMonth = ref(
     fixedWeeks: true,
     weekStartsOn: 0,
   }),
-)
+) as Ref<Grid<DateValue>>
 
 function updateMonth(reference: 'first' | 'second', months: number) {
   if (reference === 'first') {
