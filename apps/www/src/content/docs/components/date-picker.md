@@ -29,6 +29,10 @@ See installations instructions for the [Popover](/docs/components/popover), [Cal
 
 <ComponentPreview name="DatePickerWithRange" />
 
+### Date Range Picker with Independent Months
+
+<ComponentPreview name="DatePickerWithIndependentMonths" />
+
 ### With Presets
 
 <ComponentPreview name="DatePickerWithPresets" />
