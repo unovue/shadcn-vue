@@ -423,6 +423,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DatePickerForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DatePickerForm.vue"],
     },
+    "DatePickerWithIndependentMonths": {
+      name: "DatePickerWithIndependentMonths",
+      type: "components:example",
+      registryDependencies: ["range-calendar","button","popover","utils"],
+      component: () => import("../src/lib/registry/default/example/DatePickerWithIndependentMonths.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DatePickerWithIndependentMonths.vue"],
+    },
     "DatePickerWithPresets": {
       name: "DatePickerWithPresets",
       type: "components:example",
@@ -1655,6 +1662,13 @@ export const Index = {
       registryDependencies: ["calendar","button","form","popover","toast","utils"],
       component: () => import("../src/lib/registry/new-york/example/DatePickerForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DatePickerForm.vue"],
+    },
+    "DatePickerWithIndependentMonths": {
+      name: "DatePickerWithIndependentMonths",
+      type: "components:example",
+      registryDependencies: ["range-calendar","button","popover","utils"],
+      component: () => import("../src/lib/registry/new-york/example/DatePickerWithIndependentMonths.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DatePickerWithIndependentMonths.vue"],
     },
     "DatePickerWithPresets": {
       name: "DatePickerWithPresets",
