@@ -19,6 +19,7 @@ import {
   RangeCalendarCellTrigger,
   RangeCalendarGrid,
   RangeCalendarGridBody,
+  RangeCalendarGridHead,
   RangeCalendarGridRow,
   RangeCalendarHeadCell,
 } from '@/lib/registry/default/ui/range-calendar'
@@ -181,6 +182,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                   <RangeCalendarHeadCell
                     v-for="day in weekDays"
                     :key="day"
+                    class="w-full"
                   >
                     {{ day }}
                   </RangeCalendarHeadCell>
@@ -249,6 +251,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                   <RangeCalendarHeadCell
                     v-for="day in weekDays"
                     :key="day"
+                    class="w-full"
                   >
                     {{ day }}
                   </RangeCalendarHeadCell>
