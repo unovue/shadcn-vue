@@ -29,7 +29,9 @@ import {
     <PopoverTrigger>
       Open popover
     </PopoverTrigger>
-    <PopoverContent />
+    <PopoverContent>
+      Some popover content
+    </PopoverContent>
   </Popover>
 </template>
 ```
