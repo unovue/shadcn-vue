@@ -1,6 +1,6 @@
 ---
 title: Line
-description: Displays a callout for user attention.
+description: An line chart  visually displays data points connected by straight lines, illustrating trends or relationships over a continuous axis.
 label: Alpha
 ---
 

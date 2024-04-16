@@ -1,6 +1,6 @@
 ---
 title: Bar
-description: Displays a callout for user attention.
+description: An line chart visually represents data using rectangular bars of varying lengths to compare quantities across different categories or groups.
 label: Alpha
 ---
 

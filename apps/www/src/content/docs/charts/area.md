@@ -1,6 +1,6 @@
 ---
 title: Area
-description: Displays a callout for user attention.
+description: An area chart visually represents data over time, displaying trends and patterns through filled-in areas under a line graph.
 label: Alpha
 ---
 

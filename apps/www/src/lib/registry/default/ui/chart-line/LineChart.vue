@@ -4,66 +4,12 @@ import { VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 import { Axis, Line } from '@unovis/ts'
 import { computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
-import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/default/ui/chart'
+import { type BaseChartProps, ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/default/ui/chart'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<{
-  /**
-   * The source data, in which each entry is a dictionary.
-   */
-  data: T[]
-  /**
-   * Select the categories from your data. Used to populate the legend and toolip.
-   */
-  categories: KeyOfT[]
-  /**
-   * Sets the key to map the data to the axis.
-   */
-  index: KeyOfT
-  /**
-   * Change the default colors.
-   */
-  colors?: string[]
-  /**
-   * Change the opacity of the non-selected field
-   * @default 0.2
-   */
-  filterOpacity?: number
-  /**
-   * Function to format X label
-   */
-  xFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
-  /**
-   * Function to format Y label
-   */
-  yFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
-  /**
-   * Controls the visibility of the X axis.
-   * @default true
-   */
-  showXAxis?: boolean
-  /**
-   * Controls the visibility of the Y axis.
-   * @default true
-   */
-  showYAxis?: boolean
-  /**
-   * Controls the visibility of tooltip.
-   * @default true
-   */
-  showTooltip?: boolean
-  /**
-   * Controls the visibility of legend.
-   * @default true
-   */
-  showLegend?: boolean
-  /**
-   * Controls the visibility of gridline.
-   * @default true
-   */
-  showGridLine?: boolean
-}>(), {
+const props = withDefaults(defineProps<BaseChartProps<T>>(), {
   filterOpacity: 0.2,
+  margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   showXAxis: true,
   showYAxis: true,
   showTooltip: true,
@@ -140,6 +86,8 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
         }"
         tick-text-color="hsl(var(--muted-foreground))"
       />
+
+      <slot />
     </VisXYContainer>
   </div>
 </template>

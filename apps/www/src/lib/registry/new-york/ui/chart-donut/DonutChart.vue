@@ -1,38 +1,21 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import { VisDonut, VisSingleContainer } from '@unovis/vue'
-import { Donut } from '@unovis/ts'
+import { Donut, type Spacing } from '@unovis/ts'
 import { computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
-import { ChartSingleTooltip, defaultColors } from '@/lib/registry/new-york/ui/chart'
+import { type BaseChartProps, ChartSingleTooltip, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<{
-  /**
-   * The source data, in which each entry is a dictionary.
-   */
-  data: T[]
-  /**
-   * Sets the key to map the data to the chart.
-   */
-  index: KeyOfT
+const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
   /**
    * Sets the name of the key containing the quantitative chart values.
    */
   category: KeyOfT
   /**
-   * Change the default colors.
-   */
-  colors?: string[]
-  /**
    * Change the type of the chart
    * @default "donut"
    */
   type?: 'donut' | 'pie'
-  /**
-   * Change the opacity of the non-selected field
-   * @default 0.2
-   */
-  filterOpacity?: number
   /**
    * Function to sort the segment
    */
@@ -41,17 +24,9 @@ const props = withDefaults(defineProps<{
    * Controls the formatting for the label.
    */
   valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string
-  /**
-   * Controls the visibility of tooltip.
-   * @default true
-   */
-  showTooltip?: boolean
-  /**
-   * Controls the visibility of legend.
-   * @default true
-   */
-  showLegend?: boolean
+
 }>(), {
+  margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   sortFunction: () => undefined,
   valueFormatter: (tick: number) => `${tick}`,
   type: 'donut',
@@ -114,6 +89,8 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
           },
         }"
       />
+
+      <slot />
     </VisSingleContainer>
   </div>
 </template>

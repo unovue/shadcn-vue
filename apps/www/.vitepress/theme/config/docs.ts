@@ -126,6 +126,10 @@ export const docsConfig: DocsConfig = {
       label: 'Alpha',
       items: [
         {
+          title: 'Guide',
+          href: '/docs/charts/guide',
+        },
+        {
           title: 'Area',
           href: '/docs/charts/area',
         },

@@ -1,6 +1,6 @@
 ---
 title: Donut
-description: Displays a callout for user attention.
+description: An line chart visually represents data in a circular form, similar to a pie chart but with a central void, emphasizing proportions within categories.
 label: Alpha
 ---
 

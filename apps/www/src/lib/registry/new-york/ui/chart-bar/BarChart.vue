@@ -1,74 +1,21 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
-import type { BulletLegendItemInterface } from '@unovis/ts'
+import type { BulletLegendItemInterface, Spacing } from '@unovis/ts'
 import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
 import { computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
-import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
+import { type BaseChartProps, ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<{
-  /**
-   * The source data, in which each entry is a dictionary.
-   */
-  data: T[]
-  /**
-   * Select the categories from your data. Used to populate the legend and toolip.
-   */
-  categories: Array<KeyOfT>
-  /**
-   * Sets the key to map the data to the axis.
-   */
-  index: KeyOfT
-  /**
-   * Change the default colors.
-   */
-  colors?: string[]
-  /**
-   * Change the opacity of the non-selected field
-   * @default 0.2
-   */
-  filterOpacity?: number
+const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
    * Change the type of the chart
    * @default "grouped"
    */
   type?: 'stacked' | 'grouped'
-  /**
-   * Function to format X label
-   */
-  xFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
-  /**
-   * Function to format Y label
-   */
-  yFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
-  /**
-   * Controls the visibility of the X axis.
-   * @default true
-   */
-  showXAxis?: boolean
-  /**
-   * Controls the visibility of the Y axis.
-   * @default true
-   */
-  showYAxis?: boolean
-  /**
-   * Controls the visibility of tooltip.
-   * @default true
-   */
-  showTooltip?: boolean
-  /**
-   * Controls the visibility of legend.
-   * @default true
-   */
-  showLegend?: boolean
-  /**
-   * Controls the visibility of gridline.
-   * @default true
-   */
-  showGridLine?: boolean
 }>(), {
   type: 'grouped',
+  margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   filterOpacity: 0.2,
   showXAxis: true,
   showYAxis: true,
@@ -106,15 +53,19 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
   <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
     <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
 
-    <VisXYContainer :style="{ height: isMounted ? '100%' : 'auto' }" :margin="{ left: 20, right: 20 }" :data="data">
+    <VisXYContainer
+      :data="data"
+      :style="{ height: isMounted ? '100%' : 'auto' }"
+      :margin="margin"
+    >
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
 
       <VisBarComponent
         :x="(d: Data, i: number) => i"
         :y="categories.map(category => (d: Data) => d[category]) "
         :color="colors"
-        :rounded-corners="4"
-        :bar-padding="0.1"
+        :rounded-corners="0"
+        :bar-padding="0.05"
         :attributes="{
           [selectorsBar]: {
             opacity: (d: Data, i:number) => {
@@ -147,6 +98,8 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
         }"
         tick-text-color="hsl(var(--muted-foreground))"
       />
+
+      <slot />
     </VisXYContainer>
   </div>
 </template>
