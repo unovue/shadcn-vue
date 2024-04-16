@@ -38,6 +38,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/AspectRatioDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/AspectRatioDemo.vue"],
     },
+    "AutoForm": {
+      name: "AutoForm",
+      type: "components:example",
+      registryDependencies: ["button","form","input","toast"],
+      component: () => import("../src/lib/registry/default/example/AutoForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/AutoForm.vue"],
+    },
     "AvatarDemo": {
       name: "AvatarDemo",
       type: "components:example",
@@ -1277,6 +1284,13 @@ export const Index = {
       registryDependencies: ["aspect-ratio"],
       component: () => import("../src/lib/registry/new-york/example/AspectRatioDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/AspectRatioDemo.vue"],
+    },
+    "AutoForm": {
+      name: "AutoForm",
+      type: "components:example",
+      registryDependencies: ["button","form","input","toast"],
+      component: () => import("../src/lib/registry/new-york/example/AutoForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/AutoForm.vue"],
     },
     "AvatarDemo": {
       name: "AvatarDemo",
