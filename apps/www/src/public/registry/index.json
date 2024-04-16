@@ -195,7 +195,8 @@
       "ui/chart/ChartLegend.vue",
       "ui/chart/ChartSingleTooltip.vue",
       "ui/chart/ChartTooltip.vue",
-      "ui/chart/index.ts"
+      "ui/chart/index.ts",
+      "ui/chart/interface.ts"
     ],
     "type": "components:ui"
   },
