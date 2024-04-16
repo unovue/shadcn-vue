@@ -161,13 +161,14 @@ const onSubmit = handleSubmit((values) => {
     @submit="onSubmit"
   >
     <template #username="componentField">
-      <div class="w-1/3">
+      <div class="border p-4 rounded-lg shadow-sm">
         <AutoFormField v-bind="{ ...componentField, name: 'username' }" />
       </div>
     </template>
-    <template #password="componentField">
-      <div class="w-1/3">
-        <AutoFormField v-bind="{ ...componentField, name: 'password' }" />
+    <template #customParent="componentField">
+      <div class="flex items-end space-x-4">
+        <AutoFormField class="w-full" v-bind="{ ...componentField, name: 'customParent' }" />
+        <Button>Check</Button>
       </div>
     </template>
 

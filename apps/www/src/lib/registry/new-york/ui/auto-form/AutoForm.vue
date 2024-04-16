@@ -56,6 +56,8 @@ const shapes = computed(() => {
           :shape="shape"
         />
       </slot>
+
+      {{ shape.schema }}
     </template>
 
     <slot :shapes="shapes" />

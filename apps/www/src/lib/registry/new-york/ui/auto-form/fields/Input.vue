@@ -6,10 +6,6 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 
-defineOptions({
-  inheritAttrs: false,
-})
-
 defineProps<{
   name: string
   required?: boolean
@@ -19,13 +15,13 @@ defineProps<{
 
 <template>
   <FormField v-slot="{ componentField }" :name="name">
-    <FormItem>
+    <FormItem v-bind="$attrs">
       <AutoFormLabel :required="required">
         {{ config?.label || beautifyObjectName(name) }}
       </AutoFormLabel>
       <FormControl>
-        <Textarea v-if="config?.component === 'textarea'" type="text" v-bind="{ ...$attrs, ...componentField, ...config?.inputProps }" />
-        <Input v-else type="text" v-bind="{ ...$attrs, ...componentField, ...config?.inputProps }" />
+        <Textarea v-if="config?.component === 'textarea'" type="text" v-bind="{ ...componentField, ...config?.inputProps }" />
+        <Input v-else type="text" v-bind="{ ...componentField, ...config?.inputProps }" />
       </FormControl>
       <FormDescription v-if="config?.description">
         {{ config.description }}
