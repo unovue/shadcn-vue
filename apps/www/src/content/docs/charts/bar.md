@@ -1,6 +1,7 @@
 ---
 title: Bar
 description: An line chart visually represents data using rectangular bars of varying lengths to compare quantities across different categories or groups.
+source: apps/www/src/lib/registry/default/ui/chart-bar
 label: Alpha
 ---
 
@@ -20,22 +21,8 @@ label: Alpha
 npx shadcn-vue@latest add chart-bar
 ```
 
-### Update `css`
+### Setup
 
-Add the following tooltip styling to your `tailwind.css` file:
-
-```css
-@layer base {
-  :root {
-    /* ... */
-    --vis-secondary-color: 160 81% 40%;
-    --vis-tooltip-background-color: none !important;
-    --vis-tooltip-border-color: none !important;
-    --vis-tooltip-text-color: none !important;
-    --vis-tooltip-shadow-color: none !important;
-    --vis-tooltip-backdrop-filter: none !important;
-    --vis-tooltip-padding: none !important;
-  }
-```
+Follow the [guide](/docs/charts/guide.html#installation) to complete the setup.
 
 </Steps>

@@ -18,5 +18,5 @@ const data = [
 </script>
 
 <template>
-  <BarChart :data="data" :categories="['total']" :index="'name'" />
+  <BarChart :data="data" :categories="['total']" :index="'name'" :rounded-corners="4" />
 </template>

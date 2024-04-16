@@ -13,10 +13,16 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
    * @default "grouped"
    */
   type?: 'stacked' | 'grouped'
+  /**
+   * Rounded bar corners
+   * @default 0
+   */
+  roundedCorners?: number
 }>(), {
   type: 'grouped',
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   filterOpacity: 0.2,
+  roundedCorners: 0,
   showXAxis: true,
   showYAxis: true,
   showTooltip: true,
@@ -64,7 +70,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
         :x="(d: Data, i: number) => i"
         :y="categories.map(category => (d: Data) => d[category]) "
         :color="colors"
-        :rounded-corners="0"
+        :rounded-corners="roundedCorners"
         :bar-padding="0.05"
         :attributes="{
           [selectorsBar]: {
