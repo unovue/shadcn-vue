@@ -18,7 +18,7 @@ defineProps<{
 
 <template>
   <component
-    :is="INPUT_COMPONENTS[DEFAULT_ZOD_HANDLERS[shape.type]] "
+    :is="INPUT_COMPONENTS[config?.component ?? DEFAULT_ZOD_HANDLERS[shape.type]] "
     :name="name"
     :required="shape.required"
     :options="shape.options"

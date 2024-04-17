@@ -153,6 +153,9 @@ const onSubmit = handleSubmit((values) => {
       bio: {
         component: 'textarea',
       },
+      file: {
+        component: 'file',
+      },
 
       subObject: {
 

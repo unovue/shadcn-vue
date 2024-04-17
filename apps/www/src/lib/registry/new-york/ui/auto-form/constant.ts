@@ -1,8 +1,9 @@
-import FieldNumber from './fields/Number.vue'
-import FieldInput from './fields/Input.vue'
 import FieldBoolean from './fields/Boolean.vue'
 import FieldDate from './fields/Date.vue'
 import FieldEnum from './fields/Enum.vue'
+import FieldFile from './fields/File.vue'
+import FieldInput from './fields/Input.vue'
+import FieldNumber from './fields/Number.vue'
 
 export const INPUT_COMPONENTS = {
   date: FieldDate,
@@ -13,6 +14,7 @@ export const INPUT_COMPONENTS = {
   textarea: FieldInput,
   number: FieldNumber,
   string: FieldInput,
+  file: FieldFile,
 }
 
 /**
