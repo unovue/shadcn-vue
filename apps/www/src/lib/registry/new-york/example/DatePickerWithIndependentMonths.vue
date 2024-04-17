@@ -217,9 +217,9 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                     'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
                   )
                 "
-                @click="updateMonth('second', 1)"
+                @click="updateMonth('second', -1)"
               >
-                <ChevronRight class="h-4 w-4" />
+                <ChevronLeft class="h-4 w-4" />
               </button>
               <div :class="cn('text-sm font-medium')">
                 {{
