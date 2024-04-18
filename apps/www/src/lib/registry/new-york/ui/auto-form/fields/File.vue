@@ -30,7 +30,7 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
 <template>
   <FormField v-slot="{ componentField }" :name="name">
     <FormItem v-bind="$attrs">
-      <AutoFormLabel :required="required">
+      <AutoFormLabel v-if="!config?.hideLabel" :required="required">
         {{ config?.label || beautifyObjectName(name) }}
       </AutoFormLabel>
       <FormControl>

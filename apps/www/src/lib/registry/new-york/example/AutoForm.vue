@@ -91,9 +91,9 @@ const schema = z.object({
     subSubObject: z
       .object({
         subSubField: z.string().default('Sub Sub Field'),
-      })
-      .describe('Sub Sub Object Description'),
-  }),
+      }),
+  }).describe('123 Description'),
+
   optionalSubObject: z
     .object({
       optionalSubField: z.string(),

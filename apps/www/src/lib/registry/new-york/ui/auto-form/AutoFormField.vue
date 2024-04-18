@@ -1,16 +1,11 @@
 <script setup lang="ts" generic="U extends ZodAny">
 import type { ZodAny } from 'zod'
-import type { Config, ConfigItem } from './interface'
+import type { Config, ConfigItem, Shape } from './interface'
 import { DEFAULT_ZOD_HANDLERS, INPUT_COMPONENTS } from './constant'
 
 defineProps<{
   name: string
-  shape: {
-    type: string
-    required?: boolean
-    options?: any[]
-    schema?: ZodAny
-  }
+  shape: Shape
   config?: ConfigItem | Config<U>
 }>()
 

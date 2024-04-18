@@ -21,7 +21,7 @@ defineProps<{
           <Switch v-if="config?.component === 'switch'" v-bind="{ ...componentField }" />
           <Checkbox v-else v-bind="{ ...componentField }" />
         </FormControl>
-        <AutoFormLabel :required="required">
+        <AutoFormLabel v-if="!config?.hideLabel" :required="required">
           {{ config?.label || beautifyObjectName(name) }}
         </AutoFormLabel>
       </div>

@@ -1,11 +1,24 @@
 import type { InputHTMLAttributes, SelectHTMLAttributes } from 'vue'
-import type { z } from 'zod'
+import type { ZodAny, z } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 
+export interface Shape {
+  type: string
+  default: any
+  required?: boolean
+  options?: string[]
+  schema?: ZodAny
+}
+
 export interface ConfigItem {
+  /** Value for the `FormLabel` */
   label?: string
+  /** Value for the `FormDescription` */
   description?: string
+  /** Pick which component to be rendered. */
   component?: keyof typeof INPUT_COMPONENTS
+  /** Hide `FormLabel`. */
+  hideLabel?: boolean
   inputProps?: InputHTMLAttributes
   enumProps?: SelectHTMLAttributes & { options?: any[] }
 }

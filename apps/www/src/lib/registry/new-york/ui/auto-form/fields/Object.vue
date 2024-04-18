@@ -52,7 +52,7 @@ const shapes = computed(() => {
   <Accordion type="multiple" class="w-full" collapsible>
     <AccordionItem :value="name" class="border-none">
       <AccordionTrigger class="text-base">
-        {{ beautifyObjectName(name) }}
+        {{ schema?.description || beautifyObjectName(name) }}
       </AccordionTrigger>
       <AccordionContent class="p-2 space-y-5">
         <template v-for="(shape, key) in shapes" :key="key">
