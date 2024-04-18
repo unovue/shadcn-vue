@@ -77,7 +77,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   </TabMarkdown>
 </TabsMarkdown>
 
-### Edit tsconfig.json
+### Update tsconfig.json
 
 Add the code below to the compilerOptions of your tsconfig.json so your app can resolve paths without error
 
@@ -126,6 +126,10 @@ export default defineConfig({
 })
 ```
 
+### Delete default Vite styles
+
+Delete the default Vite stylesheet `./src/style.css`
+
 ### Run the CLI
 
 Run the `shadcn-vue` init command to setup your project:
@@ -148,6 +152,19 @@ Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components
 Configure the import alias for utils: › @/lib/utils
+```
+
+### Update main.ts
+
+Remove import for style.css and add add tailwind style import `import './assets/index.css'`
+
+```typescript {4}
+import { createApp } from 'vue'
+~~import './style.css'~~
+import App from './App.vue'
+import './assets/index.css'
+
+createApp(App).mount('#app')
 ```
 
 ### That's it
