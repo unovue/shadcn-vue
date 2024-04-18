@@ -17,13 +17,15 @@ defineProps<{
 </script>
 
 <template>
-  <FormField v-slot="{ componentField }" :name="name">
+  <FormField v-slot="slotProps" :name="name">
     <FormItem>
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
         {{ config?.label || beautifyObjectName(name) }}
       </AutoFormLabel>
       <FormControl>
-        <Input type="number" v-bind="{ ...$attrs, ...componentField, ...config?.inputProps }" />
+        <slot v-bind="slotProps">
+          <Input type="number" v-bind="{ ...slotProps.componentField, ...config?.inputProps }" />
+        </slot>
       </FormControl>
       <FormDescription v-if="config?.description">
         {{ config.description }}

@@ -23,31 +23,33 @@ const df = new DateFormatter('en-US', {
 </script>
 
 <template>
-  <FormField v-slot="{ componentField }" :name="name">
+  <FormField v-slot="slotProps" :name="name">
     <FormItem>
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
         {{ config?.label || beautifyObjectName(name) }}
       </AutoFormLabel>
       <FormControl>
-        <div>
-          <Popover>
-            <PopoverTrigger as-child>
-              <Button
-                variant="outline"
-                :class="cn(
-                  'w-full justify-start text-left font-normal',
-                  !componentField.modelValue && 'text-muted-foreground',
-                )"
-              >
-                <CalendarIcon class="mr-2 h-4 w-4" />
-                {{ componentField.modelValue ? df.format(componentField.modelValue.toDate(getLocalTimeZone())) : "Pick a date" }}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent class="w-auto p-0">
-              <Calendar initial-focus v-bind="{ ...componentField }" />
-            </PopoverContent>
-          </Popover>
-        </div>
+        <slot v-bind="slotProps">
+          <div>
+            <Popover>
+              <PopoverTrigger as-child>
+                <Button
+                  variant="outline"
+                  :class="cn(
+                    'w-full justify-start text-left font-normal',
+                    !slotProps.componentField.modelValue && 'text-muted-foreground',
+                  )"
+                >
+                  <CalendarIcon class="mr-2 h-4 w-4" />
+                  {{ slotProps.componentField.modelValue ? df.format(slotProps.componentField.modelValue.toDate(getLocalTimeZone())) : "Pick a date" }}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent class="w-auto p-0">
+                <Calendar initial-focus v-bind="slotProps.componentField" />
+              </PopoverContent>
+            </Popover>
+          </div>
+        </slot>
       </FormControl>
 
       <FormDescription v-if="config?.description">

@@ -10,6 +10,10 @@ const props = defineProps<{
   fieldConfig?: Config<z.infer<T>>
 }>()
 
+const emits = defineEmits<{
+  submit: [event: Event]
+}>()
+
 const shapes = computed(() => {
   // @ts-expect-error ignore {} not assignable to object
   const val: { [key in keyof T]: Shape } = {}
@@ -33,11 +37,11 @@ const shapes = computed(() => {
 </script>
 
 <template>
-  <form>
+  <form @submit="emits('submit', $event)">
     <template v-for="(shape, key) of shapes" :key="key">
       <slot
         :shape="shape"
-        :name="key.toString()"
+        :name="key.toString() as keyof z.infer<T>"
         :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
       >
         <AutoFormField

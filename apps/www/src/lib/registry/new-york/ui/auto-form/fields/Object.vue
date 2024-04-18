@@ -49,20 +49,24 @@ const shapes = computed(() => {
 </script>
 
 <template>
-  <Accordion type="multiple" class="w-full" collapsible>
-    <AccordionItem :value="name" class="border-none">
-      <AccordionTrigger class="text-base">
-        {{ schema?.description || beautifyObjectName(name) }}
-      </AccordionTrigger>
-      <AccordionContent class="p-2 space-y-5">
-        <template v-for="(shape, key) in shapes" :key="key">
-          <AutoFormField
-            :config="config?.[key as keyof typeof config] as ConfigItem"
-            :name="key.toString()"
-            :shape="shape"
-          />
-        </template>
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>
+  <section>
+    <slot v-bind="props">
+      <Accordion type="multiple" class="w-full" collapsible>
+        <AccordionItem :value="name" class="border-none">
+          <AccordionTrigger class="text-base">
+            {{ schema?.description || beautifyObjectName(name) }}
+          </AccordionTrigger>
+          <AccordionContent class="p-2 space-y-5">
+            <template v-for="(shape, key) in shapes" :key="key">
+              <AutoFormField
+                :config="config?.[key as keyof typeof config] as ConfigItem"
+                :name="key.toString()"
+                :shape="shape"
+              />
+            </template>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </slot>
+  </section>
 </template>

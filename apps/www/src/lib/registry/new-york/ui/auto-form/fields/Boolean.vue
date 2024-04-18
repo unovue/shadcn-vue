@@ -14,12 +14,14 @@ defineProps<{
 </script>
 
 <template>
-  <FormField v-slot="{ componentField }" :name="name">
+  <FormField v-slot="slotProps" :name="name">
     <FormItem>
       <div class="space-y-0 mb-3 flex items-center gap-3">
         <FormControl>
-          <Switch v-if="config?.component === 'switch'" v-bind="{ ...componentField }" />
-          <Checkbox v-else v-bind="{ ...componentField }" />
+          <slot v-bind="slotProps">
+            <Switch v-if="config?.component === 'switch'" v-bind="{ ...slotProps.componentField }" />
+            <Checkbox v-else v-bind="{ ...slotProps.componentField }" />
+          </slot>
         </FormControl>
         <AutoFormLabel v-if="!config?.hideLabel" :required="required">
           {{ config?.label || beautifyObjectName(name) }}

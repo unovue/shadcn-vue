@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { h } from 'vue'
+import * as z from 'zod'
+import { h, reactive } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import AutoFormField from '../ui/auto-form/AutoFormField.vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { toast } from '@/lib/registry/new-york/ui/toast'
-import { AutoForm, getBaseSchema, getBaseType } from '@/lib/registry/new-york/ui/auto-form'
+import type { Config } from '@/lib/registry/new-york/ui/auto-form'
+import { AutoForm, AutoFormField } from '@/lib/registry/new-york/ui/auto-form'
 
 enum Sports {
   Football = 'Football/Soccer',
@@ -115,59 +114,63 @@ const onSubmit = handleSubmit((values) => {
     description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
   })
 })
+
+const config
+  = reactive({
+    username: {
+      label: '123',
+      description: 'Test description',
+      inputProps: {
+        id: '123',
+      },
+    },
+    password: {
+      inputProps: {
+        id: '345',
+        type: 'password',
+      },
+    },
+    acceptTerms: {
+      description: 'this is custom',
+    },
+    sendMeMails: {
+      component: 'switch',
+    },
+    color: {
+      enumProps: {
+        options: ['red', 'green', 'blue'],
+        placeholder: 'Choose a color',
+      },
+    },
+    marshmallows: {
+      component: 'radio',
+    },
+    bio: {
+      component: 'textarea',
+    },
+    file: {
+      component: 'file',
+    },
+
+    subObject: {
+      subField: {
+        label: 'custom labvel',
+        description: '123',
+      },
+      subSubObject: {
+        subSubField: {
+          label: 'sub suuuub',
+        },
+      },
+    },
+  }) as Config<z.infer<typeof schema>>
 </script>
 
 <template>
   <AutoForm
     class="w-2/3 space-y-6"
     :schema="schema"
-    :field-config="{
-      username: {
-        description: 'Test description',
-        inputProps: {
-          id: '123',
-        },
-      },
-      password: {
-        inputProps: {
-          id: '345',
-          type: 'password',
-        },
-      },
-      acceptTerms: {
-        description: 'this is custom',
-      },
-      sendMeMails: {
-        component: 'switch',
-      },
-      color: {
-        enumProps: {
-          options: ['red', 'green', 'blue'],
-          placeholder: 'Choose a color',
-        },
-      },
-      marshmallows: {
-        component: 'radio',
-      },
-      bio: {
-        component: 'textarea',
-      },
-      file: {
-        component: 'file',
-      },
-
-      subObject: {
-        subField: {
-          label: 'custom labvel',
-          description: '123',
-        },
-        subSubObject: {
-          subSubField: {
-            label: 'sub suuuub',
-          },
-        },
-      },
-    }"
+    :field-config="config"
     @submit="onSubmit"
   >
     <template #username="componentField">

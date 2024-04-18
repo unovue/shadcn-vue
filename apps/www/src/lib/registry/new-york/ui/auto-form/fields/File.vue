@@ -28,21 +28,23 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
 </script>
 
 <template>
-  <FormField v-slot="{ componentField }" :name="name">
+  <FormField v-slot="slotProps" :name="name">
     <FormItem v-bind="$attrs">
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
         {{ config?.label || beautifyObjectName(name) }}
       </AutoFormLabel>
       <FormControl>
-        <Input
-          type="file"
-          v-bind="{ ...config?.inputProps }"
-          @change="async (ev: InputEvent) => {
-            const file = (ev.target as HTMLInputElement).files?.[0]
-            const parsed = await parseFileAsString(file)
-            componentField.onInput(parsed)
-          }"
-        />
+        <slot v-bind="slotProps">
+          <Input
+            type="file"
+            v-bind="{ ...config?.inputProps }"
+            @change="async (ev: InputEvent) => {
+              const file = (ev.target as HTMLInputElement).files?.[0]
+              const parsed = await parseFileAsString(file)
+              slotProps.componentField.onInput(parsed)
+            }"
+          />
+        </slot>
       </FormControl>
       <FormDescription v-if="config?.description">
         {{ config.description }}
