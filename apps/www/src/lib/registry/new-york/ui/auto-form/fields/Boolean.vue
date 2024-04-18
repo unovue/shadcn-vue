@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { beautifyObjectName } from '../utils'
-import type { Config } from '../interface'
+import type { ConfigItem } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Switch } from '@/lib/registry/new-york/ui/switch'
@@ -9,7 +9,7 @@ import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 defineProps<{
   name: string
   required?: boolean
-  config?: Config
+  config?: ConfigItem
 }>()
 </script>
 

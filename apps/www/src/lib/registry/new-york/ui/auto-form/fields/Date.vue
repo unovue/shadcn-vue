@@ -2,8 +2,8 @@
 import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
 import { CalendarIcon } from '@radix-icons/vue'
 import { beautifyObjectName } from '../utils'
-import type { Config } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
+import type { ConfigItem } from '../interface'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
 defineProps<{
   name: string
   required?: boolean
-  config?: Config
+  config?: ConfigItem
 }>()
 
 const df = new DateFormatter('en-US', {

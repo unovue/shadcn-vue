@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { beautifyObjectName } from '../utils'
-import type { Config } from '../interface'
+import type { ConfigItem } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/new-york/ui/select'
@@ -12,7 +12,7 @@ const props = defineProps<{
   name: string
   required?: boolean
   options?: string[]
-  config?: Config
+  config?: ConfigItem
 }>()
 
 const computedOptions = computed(() => props.config?.enumProps?.options || props.options)

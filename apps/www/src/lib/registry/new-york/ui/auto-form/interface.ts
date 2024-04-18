@@ -1,8 +1,8 @@
 import type { InputHTMLAttributes, SelectHTMLAttributes } from 'vue'
-import type * as z from 'zod'
+import type { z } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 
-export interface Config {
+export interface ConfigItem {
   label?: string
   description?: string
   component?: keyof typeof INPUT_COMPONENTS
@@ -10,11 +10,11 @@ export interface Config {
   enumProps?: SelectHTMLAttributes & { options?: any[] }
 }
 
-export type FieldConfig<SchemaType extends z.infer<z.ZodObject<any, any>>> = {
-  // If SchemaType.key is an object, create a nested FieldConfig, otherwise FieldConfigItem
+export type Config<SchemaType extends object> = {
+  // If SchemaType.key is an object, create a nested Config, otherwise ConfigItem
   [Key in keyof SchemaType]?: SchemaType[Key] extends object
-    ? FieldConfig<z.infer<SchemaType[Key]>>
-    : FieldConfig<z.infer<SchemaType[Key]>> // TODO;
+    ? Config<SchemaType[Key]>
+    : ConfigItem;
 }
 
 export enum DependencyType {

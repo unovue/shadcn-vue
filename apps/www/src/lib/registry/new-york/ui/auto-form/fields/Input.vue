@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { beautifyObjectName } from '../utils'
-import type { Config } from '../interface'
+import type { Config, ConfigItem } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
@@ -9,7 +9,7 @@ import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 defineProps<{
   name: string
   required?: boolean
-  config?: Config
+  config?: ConfigItem
 }>()
 </script>
 

@@ -1,15 +1,13 @@
-<script setup lang="ts" generic="T extends ZodRawShape">
+<script setup lang="ts" generic="U extends ZodRawShape, T extends ZodObject<U>">
 import { computed } from 'vue'
-import type { ZodAny, ZodObject, ZodRawShape } from 'zod'
+import type { ZodAny, ZodObject, ZodRawShape, z } from 'zod'
 import { getBaseType, getDefaultValueInZodStack } from './utils'
-import type { Config } from './interface'
+import type { Config, ConfigItem } from './interface'
 import AutoFormField from './AutoFormField.vue'
 
 const props = defineProps<{
-  schema: ZodObject<T>
-  fieldConfig?: {
-    [key in keyof T]?: Config
-  }
+  schema: T
+  fieldConfig?: Config<z.infer<T>>
 }>()
 
 const shapes = computed(() => {
@@ -48,16 +46,14 @@ const shapes = computed(() => {
       <slot
         :shape="shape"
         :name="key.toString()"
-        :config="fieldConfig?.[key as keyof typeof fieldConfig] as Config"
+        :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
       >
         <AutoFormField
-          :config="fieldConfig?.[key as keyof typeof fieldConfig] as Config"
+          :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
           :name="key.toString()"
           :shape="shape"
         />
       </slot>
-
-      <!-- {{ shape.schema }} -->
     </template>
 
     <slot :shapes="shapes" />

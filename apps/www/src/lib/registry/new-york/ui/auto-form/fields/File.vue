@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { beautifyObjectName } from '../utils'
-import type { Config } from '../interface'
+import type { ConfigItem } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
@@ -8,7 +8,7 @@ import { Input } from '@/lib/registry/new-york/ui/input'
 defineProps<{
   name: string
   required?: boolean
-  config?: Config
+  config?: ConfigItem
 }>()
 
 async function parseFileAsString(file: File | undefined): Promise<string> {

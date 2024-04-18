@@ -1,7 +1,6 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="U extends ZodAny">
 import type { ZodAny } from 'zod'
-
-import type { Config } from './interface'
+import type { Config, ConfigItem } from './interface'
 import { DEFAULT_ZOD_HANDLERS, INPUT_COMPONENTS } from './constant'
 
 defineProps<{
@@ -12,16 +11,21 @@ defineProps<{
     options?: any[]
     schema?: ZodAny
   }
-  config?: Config
+  config?: ConfigItem | Config<U>
 }>()
+
+function isValidConfig(config: any): config is ConfigItem {
+  return !!config?.component
+}
 </script>
 
 <template>
   <component
-    :is="INPUT_COMPONENTS[config?.component ?? DEFAULT_ZOD_HANDLERS[shape.type]] "
+    :is="isValidConfig(config) ? INPUT_COMPONENTS[config.component!] : INPUT_COMPONENTS[DEFAULT_ZOD_HANDLERS[shape.type]] "
     :name="name"
     :required="shape.required"
     :options="shape.options"
+    :schema="shape.schema"
     :config="config"
   >
     <slot />

@@ -146,7 +146,6 @@ const onSubmit = handleSubmit((values) => {
           placeholder: 'Choose a color',
         },
       },
-
       marshmallows: {
         component: 'radio',
       },
@@ -158,7 +157,15 @@ const onSubmit = handleSubmit((values) => {
       },
 
       subObject: {
-
+        subField: {
+          label: 'custom labvel',
+          description: '123',
+        },
+        subSubObject: {
+          subSubField: {
+            label: 'sub suuuub',
+          },
+        },
       },
     }"
     @submit="onSubmit"
@@ -173,6 +180,10 @@ const onSubmit = handleSubmit((values) => {
         <AutoFormField class="w-full" v-bind="{ ...componentField, name: 'customParent' }" />
         <Button>Check</Button>
       </div>
+    </template>
+
+    <template #subObject="componentField">
+      <AutoFormField v-bind="{ ...componentField, name: 'subObject' }" />
     </template>
 
     <Button type="submit">
