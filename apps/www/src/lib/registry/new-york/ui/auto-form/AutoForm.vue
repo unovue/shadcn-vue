@@ -1,10 +1,12 @@
 <script setup lang="ts" generic="U extends ZodRawShape, T extends ZodObject<U>">
 import { computed } from 'vue'
 import type { ZodAny, ZodObject, ZodRawShape, z } from 'zod'
+import { toTypedSchema } from '@vee-validate/zod'
+import type { GenericObject } from 'vee-validate'
 import { getBaseType, getDefaultValueInZodStack } from './utils'
 import type { Config, ConfigItem, Shape } from './interface'
 import AutoFormField from './AutoFormField.vue'
-import { Accordion } from '@/lib/registry/new-york/ui/accordion'
+import { Form } from '@/lib/registry/new-york/ui/form'
 
 const props = defineProps<{
   schema: T
@@ -12,7 +14,7 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits<{
-  submit: [event: Event]
+  submit: [event: GenericObject]
 }>()
 
 const shapes = computed(() => {
@@ -35,10 +37,16 @@ const shapes = computed(() => {
   })
   return val
 })
+
+const formSchema = computed(() => toTypedSchema(props.schema))
 </script>
 
 <template>
-  <form @submit="emits('submit', $event)">
+  <Form
+    :keep-values="true"
+    :validation-schema="formSchema"
+    @submit="emits('submit', $event)"
+  >
     <template v-for="(shape, key) of shapes" :key="key">
       <slot
         :shape="shape"
@@ -54,5 +62,5 @@ const shapes = computed(() => {
     </template>
 
     <slot :shapes="shapes" />
-  </form>
+  </Form>
 </template>

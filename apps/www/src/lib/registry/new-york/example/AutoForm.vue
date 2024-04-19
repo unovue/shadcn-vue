@@ -18,23 +18,18 @@ const schema = z.object({
       }),
     ).default([
       { name: '123', age: 30 },
+      { name: '456', age: 30 },
     ]).describe('How many guests'),
 
-  list: z.array(z.string()).describe('test the config'),
+  list: z.array(z.string()).describe('test the config').min(1, 'Please add some item').default([]),
 })
 
-const formSchema = toTypedSchema(schema)
-
-const { handleSubmit } = useForm({
-  validationSchema: formSchema,
-})
-
-const onSubmit = handleSubmit((values) => {
+function onSubmit(values: Record<string, any>) {
   toast({
     title: 'You submitted the following values:',
     description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
   })
-})
+}
 </script>
 
 <template>

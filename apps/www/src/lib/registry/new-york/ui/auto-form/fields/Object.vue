@@ -48,7 +48,7 @@ const shapes = computed(() => {
           <AccordionTrigger class="text-base">
             {{ schema?.description || beautifyObjectName(name) }}
           </AccordionTrigger>
-          <AccordionContent class="p-2 space-y-5">
+          <AccordionContent class="p-[1px] space-y-5">
             <template v-for="(shape, key) in shapes" :key="key">
               <AutoFormField
                 :config="config?.[key as keyof typeof config] as ConfigItem"

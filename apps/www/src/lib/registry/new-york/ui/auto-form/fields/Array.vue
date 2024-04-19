@@ -1,14 +1,16 @@
 <script setup lang="ts" generic="T extends z.ZodAny">
 import * as z from 'zod'
-import { computed } from 'vue'
+import { computed, provide } from 'vue'
 import { PlusIcon, TrashIcon } from '@radix-icons/vue'
-import { useFieldArray } from 'vee-validate'
+import { FieldArray, FieldContextKey, useField, useFieldArray } from 'vee-validate'
 import type { Config, ConfigItem } from '../interface'
 import { beautifyObjectName, getBaseType } from '../utils'
 import AutoFormField from '../AutoFormField.vue'
+import AutoFormLabel from '../AutoFormLabel.vue'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { FormMessage } from '@/lib/registry/new-york/ui/form'
 
 const props = defineProps<{
   name: string
@@ -17,7 +19,7 @@ const props = defineProps<{
   schema?: z.ZodArray<T>
 }>()
 
-const { remove, push, fields } = useFieldArray(props.name)
+const fieldContext = useField(props.name)
 
 function isZodArray(
   item: z.ZodArray<any> | z.ZodDefault<any>,
@@ -47,37 +49,44 @@ const itemShape = computed(() => {
     schema,
   }
 })
+
+// @ts-expect-error ignore missing `id`
+provide(FieldContextKey, fieldContext)
 </script>
 
 <template>
-  <section>
+  <FieldArray v-slot="{ fields, remove, push }" as="section" :name="name">
     <slot v-bind="props">
       <Accordion type="multiple" class="w-full" collapsible>
         <AccordionItem :value="name" class="border-none">
-          <AccordionTrigger class="text-base">
-            {{ schema?.description || beautifyObjectName(name) }}
+          <AccordionTrigger>
+            <AutoFormLabel class="text-base" :required="required">
+              {{ schema?.description || beautifyObjectName(name) }}
+            </AutoFormLabel>
           </AccordionTrigger>
-          {{ fields }}
-          <AccordionContent class="p-2 space-y-5">
-            <template v-for="(field, index) of fields" :key="field.key">
-              <AutoFormField
-                :name="`${name}[${index}]`"
-                :label="name"
-                :shape="itemShape!"
-                :config="config as ConfigItem"
-              />
 
-              <div class="!mt-2 flex justify-end">
-                <Button
-                  type="button"
-                  size="icon"
-                  variant="secondary"
-                  @click="remove(index)"
-                >
-                  <TrashIcon />
-                </Button>
+          <AccordionContent>
+            <template v-for="(field, index) of fields" :key="field.key">
+              <div class="mb-4 p-[1px]">
+                <AutoFormField
+                  :name="`${name}[${index}]`"
+                  :label="name"
+                  :shape="itemShape!"
+                  :config="config as ConfigItem"
+                />
+
+                <div class="!my-4 flex justify-end">
+                  <Button
+                    type="button"
+                    size="icon"
+                    variant="secondary"
+                    @click="remove(index)"
+                  >
+                    <TrashIcon />
+                  </Button>
+                </div>
+                <Separator v-if="!field.isLast" />
               </div>
-              <Separator />
             </template>
 
             <Button
@@ -90,8 +99,10 @@ const itemShape = computed(() => {
               Add
             </Button>
           </AccordionContent>
+
+          <FormMessage />
         </AccordionItem>
       </Accordion>
     </slot>
-  </section>
+  </FieldArray>
 </template>
