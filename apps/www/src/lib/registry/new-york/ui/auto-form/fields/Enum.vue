@@ -23,14 +23,14 @@ const computedOptions = computed(() => props.config?.enumProps?.options || props
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">
-          <RadioGroup v-if="config?.component === 'radio'" :orientation="'vertical'" v-bind="{ ...slotProps.componentField }">
+          <RadioGroup v-if="config?.component === 'radio'" :disabled="disabled" :orientation="'vertical'" v-bind="{ ...slotProps.componentField }">
             <div v-for="(option, index) in computedOptions" :key="option" class="mb-2 flex items-center gap-3 space-y-0">
               <RadioGroupItem :id="`${option}-${index}`" :value="option" />
               <Label :for="`${option}-${index}`">{{ beautifyObjectName(option) }}</Label>
             </div>
           </RadioGroup>
 
-          <Select v-else v-bind="{ ...slotProps.componentField }">
+          <Select v-else :disabled="disabled" v-bind="{ ...slotProps.componentField }">
             <SelectTrigger class="w-full">
               <SelectValue :placeholder="config?.enumProps?.placeholder" />
             </SelectTrigger>

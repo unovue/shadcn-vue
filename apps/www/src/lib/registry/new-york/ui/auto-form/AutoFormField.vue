@@ -3,6 +3,7 @@ import type { ZodAny } from 'zod'
 import { computed } from 'vue'
 import type { Config, ConfigItem, Shape } from './interface'
 import { DEFAULT_ZOD_HANDLERS, INPUT_COMPONENTS } from './constant'
+import useDependencies from './dependencies'
 
 const props = defineProps<{
   name: string
@@ -20,15 +21,19 @@ const delegatedProps = computed(() => {
     return { schema: props.shape?.schema }
   return undefined
 })
+
+const { isDisabled, isHidden, isRequired, overrideOptions } = useDependencies(props.name)
 </script>
 
 <template>
   <component
     :is="isValidConfig(config) ? INPUT_COMPONENTS[config.component!] : INPUT_COMPONENTS[DEFAULT_ZOD_HANDLERS[shape.type]] "
+    v-if="!isHidden"
     :name="name"
     :label="label"
-    :required="shape.required"
-    :options="shape.options"
+    :required="isRequired || shape.required"
+    :options="overrideOptions || shape.options"
+    :disabled="isDisabled"
     :config="config"
     v-bind="delegatedProps"
   >

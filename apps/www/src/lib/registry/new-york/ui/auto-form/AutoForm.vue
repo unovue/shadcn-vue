@@ -1,22 +1,27 @@
 <script setup lang="ts" generic="U extends ZodRawShape, T extends ZodObject<U>">
-import { computed, ref } from 'vue'
+import { computed, ref, toRef, toRefs } from 'vue'
 import type { ZodAny, ZodObject, ZodRawShape, z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
 import type { FormContext, GenericObject } from 'vee-validate'
-import { getBaseType, getDefaultValueInZodStack } from './utils'
-import type { Config, ConfigItem, Shape } from './interface'
+import { getBaseSchema, getBaseType, getDefaultValueInZodStack } from './utils'
+import type { Config, ConfigItem, Dependency, Shape } from './interface'
 import AutoFormField from './AutoFormField.vue'
+import { provideDependencies } from './dependencies'
 import { Form } from '@/lib/registry/new-york/ui/form'
 
 const props = defineProps<{
   schema: T
   form?: FormContext<GenericObject>
   fieldConfig?: Config<z.infer<T>>
+  dependencies?: Dependency<z.infer<T>>[]
 }>()
 
 const emits = defineEmits<{
   submit: [event: GenericObject]
 }>()
+
+const { dependencies } = toRefs(props)
+provideDependencies(dependencies)
 
 const shapes = computed(() => {
   // @ts-expect-error ignore {} not assignable to object
@@ -24,7 +29,8 @@ const shapes = computed(() => {
   const shape = props.schema.shape
   Object.keys(shape).forEach((name) => {
     const item = shape[name] as ZodAny
-    let options = 'values' in item._def ? item._def.values as string[] : undefined
+    const baseItem = getBaseSchema(item) as ZodAny
+    let options = (baseItem && 'values' in baseItem._def) ? baseItem._def.values as string[] : undefined
     if (!Array.isArray(options) && typeof options === 'object')
       options = Object.values(options)
 
@@ -33,7 +39,7 @@ const shapes = computed(() => {
       default: getDefaultValueInZodStack(item),
       options,
       required: !['ZodOptional', 'ZodNullable'].includes(item._def.typeName),
-      schema: item,
+      schema: baseItem,
     }
   })
   return val
@@ -41,13 +47,13 @@ const shapes = computed(() => {
 
 const formComponent = computed(() => props.form ? 'form' : Form)
 const formComponentProps = computed(() => {
-  const formSchema = toTypedSchema(props.schema)
   if (props.form) {
     return {
       onSubmit: props.form.handleSubmit(val => emits('submit', val)),
     }
   }
   else {
+    const formSchema = toTypedSchema(props.schema)
     return {
       keepValues: true,
       validationSchema: formSchema,

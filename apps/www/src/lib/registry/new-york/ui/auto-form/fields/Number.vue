@@ -20,7 +20,7 @@ defineProps<FieldProps>()
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">
-          <Input type="number" v-bind="{ ...slotProps.componentField, ...config?.inputProps }" />
+          <Input type="number" v-bind="{ ...slotProps.componentField, ...config?.inputProps }" :disabled="disabled" />
         </slot>
       </FormControl>
       <FormDescription v-if="config?.description">

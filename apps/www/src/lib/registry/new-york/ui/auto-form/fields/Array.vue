@@ -17,6 +17,7 @@ const props = defineProps<{
   required?: boolean
   config?: Config<T>
   schema?: z.ZodArray<T>
+  disabled?: boolean
 }>()
 
 const fieldContext = useField(props.name)
@@ -57,7 +58,7 @@ provide(FieldContextKey, fieldContext)
 <template>
   <FieldArray v-slot="{ fields, remove, push }" as="section" :name="name">
     <slot v-bind="props">
-      <Accordion type="multiple" class="w-full" collapsible>
+      <Accordion type="multiple" class="w-full" collapsible :disabled="disabled">
         <AccordionItem :value="name" class="border-none">
           <AccordionTrigger>
             <AutoFormLabel class="text-base" :required="required">

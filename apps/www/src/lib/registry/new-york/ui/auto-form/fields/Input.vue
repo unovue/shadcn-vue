@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { beautifyObjectName } from '../utils'
 import type { Config, ConfigItem, FieldProps } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
@@ -6,7 +7,8 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 
-defineProps<FieldProps>()
+const props = defineProps<FieldProps>()
+const inputComponent = computed(() => props.config?.component === 'textarea' ? Textarea : Input)
 </script>
 
 <template>
@@ -17,8 +19,12 @@ defineProps<FieldProps>()
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">
-          <Textarea v-if="config?.component === 'textarea'" type="text" v-bind="{ ...slotProps.componentField, ...config?.inputProps }" />
-          <Input v-else type="text" v-bind="{ ...slotProps.componentField, ...config?.inputProps }" />
+          <component
+            :is="inputComponent"
+            type="text"
+            v-bind="{ ...slotProps.componentField, ...config?.inputProps }"
+            :disabled="disabled"
+          />
         </slot>
       </FormControl>
       <FormDescription v-if="config?.description">

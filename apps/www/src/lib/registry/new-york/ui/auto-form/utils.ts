@@ -18,6 +18,20 @@ export function beautifyObjectName(string: string) {
 }
 
 /**
+ * Parse string and extract the index
+ * @param string
+ * @returns index or undefined
+ */
+export function getIndexIfArray(string: string) {
+  const indexRegex = /\[(\d+)\]/
+  // Match the index
+  const match = string.match(indexRegex)
+  // Extract the index (number)
+  const index = match ? Number.parseInt(match[1]) : undefined
+  return index
+}
+
+/**
  * Get the lowest level Zod type.
  * This will unpack optionals, refinements, etc.
  */

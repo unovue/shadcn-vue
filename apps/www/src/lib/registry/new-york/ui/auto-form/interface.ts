@@ -7,6 +7,7 @@ export interface FieldProps {
   label?: string
   required?: boolean
   config?: ConfigItem
+  disabled?: boolean
 }
 
 export interface Shape {

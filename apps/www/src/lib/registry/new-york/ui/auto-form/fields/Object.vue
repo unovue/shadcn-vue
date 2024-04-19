@@ -11,6 +11,7 @@ const props = defineProps<{
   required?: boolean
   config?: Config<T>
   schema?: ZodObject<T>
+  disabled?: boolean
 }>()
 
 const shapes = computed(() => {
@@ -43,7 +44,7 @@ const shapes = computed(() => {
 <template>
   <section>
     <slot v-bind="props">
-      <Accordion type="multiple" class="w-full" collapsible>
+      <Accordion type="multiple" class="w-full" collapsible :disabled="disabled">
         <AccordionItem :value="name" class="border-none">
           <AccordionTrigger class="text-base">
             {{ schema?.description || beautifyObjectName(name) }}
@@ -52,7 +53,7 @@ const shapes = computed(() => {
             <template v-for="(shape, key) in shapes" :key="key">
               <AutoFormField
                 :config="config?.[key as keyof typeof config] as ConfigItem"
-                :name="`${name}${key.toString()}`"
+                :name="`${name}.${key.toString()}`"
                 :label="key.toString()"
                 :shape="shape"
               />

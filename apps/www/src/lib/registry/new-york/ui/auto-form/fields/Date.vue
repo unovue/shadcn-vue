@@ -28,7 +28,7 @@ const df = new DateFormatter('en-US', {
         <slot v-bind="slotProps">
           <div>
             <Popover>
-              <PopoverTrigger as-child>
+              <PopoverTrigger as-child :disabled="disabled">
                 <Button
                   variant="outline"
                   :class="cn(
