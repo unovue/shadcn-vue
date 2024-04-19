@@ -1,5 +1,4 @@
-import { ZodFirstPartyTypeKind, type z } from 'zod'
-import type { FieldConfig } from './interface'
+import type { z } from 'zod'
 
 // TODO: This should support recursive ZodEffects but TypeScript doesn't allow circular type definitions.
 export type ZodObjectOrWrapped =
@@ -11,8 +10,9 @@ export type ZodObjectOrWrapped =
  * e.g. "myString" -> "My String"
  */
 export function beautifyObjectName(string: string) {
+  // Remove bracketed indices
   // if numbers only return the string
-  let output = string.replace(/([A-Z])/g, ' $1')
+  let output = string.replace(/\[\d+\]/g, '').replace(/([A-Z])/g, ' $1')
   output = output.charAt(0).toUpperCase() + output.slice(1)
   return output
 }
@@ -67,55 +67,6 @@ export function getDefaultValueInZodStack(schema: z.ZodAny): any {
   }
 
   return undefined
-}
-
-/**
- * Get all default values from a Zod schema.
- */
-export function getDefaultValues<Schema extends z.ZodObject<any, any>>(
-  schema: Schema,
-  fieldConfig?: FieldConfig<z.infer<Schema>>,
-) {
-  if (!schema)
-    return null
-  const { shape } = schema
-  type DefaultValuesType = Partial<z.infer<Schema>>
-  const defaultValues = {} as DefaultValuesType
-  if (!shape)
-    return defaultValues
-
-  for (const key of Object.keys(shape)) {
-    const item = shape[key] as z.ZodAny
-
-    // @ts-expect-error weird
-    if (getBaseType(item) === ZodFirstPartyTypeKind.ZodObject) {
-      const defaultItems = getDefaultValues(
-        getBaseSchema(item) as unknown as z.ZodObject<any, any>,
-        fieldConfig?.[key] as FieldConfig<z.infer<Schema>>,
-      )
-
-      if (defaultItems !== null) {
-        for (const defaultItemKey of Object.keys(defaultItems)) {
-          const pathKey = `${key}.${defaultItemKey}` as keyof DefaultValuesType
-          defaultValues[pathKey] = defaultItems[defaultItemKey]
-        }
-      }
-    }
-    else {
-      let defaultValue = getDefaultValueInZodStack(item)
-      if (
-        (defaultValue === null || defaultValue === '')
-        && fieldConfig?.[key]?.inputProps
-      ) {
-        defaultValue = (fieldConfig?.[key]?.inputProps as unknown as any)
-          .defaultValue
-      }
-      if (defaultValue !== undefined)
-        defaultValues[key as keyof DefaultValuesType] = defaultValue
-    }
-  }
-
-  return defaultValues
 }
 
 export function getObjectFormSchema(

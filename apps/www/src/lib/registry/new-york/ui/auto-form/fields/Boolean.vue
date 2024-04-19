@@ -1,16 +1,12 @@
 <script setup lang="ts">
 import { beautifyObjectName } from '../utils'
-import type { ConfigItem } from '../interface'
+import type { ConfigItem, FieldProps } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Switch } from '@/lib/registry/new-york/ui/switch'
 import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 
-defineProps<{
-  name: string
-  required?: boolean
-  config?: ConfigItem
-}>()
+defineProps<FieldProps>()
 </script>
 
 <template>
@@ -24,7 +20,7 @@ defineProps<{
           </slot>
         </FormControl>
         <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-          {{ config?.label || beautifyObjectName(name) }}
+          {{ config?.label || beautifyObjectName(label ?? name) }}
         </AutoFormLabel>
       </div>
 

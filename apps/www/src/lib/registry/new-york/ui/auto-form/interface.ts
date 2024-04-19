@@ -2,9 +2,16 @@ import type { InputHTMLAttributes, SelectHTMLAttributes } from 'vue'
 import type { ZodAny, z } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 
+export interface FieldProps {
+  name: string
+  label?: string
+  required?: boolean
+  config?: ConfigItem
+}
+
 export interface Shape {
   type: string
-  default: any
+  default?: any
   required?: boolean
   options?: string[]
   schema?: ZodAny
@@ -23,11 +30,17 @@ export interface ConfigItem {
   enumProps?: SelectHTMLAttributes & { options?: any[] }
 }
 
+// Define a type to unwrap an array
+type UnwrapArray<T> = T extends (infer U)[] ? U : never
+
 export type Config<SchemaType extends object> = {
   // If SchemaType.key is an object, create a nested Config, otherwise ConfigItem
-  [Key in keyof SchemaType]?: SchemaType[Key] extends object
-    ? Config<SchemaType[Key]>
-    : ConfigItem;
+  [Key in keyof SchemaType]?:
+  SchemaType[Key] extends any[]
+    ? UnwrapArray<Config<SchemaType[Key]>>
+    : SchemaType[Key] extends object
+      ? Config<SchemaType[Key]>
+      : ConfigItem;
 }
 
 export enum DependencyType {

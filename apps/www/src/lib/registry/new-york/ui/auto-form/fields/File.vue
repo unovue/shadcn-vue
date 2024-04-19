@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import { beautifyObjectName } from '../utils'
-import type { ConfigItem } from '../interface'
+import type { ConfigItem, FieldProps } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
 
-defineProps<{
-  name: string
-  required?: boolean
-  config?: ConfigItem
-}>()
+defineProps<FieldProps>()
 
 async function parseFileAsString(file: File | undefined): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -31,7 +27,7 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
   <FormField v-slot="slotProps" :name="name">
     <FormItem v-bind="$attrs">
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-        {{ config?.label || beautifyObjectName(name) }}
+        {{ config?.label || beautifyObjectName(label ?? name) }}
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">

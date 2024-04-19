@@ -1,9 +1,10 @@
 <script setup lang="ts" generic="U extends ZodRawShape, T extends ZodObject<U>">
 import { computed } from 'vue'
 import type { ZodAny, ZodObject, ZodRawShape, z } from 'zod'
-import { getBaseSchema, getBaseType, getDefaultValueInZodStack } from './utils'
+import { getBaseType, getDefaultValueInZodStack } from './utils'
 import type { Config, ConfigItem, Shape } from './interface'
 import AutoFormField from './AutoFormField.vue'
+import { Accordion } from '@/lib/registry/new-york/ui/accordion'
 
 const props = defineProps<{
   schema: T

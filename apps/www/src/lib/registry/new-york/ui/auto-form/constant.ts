@@ -1,3 +1,4 @@
+import FieldArray from './fields/Array.vue'
 import FieldBoolean from './fields/Boolean.vue'
 import FieldDate from './fields/Date.vue'
 import FieldEnum from './fields/Enum.vue'
@@ -16,6 +17,7 @@ export const INPUT_COMPONENTS = {
   number: FieldNumber,
   string: FieldInput,
   file: FieldFile,
+  array: FieldArray,
   object: FieldObject,
 }
 
@@ -32,5 +34,6 @@ export const DEFAULT_ZOD_HANDLERS: {
   ZodEnum: 'select',
   ZodNativeEnum: 'select',
   ZodNumber: 'number',
+  ZodArray: 'array',
   ZodObject: 'object',
 }

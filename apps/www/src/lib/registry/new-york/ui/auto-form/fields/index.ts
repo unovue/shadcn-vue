@@ -1,3 +1,4 @@
+export { default as AutoFormFieldArray } from './Array.vue'
 export { default as AutoFormFieldBoolean } from './Boolean.vue'
 export { default as AutoFormFieldDate } from './Date.vue'
 export { default as AutoFormFieldEnum } from './Enum.vue'

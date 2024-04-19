@@ -3,7 +3,7 @@ import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
 import { CalendarIcon } from '@radix-icons/vue'
 import { beautifyObjectName } from '../utils'
 import AutoFormLabel from '../AutoFormLabel.vue'
-import type { ConfigItem } from '../interface'
+import type { ConfigItem, FieldProps } from '../interface'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
@@ -11,11 +11,7 @@ import { Button } from '@/lib/registry/new-york/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { cn } from '@/lib/utils'
 
-defineProps<{
-  name: string
-  required?: boolean
-  config?: ConfigItem
-}>()
+defineProps<FieldProps>()
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'long',
@@ -26,7 +22,7 @@ const df = new DateFormatter('en-US', {
   <FormField v-slot="slotProps" :name="name">
     <FormItem>
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-        {{ config?.label || beautifyObjectName(name) }}
+        {{ config?.label || beautifyObjectName(label ?? name) }}
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">

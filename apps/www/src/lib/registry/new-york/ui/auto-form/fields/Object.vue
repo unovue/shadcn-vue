@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends ZodRawShape">
 import type { ZodAny, ZodObject, ZodRawShape } from 'zod'
 import { computed } from 'vue'
-import type { Config, ConfigItem } from '../interface'
+import type { Config, ConfigItem, Shape } from '../interface'
 import { beautifyObjectName, getBaseSchema, getBaseType, getDefaultValueInZodStack } from '../utils'
 import AutoFormField from '../AutoFormField.vue'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
@@ -15,15 +15,7 @@ const props = defineProps<{
 
 const shapes = computed(() => {
   // @ts-expect-error ignore {} not assignable to object
-  const val: {
-    [key in keyof T]: {
-      type: string
-      default: any
-      required?: boolean
-      options?: string[]
-      schema?: ZodAny
-    }
-  } = {}
+  const val: { [key in keyof T]: Shape } = {}
 
   if (!props.schema)
     return
@@ -60,7 +52,8 @@ const shapes = computed(() => {
             <template v-for="(shape, key) in shapes" :key="key">
               <AutoFormField
                 :config="config?.[key as keyof typeof config] as ConfigItem"
-                :name="key.toString()"
+                :name="`${name}${key.toString()}`"
+                :label="key.toString()"
                 :shape="shape"
               />
             </template>

@@ -1,18 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { beautifyObjectName } from '../utils'
-import type { ConfigItem } from '../interface'
+import type { FieldProps } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/new-york/ui/select'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/lib/registry/new-york/ui/radio-group'
 
-const props = defineProps<{
-  name: string
-  required?: boolean
+const props = defineProps<FieldProps & {
   options?: string[]
-  config?: ConfigItem
 }>()
 
 const computedOptions = computed(() => props.config?.enumProps?.options || props.options)
@@ -22,7 +19,7 @@ const computedOptions = computed(() => props.config?.enumProps?.options || props
   <FormField v-slot="slotProps" :name="name">
     <FormItem>
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-        {{ config?.label || beautifyObjectName(name) }}
+        {{ config?.label || beautifyObjectName(label ?? name) }}
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">
