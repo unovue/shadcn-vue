@@ -3,7 +3,7 @@ import type { ZodAny, z } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 
 export interface FieldProps {
-  name: string
+  fieldName: string
   label?: string
   required?: boolean
   config?: ConfigItem

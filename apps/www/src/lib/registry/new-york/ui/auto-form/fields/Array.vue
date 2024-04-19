@@ -13,14 +13,14 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { FormMessage } from '@/lib/registry/new-york/ui/form'
 
 const props = defineProps<{
-  name: string
+  fieldName: string
   required?: boolean
   config?: Config<T>
   schema?: z.ZodArray<T>
   disabled?: boolean
 }>()
 
-const fieldContext = useField(props.name)
+const fieldContext = useField(props.fieldName)
 
 function isZodArray(
   item: z.ZodArray<any> | z.ZodDefault<any>,
@@ -56,13 +56,13 @@ provide(FieldContextKey, fieldContext)
 </script>
 
 <template>
-  <FieldArray v-slot="{ fields, remove, push }" as="section" :name="name">
+  <FieldArray v-slot="{ fields, remove, push }" as="section" :name="fieldName">
     <slot v-bind="props">
       <Accordion type="multiple" class="w-full" collapsible :disabled="disabled">
-        <AccordionItem :value="name" class="border-none">
+        <AccordionItem :value="fieldName" class="border-none">
           <AccordionTrigger>
             <AutoFormLabel class="text-base" :required="required">
-              {{ schema?.description || beautifyObjectName(name) }}
+              {{ schema?.description || beautifyObjectName(fieldName) }}
             </AutoFormLabel>
           </AccordionTrigger>
 
@@ -70,8 +70,8 @@ provide(FieldContextKey, fieldContext)
             <template v-for="(field, index) of fields" :key="field.key">
               <div class="mb-4 p-[1px]">
                 <AutoFormField
-                  :name="`${name}[${index}]`"
-                  :label="name"
+                  :field-name="`${fieldName}[${index}]`"
+                  :label="fieldName"
                   :shape="itemShape!"
                   :config="config as ConfigItem"
                 />

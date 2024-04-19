@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { beautifyObjectName } from '../utils'
 import type { FieldProps } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/new-york/ui/select'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/lib/registry/new-york/ui/radio-group'
@@ -16,10 +16,10 @@ const computedOptions = computed(() => props.config?.enumProps?.options || props
 </script>
 
 <template>
-  <FormField v-slot="slotProps" :name="name">
+  <FormField v-slot="slotProps" :name="fieldName">
     <FormItem>
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-        {{ config?.label || beautifyObjectName(label ?? name) }}
+        {{ config?.label || beautifyObjectName(label ?? fieldName) }}
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">

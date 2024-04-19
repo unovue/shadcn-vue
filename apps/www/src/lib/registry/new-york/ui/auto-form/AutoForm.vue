@@ -72,11 +72,12 @@ const formComponentProps = computed(() => {
       <slot
         :shape="shape"
         :name="key.toString() as keyof z.infer<T>"
+        :field-name="key.toString()"
         :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
       >
         <AutoFormField
           :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
-          :name="key.toString()"
+          :field-name="key.toString()"
           :shape="shape"
         />
       </slot>

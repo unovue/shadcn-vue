@@ -9,29 +9,77 @@ import { toast } from '@/lib/registry/new-york/ui/toast'
 import type { Config } from '@/lib/registry/new-york/ui/auto-form'
 import { AutoForm, AutoFormField } from '@/lib/registry/new-york/ui/auto-form'
 
+enum Sports {
+  Football = 'Football/Soccer',
+  Basketball = 'Basketball',
+  Baseball = 'Baseball',
+  Hockey = 'Hockey (Ice)',
+  None = 'I don\'t like sports',
+}
+
 const schema = z.object({
-  age: z.number().default(20),
-  parentsAllowed: z.boolean().optional(),
-  vegetarian: z.boolean().default(true),
-  mealOptions: z.enum(['Pasta', 'Salad', 'Beef Wellington']).optional(),
-  invitedGuests: z
-    .array(
-      z.object({
-        name: z.string(),
-        age: z.coerce.number(),
-      }),
-    ).default([{ name: '123', age: 0 }]),
+  username: z
+    .string({
+      required_error: 'Username is required.',
+    })
+    .min(2, {
+      message: 'Username must be at least 2 characters.',
+    }),
 
-  subObject: z.object({
-    subField: z.string().optional().default('Sub Field'),
-    numberField: z.number().optional().default(10),
+  password: z
+    .string({
+      required_error: 'Password is required.',
+    })
+    .min(8, {
+      message: 'Password must be at least 8 characters.',
+    }),
 
-    subSubObject: z
-      .object({
-        subSubField: z.string().default('Sub Sub Field'),
-      })
-      .describe('Sub Sub Object Description'),
-  }),
+  favouriteNumber: z.coerce
+    .number({
+      invalid_type_error: 'Favourite number must be a number.',
+    })
+    .min(1, {
+      message: 'Favourite number must be at least 1.',
+    })
+    .max(10, {
+      message: 'Favourite number must be at most 10.',
+    })
+    .default(1)
+    .optional(),
+
+  acceptTerms: z
+    .boolean()
+    .refine(value => value, {
+      message: 'You must accept the terms and conditions.',
+      path: ['acceptTerms'],
+    }),
+
+  sendMeMails: z.boolean().optional(),
+
+  birthday: z.coerce.date().optional(),
+
+  color: z.enum(['red', 'green', 'blue']).optional(),
+
+  // Another enum example
+  marshmallows: z
+    .enum(['not many', 'a few', 'a lot', 'too many']),
+
+  // Native enum example
+  sports: z.nativeEnum(Sports).describe('What is your favourite sport?'),
+
+  bio: z
+    .string()
+    .min(10, {
+      message: 'Bio must be at least 10 characters.',
+    })
+    .max(160, {
+      message: 'Bio must not be longer than 30 characters.',
+    })
+    .optional(),
+
+  customParent: z.string().optional(),
+
+  file: z.string().optional(),
 })
 
 function onSubmit(values: Record<string, any>) {
@@ -47,55 +95,56 @@ function onSubmit(values: Record<string, any>) {
     class="w-2/3 space-y-6"
     :schema="schema"
     :field-config="{
-      age: {
-        description:
-          'Setting this below 18 will require parents consent.',
+      password: {
+        label: 'Your secure password',
+        inputProps: {
+          type: 'password',
+          placeholder: '••••••••',
+        },
       },
-      parentsAllowed: {
-        label: 'Did your parents allow you to register?',
+      favouriteNumber: {
+        description: 'Your favourite number between 1 and 10.',
       },
-      vegetarian: {
-        label: 'Are you a vegetarian?',
-        description:
-          'Setting this to true will remove non-vegetarian food options.',
+      acceptTerms: {
+        label: 'Accept terms and conditions.',
+        inputProps: {
+          required: true,
+        },
       },
-      mealOptions: {
+
+      birthday: {
+        description: 'We need your birthday to send you a gift.',
+      },
+
+      sendMeMails: {
+        component: 'switch',
+      },
+
+      bio: {
+        component: 'textarea',
+      },
+
+      marshmallows: {
+        label: 'How many marshmallows fit in your mouth?',
         component: 'radio',
       },
+
+      file: {
+        label: 'Text file',
+        component: 'file',
+      },
     }"
-    :dependencies="[
-      {
-        // 'age' hides 'parentsAllowed' when the age is 18 or older
-        sourceField: 'age',
-        type: DependencyType.HIDES,
-        targetField: 'parentsAllowed',
-        when: (age) => age >= 18,
-      },
-      {
-        // 'vegetarian' checkbox hides the 'Beef Wellington' option from 'mealOptions'
-        // if its not already selected
-        sourceField: 'vegetarian',
-        type: DependencyType.SETS_OPTIONS,
-        targetField: 'mealOptions',
-        when: (vegetarian, mealOption) =>
-          vegetarian && mealOption !== 'Beef Wellington',
-        options: ['Pasta', 'Salad'],
-      },
-      {
-        sourceField: 'age',
-        type: DependencyType.HIDES,
-        targetField: 'invitedGuests.age' as any,
-        when: (age) => age >= 18,
-      },
-      {
-        sourceField: 'age' as any,
-        type: DependencyType.HIDES,
-        targetField: 'subObject.subSubObject' as any,
-        when: (age) => age >= 18,
-      },
-    ]"
     @submit="onSubmit"
   >
+    <template #acceptTerms="slotProps">
+      <AutoFormField v-bind="slotProps" />
+      <div class="!mt-2 text-sm">
+        I agree to the <button class="text-primary underline">
+          terms and conditions
+        </button>.
+      </div>
+    </template>
+
     <Button type="submit">
       Submit
     </Button>

@@ -7,7 +7,7 @@ import AutoFormField from '../AutoFormField.vue'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
 
 const props = defineProps<{
-  name: string
+  fieldName: string
   required?: boolean
   config?: Config<T>
   schema?: ZodObject<T>
@@ -45,15 +45,15 @@ const shapes = computed(() => {
   <section>
     <slot v-bind="props">
       <Accordion type="multiple" class="w-full" collapsible :disabled="disabled">
-        <AccordionItem :value="name" class="border-none">
+        <AccordionItem :value="fieldName" class="border-none">
           <AccordionTrigger class="text-base">
-            {{ schema?.description || beautifyObjectName(name) }}
+            {{ schema?.description || beautifyObjectName(fieldName) }}
           </AccordionTrigger>
           <AccordionContent class="p-[1px] space-y-5">
             <template v-for="(shape, key) in shapes" :key="key">
               <AutoFormField
                 :config="config?.[key as keyof typeof config] as ConfigItem"
-                :name="`${name}.${key.toString()}`"
+                :field-name="`${fieldName}.${key.toString()}`"
                 :label="key.toString()"
                 :shape="shape"
               />

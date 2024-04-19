@@ -3,8 +3,8 @@ import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
 import { CalendarIcon } from '@radix-icons/vue'
 import { beautifyObjectName } from '../utils'
 import AutoFormLabel from '../AutoFormLabel.vue'
-import type { ConfigItem, FieldProps } from '../interface'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
+import type { FieldProps } from '../interface'
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import { Button } from '@/lib/registry/new-york/ui/button'
@@ -19,10 +19,10 @@ const df = new DateFormatter('en-US', {
 </script>
 
 <template>
-  <FormField v-slot="slotProps" :name="name">
+  <FormField v-slot="slotProps" :name="fieldName">
     <FormItem>
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-        {{ config?.label || beautifyObjectName(label ?? name) }}
+        {{ config?.label || beautifyObjectName(label ?? fieldName) }}
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">

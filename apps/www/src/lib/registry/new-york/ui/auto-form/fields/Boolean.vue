@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { beautifyObjectName } from '../utils'
-import type { ConfigItem, FieldProps } from '../interface'
+import type { FieldProps } from '../interface'
 import AutoFormLabel from '../AutoFormLabel.vue'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Switch } from '@/lib/registry/new-york/ui/switch'
 import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 
@@ -13,7 +13,7 @@ const booleanComponent = computed(() => props.config?.component === 'switch' ? S
 </script>
 
 <template>
-  <FormField v-slot="slotProps" :name="name">
+  <FormField v-slot="slotProps" :name="fieldName">
     <FormItem>
       <div class="space-y-0 mb-3 flex items-center gap-3">
         <FormControl>
@@ -28,7 +28,7 @@ const booleanComponent = computed(() => props.config?.component === 'switch' ? S
           </slot>
         </FormControl>
         <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-          {{ config?.label || beautifyObjectName(label ?? name) }}
+          {{ config?.label || beautifyObjectName(label ?? fieldName) }}
         </AutoFormLabel>
       </div>
 
