@@ -1,9 +1,10 @@
 <script setup lang="ts" generic="U extends ZodAny">
 import type { ZodAny } from 'zod'
+import { computed } from 'vue'
 import type { Config, ConfigItem, Shape } from './interface'
 import { DEFAULT_ZOD_HANDLERS, INPUT_COMPONENTS } from './constant'
 
-defineProps<{
+const props = defineProps<{
   name: string
   shape: Shape
   label?: string
@@ -13,6 +14,12 @@ defineProps<{
 function isValidConfig(config: any): config is ConfigItem {
   return !!config?.component
 }
+
+const delegatedProps = computed(() => {
+  if (['ZodObject', 'ZodArray'].includes(props.shape?.type))
+    return { schema: props.shape?.schema }
+  return undefined
+})
 </script>
 
 <template>
@@ -22,8 +29,8 @@ function isValidConfig(config: any): config is ConfigItem {
     :label="label"
     :required="shape.required"
     :options="shape.options"
-    :schema="shape.schema"
     :config="config"
+    v-bind="delegatedProps"
   >
     <slot />
   </component>
