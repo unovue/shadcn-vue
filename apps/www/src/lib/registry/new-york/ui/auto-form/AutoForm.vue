@@ -1,8 +1,8 @@
 <script setup lang="ts" generic="U extends ZodRawShape, T extends ZodObject<U>">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { ZodAny, ZodObject, ZodRawShape, z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
-import type { GenericObject } from 'vee-validate'
+import type { FormContext, GenericObject } from 'vee-validate'
 import { getBaseType, getDefaultValueInZodStack } from './utils'
 import type { Config, ConfigItem, Shape } from './interface'
 import AutoFormField from './AutoFormField.vue'
@@ -10,6 +10,7 @@ import { Form } from '@/lib/registry/new-york/ui/form'
 
 const props = defineProps<{
   schema: T
+  form?: FormContext<GenericObject>
   fieldConfig?: Config<z.infer<T>>
 }>()
 
@@ -38,14 +39,28 @@ const shapes = computed(() => {
   return val
 })
 
-const formSchema = computed(() => toTypedSchema(props.schema))
+const formComponent = computed(() => props.form ? 'form' : Form)
+const formComponentProps = computed(() => {
+  const formSchema = toTypedSchema(props.schema)
+  if (props.form) {
+    return {
+      onSubmit: props.form.handleSubmit(val => emits('submit', val)),
+    }
+  }
+  else {
+    return {
+      keepValues: true,
+      validationSchema: formSchema,
+      onSubmit: (val: GenericObject) => emits('submit', val),
+    }
+  }
+})
 </script>
 
 <template>
-  <Form
-    :keep-values="true"
-    :validation-schema="formSchema"
-    @submit="emits('submit', $event)"
+  <component
+    :is="formComponent"
+    v-bind="formComponentProps"
   >
     <template v-for="(shape, key) of shapes" :key="key">
       <slot
@@ -62,5 +77,5 @@ const formSchema = computed(() => toTypedSchema(props.schema))
     </template>
 
     <slot :shapes="shapes" />
-  </Form>
+  </component>
 </template>

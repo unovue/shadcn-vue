@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import * as z from 'zod'
-import { h, reactive } from 'vue'
+import { h, reactive, ref } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { toast } from '@/lib/registry/new-york/ui/toast'
 import type { Config } from '@/lib/registry/new-york/ui/auto-form'
-import { AutoForm, AutoFormField } from '@/lib/registry/new-york/ui/auto-form'
+import { AutoForm as AutoFormComponent, AutoFormField } from '@/lib/registry/new-york/ui/auto-form'
 
 const schema = z.object({
   guestListName: z.string(),
@@ -30,11 +30,21 @@ function onSubmit(values: Record<string, any>) {
     description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
   })
 }
+
+const form = useForm({
+  keepValuesOnUnmount: true, // make sure the array/object field doesn't destroy the linked field
+  validationSchema: toTypedSchema(schema),
+})
+
+form.setValues({
+  guestListName: 'testing 123',
+})
 </script>
 
 <template>
-  <AutoForm
+  <AutoFormComponent
     class="w-2/3 space-y-6"
+    :form="form"
     :schema="schema"
     :field-config="{
       guestListName: {
@@ -57,5 +67,5 @@ function onSubmit(values: Record<string, any>) {
     <Button type="submit">
       Submit
     </Button>
-  </AutoForm>
+  </AutoFormComponent>
 </template>
