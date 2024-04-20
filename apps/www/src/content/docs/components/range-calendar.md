@@ -9,7 +9,7 @@ primitive: https://www.radix-vue.com/components/range-calendar.html
 
 ## About
 
-The `<RangeCalendar />` component is built on top of the [RadixVue Range Calendar](https://www.bits-ui.com/docs/components/range-calendar) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
+The `<RangeCalendar />` component is built on top of the [RadixVue Range Calendar](https://www.radix-vue.com/components/date-range-picker.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
 ## Installation
 
