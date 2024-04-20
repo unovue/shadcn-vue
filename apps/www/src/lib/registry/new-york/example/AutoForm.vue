@@ -145,6 +145,15 @@ function onSubmit(values: Record<string, any>) {
       </div>
     </template>
 
+    <template #customParent="slotProps">
+      <div class="flex items-end space-x-2">
+        <AutoFormField v-bind="slotProps" class="w-full" />
+        <Button type="button">
+          Check
+        </Button>
+      </div>
+    </template>
+
     <Button type="submit">
       Submit
     </Button>
