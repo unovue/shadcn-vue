@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { beautifyObjectName } from '../utils'
-import type { FieldProps } from '../interface'
-import AutoFormLabel from '../AutoFormLabel.vue'
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
+import type { FieldProps } from './interface'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/default/ui/form'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/default/ui/select'
 import { Label } from '@/lib/registry/default/ui/label'

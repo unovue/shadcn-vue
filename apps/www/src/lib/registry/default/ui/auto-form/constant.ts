@@ -1,24 +1,17 @@
-import FieldArray from './fields/Array.vue'
-import FieldBoolean from './fields/Boolean.vue'
-import FieldDate from './fields/Date.vue'
-import FieldEnum from './fields/Enum.vue'
-import FieldFile from './fields/File.vue'
-import FieldInput from './fields/Input.vue'
-import FieldNumber from './fields/Number.vue'
-import FieldObject from './fields/Object.vue'
+import { AutoFormFieldArray, AutoFormFieldBoolean, AutoFormFieldDate, AutoFormFieldEnum, AutoFormFieldFile, AutoFormFieldInput, AutoFormFieldNumber, AutoFormFieldObject } from './'
 
 export const INPUT_COMPONENTS = {
-  date: FieldDate,
-  select: FieldEnum,
-  radio: FieldEnum,
-  checkbox: FieldBoolean,
-  switch: FieldBoolean,
-  textarea: FieldInput,
-  number: FieldNumber,
-  string: FieldInput,
-  file: FieldFile,
-  array: FieldArray,
-  object: FieldObject,
+  date: AutoFormFieldDate,
+  select: AutoFormFieldEnum,
+  radio: AutoFormFieldEnum,
+  checkbox: AutoFormFieldBoolean,
+  switch: AutoFormFieldBoolean,
+  textarea: AutoFormFieldInput,
+  number: AutoFormFieldNumber,
+  string: AutoFormFieldInput,
+  file: AutoFormFieldFile,
+  array: AutoFormFieldArray,
+  object: AutoFormFieldObject,
 }
 
 /**

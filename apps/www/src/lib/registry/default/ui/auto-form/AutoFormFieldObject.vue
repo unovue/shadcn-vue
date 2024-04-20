@@ -1,9 +1,9 @@
 <script setup lang="ts" generic="T extends ZodRawShape">
 import type { ZodAny, ZodObject, ZodRawShape } from 'zod'
 import { computed } from 'vue'
-import type { Config, ConfigItem, Shape } from '../interface'
-import { beautifyObjectName, getBaseSchema, getBaseType, getDefaultValueInZodStack } from '../utils'
-import AutoFormField from '../AutoFormField.vue'
+import AutoFormField from './AutoFormField.vue'
+import type { Config, ConfigItem, Shape } from './interface'
+import { beautifyObjectName, getBaseSchema, getBaseType, getDefaultValueInZodStack } from './utils'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/default/ui/accordion'
 
 const props = defineProps<{

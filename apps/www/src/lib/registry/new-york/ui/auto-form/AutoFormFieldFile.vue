@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { TrashIcon } from '@radix-icons/vue'
-import { beautifyObjectName } from '../utils'
-import type { FieldProps } from '../interface'
-import AutoFormLabel from '../AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
+import type { FieldProps } from './interface'
+import AutoFormLabel from './AutoFormLabel.vue'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Button } from '@/lib/registry/new-york/ui/button'

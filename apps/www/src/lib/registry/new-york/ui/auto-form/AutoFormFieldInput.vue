@@ -1,26 +1,30 @@
 <script setup lang="ts">
-import { beautifyObjectName } from '../utils'
-import type { FieldProps } from '../interface'
-import AutoFormLabel from '../AutoFormLabel.vue'
+import { computed } from 'vue'
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
+import type { FieldProps } from './interface'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 
-defineOptions({
-  inheritAttrs: false,
-})
-
-defineProps<FieldProps>()
+const props = defineProps<FieldProps>()
+const inputComponent = computed(() => props.config?.component === 'textarea' ? Textarea : Input)
 </script>
 
 <template>
   <FormField v-slot="slotProps" :name="fieldName">
-    <FormItem>
+    <FormItem v-bind="$attrs">
       <AutoFormLabel v-if="!config?.hideLabel" :required="required">
         {{ config?.label || beautifyObjectName(label ?? fieldName) }}
       </AutoFormLabel>
       <FormControl>
         <slot v-bind="slotProps">
-          <Input type="number" v-bind="{ ...slotProps.componentField, ...config?.inputProps }" :disabled="disabled" />
+          <component
+            :is="inputComponent"
+            type="text"
+            v-bind="{ ...slotProps.componentField, ...config?.inputProps }"
+            :disabled="disabled"
+          />
         </slot>
       </FormControl>
       <FormDescription v-if="config?.description">

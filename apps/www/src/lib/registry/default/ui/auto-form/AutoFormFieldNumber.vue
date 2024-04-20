@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { beautifyObjectName } from '../utils'
-import type { FieldProps } from '../interface'
-import AutoFormLabel from '../AutoFormLabel.vue'
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
+import type { FieldProps } from './interface'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/default/ui/form'
 import { Input } from '@/lib/registry/default/ui/input'
 

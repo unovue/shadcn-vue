@@ -41,7 +41,7 @@ export const Index = {
     "AutoForm": {
       name: "AutoForm",
       type: "components:example",
-      registryDependencies: ["button","form","input","toast"],
+      registryDependencies: ["button","toast","auto-form"],
       component: () => import("../src/lib/registry/default/example/AutoForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/AutoForm.vue"],
     },
@@ -1288,7 +1288,7 @@ export const Index = {
     "AutoForm": {
       name: "AutoForm",
       type: "components:example",
-      registryDependencies: ["button","form","input","toast"],
+      registryDependencies: ["button","toast","auto-form"],
       component: () => import("../src/lib/registry/new-york/example/AutoForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/AutoForm.vue"],
     },

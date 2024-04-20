@@ -1,16 +1,16 @@
 <script setup lang="ts" generic="T extends z.ZodAny">
 import * as z from 'zod'
 import { computed, provide } from 'vue'
-import { PlusIcon, TrashIcon } from '@radix-icons/vue'
+import { PlusIcon, TrashIcon } from 'lucide-vue-next'
 import { FieldArray, FieldContextKey, useField, useFieldArray } from 'vee-validate'
-import type { Config, ConfigItem } from '../interface'
-import { beautifyObjectName, getBaseType } from '../utils'
-import AutoFormField from '../AutoFormField.vue'
-import AutoFormLabel from '../AutoFormLabel.vue'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { FormMessage } from '@/lib/registry/new-york/ui/form'
+import type { Config, ConfigItem } from './interface'
+import { beautifyObjectName, getBaseType } from './utils'
+import AutoFormField from './AutoFormField.vue'
+import AutoFormLabel from './AutoFormLabel.vue'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/default/ui/accordion'
+import { Button } from '@/lib/registry/default/ui/button'
+import { Separator } from '@/lib/registry/default/ui/separator'
+import { FormMessage } from '@/lib/registry/default/ui/form'
 
 const props = defineProps<{
   fieldName: string
@@ -83,7 +83,7 @@ provide(FieldContextKey, fieldContext)
                     variant="secondary"
                     @click="remove(index)"
                   >
-                    <TrashIcon />
+                    <TrashIcon :size="16" />
                   </Button>
                 </div>
                 <Separator v-if="!field.isLast" />
@@ -96,7 +96,7 @@ provide(FieldContextKey, fieldContext)
               class="mt-4 flex items-center"
               @click="push(null)"
             >
-              <PlusIcon class="mr-2" />
+              <PlusIcon class="mr-2" :size="16" />
               Add
             </Button>
           </AccordionContent>

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
-import { CalendarIcon } from 'lucide-vue-next'
-import { beautifyObjectName } from '../utils'
-import AutoFormLabel from '../AutoFormLabel.vue'
-import type { FieldProps } from '../interface'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/default/ui/form'
+import { CalendarIcon } from '@radix-icons/vue'
+import { beautifyObjectName } from './utils'
+import AutoFormLabel from './AutoFormLabel.vue'
+import type { FieldProps } from './interface'
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 
-import { Calendar } from '@/lib/registry/default/ui/calendar'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { cn } from '@/lib/utils'
 
 defineProps<FieldProps>()
@@ -36,7 +36,7 @@ const df = new DateFormatter('en-US', {
                     !slotProps.componentField.modelValue && 'text-muted-foreground',
                   )"
                 >
-                  <CalendarIcon class="mr-2 h-4 w-4" :size="16" />
+                  <CalendarIcon class="mr-2 h-4 w-4" />
                   {{ slotProps.componentField.modelValue ? df.format(slotProps.componentField.modelValue.toDate(getLocalTimeZone())) : "Pick a date" }}
                 </Button>
               </PopoverTrigger>
