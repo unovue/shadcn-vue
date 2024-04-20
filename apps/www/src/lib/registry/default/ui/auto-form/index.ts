@@ -1,7 +1,8 @@
-export { default as AutoForm } from './AutoForm.vue'
-export { default as AutoFormField } from './AutoFormField.vue'
 export { getObjectFormSchema, getBaseSchema, getBaseType } from './utils'
 export type { Config, ConfigItem } from './interface'
+
+export { default as AutoForm } from './AutoForm.vue'
+export { default as AutoFormField } from './AutoFormField.vue'
 
 export { default as AutoFormFieldArray } from './AutoFormFieldArray.vue'
 export { default as AutoFormFieldBoolean } from './AutoFormFieldBoolean.vue'
