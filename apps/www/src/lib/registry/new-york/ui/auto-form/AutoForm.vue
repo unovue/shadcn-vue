@@ -45,6 +45,20 @@ const shapes = computed(() => {
   return val
 })
 
+const fields = computed(() => {
+  // @ts-expect-error ignore {} not assignable to object
+  const val: { [key in keyof z.infer<T>]: { shape: Shape, fieldName: string, config: ConfigItem } } = {}
+  for (const key in shapes.value) {
+    const shape = shapes.value[key]
+    val[key as keyof z.infer<T>] = {
+      shape,
+      config: props.fieldConfig?.[key] as ConfigItem,
+      fieldName: key,
+    }
+  }
+  return val
+})
+
 const formComponent = computed(() => props.form ? 'form' : Form)
 const formComponentProps = computed(() => {
   if (props.form) {
@@ -68,20 +82,22 @@ const formComponentProps = computed(() => {
     :is="formComponent"
     v-bind="formComponentProps"
   >
-    <template v-for="(shape, key) of shapes" :key="key">
-      <slot
-        :shape="shape"
-        :name="key.toString() as keyof z.infer<T>"
-        :field-name="key.toString()"
-        :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
-      >
-        <AutoFormField
-          :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
-          :field-name="key.toString()"
+    <slot name="customAutoForm" :fields="fields">
+      <template v-for="(shape, key) of shapes" :key="key">
+        <slot
           :shape="shape"
-        />
-      </slot>
-    </template>
+          :name="key.toString() as keyof z.infer<T>"
+          :field-name="key.toString()"
+          :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
+        >
+          <AutoFormField
+            :config="fieldConfig?.[key as keyof typeof fieldConfig] as ConfigItem"
+            :field-name="key.toString()"
+            :shape="shape"
+          />
+        </slot>
+      </template>
+    </slot>
 
     <slot :shapes="shapes" />
   </component>
