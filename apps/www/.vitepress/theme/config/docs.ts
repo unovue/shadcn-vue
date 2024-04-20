@@ -135,10 +135,10 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: 'Auto Form',
+      title: 'Extended',
       items: [
         {
-          title: 'Test',
+          title: 'Auto Form',
           href: '/docs/components/auto-form',
           items: [],
         },
