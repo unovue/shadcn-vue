@@ -9,6 +9,12 @@ description: Install and configure Vite.
 
 Start by creating a new Vue project using `vite`:
 
+<Callout>
+
+  If you're using the JS template, `jsconfig.json` must exist for the CLI to run without errors.
+
+</Callout>
+
 ```bash
 # npm 6.x
 npm create vite@latest my-vue-app --template vue-ts
@@ -24,11 +30,17 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 <TabsMarkdown>
   <TabMarkdown title="vite.config">
 
-  Vite already has [`postcss`](https://github.com/vitejs/vite/blob/main/packages/vite/package.json#L78) dependency so you don't have to install it again in your package.json
+  Vite already has [`postcss`](https://github.com/vitejs/vite/blob/main/packages/vite/package.json#89) dependency so you don't have to install it again in your package.json
 
   ```bash
   npm install -D tailwindcss autoprefixer
   ```
+
+  <Callout>
+
+  If you're utilizing `postcss.config.js`, these changes will be inconsequential.
+
+  </Callout>
 
   #### `vite.config`
 
@@ -77,9 +89,9 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   </TabMarkdown>
 </TabsMarkdown>
 
-### Update tsconfig.json
+### Edit tsconfig/jsconfig.json
 
-Add the code below to the compilerOptions of your tsconfig.json so your app can resolve paths without error
+Add the code below to the compilerOptions of your `tsconfig.json` or `jsconfig.json` so your app can resolve paths without error
 
 ```json {4-7}
 {
@@ -158,11 +170,11 @@ Configure the import alias for utils: › @/lib/utils
 
 Remove import for style.css and add add tailwind style import `import './assets/index.css'`
 
-```typescript {4}
+```diff typescript {4}
 import { createApp } from 'vue'
-~~import './style.css'~~
+- import './style.css'
 import App from './App.vue'
-import './assets/index.css'
++ import './assets/index.css'
 
 createApp(App).mount('#app')
 ```
