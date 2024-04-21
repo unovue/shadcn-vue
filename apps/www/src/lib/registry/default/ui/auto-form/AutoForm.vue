@@ -1,9 +1,9 @@
-<script setup lang="ts" generic="U extends ZodRawShape, T extends ZodObject<U>">
-import { computed, ref, toRef, toRefs } from 'vue'
-import type { ZodAny, ZodObject, ZodRawShape, z } from 'zod'
+<script setup lang="ts" generic="T extends ZodObjectOrWrapped">
+import { computed, toRefs } from 'vue'
+import type { ZodAny, z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
 import type { FormContext, GenericObject } from 'vee-validate'
-import { getBaseSchema, getBaseType, getDefaultValueInZodStack } from './utils'
+import { type ZodObjectOrWrapped, getBaseSchema, getBaseType, getDefaultValueInZodStack, getObjectFormSchema } from './utils'
 import type { Config, ConfigItem, Dependency, Shape } from './interface'
 import AutoFormField from './AutoFormField.vue'
 import { provideDependencies } from './dependencies'
@@ -26,7 +26,8 @@ provideDependencies(dependencies)
 const shapes = computed(() => {
   // @ts-expect-error ignore {} not assignable to object
   const val: { [key in keyof T]: Shape } = {}
-  const shape = props.schema.shape
+  const baseSchema = getObjectFormSchema(props.schema)
+  const shape = baseSchema.shape
   Object.keys(shape).forEach((name) => {
     const item = shape[name] as ZodAny
     const baseItem = getBaseSchema(item) as ZodAny

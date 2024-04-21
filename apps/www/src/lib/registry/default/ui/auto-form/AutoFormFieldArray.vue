@@ -68,7 +68,7 @@ provide(FieldContextKey, fieldContext)
 
           <AccordionContent>
             <template v-for="(field, index) of fields" :key="field.key">
-              <div class="mb-4 p-[1px]">
+              <div class="mb-4 p-1">
                 <AutoFormField
                   :field-name="`${fieldName}[${index}]`"
                   :label="fieldName"
