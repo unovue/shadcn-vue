@@ -38,6 +38,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/AspectRatioDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/AspectRatioDemo.vue"],
     },
+    "AutoFormApi": {
+      name: "AutoFormApi",
+      type: "components:example",
+      registryDependencies: ["button","toast","auto-form"],
+      component: () => import("../src/lib/registry/default/example/AutoFormApi.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/AutoFormApi.vue"],
+    },
     "AutoFormArray": {
       name: "AutoFormArray",
       type: "components:example",
@@ -1326,6 +1333,13 @@ export const Index = {
       registryDependencies: ["aspect-ratio"],
       component: () => import("../src/lib/registry/new-york/example/AspectRatioDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/AspectRatioDemo.vue"],
+    },
+    "AutoFormApi": {
+      name: "AutoFormApi",
+      type: "components:example",
+      registryDependencies: ["button","toast","auto-form"],
+      component: () => import("../src/lib/registry/new-york/example/AutoFormApi.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/AutoFormApi.vue"],
     },
     "AutoFormArray": {
       name: "AutoFormArray",

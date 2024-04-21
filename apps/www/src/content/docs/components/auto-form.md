@@ -28,6 +28,11 @@ Refined schema to validate that two fields match.
 
 <ComponentPreview name="AutoFormConfirmPassword" />
 
+### API Example
+The form select options are fetched from an API.
+
+<ComponentPreview name="AutoFormApi" />
+
 ### Array support
 You can use arrays in your schemas to create dynamic forms.
 
