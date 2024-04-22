@@ -1,8 +1,8 @@
 <script setup lang="ts" generic="T extends z.ZodAny">
 import * as z from 'zod'
 import { computed, provide } from 'vue'
-import { PlusIcon, TrashIcon } from '@radix-icons/vue'
-import { FieldArray, FieldContextKey, useField, useFieldArray } from 'vee-validate'
+import { PlusIcon, TrashIcon } from 'lucide-vue-next'
+import { FieldArray, FieldContextKey, useField } from 'vee-validate'
 import type { Config, ConfigItem } from './interface'
 import { beautifyObjectName, getBaseType } from './utils'
 import AutoFormField from './AutoFormField.vue'
@@ -10,7 +10,7 @@ import AutoFormLabel from './AutoFormLabel.vue'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { FormMessage } from '@/lib/registry/new-york/ui/form'
+import { FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 
 const props = defineProps<{
   fieldName: string
@@ -58,51 +58,53 @@ provide(FieldContextKey, fieldContext)
 <template>
   <FieldArray v-slot="{ fields, remove, push }" as="section" :name="fieldName">
     <slot v-bind="props">
-      <Accordion type="multiple" class="w-full" collapsible :disabled="disabled">
-        <AccordionItem :value="fieldName" class="border-none">
-          <AccordionTrigger>
-            <AutoFormLabel class="text-base" :required="required">
-              {{ schema?.description || beautifyObjectName(fieldName) }}
-            </AutoFormLabel>
-          </AccordionTrigger>
+      <Accordion type="multiple" class="w-full" collapsible :disabled="disabled" as-child>
+        <FormItem>
+          <AccordionItem :value="fieldName" class="border-none">
+            <AccordionTrigger>
+              <AutoFormLabel class="text-base" :required="required">
+                {{ schema?.description || beautifyObjectName(fieldName) }}
+              </AutoFormLabel>
+            </AccordionTrigger>
 
-          <AccordionContent>
-            <template v-for="(field, index) of fields" :key="field.key">
-              <div class="mb-4 p-[1px]">
-                <AutoFormField
-                  :field-name="`${fieldName}[${index}]`"
-                  :label="fieldName"
-                  :shape="itemShape!"
-                  :config="config as ConfigItem"
-                />
+            <AccordionContent>
+              <template v-for="(field, index) of fields" :key="field.key">
+                <div class="mb-4 p-1">
+                  <AutoFormField
+                    :field-name="`${fieldName}[${index}]`"
+                    :label="fieldName"
+                    :shape="itemShape!"
+                    :config="config as ConfigItem"
+                  />
 
-                <div class="!my-4 flex justify-end">
-                  <Button
-                    type="button"
-                    size="icon"
-                    variant="secondary"
-                    @click="remove(index)"
-                  >
-                    <TrashIcon />
-                  </Button>
+                  <div class="!my-4 flex justify-end">
+                    <Button
+                      type="button"
+                      size="icon"
+                      variant="secondary"
+                      @click="remove(index)"
+                    >
+                      <TrashIcon :size="16" />
+                    </Button>
+                  </div>
+                  <Separator v-if="!field.isLast" />
                 </div>
-                <Separator v-if="!field.isLast" />
-              </div>
-            </template>
+              </template>
 
-            <Button
-              type="button"
-              variant="secondary"
-              class="mt-4 flex items-center"
-              @click="push(null)"
-            >
-              <PlusIcon class="mr-2" />
-              Add
-            </Button>
-          </AccordionContent>
+              <Button
+                type="button"
+                variant="secondary"
+                class="mt-4 flex items-center"
+                @click="push(null)"
+              >
+                <PlusIcon class="mr-2" :size="16" />
+                Add
+              </Button>
+            </AccordionContent>
 
-          <FormMessage />
-        </AccordionItem>
+            <FormMessage />
+          </AccordionItem>
+        </FormItem>
       </Accordion>
     </slot>
   </FieldArray>

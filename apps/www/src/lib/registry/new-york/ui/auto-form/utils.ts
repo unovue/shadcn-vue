@@ -92,3 +92,80 @@ export function getObjectFormSchema(
   }
   return schema as z.ZodObject<any, any>
 }
+
+function isIndex(value: unknown): value is number {
+  return Number(value) >= 0
+}
+/**
+ * Constructs a path with dot paths for arrays to use brackets to be compatible with vee-validate path syntax
+ */
+export function normalizeFormPath(path: string): string {
+  const pathArr = path.split('.')
+  if (!pathArr.length)
+    return ''
+
+  let fullPath = String(pathArr[0])
+  for (let i = 1; i < pathArr.length; i++) {
+    if (isIndex(pathArr[i])) {
+      fullPath += `[${pathArr[i]}]`
+      continue
+    }
+
+    fullPath += `.${pathArr[i]}`
+  }
+
+  return fullPath
+}
+
+type NestedRecord = Record<string, unknown> | { [k: string]: NestedRecord }
+/**
+ * Checks if the path opted out of nested fields using `[fieldName]` syntax
+ */
+export function isNotNestedPath(path: string) {
+  return /^\[.+\]$/i.test(path)
+}
+function isObject(obj: unknown): obj is Record<string, unknown> {
+  return obj !== null && !!obj && typeof obj === 'object' && !Array.isArray(obj)
+}
+function isContainerValue(value: unknown): value is Record<string, unknown> {
+  return isObject(value) || Array.isArray(value)
+}
+function cleanupNonNestedPath(path: string) {
+  if (isNotNestedPath(path))
+    return path.replace(/\[|\]/gi, '')
+
+  return path
+}
+
+/**
+ * Gets a nested property value from an object
+ */
+export function getFromPath<TValue = unknown>(object: NestedRecord | undefined, path: string): TValue | undefined
+export function getFromPath<TValue = unknown, TFallback = TValue>(
+  object: NestedRecord | undefined,
+  path: string,
+  fallback?: TFallback,
+): TValue | TFallback
+export function getFromPath<TValue = unknown, TFallback = TValue>(
+  object: NestedRecord | undefined,
+  path: string,
+  fallback?: TFallback,
+): TValue | TFallback | undefined {
+  if (!object)
+    return fallback
+
+  if (isNotNestedPath(path))
+    return object[cleanupNonNestedPath(path)] as TValue | undefined
+
+  const resolvedValue = (path || '')
+    .split(/\.|\[(\d+)\]/)
+    .filter(Boolean)
+    .reduce((acc, propKey) => {
+      if (isContainerValue(acc) && propKey in acc)
+        return acc[propKey]
+
+      return fallback
+    }, object as unknown)
+
+  return resolvedValue as TValue | undefined
+}
