@@ -168,9 +168,9 @@ Configure the import alias for utils: › @/lib/utils
 
 ### Update main.ts
 
-Remove import for style.css and add add tailwind style import `import './assets/index.css'`
+Remove import for style.css and add tailwind style import `import './assets/index.css'`
 
-```diff typescript {4}
+```diff typescript {2,4}
 import { createApp } from 'vue'
 - import './style.css'
 import App from './App.vue'
