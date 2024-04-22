@@ -108,8 +108,8 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0(typescript@5.4.2)
       vee-validate:
-        specifier: 4.12.5
-        version: 4.12.5(vue@3.4.21)
+        specifier: 4.12.6
+        version: 4.12.6(vue@3.4.21)
       vue:
         specifier: ^3.4.21
         version: 3.4.21(typescript@5.4.2)
@@ -13981,11 +13981,6 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /type-fest@4.10.2:
-    resolution: {integrity: sha512-anpAG63wSpdEbLwOqH8L84urkL6PiVIov3EMmgIhhThevh9aiMQov+6Btx0wldNcvm4wV+e2/Rt1QdDwKHFbHw==}
-    engines: {node: '>=16'}
-    dev: false
-
   /type-fest@4.12.0:
     resolution: {integrity: sha512-5Y2/pp2wtJk8o08G0CMkuFPCO354FGwk/vbidxrdhRGZfd0tFnb4Qb8anp9XxXriwBgVPjdWbKpGl4J9lJY2jQ==}
     engines: {node: '>=16'}
@@ -14520,16 +14515,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - typescript
-    dev: false
-
-  /vee-validate@4.12.5(vue@3.4.21):
-    resolution: {integrity: sha512-rvaDfLPSLwTk+mf016XWE4drB8yXzOsKXiKHTb9gNXNLTtQSZ0Ww26O0/xbIFQe+n3+u8Wv1Y8uO/aLDX4fxOg==}
-    peerDependencies:
-      vue: ^3.3.11
-    dependencies:
-      '@vue/devtools-api': 6.5.1
-      type-fest: 4.10.2
-      vue: 3.4.21(typescript@5.4.2)
     dev: false
 
   /vee-validate@4.12.6(vue@3.4.21):
