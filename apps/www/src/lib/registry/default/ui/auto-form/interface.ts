@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, SelectHTMLAttributes } from 'vue'
+import type { Component, InputHTMLAttributes, SelectHTMLAttributes } from 'vue'
 import type { ZodAny, z } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 
@@ -24,7 +24,7 @@ export interface ConfigItem {
   /** Value for the `FormDescription` */
   description?: string
   /** Pick which component to be rendered. */
-  component?: keyof typeof INPUT_COMPONENTS
+  component?: keyof typeof INPUT_COMPONENTS | Component
   /** Hide `FormLabel`. */
   hideLabel?: boolean
   inputProps?: InputHTMLAttributes
