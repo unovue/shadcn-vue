@@ -18,7 +18,6 @@ on:
       # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
       - labeled
   # Allows you to run this workflow manually from the Actions tab
-  # eslint-disable-next-line yml/no-empty-mapping-value
   workflow_dispatch:
 
 permissions:
@@ -51,15 +50,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3.0.0
-        name: Install pnpm
-
       # Run a build step here
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
+
+      - uses: pnpm/action-setup@v3.0.0
+        name: Install pnpm
 
       - name: Get pnpm store directory
         shell: bash
