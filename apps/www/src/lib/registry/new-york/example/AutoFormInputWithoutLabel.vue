@@ -34,15 +34,11 @@ function onSubmit(values: Record<string, any>) {
           <AutoFormField v-bind="slotProps" />
         </div>
         <div>
-          <Button type="button">
+          <Button type="submit">
             Update
           </Button>
         </div>
       </div>
     </template>
-
-    <Button type="submit">
-      Submit
-    </Button>
   </AutoForm>
 </template>
