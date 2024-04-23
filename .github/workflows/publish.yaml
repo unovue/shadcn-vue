@@ -1,3 +1,4 @@
+# eslint-disable yaml/plain-scalar
 name: Publish www
 
 on:
@@ -47,26 +48,25 @@ jobs:
       }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       # Run a build step here
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: 'pnpm'
 
-      - uses: pnpm/action-setup@v3.0.0
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3.0.0
 
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -74,7 +74,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install
 
       - name: Build www
         run: pnpm build
