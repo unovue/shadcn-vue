@@ -20,8 +20,6 @@ const props = defineProps<{
   disabled?: boolean
 }>()
 
-const fieldContext = useField(props.fieldName)
-
 function isZodArray(
   item: z.ZodArray<any> | z.ZodDefault<any>,
 ): item is z.ZodArray<any> {
@@ -51,6 +49,7 @@ const itemShape = computed(() => {
   }
 })
 
+const fieldContext = useField(props.fieldName)
 // @ts-expect-error ignore missing `id`
 provide(FieldContextKey, fieldContext)
 </script>
