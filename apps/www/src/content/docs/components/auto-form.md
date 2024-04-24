@@ -64,7 +64,7 @@ const formSchema = z.object({
 })
 ```
 
-You can also configure the label
+You can also configure the label with [`fieldConfig`](#label) too.
 
 ### Optional fields
 
@@ -210,7 +210,7 @@ As zod doesn't allow adding other properties to the schema, you can use the `fie
 
 ### Label
 
-You can use the `label` property to customize label if you want to overwrite the pre-defined label via [Zod's description](http://localhost:5173/docs/components/auto-form.html#descriptions).
+You can use the `label` property to customize label if you want to overwrite the pre-defined label via [Zod's description](#descriptions).
 
 ```vue
 <template>
@@ -420,9 +420,7 @@ form.setValues({
 </script>
 
 <template>
-  <AutoForm
-    :form="form"
-  />
+  <AutoForm :form="form" :schema="schema" />
 </template>
 ```
 
