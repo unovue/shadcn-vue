@@ -134,7 +134,7 @@ importers:
         version: 1.1.14
       '@iconify-json/ri':
         specifier: ^1.1.18
-        version: 1.1.18
+        version: 1.1.20
       '@iconify-json/simple-icons':
         specifier: ^1.1.94
         version: 1.1.100
@@ -1273,6 +1273,9 @@ packages:
 
   '@iconify-json/radix-icons@1.1.14':
     resolution: {integrity: sha512-AYBOyhnJ2hXlg3aIn8Ekphrr7zHRyz1l8x6bidM3PDUuTL+aRt8r6cpCvN3GeuTHy2JOhmihbVJRF0bt2FF7Ag==}
+
+  '@iconify-json/ri@1.1.20':
+    resolution: {integrity: sha512-yScIGjLFBCJKWKskQTWRjNI2Awoq+VRDkRxEsCQvSfdz41n+xkRtFG2K6J1OVI90ClRHfjFC8VJ2+WzxxyFjTQ==}
 
   '@iconify-json/simple-icons@1.1.100':
     resolution: {integrity: sha512-PoRbJcGMv2IQ0LMotLBFIiDhSdR3LjNFo/c4T2vCJjOl24I/DMtWt4ccUWEcAA5GJCt4/LTi8zlfztAeh1Jedw==}
@@ -8358,6 +8361,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/radix-icons@1.1.14':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/ri@1.1.20':
     dependencies:
       '@iconify/types': 2.0.0
 
