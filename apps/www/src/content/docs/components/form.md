@@ -249,7 +249,7 @@ function onSubmit(values) {
 ### Build your form
 
 Based on last step we can either use `<Form />` component or `useForm` composable
-`useForm` is recommended cause values are typed automatically
+`useForm` is recommended because values are typed automatically
 
 ```vue:line-numbers {2}
 <script setup lang="ts">
