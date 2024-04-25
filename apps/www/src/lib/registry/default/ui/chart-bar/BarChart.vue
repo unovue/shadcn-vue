@@ -2,12 +2,16 @@
 import type { BulletLegendItemInterface, Spacing } from '@unovis/ts'
 import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
-import { computed, ref } from 'vue'
+import { type Component, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
 import { type BaseChartProps, ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/default/ui/chart'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
+  /**
+   * Render custom tooltip component.
+   */
+  customTooltip?: Component
   /**
    * Change the type of the chart
    * @default "grouped"
@@ -57,7 +61,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 
 <template>
   <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
-    <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
+    <ChartLegend v-if="showLegend" v-model:items="legendItems" :custom-tooltip="customTooltip" @legend-item-click="handleLegendItemClick" />
 
     <VisXYContainer
       :data="data"

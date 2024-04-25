@@ -1,19 +1,28 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
-import type { BulletLegendItemInterface, Spacing } from '@unovis/ts'
+import { type BulletLegendItemInterface, CurveType } from '@unovis/ts'
 import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 import { Area, Axis, Line } from '@unovis/ts'
-import { computed, ref } from 'vue'
+import { type Component, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
 import { type BaseChartProps, ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
+   * Render custom tooltip component.
+   */
+  customTooltip?: Component
+  /**
+   * Type of curve
+   */
+  curveType?: CurveType
+  /**
    * Controls the visibility of gradient.
    * @default true
    */
   showGradiant?: boolean
 }>(), {
+  curveType: CurveType.Basis,
   filterOpacity: 0.2,
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   showXAxis: true,
@@ -66,13 +75,14 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
         </defs>
       </svg>
 
-      <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
+      <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" :custom-tooltip="customTooltip" />
 
       <template v-for="(category, i) in categories" :key="category">
         <VisArea
           :x="(d: Data, i: number) => i"
           :y="(d: Data) => d[category]"
           color="auto"
+          :curve-type="curveType"
           :attributes="{
             [Area.selectors.area]: {
               fill: `url(#color-${i})`,
@@ -87,6 +97,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
           :x="(d: Data, i: number) => i"
           :y="(d: Data) => d[category]"
           :color="colors[i]"
+          :curve-type="curveType"
           :attributes="{
             [Line.selectors.line]: {
               opacity: legendItems.find(item => item.name === category)?.inactive ? filterOpacity : 1,

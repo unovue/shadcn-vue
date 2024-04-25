@@ -41,3 +41,36 @@ Add the following tooltip styling to your `tailwind.css` file:
 ```
 
 </Steps>
+
+## Colors
+
+By default, we construct the primary theme color, and secondary (`--vis-secondary-color`) color with different opacity for the graph.
+
+However, you can always pass in the desired `color` into each chart.
+
+```vue
+<template>
+  <AreaChart
+    :data="data"
+    :colors="['blue', 'pink', 'orange', 'red']"
+  />
+</template>
+```
+
+## Custom tooltip
+
+If you want to customize the `Tooltip` for the chart, you can pass `customTooltip` prop with a custom Vue component.
+The custom component would receive `title` and `data` props, check out [ChartTooltip.vue component](https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/lib/registry/default/ui/chart/ChartTooltip.vue) for example.
+
+The expecting prop definition would be
+
+```ts
+defineProps<{
+  title?: string
+  data: {
+    name: string
+    color: string
+    value: any
+  }[]
+}>()
+```

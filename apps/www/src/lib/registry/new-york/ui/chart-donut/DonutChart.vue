@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import { VisDonut, VisSingleContainer } from '@unovis/vue'
-import { Donut, type Spacing } from '@unovis/ts'
-import { computed, ref } from 'vue'
+import { Donut } from '@unovis/ts'
+import { type DefineComponent, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
 import { type BaseChartProps, ChartSingleTooltip, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
@@ -24,7 +24,10 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors'
    * Controls the formatting for the label.
    */
   valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string
-
+  /**
+   * Render custom tooltip component.
+   */
+  customTooltip?: DefineComponent
 }>(), {
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   sortFunction: () => undefined,
@@ -63,6 +66,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
         :index="category"
         :items="legendItems"
         :value-formatter="valueFormatter"
+        :custom-tooltip="customTooltip"
       />
 
       <VisDonut
@@ -75,7 +79,6 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
         :events="{
           [Donut.selectors.segment]: {
             click: (d: Data, ev: PointerEvent, i: number, elements: HTMLElement[]) => {
-              console.log(d, ev, i, elements)
               if (d?.data?.[index] === activeSegmentKey) {
                 activeSegmentKey = undefined
                 elements.forEach(el => el.style.opacity = '1')

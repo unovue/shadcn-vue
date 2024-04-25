@@ -1,12 +1,23 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
-import { Axis, type BulletLegendItemInterface, Line, type Spacing } from '@unovis/ts'
+import { type BulletLegendItemInterface, CurveType } from '@unovis/ts'
 import { VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
-import { computed, ref } from 'vue'
+import { Axis, Line } from '@unovis/ts'
+import { type Component, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
 import { type BaseChartProps, ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<BaseChartProps<T>>(), {
+const props = withDefaults(defineProps<BaseChartProps<T> & {
+  /**
+   * Render custom tooltip component.
+   */
+  customTooltip?: Component
+  /**
+   * Type of curve
+   */
+  curveType?: CurveType
+}>(), {
+  curveType: CurveType.Basis,
   filterOpacity: 0.2,
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   showXAxis: true,
@@ -44,16 +55,17 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
     <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
 
     <VisXYContainer
-      :margin="margin"
+      :margin="{ left: 20, right: 20 }"
       :data="data"
       :style="{ height: isMounted ? '100%' : 'auto' }"
     >
-      <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
+      <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" :custom-tooltip="customTooltip" />
 
       <template v-for="(category, i) in categories" :key="category">
         <VisLine
           :x="(d: Data, i: number) => i"
           :y="(d: Data) => d[category]"
+          :curve-type="curveType"
           :color="colors[i]"
           :attributes="{
             [Line.selectors.line]: {

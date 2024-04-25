@@ -2,7 +2,7 @@
 import { VisTooltip } from '@unovis/vue'
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { omit } from '@unovis/ts'
-import { createApp } from 'vue'
+import { type Component, createApp } from 'vue'
 import { ChartTooltip } from '@/lib/registry/new-york/ui/chart'
 
 const props = withDefaults(defineProps<{
@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<{
   index: string
   items?: BulletLegendItemInterface[]
   valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string
+  customTooltip?: Component
 }>(), {
   valueFormatter: (tick: number) => `${tick}`,
 })
@@ -27,11 +28,13 @@ function template(d: any, i: number, elements: (HTMLElement | SVGElement)[]) {
         const legendReference = props.items?.find(i => i.name === key)
         return { ...legendReference, value: props.valueFormatter(value) }
       })
-      createApp(ChartTooltip, { title: d[props.index], data: omittedData }).mount(componentDiv)
+      const TooltipComponent = props.customTooltip ?? ChartTooltip
+      createApp(TooltipComponent, { title: d[props.index], data: omittedData }).mount(componentDiv)
       wm.set(d, componentDiv.innerHTML)
       return componentDiv.innerHTML
     }
   }
+
   else {
     const data = d.data
 
@@ -42,7 +45,8 @@ function template(d: any, i: number, elements: (HTMLElement | SVGElement)[]) {
       const style = getComputedStyle(elements[i])
       const omittedData = [{ name: data.name, value: props.valueFormatter(data[props.index]), color: style.fill }]
       const componentDiv = document.createElement('div')
-      createApp(ChartTooltip, { title: d[props.index], data: omittedData }).mount(componentDiv)
+      const TooltipComponent = props.customTooltip ?? ChartTooltip
+      createApp(TooltipComponent, { title: d[props.index], data: omittedData }).mount(componentDiv)
       wm.set(d, componentDiv.innerHTML)
       return componentDiv.innerHTML
     }
