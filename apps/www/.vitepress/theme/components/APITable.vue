@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { capitalize } from 'vue'
+
 defineProps<{
   type: 'prop' | 'emit' | 'slot' | 'method'
   data: { name: string, description: string, type: string, required: boolean }[]
@@ -7,9 +9,7 @@ defineProps<{
 
 <template>
   <div>
-    <h2 class="capitalize">
-      {{ type }}
-    </h2>
+    <h3>{{ capitalize(type) }}</h3>
 
     <div v-for="(item, index) in data" :key="index" class="py-4 border-b text-sm">
       <div class="flex items-center gap-2 flex-wrap">

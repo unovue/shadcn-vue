@@ -27,4 +27,20 @@ Follow the [guide](/docs/charts/guide.html#installation) to complete the setup.
 
 </Steps>
 
+## API
+
 <!-- @include: @/content/meta/AreaChart.md -->
+
+## Example
+
+### Sparkline
+
+We can turn the chart into sparkline chart by hiding axis, gridline and legends.
+
+<ComponentPreview name="AreaChartSparkline"  />
+
+### Custom Tooltip
+
+If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](http://localhost:5173/docs/charts/guide.html#custom-tooltip).
+
+<ComponentPreview name="AreaChartCustomTooltip"  />
