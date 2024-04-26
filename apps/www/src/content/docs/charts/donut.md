@@ -26,3 +26,5 @@ npx shadcn-vue@latest add chart-donut
 Follow the [guide](/docs/charts/guide.html#installation) to complete the setup.
 
 </Steps>
+
+<!-- @include: @/content/meta/DonutChart.md -->

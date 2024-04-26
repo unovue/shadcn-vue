@@ -1,10 +1,10 @@
 <!-- This file was automatic generated. Do not edit it manually -->
 
-<PropsTable :data="[
+<APITable :type="'prop'" :data="[
   {
     'name': 'data',
     'description': '<p>The source data, in which each entry is a dictionary.</p>\n',
-    'type': 'Record<string, any>',
+    'type': 'Record<string, any>[]',
     'required': true
   },
   {
@@ -108,7 +108,7 @@
   }
 ]" />
 
-<EmitsTable :data="[
+<APITable :type="'emit'" :data="[
   {
     'name': 'legendItemClick',
     'type': '[d: BulletLegendItemInterface, i: number]'

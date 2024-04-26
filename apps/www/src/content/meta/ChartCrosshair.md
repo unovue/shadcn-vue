@@ -1,6 +1,6 @@
 <!-- This file was automatic generated. Do not edit it manually -->
 
-<PropsTable :data="[
+<APITable :type="'prop'" :data="[
   {
     'name': 'colors',
     'description': '',

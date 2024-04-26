@@ -1,6 +1,6 @@
 <!-- This file was automatic generated. Do not edit it manually -->
 
-<PropsTable :data="[
+<APITable :type="'prop'" :data="[
   {
     'name': 'valueFormatter',
     'description': '',
@@ -34,7 +34,7 @@
   }
 ]" />
 
-<MethodsTable :data="[
+<APITable :type="'method'" :data="[
   {
     'name': 'valueFormatter',
     'description': '',

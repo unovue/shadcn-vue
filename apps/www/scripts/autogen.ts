@@ -42,16 +42,16 @@ components.forEach((componentPath) => {
 
     let parsedString = '<!-- This file was automatic generated. Do not edit it manually -->\n\n'
     if (meta.props.length)
-      parsedString += `<PropsTable :data="${JSON.stringify(meta.props, null, 2).replace(/"/g, '\'')}" />\n`
+      parsedString += `<APITable :type="'prop'" :data="${JSON.stringify(meta.props, null, 2).replace(/"/g, '\'')}" />\n`
 
     if (meta.events.length)
-      parsedString += `\n<EmitsTable :data="${JSON.stringify(meta.events, null, 2).replace(/"/g, '\'')}" />\n`
+      parsedString += `\n<APITable :type="'emit'" :data="${JSON.stringify(meta.events, null, 2).replace(/"/g, '\'')}" />\n`
 
     if (meta.slots.length)
-      parsedString += `\n<SlotsTable :data="${JSON.stringify(meta.slots, null, 2).replace(/"/g, '\'')}" />\n`
+      parsedString += `\n<APITable :type="'slot'" :data="${JSON.stringify(meta.slots, null, 2).replace(/"/g, '\'')}" />\n`
 
     if (meta.methods.length)
-      parsedString += `\n<MethodsTable :data="${JSON.stringify(meta.methods, null, 2).replace(/"/g, '\'')}" />\n`
+      parsedString += `\n<APITable :type="'method'" :data="${JSON.stringify(meta.methods, null, 2).replace(/"/g, '\'')}" />\n`
 
     writeFileSync(metaMdFilePath, parsedString)
   }
@@ -90,7 +90,6 @@ function parseMeta(meta: ComponentMeta) {
     .filter(prop => !prop.global)
     .map((prop) => {
       let defaultValue = prop.default
-      let type = prop.type
       const { name, description, required } = prop
 
       if (name === 'as')
@@ -99,13 +98,10 @@ function parseMeta(meta: ComponentMeta) {
       if (defaultValue === 'undefined')
         defaultValue = undefined
 
-      if (!type.includes('AcceptableValue'))
-        type = parseTypeFromSchema(prop.schema) || type
-
       return ({
         name,
         description: md.render(description),
-        type: type.replace(/\s*\|\s*undefined/g, ''),
+        type: prop.type.replace(/\s*\|\s*undefined/g, ''),
         required,
         default: defaultValue ?? undefined,
       })

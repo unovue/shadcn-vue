@@ -1,10 +1,10 @@
 <!-- This file was automatic generated. Do not edit it manually -->
 
-<PropsTable :data="[
+<APITable :type="'prop'" :data="[
   {
     'name': 'data',
     'description': '<p>The source data, in which each entry is a dictionary.</p>\n',
-    'type': 'Record<string, any>',
+    'type': 'Record<string, any>[]',
     'required': true
   },
   {
@@ -95,13 +95,13 @@
   {
     'name': 'curveType',
     'description': '<p>Type of curve</p>\n',
-    'type': 'CurveType.Basis | CurveType.BasisClosed | CurveType.BasisOpen | CurveType.Bundle | CurveType.Cardinal | CurveType.CardinalClosed | CurveType.CardinalOpen | CurveType.CatmullRom | CurveType.CatmullRomClosed | CurveType.CatmullRomOpen | CurveType.Linear | CurveType.LinearClosed | CurveType.MonotoneX | CurveType.MonotoneY | CurveType.Natural | CurveType.Step | CurveType.StepAfter | CurveType.StepBefore',
+    'type': 'CurveType',
     'required': false,
     'default': 'CurveType.MonotoneX'
   }
 ]" />
 
-<EmitsTable :data="[
+<APITable :type="'emit'" :data="[
   {
     'name': 'legendItemClick',
     'type': '[d: BulletLegendItemInterface, i: number]'
