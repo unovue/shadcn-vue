@@ -76,7 +76,7 @@
   {
     'name': 'customTooltip',
     'description': '<p>Render custom tooltip component.</p>\n',
-    'type': 'DefineComponent',
+    'type': 'Component',
     'required': false
   }
 ]" />
