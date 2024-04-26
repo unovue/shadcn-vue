@@ -33,7 +33,6 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
   showLegend: true,
   showGridLine: true,
 })
-
 const emits = defineEmits<{
   legendItemClick: [d: BulletLegendItemInterface, i: number]
 }>()
@@ -61,14 +60,14 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
 
 <template>
   <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
-    <ChartLegend v-if="showLegend" v-model:items="legendItems" :custom-tooltip="customTooltip" @legend-item-click="handleLegendItemClick" />
+    <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
 
     <VisXYContainer
       :data="data"
       :style="{ height: isMounted ? '100%' : 'auto' }"
       :margin="margin"
     >
-      <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :index="index" />
+      <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :custom-tooltip="customTooltip" :index="index" />
 
       <VisBarComponent
         :x="(d: Data, i: number) => i"

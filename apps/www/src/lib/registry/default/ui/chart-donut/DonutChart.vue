@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import { VisDonut, VisSingleContainer } from '@unovis/vue'
 import { Donut } from '@unovis/ts'
-import { type DefineComponent, computed, ref } from 'vue'
+import { type Component, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
 import { type BaseChartProps, ChartSingleTooltip, defaultColors } from '@/lib/registry/default/ui/chart'
 import { cn } from '@/lib/utils'
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors'
   /**
    * Render custom tooltip component.
    */
-  customTooltip?: DefineComponent
+  customTooltip?: Component
 }>(), {
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   sortFunction: () => undefined,
@@ -75,7 +75,7 @@ const totalValue = computed(() => props.data.reduce((prev, curr) => {
         :color="colors"
         :arc-width="type === 'donut' ? 20 : 0"
         :show-background="false"
-        :central-label="valueFormatter(totalValue)"
+        :central-label="type === 'donut' ? valueFormatter(totalValue) : ''"
         :events="{
           [Donut.selectors.segment]: {
             click: (d: Data, ev: PointerEvent, i: number, elements: HTMLElement[]) => {

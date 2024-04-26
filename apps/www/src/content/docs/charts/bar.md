@@ -27,4 +27,24 @@ Follow the [guide](/docs/charts/guide.html#installation) to complete the setup.
 
 </Steps>
 
+## API
+
 <!-- @include: @/content/meta/BarChart.md -->
+
+## Example
+
+### Stacked
+
+You can stack the bar chart by settings prop `type` to `stacked`.
+
+<ComponentPreview name="BarChartStacked"  />
+
+### Rounded
+
+<ComponentPreview name="BarChartRounded"  />
+
+### Custom Tooltip
+
+If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/docs/charts/guide.html#custom-tooltip).
+
+<ComponentPreview name="BarChartCustomTooltip"  />
