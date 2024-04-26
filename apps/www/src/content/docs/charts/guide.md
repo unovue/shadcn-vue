@@ -4,21 +4,15 @@ description: A simple guide to help setup chart components.
 label: Alpha
 ---
 
-`Charts` components were built on top of [Unovis](https://unovis.dev/) (a modular data visualization framework), and inspired by [tremor](https://www.tremor.so).
-
-## Installation
-
 <Callout>
   Only works with Vue >3.3
 </Callout>
 
+`Charts` components were built on top of [Unovis](https://unovis.dev/) (a modular data visualization framework), and inspired by [tremor](https://www.tremor.so).
+
+## Installation
+
 <Steps>
-
-### Run the following command
-
-```bash
-npx shadcn-vue@latest add chart
-```
 
 ### Update `css`
 
@@ -35,10 +29,16 @@ Add the following tooltip styling to your `tailwind.css` file:
     --vis-tooltip-backdrop-filter: none !important;
     --vis-tooltip-padding: none !important;
 
-    /* secondary color, change to any hsl value you want */
+    --vis-primary-color: var(--primary);
+    /* change to any hsl value you want */
     --vis-secondary-color: 160 81% 40%;
+    --vis-text-color: var(--muted-foreground);
   }
 ```
+
+If you are not using `css-variables` for your component, you need to update the `--vis-primary-color` and `--vis-text-color` to your desired hsl value.
+
+You may use [this tool](https://redpixelthemes.com/blog/tailwindcss-colors-different-formats/) to help you find the hsl value for your primary color and text color. Be sure to provide `dark` mode styling as well.
 
 </Steps>
 
@@ -62,7 +62,7 @@ However, you can always pass in the desired `color` into each chart.
 If you want to customize the `Tooltip` for the chart, you can pass `customTooltip` prop with a custom Vue component.
 The custom component would receive `title` and `data` props, check out [ChartTooltip.vue component](https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/lib/registry/default/ui/chart/ChartTooltip.vue) for example.
 
-The expecting prop definition would be
+The expected prop definition would be:
 
 ```ts
 defineProps<{

@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
    */
   curveType?: CurveType
 }>(), {
-  curveType: CurveType.Basis,
+  curveType: CurveType.MonotoneX,
   filterOpacity: 0.2,
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   showXAxis: true,
@@ -81,7 +81,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
         :tick-format="xFormatter ?? ((v: number) => data[v]?.[index])"
         :grid-line="false"
         :tick-line="false"
-        tick-text-color="hsl(var(--muted-foreground))"
+        tick-text-color="hsl(var(--vis-text-color))"
       />
       <VisAxis
         v-if="showYAxis"
@@ -95,7 +95,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
             class: 'text-muted',
           },
         }"
-        tick-text-color="hsl(var(--muted-foreground))"
+        tick-text-color="hsl(var(--vis-text-color))"
       />
 
       <slot />

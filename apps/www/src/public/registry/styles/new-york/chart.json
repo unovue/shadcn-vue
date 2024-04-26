@@ -28,7 +28,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { default as ChartTooltip } from './ChartTooltip.vue'\nexport { default as ChartSingleTooltip } from './ChartSingleTooltip.vue'\nexport { default as ChartLegend } from './ChartLegend.vue'\nexport { default as ChartCrosshair } from './ChartCrosshair.vue'\n\nexport function defaultColors(count: number = 3) {\n  const quotient = Math.floor(count / 2)\n  const remainder = count % 2\n\n  const primaryCount = quotient + remainder\n  const secondaryCount = quotient\n  return [\n    ...Array.from(Array(primaryCount).keys()).map(i => `hsl(var(--primary) / ${1 - (1 / primaryCount) * i})`),\n    ...Array.from(Array(secondaryCount).keys()).map(i => `hsl(var(--vis-secondary-color) / ${1 - (1 / secondaryCount) * i})`),\n  ]\n}\n\nexport * from './interface'\n"
+      "content": "export { default as ChartTooltip } from './ChartTooltip.vue'\nexport { default as ChartSingleTooltip } from './ChartSingleTooltip.vue'\nexport { default as ChartLegend } from './ChartLegend.vue'\nexport { default as ChartCrosshair } from './ChartCrosshair.vue'\n\nexport function defaultColors(count: number = 3) {\n  const quotient = Math.floor(count / 2)\n  const remainder = count % 2\n\n  const primaryCount = quotient + remainder\n  const secondaryCount = quotient\n  return [\n    ...Array.from(Array(primaryCount).keys()).map(i => `hsl(var(--vis-primary-color) / ${1 - (1 / primaryCount) * i})`),\n    ...Array.from(Array(secondaryCount).keys()).map(i => `hsl(var(--vis-secondary-color) / ${1 - (1 / secondaryCount) * i})`),\n  ]\n}\n\nexport * from './interface'\n"
     },
     {
       "name": "interface.ts",
