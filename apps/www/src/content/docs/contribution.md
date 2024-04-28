@@ -176,7 +176,7 @@ To do so, we have a helper function named [`useForwardPropsEmits`](https://www.r
 To be more clear, the function `useForwardPropsEmits` takes in props and an optional emit function, and returns a
 computed object that combines the parsed props and emits as props.
 
-Here's an example from `Accordian` root component.
+Here's an example from `Accordion` root component.
 
 ```vue
 <script setup lang="ts">
@@ -200,7 +200,7 @@ const forwarded = useForwardPropsEmits(props, emits)
 </template>
 ```
 
-As you can see, `AccordionRootEmits` and `AccordionRootProps` types are imported from radix, combined with `useForwardPropsEmits` and then are binded using `v-bind` syntaxt.
+As you can see, `AccordionRootEmits` and `AccordionRootProps` types are imported from radix, combined with `useForwardPropsEmits` and then are binded using `v-bind` syntax.
 
 ### CSS Classes
 There are cases when we want to accept `class` as a prop in our `shadcn/vue` component and then combine it with a default tailwind class on our `radix-vue` component via `cn` utility function.

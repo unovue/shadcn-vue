@@ -23,7 +23,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 - Composable components for building forms.
 - A `<FormField />` component for building controlled form fields.
 - Form validation using `zod`.
-- Applies the correct `aria` attributes to form fields based on states, handle unqiue IDs
+- Applies the correct `aria` attributes to form fields based on states, handle unique IDs
 - Built to work with all Radix Vue components.
 - Bring your own schema library. We use `zod` but you can use any other supported schema validation you want, like [`yup`](https://github.com/jquense/yup) or [`valibot`](https://valibot.dev/).
 - **You have full control over the markup and styling.**
