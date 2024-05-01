@@ -3,6 +3,7 @@ import { useData, useRoute } from 'vitepress'
 import { docsConfig } from '../config/docs'
 import TableOfContentVue from '../components/TableOfContent.vue'
 import EditLink from '../components/EditLink.vue'
+import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import RadixIconsCode from '~icons/radix-icons/code'
 import RadixIconsExternalLink from '~icons/radix-icons/external-link'
@@ -65,15 +66,7 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
             <TableOfContentVue />
           </div>
 
-          <div class="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-            <div class="overflow-hidden text-ellipsis whitespace-nowrap">
-              Docs
-            </div>
-            <ChevronRightIcon class="h-4 w-4" />
-            <div class="font-medium text-foreground">
-              {{ frontmatter.title }}
-            </div>
-          </div>
+          <DocsBreadcrumb class="mb-4" />
 
           <div class="space-y-2">
             <div class="flex items-center space-x-4">
