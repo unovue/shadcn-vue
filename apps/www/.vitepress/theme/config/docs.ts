@@ -122,37 +122,17 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: 'Charts',
-      label: 'Alpha',
-      items: [
-        {
-          title: 'Guide',
-          href: '/docs/charts/guide',
-        },
-        {
-          title: 'Area',
-          href: '/docs/charts/area',
-        },
-        {
-          title: 'Line',
-          href: '/docs/charts/line',
-        },
-        {
-          title: 'Bar',
-          href: '/docs/charts/bar',
-        },
-        {
-          title: 'Donut',
-          href: '/docs/charts/donut',
-        },
-      ],
-    },
-    {
       title: 'Extended',
       items: [
         {
           title: 'Auto Form',
           href: '/docs/components/auto-form',
+          items: [],
+        },
+        {
+          title: 'Charts',
+          href: '/docs/charts',
+          label: 'Alpha',
           items: [],
         },
       ],

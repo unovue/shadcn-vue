@@ -23,7 +23,7 @@ npx shadcn-vue@latest add chart-bar
 
 ### Setup
 
-Follow the [guide](/docs/charts/guide.html#installation) to complete the setup.
+Follow the [guide](/docs/charts.html#installation) to complete the setup.
 
 </Steps>
 
@@ -45,6 +45,6 @@ You can stack the bar chart by settings prop `type` to `stacked`.
 
 ### Custom Tooltip
 
-If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/docs/charts/guide.html#custom-tooltip).
+If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/docs/charts.html#custom-tooltip).
 
 <ComponentPreview name="BarChartCustomTooltip"  />

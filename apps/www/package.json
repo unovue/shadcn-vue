@@ -51,6 +51,7 @@
     "@iconify-json/radix-icons": "^1.1.14",
     "@iconify-json/ri": "^1.1.18",
     "@iconify-json/simple-icons": "^1.1.94",
+    "@iconify-json/solar": "^1.1.9",
     "@iconify-json/tabler": "^1.1.106",
     "@iconify/vue": "^4.1.2",
     "@oxc-parser/wasm": "^0.1.0",

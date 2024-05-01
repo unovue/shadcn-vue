@@ -23,7 +23,7 @@ npx shadcn-vue@latest add chart-area
 
 ### Setup
 
-Follow the [guide](/docs/charts/guide.html#installation) to complete the setup.
+Follow the [guide](/docs/charts.html#installation) to complete the setup.
 
 </Steps>
 
@@ -41,6 +41,6 @@ We can turn the chart into sparkline chart by hiding axis, gridline and legends.
 
 ### Custom Tooltip
 
-If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/docs/charts/guide.html#custom-tooltip).
+If you want to render custom tooltip, you can easily pass in a custom component. Refer to prop definition [here](/docs/charts.html#custom-tooltip).
 
 <ComponentPreview name="AreaChartCustomTooltip"  />

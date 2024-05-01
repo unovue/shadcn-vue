@@ -1,14 +1,45 @@
 ---
-title: Guide
-description: A simple guide to help setup chart components.
+title: Charts
+description: Versatile visualization tool, allowing users to represent data using various types of charts for effective analysis.
 label: Alpha
 ---
+
+<script setup>
+import Area from '~icons/gravity-ui/chart-area-stacked'
+import Bar from '~icons/gravity-ui/chart-column'
+import Line from '~icons/gravity-ui/chart-line'
+import Pie from '~icons/gravity-ui/chart-pie'
+</script>
 
 <Callout>
   Only works with Vue >3.3
 </Callout>
 
 `Charts` components were built on top of [Unovis](https://unovis.dev/) (a modular data visualization framework), and inspired by [tremor](https://www.tremor.so).
+
+## Chart type
+
+<div class="grid gap-4 mt-8 sm:grid-cols-2 sm:gap-6 not-docs">
+  <LinkedCard href="/docs/charts/area">
+    <Area class="text-foreground/80 w-11 h-11" />
+    <p class="mt-2 font-medium">Area</p>
+  </LinkedCard>
+
+  <LinkedCard href="/docs/charts/line">
+    <Line class="text-foreground/80 w-11 h-11" />
+    <p class="mt-2 font-medium">Line</p>
+  </LinkedCard>
+
+  <LinkedCard href="/docs/charts/bar">
+    <Bar class="text-foreground/80 w-11 h-11" />
+    <p class="mt-2 font-medium">Bar</p>
+  </LinkedCard>
+
+  <LinkedCard href="/docs/charts/donut">
+    <Pie class="text-foreground/80 w-11 h-11" />
+    <p class="mt-2 font-medium">Donut</p>
+  </LinkedCard>
+</div>
 
 ## Installation
 
