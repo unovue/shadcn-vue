@@ -3,7 +3,7 @@ import { VisTooltip } from '@unovis/vue'
 import type { BulletLegendItemInterface } from '@unovis/ts'
 import { omit } from '@unovis/ts'
 import { type Component, createApp } from 'vue'
-import { ChartTooltip } from '@/lib/registry/default/ui/chart'
+import { ChartTooltip } from '.'
 
 const props = withDefaults(defineProps<{
   selector: string

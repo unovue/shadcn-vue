@@ -229,7 +229,6 @@
       "@unovis/ts"
     ],
     "registryDependencies": [
-      "chart",
       "button",
       "card"
     ],
