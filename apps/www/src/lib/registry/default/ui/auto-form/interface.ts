@@ -28,7 +28,6 @@ export interface ConfigItem {
   /** Hide `FormLabel`. */
   hideLabel?: boolean
   inputProps?: InputHTMLAttributes
-  enumProps?: SelectHTMLAttributes & { options?: any[] }
 }
 
 // Define a type to unwrap an array
