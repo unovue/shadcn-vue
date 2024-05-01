@@ -123,6 +123,12 @@ importers:
         specifier: ^3.23.3
         version: 3.23.3
     devDependencies:
+      '@babel/traverse':
+        specifier: ^7.24.1
+        version: 7.24.1
+      '@iconify-json/gravity-ui':
+        specifier: ^1.1.2
+        version: 1.1.2
       '@iconify-json/lucide':
         specifier: ^1.1.180
         version: 1.1.184
@@ -132,6 +138,9 @@ importers:
       '@iconify-json/radix-icons':
         specifier: ^1.1.14
         version: 1.1.14
+      '@iconify-json/ri':
+        specifier: ^1.1.18
+        version: 1.1.20
       '@iconify-json/simple-icons':
         specifier: ^1.1.94
         version: 1.1.100
@@ -171,9 +180,15 @@ importers:
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
+      markdown-it:
+        specifier: ^14.1.0
+        version: 14.1.0
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -201,6 +216,9 @@ importers:
       vitepress:
         specifier: ^1.1.3
         version: 1.1.3(@algolia/client-search@4.23.3)(@types/node@20.12.7)(axios@0.18.1)(postcss@8.4.38)(search-insights@2.13.0)(terser@5.30.4)(typescript@5.4.5)
+      vue-component-meta:
+        specifier: ^2.0.13
+        version: 2.0.14(typescript@5.4.5)
       vue-tsc:
         specifier: ^2.0.14
         version: 2.0.14(typescript@5.4.5)
@@ -1262,6 +1280,9 @@ packages:
     resolution: {integrity: sha512-X38nUbachlb01YMlvPFojKoiXq+LzZvuSce70KPMPdeM1Rj03k4dR7lDslhbqXn3Ang4EU3+EAmwEAsbrjHW3g==}
     engines: {node: '>=18.18'}
 
+  '@iconify-json/gravity-ui@1.1.2':
+    resolution: {integrity: sha512-1xDGuR/pxZJqQNxx7lA3a1gRxus9UwLgdBJpLHP/FNdLER1iwIPA5X5jNMYUp7Z34y6OkwHrb2ULz/bybTewuA==}
+
   '@iconify-json/lucide@1.1.184':
     resolution: {integrity: sha512-vptROqbT+ilOBZXncJzYFx5hLtbpA/jxiWGRyNdFBxJokXfJ8k09FWDIPweGvbW0V8MUQYlh0FDfV1qpyZGW3w==}
 
@@ -1270,6 +1291,9 @@ packages:
 
   '@iconify-json/radix-icons@1.1.14':
     resolution: {integrity: sha512-AYBOyhnJ2hXlg3aIn8Ekphrr7zHRyz1l8x6bidM3PDUuTL+aRt8r6cpCvN3GeuTHy2JOhmihbVJRF0bt2FF7Ag==}
+
+  '@iconify-json/ri@1.1.20':
+    resolution: {integrity: sha512-yScIGjLFBCJKWKskQTWRjNI2Awoq+VRDkRxEsCQvSfdz41n+xkRtFG2K6J1OVI90ClRHfjFC8VJ2+WzxxyFjTQ==}
 
   '@iconify-json/simple-icons@1.1.100':
     resolution: {integrity: sha512-PoRbJcGMv2IQ0LMotLBFIiDhSdR3LjNFo/c4T2vCJjOl24I/DMtWt4ccUWEcAA5GJCt4/LTi8zlfztAeh1Jedw==}
@@ -4840,6 +4864,9 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
+  linkify-it@5.0.0:
+    resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
+
   lint-staged@15.2.2:
     resolution: {integrity: sha512-TiTt93OPh1OZOsb5B7k96A/ATl2AjIZo+vnzFZ6oHK5FuTk63ByDtxGQpHm+kFETjEWqgkF95M8FRXKR/LEBcw==}
     engines: {node: '>=18.12.0'}
@@ -4995,6 +5022,10 @@ packages:
   mark.js@8.11.1:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
 
+  markdown-it@14.1.0:
+    resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
+    hasBin: true
+
   mdast-util-from-markdown@0.8.5:
     resolution: {integrity: sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ==}
 
@@ -5006,6 +5037,9 @@ packages:
 
   mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
+
+  mdurl@2.0.0:
+    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
 
   meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
@@ -5911,6 +5945,10 @@ packages:
   pumpify@1.5.1:
     resolution: {integrity: sha512-oClZI37HvuUJJxSKKrC17bZ9Cu0ZYhEAGPsPUy9KlMUmv9dKX2o77RUmq7f3XjIxbwyGwYzbzQ1L2Ks8sIradQ==}
 
+  punycode.js@2.3.1:
+    resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
+    engines: {node: '>=6'}
+
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
@@ -6755,6 +6793,9 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  uc.micro@2.1.0:
+    resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
+
   ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
 
@@ -7217,6 +7258,17 @@ packages:
 
   vue-bundle-renderer@2.0.0:
     resolution: {integrity: sha512-oYATTQyh8XVkUWe2kaKxhxKVuuzK2Qcehe+yr3bGiaQAhK3ry2kYE4FWOfL+KO3hVFwCdLmzDQTzYhTi9C+R2A==}
+
+  vue-component-meta@2.0.14:
+    resolution: {integrity: sha512-6ycN+5bkLLNsjno5pX+OFmFxrAXllJo95lk7jPD7g7cbtWsZY5F+pg+/YMXldHA36STrBHTfCu5QoklDV9Gynw==}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  vue-component-type-helpers@2.0.14:
+    resolution: {integrity: sha512-DInfgOyXlMyliyqAAD9frK28tTfch0+tMi4qoWJcZlRxUf+NFAtraJBnAsKLep+FOyLMiajkhfyEb3xLK08i7w==}
 
   vue-demi@0.14.7:
     resolution: {integrity: sha512-EOG8KXDQNwkJILkx/gPcoL/7vH+hORoBaKgGe+6W7VFMvCYJfmF2dGbvgDroVnI8LU7/kTu8mbjRZGBU1z9NTA==}
@@ -8332,6 +8384,10 @@ snapshots:
 
   '@humanwhocodes/retry@0.2.3': {}
 
+  '@iconify-json/gravity-ui@1.1.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/lucide@1.1.184':
     dependencies:
       '@iconify/types': 2.0.0
@@ -8341,6 +8397,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/radix-icons@1.1.14':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/ri@1.1.20':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -12706,6 +12766,10 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
+  linkify-it@5.0.0:
+    dependencies:
+      uc.micro: 2.1.0
+
   lint-staged@15.2.2:
     dependencies:
       chalk: 5.3.0
@@ -12931,6 +12995,15 @@ snapshots:
 
   mark.js@8.11.1: {}
 
+  markdown-it@14.1.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
+
   mdast-util-from-markdown@0.8.5:
     dependencies:
       '@types/mdast': 3.0.15
@@ -12946,6 +13019,8 @@ snapshots:
   mdn-data@2.0.28: {}
 
   mdn-data@2.0.30: {}
+
+  mdurl@2.0.0: {}
 
   meow@12.1.1: {}
 
@@ -14062,6 +14137,8 @@ snapshots:
       inherits: 2.0.4
       pump: 2.0.1
 
+  punycode.js@2.3.1: {}
+
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
@@ -14947,6 +15024,8 @@ snapshots:
 
   typescript@5.4.5: {}
 
+  uc.micro@2.1.0: {}
+
   ufo@1.5.3: {}
 
   ultrahtml@1.5.3: {}
@@ -15576,6 +15655,17 @@ snapshots:
   vue-bundle-renderer@2.0.0:
     dependencies:
       ufo: 1.5.3
+
+  vue-component-meta@2.0.14(typescript@5.4.5):
+    dependencies:
+      '@volar/typescript': 2.2.0-alpha.10
+      '@vue/language-core': 2.0.14(typescript@5.4.5)
+      path-browserify: 1.0.1
+      vue-component-type-helpers: 2.0.14
+    optionalDependencies:
+      typescript: 5.4.5
+
+  vue-component-type-helpers@2.0.14: {}
 
   vue-demi@0.14.7(vue@3.4.24(typescript@5.4.5)):
     dependencies:

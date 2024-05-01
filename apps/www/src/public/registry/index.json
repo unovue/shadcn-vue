@@ -223,6 +223,95 @@
     "type": "components:ui"
   },
   {
+    "name": "chart",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts"
+    ],
+    "registryDependencies": [
+      "chart",
+      "button",
+      "card"
+    ],
+    "files": [
+      "ui/chart/ChartCrosshair.vue",
+      "ui/chart/ChartLegend.vue",
+      "ui/chart/ChartSingleTooltip.vue",
+      "ui/chart/ChartTooltip.vue",
+      "ui/chart/index.ts",
+      "ui/chart/interface.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-area",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-area/AreaChart.vue",
+      "ui/chart-area/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-bar",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-bar/BarChart.vue",
+      "ui/chart-bar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-donut",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-donut/DonutChart.vue",
+      "ui/chart-donut/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-line",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-line/LineChart.vue",
+      "ui/chart-line/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "checkbox",
     "dependencies": [],
     "registryDependencies": [

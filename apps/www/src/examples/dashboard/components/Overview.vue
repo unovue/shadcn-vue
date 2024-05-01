@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { VisAxis, VisStackedBar, VisXYContainer } from '@unovis/vue'
+import { BarChart } from '@/lib/registry/new-york/ui/chart-bar'
 
-type Data = typeof data[number]
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },
   { name: 'Feb', total: Math.floor(Math.random() * 5000) + 1000 },
@@ -19,28 +18,5 @@ const data = [
 </script>
 
 <template>
-  <VisXYContainer height="350px" :margin="{ left: 20, right: 20 }" :data="data">
-    <VisStackedBar
-      :x="(d: Data, i: number) => i"
-      :y="(d: Data) => d.total"
-      color="#41b883"
-      :rounded-corners="4"
-      :bar-padding="0.15"
-    />
-    <VisAxis
-      type="x"
-      :num-ticks="data.length"
-      :tick-format="(index: number) => data[index]?.name"
-      :grid-line="false"
-      :tick-line="false" color="#888888"
-    />
-    <VisAxis
-      type="y"
-      :num-ticks="data.length"
-      :tick-format="(index: number) => data[index]?.name"
-      :grid-line="false"
-      :tick-line="false"
-      :domain-line="false" color="#888888"
-    />
-  </VisXYContainer>
+  <BarChart :data="data" :categories="['total']" :index="'name'" :rounded-corners="4" />
 </template>

@@ -27,6 +27,10 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
                 class="mb-1 rounded-md px-2 py-1 text-sm font-semibold"
               >
                 {{ docsGroup.title }}
+
+                <span v-if="docsGroup.label" class="ml-2 font-normal rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                  {{ docsGroup.label }}
+                </span>
               </h4>
 
               <div
@@ -72,9 +76,14 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
           </div>
 
           <div class="space-y-2">
-            <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">
-              {{ frontmatter.title }}
-            </h1>
+            <div class="flex items-center space-x-4">
+              <h1 class="scroll-m-20 text-4xl font-bold tracking-tight">
+                {{ frontmatter.title }}
+              </h1>
+              <span v-if="frontmatter.label" class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                {{ frontmatter.label }}
+              </span>
+            </div>
             <p class="text-lg text-muted-foreground">
               {{ frontmatter.description }}
             </p>
