@@ -128,11 +128,12 @@ export const docsConfig: DocsConfig = {
           title: 'Auto Form',
           href: '/docs/components/auto-form',
           items: [],
+          label: 'New',
         },
         {
           title: 'Charts',
           href: '/docs/charts',
-          label: 'Alpha',
+          label: 'New Alpha',
           items: [],
         },
       ],
@@ -280,7 +281,6 @@ export const docsConfig: DocsConfig = {
           title: 'Range Calendar',
           href: '/docs/components/range-calendar',
           items: [],
-          label: 'New',
         },
         {
           title: 'Resizable',

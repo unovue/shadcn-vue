@@ -68,9 +68,9 @@ const open = ref(false)
               <h4 class="font-medium">
                 {{ items.title }}
               </h4>
-              <Badge v-if="items.label" class="ml-2">
+              <span v-if="items.label" class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
                 {{ items.label }}
-              </Badge>
+              </span>
             </div>
 
             <a
@@ -81,9 +81,9 @@ const open = ref(false)
             >
               {{ item.title }}
 
-              <Badge v-if="item.label" class="ml-2">
+              <span v-if="item.label" class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
                 {{ item.label }}
-              </Badge>
+              </span>
             </a>
           </div>
         </div>
