@@ -19,7 +19,7 @@ defineProps<CalloutProps>()
     <AlertTitle v-if="title">
       {{ title }}
     </AlertTitle>
-    <AlertDescription>
+    <AlertDescription class="[&_a]:underline">
       <slot />
     </AlertDescription>
   </Alert>

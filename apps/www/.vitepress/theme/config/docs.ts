@@ -8,7 +8,7 @@ export interface NavItem {
 }
 
 export type SidebarNavItem = NavItem & {
-  items: SidebarNavItem[]
+  items?: SidebarNavItem[]
 }
 
 export type NavItemWithChildren = NavItem & {
@@ -130,6 +130,16 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Laravel',
           href: '/docs/installation/laravel',
+          items: [],
+        },
+      ],
+    },
+    {
+      title: 'Extended',
+      items: [
+        {
+          title: 'Auto Form',
+          href: '/docs/components/auto-form',
           items: [],
         },
       ],
