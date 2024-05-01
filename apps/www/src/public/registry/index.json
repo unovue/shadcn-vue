@@ -60,6 +60,49 @@
     "type": "components:ui"
   },
   {
+    "name": "auto-form",
+    "dependencies": [
+      "vee-validate",
+      "@vee-validate/zod",
+      "zod"
+    ],
+    "registryDependencies": [
+      "form",
+      "accordion",
+      "button",
+      "separator",
+      "switch",
+      "checkbox",
+      "calendar",
+      "popover",
+      "utils",
+      "select",
+      "label",
+      "radio-group",
+      "input",
+      "textarea"
+    ],
+    "files": [
+      "ui/auto-form/AutoForm.vue",
+      "ui/auto-form/AutoFormField.vue",
+      "ui/auto-form/AutoFormFieldArray.vue",
+      "ui/auto-form/AutoFormFieldBoolean.vue",
+      "ui/auto-form/AutoFormFieldDate.vue",
+      "ui/auto-form/AutoFormFieldEnum.vue",
+      "ui/auto-form/AutoFormFieldFile.vue",
+      "ui/auto-form/AutoFormFieldInput.vue",
+      "ui/auto-form/AutoFormFieldNumber.vue",
+      "ui/auto-form/AutoFormFieldObject.vue",
+      "ui/auto-form/AutoFormLabel.vue",
+      "ui/auto-form/constant.ts",
+      "ui/auto-form/dependencies.ts",
+      "ui/auto-form/index.ts",
+      "ui/auto-form/interface.ts",
+      "ui/auto-form/utils.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "avatar",
     "dependencies": [],
     "registryDependencies": [

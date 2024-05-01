@@ -123,8 +123,8 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     }
   })
 
-  // @ts-expect-error componentName migth not exist in Index
-  const registryDependencies: string[] = demoIndex[style][componentName as any]?.registryDependencies?.filter(i => i !== 'utils') ?? []
+  // @ts-expect-error componentName might not exist in Index
+  const registryDependencies = demoIndex[style][componentName as any]?.registryDependencies?.filter(i => i !== 'utils')
 
   const files = {
     'package.json': {

@@ -218,7 +218,7 @@ import {
         </MenubarRadioGroup>
         <MenubarSeparator />
         <MenubarItem inset>
-          Manage Famliy...
+          Manage Family...
         </MenubarItem>
         <MenubarSeparator />
         <MenubarItem inset>

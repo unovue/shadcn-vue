@@ -41,7 +41,7 @@ const onSubmit = handleSubmit((values) => {
 <template>
   <div>
     <h3 class="text-lg font-medium">
-      Appearence
+      Appearance
     </h3>
     <p class="text-sm text-muted-foreground">
       Customize the appearance of the app. Automatically switch between day and night themes.

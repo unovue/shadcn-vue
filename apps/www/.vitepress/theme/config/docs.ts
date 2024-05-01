@@ -148,6 +148,16 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
+      title: 'Extended',
+      items: [
+        {
+          title: 'Auto Form',
+          href: '/docs/components/auto-form',
+          items: [],
+        },
+      ],
+    },
+    {
       title: 'Components',
       items: [
         {
