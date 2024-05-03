@@ -1,11 +1,8 @@
 ---
-title: Carousel
-description: A carousel with motion and swipe built using Embla.
-source: apps/www/src/lib/registry/default/ui/carousel
-primitive: https://www.embla-carousel.com/api
----
 
-<ComponentPreview name="CarouselDemo"  />
+## title: Carousel description: A carousel with motion and swipe built using Embla. source: apps/www/src/lib/registry/default/ui/carousel primitive: <https://www.embla-carousel.com/api>
+
+&lt;ComponentPreview name="CarouselDemo" /&gt;
 
 ## About
 
@@ -32,6 +29,7 @@ import {
 
 <template>
   <Carousel>
+    <CarouselDotButtons />
     <CarouselContent>
       <CarouselItem>...</CarouselItem>
       <CarouselItem>...</CarouselItem>
@@ -49,11 +47,11 @@ import {
 
 To set the size of the items, you can use the `basis` utility class on the `<CarouselItem />`.
 
-<ComponentPreview name="CarouselSize" />
+&lt;ComponentPreview name="CarouselSize" /&gt;
 
 Example
 
-```vue:line-numbers title="Example" {4-6}
+```vue:line-numbers
 // 33% of the carousel width.
 <Carousel>
   <CarouselContent>
@@ -66,7 +64,7 @@ Example
 
 Responsive
 
-```vue:line-numbers title="Responsive" {4-6}
+```vue:line-numbers
 // 50% on small screens and 33% on larger screens.
 <Carousel>
   <CarouselContent>
@@ -81,22 +79,17 @@ Responsive
 
 To set the spacing between the items, we use a `pl-[VALUE]` utility on the `<CarouselItem />` and a negative `-ml-[VALUE]` on the `<CarouselContent />`.
 
-<Callout class="mt-6">
+&lt;Callout class="mt-6"&gt;
 
-**Why:** I tried to use the `gap` property or a `grid` layout on the `
-CarouselContent` but it required a lot of math and mental effort to get the
-spacing right. I found `pl-[VALUE]` and `-ml-[VALUE]` utilities much easier to
-use.
-<br/><br/>
-You can always adjust this in your own project if you need to.
+**Why:** I tried to use the `gap` property or a `grid` layout on the `CarouselContent` but it required a lot of math and mental effort to get the spacing right. I found `pl-[VALUE]` and `-ml-[VALUE]` utilities much easier to use. &lt;br/&gt;&lt;br/&gt; You can always adjust this in your own project if you need to.
 
-</Callout>
+&lt;/Callout&gt;
 
-<ComponentPreview name="CarouselSpacing" />
+&lt;ComponentPreview name="CarouselSpacing" /&gt;
 
 Example
 
-```vue:line-numbers /-ml-4/ /pl-4/
+```vue:line-numbers
 <template>
   <Carousel>
     <CarouselContent class="-ml-4">
@@ -116,7 +109,7 @@ Example
 
 Responsive
 
-```vue:line-numbers /-ml-2/ /pl-2/ /md:-ml-4/ /md:pl-4/
+```vue:line-numbers
 <template>
   <Carousel>
     <CarouselContent class="-ml-2 md:-ml-4">
@@ -138,7 +131,7 @@ Responsive
 
 Use the `orientation` prop to set the orientation of the carousel.
 
-<ComponentPreview name="CarouselOrientation" />
+&lt;ComponentPreview name="CarouselOrientation" /&gt;
 
 ```vue
 <Carousel orientation="vertical | horizontal">
@@ -148,13 +141,15 @@ Use the `orientation` prop to set the orientation of the carousel.
 
 ### Thumbnails
 
-<ComponentPreview name="CarouselThumbnails" />
+&lt;ComponentPreview name="CarouselThumbnails" /&gt;
+
+###
 
 ## Options
 
 You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for more information.
 
-```vue:line-numbers {3-6}
+```vue:line-numbers
 <template>
   <Carousel
     :opts="{
@@ -177,13 +172,13 @@ You can pass options to the carousel using the `opts` prop. See the [Embla Carou
 
 Use the `@init-api` emit method on `<Carousel />` component to set the instance of the API.
 
-<ComponentPreview name="CarouselApi" />
+&lt;ComponentPreview name="CarouselApi" /&gt;
 
 ### Method 2
 
 You can access it through setting a template ref on the `<Carousel />` component.
 
-```vue:line-numbers {2,5,9}
+```vue:line-numbers
 <script setup>
 const carouselContainerRef = ref<InstanceType<typeof Carousel> | null>(null)
 
@@ -203,7 +198,7 @@ function accessApi() {
 
 You can listen to events using the API. To get the API instance use the `@init-api` emit method on the `<Carousel />` component
 
-```vue:line-numbers {5,7-9,25}
+```vue:line-numbers
 <script setup>
 import { nextTick, ref, watch } from 'vue'
 import { useCarousel } from '@/components/ui/carousel'
@@ -240,7 +235,7 @@ See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for mo
 
 You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scrollNext..Prev` using the `v-slot` directive in the `<Carousel v-slot="slotProps" />` component to extend the functionality.
 
-```vue:line-numbers {2}
+```vue:line-numbers
 <template>
   <Carousel v-slot="{ canScrollNext, canScrollPrev }">
     ...
@@ -258,7 +253,7 @@ You can use the `plugins` prop to add plugins to the carousel.
 npm i embla-carousel-autoplay
 ```
 
-```vue:line-numbers {2,8-10}
+```vue:line-numbers
 <script setup lang="ts">
 import Autoplay from 'embla-carousel-autoplay'
 </script>
@@ -275,6 +270,6 @@ import Autoplay from 'embla-carousel-autoplay'
 </template>
 ```
 
-<ComponentPreview name="CarouselPlugin" />
+&lt;ComponentPreview name="CarouselPlugin" /&gt;
 
 See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.
