@@ -8,7 +8,7 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "embla-carousel": "8.0.0-rc19",
