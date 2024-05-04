@@ -31,6 +31,8 @@ export default defineNuxtModule<ModuleOptions>({
     const ROOT_DIR_PATH = nuxt.options.rootDir
     const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
 
+    // --- Register components ---
+    // Tell Nuxt to not scan `componentsDir` for auto imports as we will do it manually
     nuxt.hook('components:dirs', (dirs) => {
       dirs.unshift({
         path: resolve(COMPONENT_DIR_PATH),
@@ -38,6 +40,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
+    // Manually scan `componentsDir` for components and register them for auto imports
     try {
       readdirSync(resolve(COMPONENT_DIR_PATH))
         .forEach(async (dir) => {
