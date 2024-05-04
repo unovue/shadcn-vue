@@ -35,8 +35,7 @@
     "release": "pnpm run prepack && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.11.2",
-    "@oxc-parser/wasm": "^0.1.0"
+    "@nuxt/kit": "^3.11.2"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.3.10",
