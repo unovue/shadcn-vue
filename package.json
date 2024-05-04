@@ -17,6 +17,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev:cli": "pnpm --filter shadcn-vue dev",
+    "dev:nuxt": "pnpm --filter shadcn-nuxt dev",
     "build:cli": "pnpm --filter shadcn-vue build",
     "build:registry": "pnpm --filter=www build:registry",
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
