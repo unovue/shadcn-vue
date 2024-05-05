@@ -1,4 +1,7 @@
-import { addTemplate, createResolver, defineNuxtModule, findPath, useLogger } from '@nuxt/kit'
+import { readFileSync, readdirSync } from 'node:fs'
+import { join } from 'node:path'
+import { parseSync } from '@oxc-parser/wasm'
+import { addComponent, addTemplate, createResolver, defineNuxtModule, findPath, useLogger } from '@nuxt/kit'
 import { UTILS } from '../../cli/src/utils/templates'
 
 // TODO: add test to make sure all registry is being parse correctly
@@ -28,7 +31,7 @@ export default defineNuxtModule<ModuleOptions>({
     const COMPONENT_DIR_PATH = componentDir!
     const ROOT_DIR_PATH = nuxt.options.rootDir
     const UTILS_ALIAS = '@/lib/utils' // Use the same path from the cli for backward compatibility
-    const { resolve } = createResolver(ROOT_DIR_PATH)
+    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
     const logger = useLogger('shadcn-nuxt')
 
     // `lib/utils`
@@ -46,12 +49,51 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Components Auto Imports
     const componentsPath = resolve(COMPONENT_DIR_PATH)
+
+    // Tell Nuxt to not scan `componentsDir` for auto imports as we will do it manually
+    // See https://github.com/radix-vue/shadcn-vue/pull/528#discussion_r1590206268
     nuxt.hook('components:dirs', (dirs) => {
       dirs.unshift({
         path: componentsPath,
-        extensions: ['.vue'], // Scan `.vue` only and skip `.ts` files as we use them inside components file only
-        prefix,
+        extensions: [],
       })
     })
+
+    // Manually scan `componentsDir` for components and register them for auto imports
+    try {
+      readdirSync(resolve(COMPONENT_DIR_PATH))
+        .forEach(async (dir) => {
+          try {
+            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+            const content = readFileSync(filePath, { encoding: 'utf8' })
+            const ast = parseSync(content, {
+              sourceType: 'module',
+              sourceFilename: filePath,
+            })
+
+            const exportedKeys: string[] = ast.program.body
+              .filter(node => node.type === 'ExportNamedDeclaration')
+            // @ts-expect-error parse return any
+              .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
+              .filter((key: string) => /^[A-Z]/.test(key))
+
+            exportedKeys.forEach((key) => {
+              addComponent({
+                name: `${prefix}${key}`, // name of the component to be used in vue templates
+                export: key, // (optional) if the component is a named (rather than default) export
+                filePath: resolve(filePath),
+              })
+            })
+          }
+          catch (err) {
+            if (err instanceof Error)
+              console.warn('Module error: ', err.message)
+          }
+        })
+    }
+    catch (err) {
+      if (err instanceof Error)
+        console.warn(err.message)
+    }
   },
 })
