@@ -8,11 +8,13 @@ const { scrollTo, selectedIndex, scrollSnaps } = useCarousel()
 </script>
 
 <template>
-  <div
-    v-for="(item, index) in scrollSnaps"
-    :key="index"
-    class="sm:mt-0 first:ml-0 border-1 w-2 h-2 mt-2 ml-2 border-gray-200 border-solid rounded-full"
-    :class="[cn(props.class), index === selectedIndex ? 'border-transparent bg-blue-400' : 'bg-transparent']"
-    @click="scrollTo(index)"
-  />
+  <div class="flex gap-2 justify-center">
+    <div
+      v-for="(_, index) in scrollSnaps"
+      :key="index"
+      class="border-1 w-2 h-2 rounded-full"
+      :class="cn(index === selectedIndex ? 'border-transparent bg-primary' : 'bg-border', props.class)"
+      @click="scrollTo(index)"
+    />
+  </div>
 </template>

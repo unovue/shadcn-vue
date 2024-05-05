@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/new-york/ui/carousel'
+import { Carousel, CarouselContent, CarouselDotButtons, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/new-york/ui/carousel'
 import { Card, CardContent } from '@/lib/registry/new-york/ui/card'
 </script>
 
@@ -18,5 +18,7 @@ import { Card, CardContent } from '@/lib/registry/new-york/ui/card'
     </CarouselContent>
     <CarouselPrevious />
     <CarouselNext />
+
+    <CarouselDotButtons class="mt-4" />
   </Carousel>
 </template>

@@ -1,7 +1,4 @@
 ---
-
-```
----
 title: Carousel
 description: A carousel with motion and swipe built using Embla.
 source: apps/www/src/lib/registry/default/ui/carousel
@@ -36,7 +33,6 @@ import {
 
 <template>
   <Carousel>
-    <CarouselDotButtons />
     <CarouselContent>
       <CarouselItem>...</CarouselItem>
       <CarouselItem>...</CarouselItem>
@@ -44,6 +40,8 @@ import {
     </CarouselContent>
     <CarouselPrevious />
     <CarouselNext />
+
+    <CarouselDotButtons />
   </Carousel>
 </template>
 ```
