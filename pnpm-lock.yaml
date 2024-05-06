@@ -370,7 +370,33 @@ importers:
         version: 20.12.8
       nuxt:
         specifier: ^3.11.2
+<<<<<<< HEAD
         version: 3.11.2(@parcel/watcher@2.4.1)(@types/node@20.12.8)(@unocss/reset@0.59.4)(axios@0.18.1)(encoding@0.1.13)(eslint@9.3.0)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.16.3))(vue@3.4.27(typescript@5.4.5)))(ioredis@5.4.1)(optionator@0.9.3)(rollup@4.16.3)(terser@5.30.4)(typescript@5.4.5)(unocss@0.59.4(postcss@8.4.38)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4)))(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4))(vue-tsc@2.0.19(typescript@5.4.5))
+=======
+        version: 3.11.2(@parcel/watcher@2.4.1)(@types/node@20.12.8)(@unocss/reset@0.59.4)(axios@0.18.1)(encoding@0.1.13)(eslint@9.1.1)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.16.3))(vue@3.4.24(typescript@5.4.5)))(ioredis@5.4.1)(meow@12.1.1)(optionator@0.9.3)(rollup@4.16.3)(terser@5.30.4)(typescript@5.4.5)(unocss@0.59.4(postcss@8.4.38)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4)))(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4))(vue-tsc@2.0.14(typescript@5.4.5))
+      vitest:
+        specifier: ^1.6.0
+        version: 1.6.0(@types/node@20.12.8)(@vitest/ui@0.34.7)(terser@5.30.4)
+
+  packages/module/playground:
+    dependencies:
+      '@nuxtjs/tailwindcss':
+        specifier: ^6.10.1
+        version: 6.12.0(rollup@4.16.3)
+      embla-carousel-vue:
+        specifier: 8.0.0-rc19
+        version: 8.0.0-rc19(vue@3.4.24(typescript@5.4.5))
+      lucide-vue-next:
+        specifier: ^0.276.0
+        version: 0.276.0(vue@3.4.24(typescript@5.4.5))
+    devDependencies:
+      nuxt:
+        specifier: latest
+        version: 3.11.2(@parcel/watcher@2.4.1)(@types/node@20.12.7)(@unocss/reset@0.59.4)(axios@0.18.1)(encoding@0.1.13)(eslint@9.1.1)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.16.3))(vue@3.4.24(typescript@5.4.5)))(ioredis@5.4.1)(meow@12.1.1)(optionator@0.9.3)(rollup@4.16.3)(terser@5.30.4)(typescript@5.4.5)(unocss@0.59.4(postcss@8.4.38)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.7)(terser@5.30.4)))(vite@5.2.10(@types/node@20.12.7)(terser@5.30.4))(vue-tsc@2.0.14(typescript@5.4.5))
+      shadcn-nuxt:
+        specifier: file:..
+        version: file:packages/module(rollup@4.16.3)(tailwindcss@3.4.3)(vue@3.4.24(typescript@5.4.5))
+>>>>>>> dda5411 (chore: add `shadcn-nuxt` to playground's dependencies)
 
 packages:
 
@@ -6494,6 +6520,9 @@ packages:
 
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
+
+  shadcn-nuxt@file:packages/module:
+    resolution: {directory: packages/module, type: directory}
 
   shebang-command@1.2.0:
     resolution: {integrity: sha512-EV3L1+UQWGor21OmnvojK36mhg+TyIKDh3iFBKBohr5xeXIhNBcx8oWdgkTEEQ+BEFFYdLRuqMfd5L84N1V5Vg==}
@@ -15258,6 +15287,22 @@ snapshots:
   setprototypeof@1.1.0: {}
 
   setprototypeof@1.2.0: {}
+
+  shadcn-nuxt@file:packages/module(rollup@4.16.3)(tailwindcss@3.4.3)(vue@3.4.24(typescript@5.4.5)):
+    dependencies:
+      '@nuxt/kit': 3.11.2(rollup@4.16.3)
+      '@oxc-parser/wasm': 0.1.0
+      class-variance-authority: 0.7.0
+      clsx: 2.1.1
+      radix-vue: 1.7.3(vue@3.4.24(typescript@5.4.5))
+      tailwind-merge: 2.3.0
+      tailwindcss-animate: 1.0.7(tailwindcss@3.4.3)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - rollup
+      - supports-color
+      - tailwindcss
+      - vue
 
   shebang-command@1.2.0:
     dependencies:
