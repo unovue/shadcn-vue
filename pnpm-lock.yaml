@@ -96,8 +96,8 @@ importers:
         specifier: ^0.30.10
         version: 0.30.10
       radix-vue:
-        specifier: ^1.7.2
-        version: 1.7.2(vue@3.4.24(typescript@5.4.5))
+        specifier: ^1.7.3
+        version: 1.7.3(vue@3.4.24(typescript@5.4.5))
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.3)
@@ -105,8 +105,8 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2(@popperjs/core@2.11.8)(vue@3.4.24(typescript@5.4.5))
       vaul-vue:
-        specifier: ^0.1.0
-        version: 0.1.0(typescript@5.4.5)
+        specifier: ^0.1.1
+        version: 0.1.1(typescript@5.4.5)
       vee-validate:
         specifier: 4.12.6
         version: 4.12.6(vue@3.4.24(typescript@5.4.5))
@@ -277,8 +277,8 @@ importers:
         specifier: ^2.4.2
         version: 2.4.2
       radix-vue:
-        specifier: ^1.7.2
-        version: 1.7.2(vue@3.4.24(typescript@5.4.5))
+        specifier: ^1.7.3
+        version: 1.7.3(vue@3.4.24(typescript@5.4.5))
       ts-morph:
         specifier: ^22.0.0
         version: 22.0.0
@@ -5965,8 +5965,8 @@ packages:
   quickselect@2.0.0:
     resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
 
-  radix-vue@1.7.2:
-    resolution: {integrity: sha512-KczYzzflm8todIk3flaQIWQ6P1wqtUh0cwMBRhp8Pr2JXs8FMG2qfL4lJly2mhMFXc199bG0U4bNLLsrhn5xoA==}
+  radix-vue@1.7.3:
+    resolution: {integrity: sha512-GgUagGvpO1EtNvkQ27x3Hv26VrTffZ4XRyx8eMabXRxXtbo2GbjAd2HvGjL9A/D7QVHxw1ZUMBDcYWcpw4LEiQ==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -7014,8 +7014,8 @@ packages:
     resolution: {integrity: sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  vaul-vue@0.1.0:
-    resolution: {integrity: sha512-3PYWMbN3cSdsciv3fzewskxZFnX61PYq1uNsbvizXDo/8sN4SMrWkYDqWaPdTD3GTEm6wpx7j5flRLg7A5ZXbQ==}
+  vaul-vue@0.1.1:
+    resolution: {integrity: sha512-PlvNaMpmIlBDZBYK3QZX3CEpi3ydAgpQyvouYfNdZINF4bQWrXNuUBVdRFUQ4UbT/td0ATCgtbjIF+1fuxu5PA==}
 
   vee-validate@4.12.6:
     resolution: {integrity: sha512-EKM3YHy8t1miPh30d5X6xOrfG/Ctq0nbN4eMpCK7ezvI6T98/S66vswP+ihL4QqAK/k5KqreWOxof09+JG7N/A==}
@@ -14151,7 +14151,7 @@ snapshots:
 
   quickselect@2.0.0: {}
 
-  radix-vue@1.7.2(vue@3.4.24(typescript@5.4.5)):
+  radix-vue@1.7.3(vue@3.4.24(typescript@5.4.5)):
     dependencies:
       '@floating-ui/dom': 1.6.3
       '@floating-ui/vue': 1.0.6(vue@3.4.24(typescript@5.4.5))
@@ -15321,10 +15321,10 @@ snapshots:
     dependencies:
       builtins: 5.1.0
 
-  vaul-vue@0.1.0(typescript@5.4.5):
+  vaul-vue@0.1.1(typescript@5.4.5):
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.24(typescript@5.4.5))
-      radix-vue: 1.7.2(vue@3.4.24(typescript@5.4.5))
+      radix-vue: 1.7.3(vue@3.4.24(typescript@5.4.5))
       vue: 3.4.24(typescript@5.4.5)
     transitivePeerDependencies:
       - '@vue/composition-api'

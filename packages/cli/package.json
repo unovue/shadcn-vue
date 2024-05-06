@@ -62,7 +62,7 @@
     "ora": "^8.0.1",
     "pathe": "^1.1.2",
     "prompts": "^2.4.2",
-    "radix-vue": "^1.7.2",
+    "radix-vue": "^1.7.3",
     "ts-morph": "^22.0.0",
     "tsconfig-paths": "^4.2.0",
     "zod": "^3.23.3"
