@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.10.1",
-    "embla-carousel": "8.0.0-rc19",
     "embla-carousel-vue": "8.0.0-rc19",
     "lucide-vue-next": "^0.276.0"
   },
