@@ -279,12 +279,23 @@ importers:
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
+      pkg-types:
+        specifier: ^1.1.0
+        version: 1.1.0
       prompts:
         specifier: ^2.4.2
         version: 2.4.2
       radix-vue:
+<<<<<<< HEAD
         specifier: ^1.7.3
         version: 1.7.3(vue@3.4.27(typescript@5.4.5))
+=======
+        specifier: ^1.7.2
+        version: 1.7.2(vue@3.4.24(typescript@5.4.5))
+      semver:
+        specifier: ^7.6.0
+        version: 7.6.0
+>>>>>>> 582818d (feat(cli): expose `shadcn-nuxt` info)
       ts-morph:
         specifier: ^22.0.0
         version: 22.0.0
@@ -8938,7 +8949,7 @@ snapshots:
       lru-cache: 10.2.0
       npm-pick-manifest: 9.0.0
       proc-log: 4.2.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1(bluebird@3.7.2)
       promise-retry: 2.0.1
       semver: 7.6.0
       which: 4.0.0
@@ -14853,8 +14864,6 @@ snapshots:
   process-nextick-args@2.0.1: {}
 
   process@0.11.10: {}
-
-  promise-inflight@1.0.1: {}
 
   promise-inflight@1.0.1(bluebird@3.7.2):
     optionalDependencies:
