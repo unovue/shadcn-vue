@@ -4,7 +4,8 @@ import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/v
 import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
 import { type Component, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
-import { type BaseChartProps, ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
+import type { BaseChartProps } from '.'
+import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
@@ -33,7 +34,6 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
   showLegend: true,
   showGridLine: true,
 })
-
 const emits = defineEmits<{
   legendItemClick: [d: BulletLegendItemInterface, i: number]
 }>()
