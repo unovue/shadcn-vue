@@ -105,8 +105,8 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2(@popperjs/core@2.11.8)(vue@3.4.24(typescript@5.4.5))
       vaul-vue:
-        specifier: ^0.1.1
-        version: 0.1.1(typescript@5.4.5)
+        specifier: ^0.1.2
+        version: 0.1.2(typescript@5.4.5)
       vee-validate:
         specifier: 4.12.6
         version: 4.12.6(vue@3.4.24(typescript@5.4.5))
@@ -7014,8 +7014,8 @@ packages:
     resolution: {integrity: sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  vaul-vue@0.1.1:
-    resolution: {integrity: sha512-PlvNaMpmIlBDZBYK3QZX3CEpi3ydAgpQyvouYfNdZINF4bQWrXNuUBVdRFUQ4UbT/td0ATCgtbjIF+1fuxu5PA==}
+  vaul-vue@0.1.2:
+    resolution: {integrity: sha512-E9e0qmHXScnYXDXYuBM0xFjW5DaRcUhj9fkFlv12omd7K/RzXpM+prU+EfHS3sjtDJuy1lBdOlPPYXJeQuT/Qw==}
 
   vee-validate@4.12.6:
     resolution: {integrity: sha512-EKM3YHy8t1miPh30d5X6xOrfG/Ctq0nbN4eMpCK7ezvI6T98/S66vswP+ihL4QqAK/k5KqreWOxof09+JG7N/A==}
@@ -15321,7 +15321,7 @@ snapshots:
     dependencies:
       builtins: 5.1.0
 
-  vaul-vue@0.1.1(typescript@5.4.5):
+  vaul-vue@0.1.2(typescript@5.4.5):
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.24(typescript@5.4.5))
       radix-vue: 1.7.3(vue@3.4.24(typescript@5.4.5))
