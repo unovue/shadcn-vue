@@ -25,6 +25,7 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     typescript: z.boolean().default(true),
+    tsConfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG),
     tailwind: z.object({
       config: z.string(),
       css: z.string(),
@@ -33,7 +34,6 @@ export const rawConfigSchema = z
       prefix: z.string().optional(),
     }),
     framework: z.string().default('Vite'),
-    tsConfigPath: z.string().default('./tsconfig.json'),
     aliases: z.object({
       components: z.string(),
       utils: z.string(),
@@ -85,10 +85,9 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     }
   }
   else {
-    tsConfigPath = path.resolve(cwd, './jsconfig.json')
+    tsConfigPath = config.tsConfigPath.includes('tsconfig.json') ? path.resolve(cwd, './jsconfig.json') : path.resolve(cwd, config.tsConfigPath)
     tsConfig = loadConfig(tsConfigPath)
   }
-
   if (tsConfig.resultType === 'failed') {
     throw new Error(
         `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
