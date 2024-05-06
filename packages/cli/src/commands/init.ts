@@ -137,6 +137,16 @@ export async function promptForConfig(
     },
     {
       type: 'text',
+      name: 'tsConfigPath',
+      message: (prev, values) => `Where is your ${highlight(values.typescript ? 'tsconfig.json' : 'jsconfig.json')} file?`,
+      initial: (prev, values) => {
+        const prefix = values.framework === 'nuxt' ? '.nuxt/' : './'
+        const path = values.typescript ? 'tsconfig.json' : 'jsconfig.json'
+        return prefix + path
+      },
+    },
+    {
+      type: 'text',
       name: 'tailwindCss',
       message: `Where is your ${highlight('global CSS')} file?`,
       initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
@@ -189,6 +199,7 @@ export async function promptForConfig(
     $schema: 'https://shadcn-vue.com/schema.json',
     style: options.style,
     typescript: options.typescript,
+    tsConfigPath: options.tsConfigPath,
     framework: options.framework,
     tailwind: {
       config: options.tailwindConfig,

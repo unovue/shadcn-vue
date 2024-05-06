@@ -19,6 +19,7 @@ it('get raw config', async () => {
       baseColor: 'neutral',
       cssVariables: false,
     },
+    tsConfigPath: './tsconfig.json',
     aliases: {
       components: '@/components',
       utils: '@/lib/utils',
@@ -55,6 +56,7 @@ it('get config', async () => {
       utils: '@/lib/utils',
     },
     framework: 'Vite',
+    tsConfigPath: './tsconfig.json',
     resolvedPaths: {
       tailwindConfig: path.resolve(
         __dirname,
@@ -102,6 +104,7 @@ it('get config', async () => {
       utils: '~/lib/utils',
     },
     framework: 'Vite',
+    tsConfigPath: './tsconfig.json',
     resolvedPaths: {
       tailwindConfig: path.resolve(
         __dirname,
@@ -148,6 +151,7 @@ it('get config', async () => {
       utils: '@/lib/utils',
     },
     framework: 'Vite',
+    tsConfigPath: './tsconfig.json',
     resolvedPaths: {
       tailwindConfig: path.resolve(
         __dirname,
