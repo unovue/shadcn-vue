@@ -9,6 +9,8 @@ import { z } from 'zod'
 import { addDependency, addDevDependency } from 'nypm'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
+import { gte } from 'semver'
+import { getProjectInfo } from '../utils/get-project-info'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
@@ -239,6 +241,15 @@ export async function promptForConfig(
 export async function runInit(cwd: string, config: Config) {
   const spinner = ora('Initializing project...')?.start()
 
+  // Check in in a Nuxt project.
+  const { isNuxt, shadcnNuxt } = await getProjectInfo()
+  if (isNuxt) {
+    consola.log('')
+    shadcnNuxt
+      ? consola.info(`Detected a Nuxt project with 'shadcn-nuxt' v${shadcnNuxt.version}...`)
+      : consola.warn(`Detected a Nuxt project without 'shadcn-nuxt' module. It's recommended to install it.`)
+  }
+
   // Ensure all resolved paths directories exist.
   for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
     // Determine if the path is a file or directory.
@@ -299,9 +310,9 @@ export async function runInit(cwd: string, config: Config) {
   // Install dependencies.
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
 
-  const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
-  ).filter(Boolean)
+  const baseDeps = gte(shadcnNuxt?.version || '', '0.10.4') ? [] : PROJECT_DEPENDENCIES.base
+  const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
+  const deps = baseDeps.concat(iconsDep).filter(Boolean)
 
   await Promise.allSettled(
     [
