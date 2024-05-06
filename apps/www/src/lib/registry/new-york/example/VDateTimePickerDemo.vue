@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { format } from 'date-fns'
-import { ref } from 'vue'
 import { CalendarIcon } from '@radix-icons/vue'
 
+import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
 import {
   Popover,
   PopoverContent,

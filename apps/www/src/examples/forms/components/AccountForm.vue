@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { h, ref } from 'vue'
 import * as z from 'zod'
-import { format } from 'date-fns'
+import { toDate } from 'radix-vue/date'
 import { toTypedSchema } from '@vee-validate/zod'
 import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { CalendarDate, DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 import { cn } from '@/lib/utils'
 
 import RadixIconsCalendar from '~icons/radix-icons/calendar'
 
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import {
@@ -18,17 +19,19 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/lib/registry/default/ui/command'
+} from '@/lib/registry/new-york/ui/command'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+} from '@/lib/registry/new-york/ui/popover'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import { toast } from '@/lib/registry/new-york/ui/toast'
 
 const open = ref(false)
+const dateValue = ref()
+const placeholder = ref()
 
 const languages = [
   { label: 'English', value: 'en' },
@@ -42,24 +45,24 @@ const languages = [
   { label: 'Chinese', value: 'zh' },
 ] as const
 
+const df = new DateFormatter('en-US', {
+  dateStyle: 'long',
+})
+
 const accountFormSchema = toTypedSchema(z.object({
   name: z
-    .string()
+    .string({
+      required_error: 'Required.',
+    })
     .min(2, {
       message: 'Name must be at least 2 characters.',
     })
     .max(30, {
       message: 'Name must not be longer than 30 characters.',
     }),
-  dob: z.date({
-    required_error: 'A date of birth is required.',
-  }),
-  language: z.string().nonempty({
-    message: 'Please select a language.',
-  }),
+  dob: z.string().datetime().optional().refine(date => date !== undefined, 'Please select a valid date.'),
+  language: z.string().min(1, 'Please select a language.'),
 }))
-
-const filterFunction = (list: typeof languages, search: string) => list.filter(i => i.value.toLowerCase().includes(search.toLowerCase()))
 
 // https://github.com/logaretm/vee-validate/issues/3521
 // https://github.com/logaretm/vee-validate/discussions/3571
@@ -95,7 +98,7 @@ async function onSubmit(values: any) {
       </FormItem>
     </FormField>
 
-    <FormField v-slot="{ componentField, value }" name="dob">
+    <FormField v-slot="{ field, value }" name="dob">
       <FormItem class="flex flex-col">
         <FormLabel>Date of birth</FormLabel>
         <Popover>
@@ -103,17 +106,38 @@ async function onSubmit(values: any) {
             <FormControl>
               <Button
                 variant="outline" :class="cn(
-                  'w-[280px] pl-3 text-left font-normal',
+                  'w-[240px] justify-start text-left font-normal',
                   !value && 'text-muted-foreground',
                 )"
               >
-                <span>{{ value ? format(value, "PPP") : "Pick a date" }}</span>
-                <RadixIconsCalendar class="ml-auto h-4 w-4 opacity-50" />
+                <RadixIconsCalendar class="mr-2 h-4 w-4 opacity-50" />
+                <span>{{ value ? df.format(toDate(dateValue, getLocalTimeZone())) : "Pick a date" }}</span>
               </Button>
             </FormControl>
           </PopoverTrigger>
           <PopoverContent class="p-0">
-            <Calendar v-bind="componentField" />
+            <Calendar
+              v-model:placeholder="placeholder"
+              v-model="dateValue"
+              calendar-label="Date of birth"
+              initial-focus
+              :min-value="new CalendarDate(1900, 1, 1)"
+              :max-value="today(getLocalTimeZone())"
+              @update:model-value="(v) => {
+                if (v) {
+                  dateValue = v
+                  setValues({
+                    dob: toDate(v).toISOString(),
+                  }, false)
+                }
+                else {
+                  dateValue = undefined
+                  setValues({
+                    dob: undefined,
+                  }, false)
+                }
+              }"
+            />
           </PopoverContent>
         </Popover>
         <FormDescription>
@@ -121,6 +145,7 @@ async function onSubmit(values: any) {
         </FormDescription>
         <FormMessage />
       </FormItem>
+      <input type="hidden" v-bind="field">
     </FormField>
 
     <FormField v-slot="{ value }" name="language">
@@ -155,7 +180,7 @@ async function onSubmit(values: any) {
                     @select="() => {
                       setValues({
                         language: language.value,
-                      })
+                      }, false)
                       open = false
                     }"
                   >

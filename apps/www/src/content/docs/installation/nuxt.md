@@ -24,7 +24,7 @@ npm install -D typescript
 ### Install TailwindCSS module
 
 ```bash
-npm install -D @nuxtjs/tailwindcss
+npx nuxi@latest module add @nuxtjs/tailwindcss
 ```
 
 ### Add `Nuxt` module
@@ -37,7 +37,7 @@ npm install -D @nuxtjs/tailwindcss
   Install the package below.
 
   ```bash
-  npm install -D shadcn-nuxt
+ npx nuxi@latest module add shadcn-nuxt
   ```
 
   </TabMarkdown>

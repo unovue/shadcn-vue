@@ -5,7 +5,6 @@ import { FORM_ITEM_INJECTION_KEY } from './FormItem.vue'
 export function useFormField() {
   const fieldContext = inject(FieldContextKey)
   const fieldItemContext = inject(FORM_ITEM_INJECTION_KEY)
-
   const fieldState = {
     valid: useIsFieldValid(),
     isDirty: useIsFieldDirty(),

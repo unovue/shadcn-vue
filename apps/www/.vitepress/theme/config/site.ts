@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'Introducing Blocks!',
-  link: '/blocks',
+  title: 'Extended: Auto Form, Charts',
+  link: '/docs/components/auto-form.html',
 }

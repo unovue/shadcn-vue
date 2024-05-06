@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import { useSessionStorage, useStorage } from '@vueuse/core'
+import { useStorage } from '@vueuse/core'
 import { useData } from 'vitepress'
 import { type Theme, themes } from './../lib/registry/themes'
 import { type Style, styles } from '@/lib/registry/styles'
@@ -20,7 +20,8 @@ export const RADII = [0, 0.25, 0.5, 0.75, 1]
 
 export function useConfigStore() {
   const { isDark } = useData()
-  const config = useSessionStorage<Config>('config', {
+  const config = useStorage<Config>('config', {
+    theme: 'zinc',
     radius: 0.5,
     style: styles[0].name,
   })

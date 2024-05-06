@@ -10,8 +10,6 @@ import {
 } from '@/lib/registry/new-york/ui/card'
 import { useConfigStore } from '@/stores/config'
 
-const { themePrimary } = useConfigStore()
-
 type Data = typeof data[number]
 const data = [
   { average: 400, today: 240 },
@@ -59,7 +57,7 @@ function computeLineOpacity(val: any, index: number) {
     <CardHeader>
       <CardTitle>Exercise Minutes</CardTitle>
       <CardDescription>
-        Your excercise minutes are ahead of where you normally are.
+        Your exercise minutes are ahead of where you normally are.
       </CardDescription>
     </CardHeader>
     <CardContent class="pb-4">
@@ -74,15 +72,14 @@ function computeLineOpacity(val: any, index: number) {
             bottom: 0,
           }"
           :style="{
-            '--theme-primary': themePrimary,
             '--vis-tooltip-padding': '0px',
             '--vis-tooltip-background-color': 'transparent',
             '--vis-tooltip-border-color': 'transparent',
           }"
         >
           <VisTooltip />
-          <VisLine :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :stroke-width="2" color="var(--theme-primary)" :attributes="{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }" />
-          <VisScatter :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :size="6" :stroke-width="2" stroke-color="var(--theme-primary)" color="white" />
+          <VisLine :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :stroke-width="2" color="hsl(var(--primary))" :attributes="{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }" />
+          <VisScatter :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :size="6" :stroke-width="2" stroke-color="hsl(var(--primary))" color="white" />
           <VisCrosshair :template="template" />
         </VisXYContainer>
       </div>

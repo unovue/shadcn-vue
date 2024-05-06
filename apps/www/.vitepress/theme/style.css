@@ -27,6 +27,21 @@
 		--input: 240 5.9% 90%;
 		--ring: 240 5% 64.9%;
 		--radius: 0.5rem;
+
+		--vis-primary-color: var(--primary);
+    --vis-secondary-color: 160 81% 40%;
+    --vis-text-color: var(--muted-foreground);
+
+
+		--vis-font-family: inherit !important;
+		--vis-area-stroke-width: 2px !important;
+		--vis-donut-central-label-text-color: hsl(var(--muted-foreground)) !important;
+		--vis-tooltip-background-color: none !important;
+    --vis-tooltip-border-color: none !important;
+    --vis-tooltip-text-color: none !important;
+    --vis-tooltip-shadow-color: none !important;
+    --vis-tooltip-backdrop-filter: none !important;
+    --vis-tooltip-padding: none !important;
   }
 
   .dark {
@@ -142,7 +157,7 @@
 }
 
 div[class^="language-"] {
-	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto md:rounded-lg border !bg-zinc-950 dark:!bg-zinc-900
+	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto md:rounded-lg border !bg-secondary-foreground dark:!bg-secondary
 }
 pre {
 	@apply py-4;

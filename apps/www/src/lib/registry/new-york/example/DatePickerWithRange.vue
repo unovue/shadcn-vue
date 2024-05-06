@@ -1,51 +1,55 @@
 <script setup lang="ts">
-import { addDays, format } from 'date-fns'
-import { ref } from 'vue'
-import { CalendarIcon } from '@radix-icons/vue'
-
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { type Ref, ref } from 'vue'
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
+  CalendarDate,
+  DateFormatter,
+  getLocalTimeZone,
+} from '@internationalized/date'
 
-const date = ref({
-  start: new Date(2022, 0, 20),
-  end: addDays(new Date(2022, 0, 20), 20),
+import { CalendarIcon } from '@radix-icons/vue'
+import type { DateRange } from 'radix-vue'
+import { RangeCalendar } from '@/lib/registry/new-york/ui/range-calendar'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
+import { cn } from '@/lib/utils'
+
+const df = new DateFormatter('en-US', {
+  dateStyle: 'medium',
 })
+
+const value = ref({
+  start: new CalendarDate(2022, 1, 20),
+  end: new CalendarDate(2022, 1, 20).add({ days: 20 }),
+}) as Ref<DateRange>
 </script>
 
 <template>
-  <div :class="cn('grid gap-2', $attrs.class ?? '')">
-    <Popover>
-      <PopoverTrigger as-child>
-        <Button
-          id="date"
-          :variant="'outline'"
-          :class="cn(
-            'w-[300px] justify-start text-left font-normal',
-            !date && 'text-muted-foreground',
-          )"
-        >
-          <CalendarIcon class="mr-2 h-4 w-4" />
+  <Popover>
+    <PopoverTrigger as-child>
+      <Button
+        variant="outline"
+        :class="cn(
+          'w-[280px] justify-start text-left font-normal',
+          !value && 'text-muted-foreground',
+        )"
+      >
+        <CalendarIcon class="mr-2 h-4 w-4" />
+        <template v-if="value.start">
+          <template v-if="value.end">
+            {{ df.format(value.start.toDate(getLocalTimeZone())) }} - {{ df.format(value.end.toDate(getLocalTimeZone())) }}
+          </template>
 
-          <span>
-            {{ date.start ? (
-              date.end ? `${format(date.start, 'LLL dd, y')} - ${format(date.end, 'LLL dd, y')}`
-              : format(date.start, 'LLL dd, y')
-            ) : 'Pick a date' }}
-          </span>
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent class="w-auto p-0" align="start">
-        <Calendar
-          v-model.range="date"
-          :columns="2"
-        />
-      </PopoverContent>
-    </Popover>
-  </div>
+          <template v-else>
+            {{ df.format(value.start.toDate(getLocalTimeZone())) }}
+          </template>
+        </template>
+        <template v-else>
+          Pick a date
+        </template>
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent class="w-auto p-0">
+      <RangeCalendar v-model="value" initial-focus :number-of-months="2" @update:start-value="(startDate) => value.start = startDate" />
+    </PopoverContent>
+  </Popover>
 </template>

@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { computed } from 'vue'
-import { useData } from 'vitepress'
+import { VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { Card, CardContent, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
-import { useConfigStore } from '@/stores/config'
-import { themes } from '@/lib/registry/themes'
+import { LineChart } from '@/lib/registry/new-york/ui/chart-line'
+import { BarChart } from '@/lib/registry/new-york/ui/chart-bar'
 
 type Data = typeof data[number]
 const data = [
@@ -17,14 +15,6 @@ const data = [
   { revenue: 11244, subscription: 278 },
   { revenue: 26475, subscription: 189 },
 ]
-
-const cfg = useConfigStore()
-
-const { isDark } = useData()
-const theme = computed(() => themes.find(theme => theme.name === cfg.config.value.theme))
-
-const lineX = (d: Data, i: number) => i
-const lineY = (d: Data) => d.revenue
 </script>
 
 <template>
@@ -44,23 +34,27 @@ const lineY = (d: Data) => d.revenue
         </p>
 
         <div class="h-20">
-          <VisXYContainer
-            height="80px"
-            :data="data" :margin="{
-              top: 5,
-              right: 10,
-              left: 10,
-              bottom: 0,
-            }"
-            :style="{
-              '--theme-primary': `hsl(${
-                theme?.cssVars[isDark ? 'dark' : 'light'].primary
-              })`,
-            }"
+          <LineChart
+            class="h-[80px]"
+            :data="data"
+            :margin="{ top: 5, right: 10, left: 10, bottom: 0 }"
+            :categories="['revenue']"
+            :index="'revenue'"
+            :show-grid-line="false"
+            :show-legend="false"
+            :show-tooltip="false"
+            :show-x-axis="false"
+            :show-y-axis="false"
           >
-            <VisLine :x="lineX" :y="lineY" color="var(--theme-primary)" />
-            <VisScatter :x="lineX" :y="lineY" :size="6" stroke-color="var(--theme-primary)" :stroke-width="2" color="white" />
-          </VisXYContainer>
+            <VisScatter
+              color="white"
+              stroke-color="hsl(var(--primary))"
+              :x="(d: Data, i: number) => i"
+              :y="(d: Data) => d.revenue"
+              :size="6"
+              :stroke-width="2"
+            />
+          </LineChart>
         </div>
       </CardContent>
     </Card>
@@ -80,20 +74,27 @@ const lineY = (d: Data) => d.revenue
         </p>
 
         <div class="mt-4 h-20">
-          <VisXYContainer
-            height="80px" :data="data" :style="{
-              '--theme-primary': `hsl(${
-                theme?.cssVars[isDark ? 'dark' : 'light'].primary
-              })`,
-            }"
+          <BarChart
+            class="h-[80px]"
+            :data="data"
+            :categories="['subscription']"
+            :index="'subscription'"
+            :show-grid-line="false"
+            :show-legend="false"
+            :show-x-axis="false"
+            :show-y-axis="false"
+            :show-tooltip="false"
+          />
+          <!-- <VisXYContainer
+            height="80px" :data="data"
           >
             <VisStackedBar
-              :x="lineX"
+              :x="(d: Data, i:number) => i"
               :y="(d: Data) => d.subscription"
               :bar-padding="0.1"
-              :rounded-corners="0" color="var(--theme-primary)"
+              :rounded-corners="0" color="hsl(var(--primary))"
             />
-          </VisXYContainer>
+          </VisXYContainer> -->
         </div>
       </CardContent>
     </Card>

@@ -1,36 +1,40 @@
 <script setup lang="ts">
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
-
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/default/ui/popover'
+  DateFormatter,
+  type DateValue,
+  getLocalTimeZone,
+} from '@internationalized/date'
 
-const date = ref<Date>()
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { Button } from '@/lib/registry/default/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
+import { cn } from '@/lib/utils'
+
+const df = new DateFormatter('en-US', {
+  dateStyle: 'long',
+})
+
+const value = ref<DateValue>()
 </script>
 
 <template>
   <Popover>
     <PopoverTrigger as-child>
       <Button
-        :variant="'outline'"
+        variant="outline"
         :class="cn(
           'w-[280px] justify-start text-left font-normal',
-          !date && 'text-muted-foreground',
+          !value && 'text-muted-foreground',
         )"
       >
         <CalendarIcon class="mr-2 h-4 w-4" />
-        <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
+        {{ value ? df.format(value.toDate(getLocalTimeZone())) : "Pick a date" }}
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" />
+      <Calendar v-model="value" initial-focus />
     </PopoverContent>
   </Popover>
 </template>

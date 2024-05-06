@@ -15,7 +15,7 @@ const plugin = Autoplay({
     class="relative w-full max-w-xs"
     :plugins="[plugin]"
     @mouseenter="plugin.stop"
-    @mouseleave="[plugin.reset(), plugin.play(), console.log('Runing')];"
+    @mouseleave="[plugin.reset(), plugin.play(), console.log('Running')];"
   >
     <CarouselContent>
       <CarouselItem v-for="(_, index) in 5" :key="index">

@@ -2,6 +2,36 @@ import { CreditCard } from 'lucide-vue-next'
 import RiAppleFill from '~icons/ri/apple-fill'
 import RiPaypalFill from '~icons/ri/paypal-fill'
 
+type Color =
+  | 'zinc'
+  | 'slate'
+  | 'stone'
+  | 'gray'
+  | 'neutral'
+  | 'red'
+  | 'rose'
+  | 'orange'
+  | 'green'
+  | 'blue'
+  | 'yellow'
+  | 'violet'
+
+// Create an array of color values
+export const allColors: Color[] = [
+  'zinc',
+  'rose',
+  'blue',
+  'green',
+  'orange',
+  'red',
+  'slate',
+  'stone',
+  'gray',
+  'neutral',
+  'yellow',
+  'violet',
+]
+
 interface Payment {
   status: string
   email: string

@@ -8,6 +8,7 @@ import MobileNav from '../components/MobileNav.vue'
 import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue'
 
 import Kbd from '../components/Kbd.vue'
+import ThemePopover from '../components/ThemePopover.vue'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
 
 import { Button } from '@/lib/registry/default/ui/button'
@@ -133,6 +134,8 @@ watch(() => $route.path, (n) => {
             </div>
 
             <nav class="flex items-center">
+              <ThemePopover />
+
               <CodeConfigCustomizer />
 
               <Button
