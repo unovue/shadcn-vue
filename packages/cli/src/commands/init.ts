@@ -239,6 +239,7 @@ export async function promptForConfig(
 }
 
 export async function runInit(cwd: string, config: Config) {
+  console.log('OKAY')
   const spinner = ora('Initializing project...')?.start()
 
   // Check in in a Nuxt project.
@@ -311,7 +312,7 @@ export async function runInit(cwd: string, config: Config) {
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
 
   // Starting from `shadcn-nuxt` version 0.10.4, Base dependencies are handled by the module so no need to re-add them by the CLI
-  const baseDeps = gte(shadcnNuxt?.version || '', '0.10.4') ? [] : PROJECT_DEPENDENCIES.base
+  const baseDeps = gte(shadcnNuxt?.version || '0.0.0', '0.10.4') ? [] : PROJECT_DEPENDENCIES.base
   const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
   const deps = baseDeps.concat(iconsDep).filter(Boolean)
 
