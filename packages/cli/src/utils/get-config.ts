@@ -9,6 +9,7 @@ import { resolveImport } from '@/src/utils/resolve-import'
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
+export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
 
@@ -24,6 +25,7 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     typescript: z.boolean().default(true),
+    tsConfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG),
     tailwind: z.object({
       config: z.string(),
       css: z.string(),
@@ -68,7 +70,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   let tsConfig: ConfigLoaderResult | undefined
   let tsConfigPath = path.resolve(
     cwd,
-    config.framework === 'nuxt' ? '.nuxt/tsconfig.json' : './tsconfig.json',
+    config.tsConfigPath,
   )
 
   if (config.typescript) {
@@ -83,10 +85,9 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     }
   }
   else {
-    tsConfigPath = path.resolve(cwd, './jsconfig.json')
+    tsConfigPath = config.tsConfigPath.includes('tsconfig.json') ? path.resolve(cwd, './jsconfig.json') : path.resolve(cwd, config.tsConfigPath)
     tsConfig = loadConfig(tsConfigPath)
   }
-
   if (tsConfig.resultType === 'failed') {
     throw new Error(
         `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
