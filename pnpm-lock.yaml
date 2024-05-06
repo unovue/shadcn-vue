@@ -185,7 +185,7 @@ importers:
         version: 3.1.2(@popperjs/core@2.11.8)(vue@3.4.26(typescript@5.4.5))
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
       vaul-vue:
-        specifier: ^0.1.1
+        specifier: ^0.1.2
         version: 0.1.2(typescript@5.4.5)
       vee-validate:
         specifier: 4.12.6
