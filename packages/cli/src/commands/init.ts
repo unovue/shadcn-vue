@@ -239,7 +239,6 @@ export async function promptForConfig(
 }
 
 export async function runInit(cwd: string, config: Config) {
-  console.log('OKAY')
   const spinner = ora('Initializing project...')?.start()
 
   // Check in in a Nuxt project.
