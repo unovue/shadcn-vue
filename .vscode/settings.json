@@ -1,5 +1,9 @@
 {
   "vue.server.hybridMode": true,
+  "vue.server.includeLanguages": [
+    "vue",
+    "markdown"
+  ],
   "prettier.enable": false,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {

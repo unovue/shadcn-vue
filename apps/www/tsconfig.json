@@ -11,6 +11,9 @@
     "outDir": "dist",
     "sourceMap": true
   },
-  "include": ["src", ".vitepress/**/*.vue", "scripts/build-registry.ts", ".vitepress/**/*.mts", ".vitepress/**/*.ts", "src/lib/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src", "src/components.d.ts", "src/**/*.md", ".vitepress/**/*.vue", "scripts/build-registry.ts", ".vitepress/**/*.mts", ".vitepress/**/*.ts", "src/lib/**/*"],
+  "exclude": ["node_modules"],
+  "vueCompilerOptions": {
+    "vitePressExtensions": [".md"]
+  }
 }
