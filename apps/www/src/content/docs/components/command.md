@@ -101,7 +101,7 @@ watch(CmdJ, (v) => {
         <span class="text-xs">⌘</span>J
       </kbd>
     </p>
-    <CommandDialog :open="open" :on-open-change="handleOpenChange">
+    <CommandDialog :open="open" @update:open="handleOpenChange">
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
