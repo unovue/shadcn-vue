@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  modules: ['@nuxtjs/tailwindcss', '../src/module'],
   shadcn: {
     prefix: 'Ui',
   },
