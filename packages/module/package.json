@@ -38,7 +38,6 @@
     "@nuxt/kit": "^3.11.2",
     "@oxc-parser/wasm": "^0.1.0",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
     "radix-vue": "^1.7.3",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
