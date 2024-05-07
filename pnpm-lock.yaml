@@ -535,24 +535,26 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.3)
     devDependencies:
-      '@nuxt/devtools':
-        specifier: latest
-        version: 1.2.0(@unocss/reset@0.59.4)(axios@0.18.1)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.17.2))(vue@3.4.26(typescript@5.4.5)))(nuxt@3.11.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.12.9)(@unocss/reset@0.59.4)(axios@0.18.1)(encoding@0.1.13)(eslint@9.2.0)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.17.2))(vue@3.4.26(typescript@5.4.5)))(ioredis@5.4.1)(meow@12.1.1)(optionator@0.9.4)(rollup@4.17.2)(terser@5.31.0)(typescript@5.4.5)(unocss@0.59.4(postcss@8.4.38)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0)))(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vue-tsc@2.0.16(typescript@5.4.5)))(rollup@4.17.2)(unocss@0.59.4(postcss@8.4.38)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0)))(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vue@3.4.26(typescript@5.4.5))
       '@nuxt/eslint-config':
+<<<<<<< HEAD
 <<<<<<< HEAD
         specifier: ^0.3.10
         version: 0.3.10(eslint@9.3.0)(typescript@5.4.5)
 =======
         specifier: ^0.3.6
+=======
+        specifier: ^0.3.10
+>>>>>>> dfc0609 (chore: refresh lockfile)
         version: 0.3.10(eslint@9.2.0)(typescript@5.4.5)
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
       '@nuxt/module-builder':
-        specifier: ^0.5.5
-        version: 0.5.5(@nuxt/kit@3.11.2(rollup@4.17.2))(nuxi@3.11.1)(typescript@5.4.5)(vue-tsc@2.0.16(typescript@5.4.5))
+        specifier: ^0.6.0
+        version: 0.6.0(@nuxt/kit@3.11.2(rollup@4.17.2))(nuxi@3.11.1)(typescript@5.4.5)(vue-tsc@2.0.16(typescript@5.4.5))
       '@nuxt/schema':
         specifier: ^3.11.2
         version: 3.11.2(rollup@4.17.2)
       '@nuxt/test-utils':
+<<<<<<< HEAD
 <<<<<<< HEAD
         specifier: ^3.12.1
         version: 3.12.1(@vitest/ui@1.6.0(vitest@1.6.0))(h3@1.11.1)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4))(vitest@1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))(vue@3.4.27(typescript@5.4.5))
@@ -560,8 +562,12 @@ importers:
         specifier: ^3.12.0
         version: 3.12.1(@vitest/ui@0.34.7(vitest@0.33.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@0.33.0(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
+=======
+        specifier: ^3.12.1
+        version: 3.12.1(@vitest/ui@0.34.7(vitest@1.6.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))
+>>>>>>> dfc0609 (chore: refresh lockfile)
       '@types/node':
-        specifier: ^20.12.7
+        specifier: ^20.12.8
         version: 20.12.9
       nuxt:
         specifier: ^3.11.2
@@ -574,8 +580,8 @@ importers:
         version: 3.11.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.12.9)(@unocss/reset@0.59.4)(axios@0.18.1)(encoding@0.1.13)(eslint@9.2.0)(floating-vue@5.2.2(@nuxt/kit@3.11.2(rollup@4.17.2))(vue@3.4.26(typescript@5.4.5)))(ioredis@5.4.1)(meow@12.1.1)(optionator@0.9.4)(rollup@4.17.2)(terser@5.31.0)(typescript@5.4.5)(unocss@0.59.4(postcss@8.4.38)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0)))(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vue-tsc@2.0.16(typescript@5.4.5))
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
       vitest:
-        specifier: ^0.33.0
-        version: 0.33.0(@vitest/ui@0.34.7)(terser@5.31.0)
+        specifier: ^1.6.0
+        version: 1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0)
 
 <<<<<<< HEAD
   packages/module/playground:
@@ -1684,13 +1690,9 @@ packages:
 
   '@nuxt/eslint-config@0.3.10':
     resolution: {integrity: sha512-Hv1ncp0AzRSPD2FYjPW4r1ViSysXjZ2YFFBcfAdKtJtXrch+35B4H1+JXzHQa2P6M1nxMt3riPVSMibS9HkflQ==}
-  '@nuxt/eslint-config@0.3.10':
-    resolution: {integrity: sha512-Hv1ncp0AzRSPD2FYjPW4r1ViSysXjZ2YFFBcfAdKtJtXrch+35B4H1+JXzHQa2P6M1nxMt3riPVSMibS9HkflQ==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  '@nuxt/eslint-plugin@0.3.10':
-    resolution: {integrity: sha512-eV9TIpQK6UUN9wZCEuunG0vYXt4yz8RrfvvYC1mwq075kSOQevGWNCQKFE1SKr0YDl4PIIy8wDjchYIwT3gfNg==}
   '@nuxt/eslint-plugin@0.3.10':
     resolution: {integrity: sha512-eV9TIpQK6UUN9wZCEuunG0vYXt4yz8RrfvvYC1mwq075kSOQevGWNCQKFE1SKr0YDl4PIIy8wDjchYIwT3gfNg==}
     peerDependencies:
@@ -2888,6 +2890,9 @@ packages:
     resolution: {integrity: sha512-k3Lyo+ONLOgylctiGovRKy7V4+dIN2yxstX3eY5cWFXH6WP+ooVX79YSyi0GagdTQzLmT43BF27T0s6dOIPBXA==}
     peerDependencies:
       vitest: 1.6.0
+
+  '@vitest/utils@1.6.0':
+    resolution: {integrity: sha512-21cPiuGMoMZwiOHa2i4LXkMkMkCGzA+MVFV70jRwHo95dL4x/ts5GZhML1QWuy7yfp3WzK3lRvZi3JnXTYqrBw==}
 
   '@volar/language-core@2.2.1':
     resolution: {integrity: sha512-iHJAZKcYldZgyS8gx6DfIZApViVBeqbf6iPhqoZpG5A6F4zsZiFldKfwaKaBA3/wnOTWE2i8VUbXywI1WywCPg==}
@@ -7979,34 +7984,6 @@ packages:
       vite:
         optional: true
 
-  vite@4.5.3:
-    resolution: {integrity: sha512-kQL23kMeX92v3ph7IauVkXkikdDRsYMGTVl5KY2E9OY4ONLvkHf04MDTbnfo6NKxZiDLWzVpP5oTa8hQD8U3dg==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-
   vite@5.2.11:
     resolution: {integrity: sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -9953,14 +9930,16 @@ snapshots:
       - rollup
       - supports-color
 
-  '@nuxt/module-builder@0.5.5(@nuxt/kit@3.11.2(rollup@4.17.2))(nuxi@3.11.1)(typescript@5.4.5)(vue-tsc@2.0.16(typescript@5.4.5))':
+  '@nuxt/module-builder@0.6.0(@nuxt/kit@3.11.2(rollup@4.17.2))(nuxi@3.11.1)(typescript@5.4.5)(vue-tsc@2.0.16(typescript@5.4.5))':
     dependencies:
       '@nuxt/kit': 3.11.2(rollup@4.17.2)
       citty: 0.1.6
       consola: 3.2.3
+      defu: 6.1.4
       mlly: 1.7.0
       nuxi: 3.11.1
       pathe: 1.1.2
+      pkg-types: 1.1.0
       unbuild: 2.0.0(typescript@5.4.5)(vue-tsc@2.0.16(typescript@5.4.5))
     transitivePeerDependencies:
       - sass
@@ -10009,10 +9988,14 @@ snapshots:
       - supports-color
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   '@nuxt/test-utils@3.12.1(@vitest/ui@1.6.0(vitest@1.6.0))(h3@1.11.1)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4))(vitest@1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))(vue@3.4.27(typescript@5.4.5))':
 =======
   '@nuxt/test-utils@3.12.1(@vitest/ui@0.34.7(vitest@0.33.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@0.33.0(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))':
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
+=======
+  '@nuxt/test-utils@3.12.1(@vitest/ui@0.34.7(vitest@1.6.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))':
+>>>>>>> dfc0609 (chore: refresh lockfile)
     dependencies:
       '@nuxt/kit': 3.11.2(rollup@4.17.2)
       '@nuxt/schema': 3.11.2(rollup@4.17.2)
@@ -10047,13 +10030,18 @@ snapshots:
       vitest: 1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4)
 =======
       vite: 5.2.11(@types/node@20.12.9)(terser@5.31.0)
-      vitest-environment-nuxt: 1.0.0(@vitest/ui@0.34.7(vitest@0.33.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@0.33.0(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))
+      vitest-environment-nuxt: 1.0.0(@vitest/ui@0.34.7(vitest@1.6.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))
       vue: 3.4.26(typescript@5.4.5)
       vue-router: 4.3.2(vue@3.4.26(typescript@5.4.5))
     optionalDependencies:
+<<<<<<< HEAD
       '@vitest/ui': 0.34.7(vitest@0.33.0)
       vitest: 0.33.0(@vitest/ui@0.34.7)(terser@5.31.0)
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
+=======
+      '@vitest/ui': 0.34.7(vitest@1.6.0)
+      vitest: 1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0)
+>>>>>>> dfc0609 (chore: refresh lockfile)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -11726,9 +11714,13 @@ snapshots:
       picocolors: 1.0.0
       sirv: 2.0.4
 <<<<<<< HEAD
+<<<<<<< HEAD
       vitest: 1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4)
 =======
       vitest: 0.33.0(@vitest/ui@0.34.7)(terser@5.31.0)
+=======
+      vitest: 0.34.6(@vitest/ui@0.34.7)(terser@5.31.0)
+>>>>>>> dfc0609 (chore: refresh lockfile)
     optional: true
 
   '@vitest/ui@0.34.7(vitest@1.6.0)':
@@ -11740,7 +11732,7 @@ snapshots:
       pathe: 1.1.2
       picocolors: 1.0.0
       sirv: 2.0.4
-      vitest: 0.34.6(@vitest/ui@0.34.7)(terser@5.31.0)
+      vitest: 1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0)
 
   '@vitest/utils@0.34.6':
     dependencies:
@@ -17913,6 +17905,7 @@ snapshots:
     dependencies:
       vite: 5.2.11(@types/node@20.12.9)(terser@5.31.0)
 
+<<<<<<< HEAD
   vite-node@0.33.0(@types/node@20.12.9)(terser@5.31.0):
     dependencies:
       cac: 6.7.14
@@ -17935,6 +17928,8 @@ snapshots:
 <<<<<<< HEAD
   vite-node@1.6.0(@types/node@20.12.12)(terser@5.30.4):
 =======
+=======
+>>>>>>> dfc0609 (chore: refresh lockfile)
   vite-node@0.34.6(@types/node@20.12.9)(terser@5.31.0):
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
     dependencies:
@@ -18074,6 +18069,7 @@ snapshots:
       - typescript
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   vite@5.2.10(@types/node@20.12.12)(terser@5.30.4):
     dependencies:
       esbuild: 0.20.2
@@ -18096,6 +18092,8 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.31.0
 
+=======
+>>>>>>> dfc0609 (chore: refresh lockfile)
   vite@5.2.11(@types/node@20.12.9)(terser@5.31.0):
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
     dependencies:
@@ -18196,6 +18194,7 @@ snapshots:
       - universal-cookie
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   vitest-environment-nuxt@1.0.0(@vitest/ui@1.6.0(vitest@1.6.0))(h3@1.11.1)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4))(vitest@1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@nuxt/test-utils': 3.12.1(@vitest/ui@1.6.0(vitest@1.6.0))(h3@1.11.1)(rollup@4.16.3)(vite@5.2.10(@types/node@20.12.8)(terser@5.30.4))(vitest@1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4))(vue-router@4.3.2(vue@3.4.27(typescript@5.4.5)))(vue@3.4.27(typescript@5.4.5))
@@ -18204,6 +18203,11 @@ snapshots:
     dependencies:
       '@nuxt/test-utils': 3.12.1(@vitest/ui@0.34.7(vitest@0.33.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@0.33.0(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
+=======
+  vitest-environment-nuxt@1.0.0(@vitest/ui@0.34.7(vitest@1.6.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5)):
+    dependencies:
+      '@nuxt/test-utils': 3.12.1(@vitest/ui@0.34.7(vitest@1.6.0))(h3@1.11.1)(rollup@4.17.2)(vite@5.2.11(@types/node@20.12.9)(terser@5.31.0))(vitest@1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0))(vue-router@4.3.2(vue@3.4.26(typescript@5.4.5)))(vue@3.4.26(typescript@5.4.5))
+>>>>>>> dfc0609 (chore: refresh lockfile)
     transitivePeerDependencies:
       - '@cucumber/cucumber'
       - '@jest/globals'
@@ -18222,6 +18226,7 @@ snapshots:
       - vue
       - vue-router
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   vitest@1.6.0(@types/node@20.12.12)(@vitest/ui@1.6.0)(terser@5.30.4):
     dependencies:
@@ -18279,6 +18284,8 @@ snapshots:
 <<<<<<< HEAD
   vitest@1.6.0(@types/node@20.12.8)(@vitest/ui@1.6.0)(terser@5.30.4):
 =======
+=======
+>>>>>>> dfc0609 (chore: refresh lockfile)
   vitest@0.34.6(@vitest/ui@0.34.7)(terser@5.31.0):
 >>>>>>> 5bb7e0e (chore: refresh lockfile)
     dependencies:
@@ -18292,6 +18299,39 @@ snapshots:
       '@vitest/utils': 0.34.6
       acorn: 8.11.3
       acorn-walk: 8.3.2
+      cac: 6.7.14
+      chai: 4.4.1
+      debug: 4.3.4
+      local-pkg: 0.4.3
+      magic-string: 0.30.10
+      pathe: 1.1.2
+      picocolors: 1.0.0
+      std-env: 3.7.0
+      strip-literal: 1.3.0
+      tinybench: 2.8.0
+      tinypool: 0.7.0
+      vite: 5.2.11(@types/node@20.12.9)(terser@5.31.0)
+      vite-node: 0.34.6(@types/node@20.12.9)(terser@5.31.0)
+      why-is-node-running: 2.2.2
+    optionalDependencies:
+      '@vitest/ui': 0.34.7(vitest@0.34.6)
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@1.6.0(@types/node@20.12.9)(@vitest/ui@0.34.7)(terser@5.31.0):
+    dependencies:
+      '@vitest/expect': 1.6.0
+      '@vitest/runner': 1.6.0
+      '@vitest/snapshot': 1.6.0
+      '@vitest/spy': 1.6.0
+      '@vitest/utils': 1.6.0
+      acorn-walk: 8.3.2
       chai: 4.4.1
       debug: 4.3.4
       execa: 8.0.1
@@ -18302,13 +18342,18 @@ snapshots:
       std-env: 3.7.0
       strip-literal: 2.1.0
       tinybench: 2.8.0
-      tinypool: 0.7.0
+      tinypool: 0.8.4
       vite: 5.2.11(@types/node@20.12.9)(terser@5.31.0)
-      vite-node: 0.34.6(@types/node@20.12.9)(terser@5.31.0)
+      vite-node: 1.6.0(@types/node@20.12.9)(terser@5.31.0)
       why-is-node-running: 2.2.2
     optionalDependencies:
+<<<<<<< HEAD
       '@types/node': 20.12.8
       '@vitest/ui': 1.6.0(vitest@1.6.0)
+=======
+      '@types/node': 20.12.9
+      '@vitest/ui': 0.34.7(vitest@1.6.0)
+>>>>>>> dfc0609 (chore: refresh lockfile)
     transitivePeerDependencies:
       - less
       - lightningcss
