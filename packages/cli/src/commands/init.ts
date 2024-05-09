@@ -99,7 +99,7 @@ export async function promptForConfig(
     {
       type: 'toggle',
       name: 'typescript',
-      message: `Would you like to use ${highlight('TypeScript')} (recommended)?`,
+      message: `Would you like to use ${highlight('TypeScript')}? ${colors.gray('(recommended)')}?`,
       initial: defaultConfig?.typescript ?? true,
       active: 'yes',
       inactive: 'no',
@@ -148,7 +148,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindCss',
-      message: `Where is your ${highlight('global CSS')} file?`,
+      message: `Where is your ${highlight('global CSS')} file? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
@@ -172,7 +172,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindConfig',
-      message: `Where is your ${highlight('tailwind.config')} located?`,
+      message: `Where is your ${highlight('tailwind.config')} located? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => {
         if (defaultConfig?.tailwind.config)
           return defaultConfig?.tailwind.config
