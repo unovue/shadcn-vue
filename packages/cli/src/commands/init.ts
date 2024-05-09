@@ -172,7 +172,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindConfig',
-      message: `Where is your ${highlight('tailwind.config')} located?  ${colors.gray('(this file will be overwritten)')}`,
+      message: `Where is your ${highlight('tailwind.config')} located? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => {
         if (defaultConfig?.tailwind.config)
           return defaultConfig?.tailwind.config
