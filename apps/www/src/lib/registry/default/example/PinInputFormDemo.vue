@@ -23,7 +23,7 @@ const formSchema = toTypedSchema(z.object({
   pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
 }))
 
-const { handleSubmit, setValues } = useForm({
+const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
     pin: ['1', '2', '3'],
@@ -56,9 +56,7 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
             :name="componentField.name"
             @complete="handleComplete"
             @update:model-value="(arrStr) => {
-              setValues({
-                pin: arrStr.filter(Boolean),
-              })
+              setFieldValue('pin', arrStr.filter(Boolean))
             }"
           >
             <PinInputGroup>
