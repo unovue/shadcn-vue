@@ -414,9 +414,7 @@ const form = useForm({
   validationSchema: toTypedSchema(schema),
 })
 
-form.setValues({
-  username: 'foo'
-})
+form.setFieldValue('username', 'bar')
 </script>
 
 <template>

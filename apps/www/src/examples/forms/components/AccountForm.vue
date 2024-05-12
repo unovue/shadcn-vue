@@ -84,7 +84,7 @@ async function onSubmit(values: any) {
     </p>
   </div>
   <Separator />
-  <Form v-slot="{ setValues }" :validation-schema="accountFormSchema" class="space-y-8" @submit="onSubmit">
+  <Form v-slot="{ setFieldValue }" :validation-schema="accountFormSchema" class="space-y-8" @submit="onSubmit">
     <FormField v-slot="{ componentField }" name="name">
       <FormItem>
         <FormLabel>Name</FormLabel>
@@ -126,15 +126,11 @@ async function onSubmit(values: any) {
               @update:model-value="(v) => {
                 if (v) {
                   dateValue = v
-                  setValues({
-                    dob: toDate(v).toISOString(),
-                  }, false)
+                  setFieldValue('dob', toDate(v).toISOString())
                 }
                 else {
                   dateValue = undefined
-                  setValues({
-                    dob: undefined,
-                  }, false)
+                  setFieldValue('dob', undefined)
                 }
               }"
             />
@@ -178,9 +174,7 @@ async function onSubmit(values: any) {
                   <CommandItem
                     v-for="language in languages" :key="language.value" :value="language.label"
                     @select="() => {
-                      setValues({
-                        language: language.value,
-                      }, false)
+                      setFieldValue('language', language.value)
                       open = false
                     }"
                   >
