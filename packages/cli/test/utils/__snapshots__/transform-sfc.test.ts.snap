@@ -6,7 +6,7 @@ const array = [1, 2, 3];
 </script>
 
 <template>
-  <div v-bind=\\"{ array }\\">template</div>
+  <div v-bind="{ array }">template</div>
 </template>
 
 <style scoped></style>
@@ -15,7 +15,7 @@ const array = [1, 2, 3];
 
 exports[`transformSFC > defineEmits 1`] = `
 "<script setup>
-const emit = defineEmits([\\"foo\\"]);
+const emit = defineEmits(["foo"]);
 </script>
 "
 `;
@@ -32,7 +32,7 @@ const props = defineProps({
 exports[`transformSFC > defineProps with external props 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: { type: String, required: false, default: \\"bar\\" },
+  foo: { type: String, required: false, default: "bar" },
   a: { type: String, required: true },
   b: { type: Number, required: true },
 });
@@ -44,7 +44,7 @@ export {};
 exports[`transformSFC > defineProps with package props 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: { type: String, required: false, default: \\"bar\\" },
+  foo: { type: String, required: false, default: "bar" },
   for: { type: String, required: false },
   asChild: { type: Boolean, required: false },
   as: { type: null, required: false },
@@ -57,7 +57,7 @@ export {};
 exports[`transformSFC > defineProps with withDefaults 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: { type: String, required: true, default: \\"bar\\" },
+  foo: { type: String, required: true, default: "bar" },
 });
 </script>
 "
