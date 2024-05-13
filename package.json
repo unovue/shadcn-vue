@@ -31,6 +31,7 @@
     "@antfu/eslint-config": "^2.15.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@vitest/ui": "^1.6.0",
     "bumpp": "^9.4.0",
     "eslint": "^9.1.1",
     "lint-staged": "^15.2.2",
