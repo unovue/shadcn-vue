@@ -44,6 +44,10 @@
     "test": "vitest run",
     "test:ui": "vitest --ui"
   },
+  "peerDependencies": {
+    "@vitest/ui": "*",
+    "vitest": "*"
+  },
   "dependencies": {
     "@babel/core": "^7.24.4",
     "@babel/parser": "^7.24.4",
