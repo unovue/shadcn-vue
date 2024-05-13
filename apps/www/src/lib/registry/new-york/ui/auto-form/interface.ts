@@ -1,4 +1,4 @@
-import type { Component, InputHTMLAttributes, SelectHTMLAttributes } from 'vue'
+import type { Component, InputHTMLAttributes } from 'vue'
 import type { ZodAny, z } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 

@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{ items: BulletLegendItemInterface[] }>()
 })
 
 const emits = defineEmits<{
-  legendItemClick: [d: BulletLegendItemInterface, i: number]
+  'legendItemClick': [d: BulletLegendItemInterface, i: number]
   'update:items': [payload: BulletLegendItemInterface[]]
 }>()
 

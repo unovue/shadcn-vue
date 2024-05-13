@@ -7,7 +7,6 @@ import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import RadixIconsCode from '~icons/radix-icons/code'
 import RadixIconsExternalLink from '~icons/radix-icons/external-link'
-import ChevronRightIcon from '~icons/lucide/chevron-right'
 
 const $route = useRoute()
 const { frontmatter } = useData()
