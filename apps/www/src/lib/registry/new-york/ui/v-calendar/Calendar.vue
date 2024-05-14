@@ -118,7 +118,7 @@ const vCalendarSlots = computed(() => {
   @apply p-3 text-center;
 }
 .calendar .vc-pane-layout {
-  @apply grid gap-4;
+  @apply grid gap-4 max-sm:!grid-cols-1;
 }
 .calendar .vc-title {
   @apply text-sm font-medium relative z-20;
