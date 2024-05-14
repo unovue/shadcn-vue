@@ -948,6 +948,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SonnerDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SonnerDemo.vue"],
     },
+    "SonnerWithDialog": {
+      name: "SonnerWithDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog"],
+      component: () => import("../src/lib/registry/default/example/SonnerWithDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SonnerWithDialog.vue"],
+    },
     "SwitchDemo": {
       name: "SwitchDemo",
       type: "components:example",
@@ -2348,6 +2355,13 @@ export const Index = {
       registryDependencies: ["button"],
       component: () => import("../src/lib/registry/new-york/example/SonnerDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SonnerDemo.vue"],
+    },
+    "SonnerWithDialog": {
+      name: "SonnerWithDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog"],
+      component: () => import("../src/lib/registry/new-york/example/SonnerWithDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SonnerWithDialog.vue"],
     },
     "SwitchDemo": {
       name: "SwitchDemo",
