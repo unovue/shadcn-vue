@@ -22,7 +22,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/lib/components/ui/breadcrumb'
+} from '@/components/ui/breadcrumb'
 </script>
 
 <template>
@@ -65,7 +65,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from '@/lib/components/ui/breadcrumb'
+} from '@/components/ui/breadcrumb'
 </script>
 
 <template>
@@ -106,7 +106,7 @@ import {
   DropdownMenuTrigger,
 } from '@/lib/components/ui/dropdown-menu'
 
-import { BreadcrumbItem } from '@/lib/components/ui/breadcrumb'
+import { BreadcrumbItem } from '@/components/ui/breadcrumb'
 
 import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 </script>
@@ -143,7 +143,7 @@ import {
   BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbList,
-} from '@/lib/components/ui/breadcrumb'
+} from '@/components/ui/breadcrumb'
 </script>
 
 <template>
@@ -175,7 +175,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-} from '@/lib/components/ui/breadcrumb'
+} from '@/components/ui/breadcrumb'
 </script>
 
 <template>
