@@ -24,6 +24,30 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('remove all type reference', async () => {
+    const result = await transform({
+      filename: 'app.vue',
+      raw: `<script lang="ts" setup>
+      const array: (number | string)[] = [1, 2, 3]
+      </script>
+      
+      <template>
+        <div v-bind="{ array }" :prop="(a: number) => a" :prop2="(a: number) => {
+          let b: number = a
+          return b
+        }">
+          {{ true ? 123 as number : 0 }}
+        </div>
+      </template>
+      
+      <style scoped>
+      </style>
+      `,
+      config: {},
+    })
+    expect(result).toMatchSnapshot()
+  })
+
   it('defineProps', async () => {
     const result = await transform({
       filename: 'app.vue',

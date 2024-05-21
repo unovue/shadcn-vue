@@ -60,3 +60,27 @@ const props = defineProps({
 </script>
 "
 `;
+
+exports[`transformSFC > remove all type reference 1`] = `
+"<script setup>
+const array = [1, 2, 3];
+</script>
+
+<template>
+  <div
+    v-bind=\\"{ array }\\"
+    :prop=\\"(a) => a\\"
+    :prop2=\\"
+      (a) => {
+        let b = a;
+        return b;
+      }
+    \\"
+  >
+    {{ true ? 123 : 0 }}
+  </div>
+</template>
+
+<style scoped></style>
+"
+`;
