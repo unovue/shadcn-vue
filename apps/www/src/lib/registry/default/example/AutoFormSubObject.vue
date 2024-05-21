@@ -3,7 +3,7 @@ import * as z from 'zod'
 import { h } from 'vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import { toast } from '@/lib/registry/default/ui/toast'
-import { AutoForm, AutoFormField } from '@/lib/registry/default/ui/auto-form'
+import { AutoForm } from '@/lib/registry/default/ui/auto-form'
 
 const schema = z.object({
   subObject: z.object({

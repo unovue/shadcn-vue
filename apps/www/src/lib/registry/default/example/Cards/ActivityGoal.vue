@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { Minus, Plus } from 'lucide-vue-next'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { useData } from 'vitepress'
 import { Button } from '@/lib/registry/default/ui/button'
 
 import {
@@ -13,8 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/default/ui/card'
-import { themes } from '@/lib/registry/themes'
-import { useConfigStore } from '@/stores/config'
 
 const goal = ref(350)
 

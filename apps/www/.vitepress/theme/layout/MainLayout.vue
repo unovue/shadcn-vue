@@ -303,7 +303,7 @@ watch(() => $route.path, (n) => {
         </DialogContent>
       </Dialog>
       <DefaultToaster />
-      <NewYorkSonner :theme="'system'" />
+      <NewYorkSonner class="pointer-events-auto" :theme="'system'" />
       <NewYorkToaster />
     </div>
   </TooltipProvider>

@@ -6,8 +6,6 @@ export const containerClass = 'w-full h-full'
 
 <script setup lang="ts">
 import {
-  ChevronLeft,
-  ChevronRight,
   CircleUser,
   Copy,
   CreditCard,
@@ -42,11 +40,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
 import {
   Pagination,
-  PaginationEllipsis,
-  PaginationFirst,
-  PaginationLast,
   PaginationList,
-  PaginationListItem,
   PaginationNext,
   PaginationPrev,
 } from '@/lib/registry/default/ui/pagination'

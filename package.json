@@ -31,13 +31,14 @@
     "@antfu/eslint-config": "^2.15.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@vitest/ui": "^1.6.0",
     "bumpp": "^9.4.0",
     "eslint": "^9.1.1",
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.11.1",
     "taze": "^0.13.6",
     "typescript": "^5.4.5",
-    "vitest": "^0.34.6"
+    "vitest": "^1.6.0"
   },
   "commitlint": {
     "extends": [

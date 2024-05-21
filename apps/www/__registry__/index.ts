@@ -948,6 +948,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SonnerDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SonnerDemo.vue"],
     },
+    "SonnerWithDialog": {
+      name: "SonnerWithDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog"],
+      component: () => import("../src/lib/registry/default/example/SonnerWithDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/SonnerWithDialog.vue"],
+    },
     "SwitchDemo": {
       name: "SwitchDemo",
       type: "components:example",
@@ -1308,7 +1315,7 @@ export const Index = {
     "ActivityGoal": {
       name: "ActivityGoal",
       type: "components:example",
-      registryDependencies: ["button","card","themes","config"],
+      registryDependencies: ["button","card"],
       component: () => import("../src/lib/registry/default/example/Cards/ActivityGoal.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/Cards/ActivityGoal.vue"],
     },
@@ -1322,7 +1329,7 @@ export const Index = {
     "Metric": {
       name: "Metric",
       type: "components:example",
-      registryDependencies: ["card","config"],
+      registryDependencies: ["card"],
       component: () => import("../src/lib/registry/default/example/Cards/Metric.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/Cards/Metric.vue"],
     },
@@ -2349,6 +2356,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/SonnerDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SonnerDemo.vue"],
     },
+    "SonnerWithDialog": {
+      name: "SonnerWithDialog",
+      type: "components:example",
+      registryDependencies: ["button","dialog"],
+      component: () => import("../src/lib/registry/new-york/example/SonnerWithDialog.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/SonnerWithDialog.vue"],
+    },
     "SwitchDemo": {
       name: "SwitchDemo",
       type: "components:example",
@@ -2709,7 +2723,7 @@ export const Index = {
     "ActivityGoal": {
       name: "ActivityGoal",
       type: "components:example",
-      registryDependencies: ["button","card","themes","config"],
+      registryDependencies: ["button","card"],
       component: () => import("../src/lib/registry/new-york/example/Cards/ActivityGoal.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/Cards/ActivityGoal.vue"],
     },
@@ -2723,7 +2737,7 @@ export const Index = {
     "Metric": {
       name: "Metric",
       type: "components:example",
-      registryDependencies: ["card","config"],
+      registryDependencies: ["card"],
       component: () => import("../src/lib/registry/new-york/example/Cards/Metric.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/Cards/Metric.vue"],
     },
