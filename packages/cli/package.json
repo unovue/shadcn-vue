@@ -42,6 +42,7 @@
     "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
     "pub:release": "pnpm build && pnpm publish  --no-git-checks --access public",
     "test": "vitest run",
+    "test:update": "vitest run -u",
     "test:ui": "vitest --ui"
   },
   "peerDependencies": {
@@ -55,7 +56,7 @@
     "c12": "^1.10.0",
     "commander": "^12.0.0",
     "consola": "^3.2.3",
-    "detype": "npm:detypes@^0.7.9",
+    "detype": "npm:detypes@^0.8.0",
     "diff": "^5.2.0",
     "fs-extra": "^11.2.0",
     "https-proxy-agent": "^7.0.4",
