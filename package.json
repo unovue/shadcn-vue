@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.10.5",
   "private": true,
-  "packageManager": "pnpm@9.0.5",
+  "packageManager": "pnpm@9.1.2",
   "license": "MIT",
   "repository": "radix-vue/shadcn-vue",
   "workspaces": [
@@ -28,15 +28,15 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.15.0",
+    "@antfu/eslint-config": "^2.18.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@vitest/ui": "^1.6.0",
-    "bumpp": "^9.4.0",
-    "eslint": "^9.1.1",
+    "bumpp": "^9.4.1",
+    "eslint": "^9.3.0",
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.13.6",
+    "taze": "^0.13.8",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },

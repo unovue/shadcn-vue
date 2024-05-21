@@ -114,7 +114,7 @@ Let's start by building a basic table.
 
 First, we'll define our columns in the `columns.ts` file.
 
-```ts:line-numbers {1,12-27}
+```ts:line-numbers
 import { h } from 'vue'
 
 export const columns: ColumnDef<Payment>[] = [
@@ -146,66 +146,70 @@ formatted, sorted and filtered.
 
 Next, we'll create a `<DataTable />` component to render our table.
 
-```vue:line-numbers
+```vue
 <script setup lang="ts" generic="TData, TValue">
 import type { ColumnDef } from '@tanstack/vue-table'
 import {
-    FlexRender,
-    getCoreRowModel,
-    useVueTable,
-} from "@tanstack/vue-table"
+  FlexRender,
+  getCoreRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
 
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 const props = defineProps<{
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
 }>()
 
 const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
+  get data() { return props.data },
+  get columns() { return props.columns },
+  getCoreRowModel: getCoreRowModel(),
 })
 </script>
 
 <template>
-    <div class="border rounded-md">
-        <Table>
-            <TableHeader>
-                <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-                    <TableHead v-for="header in headerGroup.headers" :key="header.id">
-                        <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header"
-                            :props="header.getContext()" />
-                    </TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <template v-if="table.getRowModel().rows?.length">
-                    <TableRow v-for="row in table.getRowModel().rows" :key="row.id"
-                        :data-state="row.getIsSelected() ? 'selected' : undefined">
-                        <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                            <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
-                        </TableCell>
-                    </TableRow>
-                </template>
-                <template v-else>
-                    <TableRow>
-                        <TableCell :colSpan="columns.length" class="h-24 text-center">
-                            No results.
-                        </TableCell>
-                    </TableRow>
-                </template>
-            </TableBody>
-        </Table>
-    </div>
+  <div class="border rounded-md">
+    <Table>
+      <TableHeader>
+        <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+          <TableHead v-for="header in headerGroup.headers" :key="header.id">
+            <FlexRender
+              v-if="!header.isPlaceholder" :render="header.column.columnDef.header"
+              :props="header.getContext()"
+            />
+          </TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <template v-if="table.getRowModel().rows?.length">
+          <TableRow
+            v-for="row in table.getRowModel().rows" :key="row.id"
+            :data-state="row.getIsSelected() ? 'selected' : undefined"
+          >
+            <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
+              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+            </TableCell>
+          </TableRow>
+        </template>
+        <template v-else>
+          <TableRow>
+            <TableCell :col-span="columns.length" class="h-24 text-center">
+              No results.
+            </TableCell>
+          </TableRow>
+        </template>
+      </TableBody>
+    </Table>
+  </div>
 </template>
 ```
 
@@ -221,12 +225,12 @@ const table = useVueTable({
 
 Finally, we'll render our table in our index component.
 
-```vue:line-numbers {28}
+```vue
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { columns } from "./components/columns"
-import type { Payment } from './components/columns';
-import DataTable from "./components/DataTable.vue"
+import { onMounted, ref } from 'vue'
+import { columns } from './components/columns'
+import type { Payment } from './components/columns'
+import DataTable from './components/DataTable.vue'
 
 const data = ref<Payment[]>([])
 
@@ -234,18 +238,18 @@ async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
   return [
     {
-      id: "728ed52f",
+      id: '728ed52f',
       amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      status: 'pending',
+      email: 'm@example.com',
     },
     // ...
   ]
 }
 
 onMounted(async () => {
-  data.value = await getData();
-});
+  data.value = await getData()
+})
 </script>
 
 <template>
@@ -267,23 +271,23 @@ Let's format the amount cell to display the dollar amount. We'll also align the 
 
 Update the `header` and `cell` definitions for amount as follows:
 
-```ts:line-numbers title="components/payments/columns.ts" {5-17}
+```ts
 import { h } from 'vue'
 
 export const columns: ColumnDef<Payment>[] = [
-    {
-        accessorKey: "amount",
-        header: () => h('div', { class: 'text-right' }, 'Amount'),
-        cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("amount"))
-            const formatted = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-            }).format(amount)
+  {
+    accessorKey: 'amount',
+    header: () => h('div', { class: 'text-right' }, 'Amount'),
+    cell: ({ row }) => {
+      const amount = Number.parseFloat(row.getValue('amount'))
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(amount)
 
-            return h('div', { class: 'text-right font-medium' }, formatted)
-        },
-    }
+      return h('div', { class: 'text-right font-medium' }, formatted)
+    },
+  }
 ]
 ```
 You can use the same approach to format other cells and headers.
@@ -295,10 +299,9 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 <Steps>
 
-### Add the following into your `DataTableDropDown.vue` component:
+### Add the following into your `DataTableDropDown.vue` component
 
-```vue:line-numbers
-// DataTableDropDown.vue
+```vue
 <script setup lang="ts">
 import { MoreHorizontal } from 'lucide-vue-next'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
@@ -334,32 +337,30 @@ function copy(id: string) {
     </DropdownMenuContent>
   </DropdownMenu>
 </template>
-
 ```
 
 ### Update columns definition
 
 Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
 
-```ts:line-numbers showLineNumber{2,6-16}
-import { ColumnDef } from "@tanstack/vue-table"
+```ts
+import { ColumnDef } from '@tanstack/vue-table'
 import DropdownAction from '@/components/DataTableDropDown.vue'
 
 export const columns: ColumnDef<Payment>[] = [
   // ...
-    {
-        id: 'actions',
-        enableHiding: false,
-        cell: ({ row }) => {
-            const payment = row.original
+  {
+    id: 'actions',
+    enableHiding: false,
+    cell: ({ row }) => {
+      const payment = row.original
 
-            return h('div', { class: 'relative' }, h(DropdownAction, {
-                payment,
-            }))
-        },
+      return h('div', { class: 'relative' }, h(DropdownAction, {
+        payment,
+      }))
     },
+  },
 ]
-
 ```
 
 You can access the row data using `row.original` in the `cell` function. Use this to handle actions for your row eg. use the `id` to make a DELETE call to your API.
@@ -396,47 +397,45 @@ This will automatically paginate your rows into pages of 10. See the [pagination
 
 We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
 
-```vue:line-numbers {3,15,21-39}
+```vue
 <script lang="ts" generic="TData, TValue">
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 
 const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
+  get data() { return props.data },
+  get columns() { return props.columns },
+  getCoreRowModel: getCoreRowModel(),
+  getPaginationRowModel: getPaginationRowModel(),
 })
-
 </script>
 
 <template>
-    <div>
-      <div class="border rounded-md">
-        <Table>
-          { // .... }
-        </Table>
-      </div>
-      <div class="flex items-center justify-end py-4 space-x-2">
-      <Button
-          variant="outline"
-          size="sm"
-          :disabled="!table.getCanPreviousPage()"
-          @click="table.previousPage()"
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          :disabled="!table.getCanNextPage()"
-          @click="table.nextPage()"
-        >
-          Next
-        </Button>
-      </div>
+  <div>
+    <div class="border rounded-md">
+      <Table>
+        { // .... }
+      </Table>
     </div>
+    <div class="flex items-center justify-end py-4 space-x-2">
+      <Button
+        variant="outline"
+        size="sm"
+        :disabled="!table.getCanPreviousPage()"
+        @click="table.previousPage()"
+      >
+        Previous
+      </Button>
+      <Button
+        variant="outline"
+        size="sm"
+        :disabled="!table.getCanNextPage()"
+        @click="table.nextPage()"
+      >
+        Next
+      </Button>
+    </div>
+  </div>
 </template>
-
 ```
 
 See [Reusable Components](#reusable-components) section for a more advanced pagination component.
@@ -449,24 +448,23 @@ Let's make the email column sortable.
 
 <Steps>
 
-### Add the following into your `utils` file:
+### Add the following into your `utils` file
 
-```ts:line-numbers {5,6,12-17}
+```ts
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 import type { Updater } from '@tanstack/vue-table'
-import { type Ref } from 'vue'
+import type { Ref } from 'vue'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value
-    = typeof updaterOrValue === 'function'
-      ? updaterOrValue(ref.value)
-      : updaterOrValue
+  ref.value = typeof updaterOrValue === 'function'
+    ? updaterOrValue(ref.value)
+    : updaterOrValue
 }
 ```
 
@@ -474,62 +472,60 @@ The `valueUpdater` function updates a Vue `ref` object's value. It handles both 
 
 ### Update `<DataTable>`
 
-```vue:line-numbers {4,7,16,34,41-44}
+```vue:line-numbers {4,14,17,33,40-44}
 <script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
   SortingState,
 } from '@tanstack/vue-table'
 
-import { valueUpdater } from '@/lib/utils'
-
 import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
 import { h, ref } from 'vue'
 
 import {
-    FlexRender,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    useVueTable,
-} from "@tanstack/vue-table"
+  FlexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
+import { valueUpdater } from '@/lib/utils'
 
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 const props = defineProps<{
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
 }>()
 
 const sorting = ref<SortingState>([])
 
 const table = useVueTable({
-    get data() { return props.data },
-    get columns() { return props.columns },
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-    state: {
-        get sorting() { return sorting.value },
-    },
+  get data() { return props.data },
+  get columns() { return props.columns },
+  getCoreRowModel: getCoreRowModel(),
+  getPaginationRowModel: getPaginationRowModel(),
+  getSortedRowModel: getSortedRowModel(),
+  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
+  state: {
+    get sorting() { return sorting.value },
+  },
 })
-
 </script>
 
 <template>
-   <div>
-      <div class="border rounded-md">
-        <Table>{ ... }</Table>
-      </div>
+  <div>
+    <div class="border rounded-md">
+      <Table>{ ... }</Table>
     </div>
+  </div>
 </template>
 ```
 

@@ -3,9 +3,9 @@ import { defineConfig } from 'vitepress'
 import Icons from 'unplugin-icons/vite'
 import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import { transformerMetaWordHighlight } from '@shikijs/transformers'
 import { cssVariables } from './theme/config/shiki'
 
-// import { transformerMetaWordHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
 import CodeWrapperPlugin from './theme/plugins/codewrapper'
@@ -56,8 +56,7 @@ export default defineConfig({
   markdown: {
     theme: cssVariables,
     codeTransformers: [
-      // transformerMetaWordHighlight(),
-      // transformerNotationWordHighlight(),
+      transformerMetaWordHighlight(),
     ],
     config(md) {
       md.use(ComponentPreviewPlugin)
@@ -77,7 +76,7 @@ export default defineConfig({
       },
     },
     plugins: [
-      Icons({ compiler: 'vue3', autoInstall: true }),
+      Icons({ compiler: 'vue3', autoInstall: true }) as any,
     ],
     resolve: {
       alias: {
