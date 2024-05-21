@@ -36,7 +36,6 @@ const props = defineProps({
   a: { type: String, required: true },
   b: { type: Number, required: true },
 });
-export {};
 </script>
 "
 `;
@@ -49,7 +48,6 @@ const props = defineProps({
   asChild: { type: Boolean, required: false },
   as: { type: null, required: false },
 });
-export {};
 </script>
 "
 `;

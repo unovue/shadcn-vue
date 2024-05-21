@@ -42,6 +42,7 @@
     "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
     "pub:release": "pnpm build && pnpm publish  --no-git-checks --access public",
     "test": "vitest run",
+    "test:update": "vitest run -u",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
