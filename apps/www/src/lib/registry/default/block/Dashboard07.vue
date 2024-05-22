@@ -56,6 +56,7 @@ import {
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
 } from '@/lib/registry/default/ui/tooltip'
 </script>
@@ -71,92 +72,104 @@ import {
           <Package2 class="h-4 w-4 transition-all group-hover:scale-110" />
           <span class="sr-only">Acme Inc</span>
         </a>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <a
-              href="#"
-              class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <Home class="h-5 w-5" />
-              <span class="sr-only">Dashboard</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            Dashboard
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <a
-              href="#"
-              class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <ShoppingCart class="h-5 w-5" />
-              <span class="sr-only">Orders</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            Orders
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <a
-              href="#"
-              class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <Package class="h-5 w-5" />
-              <span class="sr-only">Products</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            Products
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <a
-              href="#"
-              class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <Users2 class="h-5 w-5" />
-              <span class="sr-only">Customers</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            Customers
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <a
-              href="#"
-              class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <LineChart class="h-5 w-5" />
-              <span class="sr-only">Analytics</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            Analytics
-          </TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              >
+                <Home class="h-5 w-5" />
+                <span class="sr-only">Dashboard</span>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Dashboard
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              >
+                <ShoppingCart class="h-5 w-5" />
+                <span class="sr-only">Orders</span>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Orders
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              >
+                <Package class="h-5 w-5" />
+                <span class="sr-only">Products</span>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Products
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              >
+                <Users2 class="h-5 w-5" />
+                <span class="sr-only">Customers</span>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Customers
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              >
+                <LineChart class="h-5 w-5" />
+                <span class="sr-only">Analytics</span>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Analytics
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </nav>
       <nav class="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <a
-              href="#"
-              class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <Settings class="h-5 w-5" />
-              <span class="sr-only">Settings</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            Settings
-          </TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <a
+                href="#"
+                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              >
+                <Settings class="h-5 w-5" />
+                <span class="sr-only">Settings</span>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Settings
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </nav>
     </aside>
     <div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
