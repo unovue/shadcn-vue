@@ -346,9 +346,6 @@ importers:
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
-      radix-vue:
-        specifier: ^1.7.3
-        version: 1.8.1(vue@3.4.27(typescript@5.4.5))
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
