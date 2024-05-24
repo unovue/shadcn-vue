@@ -21,6 +21,6 @@ jobs:
       - name: Setup (Install Node & pnpm)
         uses: ./.github/actions/setup
 
-      - run: npx changelogithub
+      - run: pnpm dlx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
