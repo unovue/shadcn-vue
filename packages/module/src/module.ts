@@ -8,7 +8,7 @@ import { UTILS } from '../../cli/src/utils/templates'
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
-   * Prefix for all the imported component
+   * Prefix for all the imported component.
    */
   prefix?: string
   /**
