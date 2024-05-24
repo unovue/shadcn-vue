@@ -36,7 +36,10 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.11.2",
-    "@oxc-parser/wasm": "^0.1.0"
+    "@oxc-parser/wasm": "^0.1.0",
+    "class-variance-authority": "^0.7.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.3.10",
