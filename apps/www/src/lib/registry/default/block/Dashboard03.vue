@@ -14,7 +14,7 @@ import { Input } from '@/lib/registry/default/ui/input'
 import { Label } from '@/lib/registry/default/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/default/ui/select'
 import { Textarea } from '@/lib/registry/default/ui/textarea'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/lib/registry/default/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/lib/registry/default/ui/tooltip'
 </script>
 
 <template>
@@ -26,113 +26,127 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/lib/registry/default/
         </Button>
       </div>
       <nav class="grid gap-1 p-2">
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="rounded-lg bg-muted"
-              aria-label="Playground"
-            >
-              <SquareTerminal class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            Playground
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="rounded-lg"
-              aria-label="Models"
-            >
-              <Bot class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            Models
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="rounded-lg"
-              aria-label="API"
-            >
-              <Code2 class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            API
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="rounded-lg"
-              aria-label="Documentation"
-            >
-              <Book class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            Documentation
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="rounded-lg"
-              aria-label="Settings"
-            >
-              <Settings2 class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            Settings
-          </TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="rounded-lg bg-muted"
+                aria-label="Playground"
+              >
+                <SquareTerminal class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              Playground
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="rounded-lg"
+                aria-label="Models"
+              >
+                <Bot class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              Models
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="rounded-lg"
+                aria-label="API"
+              >
+                <Code2 class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              API
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="rounded-lg"
+                aria-label="Documentation"
+              >
+                <Book class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              Documentation
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="rounded-lg"
+                aria-label="Settings"
+              >
+                <Settings2 class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              Settings
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </nav>
       <nav class="mt-auto grid gap-1 p-2">
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="mt-auto rounded-lg"
-              aria-label="Help"
-            >
-              <LifeBuoy class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            Help
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <Button
-              variant="ghost"
-              size="icon"
-              class="mt-auto rounded-lg"
-              aria-label="Account"
-            >
-              <SquareUser class="size-5" />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent side="right" :side-offset="5">
-            Account
-          </TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="mt-auto rounded-lg"
+                aria-label="Help"
+              >
+                <LifeBuoy class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              Help
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <Button
+                variant="ghost"
+                size="icon"
+                class="mt-auto rounded-lg"
+                aria-label="Account"
+              >
+                <SquareUser class="size-5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" :side-offset="5">
+              Account
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </nav>
     </aside>
     <div class="flex flex-col">
@@ -406,28 +420,32 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/lib/registry/default/
               class="min-h-12 resize-none border-0 p-3 shadow-none focus-visible:ring-0"
             />
             <div class="flex items-center p-3 pt-0">
-              <Tooltip>
-                <TooltipTrigger as-child>
-                  <Button variant="ghost" size="icon">
-                    <Paperclip class="size-4" />
-                    <span class="sr-only">Attach file</span>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="top">
-                  Attach File
-                </TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger as-child>
-                  <Button variant="ghost" size="icon">
-                    <Mic class="size-4" />
-                    <span class="sr-only">Use Microphone</span>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="top">
-                  Use Microphone
-                </TooltipContent>
-              </Tooltip>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger as-child>
+                    <Button variant="ghost" size="icon">
+                      <Paperclip class="size-4" />
+                      <span class="sr-only">Attach file</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    Attach File
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger as-child>
+                    <Button variant="ghost" size="icon">
+                      <Mic class="size-4" />
+                      <span class="sr-only">Use Microphone</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    Use Microphone
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
               <Button type="submit" size="sm" class="ml-auto gap-1.5">
                 Send Message
                 <CornerDownLeft class="size-3.5" />
