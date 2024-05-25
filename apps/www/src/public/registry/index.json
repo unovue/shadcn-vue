@@ -554,6 +554,23 @@
     "type": "components:ui"
   },
   {
+    "name": "number-field",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/number-field/NumberField.vue",
+      "ui/number-field/NumberFieldContent.vue",
+      "ui/number-field/NumberFieldDecrement.vue",
+      "ui/number-field/NumberFieldIncrement.vue",
+      "ui/number-field/NumberFieldInput.vue",
+      "ui/number-field/NumberFieldLabel.vue",
+      "ui/number-field/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "pagination",
     "dependencies": [],
     "registryDependencies": [

@@ -257,6 +257,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/navigation-menu',
         },
         {
+          title: 'Number Field',
+          href: '/docs/components/number-field',
+          label: 'Alpha',
+        },
+        {
           title: 'Pagination',
           href: '/docs/components/pagination',
         },
