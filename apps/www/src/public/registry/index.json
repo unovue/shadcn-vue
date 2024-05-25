@@ -464,6 +464,7 @@
       "ui/form/FormLabel.vue",
       "ui/form/FormMessage.vue",
       "ui/form/index.ts",
+      "ui/form/injectionKeys.ts",
       "ui/form/useFormField.ts"
     ],
     "type": "components:ui"
