@@ -259,7 +259,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Number Field',
           href: '/docs/components/number-field',
-          label: 'Alpha',
+          label: 'New Alpha',
         },
         {
           title: 'Pagination',
