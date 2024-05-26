@@ -34,7 +34,7 @@
     "@vitest/ui": "^1.6.0",
     "bumpp": "^9.4.1",
     "eslint": "^9.3.0",
-    "lint-staged": "^15.2.2",
+    "lint-staged": "^15.2.5",
     "simple-git-hooks": "^2.11.1",
     "taze": "^0.13.8",
     "typescript": "^5.4.5",
