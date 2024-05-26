@@ -26,7 +26,7 @@ const formSchema = toTypedSchema(z.object({
   payment: z.number().min(10, 'Min 10 euros to send payment').max(5000, 'Max 5000 euros to send payment'),
 }))
 
-const { handleSubmit } = useForm({
+const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
     payment: 10,
@@ -43,12 +43,11 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ value, handleChange }" name="payment">
+    <FormField name="payment">
       <FormItem>
         <FormLabel>Payment</FormLabel>
         <NumberField
           class="gap-2"
-          :model-value="value"
           :min="0"
           :format-options="{
             style: 'currency',
@@ -56,7 +55,14 @@ const onSubmit = handleSubmit((values) => {
             currencyDisplay: 'code',
             currencySign: 'accounting',
           }"
-          @update:model-value="handleChange"
+          @update:model-value="(v) => {
+            if (v) {
+              setFieldValue('payment', v)
+            }
+            else {
+              setFieldValue('payment', undefined)
+            }
+          }"
         >
           <NumberFieldContent>
             <NumberFieldDecrement />
