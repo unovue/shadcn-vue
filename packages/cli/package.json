@@ -68,7 +68,7 @@
     "pathe": "^1.1.2",
     "pkg-types": "^1.1.0",
     "prompts": "^2.4.2",
-    "radix-vue": "^1.7.3",
+    "radix-vue": "^1.8.2",
     "semver": "^7.6.0",
     "ts-morph": "^22.0.0",
     "tsconfig-paths": "^4.2.0",
