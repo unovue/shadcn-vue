@@ -57,17 +57,17 @@ const open = ref(false)
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User class="mr-2 h-4 w-4" />
+            <User class="mr-2 size-4" />
             Assign to...
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Calendar class="mr-2 h-4 w-4" />
+            <Calendar class="mr-2 size-4" />
             Set due date...
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <Tags class="mr-2 h-4 w-4" />
+              <Tags class="mr-2 size-4" />
               Apply label
             </DropdownMenuSubTrigger>
             <DropdownMenuSubContent class="p-0">
@@ -97,7 +97,7 @@ const open = ref(false)
           </DropdownMenuSub>
           <DropdownMenuSeparator />
           <DropdownMenuItem class="text-red-600">
-            <Trash class="mr-2 h-4 w-4" />
+            <Trash class="mr-2 size-4" />
             Delete
             <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
           </DropdownMenuItem>

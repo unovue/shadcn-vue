@@ -60,7 +60,6 @@ const statuses: Status[] = [
 ]
 
 const open = ref(false)
-const value = ref<typeof statuses[number]>()
 
 const selectedStatus = ref<Status>()
 </script>
@@ -78,7 +77,7 @@ const selectedStatus = ref<Status>()
           class="w-[150px] justify-start"
         >
           <template v-if="selectedStatus">
-            <component :is="selectedStatus?.icon" class="mr-2 h-4 w-4 shrink-0" />
+            <component :is="selectedStatus?.icon" class="mr-2 size-4 shrink-0" />
             {{ selectedStatus?.label }}
           </template>
           <template v-else>

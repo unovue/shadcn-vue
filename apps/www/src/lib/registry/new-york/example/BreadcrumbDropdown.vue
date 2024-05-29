@@ -31,7 +31,7 @@ import {
         <DropdownMenu>
           <DropdownMenuTrigger class="flex items-center gap-1">
             Components
-            <ChevronDownIcon class="h-4 w-4" />
+            <ChevronDownIcon class="size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start">
             <DropdownMenuItem>Documentation</DropdownMenuItem>

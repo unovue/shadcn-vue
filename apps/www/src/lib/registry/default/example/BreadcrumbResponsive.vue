@@ -61,7 +61,7 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1))
               class="flex items-center gap-1"
               aria-label="Toggle menu"
             >
-              <BreadcrumbEllipsis class="h-4 w-4" />
+              <BreadcrumbEllipsis class="size-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem v-for="item of allButLastTwoItems" :key="item.label">
@@ -73,7 +73,7 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1))
           </DropdownMenu>
           <Drawer v-else v-model:open="isOpen">
             <DrawerTrigger aria-label="Toggle Menu">
-              <BreadcrumbEllipsis class="h-4 w-4" />
+              <BreadcrumbEllipsis class="size-4" />
             </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader class="text-left">

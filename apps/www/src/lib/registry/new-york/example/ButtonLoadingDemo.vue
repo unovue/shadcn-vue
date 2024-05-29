@@ -5,7 +5,7 @@ import { Button } from '@/lib/registry/new-york/ui/button'
 
 <template>
   <Button disabled>
-    <ReloadIcon class="w-4 h-4 mr-2 animate-spin" />
+    <ReloadIcon class="size-4 mr-2 animate-spin" />
     Please wait
   </Button>
 </template>

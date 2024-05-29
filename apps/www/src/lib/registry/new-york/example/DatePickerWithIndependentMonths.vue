@@ -108,7 +108,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
           )
         "
       >
-        <CalendarIcon class="mr-2 h-4 w-4" />
+        <CalendarIcon class="mr-2 size-4" />
         <template v-if="value.start">
           <template v-if="value.end">
             {{
@@ -153,7 +153,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('first', -1)"
               >
-                <ChevronLeft class="h-4 w-4" />
+                <ChevronLeft class="size-4" />
               </button>
               <div :class="cn('text-sm font-medium')">
                 {{
@@ -171,7 +171,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('first', 1)"
               >
-                <ChevronRight class="h-4 w-4" />
+                <ChevronRight class="size-4" />
               </button>
             </div>
             <RangeCalendarGrid>
@@ -219,7 +219,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('second', -1)"
               >
-                <ChevronLeft class="h-4 w-4" />
+                <ChevronLeft class="size-4" />
               </button>
               <div :class="cn('text-sm font-medium')">
                 {{
@@ -238,7 +238,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('second', 1)"
               >
-                <ChevronRight class="h-4 w-4" />
+                <ChevronRight class="size-4" />
               </button>
             </div>
             <RangeCalendarGrid>

@@ -23,7 +23,7 @@ import { Label } from '@/lib/registry/new-york/ui/label'
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
-        class="h-10 w-10 text-muted-foreground"
+        class="size-10 text-muted-foreground"
         viewBox="0 0 24 24"
       >
         <circle cx="12" cy="11" r="1" />

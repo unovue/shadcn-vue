@@ -33,7 +33,7 @@ const value = ref(props.defaultValue)
             v-model="value"
             :max="1"
             :step="0.1"
-            class="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
+            class="[&_[role=slider]]:size-4"
             aria-label="Top P"
           />
         </div>

@@ -77,10 +77,10 @@ const currentExample = computed(() => examples.find(ex => path.value.startsWith(
     <a
       v-if="currentExample"
       :href="currentExample?.code" target="_blank" rel="nofollow"
-      class="absolute right-0 top-0 hidden items-center rounded-[0.5rem] text-sm font-medium md:flex"
+      class="absolute right-0 top-0 hidden items-center rounded-lg text-sm font-medium md:flex"
     >
       View code
-      <ArrowRightIcon class="ml-1 h-4 w-4" />
+      <ArrowRightIcon class="ml-1 size-4" />
     </a>
   </div>
 </template>

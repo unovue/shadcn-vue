@@ -52,7 +52,7 @@ import PlusCircledIcon from '~icons/radix-icons/plus-circled'
                   </TabsList>
                   <div class="ml-auto mr-4">
                     <Button>
-                      <PlusCircledIcon class="mr-2 h-4 w-4" />
+                      <PlusCircledIcon class="mr-2 size-4" />
                       Add music
                     </Button>
                   </div>

@@ -25,6 +25,6 @@ const forwardedProps = useForwardProps(delegatedProps)
     )"
   >
     <slot />
-    <ChevronRight class="ml-auto h-4 w-4" />
+    <ChevronRight class="ml-auto size-4" />
   </MenubarSubTrigger>
 </template>

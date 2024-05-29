@@ -48,7 +48,7 @@ const isFiltered = computed(() => props.table.getState().columnFilters.length > 
         @click="table.resetColumnFilters()"
       >
         Reset
-        <Cross2Icon class="ml-2 h-4 w-4" />
+        <Cross2Icon class="ml-2 size-4" />
       </Button>
     </div>
     <DataTableViewOptions :table="table" />

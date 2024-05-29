@@ -110,7 +110,7 @@ async function onSubmit(values: any) {
                   !value && 'text-muted-foreground',
                 )"
               >
-                <RadixIconsCalendar class="mr-2 h-4 w-4 opacity-50" />
+                <RadixIconsCalendar class="mr-2 size-4 opacity-50" />
                 <span>{{ value ? df.format(toDate(dateValue, getLocalTimeZone())) : "Pick a date" }}</span>
               </Button>
             </FormControl>
@@ -161,7 +161,7 @@ async function onSubmit(values: any) {
                   (language) => language.value === value,
                 )?.label : 'Select language...' }}
 
-                <ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
               </Button>
             </FormControl>
           </PopoverTrigger>

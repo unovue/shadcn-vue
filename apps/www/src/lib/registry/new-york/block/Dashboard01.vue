@@ -24,7 +24,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
           href="#"
           class="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
-          <Package2 class="h-6 w-6" />
+          <Package2 class="size-6" />
           <span class="sr-only">Acme Inc</span>
         </a>
         <a
@@ -65,7 +65,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
             size="icon"
             class="shrink-0 md:hidden"
           >
-            <Menu class="h-5 w-5" />
+            <Menu class="size-5" />
             <span class="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
@@ -75,7 +75,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
               href="#"
               class="flex items-center gap-2 text-lg font-semibold"
             >
-              <Package2 class="h-6 w-6" />
+              <Package2 class="size-6" />
               <span class="sr-only">Acme Inc</span>
             </a>
             <a href="#" class="hover:text-foreground">
@@ -111,7 +111,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
       <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <form class="ml-auto flex-1 sm:flex-initial">
           <div class="relative">
-            <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search class="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
             <Input
               type="search"
               placeholder="Search products..."
@@ -122,7 +122,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full">
-              <CircleUser class="h-5 w-5" />
+              <CircleUser class="size-5" />
               <span class="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>
@@ -144,7 +144,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
             <CardTitle class="text-sm font-medium">
               Total Revenue
             </CardTitle>
-            <DollarSign class="h-4 w-4 text-muted-foreground" />
+            <DollarSign class="size-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">
@@ -160,7 +160,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
             <CardTitle class="text-sm font-medium">
               Subscriptions
             </CardTitle>
-            <Users class="h-4 w-4 text-muted-foreground" />
+            <Users class="size-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">
@@ -176,7 +176,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
             <CardTitle class="text-sm font-medium">
               Sales
             </CardTitle>
-            <CreditCard class="h-4 w-4 text-muted-foreground" />
+            <CreditCard class="size-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">
@@ -192,7 +192,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
             <CardTitle class="text-sm font-medium">
               Active Now
             </CardTitle>
-            <Activity class="h-4 w-4 text-muted-foreground" />
+            <Activity class="size-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div class="text-2xl font-bold">
@@ -216,7 +216,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
             <Button as-child size="sm" class="ml-auto gap-1">
               <a href="#">
                 View All
-                <ArrowUpRight class="h-4 w-4" />
+                <ArrowUpRight class="size-4" />
               </a>
             </Button>
           </CardHeader>
@@ -370,7 +370,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
           </CardHeader>
           <CardContent class="grid gap-8">
             <div class="flex items-center gap-4">
-              <Avatar class="hidden h-9 w-9 sm:flex">
+              <Avatar class="hidden size-9 sm:flex">
                 <AvatarImage src="/avatars/01.png" alt="Avatar" />
                 <AvatarFallback>OM</AvatarFallback>
               </Avatar>
@@ -387,7 +387,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <Avatar class="hidden h-9 w-9 sm:flex">
+              <Avatar class="hidden size-9 sm:flex">
                 <AvatarImage src="/avatars/02.png" alt="Avatar" />
                 <AvatarFallback>JL</AvatarFallback>
               </Avatar>
@@ -404,7 +404,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <Avatar class="hidden h-9 w-9 sm:flex">
+              <Avatar class="hidden size-9 sm:flex">
                 <AvatarImage src="/avatars/03.png" alt="Avatar" />
                 <AvatarFallback>IN</AvatarFallback>
               </Avatar>
@@ -421,7 +421,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <Avatar class="hidden h-9 w-9 sm:flex">
+              <Avatar class="hidden size-9 sm:flex">
                 <AvatarImage src="/avatars/04.png" alt="Avatar" />
                 <AvatarFallback>WK</AvatarFallback>
               </Avatar>
@@ -438,7 +438,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <Avatar class="hidden h-9 w-9 sm:flex">
+              <Avatar class="hidden size-9 sm:flex">
                 <AvatarImage src="/avatars/05.png" alt="Avatar" />
                 <AvatarFallback>SD</AvatarFallback>
               </Avatar>

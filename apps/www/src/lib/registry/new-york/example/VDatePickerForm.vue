@@ -58,7 +58,7 @@ const onSubmit = handleSubmit((values) => {
                 )"
               >
                 <span>{{ value ? format(value, "PPP") : "Pick a date" }}</span>
-                <CalendarIcon class="ms-auto h-4 w-4 opacity-50" />
+                <CalendarIcon class="ms-auto size-4 opacity-50" />
               </Button>
             </FormControl>
           </PopoverTrigger>

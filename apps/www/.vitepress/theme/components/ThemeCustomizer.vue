@@ -43,12 +43,12 @@ const { isDark } = useData()
           @click="setTheme(color)"
         >
           <span
-            class="h-5 w-5 rounded-full flex items-center justify-center"
+            class="size-5 rounded-full flex items-center justify-center"
             :style="{ backgroundColor: colors[color][7].rgb }"
           >
             <RadixIconsCheck
               v-if="color === theme"
-              class="h-3 w-3 text-white"
+              class="size-3 text-white"
             />
           </span>
           <span class="ml-2 text-xs capitalize">
@@ -88,7 +88,7 @@ const { isDark } = useData()
           :class="{ 'border-2 border-foreground': !isDark }"
           @click="isDark = false"
         >
-          <RadixIconsSun class="w-4 h-4 mr-2" />
+          <RadixIconsSun class="size-4 mr-2" />
           <span class="text-xs">Light</span>
         </Button>
         <Button
@@ -97,7 +97,7 @@ const { isDark } = useData()
           :class="{ 'border-2 border-foreground': isDark }"
           @click="isDark = true"
         >
-          <RadixIconsMoon class="w-4 h-4 mr-2" />
+          <RadixIconsMoon class="size-4 mr-2" />
           <span class="text-xs">Dark</span>
         </Button>
       </div>

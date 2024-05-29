@@ -41,7 +41,7 @@ const showDeleteDialog = ref(false)
     <DropdownMenuTrigger as-child>
       <Button variant="secondary">
         <span class="sr-only">Actions</span>
-        <DotsHorizontalIcon class="h-4 w-4" />
+        <DotsHorizontalIcon class="size-4" />
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">

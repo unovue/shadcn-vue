@@ -80,7 +80,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="none"
-                    class="h-5 w-5"
+                    class="size-5"
                   >
                     <rect
                       x="4"
@@ -146,7 +146,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="none"
-                    class="h-5 w-5"
+                    class="size-5"
                   >
                     <path
                       fillRule="evenodd"
@@ -186,7 +186,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="none"
-                    class="h-5 w-5"
+                    class="size-5"
                   >
                     <rect
                       x="4"
@@ -252,7 +252,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                   <Button>Submit</Button>
                   <Button variant="secondary">
                     <span class="sr-only">Show history</span>
-                    <CounterClockwiseClockIcon class="h-4 w-4" />
+                    <CounterClockwiseClockIcon class="size-4" />
                   </Button>
                 </div>
               </div>
@@ -270,7 +270,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                   <Button>Submit</Button>
                   <Button variant="secondary">
                     <span class="sr-only">Show history</span>
-                    <CounterClockwiseClockIcon class="h-4 w-4" />
+                    <CounterClockwiseClockIcon class="size-4" />
                   </Button>
                 </div>
               </div>
@@ -301,7 +301,7 @@ import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-cloc
                   <Button>Submit</Button>
                   <Button variant="secondary">
                     <span class="sr-only">Show history</span>
-                    <CounterClockwiseClockIcon class="h-4 w-4" />
+                    <CounterClockwiseClockIcon class="size-4" />
                   </Button>
                 </div>
               </div>

@@ -58,7 +58,7 @@ const formatter = useDateFormatter('en')
             })
           }"
         >
-          <SelectTrigger aria-label="Select month" class="w-[60%]">
+          <SelectTrigger aria-label="Select month" class="w-3/5">
             <SelectValue placeholder="Select month" />
           </SelectTrigger>
           <SelectContent class="max-h-[200px]">
@@ -81,7 +81,7 @@ const formatter = useDateFormatter('en')
             })
           }"
         >
-          <SelectTrigger aria-label="Select year" class="w-[40%]">
+          <SelectTrigger aria-label="Select year" class="w-2/5">
             <SelectValue placeholder="Select year" />
           </SelectTrigger>
           <SelectContent class="max-h-[200px]">

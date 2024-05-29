@@ -49,7 +49,7 @@ withDefaults(defineProps<AlbumArtworkProps>(), {
           <ContextMenuSubTrigger>Add to Playlist</ContextMenuSubTrigger>
           <ContextMenuSubContent class="w-48">
             <ContextMenuItem>
-              <PlusCircledIcon class="mr-2 h-4 w-4" />
+              <PlusCircledIcon class="mr-2 size-4" />
               New Playlist
             </ContextMenuItem>
             <ContextMenuSeparator />
@@ -61,7 +61,7 @@ withDefaults(defineProps<AlbumArtworkProps>(), {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                class="mr-2 h-4 w-4"
+                class="mr-2 size-4"
                 viewBox="0 0 24 24"
               >
                 <path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM12 12H3M16 6H3M12 18H3" />

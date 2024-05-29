@@ -42,7 +42,7 @@ import {
         </div>
         <Button type="submit" size="sm" class="px-3">
           <span class="sr-only">Copy</span>
-          <CopyIcon class="h-4 w-4" />
+          <CopyIcon class="size-4" />
         </Button>
       </div>
     </PopoverContent>

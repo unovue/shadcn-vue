@@ -6,6 +6,6 @@ import { Toggle } from '@/lib/registry/default/ui/toggle'
 
 <template>
   <Toggle aria-label="Toggle italic">
-    <Bold class="h-4 w-4" />
+    <Bold class="size-4" />
   </Toggle>
 </template>

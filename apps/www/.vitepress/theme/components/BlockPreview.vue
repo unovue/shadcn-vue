@@ -120,7 +120,7 @@ watch([style, codeConfig], async () => {
             </a>
             <Popover>
               <PopoverTrigger class="hidden text-muted-foreground hover:text-foreground sm:flex">
-                <Info class="h-3.5 w-3.5" />
+                <Info class="size-3.5" />
                 <span class="sr-only">Block description</span>
               </PopoverTrigger>
               <PopoverContent
@@ -145,21 +145,21 @@ watch([style, codeConfig], async () => {
           >
             <ToggleGroupItem
               value="100"
-              class="h-[22px] w-[22px] rounded-sm p-0"
+              class="size-[22px] rounded-sm p-0"
             >
-              <Monitor class="h-3.5 w-3.5" />
+              <Monitor class="size-3.5" />
             </ToggleGroupItem>
             <ToggleGroupItem
               value="60"
-              class="h-[22px] w-[22px] rounded-sm p-0"
+              class="size-[22px] rounded-sm p-0"
             >
-              <Tablet class="h-3.5 w-3.5" />
+              <Tablet class="size-3.5" />
             </ToggleGroupItem>
             <ToggleGroupItem
               value="30"
-              class="h-[22px] w-[22px] rounded-sm p-0"
+              class="size-[22px] rounded-sm p-0"
             >
-              <Smartphone class="h-3.5 w-3.5" />
+              <Smartphone class="size-3.5" />
             </ToggleGroupItem>
           </ToggleGroup>
         </div>
@@ -170,13 +170,13 @@ watch([style, codeConfig], async () => {
         <StyleSwitcher class="h-7" />
         <Popover>
           <PopoverTrigger class="hidden text-muted-foreground hover:text-foreground sm:flex">
-            <CircleHelp class="h-3.5 w-3.5" />
+            <CircleHelp class="size-3.5" />
             <span class="sr-only">Block description</span>
           </PopoverTrigger>
           <PopoverContent
             side="top"
             :side-offset="20"
-            class="space-y-3 rounded-[0.5rem] text-sm"
+            class="space-y-3 rounded-lg text-sm"
           >
             <p class="font-medium">
               What is the difference between the New York and Default style?
@@ -231,13 +231,13 @@ watch([style, codeConfig], async () => {
             @load="isLoading = false"
           />
         </ResizablePanel>
-        <ResizableHandle id="block-resizable-handle" class="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block" />
+        <ResizableHandle id="block-resizable-handle" class="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:-translate-x-px after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block" />
         <ResizablePanel id="block-resizable-panel-2" :default-size="0" :min-size="0" />
       </ResizablePanelGroup>
     </TabsContent>
     <TabsContent value="code" class="h-[--container-height]">
       <div
-        class="language-vue !h-full !max-h-[none] !mt-0"
+        class="language-vue !h-full !max-h-none !mt-0"
         v-html="codeHtml"
       />
     </TabsContent>

@@ -23,7 +23,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sh
           href="#"
           class="flex items-center gap-2 text-lg font-semibold md:text-base"
         >
-          <Package2 class="h-6 w-6" />
+          <Package2 class="size-6" />
           <span class="sr-only">Acme Inc</span>
         </a>
         <a
@@ -64,7 +64,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sh
             size="icon"
             class="shrink-0 md:hidden"
           >
-            <Menu class="h-5 w-5" />
+            <Menu class="size-5" />
             <span class="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
@@ -74,7 +74,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sh
               href="#"
               class="flex items-center gap-2 text-lg font-semibold"
             >
-              <Package2 class="h-6 w-6" />
+              <Package2 class="size-6" />
               <span class="sr-only">Acme Inc</span>
             </a>
             <a
@@ -110,7 +110,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sh
       <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <form class="ml-auto flex-1 sm:flex-initial">
           <div class="relative">
-            <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search class="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
             <Input
               type="search"
               placeholder="Search products..."
@@ -121,7 +121,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sh
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full">
-              <CircleUser class="h-5 w-5" />
+              <CircleUser class="size-5" />
               <span class="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>

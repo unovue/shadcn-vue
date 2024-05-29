@@ -64,7 +64,7 @@ const onSubmit = handleSubmit((values) => {
                 )"
               >
                 <span>{{ value ? df.format(toDate(value)) : "Pick a date" }}</span>
-                <CalendarIcon class="ms-auto h-4 w-4 opacity-50" />
+                <CalendarIcon class="ms-auto size-4 opacity-50" />
               </Button>
               <input hidden>
             </FormControl>

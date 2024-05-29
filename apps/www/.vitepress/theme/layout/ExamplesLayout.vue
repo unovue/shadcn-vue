@@ -45,7 +45,7 @@ import { cn } from '@/lib/utils'
     </PageHeader>
     <section>
       <ExamplesNav />
-      <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
+      <div class="overflow-hidden rounded-lg border bg-background shadow">
         <slot />
       </div>
     </section>

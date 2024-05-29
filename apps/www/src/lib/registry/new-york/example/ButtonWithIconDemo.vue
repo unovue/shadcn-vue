@@ -5,6 +5,6 @@ import { Button } from '@/lib/registry/new-york/ui/button'
 
 <template>
   <Button>
-    <EnvelopeOpenIcon class="w-4 h-4 mr-2" /> Login with Email
+    <EnvelopeOpenIcon class="size-4 mr-2" /> Login with Email
   </Button>
 </template>

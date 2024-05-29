@@ -52,8 +52,8 @@ async function copyCode() {
 </code>
 </pre>
     <Button size="sm" class="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground" @click="copyCode">
-      <CheckIcon v-if="copied" class="mr-2 h-4 w-4" />
-      <CopyIcon v-else class="mr-2 h-4 w-4" />
+      <CheckIcon v-if="copied" class="mr-2 size-4" />
+      <CopyIcon v-else class="mr-2 size-4" />
       {{ copied ? 'Copied' : 'Copy' }}
     </Button>
   </div>

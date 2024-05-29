@@ -37,7 +37,7 @@ import { buttonVariants } from '@/lib/registry/new-york/ui/button'
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          class="mr-2 h-6 w-6"
+          class="mr-2 size-6"
         >
           <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
         </svg>

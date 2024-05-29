@@ -28,7 +28,7 @@ import {
       <BreadcrumbItem>
         <DropdownMenu>
           <DropdownMenuTrigger class="flex items-center gap-1">
-            <BreadcrumbEllipsis class="h-4 w-4" />
+            <BreadcrumbEllipsis class="size-4" />
             <span class="sr-only">Toggle menu</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start">

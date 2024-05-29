@@ -33,7 +33,7 @@ const value = ref({
           !value && 'text-muted-foreground',
         )"
       >
-        <CalendarIcon class="mr-2 h-4 w-4" />
+        <CalendarIcon class="mr-2 size-4" />
         <template v-if="value.start">
           <template v-if="value.end">
             {{ df.format(value.start.toDate(getLocalTimeZone())) }} - {{ df.format(value.end.toDate(getLocalTimeZone())) }}

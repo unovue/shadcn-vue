@@ -22,7 +22,7 @@ import {
     </CardHeader>
     <CardContent class="grid gap-1">
       <div class="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground">
-        <BellIcon class="mt-px h-5 w-5" />
+        <BellIcon class="mt-px size-5" />
         <div class="space-y-1">
           <p class="text-sm font-medium leading-none">
             Everything
@@ -33,7 +33,7 @@ import {
         </div>
       </div>
       <div class="-mx-2 flex items-start space-x-4 rounded-md bg-accent p-2 text-accent-foreground transition-all">
-        <PersonIcon class="mt-px h-5 w-5" />
+        <PersonIcon class="mt-px size-5" />
         <div class="space-y-1">
           <p class="text-sm font-medium leading-none">
             Available
@@ -44,7 +44,7 @@ import {
         </div>
       </div>
       <div class="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground">
-        <EyeNoneIcon class="mt-px h-5 w-5" />
+        <EyeNoneIcon class="mt-px size-5" />
         <div class="space-y-1">
           <p class="text-sm font-medium leading-none">
             Ignoring

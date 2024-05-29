@@ -36,14 +36,14 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
       </div>
       <div class="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
         <Button variant="secondary" class="px-3 shadow-none">
-          <StarIcon class="mr-2 h-4 w-4" />
+          <StarIcon class="mr-2 size-4" />
           Star
         </Button>
         <Separator orientation="vertical" class="h-5" />
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" class="px-2 shadow-none">
-              <ChevronDownIcon class="h-4 w-4 text-secondary-foreground" />
+              <ChevronDownIcon class="size-4 text-secondary-foreground" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -60,7 +60,7 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
             <DropdownMenuCheckboxItem>Inspiration</DropdownMenuCheckboxItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <PlusIcon class="mr-2 h-4 w-4" /> Create List
+              <PlusIcon class="mr-2 size-4" /> Create List
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -69,11 +69,11 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
     <CardContent>
       <div class="flex space-x-4 text-sm text-muted-foreground">
         <div class="flex items-center">
-          <CircleIcon class="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
+          <CircleIcon class="mr-1 size-3 fill-sky-400 text-sky-400" />
           TypeScript
         </div>
         <div class="flex items-center">
-          <StarIcon class="mr-1 h-3 w-3" />
+          <StarIcon class="mr-1 size-3" />
           20k
         </div>
         <div>Updated April 2023</div>

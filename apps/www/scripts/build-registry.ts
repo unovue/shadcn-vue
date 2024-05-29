@@ -282,7 +282,7 @@ for (const baseColor of ['slate', 'gray', 'zinc', 'neutral', 'stone', 'lime']) {
     for (const [key, value] of Object.entries(values)) {
       if (typeof value === 'string') {
         const resolvedColor = value.replace(
-          /{{base}}-/g,
+          /\{\{base\}\}-/g,
 					`${baseColor}-`,
         )
         base.inlineColors[mode][key] = resolvedColor

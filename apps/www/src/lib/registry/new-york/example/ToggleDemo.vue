@@ -6,6 +6,6 @@ import { Toggle } from '@/lib/registry/new-york/ui/toggle'
 
 <template>
   <Toggle aria-label="Toggle italic">
-    <FontBoldIcon class="h-4 w-4" />
+    <FontBoldIcon class="size-4" />
   </Toggle>
 </template>

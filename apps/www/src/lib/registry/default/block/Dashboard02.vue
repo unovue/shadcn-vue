@@ -21,11 +21,11 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
       <div class="flex h-full max-h-screen flex-col gap-2">
         <div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
           <a href="/" class="flex items-center gap-2 font-semibold">
-            <Package2 class="h-6 w-6" />
+            <Package2 class="size-6" />
             <span class="">Acme Inc</span>
           </a>
-          <Button variant="outline" size="icon" class="ml-auto h-8 w-8">
-            <Bell class="h-4 w-4" />
+          <Button variant="outline" size="icon" class="ml-auto size-8">
+            <Bell class="size-4" />
             <span class="sr-only">Toggle notifications</span>
           </Button>
         </div>
@@ -35,16 +35,16 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
               href="/"
               class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <Home class="h-4 w-4" />
+              <Home class="size-4" />
               Dashboard
             </a>
             <a
               href="#"
               class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <ShoppingCart class="h-4 w-4" />
+              <ShoppingCart class="size-4" />
               Orders
-              <Badge class="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+              <Badge class="ml-auto flex size-6 shrink-0 items-center justify-center rounded-full">
                 6
               </Badge>
             </a>
@@ -52,21 +52,21 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
               href="#"
               class="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
             >
-              <Package class="h-4 w-4" />
+              <Package class="size-4" />
               Products
             </a>
             <a
               href="#"
               class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <Users class="h-4 w-4" />
+              <Users class="size-4" />
               Customers
             </a>
             <a
               href="#"
               class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
             >
-              <LineChart class="h-4 w-4" />
+              <LineChart class="size-4" />
               Analytics
             </a>
           </nav>
@@ -98,7 +98,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
               size="icon"
               class="shrink-0 md:hidden"
             >
-              <Menu class="h-5 w-5" />
+              <Menu class="size-5" />
               <span class="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
@@ -108,23 +108,23 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
                 href="#"
                 class="flex items-center gap-2 text-lg font-semibold"
               >
-                <Package2 class="h-6 w-6" />
+                <Package2 class="size-6" />
                 <span class="sr-only">Acme Inc</span>
               </a>
               <a
                 href="#"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
               >
-                <Home class="h-5 w-5" />
+                <Home class="size-5" />
                 Dashboard
               </a>
               <a
                 href="#"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
               >
-                <ShoppingCart class="h-5 w-5" />
+                <ShoppingCart class="size-5" />
                 Orders
-                <Badge class="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                <Badge class="ml-auto flex size-6 shrink-0 items-center justify-center rounded-full">
                   6
                 </Badge>
               </a>
@@ -132,21 +132,21 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
                 href="#"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
               >
-                <Package class="h-5 w-5" />
+                <Package class="size-5" />
                 Products
               </a>
               <a
                 href="#"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
               >
-                <Users class="h-5 w-5" />
+                <Users class="size-5" />
                 Customers
               </a>
               <a
                 href="#"
                 class="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
               >
-                <LineChart class="h-5 w-5" />
+                <LineChart class="size-5" />
                 Analytics
               </a>
             </nav>
@@ -171,7 +171,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
         <div class="w-full flex-1">
           <form>
             <div class="relative">
-              <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Search class="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search products..."
@@ -183,7 +183,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/she
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full">
-              <CircleUser class="h-5 w-5" />
+              <CircleUser class="size-5" />
               <span class="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>

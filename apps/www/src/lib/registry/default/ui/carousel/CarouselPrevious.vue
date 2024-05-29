@@ -24,7 +24,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
     @click="scrollPrev"
   >
     <slot>
-      <ArrowLeft class="h-4 w-4 text-current" />
+      <ArrowLeft class="size-4 text-current" />
     </slot>
   </Button>
 </template>

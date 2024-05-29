@@ -6,6 +6,6 @@ import { Toggle } from '@/lib/registry/default/ui/toggle'
 
 <template>
   <Toggle aria-label="Toggle italic" disabled>
-    <Underline class="w-4 h-4" />
+    <Underline class="size-4" />
   </Toggle>
 </template>

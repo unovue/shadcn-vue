@@ -52,7 +52,7 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
             <Button
               :size="'icon'"
               :variant="'ghost'"
-              class="h-[26px] w-[26px]"
+              class="size-[26px]"
               aria-label="Remove file"
               type="button"
               @click="() => {

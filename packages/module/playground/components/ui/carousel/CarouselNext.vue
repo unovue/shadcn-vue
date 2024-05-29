@@ -24,7 +24,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     @click="scrollNext"
   >
     <slot>
-      <ChevronRight class="h-4 w-4 text-current" />
+      <ChevronRight class="size-4 text-current" />
     </slot>
   </Button>
 </template>
