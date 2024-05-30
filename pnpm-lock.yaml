@@ -286,7 +286,7 @@ importers:
         specifier: ^2.4.2
         version: 2.4.2
       radix-vue:
-        specifier: ^1.7.3
+        specifier: ^1.8.2
         version: 1.8.2(vue@3.4.27(typescript@5.4.5))
       semver:
         specifier: ^7.6.0
