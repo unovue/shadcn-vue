@@ -32,7 +32,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { Form, Field as FormField } from 'vee-validate'\nexport { default as FormItem } from './FormItem.vue'\nexport { default as FormLabel } from './FormLabel.vue'\nexport { default as FormControl } from './FormControl.vue'\nexport { default as FormMessage } from './FormMessage.vue'\nexport { default as FormDescription } from './FormDescription.vue'\nexport * from './injectionKeys'\n"
+      "content": "export { Form, Field as FormField } from 'vee-validate'\nexport { default as FormItem } from './FormItem.vue'\nexport { default as FormLabel } from './FormLabel.vue'\nexport { default as FormControl } from './FormControl.vue'\nexport { default as FormMessage } from './FormMessage.vue'\nexport { default as FormDescription } from './FormDescription.vue'\nexport { FORM_ITEM_INJECTION_KEY } from './injectionKeys'\n"
     },
     {
       "name": "injectionKeys.ts",
