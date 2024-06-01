@@ -202,7 +202,7 @@ const table = useVueTable({
         </template>
         <template v-else>
           <TableRow>
-            <TableCell :col-span="columns.length" class="h-24 text-center">
+            <TableCell :colspan="columns.length" class="h-24 text-center">
               No results.
             </TableCell>
           </TableRow>
