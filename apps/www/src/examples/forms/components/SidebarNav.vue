@@ -13,7 +13,7 @@ const $route = useRoute()
 const sidebarNavItems: Item[] = [
   {
     title: 'Profile',
-    href: '/examples/forms/forms',
+    href: '/examples/forms',
   },
   {
     title: 'Account',
