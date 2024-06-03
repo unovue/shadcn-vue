@@ -566,7 +566,6 @@
       "ui/number-field/NumberFieldDecrement.vue",
       "ui/number-field/NumberFieldIncrement.vue",
       "ui/number-field/NumberFieldInput.vue",
-      "ui/number-field/NumberFieldLabel.vue",
       "ui/number-field/index.ts"
     ],
     "type": "components:ui"

@@ -26,12 +26,8 @@
       "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n</script>\n\n<template>\n  <NumberFieldInput :class=\"cn('flex h-10 w-full rounded-md border border-input bg-background px-10 py-2 text-sm text-center ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50')\" />\n</template>\n"
     },
     {
-      "name": "NumberFieldLabel.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldLabelProps } from 'radix-vue'\nimport { NumberFieldLabel, useForwardProps } from 'radix-vue'\nimport { type HTMLAttributes, computed } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NumberFieldLabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <NumberFieldLabel v-bind=\"forwarded\" :class=\"cn('text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70', props.class)\">\n    <slot />\n  </NumberFieldLabel>\n</template>\n"
-    },
-    {
       "name": "index.ts",
-      "content": "export { default as NumberField } from './NumberField.vue'\nexport { default as NumberFieldInput } from './NumberFieldInput.vue'\nexport { default as NumberFieldLabel } from './NumberFieldLabel.vue'\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue'\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue'\nexport { default as NumberFieldContent } from './NumberFieldContent.vue'\n"
+      "content": "export { default as NumberField } from './NumberField.vue'\nexport { default as NumberFieldInput } from './NumberFieldInput.vue'\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue'\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue'\nexport { default as NumberFieldContent } from './NumberFieldContent.vue'\n"
     }
   ],
   "type": "components:ui"
