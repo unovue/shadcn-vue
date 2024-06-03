@@ -11,6 +11,7 @@ import { Label } from '@/lib/registry/default/ui/label'
 
 <template>
   <NumberField
+    id="balance"
     :default-value="1500"
     :format-options="{
       style: 'currency',
@@ -19,7 +20,7 @@ import { Label } from '@/lib/registry/default/ui/label'
       currencySign: 'accounting',
     }"
   >
-    <Label>Balance</Label>
+    <Label for="balance">Balance</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />

@@ -11,13 +11,14 @@ import { Label } from '@/lib/registry/new-york/ui/label'
 
 <template>
   <NumberField
+    id="percent"
     :default-value="0.05"
     :step="0.01"
     :format-options="{
       style: 'percent',
     }"
   >
-    <Label>Percent</Label>
+    <Label for="percent">Percent</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />

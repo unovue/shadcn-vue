@@ -2,10 +2,10 @@
 import { type Ref, ref, watch } from 'vue'
 
 import {
-  Calendar as CalendarIcon,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-vue-next'
+  CalendarIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@radix-icons/vue'
 import {
   CalendarDate,
   type DateValue,
@@ -153,7 +153,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('first', -1)"
               >
-                <ChevronLeft class="h-4 w-4" />
+                <ChevronLeftIcon class="h-4 w-4" />
               </button>
               <div :class="cn('text-sm font-medium')">
                 {{
@@ -171,7 +171,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('first', 1)"
               >
-                <ChevronRight class="h-4 w-4" />
+                <ChevronRightIcon class="h-4 w-4" />
               </button>
             </div>
             <RangeCalendarGrid>
@@ -219,7 +219,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('second', -1)"
               >
-                <ChevronLeft class="h-4 w-4" />
+                <ChevronLeftIcon class="h-4 w-4" />
               </button>
               <div :class="cn('text-sm font-medium')">
                 {{
@@ -238,7 +238,7 @@ watch(secondMonthPlaceholder, (_secondMonthPlaceholder) => {
                 "
                 @click="updateMonth('second', 1)"
               >
-                <ChevronRight class="h-4 w-4" />
+                <ChevronRightIcon class="h-4 w-4" />
               </button>
             </div>
             <RangeCalendarGrid>

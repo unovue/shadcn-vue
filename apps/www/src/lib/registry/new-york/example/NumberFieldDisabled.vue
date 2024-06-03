@@ -10,8 +10,8 @@ import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>
-  <NumberField :default-value="18" disabled>
-    <Label>Age</Label>
+  <NumberField id="age-disabled" :default-value="18" disabled>
+    <Label for="age-disabled">Age</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />
