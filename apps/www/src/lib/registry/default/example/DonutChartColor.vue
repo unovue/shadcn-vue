@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DonutChart } from '@/lib/registry/new-york/ui/chart-donut'
+import { DonutChart } from '@/lib/registry/default/ui/chart-donut'
 
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },

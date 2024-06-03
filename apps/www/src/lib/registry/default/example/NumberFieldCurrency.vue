@@ -5,8 +5,8 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  NumberFieldLabel,
 } from '@/lib/registry/default/ui/number-field'
+import { Label } from '@/lib/registry/default/ui/label'
 </script>
 
 <template>
@@ -19,7 +19,7 @@ import {
       currencySign: 'accounting',
     }"
   >
-    <NumberFieldLabel>Balance</NumberFieldLabel>
+    <Label>Balance</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />

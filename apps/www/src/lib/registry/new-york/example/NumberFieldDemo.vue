@@ -5,13 +5,13 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  NumberFieldLabel,
 } from '@/lib/registry/new-york/ui/number-field'
+import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>
   <NumberField :default-value="18" :min="0">
-    <NumberFieldLabel>Age</NumberFieldLabel>
+    <Label>Age</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />

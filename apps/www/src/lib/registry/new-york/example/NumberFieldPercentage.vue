@@ -5,8 +5,8 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  NumberFieldLabel,
 } from '@/lib/registry/new-york/ui/number-field'
+import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>
@@ -17,7 +17,7 @@ import {
       style: 'percent',
     }"
   >
-    <NumberFieldLabel>Percent</NumberFieldLabel>
+    <Label>Percent</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />

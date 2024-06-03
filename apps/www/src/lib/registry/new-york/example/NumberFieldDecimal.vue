@@ -5,8 +5,8 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  NumberFieldLabel,
 } from '@/lib/registry/new-york/ui/number-field'
+import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>
@@ -17,7 +17,7 @@ import {
       minimumFractionDigits: 1,
     }"
   >
-    <NumberFieldLabel>Number</NumberFieldLabel>
+    <Label>Number</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />

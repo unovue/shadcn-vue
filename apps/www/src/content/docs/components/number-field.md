@@ -28,13 +28,13 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-  NumberFieldLabel
 } from '@/lib/registry/default/ui/number-field'
+import { Label } from '@/lib/registry/default/ui/label'
 </script>
 
 <template>
   <NumberField>
-    <NumberFieldLabel>Age</NumberFieldLabel>
+    <Label>Age</Label>
     <NumberFieldContent>
       <NumberFieldDecrement />
       <NumberFieldInput />
