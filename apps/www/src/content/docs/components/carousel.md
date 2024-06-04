@@ -281,6 +281,3 @@ import Autoplay from 'embla-carousel-autoplay'
 <ComponentPreview name="CarouselPlugin" />
 
 See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.
-```
-
-##
