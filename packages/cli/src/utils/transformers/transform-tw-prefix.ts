@@ -39,7 +39,7 @@ export const transformTwPrefixes: Transformer = async ({
     else {
       const s = new MagicString(value)
       s.replace(/'(.*?)'/g, (substring) => {
-        return `'${applyPrefix(substring.replace(/\'/g, ''), config.tailwind.prefix)}'`
+        return `'${applyPrefix(substring.replace(/'/g, ''), config.tailwind.prefix)}'`
       })
       node.replaceWithText(s.toString())
     }
