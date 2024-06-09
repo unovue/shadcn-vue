@@ -45,6 +45,13 @@
       "@commitlint/config-conventional"
     ]
   },
+  "pnpm": {
+    "overrides": {
+      "hasown": "npm:@nolyfill/hasown@latest",
+      "isarray": "npm:@nolyfill/isarray@latest",
+      "typedarray": "npm:@nolyfill/typedarray@latest"
+    }
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "commit-msg": "pnpm commitlint --edit ${1}"
