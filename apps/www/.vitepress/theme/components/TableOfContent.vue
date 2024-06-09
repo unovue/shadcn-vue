@@ -24,7 +24,7 @@ function getHeadingsWithHierarchy(divId: string) {
     const level = Number.parseInt(heading.tagName.charAt(1))
     if (!heading.id) {
       const newId = heading.textContent
-        .replaceAll(/[^a-zA-Z0-9 ]/g, '')
+        .replaceAll(/[^a-z0-9 ]/gi, '')
         .replaceAll(' ', '-')
         .toLowerCase()
       heading.id = `${newId}`

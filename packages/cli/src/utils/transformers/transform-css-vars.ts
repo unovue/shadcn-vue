@@ -40,7 +40,7 @@ export const transformCssVars: Transformer = async ({
     else {
       const s = new MagicString(value)
       s.replace(/'(.*?)'/g, (substring) => {
-        return `'${applyColorMapping(substring.replace(/\'/g, ''), baseColor.inlineColors)}'`
+        return `'${applyColorMapping(substring.replace(/'/g, ''), baseColor.inlineColors)}'`
       })
       node.replaceWithText(s.toString())
     }
