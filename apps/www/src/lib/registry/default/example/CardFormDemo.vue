@@ -40,7 +40,7 @@ import { Button } from '@/lib/registry/default/ui/button'
               </SelectTrigger>
               <SelectContent position="popper">
                 <SelectItem value="nuxt">
-                  Nuxt.js
+                  Nuxt
                 </SelectItem>
                 <SelectItem value="next">
                   Next.js
