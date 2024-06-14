@@ -24,12 +24,12 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
       emblaApi.value?.scrollNext()
     }
 
-    const canScrollNext = ref(true)
-    const canScrollPrev = ref(true)
+    const canScrollNext = ref(false)
+    const canScrollPrev = ref(false)
 
-    function onSelect(api: CarouselApi) {
-      canScrollNext.value = api.canScrollNext()
-      canScrollPrev.value = api.canScrollPrev()
+    function onSelect(api?: CarouselApi) {
+      canScrollNext.value = api?.canScrollNext() || false
+      canScrollPrev.value = api?.canScrollPrev() || false
     }
 
     onMounted(() => {
