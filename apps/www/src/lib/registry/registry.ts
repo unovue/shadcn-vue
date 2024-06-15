@@ -12,7 +12,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
   ['@unovis/vue', ['@unovis/ts']],
-  ['embla-carousel-vue', ['embla-carousel']],
+  ['embla-carousel-vue', []],
   ['vee-validate', ['@vee-validate/zod', 'zod']],
 ])
 // Some dependencies latest tag were not compatible with Vue3.
