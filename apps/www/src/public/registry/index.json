@@ -202,9 +202,8 @@
   {
     "name": "carousel",
     "dependencies": [
-      "@vueuse/core",
       "embla-carousel-vue",
-      "embla-carousel"
+      "@vueuse/core"
     ],
     "registryDependencies": [
       "utils",
