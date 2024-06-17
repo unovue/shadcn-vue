@@ -1,5 +1,5 @@
 <template>
   <div class="text-lg font-semibold">
-    Are you sure absolutely sure?
+    Are you absolutely sure?
   </div>
 </template>

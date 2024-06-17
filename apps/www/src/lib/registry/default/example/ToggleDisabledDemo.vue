@@ -5,7 +5,7 @@ import { Toggle } from '@/lib/registry/default/ui/toggle'
 </script>
 
 <template>
-  <Toggle aria-label="Toggle italic" disabled>
+  <Toggle aria-label="Toggle underline" disabled>
     <Underline class="w-4 h-4" />
   </Toggle>
 </template>
