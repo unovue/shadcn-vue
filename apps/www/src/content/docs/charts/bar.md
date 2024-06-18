@@ -1,6 +1,6 @@
 ---
 title: Bar
-description: An line chart visually represents data using rectangular bars of varying lengths to compare quantities across different categories or groups.
+description: A line chart visually represents data using rectangular bars of varying lengths to compare quantities across different categories or groups.
 source: apps/www/src/lib/registry/default/ui/chart-bar
 label: Alpha
 ---
