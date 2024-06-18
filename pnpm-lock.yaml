@@ -293,15 +293,12 @@ importers:
       semver:
         specifier: ^7.6.2
         version: 7.6.2
-      ts-morph:
-        specifier: ^22.0.0
-        version: 22.0.0
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
       vitest:
         specifier: '*'
-        version: 1.6.0(@types/node@20.14.2)(@vitest/ui@1.6.0)(terser@5.31.1)
+        version: 1.6.0(@types/node@20.14.2)(@vitest/ui@1.6.0)(stylus@0.57.0)(terser@5.31.1)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -2016,9 +2013,6 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
-  '@ts-morph/common@0.23.0':
-    resolution: {integrity: sha512-m7Lllj9n/S6sOkCkRftpM7L24uvmfXQFedlW/4hENcuJH1HHm9u5EgxZb9uVjQSCGrbBWBkOGgcTxNg36r6ywA==}
-
   '@tufjs/canonical-json@2.0.0':
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}
     engines: {node: ^16.14.0 || >=18.0.0}
@@ -3119,9 +3113,6 @@ packages:
   cluster-key-slot@1.1.2:
     resolution: {integrity: sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==}
     engines: {node: '>=0.10.0'}
-
-  code-block-writer@13.0.1:
-    resolution: {integrity: sha512-c5or4P6erEA69TxaxTNcHUNcIn+oyxSRTOWV+pSYF+z4epXqNvwvJ70XPGjPNgue83oAFAPBRQYwpAJ/Hpe/Sg==}
 
   codesandbox-import-util-types@2.2.3:
     resolution: {integrity: sha512-Qj00p60oNExthP2oR3vvXmUGjukij+rxJGuiaKM6tyUmSyimdZsqHI/TUvFFClAffk9s7hxGnQgWQ8KCce27qQ==}
@@ -5304,11 +5295,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mkdirp@3.0.1:
-    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   mkdist@1.5.1:
     resolution: {integrity: sha512-lCu1spNiA52o7IaKgZnOjg28nNHwYqUDjBfXePXyUtzD7Xhe6rRTkGTalQ/ALfrZC/SrPw2+A/0qkeJ+fPDZtQ==}
     hasBin: true
@@ -7057,9 +7043,6 @@ packages:
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
-
-  ts-morph@22.0.0:
-    resolution: {integrity: sha512-M9MqFGZREyeb5fTl6gNHKZLqBQA0TjA1lea+CR48R8EBTDuWrNqW6ccC5QvjNR4s6wDumD3LTCjOFSp9iwlzaw==}
 
   tsconfck@3.1.0:
     resolution: {integrity: sha512-CMjc5zMnyAjcS9sPLytrbFmj89st2g+JYtY/c02ug4Q+CZaAtCgbyviI0n1YvjZE/pzoc6FbNsINS13DOL1B9w==}
@@ -9672,13 +9655,6 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@ts-morph/common@0.23.0':
-    dependencies:
-      fast-glob: 3.3.2
-      minimatch: 9.0.4
-      mkdirp: 3.0.1
-      path-browserify: 1.0.1
-
   '@tufjs/canonical-json@2.0.0': {}
 
   '@tufjs/models@2.0.1':
@@ -11158,8 +11134,6 @@ snapshots:
   clsx@2.1.1: {}
 
   cluster-key-slot@1.1.2: {}
-
-  code-block-writer@13.0.1: {}
 
   codesandbox-import-util-types@2.2.3: {}
 
@@ -13574,8 +13548,6 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  mkdirp@3.0.1: {}
-
   mkdist@1.5.1(typescript@5.4.5)(vue-tsc@2.0.21(typescript@5.4.5)):
     dependencies:
       autoprefixer: 10.4.19(postcss@8.4.38)
@@ -15599,11 +15571,6 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-morph@22.0.0:
-    dependencies:
-      '@ts-morph/common': 0.23.0
-      code-block-writer: 13.0.1
-
   tsconfck@3.1.0(typescript@5.4.5):
     optionalDependencies:
       typescript: 5.4.5
@@ -16016,23 +15983,6 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@1.6.0(@types/node@20.14.2)(terser@5.31.1):
-    dependencies:
-      cac: 6.7.14
-      debug: 4.3.5
-      pathe: 1.1.2
-      picocolors: 1.0.1
-      vite: 5.2.13(@types/node@20.14.2)(terser@5.31.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - less
-      - lightningcss
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-
   vite-plugin-checker@0.6.4(eslint@9.4.0)(optionator@0.9.4)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(stylus@0.57.0)(terser@5.31.1))(vue-tsc@2.0.21(typescript@5.4.5)):
     dependencies:
       '@babel/code-frame': 7.24.7
@@ -16110,16 +16060,6 @@ snapshots:
       '@types/node': 20.14.2
       fsevents: 2.3.3
       stylus: 0.57.0
-      terser: 5.31.1
-
-  vite@5.2.13(@types/node@20.14.2)(terser@5.31.1):
-    dependencies:
-      esbuild: 0.20.2
-      postcss: 8.4.38
-      rollup: 4.18.0
-    optionalDependencies:
-      '@types/node': 20.14.2
-      fsevents: 2.3.3
       terser: 5.31.1
 
   vitepress@1.2.3(@algolia/client-search@4.23.3)(@types/node@20.14.2)(axios@0.18.1)(postcss@8.4.38)(search-insights@2.14.0)(stylus@0.57.0)(terser@5.31.1)(typescript@5.4.5):
@@ -16212,40 +16152,6 @@ snapshots:
       tinypool: 0.8.4
       vite: 5.2.13(@types/node@20.14.2)(stylus@0.57.0)(terser@5.31.1)
       vite-node: 1.6.0(@types/node@20.14.2)(stylus@0.57.0)(terser@5.31.1)
-      why-is-node-running: 2.2.2
-    optionalDependencies:
-      '@types/node': 20.14.2
-      '@vitest/ui': 1.6.0(vitest@1.6.0)
-    transitivePeerDependencies:
-      - less
-      - lightningcss
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-
-  vitest@1.6.0(@types/node@20.14.2)(@vitest/ui@1.6.0)(terser@5.31.1):
-    dependencies:
-      '@vitest/expect': 1.6.0
-      '@vitest/runner': 1.6.0
-      '@vitest/snapshot': 1.6.0
-      '@vitest/spy': 1.6.0
-      '@vitest/utils': 1.6.0
-      acorn-walk: 8.3.2
-      chai: 4.4.1
-      debug: 4.3.5
-      execa: 8.0.1
-      local-pkg: 0.5.0
-      magic-string: 0.30.10
-      pathe: 1.1.2
-      picocolors: 1.0.1
-      std-env: 3.7.0
-      strip-literal: 2.1.0
-      tinybench: 2.8.0
-      tinypool: 0.8.4
-      vite: 5.2.13(@types/node@20.14.2)(terser@5.31.1)
-      vite-node: 1.6.0(@types/node@20.14.2)(terser@5.31.1)
       why-is-node-running: 2.2.2
     optionalDependencies:
       '@types/node': 20.14.2

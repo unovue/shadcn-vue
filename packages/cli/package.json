@@ -70,7 +70,6 @@
     "prompts": "^2.4.2",
     "radix-vue": "^1.8.3",
     "semver": "^7.6.2",
-    "ts-morph": "^22.0.0",
     "tsconfig-paths": "^4.2.0",
     "zod": "^3.23.8"
   },

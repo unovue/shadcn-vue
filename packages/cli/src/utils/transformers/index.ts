@@ -1,11 +1,11 @@
 import type * as z from 'zod'
 import { transform as metaTransform } from 'vue-metamorph'
-import { transformTwPrefix } from './transform-tw-prefix'
 import type { Config } from '@/src/utils/get-config'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
+import { transformTwPrefix } from '@/src/utils/transformers/transform-tw-prefix'
 
 export interface TransformOpts {
   filename: string
