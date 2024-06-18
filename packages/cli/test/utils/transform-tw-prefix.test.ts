@@ -1,10 +1,10 @@
 import { expect, it } from 'vitest'
-import { transform } from '../../src/utils/transformers/new'
+import { transform } from '../../src/utils/transformers'
 import { applyPrefixesCss } from '../../src/utils/transformers/transform-tw-prefix'
 
 it('transform tailwind prefix', async () => {
   expect(
-    transform({
+    await transform({
       filename: 'test.ts',
       raw: `import { cva } from "class-variance-authority" 
       
@@ -36,7 +36,7 @@ it('transform tailwind prefix', async () => {
   ).toMatchSnapshot()
 
   expect(
-    transform({
+    await transform({
       filename: 'app.vue',
       raw: `<template>
         <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">
@@ -59,7 +59,7 @@ it('transform tailwind prefix', async () => {
   ).toMatchSnapshot()
 
   expect(
-    transform({
+    await transform({
       filename: 'app.vue',
       raw: `<template>
         <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">
@@ -83,7 +83,7 @@ it('transform tailwind prefix', async () => {
   ).toMatchSnapshot()
 
   expect(
-    transform({
+    await transform({
       filename: 'app.vue',
       raw: `<template>
       <div 

@@ -1,56 +1,67 @@
-import { SyntaxKind } from 'ts-morph'
-import { MagicString, parse } from '@vue/compiler-sfc'
-import type { SFCTemplateBlock } from '@vue/compiler-sfc'
+import type { CodemodPlugin } from 'vue-metamorph'
 import { splitClassName } from './transform-css-vars'
-import type { Transformer } from '@/src/utils/transformers'
+import type { TransformOpts } from '.'
+import type { Config } from '@/src/utils/get-config'
 
-export const transformTwPrefixes: Transformer = async ({
-  sourceFile,
-  config,
-}) => {
-  const isVueFile = sourceFile.getFilePath().endsWith('vue')
-  if (!config.tailwind?.prefix)
-    return sourceFile
+export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
+  return {
+    type: 'codemod',
+    name: 'add prefix to tailwind classes',
 
-  let template: SFCTemplateBlock | null = null
+    // eslint-disable-next-line unused-imports/no-unused-vars
+    transform({ scriptASTs, sfcAST, styleASTs, filename, utils: { traverseScriptAST, traverseTemplateAST } }) {
+    // codemod plugins self-report the number of transforms it made
+    // this is only used to print the stats in CLI output
+      let transformCount = 0
+      const { config } = opts
 
-  if (isVueFile) {
-    const parsed = parse(sourceFile.getText())
-    template = parsed.descriptor.template
+      // scriptASTs is an array of Program ASTs
+      // in a js/ts file, this array will only have one item
+      // in a vue file, this array will have one item for each <script> block
+      for (const scriptAST of scriptASTs) {
+      // traverseScriptAST is an alias for the ast-types 'visit' function
+      // see: https://github.com/benjamn/ast-types#ast-traversal
+        traverseScriptAST(scriptAST, {
+          visitLiteral(path) {
+            if (path.parent.value.type !== 'ImportDeclaration' && typeof path.node.value === 'string') {
+            // mutate the node
+              path.node.value = applyPrefix(path.node.value, config.tailwind.prefix)
+              transformCount++
+            }
 
-    if (!template)
-      return sourceFile
+            return this.traverse(path)
+          },
+        })
+      }
+
+      if (sfcAST) {
+      // traverseTemplateAST is an alias for the vue-eslint-parser 'AST.traverseNodes' function
+      // see: https://github.com/vuejs/vue-eslint-parser/blob/master/src/ast/traverse.ts#L118
+        traverseTemplateAST(sfcAST, {
+          enterNode(node) {
+            if (node.type === 'Literal' && typeof node.value === 'string') {
+              if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '')) {
+                node.value = applyPrefix(node.value, config.tailwind.prefix)
+                transformCount++
+              }
+            }
+            // handle class attribute without binding
+            else if (node.type === 'VLiteral' && typeof node.value === 'string') {
+              if (node.parent.key.name === 'class') {
+                node.value = `"${applyPrefix(node.value, config.tailwind.prefix)}"`
+                transformCount++
+              }
+            }
+          },
+          leaveNode() {
+
+          },
+        })
+      }
+
+      return transformCount
+    },
   }
-
-  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    if (template && template.loc.start.offset >= node.getPos())
-      return sourceFile
-
-    const value = node.getText()
-    const attrName = sourceFile.getDescendantAtPos(node.getPos() - 2)?.getText()
-    if (isVueFile && attrName !== 'class')
-      return sourceFile
-
-    // Do not parse imported packages/files
-    if (node.getParent().getKind() === SyntaxKind.ImportDeclaration)
-      return
-
-    const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
-    const hasFunction = value.startsWith('"cn(')
-    if (value.search('\'') === -1 && hasClosingDoubleQuote && !hasFunction) {
-      const mapped = applyPrefix(value.replace(/"/g, ''), config.tailwind.prefix)
-      node.replaceWithText(`"${mapped}"`)
-    }
-    else {
-      const s = new MagicString(value)
-      s.replace(/'(.*?)'/g, (substring) => {
-        return `'${applyPrefix(substring.replace(/'/g, ''), config.tailwind.prefix)}'`
-      })
-      node.replaceWithText(s.toString())
-    }
-  })
-
-  return sourceFile
 }
 
 export function applyPrefix(input: string, prefix: string = '') {

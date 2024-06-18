@@ -1,14 +1,11 @@
-import { promises as fs } from 'node:fs'
-import { tmpdir } from 'node:os'
-import path from 'pathe'
-import { Project, ScriptKind, type SourceFile } from 'ts-morph'
 import type * as z from 'zod'
+import { transform as metaTransform } from 'vue-metamorph'
+import { transformTwPrefix } from './transform-tw-prefix'
 import type { Config } from '@/src/utils/get-config'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
-import { transformTwPrefixes } from '@/src/utils/transformers/transform-tw-prefix'
 
 export interface TransformOpts {
   filename: string
@@ -17,38 +14,12 @@ export interface TransformOpts {
   baseColor?: z.infer<typeof registryBaseColorSchema>
 }
 
-export type Transformer<Output = SourceFile> = (
-  opts: TransformOpts & {
-    sourceFile: SourceFile
-  }
-) => Promise<Output>
-
-const transformers: Transformer[] = [
-  transformCssVars,
-  transformImport,
-  transformTwPrefixes,
-]
-
-const project = new Project({
-  compilerOptions: {},
-})
-
-async function createTempSourceFile(filename: string) {
-  const dir = await fs.mkdtemp(path.join(tmpdir(), 'shadcn-'))
-  return path.join(dir, filename)
-}
-
 export async function transform(opts: TransformOpts) {
-  const tempFile = await createTempSourceFile(opts.filename)
-  const sourceFile = project.createSourceFile(tempFile, opts.raw, {
-    scriptKind: ScriptKind.Unknown,
-  })
+  const source = await transformSFC(opts)
 
-  for (const transformer of transformers)
-    transformer({ sourceFile, ...opts })
-
-  return await transformSFC({
-    sourceFile,
-    ...opts,
-  })
+  return metaTransform(source, opts.filename, [
+    transformImport(opts),
+    transformCssVars(opts),
+    transformTwPrefix(opts),
+  ]).code
 }
