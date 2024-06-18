@@ -16,7 +16,7 @@
     },
     {
       "name": "AlertDialogCancel.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<AlertDialogCancelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogCancel\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'mt-2 sm:mt-0',\n      props.class,\n    )\"\n  >\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/new-york/ui/button'\n\nconst props = defineProps<AlertDialogCancelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogCancel\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'mt-2 sm:mt-0',\n      props.class,\n    )\"\n  >\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
     },
     {
       "name": "AlertDialogContent.vue",
