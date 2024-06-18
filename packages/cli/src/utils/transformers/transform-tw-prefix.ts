@@ -14,6 +14,8 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
     // this is only used to print the stats in CLI output
       let transformCount = 0
       const { config } = opts
+      if (!config.tailwind?.prefix)
+        return transformCount
 
       // scriptASTs is an array of Program ASTs
       // in a js/ts file, this array will only have one item
