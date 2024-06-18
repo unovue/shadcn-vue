@@ -32,7 +32,8 @@ export const transformTwPrefixes: Transformer = async ({
 
     const value = node.getText()
     const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
-    if (value.search('\'') === -1 && hasClosingDoubleQuote) {
+    const hasFunction = value.startsWith('"cn(')
+    if (value.search('\'') === -1 && hasClosingDoubleQuote && !hasFunction) {
       const mapped = applyPrefix(value.replace(/"/g, ''), config.tailwind.prefix)
       node.replaceWithText(`"${mapped}"`)
     }
