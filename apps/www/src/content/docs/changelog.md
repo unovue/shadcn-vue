@@ -1,10 +1,11 @@
 ---
 title: Changelog
+description: Latest updates and announcements.
 ---
 
 ## June 2024
 
-### ✨ New Component - Number Field
+### New Component - Number Field
 A new component has been added to the project [`NumberField`](/docs/components/number-field.html).
 
 A number field allows a user to enter a number and increment or decrement the value using stepper buttons.
@@ -13,7 +14,7 @@ A number field allows a user to enter a number and increment or decrement the va
 
 ## May 2024
 
-### ✨ New Component - Charts
+### New Component - Charts
 Several kinds of chart components has been added to the project.
 
 Charts are versatile visualization tools, allowing users to represent data using various options for effective analysis.
@@ -34,7 +35,7 @@ Charts are versatile visualization tools, allowing users to represent data using
 
 <ComponentPreview name="LineChartDemo"  />
 
-### ✨ New Component - Auto Form
+### New Component - Auto Form
 
 [`Auto Form`](/docs/components/auto-form.html) is a drop-in form builder for your internal and low-priority forms with existing zod schemas.
 
@@ -46,7 +47,7 @@ The following form has been created by passing a `zod` schema object to our `Aut
 
 ## April 2024
 
-### ✅ Component Updated - Calendar
+### Component Updated - Calendar
 
 The [`Calendar`](/docs/components/calendar.html) component has been updated and is now built on top of the [RadixVue Calendar](https://www.radix-vue.com/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
@@ -60,7 +61,7 @@ And if you're looking for a date picker input, check out the [`Date Picker`](/do
 
 <ComponentPreview name="DatePickerDemo" />
 
-### ✅ Building Blocks for the Web
+### Building Blocks for the Web
 
 [`Blocks`](/blocks) are composed of different components that can be used to build your apps, with each block being a standalone section of your application. These blocks are fully responsive, accessible, and composable, and are built using the same principles as the other components in `shadcn-vue`.
 
@@ -83,25 +84,25 @@ And if you're looking for a date picker input, check out the [`Date Picker`](/do
 
 ## March 2024
 
-### ✨ New Component - Breadcrumb
+### New Component - Breadcrumb
 
 [`Breadcrumb`](/docs/components/breadcrumb.html) displays the path to the current resource using a hierarchy of links.
 
 <ComponentPreview name="BreadcrumbDemo" />
 
-### ✨ New Component - Pin Input (OTP Input)
+### New Component - Pin Input (OTP Input)
 
 [`Pin Input`](/docs/components/pin-input.html) allows users to input a sequence of one-character alphanumeric inputs.
 
 <ComponentPreview name="PinInputDemo" />
 
-### ✨ New Component - Resizable
+### New Component - Resizable
 
 [`Resizable`](/docs/components/resizable.html) - Accessible resizable panel groups and layouts with keyboard support.
 
 <ComponentPreview name="ResizableDemo" />
 
-### ✨ New Component - Drawer
+### New Component - Drawer
 
 [`Drawer`](/docs/components/drawer.html) - A drawer component for vue that is built on top of [Vaul Vue](https://github.com/radix-vue/vaul-vue).
 
@@ -109,7 +110,7 @@ And if you're looking for a date picker input, check out the [`Date Picker`](/do
 
 ## February 2024
 
-### ✨ New Component - Tag Inputs
+### New Component - Tag Inputs
 
 [`Tag inputs`](/docs/components/tags-input.html) render tags inside an input, followed by an actual text input.
 
@@ -117,7 +118,7 @@ And if you're looking for a date picker input, check out the [`Date Picker`](/do
 
 ## January 2024
 
-### ✨ New Component - Sonner
+### New Component - Sonner
 
 [`Sonner`](/docs/components/sonner.html) is an opinionated toast component for Vue.
 
@@ -125,13 +126,13 @@ The Sonner component is provided by [vue-sonner](https://vue-sonner.vercel.app/)
 
 <ComponentPreview name="SonnerDemo" />
 
-### ✨ New Component - Toggle Group
+### New Component - Toggle Group
 
 [`Toggle Group`](/docs/components/toggle-group.html) - A set of two-state buttons that can be toggled on or off.
 
 <ComponentPreview name="ToggleGroupDemo" />
 
-### ✨ New Component - Carousel
+### New Component - Carousel
 
 [`Carousel`](/docs/components/toggle-group.html) - A carousel with motion and swipe built using [Embla](https://www.embla-carousel.com/) library.
 
