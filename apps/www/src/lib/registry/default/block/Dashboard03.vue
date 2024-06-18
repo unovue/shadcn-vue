@@ -18,7 +18,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/lib/
 </script>
 
 <template>
-  <div class="grid h-screen w-full pl-[53px]">
+  <div class="grid h-screen w-full pl-[56px]">
     <aside class="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
       <div class="border-b p-2">
         <Button variant="outline" size="icon" aria-label="Home">

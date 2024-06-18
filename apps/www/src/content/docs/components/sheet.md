@@ -32,7 +32,7 @@ import {
     <SheetTrigger>Open</SheetTrigger>
     <SheetContent>
       <SheetHeader>
-        <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+        <SheetTitle>Are you absolutely sure?</SheetTitle>
         <SheetDescription>
           This action cannot be undone. This will permanently delete your account
           and remove your data from our servers.
@@ -61,7 +61,7 @@ You can adjust the size of the sheet using CSS classes:
     <SheetTrigger>Open</SheetTrigger>
     <SheetContent class="w-[400px] sm:w-[540px]">
       <SheetHeader>
-        <SheetTitle>Are you sure absolutely sure?</SheetTitle>
+        <SheetTitle>Are you absolutely sure?</SheetTitle>
         <SheetDescription>
           This action cannot be undone. This will permanently delete your account
           and remove your data from our servers.

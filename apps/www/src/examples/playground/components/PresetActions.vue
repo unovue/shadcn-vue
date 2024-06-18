@@ -94,7 +94,7 @@ const showDeleteDialog = ref(false)
   <AlertDialog v-model:open="showDeleteDialog">
     <AlertDialogContent>
       <AlertDialogHeader>
-        <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
+        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
         <AlertDialogDescription>
           This action cannot be undone. This preset will no longer be
           accessible by you or others you&apos;ve shared it with.
