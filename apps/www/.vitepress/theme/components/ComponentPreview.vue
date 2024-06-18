@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { codeToHtml } from 'shiki'
 import MagicString from 'magic-string'
+import { useClipboard } from '@vueuse/core'
 import { cssVariables } from '../config/shiki'
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
@@ -24,6 +25,7 @@ const { style, codeConfig } = useConfigStore()
 
 const rawString = ref('')
 const codeHtml = ref('')
+const transformedRawString = computed(() => transformImportPath(rawString.value))
 
 function transformImportPath(code: string) {
   const s = new MagicString(code)
@@ -35,7 +37,7 @@ function transformImportPath(code: string) {
 watch([style, codeConfig], async () => {
   try {
     rawString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
-    codeHtml.value = await codeToHtml(transformImportPath(rawString.value), {
+    codeHtml.value = await codeToHtml(transformedRawString.value, {
       lang: 'vue',
       theme: cssVariables,
     })
@@ -44,6 +46,8 @@ watch([style, codeConfig], async () => {
     console.error(err)
   }
 }, { immediate: true, deep: true })
+
+const { copy, copied } = useClipboard()
 </script>
 
 <template>
@@ -86,8 +90,12 @@ watch([style, codeConfig], async () => {
           <ComponentLoader v-bind="$attrs" :key="style" :name="name" :type-name="'example'" />
         </div>
       </TabsContent>
-      <TabsContent value="code">
-        <div v-if="codeHtml" class="language-vue" style="flex: 1;" v-html="codeHtml" />
+      <TabsContent value="code" class="vp-doc">
+        <div v-if="codeHtml" class="language-vue" style="flex: 1;">
+          <button title="Copy Code" class="copy" :class="{ copied }" @click="copy(transformedRawString)" />
+
+          <div v-html="codeHtml" />
+        </div>
         <slot v-else />
       </TabsContent>
     </Tabs>
