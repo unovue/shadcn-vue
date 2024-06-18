@@ -1,72 +1,67 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`transform tailwind prefix 1`] = `
-"import { cva } from "class-variance-authority";
+"import { cva } from 'class-variance-authority'
+
 export const testVariants = cva(
-  "tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground",
+  'tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground',
   {
     variants: {
       variant: {
-        default:
-          "tw-bg-primary tw-text-primary-foreground hover:tw-bg-primary/90",
+        default: 'tw-bg-primary tw-text-primary-foreground hover:tw-bg-primary/90',
       },
       size: {
-        default: "tw-h-10 tw-px-4 tw-py-2",
+        default: 'tw-h-10 tw-px-4 tw-py-2',
       },
     },
   },
-);
+)
 "
 `;
 
 exports[`transform tailwind prefix 2`] = `
 "<template>
-  <div
-    class="tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground"
-  >
-    foo
-  </div>
-</template>
-"
+        <div class="tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground">
+          foo
+        </div>
+      </template>
+      "
 `;
 
 exports[`transform tailwind prefix 3`] = `
 "<template>
-  <div
-    class="tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground"
-  >
-    foo
-  </div>
-</template>
-"
+        <div class="tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground">
+          foo
+        </div>
+      </template>
+      "
 `;
 
 exports[`transform tailwind prefix 4`] = `
 "<template>
-  <div
-    id="testing"
-    v-bind="props"
-    @click="handleSomething"
-    :data-test="true"
-    :class="
-      cn(
-        'tw-bg-background hover:tw-bg-muted',
-        true && 'tw-text-primary-foreground sm:focus:tw-text-accent-foreground',
-      )
-    "
-    :class="cn(buttonVariants({ variant, size }), props.class)"
-    :class="
+      <div 
+        id="testing" v-bind="props" @click="handleSomething" :data-test="true"
+        class="tw-mt-4"
+        :class="cn('tw-bg-background hover:tw-bg-muted', true && 'tw-text-primary-foreground sm:focus:tw-text-accent-foreground')"
+        :class="cn(buttonVariants({ variant, size }), props.class)"
+        :class="
           cn(
-            buttonVariants({ 'outline' }),
+            buttonVariants({ variant: 'outline' }),
             props.class,
             'tw-bg-background'
           )
         "
-  >
-    foo
-  </div>
-</template>
-"
+        :class="
+          cn(
+            'tw-flex',
+            orientation === 'horizontal' ? 'tw--ml-4' : 'tw--mt-4 tw-flex-col',
+            props.class,
+          )"
+      >
+        foo
+      </div>
+    </template>
+    "
 `;
 
 exports[`transform tailwind prefix 5`] = `

@@ -26,11 +26,10 @@ export const transformTwPrefixes: Transformer = async ({
     if (template && template.loc.start.offset >= node.getPos())
       return sourceFile
 
+    const value = node.getText()
     const attrName = sourceFile.getDescendantAtPos(node.getPos() - 2)?.getText()
     if (isVueFile && attrName !== 'class')
       return sourceFile
-
-    const value = node.getText()
 
     // Do not parse imported packages/files
     if (node.getParent().getKind() === SyntaxKind.ImportDeclaration)

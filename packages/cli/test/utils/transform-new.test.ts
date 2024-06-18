@@ -1,10 +1,10 @@
 import { expect, it } from 'vitest'
-import { transform } from '../../src/utils/transformers'
+import { transform } from '../../src/utils/transformers/new'
 import { applyPrefixesCss } from '../../src/utils/transformers/transform-tw-prefix'
 
 it('transform tailwind prefix', async () => {
   expect(
-    await transform({
+    transform({
       filename: 'test.ts',
       raw: `import { cva } from "class-variance-authority" 
       
@@ -36,7 +36,7 @@ it('transform tailwind prefix', async () => {
   ).toMatchSnapshot()
 
   expect(
-    await transform({
+    transform({
       filename: 'app.vue',
       raw: `<template>
         <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">
@@ -59,7 +59,7 @@ it('transform tailwind prefix', async () => {
   ).toMatchSnapshot()
 
   expect(
-    await transform({
+    transform({
       filename: 'app.vue',
       raw: `<template>
         <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">
@@ -83,20 +83,27 @@ it('transform tailwind prefix', async () => {
   ).toMatchSnapshot()
 
   expect(
-    await transform({
+    transform({
       filename: 'app.vue',
       raw: `<template>
       <div 
-        id="testing" v-bind="props" @click="handleSomething" :data-test="true"  
+        id="testing" v-bind="props" @click="handleSomething" :data-test="true"
+        class="mt-4"
         :class="cn('bg-background hover:bg-muted', true && 'text-primary-foreground sm:focus:text-accent-foreground')"
         :class="cn(buttonVariants({ variant, size }), props.class)"
         :class="
           cn(
-            buttonVariants({ 'outline' }),
+            buttonVariants({ variant: 'outline' }),
             props.class,
             'bg-background'
           )
         "
+        :class="
+          cn(
+            'flex',
+            orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+            props.class,
+          )"
       >
         foo
       </div>
