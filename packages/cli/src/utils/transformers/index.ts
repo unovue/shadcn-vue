@@ -8,6 +8,7 @@ import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
+import { transformTwPrefixes } from '@/src/utils/transformers/transform-tw-prefix'
 
 export interface TransformOpts {
   filename: string
@@ -25,7 +26,7 @@ export type Transformer<Output = SourceFile> = (
 const transformers: Transformer[] = [
   transformCssVars,
   transformImport,
-  // transformTwPrefixes,
+  transformTwPrefixes,
 ]
 
 const project = new Project({
