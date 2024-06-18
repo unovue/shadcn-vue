@@ -71,6 +71,7 @@
     "radix-vue": "^1.8.4",
     "semver": "^7.6.2",
     "tsconfig-paths": "^4.2.0",
+    "vue-metamorph": "^3.1.9",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -83,7 +84,6 @@
     "tsup": "^8.1.0",
     "type-fest": "^4.20.1",
     "typescript": "^5.4.5",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vue-metamorph": "^3.1.9"
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }

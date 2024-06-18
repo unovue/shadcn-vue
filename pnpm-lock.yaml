@@ -299,6 +299,9 @@ importers:
       vitest:
         specifier: '*'
         version: 1.6.0(@types/node@20.14.4)(@vitest/ui@1.6.0)(stylus@0.57.0)(terser@5.31.1)
+      vue-metamorph:
+        specifier: ^3.1.9
+        version: 3.1.9(eslint@9.5.0)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -333,9 +336,6 @@ importers:
       vite-tsconfig-paths:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.4.5)(vite@5.3.1(@types/node@20.14.4)(stylus@0.57.0)(terser@5.31.1))
-      vue-metamorph:
-        specifier: ^3.1.9
-        version: 3.1.9(eslint@9.5.0)
 
   packages/module:
     dependencies:
