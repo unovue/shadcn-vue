@@ -41,7 +41,7 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
             // handle class attribute without binding
             else if (node.type === 'VLiteral' && typeof node.value === 'string') {
               if (node.parent.key.name === 'class') {
-                node.value = applyColorMapping(node.value.replace(/"/g, ''), baseColor.inlineColors)
+                node.value = `"${applyColorMapping(node.value.replace(/"/g, ''), baseColor.inlineColors)}"`
                 transformCount++
               }
             }
