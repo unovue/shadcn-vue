@@ -31,6 +31,11 @@ export const transformTwPrefixes: Transformer = async ({
       return sourceFile
 
     const value = node.getText()
+
+    // Do not parse imported packages/files
+    if (node.getParent().getKind() === SyntaxKind.ImportDeclaration)
+      return
+
     const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
     const hasFunction = value.startsWith('"cn(')
     if (value.search('\'') === -1 && hasClosingDoubleQuote && !hasFunction) {

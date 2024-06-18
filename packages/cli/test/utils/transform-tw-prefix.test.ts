@@ -6,7 +6,9 @@ it('transform tailwind prefix', async () => {
   expect(
     await transform({
       filename: 'test.ts',
-      raw: `const testVariants = cva(
+      raw: `import { cva } from "class-variance-authority" 
+      
+      export const testVariants = cva(
         'bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground',
         {
           variants: {
@@ -88,6 +90,13 @@ it('transform tailwind prefix', async () => {
         id="testing" v-bind="props" @click="handleSomething" :data-test="true"  
         :class="cn('bg-background hover:bg-muted', true && 'text-primary-foreground sm:focus:text-accent-foreground')"
         :class="cn(buttonVariants({ variant, size }), props.class)"
+        :class="
+          cn(
+            buttonVariants({ 'outline' }),
+            props.class,
+            'bg-background'
+          )
+        "
       >
         foo
       </div>

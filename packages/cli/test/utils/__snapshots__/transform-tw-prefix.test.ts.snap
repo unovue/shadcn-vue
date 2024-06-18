@@ -1,7 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`transform tailwind prefix 1`] = `
-"const testVariants = cva(
+"import { cva } from "class-variance-authority";
+export const testVariants = cva(
   "tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground",
   {
     variants: {
@@ -54,6 +55,13 @@ exports[`transform tailwind prefix 4`] = `
       )
     "
     :class="cn(buttonVariants({ variant, size }), props.class)"
+    :class="
+          cn(
+            buttonVariants({ 'outline' }),
+            props.class,
+            'tw-bg-background'
+          )
+        "
   >
     foo
   </div>
