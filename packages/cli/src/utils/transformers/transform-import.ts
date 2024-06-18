@@ -7,19 +7,11 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
     type: 'codemod',
     name: 'modify import based on user config',
 
-    // eslint-disable-next-line unused-imports/no-unused-vars
-    transform({ scriptASTs, sfcAST, styleASTs, filename, utils: { traverseScriptAST, traverseTemplateAST } }) {
-      // codemod plugins self-report the number of transforms it made
-      // this is only used to print the stats in CLI output
+    transform({ scriptASTs, utils: { traverseScriptAST } }) {
       const transformCount = 0
       const { config } = opts
 
-      // scriptASTs is an array of Program ASTs
-      // in a js/ts file, this array will only have one item
-      // in a vue file, this array will have one item for each <script> block
       for (const scriptAST of scriptASTs) {
-      // traverseScriptAST is an alias for the ast-types 'visit' function
-      // see: https://github.com/benjamn/ast-types#ast-traversal
         traverseScriptAST(scriptAST, {
           visitImportDeclaration(path) {
             if (typeof path.node.source.value === 'string') {
