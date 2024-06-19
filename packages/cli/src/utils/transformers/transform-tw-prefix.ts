@@ -59,7 +59,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
             // handle class attribute without binding
             else if (node.type === 'VLiteral' && typeof node.value === 'string') {
               if (node.parent.key.name === 'class') {
-                node.value = `"${applyPrefix(node.value, config.tailwind.prefix)}"`
+                node.value = `"${applyPrefix(node.value.replace(/"/g, ''), config.tailwind.prefix)}"`
                 transformCount++
               }
             }
