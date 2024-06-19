@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url)
 const { transform } = require('detype')
 
 export async function transformSFC(opts: TransformOpts) {
-  if (opts.config?.typescript || opts.filename.includes('.ts'))
+  if (opts.config?.typescript)
     return opts.raw
 
   return await transformByDetype(opts.raw, opts.filename).then(res => res as string)

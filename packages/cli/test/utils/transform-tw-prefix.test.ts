@@ -35,6 +35,7 @@ it('transform tailwind prefix', async () => {
           components: '@/components',
           utils: '@/lib/utils',
         },
+        typescript: true,
       },
       baseColor: 'stone',
     }),

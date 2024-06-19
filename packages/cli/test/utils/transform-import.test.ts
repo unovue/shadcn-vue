@@ -21,6 +21,7 @@ it('transform import', async () => {
           components: '@/components',
           utils: '@/lib/utils',
         },
+        typescript: true,
       },
     }),
   ).toMatchSnapshot()
@@ -41,6 +42,7 @@ it('transform import', async () => {
           components: '~/src/components',
           utils: '~/lib',
         },
+        typescript: true,
       },
     }),
   ).toMatchSnapshot()
@@ -61,6 +63,7 @@ it('transform import', async () => {
           components: '~/src/components',
           utils: '~/src/utils',
         },
+        typescript: true,
       },
     }),
   ).toMatchSnapshot()
