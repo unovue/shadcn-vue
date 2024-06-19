@@ -50,10 +50,17 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
       if (sfcAST) {
         traverseTemplateAST(sfcAST, {
           enterNode(node) {
-            if (node.type === 'Literal' && typeof node.value === 'string') {
-              if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '')) {
-                node.value = applyPrefix(node.value, config.tailwind.prefix)
-                transformCount++
+            if (node.type === 'VAttribute' && node.key.type === 'VDirectiveKey') {
+              if (node.key.argument?.type === 'VIdentifier') {
+                if (node.key.argument.name === 'class') {
+                  const nodes = astHelpers.findAll(node, { type: 'Literal' })
+                  nodes.forEach((node) => {
+                    if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '') && typeof node.value === 'string') {
+                      node.value = applyPrefix(node.value, config.tailwind.prefix)
+                      transformCount++
+                    }
+                  })
+                }
               }
             }
             // handle class attribute without binding
