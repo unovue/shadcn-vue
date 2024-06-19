@@ -1,14 +1,13 @@
 import type { CodemodPlugin } from 'vue-metamorph'
 import { splitClassName } from './transform-css-vars'
 import type { TransformOpts } from '.'
-import type { Config } from '@/src/utils/get-config'
 
 export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
   return {
     type: 'codemod',
     name: 'add prefix to tailwind classes',
 
-    transform({ scriptASTs, sfcAST, utils: { traverseScriptAST, traverseTemplateAST } }) {
+    transform({ scriptASTs, sfcAST, utils: { traverseScriptAST, traverseTemplateAST, astHelpers } }) {
       let transformCount = 0
       const { config } = opts
 
@@ -17,13 +16,32 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
 
       for (const scriptAST of scriptASTs) {
         traverseScriptAST(scriptAST, {
-          visitLiteral(path) {
-            if (path.parent.value.type !== 'ImportDeclaration' && typeof path.node.value === 'string') {
-            // mutate the node
-              path.node.value = applyPrefix(path.node.value, config.tailwind.prefix)
-              transformCount++
-            }
+          visitCallExpression(path) {
+            if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'cva') {
+              const nodes = path.node.arguments
+              nodes.forEach((node) => {
+                // cva(base, ...)
+                if (node.type === 'Literal' && typeof node.value === 'string') {
+                  node.value = applyPrefix(node.value, config.tailwind.prefix)
+                  transformCount++
+                }
 
+                else if (node.type === 'ObjectExpression') {
+                  node.properties.forEach((node) => {
+                    // cva(..., { variants: { ... } })
+                    if (node.type === 'Property' && node.key.type === 'Identifier' && node.key.name === 'variants') {
+                      const nodes = astHelpers.findAll(node, { type: 'Literal' })
+                      nodes.forEach((node) => {
+                        if (typeof node.value === 'string') {
+                          node.value = applyPrefix(node.value, config.tailwind.prefix)
+                          transformCount++
+                        }
+                      })
+                    }
+                  })
+                }
+              })
+            }
             return this.traverse(path)
           },
         })

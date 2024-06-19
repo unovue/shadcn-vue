@@ -2,6 +2,8 @@
 
 exports[`transform tailwind prefix 1`] = `
 "import { cva } from 'class-variance-authority'
+export { default as Button } from './Button.vue'
+export type { ButtonType } from './Button.vue'
 
 export const testVariants = cva(
   'tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground',
@@ -13,6 +15,9 @@ export const testVariants = cva(
       size: {
         default: 'tw-h-10 tw-px-4 tw-py-2',
       },
+    },
+    defaultVariants: {
+      variant: 'default',
     },
   },
 )
