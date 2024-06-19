@@ -50,6 +50,9 @@
       "hasown": "npm:@nolyfill/hasown@latest",
       "isarray": "npm:@nolyfill/isarray@latest",
       "typedarray": "npm:@nolyfill/typedarray@latest"
+    },
+    "patchedDependencies": {
+      "vue-eslint-parser@9.4.3": "patches/vue-eslint-parser@9.4.3.patch"
     }
   },
   "simple-git-hooks": {

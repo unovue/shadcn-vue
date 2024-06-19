@@ -9,6 +9,11 @@ overrides:
   isarray: npm:@nolyfill/isarray@latest
   typedarray: npm:@nolyfill/typedarray@latest
 
+patchedDependencies:
+  vue-eslint-parser@9.4.3:
+    hash: n5slqvwzn54c75hhwxoow43ztm
+    path: patches/vue-eslint-parser@9.4.3.patch
+
 importers:
 
   .:
@@ -7983,7 +7988,7 @@ snapshots:
       eslint-plugin-markdown: 5.0.0(eslint@9.5.0)
       eslint-plugin-n: 17.8.1(eslint@9.5.0)
       eslint-plugin-no-only-tests: 3.1.0
-      eslint-plugin-perfectionist: 2.10.0(eslint@9.5.0)(typescript@5.4.5)(vue-eslint-parser@9.4.3(eslint@9.5.0))
+      eslint-plugin-perfectionist: 2.10.0(eslint@9.5.0)(typescript@5.4.5)(vue-eslint-parser@9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0))
       eslint-plugin-regexp: 2.6.0(eslint@9.5.0)
       eslint-plugin-toml: 0.11.0(eslint@9.5.0)
       eslint-plugin-unicorn: 53.0.0(eslint@9.5.0)
@@ -7998,7 +8003,7 @@ snapshots:
       parse-gitignore: 2.0.0
       picocolors: 1.0.1
       toml-eslint-parser: 0.9.3
-      vue-eslint-parser: 9.4.3(eslint@9.5.0)
+      vue-eslint-parser: 9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0)
       yaml-eslint-parser: 1.2.3
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -9190,7 +9195,7 @@ snapshots:
       globals: 15.4.0
       pathe: 1.1.2
       tslib: 2.6.3
-      vue-eslint-parser: 9.4.3(eslint@9.5.0)
+      vue-eslint-parser: 9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -12370,14 +12375,14 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.1.0: {}
 
-  eslint-plugin-perfectionist@2.10.0(eslint@9.5.0)(typescript@5.4.5)(vue-eslint-parser@9.4.3(eslint@9.5.0)):
+  eslint-plugin-perfectionist@2.10.0(eslint@9.5.0)(typescript@5.4.5)(vue-eslint-parser@9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0)):
     dependencies:
       '@typescript-eslint/utils': 7.13.1(eslint@9.5.0)(typescript@5.4.5)
       eslint: 9.5.0
       minimatch: 9.0.4
       natural-compare-lite: 1.4.0
     optionalDependencies:
-      vue-eslint-parser: 9.4.3(eslint@9.5.0)
+      vue-eslint-parser: 9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -12452,7 +12457,7 @@ snapshots:
       nth-check: 2.1.1
       postcss-selector-parser: 6.1.0
       semver: 7.6.2
-      vue-eslint-parser: 9.4.3(eslint@9.5.0)
+      vue-eslint-parser: 9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0)
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -16368,7 +16373,7 @@ snapshots:
 
   vue-devtools-stub@0.1.0: {}
 
-  vue-eslint-parser@9.4.3(eslint@9.5.0):
+  vue-eslint-parser@9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0):
     dependencies:
       debug: 4.3.5
       eslint: 9.5.0
@@ -16401,7 +16406,7 @@ snapshots:
       postcss-styl: 0.12.3
       recast: 0.23.9
       table: 6.8.2
-      vue-eslint-parser: 9.4.3(eslint@9.5.0)
+      vue-eslint-parser: 9.4.3(patch_hash=n5slqvwzn54c75hhwxoow43ztm)(eslint@9.5.0)
     transitivePeerDependencies:
       - eslint
       - supports-color
