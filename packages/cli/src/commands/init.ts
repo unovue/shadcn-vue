@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
 import { handleError } from '../utils/handle-error'
+import { getProjectInfo } from '../utils/get-project-info'
 import frameworksCommands from './frameworks'
 
 const initOptionsSchema = z.object({
@@ -34,8 +35,8 @@ export const init = new Command()
       }
 
       // Get the corresponding framework commands
-      // TODO: Pass this to action inside a `context` argument to the function
-      const framework = 'vue'
+      const { isNuxt } = await getProjectInfo()
+      const framework = isNuxt ? 'nuxt' : 'vue'
       const { loadConfig, init } = frameworksCommands[framework]
 
       // Read config

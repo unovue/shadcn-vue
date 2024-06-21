@@ -10,4 +10,12 @@ export default {
     add: addVue,
     diff: diffVue,
   },
+  // For now we run the same commands for Nuxt as for Vue
+  // TODO: replace with Nuxt-specific commands when required
+  nuxt: {
+    loadConfig: loadConfigVue,
+    init: initVue,
+    add: addVue,
+    diff: diffVue,
+  },
 }

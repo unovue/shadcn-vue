@@ -5,6 +5,7 @@ import { consola } from 'consola'
 import { colors } from 'consola/utils'
 import { Command } from 'commander'
 import { z } from 'zod'
+import { getProjectInfo } from '../utils/get-project-info'
 import frameworksCommands from './frameworks'
 import { handleError } from '@/src/utils/handle-error'
 
@@ -45,8 +46,8 @@ export const add = new Command()
       }
 
       // Get the corresponding framework commands
-      // TODO: Pass this to action inside a `context` argument to the function
-      const framework = 'vue'
+      const { isNuxt } = await getProjectInfo()
+      const framework = isNuxt ? 'nuxt' : 'vue'
       const { loadConfig, add } = frameworksCommands[framework]
 
       // Read config
