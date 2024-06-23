@@ -32,11 +32,11 @@ export const allColors: Color[] = [
   'violet',
 ]
 
-interface Payment {
-  status: string
-  email: string
-  amount: number
-}
+// interface Payment {
+//   status: string
+//   email: string
+//   amount: number
+// }
 
 interface TeamMember {
   name: string

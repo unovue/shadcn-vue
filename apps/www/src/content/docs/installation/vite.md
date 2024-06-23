@@ -45,12 +45,12 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   #### `vite.config`
 
   ```typescript {5,6,9-13}
-  import path from "path"
-  import { defineConfig } from "vite"
-  import vue from "@vitejs/plugin-vue"
+  import path from 'node:path'
+  import { defineConfig } from 'vite'
+  import vue from '@vitejs/plugin-vue'
 
-  import tailwind from "tailwindcss"
-  import autoprefixer from "autoprefixer"
+  import tailwind from 'tailwindcss'
+  import autoprefixer from 'autoprefixer'
 
   export default defineConfig({
     css: {
@@ -61,7 +61,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
     plugins: [vue()],
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        '@': path.resolve(__dirname, './src'),
       },
     },
   })
@@ -116,12 +116,12 @@ npm i -D @types/node
 ```
 
 ```typescript {15-19}
-import path from "path"
-import vue from "@vitejs/plugin-vue"
-import { defineConfig } from "vite"
+import path from 'node:path'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
-import tailwind from "tailwindcss"
-import autoprefixer from "autoprefixer"
+import tailwind from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   css: {
@@ -132,7 +132,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 })
