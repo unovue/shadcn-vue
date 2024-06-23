@@ -7,7 +7,7 @@ import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInpu
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },
   { value: 'sveltekit', label: 'SvelteKit' },
-  { value: 'nuxt.js', label: 'Nuxt.js' },
+  { value: 'nuxt', label: 'Nuxt' },
   { value: 'remix', label: 'Remix' },
   { value: 'astro', label: 'Astro' },
 ]

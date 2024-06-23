@@ -7,7 +7,6 @@ import ExamplesNav from '../components/ExamplesNav.vue'
 import Announcement from '../components/Announcement.vue'
 
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 </script>
 

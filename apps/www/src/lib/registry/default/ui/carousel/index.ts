@@ -7,5 +7,5 @@ export { default as CarouselDotButtons } from './CarouselDotButtons.vue'
 export { useCarousel } from './useCarousel'
 
 export type {
-  EmblaCarouselType as CarouselApi,
-} from 'embla-carousel'
+  UnwrapRefCarouselApi as CarouselApi,
+} from './interface'

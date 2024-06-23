@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import * as z from 'zod'
-import { h, reactive, ref } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import { DependencyType } from '../ui/auto-form/interface'
+import { h } from 'vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import { toast } from '@/lib/registry/default/ui/toast'
-import type { Config } from '@/lib/registry/default/ui/auto-form'
 import { AutoForm, AutoFormField } from '@/lib/registry/default/ui/auto-form'
 
 enum Sports {

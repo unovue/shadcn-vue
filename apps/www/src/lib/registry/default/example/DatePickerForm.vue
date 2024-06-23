@@ -32,7 +32,7 @@ const formSchema = toTypedSchema(z.object({
 
 const placeholder = ref()
 
-const { handleSubmit, setValues, values } = useForm({
+const { handleSubmit, setFieldValue, values } = useForm({
   validationSchema: formSchema,
   initialValues: {
 
@@ -82,14 +82,10 @@ const onSubmit = handleSubmit((values) => {
               :max-value="today(getLocalTimeZone())"
               @update:model-value="(v) => {
                 if (v) {
-                  setValues({
-                    dob: v.toString(),
-                  })
+                  setFieldValue('dob', v.toString())
                 }
                 else {
-                  setValues({
-                    dob: '',
-                  })
+                  setFieldValue('dob', undefined)
                 }
 
               }"

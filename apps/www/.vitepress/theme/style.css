@@ -164,15 +164,23 @@ pre {
 }
 
 pre code {
-	@apply relative  font-mono text-sm ;
+	@apply relative font-mono text-sm ;
+}
+
+.line-numbers-wrapper, code {
+	--vp-code-line-height: 1.7;
+}
+
+.line-numbers-wrapper {
+	@apply font-mono;
 }
 
 pre code .line {
-	@apply  px-4 min-h-6 !py-0.5 w-full inline-block;
+	@apply px-4 min-h-4 !py-0.5 w-full inline-block leading-[--vp-code-line-height];
 } 
 
 .line-number {
-	@apply min-h-[1.375rem] !text-sm !inline-block text-muted-foreground;
+	@apply !text-[.75rem] !inline-block text-muted-foreground leading-[--vp-code-line-height];
 }
 
 ::view-transition-old(root),

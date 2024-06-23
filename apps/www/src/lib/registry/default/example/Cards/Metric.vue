@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/default/ui/card'
-import { useConfigStore } from '@/stores/config'
 
 type Data = typeof data[number]
 const data = [

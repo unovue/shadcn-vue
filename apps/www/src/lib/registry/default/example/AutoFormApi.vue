@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import * as z from 'zod'
-import { h, onMounted, ref, shallowRef } from 'vue'
+import { h, onMounted, shallowRef } from 'vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import { toast } from '@/lib/registry/default/ui/toast'
 import { AutoForm } from '@/lib/registry/default/ui/auto-form'

@@ -9,6 +9,8 @@ import { z } from 'zod'
 import { addDependency, addDevDependency } from 'nypm'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
+import { gte } from 'semver'
+import { getProjectInfo } from '../utils/get-project-info'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
@@ -99,7 +101,7 @@ export async function promptForConfig(
     {
       type: 'toggle',
       name: 'typescript',
-      message: `Would you like to use ${highlight('TypeScript')} (recommended)?`,
+      message: `Would you like to use ${highlight('TypeScript')}? ${colors.gray('(recommended)')}?`,
       initial: defaultConfig?.typescript ?? true,
       active: 'yes',
       inactive: 'no',
@@ -137,8 +139,18 @@ export async function promptForConfig(
     },
     {
       type: 'text',
+      name: 'tsConfigPath',
+      message: (prev, values) => `Where is your ${highlight(values.typescript ? 'tsconfig.json' : 'jsconfig.json')} file?`,
+      initial: (prev, values) => {
+        const prefix = values.framework === 'nuxt' ? '.nuxt/' : './'
+        const path = values.typescript ? 'tsconfig.json' : 'jsconfig.json'
+        return prefix + path
+      },
+    },
+    {
+      type: 'text',
       name: 'tailwindCss',
-      message: `Where is your ${highlight('global CSS')} file?`,
+      message: `Where is your ${highlight('global CSS')} file? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
@@ -162,7 +174,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindConfig',
-      message: `Where is your ${highlight('tailwind.config')} located?`,
+      message: `Where is your ${highlight('tailwind.config')} located? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => {
         if (defaultConfig?.tailwind.config)
           return defaultConfig?.tailwind.config
@@ -189,6 +201,7 @@ export async function promptForConfig(
     $schema: 'https://shadcn-vue.com/schema.json',
     style: options.style,
     typescript: options.typescript,
+    tsConfigPath: options.tsConfigPath,
     framework: options.framework,
     tailwind: {
       config: options.tailwindConfig,
@@ -227,6 +240,15 @@ export async function promptForConfig(
 
 export async function runInit(cwd: string, config: Config) {
   const spinner = ora('Initializing project...')?.start()
+
+  // Check in in a Nuxt project.
+  const { isNuxt, shadcnNuxt } = await getProjectInfo()
+  if (isNuxt) {
+    consola.log('')
+    shadcnNuxt
+      ? consola.info(`Detected a Nuxt project with 'shadcn-nuxt' v${shadcnNuxt.version}...`)
+      : consola.warn(`Detected a Nuxt project without 'shadcn-nuxt' module. It's recommended to install it.`)
+  }
 
   // Ensure all resolved paths directories exist.
   for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
@@ -288,9 +310,10 @@ export async function runInit(cwd: string, config: Config) {
   // Install dependencies.
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
 
-  const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
-  ).filter(Boolean)
+  // Starting from `shadcn-nuxt` version 0.10.4, Base dependencies are handled by the module so no need to re-add them by the CLI
+  const baseDeps = gte(shadcnNuxt?.version || '0.0.0', '0.10.4') ? [] : PROJECT_DEPENDENCIES.base
+  const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
+  const deps = baseDeps.concat(iconsDep).filter(Boolean)
 
   await Promise.allSettled(
     [

@@ -8,7 +8,6 @@ import Announcement from '../components/Announcement.vue'
 import GitHubIcon from '~icons/radix-icons/github-logo'
 
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 
 import MailExample from '@/examples/mail/Example.vue'

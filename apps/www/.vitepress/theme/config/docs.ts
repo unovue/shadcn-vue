@@ -257,11 +257,16 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/navigation-menu',
         },
         {
+          title: 'Number Field',
+          href: '/docs/components/number-field',
+          label: 'New Alpha',
+        },
+        {
           title: 'Pagination',
           href: '/docs/components/pagination',
         },
         {
-          title: 'Pin Input',
+          title: 'PIN Input',
           href: '/docs/components/pin-input',
           items: [],
         },

@@ -20,6 +20,7 @@ If you encounter the error `ERROR: Cannot read properties of undefined (reading 
 ```bash
 npm install -D typescript
 ```
+
 ### Install TailwindCSS module
 
 ```bash
@@ -76,7 +77,7 @@ export default defineNuxtModule<ShadcnVueOptions>({
     configKey: 'shadcn',
     version: '0.0.1',
     compatibility: {
-      nuxt: '^3.9.0',
+      nuxt: '>=3.9.0',
       bridge: false,
     },
   },
@@ -183,11 +184,13 @@ Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
+Where is your tsconfig.json or jsconfig.json file? › ./tsconfig.json
 Where is your global CSS file? › › src/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components
 Configure the import alias for utils: › @/lib/utils
+Write configuration to components.json. Proceed? > Y/n
 ```
 
 ### App structure

@@ -12,7 +12,7 @@ import { Separator } from '@/lib/registry/new-york/ui/separator'
         An open-source UI component library.
       </p>
     </div>
-    <Separator class="my-4" />
+    <Separator class="my-4" label="Or" />
     <div class="flex h-5 items-center space-x-4 text-sm">
       <div>Blog</div>
       <Separator orientation="vertical" />

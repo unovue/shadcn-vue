@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import AutoFormLabel from './AutoFormLabel.vue'
 import { beautifyObjectName } from './utils'
 import type { FieldProps } from './interface'
