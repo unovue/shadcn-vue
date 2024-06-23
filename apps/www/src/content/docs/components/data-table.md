@@ -97,7 +97,7 @@ Start by creating the following file structure:
 └── app.vue
 ```
 
-I'm using a Nuxt.js example here but this works for any other Vue framework.
+I'm using a Nuxt example here but this works for any other Vue framework.
 
 - `columns.ts` It will contain our column definitions.
 - `data-table.vue` It will contain our `<DataTable />` component.
@@ -202,7 +202,7 @@ const table = useVueTable({
         </template>
         <template v-else>
           <TableRow>
-            <TableCell :col-span="columns.length" class="h-24 text-center">
+            <TableCell :colspan="columns.length" class="h-24 text-center">
               No results.
             </TableCell>
           </TableRow>

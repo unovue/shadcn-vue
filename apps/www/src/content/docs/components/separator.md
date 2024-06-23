@@ -44,6 +44,6 @@ import { Separator } from '@/components/ui/separator'
 </script>
 
 <template>
-  <Separator />
+  <Separator label="Or" />
 </template>
 ```

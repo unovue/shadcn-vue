@@ -57,7 +57,7 @@ const onSubmit = handleSubmit((values) => {
             <select
               :class="cn(
                 buttonVariants({ variant: 'outline' }),
-                'w-[200px] appearance-none bg-transparent font-normal',
+                'w-[200px] appearance-none font-normal',
               )"
               v-bind="field"
             >

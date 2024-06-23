@@ -2,10 +2,10 @@
 import { type Ref, ref, watch } from 'vue'
 
 import {
-  Calendar as CalendarIcon,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-vue-next'
+  CalendarIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@radix-icons/vue'
 import {
   CalendarDate,
   type DateValue,

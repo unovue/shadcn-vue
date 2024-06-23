@@ -1,6 +1,6 @@
 ---
 title: Line
-description: An line chart  visually displays data points connected by straight lines, illustrating trends or relationships over a continuous axis.
+description: A line chart  visually displays data points connected by straight lines, illustrating trends or relationships over a continuous axis.
 source: apps/www/src/lib/registry/default/ui/chart-line
 label: Alpha
 ---

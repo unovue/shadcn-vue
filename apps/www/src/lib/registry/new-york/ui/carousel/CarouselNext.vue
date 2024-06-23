@@ -25,6 +25,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
   >
     <slot>
       <ArrowRightIcon class="size-4 text-current" />
+      <span class="sr-only">Next Slide</span>
     </slot>
   </Button>
 </template>

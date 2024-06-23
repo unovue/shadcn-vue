@@ -202,9 +202,8 @@
   {
     "name": "carousel",
     "dependencies": [
-      "@vueuse/core",
       "embla-carousel-vue",
-      "embla-carousel"
+      "@vueuse/core"
     ],
     "registryDependencies": [
       "utils",
@@ -464,6 +463,7 @@
       "ui/form/FormLabel.vue",
       "ui/form/FormMessage.vue",
       "ui/form/index.ts",
+      "ui/form/injectionKeys.ts",
       "ui/form/useFormField.ts"
     ],
     "type": "components:ui"
@@ -550,6 +550,22 @@
       "ui/navigation-menu/NavigationMenuTrigger.vue",
       "ui/navigation-menu/NavigationMenuViewport.vue",
       "ui/navigation-menu/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "number-field",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/number-field/NumberField.vue",
+      "ui/number-field/NumberFieldContent.vue",
+      "ui/number-field/NumberFieldDecrement.vue",
+      "ui/number-field/NumberFieldIncrement.vue",
+      "ui/number-field/NumberFieldInput.vue",
+      "ui/number-field/index.ts"
     ],
     "type": "components:ui"
   },

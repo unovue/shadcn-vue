@@ -2,7 +2,9 @@ import { getParameters } from 'codesandbox/lib/api/define'
 import sdk from '@stackblitz/sdk'
 import { dependencies as deps } from '../../../package.json'
 import { Index as demoIndex } from '../../../../www/__registry__'
+// @ts-expect-error ?raw
 import tailwindConfigRaw from '../../../tailwind.config?raw'
+// @ts-expect-error ?raw
 import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw'
 import type { Style } from '@/lib/registry/styles'
 
@@ -35,7 +37,15 @@ const viteConfig = {
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+
 export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [tailwind(), autoprefixer()],
+    },
+  },
   plugins: [vue()],
   resolve: {
     alias: {
@@ -102,7 +112,6 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     '@vitejs/plugin-vue': 'latest',
     'vue-tsc': 'latest',
     'tailwindcss': 'latest',
-    'postcss': 'latest',
     'autoprefixer': 'latest',
   }
 
@@ -143,15 +152,6 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     ...viteConfig,
     'tailwind.config.js': {
       content: tailwindConfigRaw,
-      isBinary: false,
-    },
-    'postcss.config.js': {
-      content: `module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  }
-}`,
       isBinary: false,
     },
     'tsconfig.json': {

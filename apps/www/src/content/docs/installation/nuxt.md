@@ -77,7 +77,7 @@ export default defineNuxtModule<ShadcnVueOptions>({
     configKey: 'shadcn',
     version: '0.0.1',
     compatibility: {
-      nuxt: '^3.9.0',
+      nuxt: '>=3.9.0',
       bridge: false,
     },
   },
