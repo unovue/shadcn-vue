@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="cn('flex items-center h-9 rounded-md border border-input bg-transparent py-1 shadow-sm transition-colors focus-within:outline-none focus-within:ring-1 focus-within:ring-ring disabled:opacity-50', props.class)">
+  <div :class="cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', props.class)">
     <slot />
   </div>
 </template>
