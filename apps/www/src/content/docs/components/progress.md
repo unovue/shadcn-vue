@@ -1,13 +1,11 @@
 ---
 title: Progress
 description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
-source: apps/www/src/lib/registry/default/ui/progress 
+source: apps/www/src/lib/registry/default/ui/progress
 primitive: https://www.radix-vue.com/components/progress.html
 ---
 
-<ComponentPreview name="ProgressDemo" /> 
-
-
+<ComponentPreview name="ProgressDemo" />
 
 ## Installation
 

@@ -5,8 +5,9 @@ import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
 import {
   PinInput,
+  PinInputGroup,
   PinInputInput,
-} from '@/lib/registry/new-york/ui/pin-input'
+} from '@/lib/registry/default/ui/pin-input'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
@@ -22,10 +23,10 @@ const formSchema = toTypedSchema(z.object({
   pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),
 }))
 
-const { handleSubmit, setValues } = useForm({
+const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    pin: [],
+    pin: ['1', '2', '3'],
   },
 })
 
@@ -41,12 +42,13 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
 
 <template>
   <form class="w-2/3 space-y-6 mx-auto" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="pin">
+    <FormField v-slot="{ componentField, value }" name="pin">
       <FormItem>
         <FormLabel>OTP</FormLabel>
         <FormControl>
           <PinInput
             id="pin-input"
+            v-model="value!"
             placeholder="○"
             class="flex gap-2 items-center mt-1"
             otp
@@ -54,16 +56,16 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
             :name="componentField.name"
             @complete="handleComplete"
             @update:model-value="(arrStr) => {
-              setValues({
-                pin: arrStr.filter(Boolean),
-              })
+              setFieldValue('pin', arrStr.filter(Boolean))
             }"
           >
-            <PinInputInput
-              v-for="(id, index) in 5"
-              :key="id"
-              :index="index"
-            />
+            <PinInputGroup>
+              <PinInputInput
+                v-for="(id, index) in 5"
+                :key="id"
+                :index="index"
+              />
+            </PinInputGroup>
           </PinInput>
         </FormControl>
         <FormDescription>

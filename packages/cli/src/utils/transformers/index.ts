@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
-import path from 'node:path'
+import path from 'pathe'
 import { Project, ScriptKind, type SourceFile } from 'ts-morph'
 import type * as z from 'zod'
 import type { Config } from '@/src/utils/get-config'
@@ -25,6 +25,7 @@ export type Transformer<Output = SourceFile> = (
 const transformers: Transformer[] = [
   transformCssVars,
   transformImport,
+  // transformTwPrefixes,
 ]
 
 const project = new Project({

@@ -17,7 +17,7 @@ import {
 } from '@tanstack/vue-table'
 
 import { ref } from 'vue'
-import { type Task } from '../data/schema'
+import type { Task } from '../data/schema'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
 import { valueUpdater } from '@/lib/utils'
@@ -91,7 +91,7 @@ const table = useVueTable({
 
           <TableRow v-else>
             <TableCell
-              col-span="{columns.length}"
+              :colspan="columns.length"
               class="h-24 text-center"
             >
               No results.

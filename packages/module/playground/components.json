@@ -1,4 +1,5 @@
 {
+  "$schema": "https://shadcn-vue.com/schema.json",
   "style": "default",
   "typescript": true,
   "tailwind": {

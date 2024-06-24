@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
 
-test('transform import', async () => {
+it('transform import', async () => {
   expect(
     await transform({
       filename: 'app.vue',

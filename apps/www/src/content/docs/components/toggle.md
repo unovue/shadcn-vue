@@ -1,13 +1,11 @@
 ---
 title: Toggle
 description: A two-state button that can be either on or off.
-source: apps/www/src/lib/registry/default/ui/toggle 
+source: apps/www/src/lib/registry/default/ui/toggle
 primitive: https://www.radix-vue.com/components/toggle.html
 ---
 
-<ComponentPreview name="ToggleDemo" /> 
-
-
+<ComponentPreview name="ToggleDemo" />
 
 ## Installation
 
@@ -52,34 +50,26 @@ import { Toggle } from '@/components/ui/toggle'
 
 ## Examples
 
-### Default 
+### Default
 
-<ComponentPreview name="ToggleDemo" /> 
-
+<ComponentPreview name="ToggleDemo" />
 
 ### Outline
 
-<ComponentPreview name="ToggleItalicDemo" /> 
-
+<ComponentPreview name="ToggleItalicDemo" />
 
 ### With Text
 
 <ComponentPreview name="ToggleItalicWithTextDemo" />
 
-
 ### Small
 
 <ComponentPreview name="ToggleSmallDemo" />
-
 
 ### Large
 
 <ComponentPreview name="ToggleLargeDemo" />
 
-
 ### Disabled
 
 <ComponentPreview name="ToggleDisabledDemo" />
-
-
-

@@ -1,0 +1,34 @@
+{
+  "name": "tags-input",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "TagsInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputRoot, type TagsInputRootEmits, type TagsInputRootProps, useForwardPropsEmits } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<TagsInputRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <TagsInputRoot v-bind=\"forwarded\" :class=\"cn('flex flex-wrap gap-2 items-center rounded-md border border-input bg-background px-3 py-1.5 text-sm', props.class)\">\n    <slot />\n  </TagsInputRoot>\n</template>\n"
+    },
+    {
+      "name": "TagsInputInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputInput, type TagsInputInputProps, useForwardProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputInput v-bind=\"forwardedProps\" :class=\"cn('text-sm min-h-5 focus:outline-none flex-1 bg-transparent px-1', props.class)\" />\n</template>\n"
+    },
+    {
+      "name": "TagsInputItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputItem, type TagsInputItemProps, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItem v-bind=\"forwardedProps\" :class=\"cn('flex h-5 items-center rounded-md bg-secondary data-[state=active]:ring-ring data-[state=active]:ring-2 data-[state=active]:ring-offset-2 ring-offset-background', props.class)\">\n    <slot />\n  </TagsInputItem>\n</template>\n"
+    },
+    {
+      "name": "TagsInputItemDelete.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputItemDelete, type TagsInputItemDeleteProps, useForwardProps } from 'radix-vue'\nimport { Cross2Icon } from '@radix-icons/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemDeleteProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItemDelete v-bind=\"forwardedProps\" :class=\"cn('flex rounded bg-transparent mr-1', props.class)\">\n    <slot>\n      <Cross2Icon class=\"w-4 h-4\" />\n    </slot>\n  </TagsInputItemDelete>\n</template>\n"
+    },
+    {
+      "name": "TagsInputItemText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { TagsInputItemText, type TagsInputItemTextProps, useForwardProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemTextProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItemText v-bind=\"forwardedProps\" :class=\"cn('py-0.5 px-2 text-sm rounded bg-transparent', props.class)\" />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as TagsInput } from './TagsInput.vue'\nexport { default as TagsInputInput } from './TagsInputInput.vue'\nexport { default as TagsInputItem } from './TagsInputItem.vue'\nexport { default as TagsInputItemDelete } from './TagsInputItemDelete.vue'\nexport { default as TagsInputItemText } from './TagsInputItemText.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -1,9 +1,9 @@
-import path from 'node:path'
-import { expect, test } from 'vitest'
+import path from 'pathe'
+import { expect, it } from 'vitest'
 
 import { getConfig, getRawConfig } from '../../src/utils/get-config'
 
-test('get raw config', async () => {
+it('get raw config', async () => {
   expect(
     await getRawConfig(path.resolve(__dirname, '../fixtures/config-none')),
   ).toEqual(null)
@@ -19,6 +19,7 @@ test('get raw config', async () => {
       baseColor: 'neutral',
       cssVariables: false,
     },
+    tsConfigPath: './tsconfig.json',
     aliases: {
       components: '@/components',
       utils: '@/lib/utils',
@@ -31,7 +32,7 @@ test('get raw config', async () => {
   ).rejects.toThrowError()
 })
 
-test('get config', async () => {
+it('get config', async () => {
   expect(
     await getConfig(path.resolve(__dirname, '../fixtures/config-none')),
   ).toEqual(null)
@@ -55,6 +56,7 @@ test('get config', async () => {
       utils: '@/lib/utils',
     },
     framework: 'Vite',
+    tsConfigPath: './tsconfig.json',
     resolvedPaths: {
       tailwindConfig: path.resolve(
         __dirname,
@@ -67,6 +69,11 @@ test('get config', async () => {
         './src/assets/css/tailwind.css',
       ),
       components: path.resolve(
+        __dirname,
+        '../fixtures/config-partial',
+        './components',
+      ),
+      ui: path.resolve(
         __dirname,
         '../fixtures/config-partial',
         './components',
@@ -89,12 +96,15 @@ test('get config', async () => {
       baseColor: 'zinc',
       css: 'src/app/globals.css',
       cssVariables: true,
+      prefix: 'tw-',
     },
     aliases: {
       components: '~/components',
+      ui: '~/ui',
       utils: '~/lib/utils',
     },
     framework: 'Vite',
+    tsConfigPath: './tsconfig.json',
     resolvedPaths: {
       tailwindConfig: path.resolve(
         __dirname,
@@ -110,6 +120,11 @@ test('get config', async () => {
         __dirname,
         '../fixtures/config-full',
         './src/components',
+      ),
+      ui: path.resolve(
+        __dirname,
+        '../fixtures/config-full',
+        './src/ui',
       ),
       utils: path.resolve(
         __dirname,
@@ -136,6 +151,7 @@ test('get config', async () => {
       utils: '@/lib/utils',
     },
     framework: 'Vite',
+    tsConfigPath: './tsconfig.json',
     resolvedPaths: {
       tailwindConfig: path.resolve(
         __dirname,
@@ -148,6 +164,11 @@ test('get config', async () => {
         './src/assets/css/tailwind.css',
       ),
       components: path.resolve(
+        __dirname,
+        '../fixtures/config-js',
+        './components',
+      ),
+      ui: path.resolve(
         __dirname,
         '../fixtures/config-js',
         './components',

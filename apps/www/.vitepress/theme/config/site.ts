@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'New components!',
-  link: '/docs/components/carousel.html',
+  title: 'Extended: Auto Form, Charts',
+  link: '/docs/components/auto-form.html',
 }

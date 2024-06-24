@@ -49,7 +49,7 @@ import {
                   Astro
                 </SelectItem>
                 <SelectItem value="nuxt">
-                  Nuxt.js
+                  Nuxt
                 </SelectItem>
               </SelectContent>
             </Select>

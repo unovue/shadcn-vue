@@ -3,8 +3,7 @@ title: Textarea
 description: Displays a form textarea or a component that looks like a textarea.
 ---
 
-<ComponentPreview name="TextareaDemo" /> 
-
+<ComponentPreview name="TextareaDemo" />
 
 ## Installation
 

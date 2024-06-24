@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path, { basename } from 'node:path'
-import template from 'lodash.template'
+import { template } from 'lodash-es'
 import { rimraf } from 'rimraf'
 
 import { colorMapping, colors } from '../src/lib/registry/colors'
@@ -40,7 +40,7 @@ for (const style of styles) {
       file => `../src/lib/registry/${style.name}/${file}`,
     )
 
-    const type = item.type.split(':')[1]
+    // const type = item.type.split(':')[1]
     index += `
     "${item.name}": {
       name: "${item.name}",
@@ -282,7 +282,7 @@ for (const baseColor of ['slate', 'gray', 'zinc', 'neutral', 'stone', 'lime']) {
     for (const [key, value] of Object.entries(values)) {
       if (typeof value === 'string') {
         const resolvedColor = value.replace(
-          /{{base}}-/g,
+          /\{\{base\}\}-/g,
 					`${baseColor}-`,
         )
         base.inlineColors[mode][key] = resolvedColor
@@ -396,4 +396,4 @@ fs.writeFileSync(
   'utf8',
 )
 
-console.log('✅ Done!')
+console.log('✅ Done!!')

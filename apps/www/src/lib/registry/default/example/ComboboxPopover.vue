@@ -60,7 +60,7 @@ const statuses: Status[] = [
 ]
 
 const open = ref(false)
-const value = ref<typeof statuses[number]>()
+// const value = ref<typeof statuses[number]>()
 
 const selectedStatus = ref<Status>()
 </script>

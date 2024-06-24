@@ -24,7 +24,7 @@ Where is your global CSS file? › › src/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils 
+Configure the import alias for utils: › @/lib/utils
 ```
 
 ### Options

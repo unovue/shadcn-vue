@@ -2,27 +2,29 @@
 import { ref } from 'vue'
 import {
   PinInput,
+  PinInputGroup,
   PinInputInput,
 } from '@/lib/registry/new-york/ui/pin-input'
 
 const value = ref<string[]>([])
-function handleComplete() {
-  console.log('212121')
-}
+const handleComplete = (e: string[]) => alert(e.join(''))
 </script>
 
 <template>
-  <PinInput
-    id="pin-input"
-    v-model="value"
-    placeholder="○"
-    class="flex gap-2 items-center mt-1"
-    @complete="handleComplete"
-  >
-    <PinInputInput
-      v-for="(id, index) in 5"
-      :key="id"
-      :index="index"
-    />
-  </PinInput>
+  <div>
+    <PinInput
+      id="pin-input"
+      v-model="value"
+      placeholder="○"
+      @complete="handleComplete"
+    >
+      <PinInputGroup>
+        <PinInputInput
+          v-for="(id, index) in 5"
+          :key="id"
+          :index="index"
+        />
+      </PinInputGroup>
+    </PinInput>
+  </div>
 </template>

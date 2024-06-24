@@ -21,15 +21,13 @@ import {
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },
   { value: 'sveltekit', label: 'SvelteKit' },
-  { value: 'nuxt.js', label: 'Nuxt.js' },
+  { value: 'nuxt', label: 'Nuxt' },
   { value: 'remix', label: 'Remix' },
   { value: 'astro', label: 'Astro' },
 ]
 
 const open = ref(false)
-const value = ref<string>('')
-
-// const filterFunction = (list: typeof frameworks, search: string) => list.filter(i => i.value.toLowerCase().includes(search.toLowerCase()))
+const value = ref('')
 </script>
 
 <template>

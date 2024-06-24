@@ -4,28 +4,18 @@ import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 import PageAction from '../components/PageAction.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
-import { announcementConfig } from '../config/site'
+import Announcement from '../components/Announcement.vue'
 import GitHubIcon from '~icons/radix-icons/github-logo'
 
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 
-import DashboardExample from '@/examples/dashboard/Example.vue'
+import MailExample from '@/examples/mail/Example.vue'
 </script>
 
 <template>
   <PageHeader class="page-header pb-8">
-    <a
-      :href="announcementConfig.link"
-      class="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
-    >
-      {{ announcementConfig.icon }}   <Separator class="mx-2 h-4" orientation="vertical" />
-      <span class="sm:hidden">{{ announcementConfig.title }}</span>
-      <span class="hidden sm:inline">{{ announcementConfig.title }}
-      </span>
-      <!-- <ArrowRightIcon class="ml-1 h-4 w-4" /> -->
-    </a>
+    <Announcement />
     <PageHeaderHeading>Build your component library.</PageHeaderHeading>
     <PageHeaderDescription>
       Beautifully designed components that you can copy and paste into your
@@ -55,17 +45,17 @@ import DashboardExample from '@/examples/dashboard/Example.vue'
   <ExamplesNav />
   <section class="space-y-8 overflow-hidden rounded-lg border-2 border-primary dark:border-muted md:hidden">
     <VPImage
-      alt="Dashboard"
+      alt="Mail"
       width="1280"
       height="866" class="block" :image="{
-        dark: '/examples/dashboard-dark.png',
-        light: '/examples/dashboard-light.png',
+        dark: '/examples/mail-dark.png',
+        light: '/examples/mail-light.png',
       }"
     />
   </section>
   <section class="hidden md:block">
     <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
-      <DashboardExample />
+      <MailExample />
     </div>
   </section>
 </template>

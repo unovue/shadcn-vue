@@ -2,7 +2,7 @@
 title: Sonner
 description: An opinionated toast component for Vue.
 docs: https://vue-sonner.vercel.app
-source: apps/www/src/lib/registry/default/ui/sonner 
+source: apps/www/src/lib/registry/default/ui/sonner
 ---
 
 <ComponentPreview name="SonnerDemo" />
@@ -34,7 +34,7 @@ import { Toaster } from '@/components/ui/sonner'
   <Toaster />
 </template>
 ```
-  
+
 </Steps>
 
 ## Usage
@@ -61,3 +61,23 @@ import { Button } from '@/components/ui/button'
   </Button>
 </template>
 ```
+
+## Examples
+
+### Sonner with Dialog
+
+Related issue https://github.com/radix-vue/shadcn-vue/issues/462
+
+Add `pointer-events-auto` class to Toaster component in your `App.vue` file:
+
+```vue {6}
+<script setup lang="ts">
+import { Toaster } from '@/components/ui/sonner'
+</script>
+
+<template>
+  <Toaster class="pointer-events-auto" />
+</template>
+```
+
+<ComponentPreview name="SonnerWithDialog" />

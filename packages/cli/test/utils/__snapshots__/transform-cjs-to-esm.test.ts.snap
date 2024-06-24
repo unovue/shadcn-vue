@@ -1,39 +1,40 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`handle tailwind config template correctly 1`] = `
-"import animate from \\"tailwindcss-animate\\"
+"import animate from "tailwindcss-animate"
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: [\\"class\\"],
+  darkMode: ["class"],
   content: [
     './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',
     './components/**/*.{<%- extension %>,<%- extension %>x,vue}',
     './app/**/*.{<%- extension %>,<%- extension %>x,vue}',
     './src/**/*.{<%- extension %>,<%- extension %>x,vue}',
 	],
+  prefix: "<%- prefix %>",
   theme: {
     container: {
       center: true,
-      padding: \\"2rem\\",
+      padding: "2rem",
       screens: {
-        \\"2xl\\": \\"1400px\\",
+        "2xl": "1400px",
       },
     },
     extend: {
       keyframes: {
-        \\"accordion-down\\": {
+        "accordion-down": {
           from: { height: 0 },
-          to: { height: \\"var(--radix-accordion-content-height)\\" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        \\"accordion-up\\": {
-          from: { height: \\"var(--radix-accordion-content-height)\\" },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
       },
       animation: {
-        \\"accordion-down\\": \\"accordion-down 0.2s ease-out\\",
-        \\"accordion-up\\": \\"accordion-up 0.2s ease-out\\",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
@@ -42,12 +43,13 @@ export default {
 `;
 
 exports[`handle tailwind config template correctly 2`] = `
-"import animate from \\"tailwindcss-animate\\"
+"import animate from "tailwindcss-animate"
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: [\\"class\\"],
-  safelist: [\\"dark\\"],
+  darkMode: ["class"],
+  safelist: ["dark"],
+  prefix: "<%- prefix %>",
   <% if (framework === 'vite') { %>
   content: [
     './pages/**/*.{<%- extension %>,<%- extension %>x,vue}',
@@ -57,10 +59,10 @@ export default {
 	],
   <% } else if (framework === 'laravel') { %>
   content: [
-    \\"./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php\\",
-    \\"./storage/framework/views/*.php\\",
-    \\"./resources/views/**/*.blade.php\\",
-    \\"./resources/js/**/*.{<%- extension %>,<%- extension %>x,vue}\\",
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+    "./storage/framework/views/*.php",
+    "./resources/views/**/*.blade.php",
+    "./resources/js/**/*.{<%- extension %>,<%- extension %>x,vue}",
   ],
   <% } else if (framework === 'astro') { %>
     content: [
@@ -70,76 +72,76 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: \\"2rem\\",
+      padding: "2rem",
       screens: {
-        \\"2xl\\": \\"1400px\\",
+        "2xl": "1400px",
       },
     },
     extend: {
       colors: {
-        border: \\"hsl(var(--border))\\",
-        input: \\"hsl(var(--input))\\",
-        ring: \\"hsl(var(--ring))\\",
-        background: \\"hsl(var(--background))\\",
-        foreground: \\"hsl(var(--foreground))\\",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: \\"hsl(var(--primary))\\",
-          foreground: \\"hsl(var(--primary-foreground))\\",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: \\"hsl(var(--secondary))\\",
-          foreground: \\"hsl(var(--secondary-foreground))\\",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
-          DEFAULT: \\"hsl(var(--destructive))\\",
-          foreground: \\"hsl(var(--destructive-foreground))\\",
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: \\"hsl(var(--muted))\\",
-          foreground: \\"hsl(var(--muted-foreground))\\",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: \\"hsl(var(--accent))\\",
-          foreground: \\"hsl(var(--accent-foreground))\\",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
-          DEFAULT: \\"hsl(var(--popover))\\",
-          foreground: \\"hsl(var(--popover-foreground))\\",
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: \\"hsl(var(--card))\\",
-          foreground: \\"hsl(var(--card-foreground))\\",
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
       },
       borderRadius: {
-      	xl: \\"calc(var(--radius) + 4px)\\",
-        lg: \\"var(--radius)\\",
-        md: \\"calc(var(--radius) - 2px)\\",
-        sm: \\"calc(var(--radius) - 4px)\\",
+      	xl: "calc(var(--radius) + 4px)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        \\"accordion-down\\": {
+        "accordion-down": {
           from: { height: 0 },
-          to: { height: \\"var(--radix-accordion-content-height)\\" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        \\"accordion-up\\": {
-          from: { height: \\"var(--radix-accordion-content-height)\\" },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        \\"collapsible-down\\": {
+        "collapsible-down": {
           from: { height: 0 },
           to: { height: 'var(--radix-collapsible-content-height)' },
         },
-        \\"collapsible-up\\": {
+        "collapsible-up": {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: 0 },
         },
       },
       animation: {
-        \\"accordion-down\\": \\"accordion-down 0.2s ease-out\\",
-        \\"accordion-up\\": \\"accordion-up 0.2s ease-out\\",
-        \\"collapsible-down\\": \\"collapsible-down 0.2s ease-in-out\\",
-        \\"collapsible-up\\": \\"collapsible-up 0.2s ease-in-out\\",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "collapsible-down": "collapsible-down 0.2s ease-in-out",
+        "collapsible-up": "collapsible-up 0.2s ease-in-out",
       },
     },
   },

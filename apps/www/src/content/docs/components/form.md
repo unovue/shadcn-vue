@@ -16,16 +16,14 @@ Well-designed HTML forms are:
 
 In this guide, we will take a look at building forms with [`vee-validate`](https://vee-validate.logaretm.com/v4/) and [`zod`](https://zod.dev). We're going to use a `<FormField>` component to compose accessible forms using Radix Vue components.
 
-
 ## Features
 
 The `<Form />` component is a wrapper around the `vee-validate` library. It provides a few things:
 
-
 - Composable components for building forms.
 - A `<FormField />` component for building controlled form fields.
 - Form validation using `zod`.
-- Applies the correct `aria` attributes to form fields based on states, handle unqiue IDs
+- Applies the correct `aria` attributes to form fields based on states, handle unique IDs
 - Built to work with all Radix Vue components.
 - Bring your own schema library. We use `zod` but you can use any other supported schema validation you want, like [`yup`](https://github.com/jquense/yup) or [`valibot`](https://valibot.dev/).
 - **You have full control over the markup and styling.**
@@ -52,7 +50,6 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 ```
 
 ## Example
-
 
 <TabPreview name="Component" :names="['Component', 'Native']">
 <template #Component>
@@ -170,11 +167,9 @@ const formSchema = toTypedSchema(z.object({
 </script>
 ```
 
-
 ### Define a form
 
 Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a form.
-
 
 <TabPreview name="Composition" :names="['Composition', 'Component']">
 <template #Composition>
@@ -254,7 +249,7 @@ function onSubmit(values) {
 ### Build your form
 
 Based on last step we can either use `<Form />` component or `useForm` composable
-`useForm` is recommended cause values are typed automatically
+`useForm` is recommended because values are typed automatically
 
 ```vue:line-numbers {2}
 <script setup lang="ts">
@@ -327,10 +322,10 @@ See the following links for more examples on how to use the `vee-validate` featu
 - [Input](/docs/components/input#form)
 - [Radio Group](/docs/components/radio-group#form)
 - [Select](/docs/components/select#form)
+- [Slider](/docs/components/slider#form)
 - [Switch](/docs/components/switch#form)
 - [Textarea](/docs/components/textarea#form)
 - [Combobox](/docs/components/combobox#form)
-
 
 ## Extras
 

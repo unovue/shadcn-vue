@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import { codeToHtml } from 'shiki'
+import MagicString from 'magic-string'
+import { useClipboard } from '@vueuse/core'
+import { cssVariables } from '../config/shiki'
 import StyleSwitcher from './StyleSwitcher.vue'
 import ComponentLoader from './ComponentLoader.vue'
 import Stackblitz from './Stackblitz.vue'
@@ -11,14 +16,38 @@ defineOptions({
   inheritAttrs: false,
 })
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   name: string
   align?: 'center' | 'start' | 'end'
-  sfcTsCode?: string
-  sfcTsHtml?: string
 }>(), { align: 'center' })
 
-const { style } = useConfigStore()
+const { style, codeConfig } = useConfigStore()
+
+const rawString = ref('')
+const codeHtml = ref('')
+const transformedRawString = computed(() => transformImportPath(rawString.value))
+
+function transformImportPath(code: string) {
+  const s = new MagicString(code)
+  s.replaceAll(`@/lib/registry/${style.value}`, codeConfig.value.componentsPath)
+  s.replaceAll(`@/lib/utils`, codeConfig.value.utilsPath)
+  return s.toString()
+}
+
+watch([style, codeConfig], async () => {
+  try {
+    rawString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
+    codeHtml.value = await codeToHtml(transformedRawString.value, {
+      lang: 'vue',
+      theme: cssVariables,
+    })
+  }
+  catch (err) {
+    console.error(err)
+  }
+}, { immediate: true, deep: true })
+
+const { copy, copied } = useClipboard()
 </script>
 
 <template>
@@ -47,8 +76,8 @@ const { style } = useConfigStore()
           <StyleSwitcher />
 
           <div class="flex items-center gap-x-1">
-            <Stackblitz :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
-            <CodeSandbox :key="style" :style="style" :name="name" :code="decodeURIComponent(sfcTsCode ?? '')" />
+            <Stackblitz :key="style" :style="style" :name="name" :code="rawString" />
+            <CodeSandbox :key="style" :style="style" :name="name" :code="rawString" />
           </div>
         </div>
         <div
@@ -58,11 +87,15 @@ const { style } = useConfigStore()
             'items-end': align === 'end',
           })"
         >
-          <ComponentLoader v-bind="$attrs" :key="style" :name="name" />
+          <ComponentLoader v-bind="$attrs" :key="style" :name="name" :type-name="'example'" />
         </div>
       </TabsContent>
-      <TabsContent value="code">
-        <div v-if="sfcTsHtml" class="language-vue" style="flex: 1;" v-html="decodeURIComponent(sfcTsHtml)" />
+      <TabsContent value="code" class="vp-doc">
+        <div v-if="codeHtml" class="language-vue" style="flex: 1;">
+          <button title="Copy Code" class="copy" :class="{ copied }" @click="copy(transformedRawString)" />
+
+          <div v-html="codeHtml" />
+        </div>
         <slot v-else />
       </TabsContent>
     </Tabs>

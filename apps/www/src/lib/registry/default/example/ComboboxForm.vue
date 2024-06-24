@@ -48,7 +48,7 @@ const formSchema = toTypedSchema(z.object({
   }),
 }))
 
-const { handleSubmit, setValues, values } = useForm({
+const { handleSubmit, setFieldValue, values } = useForm({
   validationSchema: formSchema,
 })
 
@@ -91,9 +91,7 @@ const onSubmit = handleSubmit((values) => {
                     :key="language.value"
                     :value="language.label"
                     @select="() => {
-                      setValues({
-                        language: language.value,
-                      })
+                      setFieldValue('language', language.value)
                     }"
                   >
                     <Check

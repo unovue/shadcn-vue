@@ -89,7 +89,6 @@ This is used to generate the default color palette for your components. **This c
 }
 ```
 
-
 ### tailwind.cssVariables
 
 You can choose between using CSS variables or Tailwind CSS utility classes for theming.
@@ -109,7 +108,6 @@ For more information, see the [theming docs](/docs/theming).
 
 **This cannot be changed after initialization.** To switch between CSS variables and utility classes, you'll have to delete and re-install your components.
 
-
 ## aliases
 
 The CLI uses these values and the `paths` config from your `tsconfig.json` or `jsconfig.json` file to place generated components in the correct location.
@@ -117,7 +115,6 @@ The CLI uses these values and the `paths` config from your `tsconfig.json` or `j
 Path aliases have to be set up in your `tsconfig.json` or `jsconfig.json` file.
 
 > A fallback to `tsconfig.app.json` if no `paths` were found in `tsconfig.json`
- 
 
 <Callout class="mt-6">
 
@@ -125,7 +122,6 @@ Path aliases have to be set up in your `tsconfig.json` or `jsconfig.json` file.
   under `paths` in your `tsconfig.json` or `jsconfig.json` file.
 
 </Callout>
-
 
 ### aliases.utils
 
@@ -147,6 +143,20 @@ Import alias for your components.
 {
   "aliases": {
     "components": "@/components"
+  }
+}
+```
+
+### aliases.ui
+
+Import alias for `ui` components.
+
+The CLI will use the `aliases.ui` value to determine where to place your `ui` components. Use this config if you want to customize the installation directory for your `ui` components.
+
+```json title="components.json"
+{
+  "aliases": {
+    "ui": "@/app/ui"
   }
 }
 ```

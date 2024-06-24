@@ -20,10 +20,11 @@ If you encounter the error `ERROR: Cannot read properties of undefined (reading 
 ```bash
 npm install -D typescript
 ```
+
 ### Install TailwindCSS module
 
 ```bash
-npm install -D @nuxtjs/tailwindcss
+npx nuxi@latest module add @nuxtjs/tailwindcss
 ```
 
 ### Add `Nuxt` module
@@ -36,11 +37,10 @@ npm install -D @nuxtjs/tailwindcss
   Install the package below.
 
   ```bash
-  npm install -D shadcn-nuxt
+ npx nuxi@latest module add shadcn-nuxt
   ```
 
   </TabMarkdown>
-
 
   <TabMarkdown title="manual">
 
@@ -77,7 +77,7 @@ export default defineNuxtModule<ShadcnVueOptions>({
     configKey: 'shadcn',
     version: '0.0.1',
     compatibility: {
-      nuxt: '^3.9.0',
+      nuxt: '>=3.9.0',
       bridge: false,
     },
   },
@@ -148,7 +148,6 @@ declare module '@nuxt/schema' {
   </TabMarkdown>
 </TabsMarkdown>
 
-
 ### Configure `nuxt.config.ts`
 
 ```ts
@@ -185,11 +184,13 @@ Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
+Where is your tsconfig.json or jsconfig.json file? › ./tsconfig.json
 Where is your global CSS file? › › src/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils 
+Configure the import alias for utils: › @/lib/utils
+Write configuration to components.json. Proceed? > Y/n
 ```
 
 ### App structure
@@ -197,7 +198,7 @@ Configure the import alias for utils: › @/lib/utils
 Here's the default structure of Nuxt app. You can use this as a reference:
 
 ```txt {6-16,20-21}
-. 
+.
 ├── pages
 │   ├── index.vue
 │   └── dashboard.vue

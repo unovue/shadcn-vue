@@ -104,6 +104,7 @@ Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Astro
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
+Where is your tsconfig.json or jsconfig.json file? › ./tsconfig.json
 Where is your global CSS file? › src/styles/globals.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config located? › tailwind.config.mjs
@@ -126,7 +127,7 @@ import '@/styles/globals.css'
 
 To prevent serving the Tailwind base styles twice, we need to tell Astro not to apply the base styles, since we already include them in our own `globals.css` file. To do this, set the `applyBaseStyles` config option for the tailwind plugin in `astro.config.mjs` to `false`.
 
-```ts:line-numbers {3-5} 
+```ts:line-numbers {3-5}
 export default defineConfig({
   integrations: [
     tailwind({
@@ -152,12 +153,12 @@ import { Button } from "@/components/ui/button"
 ---
 
 <html lang="en">
-	<head>
-		<title>Astro</title>
-	</head>
-	<body>
-		<Button>Hello World</Button>
-	</body>
+ <head>
+  <title>Astro</title>
+ </head>
+ <body>
+  <Button>Hello World</Button>
+ </body>
 </html>
 ```
 

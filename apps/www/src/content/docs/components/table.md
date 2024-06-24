@@ -3,8 +3,7 @@ title: Table
 description: A responsive table component.
 ---
 
-<ComponentPreview name="TableDemo" /> 
-
+<ComponentPreview name="TableDemo" />
 
 ## Installation
 

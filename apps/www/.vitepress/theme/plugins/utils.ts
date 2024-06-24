@@ -1,6 +1,5 @@
 // Credit to @hairyf https://github.com/hairyf/markdown-it-vitepress-demo
 
-import type { MarkdownEnv, MarkdownRenderer } from 'vitepress'
 import { baseParse } from '@vue/compiler-core'
 import type { AttributeNode, ElementNode } from '@vue/compiler-core'
 
@@ -9,36 +8,6 @@ export interface GenerateOptions {
   props: Record<string, any>
   path: string
   code: string
-}
-
-export function parse(
-  md: MarkdownRenderer,
-  env: MarkdownEnv,
-  { code, attrs: _attrs, props }: GenerateOptions,
-) {
-  const highlightedHtml = md.options.highlight!(code, 'vue', _attrs || '')
-  const sfcTsHtml = highlightedHtml
-
-  const attrs
-   = `sfcTsCode="${encodeURIComponent(code)}"\n`
-   + `sfcTsHtml="${encodeURIComponent(sfcTsHtml)}"\n`
-   + `v-bind='${JSON.stringify(props)}'\n`
-
-  return {
-    attrs,
-    highlightedHtml,
-    sfcTsCode: code,
-    sfcTsHtml,
-  }
-}
-
-export function generateDemoComponent(
-  md: MarkdownRenderer,
-  env: MarkdownEnv,
-  options: GenerateOptions,
-) {
-  const { attrs } = parse(md, env, options)
-  return `<ComponentPreview \n${attrs}></ComponentPreview>`.trim()
 }
 
 export function isUndefined(v: any): v is undefined {

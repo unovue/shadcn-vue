@@ -27,7 +27,7 @@ import { Label } from '@/lib/registry/new-york/ui/label'
       <div class="grid grid-cols-2 gap-6">
         <Button variant="outline">
           <GitHubIcon class="mr-2 h-4 w-4" />
-          Github
+          GitHub
         </Button>
         <Button variant="outline">
           <svg role="img" viewBox="0 0 24 24" class="mr-2 h-4 w-4">

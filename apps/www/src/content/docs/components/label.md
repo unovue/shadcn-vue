@@ -1,12 +1,11 @@
 ---
 title: Label
 description: Renders an accessible label associated with controls.
-source: apps/www/src/lib/registry/default/ui/label 
+source: apps/www/src/lib/registry/default/ui/label
 primitive: https://www.radix-vue.com/components/label.html
 ---
 
-<ComponentPreview name="LabelDemo" /> 
-
+<ComponentPreview name="LabelDemo" />
 
 ## Installation
 

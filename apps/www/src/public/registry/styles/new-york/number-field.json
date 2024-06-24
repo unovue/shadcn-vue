@@ -1,0 +1,34 @@
+{
+  "name": "number-field",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "NumberField.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'radix-vue'\nimport { NumberFieldRoot, useForwardPropsEmits } from 'radix-vue'\nimport { type HTMLAttributes, computed } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NumberFieldRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<NumberFieldRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <NumberFieldRoot v-bind=\"forwarded\" :class=\"cn('grid gap-1.5', props.class)\">\n    <slot />\n  </NumberFieldRoot>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', props.class)\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldDecrement.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldDecrementProps } from 'radix-vue'\nimport { NumberFieldDecrement, useForwardProps } from 'radix-vue'\nimport { type HTMLAttributes, computed } from 'vue'\nimport { Minus } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NumberFieldDecrementProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <NumberFieldDecrement data-slot=\"decrement\" v-bind=\"forwarded\" :class=\"cn('absolute top-1/2 -translate-y-1/2 left-0 p-3 disabled:cursor-not-allowed disabled:opacity-20', props.class)\">\n    <slot>\n      <Minus class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldDecrement>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldIncrement.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldIncrementProps } from 'radix-vue'\nimport { NumberFieldIncrement, useForwardProps } from 'radix-vue'\nimport { type HTMLAttributes, computed } from 'vue'\nimport { Plus } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NumberFieldIncrementProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <NumberFieldIncrement data-slot=\"increment\" v-bind=\"forwarded\" :class=\"cn('absolute top-1/2 -translate-y-1/2 right-0 disabled:cursor-not-allowed disabled:opacity-20 p-3', props.class)\">\n    <slot>\n      <Plus class=\"h-4 w-4\" />\n    </slot>\n  </NumberFieldIncrement>\n</template>\n"
+    },
+    {
+      "name": "NumberFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n</script>\n\n<template>\n  <NumberFieldInput data-slot=\"input\" :class=\"cn('flex h-9 w-full rounded-md border border-input bg-transparent py-1 text-sm text-center shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50')\" />\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as NumberField } from './NumberField.vue'\nexport { default as NumberFieldInput } from './NumberFieldInput.vue'\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue'\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue'\nexport { default as NumberFieldContent } from './NumberFieldContent.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}

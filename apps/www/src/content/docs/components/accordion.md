@@ -1,15 +1,13 @@
 ---
 title: Accordion
-description: A vertically stacked set of interactive headings that each reveal a section of content. 
-source: apps/www/src/lib/registry/default/ui/accordion 
+description: A vertically stacked set of interactive headings that each reveal a section of content.
+source: apps/www/src/lib/registry/default/ui/accordion
 primitive: https://www.radix-vue.com/components/accordion.html
 ---
-
 
 <ComponentPreview name="AccordionDemo" class="sm:max-w-[70%]" />
 
 ## Installation
- 
 
 <Steps>
 
@@ -46,9 +44,8 @@ module.exports = {
   },
 }
 ```
-  
+
 </Steps>
- 
 
 ## Usage
 
@@ -68,4 +65,3 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
   </Accordion>
 </template>
 ```
-

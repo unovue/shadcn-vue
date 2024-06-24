@@ -2,9 +2,11 @@ import { getParameters } from 'codesandbox/lib/api/define'
 import sdk from '@stackblitz/sdk'
 import { dependencies as deps } from '../../../package.json'
 import { Index as demoIndex } from '../../../../www/__registry__'
+// @ts-expect-error ?raw
 import tailwindConfigRaw from '../../../tailwind.config?raw'
+// @ts-expect-error ?raw
 import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw'
-import { type Style } from '@/lib/registry/styles'
+import type { Style } from '@/lib/registry/styles'
 
 export function makeCodeSandboxParams(componentName: string, style: Style, sources: Record<string, string>) {
   let files: Record<string, any> = {}
@@ -18,6 +20,7 @@ export function makeCodeSandboxParams(componentName: string, style: Style, sourc
 export function makeStackblitzParams(componentName: string, style: Style, sources: Record<string, string>) {
   const files: Record<string, string> = {}
   Object.entries(constructFiles(componentName, style, sources)).forEach(([k, v]) => (files[`${k}`] = typeof v.content === 'object' ? JSON.stringify(v.content, null, 2) : v.content))
+
   return sdk.openProject({
     title: `${componentName} - Radix Vue`,
     files,
@@ -34,7 +37,15 @@ const viteConfig = {
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+
 export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [tailwind(), autoprefixer()],
+    },
+  },
   plugins: [vue()],
   resolve: {
     alias: {
@@ -54,7 +65,7 @@ export default defineConfig({
         <title>Vite + Vue + TS</title>
       </head>
       <body>
-        <div id="app"></div>
+        <div vaul-drawer-wrapper id="app"></div>
         <script type="module" src="/src/main.ts"></script>
       </body>
     </html>
@@ -90,6 +101,10 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     [iconPackage]: 'latest',
     'shadcn-vue': 'latest',
     'typescript': 'latest',
+    'vaul-vue': 'latest',
+    'vue-sonner': 'latest',
+    '@unovis/vue': 'latest',
+    '@unovis/ts': 'latest',
   }
 
   const devDependencies = {
@@ -97,10 +112,10 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     '@vitejs/plugin-vue': 'latest',
     'vue-tsc': 'latest',
     'tailwindcss': 'latest',
-    'postcss': 'latest',
     'autoprefixer': 'latest',
   }
 
+  // We have static replace here as this is only showing for code reproduction, doesn't need dynamic codeConfig
   const transformImportPath = (code: string) => {
     let parsed = code
     parsed = parsed.replaceAll(`@/lib/registry/${style}`, '@/components')
@@ -117,7 +132,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     }
   })
 
-  // @ts-expect-error componentName migth not exist in Index
+  // @ts-expect-error componentName might not exist in Index
   const registryDependencies = demoIndex[style][componentName as any]?.registryDependencies?.filter(i => i !== 'utils')
 
   const files = {
@@ -139,15 +154,6 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
       content: tailwindConfigRaw,
       isBinary: false,
     },
-    'postcss.config.js': {
-      content: `module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  }
-}`,
-      isBinary: false,
-    },
     'tsconfig.json': {
       content: `{
 "$schema": "https://json.schemastore.org/tsconfig",
@@ -164,7 +170,6 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
       isBinary: false,
       content: `import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { camelize, getCurrentInstance, toHandlerKey } from 'vue'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

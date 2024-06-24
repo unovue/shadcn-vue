@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { Minus, Plus } from 'lucide-vue-next'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { useData } from 'vitepress'
 import { Button } from '@/lib/registry/default/ui/button'
 
 import {
@@ -13,12 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/default/ui/card'
-import { themes } from '@/lib/registry/themes'
-import { useConfigStore } from '@/stores/config'
-
-const { isDark } = useData()
-const cfg = useConfigStore()
-const theme = computed(() => themes.find(theme => theme.name === cfg.config.value.theme))
 
 const goal = ref(350)
 
@@ -84,16 +77,13 @@ const data = [
           :data="data"
           height="60px"
           :style="{
-            'opacity': 0.2,
-            '--theme-primary': `hsl(${
-              theme?.cssVars[isDark ? 'dark' : 'light'].primary
-            })`,
+            opacity: 0.2,
           }"
         >
           <VisStackedBar
             :x="(d: Data, i :number) => i"
             :y="(d: Data) => d.goal"
-            color="var(--theme-primary)"
+            color="hsl(var(--primary))"
             :bar-padding="0.1"
             :rounded-corners="0"
           />

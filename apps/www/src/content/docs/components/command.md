@@ -1,21 +1,17 @@
 ---
 title: Command
 description: Fast, composable, unstyled command menu.
-source: apps/www/src/lib/registry/default/ui/command 
+source: apps/www/src/lib/registry/default/ui/command
 primitive: https://www.radix-vue.com/components/combobox.html
 ---
 
-
-<ComponentPreview name="CommandDemo" /> 
-
-
+<ComponentPreview name="CommandDemo" />
 
 ## Installation
 
- 
 ```bash
 npx shadcn-vue@latest add command
-``` 
+```
 ## Usage
 
 ```vue
@@ -66,9 +62,9 @@ import {
 </template>
 ```
 
-## Examples 
+## Examples
 
-### Dialog 
+### Dialog
 
 <ComponentPreview name="CommandDialogDemo" />
 
@@ -105,7 +101,7 @@ watch(CmdJ, (v) => {
         <span class="text-xs">⌘</span>J
       </kbd>
     </p>
-    <CommandDialog :open="open" :on-open-change="handleOpenChange">
+    <CommandDialog :open="open" @update:open="handleOpenChange">
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

@@ -1,25 +1,31 @@
 <script setup lang="ts">
-import { addDays, format } from 'date-fns'
-import { CalendarIcon } from '@radix-icons/vue'
-
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/lib/registry/new-york/ui/select'
+  DateFormatter,
+  type DateValue,
+  getLocalTimeZone,
+  today,
+} from '@internationalized/date'
 
-const date = ref<Date>()
+import { CalendarIcon } from '@radix-icons/vue'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/new-york/ui/select'
+import { cn } from '@/lib/utils'
+
+const df = new DateFormatter('en-US', {
+  dateStyle: 'long',
+})
+
+const items = [
+  { value: 0, label: 'Today' },
+  { value: 1, label: 'Tomorrow' },
+  { value: 3, label: 'In 3 days' },
+  { value: 7, label: 'In a week' },
+]
+
+const value = ref<DateValue>()
 </script>
 
 <template>
@@ -29,45 +35,30 @@ const date = ref<Date>()
         variant="outline"
         :class="cn(
           'w-[280px] justify-start text-left font-normal',
-          !date && 'text-muted-foreground',
+          !value && 'text-muted-foreground',
         )"
       >
         <CalendarIcon class="mr-2 h-4 w-4" />
-        <template v-if="date">
-          {{ format(date, "PPP") }}
-        </template>
-        <template v-else>
-          <span>Pick a date</span>
-        </template>
+        {{ value ? df.format(value.toDate(getLocalTimeZone())) : "Pick a date" }}
       </Button>
     </PopoverTrigger>
-    <PopoverContent class="flex w-auto flex-col space-y-2 p-2">
+    <PopoverContent class="flex w-auto flex-col gap-y-2 p-2">
       <Select
-        @update:model-value="(value) => {
-          date = addDays(new Date(), parseInt(value))
+        @update:model-value="(v) => {
+          if (!v) return;
+          value = today(getLocalTimeZone()).add({ days: Number(v) });
         }"
       >
         <SelectTrigger>
           <SelectValue placeholder="Select" />
         </SelectTrigger>
-        <SelectContent position="popper">
-          <SelectItem value="0">
-            Today
-          </SelectItem>
-          <SelectItem value="1">
-            Tomorrow
-          </SelectItem>
-          <SelectItem value="3">
-            In 3 days
-          </SelectItem>
-          <SelectItem value="7">
-            In a week
+        <SelectContent>
+          <SelectItem v-for="item in items" :key="item.value" :value="item.value.toString()">
+            {{ item.label }}
           </SelectItem>
         </SelectContent>
       </Select>
-      <div class="rounded-md border">
-        <Calendar v-model="date" mode="single" />
-      </div>
+      <Calendar v-model="value" />
     </PopoverContent>
   </Popover>
 </template>

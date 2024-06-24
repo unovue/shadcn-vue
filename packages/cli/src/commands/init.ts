@@ -1,22 +1,23 @@
 import { existsSync, promises as fs } from 'node:fs'
-import path from 'node:path'
 import process from 'node:process'
-import chalk from 'chalk'
+import path from 'pathe'
 import { Command } from 'commander'
-import { execa } from 'execa'
-import template from 'lodash.template'
+import { template } from 'lodash-es'
 import ora from 'ora'
 import prompts from 'prompts'
-import * as z from 'zod'
+import { z } from 'zod'
+import { addDependency, addDevDependency } from 'nypm'
+import { consola } from 'consola'
+import { colors } from 'consola/utils'
+import { gte } from 'semver'
+import { getProjectInfo } from '../utils/get-project-info'
 import * as templates from '../utils/templates'
 import {
   getRegistryBaseColor,
   getRegistryBaseColors,
   getRegistryStyles,
 } from '../utils/registry'
-import { logger } from '../utils/logger'
 import { handleError } from '../utils/handle-error'
-import { getPackageManager } from '../utils/get-package-manager'
 import { transformByDetype } from '../utils/transformers/transform-sfc'
 import {
   type Config,
@@ -29,6 +30,7 @@ import {
   resolveConfigPaths,
 } from '../utils/get-config'
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm'
+import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix'
 
 const PROJECT_DEPENDENCIES = {
   base: [
@@ -64,7 +66,7 @@ export const init = new Command()
 
       // Ensure target directory exists.
       if (!existsSync(cwd)) {
-        logger.error(`The path ${cwd} does not exist. Please try again.`)
+        consola.error(`The path ${cwd} does not exist. Please try again.`)
         process.exit(1)
       }
 
@@ -74,11 +76,11 @@ export const init = new Command()
 
       await runInit(cwd, config)
 
-      logger.info('')
-      logger.info(
-        `${chalk.green('Success!')} Project initialization completed.`,
+      consola.log('')
+      consola.info(
+        `${colors.green('Success!')} Project initialization completed.`,
       )
-      logger.info('')
+      consola.log('')
     }
     catch (error) {
       handleError(error)
@@ -90,7 +92,7 @@ export async function promptForConfig(
   defaultConfig: Config | null = null,
   skip = false,
 ) {
-  const highlight = (text: string) => chalk.cyan(text)
+  const highlight = (text: string) => colors.cyan(text)
 
   const styles = await getRegistryStyles()
   const baseColors = await getRegistryBaseColors()
@@ -99,7 +101,7 @@ export async function promptForConfig(
     {
       type: 'toggle',
       name: 'typescript',
-      message: `Would you like to use ${highlight('TypeScript')} (recommended)?`,
+      message: `Would you like to use ${highlight('TypeScript')}? ${colors.gray('(recommended)')}?`,
       initial: defaultConfig?.typescript ?? true,
       active: 'yes',
       inactive: 'no',
@@ -137,8 +139,18 @@ export async function promptForConfig(
     },
     {
       type: 'text',
+      name: 'tsConfigPath',
+      message: (prev, values) => `Where is your ${highlight(values.typescript ? 'tsconfig.json' : 'jsconfig.json')} file?`,
+      initial: (prev, values) => {
+        const prefix = values.framework === 'nuxt' ? '.nuxt/' : './'
+        const path = values.typescript ? 'tsconfig.json' : 'jsconfig.json'
+        return prefix + path
+      },
+    },
+    {
+      type: 'text',
       name: 'tailwindCss',
-      message: `Where is your ${highlight('global CSS')} file?`,
+      message: `Where is your ${highlight('global CSS')} file? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
     },
     {
@@ -151,10 +163,18 @@ export async function promptForConfig(
       active: 'yes',
       inactive: 'no',
     },
+    // {
+    //   type: 'text',
+    //   name: 'tailwindPrefix',
+    //   message: `Are you using a custom ${highlight(
+    //     'tailwind prefix eg. tw-',
+    //   )}? (Leave blank if not)`,
+    //   initial: '',
+    // },
     {
       type: 'text',
       name: 'tailwindConfig',
-      message: `Where is your ${highlight('tailwind.config')} located?`,
+      message: `Where is your ${highlight('tailwind.config')} located? ${colors.gray('(this file will be overwritten)')}`,
       initial: (prev, values) => {
         if (defaultConfig?.tailwind.config)
           return defaultConfig?.tailwind.config
@@ -181,12 +201,14 @@ export async function promptForConfig(
     $schema: 'https://shadcn-vue.com/schema.json',
     style: options.style,
     typescript: options.typescript,
+    tsConfigPath: options.tsConfigPath,
     framework: options.framework,
     tailwind: {
       config: options.tailwindConfig,
       css: options.tailwindCss,
       baseColor: options.tailwindBaseColor,
       cssVariables: options.tailwindCssVariables,
+      // prefix: options.tailwindPrefix,
     },
     aliases: {
       utils: options.utils,
@@ -207,7 +229,7 @@ export async function promptForConfig(
   }
 
   // Write to file.
-  logger.info('')
+  consola.log('')
   const spinner = ora('Writing components.json...').start()
   const targetPath = path.resolve(cwd, 'components.json')
   await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8')
@@ -218,6 +240,15 @@ export async function promptForConfig(
 
 export async function runInit(cwd: string, config: Config) {
   const spinner = ora('Initializing project...')?.start()
+
+  // Check in in a Nuxt project.
+  const { isNuxt, shadcnNuxt } = await getProjectInfo()
+  if (isNuxt) {
+    consola.log('')
+    shadcnNuxt
+      ? consola.info(`Detected a Nuxt project with 'shadcn-nuxt' v${shadcnNuxt.version}...`)
+      : consola.warn(`Detected a Nuxt project without 'shadcn-nuxt' module. It's recommended to install it.`)
+  }
 
   // Ensure all resolved paths directories exist.
   for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
@@ -247,8 +278,8 @@ export async function runInit(cwd: string, config: Config) {
     transformCJSToESM(
       config.resolvedPaths.tailwindConfig,
       config.tailwind.cssVariables
-        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework })
-        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework }),
+        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework, prefix: config.tailwind.prefix })
+        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework, prefix: config.tailwind.prefix }),
     ),
     'utf8',
   )
@@ -259,7 +290,9 @@ export async function runInit(cwd: string, config: Config) {
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       config.tailwind.cssVariables
-        ? baseColor.cssVarsTemplate
+        ? config.tailwind.prefix
+          ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
+          : baseColor.cssVarsTemplate
         : baseColor.inlineColorsTemplate,
       'utf8',
     )
@@ -276,20 +309,24 @@ export async function runInit(cwd: string, config: Config) {
 
   // Install dependencies.
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
-  const packageManager = await getPackageManager(cwd)
 
-  const deps = PROJECT_DEPENDENCIES.base.concat(
-    config.framework === 'nuxt' ? PROJECT_DEPENDENCIES.nuxt : [],
-  ).concat(
-    config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next'],
-  ).filter(Boolean)
+  // Starting from `shadcn-nuxt` version 0.10.4, Base dependencies are handled by the module so no need to re-add them by the CLI
+  const baseDeps = gte(shadcnNuxt?.version || '0.0.0', '0.10.4') ? [] : PROJECT_DEPENDENCIES.base
+  const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
+  const deps = baseDeps.concat(iconsDep).filter(Boolean)
 
-  await execa(
-    packageManager,
-    [packageManager === 'npm' ? 'install' : 'add', ...deps],
-    {
-      cwd,
-    },
+  await Promise.allSettled(
+    [
+      config.framework === 'nuxt' && await addDevDependency(PROJECT_DEPENDENCIES.nuxt, {
+        cwd,
+        silent: true,
+      }),
+      await addDependency(deps, {
+        cwd,
+        silent: true,
+      }),
+    ],
   )
+
   dependenciesSpinner?.succeed()
 }

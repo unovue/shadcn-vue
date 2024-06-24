@@ -60,6 +60,49 @@
     "type": "components:ui"
   },
   {
+    "name": "auto-form",
+    "dependencies": [
+      "vee-validate",
+      "@vee-validate/zod",
+      "zod"
+    ],
+    "registryDependencies": [
+      "form",
+      "accordion",
+      "button",
+      "separator",
+      "switch",
+      "checkbox",
+      "calendar",
+      "popover",
+      "utils",
+      "select",
+      "label",
+      "radio-group",
+      "input",
+      "textarea"
+    ],
+    "files": [
+      "ui/auto-form/AutoForm.vue",
+      "ui/auto-form/AutoFormField.vue",
+      "ui/auto-form/AutoFormFieldArray.vue",
+      "ui/auto-form/AutoFormFieldBoolean.vue",
+      "ui/auto-form/AutoFormFieldDate.vue",
+      "ui/auto-form/AutoFormFieldEnum.vue",
+      "ui/auto-form/AutoFormFieldFile.vue",
+      "ui/auto-form/AutoFormFieldInput.vue",
+      "ui/auto-form/AutoFormFieldNumber.vue",
+      "ui/auto-form/AutoFormFieldObject.vue",
+      "ui/auto-form/AutoFormLabel.vue",
+      "ui/auto-form/constant.ts",
+      "ui/auto-form/dependencies.ts",
+      "ui/auto-form/index.ts",
+      "ui/auto-form/interface.ts",
+      "ui/auto-form/utils.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "avatar",
     "dependencies": [],
     "registryDependencies": [
@@ -86,6 +129,24 @@
     "type": "components:ui"
   },
   {
+    "name": "breadcrumb",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/breadcrumb/Breadcrumb.vue",
+      "ui/breadcrumb/BreadcrumbEllipsis.vue",
+      "ui/breadcrumb/BreadcrumbItem.vue",
+      "ui/breadcrumb/BreadcrumbLink.vue",
+      "ui/breadcrumb/BreadcrumbList.vue",
+      "ui/breadcrumb/BreadcrumbPage.vue",
+      "ui/breadcrumb/BreadcrumbSeparator.vue",
+      "ui/breadcrumb/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "button",
     "dependencies": [],
     "registryDependencies": [
@@ -99,16 +160,24 @@
   },
   {
     "name": "calendar",
-    "dependencies": [
-      "@vueuse/core",
-      "v-calendar@next"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "utils",
       "button"
     ],
     "files": [
       "ui/calendar/Calendar.vue",
+      "ui/calendar/CalendarCell.vue",
+      "ui/calendar/CalendarCellTrigger.vue",
+      "ui/calendar/CalendarGrid.vue",
+      "ui/calendar/CalendarGridBody.vue",
+      "ui/calendar/CalendarGridHead.vue",
+      "ui/calendar/CalendarGridRow.vue",
+      "ui/calendar/CalendarHeadCell.vue",
+      "ui/calendar/CalendarHeader.vue",
+      "ui/calendar/CalendarHeading.vue",
+      "ui/calendar/CalendarNextButton.vue",
+      "ui/calendar/CalendarPrevButton.vue",
       "ui/calendar/index.ts"
     ],
     "type": "components:ui"
@@ -133,9 +202,8 @@
   {
     "name": "carousel",
     "dependencies": [
-      "@vueuse/core",
       "embla-carousel-vue",
-      "embla-carousel"
+      "@vueuse/core"
     ],
     "registryDependencies": [
       "utils",
@@ -150,6 +218,94 @@
       "ui/carousel/index.ts",
       "ui/carousel/interface.ts",
       "ui/carousel/useCarousel.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts"
+    ],
+    "registryDependencies": [
+      "button",
+      "card"
+    ],
+    "files": [
+      "ui/chart/ChartCrosshair.vue",
+      "ui/chart/ChartLegend.vue",
+      "ui/chart/ChartSingleTooltip.vue",
+      "ui/chart/ChartTooltip.vue",
+      "ui/chart/index.ts",
+      "ui/chart/interface.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-area",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-area/AreaChart.vue",
+      "ui/chart-area/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-bar",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-bar/BarChart.vue",
+      "ui/chart-bar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-donut",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-donut/DonutChart.vue",
+      "ui/chart-donut/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "chart-line",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart",
+      "utils"
+    ],
+    "files": [
+      "ui/chart-line/LineChart.vue",
+      "ui/chart-line/index.ts"
     ],
     "type": "components:ui"
   },
@@ -237,9 +393,30 @@
       "ui/dialog/DialogDescription.vue",
       "ui/dialog/DialogFooter.vue",
       "ui/dialog/DialogHeader.vue",
+      "ui/dialog/DialogScrollContent.vue",
       "ui/dialog/DialogTitle.vue",
       "ui/dialog/DialogTrigger.vue",
       "ui/dialog/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "drawer",
+    "dependencies": [
+      "vaul-vue"
+    ],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/drawer/Drawer.vue",
+      "ui/drawer/DrawerContent.vue",
+      "ui/drawer/DrawerDescription.vue",
+      "ui/drawer/DrawerFooter.vue",
+      "ui/drawer/DrawerHeader.vue",
+      "ui/drawer/DrawerOverlay.vue",
+      "ui/drawer/DrawerTitle.vue",
+      "ui/drawer/index.ts"
     ],
     "type": "components:ui"
   },
@@ -286,6 +463,7 @@
       "ui/form/FormLabel.vue",
       "ui/form/FormMessage.vue",
       "ui/form/index.ts",
+      "ui/form/injectionKeys.ts",
       "ui/form/useFormField.ts"
     ],
     "type": "components:ui"
@@ -376,6 +554,22 @@
     "type": "components:ui"
   },
   {
+    "name": "number-field",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/number-field/NumberField.vue",
+      "ui/number-field/NumberFieldContent.vue",
+      "ui/number-field/NumberFieldDecrement.vue",
+      "ui/number-field/NumberFieldIncrement.vue",
+      "ui/number-field/NumberFieldInput.vue",
+      "ui/number-field/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "pagination",
     "dependencies": [],
     "registryDependencies": [
@@ -400,7 +594,9 @@
     ],
     "files": [
       "ui/pin-input/PinInput.vue",
+      "ui/pin-input/PinInputGroup.vue",
       "ui/pin-input/PinInputInput.vue",
+      "ui/pin-input/PinInputSeparator.vue",
       "ui/pin-input/index.ts"
     ],
     "type": "components:ui"
@@ -441,6 +637,43 @@
       "ui/radio-group/RadioGroup.vue",
       "ui/radio-group/RadioGroupItem.vue",
       "ui/radio-group/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "range-calendar",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/range-calendar/RangeCalendar.vue",
+      "ui/range-calendar/RangeCalendarCell.vue",
+      "ui/range-calendar/RangeCalendarCellTrigger.vue",
+      "ui/range-calendar/RangeCalendarGrid.vue",
+      "ui/range-calendar/RangeCalendarGridBody.vue",
+      "ui/range-calendar/RangeCalendarGridHead.vue",
+      "ui/range-calendar/RangeCalendarGridRow.vue",
+      "ui/range-calendar/RangeCalendarHeadCell.vue",
+      "ui/range-calendar/RangeCalendarHeader.vue",
+      "ui/range-calendar/RangeCalendarHeading.vue",
+      "ui/range-calendar/RangeCalendarNextButton.vue",
+      "ui/range-calendar/RangeCalendarPrevButton.vue",
+      "ui/range-calendar/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "resizable",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/resizable/ResizableHandle.vue",
+      "ui/resizable/ResizablePanelGroup.vue",
+      "ui/resizable/index.ts"
     ],
     "type": "components:ui"
   },
@@ -594,6 +827,22 @@
     "type": "components:ui"
   },
   {
+    "name": "tags-input",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/tags-input/TagsInput.vue",
+      "ui/tags-input/TagsInputInput.vue",
+      "ui/tags-input/TagsInputItem.vue",
+      "ui/tags-input/TagsInputItemDelete.vue",
+      "ui/tags-input/TagsInputItemText.vue",
+      "ui/tags-input/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "textarea",
     "dependencies": [
       "@vueuse/core"
@@ -665,6 +914,22 @@
       "ui/tooltip/TooltipProvider.vue",
       "ui/tooltip/TooltipTrigger.vue",
       "ui/tooltip/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "v-calendar",
+    "dependencies": [
+      "@vueuse/core",
+      "v-calendar@next"
+    ],
+    "registryDependencies": [
+      "utils",
+      "button"
+    ],
+    "files": [
+      "ui/v-calendar/Calendar.vue",
+      "ui/v-calendar/index.ts"
     ],
     "type": "components:ui"
   }

@@ -41,7 +41,7 @@ const onSubmit = handleSubmit((values) => {
 <template>
   <div>
     <h3 class="text-lg font-medium">
-      Appearence
+      Appearance
     </h3>
     <p class="text-sm text-muted-foreground">
       Customize the appearance of the app. Automatically switch between day and night themes.
@@ -57,7 +57,7 @@ const onSubmit = handleSubmit((values) => {
             <select
               :class="cn(
                 buttonVariants({ variant: 'outline' }),
-                'w-[200px] appearance-none bg-transparent font-normal',
+                'w-[200px] appearance-none font-normal',
               )"
               v-bind="field"
             >
@@ -72,7 +72,7 @@ const onSubmit = handleSubmit((values) => {
               </option>
             </select>
           </FormControl>
-          <ChevronDownIcon class="absolute right-3 top-2.5 h-4 w-4 opacity-50" />
+          <ChevronDownIcon class="pointer-events-none absolute right-3 top-2.5 h-4 w-4 opacity-50" />
         </div>
         <FormDescription>
           Set the font you want to use in the dashboard.

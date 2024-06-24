@@ -1,15 +1,13 @@
 ---
 title: Popover
 description: Displays rich content in a portal, triggered by a button.
-source: apps/www/src/lib/registry/default/ui/popover 
+source: apps/www/src/lib/registry/default/ui/popover
 primitive: https://www.radix-vue.com/components/popover.html
 ---
 
-
-<ComponentPreview name="PopoverDemo" /> 
+<ComponentPreview name="PopoverDemo" />
 
 ## Installation
-
 
 ```bash
 npx shadcn-vue@latest add popover
@@ -31,7 +29,9 @@ import {
     <PopoverTrigger>
       Open popover
     </PopoverTrigger>
-    <PopoverContent />
+    <PopoverContent>
+      Some popover content
+    </PopoverContent>
   </Popover>
 </template>
 ```

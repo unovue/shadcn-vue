@@ -8,7 +8,7 @@ import {
 import { ChevronRightIcon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<ContextMenuSubTriggerProps & { class?: HTMLAttributes['class']; inset?: boolean }>()
+const props = defineProps<ContextMenuSubTriggerProps & { class?: HTMLAttributes['class'], inset?: boolean }>()
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props

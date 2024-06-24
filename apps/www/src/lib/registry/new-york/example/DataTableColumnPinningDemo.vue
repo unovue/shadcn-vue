@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -84,11 +83,11 @@ const columns = [
   columnHelper.display({
     id: 'select',
     header: ({ table }) => h(Checkbox, {
-      'checked': table.getIsAllPageRowsSelected(),
+      'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
       'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
       'ariaLabel': 'Select all',
     }),
-    cell: ({ row, column }) => {
+    cell: ({ row }) => {
       return h(Checkbox, {
         'checked': row.getIsSelected(),
         'onUpdate:checked': value => row.toggleSelected(!!value),
@@ -165,8 +164,6 @@ const table = useVueTable({
     },
   },
 })
-
-const getState = table.getState()
 </script>
 
 <template>
@@ -235,7 +232,7 @@ const getState = table.getState()
 
           <TableRow v-else>
             <TableCell
-              col-span="{columns.length}"
+              :colspan="columns.length"
               class="h-24 text-center"
             >
               No results.

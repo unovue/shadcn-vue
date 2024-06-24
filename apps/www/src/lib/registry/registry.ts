@@ -1,16 +1,18 @@
 import { readFile, readdir } from 'node:fs/promises'
 import { join, normalize, resolve } from 'pathe'
 import { compileScript, parse } from 'vue/compiler-sfc'
-import oxc from 'oxc-parser'
+import { parseSync } from '@oxc-parser/wasm'
 
 import type { Registry } from '../../lib/registry'
 
 const DEPENDENCIES = new Map<string, string[]>([
   ['@vueuse/core', []],
   ['vue-sonner', []],
+  ['vaul-vue', []],
   ['v-calendar', []],
   ['@tanstack/vue-table', []],
-  ['embla-carousel-vue', ['embla-carousel']],
+  ['@unovis/vue', ['@unovis/ts']],
+  ['embla-carousel-vue', []],
   ['vee-validate', ['@vee-validate/zod', 'zod']],
 ])
 // Some dependencies latest tag were not compatible with Vue3.
@@ -27,9 +29,12 @@ export async function buildRegistry() {
   const uiRegistry = await crawlUI(ui_path)
 
   const example_path = resolve('./src/lib/registry/default/example')
-  const exampleRegistry = await crawlExample(example_path)
+  const exampleRegistry = await crawlDirectory(example_path, 'example')
 
-  return uiRegistry.concat(exampleRegistry)
+  const block_path = resolve('./src/lib/registry/default/block')
+  const blockRegistry = await crawlDirectory(block_path, 'block')
+
+  return uiRegistry.concat(exampleRegistry).concat(blockRegistry)
 }
 
 async function crawlUI(rootPath: string) {
@@ -53,15 +58,15 @@ async function crawlUI(rootPath: string) {
   return uiRegistry
 }
 
-async function crawlExample(rootPath: string) {
-  const type = 'components:example'
+async function crawlDirectory(rootPath: string, typeName: 'example' | 'block') {
+  const type = `components:${typeName}` as const
 
   const dir = await readdir(rootPath, {
     recursive: true,
     withFileTypes: true,
   })
 
-  const exampleRegistry: Registry = []
+  const registry: Registry = []
 
   for (const dirent of dir) {
     if (dirent.name === 'index.ts')
@@ -69,11 +74,11 @@ async function crawlExample(rootPath: string) {
 
     if (dirent.isFile()) {
       const [name] = dirent.name.split('.vue')
-      const file_path = join('example', normalize(dirent.path).split('/example')[1], dirent.name)
+      const file_path = join(typeName, normalize(dirent.path).split(`/${typeName}`)[1], dirent.name)
       const { dependencies, registryDependencies }
       = await getDependencies(join(dirent.path, dirent.name))
 
-      exampleRegistry.push({
+      registry.push({
         name,
         type,
         files: [file_path],
@@ -87,14 +92,14 @@ async function crawlExample(rootPath: string) {
     // if (dirent.isDirectory()) {
     // 	const componentPath = resolve(rootPath, dirent.name);
     // 	const ui = await buildUIRegistry(componentPath, dirent.name);
-    // 	exampleRegistry.push({
+    // 	registry.push({
     // 		...ui,
     // 		type
     // 	});
     // }
   }
 
-  return exampleRegistry
+  return registry
 }
 
 async function buildUIRegistry(componentPath: string, componentName: string) {
@@ -158,12 +163,12 @@ async function getDependencies(filename: string) {
   }
 
   if (filename.endsWith('.ts')) {
-    const ast = oxc.parseSync(code, {
+    const ast = parseSync(code, {
       sourceType: 'module',
       sourceFilename: filename,
     })
 
-    const sources = JSON.parse(ast.program).body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
+    const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
     sources.forEach((source: any) => {
       populateDeps(source.value)
     })

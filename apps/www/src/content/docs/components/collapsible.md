@@ -1,15 +1,13 @@
---- 
+---
 title: Collapsible
 description: An interactive component which expands/collapses a panel.
-source: apps/www/src/lib/registry/default/ui/collapsible 
+source: apps/www/src/lib/registry/default/ui/collapsible
 primitive: https://www.radix-vue.com/components/collapsible.html
 ---
 
-
-<ComponentPreview name="CollapsibleDemo" /> 
+<ComponentPreview name="CollapsibleDemo" />
 
 ## Installation
-
 
 <Steps>
 
@@ -17,7 +15,7 @@ primitive: https://www.radix-vue.com/components/collapsible.html
 
 ```bash
 npx shadcn-vue@latest add collapsible
-``` 
+```
 
 ### Update `tailwind.config.js`
 
@@ -46,9 +44,8 @@ module.exports = {
   },
 }
 ```
-  
-</Steps>
 
+</Steps>
 
 ## Usage
 

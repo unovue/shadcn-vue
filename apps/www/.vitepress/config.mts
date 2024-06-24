@@ -3,16 +3,12 @@ import { defineConfig } from 'vitepress'
 import Icons from 'unplugin-icons/vite'
 import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-import { createCssVariablesTheme } from 'shiki'
+import { transformerMetaWordHighlight } from '@shikijs/transformers'
+import { cssVariables } from './theme/config/shiki'
 
-// import { transformerMetaWordHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { siteConfig } from './theme/config/site'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
-
-const cssVariables = createCssVariablesTheme({
-  variablePrefix: '--shiki-',
-  variableDefaults: {},
-})
+import CodeWrapperPlugin from './theme/plugins/codewrapper'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -60,11 +56,11 @@ export default defineConfig({
   markdown: {
     theme: cssVariables,
     codeTransformers: [
-      // transformerMetaWordHighlight(),
-      // transformerNotationWordHighlight(),
+      transformerMetaWordHighlight(),
     ],
     config(md) {
       md.use(ComponentPreviewPlugin)
+      md.use(CodeWrapperPlugin)
     },
   },
   rewrites: {
@@ -74,13 +70,13 @@ export default defineConfig({
     css: {
       postcss: {
         plugins: [
-          tailwind(),
+          tailwind() as any,
           autoprefixer(),
         ],
       },
     },
     plugins: [
-      Icons({ compiler: 'vue3', autoInstall: true }),
+      Icons({ compiler: 'vue3', autoInstall: true }) as any,
     ],
     resolve: {
       alias: {

@@ -1,12 +1,11 @@
 ---
 title: Switch
 description: A control that allows the user to toggle between checked and not checked.
-source: apps/www/src/lib/registry/default/ui/switch 
+source: apps/www/src/lib/registry/default/ui/switch
 primitive: https://www.radix-vue.com/components/switch.html
 ---
 
-<ComponentPreview name="SwitchDemo" /> 
-
+<ComponentPreview name="SwitchDemo" />
 
 ## Installation
 
@@ -29,7 +28,7 @@ npm install radix-vue
 ```
 
 ### Copy and paste the following code into your project
- 
+
  <<< @/lib/registry/default/ui/switch/Switch.vue
 
 </Steps>

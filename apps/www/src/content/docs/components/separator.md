@@ -1,12 +1,11 @@
 ---
 title: Separator
 description: Visually or semantically separates content.
-source: apps/www/src/lib/registry/default/ui/separator 
+source: apps/www/src/lib/registry/default/ui/separator
 primitive: https://www.radix-vue.com/components/separator.html
 ---
 
-<ComponentPreview name="SeparatorDemo" /> 
-
+<ComponentPreview name="SeparatorDemo" />
 
 ## Installation
 
@@ -32,7 +31,6 @@ npm install radix-vue
 
 <<< @/lib/registry/default/ui/separator/Separator.vue
 
- 
 </Steps>
 
 </template>
@@ -46,6 +44,6 @@ import { Separator } from '@/components/ui/separator'
 </script>
 
 <template>
-  <Separator />
+  <Separator label="Or" />
 </template>
 ```

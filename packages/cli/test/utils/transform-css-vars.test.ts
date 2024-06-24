@@ -1,9 +1,9 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 
 import { transform } from '../../src/utils/transformers'
 import stone from '../fixtures/colors/stone.json'
 
-test('transform css vars', async () => {
+it('transform css vars', async () => {
   expect(
     await transform({
       filename: 'app.vue',

@@ -2,7 +2,7 @@
 import type { Column } from '@tanstack/vue-table'
 import type { Component } from 'vue'
 import { computed } from 'vue'
-import { type Task } from '../data/schema'
+import type { Task } from '../data/schema'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import CheckIcon from '~icons/radix-icons/check'
 
@@ -84,7 +84,8 @@ const selectedValues = computed(() => new Set(props.column?.getFilterValue() as 
               v-for="option in options"
               :key="option.value"
               :value="option"
-              @select="() => {
+              @select="(e) => {
+                console.log(e.detail.value)
                 const isSelected = selectedValues.has(option.value)
                 if (isSelected) {
                   selectedValues.delete(option.value)

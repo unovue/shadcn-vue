@@ -8,11 +8,11 @@ export interface NavItem {
 }
 
 export type SidebarNavItem = NavItem & {
-  items: SidebarNavItem[]
+  items?: SidebarNavItem[]
 }
 
 export type NavItemWithChildren = NavItem & {
-  items: NavItemWithChildren[]
+  items?: NavItemWithChildren[]
 }
 
 interface DocsConfig {
@@ -23,7 +23,7 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: 'Documentation',
+      title: 'Docs',
       href: '/docs/introduction',
     },
     {
@@ -36,7 +36,11 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: 'Examples',
-      href: '/examples/dashboard',
+      href: '/examples/mail',
+    },
+    {
+      title: 'Blocks',
+      href: '/blocks',
     },
     {
       title: 'GitHub',
@@ -51,46 +55,47 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Introduction',
           href: '/docs/introduction',
-          items: [],
         },
         {
           title: 'Installation',
           href: '/docs/installation',
-          items: [],
         },
         {
           title: 'components.json',
           href: '/docs/components-json',
-          items: [],
         },
         {
           title: 'Theming',
           href: '/docs/theming',
+        },
+        {
+          title: 'Dark Mode',
+          href: '/docs/dark-mode',
           items: [],
         },
         {
           title: 'CLI',
           href: '/docs/cli',
-          items: [],
         },
         {
           title: 'Typography',
           href: '/docs/typography',
-          items: [],
         },
         {
           title: 'Figma',
           href: '/docs/figma',
-          items: [],
         },
         {
           title: 'Changelog',
           href: '/docs/changelog',
-          items: [],
         },
         {
           title: 'About',
           href: '/docs/about',
+        },
+        {
+          title: 'Contribution',
+          href: '/docs/contribution',
           items: [],
         },
       ],
@@ -101,21 +106,34 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Vite',
           href: '/docs/installation/vite',
-          items: [],
         },
         {
           title: 'Nuxt',
           href: '/docs/installation/nuxt',
-          items: [],
         },
         {
           title: 'Astro',
           href: '/docs/installation/astro',
-          items: [],
         },
         {
           title: 'Laravel',
           href: '/docs/installation/laravel',
+        },
+      ],
+    },
+    {
+      title: 'Extended',
+      items: [
+        {
+          title: 'Auto Form',
+          href: '/docs/components/auto-form',
+          items: [],
+          label: 'New',
+        },
+        {
+          title: 'Charts',
+          href: '/docs/charts',
+          label: 'New Alpha',
           items: [],
         },
       ],
@@ -126,230 +144,219 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Accordion',
           href: '/docs/components/accordion',
-          items: [],
         },
         {
           title: 'Alert',
           href: '/docs/components/alert',
-          items: [],
         },
         {
           title: 'Alert Dialog',
           href: '/docs/components/alert-dialog',
-          items: [],
         },
         {
           title: 'Aspect Ratio',
           href: '/docs/components/aspect-ratio',
-          items: [],
         },
         {
           title: 'Avatar',
           href: '/docs/components/avatar',
-          items: [],
         },
         {
           title: 'Badge',
           href: '/docs/components/badge',
+        },
+        {
+          title: 'Breadcrumb',
+          href: '/docs/components/breadcrumb',
           items: [],
         },
         {
           title: 'Button',
           href: '/docs/components/button',
-          items: [],
         },
         {
           title: 'Calendar',
           href: '/docs/components/calendar',
           items: [],
+          label: 'Updated',
         },
         {
           title: 'Card',
           href: '/docs/components/card',
-          items: [],
         },
         {
           title: 'Carousel',
           href: '/docs/components/carousel',
-          label: 'New',
           items: [],
         },
         {
           title: 'Checkbox',
           href: '/docs/components/checkbox',
-          items: [],
         },
         {
           title: 'Collapsible',
           href: '/docs/components/collapsible',
-          items: [],
         },
         {
           title: 'Combobox',
           href: '/docs/components/combobox',
-          items: [],
         },
         {
           title: 'Command',
           href: '/docs/components/command',
-          items: [],
         },
         {
           title: 'Context Menu',
           href: '/docs/components/context-menu',
-          items: [],
         },
         {
           title: 'Data Table',
           href: '/docs/components/data-table',
-          items: [],
         },
         {
           title: 'Date Picker',
           href: '/docs/components/date-picker',
           items: [],
+          label: 'Updated',
         },
         {
           title: 'Dialog',
           href: '/docs/components/dialog',
+        },
+        {
+          title: 'Drawer',
+          href: '/docs/components/drawer',
           items: [],
         },
         {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
-          items: [],
         },
         {
           title: 'Form',
           href: '/docs/components/form',
-          items: [],
         },
         {
           title: 'Hover Card',
           href: '/docs/components/hover-card',
-          items: [],
         },
         {
           title: 'Input',
           href: '/docs/components/input',
-          items: [],
         },
         {
           title: 'Label',
           href: '/docs/components/label',
-          items: [],
         },
         {
           title: 'Menubar',
           href: '/docs/components/menubar',
-          items: [],
         },
         {
           title: 'Navigation Menu',
           href: '/docs/components/navigation-menu',
-          items: [],
+        },
+        {
+          title: 'Number Field',
+          href: '/docs/components/number-field',
+          label: 'New Alpha',
         },
         {
           title: 'Pagination',
           href: '/docs/components/pagination',
-          items: [],
         },
         {
-          title: 'Pin Input',
+          title: 'PIN Input',
           href: '/docs/components/pin-input',
-          label: 'New',
           items: [],
         },
         {
           title: 'Popover',
           href: '/docs/components/popover',
-          items: [],
         },
         {
           title: 'Progress',
           href: '/docs/components/progress',
-          items: [],
         },
         {
           title: 'Radio Group',
           href: '/docs/components/radio-group',
+        },
+        {
+          title: 'Range Calendar',
+          href: '/docs/components/range-calendar',
+          items: [],
+        },
+        {
+          title: 'Resizable',
+          href: '/docs/components/resizable',
           items: [],
         },
         {
           title: 'Scroll Area',
           href: '/docs/components/scroll-area',
-          items: [],
         },
         {
           title: 'Select',
           href: '/docs/components/select',
-          items: [],
         },
         {
           title: 'Separator',
           href: '/docs/components/separator',
-          items: [],
         },
         {
           title: 'Sheet',
           href: '/docs/components/sheet',
-          items: [],
         },
         {
           title: 'Skeleton',
           href: '/docs/components/skeleton',
-          items: [],
         },
         {
           title: 'Slider',
           href: '/docs/components/slider',
-          items: [],
         },
         {
           title: 'Sonner',
           href: '/docs/components/sonner',
-          label: 'New',
           items: [],
         },
         {
           title: 'Switch',
           href: '/docs/components/switch',
-          items: [],
         },
         {
           title: 'Table',
           href: '/docs/components/table',
-          items: [],
         },
         {
           title: 'Tabs',
           href: '/docs/components/tabs',
+        },
+        {
+          title: 'Tags Input',
+          href: '/docs/components/tags-input',
           items: [],
         },
         {
           title: 'Textarea',
           href: '/docs/components/textarea',
-          items: [],
         },
         {
           title: 'Toast',
           href: '/docs/components/toast',
-          items: [],
         },
         {
           title: 'Toggle',
           href: '/docs/components/toggle',
-          items: [],
         },
         {
           title: 'Toggle Group',
           href: '/docs/components/toggle-group',
-          items: [],
         },
         {
           title: 'Tooltip',
           href: '/docs/components/tooltip',
-          items: [],
         },
       ],
     },
@@ -373,6 +380,11 @@ interface Example {
   code: string
 }
 export const examples: Example[] = [
+  {
+    name: 'Mail',
+    href: '/examples/mail',
+    code: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/examples/mail',
+  },
   {
     name: 'Dashboard',
     href: '/examples/dashboard',
