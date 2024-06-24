@@ -46,13 +46,9 @@ export const diff = new Command()
       const { loadConfig, diff } = frameworksCommands[framework]
 
       // Load Config
-      const config = await loadConfig(cwd, options)
+      const config = await loadConfig(cwd, options, false)
       if (!config) {
-        consola.warn(
-          `Configuration is missing. Please run ${colors.green(
-            'init',
-          )} to create a components.json file.`,
-        )
+        consola.warn(`Configuration is missing. Please run ${colors.green('init')} to create a components.json file.`)
         process.exit(1)
       }
 

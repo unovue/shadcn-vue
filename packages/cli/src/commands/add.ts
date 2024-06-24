@@ -51,10 +51,9 @@ export const add = new Command()
       const { loadConfig, add } = frameworksCommands[framework]
 
       // Read config
-      const config = await loadConfig(cwd, options)
+      const config = await loadConfig(cwd, options, false)
       if (!config) {
         consola.warn(`Configuration is missing. Please run ${colors.green('init')} to create a components.json file.`)
-
         process.exit(1)
       }
 

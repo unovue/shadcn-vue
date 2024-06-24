@@ -16,9 +16,9 @@ import {
   resolveConfigPaths,
 } from '../../../utils/get-config'
 
-export default async function (cwd: string, options: { yes: boolean, cwd: string }) {
+export default async function (cwd: string, options: { yes: boolean, cwd: string }, prompt: boolean) {
   const existingConfig = await getConfig(cwd)
-  return await promptForConfig(cwd, existingConfig, options.yes)
+  return prompt ? await promptForConfig(cwd, existingConfig, options.yes) : existingConfig
 }
 
 async function promptForConfig(

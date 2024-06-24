@@ -40,7 +40,11 @@ export const init = new Command()
       const { loadConfig, init } = frameworksCommands[framework]
 
       // Read config
-      const config = await loadConfig(cwd, options)
+      const config = await loadConfig(cwd, options, true)
+      if (!config) {
+        consola.error(`Error loading config. Please run the ${colors.green('init')} command again.`)
+        process.exit(1)
+      }
 
       // Init
       await init(cwd, config)
