@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { type Table } from '@tanstack/vue-table'
-import { type Task } from '../data/schema'
+import type { Table } from '@tanstack/vue-table'
+import type { Task } from '../data/schema'
 import ChevronLeftIcon from '~icons/radix-icons/chevron-left'
 import ChevronRightIcon from '~icons/radix-icons/chevron-right'
 import DoubleArrowLeftIcon from '~icons/radix-icons/double-arrow-left'

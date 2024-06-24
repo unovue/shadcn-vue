@@ -19,7 +19,7 @@ import {
 import { useVirtualList } from '@vueuse/core'
 
 import { computed, ref } from 'vue'
-import { type Task } from '../data/schema'
+import type { Task } from '../data/schema'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
 import { valueUpdater } from '@/lib/utils'
