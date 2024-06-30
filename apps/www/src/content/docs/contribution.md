@@ -6,6 +6,8 @@ description: Learn on how to contribute to shadcn/vue.
 import { Button } from "@/lib/registry/new-york/ui/button"
 
 const latestSyncCommitTag = "06cc0cdf3d080555d26abbe6639f2d7f6341ec73"
+
+const latestSyncCommitUrl = `https://github.com/shadcn-ui/ui/commit/${latestSyncCommitTag}`
 const diffUrl = `https://github.com/shadcn-ui/ui/compare/${latestSyncCommitTag}...main`
 </script>
 
@@ -336,9 +338,10 @@ You'll need to extend `PrimitiveProps` in your props to support `Primitive` comp
 ## Updating with `shadcn/ui`
 
 `shadcn/vue` is an unofficial, community-led Vue port of `shadcn/ui`, as time goes by, they might get out of sync.
-as of today, we are in sync with this [commit](https://github.com/shadcn-ui/ui/commit/06cc0cdf3d080555d26abbe6639f2d7f6341ec73) of `shadcn/ui`.
 
-There is a recommended process to keep track of the updates and applying them here in `shadcn/vue`, click on the following link to check if there are newer commits that we should be synced with.
+As of today, we are in sync with this <a :href="latestSyncCommitUrl" target="_blank">commit</a> of `shadcn/ui`.
+
+Click on the following link to check if there are newer commits that we should be synced with.
 
 <div class="text-center">
   <a :href="diffUrl" target="_blank">
