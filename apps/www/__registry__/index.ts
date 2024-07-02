@@ -752,13 +752,6 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/NavigationMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/NavigationMenuDemo.vue"],
     },
-    "NavigationMenuDemoItem": {
-      name: "NavigationMenuDemoItem",
-      type: "components:example",
-      registryDependencies: ["utils","navigation-menu"],
-      component: () => import("../src/lib/registry/default/example/NavigationMenuDemoItem.vue").then((m) => m.default),
-      files: ["../src/lib/registry/default/example/NavigationMenuDemoItem.vue"],
-    },
     "NumberFieldCurrency": {
       name: "NumberFieldCurrency",
       type: "components:example",
@@ -2201,13 +2194,6 @@ export const Index = {
       registryDependencies: ["navigation-menu"],
       component: () => import("../src/lib/registry/new-york/example/NavigationMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/NavigationMenuDemo.vue"],
-    },
-    "NavigationMenuDemoItem": {
-      name: "NavigationMenuDemoItem",
-      type: "components:example",
-      registryDependencies: ["utils","navigation-menu"],
-      component: () => import("../src/lib/registry/new-york/example/NavigationMenuDemoItem.vue").then((m) => m.default),
-      files: ["../src/lib/registry/new-york/example/NavigationMenuDemoItem.vue"],
     },
     "NumberFieldCurrency": {
       name: "NumberFieldCurrency",
