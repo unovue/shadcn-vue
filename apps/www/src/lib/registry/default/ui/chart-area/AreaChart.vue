@@ -4,6 +4,7 @@ import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 import { Area, Axis, Line } from '@unovis/ts'
 import { type Component, computed, ref } from 'vue'
 import { useMounted } from '@vueuse/core'
+import { useId } from 'radix-vue'
 import type { BaseChartProps } from '.'
 import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/default/ui/chart'
 import { cn } from '@/lib/utils'
@@ -41,7 +42,7 @@ const emits = defineEmits<{
 type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
 
-const chartRef = Math.random().toString(36).substring(2, 9)
+const chartRef = useId()
 
 const index = computed(() => props.index as KeyOfT)
 const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length))
