@@ -866,11 +866,25 @@ This adds a checkbox to each row and a checkbox in the header to select all rows
 
 You can show the number of selected rows using the `table.getFilteredSelectedRowModel()` API.
 
-```vue
-<div class="flex-1 text-sm text-muted-foreground">
-    {{ table.getFilteredSelectedRowModel().rows.length }} of
-    {{ table.getFilteredRowModel().rows.length }} row(s) selected.
-</div>
+```vue:line-numbers {8-11}
+<template>
+  <div>
+    <div class="border rounded-md">
+        <Table />
+    </div>
+
+    <div class="flex items-center justify-end space-x-2 py-4">
+      <div class="flex-1 text-sm text-muted-foreground">
+        {{ table.getFilteredSelectedRowModel().rows.length }} of
+        {{ table.getFilteredRowModel().rows.length }} row(s) selected.
+      </div>
+      <div class="space-x-2">
+        <PaginationButtons />
+      </div>
+    </div>
+  </div>
+</template>
+
 ```
 
 </Steps>
