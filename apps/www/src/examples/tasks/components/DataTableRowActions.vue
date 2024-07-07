@@ -24,7 +24,12 @@ import {
 interface DataTableRowActionsProps {
   row: Row<Task>
 }
+
 const props = defineProps<DataTableRowActionsProps>()
+
+defineEmits<{
+  (e: 'expand'): void
+}>()
 
 const task = computed(() => taskSchema.parse(props.row.original))
 </script>
@@ -56,6 +61,9 @@ const task = computed(() => taskSchema.parse(props.row.original))
         </DropdownMenuSubContent>
       </DropdownMenuSub>
       <DropdownMenuSeparator />
+      <DropdownMenuItem @click="$emit('expand')">
+        Expand
+      </DropdownMenuItem>
       <DropdownMenuItem>
         Delete
         <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>

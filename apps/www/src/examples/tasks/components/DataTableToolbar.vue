@@ -1,8 +1,6 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="TData">
 import type { Table } from '@tanstack/vue-table'
 import { computed } from 'vue'
-import type { Task } from '../data/schema'
-
 import { priorities, statuses } from '../data/data'
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue'
 import DataTableViewOptions from './DataTableViewOptions.vue'
@@ -11,7 +9,7 @@ import { Button } from '@/lib/registry/new-york/ui/button'
 import { Input } from '@/lib/registry/new-york/ui/input'
 
 interface DataTableToolbarProps {
-  table: Table<Task>
+  table: Table<TData>
 }
 
 const props = defineProps<DataTableToolbarProps>()

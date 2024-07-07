@@ -1,6 +1,5 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="TData">
 import type { Table } from '@tanstack/vue-table'
-import type { Task } from '../data/schema'
 import ChevronLeftIcon from '~icons/radix-icons/chevron-left'
 import ChevronRightIcon from '~icons/radix-icons/chevron-right'
 import DoubleArrowLeftIcon from '~icons/radix-icons/double-arrow-left'
@@ -16,7 +15,7 @@ import {
 } from '@/lib/registry/new-york/ui/select'
 
 interface DataTablePaginationProps {
-  table: Table<Task>
+  table: Table<TData>
 }
 defineProps<DataTablePaginationProps>()
 </script>

@@ -1368,3 +1368,41 @@ const columns = computed(() => props.table.getAllColumns()
 ```vue
 <DataTableViewOptions :table="table" />
 ```
+
+### Expanding
+
+Let's add the display of arbitrary content in expandable rows
+
+```vue
+<script setup lang="ts" generic="TData, TValue">
+const props = defineProps<{
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
+  renderSubComponent: (row: Row<TData>) => VNode
+}>()
+</script>
+
+<template>
+  <!-- Table -->
+  <TableRow v-if="row.getIsExpanded()">
+    <TableCell :colspan="row.getAllCells().length">
+      <FlexRender :render="renderSubComponent(row)" />
+    </TableCell>
+  </TableRow>
+<!-- Table -->
+</template>
+```
+
+Now we are not bound to columns content, we can render any component with any content
+
+```vue
+<script setup lang="ts">
+function renderSubComponent(row: Row<Task>): VNode {
+  return h(User, { row })
+}
+</script>
+
+<template>
+  <DataTable :data="tasks" :columns="columns" :render-sub-component="renderSubComponent" />
+</template>
+```

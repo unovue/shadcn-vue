@@ -84,6 +84,8 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     id: 'actions',
-    cell: ({ row }) => h(DataTableRowActions, { row }),
+    cell: ({ row }) => {
+      return h(DataTableRowActions, { row, onExpand: row.toggleExpanded })
+    },
   },
 ]

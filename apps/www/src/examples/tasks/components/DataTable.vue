@@ -1,7 +1,9 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="TData, TValue">
 import type {
   ColumnDef,
   ColumnFiltersState,
+  ExpandedState,
+  Row,
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
@@ -17,7 +19,7 @@ import {
 } from '@tanstack/vue-table'
 
 import { ref } from 'vue'
-import type { Task } from '../data/schema'
+import type { VNode } from 'vue'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
 import { valueUpdater } from '@/lib/utils'
@@ -31,8 +33,9 @@ import {
 } from '@/lib/registry/new-york/ui/table'
 
 interface DataTableProps {
-  columns: ColumnDef<Task, any>[]
-  data: Task[]
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
+  renderSubComponent: (row: Row<TData>) => VNode
 }
 const props = defineProps<DataTableProps>()
 
@@ -40,6 +43,7 @@ const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
 const columnVisibility = ref<VisibilityState>({})
 const rowSelection = ref({})
+const expanded = ref<ExpandedState>({})
 
 const table = useVueTable({
   get data() { return props.data },
@@ -49,12 +53,14 @@ const table = useVueTable({
     get columnFilters() { return columnFilters.value },
     get columnVisibility() { return columnVisibility.value },
     get rowSelection() { return rowSelection.value },
+    get expanded() { return expanded.value },
   },
   enableRowSelection: true,
   onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
   onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
   onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
   onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
+  onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expanded),
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
@@ -78,15 +84,18 @@ const table = useVueTable({
         </TableHeader>
         <TableBody>
           <template v-if="table.getRowModel().rows?.length">
-            <TableRow
-              v-for="row in table.getRowModel().rows"
-              :key="row.id"
-              :data-state="row.getIsSelected() && 'selected'"
-            >
-              <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
-              </TableCell>
-            </TableRow>
+            <template v-for="row in table.getRowModel().rows" :key="row.id">
+              <TableRow :data-state="row.getIsSelected() && 'selected'">
+                <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
+                  <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                </TableCell>
+              </TableRow>
+              <TableRow v-if="row.getIsExpanded()" class="shadow-inner">
+                <TableCell :colspan="row.getAllCells().length">
+                  <FlexRender :render="renderSubComponent(row)" />
+                </TableCell>
+              </TableRow>
+            </template>
           </template>
 
           <TableRow v-else>
