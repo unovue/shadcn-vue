@@ -28,15 +28,15 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.1",
+    "@antfu/eslint-config": "^2.21.3",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@vitest/ui": "^1.6.0",
     "bumpp": "^9.4.1",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "lint-staged": "^15.2.7",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.13.8",
+    "taze": "^0.14.2",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
