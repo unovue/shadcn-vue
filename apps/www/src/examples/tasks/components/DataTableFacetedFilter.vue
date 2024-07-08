@@ -31,22 +31,6 @@ const props = defineProps<DataTableFacetedFilter>()
 
 const facets = computed(() => props.column?.getFacetedUniqueValues())
 const selectedValues = computed(() => new Set(props.column?.getFilterValue() as string[]))
-
-type ReturnTypeFilterFunction = string[] | number[] | false[] | true[] | Record<string, any>[]
-
-function isListOptions(list: ReturnTypeFilterFunction | DataTableFacetedFilter['options']): list is DataTableFacetedFilter['options'] {
-  return Array.isArray(list) && list.length > 0 && 'value' in (list[0] as DataTableFacetedFilter['options'])
-}
-
-function filterFunction(list: ReturnTypeFilterFunction | DataTableFacetedFilter['options'], term: string): DataTableFacetedFilter['options'] {
-  if (isListOptions(list)) {
-    return list.filter(i => i.label.toLowerCase()?.includes(term))
-  }
-  else {
-    console.error('List is not a DataTableFacetedFilter options')
-    return []
-  }
-}
 </script>
 
 <template>
@@ -89,7 +73,7 @@ function filterFunction(list: ReturnTypeFilterFunction | DataTableFacetedFilter[
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0" align="start">
       <Command
-        :filter-function="filterFunction"
+        :filter-function="(list: DataTableFacetedFilter['options'], term) => list.filter(i => i.label.toLowerCase()?.includes(term))"
       >
         <CommandInput :placeholder="title" />
         <CommandList>
