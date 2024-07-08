@@ -9,6 +9,10 @@ defineProps<{
   }
 }>()
 
+defineEmits<{
+  (e: 'expand'): void
+}>()
+
 function copy(id: string) {
   navigator.clipboard.writeText(id)
 }
@@ -26,6 +30,9 @@ function copy(id: string) {
       <DropdownMenuLabel>Actions</DropdownMenuLabel>
       <DropdownMenuItem @click="copy(payment.id)">
         Copy payment ID
+      </DropdownMenuItem>
+      <DropdownMenuItem @click="$emit('expand')">
+        Expand
       </DropdownMenuItem>
       <DropdownMenuSeparator />
       <DropdownMenuItem>View customer</DropdownMenuItem>
