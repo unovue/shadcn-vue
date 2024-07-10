@@ -2,7 +2,8 @@
 import type { Column } from '@tanstack/vue-table'
 import type { Component } from 'vue'
 import { computed } from 'vue'
-import { type Task } from '../data/schema'
+import { useVirtualList } from '@vueuse/core'
+import type { Task } from '../data/schema'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import CheckIcon from '~icons/radix-icons/check'
 
@@ -30,8 +31,16 @@ interface DataTableFacetedFilter {
 
 const props = defineProps<DataTableFacetedFilter>()
 
+function repeat<T>(array: T[], times: number) {
+  return Array.from({ length: times }, () => array).flat()
+}
 const facets = computed(() => props.column?.getFacetedUniqueValues())
 const selectedValues = computed(() => new Set(props.column?.getFilterValue() as string[]))
+const options = computed(() => repeat(props.options, 100))
+
+const { list, containerProps, wrapperProps } = useVirtualList(options, {
+  itemHeight: 32,
+})
 </script>
 
 <template>
@@ -73,48 +82,53 @@ const selectedValues = computed(() => new Set(props.column?.getFilterValue() as 
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0" align="start">
-      <Command
-        :filter-function="(list: DataTableFacetedFilter['options'], term) => list.filter(i => i.label.toLowerCase()?.includes(term)) "
-      >
+      <Command>
         <CommandInput :placeholder="title" />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup>
-            <CommandItem
-              v-for="option in options"
-              :key="option.value"
-              :value="option"
-              @select="() => {
-                const isSelected = selectedValues.has(option.value)
-                if (isSelected) {
-                  selectedValues.delete(option.value)
-                }
-                else {
-                  selectedValues.add(option.value)
-                }
-                const filterValues = Array.from(selectedValues)
-                column?.setFilterValue(
-                  filterValues.length ? filterValues : undefined,
-                )
-              }"
-            >
-              <div
-                :class="cn(
-                  'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary',
-                  selectedValues.has(option.value)
-                    ? 'bg-primary text-primary-foreground'
-                    : 'opacity-50 [&_svg]:invisible',
-                )"
-              >
-                <CheckIcon :class="cn('h-4 w-4')" />
-              </div>
-              <component :is="option.icon" v-if="option.icon" class="mr-2 h-4 w-4 text-muted-foreground" />
-              <span>{{ option.label }}</span>
-              <span v-if="facets?.get(option.value)" class="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">
-                {{ facets.get(option.value) }}
-              </span>
-            </CommandItem>
-          </CommandGroup>
+          <CommandEmpty>
+            No results found.
+          </CommandEmpty>
+          <div v-bind="containerProps" class="max-h-52">
+            <div v-bind="wrapperProps">
+              <CommandGroup>
+                <CommandItem
+                  v-for="option in list"
+                  :key="option.index"
+                  style="height: 32px"
+                  :value="option.data"
+                  @select="() => {
+                    const isSelected = selectedValues.has(option.data.value)
+                    if (isSelected) {
+                      selectedValues.delete(option.data.value)
+                    }
+                    else {
+                      selectedValues.add(option.data.value)
+                    }
+                    const filterValues = Array.from(selectedValues)
+                    column?.setFilterValue(
+                      filterValues.length ? filterValues : undefined,
+                    )
+                  }"
+                >
+                  <div
+                    :class="cn(
+                      'mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary',
+                      selectedValues.has(option.data.value)
+                        ? 'bg-primary text-primary-foreground'
+                        : 'opacity-50 [&_svg]:invisible',
+                    )"
+                  >
+                    <CheckIcon :class="cn('h-4 w-4')" />
+                  </div>
+                  <component :is="option.data.icon" v-if="option.data.icon" class="mr-2 h-4 w-4 text-muted-foreground" />
+                  <span>{{ option.data.label }}</span>
+                  <span v-if="facets?.get(option.data.value)" class="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">
+                    {{ facets.get(option.data.value) }}
+                  </span>
+                </CommandItem>
+              </CommandGroup>
+            </div>
+          </div>
 
           <template v-if="selectedValues.size > 0">
             <CommandSeparator />
