@@ -43,7 +43,7 @@ function template(d: any, i: number, elements: (HTMLElement | SVGElement)[]) {
     }
     else {
       const style = getComputedStyle(elements[i])
-      const omittedData = [{ name: data.name, value: props.valueFormatter(data[props.index]), color: style.fill }]
+      const omittedData = [{ name: Object.values(data)[0], value: props.valueFormatter(data[props.index]), color: style.fill }]
       const componentDiv = document.createElement('div')
       const TooltipComponent = props.customTooltip ?? ChartTooltip
       createApp(TooltipComponent, { title: d[props.index], data: omittedData }).mount(componentDiv)
