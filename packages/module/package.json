@@ -35,18 +35,18 @@
     "release": "pnpm run prepack && pnpm publish && git push --follow-tags"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.12.3",
-    "@oxc-parser/wasm": "^0.17.1",
+    "@nuxt/kit": "^3.12.4",
+    "@oxc-parser/wasm": "^0.21.0",
     "class-variance-authority": "^0.7.0",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.3.13",
     "@nuxt/module-builder": "^0.8.1",
-    "@nuxt/schema": "^3.12.3",
+    "@nuxt/schema": "^3.12.4",
     "@nuxt/test-utils": "^3.13.1",
-    "@types/node": "^20.14.10",
-    "nuxt": "^3.12.3"
+    "@types/node": "^20.14.11",
+    "nuxt": "^3.12.4"
   }
 }
