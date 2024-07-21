@@ -990,6 +990,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SonnerWithDialog.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SonnerWithDialog.vue"],
     },
+    "StepperDemo": {
+      name: "StepperDemo",
+      type: "components:example",
+      registryDependencies: ["stepper"],
+      component: () => import("../src/lib/registry/default/example/StepperDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/StepperDemo.vue"],
+    },
     "SwitchDemo": {
       name: "SwitchDemo",
       type: "components:example",
@@ -2432,6 +2439,13 @@ export const Index = {
       registryDependencies: ["button","dialog"],
       component: () => import("../src/lib/registry/new-york/example/SonnerWithDialog.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SonnerWithDialog.vue"],
+    },
+    "StepperDemo": {
+      name: "StepperDemo",
+      type: "components:example",
+      registryDependencies: ["stepper"],
+      component: () => import("../src/lib/registry/new-york/example/StepperDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/StepperDemo.vue"],
     },
     "SwitchDemo": {
       name: "SwitchDemo",
