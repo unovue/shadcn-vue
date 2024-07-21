@@ -780,6 +780,24 @@
     "type": "components:ui"
   },
   {
+    "name": "stepper",
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ],
+    "files": [
+      "ui/stepper/Stepper.vue",
+      "ui/stepper/StepperDescription.vue",
+      "ui/stepper/StepperIndicator.vue",
+      "ui/stepper/StepperItem.vue",
+      "ui/stepper/StepperSeparator.vue",
+      "ui/stepper/StepperTitle.vue",
+      "ui/stepper/StepperTrigger.vue",
+      "ui/stepper/index.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "switch",
     "dependencies": [],
     "registryDependencies": [
