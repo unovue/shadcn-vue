@@ -32,7 +32,8 @@ import { Icon } from '@iconify/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
-const mode = useColorMode()
+// Pass { disableTransition: false } to enable transitions
+const mode = useColorMode();
 </script>
 
 <template>
