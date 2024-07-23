@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@oxc-parser/wasm": "^0.21.0",
+    "@oxc-parser/wasm": "catalog:",
     "class-variance-authority": "^0.7.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
