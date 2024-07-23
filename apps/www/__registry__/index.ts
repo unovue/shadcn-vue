@@ -570,6 +570,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DialogDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DialogDemo.vue"],
     },
+    "DialogForm": {
+      name: "DialogForm",
+      type: "components:example",
+      registryDependencies: ["button","form","dialog","input","toast"],
+      component: () => import("../src/lib/registry/default/example/DialogForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DialogForm.vue"],
+    },
     "DialogScrollBodyDemo": {
       name: "DialogScrollBodyDemo",
       type: "components:example",
@@ -2019,6 +2026,13 @@ export const Index = {
       registryDependencies: ["button","dialog","input","label"],
       component: () => import("../src/lib/registry/new-york/example/DialogDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DialogDemo.vue"],
+    },
+    "DialogForm": {
+      name: "DialogForm",
+      type: "components:example",
+      registryDependencies: ["button","form","dialog","input","toast"],
+      component: () => import("../src/lib/registry/new-york/example/DialogForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DialogForm.vue"],
     },
     "DialogScrollBodyDemo": {
       name: "DialogScrollBodyDemo",
