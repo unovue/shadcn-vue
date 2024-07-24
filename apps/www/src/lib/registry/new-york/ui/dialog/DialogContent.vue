@@ -12,7 +12,12 @@ import {
 import { Cross2Icon } from '@radix-icons/vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
+const props = withDefaults(defineProps<DialogContentProps & {
+  class?: HTMLAttributes['class']
+  teleported?: boolean
+}>(), {
+  teleported: true,
+})
 const emits = defineEmits<DialogContentEmits>()
 
 const delegatedProps = computed(() => {
@@ -25,7 +30,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
-  <DialogPortal>
+  <DialogPortal :disabled="!teleported">
     <DialogOverlay
       class="fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     />
