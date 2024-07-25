@@ -1000,7 +1000,7 @@ export const Index = {
     "StepperForm": {
       name: "StepperForm",
       type: "components:example",
-      registryDependencies: ["stepper"],
+      registryDependencies: ["stepper","form","select","input","button","toast"],
       component: () => import("../src/lib/registry/default/example/StepperForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/StepperForm.vue"],
     },
@@ -2471,7 +2471,7 @@ export const Index = {
     "StepperForm": {
       name: "StepperForm",
       type: "components:example",
-      registryDependencies: ["stepper"],
+      registryDependencies: ["stepper","form","select","input","button","toast"],
       component: () => import("../src/lib/registry/new-york/example/StepperForm.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/StepperForm.vue"],
     },
