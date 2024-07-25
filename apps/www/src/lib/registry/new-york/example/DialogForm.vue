@@ -38,40 +38,42 @@ function onSubmit(values: any) {
 </script>
 
 <template>
-  <Dialog>
-    <DialogTrigger as-child>
-      <Button variant="outline">
-        Edit Profile
-      </Button>
-    </DialogTrigger>
-    <DialogContent class="sm:max-w-[425px]">
-      <DialogHeader>
-        <DialogTitle>Edit profile</DialogTitle>
-        <DialogDescription>
-          Make changes to your profile here. Click save when you're done.
-        </DialogDescription>
-      </DialogHeader>
-
-      <Form id="dialogForm" class="grid gap-4 py-4" :validation-schema="formSchema" @submit="onSubmit">
-        <FormField v-slot="{ componentField }" name="username">
-          <FormItem>
-            <FormLabel>Username</FormLabel>
-            <FormControl>
-              <Input type="text" placeholder="shadcn" v-bind="componentField" />
-            </FormControl>
-            <FormDescription>
-              This is your public display name.
-            </FormDescription>
-            <FormMessage />
-          </FormItem>
-        </FormField>
-      </Form>
-
-      <DialogFooter>
-        <Button type="submit" form="dialogForm">
-          Save changes
+  <Form v-slot="{ submitForm }" as="" keep-values :validation-schema="formSchema" @submit="onSubmit">
+    <Dialog>
+      <DialogTrigger as-child>
+        <Button variant="outline">
+          Edit Profile
         </Button>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
+      </DialogTrigger>
+      <DialogContent class="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+
+        <form @submit="submitForm">
+          <FormField v-slot="{ componentField }" name="username">
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input type="text" placeholder="shadcn" v-bind="componentField" />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+        </form>
+
+        <DialogFooter>
+          <Button type="submit" form="dialogForm">
+            Save changes
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </Form>
 </template>

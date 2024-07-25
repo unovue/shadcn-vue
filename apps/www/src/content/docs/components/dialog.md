@@ -62,7 +62,7 @@ import {
 
 <ComponentPreview name="DialogScrollOverlayDemo" />
 
-### Dialog Form
+### Form
 
 <ComponentPreview name="DialogForm" />
 
