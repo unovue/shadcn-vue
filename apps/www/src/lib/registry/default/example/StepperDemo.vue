@@ -49,6 +49,7 @@ const steps = [{
       </StepperTrigger>
       <StepperSeparator
         v-if="item.step !== steps[steps.length - 1].step"
+        class="w-full h-px"
       />
     </StepperItem>
   </Stepper>
