@@ -2,7 +2,7 @@
 import { Check, Circle, Dot } from 'lucide-vue-next'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
-import { computed, h, nextTick, ref } from 'vue'
+import { computed, h, ref } from 'vue'
 import { get, set } from '@vueuse/core'
 import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
@@ -88,9 +88,7 @@ function onSubmit(values: any) {
     <form
       @submit="(e) => {
         e.preventDefault()
-        nextTick(() => {
-          validate()
-        })
+        validate()
 
         if (stepIndex === steps.length) {
           onSubmit(values)
@@ -115,9 +113,8 @@ function onSubmit(values: any) {
               :variant="state === 'completed' || state === 'active' ? 'default' : 'outline'"
               size="icon"
               class="z-10 rounded-full shrink-0"
-              :class="[state === 'active' && 'ring-2 ring-ring ring-offset-2 ring-offset-background',
-                       state !== 'completed' && !meta.valid && 'pointer-events-none',
-              ]"
+              :class="[state === 'active' && 'ring-2 ring-ring ring-offset-2 ring-offset-background']"
+              :disabled="state !== 'completed' && !meta.valid"
             >
               <Check v-if="state === 'completed'" class="size-5" />
               <Circle v-if="state === 'active'" />

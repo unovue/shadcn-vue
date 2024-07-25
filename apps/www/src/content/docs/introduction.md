@@ -3,8 +3,8 @@ title: Introduction
 description: Re-usable components built with Radix Vue, and Tailwind CSS.
 ---
 
-<script setup >
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/default/ui/accordion'
+<script setup>
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/lib/registry/new-york/ui/accordion'
 </script>
 
 An unofficial, community-led [Vue](https://vuejs.org/) port of [shadcn/ui](https://ui.shadcn.com). We are not affiliated with [shadcn](https://twitter.com/shadcn), but we did get his blessing before creating a Vue version of his work. This project was born out of the need for a similar project for the Vue ecosystem.
@@ -19,8 +19,13 @@ Pick the components you need. Use the CLI to automatically add the components, o
 
 _Use this as a reference to build your own component libraries._
 
+<div class="[&>h2]:!mb-0">
+
 ## FAQ
 
+</div>
+
+<div class="[&_h3]:!mt-0">
 <Accordion  type="multiple">
 
 <AccordionItem value="faq-1">
@@ -58,3 +63,4 @@ But let us know if you do use it. We'd love to see what you build with it.
 </AccordionContent>
 </AccordionItem>
 </Accordion>
+</div>

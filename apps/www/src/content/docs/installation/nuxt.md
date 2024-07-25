@@ -9,6 +9,12 @@ description: Install and configure Nuxt.
 
 Start by creating a new Nuxt project using `create-nuxt-app`:
 
+<Callout>
+
+  If you're using the JS template, `jsconfig.json` must exist for the CLI to run without errors.
+
+</Callout>
+
 ```bash
 npx nuxi@latest init my-app
 ```
@@ -82,7 +88,8 @@ export default defineNuxtModule<ShadcnVueOptions>({
     },
   },
   async setup({ componentDir, prefix }) {
-    const isVeeValidateExist = await tryResolveModule('vee-validate');
+    const veeValidate = await tryResolveModule('vee-validate');
+    const vaulVue = await tryResolveModule('vaul-vue');
 
     addComponentsDir(
       {
@@ -96,7 +103,7 @@ export default defineNuxtModule<ShadcnVueOptions>({
       }
     );
 
-    if (isVeeValidateExist !== undefined) {
+    if (veeValidate !== undefined) {
       addComponent({
         filePath: 'vee-validate',
         export: 'Form',
@@ -110,6 +117,17 @@ export default defineNuxtModule<ShadcnVueOptions>({
         name: `${prefix}FormField`,
         priority: 999,
       });
+    }
+
+    if(vaulVue !== undefined) {
+      ['DrawerPortal', 'DrawerTrigger', 'DrawerClose'].forEach((item) => {
+        addComponent({
+          filePath: 'vaul-vue',
+          export: item,
+          name: prefix + item,
+          priority: 999,
+        });
+      })
     }
 
     addComponent({

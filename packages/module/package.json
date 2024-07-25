@@ -46,7 +46,7 @@
     "@nuxt/module-builder": "^0.8.1",
     "@nuxt/schema": "^3.12.4",
     "@nuxt/test-utils": "^3.13.1",
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.14.12",
     "nuxt": "^3.12.4"
   }
 }
