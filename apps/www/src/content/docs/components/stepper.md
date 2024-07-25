@@ -30,7 +30,7 @@ import {
 
 <template>
   <Stepper>
-    <StepperItem :step="1" linear>
+    <StepperItem :step="1">
       <StepperTrigger>
         <StepperIndicator>1</StepperIndicator>
         <StepperTitle>Step 1</StepperTitle>
@@ -48,3 +48,17 @@ import {
   </Stepper>
 </template>
 ```
+
+## Examples
+
+### Horizental
+
+<ComponentPreview name="StepperHorizental" />
+
+### Vertical
+
+<ComponentPreview name="StepperVertical" />
+
+### Form
+
+<ComponentPreview name="StepperForm" />
