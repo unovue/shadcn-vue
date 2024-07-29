@@ -100,7 +100,7 @@ Place a mode toggle on your site to toggle between light and dark mode.
 ```astro title="src/pages/index.astro"
 ---
 import '../styles/globals.css'
-import { ModeToggle } from '@/components/ModeToggle.vue';
+import ModeToggle from '@/components/ModeToggle.vue';
 ---
 
 <!-- Inline script -->
