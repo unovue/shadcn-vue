@@ -1,6 +1,5 @@
 import { getParameters } from 'codesandbox/lib/api/define'
 import sdk from '@stackblitz/sdk'
-import { dependencies as deps } from '../../../package.json'
 import { Index as demoIndex } from '../../../../www/__registry__'
 // @ts-expect-error ?raw
 import tailwindConfigRaw from '../../../tailwind.config?raw'
@@ -92,7 +91,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
   const iconPackage = style === 'default' ? 'lucide-vue-next' : '@radix-icons/vue'
   const dependencies = {
     'vue': 'latest',
-    'radix-vue': deps['radix-vue'],
+    'radix-vue': 'latest',
     '@radix-ui/colors': 'latest',
     'clsx': 'latest',
     'class-variance-authority': 'latest',
