@@ -51,7 +51,7 @@ import {
 
 ## Examples
 
-### Horizental
+### Horizontal
 
 <ComponentPreview name="StepperHorizental" />
 
