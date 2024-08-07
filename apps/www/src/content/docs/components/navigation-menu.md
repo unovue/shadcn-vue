@@ -56,10 +56,8 @@ import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 ```vue
 <template>
   <NavigationMenuItem>
-    <NuxtLink to="/docs">
-      <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+    <NuxtLink to="/docs" :class="navigationMenuTriggerStyle()">
         Documentation
-      </NavigationMenuLink>
     </NuxtLink>
   </NavigationMenuItem>
 </template>
