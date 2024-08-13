@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
+import { CheckIcon, CircleIcon, DotIcon } from '@radix-icons/vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import * as z from 'zod'
 import { h, ref } from 'vue'
@@ -103,9 +103,9 @@ function onSubmit(values: any) {
                 :class="[state === 'active' && 'ring-2 ring-ring ring-offset-2 ring-offset-background']"
                 :disabled="state !== 'completed' && !meta.valid"
               >
-                <Check v-if="state === 'completed'" class="size-5" />
-                <Circle v-if="state === 'active'" />
-                <Dot v-if="state === 'inactive'" />
+                <CheckIcon v-if="state === 'completed'" class="size-5" />
+                <CircleIcon v-if="state === 'active'" />
+                <DotIcon v-if="state === 'inactive'" />
               </Button>
             </StepperTrigger>
 
