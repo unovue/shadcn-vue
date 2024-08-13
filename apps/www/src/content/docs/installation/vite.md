@@ -91,6 +91,12 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
 ### Edit tsconfig/jsconfig.json
 
+<Callout>
+
+If you're using TypeScript, the current version of Vite splits configuration into three files, requiring the same change for `tsconfig.app.json`.
+
+</Callout>
+
 Add the code below to the compilerOptions of your `tsconfig.json` or `jsconfig.json` so your app can resolve paths without error
 
 ```json {4-7}
