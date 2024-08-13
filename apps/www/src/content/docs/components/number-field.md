@@ -28,8 +28,8 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@/lib/registry/default/ui/number-field'
-import { Label } from '@/lib/registry/default/ui/label'
+} from '@/components/ui/number-field'
+import { Label } from '@/components/ui/label'
 </script>
 
 <template>
