@@ -38,15 +38,15 @@
     "@nuxt/kit": "^3.12.4",
     "@oxc-parser/wasm": "catalog:",
     "class-variance-authority": "^0.7.0",
-    "tailwind-merge": "^2.4.0",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "^0.3.13",
-    "@nuxt/module-builder": "^0.8.1",
+    "@nuxt/eslint-config": "^0.5.0",
+    "@nuxt/module-builder": "^0.8.2",
     "@nuxt/schema": "^3.12.4",
-    "@nuxt/test-utils": "^3.13.1",
-    "@types/node": "^20.14.12",
+    "@nuxt/test-utils": "^3.14.0",
+    "@types/node": "^20.14.15",
     "nuxt": "^3.12.4"
   }
 }
