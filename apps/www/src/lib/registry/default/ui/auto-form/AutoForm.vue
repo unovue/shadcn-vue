@@ -17,7 +17,7 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits<{
-  submit: [event: GenericObject]
+  submit: [event: z.infer<T>]
 }>()
 
 const { dependencies } = toRefs(props)
