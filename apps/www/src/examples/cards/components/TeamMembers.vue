@@ -64,25 +64,25 @@ const jacksonRole = ref('Member')
               <CommandList>
                 <CommandEmpty>No roles found.</CommandEmpty>
                 <CommandGroup>
-                  <CommandItem value="Viewer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Viewer" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Viewer</p>
                     <p class="text-sm text-muted-foreground">
                       Can view and comment.
                     </p>
                   </CommandItem>
-                  <CommandItem value="Developer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Developer" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Developer</p>
                     <p class="text-sm text-muted-foreground">
                       Can view, comment and edit.
                     </p>
                   </CommandItem>
-                  <CommandItem value="Billing" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Billing" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Billing</p>
                     <p class="text-sm text-muted-foreground">
                       Can view, comment and manage billing.
                     </p>
                   </CommandItem>
-                  <CommandItem value="Owner" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Owner" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Owner</p>
                     <p class="text-sm text-muted-foreground">
                       Admin-level access to all resources.
@@ -122,25 +122,25 @@ const jacksonRole = ref('Member')
               <CommandList>
                 <CommandEmpty>No roles found.</CommandEmpty>
                 <CommandGroup>
-                  <CommandItem value="Viewer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Viewer" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Viewer</p>
                     <p class="text-sm text-muted-foreground">
                       Can view and comment.
                     </p>
                   </CommandItem>
-                  <CommandItem value="Developer" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Developer" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Developer</p>
                     <p class="text-sm text-muted-foreground">
                       Can view, comment and edit.
                     </p>
                   </CommandItem>
-                  <CommandItem value="Billing" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Billing" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Billing</p>
                     <p class="text-sm text-muted-foreground">
                       Can view, comment and manage billing.
                     </p>
                   </CommandItem>
-                  <CommandItem value="Owner" class="teamaspace-y-1 flex flex-col items-start px-4 py-2">
+                  <CommandItem value="Owner" class="space-y-1 flex flex-col items-start px-4 py-2">
                     <p>Owner</p>
                     <p class="text-sm text-muted-foreground">
                       Admin-level access to all resources.
