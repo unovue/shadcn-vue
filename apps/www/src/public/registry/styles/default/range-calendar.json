@@ -36,7 +36,7 @@
     },
     {
       "name": "RangeCalendarHeadCell.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport { RangeCalendarHeadCell, type RangeCalendarHeadCellProps, useForwardProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<RangeCalendarHeadCellProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <RangeCalendarHeadCell :class=\"cn('w-8 rounded-md text-[0.8rem] font-normal text-muted-foreground', props.class)\" v-bind=\"forwardedProps\">\n    <slot />\n  </RangeCalendarHeadCell>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport { RangeCalendarHeadCell, type RangeCalendarHeadCellProps, useForwardProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<RangeCalendarHeadCellProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <RangeCalendarHeadCell :class=\"cn('w-9 rounded-md text-[0.8rem] font-normal text-muted-foreground', props.class)\" v-bind=\"forwardedProps\">\n    <slot />\n  </RangeCalendarHeadCell>\n</template>\n"
     },
     {
       "name": "RangeCalendarHeader.vue",
