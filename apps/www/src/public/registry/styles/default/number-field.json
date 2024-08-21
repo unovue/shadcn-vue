@@ -23,7 +23,7 @@
     },
     {
       "name": "NumberFieldInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n</script>\n\n<template>\n  <NumberFieldInput data-slot=\"input\" :class=\"cn('flex h-10 w-full rounded-md border border-input bg-background py-2 text-sm text-center ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50')\" />\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { NumberFieldInput } from 'radix-vue'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <NumberFieldInput\n    data-slot=\"input\"\n    :class=\"cn('flex h-10 w-full rounded-md border border-input bg-background py-2 text-sm text-center ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50', props.class)\"\n  />\n</template>\n"
     },
     {
       "name": "index.ts",

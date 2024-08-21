@@ -60,7 +60,7 @@ import { Textarea } from '@/lib/registry/new-york/ui/textarea'
           <Select default-value="2">
             <SelectTrigger
               id="security-level"
-              class="line-clamp-1 w-full truncate"
+              class="w-full truncate"
             >
               <SelectValue placeholder="Select level" />
             </SelectTrigger>

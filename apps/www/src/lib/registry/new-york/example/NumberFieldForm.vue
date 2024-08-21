@@ -43,7 +43,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField name="payment">
+    <FormField v-slot="{ value }" name="payment">
       <FormItem>
         <FormLabel>Payment</FormLabel>
         <NumberField
@@ -55,6 +55,7 @@ const onSubmit = handleSubmit((values) => {
             currencyDisplay: 'code',
             currencySign: 'accounting',
           }"
+          :model-value="value"
           @update:model-value="(v) => {
             if (v) {
               setFieldValue('payment', v)

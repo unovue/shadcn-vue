@@ -115,7 +115,7 @@ Write configuration to components.json. Proceed? > Y/n
 
 ### Import the globals.css file
 
-Import the `globals.css` file in the `src/index.astro` file:
+Import the `globals.css` file in the `src/pages/index.astro` file:
 
 ```ts:line-numbers {2}
 ---

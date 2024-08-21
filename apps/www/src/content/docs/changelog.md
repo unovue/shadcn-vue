@@ -134,6 +134,6 @@ The Sonner component is provided by [vue-sonner](https://vue-sonner.vercel.app/)
 
 ### New Component - Carousel
 
-[`Carousel`](/docs/components/toggle-group.html) - A carousel with motion and swipe built using [Embla](https://www.embla-carousel.com/) library.
+[`Carousel`](/docs/components/carousel.html) - A carousel with motion and swipe built using [Embla](https://www.embla-carousel.com/) library.
 
 <ComponentPreview name="CarouselDemo" />
