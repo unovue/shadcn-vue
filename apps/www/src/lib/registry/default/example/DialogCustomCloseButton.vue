@@ -42,7 +42,7 @@ import { Label } from '@/lib/registry/default/ui/label'
         </div>
         <Button type="submit" size="sm" class="px-3">
           <span class="sr-only">Copy</span>
-          <Copy class="w-4 h-4" />
+          <Copy class="size-4" />
         </Button>
       </div>
       <DialogFooter class="sm:justify-start">

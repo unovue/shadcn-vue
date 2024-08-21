@@ -34,9 +34,9 @@ const task = computed(() => taskSchema.parse(props.row.original))
     <DropdownMenuTrigger as-child>
       <Button
         variant="ghost"
-        class="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
+        class="flex size-8 p-0 data-[state=open]:bg-muted"
       >
-        <DotsHorizontalIcon class="h-4 w-4" />
+        <DotsHorizontalIcon class="size-4" />
         <span class="sr-only">Open menu</span>
       </Button>
     </DropdownMenuTrigger>

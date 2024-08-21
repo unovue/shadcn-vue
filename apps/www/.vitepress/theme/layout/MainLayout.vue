@@ -122,7 +122,7 @@ watch(() => $route.path, (n) => {
             <div class="w-full flex-1 md:w-auto md:flex-none">
               <Button
                 variant="outline"
-                class="relative h-8 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+                class="relative h-8 w-full justify-start rounded-lg bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
                 @click="isOpen = true"
               >
                 <span class="hidden lg:inline-flex">Search documentation...</span>
@@ -142,17 +142,17 @@ watch(() => $route.path, (n) => {
                 v-for="link in links"
                 :key="link.name"
                 as="a"
-                class="w-9 h-9"
+                class="size-9"
                 :href="link.href" target="_blank"
                 :variant="'ghost'"
                 :size="'icon'"
               >
-                <component :is="link.icon" class="w-5 h-5" />
+                <component :is="link.icon" class="size-5" />
               </Button>
 
               <ClientOnly>
                 <Button
-                  class="w-9 h-9"
+                  class="size-9"
                   aria-label="Toggle dark mode"
                   :variant="'ghost'"
                   :size="'icon'"
@@ -160,7 +160,7 @@ watch(() => $route.path, (n) => {
                 >
                   <component
                     :is="isDark ? RadixIconsSun : RadixIconsMoon"
-                    class="w-5 h-5 text-foreground"
+                    class="size-5 text-foreground"
                   />
                 </Button>
               </ClientOnly>
@@ -250,7 +250,7 @@ watch(() => $route.path, (n) => {
                   class="py-3"
                   @select="handleSelectLink(item)"
                 >
-                  <File class="mr-2 h-5 w-5" />
+                  <File class="mr-2 size-5" />
                   <span>{{ item.title }}</span>
                 </CommandItem>
               </CommandGroup>
@@ -265,7 +265,7 @@ watch(() => $route.path, (n) => {
                   @select="
                     handleSelectLink(subItem)"
                 >
-                  <Circle class="mr-2 h-4 w-4" />
+                  <Circle class="mr-2 size-4" />
                   <span>{{ subItem.title }}</span>
                 </CommandItem>
               </CommandGroup>
@@ -281,7 +281,7 @@ watch(() => $route.path, (n) => {
                     }
                   "
                 >
-                  <RadixIconsSun class="mr-2 h-5 w-5" />
+                  <RadixIconsSun class="mr-2 size-5" />
                   <span>Light Theme</span>
                 </CommandItem>
                 <CommandItem
@@ -294,7 +294,7 @@ watch(() => $route.path, (n) => {
                     }
                   "
                 >
-                  <RadixIconsMoon class="mr-2 h-5 w-5" />
+                  <RadixIconsMoon class="mr-2 size-5" />
                   <span>Dark Theme</span>
                 </CommandItem>
               </CommandGroup>

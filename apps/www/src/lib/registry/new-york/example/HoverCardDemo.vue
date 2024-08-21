@@ -35,7 +35,7 @@ import {
             Progressive JavaScript framework for building modern web interfaces.
           </p>
           <div class="flex items-center pt-2">
-            <CalendarIcon class="mr-2 h-4 w-4 opacity-70" />
+            <CalendarIcon class="mr-2 size-4 opacity-70" />
             <span class="text-xs text-muted-foreground">
               Joined January 2014
             </span>

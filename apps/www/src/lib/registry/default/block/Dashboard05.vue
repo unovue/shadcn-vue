@@ -75,9 +75,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
       <nav class="flex flex-col items-center gap-4 px-2 sm:py-5">
         <a
           href="#"
-          class="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+          class="group flex size-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:size-8 md:text-base"
         >
-          <Package2 class="h-4 w-4 transition-all group-hover:scale-110" />
+          <Package2 class="size-4 transition-all group-hover:scale-110" />
           <span class="sr-only">Acme Inc</span>
         </a>
         <TooltipProvider>
@@ -85,9 +85,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Home class="h-5 w-5" />
+                <Home class="size-5" />
                 <span class="sr-only">Dashboard</span>
               </a>
             </TooltipTrigger>
@@ -101,9 +101,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <ShoppingCart class="h-5 w-5" />
+                <ShoppingCart class="size-5" />
                 <span class="sr-only">Orders</span>
               </a>
             </TooltipTrigger>
@@ -118,9 +118,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Package class="h-5 w-5" />
+                <Package class="size-5" />
                 <span class="sr-only">Products</span>
               </a>
             </TooltipTrigger>
@@ -135,9 +135,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Users2 class="h-5 w-5" />
+                <Users2 class="size-5" />
                 <span class="sr-only">Customers</span>
               </a>
             </TooltipTrigger>
@@ -152,9 +152,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <LineChart class="h-5 w-5" />
+                <LineChart class="size-5" />
                 <span class="sr-only">Analytics</span>
               </a>
             </TooltipTrigger>
@@ -170,9 +170,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Settings class="h-5 w-5" />
+                <Settings class="size-5" />
                 <span class="sr-only">Settings</span>
               </a>
             </TooltipTrigger>
@@ -188,7 +188,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
         <Sheet>
           <SheetTrigger as-child>
             <Button size="icon" variant="outline" class="sm:hidden">
-              <PanelLeft class="h-5 w-5" />
+              <PanelLeft class="size-5" />
               <span class="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
@@ -196,44 +196,44 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
             <nav class="grid gap-6 text-lg font-medium">
               <a
                 href="#"
-                class="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                class="group flex size-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
               >
-                <Package2 class="h-5 w-5 transition-all group-hover:scale-110" />
+                <Package2 class="size-5 transition-all group-hover:scale-110" />
                 <span class="sr-only">Acme Inc</span>
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <Home class="h-5 w-5" />
+                <Home class="size-5" />
                 Dashboard
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-foreground"
               >
-                <ShoppingCart class="h-5 w-5" />
+                <ShoppingCart class="size-5" />
                 Orders
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <Package class="h-5 w-5" />
+                <Package class="size-5" />
                 Products
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <Users2 class="h-5 w-5" />
+                <Users2 class="size-5" />
                 Customers
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <LineChart class="h-5 w-5" />
+                <LineChart class="size-5" />
                 Settings
               </a>
             </nav>
@@ -259,7 +259,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
           </BreadcrumbList>
         </Breadcrumb>
         <div class="relative ml-auto flex-1 md:grow-0">
-          <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Search class="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search..."
@@ -269,7 +269,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full">
-              <CircleUser class="h-5 w-5" />
+              <CircleUser class="size-5" />
               <span class="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>
@@ -348,7 +348,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                 <DropdownMenu>
                   <DropdownMenuTrigger as-child>
                     <Button variant="outline" size="sm" class="h-7 gap-1 rounded-md px-3">
-                      <ListFilter class="h-3.5 w-3.5" />
+                      <ListFilter class="size-3.5" />
                       <span class="sr-only sm:not-sr-only">Filter</span>
                     </Button>
                   </DropdownMenuTrigger>
@@ -391,7 +391,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <Button variant="outline" size="sm" class="h-7 gap-1 rounded-md px-3">
-                  <File class="h-3.5 w-3.5" />
+                  <File class="size-3.5" />
                   <span class="sr-only sm:not-sr-only">Export</span>
                 </Button>
               </div>
@@ -632,9 +632,9 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                   <Button
                     size="icon"
                     variant="outline"
-                    class="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
+                    class="size-6 opacity-0 transition-opacity group-hover:opacity-100"
                   >
-                    <Copy class="h-3 w-3" />
+                    <Copy class="size-3" />
                     <span class="sr-only">Copy Order ID</span>
                   </Button>
                 </CardTitle>
@@ -642,15 +642,15 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               </div>
               <div class="ml-auto flex items-center gap-1">
                 <Button size="sm" variant="outline" class="h-8 gap-1">
-                  <Truck class="h-3.5 w-3.5" />
+                  <Truck class="size-3.5" />
                   <span class="lg:sr-only xl:not-sr-only xl:whitespace-nowrap">
                     Track Order
                   </span>
                 </Button>
                 <DropdownMenu>
                   <DropdownMenuTrigger as-child>
-                    <Button size="icon" variant="outline" class="h-8 w-8">
-                      <MoreVertical class="h-3.5 w-3.5" />
+                    <Button size="icon" variant="outline" class="size-8">
+                      <MoreVertical class="size-3.5" />
                       <span class="sr-only">More</span>
                     </Button>
                   </DropdownMenuTrigger>
@@ -761,7 +761,7 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
                 <dl class="grid gap-3">
                   <div class="flex items-center justify-between">
                     <dt class="flex items-center gap-1 text-muted-foreground">
-                      <CreditCard class="h-4 w-4" />
+                      <CreditCard class="size-4" />
                       Visa
                     </dt>
                     <dd>**** **** **** 4532</dd>
@@ -775,8 +775,8 @@ import { Checkbox } from '@/lib/registry/default/ui/checkbox'
               </div>
               <Pagination class="ml-auto mr-0 w-auto">
                 <PaginationList class="gap-1">
-                  <PaginationPrev variant="outline" class="h-6 w-6" />
-                  <PaginationNext variant="outline" class="h-6 w-6" />
+                  <PaginationPrev variant="outline" class="size-6" />
+                  <PaginationNext variant="outline" class="size-6" />
                 </PaginationList>
               </Pagination>
             </CardFooter>

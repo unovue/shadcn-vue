@@ -32,7 +32,7 @@ const value = ref(props.defaultValue)
             v-model="value"
             :max="4000"
             :step="10"
-            class="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
+            class="[&_[role=slider]]:size-4"
             aria-label="Maximum Length"
           />
         </div>

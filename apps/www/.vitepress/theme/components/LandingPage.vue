@@ -37,7 +37,7 @@ import MailExample from '@/examples/mail/Example.vue'
           'rounded-[6px]',
         )"
       >
-        <GitHubIcon class="mr-2 h-4 w-4" />
+        <GitHubIcon class="mr-2 size-4" />
         GitHub
       </a>
     </PageAction>
@@ -54,7 +54,7 @@ import MailExample from '@/examples/mail/Example.vue'
     />
   </section>
   <section class="hidden md:block">
-    <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
+    <div class="overflow-hidden rounded-lg border bg-background shadow">
       <MailExample />
     </div>
   </section>

@@ -5,7 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/lib/registry/default/ui/a
 
 <template>
   <Alert>
-    <Terminal class="h-4 w-4" />
+    <Terminal class="size-4" />
     <AlertTitle>Heads up!</AlertTitle>
     <AlertDescription>
       You can add components to your app using the cli.

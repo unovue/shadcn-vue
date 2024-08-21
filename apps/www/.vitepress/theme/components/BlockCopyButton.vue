@@ -25,7 +25,7 @@ const { copy, copied } = useClipboard({ source: code })
       <Button
         size="icon"
         variant="outline"
-        class="h-7 w-7 [&_svg]:size-3.5"
+        class="size-7 [&_svg]:size-3.5"
         @click="copy()"
       >
         <span class="sr-only">Copy</span>

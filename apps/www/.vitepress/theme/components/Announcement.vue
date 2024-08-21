@@ -14,6 +14,6 @@ import ArrowRightIcon from '~icons/radix-icons/arrow-right'
     <span class="hidden sm:inline">
       {{ announcementConfig.title }}
     </span>
-    <ArrowRightIcon class="ml-1 h-4 w-4" />
+    <ArrowRightIcon class="ml-1 size-4" />
   </a>
 </template>

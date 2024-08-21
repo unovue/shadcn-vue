@@ -36,7 +36,7 @@ const steps = [{
     >
       <StepperTrigger>
         <StepperIndicator>
-          <component :is="item.icon" class="w-4 h-4" />
+          <component :is="item.icon" class="size-4" />
         </StepperIndicator>
         <div class="flex flex-col">
           <StepperTitle>

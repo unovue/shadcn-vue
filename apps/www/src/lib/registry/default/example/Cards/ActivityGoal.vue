@@ -46,11 +46,11 @@ const data = [
         <Button
           variant="outline"
           size="icon"
-          class="h-8 w-8 shrink-0 rounded-full"
+          class="size-8 shrink-0 rounded-full"
           :disabled="goal <= 200"
           @click="goal -= 10"
         >
-          <Minus class="h-4 w-4" />
+          <Minus class="size-4" />
           <span class="sr-only">Decrease</span>
         </Button>
         <div class="flex-1 text-center">
@@ -64,11 +64,11 @@ const data = [
         <Button
           variant="outline"
           size="icon"
-          class="h-8 w-8 shrink-0 rounded-full"
+          class="size-8 shrink-0 rounded-full"
           :disabled="goal >= 400"
           @click="goal += 10 "
         >
-          <Plus class="h-4 w-4" />
+          <Plus class="size-4" />
           <span class="sr-only">Increase</span>
         </Button>
       </div>

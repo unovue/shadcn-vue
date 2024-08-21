@@ -79,7 +79,7 @@ const onSubmit = handleSubmit((values) => {
                 {{ values.language ? languages.find(
                   (language) => language.value === values.language,
                 )?.label : 'Select language...' }}
-                <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                <CaretSortIcon class="ml-2 size-4 shrink-0 opacity-50" />
               </Button>
             </FormControl>
           </PopoverTrigger>

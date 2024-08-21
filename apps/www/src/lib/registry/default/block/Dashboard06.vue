@@ -64,9 +64,9 @@ import {
       <nav class="flex flex-col items-center gap-4 px-2 py-4">
         <a
           href="#"
-          class="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+          class="group flex size-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:size-8 md:text-base"
         >
-          <Package2 class="h-4 w-4 transition-all group-hover:scale-110" />
+          <Package2 class="size-4 transition-all group-hover:scale-110" />
           <span class="sr-only">Acme Inc</span>
         </a>
         <TooltipProvider>
@@ -74,9 +74,9 @@ import {
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Home class="h-5 w-5" />
+                <Home class="size-5" />
                 <span class="sr-only">Dashboard</span>
               </a>
             </TooltipTrigger>
@@ -90,9 +90,9 @@ import {
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:size-8"
               >
-                <ShoppingCart class="h-5 w-5" />
+                <ShoppingCart class="size-5" />
                 <span class="sr-only">Orders</span>
               </a>
             </TooltipTrigger>
@@ -106,9 +106,9 @@ import {
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Package class="h-5 w-5" />
+                <Package class="size-5" />
                 <span class="sr-only">Products</span>
               </a>
             </TooltipTrigger>
@@ -122,9 +122,9 @@ import {
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Users2 class="h-5 w-5" />
+                <Users2 class="size-5" />
                 <span class="sr-only">Customers</span>
               </a>
             </TooltipTrigger>
@@ -138,9 +138,9 @@ import {
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <LineChart class="h-5 w-5" />
+                <LineChart class="size-5" />
                 <span class="sr-only">Analytics</span>
               </a>
             </TooltipTrigger>
@@ -156,9 +156,9 @@ import {
             <TooltipTrigger as-child>
               <a
                 href="#"
-                class="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                class="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8"
               >
-                <Settings class="h-5 w-5" />
+                <Settings class="size-5" />
                 <span class="sr-only">Settings</span>
               </a>
             </TooltipTrigger>
@@ -174,7 +174,7 @@ import {
         <Sheet>
           <SheetTrigger as-child>
             <Button size="icon" variant="outline" class="sm:hidden">
-              <PanelLeft class="h-5 w-5" />
+              <PanelLeft class="size-5" />
               <span class="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
@@ -182,44 +182,44 @@ import {
             <nav class="grid gap-6 text-lg font-medium">
               <a
                 href="#"
-                class="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                class="group flex size-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
               >
-                <Package2 class="h-5 w-5 transition-all group-hover:scale-110" />
+                <Package2 class="size-5 transition-all group-hover:scale-110" />
                 <span class="sr-only">Acme Inc</span>
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <Home class="h-5 w-5" />
+                <Home class="size-5" />
                 Dashboard
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <ShoppingCart class="h-5 w-5" />
+                <ShoppingCart class="size-5" />
                 Orders
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-foreground"
               >
-                <Package class="h-5 w-5" />
+                <Package class="size-5" />
                 Products
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <Users2 class="h-5 w-5" />
+                <Users2 class="size-5" />
                 Customers
               </a>
               <a
                 href="#"
                 class="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
-                <LineChart class="h-5 w-5" />
+                <LineChart class="size-5" />
                 Settings
               </a>
             </nav>
@@ -245,7 +245,7 @@ import {
           </BreadcrumbList>
         </Breadcrumb>
         <div class="relative ml-auto flex-1 md:grow-0">
-          <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Search class="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search..."
@@ -255,7 +255,7 @@ import {
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full">
-              <CircleUser class="h-5 w-5" />
+              <CircleUser class="size-5" />
               <span class="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>
@@ -290,7 +290,7 @@ import {
               <DropdownMenu>
                 <DropdownMenuTrigger as-child>
                   <Button variant="outline" size="sm" class="h-7 gap-1">
-                    <ListFilter class="h-3.5 w-3.5" />
+                    <ListFilter class="size-3.5" />
                     <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                       Filter
                     </span>
@@ -309,13 +309,13 @@ import {
                 </DropdownMenuContent>
               </DropdownMenu>
               <Button size="sm" variant="outline" class="h-7 gap-1">
-                <File class="h-3.5 w-3.5" />
+                <File class="size-3.5" />
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   Export
                 </span>
               </Button>
               <Button size="sm" class="h-7 gap-1">
-                <PlusCircle class="h-3.5 w-3.5" />
+                <PlusCircle class="size-3.5" />
                 <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   Add Product
                 </span>
@@ -389,7 +389,7 @@ import {
                               size="icon"
                               variant="ghost"
                             >
-                              <MoreHorizontal class="h-4 w-4" />
+                              <MoreHorizontal class="size-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
                           </DropdownMenuTrigger>
@@ -436,7 +436,7 @@ import {
                               size="icon"
                               variant="ghost"
                             >
-                              <MoreHorizontal class="h-4 w-4" />
+                              <MoreHorizontal class="size-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
                           </DropdownMenuTrigger>
@@ -483,7 +483,7 @@ import {
                               size="icon"
                               variant="ghost"
                             >
-                              <MoreHorizontal class="h-4 w-4" />
+                              <MoreHorizontal class="size-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
                           </DropdownMenuTrigger>
@@ -530,7 +530,7 @@ import {
                               size="icon"
                               variant="ghost"
                             >
-                              <MoreHorizontal class="h-4 w-4" />
+                              <MoreHorizontal class="size-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
                           </DropdownMenuTrigger>
@@ -577,7 +577,7 @@ import {
                               size="icon"
                               variant="ghost"
                             >
-                              <MoreHorizontal class="h-4 w-4" />
+                              <MoreHorizontal class="size-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
                           </DropdownMenuTrigger>
@@ -624,7 +624,7 @@ import {
                               size="icon"
                               variant="ghost"
                             >
-                              <MoreHorizontal class="h-4 w-4" />
+                              <MoreHorizontal class="size-4" />
                               <span class="sr-only">Toggle menu</span>
                             </Button>
                           </DropdownMenuTrigger>

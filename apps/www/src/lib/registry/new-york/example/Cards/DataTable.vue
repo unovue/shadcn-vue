@@ -179,7 +179,7 @@ const table = useVueTable({
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
               <Button variant="outline" class="ml-auto">
-                Columns <ChevronDownIcon class="ml-2 h-4 w-4" />
+                Columns <ChevronDownIcon class="ml-2 size-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

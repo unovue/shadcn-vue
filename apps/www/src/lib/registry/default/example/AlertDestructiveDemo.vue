@@ -5,7 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/lib/registry/default/ui/a
 
 <template>
   <Alert variant="destructive">
-    <AlertCircle class="w-4 h-4" />
+    <AlertCircle class="size-4" />
     <AlertTitle>Error</AlertTitle>
     <AlertDescription>
       Your session has expired. Please log in again.

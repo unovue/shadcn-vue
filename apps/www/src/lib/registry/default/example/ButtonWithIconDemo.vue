@@ -5,6 +5,6 @@ import { Button } from '@/lib/registry/default/ui/button'
 
 <template>
   <Button>
-    <Mail class="w-4 h-4 mr-2" /> Login with Email
+    <Mail class="size-4 mr-2" /> Login with Email
   </Button>
 </template>

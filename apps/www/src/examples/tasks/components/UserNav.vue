@@ -20,8 +20,8 @@ import {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" class="relative h-8 w-8 rounded-full">
-        <Avatar class="h-9 w-9">
+      <Button variant="ghost" class="relative size-8 rounded-full">
+        <Avatar class="size-9">
           <AvatarImage src="/avatars/03.png" alt="@shadcn" />
           <AvatarFallback>SC</AvatarFallback>
         </Avatar>

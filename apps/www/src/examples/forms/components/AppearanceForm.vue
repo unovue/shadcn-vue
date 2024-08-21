@@ -72,7 +72,7 @@ const onSubmit = handleSubmit((values) => {
               </option>
             </select>
           </FormControl>
-          <ChevronDownIcon class="pointer-events-none absolute right-3 top-2.5 h-4 w-4 opacity-50" />
+          <ChevronDownIcon class="pointer-events-none absolute right-3 top-2.5 size-4 opacity-50" />
         </div>
         <FormDescription>
           Set the font you want to use in the dashboard.
@@ -105,11 +105,11 @@ const onSubmit = handleSubmit((values) => {
                     <div class="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
                   </div>
                   <div class="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm">
-                    <div class="h-4 w-4 rounded-full bg-[#ecedef]" />
+                    <div class="size-4 rounded-full bg-[#ecedef]" />
                     <div class="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
                   </div>
                   <div class="flex items-center space-x-2 rounded-md bg-white p-2 shadow-sm">
-                    <div class="h-4 w-4 rounded-full bg-[#ecedef]" />
+                    <div class="size-4 rounded-full bg-[#ecedef]" />
                     <div class="h-2 w-[100px] rounded-lg bg-[#ecedef]" />
                   </div>
                 </div>
@@ -131,11 +131,11 @@ const onSubmit = handleSubmit((values) => {
                     <div class="h-2 w-[100px] rounded-lg bg-slate-400" />
                   </div>
                   <div class="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm">
-                    <div class="h-4 w-4 rounded-full bg-slate-400" />
+                    <div class="size-4 rounded-full bg-slate-400" />
                     <div class="h-2 w-[100px] rounded-lg bg-slate-400" />
                   </div>
                   <div class="flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-sm">
-                    <div class="h-4 w-4 rounded-full bg-slate-400" />
+                    <div class="size-4 rounded-full bg-slate-400" />
                     <div class="h-2 w-[100px] rounded-lg bg-slate-400" />
                   </div>
                 </div>

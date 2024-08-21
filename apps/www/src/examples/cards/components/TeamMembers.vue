@@ -55,7 +55,7 @@ const jacksonRole = ref('Member')
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
               {{ sofiaRole }}
-              <ChevronDownIcon class="ml-2 h-4 w-4 text-muted-foreground" />
+              <ChevronDownIcon class="ml-2 size-4 text-muted-foreground" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">
@@ -113,7 +113,7 @@ const jacksonRole = ref('Member')
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
               {{ jacksonRole }}
-              <ChevronDownIcon class="ml-2 h-4 w-4 text-muted-foreground" />
+              <ChevronDownIcon class="ml-2 size-4 text-muted-foreground" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">

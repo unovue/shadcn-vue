@@ -89,7 +89,7 @@ const selectedUsers = ref<User[]>([])
               class="rounded-full p-2.5 flex items-center justify-center"
               @click="open = true"
             >
-              <PlusIcon class="w-4 h-4" />
+              <PlusIcon class="size-4" />
             </Button>
           </TooltipTrigger>
           <TooltipContent :side-offset="10">
@@ -125,7 +125,7 @@ const selectedUsers = ref<User[]>([])
       >
         <Input v-model="input" placeholder="Type a message..." class="flex-1" />
         <Button class="p-2.5 flex items-center justify-center" :disabled="inputLength === 0">
-          <PaperPlaneIcon class="w-4 h-4" />
+          <PaperPlaneIcon class="size-4" />
           <span class="sr-only">Send</span>
         </Button>
       </form>
@@ -176,7 +176,7 @@ const selectedUsers = ref<User[]>([])
                   {{ user.email }}
                 </p>
               </div>
-              <CheckIcon v-if="selectedUsers.includes(user)" class="ml-auto flex h-5 w-5 text-primary" />
+              <CheckIcon v-if="selectedUsers.includes(user)" class="ml-auto flex size-5 text-primary" />
             </CommandItem>
           </CommandGroup>
         </CommandList>

@@ -41,7 +41,7 @@ import('../../../__registry__/index').then((res) => {
           'rounded-[6px]',
         )"
       >
-        <GitHubIcon class="mr-2 h-4 w-4" />
+        <GitHubIcon class="mr-2 size-4" />
         GitHub
       </a>
     </PageAction>

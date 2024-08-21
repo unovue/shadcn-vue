@@ -80,7 +80,7 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
           aria-label="Select a team"
           :class="cn('w-[200px] justify-between', $attrs.class ?? '')"
         >
-          <Avatar class="mr-2 h-5 w-5">
+          <Avatar class="mr-2 size-5">
             <AvatarImage
               :src="`https://avatar.vercel.sh/${selectedTeam.value}.png`"
               :alt="selectedTeam.label"
@@ -88,7 +88,7 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
           {{ selectedTeam.label }}
-          <CaretSortIcon class="ml-auto h-4 w-4 shrink-0 opacity-50" />
+          <CaretSortIcon class="ml-auto size-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent class="w-[200px] p-0">
@@ -107,7 +107,7 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
                   open = false
                 }"
               >
-                <Avatar class="mr-2 h-5 w-5">
+                <Avatar class="mr-2 size-5">
                   <AvatarImage
                     :src="`https://avatar.vercel.sh/${team.value}.png`"
                     :alt="team.label"
@@ -137,7 +137,7 @@ const selectedTeam = ref<Team>(groups[0].teams[0])
                     showNewTeamDialog = true
                   }"
                 >
-                  <PlusCircledIcon class="mr-2 h-5 w-5" />
+                  <PlusCircledIcon class="mr-2 size-5" />
                   Create Team
                 </CommandItem>
               </DialogTrigger>

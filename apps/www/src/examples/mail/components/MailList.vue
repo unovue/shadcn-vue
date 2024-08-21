@@ -42,7 +42,7 @@ function getBadgeVariantFromLabel(label: string) {
                 <div class="font-semibold">
                   {{ item.name }}
                 </div>
-                <span v-if="!item.read" class="flex h-2 w-2 rounded-full bg-blue-600" />
+                <span v-if="!item.read" class="flex size-2 rounded-full bg-blue-600" />
               </div>
               <div
                 :class="cn(

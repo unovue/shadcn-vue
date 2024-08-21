@@ -23,7 +23,7 @@ const isOpen = ref(false)
       </h4>
       <CollapsibleTrigger as-child>
         <Button variant="ghost" size="sm" class="w-9 p-0">
-          <ChevronsUpDown class="h-4 w-4" />
+          <ChevronsUpDown class="size-4" />
           <span class="sr-only">Toggle</span>
         </Button>
       </CollapsibleTrigger>

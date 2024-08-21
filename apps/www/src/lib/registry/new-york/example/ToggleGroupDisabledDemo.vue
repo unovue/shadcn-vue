@@ -11,13 +11,13 @@ import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-
 <template>
   <ToggleGroup type="multiple" disabled>
     <ToggleGroupItem value="bold" aria-label="Toggle bold">
-      <FontBoldIcon class="h-4 w-4" />
+      <FontBoldIcon class="size-4" />
     </ToggleGroupItem>
     <ToggleGroupItem value="italic" aria-label="Toggle italic">
-      <FontItalicIcon class="h-4 w-4" />
+      <FontItalicIcon class="size-4" />
     </ToggleGroupItem>
     <ToggleGroupItem value="underline" aria-label="Toggle underline">
-      <UnderlineIcon class="h-4 w-4" />
+      <UnderlineIcon class="size-4" />
     </ToggleGroupItem>
   </ToggleGroup>
 </template>

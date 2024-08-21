@@ -71,8 +71,8 @@ watch(radius, (radius) => {
 
         <Drawer>
           <DrawerTrigger as-child>
-            <Button variant="outline" class="md:hidden h-9 rounded-[0.5rem]">
-              <Paintbrush class="w-4 h-4 mr-2" />
+            <Button variant="outline" class="md:hidden h-9 rounded-lg">
+              <Paintbrush class="size-4 mr-2" />
               Customize
             </Button>
           </DrawerTrigger>
@@ -83,8 +83,8 @@ watch(radius, (radius) => {
 
         <Popover>
           <PopoverTrigger as-child>
-            <Button variant="outline" class="hidden md:flex h-9 rounded-[0.5rem]">
-              <Paintbrush class="w-4 h-4 mr-2" />
+            <Button variant="outline" class="hidden md:flex h-9 rounded-lg">
+              <Paintbrush class="size-4 mr-2" />
               Customize
             </Button>
           </PopoverTrigger>
@@ -95,7 +95,7 @@ watch(radius, (radius) => {
 
         <Dialog>
           <DialogTrigger as-child>
-            <Button class="h-9 ml-2 rounded-[0.5rem]">
+            <Button class="h-9 ml-2 rounded-lg">
               Copy code
             </Button>
           </DialogTrigger>
