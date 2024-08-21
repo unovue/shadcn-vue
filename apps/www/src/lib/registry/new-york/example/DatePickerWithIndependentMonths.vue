@@ -3,8 +3,6 @@ import { type Ref, ref, watch } from 'vue'
 
 import {
   CalendarIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
 } from '@radix-icons/vue'
 import {
   CalendarDate,
