@@ -1067,6 +1067,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/TagsInputDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/TagsInputDemo.vue"],
     },
+    "TagsInputFormDemo": {
+      name: "TagsInputFormDemo",
+      type: "components:example",
+      registryDependencies: ["tags-input","button","form","toast"],
+      component: () => import("../src/lib/registry/default/example/TagsInputFormDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/TagsInputFormDemo.vue"],
+    },
     "TextareaDemo": {
       name: "TextareaDemo",
       type: "components:example",
@@ -2544,6 +2551,13 @@ export const Index = {
       registryDependencies: ["tags-input"],
       component: () => import("../src/lib/registry/new-york/example/TagsInputDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/TagsInputDemo.vue"],
+    },
+    "TagsInputFormDemo": {
+      name: "TagsInputFormDemo",
+      type: "components:example",
+      registryDependencies: ["tags-input","button","form","toast"],
+      component: () => import("../src/lib/registry/new-york/example/TagsInputFormDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/TagsInputFormDemo.vue"],
     },
     "TextareaDemo": {
       name: "TextareaDemo",
