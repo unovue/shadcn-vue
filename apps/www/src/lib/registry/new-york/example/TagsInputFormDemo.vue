@@ -15,14 +15,15 @@ import {
 } from '@/lib/registry/new-york/ui/form'
 import { toast } from '@/lib/registry/new-york/ui/toast'
 
-const modelValue = ref(['Apple', 'Banana'])
-
 const formSchema = toTypedSchema(z.object({
   fruits: z.array(z.string()).min(1).max(3),
 }))
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
+  initialValues: {
+    fruits: ['Apple', 'Banana'],
+  },
 })
 
 const onSubmit = handleSubmit((values) => {
@@ -35,12 +36,12 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ value }" v-model="modelValue" name="fruits">
+    <FormField v-slot="{ value }" name="fruits">
       <FormItem>
         <FormLabel>Fruits</FormLabel>
         <FormControl>
           <TagsInput :model-value="value">
-            <TagsInputItem v-for="item in modelValue" :key="item" :value="item">
+            <TagsInputItem v-for="item in value" :key="item" :value="item">
               <TagsInputItemText />
               <TagsInputItemDelete />
             </TagsInputItem>
