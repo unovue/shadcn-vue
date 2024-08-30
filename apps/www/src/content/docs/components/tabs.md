@@ -39,3 +39,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
   </Tabs>
 </template>
 ```
+
+## Examples
+
+### Vertical
+
+<ComponentPreview name="TabsVerticalDemo" />
