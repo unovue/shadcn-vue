@@ -9,9 +9,17 @@ const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
 
 const emits = defineEmits<CarouselEmits>()
 
-const carouselArgs = useProvideCarousel(props, emits)
+const { canScrollNext, canScrollPrev, carouselApi, carouselRef, orientation, scrollNext, scrollPrev } = useProvideCarousel(props, emits)
 
-defineExpose(carouselArgs)
+defineExpose({
+  canScrollNext,
+  canScrollPrev,
+  carouselApi,
+  carouselRef,
+  orientation,
+  scrollNext,
+  scrollPrev,
+})
 
 function onKeyDown(event: KeyboardEvent) {
   const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'
@@ -19,14 +27,14 @@ function onKeyDown(event: KeyboardEvent) {
 
   if (event.key === prevKey) {
     event.preventDefault()
-    carouselArgs.scrollPrev()
+    scrollPrev()
 
     return
   }
 
   if (event.key === nextKey) {
     event.preventDefault()
-    carouselArgs.scrollNext()
+    scrollNext()
   }
 }
 </script>
@@ -39,6 +47,6 @@ function onKeyDown(event: KeyboardEvent) {
     tabindex="0"
     @keydown="onKeyDown"
   >
-    <slot v-bind="carouselArgs" />
+    <slot :can-scroll-next :can-scroll-prev :carousel-api :carousel-ref :orientation :scroll-next :scroll-prev />
   </div>
 </template>

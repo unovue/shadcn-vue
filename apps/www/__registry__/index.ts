@@ -1056,7 +1056,7 @@ export const Index = {
     "TabsVerticalDemo": {
       name: "TabsVerticalDemo",
       type: "components:example",
-      registryDependencies: [],
+      registryDependencies: ["button","card","input","label","tabs"],
       component: () => import("../src/lib/registry/default/example/TabsVerticalDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/TabsVerticalDemo.vue"],
     },
@@ -2548,7 +2548,7 @@ export const Index = {
     "TabsVerticalDemo": {
       name: "TabsVerticalDemo",
       type: "components:example",
-      registryDependencies: [],
+      registryDependencies: ["button","card","input","label","tabs"],
       component: () => import("../src/lib/registry/new-york/example/TabsVerticalDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/TabsVerticalDemo.vue"],
     },
