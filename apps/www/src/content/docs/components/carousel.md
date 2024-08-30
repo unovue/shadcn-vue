@@ -244,8 +244,8 @@ You can get the reactive slot props like `carouselRef, canScrollNext..Prev, scro
 <template>
   <Carousel v-slot="{ canScrollNext, canScrollPrev }">
     ...
-    <CarouselPrevious v-if="canScrollPrev" />
-    <CarouselNext v-if="canScrollNext" />
+    <CarouselPrevious v-if="canScrollPrev.value" />
+    <CarouselNext v-if="canScrollNext.value" />
   </Carousel>
 </template>
 ```
