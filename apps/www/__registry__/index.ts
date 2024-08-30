@@ -1053,6 +1053,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/TabsDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/TabsDemo.vue"],
     },
+    "TabsVerticalDemo": {
+      name: "TabsVerticalDemo",
+      type: "components:example",
+      registryDependencies: [],
+      component: () => import("../src/lib/registry/default/example/TabsVerticalDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/TabsVerticalDemo.vue"],
+    },
     "TagsInputComboboxDemo": {
       name: "TagsInputComboboxDemo",
       type: "components:example",
@@ -2537,6 +2544,13 @@ export const Index = {
       registryDependencies: ["button","card","input","label","tabs"],
       component: () => import("../src/lib/registry/new-york/example/TabsDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/TabsDemo.vue"],
+    },
+    "TabsVerticalDemo": {
+      name: "TabsVerticalDemo",
+      type: "components:example",
+      registryDependencies: [],
+      component: () => import("../src/lib/registry/new-york/example/TabsVerticalDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/TabsVerticalDemo.vue"],
     },
     "TagsInputComboboxDemo": {
       name: "TagsInputComboboxDemo",
