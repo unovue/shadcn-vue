@@ -17,7 +17,7 @@ import {
 } from '@tanstack/vue-table'
 import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
 
-import { h, ref } from 'vue'
+import { h, ref, shallowRef } from 'vue'
 import DropdownAction from './DataTableDemoColumn.vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import { Checkbox } from '@/lib/registry/default/ui/checkbox'
@@ -45,7 +45,7 @@ export interface Payment {
   email: string
 }
 
-const data = ref<Payment[]>([
+const data = shallowRef<Payment[]>([
   {
     id: 'm5gr84i9',
     amount: 316,
