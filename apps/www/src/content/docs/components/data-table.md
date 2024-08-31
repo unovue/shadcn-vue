@@ -63,7 +63,7 @@ A reactive table was added in `v8.20.0` of the TanStack Table. You can see the [
 
 Relative PR: [Tanstack/table #5687](https://github.com/TanStack/table/pull/5687#issuecomment-2281067245)
 
-If you want to mutate `props.data`, you should use `defineModule`.
+If you want to mutate `props.data`, you should use [`defineModel`](https://vuejs.org/api/sfc-script-setup.html#definemodel).
 
 <ComponentPreview name="DataTableReactiveDemo" />
 
