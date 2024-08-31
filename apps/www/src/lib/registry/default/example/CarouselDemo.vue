@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/lib/registry/default/ui/card'
 </script>
 
 <template>
-  <Carousel class="relative w-full max-w-xs">
+  <Carousel v-slot="{ canScrollNext }" class="relative w-full max-w-xs">
     <CarouselContent>
       <CarouselItem v-for="(_, index) in 5" :key="index">
         <div class="p-1">
@@ -17,6 +17,6 @@ import { Card, CardContent } from '@/lib/registry/default/ui/card'
       </CarouselItem>
     </CarouselContent>
     <CarouselPrevious />
-    <CarouselNext />
+    <CarouselNext v-if="canScrollNext" />
   </Carousel>
 </template>
