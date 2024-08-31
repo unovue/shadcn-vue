@@ -521,6 +521,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DataTableDemoColumn.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DataTableDemoColumn.vue"],
     },
+    "DataTableReactiveDemo": {
+      name: "DataTableReactiveDemo",
+      type: "components:example",
+      registryDependencies: ["button","checkbox","dropdown-menu","input","table","utils"],
+      component: () => import("../src/lib/registry/default/example/DataTableReactiveDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DataTableReactiveDemo.vue"],
+    },
     "DatePickerDemo": {
       name: "DatePickerDemo",
       type: "components:example",
@@ -2012,6 +2019,13 @@ export const Index = {
       registryDependencies: ["dropdown-menu","button"],
       component: () => import("../src/lib/registry/new-york/example/DataTableDemoColumn.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DataTableDemoColumn.vue"],
+    },
+    "DataTableReactiveDemo": {
+      name: "DataTableReactiveDemo",
+      type: "components:example",
+      registryDependencies: ["button","checkbox","dropdown-menu","input","table","utils"],
+      component: () => import("../src/lib/registry/new-york/example/DataTableReactiveDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DataTableReactiveDemo.vue"],
     },
     "DatePickerDemo": {
       name: "DatePickerDemo",
