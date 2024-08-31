@@ -65,6 +65,8 @@ Relative PR: [Tanstack/table #5687](https://github.com/TanStack/table/pull/5687#
 
 If you want to mutate `props.data`, you should use [`defineModel`](https://vuejs.org/api/sfc-script-setup.html#definemodel).
 
+There is no difference between using `ref` or `shallowRef` for your data object; it will be automatically mutated by the TanStack Table to `shallowRef`.
+
 <ComponentPreview name="DataTableReactiveDemo" />
 
 ## Prerequisites
