@@ -55,6 +55,18 @@ npm install @tanstack/vue-table
 
 <ComponentPreview name="DataTableColumnPinningDemo" />
 
+### Reactive Table
+
+Reactive table are added in `v8.20.0` of TanStack Table. You can see the [docs](https://tanstack.com/table/latest/docs/framework/vue/guide/table-state#using-reactive-data) for more information. We added an example where we are randomizing `status` column. One main point is that you need to mutate **full** data, as it is a `shallowRef` object.
+
+> __*⚠️ `shallowRef` is used under the hood for performance reasons, meaning that the data is not deeply reactive, only the `.value` is. To update the data you have to mutate the data directly.*__
+
+Relative PR: [Tanstack/table #5687](https://github.com/TanStack/table/pull/5687#issuecomment-2281067245)
+
+If you want to mutate `props.data`, you should use `defineModule`.
+
+<ComponentPreview name="DataTableReactiveDemo" />
+
 ## Prerequisites
 
 We are going to build a table to show recent payments. Here's what our data looks like:
