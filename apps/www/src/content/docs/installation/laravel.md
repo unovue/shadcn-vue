@@ -10,7 +10,7 @@ description: Install and configure Laravel with Inertia
 Start by creating a new Laravel project with Inertia and Vue using the Laravel installer `laravel new my-app`:
 
 ```bash
-laravel new my-app --typescript --breeze --stack=vue --git --no-interaction
+laravel new my-app --breeze --stack=vue --git
 ```
 
 ### Run the CLI
@@ -18,6 +18,7 @@ laravel new my-app --typescript --breeze --stack=vue --git --no-interaction
 Run the `shadcn-vue` init command to setup your project:
 
 ```bash
+cd my-app
 npx shadcn-vue@latest init
 ```
 
