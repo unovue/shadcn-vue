@@ -18,7 +18,6 @@ laravel new my-app --breeze --stack=vue --git
 Run the `shadcn-vue` init command to setup your project:
 
 ```bash
-cd my-app
 npx shadcn-vue@latest init
 ```
 
