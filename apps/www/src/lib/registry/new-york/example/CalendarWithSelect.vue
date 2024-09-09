@@ -72,7 +72,7 @@ const formatter = useDateFormatter('en')
         </Select>
 
         <Select
-          :default-value="props.placeholder.year.toString()"
+          :default-value="placeholder.year.toString()"
           @update:model-value="(v) => {
             if (!v || !placeholder) return;
             if (Number(v) === placeholder?.year) return;
