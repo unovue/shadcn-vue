@@ -58,7 +58,7 @@ Use a custom component as `slot` for `<BreadcrumbSeparator />` to create a custo
 
 ```vue showLineNumbers {2,20-22}
 <script setup lang="ts">
-import { Slash } from 'lucide-react'
+import { Slash } from 'lucide-vue-next'
 import {
   Breadcrumb,
   BreadcrumbItem,

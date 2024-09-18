@@ -187,7 +187,7 @@ watch([style, codeConfig], async () => {
             </p>
             <p>
               The <span class="font-medium">Default</span> style has
-              larger inputs, uses lucide-react for icons and
+              larger inputs, uses lucide-vue-next for icons and
               tailwindcss-animate for animations.
             </p>
             <p>
