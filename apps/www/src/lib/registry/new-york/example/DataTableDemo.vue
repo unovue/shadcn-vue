@@ -6,6 +6,26 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Input } from '@/lib/registry/new-york/ui/input'
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/lib/registry/new-york/ui/table'
+import { valueUpdater } from '@/lib/utils'
+import { CaretSortIcon, ChevronDownIcon } from '@radix-icons/vue'
 import {
   FlexRender,
   getCoreRowModel,
@@ -16,27 +36,7 @@ import {
   useVueTable,
 } from '@tanstack/vue-table'
 import { h, ref } from 'vue'
-import { CaretSortIcon, ChevronDownIcon } from '@radix-icons/vue'
 import DropdownAction from './DataTableDemoColumn.vue'
-
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/lib/registry/new-york/ui/input'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/lib/registry/new-york/ui/table'
-import { valueUpdater } from '@/lib/utils'
 
 export interface Payment {
   id: string
@@ -105,7 +105,7 @@ const columns: ColumnDef<Payment>[] = [
       return h(Button, {
         variant: 'ghost',
         onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
+      }, () => ['Email', h(CaretSortIcon, { class: 'ml-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
   },
