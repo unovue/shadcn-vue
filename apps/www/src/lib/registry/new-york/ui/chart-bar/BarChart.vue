@@ -1,12 +1,12 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import type { BulletLegendItemInterface } from '@unovis/ts'
-import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
-import { type Component, computed, ref } from 'vue'
-import { useMounted } from '@vueuse/core'
 import type { BaseChartProps } from '.'
 import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/new-york/ui/chart'
 import { cn } from '@/lib/utils'
+import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
+import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue'
+import { useMounted } from '@vueuse/core'
+import { type Component, computed, ref } from 'vue'
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -71,14 +71,14 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :custom-tooltip="customTooltip" :index="index" />
 
       <VisBarComponent
-        :x="(d: Data, i: number) => i"
+        :x="(_: Data, i: number) => i"
         :y="categories.map(category => (d: Data) => d[category]) "
         :color="colors"
         :rounded-corners="roundedCorners"
         :bar-padding="0.05"
         :attributes="{
           [selectorsBar]: {
-            opacity: (d: Data, i:number) => {
+            opacity: (_: Data, i:number) => {
               const pos = i % categories.length
               return legendItems[pos]?.inactive ? filterOpacity : 1
             },
