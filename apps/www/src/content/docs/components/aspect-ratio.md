@@ -46,7 +46,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio'
 <template>
   <div class="w-[450px]">
     <AspectRatio :ratio="16 / 9">
-      <img src="..." alt="Image" class="rounded-md object-cover">
+      <img src="..." alt="Image" class="rounded-md object-cover w-full h-full">
     </AspectRatio>
   </div>
 </template>
