@@ -33,6 +33,22 @@ npm install -D typescript
 npx nuxi@latest module add @nuxtjs/tailwindcss
 ```
 
+Alternatively, you can manually add `@nuxtjs/tailwindcss` using your dependency manager
+
+```bash
+npm install --save-dev @nuxtjs/tailwindcss
+```
+
+and then to the `modules` section of `nuxt.config.{ts,js}`
+
+```ts
+export default defineNuxtConfig({
+  modules: [
+    '@nuxtjs/tailwindcss'
+  ]
+})
+```
+
 ### Add `Nuxt` module
 
 <br>
