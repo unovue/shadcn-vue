@@ -1,7 +1,7 @@
-import { readFileSync, readdirSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { addComponent, addTemplate, createResolver, defineNuxtModule, findPath, installModule, useLogger } from '@nuxt/kit'
 import { parseSync } from '@oxc-parser/wasm'
-import { addComponent, addTemplate, createResolver, defineNuxtModule, findPath, useLogger } from '@nuxt/kit'
 import { UTILS } from '../../cli/src/utils/templates'
 
 // TODO: add test to make sure all registry is being parse correctly
@@ -59,6 +59,14 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
+    // Installs the `@nuxtjs/color-mode` module.
+
+    await installModule('@nuxtjs/color-mode', {
+      colorMode: {
+        classSuffix: '',
+      },
+    })
+
     // Manually scan `componentsDir` for components and register them for auto imports
     try {
       readdirSync(resolve(COMPONENT_DIR_PATH))
@@ -73,7 +81,7 @@ export default defineNuxtModule<ModuleOptions>({
 
             const exportedKeys: string[] = ast.program.body
               .filter(node => node.type === 'ExportNamedDeclaration')
-            // @ts-expect-error parse return any
+              // @ts-expect-error parse return any
               .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
               .filter((key: string) => /^[A-Z]/.test(key))
 

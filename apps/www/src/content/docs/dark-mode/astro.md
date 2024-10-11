@@ -61,10 +61,10 @@ We're using [`useColorMode`](https://vueuse.org/core/usecolormode/) from [`@vueu
 
 ```vue
 <script setup lang="ts">
-import { useColorMode } from '@vueuse/core'
-import { Icon } from '@iconify/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Icon } from '@iconify/vue'
+import { useColorMode } from '@vueuse/core'
 
 const mode = useColorMode()
 </script>
@@ -100,7 +100,7 @@ Place a mode toggle on your site to toggle between light and dark mode.
 ```astro title="src/pages/index.astro"
 ---
 import '../styles/globals.css'
-import { ModeToggle } from '@/components/ModeToggle.vue';
+import ModeToggle from '@/components/ModeToggle.vue';
 ---
 
 <!-- Inline script -->

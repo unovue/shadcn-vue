@@ -521,6 +521,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/DataTableDemoColumn.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DataTableDemoColumn.vue"],
     },
+    "DataTableReactiveDemo": {
+      name: "DataTableReactiveDemo",
+      type: "components:example",
+      registryDependencies: ["button","checkbox","dropdown-menu","input","table","utils"],
+      component: () => import("../src/lib/registry/default/example/DataTableReactiveDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DataTableReactiveDemo.vue"],
+    },
     "DatePickerDemo": {
       name: "DatePickerDemo",
       type: "components:example",
@@ -569,6 +576,13 @@ export const Index = {
       registryDependencies: ["button","dialog","input","label"],
       component: () => import("../src/lib/registry/default/example/DialogDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/DialogDemo.vue"],
+    },
+    "DialogForm": {
+      name: "DialogForm",
+      type: "components:example",
+      registryDependencies: ["button","form","dialog","input","toast"],
+      component: () => import("../src/lib/registry/default/example/DialogForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/DialogForm.vue"],
     },
     "DialogScrollBodyDemo": {
       name: "DialogScrollBodyDemo",
@@ -751,13 +765,6 @@ export const Index = {
       registryDependencies: ["navigation-menu"],
       component: () => import("../src/lib/registry/default/example/NavigationMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/NavigationMenuDemo.vue"],
-    },
-    "NavigationMenuDemoItem": {
-      name: "NavigationMenuDemoItem",
-      type: "components:example",
-      registryDependencies: ["utils","navigation-menu"],
-      component: () => import("../src/lib/registry/default/example/NavigationMenuDemoItem.vue").then((m) => m.default),
-      files: ["../src/lib/registry/default/example/NavigationMenuDemoItem.vue"],
     },
     "NumberFieldCurrency": {
       name: "NumberFieldCurrency",
@@ -997,6 +1004,34 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/SonnerWithDialog.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/SonnerWithDialog.vue"],
     },
+    "StepperDemo": {
+      name: "StepperDemo",
+      type: "components:example",
+      registryDependencies: ["stepper"],
+      component: () => import("../src/lib/registry/default/example/StepperDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/StepperDemo.vue"],
+    },
+    "StepperForm": {
+      name: "StepperForm",
+      type: "components:example",
+      registryDependencies: ["stepper","form","select","input","button","toast"],
+      component: () => import("../src/lib/registry/default/example/StepperForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/StepperForm.vue"],
+    },
+    "StepperHorizental": {
+      name: "StepperHorizental",
+      type: "components:example",
+      registryDependencies: ["stepper","button"],
+      component: () => import("../src/lib/registry/default/example/StepperHorizental.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/StepperHorizental.vue"],
+    },
+    "StepperVertical": {
+      name: "StepperVertical",
+      type: "components:example",
+      registryDependencies: ["stepper","button"],
+      component: () => import("../src/lib/registry/default/example/StepperVertical.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/StepperVertical.vue"],
+    },
     "SwitchDemo": {
       name: "SwitchDemo",
       type: "components:example",
@@ -1025,6 +1060,13 @@ export const Index = {
       component: () => import("../src/lib/registry/default/example/TabsDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/TabsDemo.vue"],
     },
+    "TabsVerticalDemo": {
+      name: "TabsVerticalDemo",
+      type: "components:example",
+      registryDependencies: ["button","card","input","label","tabs"],
+      component: () => import("../src/lib/registry/default/example/TabsVerticalDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/TabsVerticalDemo.vue"],
+    },
     "TagsInputComboboxDemo": {
       name: "TagsInputComboboxDemo",
       type: "components:example",
@@ -1038,6 +1080,13 @@ export const Index = {
       registryDependencies: ["tags-input"],
       component: () => import("../src/lib/registry/default/example/TagsInputDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/example/TagsInputDemo.vue"],
+    },
+    "TagsInputFormDemo": {
+      name: "TagsInputFormDemo",
+      type: "components:example",
+      registryDependencies: ["tags-input","button","form","toast"],
+      component: () => import("../src/lib/registry/default/example/TagsInputFormDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/example/TagsInputFormDemo.vue"],
     },
     "TextareaDemo": {
       name: "TextareaDemo",
@@ -1971,6 +2020,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/DataTableDemoColumn.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DataTableDemoColumn.vue"],
     },
+    "DataTableReactiveDemo": {
+      name: "DataTableReactiveDemo",
+      type: "components:example",
+      registryDependencies: ["button","checkbox","dropdown-menu","input","table","utils"],
+      component: () => import("../src/lib/registry/new-york/example/DataTableReactiveDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DataTableReactiveDemo.vue"],
+    },
     "DatePickerDemo": {
       name: "DatePickerDemo",
       type: "components:example",
@@ -2019,6 +2075,13 @@ export const Index = {
       registryDependencies: ["button","dialog","input","label"],
       component: () => import("../src/lib/registry/new-york/example/DialogDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/DialogDemo.vue"],
+    },
+    "DialogForm": {
+      name: "DialogForm",
+      type: "components:example",
+      registryDependencies: ["button","form","dialog","input","toast"],
+      component: () => import("../src/lib/registry/new-york/example/DialogForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/DialogForm.vue"],
     },
     "DialogScrollBodyDemo": {
       name: "DialogScrollBodyDemo",
@@ -2201,13 +2264,6 @@ export const Index = {
       registryDependencies: ["navigation-menu"],
       component: () => import("../src/lib/registry/new-york/example/NavigationMenuDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/NavigationMenuDemo.vue"],
-    },
-    "NavigationMenuDemoItem": {
-      name: "NavigationMenuDemoItem",
-      type: "components:example",
-      registryDependencies: ["utils","navigation-menu"],
-      component: () => import("../src/lib/registry/new-york/example/NavigationMenuDemoItem.vue").then((m) => m.default),
-      files: ["../src/lib/registry/new-york/example/NavigationMenuDemoItem.vue"],
     },
     "NumberFieldCurrency": {
       name: "NumberFieldCurrency",
@@ -2447,6 +2503,34 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/SonnerWithDialog.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/SonnerWithDialog.vue"],
     },
+    "StepperDemo": {
+      name: "StepperDemo",
+      type: "components:example",
+      registryDependencies: ["stepper"],
+      component: () => import("../src/lib/registry/new-york/example/StepperDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/StepperDemo.vue"],
+    },
+    "StepperForm": {
+      name: "StepperForm",
+      type: "components:example",
+      registryDependencies: ["stepper","form","select","input","button","toast"],
+      component: () => import("../src/lib/registry/new-york/example/StepperForm.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/StepperForm.vue"],
+    },
+    "StepperHorizental": {
+      name: "StepperHorizental",
+      type: "components:example",
+      registryDependencies: ["stepper","button"],
+      component: () => import("../src/lib/registry/new-york/example/StepperHorizental.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/StepperHorizental.vue"],
+    },
+    "StepperVertical": {
+      name: "StepperVertical",
+      type: "components:example",
+      registryDependencies: ["stepper","button"],
+      component: () => import("../src/lib/registry/new-york/example/StepperVertical.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/StepperVertical.vue"],
+    },
     "SwitchDemo": {
       name: "SwitchDemo",
       type: "components:example",
@@ -2475,6 +2559,13 @@ export const Index = {
       component: () => import("../src/lib/registry/new-york/example/TabsDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/TabsDemo.vue"],
     },
+    "TabsVerticalDemo": {
+      name: "TabsVerticalDemo",
+      type: "components:example",
+      registryDependencies: ["button","card","input","label","tabs"],
+      component: () => import("../src/lib/registry/new-york/example/TabsVerticalDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/TabsVerticalDemo.vue"],
+    },
     "TagsInputComboboxDemo": {
       name: "TagsInputComboboxDemo",
       type: "components:example",
@@ -2488,6 +2579,13 @@ export const Index = {
       registryDependencies: ["tags-input"],
       component: () => import("../src/lib/registry/new-york/example/TagsInputDemo.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/example/TagsInputDemo.vue"],
+    },
+    "TagsInputFormDemo": {
+      name: "TagsInputFormDemo",
+      type: "components:example",
+      registryDependencies: ["tags-input","button","form","toast"],
+      component: () => import("../src/lib/registry/new-york/example/TagsInputFormDemo.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/example/TagsInputFormDemo.vue"],
     },
     "TextareaDemo": {
       name: "TextareaDemo",

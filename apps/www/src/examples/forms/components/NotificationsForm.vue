@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { RadioGroup, RadioGroupItem } from '@/lib/registry/new-york/ui/radio-group'
-import { Switch } from '@/lib/registry/new-york/ui/switch'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import { RadioGroup, RadioGroupItem } from '@/lib/registry/new-york/ui/radio-group'
+
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Switch } from '@/lib/registry/new-york/ui/switch'
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const notificationsFormSchema = toTypedSchema(z.object({
   type: z.enum(['all', 'mentions', 'none'], {
@@ -33,7 +33,7 @@ const { handleSubmit } = useForm({
   },
 })
 
-const onSubmit = handleSubmit((values, { resetForm }) => {
+const onSubmit = handleSubmit((values) => {
   toast({
     title: 'You submitted the following values:',
     description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),

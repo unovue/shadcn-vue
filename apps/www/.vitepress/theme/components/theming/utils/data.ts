@@ -1,6 +1,6 @@
-import { CreditCard } from 'lucide-vue-next'
 import RiAppleFill from '~icons/ri/apple-fill'
 import RiPaypalFill from '~icons/ri/paypal-fill'
+import { CreditCard } from 'lucide-vue-next'
 
 type Color =
   | 'zinc'
@@ -32,11 +32,11 @@ export const allColors: Color[] = [
   'violet',
 ]
 
-interface Payment {
-  status: string
-  email: string
-  amount: number
-}
+// interface Payment {
+//   status: string
+//   email: string
+//   amount: number
+// }
 
 interface TeamMember {
   name: string

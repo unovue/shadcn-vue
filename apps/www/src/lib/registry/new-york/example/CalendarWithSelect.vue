@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { type HTMLAttributes, type Ref, computed } from 'vue'
-import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'radix-vue'
-import { createDecade, createYear, toDate } from 'radix-vue/date'
-import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
-import { useVModel } from '@vueuse/core'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@/lib/registry/new-york/ui/calendar'
 import {
   Select,
@@ -13,6 +8,11 @@ import {
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
 import { cn } from '@/lib/utils'
+import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
+import { useVModel } from '@vueuse/core'
+import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'radix-vue'
+import { createDecade, createYear, toDate } from 'radix-vue/date'
+import { computed, type HTMLAttributes, type Ref } from 'vue'
 
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>(), {
   modelValue: undefined,
@@ -72,7 +72,7 @@ const formatter = useDateFormatter('en')
         </Select>
 
         <Select
-          :default-value="props.placeholder.year.toString()"
+          :default-value="placeholder.year.toString()"
           @update:model-value="(v) => {
             if (!v || !placeholder) return;
             if (Number(v) === placeholder?.year) return;

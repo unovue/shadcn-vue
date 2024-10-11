@@ -22,14 +22,14 @@ npx shadcn-vue@latest add number-field
 
 ```vue
 <script setup lang="ts">
+import { Label } from '@/components/ui/label'
 import {
   NumberField,
   NumberFieldContent,
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@/lib/registry/default/ui/number-field'
-import { Label } from '@/lib/registry/default/ui/label'
+} from '@/components/ui/number-field'
 </script>
 
 <template>

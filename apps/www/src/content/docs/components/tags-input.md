@@ -18,3 +18,7 @@ npx shadcn-vue@latest add tags-input
 ### Tags with Combobox
 
 <ComponentPreview name="TagsInputComboboxDemo" />
+
+### Form
+
+<ComponentPreview name="TagsInputFormDemo" />

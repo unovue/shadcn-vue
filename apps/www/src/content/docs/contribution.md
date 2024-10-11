@@ -2,6 +2,15 @@
 title: Contribution
 description: Learn on how to contribute to shadcn/vue.
 ---
+<script setup lang="ts">
+import { Button } from "@/lib/registry/new-york/ui/button"
+
+const latestSyncCommitTag = "06cc0cdf3d080555d26abbe6639f2d7f6341ec73"
+
+const latestSyncCommitUrl = `https://github.com/shadcn-ui/ui/commit/${latestSyncCommitTag}`
+const diffUrl = `https://github.com/shadcn-ui/ui/compare/${latestSyncCommitTag}...main`
+</script>
+
 ## Introduction
 
 Thanks for your interest in contributing to shadcn-vue.com. We're happy to have you here.
@@ -212,9 +221,9 @@ Take a look at `DrawerDescription.vue`.
 ```vue
 <script lang="ts" setup>
 import type { DrawerDescriptionProps } from 'vaul-vue'
-import { DrawerDescription } from 'vaul-vue'
-import { type HtmlHTMLAttributes, computed } from 'vue'
 import { cn } from '@/lib/utils'
+import { DrawerDescription } from 'vaul-vue'
+import { computed, type HtmlHTMLAttributes } from 'vue'
 
 const props = defineProps<DrawerDescriptionProps & { class?: HtmlHTMLAttributes['class'] }>()
 
@@ -261,9 +270,9 @@ Take a look at `AccordionItem.vue`
 
 ```vue
 <script setup lang="ts">
-import { type HTMLAttributes, computed } from 'vue'
-import { AccordionItem, type AccordionItemProps, useForwardProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
+import { AccordionItem, type AccordionItemProps, useForwardProps } from 'radix-vue'
+import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<AccordionItemProps & { class?: HTMLAttributes['class'] }>()
 
@@ -298,9 +307,9 @@ Let's take a look at `Button.vue`
 ```vue
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import { Primitive, type PrimitiveProps } from 'radix-vue'
 import { type ButtonVariants, buttonVariants } from '.'
-import { cn } from '@/lib/utils'
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']
@@ -325,6 +334,25 @@ const props = withDefaults(defineProps<Props>(), {
 ```
 
 You'll need to extend `PrimitiveProps` in your props to support `Primitive` component. In most cases you would also need a default value for [`as`](https://www.radix-vue.com/utilities/primitive.html#changing-as-value) property.
+
+## Updating with `shadcn/ui`
+
+`shadcn/vue` is an unofficial, community-led Vue port of `shadcn/ui`, as time goes by, they might get out of sync.
+
+As of today, we are in sync with this <a :href="latestSyncCommitUrl" target="_blank">commit</a> of `shadcn/ui`.
+
+Click on the following link to check if there are newer commits that we should be synced with.
+
+<div class="text-center">
+  <a :href="diffUrl" target="_blank">
+    <Button>
+      Check Diff
+    </Button>
+  </a>
+</div>
+
+1. There are no changes - If you see "There isn’t anything to compare", nothing needs to be done as we are synced with latest version.
+2. If there are changes, you should review thoese changes and try to apply them on `shadcn/vue` codebase and create a PR, remember to update the `latestSyncCommitTag` in [this file](https://github.com/radix-vue/shadcn-vue/blob/dev/apps/www/src/content/docs/contribution.md) too.
 
 ## Debugging
 Here are some tools and techniques that can help you debug more effectively while contributing to `shadcn/vue` or developing your own projects.

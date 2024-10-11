@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
-import { reactive, ref, watch } from 'vue'
-import { codeToHtml } from 'shiki'
-import { compileScript, parse, walk } from 'vue/compiler-sfc'
-import MagicString from 'magic-string'
-import { cssVariables } from '../config/shiki'
-import StyleSwitcher from './StyleSwitcher.vue'
-import Spinner from './Spinner.vue'
-import BlockCopyButton from './BlockCopyButton.vue'
 import { useConfigStore } from '@/stores/config'
+import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
+import MagicString from 'magic-string'
+import { codeToHtml } from 'shiki'
+import { reactive, ref, watch } from 'vue'
+import { compileScript, parse, walk } from 'vue/compiler-sfc'
+import { cssVariables } from '../config/shiki'
+import BlockCopyButton from './BlockCopyButton.vue'
+import Spinner from './Spinner.vue'
+import StyleSwitcher from './StyleSwitcher.vue'
 
 // import { V0Button } from '@/components/v0-button'
 import { Badge } from '@/lib/registry/new-york/ui/badge'
@@ -187,7 +187,7 @@ watch([style, codeConfig], async () => {
             </p>
             <p>
               The <span class="font-medium">Default</span> style has
-              larger inputs, uses lucide-react for icons and
+              larger inputs, uses lucide-vue-next for icons and
               tailwindcss-animate for animations.
             </p>
             <p>

@@ -11,7 +11,7 @@ import { Label } from '@/lib/registry/new-york/ui/label'
         <Label for="date" class="shrink-0">
           Pick a date
         </Label>
-        <DatePickerWithRange class="[&>button]:w-[260px]" />
+        <DatePickerWithRange />
       </div>
     </CardContent>
   </Card>

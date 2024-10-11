@@ -1,12 +1,13 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
-import { type BulletLegendItemInterface, CurveType } from '@unovis/ts'
-import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
-import { Area, Axis, Line } from '@unovis/ts'
-import { type Component, computed, ref } from 'vue'
-import { useMounted } from '@vueuse/core'
 import type { BaseChartProps } from '.'
 import { ChartCrosshair, ChartLegend, defaultColors } from '@/lib/registry/default/ui/chart'
 import { cn } from '@/lib/utils'
+import { type BulletLegendItemInterface, CurveType } from '@unovis/ts'
+import { Area, Axis, Line } from '@unovis/ts'
+import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
+import { useMounted } from '@vueuse/core'
+import { useId } from 'radix-vue'
+import { type Component, computed, ref } from 'vue'
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -41,6 +42,8 @@ const emits = defineEmits<{
 type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
 
+const chartRef = useId()
+
 const index = computed(() => props.index as KeyOfT)
 const colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.categories.length))
 
@@ -64,7 +67,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
     <VisXYContainer :style="{ height: isMounted ? '100%' : 'auto' }" :margin="{ left: 20, right: 20 }" :data="data">
       <svg width="0" height="0">
         <defs>
-          <linearGradient v-for="(color, i) in colors" :id="`color-${i}`" :key="i" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient v-for="(color, i) in colors" :id="`${chartRef}-color-${i}`" :key="i" x1="0" y1="0" x2="0" y2="1">
             <template v-if="showGradiant">
               <stop offset="5%" :stop-color="color" stop-opacity="0.4" />
               <stop offset="95%" :stop-color="color" stop-opacity="0" />
@@ -86,7 +89,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
           :curve-type="curveType"
           :attributes="{
             [Area.selectors.area]: {
-              fill: `url(#color-${i})`,
+              fill: `url(#${chartRef}-color-${i})`,
             },
           }"
           :opacity="legendItems.find(item => item.name === category)?.inactive ? filterOpacity : 1"

@@ -1,3 +1,7 @@
 packages:
-  - 'apps/*'
-  - 'packages/*'
+  - apps/*
+  - packages/*
+catalog:
+  '@oxc-parser/wasm': ^0.29.0
+  radix-vue: ^1.9.6
+  zod: ^3.23.8

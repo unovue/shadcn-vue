@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
@@ -21,6 +16,11 @@ import {
   NumberFieldInput,
 } from '@/lib/registry/default/ui/number-field'
 import { toast } from '@/lib/registry/default/ui/toast'
+
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   payment: z.number().min(10, 'Min 10 euros to send payment').max(5000, 'Max 5000 euros to send payment'),
@@ -43,7 +43,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField name="payment">
+    <FormField v-slot="{ value }" name="payment">
       <FormItem>
         <FormLabel>Payment</FormLabel>
         <NumberField
@@ -55,6 +55,7 @@ const onSubmit = handleSubmit((values) => {
             currencyDisplay: 'code',
             currencySign: 'accounting',
           }"
+          :model-value="value"
           @update:model-value="(v) => {
             if (v) {
               setFieldValue('payment', v)

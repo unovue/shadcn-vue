@@ -1,13 +1,13 @@
 <script setup lang="ts" generic="T extends ZodObjectOrWrapped">
-import { computed, toRefs } from 'vue'
-import type { ZodAny, z } from 'zod'
-import { toTypedSchema } from '@vee-validate/zod'
 import type { FormContext, GenericObject } from 'vee-validate'
-import { type ZodObjectOrWrapped, getBaseSchema, getBaseType, getDefaultValueInZodStack, getObjectFormSchema } from './utils'
+import type { z, ZodAny } from 'zod'
 import type { Config, ConfigItem, Dependency, Shape } from './interface'
+import { Form } from '@/lib/registry/new-york/ui/form'
+import { toTypedSchema } from '@vee-validate/zod'
+import { computed, toRefs } from 'vue'
 import AutoFormField from './AutoFormField.vue'
 import { provideDependencies } from './dependencies'
-import { Form } from '@/lib/registry/new-york/ui/form'
+import { getBaseSchema, getBaseType, getDefaultValueInZodStack, getObjectFormSchema, type ZodObjectOrWrapped } from './utils'
 
 const props = defineProps<{
   schema: T
@@ -17,7 +17,7 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits<{
-  submit: [event: GenericObject]
+  submit: [event: z.infer<T>]
 }>()
 
 const { dependencies } = toRefs(props)

@@ -10,7 +10,7 @@ primitive: https://tanstack.com/table/v8/docs/guide/introduction
 
 Every data table or datagrid I've created has been unique. They all behave differently, have specific sorting and filtering requirements, and work with different data sources.
 
-It doesn't make sense to combine all of these variations into a single component. If we do that, we'll lose the flexibility that [headless UI](https://tanstack.com/table/v8/docs/guide/introduction#what-is-headless-ui) provides.
+It doesn't make sense to combine all of these variations into a single component. If we do that, we'll lose the flexibility that [headless UI](https://tanstack.com/table/latest/docs/introduction#what-is-headless-ui) provides.
 
 So instead of a data-table component, I thought it would be more helpful to provide a guide on how to build your own.
 
@@ -54,6 +54,20 @@ npm install @tanstack/vue-table
 ### Column Pinning
 
 <ComponentPreview name="DataTableColumnPinningDemo" />
+
+### Reactive Table
+
+A reactive table was added in `v8.20.0` of the TanStack Table. You can see the [docs](https://tanstack.com/table/latest/docs/framework/vue/guide/table-state#using-reactive-data) for more information. We added an example where we are randomizing `status` column. One main point is that you need to mutate **full** data, as it is a `shallowRef` object.
+
+> __*⚠️ `shallowRef` is used under the hood for performance reasons, meaning that the data is not deeply reactive, only the `.value` is. To update the data you have to mutate the data directly.*__
+
+Relative PR: [Tanstack/table #5687](https://github.com/TanStack/table/pull/5687#issuecomment-2281067245)
+
+If you want to mutate `props.data`, you should use [`defineModel`](https://vuejs.org/api/sfc-script-setup.html#definemodel).
+
+There is no difference between using `ref` or `shallowRef` for your data object; it will be automatically mutated by the TanStack Table to `shallowRef`.
+
+<ComponentPreview name="DataTableReactiveDemo" />
 
 ## Prerequisites
 
@@ -150,12 +164,6 @@ Next, we'll create a `<DataTable />` component to render our table.
 <script setup lang="ts" generic="TData, TValue">
 import type { ColumnDef } from '@tanstack/vue-table'
 import {
-  FlexRender,
-  getCoreRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
-
-import {
   Table,
   TableBody,
   TableCell,
@@ -163,6 +171,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+
+import {
+  FlexRender,
+  getCoreRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
 
 const props = defineProps<{
   columns: ColumnDef<TData, TValue>[]
@@ -227,9 +241,9 @@ Finally, we'll render our table in our index component.
 
 ```vue
 <script setup lang="ts">
+import type { Payment } from './components/columns'
 import { onMounted, ref } from 'vue'
 import { columns } from './components/columns'
-import type { Payment } from './components/columns'
 import DataTable from './components/DataTable.vue'
 
 const data = ref<Payment[]>([])
@@ -303,9 +317,9 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 ```vue
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { MoreHorizontal } from 'lucide-vue-next'
 
 defineProps<{
   payment: {
@@ -344,8 +358,8 @@ function copy(id: string) {
 Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
 
 ```ts
-import { ColumnDef } from '@tanstack/vue-table'
 import DropdownAction from '@/components/DataTableDropDown.vue'
+import { ColumnDef } from '@tanstack/vue-table'
 
 export const columns: ColumnDef<Payment>[] = [
   // ...
@@ -451,11 +465,11 @@ Let's make the email column sortable.
 ### Add the following into your `utils` file
 
 ```ts
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
 import type { Updater } from '@tanstack/vue-table'
 import type { Ref } from 'vue'
+
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -866,11 +880,237 @@ This adds a checkbox to each row and a checkbox in the header to select all rows
 
 You can show the number of selected rows using the `table.getFilteredSelectedRowModel()` API.
 
-```vue
-<div class="flex-1 text-sm text-muted-foreground">
-    {{ table.getFilteredSelectedRowModel().rows.length }} of
-    {{ table.getFilteredRowModel().rows.length }} row(s) selected.
-</div>
+```vue:line-numbers {8-11}
+<template>
+  <div>
+    <div class="border rounded-md">
+        <Table />
+    </div>
+
+    <div class="flex items-center justify-end space-x-2 py-4">
+      <div class="flex-1 text-sm text-muted-foreground">
+        {{ table.getFilteredSelectedRowModel().rows.length }} of
+        {{ table.getFilteredRowModel().rows.length }} row(s) selected.
+      </div>
+      <div class="space-x-2">
+        <PaginationButtons />
+      </div>
+    </div>
+  </div>
+</template>
+
+```
+
+</Steps>
+
+<Steps>
+
+## Expanding
+
+Let's make rows expandable.
+
+### Update `<DataTable>`
+
+```vue:line-numbers {7,30,43,52,57,63,103-116}
+<script setup lang="ts" generic="TData, TValue">
+import type {
+  ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+  VisibilityState,
+  ExpandedState,
+} from '@tanstack/vue-table'
+
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
+import { valueUpdater } from '@/lib/utils'
+
+import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { h, ref } from 'vue'
+
+import {
+    FlexRender,
+    getCoreRowModel,
+    getPaginationRowModel,
+    getFilteredRowModel,
+    getSortedRowModel,
+    getExpandedRowModel,
+    useVueTable,
+} from "@tanstack/vue-table"
+
+const props = defineProps<{
+    columns: ColumnDef<TData, TValue>[]
+    data: TData[]
+}>()
+
+const sorting = ref<SortingState>([])
+const columnFilters = ref<ColumnFiltersState>([])
+const columnVisibility = ref<VisibilityState>({})
+const rowSelection = ref({})
+const expanded = ref<ExpandedState>({})
+
+const table = useVueTable({
+    get data() { return props.data },
+    get columns() { return props.columns },
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
+    onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
+    onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
+    onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
+    onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
+    onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expanded),
+    state: {
+        get sorting() { return sorting.value },
+        get columnFilters() { return columnFilters.value },
+        get columnVisibility() { return columnVisibility.value },
+        get rowSelection() { return rowSelection.value },
+        get expanded() { return expanded.value },
+    },
+})
+</script>
+
+<template>
+    <div>
+        <div class="flex items-center py-4">
+            <Input class="max-w-sm" placeholder="Filter emails..."
+                :model-value="table.getColumn('email')?.getFilterValue() as string"
+                @update:model-value=" table.getColumn('email')?.setFilterValue($event)" />
+            <DropdownMenu>
+                <DropdownMenuTrigger as-child>
+                    <Button variant="outline" class="ml-auto">
+                        Columns
+                        <ChevronDown class="w-4 h-4 ml-2" />
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                    <DropdownMenuCheckboxItem
+                        v-for="column in table.getAllColumns().filter((column) => column.getCanHide())" :key="column.id"
+                        class="capitalize" :checked="column.getIsVisible()" @update:checked="(value) => {
+                            column.toggleVisibility(!!value)
+                        }">
+                        {{ column.id }}
+                    </DropdownMenuCheckboxItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
+        <div class="border rounded-md">
+            <Table>
+                <TableHeader>
+                    <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+                        <TableHead v-for="header in headerGroup.headers" :key="header.id">
+                            <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header"
+                                :props="header.getContext()" />
+                        </TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    <template v-if="table.getRowModel().rows?.length">
+                      <template v-for="row in table.getRowModel().rows" :key="row.id">
+                        <TableRow :data-state="row.getIsSelected() ? 'selected' : undefined">
+                            <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
+                                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                            </TableCell>
+                        </TableRow>
+                        <TableRow v-if="row.getIsExpanded()">
+                          <TableCell :colspan="row.getAllCells().length">
+                            {{ JSON.stringify(row.original) }}
+                          </TableCell>
+                        </TableRow>
+                      </template>
+                    </template>
+                    <template v-else>
+                        <TableRow>
+                            <TableCell :colSpan="columns.length" class="h-24 text-center">
+                                No results.
+                            </TableCell>
+                        </TableRow>
+                    </template>
+                </TableBody>
+            </Table>
+        </div>
+    </div>
+</template>
+```
+
+### Add the expand action to the `DataTableDropDown.vue` component
+
+```vue:line-numbers {12-14,34-36}
+<script setup lang="ts">
+import { MoreHorizontal } from 'lucide-vue-next'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
+
+defineProps<{
+  payment: {
+    id: string
+  }
+}>()
+
+defineEmits<{
+  (e: 'expand'): void
+}>()
+
+function copy(id: string) {
+  navigator.clipboard.writeText(id)
+}
+</script>
+
+<template>
+  <DropdownMenu>
+    <DropdownMenuTrigger as-child>
+      <Button variant="ghost" class="w-8 h-8 p-0">
+        <span class="sr-only">Open menu</span>
+        <MoreHorizontal class="w-4 h-4" />
+      </Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">
+      <DropdownMenuLabel>Actions</DropdownMenuLabel>
+      <DropdownMenuItem @click="copy(payment.id)">
+        Copy payment ID
+      </DropdownMenuItem>
+      <DropdownMenuItem @click="$emit('expand')">
+        Expand
+      </DropdownMenuItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem>View customer</DropdownMenuItem>
+      <DropdownMenuItem>View payment details</DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
+</template>
+```
+
+### Make rows expandable
+
+Now we can update the action cell to add the expand control.
+
+```vue:line-numbers {11}
+<script setup lang="ts">
+export const columns: ColumnDef<Payment>[] = [
+  {
+    id: 'actions',
+    enableHiding: false,
+    cell: ({ row }) => {
+      const payment = row.original
+
+      return h('div', { class: 'relative' }, h(DropdownAction, {
+        payment,
+        onExpand: row.toggleExpanded,
+      }))
+    },
+  },
+]
+</script>
+
 ```
 
 </Steps>

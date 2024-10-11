@@ -45,12 +45,12 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
   #### `vite.config`
 
   ```typescript {5,6,9-13}
-  import path from "path"
-  import { defineConfig } from "vite"
-  import vue from "@vitejs/plugin-vue"
+  import path from 'node:path'
+  import vue from '@vitejs/plugin-vue'
+  import autoprefixer from 'autoprefixer'
 
-  import tailwind from "tailwindcss"
-  import autoprefixer from "autoprefixer"
+  import tailwind from 'tailwindcss'
+  import { defineConfig } from 'vite'
 
   export default defineConfig({
     css: {
@@ -61,7 +61,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
     plugins: [vue()],
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        '@': path.resolve(__dirname, './src'),
       },
     },
   })
@@ -91,6 +91,12 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
 ### Edit tsconfig/jsconfig.json
 
+<Callout>
+
+If you're using TypeScript, the current version of Vite splits configuration into three files, requiring the same change for `tsconfig.app.json`.
+
+</Callout>
+
 Add the code below to the compilerOptions of your `tsconfig.json` or `jsconfig.json` so your app can resolve paths without error
 
 ```json {4-7}
@@ -116,12 +122,12 @@ npm i -D @types/node
 ```
 
 ```typescript {15-19}
-import path from "path"
-import vue from "@vitejs/plugin-vue"
-import { defineConfig } from "vite"
+import path from 'node:path'
+import vue from '@vitejs/plugin-vue'
+import autoprefixer from 'autoprefixer'
 
-import tailwind from "tailwindcss"
-import autoprefixer from "autoprefixer"
+import tailwind from 'tailwindcss'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   css: {
@@ -132,7 +138,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 })
@@ -160,7 +166,7 @@ Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
 Where is your tsconfig.json or jsconfig.json file? › ./tsconfig.json
-Where is your global CSS file? › › src/index.css
+Where is your global CSS file? › › src/assets/index.css
 Do you want to use CSS variables for colors? › no / yes
 Where is your tailwind.config.js located? › tailwind.config.js
 Configure the import alias for components: › @/components

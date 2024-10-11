@@ -1,0 +1,42 @@
+{
+  "name": "stepper",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "name": "Stepper.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperRootEmits, StepperRootProps } from 'radix-vue'\nimport { StepperRoot, useForwardPropsEmits } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<StepperRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <StepperRoot\n    v-slot=\"slotProps\"\n    :class=\"cn(\n      'flex gap-2',\n      props.class,\n    )\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </StepperRoot>\n</template>\n"
+    },
+    {
+      "name": "StepperDescription.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperDescriptionProps } from 'radix-vue'\nimport { StepperDescription, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperDescriptionProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperDescription v-slot=\"slotProps\" v-bind=\"forwarded\" :class=\"cn('text-xs text-muted-foreground', props.class)\">\n    <slot v-bind=\"slotProps\" />\n  </StepperDescription>\n</template>\n"
+    },
+    {
+      "name": "StepperIndicator.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperIndicatorProps } from 'radix-vue'\nimport { StepperIndicator, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperIndicatorProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperIndicator\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'inline-flex items-center justify-center rounded-full text-muted-foreground/50 w-10 h-10',\n      // Disabled\n      'group-data-[disabled]:text-muted-foreground group-data-[disabled]:opacity-50',\n      // Active\n      'group-data-[state=active]:bg-primary group-data-[state=active]:text-primary-foreground',\n      // Completed\n      'group-data-[state=completed]:bg-accent group-data-[state=completed]:text-accent-foreground',\n      props.class,\n    )\"\n  >\n    <slot />\n  </StepperIndicator>\n</template>\n"
+    },
+    {
+      "name": "StepperItem.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperItemProps } from 'radix-vue'\nimport { StepperItem, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperItemProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperItem\n    v-slot=\"slotProps\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex items-center gap-2 group data-[disabled]:pointer-events-none', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </StepperItem>\n</template>\n"
+    },
+    {
+      "name": "StepperSeparator.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperSeparatorProps } from 'radix-vue'\nimport { StepperSeparator, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperSeparatorProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperSeparator\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'bg-muted',\n      // Disabled\n      'group-data-[disabled]:bg-muted group-data-[disabled]:opacity-50',\n      // Completed\n      'group-data-[state=completed]:bg-accent-foreground',\n      props.class,\n    )\"\n  />\n</template>\n"
+    },
+    {
+      "name": "StepperTitle.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperTitleProps } from 'radix-vue'\nimport { StepperTitle, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperTitleProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperTitle v-bind=\"forwarded\" :class=\"cn('text-md font-semibold whitespace-nowrap', props.class)\">\n    <slot />\n  </StepperTitle>\n</template>\n"
+    },
+    {
+      "name": "StepperTrigger.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { type HTMLAttributes, computed } from 'vue'\nimport type { StepperTriggerProps } from 'radix-vue'\nimport { StepperTrigger, useForwardProps } from 'radix-vue'\n\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<StepperTriggerProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperTrigger\n    v-bind=\"forwarded\"\n    :class=\"cn('p-2 flex flex-col items-center text-center gap-2 rounded-md', props.class)\"\n  >\n    <slot />\n  </StepperTrigger>\n</template>\n"
+    },
+    {
+      "name": "index.ts",
+      "content": "export { default as Stepper } from './Stepper.vue'\nexport { default as StepperItem } from './StepperItem.vue'\nexport { default as StepperIndicator } from './StepperIndicator.vue'\nexport { default as StepperTrigger } from './StepperTrigger.vue'\nexport { default as StepperTitle } from './StepperTitle.vue'\nexport { default as StepperDescription } from './StepperDescription.vue'\nexport { default as StepperSeparator } from './StepperSeparator.vue'\n"
+    }
+  ],
+  "type": "components:ui"
+}
