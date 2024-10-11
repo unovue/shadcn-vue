@@ -1,9 +1,5 @@
-import { createRequire } from 'node:module'
+import { transform } from 'detypes'
 import type { TransformOpts } from '.'
-
-// required cause Error: Dynamic require of "@babel/core" is not supported
-const require = createRequire(import.meta.url)
-const { transform } = require('detype')
 
 export async function transformSFC(opts: TransformOpts) {
   if (opts.config?.typescript)
@@ -15,5 +11,8 @@ export async function transformSFC(opts: TransformOpts) {
 export async function transformByDetype(content: string, filename: string) {
   return await transform(content, filename, {
     removeTsComments: true,
+    prettierOptions: {
+      proseWrap: 'never',
+    },
   })
 }

@@ -50,13 +50,12 @@
     "vitest": "*"
   },
   "dependencies": {
-    "@babel/core": "^7.24.7",
     "@babel/parser": "^7.24.7",
+    "@unovue/detypes": "^0.8.3",
     "@vue/compiler-sfc": "^3.4",
     "c12": "^1.11.1",
     "commander": "^12.1.0",
     "consola": "^3.2.3",
-    "detype": "npm:detypes@^0.8.0",
     "diff": "^5.2.0",
     "fs-extra": "^11.2.0",
     "https-proxy-agent": "^7.0.4",
