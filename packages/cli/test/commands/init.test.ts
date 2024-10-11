@@ -3,7 +3,7 @@ import path from 'pathe'
 import { addDependency } from 'nypm'
 import { afterEach, expect, it, vi } from 'vitest'
 
-import { runInit } from '../../src/commands/init'
+import runInitVue from '../../src/commands/frameworks/vue/init'
 import { getConfig } from '../../src/utils/get-config'
 import * as registry from '../../src/utils/registry'
 
@@ -29,7 +29,7 @@ it('init config-full', async () => {
   const targetDir = path.resolve(__dirname, '../fixtures/config-full')
   const config = await getConfig(targetDir)
 
-  await runInit(targetDir, config!)
+  await runInitVue(targetDir, config!)
 
   expect(mockMkdir).toHaveBeenNthCalledWith(
     1,
@@ -98,7 +98,7 @@ it('init config-partial', async () => {
   const targetDir = path.resolve(__dirname, '../fixtures/config-partial')
   const config = await getConfig(targetDir)
 
-  await runInit(targetDir, config!)
+  await runInitVue(targetDir, config!)
 
   expect(mockMkdir).toHaveBeenNthCalledWith(
     1,
