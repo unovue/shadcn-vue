@@ -1,5 +1,5 @@
-import { transform } from 'detypes'
 import type { TransformOpts } from '.'
+import { transform } from '@unovue/detypes'
 
 export async function transformSFC(opts: TransformOpts) {
   if (opts.config?.typescript)
