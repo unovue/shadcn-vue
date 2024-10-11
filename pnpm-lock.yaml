@@ -250,8 +250,8 @@ importers:
         specifier: ^7.25.3
         version: 7.25.8
       '@unovue/detypes':
-        specifier: ^0.8.3
-        version: 0.8.3
+        specifier: ^0.8.4
+        version: 0.8.4
       '@vitest/ui':
         specifier: '*'
         version: 2.1.2(vitest@2.1.2)
@@ -2531,8 +2531,8 @@ packages:
       '@unovis/ts': 1.4.4
       vue: ^3
 
-  '@unovue/detypes@0.8.3':
-    resolution: {integrity: sha512-C6ca7LY7o0VzOndwErGlxbDUehWdf1GiWIGhB40dgzrkhzY6XF/lt2j9gR9A9mHD/+gqQyBeh5DLHQQDzr369A==}
+  '@unovue/detypes@0.8.4':
+    resolution: {integrity: sha512-xbXzPFqdlQHS/kTMFGPPTl+dsGUL92ojrB/z8wQ9TKjuC9N1+sgnVivp7R5a0hMr2B47FjJVtz3yegXyu4MSOA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -10216,7 +10216,7 @@ snapshots:
       '@unovis/ts': 1.4.4
       vue: 3.5.11(typescript@5.6.3)
 
-  '@unovue/detypes@0.8.3':
+  '@unovue/detypes@0.8.4':
     dependencies:
       '@babel/core': 7.25.8
       '@babel/preset-typescript': 7.25.7(@babel/core@7.25.8)

@@ -52,7 +52,7 @@
   "dependencies": {
     "@babel/core": "^7.25.2",
     "@babel/parser": "^7.25.3",
-    "@unovue/detypes": "^0.8.3",
+    "@unovue/detypes": "^0.8.4",
     "@vue/compiler-sfc": "^3.4",
     "c12": "^1.11.1",
     "commander": "^12.1.0",
