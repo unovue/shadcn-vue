@@ -183,7 +183,7 @@ Use the `@init-api` emit method on `<Carousel />` component to set the instance 
 
 You can access it through setting a template ref on the `<Carousel />` component.
 
-```vue:line-numbers {2,5,9}
+```vue:line-numbers {2,5,10}
 <script setup>
 const carouselContainerRef = ref<InstanceType<typeof Carousel> | null>(null)
 
