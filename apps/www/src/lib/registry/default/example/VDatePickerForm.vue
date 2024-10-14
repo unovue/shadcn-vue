@@ -1,14 +1,5 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/v-calendar'
 import {
   FormControl,
   FormDescription,
@@ -17,13 +8,22 @@ import {
   FormLabel,
   FormMessage,
 } from '@/lib/registry/default/ui/form'
-
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/default/ui/popover'
 import { toast } from '@/lib/registry/default/ui/toast'
+import { Calendar } from '@/lib/registry/default/ui/v-calendar'
+import { cn } from '@/lib/utils'
+
+import { toTypedSchema } from '@vee-validate/zod'
+import { format } from 'date-fns'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { useForm } from 'vee-validate'
+
+import { h } from 'vue'
+import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   dob: z.date({

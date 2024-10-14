@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RocketIcon } from '@radix-icons/vue'
 import { Alert, AlertDescription, AlertTitle } from '@/lib/registry/new-york/ui/alert'
+import { RocketIcon } from '@radix-icons/vue'
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import PageHeader from '../components/PageHeader.vue'
-import PageHeaderHeading from '../components/PageHeaderHeading.vue'
-import PageHeaderDescription from '../components/PageHeaderDescription.vue'
-import PageAction from '../components/PageAction.vue'
-import ExamplesNav from '../components/ExamplesNav.vue'
-import Announcement from '../components/Announcement.vue'
-
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
+import Announcement from '../components/Announcement.vue'
+import ExamplesNav from '../components/ExamplesNav.vue'
+import PageAction from '../components/PageAction.vue'
+import PageHeader from '../components/PageHeader.vue'
+
+import PageHeaderDescription from '../components/PageHeaderDescription.vue'
+import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 </script>
 
 <template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import {
   PinInput,
   PinInputGroup,
   PinInputInput,
   PinInputSeparator,
 } from '@/lib/registry/new-york/ui/pin-input'
+import { ref } from 'vue'
 
 const value = ref<string[]>([])
 const handleComplete = (e: string[]) => alert(e.join(''))

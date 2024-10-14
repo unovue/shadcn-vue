@@ -5,28 +5,8 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import {
-  CircleUser,
-  File,
-  Home,
-  LineChart,
-  ListFilter,
-  MoreHorizontal,
-  Package,
-  Package2,
-  PanelLeft,
-  PlusCircle,
-  Search,
-  Settings,
-  ShoppingCart,
-  Users2,
-} from 'lucide-vue-next'
-
 import { Badge } from '@/lib/registry/new-york/ui/badge'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/lib/registry/new-york/ui/input'
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -35,6 +15,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/lib/registry/new-york/ui/breadcrumb'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Input } from '@/lib/registry/new-york/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
 import {
   Table,
@@ -55,6 +39,22 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/lib/registry/new-york/ui/tooltip'
+import {
+  CircleUser,
+  File,
+  Home,
+  LineChart,
+  ListFilter,
+  MoreHorizontal,
+  Package,
+  Package2,
+  PanelLeft,
+  PlusCircle,
+  Search,
+  Settings,
+  ShoppingCart,
+  Users2,
+} from 'lucide-vue-next'
 </script>
 
 <template>

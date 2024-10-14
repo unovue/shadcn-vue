@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { toast } from 'vue-sonner'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { toast } from 'vue-sonner'
 </script>
 
 <template>

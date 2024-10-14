@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { type HTMLAttributes, computed } from 'vue'
+import { cn } from '@/lib/utils'
+import { ChevronRightIcon } from '@radix-icons/vue'
 import {
   ContextMenuSubTrigger,
   type ContextMenuSubTriggerProps,
   useForwardProps,
 } from 'radix-vue'
-import { ChevronRightIcon } from '@radix-icons/vue'
-import { cn } from '@/lib/utils'
+import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<ContextMenuSubTriggerProps & { class?: HTMLAttributes['class'], inset?: boolean }>()
 

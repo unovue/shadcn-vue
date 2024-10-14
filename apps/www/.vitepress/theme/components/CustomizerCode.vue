@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useClipboard } from '@vueuse/core'
-import { useConfigStore } from '@/stores/config'
 import { themes } from '@/lib/registry'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { useConfigStore } from '@/stores/config'
+import { useClipboard } from '@vueuse/core'
 import CheckIcon from '~icons/radix-icons/check'
 import CopyIcon from '~icons/radix-icons/copy'
+import { computed, ref } from 'vue'
 
 const { theme, config } = useConfigStore()
 

@@ -1,6 +1,5 @@
 import type { CodemodPlugin } from 'vue-metamorph'
 import type { TransformOpts } from '.'
-import type { Config } from '@/src/utils/get-config'
 
 export function transformImport(opts: TransformOpts): CodemodPlugin {
   return {

@@ -7,7 +7,7 @@
   "files": [
     {
       "name": "Label.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { Label, type LabelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <Label\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Label, type LabelProps } from 'radix-vue'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <Label\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n"
     },
     {
       "name": "index.ts",

@@ -1,17 +1,17 @@
-import process from 'node:process'
-import path from 'pathe'
-import { HttpsProxyAgent } from 'https-proxy-agent'
-import { ofetch } from 'ofetch'
+import type { Config } from '@/src/utils/get-config'
+import type { registryItemWithContentSchema } from '@/src/utils/registry/schema'
 import type * as z from 'zod'
-import consola from 'consola'
+import process from 'node:process'
 import {
   registryBaseColorSchema,
   registryIndexSchema,
   registryWithContentSchema,
   stylesSchema,
 } from '@/src/utils/registry/schema'
-import type { registryItemWithContentSchema } from '@/src/utils/registry/schema'
-import type { Config } from '@/src/utils/get-config'
+import consola from 'consola'
+import { HttpsProxyAgent } from 'https-proxy-agent'
+import { ofetch } from 'ofetch'
+import path from 'pathe'
 
 const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? 'https://www.shadcn-vue.com'
 const agent = process.env.https_proxy

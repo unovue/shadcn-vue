@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Mail } from 'lucide-vue-next'
 import { Button } from '@/lib/registry/default/ui/button'
+import { Mail } from 'lucide-vue-next'
 </script>
 
 <template>

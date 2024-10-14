@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Label } from '@/lib/registry/new-york/ui/label'
 import {
   NumberField,
   NumberFieldContent,
@@ -6,7 +7,6 @@ import {
   NumberFieldIncrement,
   NumberFieldInput,
 } from '@/lib/registry/new-york/ui/number-field'
-import { Label } from '@/lib/registry/new-york/ui/label'
 </script>
 
 <template>

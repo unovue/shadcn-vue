@@ -1,12 +1,7 @@
+import type { Config } from '@/src/utils/get-config'
+import type { registryIndexSchema } from '@/src/utils/registry/schema'
 import { existsSync, promises as fs } from 'node:fs'
 import process from 'node:process'
-import path from 'pathe'
-import { consola } from 'consola'
-import { colors } from 'consola/utils'
-import { Command } from 'commander'
-import { type Change, diffLines } from 'diff'
-import { z } from 'zod'
-import type { Config } from '@/src/utils/get-config'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
 import {
@@ -15,8 +10,13 @@ import {
   getRegistryBaseColor,
   getRegistryIndex,
 } from '@/src/utils/registry'
-import type { registryIndexSchema } from '@/src/utils/registry/schema'
 import { transform } from '@/src/utils/transformers'
+import { Command } from 'commander'
+import { consola } from 'consola'
+import { colors } from 'consola/utils'
+import { type Change, diffLines } from 'diff'
+import path from 'pathe'
+import { z } from 'zod'
 
 const updateOptionsSchema = z.object({
   component: z.string().optional(),

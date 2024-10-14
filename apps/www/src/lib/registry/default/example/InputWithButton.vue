@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Input } from '@/lib/registry/default/ui/input'
 import { Button } from '@/lib/registry/default/ui/button'
+import { Input } from '@/lib/registry/default/ui/input'
 </script>
 
 <template>

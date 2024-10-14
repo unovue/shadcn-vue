@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Search } from 'lucide-vue-next'
 import { Input } from '@/lib/registry/default/ui/input'
+import { Search } from 'lucide-vue-next'
 </script>
 
 <template>

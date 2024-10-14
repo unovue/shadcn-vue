@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
-
-import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Command,
@@ -12,11 +8,15 @@ import {
   CommandItem,
   CommandList,
 } from '@/lib/registry/new-york/ui/command'
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/new-york/ui/popover'
+import { cn } from '@/lib/utils'
+import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
+import { ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import type { TableOfContents, TableOfContentsItem } from '../types/docs'
+import { buttonVariants } from '@/lib/registry/default/ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/lib/registry/default/ui/collapsible'
+import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import { onContentUpdated } from 'vitepress'
 import { shallowRef } from 'vue'
-import type { TableOfContents, TableOfContentsItem } from '../types/docs'
 import TableOfContentTree from './TableOfContentTree.vue'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/lib/registry/default/ui/collapsible'
-import { buttonVariants } from '@/lib/registry/default/ui/button'
-import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 
 const headers = shallowRef<TableOfContents>()
 

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { CaretSortIcon } from '@radix-icons/vue'
-
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/lib/registry/new-york/ui/collapsible'
+
+import { CaretSortIcon } from '@radix-icons/vue'
+import { ref } from 'vue'
 
 const isOpen = ref(false)
 </script>

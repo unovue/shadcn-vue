@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { type Ref, ref } from 'vue'
 import type { DateRange } from 'radix-vue'
-import { getLocalTimeZone, today } from '@internationalized/date'
-
-import ThemingLayout from './../../layout/ThemingLayout.vue'
-
 import CookieSettings from '@/examples/cards/components/CookieSettings.vue'
 import CreateAccount from '@/examples/cards/components/CreateAccount.vue'
+
 import PaymentMethod from '@/examples/cards/components/PaymentMethod.vue'
+
 import ReportAnIssue from '@/examples/cards/components/ReportAnIssue.vue'
 import ShareDocument from '@/examples/cards/components/ShareDocument.vue'
 import TeamMembers from '@/examples/cards/components/TeamMembers.vue'
-
 import CardChat from '@/lib/registry/new-york/example/CardChat.vue'
 import ActivityGoal from '@/lib/registry/new-york/example/Cards/ActivityGoal.vue'
-import Metric from '@/lib/registry/new-york/example/Cards/Metric.vue'
 import DataTable from '@/lib/registry/new-york/example/Cards/DataTable.vue'
-import CardStats from '@/lib/registry/new-york/example/CardStats.vue'
 
+import Metric from '@/lib/registry/new-york/example/Cards/Metric.vue'
+import CardStats from '@/lib/registry/new-york/example/CardStats.vue'
 import { Card } from '@/lib/registry/new-york/ui/card'
 import { RangeCalendar } from '@/lib/registry/new-york/ui/range-calendar'
+import { getLocalTimeZone, today } from '@internationalized/date'
+
+import { type Ref, ref } from 'vue'
+import ThemingLayout from './../../layout/ThemingLayout.vue'
 
 const now = today(getLocalTimeZone())
 

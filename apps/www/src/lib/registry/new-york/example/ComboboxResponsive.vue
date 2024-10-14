@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { ref } from 'vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/lib/registry/new-york/ui/command'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/lib/registry/new-york/ui/drawer'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
+import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
+import { ref } from 'vue'
 
 interface Status {
   value: string

@@ -1,9 +1,9 @@
-import { join, parse, resolve } from 'node:path'
+import type { ComponentMeta, MetaCheckerOptions, PropertyMeta, PropertyMetaSchema } from 'vue-component-meta'
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { join, parse, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import fg from 'fast-glob'
 import MarkdownIt from 'markdown-it'
-import type { ComponentMeta, MetaCheckerOptions, PropertyMeta, PropertyMetaSchema } from 'vue-component-meta'
 import { createComponentMetaChecker } from 'vue-component-meta'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))

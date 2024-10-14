@@ -23,7 +23,7 @@
     },
     {
       "name": "TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport TableRow from './TableRow.vue'\nimport TableCell from './TableCell.vue'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  colspan?: number\n}>(), {\n  colspan: 1,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      v-bind=\"delegatedProps\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { computed, type HTMLAttributes } from 'vue'\nimport TableCell from './TableCell.vue'\nimport TableRow from './TableRow.vue'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  colspan?: number\n}>(), {\n  colspan: 1,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      v-bind=\"delegatedProps\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n"
     },
     {
       "name": "TableFooter.vue",
@@ -43,7 +43,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableFooter } from './TableFooter.vue'\nexport { default as TableRow } from './TableRow.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\n"
+      "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\nexport { default as TableFooter } from './TableFooter.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableRow } from './TableRow.vue'\n"
     }
   ],
   "type": "components:ui"

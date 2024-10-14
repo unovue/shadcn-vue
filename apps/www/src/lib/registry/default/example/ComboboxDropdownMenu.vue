@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Calendar, MoreHorizontal, Tags, Trash, User } from 'lucide-vue-next'
-
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   Command,
@@ -11,6 +8,7 @@ import {
   CommandItem,
   CommandList,
 } from '@/lib/registry/default/ui/command'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +22,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/lib/registry/default/ui/dropdown-menu'
+import { Calendar, MoreHorizontal, Tags, Trash, User } from 'lucide-vue-next'
+import { ref } from 'vue'
 
 const labels = [
   'feature',

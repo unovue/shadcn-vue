@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import tasks from './data/tasks.json'
+import { columns } from './components/columns'
 import DataTable from './components/DataTable.vue'
 import UserNav from './components/UserNav.vue'
-import { columns } from './components/columns'
+import tasks from './data/tasks.json'
 </script>
 
 <template>

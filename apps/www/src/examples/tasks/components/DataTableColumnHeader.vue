@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import ArrowDownIcon from '~icons/radix-icons/arrow-down'
-import ArrowUpIcon from '~icons/radix-icons/arrow-up'
-import CaretSortIcon from '~icons/radix-icons/caret-sort'
-import EyeNoneIcon from '~icons/radix-icons/eye-none'
-
-import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   DropdownMenu,
@@ -15,6 +9,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
+import ArrowDownIcon from '~icons/radix-icons/arrow-down'
+
+import ArrowUpIcon from '~icons/radix-icons/arrow-up'
+import CaretSortIcon from '~icons/radix-icons/caret-sort'
+import EyeNoneIcon from '~icons/radix-icons/eye-none'
 
 interface DataTableColumnHeaderProps {
   column: Column<Task, any>

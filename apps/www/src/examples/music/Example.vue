@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import AlbumArtwork from './components/AlbumArtwork.vue'
-import Menu from './components/Menu.vue'
-import PodcastEmptyPlaceholder from './components/PodcastEmptyPlaceholder.vue'
-import Sidebar from './components/Sidebar.vue'
-
-import { listenNowAlbums, madeForYouAlbums } from './data/albums'
-import { playlists } from './data/playlists'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { ScrollArea, ScrollBar } from '@/lib/registry/new-york/ui/scroll-area'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from '@/lib/registry/new-york/ui/tabs'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { ScrollArea, ScrollBar } from '@/lib/registry/new-york/ui/scroll-area'
+
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
+import AlbumArtwork from './components/AlbumArtwork.vue'
+import Menu from './components/Menu.vue'
+import PodcastEmptyPlaceholder from './components/PodcastEmptyPlaceholder.vue'
+import Sidebar from './components/Sidebar.vue'
+import { listenNowAlbums, madeForYouAlbums } from './data/albums'
+import { playlists } from './data/playlists'
 </script>
 
 <template>

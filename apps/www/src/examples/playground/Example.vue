@@ -1,6 +1,23 @@
 <script setup lang="ts">
+import { Button } from '@/lib/registry/new-york/ui/button'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/lib/registry/new-york/ui/hover-card'
+import { Label } from '@/lib/registry/new-york/ui/label'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/lib/registry/new-york/ui/tabs'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-clock'
 import CodeViewer from './components/CodeViewer.vue'
 import MaxLengthSelector from './components/MaxLengthSelector.vue'
+
 import ModelSelector from './components/ModelSelector.vue'
 import PresetActions from './components/PresetActions.vue'
 import PresetSave from './components/PresetSave.vue'
@@ -8,23 +25,6 @@ import PresetSelector from './components/PresetSelector.vue'
 import PresetShare from './components/PresetShare.vue'
 import TemperatureSelector from './components/TemperatureSelector.vue'
 import TopPSelector from './components/TopPSelector.vue'
-
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/lib/registry/new-york/ui/tabs'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Label } from '@/lib/registry/new-york/ui/label'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/lib/registry/new-york/ui/hover-card'
-import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-clock'
 </script>
 
 <template>

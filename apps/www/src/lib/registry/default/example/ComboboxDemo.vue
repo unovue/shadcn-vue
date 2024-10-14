@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-
-import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   Command,
@@ -12,11 +8,15 @@ import {
   CommandItem,
   CommandList,
 } from '@/lib/registry/default/ui/command'
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/default/ui/popover'
+import { cn } from '@/lib/utils'
+import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

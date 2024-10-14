@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   FormControl,
@@ -14,6 +9,11 @@ import {
 } from '@/lib/registry/default/ui/form'
 import { Switch } from '@/lib/registry/default/ui/switch'
 import { toast } from '@/lib/registry/default/ui/toast'
+
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   marketing_emails: z.boolean().default(false).optional(),

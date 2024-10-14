@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { CheckIcon, PaperPlaneIcon, PlusIcon } from '@radix-icons/vue'
-import { computed, ref } from 'vue'
+import { Avatar, AvatarFallback, AvatarImage } from '@/lib/registry/new-york/ui/avatar'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from '@/lib/registry/new-york/ui/card'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/lib/registry/new-york/ui/dialog'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/lib/registry/new-york/ui/command'
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/lib/registry/new-york/ui/dialog'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/lib/registry/new-york/ui/avatar'
+import { Input } from '@/lib/registry/new-york/ui/input'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/lib/registry/new-york/ui/tooltip'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Input } from '@/lib/registry/new-york/ui/input'
 import { cn } from '@/lib/utils'
+import { CheckIcon, PaperPlaneIcon, PlusIcon } from '@radix-icons/vue'
+import { computed, ref } from 'vue'
 
 const input = ref('')
 const inputLength = computed(() => input.value.trim().length)

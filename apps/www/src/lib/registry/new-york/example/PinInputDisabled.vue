@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import {
   PinInput,
   PinInputGroup,
   PinInputInput,
 } from '@/lib/registry/new-york/ui/pin-input'
+import { ref } from 'vue'
 
 const value = ref<string[]>([])
 </script>

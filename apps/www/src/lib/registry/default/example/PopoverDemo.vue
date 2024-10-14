@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { Button } from '@/lib/registry/default/ui/button'
+import { Input } from '@/lib/registry/default/ui/input'
+import { Label } from '@/lib/registry/default/ui/label'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/default/ui/popover'
-import { Button } from '@/lib/registry/default/ui/button'
-import { Label } from '@/lib/registry/default/ui/label'
-import { Input } from '@/lib/registry/default/ui/input'
 </script>
 
 <template>

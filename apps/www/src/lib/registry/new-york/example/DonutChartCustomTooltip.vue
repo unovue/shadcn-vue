@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CustomChartTooltip from './CustomChartTooltip.vue'
 import { DonutChart } from '@/lib/registry/new-york/ui/chart-donut'
+import CustomChartTooltip from './CustomChartTooltip.vue'
 
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },

@@ -1,10 +1,10 @@
-import { existsSync } from 'node:fs'
-import path from 'pathe'
-import { loadConfig as c12LoadConfig } from 'c12'
 import type { ConfigLoaderResult } from 'tsconfig-paths'
+import { existsSync } from 'node:fs'
+import { resolveImport } from '@/src/utils/resolve-import'
+import { loadConfig as c12LoadConfig } from 'c12'
+import path from 'pathe'
 import { loadConfig } from 'tsconfig-paths'
 import { z } from 'zod'
-import { resolveImport } from '@/src/utils/resolve-import'
 
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
@@ -90,7 +90,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   }
   if (tsConfig.resultType === 'failed') {
     throw new Error(
-        `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
+      `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
     )
   }
 

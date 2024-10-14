@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { formatDistanceToNow } from 'date-fns'
 import type { Mail } from '../data/mails'
+import { Badge } from '@/lib/registry/new-york/ui/badge'
 import { ScrollArea } from '@/lib/registry/new-york/ui/scroll-area'
 import { cn } from '@/lib/utils'
-import { Badge } from '@/lib/registry/new-york/ui/badge'
+import { formatDistanceToNow } from 'date-fns'
 
 interface MailListProps {
   items: Mail[]

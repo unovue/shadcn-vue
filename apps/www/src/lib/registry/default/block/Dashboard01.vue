@@ -5,7 +5,6 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from 'lucide-vue-next'
 import { Avatar, AvatarFallback, AvatarImage } from '@/lib/registry/default/ui/avatar'
 import { Badge } from '@/lib/registry/default/ui/badge'
 import { Button } from '@/lib/registry/default/ui/button'
@@ -14,6 +13,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Input } from '@/lib/registry/default/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/lib/registry/default/ui/table'
+import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from 'lucide-vue-next'
 </script>
 
 <template>

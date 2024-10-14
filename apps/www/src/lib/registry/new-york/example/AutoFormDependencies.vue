@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import * as z from 'zod'
-import { h } from 'vue'
-import { DependencyType } from '../ui/auto-form/interface'
+import { AutoForm } from '@/lib/registry/new-york/ui/auto-form'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { toast } from '@/lib/registry/new-york/ui/toast'
-import { AutoForm } from '@/lib/registry/new-york/ui/auto-form'
+import { h } from 'vue'
+import * as z from 'zod'
+import { DependencyType } from '../ui/auto-form/interface'
 
 const schema = z.object({
   age: z.number(),

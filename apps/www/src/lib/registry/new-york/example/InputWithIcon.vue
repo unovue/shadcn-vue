@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MagnifyingGlassIcon } from '@radix-icons/vue'
 import { Input } from '@/lib/registry/new-york/ui/input'
+import { MagnifyingGlassIcon } from '@radix-icons/vue'
 </script>
 
 <template>

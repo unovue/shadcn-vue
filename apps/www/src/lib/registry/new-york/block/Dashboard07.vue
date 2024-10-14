@@ -5,6 +5,44 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
+import { Badge } from '@/lib/registry/new-york/ui/badge'
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/lib/registry/new-york/ui/breadcrumb'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Input } from '@/lib/registry/new-york/ui/input'
+import { Label } from '@/lib/registry/new-york/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/lib/registry/new-york/ui/select'
+import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/lib/registry/new-york/ui/table'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-group'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/lib/registry/new-york/ui/tooltip'
 import {
   ChevronLeft,
   CircleUser,
@@ -20,44 +58,6 @@ import {
   Upload,
   Users2,
 } from 'lucide-vue-next'
-
-import { Badge } from '@/lib/registry/new-york/ui/badge'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/lib/registry/new-york/ui/input'
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
-import { Label } from '@/lib/registry/new-york/ui/label'
-import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-group'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/lib/registry/new-york/ui/breadcrumb'
-import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/lib/registry/new-york/ui/table'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/lib/registry/new-york/ui/select'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/lib/registry/new-york/ui/tooltip'
 </script>
 
 <template>

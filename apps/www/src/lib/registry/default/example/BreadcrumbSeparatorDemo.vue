@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { Slash } from 'lucide-vue-next'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/lib/registry/default/ui/breadcrumb'
+import { Slash } from 'lucide-vue-next'
 </script>
 
 <template>

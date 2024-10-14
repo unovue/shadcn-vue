@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CustomChartTooltip from './CustomChartTooltip.vue'
 import { LineChart } from '@/lib/registry/new-york/ui/chart-line'
+import CustomChartTooltip from './CustomChartTooltip.vue'
 
 const data = [
   {

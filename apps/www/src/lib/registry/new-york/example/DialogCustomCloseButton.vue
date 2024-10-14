@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CopyIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Dialog,
@@ -13,6 +12,7 @@ import {
 } from '@/lib/registry/new-york/ui/dialog'
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Label } from '@/lib/registry/new-york/ui/label'
+import { CopyIcon } from '@radix-icons/vue'
 </script>
 
 <template>

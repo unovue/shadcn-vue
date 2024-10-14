@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ReloadIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { ReloadIcon } from '@radix-icons/vue'
 </script>
 
 <template>

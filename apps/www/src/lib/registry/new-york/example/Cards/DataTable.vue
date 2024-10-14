@@ -5,19 +5,8 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
-import {
-  FlexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
-import { h, ref } from 'vue'
-import { CaretSortIcon, ChevronDownIcon } from '@radix-icons/vue'
-import DropdownAction from '../DataTableDemoColumn.vue'
-
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
 import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import {
   DropdownMenu,
@@ -25,6 +14,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
+
 import { Input } from '@/lib/registry/new-york/ui/input'
 import {
   Table,
@@ -34,8 +24,18 @@ import {
   TableHeader,
   TableRow,
 } from '@/lib/registry/new-york/ui/table'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
 import { valueUpdater } from '@/lib/utils'
+import { CaretSortIcon, ChevronDownIcon } from '@radix-icons/vue'
+import {
+  FlexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
+import { h, ref } from 'vue'
+import DropdownAction from '../DataTableDemoColumn.vue'
 
 export interface Payment {
   id: string

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { CalendarDays } from 'lucide-vue-next'
-
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/lib/registry/default/ui/avatar'
+
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from '@/lib/registry/default/ui/hover-card'
+import { CalendarDays } from 'lucide-vue-next'
 </script>
 
 <template>

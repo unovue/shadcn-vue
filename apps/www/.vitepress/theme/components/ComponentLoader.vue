@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { useConfigStore } from '@/stores/config'
 import { defineAsyncComponent } from 'vue'
 import Spinner from './Spinner.vue'
-import { useConfigStore } from '@/stores/config'
 
 const props = defineProps<{
   name: string

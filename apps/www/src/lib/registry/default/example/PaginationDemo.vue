@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import {
+  Button,
+} from '@/lib/registry/default/ui/button'
+
+import {
   Pagination,
   PaginationEllipsis,
   PaginationFirst,
@@ -9,10 +13,6 @@ import {
   PaginationNext,
   PaginationPrev,
 } from '@/lib/registry/default/ui/pagination'
-
-import {
-  Button,
-} from '@/lib/registry/default/ui/button'
 </script>
 
 <template>

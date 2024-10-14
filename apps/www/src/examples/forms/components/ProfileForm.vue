@@ -1,15 +1,7 @@
 <script setup lang="ts">
-import { h, ref } from 'vue'
-import { FieldArray, useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import { Cross1Icon } from '@radix-icons/vue'
-import { cn } from '@/lib/utils'
-
-import { Input } from '@/lib/registry/new-york/ui/input'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Input } from '@/lib/registry/new-york/ui/input'
 import {
   Select,
   SelectContent,
@@ -18,8 +10,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { cn } from '@/lib/utils'
+import { Cross1Icon } from '@radix-icons/vue'
+import { toTypedSchema } from '@vee-validate/zod'
+import { FieldArray, useForm } from 'vee-validate'
+import { h, ref } from 'vue'
+import * as z from 'zod'
 
 const verifiedEmails = ref(['m@example.com', 'm@google.com', 'm@support.com'])
 

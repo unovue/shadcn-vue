@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Autoplay from 'embla-carousel-autoplay'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
 import { Card, CardContent } from '@/lib/registry/default/ui/card'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
 const plugin = Autoplay({
   delay: 2000,

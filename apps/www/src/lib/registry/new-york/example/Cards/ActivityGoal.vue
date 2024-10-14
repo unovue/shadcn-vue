@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { MinusIcon, PlusIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
-
 import {
   Card,
   CardContent,
@@ -12,6 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/new-york/ui/card'
+import { MinusIcon, PlusIcon } from '@radix-icons/vue'
+import { VisStackedBar, VisXYContainer } from '@unovis/vue'
+
+import { ref } from 'vue'
 
 const goal = ref(350)
 

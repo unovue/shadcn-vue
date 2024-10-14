@@ -51,12 +51,12 @@ module.exports = {
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
+import { ref } from 'vue'
 
 const isOpen = ref(false)
 </script>

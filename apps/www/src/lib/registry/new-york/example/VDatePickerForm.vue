@@ -1,14 +1,5 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { format } from 'date-fns'
-import { CalendarIcon } from '@radix-icons/vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
 import {
   FormControl,
   FormDescription,
@@ -17,13 +8,22 @@ import {
   FormLabel,
   FormMessage,
 } from '@/lib/registry/new-york/ui/form'
-
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/new-york/ui/popover'
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
+import { cn } from '@/lib/utils'
+
+import { CalendarIcon } from '@radix-icons/vue'
+import { toTypedSchema } from '@vee-validate/zod'
+import { format } from 'date-fns'
+import { useForm } from 'vee-validate'
+
+import { h } from 'vue'
+import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   dob: z.date({

@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { addDays, format } from 'date-fns'
-import { CalendarIcon } from '@radix-icons/vue'
-
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
 import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/new-york/ui/popover'
+
 import {
   Select,
   SelectContent,
@@ -18,6 +13,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
+import { Calendar } from '@/lib/registry/new-york/ui/v-calendar'
+import { cn } from '@/lib/utils'
+import { CalendarIcon } from '@radix-icons/vue'
+import { addDays, format } from 'date-fns'
+import { ref } from 'vue'
 
 const date = ref<Date>()
 </script>

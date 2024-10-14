@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { useData } from 'vitepress'
 import type { Color } from '../types/colors'
-import { RADII, useConfigStore } from '@/stores/config'
+import { colors } from '@/lib/registry'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Label } from '@/lib/registry/new-york/ui/label'
-import { colors } from '@/lib/registry'
+import { RADII, useConfigStore } from '@/stores/config'
 import RadixIconsCheck from '~icons/radix-icons/check'
-import RadixIconsSun from '~icons/radix-icons/sun'
 import RadixIconsMoon from '~icons/radix-icons/moon'
+import RadixIconsSun from '~icons/radix-icons/sun'
+import { useData } from 'vitepress'
 
 defineProps<{
   allColors: Color[]

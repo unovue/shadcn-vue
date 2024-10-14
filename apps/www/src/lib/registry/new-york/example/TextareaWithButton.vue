@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { Textarea } from '@/lib/registry/new-york/ui/textarea'
 </script>
 
 <template>

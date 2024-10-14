@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { useRoute } from 'vitepress'
 import type { TableOfContentsItem } from '../types/docs'
 import { cn } from '@/lib/utils'
+import { useRoute } from 'vitepress'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 
 withDefaults(defineProps<{
   level: number

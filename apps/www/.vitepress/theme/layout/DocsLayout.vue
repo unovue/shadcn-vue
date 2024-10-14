@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useData, useRoute } from 'vitepress'
-import { docsConfig } from '../config/docs'
-import TableOfContentVue from '../components/TableOfContent.vue'
-import EditLink from '../components/EditLink.vue'
-import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import RadixIconsCode from '~icons/radix-icons/code'
 import RadixIconsExternalLink from '~icons/radix-icons/external-link'
+import { useData, useRoute } from 'vitepress'
+import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
+import EditLink from '../components/EditLink.vue'
+import TableOfContentVue from '../components/TableOfContent.vue'
+import { docsConfig } from '../config/docs'
 
 const $route = useRoute()
 const { frontmatter } = useData()

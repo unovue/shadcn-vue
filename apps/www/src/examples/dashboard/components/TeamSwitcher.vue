@@ -1,17 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import CaretSortIcon from '~icons/radix-icons/caret-sort'
-import CheckIcon from '~icons/radix-icons/check'
-import PlusCircledIcon from '~icons/radix-icons/plus-circled'
-
-import { cn } from '@/lib/utils'
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/lib/registry/new-york/ui/avatar'
 import { Button } from '@/lib/registry/new-york/ui/button'
-
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/new-york/ui/command'
 import {
   Dialog,
   DialogContent,
@@ -21,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/lib/registry/new-york/ui/dialog'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/new-york/ui/command'
+
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import {
@@ -29,6 +23,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/new-york/ui/popover'
+
 import {
   Select,
   SelectContent,
@@ -36,6 +31,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
+import { cn } from '@/lib/utils'
+import CaretSortIcon from '~icons/radix-icons/caret-sort'
+import CheckIcon from '~icons/radix-icons/check'
+import PlusCircledIcon from '~icons/radix-icons/plus-circled'
+import { ref } from 'vue'
 
 const groups = [
   {

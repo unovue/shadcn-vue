@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import FormsLayout from './layouts/FormsLayout.vue'
 import DisplayForm from './components/DisplayForm.vue'
+import FormsLayout from './layouts/FormsLayout.vue'
 </script>
 
 <template>

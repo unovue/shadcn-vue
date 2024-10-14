@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ChevronRightIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { ChevronRightIcon } from '@radix-icons/vue'
 </script>
 
 <template>

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { SlashIcon } from '@radix-icons/vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/lib/registry/new-york/ui/breadcrumb'
+import { SlashIcon } from '@radix-icons/vue'
 </script>
 
 <template>

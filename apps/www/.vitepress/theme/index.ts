@@ -1,8 +1,8 @@
-// https://vitepress.dev/guide/custom-theme
-import Layout from './layout/MainLayout.vue'
+import * as components from './components'
 import DocsLayout from './layout/DocsLayout.vue'
 import ExamplesLayout from './layout/ExamplesLayout.vue'
-import * as components from './components'
+// https://vitepress.dev/guide/custom-theme
+import Layout from './layout/MainLayout.vue'
 import './style.css'
 import './styles/vp-doc.css'
 import './styles/shiki.css'

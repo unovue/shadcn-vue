@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from './interface'
-import { useCarousel } from './useCarousel'
 import { cn } from '@/lib/utils'
+import { useCarousel } from './useCarousel'
 
 defineOptions({
   inheritAttrs: false,

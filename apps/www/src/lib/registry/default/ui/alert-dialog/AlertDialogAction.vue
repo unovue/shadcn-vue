@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type HTMLAttributes, computed } from 'vue'
-import { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'
-import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/lib/registry/default/ui/button'
+import { cn } from '@/lib/utils'
+import { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'
+import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<AlertDialogActionProps & { class?: HTMLAttributes['class'] }>()
 

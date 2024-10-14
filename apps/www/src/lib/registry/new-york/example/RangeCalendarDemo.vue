@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type Ref, ref } from 'vue'
-import { getLocalTimeZone, today } from '@internationalized/date'
 import type { DateRange } from 'radix-vue'
 import { RangeCalendar } from '@/lib/registry/new-york/ui/range-calendar'
+import { getLocalTimeZone, today } from '@internationalized/date'
+import { type Ref, ref } from 'vue'
 
 const start = today(getLocalTimeZone())
 const end = start.add({ days: 7 })

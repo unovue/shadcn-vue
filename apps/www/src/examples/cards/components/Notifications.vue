@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import BellIcon from '~icons/radix-icons/bell'
-import EyeNoneIcon from '~icons/radix-icons/eye-none'
-import PersonIcon from '~icons/radix-icons/person'
-
 import {
   Card,
   CardContent,
@@ -10,6 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/lib/registry/new-york/ui/card'
+import BellIcon from '~icons/radix-icons/bell'
+import EyeNoneIcon from '~icons/radix-icons/eye-none'
+
+import PersonIcon from '~icons/radix-icons/person'
 </script>
 
 <template>

@@ -18,6 +18,10 @@ npx shadcn-vue@latest add pagination
 ```vue
 <script setup lang="ts">
 import {
+  Button,
+} from '@/components/ui/button'
+
+import {
   Pagination,
   PaginationEllipsis,
   PaginationFirst,
@@ -27,10 +31,6 @@ import {
   PaginationNext,
   PaginationPrev,
 } from '@/components/ui/pagination'
-
-import {
-  Button,
-} from '@/components/ui/button'
 </script>
 
 <template>

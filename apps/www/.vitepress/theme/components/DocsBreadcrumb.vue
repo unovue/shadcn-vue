@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useRoute } from 'vitepress'
-import { computed } from 'vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,6 +6,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/lib/registry/new-york/ui/breadcrumb'
+import { useRoute } from 'vitepress'
+import { computed } from 'vue'
 
 const route = useRoute()
 

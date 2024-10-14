@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { computed, h, ref } from 'vue'
-import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
-import { toDate } from 'radix-vue/date'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import { z } from 'zod'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
 import { Button } from '@/lib/registry/default/ui/button'
+import { Calendar } from '@/lib/registry/default/ui/calendar'
 import {
   FormControl,
   FormDescription,
@@ -19,6 +12,13 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
 import { toast } from '@/lib/registry/default/ui/toast'
 import { cn } from '@/lib/utils'
+import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
+import { toTypedSchema } from '@vee-validate/zod'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { toDate } from 'radix-vue/date'
+import { useForm } from 'vee-validate'
+import { computed, h, ref } from 'vue'
+import { z } from 'zod'
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'long',

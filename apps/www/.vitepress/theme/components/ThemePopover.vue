@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Paintbrush } from 'lucide-vue-next'
-import { onMounted, watch } from 'vue'
-import { allColors } from './theming/utils/data'
-import ThemeCustomizer from './ThemeCustomizer.vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { useConfigStore } from '@/stores/config'
+import { Paintbrush } from 'lucide-vue-next'
+import { onMounted, watch } from 'vue'
+import ThemeCustomizer from './ThemeCustomizer.vue'
+import { allColors } from './theming/utils/data'
 
 const { theme, radius } = useConfigStore()
 

@@ -22,11 +22,8 @@ See installation instructions for the [Popover](/docs/components/popover#install
 
 ```vue
 <script setup lang="ts">
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+
 import {
   Command,
   CommandEmpty,
@@ -40,6 +37,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

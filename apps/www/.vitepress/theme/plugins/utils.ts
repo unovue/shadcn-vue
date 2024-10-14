@@ -1,7 +1,7 @@
 // Credit to @hairyf https://github.com/hairyf/markdown-it-vitepress-demo
 
-import { baseParse } from '@vue/compiler-core'
 import type { AttributeNode, ElementNode } from '@vue/compiler-core'
+import { baseParse } from '@vue/compiler-core'
 
 export interface GenerateOptions {
   attrs?: string

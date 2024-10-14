@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import {
   FormControl,
   FormDescription,
@@ -13,8 +9,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/lib/registry/new-york/ui/form'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import { toast } from '@/lib/registry/new-york/ui/toast'
+
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const items = [
   {

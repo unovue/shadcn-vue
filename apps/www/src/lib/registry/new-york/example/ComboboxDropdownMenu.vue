@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { DotsHorizontalIcon } from '@radix-icons/vue'
-
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Command,
@@ -11,6 +8,7 @@ import {
   CommandItem,
   CommandList,
 } from '@/lib/registry/new-york/ui/command'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +22,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { DotsHorizontalIcon } from '@radix-icons/vue'
+import { ref } from 'vue'
 
 const labels = [
   'feature',

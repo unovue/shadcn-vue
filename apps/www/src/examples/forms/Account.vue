@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import FormsLayout from './layouts/FormsLayout.vue'
 import AccountForm from './components/AccountForm.vue'
+import FormsLayout from './layouts/FormsLayout.vue'
 </script>
 
 <template>

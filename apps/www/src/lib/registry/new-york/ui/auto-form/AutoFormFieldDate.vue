@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
-import { CalendarIcon } from '@radix-icons/vue'
-import { beautifyObjectName } from './utils'
-import AutoFormLabel from './AutoFormLabel.vue'
 import type { FieldProps } from './interface'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
-
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/new-york/ui/form'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { cn } from '@/lib/utils'
+
+import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
+import { CalendarIcon } from '@radix-icons/vue'
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
 
 defineProps<FieldProps>()
 

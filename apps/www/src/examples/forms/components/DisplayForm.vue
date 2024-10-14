@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const items = [
   {

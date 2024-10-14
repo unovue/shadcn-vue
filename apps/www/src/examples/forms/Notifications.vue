@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import FormsLayout from './layouts/FormsLayout.vue'
 import NotificationsForm from './components/NotificationsForm.vue'
+import FormsLayout from './layouts/FormsLayout.vue'
 </script>
 
 <template>

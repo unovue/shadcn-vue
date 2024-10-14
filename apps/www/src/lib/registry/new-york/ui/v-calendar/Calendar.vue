@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useVModel } from '@vueuse/core'
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
 import type { Calendar } from 'v-calendar'
+import { buttonVariants } from '@/lib/registry/new-york/ui/button'
+import { cn } from '@/lib/utils'
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
+import { useVModel } from '@vueuse/core'
 import { DatePicker } from 'v-calendar'
 import { computed, nextTick, onMounted, ref, useSlots } from 'vue'
 import { isVCalendarSlot } from '.'
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 
 /* Extracted from v-calendar */
 type DatePickerModel = DatePickerDate | DatePickerRangeObject

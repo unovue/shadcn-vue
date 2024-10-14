@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { HTMLAttributes } from 'vue'
 import type { LabelProps } from 'radix-vue'
-import { useFormField } from './useFormField'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
 import { Label } from '@/lib/registry/default/ui/label'
+import { cn } from '@/lib/utils'
+import { useFormField } from './useFormField'
 
 const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()
 

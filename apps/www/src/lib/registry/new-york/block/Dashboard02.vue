@@ -5,14 +5,14 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import { Bell, CircleUser, Home, LineChart, Menu, Package, Package2, Search, ShoppingCart, Users } from 'lucide-vue-next'
-
 import { Badge } from '@/lib/registry/new-york/ui/badge'
+
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
+import { Bell, CircleUser, Home, LineChart, Menu, Package, Package2, Search, ShoppingCart, Users } from 'lucide-vue-next'
 </script>
 
 <template>

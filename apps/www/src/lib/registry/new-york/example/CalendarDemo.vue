@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { type Ref, ref } from 'vue'
-import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
 import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
+import { type Ref, ref } from 'vue'
 
 const value = ref(today(getLocalTimeZone())) as Ref<DateValue>
 </script>

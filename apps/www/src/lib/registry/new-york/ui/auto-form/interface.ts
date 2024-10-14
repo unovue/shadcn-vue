@@ -1,5 +1,5 @@
 import type { Component, InputHTMLAttributes } from 'vue'
-import type { ZodAny, z } from 'zod'
+import type { z, ZodAny } from 'zod'
 import type { INPUT_COMPONENTS } from './constant'
 
 export interface FieldProps {

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { toast } from 'vue-sonner'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   Dialog,
@@ -9,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/lib/registry/default/ui/dialog'
+import { toast } from 'vue-sonner'
 </script>
 
 <template>

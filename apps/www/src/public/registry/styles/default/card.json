@@ -31,7 +31,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { default as Card } from './Card.vue'\nexport { default as CardHeader } from './CardHeader.vue'\nexport { default as CardTitle } from './CardTitle.vue'\nexport { default as CardDescription } from './CardDescription.vue'\nexport { default as CardContent } from './CardContent.vue'\nexport { default as CardFooter } from './CardFooter.vue'\n"
+      "content": "export { default as Card } from './Card.vue'\nexport { default as CardContent } from './CardContent.vue'\nexport { default as CardDescription } from './CardDescription.vue'\nexport { default as CardFooter } from './CardFooter.vue'\nexport { default as CardHeader } from './CardHeader.vue'\nexport { default as CardTitle } from './CardTitle.vue'\n"
     }
   ],
   "type": "components:ui"

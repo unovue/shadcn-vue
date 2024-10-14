@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
-
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -12,6 +9,7 @@ import {
   AlertDialogTitle,
 } from '@/lib/registry/new-york/ui/alert-dialog'
 import { Button } from '@/lib/registry/new-york/ui/button'
+
 import {
   Dialog,
   DialogContent,
@@ -29,6 +27,8 @@ import {
 } from '@/lib/registry/new-york/ui/dropdown-menu'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import { Switch } from '@/lib/registry/new-york/ui/switch'
+import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
+import { ref } from 'vue'
 
 // import { toast } from "@/lib/registry/new-york/ui/use-toast"
 

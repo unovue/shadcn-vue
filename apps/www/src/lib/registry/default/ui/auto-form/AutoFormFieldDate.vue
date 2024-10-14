@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
-import { CalendarIcon } from 'lucide-vue-next'
-import { beautifyObjectName } from './utils'
-import AutoFormLabel from './AutoFormLabel.vue'
 import type { FieldProps } from './interface'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/default/ui/form'
-
-import { Calendar } from '@/lib/registry/default/ui/calendar'
 import { Button } from '@/lib/registry/default/ui/button'
+import { Calendar } from '@/lib/registry/default/ui/calendar'
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/lib/registry/default/ui/form'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
 import { cn } from '@/lib/utils'
+
+import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
+import { CalendarIcon } from 'lucide-vue-next'
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
 
 defineProps<FieldProps>()
 

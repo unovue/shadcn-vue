@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import type { SelectTriggerProps } from 'radix-vue'
-import { useConfigStore } from '@/stores/config'
-
-import { cn } from '@/lib/utils'
 import {
   Select,
   SelectContent,
@@ -10,7 +7,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
+
 import { styles } from '@/lib/registry/styles'
+import { cn } from '@/lib/utils'
+import { useConfigStore } from '@/stores/config'
 
 const props = defineProps<SelectTriggerProps & { class?: string }>()
 const { config } = useConfigStore()

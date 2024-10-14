@@ -1,8 +1,8 @@
-import { computed } from 'vue'
+import { type Style, styles } from '@/lib/registry/styles'
 import { useStorage } from '@vueuse/core'
 import { useData } from 'vitepress'
+import { computed } from 'vue'
 import { type Theme, themes } from './../lib/registry/themes'
-import { type Style, styles } from '@/lib/registry/styles'
 
 interface Config {
   theme?: Theme['name']

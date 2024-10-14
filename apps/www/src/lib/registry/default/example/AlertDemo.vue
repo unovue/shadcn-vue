@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Terminal } from 'lucide-vue-next'
 import { Alert, AlertDescription, AlertTitle } from '@/lib/registry/default/ui/alert'
+import { Terminal } from 'lucide-vue-next'
 </script>
 
 <template>

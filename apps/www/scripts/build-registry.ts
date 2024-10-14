@@ -4,10 +4,10 @@ import { template } from 'lodash-es'
 import { rimraf } from 'rimraf'
 
 import { colorMapping, colors } from '../src/lib/registry/colors'
+import { buildRegistry } from '../src/lib/registry/registry'
 import { registrySchema } from '../src/lib/registry/schema'
 import { styles } from '../src/lib/registry/styles'
 import { themes } from '../src/lib/registry/themes'
-import { buildRegistry } from '../src/lib/registry/registry'
 
 const REGISTRY_PATH = path.join(process.cwd(), 'src/public/registry')
 
@@ -283,7 +283,7 @@ for (const baseColor of ['slate', 'gray', 'zinc', 'neutral', 'stone', 'lime']) {
       if (typeof value === 'string') {
         const resolvedColor = value.replace(
           /\{\{base\}\}-/g,
-					`${baseColor}-`,
+          `${baseColor}-`,
         )
         base.inlineColors[mode][key] = resolvedColor
 

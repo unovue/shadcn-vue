@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import WrapBalancer from 'vue-wrap-balancer'
 import { cn } from '@/lib/utils'
+import WrapBalancer from 'vue-wrap-balancer'
 </script>
 
 <template>

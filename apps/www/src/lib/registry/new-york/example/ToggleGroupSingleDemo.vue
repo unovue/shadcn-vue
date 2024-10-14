@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-group'
+
 import {
   FontBoldIcon,
   FontItalicIcon,
   UnderlineIcon,
 } from '@radix-icons/vue'
-
-import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-group'
 </script>
 
 <template>

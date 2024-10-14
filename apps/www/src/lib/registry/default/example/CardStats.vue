@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { computed } from 'vue'
-import { useData } from 'vitepress'
 import { Card, CardContent, CardHeader, CardTitle } from '@/lib/registry/default/ui/card'
-import { useConfigStore } from '@/stores/config'
 import { themes } from '@/lib/registry/themes'
+import { useConfigStore } from '@/stores/config'
+import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
+import { useData } from 'vitepress'
+import { computed } from 'vue'
 
 type Data = typeof data[number]
 const data = [

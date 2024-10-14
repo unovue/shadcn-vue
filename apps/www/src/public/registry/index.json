@@ -32,8 +32,8 @@
     "name": "alert-dialog",
     "dependencies": [],
     "registryDependencies": [
-      "utils",
-      "button"
+      "button",
+      "utils"
     ],
     "files": [
       "ui/alert-dialog/AlertDialog.vue",
@@ -71,14 +71,14 @@
       "accordion",
       "button",
       "separator",
-      "switch",
       "checkbox",
+      "switch",
       "calendar",
       "popover",
       "utils",
-      "select",
       "label",
       "radio-group",
+      "select",
       "input",
       "textarea"
     ],
@@ -938,12 +938,12 @@
   {
     "name": "v-calendar",
     "dependencies": [
-      "@vueuse/core",
-      "v-calendar@next"
+      "v-calendar@next",
+      "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
-      "button"
+      "button",
+      "utils"
     ],
     "files": [
       "ui/v-calendar/Calendar.vue",

@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { ScrollArea, ScrollBar } from '@/lib/registry/default/ui/scroll-area'
+import { cn } from '@/lib/utils'
+import ArrowRightIcon from '~icons/radix-icons/arrow-right'
 import { useRoute } from 'vitepress'
 import { computed, toRefs } from 'vue'
-import { cn } from '@/lib/utils'
-import { ScrollArea, ScrollBar } from '@/lib/registry/default/ui/scroll-area'
-import ArrowRightIcon from '~icons/radix-icons/arrow-right'
 
 const { path } = toRefs(useRoute())
 

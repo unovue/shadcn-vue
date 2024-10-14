@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { Button } from '@/lib/registry/default/ui/button'
+import { Checkbox } from '@/lib/registry/default/ui/checkbox'
 import {
   FormControl,
   FormDescription,
@@ -13,8 +9,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/lib/registry/default/ui/form'
-import { Checkbox } from '@/lib/registry/default/ui/checkbox'
 import { toast } from '@/lib/registry/default/ui/toast'
+
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   mobile: z.boolean().default(false).optional(),

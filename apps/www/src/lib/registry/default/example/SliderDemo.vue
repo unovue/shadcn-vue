@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
 import { Slider } from '@/lib/registry/default/ui/slider'
+import { cn } from '@/lib/utils'
+import { ref } from 'vue'
 
 const modelValue = ref([50])
 </script>

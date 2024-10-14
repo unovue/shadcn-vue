@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { DropdownMenuCheckboxItemProps } from 'radix-vue'
-import { ref } from 'vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   DropdownMenu,
@@ -10,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/lib/registry/default/ui/dropdown-menu'
+import { ref } from 'vue'
 
 type Checked = DropdownMenuCheckboxItemProps['checked']
 

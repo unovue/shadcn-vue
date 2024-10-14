@@ -23,8 +23,8 @@ npx shadcn-vue@latest add badge
 
 ```vue
 <script setup lang="ts">
-import { type VariantProps, cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 defineProps<Props>()
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { announcementConfig } from '../config/site'
 import { Separator } from '@/lib/registry/default/ui/separator'
 import ArrowRightIcon from '~icons/radix-icons/arrow-right'
+import { announcementConfig } from '../config/site'
 </script>
 
 <template>

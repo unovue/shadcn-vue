@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { CalendarIcon } from '@radix-icons/vue'
-
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/lib/registry/new-york/ui/avatar'
+
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from '@/lib/registry/new-york/ui/hover-card'
+import { CalendarIcon } from '@radix-icons/vue'
 </script>
 
 <template>

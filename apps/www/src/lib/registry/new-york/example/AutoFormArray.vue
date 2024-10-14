@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import * as z from 'zod'
-import { h } from 'vue'
+import { AutoForm } from '@/lib/registry/new-york/ui/auto-form'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { toast } from '@/lib/registry/new-york/ui/toast'
-import { AutoForm } from '@/lib/registry/new-york/ui/auto-form'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const schema = z.object({
   guestListName: z.string(),

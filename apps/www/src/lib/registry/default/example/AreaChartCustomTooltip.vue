@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CustomChartTooltip from './CustomChartTooltip.vue'
 import { AreaChart } from '@/lib/registry/default/ui/chart-area'
+import CustomChartTooltip from './CustomChartTooltip.vue'
 
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },

@@ -1,35 +1,35 @@
 import { existsSync, promises as fs } from 'node:fs'
 import process from 'node:process'
-import path from 'pathe'
 import { Command } from 'commander'
-import { template } from 'lodash-es'
-import ora from 'ora'
-import prompts from 'prompts'
-import { z } from 'zod'
-import { addDependency, addDevDependency } from 'nypm'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
+import { template } from 'lodash-es'
+import { addDependency, addDevDependency } from 'nypm'
+import ora from 'ora'
+import path from 'pathe'
+import prompts from 'prompts'
 import { gte } from 'semver'
-import { getProjectInfo } from '../utils/get-project-info'
-import * as templates from '../utils/templates'
-import {
-  getRegistryBaseColor,
-  getRegistryBaseColors,
-  getRegistryStyles,
-} from '../utils/registry'
-import { handleError } from '../utils/handle-error'
-import { transformByDetype } from '../utils/transformers/transform-sfc'
+import { z } from 'zod'
 import {
   type Config,
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_UTILS,
-  TAILWIND_CSS_PATH,
   getConfig,
   rawConfigSchema,
   resolveConfigPaths,
+  TAILWIND_CSS_PATH,
 } from '../utils/get-config'
+import { getProjectInfo } from '../utils/get-project-info'
+import { handleError } from '../utils/handle-error'
+import {
+  getRegistryBaseColor,
+  getRegistryBaseColors,
+  getRegistryStyles,
+} from '../utils/registry'
+import * as templates from '../utils/templates'
 import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm'
+import { transformByDetype } from '../utils/transformers/transform-sfc'
 import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix'
 
 const PROJECT_DEPENDENCIES = {

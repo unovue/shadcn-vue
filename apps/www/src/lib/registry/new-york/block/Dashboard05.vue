@@ -5,30 +5,8 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import {
-  CircleUser,
-  Copy,
-  CreditCard,
-  File,
-  Home,
-  LineChart,
-  ListFilter,
-  MoreVertical,
-  Package,
-  Package2,
-  PanelLeft,
-  Search,
-  Settings,
-  ShoppingCart,
-  Truck,
-  Users2,
-} from 'lucide-vue-next'
-
 import { Badge } from '@/lib/registry/new-york/ui/badge'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/lib/registry/new-york/ui/input'
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -37,7 +15,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/lib/registry/new-york/ui/breadcrumb'
-import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
+import { Button } from '@/lib/registry/new-york/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/registry/new-york/ui/card'
+import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { Input } from '@/lib/registry/new-york/ui/input'
 import {
   Pagination,
   PaginationList,
@@ -46,6 +28,7 @@ import {
 } from '@/lib/registry/new-york/ui/pagination'
 import { Progress } from '@/lib/registry/new-york/ui/progress'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
 import {
   Table,
   TableBody,
@@ -65,7 +48,24 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/lib/registry/new-york/ui/tooltip'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import {
+  CircleUser,
+  Copy,
+  CreditCard,
+  File,
+  Home,
+  LineChart,
+  ListFilter,
+  MoreVertical,
+  Package,
+  Package2,
+  PanelLeft,
+  Search,
+  Settings,
+  ShoppingCart,
+  Truck,
+  Users2,
+} from 'lucide-vue-next'
 </script>
 
 <template>

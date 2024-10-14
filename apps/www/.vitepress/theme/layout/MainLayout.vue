@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { useMagicKeys, useToggle } from '@vueuse/core'
-import { onMounted, ref, watch } from 'vue'
-import { Content, useData, useRoute, useRouter } from 'vitepress'
-import { type NavItem, docsConfig } from '../config/docs'
-import Logo from '../components/Logo.vue'
-import MobileNav from '../components/MobileNav.vue'
-import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue'
-
-import Kbd from '../components/Kbd.vue'
-import ThemePopover from '../components/ThemePopover.vue'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
-
 import { Button } from '@/lib/registry/default/ui/button'
-import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
-import RadixIconsMoon from '~icons/radix-icons/moon'
-import RadixIconsSun from '~icons/radix-icons/sun'
-import { useConfigStore } from '@/stores/config'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/lib/registry/default/ui/command'
 import { Dialog, DialogContent } from '@/lib/registry/default/ui/dialog'
 import { Toaster as DefaultToaster } from '@/lib/registry/default/ui/toast'
 import { Toaster as NewYorkSonner } from '@/lib/registry/new-york/ui/sonner'
 import { Toaster as NewYorkToaster } from '@/lib/registry/new-york/ui/toast'
 import { TooltipProvider } from '@/lib/registry/new-york/ui/tooltip'
 
-import File from '~icons/radix-icons/file'
+import { useConfigStore } from '@/stores/config'
+import { useMagicKeys, useToggle } from '@vueuse/core'
 import Circle from '~icons/radix-icons/circle'
+
+import File from '~icons/radix-icons/file'
+import RadixIconsGithubLogo from '~icons/radix-icons/github-logo'
+import RadixIconsMoon from '~icons/radix-icons/moon'
+import RadixIconsSun from '~icons/radix-icons/sun'
+import { Content, useData, useRoute, useRouter } from 'vitepress'
+import { onMounted, ref, watch } from 'vue'
+import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue'
+import Kbd from '../components/Kbd.vue'
+import Logo from '../components/Logo.vue'
+import MobileNav from '../components/MobileNav.vue'
+
+import ThemePopover from '../components/ThemePopover.vue'
+import { docsConfig, type NavItem } from '../config/docs'
 
 const { radius, theme } = useConfigStore()
 // Whenever the component is mounted, update the document class list

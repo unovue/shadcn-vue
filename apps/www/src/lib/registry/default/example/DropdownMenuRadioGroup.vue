@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   DropdownMenu,
@@ -10,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/lib/registry/default/ui/dropdown-menu'
+import { ref } from 'vue'
 
 const position = ref('bottom')
 </script>

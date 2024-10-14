@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ChevronDownIcon, SlashIcon } from '@radix-icons/vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { ChevronDownIcon, SlashIcon } from '@radix-icons/vue'
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useClipboard } from '@vueuse/core'
-import { toRefs } from 'vue'
-import { CheckIcon, ClipboardIcon } from '@radix-icons/vue'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/lib/registry/new-york/ui/tooltip'
+import { CheckIcon, ClipboardIcon } from '@radix-icons/vue'
+import { useClipboard } from '@vueuse/core'
+import { toRefs } from 'vue'
 
 const props = withDefaults(defineProps<{
   code?: string

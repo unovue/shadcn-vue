@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import ChevronDownIcon from '~icons/radix-icons/chevron-down'
-import CircleIcon from '~icons/radix-icons/circle'
-import PlusIcon from '~icons/radix-icons/plus'
-import StarIcon from '~icons/radix-icons/star'
-
 import { Button } from '@/lib/registry/new-york/ui/button'
 import {
   Card,
@@ -22,6 +17,11 @@ import {
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
 import { Separator } from '@/lib/registry/new-york/ui/separator'
+
+import ChevronDownIcon from '~icons/radix-icons/chevron-down'
+import CircleIcon from '~icons/radix-icons/circle'
+import PlusIcon from '~icons/radix-icons/plus'
+import StarIcon from '~icons/radix-icons/star'
 </script>
 
 <template>

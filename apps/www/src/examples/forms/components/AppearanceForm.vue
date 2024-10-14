@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
-import { ChevronDownIcon } from '@radix-icons/vue'
-import { cn } from '@/lib/utils'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-group'
 import { Button, buttonVariants } from '@/lib/registry/new-york/ui/button'
+import { Separator } from '@/lib/registry/new-york/ui/separator'
+
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { cn } from '@/lib/utils'
+import { ChevronDownIcon } from '@radix-icons/vue'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const appearanceFormSchema = toTypedSchema(z.object({
   theme: z.enum(['light', 'dark'], {

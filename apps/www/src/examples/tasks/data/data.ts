@@ -1,4 +1,3 @@
-import { h } from 'vue'
 import ArrowDownIcon from '~icons/radix-icons/arrow-down'
 import ArrowRightIcon from '~icons/radix-icons/arrow-right'
 import ArrowUpIcon from '~icons/radix-icons/arrow-up'
@@ -7,6 +6,7 @@ import CircleIcon from '~icons/radix-icons/circle'
 import CrossCircledIcon from '~icons/radix-icons/cross-circled'
 import QuestionMarkCircledIcon from '~icons/radix-icons/question-mark-circled'
 import StopwatchIcon from '~icons/radix-icons/stopwatch'
+import { h } from 'vue'
 
 export const labels = [
   {

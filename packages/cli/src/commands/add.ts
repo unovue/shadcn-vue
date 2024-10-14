@@ -1,14 +1,5 @@
 import { existsSync, promises as fs, rmSync } from 'node:fs'
 import process from 'node:process'
-import path from 'pathe'
-import { consola } from 'consola'
-import { colors } from 'consola/utils'
-import { Command } from 'commander'
-import ora from 'ora'
-import prompts from 'prompts'
-import { z } from 'zod'
-import { addDependency, addDevDependency } from 'nypm'
-import { transform } from '@/src/utils/transformers'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
 import {
@@ -18,6 +9,15 @@ import {
   getRegistryIndex,
   resolveTree,
 } from '@/src/utils/registry'
+import { transform } from '@/src/utils/transformers'
+import { Command } from 'commander'
+import { consola } from 'consola'
+import { colors } from 'consola/utils'
+import { addDependency, addDevDependency } from 'nypm'
+import ora from 'ora'
+import path from 'pathe'
+import prompts from 'prompts'
+import { z } from 'zod'
 
 const addOptionsSchema = z.object({
   components: z.array(z.string()).optional(),

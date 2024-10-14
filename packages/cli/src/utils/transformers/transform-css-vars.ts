@@ -1,7 +1,7 @@
-import type * as z from 'zod'
-import type { CodemodPlugin } from 'vue-metamorph'
-import type { TransformOpts } from '.'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
+import type { CodemodPlugin } from 'vue-metamorph'
+import type * as z from 'zod'
+import type { TransformOpts } from '.'
 
 export function transformCssVars(opts: TransformOpts): CodemodPlugin {
   return {

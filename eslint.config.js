@@ -32,6 +32,8 @@ export default antfu(
       'import/first': 0,
       'node/prefer-global/process': 0,
       'style/no-tabs': 0,
+      'unused-imports/no-unused-vars': 0,
+      'unicorn/no-new-array': 0,
     },
   },
 )

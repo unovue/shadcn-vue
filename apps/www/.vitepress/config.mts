@@ -1,14 +1,14 @@
 import path from 'node:path'
-import { defineConfig } from 'vitepress'
-import Icons from 'unplugin-icons/vite'
-import tailwind from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
 import { transformerMetaWordHighlight } from '@shikijs/transformers'
+import autoprefixer from 'autoprefixer'
+import tailwind from 'tailwindcss'
+import Icons from 'unplugin-icons/vite'
+import { defineConfig } from 'vitepress'
 import { cssVariables } from './theme/config/shiki'
 
 import { siteConfig } from './theme/config/site'
-import ComponentPreviewPlugin from './theme/plugins/previewer'
 import CodeWrapperPlugin from './theme/plugins/codewrapper'
+import ComponentPreviewPlugin from './theme/plugins/previewer'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

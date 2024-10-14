@@ -5,6 +5,17 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import type { Task } from '../data/schema'
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/lib/registry/new-york/ui/table'
+import { valueUpdater } from '@/lib/utils'
 import {
   FlexRender,
   getCoreRowModel,
@@ -15,20 +26,9 @@ import {
   getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table'
-
 import { ref } from 'vue'
-import type { Task } from '../data/schema'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
-import { valueUpdater } from '@/lib/utils'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/lib/registry/new-york/ui/table'
 
 interface DataTableProps {
   columns: ColumnDef<Task, any>[]

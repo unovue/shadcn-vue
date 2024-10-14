@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { watchOnce } from '@vueuse/core'
 import type { CarouselApi } from '@/lib/registry/default/ui/carousel'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
 import { Card, CardContent } from '@/lib/registry/default/ui/card'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
+import { watchOnce } from '@vueuse/core'
+import { ref } from 'vue'
 
 const api = ref<CarouselApi>()
 const totalCount = ref(0)

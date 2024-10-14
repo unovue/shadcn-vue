@@ -1,9 +1,9 @@
-import { readFile, readdir } from 'node:fs/promises'
-import { join, normalize, resolve } from 'pathe'
-import { compileScript, parse } from 'vue/compiler-sfc'
-import { parseSync } from '@oxc-parser/wasm'
-
 import type { Registry } from '../../lib/registry'
+import { readdir, readFile } from 'node:fs/promises'
+import { parseSync } from '@oxc-parser/wasm'
+import { join, normalize, resolve } from 'pathe'
+
+import { compileScript, parse } from 'vue/compiler-sfc'
 
 const DEPENDENCIES = new Map<string, string[]>([
   ['@vueuse/core', []],

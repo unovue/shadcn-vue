@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ChevronDown, Slash } from 'lucide-vue-next'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/lib/registry/default/ui/dropdown-menu'
+import { ChevronDown, Slash } from 'lucide-vue-next'
 </script>
 
 <template>

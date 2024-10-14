@@ -1,14 +1,5 @@
 <script setup lang="ts">
 import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from 'lucide-vue-next'
-
-import {
   Command,
   CommandEmpty,
   CommandGroup,
@@ -18,6 +9,15 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from '@/lib/registry/default/ui/command'
+
+import {
+  Calculator,
+  Calendar,
+  CreditCard,
+  Settings,
+  Smile,
+  User,
+} from 'lucide-vue-next'
 </script>
 
 <template>

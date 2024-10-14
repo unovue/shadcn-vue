@@ -2,8 +2,8 @@
   "name": "alert-dialog",
   "dependencies": [],
   "registryDependencies": [
-    "utils",
-    "button"
+    "button",
+    "utils"
   ],
   "files": [
     {
@@ -12,19 +12,19 @@
     },
     {
       "name": "AlertDialogAction.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<AlertDialogActionProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogAction v-bind=\"delegatedProps\" :class=\"cn(buttonVariants(), props.class)\">\n    <slot />\n  </AlertDialogAction>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\nimport { cn } from '@/lib/utils'\nimport { AlertDialogAction, type AlertDialogActionProps } from 'radix-vue'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<AlertDialogActionProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogAction v-bind=\"delegatedProps\" :class=\"cn(buttonVariants(), props.class)\">\n    <slot />\n  </AlertDialogAction>\n</template>\n"
     },
     {
       "name": "AlertDialogCancel.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\n\nconst props = defineProps<AlertDialogCancelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogCancel\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'mt-2 sm:mt-0',\n      props.class,\n    )\"\n  >\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { buttonVariants } from '@/lib/registry/default/ui/button'\nimport { cn } from '@/lib/utils'\nimport { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<AlertDialogCancelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogCancel\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'mt-2 sm:mt-0',\n      props.class,\n    )\"\n  >\n    <slot />\n  </AlertDialogCancel>\n</template>\n"
     },
     {
       "name": "AlertDialogContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport {\n  AlertDialogContent,\n  type AlertDialogContentEmits,\n  type AlertDialogContentProps,\n  AlertDialogOverlay,\n  AlertDialogPortal,\n  useForwardPropsEmits,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<AlertDialogContentProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<AlertDialogContentEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <AlertDialogPortal>\n    <AlertDialogOverlay\n      class=\"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\"\n    />\n    <AlertDialogContent\n      v-bind=\"forwarded\"\n      :class=\"\n        cn(\n          'fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </AlertDialogContent>\n  </AlertDialogPortal>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  AlertDialogContent,\n  type AlertDialogContentEmits,\n  type AlertDialogContentProps,\n  AlertDialogOverlay,\n  AlertDialogPortal,\n  useForwardPropsEmits,\n} from 'radix-vue'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<AlertDialogContentProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<AlertDialogContentEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <AlertDialogPortal>\n    <AlertDialogOverlay\n      class=\"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\"\n    />\n    <AlertDialogContent\n      v-bind=\"forwarded\"\n      :class=\"\n        cn(\n          'fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </AlertDialogContent>\n  </AlertDialogPortal>\n</template>\n"
     },
     {
       "name": "AlertDialogDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport {\n  AlertDialogDescription,\n  type AlertDialogDescriptionProps,\n} from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<AlertDialogDescriptionProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogDescription\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-sm text-muted-foreground', props.class)\"\n  >\n    <slot />\n  </AlertDialogDescription>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  AlertDialogDescription,\n  type AlertDialogDescriptionProps,\n} from 'radix-vue'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<AlertDialogDescriptionProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogDescription\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-sm text-muted-foreground', props.class)\"\n  >\n    <slot />\n  </AlertDialogDescription>\n</template>\n"
     },
     {
       "name": "AlertDialogFooter.vue",
@@ -36,7 +36,7 @@
     },
     {
       "name": "AlertDialogTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport { type HTMLAttributes, computed } from 'vue'\nimport { AlertDialogTitle, type AlertDialogTitleProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<AlertDialogTitleProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogTitle\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-lg font-semibold', props.class)\"\n  >\n    <slot />\n  </AlertDialogTitle>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { AlertDialogTitle, type AlertDialogTitleProps } from 'radix-vue'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<AlertDialogTitleProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AlertDialogTitle\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-lg font-semibold', props.class)\"\n  >\n    <slot />\n  </AlertDialogTitle>\n</template>\n"
     },
     {
       "name": "AlertDialogTrigger.vue",
@@ -44,7 +44,7 @@
     },
     {
       "name": "index.ts",
-      "content": "export { default as AlertDialog } from './AlertDialog.vue'\nexport { default as AlertDialogTrigger } from './AlertDialogTrigger.vue'\nexport { default as AlertDialogContent } from './AlertDialogContent.vue'\nexport { default as AlertDialogHeader } from './AlertDialogHeader.vue'\nexport { default as AlertDialogTitle } from './AlertDialogTitle.vue'\nexport { default as AlertDialogDescription } from './AlertDialogDescription.vue'\nexport { default as AlertDialogFooter } from './AlertDialogFooter.vue'\nexport { default as AlertDialogAction } from './AlertDialogAction.vue'\nexport { default as AlertDialogCancel } from './AlertDialogCancel.vue'\n"
+      "content": "export { default as AlertDialog } from './AlertDialog.vue'\nexport { default as AlertDialogAction } from './AlertDialogAction.vue'\nexport { default as AlertDialogCancel } from './AlertDialogCancel.vue'\nexport { default as AlertDialogContent } from './AlertDialogContent.vue'\nexport { default as AlertDialogDescription } from './AlertDialogDescription.vue'\nexport { default as AlertDialogFooter } from './AlertDialogFooter.vue'\nexport { default as AlertDialogHeader } from './AlertDialogHeader.vue'\nexport { default as AlertDialogTitle } from './AlertDialogTitle.vue'\nexport { default as AlertDialogTrigger } from './AlertDialogTrigger.vue'\n"
     }
   ],
   "type": "components:ui"

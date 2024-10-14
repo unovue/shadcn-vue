@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Copy } from 'lucide-vue-next'
 import { Button } from '@/lib/registry/default/ui/button'
 import {
   Dialog,
@@ -13,6 +12,7 @@ import {
 } from '@/lib/registry/default/ui/dialog'
 import { Input } from '@/lib/registry/default/ui/input'
 import { Label } from '@/lib/registry/default/ui/label'
+import { Copy } from 'lucide-vue-next'
 </script>
 
 <template>

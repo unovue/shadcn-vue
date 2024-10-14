@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import PageHeader from '../components/PageHeader.vue'
-import PageHeaderHeading from '../components/PageHeaderHeading.vue'
-import PageHeaderDescription from '../components/PageHeaderDescription.vue'
-import PageAction from '../components/PageAction.vue'
-import Announcement from '../components/Announcement.vue'
-import BlockPreview from './BlockPreview.vue'
-import GitHubIcon from '~icons/radix-icons/github-logo'
-
 import { buttonVariants } from '@/lib/registry/new-york/ui/button'
 import { cn } from '@/lib/utils'
+import GitHubIcon from '~icons/radix-icons/github-logo'
+import { ref } from 'vue'
+import Announcement from '../components/Announcement.vue'
+import PageAction from '../components/PageAction.vue'
+import PageHeader from '../components/PageHeader.vue'
+import PageHeaderDescription from '../components/PageHeaderDescription.vue'
+
+import PageHeaderHeading from '../components/PageHeaderHeading.vue'
+import BlockPreview from './BlockPreview.vue'
 
 const blocks = ref<string[]>([])
 

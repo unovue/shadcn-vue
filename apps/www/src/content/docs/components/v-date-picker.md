@@ -15,18 +15,18 @@ See installation instructions for the [Popover](/docs/components/popover#install
 
 ```vue
 <script setup lang="ts">
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
-
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/v-calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+
+import { Calendar } from '@/components/ui/v-calendar'
+import { cn } from '@/lib/utils'
+import { format } from 'date-fns'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { ref } from 'vue'
 
 const date = ref<Date>()
 </script>

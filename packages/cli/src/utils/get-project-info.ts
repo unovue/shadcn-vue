@@ -1,8 +1,8 @@
-import { existsSync } from 'node:fs'
-import path from 'pathe'
-import fs from 'fs-extra'
-import { readPackageJSON } from 'pkg-types'
 import type { PackageJson } from 'pkg-types'
+import { existsSync } from 'node:fs'
+import fs from 'fs-extra'
+import path from 'pathe'
+import { readPackageJSON } from 'pkg-types'
 
 export async function getProjectInfo() {
   const info = {
