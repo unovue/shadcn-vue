@@ -243,12 +243,6 @@ importers:
 
   packages/cli:
     dependencies:
-      '@babel/core':
-        specifier: ^7.25.2
-        version: 7.25.8
-      '@babel/parser':
-        specifier: ^7.25.3
-        version: 7.25.8
       '@unovue/detypes':
         specifier: ^0.8.4
         version: 0.8.4
@@ -256,11 +250,11 @@ importers:
         specifier: '*'
         version: 2.1.2(vitest@2.1.2)
       '@vue/compiler-sfc':
-        specifier: ^3.4
+        specifier: ^3.5
         version: 3.5.11
       c12:
-        specifier: ^1.11.1
-        version: 1.11.2(magicast@0.3.5)
+        specifier: ^2.0.1
+        version: 2.0.1(magicast@0.3.5)
       commander:
         specifier: ^12.1.0
         version: 12.1.0
@@ -268,8 +262,8 @@ importers:
         specifier: ^3.2.3
         version: 3.2.3
       diff:
-        specifier: ^5.2.0
-        version: 5.2.0
+        specifier: ^7.0.0
+        version: 7.0.0
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
@@ -280,22 +274,22 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       magic-string:
-        specifier: ^0.30.11
-        version: 0.30.11
+        specifier: ^0.30.12
+        version: 0.30.12
       nypm:
-        specifier: ^0.3.9
+        specifier: ^0.3.12
         version: 0.3.12
       ofetch:
-        specifier: ^1.3.4
+        specifier: ^1.4.1
         version: 1.4.1
       ora:
-        specifier: ^8.0.1
+        specifier: ^8.1.0
         version: 8.1.0
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
       pkg-types:
-        specifier: ^1.1.3
+        specifier: ^1.2.1
         version: 1.2.1
       prompts:
         specifier: ^2.4.2
@@ -311,19 +305,16 @@ importers:
         version: 4.2.0
       vitest:
         specifier: '*'
-        version: 2.1.2(@types/node@20.16.11)(@vitest/ui@2.1.2)(stylus@0.57.0)(terser@5.34.1)
+        version: 2.1.2(@types/node@22.7.5)(@vitest/ui@2.1.2)(stylus@0.57.0)(terser@5.34.1)
       vue-metamorph:
-        specifier: ^3.1.9
+        specifier: ^3.2.0
         version: 3.2.0(eslint@9.12.0(jiti@2.3.3))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
-      '@types/babel__core':
-        specifier: ^7.20.5
-        version: 7.20.5
       '@types/diff':
-        specifier: ^5.2.1
+        specifier: ^5.2.3
         version: 5.2.3
       '@types/fs-extra':
         specifier: ^11.0.4
@@ -332,23 +323,23 @@ importers:
         specifier: ^4.17.12
         version: 4.17.12
       '@types/node':
-        specifier: ^20.14.15
-        version: 20.16.11
+        specifier: ^22.7.5
+        version: 22.7.5
       '@types/prompts':
         specifier: ^2.4.9
         version: 2.4.9
       tsup:
-        specifier: ^8.2.4
+        specifier: ^8.3.0
         version: 8.3.0(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.5.1)
       type-fest:
-        specifier: ^4.24.0
+        specifier: ^4.26.1
         version: 4.26.1
       typescript:
-        specifier: ^5.5.3
+        specifier: ^5.6.3
         version: 5.6.3
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.3)(vite@5.4.8(@types/node@20.16.11)(stylus@0.57.0)(terser@5.34.1))
+        version: 5.0.1(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5)(stylus@0.57.0)(terser@5.34.1))
 
   packages/module:
     dependencies:
@@ -2199,18 +2190,6 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
-  '@types/babel__core@7.20.5':
-    resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
-
-  '@types/babel__generator@7.6.8':
-    resolution: {integrity: sha512-ASsj+tpEDsEiFr1arWrlN6V3mdfjRMZt6LtK/Vp/kreFLnr5QH5+DhvD5nINYZXzwJvXeGq+05iUXcAzVrqWtw==}
-
-  '@types/babel__template@7.4.4':
-    resolution: {integrity: sha512-h/NUaSyG5EyxBIp8YRxo4RMe2/qQgvyowRwVMzhYhBCONbW8PUsg4lkFMrhgZhUe5z3L3MiLDuvyJ/CaPa2A8A==}
-
-  '@types/babel__traverse@7.20.6':
-    resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
-
   '@types/conventional-commits-parser@5.0.0':
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
 
@@ -3842,10 +3821,6 @@ packages:
   didyoumean@1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
 
-  diff@5.2.0:
-    resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
-    engines: {node: '>=0.3.1'}
-
   diff@7.0.0:
     resolution: {integrity: sha512-PJWHUb1RFevKCwaFA9RlG5tCd+FO5iRh9A8HEtkmBH2Li03iJriB6m6JIN4rGz3K3JLawI7/veA1xzRKP6ISBw==}
     engines: {node: '>=0.3.1'}
@@ -5295,6 +5270,9 @@ packages:
 
   magic-string@0.30.11:
     resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
+
+  magic-string@0.30.12:
+    resolution: {integrity: sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==}
 
   magicast@0.3.5:
     resolution: {integrity: sha512-L0WhttDl+2BOsybvEOLK7fW3UA0OQ0IQ2d6Zl2x/a6vVRs3bAY0ECOSHHeL5jD+SbOpOCUEi0y1DgHEn9Qn1AQ==}
@@ -9343,7 +9321,7 @@ snapshots:
       get-port-please: 3.1.2
       h3: 1.13.0
       local-pkg: 0.5.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       nitropack: 2.9.7(encoding@0.1.13)(magicast@0.3.5)
       node-fetch-native: 1.6.4
       ofetch: 1.4.1
@@ -9387,7 +9365,7 @@ snapshots:
       get-port-please: 3.1.2
       h3: 1.13.0
       knitwork: 1.1.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mlly: 1.7.2
       ohash: 1.1.4
       pathe: 1.1.2
@@ -9553,7 +9531,7 @@ snapshots:
       estree-walker: 2.0.2
       glob: 8.1.0
       is-reference: 1.2.1
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       rollup: 3.29.5
 
@@ -9564,7 +9542,7 @@ snapshots:
       estree-walker: 2.0.2
       glob: 8.1.0
       is-reference: 1.2.1
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       rollup: 4.24.0
 
@@ -9572,7 +9550,7 @@ snapshots:
     dependencies:
       '@rollup/pluginutils': 5.1.2(rollup@4.24.0)
       estree-walker: 2.0.2
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       rollup: 4.24.0
 
@@ -9611,14 +9589,14 @@ snapshots:
   '@rollup/plugin-replace@5.0.7(rollup@3.29.5)':
     dependencies:
       '@rollup/pluginutils': 5.1.2(rollup@3.29.5)
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       rollup: 3.29.5
 
   '@rollup/plugin-replace@5.0.7(rollup@4.24.0)':
     dependencies:
       '@rollup/pluginutils': 5.1.2(rollup@4.24.0)
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       rollup: 4.24.0
 
@@ -9766,27 +9744,6 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@types/babel__core@7.20.5':
-    dependencies:
-      '@babel/parser': 7.25.8
-      '@babel/types': 7.25.8
-      '@types/babel__generator': 7.6.8
-      '@types/babel__template': 7.4.4
-      '@types/babel__traverse': 7.20.6
-
-  '@types/babel__generator@7.6.8':
-    dependencies:
-      '@babel/types': 7.25.8
-
-  '@types/babel__template@7.4.4':
-    dependencies:
-      '@babel/parser': 7.25.8
-      '@babel/types': 7.25.8
-
-  '@types/babel__traverse@7.20.6':
-    dependencies:
-      '@babel/types': 7.25.8
-
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
       '@types/node': 22.7.5
@@ -9933,7 +9890,7 @@ snapshots:
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.16.11
+      '@types/node': 22.7.5
 
   '@types/geojson@7946.0.14': {}
 
@@ -9943,13 +9900,13 @@ snapshots:
 
   '@types/http-proxy@1.17.15':
     dependencies:
-      '@types/node': 20.16.11
+      '@types/node': 22.7.5
 
   '@types/json-schema@7.0.15': {}
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 20.16.11
+      '@types/node': 22.7.5
 
   '@types/keyv@3.1.4':
     dependencies:
@@ -10004,7 +9961,7 @@ snapshots:
 
   '@types/prompts@2.4.9':
     dependencies:
-      '@types/node': 20.16.11
+      '@types/node': 22.7.5
       kleur: 3.0.3
 
   '@types/resize-observer-browser@0.1.11': {}
@@ -10304,15 +10261,16 @@ snapshots:
     dependencies:
       '@vitest/spy': 2.1.2
       estree-walker: 3.0.3
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       vite: 5.4.8(@types/node@20.16.11)(stylus@0.57.0)(terser@5.34.1)
+    optional: true
 
   '@vitest/mocker@2.1.2(@vitest/spy@2.1.2)(vite@5.4.8(@types/node@22.7.5)(stylus@0.57.0)(terser@5.34.1))':
     dependencies:
       '@vitest/spy': 2.1.2
       estree-walker: 3.0.3
-      magic-string: 0.30.11
+      magic-string: 0.30.12
     optionalDependencies:
       vite: 5.4.8(@types/node@22.7.5)(stylus@0.57.0)(terser@5.34.1)
 
@@ -10328,7 +10286,7 @@ snapshots:
   '@vitest/snapshot@2.1.2':
     dependencies:
       '@vitest/pretty-format': 2.1.2
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       pathe: 1.1.2
 
   '@vitest/spy@2.1.2':
@@ -10344,7 +10302,7 @@ snapshots:
       sirv: 2.0.4
       tinyglobby: 0.2.9
       tinyrainbow: 1.2.0
-      vitest: 2.1.2(@types/node@20.16.11)(@vitest/ui@2.1.2)(stylus@0.57.0)(terser@5.34.1)
+      vitest: 2.1.2(@types/node@22.7.5)(@vitest/ui@2.1.2)(stylus@0.57.0)(terser@5.34.1)
 
   '@vitest/utils@2.1.2':
     dependencies:
@@ -10428,7 +10386,7 @@ snapshots:
       '@vue/compiler-ssr': 3.5.11
       '@vue/shared': 3.5.11
       estree-walker: 2.0.2
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       postcss: 8.4.47
       source-map-js: 1.2.1
 
@@ -11712,8 +11670,6 @@ snapshots:
       dequal: 2.0.3
 
   didyoumean@1.2.2: {}
-
-  diff@5.2.0: {}
 
   diff@7.0.0: {}
 
@@ -13395,7 +13351,7 @@ snapshots:
   magic-regexp@0.8.0:
     dependencies:
       estree-walker: 3.0.3
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mlly: 1.7.2
       regexp-tree: 0.1.27
       type-level-regexp: 0.1.17
@@ -13406,9 +13362,13 @@ snapshots:
 
   magic-string-ast@0.6.2:
     dependencies:
-      magic-string: 0.30.11
+      magic-string: 0.30.12
 
   magic-string@0.30.11:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
+
+  magic-string@0.30.12:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
@@ -14008,7 +13968,7 @@ snapshots:
       klona: 2.0.6
       knitwork: 1.1.0
       listhen: 1.9.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mime: 4.0.4
       mlly: 1.7.2
       mri: 1.2.0
@@ -14170,7 +14130,7 @@ snapshots:
       jiti: 1.21.6
       klona: 2.0.6
       knitwork: 1.1.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mlly: 1.7.2
       nanotar: 0.1.1
       nitropack: 2.9.7(encoding@0.1.13)(magicast@0.3.5)
@@ -15066,7 +15026,7 @@ snapshots:
 
   rollup-plugin-dts@6.1.1(rollup@3.29.5)(typescript@5.6.3):
     dependencies:
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       rollup: 3.29.5
       typescript: 5.6.3
     optionalDependencies:
@@ -15825,7 +15785,7 @@ snapshots:
       globby: 13.2.2
       hookable: 5.5.3
       jiti: 1.21.6
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mkdist: 1.6.0(typescript@5.6.3)(vue-tsc@2.1.6(typescript@5.6.3))
       mlly: 1.7.2
       pathe: 1.1.2
@@ -15856,7 +15816,7 @@ snapshots:
     dependencies:
       acorn: 8.12.1
       estree-walker: 3.0.3
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       unplugin: 1.14.1
     transitivePeerDependencies:
       - webpack-sources
@@ -15892,7 +15852,7 @@ snapshots:
       estree-walker: 3.0.3
       fast-glob: 3.3.2
       local-pkg: 0.5.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mlly: 1.7.2
       pathe: 1.1.2
       pkg-types: 1.2.1
@@ -15967,7 +15927,7 @@ snapshots:
       fast-glob: 3.3.2
       json5: 2.2.3
       local-pkg: 0.5.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mlly: 1.7.2
       pathe: 1.1.2
       scule: 1.3.0
@@ -16023,7 +15983,7 @@ snapshots:
   unwasm@0.3.9:
     dependencies:
       knitwork: 1.1.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       mlly: 1.7.2
       pathe: 1.1.2
       pkg-types: 1.2.1
@@ -16201,18 +16161,18 @@ snapshots:
       '@vue/babel-plugin-jsx': 1.2.5(@babel/core@7.25.8)
       '@vue/compiler-dom': 3.5.11
       kolorist: 1.8.0
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       vite: 5.4.8(@types/node@20.16.11)(stylus@0.57.0)(terser@5.34.1)
     transitivePeerDependencies:
       - supports-color
 
-  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.8(@types/node@20.16.11)(stylus@0.57.0)(terser@5.34.1)):
+  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5)(stylus@0.57.0)(terser@5.34.1)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.4(typescript@5.6.3)
     optionalDependencies:
-      vite: 5.4.8(@types/node@20.16.11)(stylus@0.57.0)(terser@5.34.1)
+      vite: 5.4.8(@types/node@22.7.5)(stylus@0.57.0)(terser@5.34.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -16323,7 +16283,7 @@ snapshots:
       '@vitest/utils': 2.1.2
       chai: 5.1.1
       debug: 4.3.7
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       pathe: 1.1.2
       std-env: 3.7.0
       tinybench: 2.9.0
@@ -16346,6 +16306,7 @@ snapshots:
       - sugarss
       - supports-color
       - terser
+    optional: true
 
   vitest@2.1.2(@types/node@22.7.5)(@vitest/ui@2.1.2)(stylus@0.57.0)(terser@5.34.1):
     dependencies:
@@ -16358,7 +16319,7 @@ snapshots:
       '@vitest/utils': 2.1.2
       chai: 5.1.1
       debug: 4.3.7
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       pathe: 1.1.2
       std-env: 3.7.0
       tinybench: 2.9.0
@@ -16456,7 +16417,7 @@ snapshots:
       fs-extra: 11.2.0
       glob: 11.0.0
       lodash-es: 4.17.21
-      magic-string: 0.30.11
+      magic-string: 0.30.12
       micromatch: 4.0.8
       node-html-parser: 6.1.13
       postcss: 8.4.47

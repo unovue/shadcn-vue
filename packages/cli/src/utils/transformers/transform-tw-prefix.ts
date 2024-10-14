@@ -1,6 +1,6 @@
 import type { CodemodPlugin } from 'vue-metamorph'
-import { splitClassName } from './transform-css-vars'
 import type { TransformOpts } from '.'
+import { splitClassName } from './transform-css-vars'
 
 export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
   return {
@@ -10,6 +10,8 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
     transform({ scriptASTs, sfcAST, utils: { traverseScriptAST, traverseTemplateAST, astHelpers } }) {
       let transformCount = 0
       const { config } = opts
+
+      const CLASS_IDENTIFIER = ['class', 'classes']
 
       if (!config.tailwind?.prefix)
         return transformCount
@@ -52,7 +54,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
           enterNode(node) {
             if (node.type === 'VAttribute' && node.key.type === 'VDirectiveKey') {
               if (node.key.argument?.type === 'VIdentifier') {
-                if (node.key.argument.name === 'class') {
+                if (CLASS_IDENTIFIER.includes(node.key.argument.name)) {
                   const nodes = astHelpers.findAll(node, { type: 'Literal' })
                   nodes.forEach((node) => {
                     if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '') && typeof node.value === 'string') {
@@ -65,7 +67,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
             }
             // handle class attribute without binding
             else if (node.type === 'VLiteral' && typeof node.value === 'string') {
-              if (node.parent.key.name === 'class') {
+              if (CLASS_IDENTIFIER.includes(node.parent.key.name)) {
                 node.value = `"${applyPrefix(node.value.replace(/"/g, ''), config.tailwind.prefix)}"`
                 transformCount++
               }
