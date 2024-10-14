@@ -1,52 +1,60 @@
 import type * as z from 'zod'
-import MagicString from 'magic-string'
-import type { SFCTemplateBlock } from '@vue/compiler-sfc'
-import { parse } from '@vue/compiler-sfc'
-import { SyntaxKind } from 'ts-morph'
+import type { CodemodPlugin } from 'vue-metamorph'
+import type { TransformOpts } from '.'
 import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
-import type { Transformer } from '@/src/utils/transformers'
 
-export const transformCssVars: Transformer = async ({
-  sourceFile,
-  config,
-  baseColor,
-}) => {
-  const isVueFile = sourceFile.getFilePath().endsWith('vue')
-  // No transform if using css variables.
-  if (config.tailwind?.cssVariables || !baseColor?.inlineColors)
-    return sourceFile
+export function transformCssVars(opts: TransformOpts): CodemodPlugin {
+  return {
+    type: 'codemod',
+    name: 'add prefix to tailwind classes',
 
-  let template: SFCTemplateBlock | null = null
+    transform({ scriptASTs, sfcAST, utils: { traverseScriptAST, traverseTemplateAST } }) {
+      let transformCount = 0
+      const { baseColor, config } = opts
 
-  if (isVueFile) {
-    const parsed = parse(sourceFile.getText())
-    template = parsed.descriptor.template
+      if (config.tailwind?.cssVariables || !baseColor?.inlineColors)
+        return transformCount
 
-    if (!template)
-      return sourceFile
+      for (const scriptAST of scriptASTs) {
+        traverseScriptAST(scriptAST, {
+          visitLiteral(path) {
+            if (path.parent.value.type !== 'ImportDeclaration' && typeof path.node.value === 'string') {
+            // mutate the node
+              path.node.value = applyColorMapping(path.node.value.replace(/"/g, ''), baseColor.inlineColors)
+              transformCount++
+            }
+
+            return this.traverse(path)
+          },
+        })
+      }
+
+      if (sfcAST) {
+        traverseTemplateAST(sfcAST, {
+          enterNode(node) {
+            if (node.type === 'Literal' && typeof node.value === 'string') {
+              if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '')) {
+                node.value = applyColorMapping(node.value.replace(/"/g, ''), baseColor.inlineColors)
+                transformCount++
+              }
+            }
+            // handle class attribute without binding
+            else if (node.type === 'VLiteral' && typeof node.value === 'string') {
+              if (node.parent.key.name === 'class') {
+                node.value = `"${applyColorMapping(node.value.replace(/"/g, ''), baseColor.inlineColors)}"`
+                transformCount++
+              }
+            }
+          },
+          leaveNode() {
+
+          },
+        })
+      }
+
+      return transformCount
+    },
   }
-
-  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    if (template && template.loc.start.offset >= node.getPos())
-      return sourceFile
-
-    const value = node.getText()
-
-    const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
-    if (value.search('\'') === -1 && hasClosingDoubleQuote) {
-      const mapped = applyColorMapping(value.replace(/"/g, ''), baseColor.inlineColors)
-      node.replaceWithText(`"${mapped}"`)
-    }
-    else {
-      const s = new MagicString(value)
-      s.replace(/'(.*?)'/g, (substring) => {
-        return `'${applyColorMapping(substring.replace(/'/g, ''), baseColor.inlineColors)}'`
-      })
-      node.replaceWithText(s.toString())
-    }
-  })
-
-  return sourceFile
 }
 
 // Splits a className into variant-name-alpha.

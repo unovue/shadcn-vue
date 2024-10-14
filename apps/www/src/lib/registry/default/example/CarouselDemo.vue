@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
 import { Card, CardContent } from '@/lib/registry/default/ui/card'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/lib/registry/default/ui/carousel'
 </script>
 
 <template>

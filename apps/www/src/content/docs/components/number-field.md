@@ -22,6 +22,7 @@ npx shadcn-vue@latest add number-field
 
 ```vue
 <script setup lang="ts">
+import { Label } from '@/components/ui/label'
 import {
   NumberField,
   NumberFieldContent,
@@ -29,7 +30,6 @@ import {
   NumberFieldIncrement,
   NumberFieldInput,
 } from '@/components/ui/number-field'
-import { Label } from '@/components/ui/label'
 </script>
 
 <template>

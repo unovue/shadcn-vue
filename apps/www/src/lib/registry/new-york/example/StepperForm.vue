@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { CheckIcon, CircleIcon, DotIcon } from '@radix-icons/vue'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import { h, ref } from 'vue'
-import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/new-york/ui/stepper'
+import { Button } from '@/lib/registry/new-york/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
+import { Input } from '@/lib/registry/new-york/ui/input'
 import {
   Select,
   SelectContent,
@@ -13,9 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
-import { Input } from '@/lib/registry/new-york/ui/input'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/new-york/ui/stepper'
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { CheckIcon, CircleIcon, DotIcon } from '@radix-icons/vue'
+import { toTypedSchema } from '@vee-validate/zod'
+import { h, ref } from 'vue'
+import * as z from 'zod'
 
 const formSchema = [
   z.object({

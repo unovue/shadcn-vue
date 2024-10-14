@@ -1,51 +1,87 @@
-import { SyntaxKind } from 'ts-morph'
-import { MagicString, parse } from '@vue/compiler-sfc'
-import type { SFCTemplateBlock } from '@vue/compiler-sfc'
+import type { CodemodPlugin } from 'vue-metamorph'
+import type { TransformOpts } from '.'
 import { splitClassName } from './transform-css-vars'
-import type { Transformer } from '@/src/utils/transformers'
 
-export const transformTwPrefixes: Transformer = async ({
-  sourceFile,
-  config,
-}) => {
-  const isVueFile = sourceFile.getFilePath().endsWith('vue')
-  if (!config.tailwind?.prefix)
-    return sourceFile
+export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
+  return {
+    type: 'codemod',
+    name: 'add prefix to tailwind classes',
 
-  let template: SFCTemplateBlock | null = null
+    transform({ scriptASTs, sfcAST, utils: { traverseScriptAST, traverseTemplateAST, astHelpers } }) {
+      let transformCount = 0
+      const { config } = opts
 
-  if (isVueFile) {
-    const parsed = parse(sourceFile.getText())
-    template = parsed.descriptor.template
+      const CLASS_IDENTIFIER = ['class', 'classes']
 
-    if (!template)
-      return sourceFile
+      if (!config.tailwind?.prefix)
+        return transformCount
+
+      for (const scriptAST of scriptASTs) {
+        traverseScriptAST(scriptAST, {
+          visitCallExpression(path) {
+            if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'cva') {
+              const nodes = path.node.arguments
+              nodes.forEach((node) => {
+                // cva(base, ...)
+                if (node.type === 'Literal' && typeof node.value === 'string') {
+                  node.value = applyPrefix(node.value, config.tailwind.prefix)
+                  transformCount++
+                }
+
+                else if (node.type === 'ObjectExpression') {
+                  node.properties.forEach((node) => {
+                    // cva(..., { variants: { ... } })
+                    if (node.type === 'Property' && node.key.type === 'Identifier' && node.key.name === 'variants') {
+                      const nodes = astHelpers.findAll(node, { type: 'Literal' })
+                      nodes.forEach((node) => {
+                        if (typeof node.value === 'string') {
+                          node.value = applyPrefix(node.value, config.tailwind.prefix)
+                          transformCount++
+                        }
+                      })
+                    }
+                  })
+                }
+              })
+            }
+            return this.traverse(path)
+          },
+        })
+      }
+
+      if (sfcAST) {
+        traverseTemplateAST(sfcAST, {
+          enterNode(node) {
+            if (node.type === 'VAttribute' && node.key.type === 'VDirectiveKey') {
+              if (node.key.argument?.type === 'VIdentifier') {
+                if (CLASS_IDENTIFIER.includes(node.key.argument.name)) {
+                  const nodes = astHelpers.findAll(node, { type: 'Literal' })
+                  nodes.forEach((node) => {
+                    if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '') && typeof node.value === 'string') {
+                      node.value = applyPrefix(node.value, config.tailwind.prefix)
+                      transformCount++
+                    }
+                  })
+                }
+              }
+            }
+            // handle class attribute without binding
+            else if (node.type === 'VLiteral' && typeof node.value === 'string') {
+              if (CLASS_IDENTIFIER.includes(node.parent.key.name)) {
+                node.value = `"${applyPrefix(node.value.replace(/"/g, ''), config.tailwind.prefix)}"`
+                transformCount++
+              }
+            }
+          },
+          leaveNode() {
+
+          },
+        })
+      }
+
+      return transformCount
+    },
   }
-
-  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    if (template && template.loc.start.offset >= node.getPos())
-      return sourceFile
-
-    const attrName = sourceFile.getDescendantAtPos(node.getPos() - 2)?.getText()
-    if (isVueFile && attrName !== 'class')
-      return sourceFile
-
-    const value = node.getText()
-    const hasClosingDoubleQuote = value.match(/"/g)?.length === 2
-    if (value.search('\'') === -1 && hasClosingDoubleQuote) {
-      const mapped = applyPrefix(value.replace(/"/g, ''), config.tailwind.prefix)
-      node.replaceWithText(`"${mapped}"`)
-    }
-    else {
-      const s = new MagicString(value)
-      s.replace(/'(.*?)'/g, (substring) => {
-        return `'${applyPrefix(substring.replace(/'/g, ''), config.tailwind.prefix)}'`
-      })
-      node.replaceWithText(s.toString())
-    }
-  })
-
-  return sourceFile
 }
 
 export function applyPrefix(input: string, prefix: string = '') {

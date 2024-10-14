@@ -1,7 +1,7 @@
-import { readFileSync, readdirSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { parseSync } from '@oxc-parser/wasm'
 import { addComponent, addTemplate, createResolver, defineNuxtModule, findPath, installModule, useLogger } from '@nuxt/kit'
+import { parseSync } from '@oxc-parser/wasm'
 import { UTILS } from '../../cli/src/utils/templates'
 
 // TODO: add test to make sure all registry is being parse correctly

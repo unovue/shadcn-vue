@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { CheckIcon, CircleIcon, DotIcon } from '@radix-icons/vue'
+import { Button } from '@/lib/registry/new-york/ui/button'
 
 import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/new-york/ui/stepper'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { CheckIcon, CircleIcon, DotIcon } from '@radix-icons/vue'
 
 const steps = [
   {

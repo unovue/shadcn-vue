@@ -221,9 +221,9 @@ Take a look at `DrawerDescription.vue`.
 ```vue
 <script lang="ts" setup>
 import type { DrawerDescriptionProps } from 'vaul-vue'
-import { DrawerDescription } from 'vaul-vue'
-import { type HtmlHTMLAttributes, computed } from 'vue'
 import { cn } from '@/lib/utils'
+import { DrawerDescription } from 'vaul-vue'
+import { computed, type HtmlHTMLAttributes } from 'vue'
 
 const props = defineProps<DrawerDescriptionProps & { class?: HtmlHTMLAttributes['class'] }>()
 
@@ -270,9 +270,9 @@ Take a look at `AccordionItem.vue`
 
 ```vue
 <script setup lang="ts">
-import { type HTMLAttributes, computed } from 'vue'
-import { AccordionItem, type AccordionItemProps, useForwardProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
+import { AccordionItem, type AccordionItemProps, useForwardProps } from 'radix-vue'
+import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<AccordionItemProps & { class?: HTMLAttributes['class'] }>()
 
@@ -307,9 +307,9 @@ Let's take a look at `Button.vue`
 ```vue
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import { Primitive, type PrimitiveProps } from 'radix-vue'
 import { type ButtonVariants, buttonVariants } from '.'
-import { cn } from '@/lib/utils'
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']

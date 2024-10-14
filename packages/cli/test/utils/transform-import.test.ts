@@ -4,7 +4,7 @@ import { transform } from '../../src/utils/transformers'
 it('transform import', async () => {
   expect(
     await transform({
-      filename: 'app.vue',
+      filename: 'app.ts',
       raw: `import { Foo } from "bar"
     import { Button } from "@/lib/registry/new-york/ui/button"
     import { Label} from "ui/label"
@@ -21,19 +21,20 @@ it('transform import', async () => {
           components: '@/components',
           utils: '@/lib/utils',
         },
+        typescript: true,
       },
     }),
   ).toMatchSnapshot()
 
   expect(
     await transform({
-      filename: 'app.vue',
+      filename: 'app.ts',
       raw: `import { Foo } from "bar"
       import { Button } from "@/lib/registry/new-york/ui/button"
       import { Label} from "ui/label"
       import { Box } from "@/lib/registry/new-york/box"
 
-      import { cn, foo, bar } from "@/lib/utils"
+      import { cn, foo } from "@/lib/utils"
       import { bar } from "@/lib/utils/bar"
       `,
       config: {
@@ -41,13 +42,14 @@ it('transform import', async () => {
           components: '~/src/components',
           utils: '~/lib',
         },
+        typescript: true,
       },
     }),
   ).toMatchSnapshot()
 
   expect(
     await transform({
-      filename: 'app.vue',
+      filename: 'app.ts',
       raw: `import { Foo } from "bar"
       import { Button } from "@/lib/registry/new-york/ui/button"
       import { Label} from "ui/label"
@@ -61,6 +63,7 @@ it('transform import', async () => {
           components: '~/src/components',
           utils: '~/src/utils',
         },
+        typescript: true,
       },
     }),
   ).toMatchSnapshot()

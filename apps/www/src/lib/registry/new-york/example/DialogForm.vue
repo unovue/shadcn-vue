@@ -1,18 +1,5 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-
 import { Button } from '@/lib/registry/new-york/ui/button'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/lib/registry/new-york/ui/form'
 import {
   Dialog,
   DialogContent,
@@ -22,8 +9,21 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/lib/registry/new-york/ui/dialog'
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/lib/registry/new-york/ui/form'
+
 import { Input } from '@/lib/registry/new-york/ui/input'
 import { toast } from '@/lib/registry/new-york/ui/toast'
+import { toTypedSchema } from '@vee-validate/zod'
+import { h } from 'vue'
+import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),

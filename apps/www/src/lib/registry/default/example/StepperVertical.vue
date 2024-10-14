@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
+import { Button } from '@/lib/registry/default/ui/button'
 
 import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Check, Circle, Dot } from 'lucide-vue-next'
 
 const steps = [
   {

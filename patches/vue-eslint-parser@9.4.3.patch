@@ -1,0 +1,15 @@
+diff --git a/index.js b/index.js
+index ead6e607e8bd14e0053269a8a330bd1cf67a5897..b6b304343e0e6427531e2068e50eb45e4fb91109 100644
+--- a/index.js
++++ b/index.js
+@@ -692,8 +692,8 @@ function extractGeneric(element) {
+ function getConstraint(node, rawParam) {
+     if (!node.constraint) {
+         return "unknown";
+-    }
+-    let index = rawParam.indexOf(node.name.name) + node.name.name.length;
++    } 
++    let index = rawParam.indexOf(node.name.name) + (node.name.name?.length ?? node.name.length);
+     let startIndex = null;
+     while (index < rawParam.length) {
+         if (startIndex == null) {

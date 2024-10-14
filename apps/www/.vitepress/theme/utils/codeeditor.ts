@@ -1,11 +1,11 @@
-import { getParameters } from 'codesandbox/lib/api/define'
+import type { Style } from '@/lib/registry/styles'
 import sdk from '@stackblitz/sdk'
+import { getParameters } from 'codesandbox/lib/api/define'
 import { Index as demoIndex } from '../../../../www/__registry__'
 // @ts-expect-error ?raw
 import tailwindConfigRaw from '../../../tailwind.config?raw'
 // @ts-expect-error ?raw
 import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw'
-import type { Style } from '@/lib/registry/styles'
 
 export function makeCodeSandboxParams(componentName: string, style: Style, sources: Record<string, string>) {
   let files: Record<string, any> = {}

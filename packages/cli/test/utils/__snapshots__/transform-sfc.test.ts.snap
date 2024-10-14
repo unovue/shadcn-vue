@@ -15,7 +15,7 @@ const array = [1, 2, 3];
 
 exports[`transformSFC > defineEmits 1`] = `
 "<script setup>
-const emit = defineEmits(["foo"]);
+const emit = defineEmits(['foo']);
 </script>
 "
 `;
@@ -32,7 +32,7 @@ const props = defineProps({
 exports[`transformSFC > defineProps with external props 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: { type: String, required: false, default: "bar" },
+  foo: { type: String, required: false, default: 'bar' },
   a: { type: String, required: true },
   b: { type: Number, required: true },
 });
@@ -43,7 +43,7 @@ const props = defineProps({
 exports[`transformSFC > defineProps with package props 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: { type: String, required: false, default: "bar" },
+  foo: { type: String, required: false, default: 'bar' },
   for: { type: String, required: false },
   asChild: { type: Boolean, required: false },
   as: { type: null, required: false },
@@ -55,7 +55,7 @@ const props = defineProps({
 exports[`transformSFC > defineProps with withDefaults 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: { type: String, required: true, default: "bar" },
+  foo: { type: String, required: true, default: 'bar' },
 });
 </script>
 "
@@ -75,6 +75,30 @@ const array = [1, 2, 3];
         let b = a;
         return b;
       }
+    "
+  >
+    {{ true ? 123 : 0 }}
+  </div>
+</template>
+
+<style scoped></style>
+"
+`;
+
+exports[`transformSFC > remove all type reference, keeping similar template 1`] = `
+"<script setup>
+const array = [1, 2, 3];
+</script>
+
+<template>
+  <div
+    :class="
+      cn(
+        'relative z-50 max-h-96 min-w-32 overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+        position === 'popper' &&
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+        props.class,
+      )
     "
   >
     {{ true ? 123 : 0 }}

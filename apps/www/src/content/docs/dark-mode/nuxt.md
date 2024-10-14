@@ -42,9 +42,9 @@ npm install -D @iconify/vue @iconify-json/radix-icons
 
 ```vue
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Icon } from '@iconify/vue'
 
 const colorMode = useColorMode()
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { DotsHorizontalIcon } from '@radix-icons/vue'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
 import { Button } from '@/lib/registry/new-york/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/lib/registry/new-york/ui/dropdown-menu'
+import { DotsHorizontalIcon } from '@radix-icons/vue'
 
 defineProps<{
   payment: {

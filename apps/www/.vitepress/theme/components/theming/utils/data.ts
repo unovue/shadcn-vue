@@ -1,6 +1,6 @@
-import { CreditCard } from 'lucide-vue-next'
 import RiAppleFill from '~icons/ri/apple-fill'
 import RiPaypalFill from '~icons/ri/paypal-fill'
+import { CreditCard } from 'lucide-vue-next'
 
 type Color =
   | 'zinc'

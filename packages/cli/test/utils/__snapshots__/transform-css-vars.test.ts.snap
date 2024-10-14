@@ -33,8 +33,7 @@ exports[`transform css vars 3`] = `
     :class="
       cn(
         'bg-white hover:bg-stone-100 dark:bg-stone-950 dark:hover:bg-stone-800',
-        true &&
-          'text-stone-50 sm:focus:text-stone-900 dark:text-stone-900 dark:sm:focus:text-stone-50',
+        true && 'text-stone-50 sm:focus:text-stone-900 dark:text-stone-900 dark:sm:focus:text-stone-50',
       )
     "
   >

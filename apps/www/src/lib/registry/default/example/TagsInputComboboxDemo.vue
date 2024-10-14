@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { ComboboxAnchor, ComboboxContent, ComboboxInput, ComboboxPortal, ComboboxRoot } from 'radix-vue'
 import { CommandEmpty, CommandGroup, CommandItem, CommandList } from '@/lib/registry/default/ui/command'
 import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/lib/registry/default/ui/tags-input'
+import { ComboboxAnchor, ComboboxContent, ComboboxInput, ComboboxPortal, ComboboxRoot } from 'radix-vue'
+import { computed, ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },
@@ -28,7 +28,7 @@ const filteredFrameworks = computed(() => frameworks.filter(i => !modelValue.val
       </TagsInputItem>
     </div>
 
-    <ComboboxRoot v-model="modelValue" v-model:open="open" v-model:searchTerm="searchTerm" class="w-full">
+    <ComboboxRoot v-model="modelValue" v-model:open="open" v-model:search-term="searchTerm" class="w-full">
       <ComboboxAnchor as-child>
         <ComboboxInput placeholder="Framework..." as-child>
           <TagsInputInput class="w-full px-3" :class="modelValue.length > 0 ? 'mt-2' : ''" @keydown.enter.prevent />

@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import { h, ref } from 'vue'
-import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
+import { Button } from '@/lib/registry/default/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
+import { Input } from '@/lib/registry/default/ui/input'
 import {
   Select,
   SelectContent,
@@ -13,9 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/lib/registry/default/ui/select'
-import { Input } from '@/lib/registry/default/ui/input'
-import { Button } from '@/lib/registry/default/ui/button'
+import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/lib/registry/default/ui/stepper'
 import { toast } from '@/lib/registry/default/ui/toast'
+import { toTypedSchema } from '@vee-validate/zod'
+import { Check, Circle, Dot } from 'lucide-vue-next'
+import { h, ref } from 'vue'
+import * as z from 'zod'
 
 const formSchema = [
   z.object({
