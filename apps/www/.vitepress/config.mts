@@ -50,6 +50,10 @@ export default defineConfig({
       pattern: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/:path',
       text: 'Edit this page on GitHub',
     },
+    carbonAds: {
+      code: 'CW7DK27U',
+      placement: 'wwwshadcn-vuecom',
+    },
   },
 
   srcDir: path.resolve(__dirname, '../src'),

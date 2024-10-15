@@ -5,6 +5,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/lib/regis
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
 import { onContentUpdated } from 'vitepress'
 import { shallowRef } from 'vue'
+import CarbonAds from '../components/CarbonAds.vue'
 import TableOfContentTree from './TableOfContentTree.vue'
 
 const headers = shallowRef<TableOfContents>()
@@ -24,7 +25,7 @@ function getHeadingsWithHierarchy(divId: string) {
     const level = Number.parseInt(heading.tagName.charAt(1))
     if (!heading.id) {
       const newId = heading.textContent
-        .replaceAll(/[^a-z0-9 ]/gi, '')
+        ?.replaceAll(/[^a-z0-9 ]/gi, '')
         .replaceAll(' ', '-')
         .toLowerCase()
       heading.id = `${newId}`
@@ -63,6 +64,7 @@ onContentUpdated(() => {
           On This Page
         </p>
         <TableOfContentTree :tree="headers" :level="1" />
+        <CarbonAds />
       </div>
     </ScrollArea>
   </div>
