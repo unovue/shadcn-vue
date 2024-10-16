@@ -50,7 +50,7 @@ if (carbonOptions) {
 
 <style scoped>
 .carbon-ads {
-  @apply !mt-6 w-full flex justify-center items-center p-2 rounded-xl min-h-[256px] text-center leading-[18px] text-xs font-medium bg-card/50 border border-muted;
+  @apply !mt-8 w-[238px] flex justify-center items-center p-2 rounded-xl min-h-[256px] text-center leading-[18px] text-xs font-medium bg-card border border-muted;
 }
 
 .carbon-ads :deep(img) {

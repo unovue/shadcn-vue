@@ -5,7 +5,7 @@ import RadixIconsExternalLink from '~icons/radix-icons/external-link'
 import { useData, useRoute } from 'vitepress'
 import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
 import EditLink from '../components/EditLink.vue'
-import TableOfContentVue from '../components/TableOfContent.vue'
+import TableOfContent from '../components/TableOfContent.vue'
 import { docsConfig } from '../config/docs'
 
 const $route = useRoute()
@@ -62,7 +62,7 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
       <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
         <div class="mx-auto w-full min-w-0">
           <div class="block xl:hidden">
-            <TableOfContentVue />
+            <TableOfContent />
           </div>
 
           <DocsBreadcrumb class="mb-4" />
@@ -104,7 +104,7 @@ const sourceLink = 'https://github.com/radix-vue/shadcn-vue/tree/dev/'
 
         <div class="hidden text-sm xl:block">
           <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] overflow-hidden pt-6">
-            <TableOfContentVue />
+            <TableOfContent show-carbon-ads />
           </div>
         </div>
       </main>

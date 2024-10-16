@@ -8,6 +8,10 @@ import { shallowRef } from 'vue'
 import CarbonAds from '../components/CarbonAds.vue'
 import TableOfContentTree from './TableOfContentTree.vue'
 
+defineProps<{
+  showCarbonAds?: boolean
+}>()
+
 const headers = shallowRef<TableOfContents>()
 
 function getHeadingsWithHierarchy(divId: string) {
@@ -64,7 +68,7 @@ onContentUpdated(() => {
           On This Page
         </p>
         <TableOfContentTree :tree="headers" :level="1" />
-        <CarbonAds />
+        <CarbonAds v-if="showCarbonAds" />
       </div>
     </ScrollArea>
   </div>
