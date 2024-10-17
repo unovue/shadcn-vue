@@ -12,8 +12,9 @@ function init() {
   if (!isInitialized) {
     isInitialized = true
     const s = document.createElement('script')
+    s.type = 'text/javascript'
     s.id = '_carbonads_js'
-    s.src = `//cdn.carbonads.com/carbon.js?serve=${carbonOptions.code}&placement=${carbonOptions.placement}`
+    s.src = `//cdn.carbonads.com/carbon.js?serve=${carbonOptions.code}&placement=${carbonOptions.placement}&format=cover`
     s.async = true
     container.value.appendChild(s)
   }
@@ -44,40 +45,27 @@ if (carbonOptions) {
 <template>
   <div
     ref="container"
-    class="carbon-ads"
   />
 </template>
 
-<style scoped>
-.carbon-ads {
-  @apply !mt-8 w-[238px] flex justify-center items-center p-2 rounded-xl min-h-[256px] text-center leading-[18px] text-xs font-medium bg-card border border-muted;
+<style>
+#carbon-responsive {
+  @apply w-[238px] !mt-6;
 }
 
-.carbon-ads :deep(img) {
-  @apply mx-auto rounded-md;
+.carbon-responsive-wrap {
+	@apply bg-muted/50 border border-muted p-4 rounded-md flex flex-col items-center !important;
 }
 
-.carbon-ads :deep(.carbon-text) {
-  @apply block mx-auto pt-3 text-[var(--vp-carbon-ads-text-color)] transition-colors duration-200;
+.carbon-responsive-wrap .carbon-img {
+	@apply flex-none rounded overflow-hidden !important;
 }
 
-.carbon-ads :deep(.carbon-text:hover) {
-  @apply text-[var(--vp-carbon-ads-hover-text-color)];
+.carbon-responsive-wrap .carbon-text {
+  @apply text-muted-foreground text-sm flex-none text-center !important;
 }
 
-.carbon-ads :deep(.carbon-poweredby) {
-  @apply block pt-1.5 text-[11px] font-medium text-[var(--vp-carbon-ads-poweredby-color)] uppercase transition-colors duration-200;
-}
-
-.carbon-ads :deep(.carbon-poweredby:hover) {
-  @apply text-[var(--vp-carbon-ads-hover-poweredby-color)];
-}
-
-.carbon-ads :deep(> div) {
-  @apply hidden;
-}
-
-.carbon-ads :deep(> div:first-of-type) {
-  @apply block;
+#carbonads .carbon-poweredby {
+	@apply bg-background text-muted-foreground block text-right text-[10px] uppercase no-underline !important;
 }
 </style>
