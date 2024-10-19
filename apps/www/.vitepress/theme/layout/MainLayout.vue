@@ -41,7 +41,7 @@ const toggleDark = useToggle(isDark)
 const links = [
   {
     name: 'GitHub',
-    href: 'https://github.com/radix-vue/shadcn-vue',
+    href: 'https://github.com/unovue/shadcn-vue',
     icon: RadixIconsGithubLogo,
   },
   // {
@@ -220,7 +220,7 @@ watch(() => $route.path, (n) => {
             <span class="inline-block ml-2">
               The code source is available on
               <a
-                href="https://github.com/radix-vue/shadcn-vue"
+                href="https://github.com/unovue/shadcn-vue"
                 target="_blank"
                 class="underline underline-offset-4 font-bold decoration-foreground"
               >
