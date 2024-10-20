@@ -30,6 +30,9 @@
     "taze": "taze major -frI --ignore-paths ./packages/cli/test/** --exclude typescript,/@iconify/",
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
+  "dependencies": {
+    "shadcn-nuxt": "^0.10.4"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^3.6.2",
     "@commitlint/cli": "^19.5.0",

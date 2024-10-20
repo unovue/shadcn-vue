@@ -59,6 +59,10 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
+    // Install the `@nuxtjs/tailwindcss` module.
+
+    await installModule('@nuxtjs/tailwindcss')
+
     // Installs the `@nuxtjs/color-mode` module.
 
     await installModule('@nuxtjs/color-mode', {
