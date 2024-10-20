@@ -36,18 +36,15 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@oxc-parser/wasm": "catalog:",
-    "class-variance-authority": "^0.7.0",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "@oxc-parser/wasm": "catalog:"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.5.0",
     "@nuxt/module-builder": "^0.8.2",
     "@nuxt/schema": "^3.12.4",
     "@nuxt/test-utils": "^3.14.0",
-    "@nuxtjs/color-mode": "^3.4.4",
-    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/node": "^20.14.15",
     "nuxt": "^3.12.4"
   }

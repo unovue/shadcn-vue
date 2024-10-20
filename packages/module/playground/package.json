@@ -8,7 +8,6 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.10.1",
     "embla-carousel-vue": "8.0.0-rc19",
     "lucide-vue-next": "^0.276.0",
     "shadcn-nuxt": "^0.10.4"
