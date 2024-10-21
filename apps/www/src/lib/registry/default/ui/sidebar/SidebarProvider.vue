@@ -2,14 +2,17 @@
 import { cn } from '@/lib/utils'
 import { useEventListener, useVModel } from '@vueuse/core'
 import { TooltipProvider } from 'radix-vue'
-import { computed, type HTMLAttributes, ref } from 'vue'
+import { computed, type HTMLAttributes, type Ref, ref } from 'vue'
 import { provideSidebarContext, SIDEBAR_COOKIE_MAX_AGE, SIDEBAR_COOKIE_NAME, SIDEBAR_KEYBOARD_SHORTCUT, SIDEBAR_WIDTH, SIDEBAR_WIDTH_ICON } from './utils'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   defaultOpen?: boolean
   open?: boolean
   class?: HTMLAttributes['class']
-}>()
+}>(), {
+  defaultOpen: true,
+  open: undefined,
+})
 
 const emits = defineEmits<{
   'update:open': [open: boolean]
@@ -19,9 +22,9 @@ const isMobile = ref(false) // useIsMobile()
 const openMobile = ref(false)
 
 const open = useVModel(props, 'open', emits, {
-  defaultValue: props.defaultOpen,
+  defaultValue: props.defaultOpen ?? false,
   passive: (props.open === undefined) as false,
-})
+}) as Ref<boolean>
 
 function setOpen(value: boolean) {
   open.value = value // emits('update:open', value)

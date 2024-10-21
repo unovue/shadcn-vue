@@ -10,12 +10,15 @@ const props = withDefaults(defineProps<PrimitiveProps & {
   class?: HTMLAttributes['class']
 }>(), {
   as: 'a',
+  size: 'md',
 })
 </script>
 
 <template>
   <Primitive
     data-sidebar="menu-sub-button"
+    :as="as"
+    :as-child="asChild"
     :data-size="size"
     :data-active="isActive"
     :class="cn(

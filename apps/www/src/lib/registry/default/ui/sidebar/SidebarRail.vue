@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { injectSidebarContext } from './utils'
+import { useSidebar } from './utils'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const { toggleSidebar } = injectSidebarContext()
+const { toggleSidebar } = useSidebar()
 </script>
 
 <template>
