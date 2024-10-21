@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Skeleton from '@/lib/registry/default/ui/skeleton/Skeleton.vue'
+import Skeleton from '@/lib/registry/new-york/ui/skeleton/Skeleton.vue'
 import { cn } from '@/lib/utils'
 import { computed, type HTMLAttributes } from 'vue'
 
