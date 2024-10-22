@@ -1,4 +1,5 @@
 export { default as APITable } from './APITable.vue'
+export { default as BlockPreview } from './BlockPreview.vue'
 export { default as Callout } from './Callout.vue'
 export { default as CodeWrapper } from './CodeWrapper'
 export { default as ComponentPreview } from './ComponentPreview.vue'
