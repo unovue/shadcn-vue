@@ -44,7 +44,7 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
   #### `vite.config`
 
-  ```typescript {5,6,9-13}
+  ```typescript {3,5,9-13}
   import path from 'node:path'
   import vue from '@vitejs/plugin-vue'
   import autoprefixer from 'autoprefixer'
