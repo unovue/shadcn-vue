@@ -31,21 +31,20 @@ export const docsConfig: DocsConfig = {
       href: '/docs/components/accordion',
     },
     {
+      title: 'Blocks',
+      href: '/blocks',
+    },
+    {
+      title: 'Charts',
+      href: '/charts',
+    },
+    {
       title: 'Themes',
       href: '/themes',
     },
     {
       title: 'Examples',
       href: '/examples/mail',
-    },
-    {
-      title: 'Blocks',
-      href: '/blocks',
-    },
-    {
-      title: 'GitHub',
-      href: 'https://github.com/radix-vue/shadcn-vue',
-      external: true,
     },
   ],
   sidebarNav: [
