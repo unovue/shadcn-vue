@@ -6,7 +6,7 @@
 	:root {
 		--font-geist-sans: "geist-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 			Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-			
+
 		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
 		--card: 0 0% 100%;
@@ -27,6 +27,16 @@
 		--input: 240 5.9% 90%;
 		--ring: 240 5% 64.9%;
 		--radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
 
 		--vis-primary-color: var(--primary);
     --vis-secondary-color: 160 81% 40%;
@@ -64,6 +74,15 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
 
@@ -97,19 +116,6 @@
 		src: url("/fonts/Geist/GeistVariableVF.woff2") format("woff2");
 	}
 
-	/* === Scrollbars === */
-
-	::-webkit-scrollbar {
-		@apply w-2;
-		@apply h-2;
-	}
-
-	::-webkit-scrollbar-track {
-		@apply !bg-muted;
-	}
-	::-webkit-scrollbar-thumb {
-		@apply rounded-sm !bg-muted-foreground/30;
-	}
 
 	/* Firefox */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
@@ -119,15 +125,6 @@
 
 	html.dark {
 		scrollbar-color: hsl(215.4 16.3% 56.9% / 0.3);
-	}
-
-	.hide-scrollbar::-webkit-scrollbar {
-		display: none;
-	}
-
-	.hide-scrollbar {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
 	}
 
 	.antialised {
@@ -147,7 +144,7 @@
 		@apply absolute w-9 h-9 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-4 border-background;
 		@apply -ml-[50px] -mt-1;
 		content: counter(step);
-	}	
+	}
 }
 
 @media (max-width: 640px) {
@@ -177,7 +174,7 @@ pre code {
 
 pre code .line {
 	@apply px-4 min-h-4 !py-0.5 w-full inline-block leading-[--vp-code-line-height];
-} 
+}
 
 .line-number {
 	@apply !text-[.75rem] !inline-block text-muted-foreground leading-[--vp-code-line-height];

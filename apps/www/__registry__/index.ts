@@ -1501,6 +1501,20 @@ export const Index = {
       component: () => import("../src/lib/registry/default/block/Dashboard07.vue").then((m) => m.default),
       files: ["../src/lib/registry/default/block/Dashboard07.vue"],
     },
+    "Sidebar01": {
+      name: "Sidebar01",
+      type: "components:block",
+      registryDependencies: ["breadcrumb","dropdown-menu","label","separator","sidebar"],
+      component: () => import("../src/lib/registry/default/block/Sidebar01.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Sidebar01.vue"],
+    },
+    "Sidebar07": {
+      name: "Sidebar07",
+      type: "components:block",
+      registryDependencies: ["avatar","breadcrumb","collapsible","dropdown-menu","separator","sidebar"],
+      component: () => import("../src/lib/registry/default/block/Sidebar07.vue").then((m) => m.default),
+      files: ["../src/lib/registry/default/block/Sidebar07.vue"],
+    },
   },  "new-york": {
     "AccordionDemo": {
       name: "AccordionDemo",
@@ -2999,6 +3013,20 @@ export const Index = {
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       component: () => import("../src/lib/registry/new-york/block/Dashboard07.vue").then((m) => m.default),
       files: ["../src/lib/registry/new-york/block/Dashboard07.vue"],
+    },
+    "Sidebar01": {
+      name: "Sidebar01",
+      type: "components:block",
+      registryDependencies: ["breadcrumb","dropdown-menu","label","separator","sidebar"],
+      component: () => import("../src/lib/registry/new-york/block/Sidebar01.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Sidebar01.vue"],
+    },
+    "Sidebar07": {
+      name: "Sidebar07",
+      type: "components:block",
+      registryDependencies: ["avatar","breadcrumb","collapsible","dropdown-menu","separator","sidebar"],
+      component: () => import("../src/lib/registry/new-york/block/Sidebar07.vue").then((m) => m.default),
+      files: ["../src/lib/registry/new-york/block/Sidebar07.vue"],
     },
   },
 }
