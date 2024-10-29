@@ -2,10 +2,9 @@
 import { useConfigStore } from '@/stores/config'
 import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
 import MagicString from 'magic-string'
-import { codeToHtml } from 'shiki'
 import { reactive, ref, watch } from 'vue'
 import { compileScript, parse, walk } from 'vue/compiler-sfc'
-import { cssVariables } from '../config/shiki'
+import { highlight } from '../config/shiki'
 import BlockCopyButton from './BlockCopyButton.vue'
 import StyleSwitcher from './StyleSwitcher.vue'
 
@@ -79,10 +78,7 @@ watch([style, codeConfig], async () => {
       })
     }
 
-    codeHtml.value = await codeToHtml(rawString.value, {
-      lang: 'vue',
-      theme: cssVariables,
-    })
+    codeHtml.value = highlight(rawString.value, 'vue')
   }
   catch (err) {
     console.error(err)
