@@ -289,7 +289,7 @@ function setActiveTeam(team: typeof data.teams[number]) {
             >
               <SidebarMenuItem>
                 <CollapsibleTrigger as-child>
-                  <SidebarMenuButton tooltip="item.title">
+                  <SidebarMenuButton :tooltip="item.title">
                     <component :is="item.icon" />
                     <span>{{ item.title }}</span>
                     <ChevronRight class="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
