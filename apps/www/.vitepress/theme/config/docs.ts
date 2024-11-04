@@ -128,12 +128,10 @@ export const docsConfig: DocsConfig = {
           title: 'Auto Form',
           href: '/docs/components/auto-form',
           items: [],
-          label: 'New',
         },
         {
           title: 'Charts',
           href: '/docs/charts',
-          label: 'New Alpha',
           items: [],
         },
       ],
@@ -141,6 +139,11 @@ export const docsConfig: DocsConfig = {
     {
       title: 'Components',
       items: [
+        {
+          title: 'Sidebar',
+          href: '/docs/components/sidebar',
+          label: 'New',
+        },
         {
           title: 'Accordion',
           href: '/docs/components/accordion',
@@ -178,7 +181,6 @@ export const docsConfig: DocsConfig = {
           title: 'Calendar',
           href: '/docs/components/calendar',
           items: [],
-          label: 'Updated',
         },
         {
           title: 'Card',
@@ -217,7 +219,6 @@ export const docsConfig: DocsConfig = {
           title: 'Date Picker',
           href: '/docs/components/date-picker',
           items: [],
-          label: 'Updated',
         },
         {
           title: 'Dialog',
@@ -259,7 +260,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Number Field',
           href: '/docs/components/number-field',
-          label: 'New Alpha',
         },
         {
           title: 'Pagination',
@@ -324,7 +324,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Stepper',
           href: '/docs/components/stepper',
-          label: 'New',
         },
         {
           title: 'Switch',

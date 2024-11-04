@@ -94,6 +94,7 @@ export default defineNuxtModule<ModuleOptions>({
                 name: `${prefix}${key}`, // name of the component to be used in vue templates
                 export: key, // (optional) if the component is a named (rather than default) export
                 filePath: resolve(filePath),
+                priority: 1,
               })
             })
           }

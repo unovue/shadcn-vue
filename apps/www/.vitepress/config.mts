@@ -4,7 +4,6 @@ import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vitepress'
-import { cssVariables } from './theme/config/shiki'
 
 import { siteConfig } from './theme/config/site'
 import CodeWrapperPlugin from './theme/plugins/codewrapper'
@@ -31,7 +30,6 @@ export default defineConfig({
     ['meta', { name: 'og:site_name', content: siteConfig.name }],
     ['meta', { name: 'og:image', content: siteConfig.ogImage }],
     ['meta', { name: 'twitter:image', content: siteConfig.ogImage }],
-
   ],
 
   sitemap: {
@@ -58,7 +56,6 @@ export default defineConfig({
 
   srcDir: path.resolve(__dirname, '../src'),
   markdown: {
-    theme: cssVariables,
     codeTransformers: [
       transformerMetaWordHighlight(),
     ],

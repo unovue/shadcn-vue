@@ -9,7 +9,7 @@ import PageHeader from '../components/PageHeader.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
-import BlockPreview from './BlockPreview.vue'
+import BlockContainer from './BlockContainer.vue'
 
 const blocks = ref<string[]>([])
 
@@ -48,6 +48,6 @@ import('../../../__registry__/index').then((res) => {
   </PageHeader>
 
   <section id="blocks" class="grid scroll-mt-24 gap-24 lg:gap-48">
-    <BlockPreview v-for="block in blocks" :key="block" :name="block" />
+    <BlockContainer v-for="block in blocks" :key="block" :name="block" />
   </section>
 </template>

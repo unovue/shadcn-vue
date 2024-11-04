@@ -744,6 +744,53 @@
     "type": "components:ui"
   },
   {
+    "name": "sidebar",
+    "dependencies": [
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "Sheet.vue",
+      "SheetContent.vue",
+      "utils",
+      "Input.vue",
+      "Tooltip.vue",
+      "TooltipContent.vue",
+      "TooltipTrigger.vue",
+      "Skeleton.vue",
+      "Separator.vue",
+      "Button.vue"
+    ],
+    "files": [
+      "ui/sidebar/Sidebar.vue",
+      "ui/sidebar/SidebarContent.vue",
+      "ui/sidebar/SidebarFooter.vue",
+      "ui/sidebar/SidebarGroup.vue",
+      "ui/sidebar/SidebarGroupAction.vue",
+      "ui/sidebar/SidebarGroupContent.vue",
+      "ui/sidebar/SidebarGroupLabel.vue",
+      "ui/sidebar/SidebarHeader.vue",
+      "ui/sidebar/SidebarInput.vue",
+      "ui/sidebar/SidebarInset.vue",
+      "ui/sidebar/SidebarMenu.vue",
+      "ui/sidebar/SidebarMenuAction.vue",
+      "ui/sidebar/SidebarMenuBadge.vue",
+      "ui/sidebar/SidebarMenuButton.vue",
+      "ui/sidebar/SidebarMenuButtonChild.vue",
+      "ui/sidebar/SidebarMenuItem.vue",
+      "ui/sidebar/SidebarMenuSkeleton.vue",
+      "ui/sidebar/SidebarMenuSub.vue",
+      "ui/sidebar/SidebarMenuSubButton.vue",
+      "ui/sidebar/SidebarMenuSubItem.vue",
+      "ui/sidebar/SidebarProvider.vue",
+      "ui/sidebar/SidebarRail.vue",
+      "ui/sidebar/SidebarSeparator.vue",
+      "ui/sidebar/SidebarTrigger.vue",
+      "ui/sidebar/index.ts",
+      "ui/sidebar/utils.ts"
+    ],
+    "type": "components:ui"
+  },
+  {
     "name": "skeleton",
     "dependencies": [],
     "registryDependencies": [

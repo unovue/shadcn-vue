@@ -4,9 +4,8 @@ import { cn } from '@/lib/utils'
 import { useConfigStore } from '@/stores/config'
 import { useClipboard } from '@vueuse/core'
 import MagicString from 'magic-string'
-import { codeToHtml } from 'shiki'
 import { computed, ref, watch } from 'vue'
-import { cssVariables } from '../config/shiki'
+import { highlight } from '../config/shiki'
 import CodeSandbox from './CodeSandbox.vue'
 import ComponentLoader from './ComponentLoader.vue'
 import Stackblitz from './Stackblitz.vue'
@@ -37,10 +36,7 @@ function transformImportPath(code: string) {
 watch([style, codeConfig], async () => {
   try {
     rawString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
-    codeHtml.value = await codeToHtml(transformedRawString.value, {
-      lang: 'vue',
-      theme: cssVariables,
-    })
+    codeHtml.value = highlight(transformedRawString.value, 'vue')
   }
   catch (err) {
     console.error(err)
