@@ -306,11 +306,6 @@ export async function runInit(cwd: string, config: Config) {
   // Install dependencies.
   const dependenciesSpinner = ora('Installing dependencies...')?.start()
 
-  // Starting from `shadcn-nuxt` version 0.10.4, Base dependencies are handled by the module so no need to re-add them by the CLI.
-
-  // Unfortunately, the dependencies are not available when using the latest `shadcn-nuxt` module. Hence why we need to rely on the CLI to install the required deps for both Nuxt 3 and Vue 3.
-
-  // Install the required deps.
   const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
   const deps = PROJECT_DEPENDENCIES.base.concat(iconsDep).filter(Boolean)
 

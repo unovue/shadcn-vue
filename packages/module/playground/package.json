@@ -8,11 +8,17 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "embla-carousel-vue": "8.0.0-rc19",
     "lucide-vue-next": "^0.276.0",
-    "shadcn-nuxt": "^0.10.4"
+    "radix-vue": "^1.9.8",
+    "shadcn-nuxt": "^0.10.4",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt": "latest"
   }
 }
