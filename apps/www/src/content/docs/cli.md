@@ -15,7 +15,7 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```txt:line-numbers
+```ansi:line-numbers
 Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
@@ -29,7 +29,7 @@ Configure the import alias for utils: › @/lib/utils
 
 ### Options
 
-```txt
+```ansi
 Usage: shadcn-vue init [options]
 
 initialize your project and install dependencies
@@ -50,7 +50,7 @@ npx shadcn-vue@latest add [component]
 
 You will be presented with a list of components to choose from:
 
-```txt
+```ansi
 Which components would you like to add? › Space to select. Return to submit.
 
 ◯  accordion
@@ -67,7 +67,7 @@ Which components would you like to add? › Space to select. Return to submit.
 
 ### Options
 
-```txt
+```ansi
 Usage: shadcn-vue add [options] [components...]
 
 add components to your project
@@ -90,7 +90,7 @@ Use the `update` command to update components in your project. This will overwri
 
 We plan on improving this command in the future to improve the update experience.
 
-```txt
+```ansi
 Usage: shadcn-vue update [options] [components...]
 
 update components in your project

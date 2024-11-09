@@ -213,7 +213,7 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```txt:line-numbers
+```ansi:line-numbers
 Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Vite / Nuxt / Laravel
 Which style would you like to use? › Default
@@ -231,7 +231,7 @@ Write configuration to components.json. Proceed? > Y/n
 
 Here's the default structure of Nuxt app. You can use this as a reference:
 
-```txt {6-16,20-21}
+```ansi {6-16,20-21}
 .
 ├── pages
 │   ├── index.vue

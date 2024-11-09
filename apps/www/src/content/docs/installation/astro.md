@@ -17,7 +17,7 @@ npm create astro@latest
 
 You will be asked a few questions to configure your project:
 
-```txt:line-numbers
+```ansi:line-numbers
 - Where should we create your new project?
 ./your-app-name
 - How would you like to start your new project?
@@ -99,7 +99,7 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```txt:line-numbers
+```ansi:line-numbers
 Would you like to use TypeScript (recommended)? no / yes
 Which framework are you using? Astro
 Which style would you like to use? › Default

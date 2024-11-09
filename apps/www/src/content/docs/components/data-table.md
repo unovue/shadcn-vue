@@ -102,7 +102,7 @@ export const payments: Payment[] = [
 
 Start by creating the following file structure:
 
-```txt
+```ansi
  components
     └── payments
           ├── columns.ts

@@ -350,7 +350,7 @@
   padding: 0 24px; */
   width: calc(100% + 2 * 24px);
   display: inline-block;
-  @apply bg-[hsl(var(--foreground))] dark:bg-[hsl(var(--background)_/_50%)]
+  @apply bg-[hsl(var(--muted))] dark:bg-[hsl(var(--muted))]
 } 
 
 .vp-doc [class*='language-'] code .highlighted.error {
