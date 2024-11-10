@@ -1,9 +1,8 @@
-import type { ConfigLoaderResult } from 'tsconfig-paths'
-import { existsSync } from 'node:fs'
 import { resolveImport } from '@/src/utils/resolve-import'
 import { loadConfig as c12LoadConfig } from 'c12'
+import { colors } from 'consola/utils'
+import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
-import { loadConfig } from 'tsconfig-paths'
 import { z } from 'zod'
 
 export const DEFAULT_STYLE = 'default'
@@ -67,52 +66,58 @@ export async function getConfig(cwd: string) {
 }
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
-  let tsConfig: ConfigLoaderResult | undefined
-  let tsConfigPath = path.resolve(
-    cwd,
-    config.tsConfigPath,
-  )
+  const tsconfigType = config.typescript ? 'tsconfig.json' : 'jsconfig.json'
+  const pathAliases = getTSConfig(cwd, tsconfigType)
 
-  if (config.typescript) {
-    // Read tsconfig.json.
-    tsConfig = loadConfig(tsConfigPath)
-    // In new Vue project, tsconfig has references to tsconfig.app.json, which is causing the path not resolving correctly
-    // If no paths were found, try to load tsconfig.app.json.
-    if ('paths' in tsConfig && Object.keys(tsConfig.paths).length === 0) {
-      tsConfigPath = path.resolve(cwd, './tsconfig.app.json')
-      if (existsSync(tsConfigPath))
-        tsConfig = loadConfig(tsConfigPath)
-    }
-  }
-  else {
-    tsConfigPath = config.tsConfigPath.includes('tsconfig.json') ? path.resolve(cwd, './jsconfig.json') : path.resolve(cwd, config.tsConfigPath)
-    tsConfig = loadConfig(tsConfigPath)
-  }
-  if (tsConfig.resultType === 'failed') {
+  if (pathAliases === null) {
     throw new Error(
-      `Failed to load ${tsConfigPath}. ${tsConfig.message ?? ''}`.trim(),
+      `Missing ${colors.cyan('paths')} field in your ${colors.cyan(tsconfigType)} for path aliases. See: ${colors.underline('https//')}`,
     )
   }
+
+  const utilsPath = resolveImport(config.aliases.utils, pathAliases)
+  const componentsPath = resolveImport(config.aliases.components, pathAliases)
+  const aliasError = (type: string, alias: string) =>
+    new Error(
+      `Invalid import alias found: (${colors.cyan(`"${type}": "${alias}"`)}) in ${colors.cyan('components.json')}.
+   - Import aliases ${colors.underline('must use')} existing path aliases defined in your ${colors.cyan(tsconfigType)}.`,
+    )
+
+  if (utilsPath === undefined)
+    throw aliasError('utils', config.aliases.utils)
+  if (componentsPath === undefined)
+    throw aliasError('components', config.aliases.components)
 
   return configSchema.parse({
     ...config,
     resolvedPaths: {
       tailwindConfig: path.resolve(cwd, config.tailwind.config),
       tailwindCss: path.resolve(cwd, config.tailwind.css),
-      utils: resolveImport(config.aliases.utils, tsConfig),
-      components: resolveImport(config.aliases.components, tsConfig),
+      utils: resolveImport(config.aliases.utils, pathAliases),
+      components: resolveImport(config.aliases.components, pathAliases),
       ui: config.aliases.ui
-        ? resolveImport(config.aliases.ui, tsConfig)
-        : resolveImport(config.aliases.components, tsConfig),
+        ? resolveImport(config.aliases.ui, pathAliases)
+        : resolveImport(config.aliases.components, pathAliases),
     },
   })
+}
+
+export function getTSConfig(cwd: string, tsconfigName: 'tsconfig.json' | 'jsconfig.json') {
+  const parsedConfig = getTsconfig(path.resolve(cwd, 'package.json'), tsconfigName)
+  if (parsedConfig === null) {
+    throw new Error(
+      `Failed to find ${colors.cyan(tsconfigName)}`,
+    )
+  }
+
+  return parsedConfig
 }
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
     const configResult = await c12LoadConfig({
       name: 'components',
-      configFile: 'components.json',
+      configFile: 'components',
       cwd,
     })
 
