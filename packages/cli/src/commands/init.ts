@@ -4,7 +4,7 @@ import { Command } from 'commander'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
 import { template } from 'lodash-es'
-import { addDependency } from 'nypm'
+import { addDependency, addDevDependency } from 'nypm'
 import ora from 'ora'
 import path from 'pathe'
 import prompts from 'prompts'
@@ -38,6 +38,9 @@ const PROJECT_DEPENDENCIES = {
     'clsx',
     'tailwind-merge',
     'radix-vue',
+  ],
+  nuxt: [
+    'shadcn-nuxt',
   ],
 }
 
@@ -309,10 +312,21 @@ export async function runInit(cwd: string, config: Config) {
   const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
   const deps = PROJECT_DEPENDENCIES.base.concat(iconsDep).filter(Boolean)
 
-  await addDependency(deps, {
-    cwd,
-    silent: true,
-  })
+  await Promise.allSettled(
+    [
+      config.framework === 'nuxt' && await addDevDependency(
+        [...PROJECT_DEPENDENCIES.nuxt, ...deps],
+        {
+          cwd,
+          silent: true,
+        },
+      ),
+      await addDependency(deps, {
+        cwd,
+        silent: true,
+      }),
+    ],
+  )
 
   dependenciesSpinner?.succeed()
 }
