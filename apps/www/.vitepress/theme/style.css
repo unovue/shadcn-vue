@@ -87,6 +87,8 @@
 
 
 	* {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
 		@apply border-border;
 	}
 	html {
