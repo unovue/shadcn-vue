@@ -138,9 +138,8 @@ export async function promptForConfig(
       name: 'tsConfigPath',
       message: (prev, values) => `Where is your ${highlight(values.typescript ? 'tsconfig.json' : 'jsconfig.json')} file?`,
       initial: (prev, values) => {
-        const prefix = values.framework === 'nuxt' ? '.nuxt/' : './'
-        const path = values.framework === 'nuxt' ? 'tsconfig.json' : values.typescript ? 'tsconfig.json' : 'jsconfig.json'
-        return prefix + path
+        const path = values.typescript ? './tsconfig.json' : './jsconfig.json'
+        return path
       },
     },
     {
