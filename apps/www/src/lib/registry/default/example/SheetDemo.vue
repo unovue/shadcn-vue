@@ -33,13 +33,13 @@ import {
           <Label for="name" class="text-right">
             Name
           </Label>
-          <Input id="name" value="Pedro Duarte" class="col-span-3" />
+          <Input id="name" default-value="Pedro Duarte" class="col-span-3" />
         </div>
         <div class="grid grid-cols-4 items-center gap-4">
           <Label for="username" class="text-right">
             Username
           </Label>
-          <Input id="username" value="@peduarte" class="col-span-3" />
+          <Input id="username" default-value="@peduarte" class="col-span-3" />
         </div>
       </div>
       <SheetFooter>
