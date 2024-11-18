@@ -27,28 +27,6 @@ If you encounter the error `ERROR: Cannot read properties of undefined (reading 
 npm install -D typescript
 ```
 
-### Install TailwindCSS module
-
-```bash
-npx nuxi@latest module add @nuxtjs/tailwindcss
-```
-
-Alternatively, you can manually add `@nuxtjs/tailwindcss` using your dependency manager
-
-```bash
-npm install --save-dev @nuxtjs/tailwindcss
-```
-
-and then to the `modules` section of `nuxt.config.{ts,js}`
-
-```ts
-export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/tailwindcss'
-  ]
-})
-```
-
 ### Add `Nuxt` module
 
 <br>
@@ -56,7 +34,7 @@ export default defineNuxtConfig({
 <TabsMarkdown>
   <TabMarkdown title="shadcn-nuxt">
 
-  Install the package below.
+Installing the `shadcn-nuxt` module automatically installs and configures `@nuxtjs/tailwindcss` and `@nuxtjs/color-mode` modules.
 
   ```bash
  npx nuxi@latest module add shadcn-nuxt
@@ -179,6 +157,35 @@ declare module '@nuxt/schema' {
 }
 ```
 
+### Install TailwindCss
+
+  ```bash
+npx nuxi@latest module add @nuxtjs/tailwindcss
+  ```
+
+If not configured automatically in the `nuxt.config.ts` file, configure it as shown below:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@nuxtjs/tailwindcss'],
+})
+```
+
+### Install Color Mode
+
+  ```bash
+npx nuxi module add color-mode
+  ```
+
+If not configured automatically in the `nuxt.config.ts` file, configure it as shown below:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['...', '@nuxtjs/color-mode'],
+  classSuffix: ''
+})
+```
+
   </TabMarkdown>
 </TabsMarkdown>
 
@@ -186,7 +193,7 @@ declare module '@nuxt/schema' {
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+  modules: ['shadcn-nuxt'],
   shadcn: {
     /**
      * Prefix for all the imported component
