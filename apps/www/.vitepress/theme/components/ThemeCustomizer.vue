@@ -43,7 +43,7 @@ const { isDark } = useData()
           @click="setTheme(color)"
         >
           <span
-            class="h-5 w-5 rounded-full flex items-center justify-center flex-shrink-0"
+            class="h-5 w-5 rounded-full flex items-center justify-center shrink-0"
             :style="{ backgroundColor: colors[color][7].rgb }"
           >
             <RadixIconsCheck
