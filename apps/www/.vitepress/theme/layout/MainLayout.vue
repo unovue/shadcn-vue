@@ -209,11 +209,11 @@ watch(() => $route.path, (n) => {
             <span class="inline-block ml-2">
               Ported to Vue by
               <a
-                href="https://github.com/radix-vue"
+                href="https://github.com/unovue"
                 target="_blank"
                 class="underline underline-offset-4 font-bold decoration-foreground"
               >
-                Radix Vue
+                unovue
               </a>
             </span>
             <span class="ml-0.5"> . </span>
