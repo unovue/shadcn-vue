@@ -44,12 +44,9 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
   #### `vite.config`
 
-```typescript {3,4,11-15}
-import { fileURLToPath, URL } from 'node:url'
-
+```typescript {2,3,8-12}
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
-
 import tailwind from 'tailwindcss'
 import { defineConfig } from 'vite'
 
@@ -60,14 +57,7 @@ export default defineConfig({
       plugins: [tailwind(), autoprefixer()],
     },
   },
-  plugins: [
-    vue(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+  plugins: [vue()],
 })
 ```
 
@@ -125,12 +115,10 @@ Add the code below to the vite.config.ts so your app can resolve paths without e
 npm i -D @types/node
 ```
 
-```typescript {20-22}
+```typescript {1,15-19}
 import { fileURLToPath, URL } from 'node:url'
-
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
-
 import tailwind from 'tailwindcss'
 import { defineConfig } from 'vite'
 
@@ -141,9 +129,7 @@ export default defineConfig({
       plugins: [tailwind(), autoprefixer()],
     },
   },
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
