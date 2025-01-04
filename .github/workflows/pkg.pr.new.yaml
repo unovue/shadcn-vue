@@ -13,7 +13,7 @@ on:
   pull_request:
     types: [opened, synchronize, labeled]
     paths:
-      - packages/cli
+      - packages/cli/**
     path-ignore:
       - 'test/**'
       - '*.md'
