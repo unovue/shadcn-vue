@@ -1,0 +1,42 @@
+name: Preview CLI release
+
+permissions:
+  pull-requests: write
+
+on:
+  push:
+    branches:
+      - dev
+    path-ignore:
+      - 'test/**'
+      - '*.md'
+  pull_request:
+    types: [opened, synchronize, labeled]
+    paths:
+      - packages/cli
+    path-ignore:
+      - 'test/**'
+      - '*.md'
+
+jobs:
+  preview:
+    if: >
+      github.repository == 'unovue/shadcn-vue' &&
+      (github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'trigger: preview')))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.0.0
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        working-directory: ./packages/cli
+        run: pnpm build
+
+      - run: pnpm dlx pkg-pr-new publish --compact --pnpm ./packages/cli
