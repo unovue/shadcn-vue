@@ -20,7 +20,7 @@ onMounted(() => {
   const selector = `.${BulletLegend.selectors.item}`
   nextTick(() => {
     const elements = elRef.value?.querySelectorAll(selector)
-    const classes = buttonVariants({ variant: 'ghost', size: 'xs' }).split(' ')
+    const classes = buttonVariants({ variant: 'ghost', size: 'sm' }).split(' ')
     elements?.forEach(el => el.classList.add(...classes, '!inline-flex', '!mr-2'))
   })
 })
