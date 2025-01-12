@@ -19,15 +19,16 @@ This repository is structured as follows:
 ```
 apps
 └── www
-    ├── src
-    │   └── content
-    └── registry
-        ├── default
-        │   ├── example
-        │   └── ui
-        └── new-york
-            ├── example
-            └── ui
+    └── src
+        ├── content
+        └── lib
+            └── registry
+                ├── default
+                |   ├── example
+                |   └── ui
+                └── new-york
+                    ├── example
+                    └── ui
 packages
 └── cli
 ```
