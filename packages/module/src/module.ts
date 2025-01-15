@@ -16,6 +16,11 @@ export interface ModuleOptions {
    * @default "./components/ui"
    */
   componentDir?: string
+  /**
+   * Suppress warning about missing modules
+   * @default false
+   */
+  suppressMissingModuleWarning?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -26,8 +31,9 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     prefix: '',
     componentDir: './components/ui',
+    suppressMissingModuleWarning: false,
   },
-  async setup({ prefix, componentDir }, nuxt) {
+  async setup({ prefix, componentDir, suppressMissingModuleWarning }, nuxt) {
     const COMPONENT_DIR_PATH = componentDir!
     const ROOT_DIR_PATH = nuxt.options.rootDir
     const UTILS_ALIAS = '@/lib/utils' // Use the same path from the cli for backward compatibility
@@ -59,11 +65,15 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    // Install the `@nuxtjs/tailwindcss` module.
-    await installModule('@nuxtjs/tailwindcss')
-
-    // Installs the `@nuxtjs/color-mode` module.
-    await installModule('@nuxtjs/color-mode')
+    const modulesToInstall = ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode']
+    for (const module of modulesToInstall) {
+      if (nuxt.options._installedModules.some(m => m.meta.name === module)) {
+        await installModule(module)
+      }
+      else if (!suppressMissingModuleWarning) {
+        logger.warn(`[shadcn-nuxt] \`${module}\` is not installed. To suppress this warning, set \`suppressMissingModuleWarning\` to \`true\` in module options.`)
+      }
+    }
 
     // Manually scan `componentsDir` for components and register them for auto imports
     try {
