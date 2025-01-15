@@ -67,7 +67,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     const modulesToInstall = ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode']
     for (const module of modulesToInstall) {
-      if (nuxt.options._installedModules.some(m => m.meta.name === module)) {
+      if (await findPath(await resolvePath(module))) {
         await installModule(module)
       }
       else if (!suppressMissingModuleWarning) {
