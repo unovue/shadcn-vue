@@ -49,6 +49,8 @@ export default defineNuxtConfig({
 })
 ```
 
+Note that if you prefer not to install the TailwindCSS module, please set `suppressMissingModuleWarning` to `true` in module options.
+
 ### Add `Nuxt` module
 
 <br>
@@ -196,7 +198,12 @@ export default defineNuxtConfig({
      * Directory that the component lives in.
      * @default "./components/ui"
      */
-    componentDir: './components/ui'
+    componentDir: './components/ui',
+    /**
+     * Suppress warning about missing modules
+     * @default false
+     */
+    suppressMissingModuleWarning: boolean
   }
 })
 ```
