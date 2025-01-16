@@ -104,7 +104,7 @@ const remainingItems = computed(() => items.value.slice(-itemsToDisplay + 1))
         </BreadcrumbItem>
         <BreadcrumbSeparator />
       </template>
-      <BreadcrumbItem v-for=" item of remainingItems" :key="item.label">
+      <BreadcrumbItem v-for="item of remainingItems" :key="item.label">
         <template v-if="item.href">
           <BreadcrumbLink
             as-child
