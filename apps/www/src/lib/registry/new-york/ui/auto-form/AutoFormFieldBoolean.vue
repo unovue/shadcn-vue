@@ -5,7 +5,7 @@ import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '
 import { Switch } from '@/lib/registry/new-york/ui/switch'
 import { computed } from 'vue'
 import AutoFormLabel from './AutoFormLabel.vue'
-import { beautifyObjectName } from './utils'
+import { beautifyObjectName, maybeBooleanishToBoolean } from './utils'
 
 const props = defineProps<FieldProps>()
 
@@ -21,7 +21,7 @@ const booleanComponent = computed(() => props.config?.component === 'switch' ? S
             <component
               :is="booleanComponent"
               v-bind="{ ...slotProps.componentField }"
-              :disabled="disabled"
+              :disabled="maybeBooleanishToBoolean(config?.inputProps?.disabled) ?? disabled"
               :checked="slotProps.componentField.modelValue"
               @update:checked="slotProps.componentField['onUpdate:modelValue']"
             />

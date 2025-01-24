@@ -39,7 +39,7 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
             v-if="!inputFile"
             type="file"
             v-bind="{ ...config?.inputProps }"
-            :disabled="disabled"
+            :disabled="config?.inputProps?.disabled ?? disabled"
             @change="async (ev: InputEvent) => {
               const file = (ev.target as HTMLInputElement).files?.[0]
               inputFile = file
