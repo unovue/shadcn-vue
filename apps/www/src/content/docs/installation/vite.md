@@ -30,10 +30,8 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 <TabsMarkdown>
   <TabMarkdown title="vite.config">
 
-  Vite already has [`postcss`](https://github.com/vitejs/vite/blob/main/packages/vite/package.json#89) dependency so you don't have to install it again in your package.json
-
   ```bash
-  npm install -D tailwindcss autoprefixer
+  npm install -D tailwindcss @tailwindcss/vite
   ```
 
   <Callout>
@@ -46,18 +44,12 @@ Install `tailwindcss` and its peer dependencies, then generate your `tailwind.co
 
 ```typescript {2,3,8-12}
 import vue from '@vitejs/plugin-vue'
-import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
-  plugins: [vue()],
+  plugins: [vue(), tailwindcss()],
 })
 ```
 
@@ -118,18 +110,12 @@ npm i -D @types/node
 ```typescript {1,15-19}
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
-import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
-  plugins: [vue()],
+  plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
