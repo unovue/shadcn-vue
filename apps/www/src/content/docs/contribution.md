@@ -178,7 +178,7 @@ See the [`Accordion`](https://github.com/radix-vue/shadcn-vue/tree/v0.10.2/apps/
 There are many cases that you need to wrap `Radix-Vue` components.
 
 ### Props & Events
-All of the `Radix-Vue` compoennts expose their prop and emit types. We need to forward any props/events that are coming from outside to the `Radix-Vue` component.
+All of the `Radix-Vue` components expose their prop and emit types. We need to forward any props/events that are coming from outside to the `Radix-Vue` component.
 
 To do so, we have a helper function named [`useForwardPropsEmits`](https://www.radix-vue.com/utilities/use-forward-props-emits.html) that combines props and events that must be binded to the child radix component.
 
