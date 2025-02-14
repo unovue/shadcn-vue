@@ -68,7 +68,7 @@
     "pathe": "^2.0.3",
     "rimraf": "^6.0.1",
     "shiki": "^2.3.2",
-    "tailwind-merge": "^3.0.1",
+    "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.2",
     "typescript": "catalog:",
