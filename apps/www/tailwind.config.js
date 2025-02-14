@@ -1,5 +1,5 @@
-import { fontFamily } from 'tailwindcss/defaultTheme'
 import tailwindcssAnimate from 'tailwindcss-animate'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {

@@ -5,8 +5,13 @@ runs:
   using: composite
 
   steps:
-    - name: Enable corepack
-      run: corepack enable
+    - name: Use Latest Corepack
+      run: |
+        echo "Before: corepack version => $(corepack --version || echo 'not installed')"
+        npm install -g corepack@latest
+        echo "After : corepack version => $(corepack --version)"
+        corepack enable
+        pnpm --version
       shell: bash
 
     - name: Setup node & pnpm

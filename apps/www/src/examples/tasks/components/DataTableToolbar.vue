@@ -4,8 +4,9 @@ import type { Task } from '../data/schema'
 import { Button } from '@/registry/new-york/ui/button'
 
 import { Input } from '@/registry/new-york/ui/input'
-import Cross2Icon from '~icons/radix-icons/cross-2'
 import { computed } from 'vue'
+import Cross2Icon from '~icons/radix-icons/cross-2'
+
 import { priorities, statuses } from '../data/data'
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue'
 import DataTableViewOptions from './DataTableViewOptions.vue'

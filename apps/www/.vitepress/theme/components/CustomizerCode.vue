@@ -3,9 +3,9 @@ import { Button } from '@/registry/new-york/ui/button'
 import { baseColors } from '@/registry/registry-base-colors'
 import { useConfigStore } from '@/stores/config'
 import { useClipboard } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import CheckIcon from '~icons/radix-icons/check'
 import CopyIcon from '~icons/radix-icons/copy'
-import { computed, ref } from 'vue'
 
 const { theme, config } = useConfigStore()
 

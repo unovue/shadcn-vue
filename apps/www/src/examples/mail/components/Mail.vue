@@ -20,7 +20,7 @@ import { computed, ref } from 'vue'
 import AccountSwitcher from './AccountSwitcher.vue'
 import MailDisplay from './MailDisplay.vue'
 import MailList from './MailList.vue'
-import Nav, { type LinkProp } from './Nav.vue'
+import Nav from './Nav.vue'
 
 interface MailProps {
   accounts: {

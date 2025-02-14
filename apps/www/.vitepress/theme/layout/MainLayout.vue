@@ -24,7 +24,7 @@ import Logo from '../components/Logo.vue'
 
 import MobileNav from '../components/MobileNav.vue'
 import ThemePopover from '../components/ThemePopover.vue'
-import { docsConfig, type NavItem } from '../config/docs'
+import { docsConfig } from '../config/docs'
 
 const { radius, theme } = useConfigStore()
 // Whenever the component is mounted, update the document class list

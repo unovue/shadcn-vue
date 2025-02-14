@@ -6,7 +6,6 @@ import { Input } from '@/registry/new-york/ui/input'
 import { Label } from '@/registry/new-york/ui/label'
 import LucideSpinner from '~icons/lucide/loader-2'
 import GitHubLogo from '~icons/radix-icons/github-logo'
-import { ref } from 'vue'
 
 const isLoading = ref(false)
 async function onSubmit(event: Event) {

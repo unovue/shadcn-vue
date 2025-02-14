@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { DateRange } from 'reka-ui'
 import CookieSettings from '@/examples/cards/components/CookieSettings.vue'
+
 import CreateAccount from '@/examples/cards/components/CreateAccount.vue'
 
 import PaymentMethod from '@/examples/cards/components/PaymentMethod.vue'
-
 import ReportAnIssue from '@/examples/cards/components/ReportAnIssue.vue'
 import ShareDocument from '@/examples/cards/components/ShareDocument.vue'
 import TeamMembers from '@/examples/cards/components/TeamMembers.vue'
@@ -18,7 +18,7 @@ import { Card } from '@/registry/new-york/ui/card'
 import { RangeCalendar } from '@/registry/new-york/ui/range-calendar'
 import { getLocalTimeZone, today } from '@internationalized/date'
 
-import { type Ref, ref } from 'vue'
+import { ref } from 'vue'
 import ThemingLayout from './../../layout/ThemingLayout.vue'
 
 const now = today(getLocalTimeZone())

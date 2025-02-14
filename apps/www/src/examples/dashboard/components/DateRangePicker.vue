@@ -11,7 +11,7 @@ import {
 import { RangeCalendar } from '@/registry/new-york/ui/range-calendar'
 import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { type Ref, ref } from 'vue'
+import { ref } from 'vue'
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'medium',
