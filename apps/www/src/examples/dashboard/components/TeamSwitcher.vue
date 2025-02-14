@@ -32,10 +32,10 @@ import {
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
 import { cn } from '@/lib/utils'
+import { ref } from 'vue'
 import CaretSortIcon from '~icons/radix-icons/caret-sort'
 import CheckIcon from '~icons/radix-icons/check'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
-import { ref } from 'vue'
 
 const groups = [
   {

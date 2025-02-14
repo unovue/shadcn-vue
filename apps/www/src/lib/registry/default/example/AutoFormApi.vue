@@ -5,7 +5,7 @@ import { toast } from '@/lib/registry/default/ui/toast'
 import { h, onMounted, shallowRef } from 'vue'
 import * as z from 'zod'
 
-const schema = shallowRef<z.ZodObject< any, any, any > | null>(null)
+const schema = shallowRef<z.ZodObject<any, any, any> | null>(null)
 
 onMounted(() => {
   fetch('https://jsonplaceholder.typicode.com/users')

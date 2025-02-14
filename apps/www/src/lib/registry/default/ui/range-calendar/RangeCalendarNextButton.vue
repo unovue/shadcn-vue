@@ -1,9 +1,11 @@
 <script lang="ts" setup>
+import type { RangeCalendarNextProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { buttonVariants } from '@/lib/registry/default/ui/button'
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-vue-next'
-import { RangeCalendarNext, type RangeCalendarNextProps, useForwardProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { RangeCalendarNext, useForwardProps } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<RangeCalendarNextProps & { class?: HTMLAttributes['class'] }>()
 

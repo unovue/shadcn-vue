@@ -5,9 +5,6 @@ export const description
 </script>
 
 <script setup lang="ts">
-import { Check, ChevronsUpDown, GalleryVerticalEnd, Search } from 'lucide-vue-next'
-import { ref } from 'vue'
-
 // Import components from the custom library
 import {
   Breadcrumb,
@@ -23,6 +20,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/lib/registry/default/ui/dropdown-menu'
+
 import { Label } from '@/lib/registry/default/ui/label'
 import { Separator } from '@/lib/registry/default/ui/separator'
 import {
@@ -41,6 +39,8 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from '@/lib/registry/default/ui/sidebar'
+import { Check, ChevronsUpDown, GalleryVerticalEnd, Search } from 'lucide-vue-next'
+import { ref } from 'vue'
 
 const data = {
   versions: ['1.0.1', '1.1.0-alpha', '2.0.0-beta1'],

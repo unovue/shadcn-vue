@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
 import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
 
+import { Calendar } from '@/lib/registry/default/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/lib/registry/default/ui/select'
 import { cn } from '@/lib/utils'
 import {
   DateFormatter,
-  type DateValue,
+
   getLocalTimeZone,
   today,
 } from '@internationalized/date'

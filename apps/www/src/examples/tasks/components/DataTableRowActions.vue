@@ -15,8 +15,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
-import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 import { computed } from 'vue'
+import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 
 import { labels } from '../data/data'
 import { taskSchema } from '../data/schema'

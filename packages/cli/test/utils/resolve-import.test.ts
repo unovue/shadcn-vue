@@ -1,5 +1,6 @@
+import type { ConfigLoaderSuccessResult } from 'tsconfig-paths'
 import path from 'pathe'
-import { type ConfigLoaderSuccessResult, loadConfig } from 'tsconfig-paths'
+import { loadConfig } from 'tsconfig-paths'
 import { expect, it } from 'vitest'
 
 import { resolveImport } from '../../src/utils/resolve-import'

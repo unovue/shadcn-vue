@@ -19,9 +19,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/lib/registry/new-york/ui/popover'
-import ChevronDownIcon from '~icons/radix-icons/chevron-down'
-
 import { ref } from 'vue'
+
+import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 
 const sofiaRole = ref('Owner')
 const jacksonRole = ref('Member')

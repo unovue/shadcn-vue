@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import type { PaginationPrevProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import {
   Button,
 } from '@/lib/registry/default/ui/button'
 import { cn } from '@/lib/utils'
 import { ChevronLeft } from 'lucide-vue-next'
-import { PaginationPrev, type PaginationPrevProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { PaginationPrev } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<PaginationPrevProps & { class?: HTMLAttributes['class'] }>(), {
   asChild: true,

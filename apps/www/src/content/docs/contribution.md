@@ -189,11 +189,11 @@ Here's an example from `Accordion` root component.
 
 ```vue
 <script setup lang="ts">
+import type { AccordionRootEmits, AccordionRootProps } from 'radix-vue'
 import {
   AccordionRoot,
-  type AccordionRootEmits,
-  type AccordionRootProps,
-  useForwardPropsEmits,
+
+  useForwardPropsEmits
 } from 'radix-vue'
 
 const props = defineProps<AccordionRootProps>()
@@ -221,9 +221,10 @@ Take a look at `DrawerDescription.vue`.
 ```vue
 <script lang="ts" setup>
 import type { DrawerDescriptionProps } from 'vaul-vue'
+import type { HtmlHTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { DrawerDescription } from 'vaul-vue'
-import { computed, type HtmlHTMLAttributes } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps<DrawerDescriptionProps & { class?: HtmlHTMLAttributes['class'] }>()
 
@@ -250,7 +251,8 @@ This pattern only needs to be applied when the `cn` utility is required. For ins
 
 ```vue
 <script setup lang="ts">
-import { SelectValue, type SelectValueProps } from 'radix-vue'
+import type { SelectValueProps } from 'radix-vue'
+import { SelectValue } from 'radix-vue'
 
 const props = defineProps<SelectValueProps>()
 </script>
@@ -270,9 +272,11 @@ Take a look at `AccordionItem.vue`
 
 ```vue
 <script setup lang="ts">
+import type { AccordionItemProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { AccordionItem, type AccordionItemProps, useForwardProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { AccordionItem, useForwardProps } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<AccordionItemProps & { class?: HTMLAttributes['class'] }>()
 
@@ -306,10 +310,12 @@ Let's take a look at `Button.vue`
 
 ```vue
 <script setup lang="ts">
+import type { PrimitiveProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
+import type { ButtonVariants } from '.'
 import { cn } from '@/lib/utils'
-import { Primitive, type PrimitiveProps } from 'radix-vue'
-import { type ButtonVariants, buttonVariants } from '.'
+import { Primitive } from 'radix-vue'
+import { buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']

@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { Button, buttonVariants } from '@/lib/registry/default/ui/button'
+import type { DateValue } from '@internationalized/date'
 
+import type { DateRange } from 'radix-vue'
+import type { Grid } from 'radix-vue/date'
+
+import type { Ref } from 'vue'
+import { Button, buttonVariants } from '@/lib/registry/default/ui/button'
 import {
   Popover,
   PopoverContent,
@@ -15,11 +20,10 @@ import {
   RangeCalendarGridRow,
   RangeCalendarHeadCell,
 } from '@/lib/registry/default/ui/range-calendar'
-
 import { cn } from '@/lib/utils'
 import {
   CalendarDate,
-  type DateValue,
+
   isEqualMonth,
 } from '@internationalized/date'
 import {
@@ -27,9 +31,9 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-vue-next'
-import { type DateRange, RangeCalendarRoot, useDateFormatter } from 'radix-vue'
-import { createMonth, type Grid, toDate } from 'radix-vue/date'
-import { type Ref, ref, watch } from 'vue'
+import { RangeCalendarRoot, useDateFormatter } from 'radix-vue'
+import { createMonth, toDate } from 'radix-vue/date'
+import { ref, watch } from 'vue'
 
 const value = ref({
   start: new CalendarDate(2022, 1, 20),

@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import type { RangeCalendarGridProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { RangeCalendarGrid, type RangeCalendarGridProps, useForwardProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { RangeCalendarGrid, useForwardProps } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<RangeCalendarGridProps & { class?: HTMLAttributes['class'] }>()
 

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { SelectScrollDownButtonProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { ChevronDownIcon } from '@radix-icons/vue'
-import { SelectScrollDownButton, type SelectScrollDownButtonProps, useForwardProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { SelectScrollDownButton, useForwardProps } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<SelectScrollDownButtonProps & { class?: HTMLAttributes['class'] }>()
 

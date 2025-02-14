@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { computed, type HTMLAttributes } from 'vue'
+import { computed } from 'vue'
 import TableCell from './TableCell.vue'
 import TableRow from './TableRow.vue'
 

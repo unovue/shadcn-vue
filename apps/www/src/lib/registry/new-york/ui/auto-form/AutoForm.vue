@@ -2,12 +2,13 @@
 import type { FormContext, GenericObject } from 'vee-validate'
 import type { z, ZodAny } from 'zod'
 import type { Config, ConfigItem, Dependency, Shape } from './interface'
+import type { ZodObjectOrWrapped } from './utils'
 import { Form } from '@/lib/registry/new-york/ui/form'
 import { toTypedSchema } from '@vee-validate/zod'
 import { computed, toRefs } from 'vue'
 import AutoFormField from './AutoFormField.vue'
 import { provideDependencies } from './dependencies'
-import { getBaseSchema, getBaseType, getDefaultValueInZodStack, getObjectFormSchema, type ZodObjectOrWrapped } from './utils'
+import { getBaseSchema, getBaseType, getDefaultValueInZodStack, getObjectFormSchema } from './utils'
 
 const props = defineProps<{
   schema: T

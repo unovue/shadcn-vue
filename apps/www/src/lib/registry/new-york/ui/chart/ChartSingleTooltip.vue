@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { BulletLegendItemInterface } from '@unovis/ts'
+import type { Component } from 'vue'
 import { omit } from '@unovis/ts'
 import { VisTooltip } from '@unovis/vue'
-import { type Component, createApp } from 'vue'
+import { createApp } from 'vue'
 import { ChartTooltip } from '.'
 
 const props = withDefaults(defineProps<{

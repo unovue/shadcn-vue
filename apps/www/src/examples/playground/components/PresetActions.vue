@@ -27,8 +27,8 @@ import {
 } from '@/lib/registry/new-york/ui/dropdown-menu'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import { Switch } from '@/lib/registry/new-york/ui/switch'
-import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 import { ref } from 'vue'
+import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 
 // import { toast } from "@/lib/registry/new-york/ui/use-toast"
 

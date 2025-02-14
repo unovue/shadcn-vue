@@ -1,3 +1,4 @@
+import type { Config } from '../utils/get-config'
 import { existsSync, promises as fs } from 'node:fs'
 import process from 'node:process'
 import { Command } from 'commander'
@@ -10,7 +11,7 @@ import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
 import {
-  type Config,
+
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_UTILS,

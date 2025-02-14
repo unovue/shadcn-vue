@@ -4,10 +4,10 @@ import { colors } from '@/lib/registry'
 import { Button } from '@/lib/registry/new-york/ui/button'
 import { Label } from '@/lib/registry/new-york/ui/label'
 import { RADII, useConfigStore } from '@/stores/config'
+import { useData } from 'vitepress'
 import RadixIconsCheck from '~icons/radix-icons/check'
 import RadixIconsMoon from '~icons/radix-icons/moon'
 import RadixIconsSun from '~icons/radix-icons/sun'
-import { useData } from 'vitepress'
 
 defineProps<{
   allColors: Color[]

@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
 import { Button } from '@/lib/registry/default/ui/button'
-import { Calendar } from '@/lib/registry/default/ui/calendar'
 
+import { Calendar } from '@/lib/registry/default/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/default/ui/popover'
 import { cn } from '@/lib/utils'
 import {
   DateFormatter,
-  type DateValue,
+
   getLocalTimeZone,
 } from '@internationalized/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'

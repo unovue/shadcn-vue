@@ -14,9 +14,9 @@ import {
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { cn } from '@/lib/utils'
 
+import { computed } from 'vue'
 import CheckIcon from '~icons/radix-icons/check'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
-import { computed } from 'vue'
 
 interface DataTableFacetedFilter {
   column?: Column<Task, any>

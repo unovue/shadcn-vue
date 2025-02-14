@@ -19,17 +19,17 @@ export interface Shape {
 }
 
 export interface InputComponents {
-  date: Component;
-  select: Component;
-  radio: Component;
-  checkbox: Component;
-  switch: Component;
-  textarea: Component;
-  number: Component;
-  string: Component;
-  file: Component;
-  array: Component;
-  object: Component;
+  date: Component
+  select: Component
+  radio: Component
+  checkbox: Component
+  switch: Component
+  textarea: Component
+  number: Component
+  string: Component
+  file: Component
+  array: Component
+  object: Component
 };
 
 export interface ConfigItem {

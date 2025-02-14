@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import type { AccordionRootEmits, AccordionRootProps } from 'radix-vue'
 import {
   AccordionRoot,
-  type AccordionRootEmits,
-  type AccordionRootProps,
+
   useForwardPropsEmits,
 } from 'radix-vue'
 

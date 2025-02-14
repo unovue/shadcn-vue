@@ -29,7 +29,7 @@ interface SimpleDateParts {
 defineOptions({
   inheritAttrs: false,
 })
-const props = withDefaults(defineProps< {
+const props = withDefaults(defineProps<{
   modelValue?: string | number | Date | DatePickerModel
   modelModifiers?: object
   columns?: number

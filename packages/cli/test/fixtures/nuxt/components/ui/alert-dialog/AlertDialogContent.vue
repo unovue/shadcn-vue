@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import type { AlertDialogContentEmits, AlertDialogContentProps } from 'radix-vue'
 import { cn, useEmitAsProps } from '@/lib/utils'
 import {
   AlertDialogContent,
-  type AlertDialogContentEmits,
-  type AlertDialogContentProps,
+
   AlertDialogOverlay,
   AlertDialogPortal,
 } from 'radix-vue'

@@ -1,9 +1,10 @@
 import type { Ref } from 'vue'
 import type * as z from 'zod'
+import type { Dependency, EnumValues } from './interface'
 import { createContext } from 'radix-vue'
 import { useFieldValue, useFormValues } from 'vee-validate'
 import { computed, ref, watch } from 'vue'
-import { type Dependency, DependencyType, type EnumValues } from './interface'
+import { DependencyType } from './interface'
 import { getFromPath, getIndexIfArray } from './utils'
 
 export const [injectDependencies, provideDependencies] = createContext<Ref<Dependency<z.infer<z.ZodObject<any>>>[] | undefined>>('AutoFormDependencies')

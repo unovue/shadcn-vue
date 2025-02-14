@@ -11,8 +11,8 @@ import {
   DropdownMenuTrigger,
 } from '@/lib/registry/new-york/ui/dropdown-menu'
 
-import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
 import { computed } from 'vue'
+import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
 
 interface DataTableViewOptionsProps {
   table: Table<Task>

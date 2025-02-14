@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { DateRange } from 'radix-vue'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import type { Ref } from 'vue'
 
+import { Button } from '@/lib/registry/new-york/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { RangeCalendar } from '@/lib/registry/new-york/ui/range-calendar'
 import { cn } from '@/lib/utils'
@@ -11,7 +12,7 @@ import {
   getLocalTimeZone,
 } from '@internationalized/date'
 import { CalendarIcon } from '@radix-icons/vue'
-import { type Ref, ref } from 'vue'
+import { ref } from 'vue'
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'medium',

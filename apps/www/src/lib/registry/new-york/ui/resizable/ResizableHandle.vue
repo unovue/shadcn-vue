@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { SplitterResizeHandleEmits, SplitterResizeHandleProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { DragHandleDots2Icon } from '@radix-icons/vue'
-import { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { SplitterResizeHandle, useForwardPropsEmits } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = defineProps<SplitterResizeHandleProps & { class?: HTMLAttributes['class'], withHandle?: boolean }>()
 const emits = defineEmits<SplitterResizeHandleEmits>()

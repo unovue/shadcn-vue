@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
+import type { CalendarRootEmits, CalendarRootProps } from 'radix-vue'
+import type { HTMLAttributes, Ref } from 'vue'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@/lib/registry/new-york/ui/calendar'
 import {
   Select,
@@ -8,11 +11,11 @@ import {
   SelectValue,
 } from '@/lib/registry/new-york/ui/select'
 import { cn } from '@/lib/utils'
-import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
+import { getLocalTimeZone, today } from '@internationalized/date'
 import { useVModel } from '@vueuse/core'
-import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'radix-vue'
+import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from 'radix-vue'
 import { createDecade, createYear, toDate } from 'radix-vue/date'
-import { computed, type HTMLAttributes, type Ref } from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>(), {
   modelValue: undefined,

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { AlertDialogCancelProps } from 'radix-vue'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { AlertDialogCancel, type AlertDialogCancelProps } from 'radix-vue'
+import { AlertDialogCancel } from 'radix-vue'
 
 const props = defineProps<AlertDialogCancelProps>()
 </script>

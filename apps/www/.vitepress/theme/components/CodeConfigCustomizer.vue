@@ -5,9 +5,9 @@ import { Input } from '@/lib/registry/new-york/ui/input'
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
 import { useConfigStore } from '@/stores/config'
 import { toTypedSchema } from '@vee-validate/zod'
-import RadixIconsGear from '~icons/radix-icons/gear'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
+import RadixIconsGear from '~icons/radix-icons/gear'
 
 const { codeConfig, setCodeConfig } = useConfigStore()
 

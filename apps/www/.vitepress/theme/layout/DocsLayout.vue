@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
+import { useData, useRoute } from 'vitepress'
 import RadixIconsCode from '~icons/radix-icons/code'
 import RadixIconsExternalLink from '~icons/radix-icons/external-link'
-import { useData, useRoute } from 'vitepress'
 import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
 import EditLink from '../components/EditLink.vue'
 import TableOfContent from '../components/TableOfContent.vue'

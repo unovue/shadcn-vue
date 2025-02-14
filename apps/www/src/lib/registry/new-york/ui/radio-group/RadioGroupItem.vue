@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import type { RadioGroupItemProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { CheckIcon } from '@radix-icons/vue'
 import {
   RadioGroupIndicator,
   RadioGroupItem,
-  type RadioGroupItemProps,
+
   useForwardProps,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps<RadioGroupItemProps & { class?: HTMLAttributes['class'] }>()
 

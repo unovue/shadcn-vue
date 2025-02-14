@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { ScrollAreaScrollbarProps } from 'radix-vue'
+import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { ScrollAreaScrollbar, ScrollAreaThumb } from 'radix-vue'
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<ScrollAreaScrollbarProps & { class?: HTMLAttributes['class'] }>(), {
   orientation: 'vertical',

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
+import type { SidebarMenuButtonVariants } from '.'
 import { cn } from '@/lib/utils'
-import { Primitive, type PrimitiveProps } from 'radix-vue'
-import { type SidebarMenuButtonVariants, sidebarMenuButtonVariants } from '.'
+import { Primitive } from 'radix-vue'
+import { sidebarMenuButtonVariants } from '.'
 
 export interface SidebarMenuButtonProps extends PrimitiveProps {
   variant?: SidebarMenuButtonVariants['variant']

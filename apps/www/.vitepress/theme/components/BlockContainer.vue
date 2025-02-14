@@ -1,13 +1,4 @@
 <script setup lang="ts">
-import { useConfigStore } from '@/stores/config'
-import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
-import MagicString from 'magic-string'
-import { reactive, ref, watch } from 'vue'
-import { compileScript, parse, walk } from 'vue/compiler-sfc'
-import { highlight } from '../config/shiki'
-import BlockCopyButton from './BlockCopyButton.vue'
-import StyleSwitcher from './StyleSwitcher.vue'
-
 // import { V0Button } from '@/components/v0-button'
 import { Badge } from '@/lib/registry/new-york/ui/badge'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
@@ -15,7 +6,16 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/lib/regi
 import { Separator } from '@/lib/registry/new-york/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/new-york/ui/tabs'
 import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-group'
+import { useConfigStore } from '@/stores/config'
+import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
+
+import MagicString from 'magic-string'
+import { reactive, ref, watch } from 'vue'
+import { compileScript, parse, walk } from 'vue/compiler-sfc'
+import { highlight } from '../config/shiki'
+import BlockCopyButton from './BlockCopyButton.vue'
 import BlockPreview from './BlockPreview.vue'
+import StyleSwitcher from './StyleSwitcher.vue'
 
 const props = defineProps<{
   name: string

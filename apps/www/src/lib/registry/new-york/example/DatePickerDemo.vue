@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
 import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 
+import { Calendar } from '@/lib/registry/new-york/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
 import { cn } from '@/lib/utils'
 import {
   DateFormatter,
-  type DateValue,
+
   getLocalTimeZone,
 } from '@internationalized/date'
 import { CalendarIcon } from '@radix-icons/vue'
