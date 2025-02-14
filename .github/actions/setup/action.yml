@@ -12,6 +12,7 @@ runs:
         echo "After : corepack version => $(corepack --version)"
         corepack enable
         pnpm --version
+      shell: bash
 
     - name: Setup node & pnpm
       uses: actions/setup-node@v4
