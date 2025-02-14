@@ -178,7 +178,7 @@ See the [`Accordion`](https://github.com/unovue/shadcn-vue/tree/v0.10.2/apps/www
 There are many cases that you need to wrap `Reka UI` components.
 
 ### Props & Events
-All of the `Reka UI` compoennts expose their prop and emit types. We need to forward any props/events that are coming from outside to the `Reka UI` component.
+All of the `Reka UI` components expose their prop and emit types. We need to forward any props/events that are coming from outside to the `Reka UI` component.
 
 To do so, we have a helper function named [`useForwardPropsEmits`](https://www.reka-ui.com/docs/utilities/use-forward-props-emits.html) that combines props and events that must be binded to the child radix component.
 

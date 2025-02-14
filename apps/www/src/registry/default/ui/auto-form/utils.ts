@@ -169,3 +169,20 @@ export function getFromPath<TValue = unknown, TFallback = TValue>(
 
   return resolvedValue as TValue | undefined
 }
+
+type Booleanish = boolean | 'true' | 'false'
+
+export function booleanishToBoolean(value: Booleanish) {
+  switch (value) {
+    case 'true':
+    case true:
+      return true
+    case 'false':
+    case false:
+      return false
+  }
+}
+
+export function maybeBooleanishToBoolean(value?: Booleanish) {
+  return value ? booleanishToBoolean(value) : undefined
+}
