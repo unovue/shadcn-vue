@@ -5,13 +5,17 @@ runs:
   using: composite
 
   steps:
-    - name: Enable corepack
-      run: corepack enable
-      shell: bash
+    - name: Use Latest Corepack
+      run: |
+        echo "Before: corepack version => $(corepack --version || echo 'not installed')"
+        npm install -g corepack@latest
+        echo "After : corepack version => $(corepack --version)"
+        corepack enable
+        pnpm --version
 
     - name: Setup node & pnpm
       uses: actions/setup-node@v4
       with:
-        node-version: 21
+        node-version: lts/*
         cache: pnpm
         registry-url: 'https://registry.npmjs.org'
