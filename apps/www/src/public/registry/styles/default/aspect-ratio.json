@@ -5,7 +5,7 @@
   "files": [
     {
       "name": "AspectRatio.vue",
-      "content": "<script setup lang=\"ts\">\nimport { AspectRatio, type AspectRatioProps } from 'radix-vue'\n\nconst props = defineProps<AspectRatioProps>()\n</script>\n\n<template>\n  <AspectRatio v-bind=\"props\">\n    <slot />\n  </AspectRatio>\n</template>\n"
+      "content": "<script setup lang=\"ts\">\nimport type { AspectRatioProps } from 'radix-vue'\nimport { AspectRatio } from 'radix-vue'\n\nconst props = defineProps<AspectRatioProps>()\n</script>\n\n<template>\n  <AspectRatio v-bind=\"props\">\n    <slot />\n  </AspectRatio>\n</template>\n"
     },
     {
       "name": "index.ts",

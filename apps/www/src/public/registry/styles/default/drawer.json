@@ -17,7 +17,7 @@
     },
     {
       "name": "DrawerDescription.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DrawerDescriptionProps } from 'vaul-vue'\nimport { cn } from '@/lib/utils'\nimport { DrawerDescription } from 'vaul-vue'\nimport { computed, type HtmlHTMLAttributes } from 'vue'\n\nconst props = defineProps<DrawerDescriptionProps & { class?: HtmlHTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DrawerDescription v-bind=\"delegatedProps\" :class=\"cn('text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </DrawerDescription>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerDescriptionProps } from 'vaul-vue'\nimport type { HtmlHTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { DrawerDescription } from 'vaul-vue'\nimport { computed } from 'vue'\n\nconst props = defineProps<DrawerDescriptionProps & { class?: HtmlHTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DrawerDescription v-bind=\"delegatedProps\" :class=\"cn('text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </DrawerDescription>\n</template>\n"
     },
     {
       "name": "DrawerFooter.vue",
@@ -29,11 +29,11 @@
     },
     {
       "name": "DrawerOverlay.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DialogOverlayProps } from 'radix-vue'\nimport { cn } from '@/lib/utils'\nimport { DrawerOverlay } from 'vaul-vue'\nimport { computed, type HtmlHTMLAttributes } from 'vue'\n\nconst props = defineProps<DialogOverlayProps & { class?: HtmlHTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DrawerOverlay v-bind=\"delegatedProps\" :class=\"cn('fixed inset-0 z-50 bg-black/80', props.class)\" />\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { DialogOverlayProps } from 'radix-vue'\nimport type { HtmlHTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { DrawerOverlay } from 'vaul-vue'\nimport { computed } from 'vue'\n\nconst props = defineProps<DialogOverlayProps & { class?: HtmlHTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DrawerOverlay v-bind=\"delegatedProps\" :class=\"cn('fixed inset-0 z-50 bg-black/80', props.class)\" />\n</template>\n"
     },
     {
       "name": "DrawerTitle.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTitleProps } from 'vaul-vue'\nimport { cn } from '@/lib/utils'\nimport { DrawerTitle } from 'vaul-vue'\nimport { computed, type HtmlHTMLAttributes } from 'vue'\n\nconst props = defineProps<DrawerTitleProps & { class?: HtmlHTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DrawerTitle v-bind=\"delegatedProps\" :class=\"cn('text-lg font-semibold leading-none tracking-tight', props.class)\">\n    <slot />\n  </DrawerTitle>\n</template>\n"
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTitleProps } from 'vaul-vue'\nimport type { HtmlHTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { DrawerTitle } from 'vaul-vue'\nimport { computed } from 'vue'\n\nconst props = defineProps<DrawerTitleProps & { class?: HtmlHTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <DrawerTitle v-bind=\"delegatedProps\" :class=\"cn('text-lg font-semibold leading-none tracking-tight', props.class)\">\n    <slot />\n  </DrawerTitle>\n</template>\n"
     },
     {
       "name": "index.ts",
