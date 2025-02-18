@@ -10,8 +10,8 @@ catalogs:
       specifier: ^0.50.0
       version: 0.50.0
     reka-ui:
-      specifier: ^1.0.0-alpha.10
-      version: 1.0.0-alpha.10
+      specifier: ^1.0.0-alpha.11
+      version: 1.0.0-alpha.11
     typescript:
       specifier: ^5.7.3
       version: 5.7.3
@@ -118,13 +118,13 @@ importers:
         version: 0.30.17
       reka-ui:
         specifier: 'catalog:'
-        version: 1.0.0-alpha.10(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+        version: 1.0.0-alpha.11(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
       vaul-vue:
         specifier: ^0.3.0-next.1
-        version: 0.3.0-next.1(reka-ui@1.0.0-alpha.10(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+        version: 0.3.0-next.1(reka-ui@1.0.0-alpha.11(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       vee-validate:
         specifier: 4.13.2
         version: 4.13.2(vue@3.5.13(typescript@5.7.3))
@@ -302,7 +302,7 @@ importers:
         version: 2.4.2
       reka-ui:
         specifier: 'catalog:'
-        version: 1.0.0-alpha.10(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+        version: 1.0.0-alpha.11(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       stringify-object:
         specifier: ^5.0.0
         version: 5.0.0
@@ -6962,8 +6962,8 @@ packages:
     resolution: {integrity: sha512-qx+xQGZVsy55CH0a1hiVwHmqjLryfh7wQyF5HO07XJ9f7dQMY/gPQHhlyDkIzJKC+x2fUCpCcUODUUUFrm7SHA==}
     hasBin: true
 
-  reka-ui@1.0.0-alpha.10:
-    resolution: {integrity: sha512-fQ+7LLKlZ9dTFOMsSmefRBDLEnFdOcstWW3ZIaV7000d8YYsteYZOY86WWRi7k64FuWn8pMIE8Ya3Aq0pkc7lw==}
+  reka-ui@1.0.0-alpha.11:
+    resolution: {integrity: sha512-mNq7kAImh3NRXTkkEGn9vZJnfLbW1BwEUbqdnqH6GChXEZYCvLTnSMbKvs+skO7ObNl4/KQa61U0Ae6/7o8mZA==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -16176,7 +16176,7 @@ snapshots:
     dependencies:
       jsesc: 0.5.0
 
-  reka-ui@1.0.0-alpha.10(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)):
+  reka-ui@1.0.0-alpha.11(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)):
     dependencies:
       '@floating-ui/dom': 1.6.13
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.7.3))
@@ -17398,10 +17398,10 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vaul-vue@0.3.0-next.1(reka-ui@1.0.0-alpha.10(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3)):
+  vaul-vue@0.3.0-next.1(reka-ui@1.0.0-alpha.11(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.13(typescript@5.7.3))
-      reka-ui: 1.0.0-alpha.10(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+      reka-ui: 1.0.0-alpha.11(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       vue: 3.5.13(typescript@5.7.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
