@@ -8,7 +8,7 @@ description: Displays a callout for user attention.
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add alert
+npx shadcn-vue@radix add alert
 ```
 
 ## Usage

@@ -14,7 +14,7 @@ Drawer is built on top of [Vaul Vue](https://github.com/radix-vue/vaul-vue).
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add drawer
+npx shadcn-vue@radix add drawer
 ```
 
 ## Usage

@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/alert-dialog.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add alert-dialog
+npx shadcn-vue@radix add alert-dialog
 ```
 
 ## Usage

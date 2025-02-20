@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/menubar.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add menubar
+npx shadcn-vue@radix add menubar
 ```
 
 ## Usage

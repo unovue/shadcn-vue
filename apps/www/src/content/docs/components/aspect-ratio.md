@@ -13,7 +13,7 @@ primitive: https://www.radix-vue.com/components/aspect-ratio.html
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add aspect-ratio
+npx shadcn-vue@radix add aspect-ratio
 ```
 </template>
 

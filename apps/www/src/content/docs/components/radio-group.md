@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/radio-group.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add radio-group
+npx shadcn-vue@radix add radio-group
 ```
 
 ## Usage

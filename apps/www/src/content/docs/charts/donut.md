@@ -18,7 +18,7 @@ Only works with Vue >3.3
 ### Run the following command
 
 ```bash
-npx shadcn-vue@latest add chart-donut
+npx shadcn-vue@radix add chart-donut
 ```
 
 ### Setup

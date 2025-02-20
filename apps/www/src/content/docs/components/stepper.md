@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/stepper.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add stepper
+npx shadcn-vue@radix add stepper
 ```
 
 ## Usage

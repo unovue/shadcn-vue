@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/navigation-menu.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add navigation-menu
+npx shadcn-vue@radix add navigation-menu
 ```
 
 ## Usage

@@ -22,7 +22,7 @@ If you're looking for a range calendar, check out the [Range Calendar](/docs/com
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add calendar
+npx shadcn-vue@radix add calendar
 ```
 ::: tip
 The component depends on the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package, which solves a lot of the problems that come with working with dates and times in JavaScript.

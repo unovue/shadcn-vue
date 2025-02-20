@@ -40,7 +40,7 @@
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
     "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
-    "pub:release": "pnpm build && pnpm publish  --no-git-checks --access public",
+    "pub:release": "pnpm build && pnpm publish  --no-git-checks --access public --tag radix",
     "test": "vitest run",
     "test:update": "vitest run -u",
     "test:ui": "vitest --ui"

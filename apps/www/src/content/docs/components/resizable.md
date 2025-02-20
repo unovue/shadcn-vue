@@ -13,7 +13,7 @@ primitive: https://www.radix-vue.com/components/splitter.html
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add resizable
+npx shadcn-vue@radix add resizable
 ```
 </template>
 

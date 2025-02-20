@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/context-menu.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add context-menu
+npx shadcn-vue@radix add context-menu
 ```
 
 ## Usage

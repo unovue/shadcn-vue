@@ -8,7 +8,7 @@ description: Displays a card with header, content, and footer.
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add card
+npx shadcn-vue@radix add card
 ```
 
 ## Usage

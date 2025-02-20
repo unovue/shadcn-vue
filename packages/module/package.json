@@ -33,7 +33,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "release": "pnpm run prepack && pnpm publish && git push --follow-tags",
-    "pub:release": "pnpm prepack && pnpm publish  --no-git-checks --access public"
+    "pub:release": "pnpm prepack && pnpm publish  --no-git-checks --access public --tag radix"
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",

@@ -40,7 +40,7 @@ This guide will show you how to use [TanStack Table](https://tanstack.com/table/
 1. Add the `<Table />` component to your project:
 
 ```bash
-npx shadcn-vue@latest add table
+npx shadcn-vue@radix add table
 ```
 
 2. Add `tanstack/vue-table` dependency:

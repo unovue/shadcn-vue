@@ -14,7 +14,7 @@ primitive: https://www.radix-vue.com/components/accordion.html
 ### Run the following command
 
 ```bash
-npx shadcn-vue@latest add accordion
+npx shadcn-vue@radix add accordion
 ```
 
 ### Update `tailwind.config.js`

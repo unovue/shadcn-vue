@@ -14,7 +14,7 @@ primitive: https://www.radix-vue.com/components/collapsible.html
 ### Run the following command
 
 ```bash
-npx shadcn-vue@latest add collapsible
+npx shadcn-vue@radix add collapsible
 ```
 
 ### Update `tailwind.config.js`

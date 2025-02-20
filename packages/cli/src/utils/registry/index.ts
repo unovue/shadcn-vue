@@ -13,7 +13,7 @@ import { ofetch } from 'ofetch'
 import path from 'pathe'
 import { ProxyAgent } from 'undici'
 
-const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? 'https://www.shadcn-vue.com'
+const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? 'https://radix.shadcn-vue.com'
 const agent = process.env.https_proxy
   ? new ProxyAgent(process.env.https_proxy)
   : undefined

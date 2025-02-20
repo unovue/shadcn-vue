@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/tags-input.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add tags-input
+npx shadcn-vue@radix add tags-input
 ```
 
 ## Usage

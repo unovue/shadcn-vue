@@ -147,7 +147,7 @@ Delete the default Vite stylesheet `./src/style.css`
 Run the `shadcn-vue` init command to setup your project:
 
 ```bash
-npx shadcn-vue@latest init
+npx shadcn-vue@radix init
 ```
 
 ### Configure components.json
@@ -186,7 +186,7 @@ createApp(App).mount('#app')
 You can now start adding components to your project.
 
 ```bash
-npx shadcn-vue@latest add button
+npx shadcn-vue@radix add button
 ```
 
 The command above will add the `Button` component to your project. You can then import it like this:

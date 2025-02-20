@@ -13,7 +13,7 @@ primitive: https://www.radix-vue.com/components/toggle-group.html
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add toggle-group
+npx shadcn-vue@radix add toggle-group
 ```
 </template>
 

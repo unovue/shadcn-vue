@@ -11,7 +11,7 @@ description: Displays a button or a component that looks like a button.
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add button
+npx shadcn-vue@radix add button
 ```
 </template>
 

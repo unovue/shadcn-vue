@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/combobox.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add command
+npx shadcn-vue@radix add command
 ```
 ## Usage
 

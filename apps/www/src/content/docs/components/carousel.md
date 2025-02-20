@@ -14,7 +14,7 @@ The carousel component is built using the [Embla Carousel](https://www.embla-car
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add carousel
+npx shadcn-vue@radix add carousel
 ```
 
 ## Usage

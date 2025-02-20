@@ -18,7 +18,7 @@ label: Alpha
 ### Run the following command
 
 ```bash
-npx shadcn-vue@latest add chart-bar
+npx shadcn-vue@radix add chart-bar
 ```
 
 ### Setup

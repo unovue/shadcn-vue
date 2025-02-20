@@ -10,7 +10,7 @@ Use the `init` command to initialize configuration and dependencies for a new pr
 The `init` command installs dependencies, adds the `cn`, `useEmitsAsProps` utils, configures `tailwind.config.cjs`, and creates CSS variables for the project.
 
 ```bash
-npx shadcn-vue@latest init
+npx shadcn-vue@radix init
 ```
 
 You will be asked a few questions to configure `components.json`:
@@ -45,7 +45,7 @@ Options:
 Use the `add` command to add components and dependencies to your project.
 
 ```bash
-npx shadcn-vue@latest add [component]
+npx shadcn-vue@radix add [component]
 ```
 
 You will be presented with a list of components to choose from:

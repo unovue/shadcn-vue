@@ -17,7 +17,7 @@ The `Calendar` component is built on top of [VCalendar](https://vcalendar.io/get
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add v-calendar
+npx shadcn-vue@radix add v-calendar
 ```
 </template>
 

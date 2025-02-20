@@ -94,6 +94,22 @@ watch(() => $route.path, (n) => {
     <div v-else vaul-drawer-wrapper class="flex min-h-screen flex-col bg-background">
       <header class="sticky z-40 top-0 bg-background/80 backdrop-blur-lg border-b border-border">
         <div
+
+          class="flex items-center justify-center w-full h-10 bg-foreground text-background"
+        >
+          <h4 class="font-semibold text-sm">
+            <a
+              href="https://shadcn-vue.com/"
+              class="inline-flex items-center gap-2 hover:underline group"
+            >
+              Try latest version with Reka UI! <Icon
+                class="text-lg group-hover:translate-x-1 transition"
+                icon="lucide:arrow-right"
+              />
+            </a>
+          </h4>
+        </div>
+        <div
           class="container flex h-14 max-w-screen-2xl items-center"
         >
           <div class="mr-4 md:mr-1 hidden md:flex">

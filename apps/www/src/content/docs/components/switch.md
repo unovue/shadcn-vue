@@ -13,7 +13,7 @@ primitive: https://www.radix-vue.com/components/switch.html
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add switch
+npx shadcn-vue@radix add switch
 ```
 </template>
 

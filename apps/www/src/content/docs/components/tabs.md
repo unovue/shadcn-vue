@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/tabs.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add tabs
+npx shadcn-vue@radix add tabs
 ```
 
 ## Usage

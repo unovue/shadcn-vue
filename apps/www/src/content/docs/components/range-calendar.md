@@ -14,5 +14,5 @@ The `<RangeCalendar />` component is built on top of the [RadixVue Range Calenda
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add range-calendar
+npx shadcn-vue@radix add range-calendar
 ```

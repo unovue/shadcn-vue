@@ -11,7 +11,7 @@ description: Displays a form textarea or a component that looks like a textarea.
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add textarea
+npx shadcn-vue@radix add textarea
 ```
 </template>
 

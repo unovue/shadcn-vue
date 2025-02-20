@@ -21,8 +21,8 @@ AutoForm is a drop-in form builder for your internal and low-priority forms with
 ### Run the following command
 
 ```bash
-npx shadcn-vue@latest update form
-npx shadcn-vue@latest add auto-form
+npx shadcn-vue@radix update form
+npx shadcn-vue@radix add auto-form
 ```
 
 </Steps>

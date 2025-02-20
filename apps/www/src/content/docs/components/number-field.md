@@ -13,7 +13,7 @@ primitive: https://www.radix-vue.com/components/number-field.html
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add number-field
+npx shadcn-vue@radix add number-field
 ```
 </template>
 </TabPreview>

@@ -12,7 +12,7 @@ description: A composable, themeable and customizable sidebar component.
 ### install this component
 
 ```bash
-npx shadcn-vue@latest add sidebar
+npx shadcn-vue@radix add sidebar
 ```
 
 ### Add the following colors to your CSS file

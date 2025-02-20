@@ -10,7 +10,7 @@ primitive: https://www.radix-vue.com/components/select.html
 ## Installation
 
 ```bash
-npx shadcn-vue@latest add select
+npx shadcn-vue@radix add select
 ```
 
 ## Usage

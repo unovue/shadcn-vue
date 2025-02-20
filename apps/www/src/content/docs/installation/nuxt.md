@@ -206,7 +206,7 @@ export default defineNuxtConfig({
 Run the `shadcn-vue` init command to setup your project:
 
 ```bash
-npx shadcn-vue@latest init
+npx shadcn-vue@radix init
 ```
 
 ### Configure components.json
@@ -273,7 +273,7 @@ Here's the default structure of Nuxt app. You can use this as a reference:
 You can now start adding components to your project.
 
 ```bash
-npx shadcn-vue@latest add button
+npx shadcn-vue@radix add button
 ```
 
 The command above will add the `Button` component to your project. Nuxt autoImport will handle importing the components, you can just use it as such:

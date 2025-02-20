@@ -11,7 +11,7 @@ description: Displays a badge or a component that looks like a badge.
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add badge
+npx shadcn-vue@radix add badge
 ```
 </template>
 

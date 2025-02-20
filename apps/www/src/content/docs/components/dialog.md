@@ -9,7 +9,7 @@ primitive: https://www.radix-vue.com/components/dialog.html
 
  ## Installation
 ```bash
-npx shadcn-vue@latest add dialog
+npx shadcn-vue@radix add dialog
 ```
 
 ## Usage

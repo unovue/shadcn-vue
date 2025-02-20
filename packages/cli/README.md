@@ -36,7 +36,7 @@ npx shadcn-vue add
 
 ## Documentation
 
-Visit http://shadcn-vue.com to view the documentation.
+Visit http://radix.shadcn-vue.com to view the documentation.
 
 ## License
 
