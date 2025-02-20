@@ -4,5 +4,5 @@ packages:
 catalog:
   '@oxc-parser/wasm': ^0.50.0
   typescript: ^5.7.3
-  reka-ui: ^1.0.0-alpha.11
+  reka-ui: ^2.0.0
   zod: ^3.24.2
