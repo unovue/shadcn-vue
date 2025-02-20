@@ -180,7 +180,7 @@ import {
       <MenubarTrigger>View</MenubarTrigger>
       <MenubarContent>
         <MenubarCheckboxItem>Show Playing Next</MenubarCheckboxItem>
-        <MenubarCheckboxItem checked>
+        <MenubarCheckboxItem :model-value="true">
           Show Lyrics
         </MenubarCheckboxItem>
         <MenubarSeparator />
@@ -205,7 +205,7 @@ import {
           Switch Account
         </MenubarLabel>
         <MenubarSeparator />
-        <MenubarRadioGroup value="benoit">
+        <MenubarRadioGroup model-value="benoit">
           <MenubarRadioItem value="andy">
             Andy
           </MenubarRadioItem>

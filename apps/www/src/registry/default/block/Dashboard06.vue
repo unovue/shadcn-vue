@@ -299,7 +299,7 @@ import {
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem checked>
+                  <DropdownMenuitem :model-value="true">
                     Active
                   </DropdownMenuItem>
                   <DropdownMenuItem>Draft</DropdownMenuItem>

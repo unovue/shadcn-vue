@@ -76,6 +76,48 @@ A `Sidebar` component is composed of the following parts:
 
 ![sidebar-structure](/images/sidebar-structure.png)
 
+## Usage
+
+```vue:line-numbers title="App.vue"
+<script setup lang="ts">
+import AppSidebar from '@/components/AppSidebar.vue'
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+</script>
+
+<template>
+  <SidebarProvider>
+    <AppSidebar />
+    <main>
+      <SidebarTrigger />
+      <RouterView />
+    </main>
+  </SidebarProvider>
+</template>
+```
+
+```vue:line-numbers title="components/AppSidebar.vue"
+<script setup lang="ts">
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarHeader,
+} from '@/components/ui/sidebar'
+</script>
+
+<template>
+  <Sidebar>
+    <SidebarHeader />
+    <SidebarContent>
+      <SidebarGroup />
+      <SidebarGroup />
+    </SidebarContent>
+    <SidebarFooter />
+  </Sidebar>
+</template>
+```
+
 ## Components
 
 The components in `sidebar` are built to be composable i.e you build your sidebar by putting the provided components together. They also compose well with other shadcn/ui components such as `DropdownMenu`, `Collapsible` or `Dialog` etc.

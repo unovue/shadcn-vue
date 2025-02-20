@@ -50,7 +50,7 @@ import {
         </ContextMenuSubContent>
       </ContextMenuSub>
       <ContextMenuSeparator />
-      <ContextMenuCheckboxItem checked>
+      <ContextMenuCheckboxitem :model-value="true">
         Show Bookmarks Bar
         <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
       </ContextMenuCheckboxItem>

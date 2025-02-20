@@ -75,7 +75,7 @@ import {
       <MenubarTrigger>View</MenubarTrigger>
       <MenubarContent>
         <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-        <MenubarCheckboxItem checked>
+        <MenubarCheckboxItem :model-value="true">
           Always Show Full URLs
         </MenubarCheckboxItem>
         <MenubarSeparator />
@@ -98,7 +98,7 @@ import {
     <MenubarMenu>
       <MenubarTrigger>Profiles</MenubarTrigger>
       <MenubarContent>
-        <MenubarRadioGroup value="benoit">
+        <MenubarRadioGroup model-value="benoit">
           <MenubarRadioItem value="andy">
             Andy
           </MenubarRadioItem>

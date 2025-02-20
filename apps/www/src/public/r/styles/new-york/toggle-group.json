@@ -10,20 +10,20 @@
   ],
   "files": [
     {
-      "path": "ui/toggle-group/index.ts",
-      "content": "export { default as ToggleGroup } from './ToggleGroup.vue'\r\nexport { default as ToggleGroupItem } from './ToggleGroupItem.vue'\r\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
       "path": "ui/toggle-group/ToggleGroup.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { toggleVariants } from '@/registry/new-york/ui/toggle'\r\nimport type { VariantProps } from 'class-variance-authority'\r\nimport { cn } from '@/lib/utils'\r\nimport { ToggleGroupRoot, type ToggleGroupRootEmits, type ToggleGroupRootProps, useForwardPropsEmits } from 'reka-ui'\r\nimport { computed, type HTMLAttributes, provide } from 'vue'\r\n\r\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\r\n\r\nconst props = defineProps<ToggleGroupRootProps & {\r\n  class?: HTMLAttributes['class']\r\n  variant?: ToggleGroupVariants['variant']\r\n  size?: ToggleGroupVariants['size']\r\n}>()\r\nconst emits = defineEmits<ToggleGroupRootEmits>()\r\n\r\nprovide('toggleGroup', {\r\n  variant: props.variant,\r\n  size: props.size,\r\n})\r\n\r\nconst delegatedProps = computed(() => {\r\n  const { class: _, ...delegated } = props\r\n  return delegated\r\n})\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <ToggleGroupRoot v-bind=\"forwarded\" :class=\"cn('flex items-center justify-center gap-1', props.class)\">\r\n    <slot />\r\n  </ToggleGroupRoot>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { toggleVariants } from '@/registry/new-york/ui/toggle'\nimport type { VariantProps } from 'class-variance-authority'\nimport { cn } from '@/lib/utils'\nimport { ToggleGroupRoot, type ToggleGroupRootEmits, type ToggleGroupRootProps, useForwardPropsEmits } from 'reka-ui'\nimport { computed, type HTMLAttributes, provide } from 'vue'\n\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\n\nconst props = defineProps<ToggleGroupRootProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleGroupVariants['variant']\n  size?: ToggleGroupVariants['size']\n}>()\nconst emits = defineEmits<ToggleGroupRootEmits>()\n\nprovide('toggleGroup', {\n  variant: props.variant,\n  size: props.size,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <ToggleGroupRoot v-bind=\"forwarded\" :class=\"cn('flex items-center justify-center gap-1', props.class)\">\n    <slot />\n  </ToggleGroupRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/toggle-group/ToggleGroupItem.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { VariantProps } from 'class-variance-authority'\r\nimport { cn } from '@/lib/utils'\r\nimport { toggleVariants } from '@/registry/new-york/ui/toggle'\r\nimport { ToggleGroupItem, type ToggleGroupItemProps, useForwardProps } from 'reka-ui'\r\nimport { computed, type HTMLAttributes, inject } from 'vue'\r\n\r\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\r\n\r\nconst props = defineProps<ToggleGroupItemProps & {\r\n  class?: HTMLAttributes['class']\r\n  variant?: ToggleGroupVariants['variant']\r\n  size?: ToggleGroupVariants['size']\r\n}>()\r\n\r\nconst context = inject<ToggleGroupVariants>('toggleGroup')\r\n\r\nconst delegatedProps = computed(() => {\r\n  const { class: _, variant, size, ...delegated } = props\r\n  return delegated\r\n})\r\n\r\nconst forwardedProps = useForwardProps(delegatedProps)\r\n</script>\r\n\r\n<template>\r\n  <ToggleGroupItem\r\n    v-bind=\"forwardedProps\" :class=\"cn(toggleVariants({\r\n      variant: context?.variant || variant,\r\n      size: context?.size || size,\r\n    }), props.class)\"\r\n  >\r\n    <slot />\r\n  </ToggleGroupItem>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { VariantProps } from 'class-variance-authority'\nimport { cn } from '@/lib/utils'\nimport { toggleVariants } from '@/registry/new-york/ui/toggle'\nimport { ToggleGroupItem, type ToggleGroupItemProps, useForwardProps } from 'reka-ui'\nimport { computed, type HTMLAttributes, inject } from 'vue'\n\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\n\nconst props = defineProps<ToggleGroupItemProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleGroupVariants['variant']\n  size?: ToggleGroupVariants['size']\n}>()\n\nconst context = inject<ToggleGroupVariants>('toggleGroup')\n\nconst delegatedProps = computed(() => {\n  const { class: _, variant, size, ...delegated } = props\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ToggleGroupItem\n    v-bind=\"forwardedProps\" :class=\"cn(toggleVariants({\n      variant: context?.variant || variant,\n      size: context?.size || size,\n    }), props.class)\"\n  >\n    <slot />\n  </ToggleGroupItem>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/toggle-group/index.ts",
+      "content": "export { default as ToggleGroup } from './ToggleGroup.vue'\nexport { default as ToggleGroupItem } from './ToggleGroupItem.vue'\n",
       "type": "registry:ui",
       "target": ""
     }

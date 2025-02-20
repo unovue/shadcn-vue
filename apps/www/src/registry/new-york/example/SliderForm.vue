@@ -44,11 +44,13 @@ const onSubmit = handleSubmit((values) => {
         <FormLabel>Duration</FormLabel>
         <FormControl>
           <Slider
-            v-bind="componentField"
+            :model-value="componentField.modelValue"
             :default-value="[30]"
             :max="100"
             :min="0"
             :step="5"
+            :name="componentField.name"
+            @update:model-value="componentField['onUpdate:modelValue']"
           />
           <FormDescription class="flex justify-between">
             <span>How many minutes are you available?</span>
