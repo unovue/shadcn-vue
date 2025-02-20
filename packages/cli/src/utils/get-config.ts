@@ -5,20 +5,21 @@ import path from 'pathe'
 import { z } from 'zod'
 import { highlighter } from './highlighter'
 
-export const DEFAULT_STYLE = 'default'
-export const DEFAULT_COMPONENTS = '@/components'
-export const DEFAULT_UTILS = '@/lib/utils'
-export const DEFAULT_TAILWIND_CSS = 'app/globals.css'
-export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
-export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
-export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
-
+/** @deprecated */
 export const TAILWIND_CSS_PATH = {
   nuxt: 'assets/css/tailwind.css',
   vite: 'src/assets/index.css',
   laravel: 'resources/css/app.css',
   astro: 'src/styles/globals.css',
 }
+
+export const DEFAULT_STYLE = 'default'
+export const DEFAULT_COMPONENTS = '@/components'
+export const DEFAULT_UTILS = '@/lib/utils'
+export const DEFAULT_TAILWIND_CSS = TAILWIND_CSS_PATH.nuxt // decide to go with Nuxt's as default
+export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
+export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
+export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
 
 export const rawConfigSchema = z
   .object({
@@ -102,26 +103,26 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
       ui: config.aliases.ui
         ? await resolveImport(config.aliases.ui, tsConfig)
         : path.resolve(
-          (await resolveImport(config.aliases.components, tsConfig))
-          ?? cwd,
-          'ui',
-        ),
+            (await resolveImport(config.aliases.components, tsConfig))
+            ?? cwd,
+            'ui',
+          ),
       // TODO: Make this configurable.
       // For now, we assume the lib and hooks directories are one level up from the components directory.
       lib: config.aliases.lib
         ? await resolveImport(config.aliases.lib, tsConfig)
         : path.resolve(
-          (await resolveImport(config.aliases.utils, tsConfig)) ?? cwd,
-          '..',
-        ),
+            (await resolveImport(config.aliases.utils, tsConfig)) ?? cwd,
+            '..',
+          ),
       composables: config.aliases.composables
         ? await resolveImport(config.aliases.composables, tsConfig)
         : path.resolve(
-          (await resolveImport(config.aliases.components, tsConfig))
-          ?? cwd,
-          '..',
-          'composables',
-        ),
+            (await resolveImport(config.aliases.components, tsConfig))
+            ?? cwd,
+            '..',
+            'composables',
+          ),
     },
   })
 }

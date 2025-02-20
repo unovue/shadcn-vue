@@ -1,7 +1,7 @@
+import type { Config } from '@/src/utils/get-config'
 import { promises as fs } from 'node:fs'
 import { addComponents } from '@/src/utils/add-components'
 import {
-  type Config,
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_TAILWIND_CSS,
@@ -178,7 +178,7 @@ async function promptForConfig(defaultConfig: Config | null = null) {
       name: 'style',
       message: `Which ${highlighter.info('style')} would you like to use?`,
       choices: styles.map(style => ({
-        title: style.label,
+        title: style.name === 'new-york' ? 'New York (Recommended)' : style.label,
         value: style.name,
       })),
     },
@@ -256,8 +256,8 @@ async function promptForConfig(defaultConfig: Config | null = null) {
       utils: options.utils,
       components: options.components,
       // TODO: fix this.
-      lib: options.components.replace(/\/components$/, 'lib'),
-      hooks: options.components.replace(/\/components$/, 'composables'),
+      lib: options.components.replace(/\/components$/, '/lib'),
+      composables: options.components.replace(/\/components$/, '/composables'),
     },
   })
 }
@@ -282,10 +282,10 @@ async function promptForMinimalConfig(
         name: 'style',
         message: `Which ${highlighter.info('style')} would you like to use?`,
         choices: styles.map(style => ({
-          title: style.label,
+          title: style.name === 'new-york' ? 'New York (Recommended)' : style.label,
           value: style.name,
         })),
-        initial: styles.findIndex(s => s.name === style),
+        initial: 0,
       },
       {
         type: 'select',
