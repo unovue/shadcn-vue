@@ -175,7 +175,7 @@ The CLI will use the `aliases.ui` value to determine where to place your `ui` co
 
 ### aliases.lib
 
-Import alias for `lib` functions such as `format-date` or `generate-id`.
+Import alias for `lib` functions such as `cn` or `valueUpdater`.
 
 ```json title="components.json"
 {
