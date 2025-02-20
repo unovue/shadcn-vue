@@ -123,8 +123,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
       vaul-vue:
-        specifier: ^0.3.0-next.1
-        version: 0.3.0-next.1(reka-ui@2.0.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
+        specifier: ^0.3.0
+        version: 0.3.0(reka-ui@2.0.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))
       vee-validate:
         specifier: 4.13.2
         version: 4.13.2(vue@3.5.13(typescript@5.7.3))
@@ -8047,10 +8047,10 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  vaul-vue@0.3.0-next.1:
-    resolution: {integrity: sha512-ArYHKGKmmrfCl6LAtdhjQ62Ct9yHn3CTj79vlDKd2qQO/M1mGpEEDaebBAEwyfa5/fth6Mvn6ri8Wq/2bkQCBA==}
+  vaul-vue@0.3.0:
+    resolution: {integrity: sha512-LwhBd7xLJtbdhq+vnQk9etOjZxr09GNFtMjOEYh969y5f8JKV5oR30CfB4toPkbtVMxFAFhMrp77EVWQgbtpHA==}
     peerDependencies:
-      reka-ui: ^1.0.0-alpha.7
+      reka-ui: ^2.0.0
       vue: ^3.3.0
 
   vee-validate@4.13.2:
@@ -17534,7 +17534,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vaul-vue@0.3.0-next.1(reka-ui@2.0.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3)):
+  vaul-vue@0.3.0(reka-ui@2.0.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.13(typescript@5.7.3))
       reka-ui: 2.0.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
