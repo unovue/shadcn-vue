@@ -98,7 +98,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'tailwind-merge': 'latest',
     'tailwindcss-animate': 'latest',
     [iconPackage]: 'latest',
-    'shadcn-vue': 'latest',
+    'shadcn-vue': 'radix',
     'typescript': 'latest',
     'vaul-vue': 'latest',
     'vue-sonner': 'latest',
@@ -110,7 +110,7 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'vite': 'latest',
     '@vitejs/plugin-vue': 'latest',
     'vue-tsc': 'latest',
-    'tailwindcss': 'latest',
+    'tailwindcss': 'v3.4.13',
     'autoprefixer': 'latest',
   }
 
@@ -206,7 +206,7 @@ createApp(App).mount('#app')`,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "rlig" 1, "calt" 1;
-} 
+}
 
 #app {
   @apply w-full flex items-center justify-center px-12;
