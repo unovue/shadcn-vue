@@ -153,13 +153,9 @@
 	}
 
 
-  html.dark .shiki,
-  html.dark .shiki span {
+  html .shiki,
+  html .shiki span {
     color: var(--shiki-dark);
-  }
-  html:not(.dark) .shiki,
-  html:not(.dark) .shiki span {
-    color: var(--shiki-light);
   }
 
 	.antialised {
