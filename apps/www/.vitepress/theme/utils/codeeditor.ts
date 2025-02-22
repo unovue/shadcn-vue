@@ -1,27 +1,27 @@
-import type { Style } from '@/lib/registry/styles'
+import type { RegistryStyle } from '@/registry/registry-styles'
 import sdk from '@stackblitz/sdk'
 import { getParameters } from 'codesandbox/lib/api/define'
+// @ts-expect-error ?raw
+import cssRaw from '../../../../../packages/cli/test/fixtures/frameworks/nuxt/assets/css/tailwind.css?raw'
 import { Index as demoIndex } from '../../../../www/__registry__'
 // @ts-expect-error ?raw
 import tailwindConfigRaw from '../../../tailwind.config?raw'
-// @ts-expect-error ?raw
-import cssRaw from '../../../../../packages/cli/test/fixtures/nuxt/assets/css/tailwind.css?raw'
 
-export function makeCodeSandboxParams(componentName: string, style: Style, sources: Record<string, string>) {
+export function makeCodeSandboxParams(componentName: string, style: RegistryStyle, sources: Record<string, string>) {
   let files: Record<string, any> = {}
   files = constructFiles(componentName, style, sources)
   files['.codesandbox/Dockerfile'] = {
-    content: 'FROM node:18',
+    content: 'FROM node:20',
   }
   return getParameters({ files, template: 'node' })
 }
 
-export function makeStackblitzParams(componentName: string, style: Style, sources: Record<string, string>) {
+export function makeStackblitzParams(componentName: string, style: RegistryStyle, sources: Record<string, string>) {
   const files: Record<string, string> = {}
   Object.entries(constructFiles(componentName, style, sources)).forEach(([k, v]) => (files[`${k}`] = typeof v.content === 'object' ? JSON.stringify(v.content, null, 2) : v.content))
 
   return sdk.openProject({
-    title: `${componentName} - Radix Vue`,
+    title: `${componentName} - Reka UI`,
     files,
     template: 'node',
   }, {
@@ -73,7 +73,7 @@ export default defineConfig({
   },
 }
 
-function constructFiles(componentName: string, style: Style, sources: Record<string, string>) {
+function constructFiles(componentName: string, style: RegistryStyle, sources: Record<string, string>) {
   const componentsJson = {
     style,
     tailwind: {
@@ -86,18 +86,18 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
       utils: '@/utils',
       components: '@/components',
     },
+    iconLibrary: 'lucide',
   }
 
-  const iconPackage = style === 'default' ? 'lucide-vue-next' : '@radix-icons/vue'
   const dependencies = {
     'vue': 'latest',
-    'radix-vue': 'latest',
+    'reka-ui': 'latest',
     '@radix-ui/colors': 'latest',
     'clsx': 'latest',
     'class-variance-authority': 'latest',
     'tailwind-merge': 'latest',
     'tailwindcss-animate': 'latest',
-    [iconPackage]: 'latest',
+    'lucide-vue-next': 'latest',
     'shadcn-vue': 'latest',
     'typescript': 'latest',
     'vaul-vue': 'latest',
@@ -110,14 +110,14 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
     'vite': 'latest',
     '@vitejs/plugin-vue': 'latest',
     'vue-tsc': 'latest',
-    'tailwindcss': 'latest',
+    'tailwindcss': 'v3.4.13',
     'autoprefixer': 'latest',
   }
 
   // We have static replace here as this is only showing for code reproduction, doesn't need dynamic codeConfig
   const transformImportPath = (code: string) => {
     let parsed = code
-    parsed = parsed.replaceAll(`@/lib/registry/${style}`, '@/components')
+    parsed = parsed.replaceAll(`@/registry/${style}`, '@/components')
     parsed = parsed.replaceAll('@/lib/utils', '@/utils')
     return parsed
   }
@@ -132,13 +132,13 @@ function constructFiles(componentName: string, style: Style, sources: Record<str
   })
 
   // @ts-expect-error componentName might not exist in Index
-  const registryDependencies = demoIndex[style][componentName as any]?.registryDependencies?.filter(i => i !== 'utils')
+  const registryDependencies = demoIndex[style][componentName as any]?.registryDependencies?.filter(i => i !== 'utils') ?? []
 
   const files = {
     'package.json': {
       content: {
         name: `shadcn-vue-${componentName.toLowerCase().replace(/ /g, '-')}`,
-        scripts: { start: `shadcn-vue add ${registryDependencies.join(' ')} -y && vite` },
+        scripts: { start: `shadcn-vue add ${registryDependencies.join(' ')} -o && vite` },
         dependencies,
         devDependencies,
       },
@@ -206,7 +206,7 @@ createApp(App).mount('#app')`,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "rlig" 1, "calt" 1;
-} 
+}
 
 #app {
   @apply w-full flex items-center justify-center px-12;

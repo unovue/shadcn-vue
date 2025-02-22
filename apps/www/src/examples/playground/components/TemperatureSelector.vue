@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { SliderRootProps } from 'radix-vue'
+import type { SliderRootProps } from 'reka-ui'
 
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/lib/registry/new-york/ui/hover-card'
-import { Label } from '@/lib/registry/new-york/ui/label'
-import { Slider } from '@/lib/registry/new-york/ui/slider'
+} from '@/registry/new-york/ui/hover-card'
+import { Label } from '@/registry/new-york/ui/label'
+import { Slider } from '@/registry/new-york/ui/slider'
 import { ref } from 'vue'
 
 const props = defineProps<{

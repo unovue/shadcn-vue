@@ -15,6 +15,6 @@ export const siteConfig = {
 
 export const announcementConfig = {
   icon: '✨',
-  title: 'Extended: Auto Form, Charts',
-  link: '/docs/components/auto-form.html',
+  title: 'Reka UI + Updated CLI ',
+  link: '/docs/changelog.html',
 }

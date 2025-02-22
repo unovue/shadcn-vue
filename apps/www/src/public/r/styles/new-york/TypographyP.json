@@ -1,0 +1,14 @@
+{
+  "name": "TypographyP",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyP.vue",
+      "content": "<template>\n  <p class=\"leading-7 [&:not(:first-child)]:mt-6\">\n    The king, seeing how much happier his subjects were, realized the error of\n    his ways and repealed the joke tax.\n  </p>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

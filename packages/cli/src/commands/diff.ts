@@ -1,9 +1,10 @@
 import type { Config } from '@/src/utils/get-config'
 import type { registryIndexSchema } from '@/src/utils/registry/schema'
 import { existsSync, promises as fs } from 'node:fs'
-import process from 'node:process'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
 import {
   fetchTree,
   getItemTargetPath,
@@ -12,8 +13,6 @@ import {
 } from '@/src/utils/registry'
 import { transform } from '@/src/utils/transformers'
 import { Command } from 'commander'
-import { consola } from 'consola'
-import { colors } from 'consola/utils'
 import { type Change, diffLines } from 'diff'
 import path from 'pathe'
 import { z } from 'zod'
@@ -45,15 +44,15 @@ export const diff = new Command()
       const cwd = path.resolve(options.cwd)
 
       if (!existsSync(cwd)) {
-        consola.error(`The path ${cwd} does not exist. Please try again.`)
+        logger.error(`The path ${cwd} does not exist. Please try again.`)
         process.exit(1)
       }
 
       const config = await getConfig(cwd)
       if (!config) {
-        consola.warn(
-          `Configuration is missing. Please run ${colors.green(
-            'init',
+        logger.warn(
+          `Configuration is missing. Please run ${highlighter.success(
+            `init`,
           )} to create a components.json file.`,
         )
         process.exit(1)
@@ -61,15 +60,24 @@ export const diff = new Command()
 
       const registryIndex = await getRegistryIndex()
 
+      if (!registryIndex) {
+        handleError(new Error('Failed to fetch registry index.'))
+        process.exit(1)
+      }
+
       if (!options.component) {
         const targetDir = config.resolvedPaths.components
 
         // Find all components that exist in the project.
         const projectComponents = registryIndex.filter((item) => {
-          for (const file of item.files) {
-            const filePath = path.resolve(targetDir, file)
-            if (existsSync(filePath))
+          for (const file of item.files ?? []) {
+            const filePath = path.resolve(
+              targetDir,
+              typeof file === 'string' ? file : file.path,
+            )
+            if (existsSync(filePath)) {
               return true
+            }
           }
 
           return false
@@ -88,20 +96,20 @@ export const diff = new Command()
         }
 
         if (!componentsWithUpdates.length) {
-          consola.info('No updates found.')
+          logger.info('No updates found.')
           process.exit(0)
         }
 
-        consola.info('The following components have updates available:')
+        logger.info('The following components have updates available:')
         for (const component of componentsWithUpdates) {
-          consola.info(`- ${component.name}`)
-          for (const change of component.changes)
-            consola.info(`  - ${change.filePath}`)
+          logger.info(`- ${component.name}`)
+          for (const change of component.changes) {
+            logger.info(`  - ${change.filePath}`)
+          }
         }
-
-        consola.log('')
-        consola.info(
-          `Run ${colors.green('diff <component>')} to see the changes.`,
+        logger.break()
+        logger.info(
+          `Run ${highlighter.success(`diff <component>`)} to see the changes.`,
         )
         process.exit(0)
       }
@@ -112,8 +120,10 @@ export const diff = new Command()
       )
 
       if (!component) {
-        consola.error(
-          `The component ${colors.green(options.component)} does not exist.`,
+        logger.error(
+          `The component ${highlighter.success(
+            options.component,
+          )} does not exist.`,
         )
         process.exit(1)
       }
@@ -121,14 +131,14 @@ export const diff = new Command()
       const changes = await diffComponent(component, config)
 
       if (!changes.length) {
-        consola.info(`No updates found for ${options.component}.`)
+        logger.info(`No updates found for ${options.component}.`)
         process.exit(0)
       }
 
       for (const change of changes) {
-        consola.info(`- ${change.filePath}`)
-        printDiff(change.patch)
-        consola.log('')
+        logger.info(`- ${change.filePath}`)
+        await printDiff(change.patch)
+        logger.info('')
       }
     }
     catch (error) {
@@ -143,24 +153,37 @@ async function diffComponent(
   const payload = await fetchTree(config.style, [component])
   const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
 
+  if (!payload) {
+    return []
+  }
+
   const changes = []
 
   for (const item of payload) {
     const targetDir = await getItemTargetPath(config, item)
 
-    if (!targetDir)
+    if (!targetDir) {
       continue
+    }
 
-    for (const file of item.files) {
-      const filePath = path.resolve(targetDir, file.name)
+    for (const file of item.files ?? []) {
+      const filePath = path.resolve(
+        targetDir,
+        typeof file === 'string' ? file : file.path,
+      )
 
-      if (!existsSync(filePath))
+      if (!existsSync(filePath)) {
         continue
+      }
 
       const fileContent = await fs.readFile(filePath, 'utf8')
 
+      if (typeof file === 'string' || !file.content) {
+        continue
+      }
+
       const registryContent = await transform({
-        filename: file.name,
+        filename: file.path,
         raw: file.content,
         config,
         baseColor,
@@ -169,7 +192,6 @@ async function diffComponent(
       const patch = diffLines(registryContent as string, fileContent)
       if (patch.length > 1) {
         changes.push({
-          file: file.name,
           filePath,
           patch,
         })
@@ -180,15 +202,15 @@ async function diffComponent(
   return changes
 }
 
-// TODO: Does is it need to async?
-function printDiff(diff: Change[]) {
+async function printDiff(diff: Change[]) {
   diff.forEach((part) => {
     if (part) {
-      if (part.added)
-        return process.stdout.write(colors.green(part.value))
-
-      if (part.removed)
-        return process.stdout.write(colors.red(part.value))
+      if (part.added) {
+        return process.stdout.write(highlighter.success(part.value))
+      }
+      if (part.removed) {
+        return process.stdout.write(highlighter.error(part.value))
+      }
 
       return process.stdout.write(part.value)
     }

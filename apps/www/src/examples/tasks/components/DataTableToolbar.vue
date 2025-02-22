@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 
-import { Input } from '@/lib/registry/new-york/ui/input'
-import Cross2Icon from '~icons/radix-icons/cross-2'
+import { Input } from '@/registry/new-york/ui/input'
 import { computed } from 'vue'
+import Cross2Icon from '~icons/radix-icons/cross-2'
+
 import { priorities, statuses } from '../data/data'
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue'
 import DataTableViewOptions from './DataTableViewOptions.vue'

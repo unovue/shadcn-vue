@@ -1,0 +1,17 @@
+{
+  "name": "DemoSidebarHeader",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "dropdown-menu",
+    "sidebar"
+  ],
+  "files": [
+    {
+      "path": "block/DemoSidebarHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/registry/default/ui/dropdown-menu'\n\nimport {\n  Sidebar,\n  SidebarHeader,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n  SidebarTrigger,\n} from '@/registry/default/ui/sidebar'\nimport { ChevronDown } from 'lucide-vue-next'\n</script>\n\n<template>\n  <SidebarProvider>\n    <Sidebar>\n      <SidebarHeader>\n        <SidebarMenu>\n          <SidebarMenuItem>\n            <DropdownMenu>\n              <DropdownMenuTrigger as-child>\n                <SidebarMenuButton class=\"data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground\">\n                  Select Workspace\n                  <ChevronDown class=\"ml-auto\" />\n                </SidebarMenuButton>\n              </DropdownMenuTrigger>\n              <DropdownMenuContent class=\"w-[--reka-popper-anchor-width]\">\n                <DropdownMenuItem>\n                  <span>Acme Inc</span>\n                </DropdownMenuItem>\n                <DropdownMenuItem>\n                  <span>Acme Corp.</span>\n                </DropdownMenuItem>\n              </DropdownMenuContent>\n            </DropdownMenu>\n          </SidebarMenuItem>\n        </SidebarMenu>\n      </SidebarHeader>\n    </Sidebar>\n    <SidebarInset>\n      <header class=\"flex items-center justify-between px-4 h-12\">\n        <SidebarTrigger />\n      </header>\n    </SidebarInset>\n  </SidebarProvider>\n</template>\n",
+      "type": "registry:block",
+      "target": "pages/dashboard/index.vue"
+    }
+  ]
+}

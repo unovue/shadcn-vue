@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Playlist } from '../data/playlists'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { ScrollArea } from '@/lib/registry/new-york/ui/scroll-area'
 import { cn } from '@/lib/utils'
+import { Button } from '@/registry/new-york/ui/button'
+import { ScrollArea } from '@/registry/new-york/ui/scroll-area'
 
 interface SidebarProps {
   playlists: Playlist[]

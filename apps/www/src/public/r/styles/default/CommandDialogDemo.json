@@ -1,0 +1,18 @@
+{
+  "name": "CommandDialogDemo",
+  "type": "registry:example",
+  "dependencies": [
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "command"
+  ],
+  "files": [
+    {
+      "path": "example/CommandDialogDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  CommandDialog,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n  CommandSeparator,\n} from '@/registry/default/ui/command'\n\nimport { useMagicKeys } from '@vueuse/core'\nimport { ref, watch } from 'vue'\n\nconst open = ref(false)\n\nconst { Meta_J, Ctrl_J } = useMagicKeys({\n  passive: false,\n  onEventFired(e) {\n    if (e.key === 'j' && (e.metaKey || e.ctrlKey))\n      e.preventDefault()\n  },\n})\n\nwatch([Meta_J, Ctrl_J], (v) => {\n  if (v[0] || v[1])\n    handleOpenChange()\n})\n\nfunction handleOpenChange() {\n  open.value = !open.value\n}\n</script>\n\n<template>\n  <div>\n    <p class=\"text-sm text-muted-foreground\">\n      Press\n      <kbd\n        class=\"pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100\"\n      >\n        <span class=\"text-xs\">⌘</span>J\n      </kbd>\n    </p>\n    <CommandDialog v-model:open=\"open\">\n      <CommandInput placeholder=\"Type a command or search...\" />\n      <CommandList>\n        <CommandEmpty>No results found.</CommandEmpty>\n        <CommandGroup heading=\"Suggestions\">\n          <CommandItem value=\"calendar\">\n            Calendar\n          </CommandItem>\n          <CommandItem value=\"search-emoji\">\n            Search Emoji\n          </CommandItem>\n          <CommandItem value=\"calculator\">\n            Calculator\n          </CommandItem>\n        </CommandGroup>\n        <CommandSeparator />\n        <CommandGroup heading=\"Settings\">\n          <CommandItem value=\"profile\">\n            Profile\n          </CommandItem>\n          <CommandItem value=\"billing\">\n            Billing\n          </CommandItem>\n          <CommandItem value=\"settings\">\n            Settings\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </CommandDialog>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -7,7 +7,7 @@ description: Adding dark mode to your nuxt app.
 
 <Steps>
 
-<!-- ### Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install -D @nuxtjs/color-mode
@@ -25,13 +25,11 @@ export default defineNuxtConfig({
     classSuffix: ''
   }
 })
-``` -->
+```
 
 ### Add a mode toggle
 
 Place a mode toggle on your site to toggle between light and dark mode.
-
-The `@nuxtjs/color-mode` module is automatically installed and configured during the installation of the `shadcn-nuxt` module, so you literally have nothing to do.
 
 We're using [`useColorMode`](https://color-mode.nuxtjs.org/#usage) from [`Nuxt Color Mode`](https://color-mode.nuxtjs.org/).
 

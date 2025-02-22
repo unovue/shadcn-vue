@@ -3,7 +3,7 @@ title: Contribution
 description: Learn on how to contribute to shadcn/vue.
 ---
 <script setup lang="ts">
-import { Button } from "@/lib/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 
 const latestSyncCommitTag = "06cc0cdf3d080555d26abbe6639f2d7f6341ec73"
 
@@ -17,7 +17,7 @@ Thanks for your interest in contributing to shadcn-vue.com. We're happy to have 
 
 Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
 
-If you need any help, feel free to reach out to the core team on [Discord](https://chat.radix-vue.com/).
+If you need any help, feel free to reach out to the core team on [Discord](https://chat.unovue.com/).
 
 This guide provides detailed information to help new contributors.
 
@@ -63,7 +63,7 @@ This folder holds all the documentation for the `/docs` route. Each component ha
 8. **examples** -
 Holds all examples not part of `/docs`, like the [main page](/).
 
-9. **lib/registry** -
+9. **registry** -
 The main folder hosts the source code for different styles of every component. This is likely the main folder you'll be changing.
 
 We support two different styles for every component in `shadcn/vue`:
@@ -84,7 +84,7 @@ When adding or modifying components, please ensure that:
 Start by cloning the repository:
 
 ```bash
-git clone git@github.com:radix-vue/shadcn-vue.git
+git clone git@github.com:unovue/shadcn-vue.git
 ```
 
 ### Install dependencies
@@ -170,17 +170,17 @@ If you are interested in the detailed specification you can visit [Conventional 
 
 Multiple components are integrated into one file in `shadcn/ui` - the React version of `shadcn` - while Vue only supports one component per file, hence the name Single File Component (SFC). In such cases, you need to create separate files for each component part and then export them all in an `index.ts` file.
 
-See the [`Accordion`](https://github.com/radix-vue/shadcn-vue/tree/v0.10.2/apps/www/src/lib/registry/default/ui/accordion) source code as an example.
+See the [`Accordion`](https://github.com/unovue/shadcn-vue/tree/v0.10.2/apps/www/registry/default/ui/accordion) source code as an example.
 
-## Wrapping Radix-Vue Components
+## Wrapping Reka UI Components
 
-[Radix-Vue](https://www.radix-vue.com) hosts many low-level UI components that are used to build reusable components.
-There are many cases that you need to wrap `Radix-Vue` components.
+[Reka UI](https://www.reka-ui.com) hosts many low-level UI components that are used to build reusable components.
+There are many cases that you need to wrap `Reka UI` components.
 
 ### Props & Events
-All of the `Radix-Vue` compoennts expose their prop and emit types. We need to forward any props/events that are coming from outside to the `Radix-Vue` component.
+All of the `Reka UI` components expose their prop and emit types. We need to forward any props/events that are coming from outside to the `Reka UI` component.
 
-To do so, we have a helper function named [`useForwardPropsEmits`](https://www.radix-vue.com/utilities/use-forward-props-emits.html) that combines props and events that must be binded to the child radix component.
+To do so, we have a helper function named [`useForwardPropsEmits`](https://www.reka-ui.com/docs/utilities/use-forward-props-emits.html) that combines props and events that must be binded to the child radix component.
 
 To be more clear, the function `useForwardPropsEmits` takes in props and an optional emit function, and returns a
 computed object that combines the parsed props and emits as props.
@@ -194,7 +194,7 @@ import {
   type AccordionRootEmits,
   type AccordionRootProps,
   useForwardPropsEmits,
-} from 'radix-vue'
+} from 'reka-ui'
 
 const props = defineProps<AccordionRootProps>()
 const emits = defineEmits<AccordionRootEmits>()
@@ -212,9 +212,9 @@ const forwarded = useForwardPropsEmits(props, emits)
 As you can see, `AccordionRootEmits` and `AccordionRootProps` types are imported from radix, combined with `useForwardPropsEmits` and then are binded using `v-bind` syntax.
 
 ### CSS Classes
-There are cases when we want to accept `class` as a prop in our `shadcn/vue` component and then combine it with a default tailwind class on our `radix-vue` component via `cn` utility function.
+There are cases when we want to accept `class` as a prop in our `shadcn/vue` component and then combine it with a default tailwind class on our `Reka UI` component via `cn` utility function.
 
-In these cases, we can not use `v-bind`, because this would lead in [double class binding](https://github.com/radix-vue/shadcn-vue/pull/241).
+In these cases, we can not use `v-bind`, because this would lead in [double class binding](https://github.com/unovue/shadcn-vue/pull/241).
 
 Take a look at `DrawerDescription.vue`.
 
@@ -250,7 +250,7 @@ This pattern only needs to be applied when the `cn` utility is required. For ins
 
 ```vue
 <script setup lang="ts">
-import { SelectValue, type SelectValueProps } from 'radix-vue'
+import { SelectValue, type SelectValueProps } from 'reka-ui'
 
 const props = defineProps<SelectValueProps>()
 </script>
@@ -264,14 +264,14 @@ const props = defineProps<SelectValueProps>()
 
 ### Boolean Props
 When you are building a wrapper for a component, in some cases you want to ignore Vue [Props Boolean Casting](https://vuejs.org/guide/components/props.html#boolean-casting).
-You can either set default value as undefined for all the boolean field, or you can use [`useForwardProps`](https://www.radix-vue.com/utilities/use-forward-props.html) composable.
+You can either set default value as undefined for all the boolean field, or you can use [`useForwardProps`](https://www.reka-ui.com/docs/utilities/use-forward-props.html) composable.
 
 Take a look at `AccordionItem.vue`
 
 ```vue
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
-import { AccordionItem, type AccordionItemProps, useForwardProps } from 'radix-vue'
+import { AccordionItem, type AccordionItemProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<AccordionItemProps & { class?: HTMLAttributes['class'] }>()
@@ -300,7 +300,7 @@ Since `AccordionItemProps` type has atleast one boolean property, we need to use
 Note that `useForwardPropsEmits` use `useForwardProps` under the hood.
 
 ### Component as Root
-Whenever your root component is a `Component` Primitive from vue, it's easier to use [`Primitive`](https://www.radix-vue.com/utilities/primitive.html) instead.
+Whenever your root component is a `Component` Primitive from vue, it's easier to use [`Primitive`](https://www.reka-ui.com/docs/utilities/primitive.html) instead.
 
 Let's take a look at `Button.vue`
 
@@ -308,7 +308,7 @@ Let's take a look at `Button.vue`
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
-import { Primitive, type PrimitiveProps } from 'radix-vue'
+import { Primitive, type PrimitiveProps } from 'reka-ui'
 import { type ButtonVariants, buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
@@ -333,7 +333,7 @@ const props = withDefaults(defineProps<Props>(), {
 </template>
 ```
 
-You'll need to extend `PrimitiveProps` in your props to support `Primitive` component. In most cases you would also need a default value for [`as`](https://www.radix-vue.com/utilities/primitive.html#changing-as-value) property.
+You'll need to extend `PrimitiveProps` in your props to support `Primitive` component. In most cases you would also need a default value for [`as`](https://www.reka-ui.com/docs/utilities/primitive.html#changing-as-value) property.
 
 ## Updating with `shadcn/ui`
 
@@ -352,7 +352,7 @@ Click on the following link to check if there are newer commits that we should b
 </div>
 
 1. There are no changes - If you see "There isn’t anything to compare", nothing needs to be done as we are synced with latest version.
-2. If there are changes, you should review thoese changes and try to apply them on `shadcn/vue` codebase and create a PR, remember to update the `latestSyncCommitTag` in [this file](https://github.com/radix-vue/shadcn-vue/blob/dev/apps/www/src/content/docs/contribution.md) too.
+2. If there are changes, you should review thoese changes and try to apply them on `shadcn/vue` codebase and create a PR, remember to update the `latestSyncCommitTag` in [this file](https://github.com/unovue/shadcn-vue/blob/dev/apps/www/src/content/docs/contribution.md) too.
 
 ## Debugging
 Here are some tools and techniques that can help you debug more effectively while contributing to `shadcn/vue` or developing your own projects.

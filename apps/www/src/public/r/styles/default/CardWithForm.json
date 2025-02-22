@@ -1,0 +1,20 @@
+{
+  "name": "CardWithForm",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "example/CardWithForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/registry/default/ui/card'\nimport { Input } from '@/registry/default/ui/input'\nimport { Label } from '@/registry/default/ui/label'\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/registry/default/ui/select'\n</script>\n\n<template>\n  <Card class=\"w-[350px]\">\n    <CardHeader>\n      <CardTitle>Create project</CardTitle>\n      <CardDescription>Deploy your new project in one-click.</CardDescription>\n    </CardHeader>\n    <CardContent>\n      <form>\n        <div class=\"grid w-full items-center gap-4\">\n          <div class=\"flex flex-col space-y-1.5\">\n            <Label for=\"name\">Name</Label>\n            <Input id=\"name\" placeholder=\"Name of your project\" />\n          </div>\n          <div class=\"flex flex-col space-y-1.5\">\n            <Label for=\"framework\">Framework</Label>\n            <Select>\n              <SelectTrigger id=\"framework\">\n                <SelectValue placeholder=\"Select\" />\n              </SelectTrigger>\n              <SelectContent position=\"popper\">\n                <SelectItem value=\"next\">\n                  Next.js\n                </SelectItem>\n                <SelectItem value=\"sveltekit\">\n                  SvelteKit\n                </SelectItem>\n                <SelectItem value=\"astro\">\n                  Astro\n                </SelectItem>\n                <SelectItem value=\"nuxt\">\n                  Nuxt\n                </SelectItem>\n              </SelectContent>\n            </Select>\n          </div>\n        </div>\n      </form>\n    </CardContent>\n    <CardFooter class=\"flex justify-between\">\n      <Button variant=\"outline\">\n        Cancel\n      </Button>\n      <Button>Deploy</Button>\n    </CardFooter>\n  </Card>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

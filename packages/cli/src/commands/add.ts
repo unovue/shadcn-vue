@@ -1,38 +1,35 @@
-import { existsSync, promises as fs, rmSync } from 'node:fs'
-import process from 'node:process'
-import { getConfig } from '@/src/utils/get-config'
+import { runInit } from '@/src/commands/init'
+import { preFlightAdd } from '@/src/preflights/preflight-add'
+import { addComponents } from '@/src/utils/add-components'
+import * as ERRORS from '@/src/utils/errors'
 import { handleError } from '@/src/utils/handle-error'
-import {
-  fetchTree,
-  getItemTargetPath,
-  getRegistryBaseColor,
-  getRegistryIndex,
-  resolveTree,
-} from '@/src/utils/registry'
-import { transform } from '@/src/utils/transformers'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
+import { getRegistryIndex } from '@/src/utils/registry'
 import { Command } from 'commander'
-import { consola } from 'consola'
-import { colors } from 'consola/utils'
-import { addDependency, addDevDependency } from 'nypm'
-import ora from 'ora'
 import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
 
-const addOptionsSchema = z.object({
+export const addOptionsSchema = z.object({
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
   overwrite: z.boolean(),
   cwd: z.string(),
   all: z.boolean(),
   path: z.string().optional(),
+  silent: z.boolean(),
+  srcDir: z.boolean().optional(),
 })
 
 export const add = new Command()
   .name('add')
   .description('add a component to your project')
-  .argument('[components...]', 'the components to add')
-  .option('-y, --yes', 'skip confirmation prompt.', true)
+  .argument(
+    '[components...]',
+    'the components to add or a url to the component.',
+  )
+  .option('-y, --yes', 'skip confirmation prompt.', false)
   .option('-o, --overwrite', 'overwrite existing files.', false)
   .option(
     '-c, --cwd <cwd>',
@@ -41,182 +38,158 @@ export const add = new Command()
   )
   .option('-a, --all', 'add all available components', false)
   .option('-p, --path <path>', 'the path to add the component to.')
+  .option('-s, --silent', 'mute output.', false)
+  .option(
+    '--src-dir',
+    'use the src directory when creating a new project.',
+    false,
+  )
   .action(async (components, opts) => {
     try {
       const options = addOptionsSchema.parse({
         components,
+        cwd: path.resolve(opts.cwd),
         ...opts,
       })
 
-      const cwd = path.resolve(options.cwd)
-
-      if (!existsSync(cwd)) {
-        consola.error(`The path ${cwd} does not exist. Please try again.`)
-        process.exit(1)
-      }
-
-      const config = await getConfig(cwd)
-
-      if (!config) {
-        consola.warn(`Configuration is missing. Please run ${colors.green('init')} to create a components.json file.`)
-
-        process.exit(1)
-      }
-
-      const registryIndex = await getRegistryIndex()
-
-      let selectedComponents = options.all
-        ? registryIndex.map(entry => entry.name)
-        : options.components
-      if (!options.components?.length && !options.all) {
-        const { components } = await prompts({
-          type: 'multiselect',
-          name: 'components',
-          message: 'Which components would you like to add?',
-          hint: 'Space to select. A to toggle all. Enter to submit.',
-          instructions: false,
-          choices: registryIndex.map(entry => ({
-            title: entry.name,
-            value: entry.name,
-            selected: options.all
-              ? true
-              : options.components?.includes(entry.name),
-          })),
+      // Confirm if user is installing themes.
+      // For now, we assume a theme is prefixed with "theme-".
+      const isTheme = options.components?.some(component =>
+        component.includes('theme-'),
+      )
+      if (!options.yes && isTheme) {
+        logger.break()
+        const { confirm } = await prompts({
+          type: 'confirm',
+          name: 'confirm',
+          message: highlighter.warn(
+            'You are about to install a new theme. \nExisting CSS variables will be overwritten. Continue?',
+          ),
         })
-        selectedComponents = components
+        if (!confirm) {
+          logger.break()
+          logger.log('Theme installation cancelled.')
+          logger.break()
+          process.exit(1)
+        }
       }
 
-      if (!selectedComponents?.length) {
-        consola.warn('No components selected. Exiting.')
-        process.exit(0)
+      if (!options.components?.length) {
+        options.components = await promptForRegistryComponents(options)
       }
 
-      const tree = await resolveTree(registryIndex, selectedComponents)
-      const payload = await fetchTree(config.style, tree)
-      const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
+      let { errors, config } = await preFlightAdd(options)
 
-      if (!payload.length) {
-        consola.warn('Selected components not found. Exiting.')
-        process.exit(0)
-      }
-
-      if (!options.yes) {
+      // No components.json file. Prompt the user to run init.
+      if (errors[ERRORS.MISSING_CONFIG]) {
         const { proceed } = await prompts({
           type: 'confirm',
           name: 'proceed',
-          message: 'Ready to install components and dependencies. Proceed?',
+          message: `You need to create a ${highlighter.info(
+            'components.json',
+          )} file to add components. Proceed?`,
           initial: true,
         })
 
-        if (!proceed)
-          process.exit(0)
+        if (!proceed) {
+          logger.break()
+          process.exit(1)
+        }
+
+        config = await runInit({
+          cwd: options.cwd,
+          yes: true,
+          force: true,
+          defaults: false,
+          skipPreflight: false,
+          silent: true,
+          isNewProject: false,
+          srcDir: options.srcDir,
+        })
       }
 
-      const spinner = ora('Installing components...').start()
-      for (const item of payload) {
-        spinner.text = `Installing ${item.name}...`
-        const targetDir = getItemTargetPath(
-          config,
-          item,
-          options.path ? path.resolve(cwd, options.path) : undefined,
+      // if (errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
+      //   const { projectPath } = await createProject({
+      //     cwd: options.cwd,
+      //     force: options.overwrite,
+      //     srcDir: options.srcDir,
+      //   })
+      //   if (!projectPath) {
+      //     logger.break()
+      //     process.exit(1)
+      //   }
+      //   options.cwd = projectPath
+
+      //   config = await runInit({
+      //     cwd: options.cwd,
+      //     yes: true,
+      //     force: true,
+      //     defaults: false,
+      //     skipPreflight: true,
+      //     silent: true,
+      //     isNewProject: true,
+      //     srcDir: options.srcDir,
+      //   })
+      // }
+
+      if (!config) {
+        throw new Error(
+          `Failed to read config at ${highlighter.info(options.cwd)}.`,
         )
-
-        if (!targetDir)
-          continue
-
-        if (!existsSync(targetDir))
-          await fs.mkdir(targetDir, { recursive: true })
-
-        const existingComponent = item.files.filter(file =>
-          existsSync(path.resolve(targetDir, item.name, file.name)),
-        )
-
-        if (existingComponent.length && !options.overwrite) {
-          if (selectedComponents.includes(item.name)) {
-            spinner.stop()
-            const { overwrite } = await prompts({
-              type: 'confirm',
-              name: 'overwrite',
-              message: `Component ${item.name} already exists. Would you like to overwrite?`,
-              initial: false,
-            })
-
-            if (!overwrite) {
-              consola.info(
-                `Skipped ${item.name}. To overwrite, run with the ${colors.green(
-                  '--overwrite',
-                )} flag.`,
-              )
-              continue
-            }
-
-            spinner.start(`Installing ${item.name}...`)
-          }
-          else {
-            continue
-          }
-        }
-
-        // Install dependencies.
-        await Promise.allSettled(
-          [
-            item.dependencies?.length && await addDependency(item.dependencies, {
-              cwd,
-              silent: true,
-            }),
-            item.devDependencies?.length && await addDevDependency(item.devDependencies, {
-              cwd,
-              silent: true,
-            }),
-          ],
-        )
-
-        const componentDir = path.resolve(targetDir, item.name)
-        if (!existsSync(componentDir))
-          await fs.mkdir(componentDir, { recursive: true })
-
-        const files = item.files.map(file => ({
-          ...file,
-          path: path.resolve(
-            targetDir,
-            item.name,
-            file.name,
-          ),
-        }))
-
-        // We need to write original files to disk if we're not using TypeScript.
-        // Rewrite or delete added files after transformed
-        if (!config.typescript) {
-          for (const file of files)
-            await fs.writeFile(file.path, file.content)
-        }
-
-        for (const file of files) {
-          // Run transformers.
-          const content = await transform({
-            filename: file.path,
-            raw: file.content,
-            config,
-            baseColor,
-          })
-
-          let filePath = file.path
-
-          if (!config.typescript) {
-            // remove original .ts file if we're not using TypeScript.
-            if (file.path.endsWith('.ts')) {
-              if (existsSync(file.path))
-                rmSync(file.path)
-            }
-            filePath = file.path.replace(/\.ts$/, '.js')
-          }
-
-          await fs.writeFile(filePath, content)
-        }
       }
-      spinner.succeed('Done.')
+
+      await addComponents(options.components, config, options)
     }
     catch (error) {
+      logger.break()
       handleError(error)
     }
   })
+
+async function promptForRegistryComponents(
+  options: z.infer<typeof addOptionsSchema>,
+) {
+  const registryIndex = await getRegistryIndex()
+  if (!registryIndex) {
+    logger.break()
+    handleError(new Error('Failed to fetch registry index.'))
+    return []
+  }
+
+  if (options.all) {
+    return registryIndex.map(entry => entry.name)
+  }
+
+  if (options.components?.length) {
+    return options.components
+  }
+
+  const { components } = await prompts({
+    type: 'multiselect',
+    name: 'components',
+    message: 'Which components would you like to add?',
+    hint: 'Space to select. A to toggle all. Enter to submit.',
+    instructions: false,
+    choices: registryIndex
+      .filter(entry => entry.type === 'registry:ui')
+      .map(entry => ({
+        title: entry.name,
+        value: entry.name,
+        selected: options.all ? true : options.components?.includes(entry.name),
+      })),
+  })
+
+  if (!components?.length) {
+    logger.warn('No components selected. Exiting.')
+    logger.info('')
+    process.exit(1)
+  }
+
+  const result = z.array(z.string()).safeParse(components)
+  if (!result.success) {
+    logger.error('')
+    handleError(new Error('Something went wrong. Please try again.'))
+    return []
+  }
+  return result.data
+}

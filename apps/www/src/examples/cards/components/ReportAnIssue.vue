@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
@@ -7,17 +7,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
-import { Input } from '@/lib/registry/new-york/ui/input'
-import { Label } from '@/lib/registry/new-york/ui/label'
+} from '@/registry/new-york/ui/card'
+import { Input } from '@/registry/new-york/ui/input'
+import { Label } from '@/registry/new-york/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/new-york/ui/select'
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+} from '@/registry/new-york/ui/select'
+import { Textarea } from '@/registry/new-york/ui/textarea'
 </script>
 
 <template>

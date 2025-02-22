@@ -1,0 +1,17 @@
+{
+  "name": "NumberFieldPercentage",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "example/NumberFieldPercentage.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/default/ui/label'\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/registry/default/ui/number-field'\n</script>\n\n<template>\n  <NumberField\n    id=\"percent\"\n    :default-value=\"0.05\"\n    :step=\"0.01\"\n    :format-options=\"{\n      style: 'percent',\n    }\"\n  >\n    <Label for=\"percent\">Percent</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

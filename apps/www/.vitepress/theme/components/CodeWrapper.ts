@@ -1,5 +1,6 @@
+import type { VNode, VNodeArrayChildren } from 'vue'
 import { useConfigStore } from '@/stores/config'
-import { cloneVNode, defineComponent, type VNode, type VNodeArrayChildren } from 'vue'
+import { cloneVNode, defineComponent } from 'vue'
 
 function crawlSpan(children: VNodeArrayChildren, cb: (vnode: VNode) => void) {
   children.forEach((childNode) => {
@@ -19,8 +20,8 @@ export default defineComponent(
     return () => {
       const clonedVNode = slots.default?.()?.[0]
         ? cloneVNode(slots.default?.()?.[0], {
-          key: JSON.stringify(codeConfig.value),
-        })
+            key: JSON.stringify(codeConfig.value),
+          })
         : undefined
 
       // @ts-expect-error  cloneVNode

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Input } from '@/lib/registry/new-york/ui/input'
+import { Input } from '@/registry/new-york/ui/input'
 </script>
 
 <template>

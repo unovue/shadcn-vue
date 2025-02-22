@@ -1,8 +1,8 @@
 ---
 title: Navigation Menu
 description: A collection of links for navigating websites.
-source: apps/www/src/lib/registry/default/ui/navigation-menu
-primitive: https://www.radix-vue.com/components/navigation-menu.html
+source: apps/www/registry/default/ui/navigation-menu
+primitive: https://www.reka-ui.com/docs/components/navigation-menu.html
 ---
 
 <ComponentPreview name="NavigationMenuDemo" />

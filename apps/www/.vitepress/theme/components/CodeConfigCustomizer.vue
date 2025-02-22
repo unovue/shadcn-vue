@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
-import { Input } from '@/lib/registry/new-york/ui/input'
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/lib/registry/new-york/ui/sheet'
+import { Button } from '@/registry/new-york/ui/button'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/new-york/ui/form'
+import { Input } from '@/registry/new-york/ui/input'
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/registry/new-york/ui/sheet'
 import { useConfigStore } from '@/stores/config'
 import { toTypedSchema } from '@vee-validate/zod'
-import RadixIconsGear from '~icons/radix-icons/gear'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
+import RadixIconsGear from '~icons/radix-icons/gear'
 
 const { codeConfig, setCodeConfig } = useConfigStore()
 
@@ -36,11 +36,11 @@ const onSubmit = handleSubmit((values) => {
   >
     <SheetTrigger as-child>
       <Button
-        class="w-9 h-9"
+        class="w-8 h-8"
         :variant="'ghost'"
         :size="'icon'"
       >
-        <RadixIconsGear class="w-5 h-5" />
+        <RadixIconsGear class="w-4 h-4" />
       </Button>
     </SheetTrigger>
     <SheetContent>

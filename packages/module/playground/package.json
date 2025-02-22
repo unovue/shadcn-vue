@@ -12,7 +12,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-vue": "8.0.0-rc19",
     "lucide-vue-next": "^0.276.0",
-    "radix-vue": "^1.9.8",
+    "reka-ui": "^2.0.0",
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"

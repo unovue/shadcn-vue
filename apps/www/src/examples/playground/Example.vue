@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/lib/registry/new-york/ui/hover-card'
-import { Label } from '@/lib/registry/new-york/ui/label'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+} from '@/registry/new-york/ui/hover-card'
+import { Label } from '@/registry/new-york/ui/label'
+import { Separator } from '@/registry/new-york/ui/separator'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/new-york/ui/tabs'
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+} from '@/registry/new-york/ui/tabs'
+import { Textarea } from '@/registry/new-york/ui/textarea'
 import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-clock'
 import CodeViewer from './components/CodeViewer.vue'
 import MaxLengthSelector from './components/MaxLengthSelector.vue'

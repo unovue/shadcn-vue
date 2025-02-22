@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/default/ui/tabs'
 import { cn } from '@/lib/utils'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/default/ui/tabs'
 import { useConfigStore } from '@/stores/config'
 import { useClipboard } from '@vueuse/core'
 import MagicString from 'magic-string'
@@ -28,14 +28,14 @@ const transformedRawString = computed(() => transformImportPath(rawString.value)
 
 function transformImportPath(code: string) {
   const s = new MagicString(code)
-  s.replaceAll(`@/lib/registry/${style.value}`, codeConfig.value.componentsPath)
+  s.replaceAll(`@/registry/${style.value}`, codeConfig.value.componentsPath)
   s.replaceAll(`@/lib/utils`, codeConfig.value.utilsPath)
   return s.toString()
 }
 
 watch([style, codeConfig], async () => {
   try {
-    rawString.value = await import(`../../../src/lib/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
+    rawString.value = await import(`../../../src/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
     codeHtml.value = highlight(transformedRawString.value, 'vue')
   }
   catch (err) {

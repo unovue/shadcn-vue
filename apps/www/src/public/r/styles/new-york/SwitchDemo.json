@@ -1,0 +1,17 @@
+{
+  "name": "SwitchDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "example/SwitchDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/new-york/ui/label'\nimport { Switch } from '@/registry/new-york/ui/switch'\n</script>\n\n<template>\n  <div class=\"flex items-center space-x-2\">\n    <Switch id=\"airplane-mode\" />\n    <Label for=\"airplane-mode\">Airplane Mode</Label>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -9,13 +9,13 @@ describe('transformSFC', () => {
       raw: `<script lang="ts" setup>
       const array: (number | string)[] = [1, 2, 3]
       </script>
-      
+
       <template>
         <div v-bind="{ array }">
           template
         </div>
       </template>
-      
+
       <style scoped>
       </style>
       `,
@@ -30,7 +30,7 @@ describe('transformSFC', () => {
       raw: `<script lang="ts" setup>
       const array: (number | string)[] = [1, 2, 3]
       </script>
-      
+
       <template>
         <div v-bind="{ array }" :prop="(a: number) => a" :prop2="(a: number) => {
           let b: number = a
@@ -39,7 +39,7 @@ describe('transformSFC', () => {
           {{ true ? 123 as number : 0 }}
         </div>
       </template>
-      
+
       <style scoped>
       </style>
       `,
@@ -54,7 +54,7 @@ describe('transformSFC', () => {
       raw: `<script lang="ts" setup>
       const array: (number | string)[] = [1, 2, 3]
       </script>
-      
+
       <template>
         <div :class="cn(
         'relative z-50 max-h-96 min-w-32 overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
@@ -66,7 +66,7 @@ describe('transformSFC', () => {
           {{ true ? 123 as number : 0 }}
         </div>
       </template>
-      
+
       <style scoped>
       </style>
       `,
@@ -120,7 +120,7 @@ describe('transformSFC', () => {
     const result = await transform({
       filename: resolve(__dirname, './test.vue'),
       raw: `<script lang="ts" setup>
-      import { type LabelProps } from 'radix-vue'
+      import { type LabelProps } from 'reka-ui'
       const props = withDefaults(defineProps<{ foo?: string } & LabelProps>(), {
         foo: 'bar'
       })
@@ -128,7 +128,7 @@ describe('transformSFC', () => {
       `,
       config: {},
     })
-    // TODO: We need to improve this. https://github.com/radix-vue/shadcn-vue/issues/187
+    // TODO: We need to improve this. https://github.com/unovue/shadcn-vue/issues/187
     expect(result).toMatchSnapshot()
   })
 

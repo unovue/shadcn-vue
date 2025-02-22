@@ -4,7 +4,7 @@ Thanks for your interest in contributing to shadcn-vue.com. We're happy to have 
 
 Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
 
-If you need any help, feel free to reach out to the core team on [Discord](https://chat.radix-vue.com/).
+If you need any help, feel free to reach out to the core team on [Discord](https://chat.unovue.com/).
 
 ## About this repository
 
@@ -36,7 +36,7 @@ packages
 | ----------------------------| -------------------------------------------|
 | `apps/www/.vitepress`       | The Vitepress application for the website. |
 | `apps/www/src/content`      | The content for the website.               |
-| `apps/www/src/lib/registry` | The registry for the components.           |
+| `apps/www/registry` | The registry for the components.           |
 | `packages/cli`              | The `shadcn-vue` package.                  |
 
 ## Development
@@ -44,7 +44,7 @@ packages
 ### Start by cloning the repository:
 
 ```
-git clone git@github.com:radix-vue/shadcn-vue.git
+git clone git@github.com:unovue/shadcn-vue.git
 ```
 
 ### Install dependencies
@@ -83,7 +83,7 @@ Documentation is written using [md](https://vitepress.dev/guide/markdown). You c
 
 ## Components
 
-We use a registry system for developing components. You can find the source code for the components under `apps/www/src/lib/registry`. The components are organized by styles.
+We use a registry system for developing components. You can find the source code for the components under `apps/www/registry`. The components are organized by styles.
 
 ```bash
 apps

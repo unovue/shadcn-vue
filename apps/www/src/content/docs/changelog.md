@@ -3,6 +3,72 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+## February 2025 - Reka UI & npx shadcn-vue@latest init
+
+We've updated the latest registry to support Reka UI instead of Radix Vue.
+
+The updated CLI is now available. You can now install components, themes, composables, utils and more using `npx shadcn-vue add`.
+
+This is a major step towards distributing code that you and your LLMs can access and use.
+
+<Callout icon="⚠️">
+
+With the released of [Reka UI v2](https://reka-ui.com/), `shadcn-vue@latest` command will now install Reka UI. If you want to keep using [Radix Vue](https://radix-vue.com/), please visit [here](https://radix.shadcn-vue.com/) and run `shadcn-vue@radix` command instead.
+
+</Callout>
+
+1. First up, when you init into a new app, we update your existing Tailwind files instead of overriding.
+2. A component now ship its own dependencies. Take the accordion for example, it can define its Tailwind keyframes. When you add it to your project, we’ll update your tailwind.config.ts file accordingly.
+3. You can also install remote components using url. `npx shadcn-vue add https://acme.com/registry/navbar.json`.
+<!-- 4. We have also improve the init command. It does framework detection and can even init a brand new Next.js app in one command. `npx shadcn init`. -->
+4. We have created a new schema that you can use to ship your own component registry. And since it has support for urls, you can even use it to distribute private components.
+5. And a few more updates like better error handling and monorepo support.
+
+You can try the new cli today.
+
+```bash
+npx shadcn-vue@latest init Sidebar01 Login01
+```
+
+### Update Your Project
+
+<Steps>
+
+### Update `components.json`
+
+To update an existing project to use the new CLI, update your `components.json` file to include import aliases for your **components**, **utils**, **ui**, **lib** and **composables**.
+
+```json:line-numbers {7-13} title="components.json" inert
+{
+  "$schema": "https://shadcn-vue.com/schema.json",
+  "style": "new-york",
+  "tailwind": {
+    // ...
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "composables": "@/composables"
+  }
+}
+```
+
+If you're using a different import alias prefix eg `~`, replace `@` with your prefix.
+
+### Run add components
+
+In order to perform Radix Vue to Reka UI migration easily, you can run `add` command for all your existing components.
+
+```bash
+npx shadcn-vue@latest add <components>
+```
+
+If you're using custom component, you need to migrate them [manually](https://reka-ui.com/docs/guides/migration).
+
+</Steps>
+
 ## June 2024
 
 ### New Component - Number Field
@@ -49,7 +115,7 @@ The following form has been created by passing a `zod` schema object to our `Aut
 
 ### Component Updated - Calendar
 
-The [`Calendar`](/docs/components/calendar.html) component has been updated and is now built on top of the [RadixVue Calendar](https://www.radix-vue.com/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
+The [`Calendar`](/docs/components/calendar.html) component has been updated and is now built on top of the [RadixVue Calendar](https://www.reka-ui.com/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
 If you're looking for a range calendar, check out the [`Range Calendar`](/docs/components/range-calendar.html) component.
 
@@ -104,7 +170,7 @@ And if you're looking for a date picker input, check out the [`Date Picker`](/do
 
 ### New Component - Drawer
 
-[`Drawer`](/docs/components/drawer.html) - A drawer component for vue that is built on top of [Vaul Vue](https://github.com/radix-vue/vaul-vue).
+[`Drawer`](/docs/components/drawer.html) - A drawer component for vue that is built on top of [Vaul Vue](https://github.com/unovue/vaul-vue).
 
 <ComponentPreview name="DrawerDemo" />
 

@@ -86,7 +86,7 @@
         <mxCell id="PaMXV6_IjdSjTMUUNi7L-12" value="Examples" style="whiteSpace=wrap;html=1;rounded=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Garamond;fontSize=17;align=center;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
           <mxGeometry x="570" y="500" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="PaMXV6_IjdSjTMUUNi7L-13" value="Lib/Registry" style="whiteSpace=wrap;html=1;rounded=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Garamond;fontSize=17;align=center;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+        <mxCell id="PaMXV6_IjdSjTMUUNi7L-13" value="registry" style="whiteSpace=wrap;html=1;rounded=1;shadow=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Garamond;fontSize=17;align=center;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
           <mxGeometry x="720" y="500" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="PaMXV6_IjdSjTMUUNi7L-14" value="" style="rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=5;endArrow=none;endFill=0;endSize=5;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontFamily=Garamond;fontSize=17;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.308;exitY=1.033;exitDx=0;exitDy=0;exitPerimeter=0;sketch=1;curveFitting=1;jiggle=2;shadow=0;" edge="1" parent="1" source="PaMXV6_IjdSjTMUUNi7L-4" target="PaMXV6_IjdSjTMUUNi7L-11">

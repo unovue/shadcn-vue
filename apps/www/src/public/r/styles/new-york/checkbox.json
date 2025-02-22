@@ -1,0 +1,24 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "ui/checkbox/Checkbox.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { Check } from 'lucide-vue-next'\nimport { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<CheckboxRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <CheckboxRoot\n    v-bind=\"forwarded\"\n    :class=\"\n      cn('peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',\n         props.class)\"\n  >\n    <CheckboxIndicator class=\"flex h-full w-full items-center justify-center text-current\">\n      <slot>\n        <Check class=\"h-4 w-4\" />\n      </slot>\n    </CheckboxIndicator>\n  </CheckboxRoot>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/checkbox/index.ts",
+      "content": "export { default as Checkbox } from './Checkbox.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

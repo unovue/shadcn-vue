@@ -1,11 +1,11 @@
 import path from 'node:path'
-import { transformerMetaWordHighlight } from '@shikijs/transformers'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vitepress'
 
 import { siteConfig } from './theme/config/site'
+import CodeBlockPlugin from './theme/plugins/codeblock'
 import CodeWrapperPlugin from './theme/plugins/codewrapper'
 import ComponentPreviewPlugin from './theme/plugins/previewer'
 
@@ -23,7 +23,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' }],
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: 'black' }],
 
-    ['meta', { name: 'creator', content: 'radix-vue' }],
+    ['meta', { name: 'creator', content: 'reka-ui' }],
     ['meta', { name: 'theme-color', content: '#41b883' }],
     ['meta', { name: 'og:type', content: 'website' }],
     ['meta', { name: 'og:locale', content: 'en' }],
@@ -45,7 +45,7 @@ export default defineConfig({
       provider: 'local',
     },
     editLink: {
-      pattern: 'https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/:path',
+      pattern: 'https://github.com/unovue/shadcn-vue/tree/dev/apps/www/src/:path',
       text: 'Edit this page on GitHub',
     },
     carbonAds: {
@@ -56,12 +56,10 @@ export default defineConfig({
 
   srcDir: path.resolve(__dirname, '../src'),
   markdown: {
-    codeTransformers: [
-      transformerMetaWordHighlight(),
-    ],
     config(md) {
       md.use(ComponentPreviewPlugin)
       md.use(CodeWrapperPlugin)
+      md.use(CodeBlockPlugin)
     },
   },
   rewrites: {

@@ -1,0 +1,14 @@
+{
+  "name": "TypographyH4",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyH4.vue",
+      "content": "<template>\n  <h4 class=\"scroll-m-20 text-xl font-semibold tracking-tight\">\n    People stopped telling jokes\n  </h4>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

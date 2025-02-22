@@ -7,6 +7,7 @@ import type {
 } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
 
+import { valueUpdater } from '@/lib/utils'
 import {
   Table,
   TableBody,
@@ -14,8 +15,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/lib/registry/new-york/ui/table'
-import { valueUpdater } from '@/lib/utils'
+} from '@/registry/new-york/ui/table'
 import {
   FlexRender,
   getCoreRowModel,

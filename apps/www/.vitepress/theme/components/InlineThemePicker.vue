@@ -1,21 +1,20 @@
 <script lang="ts" setup>
-import type { Color } from '../types/colors'
-import { colors } from '@/lib/registry'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/lib/registry/new-york/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/registry/new-york/ui/tooltip'
+import { baseColors } from '@/registry/registry-base-colors'
 import { useConfigStore } from '@/stores/config'
-import RadixIconsCheck from '~icons/radix-icons/check'
-
-defineProps<{
-  allColors: Color[]
-}>()
+import { Check } from 'lucide-vue-next'
+import { useData } from 'vitepress'
 
 const { theme, setTheme } = useConfigStore()
+const { isDark } = useData()
+
+const pickedColors = baseColors.filter((color, index) => [0, 6, 8, 9, 10].includes(index))
 </script>
 
 <template>
   <div>
     <TooltipProvider
-      v-for="(color, index) in allColors.slice(0, 5)"
+      v-for="(color, index) in pickedColors"
       :key="index"
     >
       <Tooltip>
@@ -24,18 +23,22 @@ const { theme, setTheme } = useConfigStore()
             :key="index"
             class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-xs"
             :class="
-              color === theme
+              color.name === theme
                 ? 'border-primary'
                 : 'border-transparent'
             "
-            @click="setTheme(color)"
+            :style="{
+              '--theme-primary': `hsl(${
+                color?.activeColor[isDark ? 'dark' : 'light']
+              })`,
+            }"
+            @click="setTheme(color.name)"
           >
             <span
-              class="flex h-6 w-6 items-center justify-center rounded-full"
-              :style="{ backgroundColor: colors[color][6].rgb }"
+              class="flex h-6 w-6 items-center justify-center rounded-full  bg-[--theme-primary]"
             >
-              <RadixIconsCheck
-                v-if="color === theme"
+              <Check
+                v-if="color.name === theme"
                 class="h-4 w-4 text-white"
               />
             </span>
@@ -46,7 +49,7 @@ const { theme, setTheme } = useConfigStore()
           :side-offset="1"
           class="capitalize bg-zinc-900 text-zinc-50"
         >
-          {{ allColors[index] }}
+          {{ color.label }}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

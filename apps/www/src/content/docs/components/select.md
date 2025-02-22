@@ -1,8 +1,8 @@
 ---
 title: Select
 description: Displays a list of options for the user to pick from—triggered by a button.
-source: apps/www/src/lib/registry/default/ui/select
-primitive: https://www.radix-vue.com/components/select.html
+source: apps/www/registry/default/ui/select
+primitive: https://www.reka-ui.com/docs/components/select.html
 ---
 
 <ComponentPreview name="SelectDemo" />

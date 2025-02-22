@@ -1,0 +1,22 @@
+{
+  "name": "skeleton",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "ui/skeleton/Skeleton.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ninterface SkeletonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<SkeletonProps>()\n</script>\n\n<template>\n  <div :class=\"cn('animate-pulse rounded-md bg-muted', props.class)\" />\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/skeleton/index.ts",
+      "content": "export { default as Skeleton } from './Skeleton.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

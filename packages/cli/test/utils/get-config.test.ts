@@ -12,14 +12,13 @@ it('get raw config', async () => {
     await getRawConfig(path.resolve(__dirname, '../fixtures/config-partial')),
   ).toEqual({
     style: 'default',
-    framework: 'Vite',
     tailwind: {
       config: './tailwind.config.ts',
       css: './src/assets/css/tailwind.css',
       baseColor: 'neutral',
       cssVariables: false,
     },
-    tsConfigPath: './tsconfig.json',
+    // tsConfigPath: './tsconfig.json',
     aliases: {
       components: '@/components',
       utils: '@/lib/utils',
@@ -51,13 +50,14 @@ it('get config', async () => {
       baseColor: 'neutral',
       cssVariables: false,
     },
+    typescript: true,
     aliases: {
       components: '@/components',
       utils: '@/lib/utils',
     },
-    framework: 'Vite',
-    tsConfigPath: './tsconfig.json',
+    // tsConfigPath: './tsconfig.json',
     resolvedPaths: {
+      cwd: path.resolve(__dirname, '../fixtures/config-partial'),
       tailwindConfig: path.resolve(
         __dirname,
         '../fixtures/config-partial',
@@ -73,24 +73,31 @@ it('get config', async () => {
         '../fixtures/config-partial',
         './components',
       ),
+      composables: path.resolve(
+        __dirname,
+        '../fixtures/config-partial',
+        './composables',
+      ),
       ui: path.resolve(
         __dirname,
         '../fixtures/config-partial',
-        './components',
+        './components/ui',
       ),
       utils: path.resolve(
         __dirname,
         '../fixtures/config-partial',
         './lib/utils',
       ),
+      lib: path.resolve(__dirname, '../fixtures/config-partial', './lib'),
     },
-    typescript: true,
+    iconLibrary: 'lucide',
   })
 
   expect(
     await getConfig(path.resolve(__dirname, '../fixtures/config-full')),
   ).toEqual({
     style: 'new-york',
+    typescript: true,
     tailwind: {
       config: 'tailwind.config.ts',
       baseColor: 'zinc',
@@ -100,12 +107,14 @@ it('get config', async () => {
     },
     aliases: {
       components: '~/components',
-      ui: '~/ui',
+      composables: '~/composables',
       utils: '~/lib/utils',
+      lib: '~/lib',
+      ui: '~/ui',
     },
-    framework: 'Vite',
-    tsConfigPath: './tsconfig.json',
+    iconLibrary: 'lucide',
     resolvedPaths: {
+      cwd: path.resolve(__dirname, '../fixtures/config-full'),
       tailwindConfig: path.resolve(
         __dirname,
         '../fixtures/config-full',
@@ -121,18 +130,19 @@ it('get config', async () => {
         '../fixtures/config-full',
         './src/components',
       ),
-      ui: path.resolve(
+      composables: path.resolve(
         __dirname,
         '../fixtures/config-full',
-        './src/ui',
+        './src/composables',
       ),
+      ui: path.resolve(__dirname, '../fixtures/config-full', './src/ui'),
+      lib: path.resolve(__dirname, '../fixtures/config-full', './src/lib'),
       utils: path.resolve(
         __dirname,
         '../fixtures/config-full',
         './src/lib/utils',
       ),
     },
-    typescript: true,
   })
 
   expect(
@@ -150,9 +160,9 @@ it('get config', async () => {
       components: '@/components',
       utils: '@/lib/utils',
     },
-    framework: 'Vite',
-    tsConfigPath: './tsconfig.json',
+    iconLibrary: 'radix',
     resolvedPaths: {
+      cwd: path.resolve(__dirname, '../fixtures/config-js'),
       tailwindConfig: path.resolve(
         __dirname,
         '../fixtures/config-js',
@@ -168,12 +178,14 @@ it('get config', async () => {
         '../fixtures/config-js',
         './components',
       ),
-      ui: path.resolve(
+      composables: path.resolve(
         __dirname,
         '../fixtures/config-js',
-        './components',
+        './composables',
       ),
+      ui: path.resolve(__dirname, '../fixtures/config-js', './components/ui'),
       utils: path.resolve(__dirname, '../fixtures/config-js', './lib/utils'),
+      lib: path.resolve(__dirname, '../fixtures/config-js', './lib'),
     },
   })
 })

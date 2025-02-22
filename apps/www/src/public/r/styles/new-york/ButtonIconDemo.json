@@ -1,0 +1,16 @@
+{
+  "name": "ButtonIconDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonIconDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { ChevronRight } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Button variant=\"outline\" size=\"icon\">\n    <ChevronRight class=\"w-4 h-4\" />\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

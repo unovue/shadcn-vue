@@ -9,5 +9,5 @@
     "declaration": false
   },
   "include": ["src/lib/**/*"],
-  "exclude": ["node_modules", "src/lib/registry/**/example/**/*"]
+  "exclude": ["node_modules", "registry/**/example/**/*"]
 }

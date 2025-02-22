@@ -1,0 +1,17 @@
+{
+  "name": "LabelDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "example/LabelDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Checkbox } from '@/registry/default/ui/checkbox'\nimport { Label } from '@/registry/default/ui/label'\n</script>\n\n<template>\n  <div>\n    <div class=\"flex items-center space-x-2\">\n      <Checkbox id=\"terms\" />\n      <Label for=\"terms\">Accept terms and conditions</Label>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

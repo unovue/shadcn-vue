@@ -1,0 +1,16 @@
+{
+  "name": "DonutChartCustomTooltip",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "chart-donut"
+  ],
+  "files": [
+    {
+      "path": "example/DonutChartCustomTooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport { DonutChart } from '@/registry/default/ui/chart-donut'\nimport CustomChartTooltip from './CustomChartTooltip.vue'\n\nconst data = [\n  { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Feb', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Mar', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Apr', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'May', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Jun', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n]\n</script>\n\n<template>\n  <DonutChart\n    index=\"name\"\n    :category=\"'total'\"\n    :data=\"data\"\n    :custom-tooltip=\"CustomChartTooltip\"\n  />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

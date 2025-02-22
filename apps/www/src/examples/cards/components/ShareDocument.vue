@@ -3,24 +3,24 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/lib/registry/new-york/ui/avatar'
-import { Button } from '@/lib/registry/new-york/ui/button'
+} from '@/registry/new-york/ui/avatar'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
-import { Input } from '@/lib/registry/new-york/ui/input'
+} from '@/registry/new-york/ui/card'
+import { Input } from '@/registry/new-york/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/new-york/ui/select'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+} from '@/registry/new-york/ui/select'
+import { Separator } from '@/registry/new-york/ui/separator'
 </script>
 
 <template>

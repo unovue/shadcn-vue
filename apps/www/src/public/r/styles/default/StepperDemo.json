@@ -1,0 +1,16 @@
+{
+  "name": "StepperDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "stepper"
+  ],
+  "files": [
+    {
+      "path": "example/StepperDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/default/ui/stepper'\n\nimport { BookUser, Check, CreditCard, Truck } from 'lucide-vue-next'\n\nconst steps = [{\n  step: 1,\n  title: 'Address',\n  description: 'Add your address here',\n  icon: BookUser,\n}, {\n  step: 2,\n  title: 'Shipping',\n  description: 'Set your preferred shipping method',\n  icon: Truck,\n}, {\n  step: 3,\n  title: 'Payment',\n  description: 'Add any payment information you have',\n  icon: CreditCard,\n}, {\n  step: 4,\n  title: 'Checkout',\n  description: 'Confirm your order',\n  icon: Check,\n}]\n</script>\n\n<template>\n  <Stepper>\n    <StepperItem\n      v-for=\"item in steps\"\n      :key=\"item.step\"\n      class=\"basis-1/4\"\n      :step=\"item.step\"\n    >\n      <StepperTrigger>\n        <StepperIndicator>\n          <component :is=\"item.icon\" class=\"w-4 h-4\" />\n        </StepperIndicator>\n        <div class=\"flex flex-col\">\n          <StepperTitle>\n            {{ item.title }}\n          </StepperTitle>\n          <StepperDescription>\n            {{ item.description }}\n          </StepperDescription>\n        </div>\n      </StepperTrigger>\n      <StepperSeparator\n        v-if=\"item.step !== steps[steps.length - 1].step\"\n        class=\"w-full h-px\"\n      />\n    </StepperItem>\n  </Stepper>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

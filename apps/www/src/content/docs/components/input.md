@@ -21,7 +21,7 @@ npx shadcn-vue@latest add input
 
 ### Copy and paste the following code into your project:
 
-<<< @/lib/registry/default/ui/input/Input.vue
+<<< @/registry/default/ui/input/Input.vue
 
 </Steps>
 

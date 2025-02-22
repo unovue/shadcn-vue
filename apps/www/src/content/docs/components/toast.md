@@ -1,8 +1,8 @@
 ---
 title: Toast
 description: A succinct message that is displayed temporarily.
-source: apps/www/src/lib/registry/default/ui/toast
-primitive: https://www.radix-vue.com/components/toast.html
+source: apps/www/registry/default/ui/toast
+primitive: https://www.reka-ui.com/docs/components/toast.html
 ---
 
 <ComponentPreview name="ToastDemo" />

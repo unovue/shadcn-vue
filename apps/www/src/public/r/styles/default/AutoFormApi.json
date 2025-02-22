@@ -1,0 +1,18 @@
+{
+  "name": "AutoFormApi",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "auto-form",
+    "button",
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "example/AutoFormApi.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutoForm } from '@/registry/default/ui/auto-form'\nimport { Button } from '@/registry/default/ui/button'\nimport { toast } from '@/registry/default/ui/toast'\nimport { h, onMounted, shallowRef } from 'vue'\nimport * as z from 'zod'\n\nconst schema = shallowRef<z.ZodObject< any, any, any > | null>(null)\n\nonMounted(() => {\n  fetch('https://jsonplaceholder.typicode.com/users')\n    .then(response => response.json())\n    .then((data) => {\n      schema.value = z.object({\n        user: z.enum(data.map((user: any) => user.name)),\n      })\n    })\n})\n\nfunction onSubmit(values: Record<string, any>) {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n}\n</script>\n\n<template>\n  <div class=\"flex justify-center w-full\">\n    <AutoForm\n      v-if=\"schema\"\n      class=\"w-2/3 space-y-6\"\n      :schema=\"schema\"\n      @submit=\"onSubmit\"\n    >\n      <Button type=\"submit\">\n        Submit\n      </Button>\n    </AutoForm>\n\n    <div v-else>\n      Loading...\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

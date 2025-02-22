@@ -1,25 +1,28 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from '@/lib/registry/default/ui/alert'
+} from '@/registry/default/ui/alert'
 
 interface CalloutProps {
   icon?: string
   title?: string
+  class?: HTMLAttributes['class']
 }
 
-defineProps<CalloutProps>()
+const props = defineProps<CalloutProps>()
 </script>
 
 <template>
-  <Alert class="not-docs">
-    <span v-if="icon" class="mr-4 text-2xl">{{ icon }}</span>
+  <Alert class="not-docs" :class="cn('my-6 bg-muted/50', props.class)">
+    <span v-if="icon" classs="mr-4 text-2xl">{icon}</span>
     <AlertTitle v-if="title">
       {{ title }}
     </AlertTitle>
-    <AlertDescription class="[&_a]:underline">
+    <AlertDescription>
       <slot />
     </AlertDescription>
   </Alert>

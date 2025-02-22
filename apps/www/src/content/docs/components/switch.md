@@ -1,8 +1,8 @@
 ---
 title: Switch
 description: A control that allows the user to toggle between checked and not checked.
-source: apps/www/src/lib/registry/default/ui/switch
-primitive: https://www.radix-vue.com/components/switch.html
+source: apps/www/registry/default/ui/switch
+primitive: https://www.reka-ui.com/docs/components/switch.html
 ---
 
 <ComponentPreview name="SwitchDemo" />
@@ -24,12 +24,12 @@ npx shadcn-vue@latest add switch
 ### Install the following dependency:
 
 ```bash
-npm install radix-vue
+npm install reka-ui
 ```
 
 ### Copy and paste the following code into your project
 
- <<< @/lib/registry/default/ui/switch/Switch.vue
+ <<< @/registry/default/ui/switch/Switch.vue
 
 </Steps>
 
@@ -52,7 +52,7 @@ import { Switch } from '@/components/ui/switch'
 
 ```vue
 <template>
-  <Switch :checked="isDark" @update:checked="toggleTheme">
+  <Switch :model-value="isDark" @update:model-value="toggleTheme">
     <template #thumb>
       <Icon v-if="isDark" icon="lucide:moon" class="size-3" />
       <Icon v-else icon="lucide:sun" class="size-3" />

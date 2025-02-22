@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { ScrollArea, ScrollBar } from '@/lib/registry/new-york/ui/scroll-area'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Button } from '@/registry/new-york/ui/button'
+import { ScrollArea, ScrollBar } from '@/registry/new-york/ui/scroll-area'
+import { Separator } from '@/registry/new-york/ui/separator'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/new-york/ui/tabs'
+} from '@/registry/new-york/ui/tabs'
 
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import AlbumArtwork from './components/AlbumArtwork.vue'

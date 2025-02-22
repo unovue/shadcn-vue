@@ -1,0 +1,19 @@
+{
+  "name": "Authentication03",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "block/Authentication03.vue",
+      "content": "<script lang=\"ts\">\nexport const description\n  = 'A sign up form with first name, last name, email and password inside a card. There\\'s an option to sign up with GitHub and a link to login if you already have an account'\nexport const iframeHeight = '600px'\nexport const containerClass = 'w-full h-screen flex items-center justify-center px-4'\n</script>\n\n<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/registry/new-york/ui/card'\nimport { Input } from '@/registry/new-york/ui/input'\nimport { Label } from '@/registry/new-york/ui/label'\n</script>\n\n<template>\n  <Card class=\"mx-auto max-w-sm\">\n    <CardHeader>\n      <CardTitle class=\"text-xl\">\n        Sign Up\n      </CardTitle>\n      <CardDescription>\n        Enter your information to create an account\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <div class=\"grid gap-4\">\n        <div class=\"grid grid-cols-2 gap-4\">\n          <div class=\"grid gap-2\">\n            <Label for=\"first-name\">First name</Label>\n            <Input id=\"first-name\" placeholder=\"Max\" required />\n          </div>\n          <div class=\"grid gap-2\">\n            <Label for=\"last-name\">Last name</Label>\n            <Input id=\"last-name\" placeholder=\"Robinson\" required />\n          </div>\n        </div>\n        <div class=\"grid gap-2\">\n          <Label for=\"email\">Email</Label>\n          <Input\n            id=\"email\"\n            type=\"email\"\n            placeholder=\"m@example.com\"\n            required\n          />\n        </div>\n        <div class=\"grid gap-2\">\n          <Label for=\"password\">Password</Label>\n          <Input id=\"password\" type=\"password\" />\n        </div>\n        <Button type=\"submit\" class=\"w-full\">\n          Create an account\n        </Button>\n        <Button variant=\"outline\" class=\"w-full\">\n          Sign up with GitHub\n        </Button>\n      </div>\n      <div class=\"mt-4 text-center text-sm\">\n        Already have an account?\n        <a href=\"#\" class=\"underline\">\n          Sign in\n        </a>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:block",
+      "target": "pages/dashboard/index.vue"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "switch",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "ui/switch/Switch.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  SwitchRoot,\n  type SwitchRootEmits,\n  type SwitchRootProps,\n  SwitchThumb,\n  useForwardPropsEmits,\n} from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<SwitchRootProps & { class?: HTMLAttributes['class'] }>()\n\nconst emits = defineEmits<SwitchRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SwitchRoot\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',\n      props.class,\n    )\"\n  >\n    <SwitchThumb\n      :class=\"cn('pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5')\"\n    >\n      <slot name=\"thumb\" />\n    </SwitchThumb>\n  </SwitchRoot>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/switch/index.ts",
+      "content": "export { default as Switch } from './Switch.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

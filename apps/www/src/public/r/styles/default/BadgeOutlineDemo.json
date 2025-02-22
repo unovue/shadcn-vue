@@ -1,0 +1,16 @@
+{
+  "name": "BadgeOutlineDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "example/BadgeOutlineDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/registry/default/ui/badge'\n</script>\n\n<template>\n  <Badge variant=\"outline\">\n    Outline\n  </Badge>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

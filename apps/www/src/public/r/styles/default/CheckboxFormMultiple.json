@@ -1,0 +1,23 @@
+{
+  "name": "CheckboxFormMultiple",
+  "type": "registry:example",
+  "dependencies": [
+    "vee-validate",
+    "@vee-validate/zod",
+    "zod"
+  ],
+  "registryDependencies": [
+    "button",
+    "checkbox",
+    "form",
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxFormMultiple.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport { Checkbox } from '@/registry/default/ui/checkbox'\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/registry/default/ui/form'\nimport { toast } from '@/registry/default/ui/toast'\n\nimport { toTypedSchema } from '@vee-validate/zod'\nimport { useForm } from 'vee-validate'\nimport { h } from 'vue'\nimport * as z from 'zod'\n\nconst items = [\n  {\n    id: 'recents',\n    label: 'Recents',\n  },\n  {\n    id: 'home',\n    label: 'Home',\n  },\n  {\n    id: 'applications',\n    label: 'Applications',\n  },\n  {\n    id: 'desktop',\n    label: 'Desktop',\n  },\n  {\n    id: 'downloads',\n    label: 'Downloads',\n  },\n  {\n    id: 'documents',\n    label: 'Documents',\n  },\n] as const\n\nconst formSchema = toTypedSchema(z.object({\n  items: z.array(z.string()).refine(value => value.some(item => item), {\n    message: 'You have to select at least one item.',\n  }),\n}))\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    items: ['recents', 'home'],\n  },\n})\n\nconst onSubmit = handleSubmit((values) => {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n})\n</script>\n\n<template>\n  <form @submit=\"onSubmit\">\n    <FormField name=\"items\">\n      <FormItem>\n        <div class=\"mb-4\">\n          <FormLabel class=\"text-base\">\n            Sidebar\n          </FormLabel>\n          <FormDescription>\n            Select the items you want to display in the sidebar.\n          </FormDescription>\n        </div>\n\n        <FormField v-for=\"item in items\" v-slot=\"{ value, handleChange }\" :key=\"item.id\" type=\"checkbox\" :value=\"item.id\" :unchecked-value=\"false\" name=\"items\">\n          <FormItem class=\"flex flex-row items-start space-x-3 space-y-0\">\n            <FormControl>\n              <Checkbox\n                :model-value=\"value.includes(item.id)\"\n                @update:model-value=\"handleChange\"\n              />\n            </FormControl>\n            <FormLabel class=\"font-normal\">\n              {{ item.label }}\n            </FormLabel>\n          </FormItem>\n        </FormField>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <div class=\"flex justify-start mt-4\">\n      <Button type=\"submit\">\n        Submit\n      </Button>\n    </div>\n  </form>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

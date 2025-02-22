@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { SelectTriggerProps } from 'radix-vue'
+import type { SelectTriggerProps } from 'reka-ui'
+import { cn } from '@/lib/utils'
+
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/new-york/ui/select'
-
-import { styles } from '@/lib/registry/styles'
-import { cn } from '@/lib/utils'
+} from '@/registry/new-york/ui/select'
+import { styles } from '@/registry/registry-styles'
 import { useConfigStore } from '@/stores/config'
 
 const props = defineProps<SelectTriggerProps & { class?: string }>()

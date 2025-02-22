@@ -1,0 +1,19 @@
+{
+  "name": "TagsInputComboboxDemo",
+  "type": "registry:example",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "command",
+    "tags-input"
+  ],
+  "files": [
+    {
+      "path": "example/TagsInputComboboxDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { CommandEmpty, CommandGroup, CommandItem, CommandList } from '@/registry/new-york/ui/command'\nimport { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/new-york/ui/tags-input'\nimport { ComboboxAnchor, ComboboxContent, ComboboxInput, ComboboxPortal, ComboboxRoot } from 'reka-ui'\nimport { computed, ref } from 'vue'\n\nconst frameworks = [\n  { value: 'next.js', label: 'Next.js' },\n  { value: 'sveltekit', label: 'SvelteKit' },\n  { value: 'nuxt', label: 'Nuxt' },\n  { value: 'remix', label: 'Remix' },\n  { value: 'astro', label: 'Astro' },\n]\n\nconst modelValue = ref<string[]>([])\nconst open = ref(false)\nconst searchTerm = ref('')\n\nconst filteredFrameworks = computed(() => frameworks.filter(i => !modelValue.value.includes(i.label)))\n</script>\n\n<template>\n  <TagsInput class=\"px-0 gap-0 w-80\" :model-value=\"modelValue\">\n    <div class=\"flex gap-2 flex-wrap items-center px-3\">\n      <TagsInputItem v-for=\"item in modelValue\" :key=\"item\" :value=\"item\">\n        <TagsInputItemText />\n        <TagsInputItemDelete />\n      </TagsInputItem>\n    </div>\n\n    <ComboboxRoot v-model=\"modelValue\" v-model:open=\"open\" v-model:search-term=\"searchTerm\" class=\"w-full\">\n      <ComboboxAnchor as-child>\n        <ComboboxInput placeholder=\"Framework...\" as-child>\n          <TagsInputInput class=\"w-full px-3\" :class=\"modelValue.length > 0 ? 'mt-2' : ''\" @keydown.enter.prevent />\n        </ComboboxInput>\n      </ComboboxAnchor>\n\n      <ComboboxPortal>\n        <ComboboxContent>\n          <CommandList\n            position=\"popper\"\n            class=\"w-[--reka-popper-anchor-width] rounded-md mt-2 border bg-popover text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\"\n          >\n            <CommandEmpty />\n            <CommandGroup>\n              <CommandItem\n                v-for=\"framework in filteredFrameworks\" :key=\"framework.value\" :value=\"framework.label\"\n                @select.prevent=\"(ev) => {\n                  if (typeof ev.detail.value === 'string') {\n                    searchTerm = ''\n                    modelValue.push(ev.detail.value)\n                  }\n\n                  if (filteredFrameworks.length === 0) {\n                    open = false\n                  }\n                }\"\n              >\n                {{ framework.label }}\n              </CommandItem>\n            </CommandGroup>\n          </CommandList>\n        </ComboboxContent>\n      </ComboboxPortal>\n    </ComboboxRoot>\n  </TagsInput>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

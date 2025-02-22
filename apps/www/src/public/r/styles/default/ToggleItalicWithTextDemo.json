@@ -1,0 +1,16 @@
+{
+  "name": "ToggleItalicWithTextDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleItalicWithTextDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Toggle } from '@/registry/default/ui/toggle'\n\nimport { Italic } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Toggle aria-label=\"Toggle italic\">\n    <Italic class=\"w-4 h-4 mr-2\" />\n    Italic\n  </Toggle>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

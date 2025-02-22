@@ -1,0 +1,19 @@
+{
+  "name": "CardDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "card",
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "example/CardDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/registry/new-york/ui/card'\nimport { Switch } from '@/registry/new-york/ui/switch'\nimport { Bell, Check } from 'lucide-vue-next'\n\nconst notifications = [\n  {\n    title: 'Your call has been confirmed.',\n    description: '1 hour ago',\n  },\n  {\n    title: 'You have a new message!',\n    description: '1 hour ago',\n  },\n  {\n    title: 'Your subscription is expiring soon!',\n    description: '2 hours ago',\n  },\n]\n</script>\n\n<template>\n  <Card :class=\"cn('w-[380px]', $attrs.class ?? '')\">\n    <CardHeader>\n      <CardTitle>Notifications</CardTitle>\n      <CardDescription>You have 3 unread messages.</CardDescription>\n    </CardHeader>\n    <CardContent class=\"grid gap-4\">\n      <div class=\" flex items-center space-x-4 rounded-md border p-4\">\n        <Bell />\n        <div class=\"flex-1 space-y-1\">\n          <p class=\"text-sm font-medium leading-none\">\n            Push Notifications\n          </p>\n          <p class=\"text-sm text-muted-foreground\">\n            Send notifications to device.\n          </p>\n        </div>\n        <Switch />\n      </div>\n      <div>\n        <div\n          v-for=\"(notification, index) in notifications\" :key=\"index\"\n          class=\"mb-4 grid grid-cols-[25px_minmax(0,1fr)] items-start pb-4 last:mb-0 last:pb-0\"\n        >\n          <span class=\"flex h-2 w-2 translate-y-1 rounded-full bg-sky-500\" />\n          <div class=\"space-y-1\">\n            <p class=\"text-sm font-medium leading-none\">\n              {{ notification.title }}\n            </p>\n            <p class=\"text-sm text-muted-foreground\">\n              {{ notification.description }}\n            </p>\n          </div>\n        </div>\n      </div>\n    </CardContent>\n    <CardFooter>\n      <Button class=\"w-full\">\n        <Check class=\"mr-2 h-4 w-4\" /> Mark all as read\n      </Button>\n    </CardFooter>\n  </Card>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

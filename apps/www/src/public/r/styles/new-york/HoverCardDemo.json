@@ -1,0 +1,18 @@
+{
+  "name": "HoverCardDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "hover-card"
+  ],
+  "files": [
+    {
+      "path": "example/HoverCardDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from '@/registry/new-york/ui/avatar'\n\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  HoverCard,\n  HoverCardContent,\n  HoverCardTrigger,\n} from '@/registry/new-york/ui/hover-card'\nimport { CalendarIcon } from 'lucide-vue-next'\n</script>\n\n<template>\n  <HoverCard>\n    <HoverCardTrigger as-child>\n      <Button variant=\"link\">\n        @vuejs\n      </Button>\n    </HoverCardTrigger>\n    <HoverCardContent class=\"w-80\">\n      <div class=\"flex justify-between space-x-4\">\n        <Avatar>\n          <AvatarImage src=\"https://github.com/vuejs.png\" />\n          <AvatarFallback>VC</AvatarFallback>\n        </Avatar>\n        <div class=\"space-y-1\">\n          <h4 class=\"text-sm font-semibold\">\n            @vuejs\n          </h4>\n          <p class=\"text-sm\">\n            Progressive JavaScript framework for building modern web interfaces.\n          </p>\n          <div class=\"flex items-center pt-2\">\n            <CalendarIcon class=\"mr-2 h-4 w-4 opacity-70\" />\n            <span class=\"text-xs text-muted-foreground\">\n              Joined January 2014\n            </span>\n          </div>\n        </div>\n      </div>\n    </HoverCardContent>\n  </HoverCard>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ButtonGhostDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonGhostDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\n</script>\n\n<template>\n  <Button variant=\"ghost\">\n    Ghost\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

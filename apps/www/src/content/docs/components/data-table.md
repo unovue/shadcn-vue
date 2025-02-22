@@ -466,9 +466,10 @@ Let's make the email column sortable.
 
 ```ts
 import type { Updater } from '@tanstack/vue-table'
-import type { Ref } from 'vue'
+import type { ClassValue } from 'clsx'
 
-import { type ClassValue, clsx } from 'clsx'
+import type { Ref } from 'vue'
+import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -751,7 +752,7 @@ const table = useVueTable({
                 <DropdownMenuContent align="end">
                     <DropdownMenuCheckboxItem
                         v-for="column in table.getAllColumns().filter((column) => column.getCanHide())" :key="column.id"
-                        class="capitalize" :checked="column.getIsVisible()" @update:checked="(value) => {
+                        class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
                             column.toggleVisibility(!!value)
                         }">
                         {{ column.id }}
@@ -814,13 +815,13 @@ export const columns: ColumnDef<Payment>[] = [
     {
         id: 'select',
         header: ({ table }) => h(Checkbox, {
-            'checked': table.getIsAllPageRowsSelected(),
-            'onUpdate:checked': (value: boolean) => table.toggleAllPageRowsSelected(!!value),
+            'modelValue': table.getIsAllPageRowsSelected(),
+            'onUpdate:modelValue': (value: boolean) => table.toggleAllPageRowsSelected(!!value),
             'ariaLabel': 'Select all',
         }),
         cell: ({ row }) => h(Checkbox, {
-            'checked': row.getIsSelected(),
-            'onUpdate:checked': (value: boolean) => row.toggleSelected(!!value),
+            'modelValue': row.getIsSelected(),
+            'onUpdate:modelValue': (value: boolean) => row.toggleSelected(!!value),
             'ariaLabel': 'Select row',
         }),
         enableSorting: false,
@@ -995,7 +996,7 @@ const table = useVueTable({
                 <DropdownMenuContent align="end">
                     <DropdownMenuCheckboxItem
                         v-for="column in table.getAllColumns().filter((column) => column.getCanHide())" :key="column.id"
-                        class="capitalize" :checked="column.getIsVisible()" @update:checked="(value) => {
+                        class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
                             column.toggleVisibility(!!value)
                         }">
                         {{ column.id }}
@@ -1369,8 +1370,8 @@ const columns = computed(() => props.table.getAllColumns()
         v-for="column in columns"
         :key="column.id"
         class="capitalize"
-        :checked="column.getIsVisible()"
-        @update:checked="(value) => column.toggleVisibility(!!value)"
+        :modelValue="column.getIsVisible()"
+        @update:modelValue="(value) => column.toggleVisibility(!!value)"
       >
         {{ column.id }}
       </DropdownMenuCheckboxItem>

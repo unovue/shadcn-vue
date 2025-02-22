@@ -1,0 +1,16 @@
+{
+  "name": "BadgeDestructiveDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "example/BadgeDestructiveDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/registry/new-york/ui/badge'\n</script>\n\n<template>\n  <Badge variant=\"destructive\">\n    Destructive\n  </Badge>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

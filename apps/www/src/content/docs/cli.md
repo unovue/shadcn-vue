@@ -7,7 +7,7 @@ description: Use the CLI to add components to your project.
 
 Use the `init` command to initialize configuration and dependencies for a new project.
 
-The `init` command installs dependencies, adds the `cn`, `useEmitsAsProps` utils, configures `tailwind.config.cjs`, and creates CSS variables for the project.
+The `init` command installs dependencies, adds the `cn` util, configures `tailwind.config.js`, and CSS variables for the project.
 
 ```bash
 npx shadcn-vue@latest init
@@ -15,28 +15,27 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```ansi:line-numbers
-Would you like to use TypeScript (recommended)? no / yes
-Which framework are you using? Vite / Nuxt / Laravel
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › src/index.css
+```:line-numbers
+Which style would you like to use? › New York
+Which color would you like to use as base color? › Zinc
 Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
 ```
 
 ### Options
 
-```ansi
-Usage: shadcn-vue init [options]
+```txt
+Usage: shadcn-vue init [options] [components...]
 
 initialize your project and install dependencies
 
+Arguments:
+  components         the components to add or a url to the component.
+
 Options:
-  -y, --yes        skip confirmation prompt. (default: false)
-  -c, --cwd <cwd>  the working directory. (default: the current directory)
+  -d, --defaults    use default values i.e new-york, zinc and css variables. (default: false)
+  -f, --force       force overwrite of existing components.json. (default: false)
+  -y, --yes         skip confirmation prompt. (default: false)
+  -c, --cwd <cwd>   the working directory. defaults to the current directory.
   -h, --help       display help for command
 ```
 
@@ -50,8 +49,9 @@ npx shadcn-vue@latest add [component]
 
 You will be presented with a list of components to choose from:
 
-```ansi
-Which components would you like to add? › Space to select. Return to submit.
+```txt
+Which components would you like to add? › Space to select. A to toggle all.
+Enter to submit.
 
 ◯  accordion
 ◯  alert
@@ -60,45 +60,40 @@ Which components would you like to add? › Space to select. Return to submit.
 ◯  avatar
 ◯  badge
 ◯  button
+◯  calendar
 ◯  card
 ◯  checkbox
-◯  collapsible
 ```
 
 ### Options
 
-```ansi
+```txt
 Usage: shadcn-vue add [options] [components...]
 
-add components to your project
+add a component to your project
 
 Arguments:
-  components         name of components
+  components         the components to add or a url to the component.
 
 Options:
-  --nodep            disable adding & installing dependencies (advanced) (default: false)
-  -y, --yes          Skip confirmation prompt. (default: false)
+  -y, --yes          skip confirmation prompt. (default: false)
   -o, --overwrite    overwrite existing files. (default: false)
-  -c, --cwd <cwd>    the working directory. (default: the current directory)
+  -c, --cwd <cwd>    the working directory. defaults to the current directory.
+  -a, --all          add all available components. (default: false)
   -p, --path <path>  the path to add the component to.
   -h, --help         display help for command
 ```
 
-## update
+## Monorepo
 
-Use the `update` command to update components in your project. This will overwrite any modifications you've made to the components, so be sure to commit your changes before running this command.
+In a monorepo, you can specify the path to your workspace with the `-c` or `--cwd` option.
 
-We plan on improving this command in the future to improve the update experience.
+```bash
+npx shadcn-vue@latest init -c ./apps/www
+```
 
-```ansi
-Usage: shadcn-vue update [options] [components...]
+or
 
-update components in your project
-
-Arguments:
-  components       name of components
-
-Options:
-  -c, --cwd <cwd>  the working directory. (default: the current directory)
-  -h, --help       display help for command
+```bash
+npx shadcn-vue@latest add alert-dialog -c ./apps/www
 ```

@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import type { Mail } from '../data/mails'
 
-import { Input } from '@/lib/registry/new-york/ui/input'
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/lib/registry/new-york/ui/resizable'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { cn } from '@/lib/utils'
+import { Input } from '@/registry/new-york/ui/input'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/registry/new-york/ui/resizable'
+import { Separator } from '@/registry/new-york/ui/separator'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/new-york/ui/tabs'
-import { TooltipProvider } from '@/lib/registry/new-york/ui/tooltip'
-import { cn } from '@/lib/utils'
+} from '@/registry/new-york/ui/tabs'
+import { TooltipProvider } from '@/registry/new-york/ui/tooltip'
 import { refDebounced } from '@vueuse/core'
 import {
   Search,
@@ -20,7 +20,7 @@ import { computed, ref } from 'vue'
 import AccountSwitcher from './AccountSwitcher.vue'
 import MailDisplay from './MailDisplay.vue'
 import MailList from './MailList.vue'
-import Nav, { type LinkProp } from './Nav.vue'
+import Nav from './Nav.vue'
 
 interface MailProps {
   accounts: {

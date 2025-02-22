@@ -162,7 +162,7 @@ Here's the list of variables available for customization:
 
 To add new colors, you need to add them to your CSS file and to your `tailwind.config.js` file.
 
-```css title="app/globals.css"
+```css title="assets/css/tailwind.css"
 :root {
   --warning: 38 92% 50%;
   --warning-foreground: 48 96% 89%;

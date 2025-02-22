@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { RadioGroup, RadioGroupItem } from '@/lib/registry/default/ui/radio-group'
-import { Button, buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-
-import { toast } from '@/lib/registry/new-york/ui/toast'
 import { cn } from '@/lib/utils'
-import { ChevronDownIcon } from '@radix-icons/vue'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
+import { RadioGroup, RadioGroupItem } from '@/registry/default/ui/radio-group'
+import { Button, buttonVariants } from '@/registry/new-york/ui/button'
+
+import { Separator } from '@/registry/new-york/ui/separator'
+import { toast } from '@/registry/new-york/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
+import { ChevronDown } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { h } from 'vue'
 import * as z from 'zod'
@@ -72,7 +72,7 @@ const onSubmit = handleSubmit((values) => {
               </option>
             </select>
           </FormControl>
-          <ChevronDownIcon class="pointer-events-none absolute right-3 top-2.5 h-4 w-4 opacity-50" />
+          <ChevronDown class="pointer-events-none absolute right-3 top-2.5 h-4 w-4 opacity-50" />
         </div>
         <FormDescription>
           Set the font you want to use in the dashboard.

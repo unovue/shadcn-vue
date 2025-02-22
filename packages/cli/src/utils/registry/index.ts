@@ -1,19 +1,26 @@
 import type { Config } from '@/src/utils/get-config'
-import type { registryItemWithContentSchema } from '@/src/utils/registry/schema'
-import type * as z from 'zod'
-import process from 'node:process'
+import type {
+  registryItemFileSchema,
+} from '@/src/utils/registry/schema'
+import { handleError } from '@/src/utils/handle-error'
+import { logger } from '@/src/utils/logger'
 import {
+  iconsSchema,
   registryBaseColorSchema,
   registryIndexSchema,
-  registryWithContentSchema,
+  registryItemSchema,
+  registryResolvedItemsTreeSchema,
   stylesSchema,
 } from '@/src/utils/registry/schema'
-import consola from 'consola'
+import { buildTailwindThemeColorsFromCssVars } from '@/src/utils/updaters/update-tailwind-config'
+import deepmerge from 'deepmerge'
 import { ofetch } from 'ofetch'
 import path from 'pathe'
 import { ProxyAgent } from 'undici'
+import { z } from 'zod'
 
-const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? 'https://www.shadcn-vue.com'
+const REGISTRY_URL = process.env.REGISTRY_URL ?? 'https://shadcn-vue.com/r'
+
 const agent = process.env.https_proxy
   ? new ProxyAgent(process.env.https_proxy)
   : undefined
@@ -25,7 +32,8 @@ export async function getRegistryIndex() {
     return registryIndexSchema.parse(result)
   }
   catch (error) {
-    throw new Error('Failed to fetch components from registry.')
+    logger.error('\n')
+    handleError(error)
   }
 }
 
@@ -36,15 +44,43 @@ export async function getRegistryStyles() {
     return stylesSchema.parse(result)
   }
   catch (error) {
-    throw new Error('Failed to fetch styles from registry.')
+    logger.error('\n')
+    handleError(error)
+    return []
   }
 }
 
-export function getRegistryBaseColors() {
+export async function getRegistryIcons() {
+  try {
+    const [result] = await fetchRegistry(['icons/index.json'])
+    return iconsSchema.parse(result)
+  }
+  catch (error) {
+    handleError(error)
+    return {}
+  }
+}
+
+export async function getRegistryItem(name: string, style: string) {
+  try {
+    const [result] = await fetchRegistry([
+      isUrl(name) ? name : `styles/${style}/${name}.json`,
+    ])
+
+    return registryItemSchema.parse(result)
+  }
+  catch (error) {
+    logger.break()
+    handleError(error)
+    return null
+  }
+}
+
+export async function getRegistryBaseColors() {
   return [
     {
-      name: 'slate',
-      label: 'Slate',
+      name: 'neutral',
+      label: 'Neutral',
     },
     {
       name: 'gray',
@@ -55,12 +91,12 @@ export function getRegistryBaseColors() {
       label: 'Zinc',
     },
     {
-      name: 'neutral',
-      label: 'Neutral',
-    },
-    {
       name: 'stone',
       label: 'Stone',
+    },
+    {
+      name: 'slate',
+      label: 'Slate',
     },
   ]
 }
@@ -72,7 +108,7 @@ export async function getRegistryBaseColor(baseColor: string) {
     return registryBaseColorSchema.parse(result)
   }
   catch (error) {
-    throw new Error('Failed to fetch base color from registry.')
+    handleError(error)
   }
 }
 
@@ -85,8 +121,9 @@ export async function resolveTree(
   for (const name of names) {
     const entry = index.find(entry => entry.name === name)
 
-    if (!entry)
+    if (!entry) {
       continue
+    }
 
     tree.push(entry)
 
@@ -109,29 +146,30 @@ export async function fetchTree(
   try {
     const paths = tree.map(item => `styles/${style}/${item.name}.json`)
     const result = await fetchRegistry(paths)
-
-    return registryWithContentSchema.parse(result)
+    return registryIndexSchema.parse(result)
   }
   catch (error) {
-    throw new Error('Failed to fetch tree from registry.')
+    handleError(error)
   }
 }
 
-export function getItemTargetPath(
+export async function getItemTargetPath(
   config: Config,
-  item: Pick<z.infer<typeof registryItemWithContentSchema>, 'type'>,
+  item: Pick<z.infer<typeof registryItemSchema>, 'type'>,
   override?: string,
 ) {
-  // Allow overrides for all items but ui.
-  if (override)
+  if (override) {
     return override
+  }
 
-  if (item.type === 'components:ui' && config.aliases.ui)
-    return config.resolvedPaths.ui
+  if (item.type === 'registry:ui') {
+    return config.resolvedPaths.ui ?? config.resolvedPaths.components
+  }
 
-  const [parent, type] = item.type.split(':')
-  if (!(parent in config.resolvedPaths))
+  const [parent, type] = item.type?.split(':') ?? []
+  if (!(parent in config.resolvedPaths)) {
     return null
+  }
 
   return path.join(
     config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
@@ -143,17 +181,253 @@ async function fetchRegistry(paths: string[]) {
   try {
     const results = await Promise.all(
       paths.map(async (path) => {
-        const response = await ofetch(`${baseUrl}/registry/${path}`, {
-          dispatcher: agent,
-        })
+        const url = getRegistryUrl(path)
+        const response = await ofetch(url, { dispatcher: agent, parseResponse: JSON.parse })
+          .catch((error) => {
+            throw new Error(error.data)
+          })
 
         return response
       }),
     )
+
     return results
   }
   catch (error) {
-    consola.error(error)
-    throw new Error(`Failed to fetch registry from ${baseUrl}.`)
+    logger.error('\n')
+    handleError(error)
+    return []
+  }
+}
+
+export function getRegistryItemFileTargetPath(
+  file: z.infer<typeof registryItemFileSchema>,
+  config: Config,
+  override?: string,
+) {
+  if (override) {
+    return override
+  }
+
+  if (file.type === 'registry:ui') {
+    // For UI component we place them in folder
+    const folder = file.path.split('/')[1]
+    return path.join(config.resolvedPaths.ui, folder)
+  }
+
+  if (file.type === 'registry:lib') {
+    return config.resolvedPaths.lib
+  }
+
+  if (file.type === 'registry:block' || file.type === 'registry:component') {
+    return config.resolvedPaths.components
+  }
+
+  if (file.type === 'registry:hook') {
+    return config.resolvedPaths.composables
+  }
+
+  // TODO: we put this in components for now.
+  // We should move this to pages as per framework.
+  if (file.type === 'registry:page') {
+    return config.resolvedPaths.components
+  }
+
+  return config.resolvedPaths.components
+}
+
+export async function registryResolveItemsTree(
+  names: z.infer<typeof registryItemSchema>['name'][],
+  config: Config,
+) {
+  try {
+    const index = await getRegistryIndex()
+    if (!index) {
+      return null
+    }
+
+    // If we're resolving the index, we want it to go first.
+    if (names.includes('index')) {
+      names.unshift('index')
+    }
+
+    const registryDependencies: Set<string> = new Set()
+    for (const name of names) {
+      const itemRegistryDependencies = await resolveRegistryDependencies(
+        name,
+        config,
+      )
+      itemRegistryDependencies.forEach(dep => registryDependencies.add(dep))
+    }
+
+    const uniqueRegistryDependencies = Array.from(registryDependencies)
+    const result = await fetchRegistry(uniqueRegistryDependencies)
+    const payload = z.array(registryItemSchema).parse(result)
+
+    if (!payload) {
+      return null
+    }
+
+    // If we're resolving the index, we want to fetch
+    // the theme item if a base color is provided.
+    // We do this for index only.
+    // Other components will ship with their theme tokens.
+    if (names.includes('index')) {
+      if (config.tailwind.baseColor) {
+        const theme = await registryGetTheme(config.tailwind.baseColor, config)
+        if (theme) {
+          payload.unshift(theme)
+        }
+      }
+    }
+
+    let tailwind = {}
+    payload.forEach((item) => {
+      tailwind = deepmerge(tailwind, item.tailwind ?? {})
+    })
+
+    let cssVars = {}
+    payload.forEach((item) => {
+      cssVars = deepmerge(cssVars, item.cssVars ?? {})
+    })
+
+    let docs = ''
+    payload.forEach((item) => {
+      if (item.docs) {
+        docs += `${item.docs}\n`
+      }
+    })
+
+    return registryResolvedItemsTreeSchema.parse({
+      dependencies: Array.from(new Set(payload.flatMap(item => item.dependencies ?? []))),
+      devDependencies: Array.from(new Set(payload.flatMap(item => item.devDependencies ?? []))),
+      files: deepmerge.all(payload.map(item => item.files ?? [])),
+      tailwind,
+      cssVars,
+      docs,
+    })
+  }
+  catch (error) {
+    handleError(error)
+    return null
+  }
+}
+
+async function resolveRegistryDependencies(
+  url: string,
+  config: Config,
+): Promise<string[]> {
+  const visited = new Set<string>()
+  const payload: string[] = []
+
+  async function resolveDependencies(itemUrl: string) {
+    const url = getRegistryUrl(
+      isUrl(itemUrl) ? itemUrl : `styles/${config.style}/${itemUrl}.json`,
+    )
+
+    if (visited.has(url)) {
+      return
+    }
+
+    visited.add(url)
+
+    try {
+      const [result] = await fetchRegistry([url])
+      const item = registryItemSchema.parse(result)
+      payload.push(url)
+
+      if (item.registryDependencies) {
+        for (const dependency of item.registryDependencies) {
+          await resolveDependencies(dependency)
+        }
+      }
+    }
+    catch (error) {
+      console.error(
+        `Error fetching or parsing registry item at ${itemUrl}:`,
+        error,
+      )
+    }
+  }
+
+  await resolveDependencies(url)
+  return Array.from(new Set(payload))
+}
+
+export async function registryGetTheme(name: string, config: Config) {
+  const baseColor = await getRegistryBaseColor(name)
+  if (!baseColor) {
+    return null
+  }
+
+  // TODO: Move this to the registry i.e registry:theme.
+  const theme = {
+    name,
+    type: 'registry:theme',
+    tailwind: {
+      config: {
+        theme: {
+          extend: {
+            borderRadius: {
+              lg: 'var(--radius)',
+              md: 'calc(var(--radius) - 2px)',
+              sm: 'calc(var(--radius) - 4px)',
+            },
+            colors: {},
+          },
+        },
+      },
+    },
+    cssVars: {
+      light: {
+        radius: '0.5rem',
+      },
+      dark: {},
+    },
+  } satisfies z.infer<typeof registryItemSchema>
+
+  if (config.tailwind.cssVariables) {
+    theme.tailwind.config.theme.extend.colors = {
+      ...theme.tailwind.config.theme.extend.colors,
+      ...buildTailwindThemeColorsFromCssVars(baseColor.cssVars.dark),
+    }
+    theme.cssVars = {
+      light: {
+        ...baseColor.cssVars.light,
+        ...theme.cssVars.light,
+      },
+      dark: {
+        ...baseColor.cssVars.dark,
+        ...theme.cssVars.dark,
+      },
+    }
+  }
+
+  return theme
+}
+
+function getRegistryUrl(path: string) {
+  if (isUrl(path)) {
+    // If the url contains /chat/b/, we assume it's the v0 registry.
+    // We need to add the /json suffix if it's missing.
+    const url = new URL(path)
+    if (url.pathname.match(/\/chat\/b\//) && !url.pathname.endsWith('/json')) {
+      url.pathname = `${url.pathname}/json`
+    }
+
+    return url.toString()
+  }
+
+  return `${REGISTRY_URL}/${path}`
+}
+
+function isUrl(path: string) {
+  try {
+    // eslint-disable-next-line no-new
+    new URL(path)
+    return true
+  }
+  catch (error) {
+    return false
   }
 }

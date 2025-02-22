@@ -9,97 +9,84 @@ description: Install and configure Vite.
 
 Start by creating a new Vue project using `vite`:
 
-<Callout>
-
-  If you're using the JS template, `jsconfig.json` must exist for the CLI to run without errors.
-
-</Callout>
-
 ```bash
-# npm 6.x
-npm create vite@latest my-vue-app --template vue-ts
-
-# npm 7+, extra double-dash is needed:
 npm create vite@latest my-vue-app -- --template vue-ts
 ```
 
 ### Add Tailwind and its configuration
 
-Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and configure `postcss` plugins
+Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and `postcss` plugins:
 
-<TabsMarkdown>
-  <TabMarkdown title="vite.config">
-
-  Vite already has [`postcss`](https://github.com/vitejs/vite/blob/main/packages/vite/package.json#89) dependency so you don't have to install it again in your package.json
-
-  ```bash
-  npm install -D tailwindcss autoprefixer
-  ```
-
-  <Callout>
-
-  If you're utilizing `postcss.config.js`, these changes will be inconsequential.
-
-  </Callout>
-
-  #### `vite.config`
-
-```typescript {2,3,8-12}
-import vue from '@vitejs/plugin-vue'
-import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
-import { defineConfig } from 'vite'
-
-// https://vite.dev/config/
-export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
-  plugins: [vue()],
-})
+```bash
+npm install -D tailwindcss autoprefixer
 ```
 
-  </TabMarkdown>
+```bash
+npx tailwindcss init
+```
 
-  <TabMarkdown title="postcss.config.js">
+Add this import header in your main css file, `src/assets/index.css` in our case:
 
-  ```bash
-  npm install -D tailwindcss autoprefixer postcss
-  ```
+```css:line-numbers {1-3}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-#### `postcss.config.js`
+/* ... */
+```
 
-  ```js
-  module.exports = {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
+Configure the tailwind template paths in `tailwind.config.js`:
+
+```js {3}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./index.html', './src/**/*.{ts,js,vue}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+### Edit tsconfig.json file
+
+The current version of Vite splits TypeScript configuration into three files, two of which need to be edited.
+Add the `baseUrl` and `paths` properties to the `compilerOptions` section of the `tsconfig.json` and
+`tsconfig.app.json` files:
+
+```ts:line-numbers {11-16}
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
     },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
-  ```
+}
+```
 
-  </TabMarkdown>
-</TabsMarkdown>
+### Edit tsconfig.app.json file
 
-### Edit tsconfig/jsconfig.json
+Add the following code to the `tsconfig.app.json` file to resolve paths, for your IDE:
 
-<Callout>
-
-If you're using TypeScript, the current version of Vite splits configuration into three files, requiring the same change for `tsconfig.app.json`.
-
-</Callout>
-
-Add the code below to the compilerOptions of your `tsconfig.json` or `jsconfig.json` so your app can resolve paths without error
-
-```json {4-7}
+```ts:line-numbers {4-9}
 {
   "compilerOptions": {
     // ...
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
     // ...
   }
@@ -108,21 +95,19 @@ Add the code below to the compilerOptions of your `tsconfig.json` or `jsconfig.j
 
 ### Update vite.config.ts
 
-Add the code below to the vite.config.ts so your app can resolve paths without error
+Add the following code to the vite.config.ts so your app can resolve paths without error:
 
 ```bash
-# (so you can import "path" without error)
-npm i -D @types/node
+npm install -D @types/node
 ```
 
-```typescript {1,15-19}
-import { fileURLToPath, URL } from 'node:url'
+```typescript
+import path from 'node:path'
 import vue from '@vitejs/plugin-vue'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
   css: {
     postcss: {
@@ -132,15 +117,11 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 })
 ```
-
-### Delete default Vite styles
-
-Delete the default Vite stylesheet `./src/style.css`
 
 ### Run the CLI
 
@@ -154,31 +135,10 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```ansi:line-numbers
-Would you like to use TypeScript (recommended)? no / yes
-Which framework are you using? Vite / Nuxt / Laravel
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your tsconfig.json or jsconfig.json file? › ./tsconfig.json
-Where is your global CSS file? › › src/assets/index.css
+```txt:line-numbers
+Which style would you like to use? › New York
+Which color would you like to use as base color? › Zinc
 Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Write configuration to components.json. Proceed? > Y/n
-```
-
-### Update main.ts
-
-Remove import for style.css and add tailwind style import `import './assets/index.css'`
-
-```diff typescript {2,4}
-import { createApp } from 'vue'
-- import './style.css'
-import App from './App.vue'
-+ import './assets/index.css'
-
-createApp(App).mount('#app')
 ```
 
 ### That's it

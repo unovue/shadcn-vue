@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { Separator } from '@/registry/new-york/ui/separator'
 import SidebarNav from '../components/SidebarNav.vue'
 </script>
 

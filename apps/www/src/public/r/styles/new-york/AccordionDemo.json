@@ -1,0 +1,16 @@
+{
+  "name": "AccordionDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion"
+  ],
+  "files": [
+    {
+      "path": "example/AccordionDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/registry/new-york/ui/accordion'\n\nconst defaultValue = 'item-1'\n\nconst accordionItems = [\n  { value: 'item-1', title: 'Is it accessible?', content: 'Yes. It adheres to the WAI-ARIA design pattern.' },\n  { value: 'item-2', title: 'Is it unstyled?', content: 'Yes. It\\'s unstyled by default, giving you freedom over the look and feel.' },\n  { value: 'item-3', title: 'Can it be animated?', content: 'Yes! You can use the transition prop to configure the animation.' },\n]\n</script>\n\n<template>\n  <Accordion type=\"single\" class=\"w-full\" collapsible :default-value=\"defaultValue\">\n    <AccordionItem v-for=\"item in accordionItems\" :key=\"item.value\" :value=\"item.value\">\n      <AccordionTrigger>{{ item.title }}</AccordionTrigger>\n      <AccordionContent>\n        {{ item.content }}\n      </AccordionContent>\n    </AccordionItem>\n  </Accordion>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

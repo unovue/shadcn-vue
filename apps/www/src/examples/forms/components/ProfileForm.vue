@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Input } from '@/lib/registry/new-york/ui/input'
+import { cn } from '@/lib/utils'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
+import { Button } from '@/registry/new-york/ui/button'
+import { Input } from '@/registry/new-york/ui/input'
 import {
   Select,
   SelectContent,
@@ -9,13 +10,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/new-york/ui/select'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Textarea } from '@/lib/registry/new-york/ui/textarea'
+} from '@/registry/new-york/ui/select'
+import { Separator } from '@/registry/new-york/ui/separator'
 
-import { toast } from '@/lib/registry/new-york/ui/toast'
-import { cn } from '@/lib/utils'
-import { Cross1Icon } from '@radix-icons/vue'
+import { Textarea } from '@/registry/new-york/ui/textarea'
+import { toast } from '@/registry/new-york/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
 import { FieldArray, useForm } from 'vee-validate'
 import { h, ref } from 'vue'
@@ -129,7 +128,7 @@ const onSubmit = handleSubmit((values) => {
     </FormField>
 
     <div>
-      <FieldArray v-slot="{ fields, push, remove }" name="urls">
+      <FieldArray v-slot="{ fields, push }" name="urls">
         <div v-for="(field, index) in fields" :key="`urls-${field.key}`">
           <FormField v-slot="{ componentField }" :name="`urls[${index}].value`">
             <FormItem>
@@ -143,9 +142,6 @@ const onSubmit = handleSubmit((values) => {
                 <FormControl>
                   <Input type="url" v-bind="componentField" />
                 </FormControl>
-                <button type="button" class="absolute py-2 pe-3 end-0 text-muted-foreground" @click="remove(index)">
-                  <Cross1Icon class="w-3" />
-                </button>
               </div>
               <FormMessage />
             </FormItem>

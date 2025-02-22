@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
+} from '@/registry/new-york/ui/card'
 import BellIcon from '~icons/radix-icons/bell'
 import EyeNoneIcon from '~icons/radix-icons/eye-none'
 

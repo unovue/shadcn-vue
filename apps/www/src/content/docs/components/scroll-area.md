@@ -1,8 +1,8 @@
 ---
 title: Scroll-area
 description: Augments native scroll functionality for custom, cross-browser styling.
-source: apps/www/src/lib/registry/default/ui/scroll-area
-primitive: https://www.radix-vue.com/components/scroll-area.html
+source: apps/www/registry/default/ui/scroll-area
+primitive: https://www.reka-ui.com/docs/components/scroll-area.html
 ---
 
 <ComponentPreview name="ScrollAreaDemo" />

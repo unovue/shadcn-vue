@@ -1,0 +1,16 @@
+{
+  "name": "AvatarDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "example/AvatarDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar, AvatarFallback, AvatarImage } from '@/registry/default/ui/avatar'\n</script>\n\n<template>\n  <Avatar>\n    <AvatarImage src=\"https://github.com/unovue.png\" alt=\"@unovue\" />\n    <AvatarFallback>CN</AvatarFallback>\n  </Avatar>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "CheckboxWithText",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxWithText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Checkbox } from '@/registry/new-york/ui/checkbox'\n</script>\n\n<template>\n  <div class=\"items-top flex gap-x-2\">\n    <Checkbox id=\"terms1\" />\n    <div class=\"grid gap-1.5 leading-none\">\n      <label\n        for=\"terms1\"\n        class=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n      >\n        Accept terms and conditions\n      </label>\n      <p class=\"text-sm text-muted-foreground\">\n        You agree to our Terms of Service and Privacy Policy.\n      </p>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

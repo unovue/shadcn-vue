@@ -24,7 +24,7 @@ const tsconfigChecker = createComponentMetaChecker(
 )
 
 const components = fg.sync(['chart/**/*.vue', 'chart*/**/*.vue'], {
-  cwd: resolve(__dirname, ROOTPATH, 'src/lib/registry/default/ui/'),
+  cwd: resolve(__dirname, ROOTPATH, 'registry/default/ui/'),
   absolute: true,
 })
 

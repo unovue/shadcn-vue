@@ -1,8 +1,8 @@
 ---
 title: Tabs
 description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
-source: apps/www/src/lib/registry/default/ui/tabs
-primitive: https://www.radix-vue.com/components/tabs.html
+source: apps/www/registry/default/ui/tabs
+primitive: https://www.reka-ui.com/docs/components/tabs.html
 ---
 
 <ComponentPreview name="TabsDemo" />

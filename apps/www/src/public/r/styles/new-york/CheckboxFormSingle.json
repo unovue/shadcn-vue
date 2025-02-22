@@ -1,0 +1,23 @@
+{
+  "name": "CheckboxFormSingle",
+  "type": "registry:example",
+  "dependencies": [
+    "vee-validate",
+    "@vee-validate/zod",
+    "zod"
+  ],
+  "registryDependencies": [
+    "button",
+    "checkbox",
+    "form",
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "example/CheckboxFormSingle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { Checkbox } from '@/registry/new-york/ui/checkbox'\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/registry/new-york/ui/form'\nimport { toast } from '@/registry/new-york/ui/toast'\n\nimport { toTypedSchema } from '@vee-validate/zod'\nimport { useForm } from 'vee-validate'\nimport { h } from 'vue'\nimport * as z from 'zod'\n\nconst formSchema = toTypedSchema(z.object({\n  mobile: z.boolean().default(false).optional(),\n}))\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    mobile: true,\n  },\n})\n\nconst onSubmit = handleSubmit((values) => {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n})\n</script>\n\n<template>\n  <form class=\"space-y-6\" @submit=\"onSubmit\">\n    <FormField v-slot=\"{ value, handleChange }\" type=\"checkbox\" name=\"mobile\">\n      <FormItem class=\"flex flex-row items-start gap-x-3 space-y-0 rounded-md border p-4 shadow\">\n        <FormControl>\n          <Checkbox :model-value=\"value\" @update:model-value=\"handleChange\" />\n        </FormControl>\n        <div class=\"space-y-1 leading-none\">\n          <FormLabel>Use different settings for my mobile devices</FormLabel>\n          <FormDescription>\n            You can manage your mobile notifications in the\n            <a href=\"/examples/forms\">mobile settings</a> page.\n          </FormDescription>\n          <FormMessage />\n        </div>\n      </FormItem>\n    </FormField>\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </Form>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

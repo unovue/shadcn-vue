@@ -1,0 +1,17 @@
+{
+  "name": "DialogScrollBodyDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "example/DialogScrollBodyDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/registry/new-york/ui/dialog'\n</script>\n\n<template>\n  <Dialog>\n    <DialogTrigger as-child>\n      <Button variant=\"outline\">\n        Edit Profile\n      </Button>\n    </DialogTrigger>\n    <DialogContent class=\"sm:max-w-[425px] grid-rows-[auto_minmax(0,1fr)_auto] p-0 max-h-[90dvh]\">\n      <DialogHeader class=\"p-6 pb-0\">\n        <DialogTitle>Edit profile</DialogTitle>\n        <DialogDescription>\n          Make changes to your profile here. Click save when you're done.\n        </DialogDescription>\n      </DialogHeader>\n      <div class=\"grid gap-4 py-4 overflow-y-auto px-6\">\n        <div class=\"flex flex-col justify-between h-[300dvh]\">\n          <p>\n            This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the predefined max-height of modal, content will be cropped and scrollable within the modal.\n          </p>\n\n          <p>This content should appear at the bottom after you scroll.</p>\n        </div>\n      </div>\n      <DialogFooter class=\"p-6 pt-0\">\n        <Button type=\"submit\">\n          Save changes\n        </Button>\n      </DialogFooter>\n    </DialogContent>\n  </Dialog>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

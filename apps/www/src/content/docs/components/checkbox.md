@@ -1,8 +1,8 @@
 ---
 title: Checkbox
 description: A control that allows the user to toggle between checked and not checked.
-source: apps/www/src/lib/registry/default/ui/checkbox
-primitive: https://www.radix-vue.com/components/checkbox.html
+source: apps/www/registry/default/ui/checkbox
+primitive: https://www.reka-ui.com/docs/components/checkbox.html
 ---
 
 <ComponentPreview name="CheckboxDemo"  />

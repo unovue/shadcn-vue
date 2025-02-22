@@ -1,0 +1,17 @@
+{
+  "name": "TextareaWithButton",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaWithButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport { Textarea } from '@/registry/default/ui/textarea'\n</script>\n\n<template>\n  <div class=\"grid w-full gap-2\">\n    <Textarea placeholder=\"Type your message here.\" />\n    <Button>Send message</Button>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

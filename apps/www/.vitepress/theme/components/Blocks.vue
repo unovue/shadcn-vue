@@ -1,25 +1,33 @@
 <script setup lang="ts">
-import { buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { cn } from '@/lib/utils'
-import GitHubIcon from '~icons/radix-icons/github-logo'
-import { ref } from 'vue'
+import { Button } from '@/registry/new-york/ui/button'
+import { useData } from 'vitepress'
+import { computed } from 'vue'
 import Announcement from '../components/Announcement.vue'
 import PageAction from '../components/PageAction.vue'
+
 import PageHeader from '../components/PageHeader.vue'
 import PageHeaderDescription from '../components/PageHeaderDescription.vue'
 
 import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 import BlockContainer from './BlockContainer.vue'
+import BlocksNav from './BlocksNav.vue'
 
-const blocks = ref<string[]>([])
+const FEATURED_BLOCKS = ['Sidebar07', 'Sidebar03', 'Login03', 'Login04']
 
-import('../../../__registry__/index').then((res) => {
-  blocks.value = Object.values(res.Index.default).filter(i => i.type === 'components:block').map(i => i.name)
+const { params } = useData()
+
+const blocks = computed(() => {
+  if (params.value === undefined) {
+    return FEATURED_BLOCKS
+  }
+  else {
+    return params.value.blocks ?? []
+  }
 })
 </script>
 
 <template>
-  <PageHeader class="page-header pb-8">
+  <PageHeader class="page-header">
     <Announcement />
     <PageHeaderHeading>Building Blocks for the Web</PageHeaderHeading>
     <PageHeaderDescription>
@@ -27,27 +35,33 @@ import('../../../__registry__/index').then((res) => {
     </PageHeaderDescription>
 
     <PageAction>
-      <a
-        href="/blocks.html#blocks"
-        :class="cn(buttonVariants(), 'rounded-[6px]')"
-      >
-        Browse
-      </a>
-      <a
-        href="https://github.com/radix-vue/shadcn-vue"
-        target="_blank"
-        :class="cn(
-          buttonVariants({ variant: 'outline' }),
-          'rounded-[6px]',
-        )"
-      >
-        <GitHubIcon class="mr-2 h-4 w-4" />
-        GitHub
-      </a>
+      <Button as-child size="sm">
+        <a href="#blocks">Browse Blocks</a>
+      </Button>
+      <Button as-child variant="ghost" size="sm">
+        <a
+          href="https://github.com/shadcn-ui/ui/discussions/new?category=blocks-request"
+          target="_blank"
+        >
+          Request a block
+        </a>
+      </Button>
     </PageAction>
   </PageHeader>
 
-  <section id="blocks" class="grid scroll-mt-24 gap-24 lg:gap-48">
-    <BlockContainer v-for="block in blocks" :key="block" :name="block" />
+  <section id="blocks" class="border-grid scroll-mt-24 border-b">
+    <div class="container-wrapper">
+      <div class="container flex items-center py-4">
+        <BlocksNav />
+      </div>
+    </div>
   </section>
+
+  <div class="container-wrapper flex-1">
+    <div>
+      <div v-for="block in blocks" :key="block" class="border-grid container border-b py-8 first:pt-6 last:border-b-0 md:py-12">
+        <BlockContainer :name="block" />
+      </div>
+    </div>
+  </div>
 </template>

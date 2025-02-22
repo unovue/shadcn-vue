@@ -1,0 +1,17 @@
+{
+  "name": "TextareaWithLabel",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaWithLabel.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/new-york/ui/label'\nimport { Textarea } from '@/registry/new-york/ui/textarea'\n</script>\n\n<template>\n  <div class=\"grid w-full gap-1.5\">\n    <Label for=\"message\">Your message</Label>\n    <Textarea id=\"message\" placeholder=\"Type your message here.\" />\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

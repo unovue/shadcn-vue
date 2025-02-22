@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/default/ui/button'
-import { ScrollArea } from '@/lib/registry/default/ui/scroll-area'
-import { Sheet, SheetContent, SheetTrigger } from '@/lib/registry/default/ui/sheet'
+import { Button } from '@/registry/default/ui/button'
+import { ScrollArea } from '@/registry/default/ui/scroll-area'
+import { Sheet, SheetContent, SheetTrigger } from '@/registry/default/ui/sheet'
 import { ref } from 'vue'
 import { docsConfig } from '../config/docs'
 import Logo from './Logo.vue'

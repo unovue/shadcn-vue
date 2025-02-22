@@ -1,0 +1,17 @@
+{
+  "name": "ToastWithTitle",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "use-toast"
+  ],
+  "files": [
+    {
+      "path": "example/ToastWithTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport { useToast } from '@/registry/default/ui/toast/use-toast'\n\nconst { toast } = useToast()\n</script>\n\n<template>\n  <Button\n    variant=\"outline\" @click=\"() => {\n      toast({\n        title: 'Uh oh! Something went wrong.',\n        description: 'There was a problem with your request.',\n      });\n    }\"\n  >\n    Show Toast\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

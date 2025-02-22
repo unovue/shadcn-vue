@@ -1,5 +1,5 @@
 <p align="center">
- <img align="center" src="https://raw.githubusercontent.com/radix-vue/shadcn-vue/dev/apps/www/src/public/android-chrome-192x192.png" height="96" />
+ <img align="center" src="https://raw.githubusercontent.com/unovue/shadcn-vue/dev/apps/www/src/public/android-chrome-192x192.png" height="96" />
  <h1 align="center">
   shadcn-vue
  </h1>
@@ -23,7 +23,7 @@ All credits go to these open-source works and resources
 
 - [Shadcn UI](https://ui.shadcn.com) for creating this beautiful project.
 - [Shadcn Svelte](https://shadcn-svelte.com) for some inspiration for registry.
-- [Radix Vue](https://radix-vue.com) for doing all the hard work to make sure components are accessible.
+- [Radix Vue](https://reka-ui.com) for doing all the hard work to make sure components are accessible.
 - [VueUse](https://vueuse.org) for providing many useful utilities.
 
 - [ahmedmayara](https://github.com/ahmedmayara/shadcn-vue) for populating many components

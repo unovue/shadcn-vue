@@ -1,0 +1,17 @@
+{
+  "name": "DialogScrollOverlayDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "example/DialogScrollOverlayDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport {\n  Dialog,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogScrollContent,\n  DialogTitle,\n  DialogTrigger,\n} from '@/registry/default/ui/dialog'\n</script>\n\n<template>\n  <Dialog>\n    <DialogTrigger as-child>\n      <Button variant=\"outline\">\n        Edit Profile\n      </Button>\n    </DialogTrigger>\n    <DialogScrollContent class=\"sm:max-w-[425px]\">\n      <DialogHeader>\n        <DialogTitle>Modal title</DialogTitle>\n        <DialogDescription>\n          Here is modal with overlay scroll\n        </DialogDescription>\n      </DialogHeader>\n      <div class=\"grid gap-4 py-4 h-[300dvh]\">\n        <p>\n          This is some placeholder content to show the scrolling behavior for modals. Instead of repeating the text in the modal, we use an inline style to set a minimum height, thereby extending the length of the overall modal and demonstrating the overflow scrolling. When content becomes longer than the height of the viewport, scrolling will move the modal as needed.\n        </p>\n      </div>\n      <DialogFooter>\n        <Button type=\"submit\">\n          Save changes\n        </Button>\n      </DialogFooter>\n    </DialogScrollContent>\n  </Dialog>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

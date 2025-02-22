@@ -1,0 +1,16 @@
+{
+  "name": "InputDisabled",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "path": "example/InputDisabled.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from '@/registry/new-york/ui/input'\n</script>\n\n<template>\n  <Input disabled type=\"email\" placeholder=\"Email\" />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

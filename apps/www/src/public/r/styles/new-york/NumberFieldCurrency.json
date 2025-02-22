@@ -1,0 +1,17 @@
+{
+  "name": "NumberFieldCurrency",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "example/NumberFieldCurrency.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/new-york/ui/label'\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/registry/new-york/ui/number-field'\n</script>\n\n<template>\n  <NumberField\n    id=\"balance\"\n    :default-value=\"1500\"\n    :format-options=\"{\n      style: 'currency',\n      currency: 'EUR',\n      currencyDisplay: 'code',\n      currencySign: 'accounting',\n    }\"\n  >\n    <Label for=\"balance\">Balance</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

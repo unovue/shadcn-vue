@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TabsContent } from '@/lib/registry/default/ui/tabs'
+import { TabsContent } from '@/registry/default/ui/tabs'
 
 withDefaults(defineProps<{
   title?: string
@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <TabsContent :value="title" class="relative space-y-10">
+  <TabsContent :value="title" class="relative space-y-6">
     <slot />
   </TabsContent>
 </template>

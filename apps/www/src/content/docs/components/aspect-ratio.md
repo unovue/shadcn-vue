@@ -1,8 +1,8 @@
 ---
 title: Aspect Ratio
 description: Displays content within a desired ratio.
-source: apps/www/src/lib/registry/default/ui/aspect-ratio
-primitive: https://www.radix-vue.com/components/aspect-ratio.html
+source: apps/www/registry/default/ui/aspect-ratio
+primitive: https://www.reka-ui.com/docs/components/aspect-ratio.html
 ---
 
 <ComponentPreview name="AspectRatioDemo" />
@@ -24,12 +24,12 @@ npx shadcn-vue@latest add aspect-ratio
 ### Install the following dependency:
 
 ```bash
-npm install radix-vue
+npm install reka-ui
 ```
 
 ### Copy and paste the following code into your project:
 
-<<< @/lib/registry/default/ui/aspect-ratio/AspectRatio.vue
+<<< @/registry/default/ui/aspect-ratio/AspectRatio.vue
 
 </Steps>
 

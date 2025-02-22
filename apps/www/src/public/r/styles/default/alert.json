@@ -1,0 +1,34 @@
+{
+  "name": "alert",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "ui/alert/Alert.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { type AlertVariants, alertVariants } from '.'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: AlertVariants['variant']\n}>()\n</script>\n\n<template>\n  <div :class=\"cn(alertVariants({ variant }), props.class)\" role=\"alert\">\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/alert/AlertDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('text-sm [&_p]:leading-relaxed', props.class)\">\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/alert/AlertTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <h5 :class=\"cn('mb-1 font-medium leading-none tracking-tight', props.class)\">\n    <slot />\n  </h5>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/alert/index.ts",
+      "content": "import { cva, type VariantProps } from 'class-variance-authority'\n\nexport { default as Alert } from './Alert.vue'\nexport { default as AlertDescription } from './AlertDescription.vue'\nexport { default as AlertTitle } from './AlertTitle.vue'\n\nexport const alertVariants = cva(\n  'relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',\n  {\n    variants: {\n      variant: {\n        default: 'bg-background text-foreground',\n        destructive:\n          'border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n)\n\nexport type AlertVariants = VariantProps<typeof alertVariants>\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

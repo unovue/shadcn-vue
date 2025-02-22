@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { buttonVariants } from '@/lib/registry/new-york/ui/button'
-import { cn } from '@/lib/utils'
+import Button from '@/registry/new-york/ui/button/Button.vue'
 import Announcement from '../components/Announcement.vue'
 import ExamplesNav from '../components/ExamplesNav.vue'
 import PageAction from '../components/PageAction.vue'
@@ -11,43 +10,46 @@ import PageHeaderHeading from '../components/PageHeaderHeading.vue'
 </script>
 
 <template>
-  <div class="container relative">
-    <PageHeader class="page-header pb-8">
+  <div class="relative">
+    <PageHeader>
       <Announcement />
-      <PageHeaderHeading class="hidden md:block">
-        Check out some examples.
-      </PageHeaderHeading>
-      <PageHeaderHeading class="md:hidden">
-        Examples
-      </PageHeaderHeading>
+      <PageHeaderHeading>Build your component library</PageHeaderHeading>
       <PageHeaderDescription>
-        Dashboard, cards, authentication. Some examples built using the
-        components. Use this as a guide to build your own.
+        Beautifully designed components that you can copy and paste into your apps. Made with Tailwind CSS. Open source.
       </PageHeaderDescription>
 
       <PageAction>
-        <a
-          href="/docs/introduction"
-          :class="cn(buttonVariants(), 'rounded-[6px]')"
-        >
-          Get Started
-        </a>
-        <a
-          href="/docs/components/accordion"
-          :class="cn(
-            buttonVariants({ variant: 'outline' }),
-            'rounded-[6px]',
-          )"
-        >
-          Components
-        </a>
+        <Button as-child size="sm">
+          <a href="/docs/introduction">
+            Get Started
+          </a>
+        </Button>
+        <Button as-child size="sm" variant="ghost">
+          <a
+            href="https://github.com/unovue/shadcn-vue"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+        </Button>
       </PageAction>
     </PageHeader>
-    <section>
-      <ExamplesNav />
-      <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
-        <slot />
+
+    <div class="border-grid border-b">
+      <div class="container-wrapper">
+        <div class="container py-4">
+          <ExamplesNav />
+        </div>
       </div>
-    </section>
+    </div>
+
+    <div class="container-wrapper">
+      <div class="container py-6">
+        <div class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
+          <slot />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
