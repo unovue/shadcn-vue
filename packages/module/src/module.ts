@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { addComponent, addTemplate, createResolver, defineNuxtModule, findPath, installModule, useLogger } from '@nuxt/kit'
+import { addComponent, addTemplate, createResolver, defineNuxtModule, findPath, useLogger } from '@nuxt/kit'
 import { parseSync } from '@oxc-parser/wasm'
 import { UTILS } from '../../cli/src/utils/templates'
 
@@ -24,7 +24,7 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'shadcn',
   },
   defaults: {
-    prefix: '',
+    prefix: 'Ui',
     componentDir: './components/ui',
   },
   async setup({ prefix, componentDir }, nuxt) {
@@ -58,12 +58,6 @@ export default defineNuxtModule<ModuleOptions>({
         extensions: [],
       })
     })
-
-    // Install the `@nuxtjs/tailwindcss` module.
-    await installModule('@nuxtjs/tailwindcss')
-
-    // Installs the `@nuxtjs/color-mode` module.
-    await installModule('@nuxtjs/color-mode')
 
     // Manually scan `componentsDir` for components and register them for auto imports
     try {
