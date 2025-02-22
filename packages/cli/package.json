@@ -88,7 +88,6 @@
     "@types/stringify-object": "^4.0.5",
     "tsup": "^8.3.6",
     "type-fest": "^4.34.1",
-    "typescript": "catalog:",
-    "vite-tsconfig-paths": "^5.1.4"
+    "typescript": "catalog:"
   }
 }
