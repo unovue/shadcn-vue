@@ -19,7 +19,7 @@ import path from 'pathe'
 import { ProxyAgent } from 'undici'
 import { z } from 'zod'
 
-const REGISTRY_URL = process.env.REGISTRY_URL ?? 'https://next.shadcn-vue.com/r'
+const REGISTRY_URL = process.env.REGISTRY_URL ?? 'https://shadcn-vue.com/r'
 
 const agent = process.env.https_proxy
   ? new ProxyAgent(process.env.https_proxy)

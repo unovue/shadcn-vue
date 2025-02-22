@@ -42,7 +42,7 @@
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
     "pub:next": "pnpm build && pnpm publish --no-git-checks --access public --tag next",
     "pub:release": "pnpm build && pnpm publish  --no-git-checks --access public",
-    "test": "REGISTRY_URL=http://localhost:5173/r vitest run",
+    "test": "vitest run",
     "test:update": "vitest run -u",
     "test:ui": "vitest --ui"
   },
