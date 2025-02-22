@@ -35,18 +35,20 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 ## Anatomy
 
 ```vue
-<Form>
-  <FormField v-slot="{ ... }">
-    <FormItem>
-      <FormLabel />
-      <FormControl>
+<template>
+  <Form>
+    <FormField>
+      <FormItem>
+        <FormLabel />
+        <FormControl>
         <!-- any Form Input component or native input elements -->
-      </FormControl>
-      <FormDescription />
-      <FormMessage />
-    </FormItem>
-  </FormField>
-</Form>
+        </FormControl>
+        <FormDescription />
+        <FormMessage />
+      </FormItem>
+    </FormField>
+  </Form>
+</template>
 ```
 
 ## Example
@@ -57,16 +59,18 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 #### `Input` Component
 
 ```vue
-<FormField v-slot="{ componentField }">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
-      <Input placeholder="shadcn" v-bind="componentField" />
-    </FormControl>
-    <FormDescription />
-    <FormMessage />
-  </FormItem>
-</FormField>
+<template>
+  <FormField v-slot="{ componentField }">
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <Input placeholder="shadcn" v-bind="componentField" />
+      </FormControl>
+      <FormDescription />
+      <FormMessage />
+    </FormItem>
+  </FormField>
+</template>
 ```
 
 </template>
@@ -108,34 +112,34 @@ npx shadcn-vue@latest add form
 ### Install the following dependency:
 
 ```bash
-npm install radix-vue vee-validate @vee-validate/zod zod
+npm install reka-ui vee-validate @vee-validate/zod zod
 ```
 
 ### Copy and paste the following codes into your project:
 
 `index.ts`
 
-<<< @/lib/registry/default/ui/form/index.ts
+<<< @/registry/default/ui/form/index.ts
 
 `FormItem.vue`
 
-<<< @/lib/registry/default/ui/form/FormItem.vue
+<<< @/registry/default/ui/form/FormItem.vue
 
 `FormLabel.vue`
 
-<<< @/lib/registry/default/ui/form/FormLabel.vue
+<<< @/registry/default/ui/form/FormLabel.vue
 
 `FormControl.vue`
 
-<<< @/lib/registry/default/ui/form/FormControl.vue
+<<< @/registry/default/ui/form/FormControl.vue
 
 `FormMessage.vue`
 
-<<< @/lib/registry/default/ui/form/FormMessage.vue
+<<< @/registry/default/ui/form/FormMessage.vue
 
 `FormDescription.vue`
 
-<<< @/lib/registry/default/ui/form/FormDescription.vue
+<<< @/registry/default/ui/form/FormDescription.vue
 
 ### Update the import paths to match your project setup.
 

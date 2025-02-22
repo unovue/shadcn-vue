@@ -1,16 +1,14 @@
 import type { PackageJson } from 'type-fest'
-import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import path from 'pathe'
 
-export function getPackageInfo() {
-  const packageJsonPath = getPackageFilePath('../package.json')
+export function getPackageInfo(
+  cwd: string = '',
+  shouldThrow: boolean = true,
+): PackageJson | null {
+  const packageJsonPath = path.join(cwd, 'package.json')
 
-  return fs.readJSONSync(packageJsonPath) as PackageJson
-}
-
-function getPackageFilePath(filePath: string) {
-  const distPath = fileURLToPath(new URL('.', import.meta.url))
-
-  return path.resolve(distPath, filePath)
+  return fs.readJSONSync(packageJsonPath, {
+    throws: shouldThrow,
+  }) as PackageJson
 }

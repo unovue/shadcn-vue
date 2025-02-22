@@ -17,7 +17,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 Shadcn Vue module for Nuxt.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/radix-vue/shadcn-vue?file=playground%2Fapp.vue) -->
+<!-- - [🏀 Online playground](https://stackblitz.com/github/unovue/shadcn-vue?file=playground%2Fapp.vue) -->
 - [📖 &nbsp;Documentation](https://www.shadcn-vue.com/docs/installation/nuxt.html)
 
 ## Features

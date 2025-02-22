@@ -1,8 +1,8 @@
 ---
 title: Command
 description: Fast, composable, unstyled command menu.
-source: apps/www/src/lib/registry/default/ui/command
-primitive: https://www.radix-vue.com/components/combobox.html
+source: apps/www/registry/default/ui/command
+primitive: https://www.reka-ui.com/docs/components/listbox.html
 ---
 
 <ComponentPreview name="CommandDemo" />
@@ -134,6 +134,28 @@ watch(CmdJ, (v) => {
 </template>
 ```
 
-### Combobox
+<br></br>
 
-You can use the `<Command />` component as a combobox. See the [Combobox](/docs/components/combobox) page for more information.
+<Callout>
+
+You can use the `<Command />` component like a combobox.
+
+</Callout>
+
+### Popover
+
+<ComponentPreview name="CommandPopover" />
+
+### Dropdown menu
+
+<ComponentPreview name="CommandDropdownMenu" />
+
+### Responsive
+
+You can create a responsive combobox by using the `<Popover />` on desktop and the `<Drawer />` components on mobile.
+
+<ComponentPreview name="CommandResponsive" />
+
+### Form
+
+<ComponentPreview name="CommandForm" />

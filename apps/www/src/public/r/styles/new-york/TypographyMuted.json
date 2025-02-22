@@ -1,0 +1,14 @@
+{
+  "name": "TypographyMuted",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyMuted.vue",
+      "content": "<template>\n  <p class=\"text-sm text-muted-foreground\">\n    Enter your email address.\n  </p>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 ---
 title: Menubar
 description: A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
-source: apps/www/src/lib/registry/default/ui/menubar
-primitive: https://www.radix-vue.com/components/menubar.html
+source: apps/www/registry/default/ui/menubar
+primitive: https://www.reka-ui.com/docs/components/menubar.html
 ---
 
 <ComponentPreview name="MenubarDemo" />

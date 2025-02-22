@@ -10,5 +10,6 @@
     "utils": "@/lib/utils",
     "components": "@/components"
   },
-  "typescript": false
+  "typescript": false,
+  "iconLibrary": "radix"
 }

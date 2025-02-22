@@ -21,7 +21,7 @@ npx shadcn-vue@latest add skeleton
 
 ### Copy and paste the following code into your project
 
-<<< @/lib/registry/default/ui/skeleton/Skeleton.vue
+<<< @/registry/default/ui/skeleton/Skeleton.vue
 
 </Steps>
 

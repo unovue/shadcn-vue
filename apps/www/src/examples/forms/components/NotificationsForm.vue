@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
-import { RadioGroup, RadioGroupItem } from '@/lib/registry/new-york/ui/radio-group'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
+import { Button } from '@/registry/new-york/ui/button'
+import { Checkbox } from '@/registry/new-york/ui/checkbox'
+import { RadioGroup, RadioGroupItem } from '@/registry/new-york/ui/radio-group'
 
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Switch } from '@/lib/registry/new-york/ui/switch'
-import { toast } from '@/lib/registry/new-york/ui/toast'
+import { Separator } from '@/registry/new-york/ui/separator'
+import { Switch } from '@/registry/new-york/ui/switch'
+import { toast } from '@/registry/new-york/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { h } from 'vue'
@@ -107,8 +107,8 @@ const onSubmit = handleSubmit((values) => {
             </div>
             <FormControl>
               <Switch
-                :checked="value"
-                @update:checked="handleChange"
+                :model-value="value"
+                @update:model-value="handleChange"
               />
             </FormControl>
           </FormItem>
@@ -126,8 +126,8 @@ const onSubmit = handleSubmit((values) => {
             </div>
             <FormControl>
               <Switch
-                :checked="value"
-                @update:checked="handleChange"
+                :model-value="value"
+                @update:model-value="handleChange"
               />
             </FormControl>
           </FormItem>
@@ -145,8 +145,8 @@ const onSubmit = handleSubmit((values) => {
             </div>
             <FormControl>
               <Switch
-                :checked="value"
-                @update:checked="handleChange"
+                :model-value="value"
+                @update:model-value="handleChange"
               />
             </FormControl>
           </FormItem>
@@ -164,8 +164,8 @@ const onSubmit = handleSubmit((values) => {
             </div>
             <FormControl>
               <Switch
-                :checked="value"
-                @update:checked="handleChange"
+                :model-value="value"
+                @update:model-value="handleChange"
               />
             </FormControl>
           </FormItem>
@@ -177,8 +177,8 @@ const onSubmit = handleSubmit((values) => {
       <FormItem class="flex flex-row items-start space-x-3 space-y-0">
         <FormControl>
           <Checkbox
-            :checked="value"
-            @update:checked="handleChange"
+            :model-value="value"
+            @update:model-value="handleChange"
           />
         </FormControl>
         <div class="space-y-1 leading-none">

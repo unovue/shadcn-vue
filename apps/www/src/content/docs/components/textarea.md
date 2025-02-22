@@ -22,12 +22,12 @@ npx shadcn-vue@latest add textarea
 ### Install the following dependency:
 
 ```bash
-npm install radix-vue
+npm install reka-ui
 ```
 
 ### Copy and paste the following code into your project
 
-<<< @/lib/registry/default/ui/textarea/Textarea.vue
+<<< @/registry/default/ui/textarea/Textarea.vue
 
 </Steps>
 

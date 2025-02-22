@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/lib/registry/default/ui/tooltip'
+} from '@/registry/default/ui/tooltip'
 
 defineProps<{
   content: string

@@ -1,0 +1,16 @@
+{
+  "name": "ToggleDisabledDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleDisabledDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Toggle } from '@/registry/default/ui/toggle'\n\nimport { Underline } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Toggle aria-label=\"Toggle underline\" disabled>\n    <Underline class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

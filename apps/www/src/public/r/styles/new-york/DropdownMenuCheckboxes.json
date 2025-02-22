@@ -1,0 +1,19 @@
+{
+  "name": "DropdownMenuCheckboxes",
+  "type": "registry:example",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "example/DropdownMenuCheckboxes.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DropdownMenuCheckboxItemProps } from 'reka-ui'\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuCheckboxItem,\n  DropdownMenuContent,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/registry/new-york/ui/dropdown-menu'\nimport { ref } from 'vue'\n\ntype Checked = DropdownMenuCheckboxItemProps['modelValue']\n\nconst showStatusBar = ref<Checked>(true)\nconst showActivityBar = ref<Checked>(false)\nconst showPanel = ref<Checked>(false)\n</script>\n\n<template>\n  <DropdownMenu>\n    <DropdownMenuTrigger as-child>\n      <Button variant=\"outline\">\n        Open\n      </Button>\n    </DropdownMenuTrigger>\n    <DropdownMenuContent class=\"w-56\">\n      <DropdownMenuLabel>Appearance</DropdownMenuLabel>\n      <DropdownMenuSeparator />\n      <DropdownMenuCheckboxItem\n        v-model:model-value=\"showStatusBar\"\n      >\n        Status Bar\n      </DropdownMenuCheckboxItem>\n      <DropdownMenuCheckboxItem\n        v-model:model-value=\"showActivityBar\"\n        disabled\n      >\n        Activity Bar\n      </DropdownMenuCheckboxItem>\n      <DropdownMenuCheckboxItem\n        v-model:model-value=\"showPanel\"\n      >\n        Panel\n      </DropdownMenuCheckboxItem>\n    </DropdownMenuContent>\n  </DropdownMenu>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

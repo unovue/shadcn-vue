@@ -1,0 +1,16 @@
+{
+  "name": "utils",
+  "type": "registry:lib",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "path": "lib/utils.ts",
+      "content": "import type { Updater } from '@tanstack/vue-table'\nimport type { Ref } from 'vue'\nimport { type ClassValue, clsx } from 'clsx'\nimport { twMerge } from 'tailwind-merge'\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n\nexport function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {\n  ref.value\n    = typeof updaterOrValue === 'function'\n      ? updaterOrValue(ref.value)\n      : updaterOrValue\n}\n",
+      "type": "registry:lib",
+      "target": ""
+    }
+  ]
+}

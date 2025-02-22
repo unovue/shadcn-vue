@@ -1,0 +1,16 @@
+{
+  "name": "TextareaDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "example/TextareaDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/registry/default/ui/textarea'\n</script>\n\n<template>\n  <Textarea placeholder=\"Type your message here.\" />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

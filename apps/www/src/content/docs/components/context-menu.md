@@ -1,8 +1,8 @@
 ---
 title: Context Menu
 description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
-source: apps/www/src/lib/registry/default/ui/context-menu
-primitive: https://www.radix-vue.com/components/context-menu.html
+source: apps/www/registry/default/ui/context-menu
+primitive: https://www.reka-ui.com/docs/components/context-menu.html
 ---
 
 <ComponentPreview name="ContextMenuDemo"  />

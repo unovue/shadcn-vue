@@ -91,7 +91,7 @@ However, you can always pass in the desired `color` into each chart.
 ## Custom tooltip
 
 If you want to customize the `Tooltip` for the chart, you can pass `customTooltip` prop with a custom Vue component.
-The custom component would receive `title` and `data` props, check out [ChartTooltip.vue component](https://github.com/radix-vue/shadcn-vue/tree/dev/apps/www/src/lib/registry/default/ui/chart/ChartTooltip.vue) for example.
+The custom component would receive `title` and `data` props, check out [ChartTooltip.vue component](https://github.com/unovue/shadcn-vue/tree/dev/apps/www/registry/default/ui/chart/ChartTooltip.vue) for example.
 
 The expected prop definition would be:
 

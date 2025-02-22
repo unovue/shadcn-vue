@@ -1,0 +1,17 @@
+{
+  "name": "SliderDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils",
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "example/SliderDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Slider } from '@/registry/default/ui/slider'\nimport { ref } from 'vue'\n\nconst modelValue = ref([50])\n</script>\n\n<template>\n  <Slider\n    v-model=\"modelValue\"\n    :max=\"100\"\n    :step=\"1\"\n    :class=\"cn('w-3/5', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

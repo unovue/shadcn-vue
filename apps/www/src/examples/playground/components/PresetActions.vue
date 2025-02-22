@@ -7,8 +7,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/lib/registry/new-york/ui/alert-dialog'
-import { Button } from '@/lib/registry/new-york/ui/button'
+} from '@/registry/new-york/ui/alert-dialog'
+import { Button } from '@/registry/new-york/ui/button'
 
 import {
   Dialog,
@@ -17,20 +17,20 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/lib/registry/new-york/ui/dialog'
+} from '@/registry/new-york/ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Label } from '@/lib/registry/new-york/ui/label'
-import { Switch } from '@/lib/registry/new-york/ui/switch'
-import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
+} from '@/registry/new-york/ui/dropdown-menu'
+import { Label } from '@/registry/new-york/ui/label'
+import { Switch } from '@/registry/new-york/ui/switch'
 import { ref } from 'vue'
+import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 
-// import { toast } from "@/lib/registry/new-york/ui/use-toast"
+// import { toast } from "@/registry/new-york/ui/use-toast"
 
 const open = ref(false)
 const showDeleteDialog = ref(false)
@@ -63,7 +63,7 @@ const showDeleteDialog = ref(false)
         <DialogTitle>Content filter preferences</DialogTitle>
         <DialogDescription>
           The content filter flags text that may violate our content policy.
-          It&apos;s powered by our moderation endpoint which is free to use
+          It's powered by our moderation endpoint which is free to use
           to moderate your OpenAI API traffic. Learn more.
         </DialogDescription>
       </DialogHeader>
@@ -97,7 +97,7 @@ const showDeleteDialog = ref(false)
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
         <AlertDialogDescription>
           This action cannot be undone. This preset will no longer be
-          accessible by you or others you&apos;ve shared it with.
+          accessible by you or others you've shared it with.
         </AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>

@@ -1,0 +1,14 @@
+{
+  "name": "TypographyInlineCode",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyInlineCode.vue",
+      "content": "<template>\n  <code\n    class=\"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold\"\n  >\n    reka-ui\n  </code>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

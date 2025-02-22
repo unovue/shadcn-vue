@@ -6,7 +6,7 @@ it('resolve tree', async () => {
   const index = [
     {
       name: 'button',
-      dependencies: ['radix-vue'],
+      dependencies: ['reka-ui'],
       type: 'components:ui',
       files: [
         'button/Button.vue',
@@ -15,7 +15,7 @@ it('resolve tree', async () => {
     },
     {
       name: 'dialog',
-      dependencies: ['radix-vue'],
+      dependencies: ['reka-ui'],
       registryDependencies: ['button'],
       type: 'components:ui',
       files: ['dialog/Dialog.vue', 'dialog/DialogContent.vue', 'dialog/DialogDescription.vue', 'dialog/DialogFooter.vue', 'dialog/DialogHeader.vue', 'dialog/DialogTitle.vue', 'dialog/DialogTrigger.vue', 'dialog/index.ts'],
@@ -31,7 +31,7 @@ it('resolve tree', async () => {
     },
     {
       name: 'alert-dialog',
-      dependencies: ['radix-vue'],
+      dependencies: ['reka-ui'],
       registryDependencies: ['button', 'dialog'],
       type: 'components:ui',
       files: ['alert-dialog/AlertDialog.vue', 'alert-dialog/AlertDialogAction.vue', 'alert-dialog/AlertDialogCancel.vue', 'alert-dialog/AlertDialogContent.vue', 'alert-dialog/AlertDialogDescription.vue', 'alert-dialog/AlertDialogFooter.vue', 'alert-dialog/AlertDialogHeader.vue', 'alert-dialog/AlertDialogTitle.vue', 'alert-dialog/AlertDialogTrigger.vue', 'alert-dialog/index.ts'],

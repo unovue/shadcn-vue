@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Album } from '../data/albums'
+import { cn } from '@/lib/utils'
 import {
   ContextMenu,
   ContextMenuContent,
@@ -9,8 +10,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from '@/lib/registry/new-york/ui/context-menu'
-import { cn } from '@/lib/utils'
+} from '@/registry/new-york/ui/context-menu'
 import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import { playlists } from '../data/playlists'
 

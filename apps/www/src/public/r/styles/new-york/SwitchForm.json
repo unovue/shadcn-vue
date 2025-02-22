@@ -1,0 +1,23 @@
+{
+  "name": "SwitchForm",
+  "type": "registry:example",
+  "dependencies": [
+    "vee-validate",
+    "@vee-validate/zod",
+    "zod"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "switch",
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "example/SwitchForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n} from '@/registry/new-york/ui/form'\nimport { Switch } from '@/registry/new-york/ui/switch'\nimport { toast } from '@/registry/new-york/ui/toast'\n\nimport { toTypedSchema } from '@vee-validate/zod'\nimport { useForm } from 'vee-validate'\nimport { h } from 'vue'\nimport * as z from 'zod'\n\nconst formSchema = toTypedSchema(z.object({\n  marketing_emails: z.boolean().default(false).optional(),\n  security_emails: z.boolean(),\n}))\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    security_emails: true,\n  },\n})\n\nconst onSubmit = handleSubmit((values) => {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n})\n</script>\n\n<template>\n  <form class=\"w-full space-y-6\" @submit=\"onSubmit\">\n    <div>\n      <h3 class=\"mb-4 text-lg font-medium\">\n        Email Notifications\n      </h3>\n\n      <div class=\"space-y-4\">\n        <FormField v-slot=\"{ value, handleChange }\" name=\"marketing_emails\">\n          <FormItem class=\"flex flex-row items-center justify-between rounded-lg border p-4\">\n            <div class=\"space-y-0.5\">\n              <FormLabel class=\"text-base\">\n                Marketing emails\n              </FormLabel>\n              <FormDescription>\n                Receive emails about new products, features, and more.\n              </FormDescription>\n            </div>\n            <FormControl>\n              <Switch\n                :model-value=\"value\"\n                @update:model-value=\"handleChange\"\n              />\n            </FormControl>\n          </FormItem>\n        </FormField>\n        <FormField v-slot=\"{ value, handleChange }\" name=\"security_emails\">\n          <FormItem class=\"flex flex-row items-center justify-between rounded-lg border p-4\">\n            <div class=\"space-y-0.5\">\n              <FormLabel class=\"text-base\">\n                Security emails\n              </FormLabel>\n              <FormDescription>\n                Receive emails about your account security.\n              </FormDescription>\n            </div>\n            <FormControl>\n              <Switch\n                :model-value=\"value\"\n                disabled\n                aria-readonly\n                @update:model-value=\"handleChange\"\n              />\n            </FormControl>\n          </FormItem>\n        </FormField>\n      </div>\n    </div>\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </form>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "pagination",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "ui/pagination/PaginationEllipsis.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { MoreHorizontal } from 'lucide-vue-next'\nimport { PaginationEllipsis, type PaginationEllipsisProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationEllipsis v-bind=\"delegatedProps\" :class=\"cn('w-9 h-9 flex items-center justify-center', props.class)\">\n    <slot>\n      <MoreHorizontal />\n    </slot>\n  </PaginationEllipsis>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationFirst.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  Button,\n} from '@/registry/default/ui/button'\nimport { ChevronsLeft } from 'lucide-vue-next'\nimport { PaginationFirst, type PaginationFirstProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = withDefaults(defineProps<PaginationFirstProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationFirst v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronsLeft class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationFirst>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationLast.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  Button,\n} from '@/registry/default/ui/button'\nimport { ChevronsRight } from 'lucide-vue-next'\nimport { PaginationLast, type PaginationLastProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = withDefaults(defineProps<PaginationLastProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationLast v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronsRight class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationLast>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationNext.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  Button,\n} from '@/registry/default/ui/button'\nimport { ChevronRight } from 'lucide-vue-next'\nimport { PaginationNext, type PaginationNextProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = withDefaults(defineProps<PaginationNextProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationNext v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronRight class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationNext>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationPrev.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  Button,\n} from '@/registry/default/ui/button'\nimport { ChevronLeft } from 'lucide-vue-next'\nimport { PaginationPrev, type PaginationPrevProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = withDefaults(defineProps<PaginationPrevProps & { class?: HTMLAttributes['class'] }>(), {\n  asChild: true,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationPrev v-bind=\"delegatedProps\">\n    <Button :class=\"cn('w-10 h-10 p-0', props.class)\" variant=\"outline\">\n      <slot>\n        <ChevronLeft class=\"h-4 w-4\" />\n      </slot>\n    </Button>\n  </PaginationPrev>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/index.ts",
+      "content": "export { default as PaginationEllipsis } from './PaginationEllipsis.vue'\nexport { default as PaginationFirst } from './PaginationFirst.vue'\nexport { default as PaginationLast } from './PaginationLast.vue'\nexport { default as PaginationNext } from './PaginationNext.vue'\nexport { default as PaginationPrev } from './PaginationPrev.vue'\nexport {\n  PaginationList,\n  PaginationListItem,\n  PaginationRoot as Pagination,\n} from 'reka-ui'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

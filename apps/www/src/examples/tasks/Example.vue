@@ -24,7 +24,7 @@ import tasks from './data/tasks.json'
           Welcome back!
         </h2>
         <p class="text-muted-foreground">
-          Here&apos;s a list of your tasks for this month!
+          Here's a list of your tasks for this month!
         </p>
       </div>
       <div class="flex items-center space-x-2">

@@ -1,0 +1,16 @@
+{
+  "name": "ResizableHandleDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "resizable"
+  ],
+  "files": [
+    {
+      "path": "example/ResizableHandleDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  ResizableHandle,\n  ResizablePanel,\n  ResizablePanelGroup,\n} from '@/registry/default/ui/resizable'\n</script>\n\n<template>\n  <ResizablePanelGroup\n    id=\"handle-demo-group-1\"\n    direction=\"horizontal\"\n    class=\"min-h-[200px] max-w-md rounded-lg border\"\n  >\n    <ResizablePanel id=\"handle-demo-panel-1\" :default-size=\"25\">\n      <div class=\"flex h-full items-center justify-center p-6\">\n        <span class=\"font-semibold\">Sidebar</span>\n      </div>\n    </ResizablePanel>\n    <ResizableHandle id=\"handle-demo-handle-1\" with-handle />\n    <ResizablePanel id=\"handle-demo-panel-2\" :default-size=\"75\">\n      <div class=\"flex h-full items-center justify-center p-6\">\n        <span class=\"font-semibold\">Content</span>\n      </div>\n    </ResizablePanel>\n  </ResizablePanelGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

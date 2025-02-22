@@ -1,8 +1,8 @@
 ---
 title: Alert Dialog
 description: A modal dialog that interrupts the user with important content and expects a response.
-source: apps/www/src/lib/registry/default/ui/alert-dialog
-primitive: https://www.radix-vue.com/components/alert-dialog.html
+source: apps/www/registry/default/ui/alert-dialog
+primitive: https://www.reka-ui.com/docs/components/alert-dialog.html
 ---
 
 <ComponentPreview name="AlertDialogDemo" />

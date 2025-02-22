@@ -1,0 +1,16 @@
+{
+  "name": "BadgeDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "example/BadgeDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/registry/new-york/ui/badge'\n</script>\n\n<template>\n  <Badge>Badge</Badge>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

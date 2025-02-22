@@ -1,0 +1,16 @@
+{
+  "name": "CustomChartTooltip",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "example/CustomChartTooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Card, CardContent } from '@/registry/default/ui/card'\n\ndefineProps<{\n  title?: string\n  data: {\n    name: string\n    color: string\n    value: any\n  }[]\n}>()\n</script>\n\n<template>\n  <Card class=\"text-sm\">\n    <CardContent class=\"p-3 min-w-[180px] flex flex-col gap-2\">\n      <div v-for=\"(item, key) in data\" :key=\"key\" class=\"flex justify-between items-center\">\n        <div class=\"flex items-center\">\n          <span class=\"w-1 h-7 mr-4 rounded-full\" :style=\"{ background: item.color }\" />\n          <span>{{ item.name }}</span>\n        </div>\n        <span class=\"font-semibold ml-4\">{{ item.value }}</span>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

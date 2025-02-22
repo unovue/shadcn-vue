@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
+} from '@/registry/new-york/ui/card'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -15,8 +15,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/new-york/ui/dropdown-menu'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+} from '@/registry/new-york/ui/dropdown-menu'
+import { Separator } from '@/registry/new-york/ui/separator'
 
 import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 import CircleIcon from '~icons/radix-icons/circle'
@@ -53,7 +53,7 @@ import StarIcon from '~icons/radix-icons/star'
           >
             <DropdownMenuLabel>Suggested Lists</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuCheckboxItem checked>
+            <DropdownMenuCheckboxItem :model-value="true">
               Future Ideas
             </DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem>My Stack</DropdownMenuCheckboxItem>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/default/ui/form'
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
+import { Button } from '@/registry/new-york/ui/button'
+import { Checkbox } from '@/registry/new-york/ui/checkbox'
+import { Separator } from '@/registry/new-york/ui/separator'
 
-import { toast } from '@/lib/registry/new-york/ui/toast'
+import { toast } from '@/registry/new-york/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { h } from 'vue'
@@ -88,8 +88,8 @@ const onSubmit = handleSubmit((values) => {
           <FormItem :key="item.id" class="flex flex-row items-start space-x-3 space-y-0">
             <FormControl>
               <Checkbox
-                :checked="value.includes(item.id)"
-                @update:checked="(checked) => {
+                :model-value="value.includes(item.id)"
+                @update:model-value="(checked) => {
                   if (Array.isArray(value)) {
                     handleChange(checked ? [...value, item.id] : value.filter(id => id !== item.id))
                   }

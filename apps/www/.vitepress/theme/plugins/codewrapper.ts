@@ -8,7 +8,7 @@ export default function (md: MarkdownRenderer) {
   md.renderer.rules.fence = function (tokens, idx, options, env, self) {
     // Check if this is a code block
     const token = tokens[idx]
-    const isAllowedExtension = (token.info.includes('vue') || token.info.includes('astro') || token.info.includes('ts'))
+    const isAllowedExtension = (token.info.includes('vue') || token.info.includes('astro') || token.info.includes('ts')) && !token.info.includes('inert')
     if (token && token.tag === 'code' && isAllowedExtension) {
       // Wrap the code block in CodeWrapper
       return `<CodeWrapper>${defaultFenceRenderer(tokens, idx, options, env, self)}</CodeWrapper>`

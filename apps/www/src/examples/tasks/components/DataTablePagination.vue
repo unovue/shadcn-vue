@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/lib/registry/new-york/ui/select'
+} from '@/registry/new-york/ui/select'
 import ChevronLeftIcon from '~icons/radix-icons/chevron-left'
 import ChevronRightIcon from '~icons/radix-icons/chevron-right'
 

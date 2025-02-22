@@ -1,8 +1,8 @@
 ---
 title: Slider
 description: An input where the user selects a value from within a given range.
-source: apps/www/src/lib/registry/default/ui/slider
-primitive: https://www.radix-vue.com/components/slider.html
+source: apps/www/registry/default/ui/slider
+primitive: https://www.reka-ui.com/docs/components/slider.html
 ---
 
 <ComponentPreview name="SliderDemo" />

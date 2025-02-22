@@ -23,16 +23,16 @@
           "type": "string"
         },
         "cssVariables": {
-          "type": "boolean",
-          "default": true
+          "type": "boolean"
+        },
+        "prefix": {
+          "type": "string"
         }
       },
       "required": ["config", "css", "baseColor", "cssVariables"]
     },
-    "framework": {
-      "type": "string",
-      "enum": ["nuxt", "vite", "laravel", "astro"],
-      "default": "vite"
+    "iconLibrary": {
+      "type": "string"
     },
     "aliases": {
       "type": "object",
@@ -44,6 +44,12 @@
           "type": "string"
         },
         "ui": {
+          "type": "string"
+        },
+        "lib": {
+          "type": "string"
+        },
+        "composables": {
           "type": "string"
         }
       },

@@ -1,0 +1,16 @@
+{
+  "name": "ToggleDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "example/ToggleDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Toggle } from '@/registry/default/ui/toggle'\n\nimport { Bold } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Toggle aria-label=\"Toggle bold\">\n    <Bold class=\"h-4 w-4\" />\n  </Toggle>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

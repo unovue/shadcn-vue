@@ -1,31 +1,33 @@
 <script setup lang="ts">
+import type { Block } from '@/registry/schema'
+import Button from '@/registry/new-york/ui/button/Button.vue'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/registry/new-york/ui/resizable'
+import { Separator } from '@/registry/new-york/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/new-york/ui/tabs'
+import { ToggleGroup, ToggleGroupItem } from '@/registry/new-york/ui/toggle-group'
 import { useConfigStore } from '@/stores/config'
-import { CircleHelp, Info, Monitor, Smartphone, Tablet } from 'lucide-vue-next'
-import MagicString from 'magic-string'
-import { reactive, ref, watch } from 'vue'
-import { compileScript, parse, walk } from 'vue/compiler-sfc'
-import { highlight } from '../config/shiki'
-import BlockCopyButton from './BlockCopyButton.vue'
-import StyleSwitcher from './StyleSwitcher.vue'
 
-// import { V0Button } from '@/components/v0-button'
-import { Badge } from '@/lib/registry/new-york/ui/badge'
-import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/lib/registry/new-york/ui/resizable'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/lib/registry/new-york/ui/tabs'
-import { ToggleGroup, ToggleGroupItem } from '@/lib/registry/new-york/ui/toggle-group'
+import { useClipboard } from '@vueuse/core'
+import { Check, Fullscreen, Monitor, Smartphone, Tablet, Terminal } from 'lucide-vue-next'
+import MagicString from 'magic-string'
+import { computed, reactive, ref, watch } from 'vue'
+import { compileScript, parse, walk } from 'vue/compiler-sfc'
+import { Index } from '../../../__registry__/block'
+import { highlight } from '../config/shiki'
 import BlockPreview from './BlockPreview.vue'
+import BlockViewerCode from './BlockViewerCode.vue'
 
 const props = defineProps<{
   name: string
 }>()
 
 const { style, codeConfig } = useConfigStore()
+const { copied, copy } = useClipboard()
 
 const isLoading = ref(true)
 const tabValue = ref('preview')
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>()
+const componentRegistry = ref<Block>()
 
 const rawString = ref('')
 const codeHtml = ref('')
@@ -33,6 +35,19 @@ const metadata = reactive({
   description: null as string | null,
   iframeHeight: null as string | null,
   containerClass: null as string | null,
+})
+
+const iframeURL = computed(() => {
+  // @ts-expect-error env available in import.meta
+  if (import.meta.env.SSR)
+    return ''
+
+  const url = new URL(`${window.location.origin}/block-renderer`)
+  url.searchParams.append('name', props.name)
+  url.searchParams.append('styles', 'new-york')
+  url.searchParams.append('containerClass', metadata.containerClass ?? '')
+
+  return url.href
 })
 
 function removeScript(code: string) {
@@ -50,18 +65,21 @@ function removeScript(code: string) {
 
 function transformImportPath(code: string) {
   const s = new MagicString(code)
-  s.replaceAll(`@/lib/registry/${style.value}`, codeConfig.value.componentsPath)
+  s.replaceAll(`@/registry/${style.value}`, codeConfig.value.componentsPath)
   s.replaceAll(`@/lib/utils`, codeConfig.value.utilsPath)
   return s.toString()
 }
 
 watch([style, codeConfig], async () => {
   try {
-    const baseRawString = await import(`../../../src/lib/registry/${style.value}/block/${props.name}.vue?raw`).then(res => res.default.trim())
-    rawString.value = transformImportPath(removeScript(baseRawString))
+    const styleIndex = Index[style.value]
+    componentRegistry.value = styleIndex[props.name]
+    if (!componentRegistry.value)
+      return
 
+    const rawString = await componentRegistry.value.raw()
     if (!metadata.description) {
-      const { descriptor } = parse(baseRawString)
+      const { descriptor } = parse(rawString)
       const ast = compileScript(descriptor, { id: '' })
       walk(ast.scriptAst, {
         enter(node: any) {
@@ -78,7 +96,7 @@ watch([style, codeConfig], async () => {
       })
     }
 
-    codeHtml.value = highlight(rawString.value, 'vue')
+    codeHtml.value = highlight(removeScript(rawString), 'vue')
   }
   catch (err) {
     console.error(err)
@@ -90,48 +108,47 @@ watch([style, codeConfig], async () => {
   <Tabs
     :id="name"
     v-model="tabValue"
-    class="relative grid w-full scroll-m-20 gap-4"
+    class="group/block-view-wrapper flex min-w-0 flex-col items-stretch gap-4"
     :style=" {
-      '--container-height': metadata.iframeHeight ?? '600px',
+      '--height': metadata.iframeHeight ?? '930px',
     }"
   >
     <div class="flex flex-col items-center gap-4 sm:flex-row">
-      <div class="flex items-center gap-2">
-        <TabsList class="hidden sm:flex">
-          <TabsTrigger value="preview">
+      <div class="hidden items-center gap-2 sm:flex">
+        <TabsList class="h-7 items-center rounded-md p-0 px-[calc(theme(spacing.1)_-_2px)] py-[theme(spacing.1)]">
+          <TabsTrigger class="h-[1.45rem] rounded-sm px-2 text-xs" value="preview">
             Preview
           </TabsTrigger>
-          <TabsTrigger value="code">
+          <TabsTrigger class="h-[1.45rem] rounded-sm px-2 text-xs" value="code">
             Code
           </TabsTrigger>
         </TabsList>
-        <div class="hidden items-center gap-2 sm:flex">
-          <Separator
-            orientation="vertical"
-            class="mx-2 hidden h-4 md:flex"
-          />
-          <div class="flex items-center gap-2">
-            <a :href="`#${name}`">
-              <Badge variant="outline">{{ name }}</Badge>
-            </a>
-            <Popover>
-              <PopoverTrigger class="hidden text-muted-foreground hover:text-foreground sm:flex">
-                <Info class="h-3.5 w-3.5" />
-                <span class="sr-only">Block description</span>
-              </PopoverTrigger>
-              <PopoverContent
-                side="right"
-                :side-offset="10"
-                class="text-sm"
-              >
-                {{ metadata.description }}
-              </PopoverContent>
-            </Popover>
-          </div>
+
+        <Separator
+          orientation="vertical"
+          class="mx-2 hidden h-4 md:flex"
+        />
+        <div class="text-sm font-medium underline-offset-2 hover:underline">
+          <a :href="`#${name}`">{{ metadata.description }}</a>
         </div>
       </div>
+
       <div class="flex items-center gap-2 pr-[14px] sm:ml-auto">
-        <div class="hidden h-[28px] items-center gap-1.5 rounded-md border p-[2px] shadow-sm md:flex">
+        <Button
+          variant="ghost"
+          class="hidden h-7 w-7 rounded-md border bg-transparent shadow-none md:flex lg:w-auto"
+          size="sm"
+          @click="copy(`npx shadcn-vue@latest add ${name}`)"
+        >
+          <Check v-if="copied" />
+          <Terminal v-else />
+          <span class="hidden lg:inline">npx shadcn-vue add {{ name }}</span>
+        </Button>
+        <Separator
+          orientation="vertical"
+          class="mx-2 hidden h-4 md:flex"
+        />
+        <div class="hidden h-7 items-center gap-1.5 rounded-md border p-[2px] shadow-none lg:flex">
           <ToggleGroup
             type="single"
             default-value="100"
@@ -157,44 +174,22 @@ watch([style, codeConfig], async () => {
             >
               <Smartphone class="h-3.5 w-3.5" />
             </ToggleGroupItem>
+            <Separator orientation="vertical" class="h-4" />
+            <Button
+              size="icon"
+              variant="ghost"
+              class="h-[22px] w-[22px] rounded-sm p-0"
+              as-child
+              title="Open in New Tab"
+            >
+              <a :href="iframeURL" target="_blank">
+                <span class="sr-only">Open in New Tab</span>
+                <Fullscreen class="h-3.5 w-3.5" />
+              </a>
+            </Button>
           </ToggleGroup>
         </div>
-        <Separator
-          orientation="vertical"
-          class="mx-2 hidden h-4 md:flex"
-        />
-        <StyleSwitcher class="h-7" />
-        <Popover>
-          <PopoverTrigger class="hidden text-muted-foreground hover:text-foreground sm:flex">
-            <CircleHelp class="h-3.5 w-3.5" />
-            <span class="sr-only">Block description</span>
-          </PopoverTrigger>
-          <PopoverContent
-            side="top"
-            :side-offset="20"
-            class="space-y-3 rounded-[0.5rem] text-sm"
-          >
-            <p class="font-medium">
-              What is the difference between the New York and Default style?
-            </p>
-            <p>
-              A style comes with its own set of components, animations,
-              icons and more.
-            </p>
-            <p>
-              The <span class="font-medium">Default</span> style has
-              larger inputs, uses lucide-vue-next for icons and
-              tailwindcss-animate for animations.
-            </p>
-            <p>
-              The <span class="font-medium">New York</span> style ships
-              with smaller buttons and inputs. It also uses shadows on cards
-              and buttons.
-            </p>
-          </PopoverContent>
-        </Popover>
-        <Separator orientation="vertical" class="mx-2 h-4" />
-        <BlockCopyButton :code="rawString" />
+        <!-- <BlockCopyButton :code="rawString" /> -->
         <!-- <V0Button
           name="{block.name}"
           description="{block.description" || "Edit in v0"}
@@ -207,7 +202,7 @@ watch([style, codeConfig], async () => {
       v-show="tabValue === 'preview'"
       force-mount
       value="preview"
-      class="relative after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-lg after:bg-muted h-[--container-height] px-0"
+      class="relative after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-lg after:bg-muted h-[--height] px-0"
     >
       <ResizablePanelGroup id="block-resizable" direction="horizontal" class="relative z-10">
         <ResizablePanel
@@ -217,17 +212,14 @@ watch([style, codeConfig], async () => {
           :min-size="30"
           :as-child="true"
         >
-          <BlockPreview :name="name" styles="default" :container-class="metadata.containerClass ?? ''" container />
+          <BlockPreview :url="iframeURL" container />
         </ResizablePanel>
         <ResizableHandle id="block-resizable-handle" class="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block" />
         <ResizablePanel id="block-resizable-panel-2" :default-size="0" :min-size="0" />
       </ResizablePanelGroup>
     </TabsContent>
-    <TabsContent value="code" class="h-[--container-height]">
-      <div
-        class="language-vue !h-full !max-h-[none] !mt-0"
-        v-html="codeHtml"
-      />
+    <TabsContent value="code" class="h-[--height]">
+      <BlockViewerCode v-if="componentRegistry" :item="componentRegistry" />
     </TabsContent>
   </Tabs>
 </template>

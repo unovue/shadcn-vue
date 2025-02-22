@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
@@ -7,9 +7,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
-import { Label } from '@/lib/registry/new-york/ui/label'
-import { Switch } from '@/lib/registry/new-york/ui/switch'
+} from '@/registry/new-york/ui/card'
+import { Label } from '@/registry/new-york/ui/label'
+import { Switch } from '@/registry/new-york/ui/switch'
 </script>
 
 <template>

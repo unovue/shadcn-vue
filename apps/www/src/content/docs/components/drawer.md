@@ -1,15 +1,15 @@
 ---
 title: Drawer
 description: A drawer component for vue.
-source: apps/www/src/lib/registry/default/ui/drawer
-primitive: https://github.com/radix-vue/vaul-vue
+source: apps/www/registry/default/ui/drawer
+primitive: https://github.com/unovue/vaul-vue
 ---
 
 <ComponentPreview name="DrawerDemo" />
 
 ## About
 
-Drawer is built on top of [Vaul Vue](https://github.com/radix-vue/vaul-vue).
+Drawer is built on top of [Vaul Vue](https://github.com/unovue/vaul-vue).
 
 ## Installation
 

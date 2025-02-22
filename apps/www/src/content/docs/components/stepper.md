@@ -1,8 +1,8 @@
 ---
 title: Stepper
 description: A set of steps that are used to indicate progress through a multi-step process.
-source: apps/www/src/lib/registry/default/ui/stepper
-primitive: https://www.radix-vue.com/components/stepper.html
+source: apps/www/registry/default/ui/stepper
+primitive: https://www.reka-ui.com/docs/components/stepper.html
 ---
 
 <ComponentPreview name="StepperDemo" />

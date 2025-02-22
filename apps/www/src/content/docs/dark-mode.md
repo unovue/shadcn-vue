@@ -11,7 +11,7 @@ description: Adding dark mode to your site.
   import AstroIcon from '~icons/simple-icons/astro'
 </script>
 
-<div class="grid gap-4 mt-8 sm:grid-cols-2 sm:gap-6 not-docs">
+<div class="grid gap-4 sm:grid-cols-2 sm:gap-6 not-docs">
   <LinkedCard href="/docs/dark-mode/vite">
     <ViteIcon class="w-10 h-10" />
     <p class="mt-2 font-medium">Vite</p>

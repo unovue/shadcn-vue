@@ -1,0 +1,19 @@
+{
+  "name": "SonnerWithDialog",
+  "type": "registry:example",
+  "dependencies": [
+    "vue-sonner"
+  ],
+  "registryDependencies": [
+    "button",
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "example/SonnerWithDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  Dialog,\n  DialogContent,\n  DialogDescription,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/registry/new-york/ui/dialog'\nimport { toast } from 'vue-sonner'\n</script>\n\n<template>\n  <Dialog>\n    <DialogTrigger as-child>\n      <Button variant=\"outline\">\n        Dialog with toast\n      </Button>\n    </DialogTrigger>\n    <DialogContent\n      class=\"sm:max-w-md\"\n      @interact-outside=\"event => {\n        const target = event.target as HTMLElement;\n        if (target?.closest('[data-sonner-toaster]')) return event.preventDefault()\n      }\"\n    >\n      <DialogHeader>\n        <DialogTitle>Vue Sonner Toast</DialogTitle>\n        <DialogDescription> Dialog with toast </DialogDescription>\n      </DialogHeader>\n      <div class=\"grid gap-4\">\n        <Button\n          size=\"sm\"\n          class=\"px-3\"\n          @click=\"\n            () => {\n              toast('Event has been created', {\n                description: 'Sunday, December 03, 2023 at 9:00 AM',\n                action: {\n                  label: 'Undo',\n                  onClick: () => console.log('Undo'),\n                },\n              });\n            }\n          \"\n        >\n          Toast\n        </Button>\n      </div>\n    </DialogContent>\n  </Dialog>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

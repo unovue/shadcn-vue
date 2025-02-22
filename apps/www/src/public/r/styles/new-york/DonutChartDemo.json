@@ -1,0 +1,16 @@
+{
+  "name": "DonutChartDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "chart-donut"
+  ],
+  "files": [
+    {
+      "path": "example/DonutChartDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { DonutChart } from '@/registry/new-york/ui/chart-donut'\n\nconst data = [\n  {\n    name: 'Jan',\n    total: Math.floor(Math.random() * 2000) + 500,\n    predicted: Math.floor(Math.random() * 2000) + 500,\n  },\n  {\n    name: 'Feb',\n    total: Math.floor(Math.random() * 2000) + 500,\n    predicted: Math.floor(Math.random() * 2000) + 500,\n  },\n  {\n    name: 'Mar',\n    total: Math.floor(Math.random() * 2000) + 500,\n    predicted: Math.floor(Math.random() * 2000) + 500,\n  },\n  {\n    name: 'Apr',\n    total: Math.floor(Math.random() * 2000) + 500,\n    predicted: Math.floor(Math.random() * 2000) + 500,\n  },\n  {\n    name: 'May',\n    total: Math.floor(Math.random() * 2000) + 500,\n    predicted: Math.floor(Math.random() * 2000) + 500,\n  },\n  {\n    name: 'Jun',\n    total: Math.floor(Math.random() * 2000) + 500,\n    predicted: Math.floor(Math.random() * 2000) + 500,\n  },\n]\n\nfunction valueFormatter(tick: number | Date) {\n  return typeof tick === 'number'\n    ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`\n    : ''\n}\n</script>\n\n<template>\n  <DonutChart\n    index=\"name\"\n    :category=\"'total'\"\n    :data=\"data\"\n    :value-formatter=\"valueFormatter\"\n  />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

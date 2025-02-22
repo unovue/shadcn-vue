@@ -1,0 +1,23 @@
+{
+  "name": "SliderForm",
+  "type": "registry:example",
+  "dependencies": [
+    "vee-validate",
+    "@vee-validate/zod",
+    "zod"
+  ],
+  "registryDependencies": [
+    "button",
+    "form",
+    "slider",
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "example/SliderForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport {\n  FormControl,\n  FormDescription,\n  FormField,\n  FormItem,\n  FormLabel,\n  FormMessage,\n} from '@/registry/default/ui/form'\nimport { Slider } from '@/registry/default/ui/slider'\nimport { toast } from '@/registry/default/ui/toast'\n\nimport { toTypedSchema } from '@vee-validate/zod'\nimport { useForm } from 'vee-validate'\nimport { h } from 'vue'\nimport * as z from 'zod'\n\nconst formSchema = toTypedSchema(z.object({\n  duration: z.array(\n    z.number().min(0).max(60),\n  ),\n}))\n\nconst { handleSubmit } = useForm({\n  validationSchema: formSchema,\n  initialValues: {\n    duration: [30],\n  },\n})\n\nconst onSubmit = handleSubmit((values) => {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n})\n</script>\n\n<template>\n  <form class=\"w-2/3 space-y-6\" @submit=\"onSubmit\">\n    <FormField v-slot=\"{ componentField, value }\" name=\"duration\">\n      <FormItem>\n        <FormLabel>Duration</FormLabel>\n        <FormControl>\n          <Slider\n            :model-value=\"componentField.modelValue\"\n            :default-value=\"[30]\"\n            :max=\"100\"\n            :min=\"0\"\n            :step=\"5\"\n            @update:model-value=\"componentField['onUpdate:modelValue']\"\n          />\n          <FormDescription class=\"flex justify-between\">\n            <span>How many minutes are you available?</span>\n            <span>{{ value?.[0] }} min</span>\n          </FormDescription>\n        </FormControl>\n        <FormMessage />\n      </FormItem>\n    </FormField>\n\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </form>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

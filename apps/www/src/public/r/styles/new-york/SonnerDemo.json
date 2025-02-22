@@ -1,0 +1,18 @@
+{
+  "name": "SonnerDemo",
+  "type": "registry:example",
+  "dependencies": [
+    "vue-sonner"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/SonnerDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { toast } from 'vue-sonner'\n</script>\n\n<template>\n  <Button\n    variant=\"outline\" @click=\"() => {\n      toast('Event has been created', {\n        description: 'Sunday, December 03, 2023 at 9:00 AM',\n        action: {\n          label: 'Undo',\n          onClick: () => console.log('Undo'),\n        },\n      })\n    }\"\n  >\n    Add to calendar\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

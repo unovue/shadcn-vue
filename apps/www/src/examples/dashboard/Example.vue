@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
+} from '@/registry/new-york/ui/card'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/lib/registry/new-york/ui/tabs'
+} from '@/registry/new-york/ui/tabs'
 import DateRangePicker from './components/DateRangePicker.vue'
 import MainNav from './components/MainNav.vue'
 import Overview from './components/Overview.vue'

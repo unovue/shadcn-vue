@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist[wght].ttf");
+}
+@font-face {
+  font-family: "GeistMono";
+  src: url("/fonts/GeistMono[wght].ttf");
+}
+
 @layer base {
 	:root {
-		--font-geist-sans: "geist-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-			Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		--font-geist-sans: "Geist";
+		--font-geist-mono: "GeistMono";
 
 		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
@@ -86,15 +95,37 @@
   }
 
 
-	* {
-		@apply border-border;
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground overscroll-none;
+    /* font-feature-settings: "rlig" 1, "calt" 1; */
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    [data-wrapper] {
+      @apply min-[1800px]:border-t;
+    }
+  }
+
+  /* Custom scrollbar styling. Thanks @pranathiperii. */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 5px;
+  }
+  * {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
-	}
-	html {
-		-webkit-text-size-adjust: 100%;
-		font-variation-settings: normal;
-	}
+  }
 	body {
 		@apply bg-background text-foreground min-h-screen antialiased font-sans;
 		/* font-feature-settings: "rlig" 1, "calt" 1; */
@@ -119,23 +150,9 @@
 	}
 
 
-	/* Firefox */
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
-	html {
-		scrollbar-color: hsl(215.4 16.3% 46.9% / 0.3);
-	}
-
-	html.dark {
-		scrollbar-color: hsl(215.4 16.3% 56.9% / 0.3);
-	}
-
-  html.dark .shiki,
-  html.dark .shiki span {
+  html .shiki,
+  html .shiki span {
     color: var(--shiki-dark);
-  }
-  html:not(.dark) .shiki,
-  html:not(.dark) .shiki span {
-    color: var(--shiki-light);
   }
 
 	.antialised {
@@ -147,26 +164,58 @@
 
 
 @layer utilities {
-	.step {
-		counter-increment: step;
-	}
+  .step {
+    counter-increment: step;
+  }
 
-	.step:before {
-		@apply absolute w-9 h-9 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-4 border-background;
-		@apply -ml-[50px] -mt-1;
-		content: counter(step);
-	}
+  .step:before {
+    @apply absolute w-9 h-9 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-4 border-background;
+    @apply ml-[-50px] mt-[-4px];
+    content: counter(step);
+  }
+
+  .chunk-container {
+    @apply shadow-none;
+  }
+
+  .chunk-container::after {
+    content: "";
+    @apply absolute -inset-4 shadow-xl rounded-xl border;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .border-grid {
+    @apply border-border/30 dark:border-border border-dashed;
+  }
+
+  .container-wrapper {
+    @apply max-w-[1400px] min-[1800px]:max-w-screen-2xl min-[1400px]:border-x border-border/70 dark:border-border mx-auto w-full border-dashed;
+  }
+
+  .container {
+    @apply px-4 xl:px-6 mx-auto max-w-screen-2xl;
+  }
 }
 
 @media (max-width: 640px) {
-	.container {
-		@apply px-4;
-	}
+  .container {
+    @apply px-4;
+  }
 }
 
 div[class^="language-"] {
-	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto md:rounded-lg border
+	@apply mb-4 mt-6 max-h-[650px] overflow-x-auto md:rounded-lg;
 }
+
 pre {
 	@apply py-4;
 }
@@ -180,18 +229,32 @@ pre code {
 }
 
 .line-numbers-wrapper {
-	@apply font-mono;
+  @apply !font-mono;
 }
 
 pre code .line {
-	@apply px-4 min-h-4 !py-0.5 w-full inline-block leading-[--vp-code-line-height];
+	@apply px-4 min-h-4 w-full inline-block leading-[--vp-code-line-height];
 }
 
 .line-number {
-	@apply !text-[.75rem] !inline-block text-muted-foreground leading-[--vp-code-line-height];
+  font-size: .75rem ;
+  color: hsla(0, 0%, 98%, .4) ;
+	@apply !inline-block leading-[--vp-code-line-height];
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.3s;
+.steps:first-child > h3:first-child {
+  @apply mt-0;
+}
+
+.steps > h3 {
+  @apply mt-8 mb-4 text-base font-semibold !important;
+}
+
+
+[data-code-block-plugin] [data-code-block-title] {
+  @apply mt-4 px-4 text-sm font-medium text-foreground;
+}
+
+[data-code-block-plugin] div[class^="language-"] {
+  @apply !mt-2;
 }

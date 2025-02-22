@@ -1,8 +1,8 @@
 ---
 title: Collapsible
 description: An interactive component which expands/collapses a panel.
-source: apps/www/src/lib/registry/default/ui/collapsible
-primitive: https://www.radix-vue.com/components/collapsible.html
+source: apps/www/registry/default/ui/collapsible
+primitive: https://www.reka-ui.com/docs/components/collapsible.html
 ---
 
 <ComponentPreview name="CollapsibleDemo" />
@@ -29,10 +29,10 @@ module.exports = {
       keyframes: {
         'collapsible-down': {
           from: { height: 0 },
-          to: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: 'var(--reka-collapsible-content-height)' },
         },
         'collapsible-up': {
-          from: { height: 'var(--radix-collapsible-content-height)' },
+          from: { height: 'var(--reka-collapsible-content-height)' },
           to: { height: 0 },
         },
       },

@@ -1,0 +1,18 @@
+{
+  "name": "CommandDropdownMenu",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "command",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "example/CommandDropdownMenu.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from '@/registry/new-york/ui/command'\n\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuGroup,\n  DropdownMenuItem,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuShortcut,\n  DropdownMenuSub,\n  DropdownMenuSubContent,\n  DropdownMenuSubTrigger,\n  DropdownMenuTrigger,\n} from '@/registry/new-york/ui/dropdown-menu'\nimport { MoreHorizontal } from 'lucide-vue-next'\nimport { ref } from 'vue'\n\nconst labels = [\n  'feature',\n  'bug',\n  'enhancement',\n  'documentation',\n  'design',\n  'question',\n  'maintenance',\n]\n\nconst labelRef = ref('feature')\nconst open = ref(false)\n</script>\n\n<template>\n  <div class=\"flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center\">\n    <p class=\"text-sm font-medium leading-none\">\n      <span class=\"mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground\">\n        {{ labelRef }}\n      </span>\n      <span class=\"text-muted-foreground\">Create a new project</span>\n    </p>\n    <DropdownMenu v-model:open=\"open\">\n      <DropdownMenuTrigger as-child>\n        <Button variant=\"ghost\" size=\"sm\">\n          <MoreHorizontal />\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"end\" class=\"w-[200px]\">\n        <DropdownMenuLabel>Actions</DropdownMenuLabel>\n        <DropdownMenuGroup>\n          <DropdownMenuItem>\n            Assign to...\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            Set due date...\n          </DropdownMenuItem>\n          <DropdownMenuSeparator />\n          <DropdownMenuSub>\n            <DropdownMenuSubTrigger>\n              Apply label\n            </DropdownMenuSubTrigger>\n            <DropdownMenuSubContent class=\"p-0\">\n              <Command>\n                <CommandInput\n                  placeholder=\"Filter label...\"\n                  auto-focus\n                />\n                <CommandList>\n                  <CommandEmpty>No label found.</CommandEmpty>\n                  <CommandGroup>\n                    <CommandItem\n                      v-for=\"label in labels\"\n                      :key=\"label\"\n                      :value=\"label\"\n                      @select=\"(ev) => {\n                        labelRef = ev.detail.value as string\n                        open = false\n                      }\"\n                    >\n                      {{ label }}\n                    </CommandItem>\n                  </CommandGroup>\n                </CommandList>\n              </Command>\n            </DropdownMenuSubContent>\n          </DropdownMenuSub>\n          <DropdownMenuSeparator />\n          <DropdownMenuItem class=\"text-red-600\">\n            Delete\n            <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>\n          </DropdownMenuItem>\n        </DropdownMenuGroup>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

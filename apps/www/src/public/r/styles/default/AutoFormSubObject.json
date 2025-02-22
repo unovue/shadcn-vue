@@ -1,0 +1,18 @@
+{
+  "name": "AutoFormSubObject",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "auto-form",
+    "button",
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "example/AutoFormSubObject.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AutoForm } from '@/registry/default/ui/auto-form'\nimport { Button } from '@/registry/default/ui/button'\nimport { toast } from '@/registry/default/ui/toast'\nimport { h } from 'vue'\nimport * as z from 'zod'\n\nconst schema = z.object({\n  subObject: z.object({\n    subField: z.string().optional().default('Sub Field'),\n    numberField: z.number().optional().default(1),\n\n    subSubObject: z\n      .object({\n        subSubField: z.string().default('Sub Sub Field'),\n      })\n      .describe('Sub Sub Object Description'),\n  }),\n  optionalSubObject: z\n    .object({\n      optionalSubField: z.string(),\n      otherOptionalSubField: z.string(),\n    })\n    .optional(),\n})\n\nfunction onSubmit(values: Record<string, any>) {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n}\n</script>\n\n<template>\n  <AutoForm\n    class=\"w-2/3 space-y-6\"\n    :schema=\"schema\"\n    :field-config=\"{\n      subObject: {\n        numberField: {\n          inputProps: {\n            type: 'number',\n          },\n        },\n      },\n    }\"\n    @submit=\"onSubmit\"\n  >\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </AutoForm>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

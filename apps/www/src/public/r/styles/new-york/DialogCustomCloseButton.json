@@ -1,0 +1,19 @@
+{
+  "name": "DialogCustomCloseButton",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "dialog",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "example/DialogCustomCloseButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from '@/registry/new-york/ui/dialog'\nimport { Input } from '@/registry/new-york/ui/input'\nimport { Label } from '@/registry/new-york/ui/label'\nimport { Copy } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Dialog>\n    <DialogTrigger as-child>\n      <Button variant=\"outline\">\n        Share\n      </Button>\n    </DialogTrigger>\n    <DialogContent class=\"sm:max-w-md\">\n      <DialogHeader>\n        <DialogTitle>Share link</DialogTitle>\n        <DialogDescription>\n          Anyone who has this link will be able to view this.\n        </DialogDescription>\n      </DialogHeader>\n      <div class=\"flex items-center space-x-2\">\n        <div class=\"grid flex-1 gap-2\">\n          <Label for=\"link\" class=\"sr-only\">\n            Link\n          </Label>\n          <Input\n            id=\"link\"\n            default-value=\"https://shadcn-vue.com/docs/installation\"\n            read-only\n          />\n        </div>\n        <Button type=\"submit\" size=\"sm\" class=\"px-3\">\n          <span class=\"sr-only\">Copy</span>\n          <Copy class=\"w-4 h-4\" />\n        </Button>\n      </div>\n      <DialogFooter class=\"sm:justify-start\">\n        <DialogClose as-child>\n          <Button type=\"button\" variant=\"secondary\">\n            Close\n          </Button>\n        </DialogClose>\n      </DialogFooter>\n    </DialogContent>\n  </Dialog>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

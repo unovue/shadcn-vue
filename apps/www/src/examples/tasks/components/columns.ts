@@ -1,8 +1,8 @@
 import type { ColumnDef } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
 
-import { Badge } from '@/lib/registry/new-york/ui/badge'
-import { Checkbox } from '@/lib/registry/new-york/ui/checkbox'
+import { Badge } from '@/registry/new-york/ui/badge'
+import { Checkbox } from '@/registry/new-york/ui/checkbox'
 import { h } from 'vue'
 import { labels, priorities, statuses } from '../data/data'
 import DataTableColumnHeader from './DataTableColumnHeader.vue'
@@ -12,12 +12,12 @@ export const columns: ColumnDef<Task>[] = [
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
-      'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
-      'onUpdate:checked': value => table.toggleAllPageRowsSelected(!!value),
+      'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
+      'onUpdate:modelValue': value => table.toggleAllPageRowsSelected(!!value),
       'ariaLabel': 'Select all',
       'class': 'translate-y-0.5',
     }),
-    cell: ({ row }) => h(Checkbox, { 'checked': row.getIsSelected(), 'onUpdate:checked': value => row.toggleSelected(!!value), 'ariaLabel': 'Select row', 'class': 'translate-y-0.5' }),
+    cell: ({ row }) => h(Checkbox, { 'modelValue': row.getIsSelected(), 'onUpdate:modelValue': value => row.toggleSelected(!!value), 'ariaLabel': 'Select row', 'class': 'translate-y-0.5' }),
     enableSorting: false,
     enableHiding: false,
   },

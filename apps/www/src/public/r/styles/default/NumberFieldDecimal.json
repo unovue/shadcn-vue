@@ -1,0 +1,17 @@
+{
+  "name": "NumberFieldDecimal",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "label",
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "example/NumberFieldDecimal.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/default/ui/label'\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/registry/default/ui/number-field'\n</script>\n\n<template>\n  <NumberField\n    id=\"number\"\n    :default-value=\"5\"\n    :format-options=\"{\n      signDisplay: 'exceptZero',\n      minimumFractionDigits: 1,\n    }\"\n  >\n    <Label for=\"number\">Number</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MoonIcon, SunIcon } from '@radix-icons/vue'
+import { Moon, Sun } from 'lucide-vue-next'
 
 const isDark = ref(true)
 useHead({ htmlAttrs: { class: () => isDark.value ? 'dark' : '' } })
@@ -20,7 +20,7 @@ useHead({ htmlAttrs: { class: () => isDark.value ? 'dark' : '' } })
             @click="isDark = !isDark"
           >
             <component
-              :is="isDark ? SunIcon : MoonIcon"
+              :is="isDark ? Sun : Moon"
               class="size-5"
             />
           </button>

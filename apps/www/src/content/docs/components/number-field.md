@@ -1,8 +1,8 @@
 ---
 title: Number Field
 description: A number field allows a user to enter a number and increment or decrement the value using stepper buttons.
-source: apps/www/src/lib/registry/default/ui/number-field
-primitive: https://www.radix-vue.com/components/number-field.html
+source: apps/www/registry/default/ui/number-field
+primitive: https://www.reka-ui.com/docs/components/number-field.html
 ---
 
 <ComponentPreview name="NumberFieldDemo" class="max-w-[180px]" />

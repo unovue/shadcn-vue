@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BarChart } from '@/lib/registry/new-york/ui/chart-bar'
+import { BarChart } from '@/registry/new-york/ui/chart-bar'
 
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },

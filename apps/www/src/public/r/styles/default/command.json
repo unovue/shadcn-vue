@@ -1,0 +1,74 @@
+{
+  "name": "command",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "utils",
+    "dialog"
+  ],
+  "files": [
+    {
+      "path": "ui/command/Command.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ListboxRootEmits, ListboxRootProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { ListboxRoot, useFilter, useForwardPropsEmits } from 'reka-ui'\nimport { computed, type HTMLAttributes, reactive, ref, watch } from 'vue'\nimport { provideCommandContext } from '.'\n\nconst props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttributes['class'] }>(), {\n  modelValue: '',\n})\n\nconst emits = defineEmits<ListboxRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n\nconst allItems = ref<Map<string, string>>(new Map())\nconst allGroups = ref<Map<string, Set<string>>>(new Map())\n\nconst { contains } = useFilter({ sensitivity: 'base' })\nconst filterState = reactive({\n  search: '',\n  filtered: {\n    /** The count of all visible items. */\n    count: 0,\n    /** Map from visible item id to its search score. */\n    items: new Map() as Map<string, number>,\n    /** Set of groups with at least one visible item. */\n    groups: new Set() as Set<string>,\n  },\n})\n\nfunction filterItems() {\n  if (!filterState.search) {\n    filterState.filtered.count = allItems.value.size\n    // Do nothing, each item will know to show itself because search is empty\n    return\n  }\n\n  // Reset the groups\n  filterState.filtered.groups = new Set()\n  let itemCount = 0\n\n  // Check which items should be included\n  for (const [id, value] of allItems.value) {\n    const score = contains(value, filterState.search)\n    filterState.filtered.items.set(id, score ? 1 : 0)\n    if (score)\n      itemCount++\n  }\n\n  // Check which groups have at least 1 item shown\n  for (const [groupId, group] of allGroups.value) {\n    for (const itemId of group) {\n      if (filterState.filtered.items.get(itemId)! > 0) {\n        filterState.filtered.groups.add(groupId)\n        break\n      }\n    }\n  }\n\n  filterState.filtered.count = itemCount\n}\n\nfunction handleSelect() {\n  filterState.search = ''\n}\n\nwatch(() => filterState.search, () => {\n  filterItems()\n})\n\nprovideCommandContext({\n  allItems,\n  allGroups,\n  filterState,\n})\n</script>\n\n<template>\n  <ListboxRoot\n    v-bind=\"forwarded\"\n    :class=\"cn('flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', props.class)\"\n  >\n    <slot />\n  </ListboxRoot>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandDialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogRootEmits, DialogRootProps } from 'reka-ui'\nimport { Dialog, DialogContent } from '@/registry/default/ui/dialog'\nimport { useForwardPropsEmits } from 'reka-ui'\nimport Command from './Command.vue'\n\nconst props = defineProps<DialogRootProps>()\nconst emits = defineEmits<DialogRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <Dialog v-bind=\"forwarded\">\n    <DialogContent class=\"overflow-hidden p-0 shadow-lg\">\n      <Command class=\"[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5\">\n        <slot />\n      </Command>\n    </DialogContent>\n  </Dialog>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { Primitive } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\nimport { useCommand } from '.'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst { filterState } = useCommand()\nconst isRender = computed(() => !!filterState.search && filterState.filtered.count === 0,\n)\n</script>\n\n<template>\n  <Primitive v-if=\"isRender\" v-bind=\"delegatedProps\" :class=\"cn('py-6 text-center text-sm', props.class)\">\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ListboxGroupProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { ListboxGroup, ListboxGroupLabel, useId } from 'reka-ui'\nimport { computed, type HTMLAttributes, onMounted, onUnmounted } from 'vue'\nimport { provideCommandGroupContext, useCommand } from '.'\n\nconst props = defineProps<ListboxGroupProps & {\n  class?: HTMLAttributes['class']\n  heading?: string\n}>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst { allGroups, filterState } = useCommand()\nconst id = useId()\n\nconst isRender = computed(() => !filterState.search ? true : filterState.filtered.groups.has(id))\n\nprovideCommandGroupContext({ id })\nonMounted(() => {\n  if (!allGroups.value.has(id))\n    allGroups.value.set(id, new Set())\n})\nonUnmounted(() => {\n  allGroups.value.delete(id)\n})\n</script>\n\n<template>\n  <ListboxGroup\n    v-bind=\"delegatedProps\"\n    :id=\"id\"\n    :class=\"cn('overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground', props.class)\"\n    :hidden=\"isRender ? undefined : true\"\n  >\n    <ListboxGroupLabel v-if=\"heading\" class=\"px-2 py-1.5 text-xs font-medium text-muted-foreground\">\n      {{ heading }}\n    </ListboxGroupLabel>\n    <slot />\n  </ListboxGroup>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Search } from 'lucide-vue-next'\nimport { ListboxFilter, type ListboxFilterProps, useForwardProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\nimport { useCommand } from '.'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<ListboxFilterProps & {\n  class?: HTMLAttributes['class']\n}>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n\nconst { filterState } = useCommand()\n</script>\n\n<template>\n  <div class=\"flex items-center border-b px-3\" cmdk-input-wrapper>\n    <Search class=\"mr-2 h-4 w-4 shrink-0 opacity-50\" />\n    <ListboxFilter\n      v-bind=\"{ ...forwardedProps, ...$attrs }\"\n      v-model=\"filterState.search\"\n      auto-focus\n      :class=\"cn('flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50', props.class)\"\n    />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ListboxItemEmits, ListboxItemProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { useCurrentElement } from '@vueuse/core'\nimport { ListboxItem, useForwardPropsEmits, useId } from 'reka-ui'\nimport { computed, type HTMLAttributes, onMounted, onUnmounted, ref } from 'vue'\nimport { useCommand, useCommandGroup } from '.'\n\nconst props = defineProps<ListboxItemProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<ListboxItemEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n\nconst id = useId()\nconst { filterState, allItems, allGroups } = useCommand()\nconst groupContext = useCommandGroup()\n\nconst isRender = computed(() => {\n  if (!filterState.search) {\n    return true\n  }\n  else {\n    const filteredCurrentItem = filterState.filtered.items.get(id)\n    // If the filtered items is undefined means not in the all times map yet\n    // Do the first render to add into the map\n    if (filteredCurrentItem === undefined) {\n      return true\n    }\n\n    // Check with filter\n    return filteredCurrentItem > 0\n  }\n})\n\nconst itemRef = ref()\nconst currentElement = useCurrentElement(itemRef)\nonMounted(() => {\n  if (!(currentElement.value instanceof HTMLElement))\n    return\n\n  // textValue to perform filter\n  allItems.value.set(id, currentElement.value.textContent ?? props.value.toString())\n\n  const groupId = groupContext?.id\n  if (groupId) {\n    if (!allGroups.value.has(groupId)) {\n      allGroups.value.set(groupId, new Set([id]))\n    }\n    else {\n      allGroups.value.get(groupId)?.add(id)\n    }\n  }\n})\nonUnmounted(() => {\n  allItems.value.delete(id)\n})\n</script>\n\n<template>\n  <ListboxItem\n    v-if=\"isRender\"\n    v-bind=\"forwarded\"\n    :id=\"id\"\n    ref=\"itemRef\"\n    :class=\"cn('relative flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0', props.class)\"\n    @select=\"() => {\n      filterState.search = ''\n    }\"\n  >\n    <slot />\n  </ListboxItem>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandList.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ListboxContentProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { ListboxContent, useForwardProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<ListboxContentProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ListboxContent v-bind=\"forwarded\" :class=\"cn('max-h-[300px] overflow-y-auto overflow-x-hidden', props.class)\">\n    <div role=\"presentation\">\n      <slot />\n    </div>\n  </ListboxContent>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SeparatorProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { Separator } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<SeparatorProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <Separator\n    v-bind=\"delegatedProps\"\n    :class=\"cn('-mx-1 h-px bg-border', props.class)\"\n  >\n    <slot />\n  </Separator>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/CommandShortcut.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span :class=\"cn('ml-auto text-xs tracking-widest text-muted-foreground', props.class)\">\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/command/index.ts",
+      "content": "import type { Ref } from 'vue'\nimport { createContext } from 'reka-ui'\n\nexport { default as Command } from './Command.vue'\nexport { default as CommandDialog } from './CommandDialog.vue'\nexport { default as CommandEmpty } from './CommandEmpty.vue'\nexport { default as CommandGroup } from './CommandGroup.vue'\nexport { default as CommandInput } from './CommandInput.vue'\nexport { default as CommandItem } from './CommandItem.vue'\nexport { default as CommandList } from './CommandList.vue'\nexport { default as CommandSeparator } from './CommandSeparator.vue'\nexport { default as CommandShortcut } from './CommandShortcut.vue'\n\nexport const [useCommand, provideCommandContext] = createContext<{\n  allItems: Ref<Map<string, string>>\n  allGroups: Ref<Map<string, Set<string>>>\n  filterState: {\n    search: string\n    filtered: { count: number, items: Map<string, number>, groups: Set<string> }\n  }\n}>('Command')\n\nexport const [useCommandGroup, provideCommandGroupContext] = createContext<{\n  id?: string\n}>('CommandGroup')\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

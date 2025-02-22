@@ -1,0 +1,16 @@
+{
+  "name": "AlertDestructiveDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "example/AlertDestructiveDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Alert, AlertDescription, AlertTitle } from '@/registry/default/ui/alert'\nimport { AlertCircle } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Alert variant=\"destructive\">\n    <AlertCircle class=\"w-4 h-4\" />\n    <AlertTitle>Error</AlertTitle>\n    <AlertDescription>\n      Your session has expired. Please log in again.\n    </AlertDescription>\n  </Alert>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

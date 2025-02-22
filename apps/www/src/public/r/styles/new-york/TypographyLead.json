@@ -1,0 +1,14 @@
+{
+  "name": "TypographyLead",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "example/TypographyLead.vue",
+      "content": "<template>\n  <p class=\"text-xl text-muted-foreground\">\n    A modal dialog that interrupts the user with important content and expects a\n    response.\n  </p>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,131 +1,193 @@
-import { existsSync, promises as fs } from 'node:fs'
-import process from 'node:process'
-import { Command } from 'commander'
-import { consola } from 'consola'
-import { colors } from 'consola/utils'
-import { template } from 'lodash-es'
-import { addDependency } from 'nypm'
-import ora from 'ora'
-import path from 'pathe'
-import prompts from 'prompts'
-import { z } from 'zod'
+import type { Config } from '@/src/utils/get-config'
+import { promises as fs } from 'node:fs'
+import { preFlightInit } from '@/src/preflights/preflight-init'
+import { addComponents } from '@/src/utils/add-components'
+import * as ERRORS from '@/src/utils/errors'
 import {
-  type Config,
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
+  DEFAULT_TAILWIND_CSS,
   DEFAULT_UTILS,
   getConfig,
   rawConfigSchema,
   resolveConfigPaths,
-  TAILWIND_CSS_PATH,
-} from '../utils/get-config'
-import { getProjectInfo } from '../utils/get-project-info'
-import { handleError } from '../utils/handle-error'
-import {
-  getRegistryBaseColor,
-  getRegistryBaseColors,
-  getRegistryStyles,
-} from '../utils/registry'
-import * as templates from '../utils/templates'
-import { transformCJSToESM } from '../utils/transformers/transform-cjs-to-esm'
-import { transformByDetype } from '../utils/transformers/transform-sfc'
-import { applyPrefixesCss } from '../utils/transformers/transform-tw-prefix'
+} from '@/src/utils/get-config'
+import { getProjectConfig, getProjectInfo } from '@/src/utils/get-project-info'
+import { handleError } from '@/src/utils/handle-error'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
+import { getRegistryBaseColors, getRegistryStyles } from '@/src/utils/registry'
+import { spinner } from '@/src/utils/spinner'
+import { updateTailwindContent } from '@/src/utils/updaters/update-tailwind-content'
+import { Command } from 'commander'
+import path from 'pathe'
+import prompts from 'prompts'
+import { z } from 'zod'
 
-const PROJECT_DEPENDENCIES = {
-  base: [
-    'tailwindcss-animate',
-    'class-variance-authority',
-    'clsx',
-    'tailwind-merge',
-    'radix-vue',
-  ],
-}
-
-const initOptionsSchema = z.object({
+export const initOptionsSchema = z.object({
   cwd: z.string(),
+  components: z.array(z.string()).optional(),
   yes: z.boolean(),
+  defaults: z.boolean(),
+  force: z.boolean(),
+  silent: z.boolean(),
+  isNewProject: z.boolean(),
+  srcDir: z.boolean().optional(),
 })
 
 export const init = new Command()
   .name('init')
   .description('initialize your project and install dependencies')
-  .option('-y, --yes', 'skip confirmation prompt.', false)
+  .argument(
+    '[components...]',
+    'the components to add or a url to the component.',
+  )
+  .option('-y, --yes', 'skip confirmation prompt.', true)
+  .option('-d, --defaults,', 'use default configuration.', false)
+  .option('-f, --force', 'force overwrite of existing configuration.', false)
   .option(
     '-c, --cwd <cwd>',
     'the working directory. defaults to the current directory.',
     process.cwd(),
   )
-  .action(async (opts) => {
+  .option('-s, --silent', 'mute output.', false)
+  .option(
+    '--src-dir',
+    'use the src directory when creating a new project.',
+    false,
+  )
+  .action(async (components, opts) => {
     try {
-      const options = initOptionsSchema.parse(opts)
-      const cwd = path.resolve(options.cwd)
+      const options = initOptionsSchema.parse({
+        cwd: path.resolve(opts.cwd),
+        isNewProject: false,
+        components,
+        ...opts,
+      })
 
-      // Ensure target directory exists.
-      if (!existsSync(cwd)) {
-        consola.error(`The path ${cwd} does not exist. Please try again.`)
-        process.exit(1)
-      }
+      await runInit(options)
 
-      // Read config.
-      const existingConfig = await getConfig(cwd)
-      const config = await promptForConfig(cwd, existingConfig, options.yes)
-
-      await runInit(cwd, config)
-
-      consola.log('')
-      consola.info(
-        `${colors.green('Success!')} Project initialization completed.`,
+      logger.log(
+        `${highlighter.success(
+          'Success!',
+        )} Project initialization completed.\nYou may now add components.`,
       )
-      consola.log('')
+      logger.break()
     }
     catch (error) {
+      logger.break()
       handleError(error)
     }
   })
 
-export async function promptForConfig(
-  cwd: string,
-  defaultConfig: Config | null = null,
-  skip = false,
+export async function runInit(
+  options: z.infer<typeof initOptionsSchema> & {
+    skipPreflight?: boolean
+  },
 ) {
-  const highlight = (text: string) => colors.cyan(text)
+  let projectInfo
+  if (!options.skipPreflight) {
+    const preflight = await preFlightInit(options)
+    if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
+      process.exit(1)
+    }
+    // if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
+    //   const { projectPath } = await createProject(options)
+    //   if (!projectPath) {
+    //     process.exit(1)
+    //   }
+    //   options.cwd = projectPath
+    //   options.isNewProject = true
+    // }
+    projectInfo = preflight.projectInfo
+  }
+  else {
+    projectInfo = await getProjectInfo(options.cwd)
+  }
 
-  const styles = await getRegistryStyles()
-  const baseColors = await getRegistryBaseColors()
+  const projectConfig = await getProjectConfig(options.cwd, projectInfo)
+  const config = projectConfig
+    ? await promptForMinimalConfig(projectConfig, options)
+    : await promptForConfig(await getConfig(options.cwd))
 
+  if (!options.yes) {
+    const { proceed } = await prompts({
+      type: 'confirm',
+      name: 'proceed',
+      message: `Write configuration to ${highlighter.info(
+        'components.json',
+      )}. Proceed?`,
+      initial: true,
+    })
+
+    if (!proceed) {
+      process.exit(0)
+    }
+  }
+
+  // Write components.json.
+  const componentSpinner = spinner(`Writing components.json.`).start()
+  const targetPath = path.resolve(options.cwd, 'components.json')
+  await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8')
+  componentSpinner.succeed()
+
+  // Add components.
+  const fullConfig = await resolveConfigPaths(options.cwd, config)
+  const components = ['index', ...(options.components || [])]
+  await addComponents(components, fullConfig, {
+    // Init will always overwrite files.
+    overwrite: true,
+    silent: options.silent,
+    isNewProject:
+      options.isNewProject || projectInfo?.framework.name === 'nuxt',
+  })
+
+  // If a new project is using src dir, let's update the tailwind content config.
+  // TODO: Handle this per framework.
+  if (options.isNewProject && options.srcDir) {
+    await updateTailwindContent(
+      ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+      fullConfig,
+      {
+        silent: options.silent,
+      },
+    )
+  }
+
+  return fullConfig
+}
+
+async function promptForConfig(defaultConfig: Config | null = null) {
+  const [styles, baseColors] = await Promise.all([
+    getRegistryStyles(),
+    getRegistryBaseColors(),
+  ])
+
+  logger.info('')
   const options = await prompts([
     {
       type: 'toggle',
       name: 'typescript',
-      message: `Would you like to use ${highlight('TypeScript')}? ${colors.gray('(recommended)')}?`,
+      message: `Would you like to use ${highlighter.info(
+        'TypeScript',
+      )} (recommended)?`,
       initial: defaultConfig?.typescript ?? true,
       active: 'yes',
       inactive: 'no',
     },
     {
       type: 'select',
-      name: 'framework',
-      message: `Which ${highlight('framework')} are you using?`,
-      choices: [
-        { title: 'Vite', value: 'vite' },
-        { title: 'Nuxt', value: 'nuxt' },
-        { title: 'Laravel', value: 'laravel' },
-        { title: 'Astro', value: 'astro' },
-      ],
-    },
-    {
-      type: 'select',
       name: 'style',
-      message: `Which ${highlight('style')} would you like to use?`,
+      message: `Which ${highlighter.info('style')} would you like to use?`,
       choices: styles.map(style => ({
-        title: style.label,
+        title: style.name === 'new-york' ? 'New York (Recommended)' : style.label,
         value: style.name,
       })),
     },
     {
       type: 'select',
       name: 'tailwindBaseColor',
-      message: `Which color would you like to use as ${highlight(
+      message: `Which color would you like to use as the ${highlighter.info(
         'base color',
       )}?`,
       choices: baseColors.map(color => ({
@@ -135,26 +197,16 @@ export async function promptForConfig(
     },
     {
       type: 'text',
-      name: 'tsConfigPath',
-      message: (prev, values) => `Where is your ${highlight(values.typescript ? 'tsconfig.json' : 'jsconfig.json')} file?`,
-      initial: (prev, values) => {
-        const prefix = values.framework === 'nuxt' ? '.nuxt/' : './'
-        const path = values.typescript ? 'tsconfig.json' : 'jsconfig.json'
-        return prefix + path
-      },
-    },
-    {
-      type: 'text',
       name: 'tailwindCss',
-      message: `Where is your ${highlight('global CSS')} file? ${colors.gray('(this file will be overwritten)')}`,
-      initial: (prev, values) => defaultConfig?.tailwind.css ?? TAILWIND_CSS_PATH[values.framework as 'vite' | 'nuxt' | 'laravel' | 'astro'],
+      message: `Where is your ${highlighter.info('global CSS')} file?`,
+      initial: defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS,
     },
     {
       type: 'toggle',
       name: 'tailwindCssVariables',
-      message: `Would you like to use ${highlight(
+      message: `Would you like to use ${highlighter.info(
         'CSS variables',
-      )} for colors?`,
+      )} for theming?`,
       initial: defaultConfig?.tailwind.cssVariables ?? true,
       active: 'yes',
       inactive: 'no',
@@ -162,7 +214,7 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindPrefix',
-      message: `Are you using a custom ${highlight(
+      message: `Are you using a custom ${highlighter.info(
         'tailwind prefix eg. tw-',
       )}? (Leave blank if not)`,
       initial: '',
@@ -170,35 +222,30 @@ export async function promptForConfig(
     {
       type: 'text',
       name: 'tailwindConfig',
-      message: `Where is your ${highlight('tailwind.config')} located? ${colors.gray('(this file will be overwritten)')}`,
-      initial: (prev, values) => {
-        if (defaultConfig?.tailwind.config)
-          return defaultConfig?.tailwind.config
-        if (values.framework === 'astro')
-          return 'tailwind.config.mjs'
-        else return DEFAULT_TAILWIND_CONFIG
-      },
+      message: `Where is your ${highlighter.info(
+        'tailwind.config.js',
+      )} located?`,
+      initial: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
     },
     {
       type: 'text',
       name: 'components',
-      message: `Configure the import alias for ${highlight('components')}:`,
+      message: `Configure the import alias for ${highlighter.info(
+        'components',
+      )}:`,
       initial: defaultConfig?.aliases.components ?? DEFAULT_COMPONENTS,
     },
     {
       type: 'text',
       name: 'utils',
-      message: `Configure the import alias for ${highlight('utils')}:`,
+      message: `Configure the import alias for ${highlighter.info('utils')}:`,
       initial: defaultConfig?.aliases.utils ?? DEFAULT_UTILS,
     },
   ])
 
-  const config = rawConfigSchema.parse({
+  return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
     style: options.style,
-    typescript: options.typescript,
-    tsConfigPath: options.tsConfigPath,
-    framework: options.framework,
     tailwind: {
       config: options.tailwindConfig,
       css: options.tailwindCss,
@@ -206,113 +253,80 @@ export async function promptForConfig(
       cssVariables: options.tailwindCssVariables,
       prefix: options.tailwindPrefix,
     },
+    typescript: options.typescript,
     aliases: {
       utils: options.utils,
       components: options.components,
+      // TODO: fix this.
+      lib: options.components.replace(/\/components$/, '/lib'),
+      composables: options.components.replace(/\/components$/, '/composables'),
     },
   })
-
-  if (!skip) {
-    const { proceed } = await prompts({
-      type: 'confirm',
-      name: 'proceed',
-      message: `Write configuration to ${highlight('components.json')}. Proceed?`,
-      initial: true,
-    })
-
-    if (!proceed)
-      process.exit(0)
-  }
-
-  // Write to file.
-  consola.log('')
-  const spinner = ora('Writing components.json...').start()
-  const targetPath = path.resolve(cwd, 'components.json')
-  await fs.writeFile(targetPath, JSON.stringify(config, null, 2), 'utf8')
-  spinner.succeed()
-
-  return await resolveConfigPaths(cwd, config)
 }
 
-export async function runInit(cwd: string, config: Config) {
-  const spinner = ora('Initializing project...')?.start()
+async function promptForMinimalConfig(
+  defaultConfig: Config,
+  opts: z.infer<typeof initOptionsSchema>,
+) {
+  let style = defaultConfig.style
+  let baseColor = defaultConfig.tailwind.baseColor
+  let cssVariables = defaultConfig.tailwind.cssVariables
 
-  // Check in in a Nuxt project.
-  const { isNuxt, shadcnNuxt } = await getProjectInfo()
-  if (isNuxt) {
-    consola.log('')
-    shadcnNuxt
-      ? consola.info(`Detected a Nuxt project with 'shadcn-nuxt' v${shadcnNuxt.version}...`)
-      : consola.warn(`Detected a Nuxt project without 'shadcn-nuxt' module. It's recommended to install it.`)
+  if (!opts.defaults) {
+    const [styles, baseColors] = await Promise.all([
+      getRegistryStyles(),
+      getRegistryBaseColors(),
+    ])
+
+    const options = await prompts([
+      {
+        type: 'select',
+        name: 'style',
+        message: `Which ${highlighter.info('style')} would you like to use?`,
+        choices: styles.map(style => ({
+          title: style.name === 'new-york' ? 'New York (Recommended)' : style.label,
+          value: style.name,
+        })),
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'tailwindBaseColor',
+        message: `Which color would you like to use as the ${highlighter.info(
+          'base color',
+        )}?`,
+        choices: baseColors.map(color => ({
+          title: color.label,
+          value: color.name,
+        })),
+      },
+      {
+        type: 'toggle',
+        name: 'tailwindCssVariables',
+        message: `Would you like to use ${highlighter.info(
+          'CSS variables',
+        )} for theming?`,
+        initial: defaultConfig?.tailwind.cssVariables,
+        active: 'yes',
+        inactive: 'no',
+      },
+    ])
+
+    style = options.style
+    baseColor = options.tailwindBaseColor
+    cssVariables = options.tailwindCssVariables
   }
 
-  // Ensure all resolved paths directories exist.
-  for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
-    // Determine if the path is a file or directory.
-    // TODO: is there a better way to do this?
-    let dirname = path.extname(resolvedPath)
-      ? path.dirname(resolvedPath)
-      : resolvedPath
-
-    // If the utils alias is set to something like "@/lib/utils",
-    // assume this is a file and remove the "utils" file name.
-    // TODO: In future releases we should add support for individual utils.
-    if (key === 'utils' && resolvedPath.endsWith('/utils')) {
-      // Remove /utils at the end.
-      dirname = dirname.replace(/\/utils$/, '')
-    }
-
-    if (!existsSync(dirname))
-      await fs.mkdir(dirname, { recursive: true })
-  }
-
-  const extension = config.typescript ? 'ts' : 'js'
-
-  // Write tailwind config.
-  await fs.writeFile(
-    config.resolvedPaths.tailwindConfig,
-    transformCJSToESM(
-      config.resolvedPaths.tailwindConfig,
-      config.tailwind.cssVariables
-        ? template(templates.TAILWIND_CONFIG_WITH_VARIABLES)({ extension, framework: config.framework, prefix: config.tailwind.prefix })
-        : template(templates.TAILWIND_CONFIG)({ extension, framework: config.framework, prefix: config.tailwind.prefix }),
-    ),
-    'utf8',
-  )
-
-  // Write css file.
-  const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
-  if (baseColor) {
-    await fs.writeFile(
-      config.resolvedPaths.tailwindCss,
-      config.tailwind.cssVariables
-        ? config.tailwind.prefix
-          ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
-          : baseColor.cssVarsTemplate
-        : baseColor.inlineColorsTemplate,
-      'utf8',
-    )
-  }
-
-  // Write cn file.
-  await fs.writeFile(
-    `${config.resolvedPaths.utils}.${extension}`,
-    extension === 'ts' ? templates.UTILS : await transformByDetype(templates.UTILS, '.ts'),
-    'utf8',
-  )
-
-  spinner?.succeed()
-
-  // Install dependencies.
-  const dependenciesSpinner = ora('Installing dependencies...')?.start()
-
-  const iconsDep = config.style === 'new-york' ? ['@radix-icons/vue'] : ['lucide-vue-next']
-  const deps = PROJECT_DEPENDENCIES.base.concat(iconsDep).filter(Boolean)
-
-  await addDependency(deps, {
-    cwd,
-    silent: true,
+  return rawConfigSchema.parse({
+    $schema: defaultConfig?.$schema,
+    style,
+    tailwind: {
+      ...defaultConfig?.tailwind,
+      baseColor,
+      cssVariables,
+    },
+    typescript: defaultConfig.typescript,
+    aliases: defaultConfig?.aliases,
+    iconLibrary: defaultConfig?.iconLibrary,
   })
-
-  dependenciesSpinner?.succeed()
 }

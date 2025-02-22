@@ -1,6 +1,7 @@
 import { consola } from 'consola'
 
 export function handleError(error: unknown) {
+  consola.log('this is error: ', error)
   if (typeof error === 'string') {
     consola.error(error)
     process.exit(1)

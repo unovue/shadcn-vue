@@ -10,8 +10,8 @@ body:
         This form is only for submitting bug reports. If you have a usage question
         or are unsure if this is really a bug, make sure to:
 
-        - Read the [docs](https://radix-vue.com/)
-        - Ask on [Discord Chat](https://chat.radix-vue.com/)
+        - Read the [docs](https://reka-ui.com/)
+        - Ask on [Discord Chat](https://chat.unovue.com/)
         - Ask on [GitHub Discussions](https://github.com/shadcn-vue/shadcn-vue/discussions)
   - type: input
     id: reproduction

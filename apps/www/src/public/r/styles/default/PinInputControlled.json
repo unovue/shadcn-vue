@@ -1,0 +1,16 @@
+{
+  "name": "PinInputControlled",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "pin-input"
+  ],
+  "files": [
+    {
+      "path": "example/PinInputControlled.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n} from '@/registry/default/ui/pin-input'\nimport { ref } from 'vue'\n\nconst value = ref<string[]>(['1', '2', '3'])\nconst handleComplete = (e: string[]) => alert(e.join(''))\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      @complete=\"handleComplete\"\n    >\n      <PinInputGroup>\n        <PinInputInput\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n          :index=\"index\"\n        />\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

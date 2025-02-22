@@ -5,7 +5,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from '@/lib/registry/new-york/ui/breadcrumb'
+} from '@/registry/new-york/ui/breadcrumb'
 import { useRoute } from 'vitepress'
 import { computed } from 'vue'
 

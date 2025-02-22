@@ -3,8 +3,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/lib/registry/new-york/ui/avatar'
-import { Button } from '@/lib/registry/new-york/ui/button'
+} from '@/registry/new-york/ui/avatar'
+import { Button } from '@/registry/new-york/ui/button'
 
 import {
   Card,
@@ -12,19 +12,20 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/lib/registry/new-york/ui/card'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/lib/registry/new-york/ui/command'
+} from '@/registry/new-york/ui/card'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/registry/new-york/ui/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
-import ChevronDownIcon from '~icons/radix-icons/chevron-down'
-
+} from '@/registry/new-york/ui/popover'
 import { ref } from 'vue'
+
+import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 
 const sofiaRole = ref('Owner')
 const jacksonRole = ref('Member')
+const isabellaRole = ref('Member')
 </script>
 
 <template>
@@ -118,6 +119,64 @@ const jacksonRole = ref('Member')
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">
             <Command v-model="jacksonRole">
+              <CommandInput placeholder="Select new role..." />
+              <CommandList>
+                <CommandEmpty>No roles found.</CommandEmpty>
+                <CommandGroup>
+                  <CommandItem value="Viewer" class="space-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Viewer</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view and comment.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Developer" class="space-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Developer</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view, comment and edit.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Billing" class="space-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Billing</p>
+                    <p class="text-sm text-muted-foreground">
+                      Can view, comment and manage billing.
+                    </p>
+                  </CommandItem>
+                  <CommandItem value="Owner" class="space-y-1 flex flex-col items-start px-4 py-2">
+                    <p>Owner</p>
+                    <p class="text-sm text-muted-foreground">
+                      Admin-level access to all resources.
+                    </p>
+                  </CommandItem>
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
+      <div class="flex items-center justify-between space-x-4">
+        <div class="flex items-center space-x-4">
+          <Avatar>
+            <AvatarImage src="/avatars/03.png" />
+            <AvatarFallback>JL</AvatarFallback>
+          </Avatar>
+          <div>
+            <p class="text-sm font-medium leading-none">
+              Isabella Nguyen
+            </p>
+            <p class="text-sm text-muted-foreground">
+              i@example.com
+            </p>
+          </div>
+        </div>
+        <Popover>
+          <PopoverTrigger as-child>
+            <Button variant="outline" class="ml-auto">
+              {{ isabellaRole }}
+              <ChevronDownIcon class="ml-2 h-4 w-4 text-muted-foreground" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent class="p-0" align="end">
+            <Command v-model="isabellaRole">
               <CommandInput placeholder="Select new role..." />
               <CommandList>
                 <CommandEmpty>No roles found.</CommandEmpty>

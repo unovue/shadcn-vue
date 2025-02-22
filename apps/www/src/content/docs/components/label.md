@@ -1,8 +1,8 @@
 ---
 title: Label
 description: Renders an accessible label associated with controls.
-source: apps/www/src/lib/registry/default/ui/label
-primitive: https://www.radix-vue.com/components/label.html
+source: apps/www/registry/default/ui/label
+primitive: https://www.reka-ui.com/docs/components/label.html
 ---
 
 <ComponentPreview name="LabelDemo" />
@@ -24,12 +24,12 @@ npx shadcn-vue@latest add label
 ### Install the following dependency:
 
 ```bash
-npm install radix-vue
+npm install reka-ui
 ```
 
 ### Copy and paste the following code into your project:
 
-<<< @/lib/registry/default/ui/label/Label.vue
+<<< @/registry/default/ui/label/Label.vue
 
 </Steps>
 

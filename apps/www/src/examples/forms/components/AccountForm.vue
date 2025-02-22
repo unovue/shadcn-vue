@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Calendar } from '@/lib/registry/new-york/ui/calendar'
+import { cn } from '@/lib/utils'
+import { Button } from '@/registry/new-york/ui/button'
+import { Calendar } from '@/registry/new-york/ui/calendar'
 import {
   Command,
   CommandEmpty,
@@ -8,26 +9,25 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/lib/registry/new-york/ui/command'
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/lib/registry/new-york/ui/form'
-import { Input } from '@/lib/registry/new-york/ui/input'
+} from '@/registry/new-york/ui/command'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/new-york/ui/form'
+import { Input } from '@/registry/new-york/ui/input'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/lib/registry/new-york/ui/popover'
-import { Separator } from '@/lib/registry/new-york/ui/separator'
+} from '@/registry/new-york/ui/popover'
 
-import { toast } from '@/lib/registry/new-york/ui/toast'
+import { Separator } from '@/registry/new-york/ui/separator'
 
-import { cn } from '@/lib/utils'
+import { toast } from '@/registry/new-york/ui/toast'
 import { CalendarDate, DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 import { toTypedSchema } from '@vee-validate/zod'
-import RadixIconsCalendar from '~icons/radix-icons/calendar'
 import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { toDate } from 'radix-vue/date'
+import { toDate } from 'reka-ui/date'
 import { h, ref } from 'vue'
 import * as z from 'zod'
+import RadixIconsCalendar from '~icons/radix-icons/calendar'
 
 const open = ref(false)
 const dateValue = ref()

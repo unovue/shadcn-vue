@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from '@/lib/registry/new-york/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/lib/registry/new-york/ui/popover'
+import { Button } from '@/registry/new-york/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
 import { useConfigStore } from '@/stores/config'
 import { Paintbrush } from 'lucide-vue-next'
 import { onMounted, watch } from 'vue'
@@ -33,7 +33,7 @@ watch(radius, (radius) => {
   <Popover>
     <PopoverTrigger as-child>
       <Button
-        class="w-9 h-9"
+        class="w-8 h-8"
         :variant="'ghost'"
         :size="'icon'"
       >

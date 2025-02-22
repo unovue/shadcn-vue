@@ -1,8 +1,8 @@
 ---
 title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
-source: apps/www/src/lib/registry/default/ui/accordion
-primitive: https://www.radix-vue.com/components/accordion.html
+source: apps/www/registry/default/ui/accordion
+primitive: https://www.reka-ui.com/docs/components/accordion.html
 ---
 
 <ComponentPreview name="AccordionDemo" class="sm:max-w-[70%]" />
@@ -29,10 +29,10 @@ module.exports = {
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: 'var(--reka-accordion-content-height)' },
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
+          from: { height: 'var(--reka-accordion-content-height)' },
           to: { height: 0 },
         },
       },

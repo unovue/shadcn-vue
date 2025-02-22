@@ -1,0 +1,19 @@
+{
+  "name": "SheetSideDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "sheet"
+  ],
+  "files": [
+    {
+      "path": "example/SheetSideDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { Input } from '@/registry/new-york/ui/input'\nimport { Label } from '@/registry/new-york/ui/label'\nimport {\n  Sheet,\n  SheetClose,\n  SheetContent,\n  SheetDescription,\n  SheetFooter,\n  SheetHeader,\n  SheetTitle,\n  SheetTrigger,\n} from '@/registry/new-york/ui/sheet'\nimport { ref } from 'vue'\n\nconst SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const\n\nconst username = ref('')\n</script>\n\n<template>\n  <div class=\"grid grid-cols-2 gap-2\">\n    <Sheet v-for=\"side in SHEET_SIDES\" :key=\"side\">\n      <SheetTrigger as-child>\n        <Button variant=\"outline\">\n          {{ side }}\n        </Button>\n      </SheetTrigger>\n      <SheetContent :side=\"side\">\n        <SheetHeader>\n          <SheetTitle>Edit profile</SheetTitle>\n          <SheetDescription>\n            Make changes to your profile here. Click save when you're done.\n          </SheetDescription>\n        </SheetHeader>\n        <div class=\"grid gap-4 py-4\">\n          <div class=\"grid items-center grid-cols-4 gap-4\">\n            <Label for=\"name\" class=\"text-right\">Name</Label>\n            <Input id=\"name\" v-model=\"username\" class=\"col-span-3\" />\n          </div>\n          <div class=\"grid items-center grid-cols-4 gap-4\">\n            <Label for=\"username\" class=\"text-right\">Username</Label>\n            <Input id=\"username\" v-model=\"username\" class=\"col-span-3\" />\n          </div>\n        </div>\n        <SheetFooter>\n          <SheetClose as-child>\n            <Button type=\"submit\">\n              Save changes\n            </Button>\n          </SheetClose>\n        </SheetFooter>\n      </SheetContent>\n    </Sheet>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

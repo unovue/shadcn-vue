@@ -1,0 +1,20 @@
+{
+  "name": "DatePickerWithPresets",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "utils",
+    "button",
+    "calendar",
+    "popover",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "example/DatePickerWithPresets.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/registry/new-york/ui/button'\n\nimport { Calendar } from '@/registry/new-york/ui/calendar'\nimport { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'\nimport { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/new-york/ui/select'\nimport {\n  DateFormatter,\n  type DateValue,\n  getLocalTimeZone,\n  today,\n} from '@internationalized/date'\nimport { CalendarIcon } from 'lucide-vue-next'\nimport { ref } from 'vue'\n\nconst df = new DateFormatter('en-US', {\n  dateStyle: 'long',\n})\n\nconst items = [\n  { value: 0, label: 'Today' },\n  { value: 1, label: 'Tomorrow' },\n  { value: 3, label: 'In 3 days' },\n  { value: 7, label: 'In a week' },\n]\n\nconst value = ref<DateValue>()\n</script>\n\n<template>\n  <Popover>\n    <PopoverTrigger as-child>\n      <Button\n        variant=\"outline\"\n        :class=\"cn(\n          'w-[280px] justify-start text-left font-normal',\n          !value && 'text-muted-foreground',\n        )\"\n      >\n        <CalendarIcon class=\"mr-2 h-4 w-4\" />\n        {{ value ? df.format(value.toDate(getLocalTimeZone())) : \"Pick a date\" }}\n      </Button>\n    </PopoverTrigger>\n    <PopoverContent class=\"flex w-auto flex-col gap-y-2 p-2\">\n      <Select\n        @update:model-value=\"(v) => {\n          if (!v) return;\n          value = today(getLocalTimeZone()).add({ days: Number(v) });\n        }\"\n      >\n        <SelectTrigger>\n          <SelectValue placeholder=\"Select\" />\n        </SelectTrigger>\n        <SelectContent>\n          <SelectItem v-for=\"item in items\" :key=\"item.value\" :value=\"item.value.toString()\">\n            {{ item.label }}\n          </SelectItem>\n        </SelectContent>\n      </Select>\n      <Calendar v-model=\"value\" />\n    </PopoverContent>\n  </Popover>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

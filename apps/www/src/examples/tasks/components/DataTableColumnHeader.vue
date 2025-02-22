@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import { Button } from '@/lib/registry/new-york/ui/button'
+import { cn } from '@/lib/utils'
+import { Button } from '@/registry/new-york/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/lib/registry/new-york/ui/dropdown-menu'
-import { cn } from '@/lib/utils'
+} from '@/registry/new-york/ui/dropdown-menu'
 import ArrowDownIcon from '~icons/radix-icons/arrow-down'
 
 import ArrowUpIcon from '~icons/radix-icons/arrow-up'

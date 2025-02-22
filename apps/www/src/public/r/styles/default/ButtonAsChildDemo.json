@@ -1,0 +1,16 @@
+{
+  "name": "ButtonAsChildDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "example/ButtonAsChildDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\n</script>\n\n<template>\n  <Button as-child>\n    <a href=\"/login\">\n      Login\n    </a>\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 <template>
   <section
     :class="cn(
-      'flex w-full items-center justify-center space-x-4 py-4 md:pb-10',
+      'flex w-full items-center justify-start gap-2 pt-2',
       $attrs.class ?? '',
     )"
   >

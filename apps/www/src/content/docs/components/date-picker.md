@@ -1,17 +1,11 @@
 ---
 title: Date Picker
 description: A date picker component with range and presets.
-source: apps/www/src/lib/registry/default/example/DatePickerDemo.vue
-primitive: https://www.radix-vue.com/components/calendar.html
+source: apps/www/registry/default/example/DatePickerDemo.vue
+primitive: https://www.reka-ui.com/docs/components/calendar.html
 ---
 
 <ComponentPreview name="DatePickerDemo" />
-
-<Callout class="text-base mt-12">
-
-If you're looking for **previous** Date Picker implementation, checkout to <span class="font-bold underline">[VCalendar Datepicker](/docs/components/v-date-picker)</span> component
-
-</Callout>
 
 ## Installation
 
