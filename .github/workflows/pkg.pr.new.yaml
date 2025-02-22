@@ -6,14 +6,10 @@ permissions:
 on:
   pull_request:
   push:
-    types: [opened, synchronize, labeled]
+    tags:
+      - '!**'
     paths:
       - packages/cli/**
-    path-ignore:
-      - 'test/**'
-      - '*.md'
-    tags-ignore:
-      - '*'
 
 jobs:
   preview:
