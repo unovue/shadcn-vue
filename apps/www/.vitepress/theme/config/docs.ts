@@ -110,6 +110,10 @@ export const docsConfig: DocsConfig = {
           title: 'Laravel',
           href: '/docs/installation/laravel',
         },
+        {
+          title: 'Manual',
+          href: '/docs/installation/manual',
+        },
       ],
     },
     {

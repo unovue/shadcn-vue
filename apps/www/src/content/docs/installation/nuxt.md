@@ -9,17 +9,11 @@ description: Install and configure Nuxt.
 
 Start by creating a new Nuxt project using `create-nuxt-app`:
 
-<Callout>
-
-  If you're using the JS template, `jsconfig.json` must exist for the CLI to run without errors.
-
-</Callout>
-
 ```bash
 npx nuxi@latest init my-app
 ```
 
-### Install TypeScript
+<Callout>
 
 If you encounter the error `ERROR: Cannot read properties of undefined (reading 'sys') (x4)`, please proceed to install TypeScript as a dependency, as advised in this [issue](https://github.com/nuxt/nuxt/issues/20936)
 
@@ -27,19 +21,17 @@ If you encounter the error `ERROR: Cannot read properties of undefined (reading 
 npm install -D typescript
 ```
 
-### Install TailwindCSS module
+</Callout>
 
-```bash
-npx nuxi@latest module add @nuxtjs/tailwindcss
-```
+### Add Tailwind and its configuration
 
-Alternatively, you can manually add `@nuxtjs/tailwindcss` using your dependency manager
+Install `@nuxtjs/tailwindcss` module:
 
 ```bash
 npm install --save-dev @nuxtjs/tailwindcss
 ```
 
-and then to the `modules` section of `nuxt.config.{ts,js}`
+Add the module to the `modules` section of `nuxt.config.{ts,js}`:
 
 ```ts
 export default defineNuxtConfig({
@@ -49,9 +41,32 @@ export default defineNuxtConfig({
 })
 ```
 
+Create `tailwind.config.js` with the template below:
+
+```bash
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Add this import header in your main css file, `assets/css/tailwind.css` in our case:
+
+```css:line-numbers {1-3}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... */
+```
+
 ### Add `Nuxt` module
 
-<br>
+Due to Nuxt auto-import feature, if you skip this step you will observe many warning in console.
 
 <TabsMarkdown>
   <TabMarkdown title="shadcn-nuxt">
@@ -213,60 +228,11 @@ npx shadcn-vue@latest init
 
 You will be asked a few questions to configure `components.json`:
 
-```ansi:line-numbers
-Would you like to use TypeScript (recommended)? no / yes
-Which framework are you using? Vite / Nuxt / Laravel
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your tsconfig.json or jsconfig.json file? › ./tsconfig.json
-Where is your global CSS file? › › src/index.css
+```txt:line-numbers
+Which style would you like to use? › New York
+Which color would you like to use as base color? › Zinc
 Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Write configuration to components.json. Proceed? > Y/n
 ```
-
-### App structure
-
-Here's the default structure of Nuxt app. You can use this as a reference:
-
-```ansi {6-16,20-21}
-.
-├── pages
-│   ├── index.vue
-│   └── dashboard.vue
-├── components
-│   ├── ui
-│   │   ├── alert-dialog
-│   │   │   ├── AlertDialog.vue
-│   │   │   └── ...
-│   │   ├── button
-│   │   │   ├── Button.vue
-│   │   │   └── ...
-│   │   ├── dropdown-menu
-│   │   │   ├── Dropdown.vue
-│   │   │   └── ...
-│   │   └── ...
-│   ├── MainNav.vue
-│   ├── PageHeader.vue
-│   └── ...
-├── lib
-│   └── utils.ts
-├── assets
-│   ├── css
-│   │   └── tailwind.css
-├── app.vue
-├── nuxt.config.ts
-├── package.json
-├── tailwind.config.js
-└── tsconfig.json
-```
-
-- I place the UI components in the `components/ui` folder.
-- The rest of the components such as `<PageHeader />` and `<MainNav />` are placed in the `components` folder.
-- The `lib` folder contains all the utility functions. I have a `utils.ts` where I define the `cn` helper.
-- The `assets/css` folder contains the global CSS.
 
 ### That's it
 

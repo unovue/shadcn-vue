@@ -8,9 +8,8 @@ export default function (md: MarkdownRenderer) {
   md.renderer.rules.fence = (...args) => {
     const [tokens, idx] = args
     const token = tokens[idx]
-    if (token && token.tag === 'code') {
-      const title = token.info.match(/title="([^"]+)"/)?.[1] ?? null
-
+    const title = token.info.match(/title="([^"]+)"/)?.[1] ?? null
+    if (token.tag === 'code' && title) {
       return (
         `<div data-code-block-plugin>
         ${title ? `<div data-code-block-title>${title}</div>` : ''}

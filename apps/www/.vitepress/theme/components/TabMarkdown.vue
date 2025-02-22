@@ -9,7 +9,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <TabsContent :value="title" class="relative space-y-10">
+  <TabsContent :value="title" class="relative space-y-6">
     <slot />
   </TabsContent>
 </template>
