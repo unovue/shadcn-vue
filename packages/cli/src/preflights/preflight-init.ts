@@ -1,7 +1,8 @@
 import type { initOptionsSchema } from '@/src/commands/init'
+import type { ProjectInfo } from '@/src/utils/get-project-info'
 import type { z } from 'zod'
 import * as ERRORS from '@/src/utils/errors'
-import { getProjectInfo, type ProjectInfo } from '@/src/utils/get-project-info'
+import { getProjectInfo } from '@/src/utils/get-project-info'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
@@ -53,23 +54,24 @@ export async function preFlightInit(options: z.infer<typeof initOptionsSchema>) 
     silent: options.silent,
   }).start()
   const projectInfo = await getProjectInfo(options.cwd) as ProjectInfo
-  // if (!projectInfo || projectInfo?.framework.name === 'manual') {
-  //   errors[ERRORS.UNSUPPORTED_FRAMEWORK] = true
-  //   frameworkSpinner?.fail()
-  //   logger.break()
-  //   if (projectInfo?.framework.links.installation) {
-  //     logger.error(
-  //       `We could not detect a supported framework at ${highlighter.info(
-  //         options.cwd,
-  //       )}.\n`
-  //       + `Visit ${highlighter.info(
-  //         projectInfo?.framework.links.installation,
-  //       )} to manually configure your project.\nOnce configured, you can use the cli to add components.`,
-  //     )
-  //   }
-  //   logger.break()
-  //   process.exit(1)
-  // }
+  if (!projectInfo || projectInfo?.framework.name === 'manual') {
+    errors[ERRORS.UNSUPPORTED_FRAMEWORK] = true
+    frameworkSpinner?.fail()
+    logger.break()
+
+    if (projectInfo?.framework.links.installation) {
+      logger.error(
+        `We could not detect a supported framework at ${highlighter.info(
+          options.cwd,
+        )}.\n`
+        + `Visit ${highlighter.info(
+          projectInfo?.framework.links.installation,
+        )} to manually configure your project.\nOnce configured, you can use the cli to add components.`,
+      )
+    }
+    logger.break()
+    process.exit(1)
+  }
   if (!projectInfo) {
     logger.break()
     process.exit(1)

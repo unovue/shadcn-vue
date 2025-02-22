@@ -1,6 +1,8 @@
 import type { Config } from '@/src/utils/get-config'
 import { promises as fs } from 'node:fs'
+import { preFlightInit } from '@/src/preflights/preflight-init'
 import { addComponents } from '@/src/utils/add-components'
+import * as ERRORS from '@/src/utils/errors'
 import {
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
@@ -83,27 +85,27 @@ export async function runInit(
     skipPreflight?: boolean
   },
 ) {
-  // let projectInfo
-  // if (!options.skipPreflight) {
-  //   const preflight = await preFlightInit(options)
-  //   if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
-  //     process.exit(1)
-  //   }
-  //   // if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
-  //   //   const { projectPath } = await createProject(options)
-  //   //   if (!projectPath) {
-  //   //     process.exit(1)
-  //   //   }
-  //   //   options.cwd = projectPath
-  //   //   options.isNewProject = true
-  //   // }
-  //   projectInfo = preflight.projectInfo
-  // }
-  // else {
-  // }
-  const projectInfo = await getProjectInfo(options.cwd)
-  const projectConfig = await getProjectConfig(options.cwd, projectInfo)
+  let projectInfo
+  if (!options.skipPreflight) {
+    const preflight = await preFlightInit(options)
+    if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
+      process.exit(1)
+    }
+    // if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
+    //   const { projectPath } = await createProject(options)
+    //   if (!projectPath) {
+    //     process.exit(1)
+    //   }
+    //   options.cwd = projectPath
+    //   options.isNewProject = true
+    // }
+    projectInfo = preflight.projectInfo
+  }
+  else {
+    projectInfo = await getProjectInfo(options.cwd)
+  }
 
+  const projectConfig = await getProjectConfig(options.cwd, projectInfo)
   const config = projectConfig
     ? await promptForMinimalConfig(projectConfig, options)
     : await promptForConfig(await getConfig(options.cwd))
@@ -323,6 +325,7 @@ async function promptForMinimalConfig(
       baseColor,
       cssVariables,
     },
+    typescript: defaultConfig.typescript,
     aliases: defaultConfig?.aliases,
     iconLibrary: defaultConfig?.iconLibrary,
   })
