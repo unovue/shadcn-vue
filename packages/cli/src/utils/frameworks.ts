@@ -31,6 +31,14 @@ export const FRAMEWORKS = {
       tailwind: 'https://tailwindcss.com/docs/guides/laravel',
     },
   },
+  manual: {
+    name: 'manual',
+    label: 'Manual',
+    links: {
+      installation: 'https://shadcn-vue.com/docs/installation/manual',
+      tailwind: 'https://tailwindcss.com/docs/installation',
+    },
+  },
 } as const
 
 export type Framework = (typeof FRAMEWORKS)[keyof typeof FRAMEWORKS]

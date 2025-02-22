@@ -60,7 +60,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   ])
 
   const type: ProjectInfo = {
-    framework: FRAMEWORKS.vite, // TODO: Maybe add a manual installation
+    framework: FRAMEWORKS.manual,
     typescript,
     tailwindConfigFile,
     tailwindCssFile,
@@ -220,7 +220,7 @@ export async function getProjectConfig(
 
   const config: RawConfig = {
     $schema: 'https://shadcn-vue.com/schema.json',
-    typescript: true,
+    typescript: projectInfo.typescript,
     style: 'new-york',
     tailwind: {
       config: projectInfo.tailwindConfigFile,
