@@ -1,5 +1,5 @@
 import { resolveImport } from '@/src/utils/resolve-import'
-import { loadConfig as c12LoadConfig } from 'c12'
+import { cosmiconfig } from 'cosmiconfig'
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { z } from 'zod'
@@ -20,6 +20,13 @@ export const DEFAULT_TAILWIND_CSS = TAILWIND_CSS_PATH.nuxt // decide to go with 
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
 export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
+
+// zernonia: replaced this from `c12` because it cause error with `components` folder in Nuxt.
+// TODO: Figure out if we want to support all cosmiconfig formats.
+// A simple components.json file would be nice.
+const explorer = cosmiconfig('components', {
+  searchPlaces: ['components.json'],
+})
 
 export const rawConfigSchema = z
   .object({
@@ -129,14 +136,10 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
-    const configResult = await c12LoadConfig({
-      name: 'components',
-      configFile: 'components',
-      cwd,
-    })
-
-    if (!configResult.config || Object.keys(configResult.config).length === 0)
+    const configResult = await explorer.search(cwd)
+    if (!configResult) {
       return null
+    }
 
     return rawConfigSchema.parse(configResult.config)
   }
