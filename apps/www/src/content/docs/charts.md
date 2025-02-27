@@ -65,6 +65,7 @@ Add the following tooltip styling to your `tailwind.css` file:
     --vis-secondary-color: 160 81% 40%;
     --vis-text-color: var(--muted-foreground);
   }
+}
 ```
 
 If you are not using `css-variables` for your component, you need to update the `--vis-primary-color` and `--vis-text-color` to your desired hsl value.
