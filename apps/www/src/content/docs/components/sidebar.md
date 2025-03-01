@@ -470,7 +470,7 @@ The following example adds a `<DropdownMenu>` to the `SidebarHeader`.
     <SidebarHeader>
       <SidebarMenu>
         <SidebarMenuItem>
-          <DropdownMenuRoot>
+          <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
                   Select Workspace
@@ -485,7 +485,7 @@ The following example adds a `<DropdownMenu>` to the `SidebarHeader`.
                 <span>Acme Corp.</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenuRoot>
+          </DropdownMenu>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarHeader>
