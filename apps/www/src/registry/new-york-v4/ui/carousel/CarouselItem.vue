@@ -10,6 +10,7 @@ const { orientation } = useCarousel()
 
 <template>
   <div
+    data-slot="carousel-item"
     role="group"
     aria-roledescription="slide"
     :class="cn(
