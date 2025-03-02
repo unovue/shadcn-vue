@@ -2,20 +2,17 @@
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { AvatarRoot } from 'reka-ui'
-import { avatarVariant, type AvatarVariants } from '.'
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   class?: HTMLAttributes['class']
-  size?: AvatarVariants['size']
-  shape?: AvatarVariants['shape']
-}>(), {
-  size: 'sm',
-  shape: 'circle',
-})
+}>()
 </script>
 
 <template>
-  <AvatarRoot :class="cn(avatarVariant({ size, shape }), props.class)">
+  <AvatarRoot
+    data-slot="avatar"
+    :class="cn('relative flex size-8 shrink-0 overflow-hidden rounded-full', props.class)"
+  >
     <slot />
   </AvatarRoot>
 </template>
