@@ -2,6 +2,7 @@ import type { Config } from '@/src/utils/get-config'
 import type {
   registryItemFileSchema,
 } from '@/src/utils/registry/schema'
+import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 import {
@@ -355,7 +356,10 @@ async function resolveRegistryDependencies(
 }
 
 export async function registryGetTheme(name: string, config: Config) {
-  const baseColor = await getRegistryBaseColor(name)
+  const [baseColor, tailwindVersion] = await Promise.all([
+    getRegistryBaseColor(name),
+    getProjectTailwindVersionFromConfig(config),
+  ])
   if (!baseColor) {
     return null
   }
@@ -400,6 +404,19 @@ export async function registryGetTheme(name: string, config: Config) {
         ...baseColor.cssVars.dark,
         ...theme.cssVars.dark,
       },
+    }
+
+    if (tailwindVersion === 'v4' && baseColor.cssVarsV4) {
+      theme.cssVars = {
+        light: {
+          ...theme.cssVars.light,
+          ...baseColor.cssVarsV4.light,
+        },
+        dark: {
+          ...theme.cssVars.dark,
+          ...baseColor.cssVarsV4.dark,
+        },
+      }
     }
   }
 
