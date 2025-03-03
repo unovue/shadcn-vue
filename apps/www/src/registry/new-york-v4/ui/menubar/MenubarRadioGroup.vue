@@ -7,14 +7,16 @@ import {
 } from 'reka-ui'
 
 const props = defineProps<MenubarRadioGroupProps>()
-
 const emits = defineEmits<MenubarRadioGroupEmits>()
 
 const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <MenubarRadioGroup v-bind="forwarded">
+  <MenubarRadioGroup
+    data-slot="menubar-radio-group"
+    v-bind="forwarded"
+  >
     <slot />
   </MenubarRadioGroup>
 </template>
