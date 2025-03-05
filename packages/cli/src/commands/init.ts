@@ -12,7 +12,7 @@ import {
   rawConfigSchema,
   resolveConfigPaths,
 } from '@/src/utils/get-config'
-import { getProjectConfig, getProjectInfo } from '@/src/utils/get-project-info'
+import { getProjectConfig, getProjectInfo, getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
@@ -273,14 +273,15 @@ async function promptForMinimalConfig(
   let cssVariables = defaultConfig.tailwind.cssVariables
 
   if (!opts.defaults) {
-    const [styles, baseColors] = await Promise.all([
+    const [styles, baseColors, tailwindVersion] = await Promise.all([
       getRegistryStyles(),
       getRegistryBaseColors(),
+      getProjectTailwindVersionFromConfig(defaultConfig),
     ])
 
     const options = await prompts([
       {
-        type: 'select',
+        type: tailwindVersion === 'v4' ? null : 'select',
         name: 'style',
         message: `Which ${highlighter.info('style')} would you like to use?`,
         choices: styles.map(style => ({
@@ -312,7 +313,7 @@ async function promptForMinimalConfig(
       },
     ])
 
-    style = options.style
+    style = options.style ?? 'new-york'
     baseColor = options.tailwindBaseColor
     cssVariables = options.tailwindCssVariables
   }

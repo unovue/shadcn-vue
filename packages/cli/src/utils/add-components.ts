@@ -1,4 +1,6 @@
-import type { Config } from '@/src/utils/get-config'
+import type { Config, configSchema } from '@/src/utils/get-config'
+import type { z } from 'zod'
+import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 import { registryResolveItemsTree } from '@/src/utils/registry'
@@ -24,6 +26,19 @@ export async function addComponents(
     ...options,
   }
 
+  // TODO: Add workspace component
+  return await addProjectComponents(components, config, options)
+}
+
+async function addProjectComponents(
+  components: string[],
+  config: z.infer<typeof configSchema>,
+  options: {
+    overwrite?: boolean
+    silent?: boolean
+    isNewProject?: boolean
+  },
+) {
   const registrySpinner = spinner(`Checking registry.`, {
     silent: options.silent,
   })?.start()
@@ -34,12 +49,17 @@ export async function addComponents(
   }
   registrySpinner?.succeed()
 
+  const tailwindVersion = await getProjectTailwindVersionFromConfig(config)
+
   await updateTailwindConfig(tree.tailwind?.config, config, {
     silent: options.silent,
+    tailwindVersion,
   })
   await updateCssVars(tree.cssVars, config, {
     cleanupDefaultNextStyles: options.isNewProject,
     silent: options.silent,
+    tailwindVersion,
+    tailwindConfig: tree.tailwind?.config,
   })
 
   await updateDependencies(tree.dependencies, config, {

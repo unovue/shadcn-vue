@@ -1,7 +1,7 @@
-import type { Config } from '@/src/utils/get-config'
 import type {
   registryItemFileSchema,
 } from '@/src/utils/registry/schema'
+import { type Config, getTargetStyleFromConfig } from '@/src/utils/get-config'
 import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
@@ -321,9 +321,13 @@ async function resolveRegistryDependencies(
   const visited = new Set<string>()
   const payload: string[] = []
 
+  const style = config.resolvedPaths?.cwd
+    ? await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style)
+    : config.style
+
   async function resolveDependencies(itemUrl: string) {
     const url = getRegistryUrl(
-      isUrl(itemUrl) ? itemUrl : `styles/${config.style}/${itemUrl}.json`,
+      isUrl(itemUrl) ? itemUrl : `styles/${style}/${itemUrl}.json`,
     )
 
     if (visited.has(url)) {
