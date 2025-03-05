@@ -78,7 +78,7 @@ import { Label } from '@/registry/new-york/ui/label'
               </Button>
             </div>
             <div class="text-center text-sm">
-              Don&apos;t have an account?
+              Don't have an account?
               <a href="#" class="underline underline-offset-4">
                 Sign up
               </a>

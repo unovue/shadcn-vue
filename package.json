@@ -21,6 +21,7 @@
     "lint:fix": "eslint . --fix",
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "dev:nuxt": "pnpm --filter shadcn-nuxt dev",
+    "dev:v4": "pnpm --filter v4 dev",
     "start:cli": "pnpm --filter shadcn-vue start:dev",
     "build:cli": "pnpm --filter shadcn-vue build",
     "build:registry": "pnpm --filter=www build:registry",
