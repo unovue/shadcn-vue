@@ -24,7 +24,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 <template>
   <MenubarItem
     data-slot="menubar-item"
-    :data-inset="inset"
+    :data-inset="inset ? '' : undefined"
     :data-variant="variant"
     v-bind="forwarded"
     :class="cn(

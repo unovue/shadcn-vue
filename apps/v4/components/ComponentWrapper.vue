@@ -13,8 +13,7 @@ onErrorCaptured(() => {
 })
 
 function getComponentName(name: string) {
-  // convert kebab-case to title case
-  return name.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+  return name.replace(/([a-z])([A-Z])/g, '$1 $2')
 }
 </script>
 

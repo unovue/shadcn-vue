@@ -16,4 +16,10 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
+  build: {
+    transpile: [
+      'vee-validate',
+      'vue-sonner',
+    ],
+  },
 })

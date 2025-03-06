@@ -29,7 +29,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 <template>
   <ContextMenuItem
     data-slot="context-menu-item"
-    :data-inset="inset"
+    :data-inset="inset ? '' : undefined"
     :data-variant="variant"
     v-bind="forwarded"
     :class="cn(

@@ -10,10 +10,12 @@ import {
 } from 'reka-ui'
 import NavigationMenuViewport from './NavigationMenuViewport.vue'
 
-const props = defineProps<NavigationMenuRootProps & {
+const props = withDefaults(defineProps<NavigationMenuRootProps & {
   class?: HTMLAttributes['class']
   viewport?: boolean
-}>()
+}>(), {
+  viewport: true,
+})
 const emits = defineEmits<NavigationMenuRootEmits>()
 
 const delegatedProps = reactiveOmit(props, 'class', 'viewport')
