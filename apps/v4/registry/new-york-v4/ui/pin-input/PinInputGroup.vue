@@ -12,7 +12,11 @@ const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
-  <Primitive v-bind="forwardedProps" :class="cn('flex items-center', props.class)">
+  <Primitive
+    data-slot="pin-input-group"
+    v-bind="forwardedProps"
+    :class="cn('flex items-center', props.class)"
+  >
     <slot />
-  </primitive>
+  </Primitive>
 </template>

@@ -21,8 +21,14 @@
     <ComponentWrapper name="Badge">
       <LazyBadgeDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Breadcrumb">
+      <LazyBreadcrumbDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Button">
       <LazyButtonDemo />
+    </ComponentWrapper>
+    <ComponentWrapper name="Calendar">
+      <LazyCalendarDemo />
     </ComponentWrapper>
     <ComponentWrapper name="Card">
       <LazyCardDemo />
@@ -36,11 +42,17 @@
     <ComponentWrapper name="Collapsible">
       <LazyCollapsibleDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Combobox">
+      <LazyComboboxDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Command">
       <LazyCommandDemo />
     </ComponentWrapper>
     <ComponentWrapper name="ContextMenu">
       <LazyContextMenuDemo />
+    </ComponentWrapper>
+    <ComponentWrapper name="DatePicker">
+      <LazyDatePickerDemo />
     </ComponentWrapper>
     <ComponentWrapper name="Dialog">
       <LazyDialogDemo />
@@ -68,6 +80,12 @@
     </ComponentWrapper>
     <ComponentWrapper name="NavigationMenu">
       <LazyNavigationMenuDemo />
+    </ComponentWrapper>
+    <ComponentWrapper name="Pagination">
+      <LazyPaginationDemo />
+    </ComponentWrapper>
+    <ComponentWrapper name="PinInput">
+      <LazyPinInputDemo />
     </ComponentWrapper>
     <ComponentWrapper name="Popover">
       <LazyPopoverDemo />
