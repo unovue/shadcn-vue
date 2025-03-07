@@ -36,6 +36,12 @@ describe('apply tailwind prefix', () => {
       output:
         'tw-absolute tw-right-4 tw-top-4 tw-bg-primary tw-rounded-sm tw-opacity-70 tw-ring-offset-background tw-transition-opacity hover:tw-opacity-100 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-ring focus:tw-ring-offset-2 disabled:tw-pointer-events-none data-[state=open]:tw-bg-secondary',
     },
+    {
+      input:
+        '-mt-8 hover:-mt-8 focus:-mt-8 active:-mt-8 disabled:-mt-8',
+      output:
+        '-tw-mt-8 hover:-tw-mt-8 focus:-tw-mt-8 active:-tw-mt-8 disabled:-tw-mt-8',
+    },
   ])(`applyTwPrefix($input) -> $output`, ({ input, output }) => {
     expect(applyPrefix(input, 'tw-')).toBe(output)
   })

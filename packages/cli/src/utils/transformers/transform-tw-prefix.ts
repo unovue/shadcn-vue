@@ -89,18 +89,31 @@ export function applyPrefix(input: string, prefix: string = '') {
   const prefixed: string[] = []
   for (const className of classNames) {
     const [variant, value, modifier] = splitClassName(className)
+    const valueWithPrefix = handleNegativeVariants(value, prefix)
     if (variant) {
       modifier
-        ? prefixed.push(`${variant}:${prefix}${value}/${modifier}`)
-        : prefixed.push(`${variant}:${prefix}${value}`)
+        ? prefixed.push(`${variant}:${valueWithPrefix}/${modifier}`)
+        : prefixed.push(`${variant}:${valueWithPrefix}`)
     }
     else {
       modifier
-        ? prefixed.push(`${prefix}${value}/${modifier}`)
-        : prefixed.push(`${prefix}${value}`)
+        ? prefixed.push(`${valueWithPrefix}/${modifier}`)
+        : prefixed.push(`${valueWithPrefix}`)
     }
   }
   return prefixed.join(' ')
+}
+
+function handleNegativeVariants(value: string | null, prefix: string = '') {
+  if (!prefix || !value) {
+    return value
+  }
+
+  if (value.startsWith('-')) {
+    return `-${prefix}${value.substring(1)}`
+  }
+
+  return `${prefix}${value}`
 }
 
 export function applyPrefixesCss(css: string, prefix: string) {
