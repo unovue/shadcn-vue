@@ -19,13 +19,13 @@ const { path } = useRoute()
           </NuxtLink>
         </NavigationMenuLink>
       </NavigationMenuItem>
-      <NavigationMenuItem>
+      <!-- <NavigationMenuItem>
         <NavigationMenuLink as-child :data-active="path === '/charts'">
           <NuxtLink to="/charts">
             Charts
           </NuxtLink>
         </NavigationMenuLink>
-      </NavigationMenuItem>
+      </NavigationMenuItem> -->
       <NavigationMenuItem>
         <NavigationMenuLink as-child :data-active="path === '/forms'">
           <NuxtLink to="/forms">
