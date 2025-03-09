@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Index } from '@/__registry__'
 import NavUser from '@/registry/new-york-v4/blocks/Sidebar07/components/NavUser.vue'
 import TeamSwitcher from '@/registry/new-york-v4/blocks/Sidebar07/components/TeamSwitcher.vue'
 import {
@@ -24,7 +25,6 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from '@/registry/new-york-v4/ui/sidebar'
-// import { Index } from "@/__registry__"
 import {
   AudioWaveform,
   BookOpen,
@@ -148,18 +148,16 @@ const data = {
       ],
     },
   ],
-  // components: Object.values(Index)
-  //   .filter((item) => item.type === "registry:ui")
-  //   .concat([
-  //     {
-  //       name: "combobox",
-  //     },
-  //   ])
-  //   .sort((a, b) => a.name.localeCompare(b.name)),
+  components: Object.values(Index)
+    .filter(item => item.type === 'registry:ui')
+    .sort((a, b) => a.name.localeCompare(b.name)),
 }
 
 function getComponentName(name: string) {
-  return name.replace(/([a-z])([A-Z])/g, '$1 $2')
+  return name
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 }
 </script>
 
@@ -217,20 +215,18 @@ function getComponentName(name: string) {
           </Collapsible>
         </SidebarMenu>
       </SidebarGroup>
-      <!-- <SidebarGroup class="group-data-[collapsible=icon]:hidden">
-          <SidebarGroupLabel>Components</SidebarGroupLabel>
-          <SidebarMenu>
-            {data.components.map((item) => (
-              <SidebarMenuItem key={item.name}>
-                <SidebarMenuButton asChild>
-                  <a href={`/#${item.name}`}>
-                    <span>{getComponentName(item.name)}</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup> -->
+      <SidebarGroup class="group-data-[collapsible=icon]:hidden">
+        <SidebarGroupLabel>Components</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem v-for="item in data.components" :key="item.name">
+            <SidebarMenuButton as-child>
+              <NuxtLink :to="`/#${item.name}`">
+                <span>{{ getComponentName(item.name) }}</span>
+              </NuxtLink>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
     </SidebarContent>
     <SidebarFooter>
       <NavUser :user="data.user" />

@@ -51,6 +51,34 @@ export async function buildRegistry() {
   return registry
 }
 
+export async function buildRegistryV4() {
+  const registryRootPath = resolve('../v4/registry')
+  const registry: Registry = []
+
+  const uiPath = resolve(registryRootPath, 'new-york-v4', 'ui')
+  // const examplePath = resolve(registryRootPath, 'new-york-v4', 'example')
+  // const blockPath = resolve(registryRootPath, 'new-york-v4', 'block')
+  // const hookPath = resolve(registryRootPath, 'new-york-v4', 'hook')
+
+  const [ui,
+    // example,
+    //  block
+  ] = await Promise.all([
+    crawlUI(uiPath),
+    // crawlExample(examplePath),
+    // crawlBlock(blockPath),
+    // crawlHook(hookPath),
+  ])
+
+  registry.push(
+    ...ui,
+    //  ...example,
+    //   ...block
+  )
+
+  return registry
+}
+
 async function crawlUI(rootPath: string) {
   const dir = await readdir(rootPath, { recursive: true, withFileTypes: true })
 

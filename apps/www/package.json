@@ -12,6 +12,7 @@
     "typecheck": "vue-tsc",
     "typecheck:registry": "vue-tsc -p tsconfig.registry.json",
     "build:registry": "tsx ./scripts/build-registry.ts",
+    "build:registryV4": "tsx ./scripts/build-registry-v4.ts",
     "build:registry-strict": "pnpm typecheck:registry && tsx ./scripts/build-registry.ts",
     "docs:gen": "tsx ./scripts/autogen.ts"
   },

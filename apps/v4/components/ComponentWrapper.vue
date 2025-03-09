@@ -15,14 +15,16 @@ onErrorCaptured(() => {
 function getComponentName(name: string) {
   return name.replace(/([a-z])([A-Z])/g, '$1 $2')
 }
+
+const kebabName = props.name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 </script>
 
 <template>
   <Suspense>
     <div
       v-if="!hasError"
-      :id="name"
-      :data-name="name.toLowerCase()"
+      :id="kebabName"
+      :data-name="kebabName"
       :class="cn(
         'flex w-full scroll-mt-16 flex-col rounded-lg border',
         props.class,
