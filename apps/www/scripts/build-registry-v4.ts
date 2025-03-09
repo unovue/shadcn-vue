@@ -231,116 +231,118 @@ export const Index: Record<string, any> = {
 // Build registry/styles/[style]/[name].json.
 // ----------------------------------------------------------------------------
 async function buildStyles(registry: Registry) {
-  for (const style of styles) {
-    const targetPath = path.join(REGISTRY_PATH, 'styles', style.name)
+  const styleRegistryPath = path.join(process.cwd(), 'src/public/r')
+  const targetPath = path.join(styleRegistryPath, 'styles', 'new-york-v4')
 
-    // Create directory if it doesn't exist.
-    if (!existsSync(targetPath)) {
-      await fs.mkdir(targetPath, { recursive: true })
+  // Create directory if it doesn't exist.
+  if (!existsSync(targetPath)) {
+    await fs.mkdir(targetPath, { recursive: true })
+  }
+
+  for (const item of registry) {
+    if (!REGISTRY_INDEX_WHITELIST.includes(item.type)) {
+      continue
     }
 
-    for (const item of registry) {
-      if (!REGISTRY_INDEX_WHITELIST.includes(item.type)) {
-        continue
+    console.log(item.name)
+
+    let metadata: RegistryEntry = {} as any
+    let files
+    if (item.files) {
+      // get metadata.json index and exclude from `files`
+      const metadataIndex = item.files.findIndex(_file => _file.path.includes(METADATA_NAME))
+      if (metadataIndex !== -1) {
+        metadata = JSON.parse(item.files[metadataIndex].content ?? '{}')
       }
 
-      let metadata: RegistryEntry = {} as any
-      let files
-      if (item.files) {
-        // get metadata.json index and exclude from `files`
-        const metadataIndex = item.files.findIndex(_file => _file.path.includes(METADATA_NAME))
-        if (metadataIndex !== -1) {
-          metadata = JSON.parse(item.files[metadataIndex].content ?? '{}')
-        }
+      files = await Promise.all(
+        item.files.filter((_, index) => index !== metadataIndex).map(async (_file) => {
+          const file = {
+            path: _file.path,
+            type: _file.type,
+            content: '',
+            target: _file.target ?? '',
+          }
 
-        files = await Promise.all(
-          item.files.filter((_, index) => index !== metadataIndex).map(async (_file) => {
-            const file = {
-              path: _file.path,
-              type: _file.type,
-              content: '',
-              target: _file.target ?? '',
-            }
+          let content: string
+          try {
+            console.log(path.join(process.cwd(), '../v4/registry/new-york-v4', file.path))
+            content = await fs.readFile(
+              path.join(process.cwd(), '../v4/registry/new-york-v4', file.path),
+              'utf8',
+            )
+          }
+          catch (error) {
+            return
+          }
 
-            let content: string
-            try {
-              content = await fs.readFile(
-                path.join(ROOT_PATH, 'src', 'registry', style.name, file.path),
-                'utf8',
-              )
-            }
-            catch (error) {
-              return
-            }
+          // TODO: remove meta content
+          // const tempFile = await createTempSourceFile(file.path)
+          // const sourceFile = project.createSourceFile(tempFile, content, {
+          //   scriptKind: ScriptKind.TS,
+          // })
 
-            // TODO: remove meta content
-            // const tempFile = await createTempSourceFile(file.path)
-            // const sourceFile = project.createSourceFile(tempFile, content, {
-            //   scriptKind: ScriptKind.TS,
-            // })
+          // sourceFile.getVariableDeclaration('iframeHeight')?.remove()
+          // sourceFile.getVariableDeclaration('containerClassName')?.remove()
+          // sourceFile.getVariableDeclaration('description')?.remove()
 
-            // sourceFile.getVariableDeclaration('iframeHeight')?.remove()
-            // sourceFile.getVariableDeclaration('containerClassName')?.remove()
-            // sourceFile.getVariableDeclaration('description')?.remove()
+          const target = file.target || ''
 
-            const target = file.target || ''
+          // if ((!target || target === '') && item.name.startsWith('v0-')) {
+          //   const fileName = file.path.split('/').pop()
+          //   if (
+          //     file.type === 'registry:block'
+          //     || file.type === 'registry:component'
+          //     || file.type === 'registry:example'
+          //   ) {
+          //     target = `components/${fileName}`
+          //   }
 
-            // if ((!target || target === '') && item.name.startsWith('v0-')) {
-            //   const fileName = file.path.split('/').pop()
-            //   if (
-            //     file.type === 'registry:block'
-            //     || file.type === 'registry:component'
-            //     || file.type === 'registry:example'
-            //   ) {
-            //     target = `components/${fileName}`
-            //   }
+          //   if (file.type === 'registry:ui') {
+          //     target = `components/ui/${fileName}`
+          //   }
 
-            //   if (file.type === 'registry:ui') {
-            //     target = `components/ui/${fileName}`
-            //   }
+          //   if (file.type === 'registry:hook') {
+          //     target = `hooks/${fileName}`
+          //   }
 
-            //   if (file.type === 'registry:hook') {
-            //     target = `hooks/${fileName}`
-            //   }
+          //   if (file.type === 'registry:lib') {
+          //     target = `lib/${fileName}`
+          //   }
+          // }
 
-            //   if (file.type === 'registry:lib') {
-            //     target = `lib/${fileName}`
-            //   }
-            // }
+          return {
+            path: file.path,
+            type: file.type,
+            // content: sourceFile.getText(),
+            content,
+            target,
+          }
+        }),
+      )
+    }
 
-            return {
-              path: file.path,
-              type: file.type,
-              // content: sourceFile.getText(),
-              content,
-              target,
-            }
-          }),
-        )
-      }
+    // if (item.type === 'registry:block' && item.name === 'Sidebar01')
+    //   console.log(item.name, item.files?.[0], files?.[0])
 
-      // if (item.type === 'registry:block' && item.name === 'Sidebar01')
-      //   console.log(item.name, item.files?.[0], files?.[0])
+    const payload = registryEntrySchema
+      .omit({
+        // source: true,
+        category: true,
+        subcategory: true,
+        // chunks: true,
+      })
+      .safeParse({
+        ...metadata,
+        ...item,
+        files,
+      })
 
-      const payload = registryEntrySchema
-        .omit({
-          // source: true,
-          category: true,
-          subcategory: true,
-          // chunks: true,
-        })
-        .safeParse({
-          ...metadata,
-          ...item,
-          files,
-        })
-
-      if (payload.success) {
-        await writeFile(
-          path.join(targetPath, `${item.name}.json`),
-          JSON.stringify(payload.data, null, 2),
-        )
-      }
+    if (payload.success) {
+      await writeFile(
+        path.join(targetPath, `${item.name}.json`),
+        JSON.stringify(payload.data, null, 2),
+      )
     }
   }
 
@@ -349,7 +351,7 @@ async function buildStyles(registry: Registry) {
   // ----------------------------------------------------------------------------
   const stylesJson = JSON.stringify(styles, null, 2)
   await writeFile(
-    path.join(REGISTRY_PATH, 'styles/index.json'),
+    path.join(styleRegistryPath, 'styles/index.json'),
     stylesJson,
 
   )
@@ -770,7 +772,7 @@ try {
 
   await buildRegistry(result.data)
   // await buildBlockRegistry(result.data)
-  // await buildStyles(result.data)
+  await buildStyles(result.data)
   // await buildStylesIndex()
   // await buildThemes()
 
