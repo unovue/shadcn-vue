@@ -369,6 +369,37 @@ export const docsConfig: DocsConfig = {
         },
       ],
     },
+    {
+      title: 'Registry',
+      label: 'New',
+      items: [
+        {
+          title: 'Introduction',
+          href: '/docs/registry',
+          items: [],
+        },
+        {
+          title: 'Getting Started',
+          href: '/docs/registry/getting-started',
+          items: [],
+        },
+        {
+          title: 'FAQ',
+          href: '/docs/registry/faq',
+          items: [],
+        },
+        {
+          title: 'registry.json',
+          href: '/docs/registry/registry-json',
+          items: [],
+        },
+        {
+          title: 'registry-item.json',
+          href: '/docs/registry/registry-item-json',
+          items: [],
+        },
+      ],
+    },
   ],
 }
 
