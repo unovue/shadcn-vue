@@ -58,7 +58,7 @@ export default defineConfig({
   <TabMarkdown title="postcss.config.js">
 
   ```bash
-  npm install -D tailwindcss autoprefixer postcss
+  npm install -D @tailwindcss/postcss
   ```
 
 #### `postcss.config.js`
@@ -66,8 +66,7 @@ export default defineConfig({
   ```js
   module.exports = {
     plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
+      "@tailwindcss/postcss"
     },
   }
   ```
