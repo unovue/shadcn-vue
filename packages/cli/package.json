@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
@@ -51,7 +51,7 @@
     "vitest": "*"
   },
   "dependencies": {
-    "@unovue/detypes": "^0.8.4",
+    "@unovue/detypes": "^0.8.5",
     "@vue/compiler-sfc": "^3.5",
     "commander": "^12.1.0",
     "consola": "^3.4.0",
