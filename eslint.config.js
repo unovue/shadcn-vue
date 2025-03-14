@@ -1,7 +1,14 @@
 import antfu from '@antfu/eslint-config'
+import tailwind from 'eslint-plugin-tailwindcss'
 
 export default antfu(
   {
+    formatters: {
+      prettierOptions: {
+        plugins: ['prettier-plugin-tailwindcss'],
+        semi: false,
+      },
+    },
     vue: true,
     typescript: true,
     ignores: [
@@ -9,6 +16,24 @@ export default antfu(
       '**/__registry__/block.ts',
     ],
   },
+  [
+    ...tailwind.configs['flat/recommended'],
+    {
+      settings: {
+        tailwindcss: {
+          callees: ['cn'],
+          config: './apps/www/tailwind.config.js',
+          cssFiles: [
+            '**/*.css',
+            '!**/node_modules',
+            '!**/.*',
+            '!**/dist',
+            '!**/build',
+          ],
+        },
+      },
+    },
+  ],
   {
     files: ['**/*.vue'],
     rules: {
@@ -36,6 +61,7 @@ export default antfu(
       'unused-imports/no-unused-vars': 0,
       'unicorn/no-new-array': 0,
       'import-x/consistent-type-specifier-style': 0,
+      'tailwindcss/enforces-shorthand': 0,
     },
   },
 )

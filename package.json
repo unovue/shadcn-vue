@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.3",
   "private": true,
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@9.15.9",
   "license": "MIT",
   "repository": "unovue/shadcn-vue",
   "workspaces": [
@@ -32,15 +32,17 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.2.0",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@antfu/eslint-config": "^4.10.1",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@vitest/ui": "^2.1.9",
     "bumpp": "^10.0.3",
-    "eslint": "^9.20.1",
-    "lint-staged": "^15.4.3",
+    "eslint": "^9.22.0",
+    "eslint-plugin-format": "^1.0.1",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "lint-staged": "^15.5.0",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^18.5.0",
+    "taze": "^19.0.2",
     "typescript": "catalog:",
     "vitest": "^2.1.9"
   },
@@ -51,9 +53,13 @@
   },
   "pnpm": {
     "overrides": {
+      "deep-equal": "npm:@nolyfill/deep-equal@^1",
       "hasown": "npm:@nolyfill/hasown@^1.0.29",
       "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
+      "is-generator-function": "npm:@nolyfill/is-generator-function@^1",
       "isarray": "npm:@nolyfill/isarray@^1.0.29",
+      "safe-buffer": "npm:@nolyfill/safe-buffer@^1",
+      "safer-buffer": "npm:@nolyfill/safer-buffer@^1",
       "typedarray": "npm:@nolyfill/typedarray@^1.0.29"
     }
   },
