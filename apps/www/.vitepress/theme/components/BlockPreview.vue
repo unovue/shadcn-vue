@@ -11,8 +11,8 @@ const isLoading = ref(true)
 </script>
 
 <template>
-  <div class="relative rounded-lg border overflow-hidden bg-background" :class="[container ? '' : 'aspect-[4/2.5]']">
-    <div v-if="isLoading" class="flex items-center justify-center h-full w-full z-10 relative">
+  <div class="relative overflow-hidden rounded-lg border bg-background" :class="[container ? '' : 'aspect-[4/2.5]']">
+    <div v-if="isLoading" class="relative z-10 flex h-full w-full items-center justify-center">
       <Spinner />
     </div>
     <div

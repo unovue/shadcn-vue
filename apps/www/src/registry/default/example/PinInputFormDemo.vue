@@ -41,7 +41,7 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
 </script>
 
 <template>
-  <form class="w-2/3 space-y-6 mx-auto" @submit="onSubmit">
+  <form class="mx-auto w-2/3 space-y-6" @submit="onSubmit">
     <FormField v-slot="{ componentField, value }" name="pin">
       <FormItem>
         <FormLabel>OTP</FormLabel>
@@ -50,7 +50,7 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
             id="pin-input"
             :model-value="value"
             placeholder="○"
-            class="flex gap-2 items-center mt-1"
+            class="mt-1 flex items-center gap-2"
             otp
             type="number"
             :name="componentField.name"

@@ -27,15 +27,15 @@ const works: Artwork[] = [
 </script>
 
 <template>
-  <ScrollArea class="border rounded-md w-96 whitespace-nowrap">
-    <div class="flex p-4 space-x-4 w-max">
+  <ScrollArea class="w-96 whitespace-nowrap rounded-md border">
+    <div class="flex w-max space-x-4 p-4">
       <div v-for="artwork in works" :key="artwork.id">
         <figure class="shrink-0">
           <div class="overflow-hidden rounded-md">
             <img
               :src="artwork.art"
               :alt="`Photo by ${artwork.artist}`"
-              class="aspect-[3/4] w-36 h-56 object-cover"
+              class="aspect-[3/4] h-56 w-36 object-cover"
             >
           </div>
           <figcaption class="pt-2 text-xs text-muted-foreground">

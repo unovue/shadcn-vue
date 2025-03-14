@@ -78,7 +78,7 @@ const data = [
               <span class="sr-only">Increase</span>
             </Button>
           </div>
-          <div class="my-3 px-3 h-[120px]">
+          <div class="my-3 h-[120px] px-3">
             <VisXYContainer
               :data="data"
               class="h-[120px]"

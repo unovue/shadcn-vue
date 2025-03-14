@@ -86,10 +86,10 @@ const selectedUsers = ref<User[]>([])
           <TooltipTrigger as-child>
             <Button
               variant="outline"
-              class="rounded-full p-2.5 flex items-center justify-center"
+              class="flex items-center justify-center rounded-full p-2.5"
               @click="open = true"
             >
-              <Plus class="w-4 h-4" />
+              <Plus class="h-4 w-4" />
             </Button>
           </TooltipTrigger>
           <TooltipContent :side-offset="10">
@@ -125,8 +125,8 @@ const selectedUsers = ref<User[]>([])
         }"
       >
         <Input v-model="input" placeholder="Type a message..." class="flex-1" />
-        <Button class="p-2.5 flex items-center justify-center" :disabled="inputLength === 0">
-          <Send class="w-4 h-4" />
+        <Button class="flex items-center justify-center p-2.5" :disabled="inputLength === 0">
+          <Send class="h-4 w-4" />
           <span class="sr-only">Send</span>
         </Button>
       </form>

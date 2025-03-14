@@ -47,7 +47,7 @@ const pickedColors = baseColors.filter((color, index) => [0, 6, 8, 9, 10].includ
         <TooltipContent
           align="center"
           :side-offset="1"
-          class="capitalize bg-zinc-900 text-zinc-50"
+          class="bg-zinc-900 capitalize text-zinc-50"
         >
           {{ color.label }}
         </TooltipContent>

@@ -63,7 +63,7 @@ const onSubmit = handleSubmit((values) => {
             <ComboboxAnchor>
               <div class="relative w-full max-w-sm items-center">
                 <ComboboxInput :display-value="(val) => val?.label ?? ''" placeholder="Select framework..." />
-                <ComboboxTrigger class="absolute end-0 inset-y-0 flex items-center justify-center px-3">
+                <ComboboxTrigger class="absolute inset-y-0 end-0 flex items-center justify-center px-3">
                   <ChevronsUpDown class="size-4 text-muted-foreground" />
                 </ComboboxTrigger>
               </div>

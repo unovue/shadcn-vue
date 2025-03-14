@@ -94,16 +94,16 @@ watch(flattenFiles, (n) => {
 </script>
 
 <template>
-  <div class="min-h-full w-full has-[[data-variant=inset]]:bg-sidebar flex flex-col">
-    <div class="flex h-full flex-col w-full flex-1 border-r border-zinc-700 bg-zinc-900 text-white">
-      <div class="duration-200 flex shrink-0 items-center font-medium outline-none ease-linear h-12 rounded-none border-b border-zinc-700 px-4 text-sm text-white">
+  <div class="flex min-h-full w-full flex-col has-[[data-variant=inset]]:bg-sidebar">
+    <div class="flex h-full w-full flex-1 flex-col border-r border-zinc-700 bg-zinc-900 text-white">
+      <div class="flex h-12 shrink-0 items-center rounded-none border-b border-zinc-700 px-4 text-sm font-medium text-white outline-none duration-200 ease-linear">
         Files
       </div>
       <TreeRoot
         v-slot="{ flattenItems }"
         v-model="activeFile"
         v-model:expanded="expandedKeys"
-        class="list-none select-none"
+        class="select-none list-none"
         :items="treeItem"
         :get-key="(item) => item.name"
       >

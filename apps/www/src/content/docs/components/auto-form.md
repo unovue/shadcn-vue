@@ -452,7 +452,7 @@ All children passed to the `AutoForm` component will be rendered below the form.
 <template>
   <AutoForm>
     <Button>Send now</Button>
-    <p class="text-gray-500 text-sm">
+    <p class="text-sm text-gray-500">
       By submitting this form, you agree to our
       <a href="#" class="text-primary underline">
         terms and conditions

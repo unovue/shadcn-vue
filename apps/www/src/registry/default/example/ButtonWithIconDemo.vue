@@ -5,6 +5,6 @@ import { Mail } from 'lucide-vue-next'
 
 <template>
   <Button>
-    <Mail class="w-4 h-4 mr-2" /> Login with Email
+    <Mail class="mr-2 h-4 w-4" /> Login with Email
   </Button>
 </template>

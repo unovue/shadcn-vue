@@ -56,7 +56,7 @@ import { ChevronUp } from 'lucide-vue-next'
       </SidebarFooter>
     </Sidebar>
     <SidebarInset>
-      <header class="flex items-center justify-between px-4 h-12">
+      <header class="flex h-12 items-center justify-between px-4">
         <SidebarTrigger />
       </header>
     </SidebarInset>

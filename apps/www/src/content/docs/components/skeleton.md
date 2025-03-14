@@ -36,7 +36,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 </script>
 
 <template>
-  <Skeleton class="w-[100px] h-5 rounded-full" />
+  <Skeleton class="h-5 w-[100px] rounded-full" />
 </template>
 ```
 

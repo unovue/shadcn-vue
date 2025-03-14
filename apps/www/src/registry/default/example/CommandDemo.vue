@@ -21,7 +21,7 @@ import {
 </script>
 
 <template>
-  <Command class="rounded-lg border shadow-md max-w-[450px]">
+  <Command class="max-w-[450px] rounded-lg border shadow-md">
     <CommandInput placeholder="Type a command or search..." />
     <CommandList>
       <CommandEmpty>No results found.</CommandEmpty>

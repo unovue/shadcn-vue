@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 <template>
   <Carousel
     orientation="vertical"
-    class="relative w-full max-w-xsw-full max-w-xs"
+    class="max-w-xsw-full relative w-full max-w-xs"
     :opts="{
       align: 'start',
     }"

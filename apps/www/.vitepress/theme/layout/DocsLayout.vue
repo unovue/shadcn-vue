@@ -23,7 +23,7 @@ const sourceLink = 'https://github.com/unovue/shadcn-vue/tree/dev/'
               <h4 class="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
                 {{ docsGroup.title }}
 
-                <span v-if="docsGroup.label" class="ml-2 font-normal rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                <span v-if="docsGroup.label" class="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs font-normal leading-none text-[#000000] no-underline group-hover:no-underline">
                   {{ docsGroup.label }}
                 </span>
               </h4>
@@ -75,15 +75,15 @@ const sourceLink = 'https://github.com/unovue/shadcn-vue/tree/dev/'
           </div>
 
           <div v-if="frontmatter.docs || frontmatter.source || frontmatter.primitive" class="flex items-center space-x-2 pt-4">
-            <a v-if="frontmatter.docs" :href="frontmatter.docs" target="_blank" class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
+            <a v-if="frontmatter.docs" :href="frontmatter.docs" target="_blank" class="inline-flex select-none items-center rounded-md border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
               <ExternalLink class="ml-1 h-3 w-3" />
               Docs
             </a>
-            <a v-if="frontmatter.source" :href="sourceLink + frontmatter.source" target="_blank" class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
+            <a v-if="frontmatter.source" :href="sourceLink + frontmatter.source" target="_blank" class="inline-flex select-none items-center rounded-md border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
               Component Source
               <Code2 class="ml-1 h-3 w-3" />
             </a>
-            <a v-if="frontmatter.primitive" :href="frontmatter.primitive" target="_blank" class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
+            <a v-if="frontmatter.primitive" :href="frontmatter.primitive" target="_blank" class="inline-flex select-none items-center rounded-md border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
               API Reference
               <ExternalLink class="ml-1 h-3 w-3" />
             </a>

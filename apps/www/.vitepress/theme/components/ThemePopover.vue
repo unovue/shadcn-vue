@@ -33,11 +33,11 @@ watch(radius, (radius) => {
   <Popover>
     <PopoverTrigger as-child>
       <Button
-        class="w-8 h-8"
+        class="h-8 w-8"
         :variant="'ghost'"
         :size="'icon'"
       >
-        <Paintbrush class="w-4 h-4" />
+        <Paintbrush class="h-4 w-4" />
       </Button>
     </PopoverTrigger>
     <PopoverContent :side-offset="8" align="end" class="w-96">

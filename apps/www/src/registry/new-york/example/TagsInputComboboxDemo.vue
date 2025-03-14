@@ -26,8 +26,8 @@ const filteredFrameworks = computed(() => {
 <template>
   <Combobox v-model="modelValue" v-model:open="open" :ignore-filter="true">
     <ComboboxAnchor as-child>
-      <TagsInput v-model="modelValue" class="px-2 gap-2 w-80">
-        <div class="flex gap-2 flex-wrap items-center">
+      <TagsInput v-model="modelValue" class="w-80 gap-2 px-2">
+        <div class="flex flex-wrap items-center gap-2">
           <TagsInputItem v-for="item in modelValue" :key="item" :value="item">
             <TagsInputItemText />
             <TagsInputItemDelete />
@@ -35,7 +35,7 @@ const filteredFrameworks = computed(() => {
         </div>
 
         <ComboboxInput v-model="searchTerm" as-child>
-          <TagsInputInput placeholder="Framework..." class="min-w-[200px] w-full p-0 border-none focus-visible:ring-0 h-auto" @keydown.enter.prevent />
+          <TagsInputInput placeholder="Framework..." class="h-auto w-full min-w-[200px] border-none p-0 focus-visible:ring-0" @keydown.enter.prevent />
         </ComboboxInput>
       </TagsInput>
 

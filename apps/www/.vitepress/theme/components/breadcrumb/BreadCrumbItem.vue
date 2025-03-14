@@ -27,7 +27,7 @@ const route = useRoute()
       <slot />
       <ChevronRight
         v-if="!props.lastItem"
-        class="flex-shrink-0 h-3 w-3 text-muted mx-2"
+        class="mx-2 h-3 w-3 shrink-0 text-muted"
       />
     </component>
   </li>

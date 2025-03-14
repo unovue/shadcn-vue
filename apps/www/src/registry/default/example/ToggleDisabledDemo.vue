@@ -6,6 +6,6 @@ import { Underline } from 'lucide-vue-next'
 
 <template>
   <Toggle aria-label="Toggle underline" disabled>
-    <Underline class="w-4 h-4" />
+    <Underline class="h-4 w-4" />
   </Toggle>
 </template>

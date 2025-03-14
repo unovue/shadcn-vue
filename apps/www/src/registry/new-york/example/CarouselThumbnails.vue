@@ -56,8 +56,8 @@ watchOnce(emblaMainApi, (emblaMainApi) => {
       class="relative w-full max-w-xs"
       @init-api="(val) => emblaThumbnailApi = val"
     >
-      <CarouselContent class="flex gap-1 ml-0">
-        <CarouselItem v-for="(_, index) in 10" :key="index" class="pl-0 basis-1/4 cursor-pointer" @click="onThumbClick(index)">
+      <CarouselContent class="ml-0 flex gap-1">
+        <CarouselItem v-for="(_, index) in 10" :key="index" class="basis-1/4 cursor-pointer pl-0" @click="onThumbClick(index)">
           <div class="p-1" :class="index === selectedIndex ? '' : 'opacity-50'">
             <Card>
               <CardContent class="flex aspect-square items-center justify-center p-6">

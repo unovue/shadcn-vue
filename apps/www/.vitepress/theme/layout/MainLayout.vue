@@ -82,7 +82,7 @@ function handleSelectLink(item: NavItem) {
           <header class="border-grid sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div class="container-wrapper">
               <div class="container flex h-14 items-center">
-                <div class="mr-4 md:mr-1 hidden md:flex">
+                <div class="mr-4 hidden md:mr-1 md:flex">
                   <Logo />
 
                   <nav class="flex items-center gap-4 text-sm xl:gap-6">
@@ -123,16 +123,16 @@ function handleSelectLink(item: NavItem) {
                       v-for="link in links"
                       :key="link.name"
                       as="a"
-                      class="w-8 h-8"
+                      class="h-8 w-8"
                       :href="link.href" target="_blank"
                       :variant="'ghost'"
                       :size="'icon'"
                     >
-                      <component :is="link.icon" class="w-4 h-4" />
+                      <component :is="link.icon" class="h-4 w-4" />
                     </Button>
 
                     <Button
-                      class="w-8 h-8"
+                      class="h-8 w-8"
                       aria-label="Toggle dark mode"
                       :variant="'ghost'"
                       :size="'icon'"
@@ -140,7 +140,7 @@ function handleSelectLink(item: NavItem) {
                     >
                       <component
                         :is="isDark ? SunIcon : MoonIcon"
-                        class="w-4 h-4 text-foreground"
+                        class="h-4 w-4 text-foreground"
                       />
                     </Button>
                   </nav>
@@ -178,7 +178,7 @@ function handleSelectLink(item: NavItem) {
                     >
                       shadcn</a>.
                   </span>
-                  <span class="inline-block ml-1">
+                  <span class="ml-1 inline-block">
                     Ported to Vue by
                     <a
                       href="https://github.com/unovue"
@@ -188,7 +188,7 @@ function handleSelectLink(item: NavItem) {
                       unovue
                     </a>
                   </span>.
-                  <span class="inline-block ml-1">
+                  <span class="ml-1 inline-block">
                     The code source is available on
                     <a
                       href="https://github.com/unovue/shadcn-vue"

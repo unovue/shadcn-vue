@@ -31,14 +31,14 @@ onBeforeMount(async () => {
       <BlockViewerFileTree v-model="activeFile" :item />
     </div>
     <div class="flex min-w-0 flex-1 flex-col">
-      <div class="flex h-12 flex-shrink-0 items-center gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
+      <div class="flex h-12 shrink-0 items-center gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
         <File class="size-4" />
         {{ activeFile?.path }}
         <div class="ml-auto flex items-center gap-2">
           <BlockCopyCodeButton :code="activeCode" />
         </div>
       </div>
-      <div :key="activeFile?.path" data-line-codeblock class="relative flex-1 overflow-hidden after:absolute after:inset-y-0 after:left-0 after:w-10 after:bg-zinc-950 [&_.line:before]:sticky [&_.line:before]:left-2 [&_.line:before]:z-10 [&_.line:before]:translate-y-[-1px] [&_.line:before]:pr-1 [&_pre]:h-[--height] [&_pre]:overflow-auto [&_pre]:!bg-transparent [&_pre]:pb-20 [&_pre]:pt-4 [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-relaxed" v-html="activeCode" />
+      <div :key="activeFile?.path" data-line-codeblock class="relative flex-1 overflow-hidden after:absolute after:inset-y-0 after:left-0 after:w-10 after:bg-zinc-950 [&_.line:before]:sticky [&_.line:before]:left-2 [&_.line:before]:z-10 [&_.line:before]:-translate-y-px [&_.line:before]:pr-1 [&_pre]:h-[--height] [&_pre]:overflow-auto [&_pre]:!bg-transparent [&_pre]:pb-20 [&_pre]:pt-4 [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-relaxed" v-html="activeCode" />
     </div>
   </div>
 </template>

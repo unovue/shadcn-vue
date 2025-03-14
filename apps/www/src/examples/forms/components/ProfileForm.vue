@@ -152,7 +152,7 @@ const onSubmit = handleSubmit((values) => {
           type="button"
           variant="outline"
           size="sm"
-          class="text-xs w-20 mt-2"
+          class="mt-2 w-20 text-xs"
           @click="push({ value: '' })"
         >
           Add URL
@@ -160,7 +160,7 @@ const onSubmit = handleSubmit((values) => {
       </FieldArray>
     </div>
 
-    <div class="flex gap-2 justify-start">
+    <div class="flex justify-start gap-2">
       <Button type="submit">
         Update profile
       </Button>

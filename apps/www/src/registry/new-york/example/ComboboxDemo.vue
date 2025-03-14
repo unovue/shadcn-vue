@@ -17,7 +17,7 @@ const frameworks = [
     <ComboboxAnchor>
       <div class="relative w-full max-w-sm items-center">
         <ComboboxInput class="pl-9" :display-value="(val) => val?.label ?? ''" placeholder="Select framework..." />
-        <span class="absolute start-0 inset-y-0 flex items-center justify-center px-3">
+        <span class="absolute inset-y-0 start-0 flex items-center justify-center px-3">
           <Search class="size-4 text-muted-foreground" />
         </span>
       </div>

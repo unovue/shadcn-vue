@@ -82,7 +82,7 @@ function onSubmit(values: any) {
           }
         }"
       >
-        <div class="flex w-full flex-start gap-2">
+        <div class="flex-start flex w-full gap-2">
           <StepperItem
             v-for="step in steps"
             :key="step.step"
@@ -99,7 +99,7 @@ function onSubmit(values: any) {
               <Button
                 :variant="state === 'completed' || state === 'active' ? 'default' : 'outline'"
                 size="icon"
-                class="z-10 rounded-full shrink-0"
+                class="z-10 shrink-0 rounded-full"
                 :class="[state === 'active' && 'ring-2 ring-ring ring-offset-2 ring-offset-background']"
                 :disabled="state !== 'completed' && !meta.valid"
               >
@@ -126,7 +126,7 @@ function onSubmit(values: any) {
           </StepperItem>
         </div>
 
-        <div class="flex flex-col gap-4 mt-4">
+        <div class="mt-4 flex flex-col gap-4">
           <template v-if="stepIndex === 1">
             <FormField v-slot="{ componentField }" name="fullName">
               <FormItem>
@@ -202,7 +202,7 @@ function onSubmit(values: any) {
           </template>
         </div>
 
-        <div class="flex items-center justify-between mt-4">
+        <div class="mt-4 flex items-center justify-between">
           <Button :disabled="isPrevDisabled" variant="outline" size="sm" @click="prevStep()">
             Back
           </Button>

@@ -61,7 +61,7 @@ onContentUpdated(() => {
 </script>
 
 <template>
-  <div class="hidden xl:block no-scrollbar h-full overflow-auto pb-16">
+  <div class="no-scrollbar hidden h-full overflow-auto pb-16 xl:block">
     <div class="space-y-2">
       <p class="font-medium">
         On This Page
@@ -71,12 +71,12 @@ onContentUpdated(() => {
     </div>
   </div>
 
-  <div class="block xl:hidden mb-6">
+  <div class="mb-6 block xl:hidden">
     <Collapsible>
       <CollapsibleTrigger :class="buttonVariants({ variant: 'outline' })">
         On This Page
       </CollapsibleTrigger>
-      <CollapsibleContent class="text-sm mt-4 border-l pl-4">
+      <CollapsibleContent class="mt-4 border-l pl-4 text-sm">
         <TableOfContentTree :tree="headers" :level="1" />
       </CollapsibleContent>
     </Collapsible>

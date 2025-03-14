@@ -60,7 +60,7 @@ provide(FieldContextKey, fieldContext)
                 {{ schema?.description || beautifyObjectName(fieldName) }}
               </AutoFormLabel>
             </AccordionTrigger>
-            <AccordionContent class="p-1 space-y-5">
+            <AccordionContent class="space-y-5 p-1">
               <template v-for="(shape, key) in shapes" :key="key">
                 <AutoFormField
                   :config="config?.[key as keyof typeof config] as ConfigItem"

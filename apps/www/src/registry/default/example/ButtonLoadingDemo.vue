@@ -5,7 +5,7 @@ import { Loader2 } from 'lucide-vue-next'
 
 <template>
   <Button disabled>
-    <Loader2 class="w-4 h-4 mr-2 animate-spin" />
+    <Loader2 class="mr-2 h-4 w-4 animate-spin" />
     Please wait
   </Button>
 </template>

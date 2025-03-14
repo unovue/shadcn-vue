@@ -30,8 +30,8 @@ const value = ref<typeof frameworks[0]>()
 
     <ComboboxList>
       <div class="relative w-full max-w-sm items-center">
-        <ComboboxInput class="pl-9 focus-visible:ring-0 border-0 border-b rounded-none h-10" placeholder="Select framework..." />
-        <span class="absolute start-0 inset-y-0 flex items-center justify-center px-3">
+        <ComboboxInput class="h-10 rounded-none border-0 border-b pl-9 focus-visible:ring-0" placeholder="Select framework..." />
+        <span class="absolute inset-y-0 start-0 flex items-center justify-center px-3">
           <Search class="size-4 text-muted-foreground" />
         </span>
       </div>

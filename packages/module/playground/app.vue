@@ -6,16 +6,16 @@ useHead({ htmlAttrs: { class: () => isDark.value ? 'dark' : '' } })
 </script>
 
 <template>
-  <main class="flex flex-col min-h-dvh">
+  <main class="flex min-h-dvh flex-col">
     <header class="border-b py-1 ">
-      <div class="container flex justify-between items-center ">
+      <div class="container flex items-center justify-between ">
         <h1 class="font-medium">
           shadcn-vue Playground
         </h1>
 
         <ClientOnly>
           <button
-            class="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors rounded-md"
+            class="rounded-md p-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
             aria-label="Toggle dark mode"
             @click="isDark = !isDark"
           >
@@ -29,7 +29,7 @@ useHead({ htmlAttrs: { class: () => isDark.value ? 'dark' : '' } })
     </header>
 
     <!-- Try your components here -->
-    <section class="container grow my-4 p-4 rounded-md border grid place-content-center">
+    <section class="container my-4 grid grow place-content-center rounded-md border p-4">
       <UiButton variant="destructive">
         Hi
       </UiButton>

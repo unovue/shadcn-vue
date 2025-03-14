@@ -202,7 +202,7 @@ watch([style, codeConfig], async () => {
       v-show="tabValue === 'preview'"
       force-mount
       value="preview"
-      class="relative after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-lg after:bg-muted h-[--height] px-0"
+      class="relative h-[--height] px-0 after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-lg after:bg-muted"
     >
       <ResizablePanelGroup id="block-resizable" direction="horizontal" class="relative z-10">
         <ResizablePanel
@@ -214,7 +214,7 @@ watch([style, codeConfig], async () => {
         >
           <BlockPreview :url="iframeURL" container />
         </ResizablePanel>
-        <ResizableHandle id="block-resizable-handle" class="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block" />
+        <ResizableHandle id="block-resizable-handle" class="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-x-px after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all after:hover:h-10 sm:block" />
         <ResizablePanel id="block-resizable-panel-2" :default-size="0" :min-size="0" />
       </ResizablePanelGroup>
     </TabsContent>

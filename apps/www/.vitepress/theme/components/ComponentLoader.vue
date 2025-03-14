@@ -28,7 +28,7 @@ const Component = defineAsyncComponent({
     <Component :is="Component" v-bind="$attrs" />
 
     <template #fallback>
-      <div class="w-full flex items-center justify-center" :class="[typeName === 'block' ? 'h-screen' : '']">
+      <div class="flex w-full items-center justify-center" :class="[typeName === 'block' ? 'h-screen' : '']">
         <Spinner />
       </div>
     </template>

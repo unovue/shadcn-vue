@@ -26,7 +26,7 @@ function onSubmit(values: Record<string, any>) {
 </script>
 
 <template>
-  <div class="flex justify-center w-full">
+  <div class="flex w-full justify-center">
     <AutoForm
       v-if="schema"
       class="w-2/3 space-y-6"

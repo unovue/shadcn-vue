@@ -24,8 +24,8 @@ function getBadgeVariantFromLabel(label: string) {
 </script>
 
 <template>
-  <ScrollArea class="h-screen flex">
-    <div class="flex-1 flex flex-col gap-2 p-4 pt-0">
+  <ScrollArea class="flex h-screen">
+    <div class="flex flex-1 flex-col gap-2 p-4 pt-0">
       <TransitionGroup name="list" appear>
         <button
           v-for="item of items"

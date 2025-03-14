@@ -25,7 +25,7 @@ import {
   <SidebarProvider>
     <AppSidebar />
     <SidebarInset>
-      <header class="flex sticky top-0 bg-background h-16 shrink-0 items-center gap-2 border-b px-4">
+      <header class="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
         <SidebarTrigger class="-ml-1" />
         <Separator orientation="vertical" class="mr-2 h-4" />
         <Breadcrumb>

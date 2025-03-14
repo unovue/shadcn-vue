@@ -36,7 +36,7 @@ const steps = [{
     >
       <StepperTrigger>
         <StepperIndicator>
-          <component :is="item.icon" class="w-4 h-4" />
+          <component :is="item.icon" class="h-4 w-4" />
         </StepperIndicator>
         <div class="flex flex-col">
           <StepperTitle>
@@ -49,7 +49,7 @@ const steps = [{
       </StepperTrigger>
       <StepperSeparator
         v-if="item.step !== steps[steps.length - 1].step"
-        class="w-full h-px"
+        class="h-px w-full"
       />
     </StepperItem>
   </Stepper>

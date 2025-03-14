@@ -36,11 +36,11 @@ const onSubmit = handleSubmit((values) => {
   >
     <SheetTrigger as-child>
       <Button
-        class="w-8 h-8"
+        class="h-8 w-8"
         :variant="'ghost'"
         :size="'icon'"
       >
-        <RadixIconsGear class="w-4 h-4" />
+        <RadixIconsGear class="h-4 w-4" />
       </Button>
     </SheetTrigger>
     <SheetContent>

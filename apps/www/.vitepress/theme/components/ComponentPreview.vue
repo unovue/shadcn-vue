@@ -77,7 +77,7 @@ const { copy, copied } = useClipboard()
           </div>
         </div>
         <div
-          :class="cn('preview flex min-h-[350px] w-full justify-center p-10 items-center', {
+          :class="cn('preview flex min-h-[350px] w-full items-center justify-center p-10', {
             'items-center': align === 'center',
             'items-start': align === 'start',
             'items-end': align === 'end',

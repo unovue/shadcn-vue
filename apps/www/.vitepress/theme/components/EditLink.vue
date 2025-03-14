@@ -20,7 +20,7 @@ const link = computed(() => {
 </script>
 
 <template>
-  <Button as="a" :href="link.url" target="_blank" :variant="'ghost'" class="underline mt-8">
+  <Button as="a" :href="link.url" target="_blank" :variant="'ghost'" class="mt-8 underline">
     <Pencil2Icon class="mr-2" />
     {{ link.text }}
   </Button>

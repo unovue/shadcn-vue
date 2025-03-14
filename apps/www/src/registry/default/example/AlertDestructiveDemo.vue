@@ -5,7 +5,7 @@ import { AlertCircle } from 'lucide-vue-next'
 
 <template>
   <Alert variant="destructive">
-    <AlertCircle class="w-4 h-4" />
+    <AlertCircle class="h-4 w-4" />
     <AlertTitle>Error</AlertTitle>
     <AlertDescription>
       Your session has expired. Please log in again.

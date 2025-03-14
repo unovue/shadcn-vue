@@ -68,7 +68,7 @@ watch(radius, (radius) => {
       </PageHeaderDescription>
 
       <PageAction>
-        <InlineThemePicker class="gap-x-1 me-4 hidden lg:flex" />
+        <InlineThemePicker class="me-4 hidden gap-x-1 lg:flex" />
 
         <Drawer>
           <DrawerTrigger as-child>

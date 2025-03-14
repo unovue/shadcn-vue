@@ -42,7 +42,7 @@ import { Copy } from 'lucide-vue-next'
         </div>
         <Button type="submit" size="sm" class="px-3">
           <span class="sr-only">Copy</span>
-          <Copy class="w-4 h-4" />
+          <Copy class="h-4 w-4" />
         </Button>
       </div>
       <DialogFooter class="sm:justify-start">

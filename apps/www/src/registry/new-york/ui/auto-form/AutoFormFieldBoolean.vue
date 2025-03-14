@@ -15,7 +15,7 @@ const booleanComponent = computed(() => props.config?.component === 'switch' ? S
 <template>
   <FormField v-slot="slotProps" :name="fieldName">
     <FormItem>
-      <div class="space-y-0 mb-3 flex items-center gap-3">
+      <div class="mb-3 flex items-center gap-3 space-y-0">
         <FormControl>
           <slot v-bind="slotProps">
             <component

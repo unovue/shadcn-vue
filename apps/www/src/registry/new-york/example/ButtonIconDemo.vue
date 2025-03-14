@@ -5,6 +5,6 @@ import { ChevronRight } from 'lucide-vue-next'
 
 <template>
   <Button variant="outline" size="icon">
-    <ChevronRight class="w-4 h-4" />
+    <ChevronRight class="h-4 w-4" />
   </Button>
 </template>

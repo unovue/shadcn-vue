@@ -1,5 +1,5 @@
 <template>
-  <ol class="flex items-center whitespace-nowrap min-w-0">
+  <ol class="flex min-w-0 items-center whitespace-nowrap">
     <slot />
   </ol>
 </template>

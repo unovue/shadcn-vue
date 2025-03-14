@@ -35,11 +35,11 @@ const username = ref('')
           </SheetDescription>
         </SheetHeader>
         <div class="grid gap-4 py-4">
-          <div class="grid items-center grid-cols-4 gap-4">
+          <div class="grid grid-cols-4 items-center gap-4">
             <Label for="name" class="text-right">Name</Label>
             <Input id="name" v-model="username" class="col-span-3" />
           </div>
-          <div class="grid items-center grid-cols-4 gap-4">
+          <div class="grid grid-cols-4 items-center gap-4">
             <Label for="username" class="text-right">Username</Label>
             <Input id="username" v-model="username" class="col-span-3" />
           </div>

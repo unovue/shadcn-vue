@@ -59,7 +59,7 @@ const { isDark } = useData()
             @click="setTheme(color.name)"
           >
             <span
-              class="h-5 w-5 rounded-full flex items-center justify-center shrink-0 bg-[--theme-primary]"
+              class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[--theme-primary]"
             >
               <Check
                 v-if="color.name === theme"
@@ -103,7 +103,7 @@ const { isDark } = useData()
             :class="{ 'border-2 border-foreground': !isDark }"
             @click="isDark = false"
           >
-            <Sun class="w-4 h-4 mr-2" />
+            <Sun class="mr-2 h-4 w-4" />
             <span class="text-xs">Light</span>
           </Button>
           <Button
@@ -112,7 +112,7 @@ const { isDark } = useData()
             :class="{ 'border-2 border-foreground': isDark }"
             @click="isDark = true"
           >
-            <Moon class="w-4 h-4 mr-2" />
+            <Moon class="mr-2 h-4 w-4" />
             <span class="text-xs">Dark</span>
           </Button>
         </div>

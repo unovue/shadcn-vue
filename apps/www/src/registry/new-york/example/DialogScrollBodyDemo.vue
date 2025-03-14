@@ -18,15 +18,15 @@ import {
         Edit Profile
       </Button>
     </DialogTrigger>
-    <DialogContent class="sm:max-w-[425px] grid-rows-[auto_minmax(0,1fr)_auto] p-0 max-h-[90dvh]">
+    <DialogContent class="max-h-[90dvh] grid-rows-[auto_minmax(0,1fr)_auto] p-0 sm:max-w-[425px]">
       <DialogHeader class="p-6 pb-0">
         <DialogTitle>Edit profile</DialogTitle>
         <DialogDescription>
           Make changes to your profile here. Click save when you're done.
         </DialogDescription>
       </DialogHeader>
-      <div class="grid gap-4 py-4 overflow-y-auto px-6">
-        <div class="flex flex-col justify-between h-[300dvh]">
+      <div class="grid gap-4 overflow-y-auto px-6 py-4">
+        <div class="flex h-[300dvh] flex-col justify-between">
           <p>
             This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the predefined max-height of modal, content will be cropped and scrollable within the modal.
           </p>

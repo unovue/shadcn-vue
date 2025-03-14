@@ -46,7 +46,7 @@ const data = {
 
 <template>
   <Sidebar
-    class="sticky hidden lg:flex top-0 h-svh border-l"
+    class="sticky top-0 hidden h-svh border-l lg:flex"
     v-bind="props"
   >
     <SidebarHeader class="h-16 border-b border-sidebar-border">

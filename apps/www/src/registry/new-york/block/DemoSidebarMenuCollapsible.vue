@@ -166,7 +166,7 @@ const items = [
                   <CollapsibleTrigger as-child>
                     <SidebarMenuButton>
                       <span>{{ item.title }}</span>
-                      <ChevronRight class="transition-transform ml-auto group-data-[state=open]/collapsible:rotate-90" />
+                      <ChevronRight class="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   <CollapsibleContent>

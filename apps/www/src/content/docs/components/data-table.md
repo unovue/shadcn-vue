@@ -191,7 +191,7 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="border rounded-md">
+  <div class="rounded-md border">
     <Table>
       <TableHeader>
         <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
@@ -267,7 +267,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container py-10 mx-auto">
+  <div class="container mx-auto py-10">
     <DataTable :columns="columns" :data="data" />
   </div>
 </template>
@@ -335,9 +335,9 @@ function copy(id: string) {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" class="w-8 h-8 p-0">
+      <Button variant="ghost" class="h-8 w-8 p-0">
         <span class="sr-only">Open menu</span>
-        <MoreHorizontal class="w-4 h-4" />
+        <MoreHorizontal class="h-4 w-4" />
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
@@ -425,12 +425,12 @@ const table = useVueTable({
 
 <template>
   <div>
-    <div class="border rounded-md">
+    <div class="rounded-md border">
       <Table>
         { // .... }
       </Table>
     </div>
-    <div class="flex items-center justify-end py-4 space-x-2">
+    <div class="flex items-center justify-end space-x-2 py-4">
       <Button
         variant="outline"
         size="sm"

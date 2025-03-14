@@ -177,7 +177,7 @@ function randomize() {
 
 <template>
   <div class="w-full">
-    <div class="flex gap-2 items-center py-4">
+    <div class="flex items-center gap-2 py-4">
       <Input
         class="max-w-52"
         placeholder="Filter emails..."

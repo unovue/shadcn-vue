@@ -77,7 +77,7 @@ const open = ref(true)
       </SidebarContent>
     </Sidebar>
     <SidebarInset>
-      <header class="flex items-center h-12 px-4 justify-between">
+      <header class="flex h-12 items-center justify-between px-4">
         <Button
           size="sm"
           variant="ghost"

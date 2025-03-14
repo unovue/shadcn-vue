@@ -5,6 +5,6 @@ import { MailOpen } from 'lucide-vue-next'
 
 <template>
   <Button>
-    <MailOpen class="w-4 h-4 mr-2" /> Login with Email
+    <MailOpen class="mr-2 h-4 w-4" /> Login with Email
   </Button>
 </template>

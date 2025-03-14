@@ -6,6 +6,6 @@ import { Italic } from 'lucide-vue-next'
 
 <template>
   <Toggle variant="outline" aria-label="Toggle italic">
-    <Italic class="w-4 h-4" />
+    <Italic class="h-4 w-4" />
   </Toggle>
 </template>
