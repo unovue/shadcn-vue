@@ -120,7 +120,7 @@ export async function updateFiles(
         folderSkipped.set(folderName, false)
       }
 
-      if (!folderSkipped.has(folderName)) {
+      if (!folderSkipped.has(folderName) && !options.overwrite) {
         filesCreatedSpinner.stop()
         const { overwrite } = await prompts({
           type: 'confirm',
