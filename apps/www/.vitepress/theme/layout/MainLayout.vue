@@ -167,7 +167,7 @@ function handleSelectLink(item: NavItem) {
 
           <footer class="border-grid border-t py-6 md:py-0">
             <div class="container-wrapper">
-              <div class="container  py-4">
+              <div class="container py-4">
                 <p class="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
                   <span>
                     Built by

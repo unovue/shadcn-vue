@@ -35,7 +35,7 @@ const pickedColors = baseColors.filter((color, index) => [0, 6, 8, 9, 10].includ
             @click="setTheme(color.name)"
           >
             <span
-              class="flex h-6 w-6 items-center justify-center rounded-full  bg-[--theme-primary]"
+              class="flex h-6 w-6 items-center justify-center rounded-full bg-[--theme-primary]"
             >
               <Check
                 v-if="color.name === theme"
