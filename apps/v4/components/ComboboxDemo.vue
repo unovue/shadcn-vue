@@ -69,8 +69,8 @@ const selectedGroup = computed(() => timezones.find(group => group.timezones.fin
     <Combobox v-model="value" by="label">
       <ComboboxAnchor as-child>
         <ComboboxTrigger as-child>
-          <Button variant="outline" class="w-fit min-w-[280px] justify-between">
-            {{ value?.label ?? 'Select framework' }}
+          <Button variant="outline" class="w-full justify-between md:w-[200px]">
+            {{ value?.label ?? 'Select framework...' }}
 
             <ChevronsUpDown class="ml-2 size-4 shrink-0 opacity-50" />
           </Button>

@@ -7,8 +7,9 @@ const colorMode = useColorMode()
 
 <template>
   <Button
-    variant="ghost"
-    class="group/toggle h-8 w-8 px-0"
+    variant="outline"
+    size="icon"
+    class="group/toggle size-8"
     @click="colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light' "
   >
     <SunIcon class="hidden [html.dark_&]:block" />

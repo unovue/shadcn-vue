@@ -27,17 +27,6 @@ const dateRange = ref({
 const drf = new DateFormatter('en-US', {
   dateStyle: 'medium',
 })
-
-// function DatePickerWithRange() {
-//   const [date, setDate] = React.useState<DateRange | undefined>({
-//     from: new Date(new Date().getFullYear(), 0, 20),
-//     to: addDays(new Date(new Date().getFullYear(), 0, 20), 20),
-//   })
-
-//   return (
-
-//   )
-// }
 </script>
 
 <template>

@@ -22,15 +22,15 @@ import { BathIcon, BedIcon, LandPlotIcon } from 'lucide-vue-next'
 
 <template>
   <div class="flex flex-col items-start gap-4">
-    <form>
-      <Card>
-        <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+    <Card class="w-full max-w-sm">
+      <CardHeader>
+        <CardTitle>Login to your account</CardTitle>
+        <CardDescription>
+          Enter your email below to login to your account
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form>
           <div class="flex flex-col gap-6">
             <div class="grid gap-2">
               <Label html-for="email">Email</Label>
@@ -54,23 +54,23 @@ import { BathIcon, BedIcon, LandPlotIcon } from 'lucide-vue-next'
               <Input id="password" type="password" required />
             </div>
           </div>
-        </CardContent>
-        <CardFooter class="flex-col gap-2">
-          <Button type="submit" class="w-full">
-            Login
-          </Button>
-          <Button variant="outline" class="w-full">
-            Login with Google
-          </Button>
-          <div class="mt-4 text-center text-sm">
-            Don't have an account?
-            <a href="#" class="underline underline-offset-4">
-              Sign up
-            </a>
-          </div>
-        </CardFooter>
-      </Card>
-    </form>
+        </form>
+      </CardContent>
+      <CardFooter class="flex-col gap-2">
+        <Button type="submit" class="w-full">
+          Login
+        </Button>
+        <Button variant="outline" class="w-full">
+          Login with Google
+        </Button>
+        <div class="mt-4 text-center text-sm">
+          Don't have an account?
+          <a href="#" class="underline underline-offset-4">
+            Sign up
+          </a>
+        </div>
+      </CardFooter>
+    </Card>
     <Card>
       <CardHeader>
         <CardTitle>Meeting Notes</CardTitle>

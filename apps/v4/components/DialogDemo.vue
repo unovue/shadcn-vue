@@ -27,7 +27,7 @@ import { Label } from '@/registry/new-york-v4/ui/label'
           <DialogHeader>
             <DialogTitle>Edit profile</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
+              Make changes to your profile here. Click save when you're
               done.
             </DialogDescription>
           </DialogHeader>
