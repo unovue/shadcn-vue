@@ -22,6 +22,7 @@ const defaultOpen = useCookie<boolean>('sidebar_state')
           />
           <NavHeader />
           <div class="ml-auto flex items-center gap-2">
+            <ThemeSelector />
             <ModeSwitcher />
           </div>
         </div>
