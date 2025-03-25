@@ -20,4 +20,7 @@ export default defineNuxtConfig({
       'vue-sonner',
     ],
   },
+  nitro: {
+    preset: 'cloudflare_module',
+  },
 })
