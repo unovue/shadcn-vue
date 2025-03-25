@@ -16,13 +16,17 @@ const emits = defineEmits<{
 
 const elRef = ref<HTMLElement>()
 
-onMounted(() => {
+function keepStyling() {
   const selector = `.${BulletLegend.selectors.item}`
   nextTick(() => {
     const elements = elRef.value?.querySelectorAll(selector)
     const classes = buttonVariants({ variant: 'ghost', size: 'sm' }).split(' ')
     elements?.forEach(el => el.classList.add(...classes, '!inline-flex', '!mr-2'))
   })
+}
+
+onMounted(() => {
+  keepStyling()
 })
 
 function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
@@ -37,11 +41,16 @@ function onLegendItemClick(d: BulletLegendItemInterface, i: number) {
     // apply selection, set other item as inactive
     emits('update:items', props.items.map(item => item.name === d.name ? ({ ...d, inactive: false }) : { ...item, inactive: true }))
   }
+  keepStyling()
 }
 </script>
 
 <template>
-  <div ref="elRef" class="w-max">
+  <div
+    ref="elRef" class="w-max" :style="{
+      '--vis-legend-bullet-size': '16px',
+    }"
+  >
     <VisBulletLegend
       :items="items"
       :on-legend-item-click="onLegendItemClick"
