@@ -235,8 +235,8 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.36.0)(typescript@5.7.3)
       vitepress-plugin-llms:
-        specifier: ^0.0.8
-        version: 0.0.8
+        specifier: ^0.0.10
+        version: 0.0.10
       vue-component-meta:
         specifier: ^2.2.0
         version: 2.2.0(typescript@5.7.3)
@@ -8185,8 +8185,8 @@ packages:
       yaml:
         optional: true
 
-  vitepress-plugin-llms@0.0.8:
-    resolution: {integrity: sha512-xz4wb87TqAn75RbKwQs+w+63OToK7W57pmLKIEY849Izpzi/WvTI9T+rCDwabdhPFirI3LLT2P2nErsSrik0/A==}
+  vitepress-plugin-llms@0.0.10:
+    resolution: {integrity: sha512-9Cn/BG1nxzb2ZjpV+Gz1In/0CHfoOMDJCMQouCagEaDOws58/ivIP1LPr7RwAVHmyJAGBQsJf1owTdkE+ygfbA==}
 
   vitepress@1.6.3:
     resolution: {integrity: sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw==}
@@ -17546,7 +17546,7 @@ snapshots:
       tsx: 4.19.2
       yaml: 2.7.0
 
-  vitepress-plugin-llms@0.0.8:
+  vitepress-plugin-llms@0.0.10:
     dependencies:
       gray-matter: 4.0.3
       markdown-title: 1.0.2
