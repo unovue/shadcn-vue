@@ -328,6 +328,10 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   },{
+    path: "registry/new-york-v4/ui/card/CardAction.vue",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/card/CardContent.vue",
     type: "registry:ui",
     target: ""

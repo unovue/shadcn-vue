@@ -318,6 +318,10 @@
         "type": "registry:ui"
       },
       {
+        "path": "ui/card/CardAction.vue",
+        "type": "registry:ui"
+      },
+      {
         "path": "ui/card/CardContent.vue",
         "type": "registry:ui"
       },
