@@ -3,6 +3,13 @@ title: Vite
 description: Install and configure Vite.
 ---
 
+<Callout class="bg-blue-50 border-blue-600 dark:border-blue-900 dark:bg-blue-950 mt-0 mb-6 [&_code]:bg-blue-100 dark:[&_code]:bg-blue-900">
+
+  **Note:** The following guide is for Tailwind v4. If you are using Tailwind
+  v3, use `shadcn-vue@1.0.3`.
+
+</Callout>
+
 <Steps>
 
 ### Create project
@@ -13,39 +20,16 @@ Start by creating a new Vue project using `vite`:
 npm create vite@latest my-vue-app -- --template vue-ts
 ```
 
-### Add Tailwind and its configuration
-
-Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and `postcss` plugins:
+### Add Tailwind CSS
 
 ```bash
-npm install -D tailwindcss@3 autoprefixer
+npm install tailwindcss @tailwindcss/vite
 ```
 
-```bash
-npx tailwindcss init
-```
+Replace everything in `src/index.css` with the following:
 
-Add this import header in your main css file, `src/assets/index.css` in our case:
-
-```css:line-numbers {1-3}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ... */
-```
-
-Configure the tailwind template paths in `tailwind.config.js`:
-
-```js {3}
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./index.html', './src/**/*.{ts,js,vue}'],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+```css title="src/index.css"
+@import "tailwindcss";
 ```
 
 ### Edit tsconfig.json file
@@ -103,18 +87,12 @@ npm install -D @types/node
 
 ```typescript
 import path from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
-import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [tailwind(), autoprefixer()],
-    },
-  },
-  plugins: [vue()],
+  plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -131,17 +109,13 @@ Run the `shadcn-vue` init command to setup your project:
 npx shadcn-vue@latest init
 ```
 
-### Configure components.json
+You will be asked a few questions to configure `components.json`.
 
-You will be asked a few questions to configure `components.json`:
-
-```txt:line-numbers
-Which style would you like to use? › New York
-Which color would you like to use as base color? › Zinc
-Do you want to use CSS variables for colors? › no / yes
+```txt
+Which color would you like to use as base color? › Neutral
 ```
 
-### That's it
+### Add Components
 
 You can now start adding components to your project.
 

@@ -3,6 +3,13 @@ title: Nuxt
 description: Install and configure Nuxt.
 ---
 
+<Callout class="bg-blue-50 border-blue-600 dark:border-blue-900 dark:bg-blue-950 mt-0 mb-6 [&_code]:bg-blue-100 dark:[&_code]:bg-blue-900">
+
+  **Note:** The following guide is for Tailwind v4. If you are using Tailwind
+  v3, use `shadcn-vue@1.0.3`.
+
+</Callout>
+
 <Steps>
 
 ### Create project
@@ -23,45 +30,32 @@ npm install -D typescript
 
 </Callout>
 
-### Add Tailwind and its configuration
-
-Install `@nuxtjs/tailwindcss` module:
+### Add Tailwind CSS
 
 ```bash
-npm install --save-dev @nuxtjs/tailwindcss
+npm install tailwindcss @tailwindcss/vite
 ```
 
-Add the module to the `modules` section of `nuxt.config.{ts,js}`:
+Replace everything in `assets/css/tailwind.css` with the following:
+
+```css title="assets/css/tailwind.css"
+@import "tailwindcss";
+```
+
+Update `nuxt.config.ts` with the following:
 
 ```ts
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/tailwindcss'
-  ]
-})
-```
-
-Create `tailwind.config.js` with the template below:
-
-```bash
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [],
-  theme: {
-    extend: {},
+  // ...
+  css: ['~/assets/css/main.css'],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
-  plugins: [],
-}
-```
-
-Add this import header in your main css file, `assets/css/tailwind.css` in our case:
-
-```css:line-numbers {1-3}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ... */
+})
 ```
 
 ### Add `Nuxt` module
@@ -201,7 +195,8 @@ declare module '@nuxt/schema' {
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+  // ...
+  modules: ['shadcn-nuxt'],
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -232,17 +227,13 @@ Run the `shadcn-vue` init command to setup your project:
 npx shadcn-vue@latest init
 ```
 
-### Configure components.json
+You will be asked a few questions to configure `components.json`.
 
-You will be asked a few questions to configure `components.json`:
-
-```txt:line-numbers
-Which style would you like to use? › New York
-Which color would you like to use as base color? › Zinc
-Do you want to use CSS variables for colors? › no / yes
+```txt
+Which color would you like to use as base color? › Neutral
 ```
 
-### That's it
+### Add Components
 
 You can now start adding components to your project.
 

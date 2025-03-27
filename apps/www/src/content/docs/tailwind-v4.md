@@ -1,9 +1,48 @@
 ---
-title: Installation
-description: How to install dependencies and structure your app.
+title: Tailwind v4
+description: How to use shadcn-vue with Tailwind v4.
 ---
 
-## Frameworks
+<script setup>
+import Button from '@/registry/new-york/ui/button/Button.vue'
+</script>
+
+It's here! Tailwind v4. Ready for you to try out. You can start using it today.
+
+<div class="flex gap-2 items-center mt-6 not-docs">
+  <Button asChild size="sm" class="rounded-lg">
+    <a href="#try-it-out">Get Started</a>
+  </Button>
+  <Button asChild size="sm" variant="outline" class="rounded-lg">
+    <a href="https://v4.shadcn-vue.com" target="_blank" rel="noopener noreferrer">
+      See Demo
+    </a>
+  </Button>
+</div>
+
+## What's New
+
+- The CLI can now initialize projects with Tailwind v4.
+- Full support for the new `@theme` directive and `@theme inline` option.
+- All components are updated for Tailwind v4.
+- Every primitive now has a `data-slot` attribute for styling.
+- We've fixed and cleaned up the style of the components.
+- We're deprecating the `toast` component in favor of `sonner`.
+- Buttons now use the default cursor.
+- We're deprecating the `default` style. New projects will use `new-york`.
+- HSL colors are now converted to OKLCH.
+
+**Note: this is non-breaking. Your existing apps with Tailwind v3 will still work. When you add new components, they'll still be in v3 until you upgrade. Only new projects start with Tailwind v4.**
+
+## See it Live
+
+I put together a demo with all the updated components here: https://v4.shadcn-vue.com
+
+Take a look and test the components. If you find any bugs, please let me know on [GitHub](https://github.com/unovue/shadcn-vue).
+
+## Try It Out
+
+See the framework specific guides below for how to get started.
 
 <div class="grid gap-4 mt-8 sm:grid-cols-2 sm:gap-6 not-docs">
   <LinkedCard href="/docs/installation/vite">
@@ -60,50 +99,85 @@ description: How to install dependencies and structure your app.
   </LinkedCard>
 </div>
 
-## TypeScript
+## Upgrade Your Project
 
-This project and the components are written in TypeScript. We recommend using TypeScript for your project as well.
+<Callout class="bg-blue-50 mt-6 border-blue-600 dark:border-blue-900 dark:bg-blue-950 mb-6 [&_code]:bg-blue-100 dark:[&_code]:bg-blue-900 [&_a]:underline [&_a]:underline-offset-4">
 
-However we provide a JavaScript version of the components as well. The JavaScript version is available via the [cli](/docs/cli).
+  **Important:** Before upgrading, please read the [Tailwind v4 Compatibility
+  Docs](https://tailwindcss.com/docs/compatibility) and make sure your project
+  is ready for the upgrade. Tailwind v4 uses bleeding-edge browser features and
+  is designed for modern browsers.
 
-To opt-out of TypeScript, you can use the `typescript` flag in your `components.json` file.
+</Callout>
 
-```json {9} title="components.json"
-{
-  "style": "default",
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/app/globals.css",
-    "baseColor": "zinc",
-    "cssVariables": true
-  },
-  "typescript": false,
-  "aliases": {
-    "utils": "~/lib/utils",
-    "components": "~/components"
+One of the major advantages of using `shadcn-vue` is that the code you end up with is exactly what you'd write yourself. There are no hidden abstractions.
+
+This means when a dependency has a new release, you can just follow the official upgrade paths.
+
+Here's how to upgrade your existing projects (full docs are on the way):
+
+### 1. Follow the Tailwind v4 Upgrade Guide
+
+- Upgrade to Tailwind v4 by following the official upgrade guide: https://tailwindcss.com/docs/upgrade-guide
+- Use the `@tailwindcss/upgrade@next` codemod to remove deprecated utility classes and update tailwind config.
+
+### 2. Update your CSS variables
+
+The codemod will migrate your CSS variables as references under the `@theme` directive.
+
+```css:line-numbers
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
   }
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
 }
 ```
 
-To configure import aliases, you can use the following `jsconfig.json`:
+This works. But to make it easier to work with colors and other variables, we'll need to move the `hsl` wrappers and use `@theme inline`.
 
-```json {4} title="jsconfig.json"
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
+Here's how you do it:
+
+1. Move `:root` and `.dark` out of the `@layer` base.
+2. Wrap the color values in `hsl()`
+3. Add the `inline` option to `@theme` i.e `@theme inline`
+4. Remove the `hsl()` wrappers from `@theme`
+
+```css:line-numbers
+:root {
+  --background: hsl(0 0% 100%); // <-- Wrap in hsl
+  --foreground: hsl(0 0% 3.9%);
+}
+
+.dark {
+  --background: hsl(0 0% 3.9%); // <-- Wrap in hsl
+  --foreground: hsl(0 0% 98%);
+}
+
+@theme inline {
+  --color-background: var(--background); // <-- Remove hsl
+  --color-foreground: var(--foreground);
 }
 ```
 
-## VSCode extension
+This change makes it much simpler to access your theme variables in both utility classes and outside of CSS for eg. using color values in JavaScript.
 
-Install the [shadcn-vue](https://marketplace.visualstudio.com/items?itemName=Selemondev.shadcn-vue) extension by [@selemondev](https://github.com/selemondev) in Visual Studio Code to easily add Shadcn Vue components to your project.
+### 3. Use new `size-*` utility
 
-This extension offers a range of features:
-- Ability to initialize the Shadcn Vue CLI
-- Install components
-- Open documentation
-- Navigate to a specific component's documentation page directly from your IDE.
-- Handy snippets for quick and straightforward component imports and markup.
+The new `size-*` utility (added in Tailwind v3.4), is now fully supported by `tailwind-merge`. You can replace `w-* h-*` with the new `size-*` utility:
+
+```diff
+- w-4 h-4
++ size-4
+```
+
+### 4. Update your dependencies
+
+```bash
+pnpm up reka-ui lucide-vue-next tailwind-merge clsx --latest
+```
