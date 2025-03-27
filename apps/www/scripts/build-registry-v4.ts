@@ -244,8 +244,6 @@ async function buildStyles(registry: Registry) {
       continue
     }
 
-    console.log(item.name)
-
     let metadata: RegistryEntry = {} as any
     let files
     if (item.files) {
@@ -266,7 +264,6 @@ async function buildStyles(registry: Registry) {
 
           let content: string
           try {
-            console.log(path.join(process.cwd(), '../v4/registry/new-york-v4', file.path))
             content = await fs.readFile(
               path.join(process.cwd(), '../v4/registry/new-york-v4', file.path),
               'utf8',

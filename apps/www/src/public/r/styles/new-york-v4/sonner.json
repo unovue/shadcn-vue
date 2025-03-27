@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "ui/sonner/Sonner.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Toaster as Sonner, type ToasterProps } from 'vue-sonner'\n\nconst props = defineProps<ToasterProps>()\n</script>\n\n<template>\n  <Sonner\n    class=\"toaster group\"\n    v-bind=\"props\"\n    :toast-options=\"{\n      classes: {\n        toast:\n          'group toast group-[.toaster]:!bg-background group-[.toaster]:!text-foreground group-[.toaster]:!border-border group-[.toaster]:!shadow-lg',\n        description: 'group-[.toast]:!text-muted-foreground',\n        actionButton:\n          'group-[.toast]:!bg-primary group-[.toast]:!text-primary-foreground font-medium',\n        cancelButton:\n          'group-[.toast]:!bg-muted group-[.toast]:!text-muted-foreground font-medium',\n      },\n    }\"\n  />\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { Toaster as Sonner, type ToasterProps } from 'vue-sonner'\n\nconst props = defineProps<ToasterProps>()\n</script>\n\n<template>\n  <Sonner\n    class=\"toaster group\"\n    v-bind=\"props\"\n    :style=\"{\n      '--normal-bg': 'var(--popover)',\n      '--normal-text': 'var(--popover-foreground)',\n      '--normal-border': 'var(--border)',\n\n    }\"\n  />\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
