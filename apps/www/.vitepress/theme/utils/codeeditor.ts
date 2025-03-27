@@ -11,7 +11,11 @@ export function makeCodeSandboxParams(componentName: string, style: RegistryStyl
   let files: Record<string, any> = {}
   files = constructFiles(componentName, style, sources)
   files['.codesandbox/Dockerfile'] = {
-    content: 'FROM node:20',
+    content: [
+      'FROM node:20',
+      'ENV COREPACK_ENABLE_DOWNLOAD_PROMPT = 0',
+      'RUN corepack enable'
+    ].join('\n'),
   }
   return getParameters({ files, template: 'node' })
 }
