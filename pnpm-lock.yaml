@@ -234,6 +234,9 @@ importers:
       vitepress:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.36.0)(typescript@5.7.3)
+      vitepress-plugin-llms:
+        specifier: ^0.0.14
+        version: 0.0.14
       vue-component-meta:
         specifier: ^2.2.0
         version: 2.2.0(typescript@5.7.3)
@@ -3210,6 +3213,9 @@ packages:
   arg@5.0.2:
     resolution: {integrity: sha512-PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==}
 
+  argparse@1.0.10:
+    resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
+
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
@@ -3580,6 +3586,10 @@ packages:
   codesandbox@2.2.3:
     resolution: {integrity: sha512-IAkWFk6UUglOhSemI7UFgNNL/jgg+1YjVEIllFULLgsaHhFnY51pCqAifMNuAd5d9Zp4Nk/xMgrEaGNV0L4Xlg==}
     hasBin: true
+
+  codsen-utils@1.6.7:
+    resolution: {integrity: sha512-M+9D3IhFAk4T8iATX62herVuIx1sp5kskWgxEegKD/JwTTSSGjGQs5Q5J4vVJ4mLcn1uhfxDYv6Yzr8zleHF3w==}
+    engines: {node: '>=14.18.0'}
 
   color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -4972,6 +4982,10 @@ packages:
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
+  gray-matter@4.0.3:
+    resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
+    engines: {node: '>=6.0'}
+
   gzip-size@7.0.0:
     resolution: {integrity: sha512-O1Ld7Dr+nqPnmGpdhzLmMTQ4vAsD+rHwMm1NLUmoUFFymBOMKxCCrtDxqdBRYXdeEPEi3SyoR4TizJLQrnKBNA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -5014,6 +5028,9 @@ packages:
 
   hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
+
+  html-entities@2.5.3:
+    resolution: {integrity: sha512-D3AfvN7SjhTgBSA8L1BN4FpPzuEd06uy4lHwSoRWr0lndi9BKaNzPLKGOWZ2ocSGguozr08TTb2jhCLHaemruw==}
 
   html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
@@ -5388,6 +5405,10 @@ packages:
   js-tokens@9.0.1:
     resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
 
+  js-yaml@3.14.1:
+    resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
+    hasBin: true
+
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
@@ -5688,6 +5709,10 @@ packages:
 
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+
+  markdown-title@1.0.2:
+    resolution: {integrity: sha512-MqIQVVkz+uGEHi3TsHx/czcxxCbRIL7sv5K5DnYw/tI+apY54IbPefV/cmgxp6LoJSEx/TqcHdLs/298afG5QQ==}
+    engines: {node: '>=6'}
 
   mdast-util-find-and-replace@3.0.1:
     resolution: {integrity: sha512-SG21kZHGC3XRTSUhtofZkBzZTJNM5ecCi0SK2IMKmSXR8vO3peL+kb1O0z7Zl83jKtutG4k5Wv/W7V3/YHvzPA==}
@@ -6795,6 +6820,22 @@ packages:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
 
+  ranges-apply@7.0.19:
+    resolution: {integrity: sha512-imA03KuTSuSpQtq9SDhavUz7BtiddCPj+fsYM/XpdypRN/s8vyTayKzni6m5nYs7VMds1kSNK1V3jfwVrPUWBQ==}
+    engines: {node: '>=14.18.0'}
+
+  ranges-merge@9.0.18:
+    resolution: {integrity: sha512-2+6Eh4yxi5sudUmvCdvxVOSdXIXV+Brfutw8chhZmqkT0REqlzilpyQps1S5n8c7f0+idblqSAHGahTbf/Ar5g==}
+    engines: {node: '>=14.18.0'}
+
+  ranges-push@7.0.18:
+    resolution: {integrity: sha512-wzGHipEklSlY0QloQ88PNt+PkTURIB42PLLcQGY+WyYBlNpnrzps6EYooD3RqNXtdqMQ9kR8IVaF9itRYtuzLA==}
+    engines: {node: '>=14.18.0'}
+
+  ranges-sort@6.0.13:
+    resolution: {integrity: sha512-M3P0/dUnU3ihLPX2jq0MT2NJA1ls/q6cUAUVPD28xdFFqm3VFarPjTKKhnsBSvYCpZD8HdiElAGAyoPu6uOQjA==}
+    engines: {node: '>=14.18.0'}
+
   rc9@2.1.2:
     resolution: {integrity: sha512-btXCnMmRIBINM2LDZoEmOogIZU7Qe7zn4BpomSKZ/ykbLObuBdvG+mFq11DL6fjH1DRwHhrlgtYWG96bJiC7Cg==}
 
@@ -7053,6 +7094,10 @@ packages:
   search-insights@2.17.2:
     resolution: {integrity: sha512-zFNpOpUO+tY2D85KrxJ+aqwnIfdEGi06UH2+xEb+Bp9Mwznmauqc9djbnBibJO5mpfUPPa8st6Sx65+vbeO45g==}
 
+  section-matter@1.0.0:
+    resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
+    engines: {node: '>=4'}
+
   semver-diff@2.1.0:
     resolution: {integrity: sha512-gL8F8L4ORwsS0+iQ34yCYv///jsOq0ZL7WP55d1HnJ32o7tyFYEFQZQA22mrLIacZdU6xecaBBZ+uEiffGNyXw==}
     engines: {node: '>=0.10.0'}
@@ -7240,6 +7285,9 @@ packages:
     resolution: {integrity: sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==}
     engines: {node: '>= 10.x'}
 
+  sprintf-js@1.0.3:
+    resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
+
   ssri@4.1.6:
     resolution: {integrity: sha512-WUbCdgSAMQjTFZRWvSPpauryvREEA+Krn19rx67UlJEJx/M192ZHxMmJXjZ4tkdFm+Sb0SXGlENeQVlA5wY7kA==}
 
@@ -7286,6 +7334,22 @@ packages:
     resolution: {integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==}
     engines: {node: '>=0.6.19'}
 
+  string-collapse-leading-whitespace@7.0.9:
+    resolution: {integrity: sha512-lEuTHlogBT9PWipfk0FOyvoMKX8syiE03QoFk5MDh8oS0AJ2C07IlstR5cGkxz48nKkOIuvkC28w9Rx/cVRNDg==}
+    engines: {node: '>=14.18.0'}
+
+  string-left-right@6.0.20:
+    resolution: {integrity: sha512-dz2mUgmsI7m/FMe+BoxZ2+73X1TUoQvjCdnq8vbIAnHlvWfVZleNUR+lw+QgHA2dlJig+hUWC9bFYdNFGGy2bA==}
+    engines: {node: '>=14.18.0'}
+
+  string-strip-html@13.4.12:
+    resolution: {integrity: sha512-mr1GM1TFcwDkYwLE7TNkHY+Lf3YFEBa19W9KntZoJJSbrKF07W4xmLkPnqf8cypEGyr+dc1H9hsdTw5VSNVGxg==}
+    engines: {node: '>=14.18.0'}
+
+  string-trim-spaces-only@5.0.12:
+    resolution: {integrity: sha512-Un5nIO1av+hzfnKGmY+bWe0AD4WH37TuDW+jeMPm81rUvU2r3VPRj9vEKdZkPmuhYAMuKlzarm7jDSKwJKOcpQ==}
+    engines: {node: '>=14.18.0'}
+
   string-width@2.1.1:
     resolution: {integrity: sha512-nOqH59deCq9SRHlxq1Aw85Jnt4w6KvLKqWVik6oA9ZklXLNIOlqg4F2yrT1MVaTjAqvVwdfeZ7w7aCvJD7ugkw==}
     engines: {node: '>=4'}
@@ -7330,6 +7394,10 @@ packages:
   strip-ansi@7.1.0:
     resolution: {integrity: sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ==}
     engines: {node: '>=12'}
+
+  strip-bom-string@1.0.0:
+    resolution: {integrity: sha512-uCC2VHvQRYu+lMh4My/sFNmF2klFymLX1wHJeXnbEJERpV/ZsVuonzerjfrGpIGF7LBVa1O7i9kjiWvJiFck8g==}
+    engines: {node: '>=0.10.0'}
 
   strip-eof@1.0.0:
     resolution: {integrity: sha512-7FCwGGmx8mD5xQd3RPUvnSpUXHM3BWuzjtpD4TXsfcZ9EL4azvVVUscFYwD9nx8Kh+uCBC00XBtAykoMHwTh8Q==}
@@ -8155,6 +8223,9 @@ packages:
         optional: true
       yaml:
         optional: true
+
+  vitepress-plugin-llms@0.0.14:
+    resolution: {integrity: sha512-9JfQM/vgr5qZ1ZY7JKNCYasLuarqBKjq63CS2QdIyImosAjDlZR/w00CnvKnyiT1bldPvDg9t/uu1OI9C96c4A==}
 
   vitepress@1.6.3:
     resolution: {integrity: sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw==}
@@ -11721,6 +11792,10 @@ snapshots:
 
   arg@5.0.2: {}
 
+  argparse@1.0.10:
+    dependencies:
+      sprintf-js: 1.0.3
+
   argparse@2.0.1: {}
 
   args-tokenizer@0.3.0: {}
@@ -12153,6 +12228,10 @@ snapshots:
       update-notifier: 2.5.0
     transitivePeerDependencies:
       - supports-color
+
+  codsen-utils@1.6.7:
+    dependencies:
+      rfdc: 1.4.1
 
   color-convert@1.9.3:
     dependencies:
@@ -13760,6 +13839,13 @@ snapshots:
 
   graphemer@1.4.0: {}
 
+  gray-matter@4.0.3:
+    dependencies:
+      js-yaml: 3.14.1
+      kind-of: 6.0.3
+      section-matter: 1.0.0
+      strip-bom-string: 1.0.0
+
   gzip-size@7.0.0:
     dependencies:
       duplexer: 0.1.2
@@ -13814,6 +13900,8 @@ snapshots:
   hookable@5.5.3: {}
 
   hosted-git-info@2.8.9: {}
+
+  html-entities@2.5.3: {}
 
   html-tags@3.3.1: {}
 
@@ -14149,6 +14237,11 @@ snapshots:
   js-tokens@9.0.0: {}
 
   js-tokens@9.0.1: {}
+
+  js-yaml@3.14.1:
+    dependencies:
+      argparse: 1.0.10
+      esprima: 4.0.1
 
   js-yaml@4.1.0:
     dependencies:
@@ -14525,6 +14618,8 @@ snapshots:
       uc.micro: 2.1.0
 
   markdown-table@3.0.3: {}
+
+  markdown-title@1.0.2: {}
 
   mdast-util-find-and-replace@3.0.1:
     dependencies:
@@ -15966,6 +16061,25 @@ snapshots:
 
   range-parser@1.2.1: {}
 
+  ranges-apply@7.0.19:
+    dependencies:
+      ranges-merge: 9.0.18
+      tiny-invariant: 1.3.3
+
+  ranges-merge@9.0.18:
+    dependencies:
+      ranges-push: 7.0.18
+      ranges-sort: 6.0.13
+
+  ranges-push@7.0.18:
+    dependencies:
+      codsen-utils: 1.6.7
+      ranges-sort: 6.0.13
+      string-collapse-leading-whitespace: 7.0.9
+      string-trim-spaces-only: 5.0.12
+
+  ranges-sort@6.0.13: {}
+
   rc9@2.1.2:
     dependencies:
       defu: 6.1.4
@@ -16278,6 +16392,11 @@ snapshots:
 
   search-insights@2.17.2: {}
 
+  section-matter@1.0.0:
+    dependencies:
+      extend-shallow: 2.0.1
+      kind-of: 6.0.3
+
   semver-diff@2.1.0:
     dependencies:
       semver: 5.7.2
@@ -16471,6 +16590,8 @@ snapshots:
 
   split2@4.2.0: {}
 
+  sprintf-js@1.0.3: {}
+
   ssri@4.1.6:
     dependencies:
       safe-buffer: 5.2.1
@@ -16511,6 +16632,25 @@ snapshots:
       bare-events: 2.5.0
 
   string-argv@0.3.2: {}
+
+  string-collapse-leading-whitespace@7.0.9: {}
+
+  string-left-right@6.0.20:
+    dependencies:
+      codsen-utils: 1.6.7
+      rfdc: 1.4.1
+
+  string-strip-html@13.4.12:
+    dependencies:
+      '@types/lodash-es': 4.17.12
+      codsen-utils: 1.6.7
+      html-entities: 2.5.3
+      lodash-es: 4.17.21
+      ranges-apply: 7.0.19
+      ranges-push: 7.0.18
+      string-left-right: 6.0.20
+
+  string-trim-spaces-only@5.0.12: {}
 
   string-width@2.1.1:
     dependencies:
@@ -16569,6 +16709,8 @@ snapshots:
   strip-ansi@7.1.0:
     dependencies:
       ansi-regex: 6.1.0
+
+  strip-bom-string@1.0.0: {}
 
   strip-eof@1.0.0: {}
 
@@ -17486,6 +17628,14 @@ snapshots:
       terser: 5.36.0
       tsx: 4.19.2
       yaml: 2.7.0
+
+  vitepress-plugin-llms@0.0.14:
+    dependencies:
+      gray-matter: 4.0.3
+      markdown-title: 1.0.2
+      minimatch: 10.0.1
+      picocolors: 1.1.1
+      string-strip-html: 13.4.12
 
   vitepress@1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.36.0)(typescript@5.7.3):
     dependencies:
