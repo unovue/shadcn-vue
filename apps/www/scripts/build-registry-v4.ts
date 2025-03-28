@@ -359,7 +359,8 @@ async function buildStyles(registry: Registry) {
 // ----------------------------------------------------------------------------
 async function buildStylesIndex() {
   for (const style of styles) {
-    const targetPath = path.join(REGISTRY_PATH, 'styles', style.name)
+    const styleRegistryPath = path.join(process.cwd(), 'src/public/r')
+    const targetPath = path.join(styleRegistryPath, 'styles', 'new-york-v4')
 
     const dependencies = [
       'tw-animate-css',
@@ -373,15 +374,10 @@ async function buildStylesIndex() {
     // }
 
     const payload: RegistryEntry = {
-      name: style.name,
+      name: 'index',
       type: 'registry:style',
       dependencies,
       registryDependencies: ['utils'],
-      tailwind: {
-        config: {
-          plugins: [`require("tailwindcss-animate")`],
-        },
-      },
       cssVars: {},
       files: [],
     }
@@ -770,7 +766,7 @@ try {
   await buildRegistry(result.data)
   // await buildBlockRegistry(result.data)
   await buildStyles(result.data)
-  // await buildStylesIndex()
+  await buildStylesIndex()
   // await buildThemes()
 
   // await buildRegistryIcons()

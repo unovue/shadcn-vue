@@ -2,7 +2,7 @@
   "name": "new-york",
   "type": "registry:style",
   "dependencies": [
-    "tw-animate-css",
+    "tailwindcss-animate",
     "class-variance-authority",
     "lucide-vue-next"
   ],
