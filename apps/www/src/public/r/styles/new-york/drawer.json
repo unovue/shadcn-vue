@@ -5,9 +5,7 @@
     "vaul-vue",
     "reka-ui"
   ],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/drawer/Drawer.vue",

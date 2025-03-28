@@ -421,7 +421,7 @@ export const Index: Record<string, any> = {
       name: "Login02",
       description: "",
       type: "registry:block",
-      registryDependencies: ["utils","button","input","label"],
+      registryDependencies: ["button","input","label"],
       files: [{
         path: "registry/new-york/block/Login02/page.vue",
         type: "registry:page",
@@ -1433,7 +1433,7 @@ export const Index: Record<string, any> = {
       name: "Login02",
       description: "",
       type: "registry:block",
-      registryDependencies: ["utils","button","input","label"],
+      registryDependencies: ["button","input","label"],
       files: [{
         path: "registry/default/block/Login02/page.vue",
         type: "registry:page",

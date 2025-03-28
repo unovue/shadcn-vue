@@ -4,9 +4,7 @@
   "dependencies": [
     "@vueuse/core"
   ],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/textarea/Textarea.vue",

@@ -5,9 +5,7 @@
     "@vueuse/core",
     "reka-ui"
   ],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/resizable/ResizableHandle.vue",

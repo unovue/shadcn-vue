@@ -4,9 +4,7 @@
   "dependencies": [
     "reka-ui"
   ],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/radio-group/RadioGroup.vue",

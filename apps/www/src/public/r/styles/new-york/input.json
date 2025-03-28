@@ -4,9 +4,7 @@
   "dependencies": [
     "@vueuse/core"
   ],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/input/Input.vue",

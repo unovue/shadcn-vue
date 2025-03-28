@@ -5,7 +5,6 @@
     "@tanstack/vue-table"
   ],
   "registryDependencies": [
-    "utils",
     "button",
     "checkbox",
     "dropdown-menu",

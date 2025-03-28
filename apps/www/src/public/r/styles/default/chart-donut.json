@@ -7,7 +7,6 @@
     "@vueuse/core"
   ],
   "registryDependencies": [
-    "utils",
     "chart"
   ],
   "files": [

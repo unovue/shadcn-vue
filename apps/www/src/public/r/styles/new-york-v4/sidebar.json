@@ -6,7 +6,6 @@
     "@vueuse/core"
   ],
   "registryDependencies": [
-    "utils",
     "sheet",
     "input",
     "tooltip",

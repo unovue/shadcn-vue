@@ -3,7 +3,6 @@
   "type": "registry:example",
   "dependencies": [],
   "registryDependencies": [
-    "utils",
     "button",
     "command",
     "popover"

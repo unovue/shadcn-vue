@@ -7,7 +7,6 @@
     "zod"
   ],
   "registryDependencies": [
-    "utils",
     "button",
     "combobox",
     "form",

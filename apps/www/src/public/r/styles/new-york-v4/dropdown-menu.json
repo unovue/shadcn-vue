@@ -5,9 +5,7 @@
     "reka-ui",
     "@vueuse/core"
   ],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/dropdown-menu/DropdownMenu.vue",

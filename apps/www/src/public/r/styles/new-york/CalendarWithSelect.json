@@ -6,7 +6,6 @@
     "reka-ui"
   ],
   "registryDependencies": [
-    "utils",
     "calendar",
     "select"
   ],

@@ -2,7 +2,7 @@
   "name": "default",
   "type": "registry:style",
   "dependencies": [
-    "tailwindcss-animate",
+    "tw-animate-css",
     "class-variance-authority",
     "lucide-vue-next"
   ],

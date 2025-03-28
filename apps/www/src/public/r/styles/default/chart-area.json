@@ -8,7 +8,6 @@
     "reka-ui"
   ],
   "registryDependencies": [
-    "utils",
     "chart"
   ],
   "files": [

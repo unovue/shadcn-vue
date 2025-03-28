@@ -23,7 +23,7 @@ export const Index: Record<string, any> = {
   name: "accordion",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/accordion/Accordion.vue",
     type: "registry:ui",
@@ -54,7 +54,7 @@ export const Index: Record<string, any> = {
   name: "alert",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/alert/Alert.vue",
     type: "registry:ui",
@@ -81,7 +81,7 @@ export const Index: Record<string, any> = {
   name: "alert-dialog",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","button"],
+  registryDependencies: ["button"],
   files: [{
     path: "registry/new-york-v4/ui/alert-dialog/AlertDialog.vue",
     type: "registry:ui",
@@ -151,7 +151,7 @@ export const Index: Record<string, any> = {
   name: "avatar",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/avatar/Avatar.vue",
     type: "registry:ui",
@@ -178,7 +178,7 @@ export const Index: Record<string, any> = {
   name: "badge",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/badge/Badge.vue",
     type: "registry:ui",
@@ -197,7 +197,7 @@ export const Index: Record<string, any> = {
   name: "breadcrumb",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/breadcrumb/Breadcrumb.vue",
     type: "registry:ui",
@@ -240,7 +240,7 @@ export const Index: Record<string, any> = {
   name: "button",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/button/Button.vue",
     type: "registry:ui",
@@ -259,7 +259,7 @@ export const Index: Record<string, any> = {
   name: "calendar",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","button"],
+  registryDependencies: ["button"],
   files: [{
     path: "registry/new-york-v4/ui/calendar/Calendar.vue",
     type: "registry:ui",
@@ -322,7 +322,7 @@ export const Index: Record<string, any> = {
   name: "card",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/card/Card.vue",
     type: "registry:ui",
@@ -365,7 +365,7 @@ export const Index: Record<string, any> = {
   name: "carousel",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","button"],
+  registryDependencies: ["button"],
   files: [{
     path: "registry/new-york-v4/ui/carousel/Carousel.vue",
     type: "registry:ui",
@@ -408,7 +408,7 @@ export const Index: Record<string, any> = {
   name: "checkbox",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/checkbox/Checkbox.vue",
     type: "registry:ui",
@@ -454,7 +454,7 @@ export const Index: Record<string, any> = {
   name: "combobox",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/combobox/Combobox.vue",
     type: "registry:ui",
@@ -513,7 +513,7 @@ export const Index: Record<string, any> = {
   name: "command",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","dialog"],
+  registryDependencies: ["dialog"],
   files: [{
     path: "registry/new-york-v4/ui/command/Command.vue",
     type: "registry:ui",
@@ -564,7 +564,7 @@ export const Index: Record<string, any> = {
   name: "context-menu",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/context-menu/ContextMenu.vue",
     type: "registry:ui",
@@ -639,7 +639,7 @@ export const Index: Record<string, any> = {
   name: "dialog",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/dialog/Dialog.vue",
     type: "registry:ui",
@@ -694,7 +694,7 @@ export const Index: Record<string, any> = {
   name: "drawer",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/drawer/Drawer.vue",
     type: "registry:ui",
@@ -745,7 +745,7 @@ export const Index: Record<string, any> = {
   name: "dropdown-menu",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/dropdown-menu/DropdownMenu.vue",
     type: "registry:ui",
@@ -816,7 +816,7 @@ export const Index: Record<string, any> = {
   name: "form",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","label"],
+  registryDependencies: ["label"],
   files: [{
     path: "registry/new-york-v4/ui/form/FormControl.vue",
     type: "registry:ui",
@@ -859,7 +859,7 @@ export const Index: Record<string, any> = {
   name: "hover-card",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/hover-card/HoverCard.vue",
     type: "registry:ui",
@@ -886,7 +886,7 @@ export const Index: Record<string, any> = {
   name: "input",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/input/Input.vue",
     type: "registry:ui",
@@ -905,7 +905,7 @@ export const Index: Record<string, any> = {
   name: "label",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/label/Label.vue",
     type: "registry:ui",
@@ -924,7 +924,7 @@ export const Index: Record<string, any> = {
   name: "menubar",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/menubar/Menubar.vue",
     type: "registry:ui",
@@ -999,7 +999,7 @@ export const Index: Record<string, any> = {
   name: "navigation-menu",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/navigation-menu/NavigationMenu.vue",
     type: "registry:ui",
@@ -1046,7 +1046,7 @@ export const Index: Record<string, any> = {
   name: "number-field",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/number-field/NumberField.vue",
     type: "registry:ui",
@@ -1081,7 +1081,7 @@ export const Index: Record<string, any> = {
   name: "pagination",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","button"],
+  registryDependencies: ["button"],
   files: [{
     path: "registry/new-york-v4/ui/pagination/Pagination.vue",
     type: "registry:ui",
@@ -1128,7 +1128,7 @@ export const Index: Record<string, any> = {
   name: "pin-input",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/pin-input/PinInput.vue",
     type: "registry:ui",
@@ -1159,7 +1159,7 @@ export const Index: Record<string, any> = {
   name: "popover",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/popover/Popover.vue",
     type: "registry:ui",
@@ -1190,7 +1190,7 @@ export const Index: Record<string, any> = {
   name: "progress",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/progress/Progress.vue",
     type: "registry:ui",
@@ -1209,7 +1209,7 @@ export const Index: Record<string, any> = {
   name: "radio-group",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/radio-group/RadioGroup.vue",
     type: "registry:ui",
@@ -1232,7 +1232,7 @@ export const Index: Record<string, any> = {
   name: "range-calendar",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","button"],
+  registryDependencies: ["button"],
   files: [{
     path: "registry/new-york-v4/ui/range-calendar/RangeCalendar.vue",
     type: "registry:ui",
@@ -1295,7 +1295,7 @@ export const Index: Record<string, any> = {
   name: "resizable",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/resizable/ResizableHandle.vue",
     type: "registry:ui",
@@ -1322,7 +1322,7 @@ export const Index: Record<string, any> = {
   name: "scroll-area",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/scroll-area/ScrollArea.vue",
     type: "registry:ui",
@@ -1345,7 +1345,7 @@ export const Index: Record<string, any> = {
   name: "select",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/select/Select.vue",
     type: "registry:ui",
@@ -1404,7 +1404,7 @@ export const Index: Record<string, any> = {
   name: "separator",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/separator/Separator.vue",
     type: "registry:ui",
@@ -1423,7 +1423,7 @@ export const Index: Record<string, any> = {
   name: "sheet",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/sheet/Sheet.vue",
     type: "registry:ui",
@@ -1474,7 +1474,7 @@ export const Index: Record<string, any> = {
   name: "sidebar",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils","sheet","input","tooltip","skeleton","separator","button"],
+  registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
   files: [{
     path: "registry/new-york-v4/ui/sidebar/Sidebar.vue",
     type: "registry:ui",
@@ -1589,7 +1589,7 @@ export const Index: Record<string, any> = {
   name: "skeleton",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/skeleton/Skeleton.vue",
     type: "registry:ui",
@@ -1608,7 +1608,7 @@ export const Index: Record<string, any> = {
   name: "slider",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/slider/Slider.vue",
     type: "registry:ui",
@@ -1646,7 +1646,7 @@ export const Index: Record<string, any> = {
   name: "stepper",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/stepper/Stepper.vue",
     type: "registry:ui",
@@ -1689,7 +1689,7 @@ export const Index: Record<string, any> = {
   name: "switch",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/switch/Switch.vue",
     type: "registry:ui",
@@ -1708,7 +1708,7 @@ export const Index: Record<string, any> = {
   name: "table",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/table/Table.vue",
     type: "registry:ui",
@@ -1759,7 +1759,7 @@ export const Index: Record<string, any> = {
   name: "tabs",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/tabs/Tabs.vue",
     type: "registry:ui",
@@ -1790,7 +1790,7 @@ export const Index: Record<string, any> = {
   name: "tags-input",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/tags-input/TagsInput.vue",
     type: "registry:ui",
@@ -1825,7 +1825,7 @@ export const Index: Record<string, any> = {
   name: "textarea",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/textarea/Textarea.vue",
     type: "registry:ui",
@@ -1844,7 +1844,7 @@ export const Index: Record<string, any> = {
   name: "toggle",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/toggle/Toggle.vue",
     type: "registry:ui",
@@ -1863,7 +1863,7 @@ export const Index: Record<string, any> = {
   name: "toggle-group",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["toggle","utils"],
+  registryDependencies: ["toggle"],
   files: [{
     path: "registry/new-york-v4/ui/toggle-group/ToggleGroup.vue",
     type: "registry:ui",
@@ -1886,7 +1886,7 @@ export const Index: Record<string, any> = {
   name: "tooltip",
   description: "",
   type: "registry:ui",
-  registryDependencies: ["utils"],
+  registryDependencies: [],
   files: [{
     path: "registry/new-york-v4/ui/tooltip/Tooltip.vue",
     type: "registry:ui",

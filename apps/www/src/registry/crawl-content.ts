@@ -326,7 +326,8 @@ async function getFileDependencies(filename: string, sourceCode: string) {
 
     if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith('.vue')) {
       const component = source.split('/').at(-1)!
-      registryDependencies.add(component)
+      if (component !== 'utils')
+        registryDependencies.add(component)
     }
   }
 

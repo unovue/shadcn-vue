@@ -5,8 +5,7 @@
     "reka-ui"
   ],
   "registryDependencies": [
-    "toggle",
-    "utils"
+    "toggle"
   ],
   "files": [
     {
