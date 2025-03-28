@@ -77,29 +77,31 @@ export async function getRegistryItem(name: string, style: string) {
   }
 }
 
+export const BASE_COLORS = [
+  {
+    name: 'neutral',
+    label: 'Neutral',
+  },
+  {
+    name: 'gray',
+    label: 'Gray',
+  },
+  {
+    name: 'zinc',
+    label: 'Zinc',
+  },
+  {
+    name: 'stone',
+    label: 'Stone',
+  },
+  {
+    name: 'slate',
+    label: 'Slate',
+  },
+] as const
+
 export async function getRegistryBaseColors() {
-  return [
-    {
-      name: 'neutral',
-      label: 'Neutral',
-    },
-    {
-      name: 'gray',
-      label: 'Gray',
-    },
-    {
-      name: 'zinc',
-      label: 'Zinc',
-    },
-    {
-      name: 'stone',
-      label: 'Stone',
-    },
-    {
-      name: 'slate',
-      label: 'Slate',
-    },
-  ]
+  return BASE_COLORS
 }
 
 export async function getRegistryBaseColor(baseColor: string) {

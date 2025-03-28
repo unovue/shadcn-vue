@@ -362,7 +362,7 @@ async function buildStylesIndex() {
     const targetPath = path.join(REGISTRY_PATH, 'styles', style.name)
 
     const dependencies = [
-      'tailwindcss-animate',
+      'tw-animate-css',
       'class-variance-authority',
       'lucide-vue-next',
     ]

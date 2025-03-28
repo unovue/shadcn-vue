@@ -16,7 +16,7 @@ import { getProjectConfig, getProjectInfo, getProjectTailwindVersionFromConfig }
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
-import { getRegistryBaseColors, getRegistryStyles } from '@/src/utils/registry'
+import { BASE_COLORS, getRegistryBaseColors, getRegistryStyles } from '@/src/utils/registry'
 import { spinner } from '@/src/utils/spinner'
 import { updateTailwindContent } from '@/src/utils/updaters/update-tailwind-content'
 import { Command } from 'commander'
@@ -33,6 +33,24 @@ export const initOptionsSchema = z.object({
   silent: z.boolean(),
   isNewProject: z.boolean(),
   srcDir: z.boolean().optional(),
+  cssVariables: z.boolean(),
+  baseColor: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return BASE_COLORS.find(color => color.name === val)
+        }
+
+        return true
+      },
+      {
+        message: `Invalid base color. Please use '${BASE_COLORS.map(
+          color => color.name,
+        ).join('\', \'')}'`,
+      },
+    ),
 })
 
 export const init = new Command()
@@ -51,11 +69,13 @@ export const init = new Command()
     process.cwd(),
   )
   .option('-s, --silent', 'mute output.', false)
-  .option(
-    '--src-dir',
-    'use the src directory when creating a new project.',
-    false,
-  )
+  // .option(
+  //   '--src-dir',
+  //   'use the src directory when creating a new project.',
+  //   false,
+  // )
+  .option('--css-variables', 'use css variables for theming.', true)
+  .option('--no-css-variables', 'do not use css variables for theming.')
   .action(async (components, opts) => {
     try {
       const options = initOptionsSchema.parse({
@@ -291,7 +311,7 @@ async function promptForMinimalConfig(
         initial: 0,
       },
       {
-        type: 'select',
+        type: opts.baseColor ? null : 'select',
         name: 'tailwindBaseColor',
         message: `Which color would you like to use as the ${highlighter.info(
           'base color',
@@ -301,21 +321,11 @@ async function promptForMinimalConfig(
           value: color.name,
         })),
       },
-      {
-        type: 'toggle',
-        name: 'tailwindCssVariables',
-        message: `Would you like to use ${highlighter.info(
-          'CSS variables',
-        )} for theming?`,
-        initial: defaultConfig?.tailwind.cssVariables,
-        active: 'yes',
-        inactive: 'no',
-      },
     ])
 
     style = options.style ?? 'new-york'
-    baseColor = options.tailwindBaseColor
-    cssVariables = options.tailwindCssVariables
+    baseColor = options.tailwindBaseColor ?? baseColor
+    cssVariables = opts.cssVariables
   }
 
   return rawConfigSchema.parse({

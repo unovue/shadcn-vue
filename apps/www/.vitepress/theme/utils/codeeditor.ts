@@ -96,7 +96,7 @@ function constructFiles(componentName: string, style: RegistryStyle, sources: Re
     'clsx': 'latest',
     'class-variance-authority': 'latest',
     'tailwind-merge': 'latest',
-    'tailwindcss-animate': 'latest',
+    'tw-animate-css': 'latest',
     'lucide-vue-next': 'latest',
     'shadcn-vue': 'latest',
     'typescript': 'latest',
