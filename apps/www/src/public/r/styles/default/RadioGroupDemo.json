@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/RadioGroupDemo.vue",
+      "path": "examples/RadioGroupDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/default/ui/label'\nimport { RadioGroup, RadioGroupItem } from '@/registry/default/ui/radio-group'\n</script>\n\n<template>\n  <RadioGroup default-value=\"comfortable\">\n    <div class=\"flex items-center space-x-2\">\n      <RadioGroupItem id=\"r1\" value=\"default\" />\n      <Label for=\"r1\">Default</Label>\n    </div>\n    <div class=\"flex items-center space-x-2\">\n      <RadioGroupItem id=\"r2\" value=\"comfortable\" />\n      <Label for=\"r2\">Comfortable</Label>\n    </div>\n    <div class=\"flex items-center space-x-2\">\n      <RadioGroupItem id=\"r3\" value=\"compact\" />\n      <Label for=\"r3\">Compact</Label>\n    </div>\n  </RadioGroup>\n</template>\n",
       "type": "registry:example",
       "target": ""

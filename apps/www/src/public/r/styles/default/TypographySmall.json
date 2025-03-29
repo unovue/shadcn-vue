@@ -5,7 +5,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "example/TypographySmall.vue",
+      "path": "examples/TypographySmall.vue",
       "content": "<template>\n  <small class=\"text-sm font-medium leading-none\">\n    Email address\n  </small>\n</template>\n",
       "type": "registry:example",
       "target": ""

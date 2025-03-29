@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/BadgeSecondaryDemo.vue",
+      "path": "examples/BadgeSecondaryDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/registry/default/ui/badge'\n</script>\n\n<template>\n  <Badge variant=\"secondary\">\n    Secondary\n  </Badge>\n</template>\n",
       "type": "registry:example",
       "target": ""

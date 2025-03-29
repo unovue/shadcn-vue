@@ -5,7 +5,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "example/TypographyH2.vue",
+      "path": "examples/TypographyH2.vue",
       "content": "<template>\n  <h2\n    class=\"scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0\"\n  >\n    The People of the Kingdom\n  </h2>\n</template>\n",
       "type": "registry:example",
       "target": ""

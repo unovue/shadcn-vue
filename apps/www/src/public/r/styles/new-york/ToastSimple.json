@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/ToastSimple.vue",
+      "path": "examples/ToastSimple.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { useToast } from '@/registry/new-york/ui/toast/use-toast'\n\nconst { toast } = useToast()\n</script>\n\n<template>\n  <Button\n    variant=\"outline\" @click=\"() => {\n      toast({\n        description: 'Your message has been sent.',\n      });\n    }\"\n  >\n    Show Toast\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""

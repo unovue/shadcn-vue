@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/BarChartCustomTooltip.vue",
+      "path": "examples/BarChartCustomTooltip.vue",
       "content": "<script setup lang=\"ts\">\nimport { BarChart } from '@/registry/new-york/ui/chart-bar'\nimport CustomChartTooltip from './CustomChartTooltip.vue'\n\nconst data = [\n  { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Feb', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Mar', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Apr', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'May', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Jun', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Jul', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n]\n</script>\n\n<template>\n  <BarChart\n    :data=\"data\"\n    index=\"name\"\n    :categories=\"['total', 'predicted']\"\n    :y-formatter=\"(tick, i) => {\n      return typeof tick === 'number'\n        ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`\n        : ''\n    }\"\n    :custom-tooltip=\"CustomChartTooltip\"\n  />\n</template>\n",
       "type": "registry:example",
       "target": ""

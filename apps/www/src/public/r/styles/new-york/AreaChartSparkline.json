@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/AreaChartSparkline.vue",
+      "path": "examples/AreaChartSparkline.vue",
       "content": "<script setup lang=\"ts\">\nimport { AreaChart } from '@/registry/new-york/ui/chart-area'\nimport { CurveType } from '@unovis/ts'\n\nconst data = [\n  { name: 'Jan', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Feb', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Mar', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Apr', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'May', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Jun', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Jul', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Aug', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Sep', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Oct', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Nov', total: Math.floor(Math.random() * 2000) + 1000 },\n  { name: 'Dec', total: Math.floor(Math.random() * 2000) + 1000 },\n]\n</script>\n\n<template>\n  <AreaChart\n    class=\"h-[100px] w-[400px]\"\n    index=\"name\"\n    :data=\"data\"\n    :categories=\"['total']\"\n    :show-grid-line=\"false\"\n    :show-legend=\"false\"\n    :show-x-axis=\"false\"\n    :show-y-axis=\"false\"\n    :curve-type=\"CurveType.Linear\"\n  />\n</template>\n",
       "type": "registry:example",
       "target": ""

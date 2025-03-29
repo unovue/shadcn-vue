@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/CalendarDemo.vue",
+      "path": "examples/CalendarDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Calendar } from '@/registry/new-york/ui/calendar'\nimport { type DateValue, getLocalTimeZone, today } from '@internationalized/date'\nimport { type Ref, ref } from 'vue'\n\nconst value = ref(today(getLocalTimeZone())) as Ref<DateValue>\n</script>\n\n<template>\n  <Calendar v-model=\"value\" :weekday-format=\"'short'\" class=\"rounded-md border\" />\n</template>\n",
       "type": "registry:example",
       "target": ""

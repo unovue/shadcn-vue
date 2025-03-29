@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/ButtonWithIconDemo.vue",
+      "path": "examples/ButtonWithIconDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { MailOpen } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Button>\n    <MailOpen class=\"w-4 h-4 mr-2\" /> Login with Email\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""

@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/TooltipDemo.vue",
+      "path": "examples/TooltipDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from '@/registry/default/ui/tooltip'\n</script>\n\n<template>\n  <TooltipProvider>\n    <Tooltip>\n      <TooltipTrigger as-child>\n        <Button variant=\"outline\">\n          Hover\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        <p>Add to library</p>\n      </TooltipContent>\n    </Tooltip>\n  </TooltipProvider>\n</template>\n",
       "type": "registry:example",
       "target": ""

@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/AlertDialogDemo.vue",
+      "path": "examples/AlertDialogDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogTitle,\n  AlertDialogTrigger,\n} from '@/registry/new-york/ui/alert-dialog'\nimport { Button } from '@/registry/new-york/ui/button'\n</script>\n\n<template>\n  <AlertDialog>\n    <AlertDialogTrigger as-child>\n      <Button variant=\"outline\">\n        Show Dialog\n      </Button>\n    </AlertDialogTrigger>\n    <AlertDialogContent>\n      <AlertDialogHeader>\n        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>\n        <AlertDialogDescription>\n          This action cannot be undone. This will permanently delete your\n          account and remove your data from our servers.\n        </AlertDialogDescription>\n      </AlertDialogHeader>\n      <AlertDialogFooter>\n        <AlertDialogCancel>Cancel</AlertDialogCancel>\n        <AlertDialogAction>Continue</AlertDialogAction>\n      </AlertDialogFooter>\n    </AlertDialogContent>\n  </AlertDialog>\n</template>\n",
       "type": "registry:example",
       "target": ""

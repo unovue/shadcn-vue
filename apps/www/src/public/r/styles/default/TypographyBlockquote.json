@@ -5,7 +5,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "example/TypographyBlockquote.vue",
+      "path": "examples/TypographyBlockquote.vue",
       "content": "<template>\n  <blockquote class=\"mt-6 border-l-2 pl-6 italic\">\n    \"After all,\" he said, \"everyone enjoys a good joke, so it's only fair that\n    they should pay for the privilege.\"\n  </blockquote>\n</template>\n",
       "type": "registry:example",
       "target": ""

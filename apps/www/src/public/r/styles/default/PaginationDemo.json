@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/PaginationDemo.vue",
+      "path": "examples/PaginationDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport {\n  Button,\n} from '@/registry/default/ui/button'\n\nimport {\n  Pagination,\n  PaginationEllipsis,\n  PaginationFirst,\n  PaginationLast,\n  PaginationList,\n  PaginationListItem,\n  PaginationNext,\n  PaginationPrev,\n} from '@/registry/default/ui/pagination'\n</script>\n\n<template>\n  <Pagination v-slot=\"{ page }\" :items-per-page=\"10\" :total=\"100\" :sibling-count=\"1\" show-edges :default-page=\"2\">\n    <PaginationList v-slot=\"{ items }\" class=\"flex items-center gap-1\">\n      <PaginationFirst />\n      <PaginationPrev />\n\n      <template v-for=\"(item, index) in items\">\n        <PaginationListItem v-if=\"item.type === 'page'\" :key=\"index\" :value=\"item.value\" as-child>\n          <Button class=\"w-10 h-10 p-0\" :variant=\"item.value === page ? 'default' : 'outline'\">\n            {{ item.value }}\n          </Button>\n        </PaginationListItem>\n        <PaginationEllipsis v-else :key=\"item.type\" :index=\"index\" />\n      </template>\n\n      <PaginationNext />\n      <PaginationLast />\n    </PaginationList>\n  </Pagination>\n</template>\n",
       "type": "registry:example",
       "target": ""

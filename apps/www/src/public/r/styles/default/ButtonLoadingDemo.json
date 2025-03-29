@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/ButtonLoadingDemo.vue",
+      "path": "examples/ButtonLoadingDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/default/ui/button'\nimport { Loader2 } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Button disabled>\n    <Loader2 class=\"w-4 h-4 mr-2 animate-spin\" />\n    Please wait\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""

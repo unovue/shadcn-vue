@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/CheckboxDemo.vue",
+      "path": "examples/CheckboxDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Checkbox } from '@/registry/new-york/ui/checkbox'\n</script>\n\n<template>\n  <div class=\"flex items-center space-x-2\">\n    <Checkbox id=\"terms\" />\n    <label\n      for=\"terms\"\n      class=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n    >\n      Accept terms and conditions\n    </label>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

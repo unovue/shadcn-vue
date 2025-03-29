@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/TextareaDisabled.vue",
+      "path": "examples/TextareaDisabled.vue",
       "content": "<script setup lang=\"ts\">\nimport { Textarea } from '@/registry/default/ui/textarea'\n</script>\n\n<template>\n  <Textarea placeholder=\"Type your message here.\" disabled />\n</template>\n",
       "type": "registry:example",
       "target": ""

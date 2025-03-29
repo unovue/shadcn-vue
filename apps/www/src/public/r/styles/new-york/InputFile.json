@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/InputFile.vue",
+      "path": "examples/InputFile.vue",
       "content": "<script setup lang=\"ts\">\nimport { Input } from '@/registry/new-york/ui/input'\nimport { Label } from '@/registry/new-york/ui/label'\n</script>\n\n<template>\n  <div class=\"grid w-full max-w-sm items-center gap-1.5\">\n    <Label for=\"picture\">Picture</Label>\n    <Input id=\"picture\" type=\"file\" />\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

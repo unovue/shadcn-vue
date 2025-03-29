@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/TagsInputDemo.vue",
+      "path": "examples/TagsInputDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/default/ui/tags-input'\nimport { ref } from 'vue'\n\nconst modelValue = ref(['Apple', 'Banana'])\n</script>\n\n<template>\n  <TagsInput v-model=\"modelValue\">\n    <TagsInputItem v-for=\"item in modelValue\" :key=\"item\" :value=\"item\">\n      <TagsInputItemText />\n      <TagsInputItemDelete />\n    </TagsInputItem>\n\n    <TagsInputInput placeholder=\"Fruits...\" />\n  </TagsInput>\n</template>\n",
       "type": "registry:example",
       "target": ""

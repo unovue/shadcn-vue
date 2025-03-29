@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/ButtonOutlineDemo.vue",
+      "path": "examples/ButtonOutlineDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\n</script>\n\n<template>\n  <Button variant=\"outline\">\n    Outline\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""

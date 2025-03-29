@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/SelectDemo.vue",
+      "path": "examples/SelectDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from '@/registry/new-york/ui/select'\n</script>\n\n<template>\n  <Select>\n    <SelectTrigger class=\"w-[180px]\">\n      <SelectValue placeholder=\"Select a fruit\" />\n    </SelectTrigger>\n    <SelectContent>\n      <SelectGroup>\n        <SelectLabel>Fruits</SelectLabel>\n        <SelectItem value=\"apple\">\n          Apple\n        </SelectItem>\n        <SelectItem value=\"banana\">\n          Banana\n        </SelectItem>\n        <SelectItem value=\"blueberry\">\n          Blueberry\n        </SelectItem>\n        <SelectItem value=\"grapes\">\n          Grapes\n        </SelectItem>\n        <SelectItem value=\"pineapple\">\n          Pineapple\n        </SelectItem>\n      </SelectGroup>\n    </SelectContent>\n  </Select>\n</template>\n",
       "type": "registry:example",
       "target": ""
