@@ -44,7 +44,7 @@ const activeTeam = ref(props.teams[0])
               <component :is="activeTeam.logo" class="size-4" />
             </div>
             <div class="grid flex-1 text-left text-sm leading-tight">
-              <span class="truncate font-semibold">
+              <span class="truncate font-medium">
                 {{ activeTeam.name }}
               </span>
               <span class="truncate text-xs">{{ activeTeam.plan }}</span>

@@ -56,7 +56,7 @@ const activeTeam = ref(props.teams[0])
             class="gap-2 p-2"
             @click="activeTeam = team"
           >
-            <div class="flex size-6 items-center justify-center rounded-sm border">
+            <div class="flex size-6 items-center justify-center rounded-xs border">
               <component :is="team.logo" class="size-4 shrink-0" />
             </div>
             {{ team.name }}

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SearchForm from '@/registry/new-york-v4/block/Sidebar02/components/SearchForm.vue'
-import VersionSwitcher from '@/registry/new-york-v4/block/Sidebar02/components/VersionSwitcher.vue'
+import SearchForm from '@/registry/new-york-v4/blocks/Sidebar02/components/SearchForm.vue'
+import VersionSwitcher from '@/registry/new-york-v4/blocks/Sidebar02/components/VersionSwitcher.vue'
 import {
   Collapsible,
   CollapsibleContent,

@@ -4,8 +4,8 @@ export const description = 'A left and right sidebar.'
 </script>
 
 <script setup lang="ts">
-import SidebarLeft from '@/registry/new-york-v4/block/Sidebar15/components/SidebarLeft.vue'
-import SidebarRight from '@/registry/new-york-v4/block/Sidebar15/components/SidebarRight.vue'
+import SidebarLeft from '@/registry/new-york-v4/blocks/Sidebar15/components/SidebarLeft.vue'
+import SidebarRight from '@/registry/new-york-v4/blocks/Sidebar15/components/SidebarRight.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -27,7 +27,10 @@ import {
       <header class="sticky top-0 flex h-14 shrink-0 items-center gap-2 bg-background">
         <div class="flex flex-1 items-center gap-2 px-3">
           <SidebarTrigger />
-          <Separator orientation="vertical" class="mr-2 h-4" />
+          <Separator
+            orientation="vertical"
+            class="mr-2 data-[orientation=vertical]:h-4"
+          />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>

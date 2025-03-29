@@ -11,25 +11,27 @@ import { SidebarInput } from '@/registry/new-york-v4/ui/sidebar'
 </script>
 
 <template>
-  <Card class="shadow-none">
-    <form>
-      <CardHeader class="p-4 pb-0">
-        <CardTitle class="text-sm">
-          Subscribe to our newsletter
-        </CardTitle>
-        <CardDescription>
-          Opt-in to receive updates and news about the sidebar.
-        </CardDescription>
-      </CardHeader>
-      <CardContent class="grid gap-2.5 p-4">
-        <SidebarInput type="email" placeholder="Email" />
-        <Button
-          class="w-full bg-sidebar-primary text-sidebar-primary-foreground shadow-none"
-          size="sm"
-        >
-          Subscribe
-        </Button>
-      </CardContent>
-    </form>
+  <Card class="gap-2 py-4 shadow-none">
+    <CardHeader class="px-4">
+      <CardTitle class="text-sm">
+        Subscribe to our newsletter
+      </CardTitle>
+      <CardDescription>
+        Opt-in to receive updates and news about the sidebar.
+      </CardDescription>
+    </CardHeader>
+    <CardContent class="px-4">
+      <form>
+        <div class="grid gap-2.5">
+          <SidebarInput type="email" placeholder="Email" />
+          <Button
+            class="bg-sidebar-primary text-sidebar-primary-foreground w-full shadow-none"
+            size="sm"
+          >
+            Subscribe
+          </Button>
+        </div>
+      </form>
+    </CardContent>
   </Card>
 </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NavMain from '@/registry/new-york-v4/blocks/Sidebar08/components/NavMain.vue'
+import NavMain from '@/registry/new-york-v4/blocks/Sidebar16/components/NavMain.vue'
 
-import NavProjects from '@/registry/new-york-v4/blocks/Sidebar08/components/NavProjects.vue'
-import NavSecondary from '@/registry/new-york-v4/blocks/Sidebar08/components/NavSecondary.vue'
-import NavUser from '@/registry/new-york-v4/blocks/Sidebar08/components/NavUser.vue'
+import NavProjects from '@/registry/new-york-v4/blocks/Sidebar16/components/NavProjects.vue'
+import NavSecondary from '@/registry/new-york-v4/blocks/Sidebar16/components/NavSecondary.vue'
+import NavUser from '@/registry/new-york-v4/blocks/Sidebar16/components/NavUser.vue'
 import {
   Sidebar,
   SidebarContent,
@@ -27,9 +27,7 @@ import {
   SquareTerminal,
 } from 'lucide-vue-next'
 
-const props = withDefaults(defineProps<SidebarProps>(), {
-  variant: 'inset',
-})
+const props = defineProps<SidebarProps>()
 
 const data = {
   user: {
@@ -157,13 +155,16 @@ const data = {
 </script>
 
 <template>
-  <Sidebar v-bind="props">
+  <Sidebar
+    class="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
+    v-bind="props"
+  >
     <SidebarHeader>
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
             <a href="#">
-              <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <div class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                 <Command class="size-4" />
               </div>
               <div class="grid flex-1 text-left text-sm leading-tight">

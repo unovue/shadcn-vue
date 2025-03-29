@@ -172,7 +172,7 @@ const data = {
                 <GalleryVerticalEnd class="size-4" />
               </div>
               <div class="flex flex-col gap-0.5 leading-none">
-                <span class="font-semibold">Documentation</span>
+                <span class="font-medium">Documentation</span>
                 <span class="">v1.0.0</span>
               </div>
             </a>
@@ -189,7 +189,7 @@ const data = {
                 {{ item.title }}
               </a>
             </SidebarMenuButton>
-            <SidebarMenuSub v-if="item.items.length">
+            <SidebarMenuSub v-if="item.items.length" class="ml-0 border-l-0 px-1.5">
               <SidebarMenuSubItem v-for="childItem in item.items" :key="childItem.title">
                 <SidebarMenuSubButton as-child :is-active="childItem.isActive">
                   <a :href="childItem.url">{{ childItem.title }}</a>

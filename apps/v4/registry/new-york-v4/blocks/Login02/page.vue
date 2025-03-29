@@ -3,7 +3,7 @@ export const description = 'A two column login page with a cover image.'
 </script>
 
 <script setup lang="ts">
-import LoginForm from '@/registry/new-york-v4/block/Login02/components/LoginForm.vue'
+import LoginForm from '@/registry/new-york-v4/blocks/Login02/components/LoginForm.vue'
 import { GalleryVerticalEnd } from 'lucide-vue-next'
 </script>
 
@@ -12,8 +12,8 @@ import { GalleryVerticalEnd } from 'lucide-vue-next'
     <div class="flex flex-col gap-4 p-6 md:p-10">
       <div class="flex justify-center gap-2 md:justify-start">
         <a href="#" class="flex items-center gap-2 font-medium">
-          <div class="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <GalleryVerticalEnd class-name="size-4" />
+          <div class="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
+            <GalleryVerticalEnd class="size-4" />
           </div>
           Acme Inc.
         </a>
@@ -24,7 +24,7 @@ import { GalleryVerticalEnd } from 'lucide-vue-next'
         </div>
       </div>
     </div>
-    <div class="relative hidden bg-muted lg:block">
+    <div class="bg-muted relative hidden lg:block">
       <img
         src="/placeholder.svg"
         alt="Image"

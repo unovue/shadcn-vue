@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import NavMain from '@/registry/new-york-v4/block/Sidebar06/components/NavMain.vue'
-import SidebarOptInForm from '@/registry/new-york-v4/block/Sidebar06/components/SidebarOptInForm.vue'
+import NavMain from '@/registry/new-york-v4/blocks/Sidebar06/components/NavMain.vue'
+import SidebarOptInForm from '@/registry/new-york-v4/blocks/Sidebar06/components/SidebarOptInForm.vue'
 
 import {
   Sidebar,
@@ -160,7 +160,7 @@ const data = {
                 <GalleryVerticalEnd class="size-4" />
               </div>
               <div class="flex flex-col gap-0.5 leading-none">
-                <span class="font-semibold">Documentation</span>
+                <span class="font-medium">Documentation</span>
                 <span class="">v1.0.0</span>
               </div>
             </a>

@@ -18,9 +18,9 @@ import {
 } from '@/registry/new-york-v4/ui/sidebar'
 import {
   Folder,
-  Forward,
   type LucideIcon,
   MoreHorizontal,
+  Share,
   Trash2,
 } from 'lucide-vue-next'
 
@@ -54,7 +54,7 @@ const { isMobile } = useSidebar()
             </SidebarMenuAction>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            class="w-48 rounded-lg"
+            class="w-48"
             :side="isMobile ? 'bottom' : 'right'"
             :align="isMobile ? 'end' : 'start'"
           >
@@ -63,7 +63,7 @@ const { isMobile } = useSidebar()
               <span>View Project</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Forward class="text-muted-foreground" />
+              <Share class="text-muted-foreground" />
               <span>Share Project</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />

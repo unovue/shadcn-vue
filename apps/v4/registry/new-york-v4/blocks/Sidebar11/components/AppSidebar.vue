@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tree from '@/registry/new-york-v4/block/Sidebar11/components/Tree.vue'
+import Tree from '@/registry/new-york-v4/blocks/Sidebar11/components/Tree.vue'
 import {
   Sidebar,
   SidebarContent,

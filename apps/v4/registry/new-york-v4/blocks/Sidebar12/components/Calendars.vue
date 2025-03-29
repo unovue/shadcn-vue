@@ -47,7 +47,7 @@ const props = defineProps<{
                 <SidebarMenuButton>
                   <div
                     :data-active="index < 2"
-                    class="group/calendar-item flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary"
+                    class="group/calendar-item border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border"
                   >
                     <Check class="hidden size-3 group-data-[active=true]/calendar-item:block" />
                   </div>

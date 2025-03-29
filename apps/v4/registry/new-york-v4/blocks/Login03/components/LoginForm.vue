@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,
@@ -9,10 +11,14 @@ import {
 } from '@/registry/new-york-v4/ui/card'
 import { Input } from '@/registry/new-york-v4/ui/input'
 import { Label } from '@/registry/new-york-v4/ui/label'
+
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+}>()
 </script>
 
 <template>
-  <div class="flex flex-col gap-6">
+  <div :class="cn('flex flex-col gap-6', props.class)">
     <Card>
       <CardHeader class="text-center">
         <CardTitle class="text-xl">
@@ -45,14 +51,14 @@ import { Label } from '@/registry/new-york-v4/ui/label'
                 Login with Google
               </Button>
             </div>
-            <div class="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-              <span class="relative z-10 bg-background px-2 text-muted-foreground">
+            <div class="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+              <span class="bg-card text-muted-foreground relative z-10 px-2">
                 Or continue with
               </span>
             </div>
             <div class="grid gap-6">
-              <div class="grid gap-2">
-                <Label html-for="email">Email</Label>
+              <div class="grid gap-3">
+                <Label for="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -60,9 +66,9 @@ import { Label } from '@/registry/new-york-v4/ui/label'
                   required
                 />
               </div>
-              <div class="grid gap-2">
+              <div class="grid gap-3">
                 <div class="flex items-center">
-                  <Label html-for="password">Password</Label>
+                  <Label for="password">Password</Label>
                   <a
                     href="#"
                     class="ml-auto text-sm underline-offset-4 hover:underline"
@@ -86,7 +92,7 @@ import { Label } from '@/registry/new-york-v4/ui/label'
         </form>
       </CardContent>
     </Card>
-    <div class="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
+    <div class="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
       By clicking continue, you agree to our <a href="#">Terms of Service</a>
       and <a href="#">Privacy Policy</a>.
     </div>

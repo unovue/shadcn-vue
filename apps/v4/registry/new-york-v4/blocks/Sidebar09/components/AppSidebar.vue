@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavUser from '@/registry/new-york-v4/block/Sidebar09/components/NavUser.vue'
+import NavUser from '@/registry/new-york-v4/blocks/Sidebar09/components/NavUser.vue'
 
 import { Label } from '@/registry/new-york-v4/ui/label'
 import {
@@ -154,7 +154,7 @@ const { setOpen } = useSidebar()
 
 <template>
   <Sidebar
-    class="overflow-hidden [&>[data-sidebar=sidebar]]:flex-row"
+    class="overflow-hidden *:data-[sidebar=sidebar]:flex-row"
     v-bind="props"
   >
     <!-- This is the first sidebar -->
@@ -162,18 +162,18 @@ const { setOpen } = useSidebar()
     <!-- This will make the sidebar appear as icons. -->
     <Sidebar
       collapsible="none"
-      class="!w-[calc(var(--sidebar-width-icon)_+_1px)] border-r"
+      class="w-[calc(var(--sidebar-width-icon)+1px)]! border-r"
     >
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" as-child class="md:h-8 md:p-0">
               <a href="#">
-                <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                <div class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                   <Command class="size-4" />
                 </div>
                 <div class="grid flex-1 text-left text-sm leading-tight">
-                  <span class="truncate font-semibold">Acme Inc</span>
+                  <span class="truncate font-medium">Acme Inc</span>
                   <span class="truncate text-xs">Enterprise</span>
                 </div>
               </a>
@@ -233,7 +233,7 @@ const { setOpen } = useSidebar()
               v-for="mail in mails"
               :key="mail.email"
               href="#"
-              class="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground flex flex-col items-start gap-2 border-b p-4 text-sm leading-tight whitespace-nowrap last:border-b-0"
             >
               <div class="flex w-full items-center gap-2">
                 <span>{{ mail.name }}</span>

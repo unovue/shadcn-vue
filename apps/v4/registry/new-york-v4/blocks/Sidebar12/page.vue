@@ -4,7 +4,7 @@ export const iframeHeight = '800px'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/block/Sidebar12/components/AppSidebar.vue'
+import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar12/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -23,9 +23,12 @@ import {
   <SidebarProvider>
     <AppSidebar />
     <SidebarInset>
-      <header class="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
-        <SidebarTrigger class="-ml-1" />
-        <Separator orientation="vertical" class="mr-2 h-4" />
+      <header calss="bg-background sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b px-4">
+        <SidebarTrigger calss="-ml-1" />
+        <Separator
+          orientation="vertical"
+          calss="mr-2 data-[orientation=vertical]:h-4"
+        />
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>

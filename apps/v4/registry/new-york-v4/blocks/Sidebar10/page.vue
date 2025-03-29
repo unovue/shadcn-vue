@@ -4,8 +4,8 @@ export const iframeHeight = '800px'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/block/Sidebar10/components/AppSidebar.vue'
-import NavActions from '@/registry/new-york-v4/block/Sidebar10/components/NavActions.vue'
+import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar10/components/AppSidebar.vue'
+import NavActions from '@/registry/new-york-v4/blocks/Sidebar10/components/NavActions.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -27,7 +27,10 @@ import {
       <header class="flex h-14 shrink-0 items-center gap-2">
         <div class="flex flex-1 items-center gap-2 px-3">
           <SidebarTrigger />
-          <Separator orientation="vertical" class="mr-2 h-4" />
+          <Separator
+            orientation="vertical"
+            class="mr-2 data-[orientation=vertical]:h-4"
+          />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -43,8 +46,8 @@ import {
         </div>
       </header>
       <div class="flex flex-1 flex-col gap-4 px-4 py-10">
-        <div class="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50" />
-        <div class="mx-auto h-full w-full max-w-3xl rounded-xl bg-muted/50" />
+        <div class="bg-muted/50 mx-auto h-24 w-full max-w-3xl rounded-xl" />
+        <div class="bg-muted/50 mx-auto h-full w-full max-w-3xl rounded-xl" />
       </div>
     </SidebarInset>
   </SidebarProvider>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Calendars from '@/registry/new-york-v4/block/Sidebar12/components/Calendars.vue'
+import Calendars from '@/registry/new-york-v4/blocks/Sidebar12/components/Calendars.vue'
 
-import DatePicker from '@/registry/new-york-v4/block/Sidebar12/components/DatePicker.vue'
-import NavUser from '@/registry/new-york-v4/block/Sidebar12/components/NavUser.vue'
+import DatePicker from '@/registry/new-york-v4/blocks/Sidebar12/components/DatePicker.vue'
+import NavUser from '@/registry/new-york-v4/blocks/Sidebar12/components/NavUser.vue'
 import {
   Sidebar,
   SidebarContent,

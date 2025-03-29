@@ -32,18 +32,18 @@ const selectedVersion = ref(props.defaultVersion)
             size="lg"
             class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
           >
-            <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+            <div class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
               <GalleryVerticalEnd class="size-4" />
             </div>
             <div class="flex flex-col gap-0.5 leading-none">
-              <span class="font-semibold">Documentation</span>
-              <span class="">v{{ selectedVersion }}</span>
+              <span class="font-medium">Documentation</span>
+              <span class="">v{selectedVersion}</span>
             </div>
             <ChevronsUpDown class="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          class="w-[--reka-dropdown-menu-trigger-width]"
+          class="w-(--reka-dropdown-menu-trigger-width)"
           align="start"
         >
           <DropdownMenuItem
