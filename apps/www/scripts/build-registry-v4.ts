@@ -262,6 +262,7 @@ async function buildStyles(registry: Registry) {
             target: _file.target ?? '',
           }
 
+          console.log(path.join(process.cwd(), '../v4/registry/new-york-v4', file.path))
           let content: string
           try {
             content = await fs.readFile(
@@ -319,9 +320,6 @@ async function buildStyles(registry: Registry) {
       )
     }
 
-    // if (item.type === 'registry:block' && item.name === 'Sidebar01')
-    //   console.log(item.name, item.files?.[0], files?.[0])
-
     const payload = registryEntrySchema
       .omit({
         // source: true,
@@ -334,6 +332,14 @@ async function buildStyles(registry: Registry) {
         ...item,
         files,
       })
+
+    if (item.type === 'registry:block') {
+      console.log({
+        ...metadata,
+        ...item,
+        files,
+      }, payload.data, files?.length)
+    }
 
     if (payload.success) {
       await writeFile(

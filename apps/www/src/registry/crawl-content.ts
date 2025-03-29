@@ -284,7 +284,7 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
 
     const compPath = isPage ? dirent.name : `components/${dirent.name}`
     const filepath = join(blockPath, compPath)
-    const relativePath = join('block', blockName, compPath)
+    const relativePath = join('blocks', blockName, compPath)
     const source = await readFile(filepath, { encoding: 'utf8' })
     const target = isPage ? `pages/dashboard/index.vue` : ''
 
