@@ -1749,6 +1749,10 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/table/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/table/utils.ts",
+    type: "registry:ui",
+    target: ""
   }],
   component: () => import("@/registry/new-york-v4/ui/table/Table.vue").then((m) => m.default),
   source: "",

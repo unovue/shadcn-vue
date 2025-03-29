@@ -1,7 +1,9 @@
 {
   "name": "table",
   "type": "registry:ui",
-  "dependencies": [],
+  "dependencies": [
+    "@tanstack/vue-table"
+  ],
   "registryDependencies": [],
   "files": [
     {
@@ -61,6 +63,12 @@
     {
       "path": "ui/table/index.ts",
       "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\nexport { default as TableFooter } from './TableFooter.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableRow } from './TableRow.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/table/utils.ts",
+      "content": "import type { Updater } from '@tanstack/vue-table'\nimport type { Ref } from 'vue'\n\nexport function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {\n  ref.value\n    = typeof updaterOrValue === 'function'\n      ? updaterOrValue(ref.value)\n      : updaterOrValue\n}\n",
       "type": "registry:ui",
       "target": ""
     }

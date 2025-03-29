@@ -1675,7 +1675,9 @@
   {
     "name": "table",
     "type": "registry:ui",
-    "dependencies": [],
+    "dependencies": [
+      "@tanstack/vue-table"
+    ],
     "registryDependencies": [],
     "files": [
       {
@@ -1716,6 +1718,10 @@
       },
       {
         "path": "ui/table/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/table/utils.ts",
         "type": "registry:ui"
       }
     ]
