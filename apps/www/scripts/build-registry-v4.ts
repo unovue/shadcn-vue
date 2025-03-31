@@ -262,7 +262,6 @@ async function buildStyles(registry: Registry) {
             target: _file.target ?? '',
           }
 
-          console.log(path.join(process.cwd(), '../v4/registry/new-york-v4', file.path))
           let content: string
           try {
             content = await fs.readFile(

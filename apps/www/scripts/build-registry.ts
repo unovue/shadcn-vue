@@ -544,9 +544,6 @@ async function buildStyles(registry: Registry) {
         )
       }
 
-      // if (item.type === 'registry:block' && item.name === 'Sidebar01')
-      //   console.log(item.name, item.files?.[0], files?.[0])
-
       const payload = registryEntrySchema
         .omit({
           // source: true,
