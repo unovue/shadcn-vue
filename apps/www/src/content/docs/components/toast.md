@@ -28,6 +28,11 @@ import Toaster from '@/components/ui/toast/Toaster.vue'
 
 <template>
   <Toaster />
+
+  <!-- Nuxt  -->
+  <ClientOnly>
+    <Toaster />
+  </ClientOnly>
 </template>
 ```
 

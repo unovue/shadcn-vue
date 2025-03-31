@@ -32,6 +32,11 @@ import { Toaster } from '@/components/ui/sonner'
 
 <template>
   <Toaster />
+
+  <!-- Nuxt  -->
+  <ClientOnly>
+    <Toaster />
+  </ClientOnly>
 </template>
 ```
 

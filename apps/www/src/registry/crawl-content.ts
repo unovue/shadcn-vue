@@ -149,7 +149,6 @@ async function crawlBlock(rootPath: string) {
         dirent.name,
       )
 
-      // console.log(result.name, result.files.length)
       if (result.files.length) {
         registry.push(result)
       }

@@ -1,7 +1,7 @@
 {
   "name": "www",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "files": [
     "dist"
   ],
@@ -75,6 +75,7 @@
     "typescript": "catalog:",
     "unplugin-icons": "^22.0.0",
     "vitepress": "^1.6.3",
+    "vitepress-plugin-llms": "^0.0.14",
     "vue-component-meta": "^2.2.0",
     "vue-tsc": "^2.2.0"
   }

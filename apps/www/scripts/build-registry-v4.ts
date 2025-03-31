@@ -332,14 +332,6 @@ async function buildStyles(registry: Registry) {
         files,
       })
 
-    if (item.type === 'registry:block') {
-      console.log({
-        ...metadata,
-        ...item,
-        files,
-      }, payload.data, files?.length)
-    }
-
     if (payload.success) {
       await writeFile(
         path.join(targetPath, `${item.name}.json`),

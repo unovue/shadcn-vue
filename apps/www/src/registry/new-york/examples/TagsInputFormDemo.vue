@@ -36,12 +36,15 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <form class="w-2/3 space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ value }" name="fruits">
+    <FormField v-slot="{ componentField }" name="fruits">
       <FormItem>
         <FormLabel>Fruits</FormLabel>
         <FormControl>
-          <TagsInput :model-value="value">
-            <TagsInputItem v-for="item in value" :key="item" :value="item">
+          <TagsInput
+            :model-value="componentField.modelValue"
+            @update:model-value="componentField['onUpdate:modelValue']"
+          >
+            <TagsInputItem v-for="item in componentField.modelValue" :key="item" :value="item">
               <TagsInputItemText />
               <TagsInputItemDelete />
             </TagsInputItem>

@@ -32,7 +32,6 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors'
 }>(), {
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   sortFunction: () => undefined,
-  valueFormatter: (tick: number) => `${tick}`,
   type: 'donut',
   filterOpacity: 0.2,
   showTooltip: true,
@@ -42,6 +41,7 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors'
 type KeyOfT = Extract<keyof T, string>
 type Data = typeof props.data[number]
 
+const valueFormatter = props.valueFormatter ?? ((tick: number) => `${tick}`)
 const category = computed(() => props.category as KeyOfT)
 const index = computed(() => props.index as KeyOfT)
 
