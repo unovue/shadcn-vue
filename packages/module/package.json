@@ -49,6 +49,6 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@types/node": "^22.13.1",
-    "nuxt": "^3.15.4"
+    "nuxt": "^3.16.0"
   }
 }

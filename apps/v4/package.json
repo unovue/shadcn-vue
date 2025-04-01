@@ -21,7 +21,7 @@
     "date-fns": "^4.1.0",
     "embla-carousel-vue": "^8.5.2",
     "lucide-vue-next": "^0.477.0",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.16.0",
     "reka-ui": "^2.1.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.9",
