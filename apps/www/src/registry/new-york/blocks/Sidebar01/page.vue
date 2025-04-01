@@ -5,7 +5,7 @@ export const description
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york/block/Sidebar01/components/AppSidebar.vue'
+import AppSidebar from '@/registry/new-york/blocks/Sidebar01/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

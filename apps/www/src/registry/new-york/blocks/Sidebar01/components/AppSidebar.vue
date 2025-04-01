@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SearchForm from '@/registry/new-york/block/Sidebar01/components/SearchForm.vue'
-import VersionSwitcher from '@/registry/new-york/block/Sidebar01/components/VersionSwitcher.vue'
+import SearchForm from '@/registry/new-york/blocks/Sidebar01/components/SearchForm.vue'
+import VersionSwitcher from '@/registry/new-york/blocks/Sidebar01/components/VersionSwitcher.vue'
 
 import {
   Sidebar,

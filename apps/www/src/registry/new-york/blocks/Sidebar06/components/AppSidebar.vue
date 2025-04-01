@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import NavMain from '@/registry/new-york/block/Sidebar06/components/NavMain.vue'
-import SidebarOptInForm from '@/registry/new-york/block/Sidebar06/components/SidebarOptInForm.vue'
+import NavMain from '@/registry/new-york/blocks/Sidebar06/components/NavMain.vue'
+import SidebarOptInForm from '@/registry/new-york/blocks/Sidebar06/components/SidebarOptInForm.vue'
 
 import {
   Sidebar,

@@ -4,7 +4,7 @@ export const description = 'A sidebar with submenus.'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/default/block/Sidebar03/components/AppSidebar.vue'
+import AppSidebar from '@/registry/default/blocks/Sidebar03/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

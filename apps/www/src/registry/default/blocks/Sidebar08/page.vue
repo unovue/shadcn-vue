@@ -4,7 +4,7 @@ export const iframeHeight = '800px'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/default/block/Sidebar08/components/AppSidebar.vue'
+import AppSidebar from '@/registry/default/blocks/Sidebar08/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

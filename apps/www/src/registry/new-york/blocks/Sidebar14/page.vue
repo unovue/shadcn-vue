@@ -4,7 +4,7 @@ export const description = 'A sidebar on the right.'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york/block/Sidebar14/components/AppSidebar.vue'
+import AppSidebar from '@/registry/new-york/blocks/Sidebar14/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

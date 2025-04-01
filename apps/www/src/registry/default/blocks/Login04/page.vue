@@ -3,7 +3,7 @@ export const description = 'A login page with form and image.'
 </script>
 
 <script setup lang="ts">
-import LoginForm from '@/registry/default/block/Login04/components/LoginForm.vue'
+import LoginForm from '@/registry/default/blocks/Login04/components/LoginForm.vue'
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { SidebarProps } from '@/registry/default/ui/sidebar'
 
-import NavMain from '@/registry/default/block/Sidebar07/components/NavMain.vue'
-import NavProjects from '@/registry/default/block/Sidebar07/components/NavProjects.vue'
-import NavUser from '@/registry/default/block/Sidebar07/components/NavUser.vue'
-import TeamSwitcher from '@/registry/default/block/Sidebar07/components/TeamSwitcher.vue'
+import NavMain from '@/registry/default/blocks/Sidebar07/components/NavMain.vue'
+import NavProjects from '@/registry/default/blocks/Sidebar07/components/NavProjects.vue'
+import NavUser from '@/registry/default/blocks/Sidebar07/components/NavUser.vue'
+import TeamSwitcher from '@/registry/default/blocks/Sidebar07/components/TeamSwitcher.vue'
 import {
   Sidebar,
   SidebarContent,

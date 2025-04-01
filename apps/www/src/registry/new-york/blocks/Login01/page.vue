@@ -3,7 +3,7 @@ export const description = 'A simple login form.'
 </script>
 
 <script setup lang="ts">
-import LoginForm from '@/registry/new-york/block/Login01/components/LoginForm.vue'
+import LoginForm from '@/registry/new-york/blocks/Login01/components/LoginForm.vue'
 </script>
 
 <template>

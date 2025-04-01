@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavUser from '@/registry/default/block/Sidebar09/components/NavUser.vue'
+import NavUser from '@/registry/default/blocks/Sidebar09/components/NavUser.vue'
 
 import { Label } from '@/registry/default/ui/label'
 import {

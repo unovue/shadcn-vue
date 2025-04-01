@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SearchForm from '@/registry/new-york/block/Sidebar05/components/SearchForm.vue'
+import SearchForm from '@/registry/new-york/blocks/Sidebar05/components/SearchForm.vue'
 import {
   Collapsible,
   CollapsibleContent,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavUser from '@/registry/new-york/block/Sidebar09/components/NavUser.vue'
+import NavUser from '@/registry/new-york/blocks/Sidebar09/components/NavUser.vue'
 
 import { Label } from '@/registry/new-york/ui/label'
 import {

@@ -6,7 +6,7 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import LoginForm from '@/registry/default/block/Login01/components/LoginForm.vue'
+import LoginForm from '@/registry/default/blocks/Login01/components/LoginForm.vue'
 </script>
 
 <template>

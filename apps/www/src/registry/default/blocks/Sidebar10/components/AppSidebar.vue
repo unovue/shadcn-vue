@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import NavFavorites from '@/registry/default/block/Sidebar10/components/NavFavorites.vue'
+import NavFavorites from '@/registry/default/blocks/Sidebar10/components/NavFavorites.vue'
 
-import NavMain from '@/registry/default/block/Sidebar10/components/NavMain.vue'
-import NavSecondary from '@/registry/default/block/Sidebar10/components/NavSecondary.vue'
-import NavWorkspaces from '@/registry/default/block/Sidebar10/components/NavWorkspaces.vue'
-import TeamSwitcher from '@/registry/default/block/Sidebar10/components/TeamSwitcher.vue'
+import NavMain from '@/registry/default/blocks/Sidebar10/components/NavMain.vue'
+import NavSecondary from '@/registry/default/blocks/Sidebar10/components/NavSecondary.vue'
+import NavWorkspaces from '@/registry/default/blocks/Sidebar10/components/NavWorkspaces.vue'
+import TeamSwitcher from '@/registry/default/blocks/Sidebar10/components/TeamSwitcher.vue'
 import {
   Sidebar,
   SidebarContent,

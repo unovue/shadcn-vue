@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DatePickerWithRange from '@/registry/default/example/DatePickerWithRange.vue'
+import DatePickerWithRange from '@/registry/default/examples/DatePickerWithRange.vue'
 import { Card, CardContent } from '@/registry/new-york/ui/card'
 import { Label } from '@/registry/new-york/ui/label'
 </script>

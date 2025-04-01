@@ -80,7 +80,7 @@ watch([style, codeConfig], async () => {
     const rawString = await componentRegistry.value.raw()
     if (!metadata.description) {
       const { descriptor } = parse(rawString)
-      const ast = compileScript(descriptor, { id: '' })
+      const ast = compileScript(descriptor, { id: 'id' })
       walk(ast.scriptAst, {
         enter(node: any) {
           const declaration = node.declaration

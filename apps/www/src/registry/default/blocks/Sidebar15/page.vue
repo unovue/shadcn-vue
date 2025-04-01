@@ -4,8 +4,8 @@ export const description = 'A left and right sidebar.'
 </script>
 
 <script setup lang="ts">
-import SidebarLeft from '@/registry/default/block/Sidebar15/components/SidebarLeft.vue'
-import SidebarRight from '@/registry/default/block/Sidebar15/components/SidebarRight.vue'
+import SidebarLeft from '@/registry/default/blocks/Sidebar15/components/SidebarLeft.vue'
+import SidebarRight from '@/registry/default/blocks/Sidebar15/components/SidebarRight.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "blocks/Login01/page.vue",
-      "content": "<script lang=\"ts\">\nexport const description = 'A simple login form.'\n</script>\n\n<script setup lang=\"ts\">\nimport LoginForm from '@/registry/new-york/block/Login01/components/LoginForm.vue'\n</script>\n\n<template>\n  <div class=\"flex h-screen w-full items-center justify-center px-4\">\n    <LoginForm />\n  </div>\n</template>\n",
+      "content": "<script lang=\"ts\">\nexport const description = 'A simple login form.'\n</script>\n\n<script setup lang=\"ts\">\nimport LoginForm from '@/registry/new-york/blocks/Login01/components/LoginForm.vue'\n</script>\n\n<template>\n  <div class=\"flex h-screen w-full items-center justify-center px-4\">\n    <LoginForm />\n  </div>\n</template>\n",
       "type": "registry:page",
       "target": "pages/dashboard/index.vue"
     },

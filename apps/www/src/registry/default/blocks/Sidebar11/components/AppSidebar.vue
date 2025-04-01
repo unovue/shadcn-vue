@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tree from '@/registry/default/block/Sidebar11/components/Tree.vue'
+import Tree from '@/registry/default/blocks/Sidebar11/components/Tree.vue'
 import {
   Sidebar,
   SidebarContent,

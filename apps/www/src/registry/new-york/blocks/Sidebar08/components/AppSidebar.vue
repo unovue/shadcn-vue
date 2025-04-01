@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NavMain from '@/registry/new-york/block/Sidebar08/components/NavMain.vue'
+import NavMain from '@/registry/new-york/blocks/Sidebar08/components/NavMain.vue'
 
-import NavProjects from '@/registry/new-york/block/Sidebar08/components/NavProjects.vue'
-import NavSecondary from '@/registry/new-york/block/Sidebar08/components/NavSecondary.vue'
-import NavUser from '@/registry/new-york/block/Sidebar08/components/NavUser.vue'
+import NavProjects from '@/registry/new-york/blocks/Sidebar08/components/NavProjects.vue'
+import NavSecondary from '@/registry/new-york/blocks/Sidebar08/components/NavSecondary.vue'
+import NavUser from '@/registry/new-york/blocks/Sidebar08/components/NavUser.vue'
 import {
   Sidebar,
   SidebarContent,

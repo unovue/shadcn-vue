@@ -4,7 +4,7 @@ export const description = 'A floating sidebar with submenus.'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/default/block/Sidebar04/components/AppSidebar.vue'
+import AppSidebar from '@/registry/default/blocks/Sidebar04/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

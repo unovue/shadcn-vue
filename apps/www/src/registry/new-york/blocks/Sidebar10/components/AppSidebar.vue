@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import NavFavorites from '@/registry/new-york/block/Sidebar10/components/NavFavorites.vue'
+import NavFavorites from '@/registry/new-york/blocks/Sidebar10/components/NavFavorites.vue'
 
-import NavMain from '@/registry/new-york/block/Sidebar10/components/NavMain.vue'
-import NavSecondary from '@/registry/new-york/block/Sidebar10/components/NavSecondary.vue'
-import NavWorkspaces from '@/registry/new-york/block/Sidebar10/components/NavWorkspaces.vue'
-import TeamSwitcher from '@/registry/new-york/block/Sidebar10/components/TeamSwitcher.vue'
+import NavMain from '@/registry/new-york/blocks/Sidebar10/components/NavMain.vue'
+import NavSecondary from '@/registry/new-york/blocks/Sidebar10/components/NavSecondary.vue'
+import NavWorkspaces from '@/registry/new-york/blocks/Sidebar10/components/NavWorkspaces.vue'
+import TeamSwitcher from '@/registry/new-york/blocks/Sidebar10/components/TeamSwitcher.vue'
 import {
   Sidebar,
   SidebarContent,

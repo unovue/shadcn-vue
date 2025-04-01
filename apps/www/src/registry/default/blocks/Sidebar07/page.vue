@@ -6,7 +6,7 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/default/block/Sidebar07/components/AppSidebar.vue'
+import AppSidebar from '@/registry/default/blocks/Sidebar07/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

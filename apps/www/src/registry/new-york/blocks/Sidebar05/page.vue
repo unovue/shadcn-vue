@@ -4,7 +4,7 @@ export const description = 'A sidebar with collapsible submenus.'
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york/block/Sidebar05/components/AppSidebar.vue'
+import AppSidebar from '@/registry/new-york/blocks/Sidebar05/components/AppSidebar.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

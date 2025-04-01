@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NavMain from '@/registry/default/block/Sidebar08/components/NavMain.vue'
+import NavMain from '@/registry/default/blocks/Sidebar08/components/NavMain.vue'
 
-import NavProjects from '@/registry/default/block/Sidebar08/components/NavProjects.vue'
-import NavSecondary from '@/registry/default/block/Sidebar08/components/NavSecondary.vue'
-import NavUser from '@/registry/default/block/Sidebar08/components/NavUser.vue'
+import NavProjects from '@/registry/default/blocks/Sidebar08/components/NavProjects.vue'
+import NavSecondary from '@/registry/default/blocks/Sidebar08/components/NavSecondary.vue'
+import NavUser from '@/registry/default/blocks/Sidebar08/components/NavUser.vue'
 import {
   Sidebar,
   SidebarContent,
