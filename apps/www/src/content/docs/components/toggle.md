@@ -1,7 +1,7 @@
 ---
 title: Toggle
 description: A two-state button that can be either on or off.
-source: apps/www/registry/default/ui/toggle
+source: apps/www/src/registry/default/ui/toggle
 primitive: https://www.reka-ui.com/docs/components/toggle.html
 ---
 

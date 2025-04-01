@@ -1,7 +1,7 @@
 ---
 title: Carousel
 description: A carousel with motion and swipe built using Embla.
-source: apps/www/registry/default/ui/carousel
+source: apps/www/src/registry/default/ui/carousel
 primitive: https://www.embla-carousel.com/api
 ---
 

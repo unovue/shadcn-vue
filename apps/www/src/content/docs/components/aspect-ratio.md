@@ -1,7 +1,7 @@
 ---
 title: Aspect Ratio
 description: Displays content within a desired ratio.
-source: apps/www/registry/default/ui/aspect-ratio
+source: apps/www/src/registry/default/ui/aspect-ratio
 primitive: https://www.reka-ui.com/docs/components/aspect-ratio.html
 ---
 

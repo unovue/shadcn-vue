@@ -1,7 +1,7 @@
 ---
 title: Donut
 description: A line chart visually represents data in a circular form, similar to a pie chart but with a central void, emphasizing proportions within categories.
-source: apps/www/registry/default/ui/chart-donut
+source: apps/www/src/registry/default/ui/chart-donut
 label: Alpha
 ---
 

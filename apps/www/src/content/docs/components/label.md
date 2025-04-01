@@ -1,7 +1,7 @@
 ---
 title: Label
 description: Renders an accessible label associated with controls.
-source: apps/www/registry/default/ui/label
+source: apps/www/src/registry/default/ui/label
 primitive: https://www.reka-ui.com/docs/components/label.html
 ---
 

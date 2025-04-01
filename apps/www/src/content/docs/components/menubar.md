@@ -1,7 +1,7 @@
 ---
 title: Menubar
 description: A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
-source: apps/www/registry/default/ui/menubar
+source: apps/www/src/registry/default/ui/menubar
 primitive: https://www.reka-ui.com/docs/components/menubar.html
 ---
 

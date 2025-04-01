@@ -1,7 +1,7 @@
 ---
 title: Switch
 description: A control that allows the user to toggle between checked and not checked.
-source: apps/www/registry/default/ui/switch
+source: apps/www/src/registry/default/ui/switch
 primitive: https://www.reka-ui.com/docs/components/switch.html
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Resizable
 description: Accessible resizable panel groups and layouts with keyboard support.
-source: apps/www/registry/default/ui/resizable
+source: apps/www/src/registry/default/ui/resizable
 primitive: https://www.reka-ui.com/docs/components/splitter.html
 ---
 

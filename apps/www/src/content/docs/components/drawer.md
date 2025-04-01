@@ -1,7 +1,7 @@
 ---
 title: Drawer
 description: A drawer component for vue.
-source: apps/www/registry/default/ui/drawer
+source: apps/www/src/registry/default/ui/drawer
 primitive: https://github.com/unovue/vaul-vue
 ---
 

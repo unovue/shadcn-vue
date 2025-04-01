@@ -1,7 +1,7 @@
 ---
 title: Combobox
 description: Autocomplete input and command palette with a list of suggestions.
-source: apps/www/registry/default/ui/combobox
+source: apps/www/src/registry/default/ui/combobox
 primitive: https://www.reka-ui.com/docs/components/combobox.html
 ---
 

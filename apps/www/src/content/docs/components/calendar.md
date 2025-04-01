@@ -1,7 +1,7 @@
 ---
 title: Calendar
 description: A date field component that allows users to enter and edit date.
-source: apps/www/registry/default/ui/calendar
+source: apps/www/src/registry/default/ui/calendar
 primitive: https://www.reka-ui.com/docs/components/calendar.html
 ---
 

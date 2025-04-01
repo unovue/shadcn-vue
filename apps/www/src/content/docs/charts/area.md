@@ -1,7 +1,7 @@
 ---
 title: Area
 description: An area chart visually represents data over time, displaying trends and patterns through filled-in areas under a line graph.
-source: apps/www/registry/default/ui/chart-area
+source: apps/www/src/registry/default/ui/chart-area
 label: Alpha
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Scroll-area
 description: Augments native scroll functionality for custom, cross-browser styling.
-source: apps/www/registry/default/ui/scroll-area
+source: apps/www/src/registry/default/ui/scroll-area
 primitive: https://www.reka-ui.com/docs/components/scroll-area.html
 ---
 
