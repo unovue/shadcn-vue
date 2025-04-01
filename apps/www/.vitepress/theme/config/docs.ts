@@ -127,21 +127,6 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: 'Extended',
-      items: [
-        {
-          title: 'Auto Form',
-          href: '/docs/components/auto-form',
-          items: [],
-        },
-        {
-          title: 'Charts',
-          href: '/docs/charts',
-          items: [],
-        },
-      ],
-    },
-    {
       title: 'Components',
       items: [
         {
