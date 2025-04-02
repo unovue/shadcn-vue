@@ -1,3 +1,5 @@
+import type { DefaultTheme } from 'vitepress'
+
 export interface NavItem {
   title: string
   href?: string
@@ -18,6 +20,31 @@ export type NavItemWithChildren = NavItem & {
 interface DocsConfig {
   mainNav: NavItem[]
   sidebarNav: SidebarNavItem[]
+}
+
+/**
+ * Transforms a SidebarNavItem into a VitePress SidebarItem.
+ *
+ * @param item - The SidebarNavItem to transform
+ * @returns A VitePress compatible SidebarItem with renamed properties and recursively transformed children
+ */
+export function transformSidebarNavItemToVitePressSidebarItem(item: SidebarNavItem): DefaultTheme.SidebarItem {
+  const { title, href, items } = item
+  return {
+    text: title,
+    link: href,
+    ...(items ? { items: items.map(transformSidebarNavItemToVitePressSidebarItem) } : {}),
+  }
+}
+
+/**
+ * Transforms an array of SidebarNavItems into VitePress sidebar configuration.
+ *
+ * @param items - Array of SidebarNavItems to transform
+ * @returns Array of VitePress compatible SidebarItems with renamed properties
+ */
+export function transformSidebarNavToVitePressSidebar(items: SidebarNavItem[]): DefaultTheme.SidebarItem[] {
+  return items.map(transformSidebarNavItemToVitePressSidebarItem)
 }
 
 export const docsConfig: DocsConfig = {

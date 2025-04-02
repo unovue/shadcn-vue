@@ -75,7 +75,7 @@
     "typescript": "catalog:",
     "unplugin-icons": "^22.1.0",
     "vitepress": "^1.6.3",
-    "vitepress-plugin-llms": "^0.0.22",
+    "vitepress-plugin-llms": "^1.1.4",
     "vue-component-meta": "^2.2.10",
     "vue-tsc": "^2.2.10"
   }
