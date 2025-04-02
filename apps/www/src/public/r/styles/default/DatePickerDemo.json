@@ -3,14 +3,13 @@
   "type": "registry:example",
   "dependencies": [],
   "registryDependencies": [
-    "utils",
     "button",
     "calendar",
     "popover"
   ],
   "files": [
     {
-      "path": "example/DatePickerDemo.vue",
+      "path": "examples/DatePickerDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/registry/default/ui/button'\n\nimport { Calendar } from '@/registry/default/ui/calendar'\nimport { Popover, PopoverContent, PopoverTrigger } from '@/registry/default/ui/popover'\nimport {\n  DateFormatter,\n  type DateValue,\n  getLocalTimeZone,\n} from '@internationalized/date'\nimport { Calendar as CalendarIcon } from 'lucide-vue-next'\nimport { ref } from 'vue'\n\nconst df = new DateFormatter('en-US', {\n  dateStyle: 'long',\n})\n\nconst value = ref<DateValue>()\n</script>\n\n<template>\n  <Popover>\n    <PopoverTrigger as-child>\n      <Button\n        variant=\"outline\"\n        :class=\"cn(\n          'w-[280px] justify-start text-left font-normal',\n          !value && 'text-muted-foreground',\n        )\"\n      >\n        <CalendarIcon class=\"mr-2 h-4 w-4\" />\n        {{ value ? df.format(value.toDate(getLocalTimeZone())) : \"Pick a date\" }}\n      </Button>\n    </PopoverTrigger>\n    <PopoverContent class=\"w-auto p-0\">\n      <Calendar v-model=\"value\" initial-focus />\n    </PopoverContent>\n  </Popover>\n</template>\n",
       "type": "registry:example",
       "target": ""

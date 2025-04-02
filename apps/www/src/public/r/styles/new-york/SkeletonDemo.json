@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/SkeletonDemo.vue",
+      "path": "examples/SkeletonDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Skeleton } from '@/registry/new-york/ui/skeleton'\n</script>\n\n<template>\n  <div class=\"flex items-center space-x-4\">\n    <Skeleton class=\"h-12 w-12 rounded-full\" />\n    <div class=\"space-y-2\">\n      <Skeleton class=\"h-4 w-[250px]\" />\n      <Skeleton class=\"h-4 w-[200px]\" />\n    </div>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

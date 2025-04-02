@@ -13,7 +13,7 @@
   ],
   "files": [
     {
-      "path": "example/AutoFormControlled.vue",
+      "path": "examples/AutoFormControlled.vue",
       "content": "<script setup lang=\"ts\">\nimport { AutoForm } from '@/registry/new-york/ui/auto-form'\nimport { Button } from '@/registry/new-york/ui/button'\nimport { toast } from '@/registry/new-york/ui/toast'\nimport { toTypedSchema } from '@vee-validate/zod'\nimport { useForm } from 'vee-validate'\nimport { h } from 'vue'\nimport * as z from 'zod'\n\nconst schema = z.object({\n  username: z.string(),\n})\n\nconst form = useForm({\n  validationSchema: toTypedSchema(schema),\n})\n\nfunction onSubmit(values: Record<string, any>) {\n  toast({\n    title: 'You submitted the following values:',\n    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),\n  })\n}\n</script>\n\n<template>\n  <AutoForm\n    class=\"w-2/3 space-y-6\"\n    :schema=\"schema\"\n    :form=\"form\"\n    @submit=\"onSubmit\"\n  >\n    <Button type=\"submit\">\n      Submit\n    </Button>\n  </AutoForm>\n</template>\n",
       "type": "registry:example",
       "target": ""

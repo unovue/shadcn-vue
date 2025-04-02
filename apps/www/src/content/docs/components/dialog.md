@@ -1,7 +1,7 @@
 ---
 title: Dialog
 description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
-source: apps/www/registry/default/ui/dialog
+source: apps/www/src/registry/default/ui/dialog
 primitive: https://www.reka-ui.com/docs/components/dialog.html
 ---
 

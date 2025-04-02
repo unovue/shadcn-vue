@@ -1,7 +1,7 @@
 ---
 title: Select
 description: Displays a list of options for the user to pick from—triggered by a button.
-source: apps/www/registry/default/ui/select
+source: apps/www/src/registry/default/ui/select
 primitive: https://www.reka-ui.com/docs/components/select.html
 ---
 

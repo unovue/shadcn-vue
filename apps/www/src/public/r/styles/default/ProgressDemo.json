@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/ProgressDemo.vue",
+      "path": "examples/ProgressDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Progress } from '@/registry/default/ui/progress'\nimport { ref, watchEffect } from 'vue'\n\nconst progress = ref(13)\n\nwatchEffect((cleanupFn) => {\n  const timer = setTimeout(() => progress.value = 66, 500)\n  cleanupFn(() => clearTimeout(timer))\n})\n</script>\n\n<template>\n  <Progress v-model=\"progress\" class=\"w-3/5\" />\n</template>\n",
       "type": "registry:example",
       "target": ""

@@ -1,0 +1,40 @@
+{
+  "name": "popover",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/popover/Popover.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverRootEmits, PopoverRootProps } from 'reka-ui'\nimport { PopoverRoot, useForwardPropsEmits } from 'reka-ui'\n\nconst props = defineProps<PopoverRootProps>()\nconst emits = defineEmits<PopoverRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <PopoverRoot\n    data-slot=\"popover\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </PopoverRoot>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/popover/PopoverAnchor.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverAnchorProps } from 'reka-ui'\nimport { PopoverAnchor } from 'reka-ui'\n\nconst props = defineProps<PopoverAnchorProps>()\n</script>\n\n<template>\n  <PopoverAnchor\n    data-slot=\"popover-anchor\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </PopoverAnchor>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/popover/PopoverContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  PopoverContent,\n  type PopoverContentEmits,\n  type PopoverContentProps,\n  PopoverPortal,\n  useForwardPropsEmits,\n} from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(\n  defineProps<PopoverContentProps & { class?: HTMLAttributes['class'] }>(),\n  {\n    align: 'center',\n    sideOffset: 4,\n  },\n)\nconst emits = defineEmits<PopoverContentEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PopoverPortal>\n    <PopoverContent\n      data-slot=\"popover-content\"\n      v-bind=\"{ ...forwarded, ...$attrs }\"\n      :class=\"\n        cn(\n          'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 rounded-md border p-4 shadow-md origin-(--reka-popover-content-transform-origin) outline-hidden',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </PopoverContent>\n  </PopoverPortal>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/popover/PopoverTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport { PopoverTrigger, type PopoverTriggerProps } from 'reka-ui'\n\nconst props = defineProps<PopoverTriggerProps>()\n</script>\n\n<template>\n  <PopoverTrigger\n    data-slot=\"popover-trigger\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </PopoverTrigger>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/popover/index.ts",
+      "content": "export { default as Popover } from './Popover.vue'\nexport { default as PopoverAnchor } from './PopoverAnchor.vue'\nexport { default as PopoverContent } from './PopoverContent.vue'\nexport { default as PopoverTrigger } from './PopoverTrigger.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

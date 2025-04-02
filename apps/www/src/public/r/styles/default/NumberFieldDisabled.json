@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/NumberFieldDisabled.vue",
+      "path": "examples/NumberFieldDisabled.vue",
       "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/default/ui/label'\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/registry/default/ui/number-field'\n</script>\n\n<template>\n  <NumberField id=\"age-disabled\" :default-value=\"18\" disabled>\n    <Label for=\"age-disabled\">Age</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
       "type": "registry:example",
       "target": ""

@@ -1,7 +1,7 @@
 ---
 title: Hover Card
 description: For sighted users to preview content available behind a link.
-source: apps/www/registry/default/ui/hover-card
+source: apps/www/src/registry/default/ui/hover-card
 primitive: https://www.reka-ui.com/docs/components/hover-card.html
 ---
 

@@ -2,9 +2,7 @@
   "name": "skeleton",
   "type": "registry:ui",
   "dependencies": [],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/skeleton/Skeleton.vue",

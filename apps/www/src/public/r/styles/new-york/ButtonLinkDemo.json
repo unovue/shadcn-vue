@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/ButtonLinkDemo.vue",
+      "path": "examples/ButtonLinkDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\n</script>\n\n<template>\n  <Button variant=\"link\">\n    Link\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""

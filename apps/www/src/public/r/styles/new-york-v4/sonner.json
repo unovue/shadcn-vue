@@ -1,0 +1,22 @@
+{
+  "name": "sonner",
+  "type": "registry:ui",
+  "dependencies": [
+    "vue-sonner"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/sonner/Sonner.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Toaster as Sonner, type ToasterProps } from 'vue-sonner'\n\nconst props = defineProps<ToasterProps>()\n</script>\n\n<template>\n  <Sonner\n    class=\"toaster group\"\n    v-bind=\"props\"\n    :style=\"{\n      '--normal-bg': 'var(--popover)',\n      '--normal-text': 'var(--popover-foreground)',\n      '--normal-border': 'var(--border)',\n\n    }\"\n  />\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/sonner/index.ts",
+      "content": "export { default as Toaster } from './Sonner.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

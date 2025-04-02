@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/DonutChartPie.vue",
+      "path": "examples/DonutChartPie.vue",
       "content": "<script setup lang=\"ts\">\nimport { DonutChart } from '@/registry/new-york/ui/chart-donut'\n\nconst data = [\n  { name: 'Jan', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Feb', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Mar', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Apr', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'May', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n  { name: 'Jun', total: Math.floor(Math.random() * 2000) + 500, predicted: Math.floor(Math.random() * 2000) + 500 },\n]\n</script>\n\n<template>\n  <DonutChart\n    index=\"name\"\n    :category=\"'total'\"\n    :data=\"data\"\n    :type=\"'pie'\"\n  />\n</template>\n",
       "type": "registry:example",
       "target": ""

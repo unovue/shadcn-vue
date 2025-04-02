@@ -1,0 +1,22 @@
+{
+  "name": "label",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/label/Label.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Label, type LabelProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <Label\n    data-slot=\"label\"\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/label/index.ts",
+      "content": "export { default as Label } from './Label.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

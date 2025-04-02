@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/LabelDemo.vue",
+      "path": "examples/LabelDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Checkbox } from '@/registry/new-york/ui/checkbox'\nimport { Label } from '@/registry/new-york/ui/label'\n</script>\n\n<template>\n  <div>\n    <div class=\"flex items-center space-x-2\">\n      <Checkbox id=\"terms\" />\n      <Label for=\"terms\">Accept terms and conditions</Label>\n    </div>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

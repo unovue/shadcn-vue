@@ -1,7 +1,7 @@
 ---
 title: Range Calendar
 description: A calendar component that allows users to select a range of dates.
-source: apps/www/registry/default/ui/range-calendar
+source: apps/www/src/registry/default/ui/range-calendar
 primitive: https://www.reka-ui.com/docs/components/range-calendar.html
 ---
 

@@ -1,5 +1,4 @@
 import type { initOptionsSchema } from '@/src/commands/init'
-import type { ProjectInfo } from '@/src/utils/get-project-info'
 import type { z } from 'zod'
 import * as ERRORS from '@/src/utils/errors'
 import { getProjectInfo } from '@/src/utils/get-project-info'
@@ -9,7 +8,9 @@ import { spinner } from '@/src/utils/spinner'
 import fs from 'fs-extra'
 import path from 'pathe'
 
-export async function preFlightInit(options: z.infer<typeof initOptionsSchema>) {
+export async function preFlightInit(
+  options: z.infer<typeof initOptionsSchema>,
+) {
   const errors: Record<string, boolean> = {}
 
   // Ensure target directory exists.
@@ -53,12 +54,11 @@ export async function preFlightInit(options: z.infer<typeof initOptionsSchema>) 
   const frameworkSpinner = spinner(`Verifying framework.`, {
     silent: options.silent,
   }).start()
-  const projectInfo = await getProjectInfo(options.cwd) as ProjectInfo
+  const projectInfo = await getProjectInfo(options.cwd)
   if (!projectInfo || projectInfo?.framework.name === 'manual') {
     errors[ERRORS.UNSUPPORTED_FRAMEWORK] = true
     frameworkSpinner?.fail()
     logger.break()
-
     if (projectInfo?.framework.links.installation) {
       logger.error(
         `We could not detect a supported framework at ${highlighter.info(
@@ -72,20 +72,38 @@ export async function preFlightInit(options: z.infer<typeof initOptionsSchema>) 
     logger.break()
     process.exit(1)
   }
-  if (!projectInfo) {
-    logger.break()
-    process.exit(1)
-  }
   frameworkSpinner?.succeed(
     `Verifying framework. Found ${highlighter.info(
       projectInfo.framework.label,
     )}.`,
   )
 
-  const tailwindSpinner = spinner(`Validating Tailwind CSS.`, {
+  let tailwindSpinnerMessage = 'Validating Tailwind CSS.'
+
+  if (projectInfo.tailwindVersion === 'v4') {
+    tailwindSpinnerMessage = `Validating Tailwind CSS config. Found ${highlighter.info(
+      'v4',
+    )}.`
+  }
+
+  const tailwindSpinner = spinner(tailwindSpinnerMessage, {
     silent: options.silent,
   }).start()
-  if (!projectInfo?.tailwindConfigFile || !projectInfo?.tailwindCssFile) {
+  if (
+    projectInfo.tailwindVersion === 'v3'
+    && (!projectInfo?.tailwindConfigFile || !projectInfo?.tailwindCssFile)
+  ) {
+    errors[ERRORS.TAILWIND_NOT_CONFIGURED] = true
+    tailwindSpinner?.fail()
+  }
+  else if (
+    projectInfo.tailwindVersion === 'v4'
+    && !projectInfo?.tailwindCssFile
+  ) {
+    errors[ERRORS.TAILWIND_NOT_CONFIGURED] = true
+    tailwindSpinner?.fail()
+  }
+  else if (!projectInfo.tailwindVersion) {
     errors[ERRORS.TAILWIND_NOT_CONFIGURED] = true
     tailwindSpinner?.fail()
   }

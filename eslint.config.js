@@ -18,7 +18,7 @@ export default antfu(
     },
   },
   {
-    files: ['**/registry/default/example/*.vue', '**/registry/new-york/example/*.vue'],
+    files: ['**/registry/default/examples/*.vue', '**/registry/new-york/examples/*.vue', '**/registry/new-york-v4/examples/*.vue'],
     rules: {
       'no-alert': 0,
       'no-console': 0,

@@ -18,12 +18,14 @@ const isLoading = ref(true)
     <div
       :class="[container ? 'w-full' : 'absolute inset-0 hidden w-[1600px] bg-background md:block']"
     >
-      <iframe
-        v-show="!isLoading"
-        :src="url"
-        class="relative z-20 w-full bg-background" :class="[container ? 'h-[--height]' : 'size-full']"
-        @load="isLoading = false"
-      />
+      <ClientOnly>
+        <iframe
+          v-show="!isLoading"
+          :src="url"
+          class="relative z-20 w-full bg-background" :class="[container ? 'h-[--height]' : 'size-full']"
+          @load="isLoading = false"
+        />
+      </ClientOnly>
     </div>
   </div>
 </template>

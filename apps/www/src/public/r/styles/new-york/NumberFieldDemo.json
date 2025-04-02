@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/NumberFieldDemo.vue",
+      "path": "examples/NumberFieldDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/new-york/ui/label'\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from '@/registry/new-york/ui/number-field'\n</script>\n\n<template>\n  <NumberField id=\"age\" :default-value=\"18\" :min=\"0\">\n    <Label for=\"age\">Age</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
       "type": "registry:example",
       "target": ""

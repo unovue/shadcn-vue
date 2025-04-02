@@ -54,6 +54,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p class="mt-2 font-medium">Laravel</p>
   </LinkedCard>
+  <LinkedCard href="/docs/installation/manual">
+    <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Akar Icons by Arturo Wibawa - https://github.com/artcoholic/akar-icons/blob/master/LICENSE --><path fill="currentColor" d="M19.114 2H15l-3 4.9L9.429 2H0l12 21L24 2zM3 3.75h2.914L12 14.6l6.086-10.85H21L12 19.5z"/></svg>
+    <p class="mt-2 font-medium">Manual</p>
+  </LinkedCard>
 </div>
 
 ## TypeScript

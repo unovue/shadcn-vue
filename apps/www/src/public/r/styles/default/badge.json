@@ -2,9 +2,7 @@
   "name": "badge",
   "type": "registry:ui",
   "dependencies": [],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/badge/Badge.vue",

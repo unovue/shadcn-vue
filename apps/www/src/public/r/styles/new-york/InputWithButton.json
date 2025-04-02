@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/InputWithButton.vue",
+      "path": "examples/InputWithButton.vue",
       "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { Input } from '@/registry/new-york/ui/input'\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-sm items-center gap-1.5\">\n    <Input id=\"email\" type=\"email\" placeholder=\"Email\" />\n    <Button type=\"submit\">\n      Subscribe\n    </Button>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/BreadcrumbDemo.vue",
+      "path": "examples/BreadcrumbDemo.vue",
       "content": "<script lang=\"ts\" setup>\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/registry/default/ui/breadcrumb'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/registry/default/ui/dropdown-menu'\n</script>\n\n<template>\n  <Breadcrumb>\n    <BreadcrumbList>\n      <BreadcrumbItem>\n        <BreadcrumbLink href=\"/\">\n          Home\n        </BreadcrumbLink>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator />\n      <BreadcrumbItem>\n        <DropdownMenu>\n          <DropdownMenuTrigger class=\"flex items-center gap-1\">\n            <BreadcrumbEllipsis class=\"h-4 w-4\" />\n            <span class=\"sr-only\">Toggle menu</span>\n          </DropdownMenuTrigger>\n          <DropdownMenuContent align=\"start\">\n            <DropdownMenuItem>Documentation</DropdownMenuItem>\n            <DropdownMenuItem>Themes</DropdownMenuItem>\n            <DropdownMenuItem>GitHub</DropdownMenuItem>\n          </DropdownMenuContent>\n        </DropdownMenu>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator />\n      <BreadcrumbItem>\n        <BreadcrumbLink href=\"/docs/components/accordion.html\">\n          Components\n        </BreadcrumbLink>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator />\n      <BreadcrumbItem>\n        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n      </BreadcrumbItem>\n    </BreadcrumbList>\n  </Breadcrumb>\n</template>\n",
       "type": "registry:example",
       "target": ""

@@ -1,7 +1,7 @@
 ---
 title: Number Field
 description: A number field allows a user to enter a number and increment or decrement the value using stepper buttons.
-source: apps/www/registry/default/ui/number-field
+source: apps/www/src/registry/default/ui/number-field
 primitive: https://www.reka-ui.com/docs/components/number-field.html
 ---
 

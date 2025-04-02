@@ -1,7 +1,7 @@
 ---
 title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
-source: apps/www/registry/default/ui/accordion
+source: apps/www/src/registry/default/ui/accordion
 primitive: https://www.reka-ui.com/docs/components/accordion.html
 ---
 

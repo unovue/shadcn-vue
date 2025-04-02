@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/TextareaWithText.vue",
+      "path": "examples/TextareaWithText.vue",
       "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/default/ui/label'\nimport { Textarea } from '@/registry/default/ui/textarea'\n</script>\n\n<template>\n  <div class=\"grid w-full gap-1.5\">\n    <Label for=\"message-2\">Your message</Label>\n    <Textarea id=\"message-2\" placeholder=\"Type your message here.\" />\n    <p class=\"text-sm text-muted-foreground\">\n      Your message will be copied to the support team.\n    </p>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

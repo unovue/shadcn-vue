@@ -12,7 +12,7 @@ import { rimraf } from 'rimraf'
 
 import { registry } from '../src/registry'
 import { buildRegistry as crawlContent } from '../src/registry/crawl-content'
-import { baseColors } from '../src/registry/registry-base-colors'
+import { baseColors, baseColorsV4 } from '../src/registry/registry-base-colors'
 import { colorMapping, colors } from '../src/registry/registry-colors'
 import { iconLibraries, icons } from '../src/registry/registry-icons'
 import { styles } from '../src/registry/registry-styles'
@@ -544,9 +544,6 @@ async function buildStyles(registry: Registry) {
         )
       }
 
-      // if (item.type === 'registry:block' && item.name === 'Sidebar01')
-      //   console.log(item.name, item.files?.[0], files?.[0])
-
       const payload = registryEntrySchema
         .omit({
           // source: true,
@@ -777,6 +774,9 @@ async function buildThemes() {
         }
       }
     }
+
+    // Add v4 css vars.
+    base.cssVarsV4 = baseColorsV4[baseColor as keyof typeof baseColorsV4]
 
     // Build css vars.
     base.inlineColorsTemplate = template(BASE_STYLES)({})

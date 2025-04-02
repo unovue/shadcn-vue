@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/AvatarDemo.vue",
+      "path": "examples/AvatarDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york/ui/avatar'\n</script>\n\n<template>\n  <Avatar>\n    <AvatarImage src=\"https://github.com/unovue.png\" alt=\"@unovue\" />\n    <AvatarFallback>CN</AvatarFallback>\n  </Avatar>\n</template>\n",
       "type": "registry:example",
       "target": ""

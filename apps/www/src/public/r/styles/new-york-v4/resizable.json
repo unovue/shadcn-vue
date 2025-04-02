@@ -1,0 +1,35 @@
+{
+  "name": "resizable",
+  "type": "registry:ui",
+  "dependencies": [
+    "@vueuse/core",
+    "reka-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/resizable/ResizableHandle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { reactiveOmit } from '@vueuse/core'\nimport { GripVertical } from 'lucide-vue-next'\nimport { SplitterResizeHandle, type SplitterResizeHandleEmits, type SplitterResizeHandleProps, useForwardPropsEmits } from 'reka-ui'\n\nconst props = defineProps<SplitterResizeHandleProps & { class?: HTMLAttributes['class'], withHandle?: boolean }>()\nconst emits = defineEmits<SplitterResizeHandleEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'withHandle')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SplitterResizeHandle\n    data-slot=\"resizable-handle\"\n    v-bind=\"forwarded\"\n    :class=\"cn('bg-border focus-visible:ring-ring relative flex w-px items-center justify-center after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:outline-hidden data-[orientation=vertical]:h-px data-[orientation=vertical]:w-full data-[orientation=vertical]:after:left-0 data-[orientation=vertical]:after:h-1 data-[orientation=vertical]:after:w-full data-[orientation=vertical]:after:-translate-y-1/2 data-[orientation=vertical]:after:translate-x-0 [&[data-orientation=vertical]>div]:rotate-90', props.class)\"\n  >\n    <template v-if=\"props.withHandle\">\n      <div class=\"bg-border z-10 flex h-4 w-3 items-center justify-center rounded-xs border\">\n        <GripVertical class=\"size-2.5\" />\n      </div>\n    </template>\n  </SplitterResizeHandle>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/resizable/ResizablePanel.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SplitterPanelEmits, SplitterPanelProps } from 'reka-ui'\nimport { SplitterPanel, useForwardPropsEmits } from 'reka-ui'\n\nconst props = defineProps<SplitterPanelProps>()\nconst emits = defineEmits<SplitterPanelEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <SplitterPanel\n    data-slot=\"resizable-panel\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </SplitterPanel>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/resizable/ResizablePanelGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { SplitterGroup, type SplitterGroupEmits, type SplitterGroupProps, useForwardPropsEmits } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<SplitterGroupProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<SplitterGroupEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SplitterGroup\n    data-slot=\"resizable-panel-group\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex h-full w-full data-[orientation=vertical]:flex-col', props.class)\"\n  >\n    <slot />\n  </SplitterGroup>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/resizable/index.ts",
+      "content": "export { default as ResizableHandle } from './ResizableHandle.vue'\nexport { default as ResizablePanel } from './ResizablePanel.vue'\nexport { default as ResizablePanelGroup } from './ResizablePanelGroup.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

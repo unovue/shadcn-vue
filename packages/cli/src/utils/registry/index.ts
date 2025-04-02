@@ -1,7 +1,8 @@
-import type { Config } from '@/src/utils/get-config'
 import type {
   registryItemFileSchema,
 } from '@/src/utils/registry/schema'
+import { type Config, getTargetStyleFromConfig } from '@/src/utils/get-config'
+import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 import {
@@ -76,29 +77,31 @@ export async function getRegistryItem(name: string, style: string) {
   }
 }
 
+export const BASE_COLORS = [
+  {
+    name: 'neutral',
+    label: 'Neutral',
+  },
+  {
+    name: 'gray',
+    label: 'Gray',
+  },
+  {
+    name: 'zinc',
+    label: 'Zinc',
+  },
+  {
+    name: 'stone',
+    label: 'Stone',
+  },
+  {
+    name: 'slate',
+    label: 'Slate',
+  },
+] as const
+
 export async function getRegistryBaseColors() {
-  return [
-    {
-      name: 'neutral',
-      label: 'Neutral',
-    },
-    {
-      name: 'gray',
-      label: 'Gray',
-    },
-    {
-      name: 'zinc',
-      label: 'Zinc',
-    },
-    {
-      name: 'stone',
-      label: 'Stone',
-    },
-    {
-      name: 'slate',
-      label: 'Slate',
-    },
-  ]
+  return BASE_COLORS
 }
 
 export async function getRegistryBaseColor(baseColor: string) {
@@ -320,9 +323,13 @@ async function resolveRegistryDependencies(
   const visited = new Set<string>()
   const payload: string[] = []
 
+  const style = config.resolvedPaths?.cwd
+    ? await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style)
+    : config.style
+
   async function resolveDependencies(itemUrl: string) {
     const url = getRegistryUrl(
-      isUrl(itemUrl) ? itemUrl : `styles/${config.style}/${itemUrl}.json`,
+      isUrl(itemUrl) ? itemUrl : `styles/${style}/${itemUrl}.json`,
     )
 
     if (visited.has(url)) {
@@ -355,7 +362,10 @@ async function resolveRegistryDependencies(
 }
 
 export async function registryGetTheme(name: string, config: Config) {
-  const baseColor = await getRegistryBaseColor(name)
+  const [baseColor, tailwindVersion] = await Promise.all([
+    getRegistryBaseColor(name),
+    getProjectTailwindVersionFromConfig(config),
+  ])
   if (!baseColor) {
     return null
   }
@@ -400,6 +410,19 @@ export async function registryGetTheme(name: string, config: Config) {
         ...baseColor.cssVars.dark,
         ...theme.cssVars.dark,
       },
+    }
+
+    if (tailwindVersion === 'v4' && baseColor.cssVarsV4) {
+      theme.cssVars = {
+        light: {
+          ...theme.cssVars.light,
+          ...baseColor.cssVarsV4.light,
+        },
+        dark: {
+          ...theme.cssVars.dark,
+          ...baseColor.cssVarsV4.dark,
+        },
+      }
     }
   }
 

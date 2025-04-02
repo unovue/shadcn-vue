@@ -1,7 +1,7 @@
 ---
 title: Charts
 description: Versatile visualization tool, allowing users to represent data using various types of charts for effective analysis.
-label: Alpha
+label: Legacy
 ---
 
 <script setup>
@@ -12,7 +12,13 @@ import Pie from '~icons/gravity-ui/chart-pie'
 </script>
 
 <Callout>
-  Only works with Vue >3.3
+
+**Legacy**: Component will be moved to [extended repo](https://github.com/unovue/shadcn-vue/issues/1077) with Tailwind v4 support.
+
+---
+
+Only works with Vue >3.3
+
 </Callout>
 
 `Charts` components were built on top of [Unovis](https://unovis.dev/) (a modular data visualization framework), and inspired by [tremor](https://www.tremor.so).

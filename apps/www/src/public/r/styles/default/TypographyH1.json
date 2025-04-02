@@ -5,7 +5,7 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "example/TypographyH1.vue",
+      "path": "examples/TypographyH1.vue",
       "content": "<template>\n  <h1 class=\"scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl\">\n    Taxing Laughter: The Joke Tax Chronicles\n  </h1>\n</template>\n",
       "type": "registry:example",
       "target": ""

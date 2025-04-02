@@ -106,8 +106,6 @@ exports[`registryResolveItemTree > should resolve items tree 1`] = `
   "cssVars": {},
   "dependencies": [
     "reka-ui",
-    "clsx",
-    "tailwind-merge",
   ],
   "devDependencies": [],
   "docs": "",
@@ -185,27 +183,6 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>
       "target": "",
       "type": "registry:ui",
     },
-    {
-      "content": "import type { Updater } from '@tanstack/vue-table'
-import type { Ref } from 'vue'
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value
-    = typeof updaterOrValue === 'function'
-      ? updaterOrValue(ref.value)
-      : updaterOrValue
-}
-",
-      "path": "lib/utils.ts",
-      "target": "",
-      "type": "registry:lib",
-    },
   ],
   "tailwind": {},
 }
@@ -216,8 +193,6 @@ exports[`registryResolveItemTree > should resolve multiple items tree 1`] = `
   "cssVars": {},
   "dependencies": [
     "reka-ui",
-    "clsx",
-    "tailwind-merge",
     "@vueuse/core",
   ],
   "devDependencies": [],
@@ -295,27 +270,6 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>
       "path": "ui/button/index.ts",
       "target": "",
       "type": "registry:ui",
-    },
-    {
-      "content": "import type { Updater } from '@tanstack/vue-table'
-import type { Ref } from 'vue'
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value
-    = typeof updaterOrValue === 'function'
-      ? updaterOrValue(ref.value)
-      : updaterOrValue
-}
-",
-      "path": "lib/utils.ts",
-      "target": "",
-      "type": "registry:lib",
     },
     {
       "content": "<script setup lang="ts">

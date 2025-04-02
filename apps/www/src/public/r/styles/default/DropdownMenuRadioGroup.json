@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/DropdownMenuRadioGroup.vue",
+      "path": "examples/DropdownMenuRadioGroup.vue",
       "content": "<script lang=\"ts\" setup>\nimport { Button } from '@/registry/default/ui/button'\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuLabel,\n  DropdownMenuRadioGroup,\n  DropdownMenuRadioItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/registry/default/ui/dropdown-menu'\nimport { ref } from 'vue'\n\nconst position = ref('bottom')\n</script>\n\n<template>\n  <DropdownMenu>\n    <DropdownMenuTrigger as-child>\n      <Button variant=\"outline\">\n        Open\n      </Button>\n    </DropdownMenuTrigger>\n    <DropdownMenuContent class=\"w-56\">\n      <DropdownMenuLabel>Panel Position</DropdownMenuLabel>\n      <DropdownMenuSeparator />\n      <DropdownMenuRadioGroup v-model=\"position\">\n        <DropdownMenuRadioItem value=\"top\">\n          Top\n        </DropdownMenuRadioItem>\n        <DropdownMenuRadioItem value=\"bottom\">\n          Bottom\n        </DropdownMenuRadioItem>\n        <DropdownMenuRadioItem value=\"right\">\n          Right\n        </DropdownMenuRadioItem>\n      </DropdownMenuRadioGroup>\n    </DropdownMenuContent>\n  </DropdownMenu>\n</template>\n",
       "type": "registry:example",
       "target": ""

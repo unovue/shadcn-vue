@@ -1,7 +1,7 @@
 ---
 title: Command
 description: Fast, composable, unstyled command menu.
-source: apps/www/registry/default/ui/command
+source: apps/www/src/registry/default/ui/command
 primitive: https://www.reka-ui.com/docs/components/listbox.html
 ---
 

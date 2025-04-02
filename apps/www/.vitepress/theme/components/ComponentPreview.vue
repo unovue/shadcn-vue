@@ -35,7 +35,7 @@ function transformImportPath(code: string) {
 
 watch([style, codeConfig], async () => {
   try {
-    rawString.value = await import(`../../../src/registry/${style.value}/example/${props.name}.vue?raw`).then(res => res.default.trim())
+    rawString.value = await import(`../../../src/registry/${style.value}/examples/${props.name}.vue?raw`).then(res => res.default.trim())
     codeHtml.value = highlight(transformedRawString.value, 'vue')
   }
   catch (err) {

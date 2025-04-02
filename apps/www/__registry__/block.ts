@@ -10,13 +10,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/new-york/block/Authentication01.vue",
+        path: "registry/new-york/blocks/Authentication01.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Authentication01.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Authentication01.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Authentication01.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Authentication01.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Authentication01.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Authentication01.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -27,13 +27,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/new-york/block/Authentication02.vue",
+        path: "registry/new-york/blocks/Authentication02.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Authentication02.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Authentication02.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Authentication02.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Authentication02.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Authentication02.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Authentication02.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -44,13 +44,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/new-york/block/Authentication03.vue",
+        path: "registry/new-york/blocks/Authentication03.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Authentication03.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Authentication03.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Authentication03.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Authentication03.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Authentication03.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Authentication03.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -61,13 +61,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       files: [{
-        path: "registry/new-york/block/Authentication04.vue",
+        path: "registry/new-york/blocks/Authentication04.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Authentication04.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Authentication04.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Authentication04.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Authentication04.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Authentication04.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Authentication04.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -78,13 +78,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","sheet","table"],
       files: [{
-        path: "registry/new-york/block/Dashboard01.vue",
+        path: "registry/new-york/blocks/Dashboard01.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard01.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard01.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard01.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard01.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard01.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard01.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -95,13 +95,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","button","card","dropdown-menu","input","sheet"],
       files: [{
-        path: "registry/new-york/block/Dashboard02.vue",
+        path: "registry/new-york/blocks/Dashboard02.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard02.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard02.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard02.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard02.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard02.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard02.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -112,13 +112,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","button","drawer","input","label","select","textarea","tooltip"],
       files: [{
-        path: "registry/new-york/block/Dashboard03.vue",
+        path: "registry/new-york/blocks/Dashboard03.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard03.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard03.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard03.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard03.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard03.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard03.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -129,13 +129,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       files: [{
-        path: "registry/new-york/block/Dashboard04.vue",
+        path: "registry/new-york/blocks/Dashboard04.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard04.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard04.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard04.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard04.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard04.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard04.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -146,13 +146,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","checkbox","dropdown-menu","input","pagination","progress","separator","sheet","table","tabs","tooltip"],
       files: [{
-        path: "registry/new-york/block/Dashboard05.vue",
+        path: "registry/new-york/blocks/Dashboard05.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard05.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard05.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard05.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard05.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard05.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard05.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -163,13 +163,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       files: [{
-        path: "registry/new-york/block/Dashboard06.vue",
+        path: "registry/new-york/blocks/Dashboard06.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard06.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard06.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard06.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard06.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard06.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard06.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -180,13 +180,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       files: [{
-        path: "registry/new-york/block/Dashboard07.vue",
+        path: "registry/new-york/blocks/Dashboard07.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Dashboard07.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Dashboard07.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Dashboard07.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Dashboard07.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Dashboard07.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Dashboard07.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -197,13 +197,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebar.vue",
+        path: "registry/new-york/blocks/DemoSidebar.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebar.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebar.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebar.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebar.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -214,13 +214,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarControlled.vue",
+        path: "registry/new-york/blocks/DemoSidebarControlled.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarControlled.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarControlled.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarControlled.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarControlled.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarControlled.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarControlled.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -231,13 +231,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["dropdown-menu","sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarFooter.vue",
+        path: "registry/new-york/blocks/DemoSidebarFooter.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarFooter.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarFooter.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarFooter.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarFooter.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarFooter.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarFooter.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -248,13 +248,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarGroup.vue",
+        path: "registry/new-york/blocks/DemoSidebarGroup.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarGroup.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarGroup.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarGroup.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarGroup.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarGroup.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarGroup.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -265,13 +265,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarGroupAction.vue",
+        path: "registry/new-york/blocks/DemoSidebarGroupAction.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarGroupAction.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarGroupAction.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarGroupAction.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarGroupAction.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarGroupAction.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarGroupAction.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -282,13 +282,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["collapsible","sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarGroupCollapsible.vue",
+        path: "registry/new-york/blocks/DemoSidebarGroupCollapsible.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarGroupCollapsible.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarGroupCollapsible.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -299,13 +299,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["dropdown-menu","sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarHeader.vue",
+        path: "registry/new-york/blocks/DemoSidebarHeader.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarHeader.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarHeader.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarHeader.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarHeader.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarHeader.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarHeader.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -316,13 +316,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarMenu.vue",
+        path: "registry/new-york/blocks/DemoSidebarMenu.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarMenu.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarMenu.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarMenu.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarMenu.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarMenu.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarMenu.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -333,13 +333,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["dropdown-menu","sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarMenuAction.vue",
+        path: "registry/new-york/blocks/DemoSidebarMenuAction.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarMenuAction.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuAction.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarMenuAction.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarMenuAction.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarMenuAction.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuAction.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -350,13 +350,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarMenuBadge.vue",
+        path: "registry/new-york/blocks/DemoSidebarMenuBadge.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarMenuBadge.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuBadge.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarMenuBadge.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarMenuBadge.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarMenuBadge.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuBadge.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -367,13 +367,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["collapsible","sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarMenuCollapsible.vue",
+        path: "registry/new-york/blocks/DemoSidebarMenuCollapsible.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarMenuCollapsible.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarMenuCollapsible.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -384,13 +384,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/new-york/block/DemoSidebarMenuSub.vue",
+        path: "registry/new-york/blocks/DemoSidebarMenuSub.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/DemoSidebarMenuSub.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuSub.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/DemoSidebarMenuSub.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/DemoSidebarMenuSub.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/DemoSidebarMenuSub.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/DemoSidebarMenuSub.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -401,18 +401,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/new-york/block/Login01/page.vue",
+        path: "registry/new-york/blocks/Login01/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Login01/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login01/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Login01/components/LoginForm.vue",
+        path: "registry/new-york/blocks/Login01/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Login01/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login01/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Login01/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Login01/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Login01/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Login01/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -421,20 +421,20 @@ export const Index: Record<string, any> = {
       name: "Login02",
       description: "",
       type: "registry:block",
-      registryDependencies: ["utils","button","input","label"],
+      registryDependencies: ["button","input","label"],
       files: [{
-        path: "registry/new-york/block/Login02/page.vue",
+        path: "registry/new-york/blocks/Login02/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Login02/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login02/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Login02/components/LoginForm.vue",
+        path: "registry/new-york/blocks/Login02/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Login02/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login02/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Login02/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Login02/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Login02/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Login02/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -445,18 +445,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/new-york/block/Login03/page.vue",
+        path: "registry/new-york/blocks/Login03/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Login03/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login03/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Login03/components/LoginForm.vue",
+        path: "registry/new-york/blocks/Login03/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Login03/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login03/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Login03/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Login03/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Login03/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Login03/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -467,18 +467,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/new-york/block/Login04/page.vue",
+        path: "registry/new-york/blocks/Login04/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Login04/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login04/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Login04/components/LoginForm.vue",
+        path: "registry/new-york/blocks/Login04/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Login04/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login04/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Login04/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Login04/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Login04/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Login04/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -489,18 +489,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       files: [{
-        path: "registry/new-york/block/Login05/page.vue",
+        path: "registry/new-york/blocks/Login05/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Login05/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login05/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Login05/components/LoginForm.vue",
+        path: "registry/new-york/blocks/Login05/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Login05/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Login05/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Login05/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Login05/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Login05/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Login05/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -511,28 +511,28 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","label","dropdown-menu"],
       files: [{
-        path: "registry/new-york/block/Sidebar01/page.vue",
+        path: "registry/new-york/blocks/Sidebar01/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar01/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar01/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar01/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar01/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar01/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar01/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar01/components/SearchForm.vue",
+        path: "registry/new-york/blocks/Sidebar01/components/SearchForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar01/components/SearchForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar01/components/SearchForm.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar01/components/VersionSwitcher.vue",
+        path: "registry/new-york/blocks/Sidebar01/components/VersionSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar01/components/VersionSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar01/components/VersionSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar01/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar01/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar01/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar01/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -543,28 +543,28 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label","dropdown-menu"],
       files: [{
-        path: "registry/new-york/block/Sidebar02/page.vue",
+        path: "registry/new-york/blocks/Sidebar02/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar02/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar02/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar02/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar02/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar02/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar02/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar02/components/SearchForm.vue",
+        path: "registry/new-york/blocks/Sidebar02/components/SearchForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar02/components/SearchForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar02/components/SearchForm.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar02/components/VersionSwitcher.vue",
+        path: "registry/new-york/blocks/Sidebar02/components/VersionSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar02/components/VersionSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar02/components/VersionSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar02/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar02/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar02/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar02/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -575,18 +575,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar"],
       files: [{
-        path: "registry/new-york/block/Sidebar03/page.vue",
+        path: "registry/new-york/blocks/Sidebar03/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar03/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar03/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar03/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar03/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar03/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar03/components/AppSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar03/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar03/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar03/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar03/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -597,18 +597,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar"],
       files: [{
-        path: "registry/new-york/block/Sidebar04/page.vue",
+        path: "registry/new-york/blocks/Sidebar04/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar04/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar04/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar04/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar04/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar04/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar04/components/AppSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar04/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar04/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar04/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar04/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -619,23 +619,23 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label"],
       files: [{
-        path: "registry/new-york/block/Sidebar05/page.vue",
+        path: "registry/new-york/blocks/Sidebar05/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar05/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar05/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar05/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar05/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar05/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar05/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar05/components/SearchForm.vue",
+        path: "registry/new-york/blocks/Sidebar05/components/SearchForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar05/components/SearchForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar05/components/SearchForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar05/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar05/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar05/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar05/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -646,28 +646,28 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","dropdown-menu","button","card"],
       files: [{
-        path: "registry/new-york/block/Sidebar06/page.vue",
+        path: "registry/new-york/blocks/Sidebar06/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar06/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar06/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar06/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar06/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar06/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar06/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar06/components/NavMain.vue",
+        path: "registry/new-york/blocks/Sidebar06/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar06/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar06/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar06/components/SidebarOptInForm.vue",
+        path: "registry/new-york/blocks/Sidebar06/components/SidebarOptInForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar06/components/SidebarOptInForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar06/components/SidebarOptInForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar06/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar06/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar06/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar06/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -678,38 +678,38 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
       files: [{
-        path: "registry/new-york/block/Sidebar07/page.vue",
+        path: "registry/new-york/blocks/Sidebar07/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar07/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar07/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar07/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar07/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar07/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar07/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar07/components/NavMain.vue",
+        path: "registry/new-york/blocks/Sidebar07/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar07/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar07/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar07/components/NavProjects.vue",
+        path: "registry/new-york/blocks/Sidebar07/components/NavProjects.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar07/components/NavProjects.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar07/components/NavProjects.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar07/components/NavUser.vue",
+        path: "registry/new-york/blocks/Sidebar07/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar07/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar07/components/NavUser.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar07/components/TeamSwitcher.vue",
+        path: "registry/new-york/blocks/Sidebar07/components/TeamSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar07/components/TeamSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar07/components/TeamSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar07/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar07/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar07/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar07/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -720,38 +720,38 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
       files: [{
-        path: "registry/new-york/block/Sidebar08/page.vue",
+        path: "registry/new-york/blocks/Sidebar08/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar08/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar08/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar08/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar08/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar08/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar08/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar08/components/NavMain.vue",
+        path: "registry/new-york/blocks/Sidebar08/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar08/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar08/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar08/components/NavProjects.vue",
+        path: "registry/new-york/blocks/Sidebar08/components/NavProjects.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar08/components/NavProjects.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar08/components/NavProjects.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar08/components/NavSecondary.vue",
+        path: "registry/new-york/blocks/Sidebar08/components/NavSecondary.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar08/components/NavSecondary.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar08/components/NavSecondary.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar08/components/NavUser.vue",
+        path: "registry/new-york/blocks/Sidebar08/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar08/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar08/components/NavUser.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar08/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar08/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar08/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar08/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -762,23 +762,23 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","label","switch","avatar","dropdown-menu"],
       files: [{
-        path: "registry/new-york/block/Sidebar09/page.vue",
+        path: "registry/new-york/blocks/Sidebar09/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar09/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar09/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar09/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar09/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar09/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar09/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar09/components/NavUser.vue",
+        path: "registry/new-york/blocks/Sidebar09/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar09/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar09/components/NavUser.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar09/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar09/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar09/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar09/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -789,48 +789,48 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","button","popover","dropdown-menu","collapsible"],
       files: [{
-        path: "registry/new-york/block/Sidebar10/page.vue",
+        path: "registry/new-york/blocks/Sidebar10/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar10/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/NavActions.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/NavActions.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/NavActions.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/NavActions.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/NavFavorites.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/NavFavorites.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/NavFavorites.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/NavFavorites.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/NavMain.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/NavSecondary.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/NavSecondary.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/NavSecondary.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/NavSecondary.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/NavWorkspaces.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/NavWorkspaces.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/NavWorkspaces.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/NavWorkspaces.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar10/components/TeamSwitcher.vue",
+        path: "registry/new-york/blocks/Sidebar10/components/TeamSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar10/components/TeamSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar10/components/TeamSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar10/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar10/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar10/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar10/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -841,23 +841,23 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible"],
       files: [{
-        path: "registry/new-york/block/Sidebar11/page.vue",
+        path: "registry/new-york/blocks/Sidebar11/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar11/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar11/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar11/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar11/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar11/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar11/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar11/components/Tree.vue",
+        path: "registry/new-york/blocks/Sidebar11/components/Tree.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar11/components/Tree.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar11/components/Tree.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar11/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar11/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar11/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar11/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -868,33 +868,33 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","avatar","dropdown-menu"],
       files: [{
-        path: "registry/new-york/block/Sidebar12/page.vue",
+        path: "registry/new-york/blocks/Sidebar12/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar12/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar12/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar12/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar12/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar12/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar12/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar12/components/Calendars.vue",
+        path: "registry/new-york/blocks/Sidebar12/components/Calendars.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar12/components/Calendars.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar12/components/Calendars.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar12/components/DatePicker.vue",
+        path: "registry/new-york/blocks/Sidebar12/components/DatePicker.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar12/components/DatePicker.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar12/components/DatePicker.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar12/components/NavUser.vue",
+        path: "registry/new-york/blocks/Sidebar12/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar12/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar12/components/NavUser.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar12/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar12/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar12/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar12/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -905,18 +905,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","button","dialog","sidebar"],
       files: [{
-        path: "registry/new-york/block/Sidebar13/page.vue",
+        path: "registry/new-york/blocks/Sidebar13/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar13/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar13/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar13/components/SettingsDialog.vue",
+        path: "registry/new-york/blocks/Sidebar13/components/SettingsDialog.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar13/components/SettingsDialog.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar13/components/SettingsDialog.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar13/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar13/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar13/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar13/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -927,18 +927,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","sidebar"],
       files: [{
-        path: "registry/new-york/block/Sidebar14/page.vue",
+        path: "registry/new-york/blocks/Sidebar14/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar14/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar14/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar14/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar14/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar14/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar14/components/AppSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar14/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar14/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar14/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar14/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -949,68 +949,68 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","dropdown-menu","avatar"],
       files: [{
-        path: "registry/new-york/block/Sidebar15/page.vue",
+        path: "registry/new-york/blocks/Sidebar15/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/new-york/block/Sidebar15/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/AppSidebar.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/Calendars.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/Calendars.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/Calendars.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/Calendars.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/DatePicker.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/DatePicker.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/DatePicker.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/DatePicker.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/NavFavorites.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/NavFavorites.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/NavFavorites.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/NavFavorites.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/NavMain.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/NavSecondary.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/NavSecondary.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/NavSecondary.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/NavSecondary.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/NavUser.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/NavUser.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/NavWorkspaces.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/NavWorkspaces.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/NavWorkspaces.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/NavWorkspaces.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/SidebarLeft.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/SidebarLeft.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/SidebarLeft.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/SidebarLeft.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/SidebarRight.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/SidebarRight.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/SidebarRight.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/SidebarRight.vue?raw").then((m) => m.default)
       },{
-        path: "registry/new-york/block/Sidebar15/components/TeamSwitcher.vue",
+        path: "registry/new-york/blocks/Sidebar15/components/TeamSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/new-york/block/Sidebar15/components/TeamSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/new-york/blocks/Sidebar15/components/TeamSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/new-york/block/Sidebar15/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/new-york/block/Sidebar15/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/new-york/blocks/Sidebar15/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/new-york/blocks/Sidebar15/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1022,13 +1022,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/default/block/Authentication01.vue",
+        path: "registry/default/blocks/Authentication01.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Authentication01.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Authentication01.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Authentication01.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Authentication01.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Authentication01.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Authentication01.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -1039,13 +1039,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/default/block/Authentication02.vue",
+        path: "registry/default/blocks/Authentication02.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Authentication02.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Authentication02.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Authentication02.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Authentication02.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Authentication02.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Authentication02.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -1056,13 +1056,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/default/block/Authentication03.vue",
+        path: "registry/default/blocks/Authentication03.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Authentication03.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Authentication03.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Authentication03.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Authentication03.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Authentication03.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Authentication03.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -1073,13 +1073,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       files: [{
-        path: "registry/default/block/Authentication04.vue",
+        path: "registry/default/blocks/Authentication04.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Authentication04.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Authentication04.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Authentication04.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Authentication04.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Authentication04.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Authentication04.vue?raw").then((m) => m.default),
       source: "",
       category: "authentication",
       subcategory: ""
@@ -1090,13 +1090,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["avatar","badge","button","card","dropdown-menu","input","sheet","table"],
       files: [{
-        path: "registry/default/block/Dashboard01.vue",
+        path: "registry/default/blocks/Dashboard01.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard01.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard01.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard01.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard01.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard01.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard01.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1107,13 +1107,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","button","card","dropdown-menu","input","sheet"],
       files: [{
-        path: "registry/default/block/Dashboard02.vue",
+        path: "registry/default/blocks/Dashboard02.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard02.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard02.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard02.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard02.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard02.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard02.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1124,13 +1124,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","button","drawer","input","label","select","textarea","tooltip"],
       files: [{
-        path: "registry/default/block/Dashboard03.vue",
+        path: "registry/default/blocks/Dashboard03.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard03.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard03.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard03.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard03.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard03.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard03.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1141,13 +1141,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","checkbox","dropdown-menu","input","sheet"],
       files: [{
-        path: "registry/default/block/Dashboard04.vue",
+        path: "registry/default/blocks/Dashboard04.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard04.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard04.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard04.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard04.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard04.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard04.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1158,13 +1158,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","checkbox","dropdown-menu","input","pagination","progress","separator","sheet","table","tabs","tooltip"],
       files: [{
-        path: "registry/default/block/Dashboard05.vue",
+        path: "registry/default/blocks/Dashboard05.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard05.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard05.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard05.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard05.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard05.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard05.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1175,13 +1175,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","sheet","table","tabs","tooltip"],
       files: [{
-        path: "registry/default/block/Dashboard06.vue",
+        path: "registry/default/blocks/Dashboard06.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard06.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard06.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard06.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard06.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard06.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard06.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1192,13 +1192,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["badge","breadcrumb","button","card","dropdown-menu","input","label","select","sheet","table","textarea","toggle-group","tooltip"],
       files: [{
-        path: "registry/default/block/Dashboard07.vue",
+        path: "registry/default/blocks/Dashboard07.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Dashboard07.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Dashboard07.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Dashboard07.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Dashboard07.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Dashboard07.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Dashboard07.vue?raw").then((m) => m.default),
       source: "",
       category: "dashboard",
       subcategory: ""
@@ -1209,13 +1209,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebar.vue",
+        path: "registry/default/blocks/DemoSidebar.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebar.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebar.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebar.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebar.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1226,13 +1226,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarControlled.vue",
+        path: "registry/default/blocks/DemoSidebarControlled.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarControlled.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarControlled.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarControlled.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarControlled.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarControlled.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarControlled.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1243,13 +1243,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["dropdown-menu","sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarFooter.vue",
+        path: "registry/default/blocks/DemoSidebarFooter.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarFooter.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarFooter.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarFooter.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarFooter.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarFooter.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarFooter.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1260,13 +1260,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarGroup.vue",
+        path: "registry/default/blocks/DemoSidebarGroup.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarGroup.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarGroup.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarGroup.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarGroup.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarGroup.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarGroup.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1277,13 +1277,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarGroupAction.vue",
+        path: "registry/default/blocks/DemoSidebarGroupAction.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarGroupAction.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarGroupAction.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarGroupAction.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarGroupAction.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarGroupAction.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarGroupAction.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1294,13 +1294,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["collapsible","sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarGroupCollapsible.vue",
+        path: "registry/default/blocks/DemoSidebarGroupCollapsible.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarGroupCollapsible.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarGroupCollapsible.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarGroupCollapsible.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1311,13 +1311,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["dropdown-menu","sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarHeader.vue",
+        path: "registry/default/blocks/DemoSidebarHeader.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarHeader.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarHeader.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarHeader.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarHeader.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarHeader.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarHeader.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1328,13 +1328,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarMenu.vue",
+        path: "registry/default/blocks/DemoSidebarMenu.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarMenu.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarMenu.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarMenu.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarMenu.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarMenu.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarMenu.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1345,13 +1345,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["dropdown-menu","sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarMenuAction.vue",
+        path: "registry/default/blocks/DemoSidebarMenuAction.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarMenuAction.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarMenuAction.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarMenuAction.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarMenuAction.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarMenuAction.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarMenuAction.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1362,13 +1362,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarMenuBadge.vue",
+        path: "registry/default/blocks/DemoSidebarMenuBadge.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarMenuBadge.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarMenuBadge.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarMenuBadge.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarMenuBadge.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarMenuBadge.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarMenuBadge.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1379,13 +1379,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["collapsible","sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarMenuCollapsible.vue",
+        path: "registry/default/blocks/DemoSidebarMenuCollapsible.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarMenuCollapsible.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarMenuCollapsible.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarMenuCollapsible.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1396,13 +1396,13 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["sidebar"],
       files: [{
-        path: "registry/default/block/DemoSidebarMenuSub.vue",
+        path: "registry/default/blocks/DemoSidebarMenuSub.vue",
         type: "registry:block",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/DemoSidebarMenuSub.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/DemoSidebarMenuSub.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/DemoSidebarMenuSub.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/DemoSidebarMenuSub.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/DemoSidebarMenuSub.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/DemoSidebarMenuSub.vue?raw").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1413,18 +1413,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/default/block/Login01/page.vue",
+        path: "registry/default/blocks/Login01/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Login01/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login01/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Login01/components/LoginForm.vue",
+        path: "registry/default/blocks/Login01/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Login01/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login01/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Login01/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Login01/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Login01/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Login01/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -1433,20 +1433,20 @@ export const Index: Record<string, any> = {
       name: "Login02",
       description: "",
       type: "registry:block",
-      registryDependencies: ["utils","button","input","label"],
+      registryDependencies: ["button","input","label"],
       files: [{
-        path: "registry/default/block/Login02/page.vue",
+        path: "registry/default/blocks/Login02/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Login02/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login02/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Login02/components/LoginForm.vue",
+        path: "registry/default/blocks/Login02/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Login02/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login02/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Login02/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Login02/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Login02/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Login02/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -1457,18 +1457,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/default/block/Login03/page.vue",
+        path: "registry/default/blocks/Login03/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Login03/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login03/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Login03/components/LoginForm.vue",
+        path: "registry/default/blocks/Login03/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Login03/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login03/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Login03/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Login03/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Login03/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Login03/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -1479,18 +1479,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","card","input","label"],
       files: [{
-        path: "registry/default/block/Login04/page.vue",
+        path: "registry/default/blocks/Login04/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Login04/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login04/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Login04/components/LoginForm.vue",
+        path: "registry/default/blocks/Login04/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Login04/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login04/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Login04/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Login04/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Login04/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Login04/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -1501,18 +1501,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["button","input","label"],
       files: [{
-        path: "registry/default/block/Login05/page.vue",
+        path: "registry/default/blocks/Login05/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Login05/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login05/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Login05/components/LoginForm.vue",
+        path: "registry/default/blocks/Login05/components/LoginForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Login05/components/LoginForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Login05/components/LoginForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Login05/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Login05/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Login05/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Login05/page.vue?raw").then((m) => m.default),
       source: "",
       category: "login",
       subcategory: ""
@@ -1523,28 +1523,28 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","label","dropdown-menu"],
       files: [{
-        path: "registry/default/block/Sidebar01/page.vue",
+        path: "registry/default/blocks/Sidebar01/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar01/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar01/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar01/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar01/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar01/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar01/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar01/components/SearchForm.vue",
+        path: "registry/default/blocks/Sidebar01/components/SearchForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar01/components/SearchForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar01/components/SearchForm.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar01/components/VersionSwitcher.vue",
+        path: "registry/default/blocks/Sidebar01/components/VersionSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar01/components/VersionSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar01/components/VersionSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar01/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar01/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar01/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar01/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1555,28 +1555,28 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label","dropdown-menu"],
       files: [{
-        path: "registry/default/block/Sidebar02/page.vue",
+        path: "registry/default/blocks/Sidebar02/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar02/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar02/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar02/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar02/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar02/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar02/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar02/components/SearchForm.vue",
+        path: "registry/default/blocks/Sidebar02/components/SearchForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar02/components/SearchForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar02/components/SearchForm.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar02/components/VersionSwitcher.vue",
+        path: "registry/default/blocks/Sidebar02/components/VersionSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar02/components/VersionSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar02/components/VersionSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar02/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar02/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar02/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar02/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1587,18 +1587,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar"],
       files: [{
-        path: "registry/default/block/Sidebar03/page.vue",
+        path: "registry/default/blocks/Sidebar03/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar03/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar03/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar03/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar03/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar03/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar03/components/AppSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar03/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar03/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar03/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar03/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1609,18 +1609,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar"],
       files: [{
-        path: "registry/default/block/Sidebar04/page.vue",
+        path: "registry/default/blocks/Sidebar04/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar04/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar04/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar04/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar04/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar04/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar04/components/AppSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar04/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar04/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar04/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar04/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1631,23 +1631,23 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label"],
       files: [{
-        path: "registry/default/block/Sidebar05/page.vue",
+        path: "registry/default/blocks/Sidebar05/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar05/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar05/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar05/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar05/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar05/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar05/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar05/components/SearchForm.vue",
+        path: "registry/default/blocks/Sidebar05/components/SearchForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar05/components/SearchForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar05/components/SearchForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar05/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar05/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar05/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar05/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1658,28 +1658,28 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","dropdown-menu","button","card"],
       files: [{
-        path: "registry/default/block/Sidebar06/page.vue",
+        path: "registry/default/blocks/Sidebar06/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar06/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar06/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar06/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar06/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar06/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar06/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar06/components/NavMain.vue",
+        path: "registry/default/blocks/Sidebar06/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar06/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar06/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar06/components/SidebarOptInForm.vue",
+        path: "registry/default/blocks/Sidebar06/components/SidebarOptInForm.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar06/components/SidebarOptInForm.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar06/components/SidebarOptInForm.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar06/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar06/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar06/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar06/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1690,38 +1690,38 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
       files: [{
-        path: "registry/default/block/Sidebar07/page.vue",
+        path: "registry/default/blocks/Sidebar07/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar07/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar07/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar07/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar07/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar07/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar07/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar07/components/NavMain.vue",
+        path: "registry/default/blocks/Sidebar07/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar07/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar07/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar07/components/NavProjects.vue",
+        path: "registry/default/blocks/Sidebar07/components/NavProjects.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar07/components/NavProjects.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar07/components/NavProjects.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar07/components/NavUser.vue",
+        path: "registry/default/blocks/Sidebar07/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar07/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar07/components/NavUser.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar07/components/TeamSwitcher.vue",
+        path: "registry/default/blocks/Sidebar07/components/TeamSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar07/components/TeamSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar07/components/TeamSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar07/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar07/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar07/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar07/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1732,38 +1732,38 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
       files: [{
-        path: "registry/default/block/Sidebar08/page.vue",
+        path: "registry/default/blocks/Sidebar08/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar08/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar08/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar08/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar08/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar08/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar08/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar08/components/NavMain.vue",
+        path: "registry/default/blocks/Sidebar08/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar08/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar08/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar08/components/NavProjects.vue",
+        path: "registry/default/blocks/Sidebar08/components/NavProjects.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar08/components/NavProjects.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar08/components/NavProjects.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar08/components/NavSecondary.vue",
+        path: "registry/default/blocks/Sidebar08/components/NavSecondary.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar08/components/NavSecondary.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar08/components/NavSecondary.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar08/components/NavUser.vue",
+        path: "registry/default/blocks/Sidebar08/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar08/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar08/components/NavUser.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar08/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar08/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar08/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar08/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1774,23 +1774,23 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","label","switch","avatar","dropdown-menu"],
       files: [{
-        path: "registry/default/block/Sidebar09/page.vue",
+        path: "registry/default/blocks/Sidebar09/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar09/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar09/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar09/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar09/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar09/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar09/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar09/components/NavUser.vue",
+        path: "registry/default/blocks/Sidebar09/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar09/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar09/components/NavUser.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar09/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar09/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar09/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar09/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1801,48 +1801,48 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","button","popover","dropdown-menu","collapsible"],
       files: [{
-        path: "registry/default/block/Sidebar10/page.vue",
+        path: "registry/default/blocks/Sidebar10/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar10/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar10/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/NavActions.vue",
+        path: "registry/default/blocks/Sidebar10/components/NavActions.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/NavActions.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/NavActions.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/NavFavorites.vue",
+        path: "registry/default/blocks/Sidebar10/components/NavFavorites.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/NavFavorites.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/NavFavorites.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/NavMain.vue",
+        path: "registry/default/blocks/Sidebar10/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/NavSecondary.vue",
+        path: "registry/default/blocks/Sidebar10/components/NavSecondary.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/NavSecondary.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/NavSecondary.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/NavWorkspaces.vue",
+        path: "registry/default/blocks/Sidebar10/components/NavWorkspaces.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/NavWorkspaces.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/NavWorkspaces.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar10/components/TeamSwitcher.vue",
+        path: "registry/default/blocks/Sidebar10/components/TeamSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar10/components/TeamSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar10/components/TeamSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar10/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar10/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar10/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar10/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1853,23 +1853,23 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible"],
       files: [{
-        path: "registry/default/block/Sidebar11/page.vue",
+        path: "registry/default/blocks/Sidebar11/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar11/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar11/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar11/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar11/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar11/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar11/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar11/components/Tree.vue",
+        path: "registry/default/blocks/Sidebar11/components/Tree.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar11/components/Tree.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar11/components/Tree.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar11/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar11/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar11/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar11/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1880,33 +1880,33 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","avatar","dropdown-menu"],
       files: [{
-        path: "registry/default/block/Sidebar12/page.vue",
+        path: "registry/default/blocks/Sidebar12/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar12/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar12/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar12/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar12/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar12/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar12/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar12/components/Calendars.vue",
+        path: "registry/default/blocks/Sidebar12/components/Calendars.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar12/components/Calendars.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar12/components/Calendars.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar12/components/DatePicker.vue",
+        path: "registry/default/blocks/Sidebar12/components/DatePicker.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar12/components/DatePicker.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar12/components/DatePicker.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar12/components/NavUser.vue",
+        path: "registry/default/blocks/Sidebar12/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar12/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar12/components/NavUser.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar12/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar12/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar12/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar12/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1917,18 +1917,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","button","dialog","sidebar"],
       files: [{
-        path: "registry/default/block/Sidebar13/page.vue",
+        path: "registry/default/blocks/Sidebar13/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar13/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar13/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar13/components/SettingsDialog.vue",
+        path: "registry/default/blocks/Sidebar13/components/SettingsDialog.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar13/components/SettingsDialog.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar13/components/SettingsDialog.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar13/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar13/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar13/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar13/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1939,18 +1939,18 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","sidebar"],
       files: [{
-        path: "registry/default/block/Sidebar14/page.vue",
+        path: "registry/default/blocks/Sidebar14/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar14/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar14/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar14/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar14/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar14/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar14/components/AppSidebar.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar14/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar14/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar14/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar14/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""
@@ -1961,68 +1961,68 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","dropdown-menu","avatar"],
       files: [{
-        path: "registry/default/block/Sidebar15/page.vue",
+        path: "registry/default/blocks/Sidebar15/page.vue",
         type: "registry:page",
         target: "pages/dashboard/index.vue",
-        raw: () => import("@/registry/default/block/Sidebar15/page.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/page.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/AppSidebar.vue",
+        path: "registry/default/blocks/Sidebar15/components/AppSidebar.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/AppSidebar.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/AppSidebar.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/Calendars.vue",
+        path: "registry/default/blocks/Sidebar15/components/Calendars.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/Calendars.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/Calendars.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/DatePicker.vue",
+        path: "registry/default/blocks/Sidebar15/components/DatePicker.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/DatePicker.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/DatePicker.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/NavFavorites.vue",
+        path: "registry/default/blocks/Sidebar15/components/NavFavorites.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/NavFavorites.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/NavFavorites.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/NavMain.vue",
+        path: "registry/default/blocks/Sidebar15/components/NavMain.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/NavMain.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/NavMain.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/NavSecondary.vue",
+        path: "registry/default/blocks/Sidebar15/components/NavSecondary.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/NavSecondary.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/NavSecondary.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/NavUser.vue",
+        path: "registry/default/blocks/Sidebar15/components/NavUser.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/NavUser.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/NavUser.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/NavWorkspaces.vue",
+        path: "registry/default/blocks/Sidebar15/components/NavWorkspaces.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/NavWorkspaces.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/NavWorkspaces.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/SidebarLeft.vue",
+        path: "registry/default/blocks/Sidebar15/components/SidebarLeft.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/SidebarLeft.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/SidebarLeft.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/SidebarRight.vue",
+        path: "registry/default/blocks/Sidebar15/components/SidebarRight.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/SidebarRight.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/SidebarRight.vue?raw").then((m) => m.default)
       },{
-        path: "registry/default/block/Sidebar15/components/TeamSwitcher.vue",
+        path: "registry/default/blocks/Sidebar15/components/TeamSwitcher.vue",
         type: "registry:component",
         target: "",
-        raw: () => import("@/registry/default/block/Sidebar15/components/TeamSwitcher.vue?raw").then((m) => m.default)
+        raw: () => import("@/registry/default/blocks/Sidebar15/components/TeamSwitcher.vue?raw").then((m) => m.default)
       }],
-      component: () => import("@/registry/default/block/Sidebar15/page.vue").then((m) => m.default),
-      raw: () => import("@/registry/default/block/Sidebar15/page.vue?raw").then((m) => m.default),
+      component: () => import("@/registry/default/blocks/Sidebar15/page.vue").then((m) => m.default),
+      raw: () => import("@/registry/default/blocks/Sidebar15/page.vue?raw").then((m) => m.default),
       source: "",
       category: "sidebar",
       subcategory: ""

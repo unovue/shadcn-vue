@@ -2,7 +2,7 @@
 title: Sonner
 description: An opinionated toast component for Vue.
 docs: https://vue-sonner.vercel.app
-source: apps/www/registry/default/ui/sonner
+source: apps/www/src/registry/default/ui/sonner
 ---
 
 <ComponentPreview name="SonnerDemo" />

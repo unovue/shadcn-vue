@@ -1,7 +1,7 @@
 ---
 title: Sheet
 description: Extends the Dialog component to display content that complements the main content of the screen.
-source: apps/www/registry/default/ui/sheet
+source: apps/www/src/registry/default/ui/sheet
 primitive: https://www.reka-ui.com/docs/components/dialog.html
 ---
 

@@ -2,9 +2,7 @@
   "name": "table",
   "type": "registry:ui",
   "dependencies": [],
-  "registryDependencies": [
-    "utils"
-  ],
+  "registryDependencies": [],
   "files": [
     {
       "path": "ui/table/Table.vue",

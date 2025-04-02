@@ -34,8 +34,8 @@ export async function buildRegistry() {
 
   for (const { name: style } of styles) {
     const uiPath = resolve(registryRootPath, style, 'ui')
-    const examplePath = resolve(registryRootPath, style, 'example')
-    const blockPath = resolve(registryRootPath, style, 'block')
+    const examplePath = resolve(registryRootPath, style, 'examples')
+    const blockPath = resolve(registryRootPath, style, 'blocks')
     // const hookPath = resolve(registryRootPath, style, 'hook')
 
     const [ui, example, block] = await Promise.all([
@@ -47,6 +47,33 @@ export async function buildRegistry() {
 
     registry.push(...ui, ...example, ...block)
   }
+
+  return registry
+}
+
+export async function buildRegistryV4() {
+  const registryRootPath = resolve('../v4/registry')
+  const registry: Registry = []
+
+  const uiPath = resolve(registryRootPath, 'new-york-v4', 'ui')
+  // const examplePath = resolve(registryRootPath, 'new-york-v4', 'example')
+  const blockPath = resolve(registryRootPath, 'new-york-v4', 'blocks')
+  // const hookPath = resolve(registryRootPath, 'new-york-v4', 'hook')
+
+  const [ui,
+    // example,
+    block] = await Promise.all([
+    crawlUI(uiPath),
+    // crawlExample(examplePath),
+    crawlBlock(blockPath),
+    // crawlHook(hookPath),
+  ])
+
+  registry.push(
+    ...ui,
+    //  ...example,
+    ...block,
+  )
 
   return registry
 }
@@ -83,7 +110,7 @@ async function crawlExample(rootPath: string) {
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('example', dirent.name)
+    const relativePath = join('examples', dirent.name)
 
     const file = {
       name: dirent.name,
@@ -122,7 +149,6 @@ async function crawlBlock(rootPath: string) {
         dirent.name,
       )
 
-      // console.log(result.name, result.files.length)
       if (result.files.length) {
         registry.push(result)
       }
@@ -135,7 +161,7 @@ async function crawlBlock(rootPath: string) {
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('block', dirent.name)
+    const relativePath = join('blocks', dirent.name)
 
     const target = 'pages/dashboard/index.vue'
 
@@ -257,7 +283,7 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
 
     const compPath = isPage ? dirent.name : `components/${dirent.name}`
     const filepath = join(blockPath, compPath)
-    const relativePath = join('block', blockName, compPath)
+    const relativePath = join('blocks', blockName, compPath)
     const source = await readFile(filepath, { encoding: 'utf8' })
     const target = isPage ? `pages/dashboard/index.vue` : ''
 
@@ -298,7 +324,8 @@ async function getFileDependencies(filename: string, sourceCode: string) {
 
     if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith('.vue')) {
       const component = source.split('/').at(-1)!
-      registryDependencies.add(component)
+      if (component !== 'utils')
+        registryDependencies.add(component)
     }
   }
 

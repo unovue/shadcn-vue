@@ -1,0 +1,4 @@
+name = "shadcn-vue-v4"
+compatibility_date = "2024-11-01"
+main = "./.output/server/index.mjs"
+assets = { directory = "./.output/public/", binding = "ASSETS" }

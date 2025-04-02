@@ -8,7 +8,7 @@
   ],
   "files": [
     {
-      "path": "example/CarouselDemo.vue",
+      "path": "examples/CarouselDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Card, CardContent } from '@/registry/new-york/ui/card'\nimport { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/registry/new-york/ui/carousel'\n</script>\n\n<template>\n  <Carousel class=\"relative w-full max-w-xs\">\n    <CarouselContent>\n      <CarouselItem v-for=\"(_, index) in 5\" :key=\"index\">\n        <div class=\"p-1\">\n          <Card>\n            <CardContent class=\"flex aspect-square items-center justify-center p-6\">\n              <span class=\"text-4xl font-semibold\">{{ index + 1 }}</span>\n            </CardContent>\n          </Card>\n        </div>\n      </CarouselItem>\n    </CarouselContent>\n    <CarouselPrevious />\n    <CarouselNext />\n  </Carousel>\n</template>\n",
       "type": "registry:example",
       "target": ""

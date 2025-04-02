@@ -1,4 +1,5 @@
 import type { Config } from '@/src/utils/get-config'
+import type { TailwindVersion } from '@/src/utils/get-project-info'
 import type { registryItemTailwindSchema } from '@/src/utils/registry/schema'
 import type { Config as TailwindConfig } from 'tailwindcss'
 import type {
@@ -34,6 +35,7 @@ export async function updateTailwindConfig(
   config: Config,
   options: {
     silent?: boolean
+    tailwindVersion?: TailwindVersion
   },
 ) {
   if (!tailwindConfig) {
@@ -42,7 +44,13 @@ export async function updateTailwindConfig(
 
   options = {
     silent: false,
+    tailwindVersion: 'v3',
     ...options,
+  }
+
+  // No tailwind config in v4.
+  if (options.tailwindVersion === 'v4') {
+    return
   }
 
   const tailwindFileRelativePath = path.relative(

@@ -5,9 +5,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/accordion/Accordion.vue",
@@ -35,9 +33,7 @@
     "name": "alert",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/alert/Alert.vue",
@@ -64,7 +60,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -144,7 +139,6 @@
       "separator",
       "checkbox",
       "switch",
-      "utils",
       "calendar",
       "popover",
       "label",
@@ -226,9 +220,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/avatar/Avatar.vue",
@@ -252,9 +244,7 @@
     "name": "badge",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/badge/Badge.vue",
@@ -272,9 +262,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/breadcrumb/Breadcrumb.vue",
@@ -316,9 +304,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/button/Button.vue",
@@ -337,7 +323,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -399,9 +384,7 @@
     "name": "card",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/card/Card.vue",
@@ -441,7 +424,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -527,7 +509,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -550,7 +531,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -573,7 +553,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -596,7 +575,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -616,9 +594,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/checkbox/Checkbox.vue",
@@ -662,9 +638,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/combobox/Combobox.vue",
@@ -716,7 +690,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "dialog"
     ],
     "files": [
@@ -768,9 +741,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/context-menu/ContextMenu.vue",
@@ -844,9 +815,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/dialog/Dialog.vue",
@@ -897,9 +866,7 @@
       "vaul-vue",
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/drawer/Drawer.vue",
@@ -941,9 +908,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/dropdown-menu/DropdownMenu.vue",
@@ -1017,7 +982,6 @@
       "zod"
     ],
     "registryDependencies": [
-      "utils",
       "label"
     ],
     "files": [
@@ -1061,9 +1025,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/hover-card/HoverCard.vue",
@@ -1089,9 +1051,7 @@
     "dependencies": [
       "@vueuse/core"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/input/Input.vue",
@@ -1109,9 +1069,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/label/Label.vue",
@@ -1129,9 +1087,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/menubar/Menubar.vue",
@@ -1205,9 +1161,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/navigation-menu/NavigationMenu.vue",
@@ -1253,9 +1207,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/number-field/NumberField.vue",
@@ -1290,7 +1242,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -1326,9 +1277,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/pin-input/PinInput.vue",
@@ -1358,9 +1307,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/popover/Popover.vue",
@@ -1386,9 +1333,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/progress/Progress.vue",
@@ -1406,9 +1351,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/radio-group/RadioGroup.vue",
@@ -1431,7 +1374,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -1495,9 +1437,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/resizable/ResizableHandle.vue",
@@ -1519,9 +1459,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/scroll-area/ScrollArea.vue",
@@ -1543,9 +1481,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/select/Select.vue",
@@ -1603,9 +1539,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/separator/Separator.vue",
@@ -1623,9 +1557,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/sheet/Sheet.vue",
@@ -1673,7 +1605,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "sheet",
       "input",
       "tooltip",
@@ -1792,9 +1723,7 @@
     "name": "skeleton",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/skeleton/Skeleton.vue",
@@ -1812,9 +1741,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/slider/Slider.vue",
@@ -1850,9 +1777,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/stepper/Stepper.vue",
@@ -1894,9 +1819,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/switch/Switch.vue",
@@ -1912,9 +1835,7 @@
     "name": "table",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/table/Table.vue",
@@ -1964,9 +1885,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/tabs/Tabs.vue",
@@ -1996,9 +1915,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/tags-input/TagsInput.vue",
@@ -2032,9 +1949,7 @@
     "dependencies": [
       "@vueuse/core"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/textarea/Textarea.vue",
@@ -2052,9 +1967,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/toast/Toast.vue",
@@ -2104,9 +2017,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/toggle/Toggle.vue",
@@ -2125,8 +2036,7 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "toggle",
-      "utils"
+      "toggle"
     ],
     "files": [
       {
@@ -2149,9 +2059,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/tooltip/Tooltip.vue",
@@ -2181,9 +2089,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/accordion/Accordion.vue",
@@ -2211,9 +2117,7 @@
     "name": "alert",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/alert/Alert.vue",
@@ -2240,7 +2144,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -2320,7 +2223,6 @@
       "separator",
       "checkbox",
       "switch",
-      "utils",
       "calendar",
       "popover",
       "label",
@@ -2402,9 +2304,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/avatar/Avatar.vue",
@@ -2428,9 +2328,7 @@
     "name": "badge",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/badge/Badge.vue",
@@ -2448,9 +2346,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/breadcrumb/Breadcrumb.vue",
@@ -2492,9 +2388,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/button/Button.vue",
@@ -2513,7 +2407,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -2575,9 +2468,7 @@
     "name": "card",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/card/Card.vue",
@@ -2617,7 +2508,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -2703,7 +2593,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -2726,7 +2615,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -2749,7 +2637,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -2772,7 +2659,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "chart"
     ],
     "files": [
@@ -2792,9 +2678,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/checkbox/Checkbox.vue",
@@ -2838,9 +2722,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/combobox/Combobox.vue",
@@ -2892,7 +2774,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "dialog"
     ],
     "files": [
@@ -2944,9 +2825,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/context-menu/ContextMenu.vue",
@@ -3020,9 +2899,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/dialog/Dialog.vue",
@@ -3073,9 +2950,7 @@
       "vaul-vue",
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/drawer/Drawer.vue",
@@ -3117,9 +2992,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/dropdown-menu/DropdownMenu.vue",
@@ -3193,7 +3066,6 @@
       "zod"
     ],
     "registryDependencies": [
-      "utils",
       "label"
     ],
     "files": [
@@ -3237,9 +3109,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/hover-card/HoverCard.vue",
@@ -3265,9 +3135,7 @@
     "dependencies": [
       "@vueuse/core"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/input/Input.vue",
@@ -3285,9 +3153,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/label/Label.vue",
@@ -3305,9 +3171,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/menubar/Menubar.vue",
@@ -3381,9 +3245,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/navigation-menu/NavigationMenu.vue",
@@ -3429,9 +3291,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/number-field/NumberField.vue",
@@ -3466,7 +3326,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -3502,9 +3361,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/pin-input/PinInput.vue",
@@ -3534,9 +3391,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/popover/Popover.vue",
@@ -3562,9 +3417,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/progress/Progress.vue",
@@ -3582,9 +3435,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/radio-group/RadioGroup.vue",
@@ -3607,7 +3458,6 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "utils",
       "button"
     ],
     "files": [
@@ -3671,9 +3521,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/resizable/ResizableHandle.vue",
@@ -3695,9 +3543,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/scroll-area/ScrollArea.vue",
@@ -3719,9 +3565,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/select/Select.vue",
@@ -3779,9 +3623,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/separator/Separator.vue",
@@ -3799,9 +3641,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/sheet/Sheet.vue",
@@ -3849,7 +3689,6 @@
       "@vueuse/core"
     ],
     "registryDependencies": [
-      "utils",
       "sheet",
       "input",
       "tooltip",
@@ -3968,9 +3807,7 @@
     "name": "skeleton",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/skeleton/Skeleton.vue",
@@ -3988,9 +3825,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/slider/Slider.vue",
@@ -4026,9 +3861,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/stepper/Stepper.vue",
@@ -4070,9 +3903,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/switch/Switch.vue",
@@ -4088,9 +3919,7 @@
     "name": "table",
     "type": "registry:ui",
     "dependencies": [],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/table/Table.vue",
@@ -4140,9 +3969,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/tabs/Tabs.vue",
@@ -4172,9 +3999,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/tags-input/TagsInput.vue",
@@ -4208,9 +4033,7 @@
     "dependencies": [
       "@vueuse/core"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/textarea/Textarea.vue",
@@ -4228,9 +4051,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/toast/Toast.vue",
@@ -4280,9 +4101,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/toggle/Toggle.vue",
@@ -4301,8 +4120,7 @@
       "reka-ui"
     ],
     "registryDependencies": [
-      "toggle",
-      "utils"
+      "toggle"
     ],
     "files": [
       {
@@ -4325,9 +4143,7 @@
     "dependencies": [
       "reka-ui"
     ],
-    "registryDependencies": [
-      "utils"
-    ],
+    "registryDependencies": [],
     "files": [
       {
         "path": "ui/tooltip/Tooltip.vue",

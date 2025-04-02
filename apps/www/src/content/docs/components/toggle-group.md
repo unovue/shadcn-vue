@@ -1,7 +1,7 @@
 ---
 title: Toggle Group
 description: A set of two-state buttons that can be toggled on or off.
-source: apps/www/registry/default/ui/toggle-group
+source: apps/www/src/registry/default/ui/toggle-group
 primitive: https://www.reka-ui.com/docs/components/toggle-group.html
 ---
 

@@ -1,0 +1,32 @@
+{
+  "name": "alert",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/alert/Alert.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { type AlertVariants, alertVariants } from '.'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: AlertVariants['variant']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    :class=\"cn(alertVariants({ variant }), props.class)\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/alert/AlertDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    :class=\"cn('text-muted-foreground col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/alert/AlertTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-title\"\n    :class=\"cn('col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/alert/index.ts",
+      "content": "import { cva, type VariantProps } from 'class-variance-authority'\n\nexport { default as Alert } from './Alert.vue'\nexport { default as AlertDescription } from './AlertDescription.vue'\nexport { default as AlertTitle } from './AlertTitle.vue'\n\nexport const alertVariants = cva(\n  'relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',\n  {\n    variants: {\n      variant: {\n        default: 'bg-card text-card-foreground',\n        destructive:\n          'text-destructive bg-card [&>svg]:text-current *:data-[slot=alert-description]:text-destructive/90',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n)\n\nexport type AlertVariants = VariantProps<typeof alertVariants>\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

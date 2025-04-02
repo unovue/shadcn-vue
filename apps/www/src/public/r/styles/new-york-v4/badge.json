@@ -1,0 +1,22 @@
+{
+  "name": "badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/badge/Badge.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { Primitive } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\nimport { type BadgeVariants, badgeVariants } from '.'\n\nconst props = defineProps<PrimitiveProps & {\n  variant?: BadgeVariants['variant']\n  class?: HTMLAttributes['class']\n}>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"badge\"\n    :class=\"cn(badgeVariants({ variant }), props.class)\"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/badge/index.ts",
+      "content": "import { cva, type VariantProps } from 'class-variance-authority'\n\nexport { default as Badge } from './Badge.vue'\n\nexport const badgeVariants = cva(\n  'inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',\n  {\n    variants: {\n      variant: {\n        default:\n          'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',\n        secondary:\n          'border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90',\n        destructive:\n         'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n)\nexport type BadgeVariants = VariantProps<typeof badgeVariants>\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

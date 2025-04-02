@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/BreadcrumbEllipsisDemo.vue",
+      "path": "examples/BreadcrumbEllipsisDemo.vue",
       "content": "<script lang=\"ts\" setup>\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from '@/registry/default/ui/breadcrumb'\n</script>\n\n<template>\n  <Breadcrumb>\n    <BreadcrumbList>\n      <BreadcrumbItem>\n        <BreadcrumbLink as-child>\n          <a href=\"/\">\n            Home\n          </a>\n        </BreadcrumbLink>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator />\n      <BreadcrumbItem>\n        <BreadcrumbEllipsis />\n      </BreadcrumbItem>\n      <BreadcrumbSeparator />\n      <BreadcrumbItem>\n        <BreadcrumbLink as-child>\n          <a href=\"/docs/components/accordion.html\">\n            Components\n          </a>\n        </BreadcrumbLink>\n      </BreadcrumbItem>\n      <BreadcrumbSeparator />\n      <BreadcrumbItem>\n        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n      </BreadcrumbItem>\n    </BreadcrumbList>\n  </Breadcrumb>\n</template>\n",
       "type": "registry:example",
       "target": ""

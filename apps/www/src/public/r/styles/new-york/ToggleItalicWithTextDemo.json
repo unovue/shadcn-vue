@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/ToggleItalicWithTextDemo.vue",
+      "path": "examples/ToggleItalicWithTextDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport { Toggle } from '@/registry/new-york/ui/toggle'\nimport { Italic } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Toggle aria-label=\"Toggle italic\">\n    <Italic class=\"w-4 h-4 mr-2\" />\n    Italic\n  </Toggle>\n</template>\n",
       "type": "registry:example",
       "target": ""

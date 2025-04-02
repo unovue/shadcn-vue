@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "example/PinInputSeparatorDemo.vue",
+      "path": "examples/PinInputSeparatorDemo.vue",
       "content": "<script setup lang=\"ts\">\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n  PinInputSeparator,\n} from '@/registry/new-york/ui/pin-input'\nimport { ref } from 'vue'\n\nconst value = ref<string[]>([])\nconst handleComplete = (e: string[]) => alert(e.join(''))\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      @complete=\"handleComplete\"\n    >\n      <PinInputGroup class=\"gap-1\">\n        <template v-for=\"(id, index) in 5\" :key=\"id\">\n          <PinInputInput\n            class=\"rounded-md border\"\n            :index=\"index\"\n          />\n          <template v-if=\"index !== 4\">\n            <PinInputSeparator />\n          </template>\n        </template>\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""

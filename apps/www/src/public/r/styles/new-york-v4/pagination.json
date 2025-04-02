@@ -1,0 +1,67 @@
+{
+  "name": "pagination",
+  "type": "registry:ui",
+  "dependencies": [
+    "@vueuse/core",
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "ui/pagination/Pagination.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PaginationRoot, type PaginationRootEmits, type PaginationRootProps, useForwardPropsEmits } from 'reka-ui'\n\nconst props = defineProps<PaginationRootProps & {\n  class?: HTMLAttributes['class']\n}>()\nconst emits = defineEmits<PaginationRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PaginationRoot\n    v-slot=\"slotProps\"\n    data-slot=\"pagination\"\n    v-bind=\"forwarded\"\n    :class=\"cn('mx-auto flex w-full justify-center', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </PaginationRoot>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { PaginationList, type PaginationListProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<PaginationListProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationList\n    v-slot=\"slotProps\"\n    data-slot=\"pagination-content\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('flex flex-row items-center gap-1', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </PaginationList>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationEllipsis.vue",
+      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { MoreHorizontal } from 'lucide-vue-next'\nimport { PaginationEllipsis, type PaginationEllipsisProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <PaginationEllipsis\n    data-slot=\"pagination-ellipsis\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('flex size-9 items-center justify-center', props.class)\"\n  >\n    <slot>\n      <MoreHorizontal class=\"size-4\" />\n      <span class=\"sr-only\">More pages</span>\n    </slot>\n  </PaginationEllipsis>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationFirst.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PaginationFirstProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants, type ButtonVariants } from '@/registry/new-york-v4/ui/button'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ChevronLeftIcon } from 'lucide-vue-next'\nimport { PaginationFirst, useForwardProps } from 'reka-ui'\n\nconst props = withDefaults(defineProps<PaginationFirstProps & {\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PaginationFirst\n    data-slot=\"pagination-first\"\n    :class=\"cn(buttonVariants({ variant: 'ghost', size }), 'gap-1 px-2.5 sm:pr-2.5', props.class)\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <ChevronLeftIcon />\n      <span class=\"hidden sm:block\">First</span>\n    </slot>\n  </PaginationFirst>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants, type ButtonVariants } from '@/registry/new-york-v4/ui/button'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PaginationListItem, type PaginationListItemProps } from 'reka-ui'\n\nconst props = withDefaults(defineProps<PaginationListItemProps & {\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n  isActive?: boolean\n}>(), {\n  size: 'icon',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size', 'isActive')\n</script>\n\n<template>\n  <PaginationListItem\n    data-slot=\"pagination-item\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      buttonVariants({\n        variant: isActive ? 'outline' : 'ghost',\n        size,\n      }),\n      props.class)\"\n  >\n    <slot />\n  </PaginationListItem>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationLast.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PaginationLastProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants, type ButtonVariants } from '@/registry/new-york-v4/ui/button'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ChevronLeftIcon } from 'lucide-vue-next'\nimport { PaginationLast, useForwardProps } from 'reka-ui'\n\nconst props = withDefaults(defineProps<PaginationLastProps & {\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PaginationLast\n    data-slot=\"pagination-last\"\n    :class=\"cn(buttonVariants({ variant: 'ghost', size }), 'gap-1 px-2.5 sm:pr-2.5', props.class)\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <span class=\"hidden sm:block\">Last</span>\n      <ChevronLeftIcon />\n    </slot>\n  </PaginationLast>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationNext.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PaginationNextProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants, type ButtonVariants } from '@/registry/new-york-v4/ui/button'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ChevronRightIcon } from 'lucide-vue-next'\nimport { PaginationNext, useForwardProps } from 'reka-ui'\n\nconst props = withDefaults(defineProps<PaginationNextProps & {\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PaginationNext\n    data-slot=\"pagination-next\"\n    :class=\"cn(buttonVariants({ variant: 'ghost', size }), 'gap-1 px-2.5 sm:pr-2.5', props.class)\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <span class=\"hidden sm:block\">Next</span>\n      <ChevronRightIcon />\n    </slot>\n  </PaginationNext>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/PaginationPrevious.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PaginationPrevProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants, type ButtonVariants } from '@/registry/new-york-v4/ui/button'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ChevronLeftIcon } from 'lucide-vue-next'\nimport { PaginationPrev, useForwardProps } from 'reka-ui'\n\nconst props = withDefaults(defineProps<PaginationPrevProps & {\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PaginationPrev\n    data-slot=\"pagination-previous\"\n    :class=\"cn(buttonVariants({ variant: 'ghost', size }), 'gap-1 px-2.5 sm:pr-2.5', props.class)\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <ChevronLeftIcon />\n      <span class=\"hidden sm:block\">Previous</span>\n    </slot>\n  </PaginationPrev>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/pagination/index.ts",
+      "content": "export { default as Pagination } from './Pagination.vue'\nexport { default as PaginationContent } from './PaginationContent.vue'\nexport { default as PaginationEllipsis } from './PaginationEllipsis.vue'\nexport { default as PaginationFirst } from './PaginationFirst.vue'\nexport { default as PaginationItem } from './PaginationItem.vue'\nexport { default as PaginationLast } from './PaginationLast.vue'\nexport { default as PaginationNext } from './PaginationNext.vue'\nexport { default as PaginationPrevious } from './PaginationPrevious.vue'\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

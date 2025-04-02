@@ -15,11 +15,11 @@
     "lucide-vue-next": "^0.276.0",
     "reka-ui": "^2.0.0",
     "tailwind-merge": "^1.14.0",
+    "tailwindcss": "4.0.9",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/tailwindcss": "^6.8.0",
     "nuxt": "^3.7.3"
   }
 }
