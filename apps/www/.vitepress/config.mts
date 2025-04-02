@@ -5,6 +5,7 @@ import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vitepress'
 import llmstxt from 'vitepress-plugin-llms'
 
+import { docsConfig, transformSidebarNavToVitePressSidebar } from './theme/config/docs'
 import { siteConfig } from './theme/config/site'
 import CodeBlockPlugin from './theme/plugins/codeblock'
 import CodeWrapperPlugin from './theme/plugins/codewrapper'
@@ -80,18 +81,19 @@ export default defineConfig({
       llmstxt({
         workDir: 'content',
         ignoreFiles: [
-          "blocks/*",
-          "docs/components.md",
-          "docs/components.md",
-          "docs/contribution.md",
-          "docs/typography.md",
-          "examples/**/*",
-          "meta/*",
-          "blocks-renderer.md",
-          "blocks.md",
-          "index.md",
-          "themes.md"
-        ]
+          'blocks/*',
+          'docs/components.md',
+          'docs/components.md',
+          'docs/contribution.md',
+          'docs/typography.md',
+          'examples/**/*',
+          'meta/*',
+          'blocks-renderer.md',
+          'blocks.md',
+          'index.md',
+          'themes.md',
+        ],
+        sidebar: transformSidebarNavToVitePressSidebar(docsConfig.sidebarNav),
       }),
     ],
     resolve: {

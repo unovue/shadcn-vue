@@ -14,7 +14,7 @@ export function makeCodeSandboxParams(componentName: string, style: RegistryStyl
     content: [
       'FROM node:20',
       'ENV COREPACK_ENABLE_DOWNLOAD_PROMPT = 0',
-      'RUN corepack enable'
+      'RUN corepack enable',
     ].join('\n'),
   }
   return getParameters({ files, template: 'node' })

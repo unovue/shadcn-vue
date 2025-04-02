@@ -235,8 +235,8 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.36.0)(typescript@5.7.3)
       vitepress-plugin-llms:
-        specifier: ^0.0.22
-        version: 0.0.22
+        specifier: ^1.0.0
+        version: 1.0.0
       vue-component-meta:
         specifier: ^2.2.0
         version: 2.2.0(typescript@5.7.3)
@@ -5029,8 +5029,8 @@ packages:
   hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
 
-  html-entities@2.5.3:
-    resolution: {integrity: sha512-D3AfvN7SjhTgBSA8L1BN4FpPzuEd06uy4lHwSoRWr0lndi9BKaNzPLKGOWZ2ocSGguozr08TTb2jhCLHaemruw==}
+  html-entities@2.6.0:
+    resolution: {integrity: sha512-kig+rMn/QOVRvr7c86gQ8lWXq+Hkv6CbAH1hLu+RG338StTpE8Z0b44SDVaqVu7HGKf27frdmUYEs9hTUX/cLQ==}
 
   html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
@@ -8224,8 +8224,8 @@ packages:
       yaml:
         optional: true
 
-  vitepress-plugin-llms@0.0.22:
-    resolution: {integrity: sha512-NlPncFFconJU5naIzAW5Sb6RdYC428BvcyWvHKnquJU5FXnsAGm9YVH820St5Ej9Muqtc8p1ouEV0GCPzEq2vg==}
+  vitepress-plugin-llms@1.0.0:
+    resolution: {integrity: sha512-FT5Jj6l2BE83Z1si0i8LyI5zBqQOqnOiGoPz2j0GDcOtiLE0SU0pnDO/MgepfVJR07azfp1gr8thBwfS26MD/w==}
 
   vitepress@1.6.3:
     resolution: {integrity: sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw==}
@@ -13901,7 +13901,7 @@ snapshots:
 
   hosted-git-info@2.8.9: {}
 
-  html-entities@2.5.3: {}
+  html-entities@2.6.0: {}
 
   html-tags@3.3.1: {}
 
@@ -16644,7 +16644,7 @@ snapshots:
     dependencies:
       '@types/lodash-es': 4.17.12
       codsen-utils: 1.6.7
-      html-entities: 2.5.3
+      html-entities: 2.6.0
       lodash-es: 4.17.21
       ranges-apply: 7.0.19
       ranges-push: 7.0.18
@@ -17629,7 +17629,7 @@ snapshots:
       tsx: 4.19.2
       yaml: 2.7.0
 
-  vitepress-plugin-llms@0.0.22:
+  vitepress-plugin-llms@1.0.0:
     dependencies:
       gray-matter: 4.0.3
       markdown-title: 1.0.2
