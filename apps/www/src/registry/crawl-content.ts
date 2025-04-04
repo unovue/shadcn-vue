@@ -343,7 +343,7 @@ async function getFileDependencies(filename: string, sourceCode: string) {
   else {
     const parsed = parse(sourceCode, { filename })
     if (parsed.descriptor.script?.content || parsed.descriptor.scriptSetup?.content) {
-      const compiled = compileScript(parsed.descriptor, { id: '' })
+      const compiled = compileScript(parsed.descriptor, { id: 'id' })
 
       Object.values(compiled.imports!).forEach((value) => {
         populateDeps(value.source)
@@ -364,7 +364,7 @@ export async function getBlockMetadata(filename: string, sourceCode: string) {
   if (filename.endsWith('.vue')) {
     const { descriptor } = parse(sourceCode, { filename })
     if (descriptor.script?.content) {
-      const ast = compileScript(descriptor, { id: '' })
+      const ast = compileScript(descriptor, { id: 'id' })
       walk(ast.scriptAst, {
         enter(node: any) {
           const declaration = node.declaration
