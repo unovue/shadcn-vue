@@ -1,4 +1,4 @@
-import type { registryItemTailwindSchema } from '@/src/registry/schema'
+import type { registryItemCssVarsSchema, registryItemTailwindSchema } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
 import type { TailwindVersion } from '@/src/utils/get-project-info'
 import type { Config as TailwindConfig } from 'tailwindcss'
@@ -513,7 +513,7 @@ function parseValue(node: any): any {
 }
 
 export function buildTailwindThemeColorsFromCssVars(
-  cssVars: Record<string, string>,
+  cssVars: z.infer<typeof registryItemCssVarsSchema>,
 ) {
   const result: Record<string, any> = {}
 

@@ -398,6 +398,7 @@ export async function registryGetTheme(name: string, config: Config) {
       },
     },
     cssVars: {
+      theme: {},
       light: {
         radius: '0.5rem',
       },
@@ -411,6 +412,10 @@ export async function registryGetTheme(name: string, config: Config) {
       ...buildTailwindThemeColorsFromCssVars(baseColor.cssVars.dark ?? {}),
     }
     theme.cssVars = {
+      theme: {
+        ...baseColor.cssVars.theme,
+        ...theme.cssVars.theme,
+      },
       light: {
         ...baseColor.cssVars.light,
         ...theme.cssVars.light,
@@ -423,6 +428,10 @@ export async function registryGetTheme(name: string, config: Config) {
 
     if (tailwindVersion === 'v4' && baseColor.cssVarsV4) {
       theme.cssVars = {
+        theme: {
+          ...baseColor.cssVarsV4.theme,
+          ...theme.cssVars.theme,
+        },
         light: {
           ...theme.cssVars.light,
           ...baseColor.cssVarsV4.light,
@@ -457,7 +466,7 @@ function getRegistryUrl(path: string) {
   return `${REGISTRY_URL}/${path}`
 }
 
-function isUrl(path: string) {
+export function isUrl(path: string) {
   try {
     // eslint-disable-next-line no-new
     new URL(path)
@@ -466,4 +475,45 @@ function isUrl(path: string) {
   catch (error) {
     return false
   }
+}
+
+// TODO: We're double-fetching here. Use a cache.
+export async function resolveRegistryItems(names: string[], config: Config) {
+  const registryDependencies: string[] = []
+  for (const name of names) {
+    const itemRegistryDependencies = await resolveRegistryDependencies(
+      name,
+      config,
+    )
+    registryDependencies.push(...itemRegistryDependencies)
+  }
+
+  return Array.from(new Set(registryDependencies))
+}
+
+export function getRegistryTypeAliasMap() {
+  return new Map<string, string>([
+    ['registry:ui', 'ui'],
+    ['registry:lib', 'lib'],
+    ['registry:hook', 'hooks'],
+    ['registry:block', 'components'],
+    ['registry:component', 'components'],
+  ])
+}
+
+// Track a dependency and its parent.
+export function getRegistryParentMap(
+  registryItems: z.infer<typeof registryItemSchema>[],
+) {
+  const map = new Map<string, z.infer<typeof registryItemSchema>>()
+  registryItems.forEach((item) => {
+    if (!item.registryDependencies) {
+      return
+    }
+
+    item.registryDependencies.forEach((dependency) => {
+      map.set(dependency, item)
+    })
+  })
+  return map
 }
