@@ -86,6 +86,7 @@
     "@types/node": "^22.13.4",
     "@types/prompts": "^2.4.9",
     "@types/stringify-object": "^4.0.5",
+    "msw": "^2.7.3",
     "tsup": "^8.3.6",
     "type-fest": "^4.34.1",
     "typescript": "catalog:"
