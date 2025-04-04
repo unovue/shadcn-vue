@@ -13,22 +13,6 @@ description: Run your own component registry.
 
 You can use the `shadcn-vue` CLI to run your own component registry. Running your own registry allows you to distribute your custom components, hooks, pages, and other files to any Vue project.
 
-<figure class="flex flex-col gap-4">
-  <VPImage
-    width="1432"
-    height="960"
-    alt="Registry"
-    :image="{
-      dark: '/images/registry-dark.svg',
-      light: '/images/registry-light.svg',
-    }"
-    class="border dark:hidden shadow-sm rounded-lg overflow-hidden mt-6 w-full"
-  />
-  <figcaption class="text-center text-sm text-gray-500">
-    Distribute code to any Vue project.
-  </figcaption>
-</figure>
-
 Registry items are automatically compatible with the `shadcn-vue` CLI.
 
 ## Requirements

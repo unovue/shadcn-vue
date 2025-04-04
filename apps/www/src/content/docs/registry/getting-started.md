@@ -44,12 +44,14 @@ This `registry.json` file must conform to the [registry schema specification](/d
 
 Add your first component. Here's an example of a simple `<HelloWorld />` component:
 
-```tsx:line-numbers title="registry/new-york/hello-world/hello-world.tsx"
+```vue:line-numbers title="registry/new-york/HelloWorld/HelloWorld.vue"
+<script setup lang="ts">
 import { Button } from "@/components/ui/button"
+</script>
 
-export function HelloWorld() {
-  return <Button>Hello World</Button>
-}
+<template>
+  <Button>Hello World</Button>
+</template>
 ```
 
 <Callout class="mt-6">
@@ -64,11 +66,11 @@ export function HelloWorld() {
 ```txt
 registry
 └── new-york
-    └── hello-world
-        └── hello-world.tsx
+    └── HelloWorld
+        └── HelloWorld.vue
 ```
 
-<Callout class="mt-6 [&_[data-rehype-pretty-code-title]]:pt-1 [&_pre]:mb-0">
+<Callout class="mt-6 [&_pre]:mb-0">
 
   **Important:** If you're placing your component in a custom directory, make
   sure it is configured in your `tailwind.config.ts` file.
@@ -76,7 +78,7 @@ registry
 ```ts:line-numbers
 // tailwind.config.ts
 export default {
-  content: ["./registry/**/*.{js,ts,jsx,tsx}"],
+  content: ["./registry/**/*.{js,ts,jsx,tsx,vue}"],
 }
 ```
 
@@ -99,7 +101,7 @@ To add your component to the registry, you need to add your component definition
       "description": "A simple hello world component.",
       "files": [
         {
-          "path": "registry/new-york/hello-world/hello-world.tsx",
+          "path": "registry/new-york/HelloWorld/HelloWorld.vue",
           "type": "registry:component"
         }
       ]
@@ -125,7 +127,7 @@ You can read more about the registry item schema and file types in the [registry
 Note: the `build` command is currently only available in the `shadcn-vue@canary` version of the CLI.
 
 ```bash
-npm install shadcn-vue@canary
+npm install shadcn-vue@latest
 ```
 
 ### Add a build script
@@ -135,7 +137,7 @@ Add a `registry:build` script to your `package.json` file.
 ```json:line-numbers title="package.json"
 {
   "scripts": {
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn-vue build"
   }
 }
 ```
@@ -149,8 +151,8 @@ npm run registry:build
 ```
 
 <Callout class="mt-6">
-  **Note:** By default, the build script will generate the registry JSON files
-  in `public/r` e.g `public/r/hello-world.json`.
+
+**Note:** By default, the build script will generate the registry JSON files in `public/r` e.g `public/r/hello-world.json`.
 
 You can change the output directory by passing the `--output` option. See the [shadcn build command](/docs/cli#build) for more information.
 
@@ -160,7 +162,7 @@ You can change the output directory by passing the `--output` option. See the [s
 
 ## Serve your registry
 
-If you're running your registry on Next.js, you can now serve your registry by running the `next` server. The command might differ for other frameworks.
+If you're running your registry on Nuxt, you can now serve your registry by running the `nuxt` server. The command might differ for other frameworks.
 
 ```bash
 npm run dev
@@ -171,6 +173,18 @@ Your files will now be served at `http://localhost:3000/r/[NAME].json` eg. `http
 ## Publish your registry
 
 To make your registry available to other developers, you can publish it by deploying your project to a public URL.
+
+## Adding Auth
+
+The `shadcn-vue` CLI does not offer a built-in way to add auth to your registry. We recommend handling authorization on your registry server.
+
+A common simple approach is to use a `token` query parameter to authenticate requests to your registry. e.g. `http://localhost:3000/r/hello-world.json?token=[SECURE_TOKEN_HERE]`.
+
+Use the secure token to authenticate requests and return a 401 Unauthorized response if the token is invalid. Both the `shadcn` CLI and `Open in v0` will handle the 401 response and display a message to the user.
+
+<Callout className="mt-6">
+  **Note:** Make sure to encrypt and expire tokens.
+</Callout>
 
 ## Guidelines
 

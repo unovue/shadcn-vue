@@ -14,11 +14,11 @@ The `registry-item.json` schema is used to define your custom registry items.
   "description": "A simple hello world component.",
   "files": [
     {
-      "path": "registry/new-york/hello-world/hello-world.tsx",
+      "path": "registry/new-york/HelloWorld/HelloWorld.vue",
       "type": "registry:component"
     },
     {
-      "path": "registry/new-york/hello-world/use-hello-world.ts",
+      "path": "registry/new-york/HelloWorld/useHelloWorld.ts",
       "type": "registry:hook"
     }
   ]
@@ -86,7 +86,7 @@ The following types are supported:
 | `registry:block`     | Use for complex components with multiple files.  |
 | `registry:component` | Use for simple components.                       |
 | `registry:lib`       | Use for lib and utils.                           |
-| `registry:hook`      | Use for hooks.                                   |
+| `registry:hook`      | Use for composables (hooks).                                   |
 | `registry:ui`        | Use for UI components and single-file primitives |
 | `registry:page`      | Use for page or file-based routes.               |
 | `registry:file`      | Use for miscellaneous files.                     |
@@ -150,20 +150,20 @@ The `files` property is used to specify the files of your registry item. Each fi
 {
   "files": [
     {
-      "path": "registry/new-york/hello-world/page.tsx",
+      "path": "registry/new-york/HelloWorld/page.vue",
       "type": "registry:page",
-      "target": "app/hello/page.tsx"
+      "target": "pages/hello/index.vue"
     },
     {
-      "path": "registry/new-york/hello-world/hello-world.tsx",
+      "path": "registry/new-york/HelloWorld/HelloWorld.vue",
       "type": "registry:component"
     },
     {
-      "path": "registry/new-york/hello-world/use-hello-world.ts",
+      "path": "registry/new-york/HelloWorld/useHelloWorld.ts",
       "type": "registry:hook"
     },
     {
-      "path": "registry/new-york/hello-world/.env",
+      "path": "registry/new-york/HelloWorld/.env",
       "type": "registry:file",
       "target": "~/.env"
     }
@@ -188,6 +188,8 @@ By default, the `shadcn-vue` cli will read a project's `components.json` file to
 Use `~` to refer to the root of the project e.g `~/foo.config.js`.
 
 ### tailwind
+
+**DEPRECATED:** Use `cssVars.theme` instead for Tailwind v4 projects.
 
 The `tailwind` property is used for tailwind configuration such as `theme`, `plugins` and `content`.
 
@@ -236,11 +238,40 @@ Use to define CSS variables for your registry item.
 }
 ```
 
-<Callout>
+### css
 
-  **Note:** When adding colors, make sure to also add them to the `tailwind.config.theme.extend.colors` property.
+Use `css` to add new rules to the project's CSS file eg. `@layer base`, `@layer components`, `@utility`, `@keyframes`, etc.
 
-</Callout>
+```json:line-numbers title="registry-item.json"
+{
+  "css": {
+    "@layer base": {
+      "body": {
+        "font-size": "var(--text-base)",
+        "line-height": "1.5"
+      }
+    },
+    "@layer components": {
+      "button": {
+        "background-color": "var(--color-primary)",
+        "color": "var(--color-white)"
+      }
+    },
+    "@utility text-magic": {
+      "font-size": "var(--text-base)",
+      "line-height": "1.5"
+    },
+    "@keyframes wiggle": {
+      "0%, 100%": {
+        "transform": "rotate(-3deg)"
+      },
+      "50%": {
+        "transform": "rotate(3deg)"
+      }
+    }
+  }
+}
+```
 
 ### docs
 

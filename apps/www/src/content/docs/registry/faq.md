@@ -7,7 +7,7 @@ description: Frequently asked questions about running a registry.
 
 ### What does a complex component look like?
 
-Here's an example of a complex component that installs a page, two components, a hook, a format-date utils and a config file.
+Here's an example of a complex component that installs a page, two components, a composable, a format date utils and a config file.
 
 ```json:line-numbers
 {
@@ -18,28 +18,28 @@ Here's an example of a complex component that installs a page, two components, a
   "description": "A complex hello world component",
   "files": [
     {
-      "path": "registry/new-york/hello-world/page.tsx",
+      "path": "registry/new-york/HelloWorld/page.vue",
       "type": "registry:page",
-      "target": "app/hello/page.tsx"
+      "target": "pages/hello/index.vue"
     },
     {
-      "path": "registry/new-york/hello-world/components/hello-world.tsx",
+      "path": "registry/new-york/HelloWorld/components/HelloWorld.vue",
       "type": "registry:component"
     },
     {
-      "path": "registry/new-york/hello-world/components/formatted-message.tsx",
+      "path": "registry/new-york/HelloWorld/components/FormattedMessage.vue",
       "type": "registry:component"
     },
     {
-      "path": "registry/new-york/hello-world/hooks/use-hello.ts",
+      "path": "registry/new-york/HelloWorld/composables/useHello.ts",
       "type": "registry:hook"
     },
     {
-      "path": "registry/new-york/hello-world/lib/format-date.ts",
+      "path": "registry/new-york/HelloWorld/lib/formatDate.ts",
       "type": "registry:utils"
     },
     {
-      "path": "registry/new-york/hello-world/hello.config.ts",
+      "path": "registry/new-york/HelloWorld/hello.config.ts",
       "type": "registry:file",
       "target": "~/hello.config.ts"
     }
