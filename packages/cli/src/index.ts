@@ -34,5 +34,3 @@ async function main() {
 }
 
 main()
-
-export * from './registry/api'
