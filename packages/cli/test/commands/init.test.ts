@@ -4,8 +4,8 @@ import path from 'pathe'
 import { afterEach, expect, it, vi } from 'vitest'
 
 import { runInit } from '../../src/commands/init'
+import * as registry from '../../src/registry'
 import { getConfig } from '../../src/utils/get-config'
-import * as registry from '../../src/utils/registry'
 
 vi.mock('nypm')
 vi.mock('fs/promises', () => ({

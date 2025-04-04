@@ -1,5 +1,5 @@
+import type { RegistryItem } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
-import type { RegistryItem } from '@/src/utils/registry/schema'
 import { spinner } from '@/src/utils/spinner'
 import { addDependency } from 'nypm'
 

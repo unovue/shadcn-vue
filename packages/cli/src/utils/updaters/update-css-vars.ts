@@ -1,9 +1,9 @@
-import type { Config } from '@/src/utils/get-config'
-import type { TailwindVersion } from '@/src/utils/get-project-info'
 import type {
   registryItemCssVarsSchema,
   registryItemTailwindSchema,
-} from '@/src/utils/registry/schema'
+} from '@/src/registry/schema'
+import type { Config } from '@/src/utils/get-config'
+import type { TailwindVersion } from '@/src/utils/get-project-info'
 import type Root from 'postcss/lib/root'
 import type Rule from 'postcss/lib/rule'
 import { promises as fs } from 'node:fs'

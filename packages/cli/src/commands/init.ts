@@ -1,6 +1,7 @@
 import type { Config } from '@/src/utils/get-config'
 import { promises as fs } from 'node:fs'
 import { preFlightInit } from '@/src/preflights/preflight-init'
+import { BASE_COLORS, getRegistryBaseColors, getRegistryStyles } from '@/src/registry/api'
 import { addComponents } from '@/src/utils/add-components'
 import * as ERRORS from '@/src/utils/errors'
 import {
@@ -16,7 +17,6 @@ import { getProjectConfig, getProjectInfo, getProjectTailwindVersionFromConfig }
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
-import { BASE_COLORS, getRegistryBaseColors, getRegistryStyles } from '@/src/utils/registry'
 import { spinner } from '@/src/utils/spinner'
 import { updateTailwindContent } from '@/src/utils/updaters/update-tailwind-content'
 import { Command } from 'commander'

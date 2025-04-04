@@ -147,7 +147,6 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
     return rawConfigSchema.parse(configResult.config)
   }
   catch (error) {
-    console.log(error.message)
     throw new Error(`Invalid configuration found in ${cwd}/components.json.`)
   }
 }

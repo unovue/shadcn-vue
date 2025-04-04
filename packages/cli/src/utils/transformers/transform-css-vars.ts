@@ -1,4 +1,4 @@
-import type { registryBaseColorSchema } from '@/src/utils/registry/schema'
+import type { registryBaseColorSchema } from '@/src/registry/schema'
 import type { CodemodPlugin } from 'vue-metamorph'
 import type * as z from 'zod'
 import type { TransformOpts } from '.'

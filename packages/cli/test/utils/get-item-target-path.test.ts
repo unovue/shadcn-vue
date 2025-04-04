@@ -1,8 +1,8 @@
 import path from 'node:path'
 import { expect, it } from 'vitest'
 
+import { getItemTargetPath } from '../../src/registry/api'
 import { getConfig } from '../../src/utils/get-config'
-import { getItemTargetPath } from '../../src/utils/registry'
 
 it('get item target path', async () => {
   // Full config.

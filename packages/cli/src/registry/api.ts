@@ -1,10 +1,6 @@
 import type {
   registryItemFileSchema,
-} from '@/src/utils/registry/schema'
-import { type Config, getTargetStyleFromConfig } from '@/src/utils/get-config'
-import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
-import { handleError } from '@/src/utils/handle-error'
-import { logger } from '@/src/utils/logger'
+} from '@/src/registry/schema'
 import {
   iconsSchema,
   registryBaseColorSchema,
@@ -12,7 +8,11 @@ import {
   registryItemSchema,
   registryResolvedItemsTreeSchema,
   stylesSchema,
-} from '@/src/utils/registry/schema'
+} from '@/src/registry/schema'
+import { type Config, getTargetStyleFromConfig } from '@/src/utils/get-config'
+import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
+import { handleError } from '@/src/utils/handle-error'
+import { logger } from '@/src/utils/logger'
 import { buildTailwindThemeColorsFromCssVars } from '@/src/utils/updaters/update-tailwind-config'
 import deepmerge from 'deepmerge'
 import { ofetch } from 'ofetch'
@@ -25,6 +25,8 @@ const REGISTRY_URL = process.env.REGISTRY_URL ?? 'https://shadcn-vue.com/r'
 const agent = process.env.https_proxy
   ? new ProxyAgent(process.env.https_proxy)
   : undefined
+
+const registryCache = new Map<string, Promise<any>>()
 
 export async function getRegistryIndex() {
   try {
@@ -180,16 +182,23 @@ export async function getItemTargetPath(
   )
 }
 
-async function fetchRegistry(paths: string[]) {
+export async function fetchRegistry(paths: string[]) {
   try {
     const results = await Promise.all(
       paths.map(async (path) => {
         const url = getRegistryUrl(path)
+
+        // Check cache first
+        if (registryCache.has(url)) {
+          return registryCache.get(url)
+        }
+
         const response = await ofetch(url, { dispatcher: agent, parseResponse: JSON.parse })
           .catch((error) => {
             throw new Error(error.data)
           })
 
+        registryCache.set(url, response)
         return response
       }),
     )
@@ -399,7 +408,7 @@ export async function registryGetTheme(name: string, config: Config) {
   if (config.tailwind.cssVariables) {
     theme.tailwind.config.theme.extend.colors = {
       ...theme.tailwind.config.theme.extend.colors,
-      ...buildTailwindThemeColorsFromCssVars(baseColor.cssVars.dark),
+      ...buildTailwindThemeColorsFromCssVars(baseColor.cssVars.dark ?? {}),
     }
     theme.cssVars = {
       light: {
@@ -427,6 +436,10 @@ export async function registryGetTheme(name: string, config: Config) {
   }
 
   return theme
+}
+
+export function clearRegistryCache() {
+  registryCache.clear()
 }
 
 function getRegistryUrl(path: string) {

@@ -1,14 +1,14 @@
+import type { RegistryItem } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
-import type { RegistryItem } from '@/src/utils/registry/schema'
 import { existsSync, promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { getProjectInfo } from '@/src/utils/get-project-info'
-import { highlighter } from '@/src/utils/highlighter'
-import { logger } from '@/src/utils/logger'
 import {
   getRegistryBaseColor,
   getRegistryItemFileTargetPath,
-} from '@/src/utils/registry'
+} from '@/src/registry/api'
+import { getProjectInfo } from '@/src/utils/get-project-info'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
 import { transform } from '@/src/utils/transformers'
 import path, { basename, dirname } from 'pathe'
