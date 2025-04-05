@@ -39,6 +39,12 @@ Add the following code to the `tsconfig.json` file to resolve paths:
 }
 ```
 
+### Install Reka UI
+
+```bash
+npm install reka-ui
+```
+
 ### Run the CLI
 
 Run the `shadcn` init command to setup your project:

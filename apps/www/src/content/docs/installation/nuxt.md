@@ -219,6 +219,12 @@ If you are initiating a new project, you need to run the command so that Nuxt ge
 npx nuxi prepare
 ```
 
+### Install Reka UI
+
+```bash
+npm install reka-ui
+```
+
 ### Run the CLI
 
 Run the `shadcn-vue` init command to setup your project:

@@ -101,6 +101,12 @@ export default defineConfig({
 })
 ```
 
+### Install Reka UI
+
+```bash
+npm install reka-ui
+```
+
 ### Run the CLI
 
 Run the `shadcn-vue` init command to setup your project:
