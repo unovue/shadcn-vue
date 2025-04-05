@@ -30,16 +30,17 @@ npm install -D typescript
 
 </Callout>
 
-### Add Tailwind CSS
+### Add Tailwind CSS and animations
 
 ```bash
-npm install tailwindcss @tailwindcss/vite
+npm install tailwindcss @tailwindcss/vite tw-animate-css
 ```
 
 Replace everything in `assets/css/tailwind.css` with the following:
 
 ```css title="assets/css/tailwind.css"
 @import "tailwindcss";
+@import "tw-animate-css";
 ```
 
 Update `nuxt.config.ts` with the following:

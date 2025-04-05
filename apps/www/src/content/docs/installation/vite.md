@@ -20,16 +20,17 @@ Start by creating a new Vue project using `vite`:
 npm create vite@latest my-vue-app -- --template vue-ts
 ```
 
-### Add Tailwind CSS
+### Add Tailwind CSS and animations
 
 ```bash
-npm install tailwindcss @tailwindcss/vite
+npm install tailwindcss @tailwindcss/vite tw-animate-css
 ```
 
 Replace everything in `src/index.css` with the following:
 
 ```css title="src/index.css"
 @import "tailwindcss";
+@import "tw-animate-css";
 ```
 
 ### Edit tsconfig.json file
