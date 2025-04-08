@@ -41,9 +41,23 @@ export const registryItemTailwindSchema = z.object({
 })
 
 export const registryItemCssVarsSchema = z.object({
+  theme: z.record(z.string(), z.string()).optional(),
   light: z.record(z.string(), z.string()).optional(),
   dark: z.record(z.string(), z.string()).optional(),
 })
+
+export const registryItemCssSchema = z.record(
+  z.string(),
+  z.lazy(() =>
+    z.union([
+      z.string(),
+      z.record(
+        z.string(),
+        z.union([z.string(), z.record(z.string(), z.string())]),
+      ),
+    ]),
+  ),
+)
 
 export const registryItemSchema = z.object({
   name: z.string(),
@@ -55,8 +69,10 @@ export const registryItemSchema = z.object({
   files: z.array(registryItemFileSchema).optional(),
   tailwind: registryItemTailwindSchema.optional(),
   cssVars: registryItemCssVarsSchema.optional(),
+  css: registryItemCssSchema.optional(),
   meta: z.record(z.string(), z.any()).optional(),
   docs: z.string().optional(),
+  categories: z.array(z.string()).optional(),
 })
 
 export const registryEntrySchema = registryItemSchema.extend({
