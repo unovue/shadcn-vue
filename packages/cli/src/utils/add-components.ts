@@ -62,10 +62,6 @@ async function addProjectComponents(
   })
 
   const overwriteCssVars = await shouldOverwriteCssVars(components, config)
-  await updateTailwindConfig(tree.tailwind?.config, config, {
-    silent: options.silent,
-    tailwindVersion,
-  })
   await updateCssVars(tree.cssVars, config, {
     cleanupDefaultNextStyles: options.isNewProject,
     silent: options.silent,
