@@ -18,7 +18,7 @@ const props = defineProps<CalloutProps>()
 
 <template>
   <Alert class="not-docs" :class="cn('my-6 bg-muted/50', props.class)">
-    <span v-if="icon" classs="mr-4 text-2xl">{icon}</span>
+    <span v-if="icon" classs="mr-4 text-2xl">{{ icon }}</span>
     <AlertTitle v-if="title">
       {{ title }}
     </AlertTitle>
