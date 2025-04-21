@@ -17,7 +17,7 @@ description: Install and configure Vite.
 Start by creating a new Vue project using `vite`:
 
 ```bash
-npm create vite@latest my-vue-app -- --template vue-ts
+npm create vite@latest my-vue-app --template vue-ts
 ```
 
 ### Add Tailwind CSS
