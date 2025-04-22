@@ -761,7 +761,7 @@ This button works independently of the `SidebarMenuButton` i.e. you can have the
       </a>
     </SidebarMenuButton>
     <SidebarMenuAction>
-      <Plus /> <span classs="sr-only">Add Project</span>
+      <Plus /> <span class="sr-only">Add Project</span>
     </SidebarMenuAction>
   </SidebarMenuItem>
 </template>
@@ -849,7 +849,7 @@ A collapsible sidebar menu.
 ```vue:line-numbers
 <template>
   <SidebarMenu>
-    <Collapsible defaultOpen classs="group/collapsible">
+    <Collapsible defaultOpen class="group/collapsible">
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
           <SidebarMenuButton />
