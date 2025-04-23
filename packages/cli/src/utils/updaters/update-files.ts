@@ -72,7 +72,7 @@ export async function updateFiles(
       await fs.writeFile(tempPath, file.content, 'utf-8')
     }
 
-    await fs.cp(path.join(process.cwd(), 'node_modules'), tempRoot, { recursive: true })
+    await fs.cp(path.join(process.cwd(), 'node_modules'), tempRoot, { recursive: true, filter: src => !src.includes("/.bin/") })
     await fs.writeFile(path.join(tempRoot, 'tsconfig.json'), `{
   "compilerOptions": {
     "baseUrl": ".",
