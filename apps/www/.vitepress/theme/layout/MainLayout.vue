@@ -27,10 +27,13 @@ import ThemePopover from '../components/ThemePopover.vue'
 import { docsConfig } from '../config/docs'
 
 const { radius, theme } = useConfigStore()
+const isMounted = ref(false)
 // Whenever the component is mounted, update the document class list
 onMounted(() => {
   document.documentElement.style.setProperty('--radius', `${radius.value}rem`)
   document.documentElement.classList.add(`theme-${theme.value}`)
+
+  isMounted.value = true
 })
 
 const { frontmatter, isDark } = useData()
@@ -132,6 +135,7 @@ function handleSelectLink(item: NavItem) {
                     </Button>
 
                     <Button
+                      v-if="isMounted"
                       class="w-8 h-8"
                       aria-label="Toggle dark mode"
                       :variant="'ghost'"
