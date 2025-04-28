@@ -12,7 +12,7 @@ import {
 import { computed, type HTMLAttributes } from 'vue'
 import DialogOverlay from './DialogOverlay.vue'
 
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'], overlayClass?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DialogContentEmits>()
 
 const delegatedProps = computed(() => {
@@ -26,7 +26,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <DialogPortal>
-    <DialogOverlay />
+    <DialogOverlay :class="cn(overlayClass)" />
     <DialogContent
       data-slot="dialog-content"
       v-bind="forwarded"
