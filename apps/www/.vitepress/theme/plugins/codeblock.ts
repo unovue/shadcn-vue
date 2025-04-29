@@ -14,31 +14,31 @@ export default function (md: MarkdownRenderer) {
       const npmCommand = token.content
       const props = { pnpm: '', npm: '', yarn: '', bun: '' }
 
-      if (npmCommand.includes('npm install')) {
+      if (npmCommand.startsWith('npm install')) {
         props.npm = npmCommand
         props.yarn = npmCommand.replace('npm install', 'yarn add')
         props.pnpm = npmCommand.replace('npm install', 'pnpm add')
         props.bun = npmCommand.replace('npm install', 'bun add')
       }
-      else if (npmCommand.includes('npx create-')) {
+      else if (npmCommand.startsWith('npx create-')) {
         props.npm = npmCommand
         props.yarn = npmCommand.replace('npx create-', 'yarn create')
         props.pnpm = npmCommand.replace('npx create-', 'pnpm create')
         props.bun = npmCommand.replace('npx', 'bunx --bun')
       }
-      else if (npmCommand.includes('npm create')) {
+      else if (npmCommand.startsWith('npm create')) {
         props.npm = npmCommand
         props.yarn = npmCommand.replace('npm create', 'yarn create')
         props.pnpm = npmCommand.replace('npm create', 'pnpm create')
         props.bun = npmCommand.replace('npm create', 'bun create')
       }
-      else if (npmCommand.includes('npx')) {
+      else if (npmCommand.startsWith('npx')) {
         props.npm = npmCommand
         props.yarn = npmCommand
         props.pnpm = npmCommand.replace('npx', 'pnpm dlx')
         props.bun = npmCommand.replace('npx', 'bunx --bun')
       }
-      else if (npmCommand.includes('npm run')) {
+      else if (npmCommand.startsWith('npm run')) {
         props.npm = npmCommand
         props.yarn = npmCommand.replace('npm run', 'yarn')
         props.pnpm = npmCommand.replace('npm run', 'pnpm')
