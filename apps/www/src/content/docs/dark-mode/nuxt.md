@@ -10,21 +10,7 @@ description: Adding dark mode to your nuxt app.
 ### Install Dependencies
 
 ```bash
-npm install -D @nuxtjs/color-mode
-```
-
-Then, add `@nuxtjs/color-mode` to the modules section of your `nuxt.config.ts`
-
-```ts
-export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode'
-  ],
-  colorMode: {
-    classSuffix: ''
-  }
-})
+npx nuxi module add color-mode
 ```
 
 ### Add a mode toggle
