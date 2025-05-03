@@ -219,7 +219,7 @@ Create a `components.json` file in the root of your project.
     "composables": "@/composables",
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
-    "lib": "@/lib",
+    "lib": "@/lib"
   },
   "iconLibrary": "lucide"
 }
