@@ -60,7 +60,7 @@ export default defineNuxtConfig({
 
 ### Add `Nuxt` module
 
-Due to Nuxt auto-import feature, if you skip this step you will observe many warning in console.
+Skipping this step triggers numerous console warnings due to Nuxt's auto-import feature.
 
 <TabsMarkdown>
   <TabMarkdown title="shadcn-nuxt">
