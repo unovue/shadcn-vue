@@ -80,16 +80,18 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 #### native `input` element
 
 ```vue
-<FormField v-slot="{ field }">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
-      <input placeholder="shadcn" v-bind="field" />
-    </FormControl>
-    <FormDescription />
-    <FormMessage />
-  </FormItem>
-</FormField>
+<template>
+  <FormField v-slot="{ field }">
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <input placeholder="shadcn" v-bind="field">
+      </FormControl>
+      <FormDescription />
+      <FormMessage />
+    </FormItem>
+  </FormField>
+</template>
 ```
 
 </template>
