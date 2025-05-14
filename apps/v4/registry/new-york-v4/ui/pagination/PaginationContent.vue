@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import { PaginationList, type PaginationListProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<PaginationListProps & { class?: HTMLAttributes['class'] }>()
 

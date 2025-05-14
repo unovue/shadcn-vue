@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AppWindowIcon, CodeIcon } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,
@@ -16,7 +17,6 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/registry/new-york-v4/ui/tabs'
-import { AppWindowIcon, CodeIcon } from 'lucide-vue-next'
 </script>
 
 <template>

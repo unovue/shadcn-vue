@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
+
 import { Button } from '@/registry/default/ui/button'
 import {
   FormControl,
@@ -16,11 +21,6 @@ import {
   NumberFieldInput,
 } from '@/registry/default/ui/number-field'
 import { toast } from '@/registry/default/ui/toast'
-
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   payment: z.number().min(10, 'Min 10 euros to send payment').max(5000, 'Max 5000 euros to send payment'),

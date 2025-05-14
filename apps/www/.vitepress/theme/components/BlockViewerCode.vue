@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Block } from '@/registry/schema'
 import type { FileTree } from './BlockViewerFileTree.vue'
+import type { Block } from '@/registry/schema'
 import { File } from 'lucide-vue-next'
 import { computed, onBeforeMount, ref } from 'vue'
 import { highlight } from '../config/shiki'

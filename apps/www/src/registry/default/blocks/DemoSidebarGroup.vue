@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { LifeBuoy, Send } from 'lucide-vue-next'
+
 import {
   Sidebar,
   SidebarContent,
@@ -10,8 +12,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/registry/default/ui/sidebar'
-
-import { LifeBuoy, Send } from 'lucide-vue-next'
 </script>
 
 <template>

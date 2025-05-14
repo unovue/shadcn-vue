@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import {
+  Frame,
+  Map,
+  PieChart,
+  Plus,
+} from 'lucide-vue-next'
+import { toast, Toaster } from 'vue-sonner'
+
+import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
@@ -11,14 +19,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/registry/default/ui/sidebar'
-import {
-  Frame,
-  Map,
-  PieChart,
-  Plus,
-} from 'lucide-vue-next'
-
-import { toast, Toaster } from 'vue-sonner'
 </script>
 
 <template>

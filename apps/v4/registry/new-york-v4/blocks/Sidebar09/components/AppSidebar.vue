@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import NavUser from '@/registry/new-york-v4/blocks/Sidebar09/components/NavUser.vue'
+import { ArchiveX, Command, File, Inbox, Send, Trash2 } from 'lucide-vue-next'
 
+import { h, ref } from 'vue'
+import NavUser from '@/registry/new-york-v4/blocks/Sidebar09/components/NavUser.vue'
 import { Label } from '@/registry/new-york-v4/ui/label'
 import {
   Sidebar,
@@ -17,8 +19,6 @@ import {
   useSidebar,
 } from '@/registry/new-york-v4/ui/sidebar'
 import { Switch } from '@/registry/new-york-v4/ui/switch'
-import { ArchiveX, Command, File, Inbox, Send, Trash2 } from 'lucide-vue-next'
-import { h, ref } from 'vue'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: 'icon',

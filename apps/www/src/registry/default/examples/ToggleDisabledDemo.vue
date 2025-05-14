@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Toggle } from '@/registry/default/ui/toggle'
-
 import { Underline } from 'lucide-vue-next'
+
+import { Toggle } from '@/registry/default/ui/toggle'
 </script>
 
 <template>

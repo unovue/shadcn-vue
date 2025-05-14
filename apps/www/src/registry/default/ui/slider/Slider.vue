@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SliderRootEmits, SliderRootProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<SliderRootProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<SliderRootEmits>()

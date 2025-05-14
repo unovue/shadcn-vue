@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { GalleryVerticalEnd, Minus, Plus } from 'lucide-vue-next'
 import SearchForm from '@/registry/new-york/blocks/Sidebar05/components/SearchForm.vue'
 import {
   Collapsible,
@@ -19,7 +20,6 @@ import {
   type SidebarProps,
   SidebarRail,
 } from '@/registry/new-york/ui/sidebar'
-import { GalleryVerticalEnd, Minus, Plus } from 'lucide-vue-next'
 
 const props = defineProps<SidebarProps>()
 

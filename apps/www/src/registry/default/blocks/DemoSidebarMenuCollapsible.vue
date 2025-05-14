@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { ChevronRight } from 'lucide-vue-next'
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/registry/default/ui/collapsible'
-
 import {
   Sidebar,
   SidebarContent,
@@ -18,7 +19,6 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
 } from '@/registry/default/ui/sidebar'
-import { ChevronRight } from 'lucide-vue-next'
 
 const items = [
   {

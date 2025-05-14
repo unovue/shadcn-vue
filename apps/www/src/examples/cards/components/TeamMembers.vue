@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import ChevronDownIcon from '~icons/radix-icons/chevron-down'
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/registry/new-york/ui/avatar'
 import { Button } from '@/registry/new-york/ui/button'
-
 import {
   Card,
   CardContent,
@@ -14,14 +16,12 @@ import {
   CardTitle,
 } from '@/registry/new-york/ui/card'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/registry/new-york/ui/command'
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/registry/new-york/ui/popover'
-import { ref } from 'vue'
-
-import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 
 const sofiaRole = ref('Owner')
 const jacksonRole = ref('Member')

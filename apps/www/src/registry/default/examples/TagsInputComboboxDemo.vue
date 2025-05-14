@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxList } from '@/registry/default/ui/combobox'
-import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/default/ui/tags-input'
 import { useFilter } from 'reka-ui'
 import { computed, ref } from 'vue'
+import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxList } from '@/registry/default/ui/combobox'
+import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/default/ui/tags-input'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

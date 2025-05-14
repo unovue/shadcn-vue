@@ -1,11 +1,11 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import type { BaseChartProps } from '.'
-import { cn } from '@/lib/utils'
-import { ChartSingleTooltip, defaultColors } from '@/registry/new-york/ui/chart'
 import { Donut } from '@unovis/ts'
 import { VisDonut, VisSingleContainer } from '@unovis/vue'
 import { useMounted } from '@vueuse/core'
 import { type Component, computed, ref } from 'vue'
+import { cn } from '@/lib/utils'
+import { ChartSingleTooltip, defaultColors } from '@/registry/new-york/ui/chart'
 
 const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
   /**

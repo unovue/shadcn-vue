@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { h, onMounted, shallowRef } from 'vue'
+import * as z from 'zod'
 import { AutoForm } from '@/registry/new-york/ui/auto-form'
 import { Button } from '@/registry/new-york/ui/button'
 import { toast } from '@/registry/new-york/ui/toast'
-import { h, onMounted, shallowRef } from 'vue'
-import * as z from 'zod'
 
 const schema = shallowRef<z.ZodObject<any, any, any> | null>(null)
 

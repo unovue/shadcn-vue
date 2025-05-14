@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { h } from 'vue'
+import * as z from 'zod'
 import { AutoForm } from '@/registry/new-york/ui/auto-form'
 import { Button } from '@/registry/new-york/ui/button'
 import { toast } from '@/registry/new-york/ui/toast'
-import { h } from 'vue'
-import * as z from 'zod'
 import { DependencyType } from '../ui/auto-form/interface'
 
 const schema = z.object({

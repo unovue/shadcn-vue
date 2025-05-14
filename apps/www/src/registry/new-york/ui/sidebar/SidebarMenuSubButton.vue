@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
 import { Primitive } from 'reka-ui'
+import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<PrimitiveProps & {
   size?: 'sm' | 'md'

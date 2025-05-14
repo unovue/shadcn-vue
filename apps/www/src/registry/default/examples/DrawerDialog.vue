@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
+import { ref } from 'vue'
 import { Button } from '@/registry/default/ui/button'
 import {
   Dialog,
@@ -20,8 +22,6 @@ import {
 } from '@/registry/default/ui/drawer'
 import { Input } from '@/registry/default/ui/input'
 import { Label } from '@/registry/default/ui/label'
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { ref } from 'vue'
 
 // Reuse `form` section
 const [UseTemplate, GridForm] = createReusableTemplate()

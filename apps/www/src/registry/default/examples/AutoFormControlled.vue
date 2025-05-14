@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { AutoForm } from '@/registry/default/ui/auto-form'
-import { Button } from '@/registry/default/ui/button'
-import { toast } from '@/registry/default/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { h } from 'vue'
 import * as z from 'zod'
+import { AutoForm } from '@/registry/default/ui/auto-form'
+import { Button } from '@/registry/default/ui/button'
+import { toast } from '@/registry/default/ui/toast'
 
 const schema = z.object({
   username: z.string(),

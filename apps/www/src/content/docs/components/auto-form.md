@@ -318,10 +318,10 @@ In `CustomField.vue`
 ```vue
 <script setup lang="ts">
 import type { FieldProps } from './interface'
+import { computed } from 'vue'
 import { AutoFormLabel } from '@/ui/auto-form'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/ui/form'
 import { Input } from '@/ui/input'
-import { computed } from 'vue'
 import AutoFormLabel from './AutoFormLabel.vue'
 
 const props = defineProps<FieldProps>()
@@ -408,10 +408,10 @@ By passing the `form` as props, you can control and use the method provided by `
 
 ```vue
 <script setup lang="ts">
-import { AutoForm } from '@/components/ui/auto-form'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
+import { AutoForm } from '@/components/ui/auto-form'
 
 const schema = z.object({
   username: z.string(),

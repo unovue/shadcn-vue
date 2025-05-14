@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/registry/default/ui/button'
 import { CalendarCellTrigger, type CalendarCellTriggerProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/registry/default/ui/button'
 
 const props = defineProps<CalendarCellTriggerProps & { class?: HTMLAttributes['class'] }>()
 

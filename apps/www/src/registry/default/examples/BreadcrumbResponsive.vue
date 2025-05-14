@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useMediaQuery } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -25,8 +27,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/registry/default/ui/dropdown-menu'
-import { useMediaQuery } from '@vueuse/core'
-import { computed, ref } from 'vue'
 
 const isDesktop = useMediaQuery('(min-width: 768px)')
 const isOpen = ref(false)

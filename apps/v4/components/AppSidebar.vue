@@ -1,4 +1,15 @@
 <script setup lang="ts">
+import {
+  AudioWaveform,
+  BookOpen,
+  Bot,
+  ChevronRightIcon,
+  Command,
+  GalleryVerticalEnd,
+  Search,
+  Settings2,
+  SquareTerminal,
+} from 'lucide-vue-next'
 import { Index } from '@/__registry__'
 import NavUser from '@/registry/new-york-v4/blocks/Sidebar07/components/NavUser.vue'
 import TeamSwitcher from '@/registry/new-york-v4/blocks/Sidebar07/components/TeamSwitcher.vue'
@@ -25,17 +36,6 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from '@/registry/new-york-v4/ui/sidebar'
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  ChevronRightIcon,
-  Command,
-  GalleryVerticalEnd,
-  Search,
-  Settings2,
-  SquareTerminal,
-} from 'lucide-vue-next'
 
 // This is sample data.
 const data = {

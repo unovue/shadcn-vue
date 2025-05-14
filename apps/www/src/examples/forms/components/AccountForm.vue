@@ -1,5 +1,14 @@
 <script setup lang="ts">
+import { CalendarDate, DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
+import { toTypedSchema } from '@vee-validate/zod'
+import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { toDate } from 'reka-ui/date'
+import { h, ref } from 'vue'
+import * as z from 'zod'
+import RadixIconsCalendar from '~icons/radix-icons/calendar'
+
 import { cn } from '@/lib/utils'
+
 import { Button } from '@/registry/new-york/ui/button'
 import { Calendar } from '@/registry/new-york/ui/calendar'
 import {
@@ -17,17 +26,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/registry/new-york/ui/popover'
-
 import { Separator } from '@/registry/new-york/ui/separator'
-
 import { toast } from '@/registry/new-york/ui/toast'
-import { CalendarDate, DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
-import { toTypedSchema } from '@vee-validate/zod'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { toDate } from 'reka-ui/date'
-import { h, ref } from 'vue'
-import * as z from 'zod'
-import RadixIconsCalendar from '~icons/radix-icons/calendar'
 
 const open = ref(false)
 const dateValue = ref()

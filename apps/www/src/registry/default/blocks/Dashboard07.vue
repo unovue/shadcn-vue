@@ -5,8 +5,23 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import { Badge } from '@/registry/default/ui/badge'
+import {
+  ChevronLeft,
+  CircleUser,
+  Home,
+  LineChart,
+  Package,
+  Package2,
+  PanelLeft,
+  PlusCircle,
+  Search,
+  Settings,
+  ShoppingCart,
+  Upload,
+  Users2,
+} from 'lucide-vue-next'
 
+import { Badge } from '@/registry/default/ui/badge'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -44,21 +59,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/registry/default/ui/tooltip'
-import {
-  ChevronLeft,
-  CircleUser,
-  Home,
-  LineChart,
-  Package,
-  Package2,
-  PanelLeft,
-  PlusCircle,
-  Search,
-  Settings,
-  ShoppingCart,
-  Upload,
-  Users2,
-} from 'lucide-vue-next'
 </script>
 
 <template>

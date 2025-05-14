@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { RegistryStyle } from '@/registry/registry-styles'
-import { Button } from '@/registry/new-york/ui/button'
 import { Icon } from '@iconify/vue'
 import { ref, toRefs, watch } from 'vue'
+import { Button } from '@/registry/new-york/ui/button'
 import { makeStackblitzParams } from '../utils/codeeditor'
 import Tooltip from './Tooltip.vue'
 

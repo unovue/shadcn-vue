@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Check, ChevronDownIcon, ChevronsUpDown, PlusCircleIcon } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxSeparator, ComboboxTrigger, ComboboxViewport } from '@/registry/new-york-v4/ui/combobox'
-import { Check, ChevronDownIcon, ChevronsUpDown, PlusCircleIcon } from 'lucide-vue-next'
-import { ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

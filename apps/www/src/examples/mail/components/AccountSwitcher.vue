@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/utils'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/new-york/ui/select'
 import { Icon } from '@iconify/vue'
 import { computed, ref } from 'vue'
+import { cn } from '@/lib/utils'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/new-york/ui/select'
 
 interface AccountSwitcherProps {
   isCollapsed: boolean

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { DialogOverlayProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
 import { DrawerOverlay } from 'vaul-vue'
 import { computed, type HtmlHTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogOverlayProps & { class?: HtmlHTMLAttributes['class'] }>()
 

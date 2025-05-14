@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+import { Button } from '@/registry/new-york/ui/button'
 import Announcement from '../components/Announcement.vue'
 import PageAction from '../components/PageAction.vue'
 

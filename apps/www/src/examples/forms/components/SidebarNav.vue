@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { useRoute } from 'vitepress'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york/ui/button'
-import { useRoute } from 'vitepress'
 
 interface Item {
   title: string

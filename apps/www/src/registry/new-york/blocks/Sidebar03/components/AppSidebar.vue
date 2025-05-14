@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { GalleryVerticalEnd } from 'lucide-vue-next'
+
 import {
   Sidebar,
   SidebarContent,
@@ -13,8 +15,6 @@ import {
   type SidebarProps,
   SidebarRail,
 } from '@/registry/new-york/ui/sidebar'
-
-import { GalleryVerticalEnd } from 'lucide-vue-next'
 
 const props = defineProps<SidebarProps>()
 

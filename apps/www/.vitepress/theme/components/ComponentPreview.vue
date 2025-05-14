@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/default/ui/tabs'
-import { useConfigStore } from '@/stores/config'
 import { useClipboard } from '@vueuse/core'
 import MagicString from 'magic-string'
 import { computed, ref, watch } from 'vue'
+import { cn } from '@/lib/utils'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/default/ui/tabs'
+import { useConfigStore } from '@/stores/config'
 import { highlight } from '../config/shiki'
 import CodeSandbox from './CodeSandbox.vue'
 import ComponentLoader from './ComponentLoader.vue'

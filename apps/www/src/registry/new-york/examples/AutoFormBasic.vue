@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { h } from 'vue'
+import * as z from 'zod'
 import { AutoForm, AutoFormField } from '@/registry/new-york/ui/auto-form'
 import { Button } from '@/registry/new-york/ui/button'
 import { toast } from '@/registry/new-york/ui/toast'
-import { h } from 'vue'
-import * as z from 'zod'
 
 enum Sports {
   Football = 'Football/Soccer',

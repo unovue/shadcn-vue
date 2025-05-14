@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { FieldProps } from './interface'
+import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
+import { CalendarIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york/ui/button'
 import { Calendar } from '@/registry/new-york/ui/calendar'
+
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/registry/new-york/ui/form'
 import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
-
-import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
-import { CalendarIcon } from 'lucide-vue-next'
 import AutoFormLabel from './AutoFormLabel.vue'
 import { beautifyObjectName, maybeBooleanishToBoolean } from './utils'
 

@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import NavFavorites from '@/registry/new-york-v4/blocks/Sidebar15/components/NavFavorites.vue'
-
-import NavMain from '@/registry/new-york-v4/blocks/Sidebar15/components/NavMain.vue'
-import NavSecondary from '@/registry/new-york-v4/blocks/Sidebar15/components/NavSecondary.vue'
-import NavWorkspaces from '@/registry/new-york-v4/blocks/Sidebar15/components/NavWorkspaces.vue'
-import TeamSwitcher from '@/registry/new-york-v4/blocks/Sidebar15/components/TeamSwitcher.vue'
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  type SidebarProps,
-  SidebarRail,
-} from '@/registry/new-york-v4/ui/sidebar'
 import {
   AudioWaveform,
   Blocks,
@@ -25,6 +12,19 @@ import {
   Sparkles,
   Trash2,
 } from 'lucide-vue-next'
+
+import NavFavorites from '@/registry/new-york-v4/blocks/Sidebar15/components/NavFavorites.vue'
+import NavMain from '@/registry/new-york-v4/blocks/Sidebar15/components/NavMain.vue'
+import NavSecondary from '@/registry/new-york-v4/blocks/Sidebar15/components/NavSecondary.vue'
+import NavWorkspaces from '@/registry/new-york-v4/blocks/Sidebar15/components/NavWorkspaces.vue'
+import TeamSwitcher from '@/registry/new-york-v4/blocks/Sidebar15/components/TeamSwitcher.vue'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  type SidebarProps,
+  SidebarRail,
+} from '@/registry/new-york-v4/ui/sidebar'
 
 const props = defineProps<SidebarProps>()
 

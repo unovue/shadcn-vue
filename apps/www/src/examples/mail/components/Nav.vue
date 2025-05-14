@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { Icon } from '@iconify/vue'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/registry/new-york/ui/button'
 import {
@@ -6,7 +7,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/registry/new-york/ui/tooltip'
-import { Icon } from '@iconify/vue'
 
 export interface LinkProp {
   title: string

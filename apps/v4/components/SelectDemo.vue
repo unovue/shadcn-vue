@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import {
+  ChartBarIcon,
+  ChartLineIcon,
+  ChartPieIcon,
+  CircleDashed,
+} from 'lucide-vue-next'
+
+import {
   Select,
   SelectContent,
   SelectGroup,
@@ -8,13 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
-
-import {
-  ChartBarIcon,
-  ChartLineIcon,
-  ChartPieIcon,
-  CircleDashed,
-} from 'lucide-vue-next'
 
 const selectedChart = ref<keyof typeof chartOptions>()
 const chartOptions = {

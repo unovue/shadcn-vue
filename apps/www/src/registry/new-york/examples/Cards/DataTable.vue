@@ -5,11 +5,21 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import {
+  FlexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
+import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { h, ref } from 'vue'
 import { valueUpdater } from '@/lib/utils'
+
 import { Button } from '@/registry/new-york/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/registry/new-york/ui/card'
 import { Checkbox } from '@/registry/new-york/ui/checkbox'
-
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -25,16 +35,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/registry/new-york/ui/table'
-import {
-  FlexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
-import { h, ref } from 'vue'
 import DropdownAction from '../DataTableDemoColumn.vue'
 
 export interface Payment {

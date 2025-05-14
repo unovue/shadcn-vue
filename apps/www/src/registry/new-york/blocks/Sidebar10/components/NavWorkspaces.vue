@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { ChevronRight, MoreHorizontal, Plus } from 'lucide-vue-next'
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/registry/new-york/ui/collapsible'
-
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -17,7 +18,6 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/registry/new-york/ui/sidebar'
-import { ChevronRight, MoreHorizontal, Plus } from 'lucide-vue-next'
 
 defineProps<{
   workspaces: {

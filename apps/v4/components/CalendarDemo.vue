@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CalendarDate, type DateValue, fromDate, getLocalTimeZone } from '@internationalized/date'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 import { RangeCalendar } from '@/registry/new-york-v4/ui/range-calendar'
-import { CalendarDate, type DateValue, fromDate, getLocalTimeZone } from '@internationalized/date'
 
 const date = ref(fromDate(new Date(), getLocalTimeZone())) as Ref<DateValue>
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ChevronRight, type LucideIcon } from 'lucide-vue-next'
 import {
   Collapsible,
   CollapsibleContent,
@@ -14,7 +15,6 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/registry/default/ui/sidebar'
-import { ChevronRight, type LucideIcon } from 'lucide-vue-next'
 
 defineProps<{
   items: {

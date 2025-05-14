@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Toggle } from '@/registry/new-york-v4/ui/toggle'
-
 import { BoldIcon, BookmarkIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next'
+
+import { Toggle } from '@/registry/new-york-v4/ui/toggle'
 </script>
 
 <template>

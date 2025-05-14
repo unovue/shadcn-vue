@@ -1,9 +1,9 @@
 <!-- eslint-disable no-console -->
 <!-- eslint-disable no-template-curly-in-string -->
 <script setup lang="ts">
-import { Button } from '@/registry/new-york-v4/ui/button'
-
 import { toast } from 'vue-sonner'
+
+import { Button } from '@/registry/new-york-v4/ui/button'
 
 const promiseCode = '`${data.name} toast has been added`'
 

@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { useForm } from 'vee-validate'
+
+import { h } from 'vue'
+
+import * as z from 'zod'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york/ui/button'
 import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from '@/registry/new-york/ui/combobox'
-
 import {
   FormControl,
   FormDescription,
@@ -11,13 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/registry/new-york/ui/form'
-
 import { toast } from '@/registry/new-york/ui/toast'
-import { toTypedSchema } from '@vee-validate/zod'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const languages = [
   { label: 'English', value: 'en' },

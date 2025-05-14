@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { DropdownMenuCheckboxItemProps } from 'reka-ui'
+import { ref } from 'vue'
 import { Button } from '@/registry/new-york/ui/button'
 import {
   DropdownMenu,
@@ -9,7 +10,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/registry/new-york/ui/dropdown-menu'
-import { ref } from 'vue'
 
 type Checked = DropdownMenuCheckboxItemProps['modelValue']
 

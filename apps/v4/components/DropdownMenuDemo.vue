@@ -1,5 +1,20 @@
 <script setup lang="ts">
 import {
+  BadgeCheckIcon,
+  BellIcon,
+  ChevronsUpDownIcon,
+  CreditCardIcon,
+  LogOut,
+  LogOutIcon,
+  MoreHorizontalIcon,
+  PencilIcon,
+  Settings2Icon,
+  ShareIcon,
+  SparklesIcon,
+  TrashIcon,
+  UserIcon,
+} from 'lucide-vue-next'
+import {
   Avatar,
   AvatarFallback,
   AvatarImage,
@@ -22,21 +37,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/registry/new-york-v4/ui/dropdown-menu'
-import {
-  BadgeCheckIcon,
-  BellIcon,
-  ChevronsUpDownIcon,
-  CreditCardIcon,
-  LogOut,
-  LogOutIcon,
-  MoreHorizontalIcon,
-  PencilIcon,
-  Settings2Icon,
-  ShareIcon,
-  SparklesIcon,
-  TrashIcon,
-  UserIcon,
-} from 'lucide-vue-next'
 
 const showStatusBar = ref(true)
 const showActivityBar = ref(false)

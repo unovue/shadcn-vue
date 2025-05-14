@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { ScrollArea, ScrollBar } from '@/registry/default/ui/scroll-area'
 import { useRoute } from 'vitepress'
 import { computed, toRefs } from 'vue'
+import { cn } from '@/lib/utils'
+import { ScrollArea, ScrollBar } from '@/registry/default/ui/scroll-area'
 
 const { path } = toRefs(useRoute())
 

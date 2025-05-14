@@ -1,5 +1,11 @@
 <script lang="ts" setup>
 import type { Mail } from '../data/mails'
+import addDays from 'date-fns/addDays'
+import addHours from 'date-fns/addHours'
+import format from 'date-fns/format'
+import nextSaturday from 'date-fns/nextSaturday'
+import { Archive, ArchiveX, Clock, Forward, MoreVertical, Reply, ReplyAll, Trash2 } from 'lucide-vue-next'
+import { computed } from 'vue'
 import { Avatar, AvatarFallback } from '@/registry/new-york/ui/avatar'
 import { Button } from '@/registry/new-york/ui/button'
 import { Calendar } from '@/registry/new-york/ui/calendar'
@@ -10,12 +16,6 @@ import { Separator } from '@/registry/new-york/ui/separator'
 import { Switch } from '@/registry/new-york/ui/switch'
 import { Textarea } from '@/registry/new-york/ui/textarea'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york/ui/tooltip'
-import addDays from 'date-fns/addDays'
-import addHours from 'date-fns/addHours'
-import format from 'date-fns/format'
-import nextSaturday from 'date-fns/nextSaturday'
-import { Archive, ArchiveX, Clock, Forward, MoreVertical, Reply, ReplyAll, Trash2 } from 'lucide-vue-next'
-import { computed } from 'vue'
 
 interface MailDisplayProps {
   mail: Mail | undefined

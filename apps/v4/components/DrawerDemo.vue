@@ -1,6 +1,7 @@
 <script setup lang="ts">
 'use client'
 
+import { Minus, Plus } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Drawer,
@@ -12,7 +13,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/registry/new-york-v4/ui/drawer'
-import { Minus, Plus } from 'lucide-vue-next'
 
 const data = [
   { goal: 400 },

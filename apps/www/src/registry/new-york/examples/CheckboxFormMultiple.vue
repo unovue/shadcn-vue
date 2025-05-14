@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
+
 import { Button } from '@/registry/new-york/ui/button'
 import { Checkbox } from '@/registry/new-york/ui/checkbox'
 import {
@@ -10,11 +15,6 @@ import {
   FormMessage,
 } from '@/registry/new-york/ui/form'
 import { toast } from '@/registry/new-york/ui/toast'
-
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const items = [
   {

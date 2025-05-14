@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Calendar, Home, Inbox, Search, Settings } from 'lucide-vue-next'
+
 import {
   Sidebar,
   SidebarContent,
@@ -12,8 +14,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/registry/new-york/ui/sidebar'
-
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-vue-next'
 
 // Menu items.
 const items = [

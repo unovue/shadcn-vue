@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Check, ChevronsUpDown, Search } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/default/ui/button'
 import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from '@/registry/default/ui/combobox'
-import { Check, ChevronsUpDown, Search } from 'lucide-vue-next'
-import { ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

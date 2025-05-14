@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import {
   NavigationMenuRoot,
   type NavigationMenuRootEmits,
@@ -7,6 +6,7 @@ import {
   useForwardPropsEmits,
 } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import NavigationMenuViewport from './NavigationMenuViewport.vue'
 
 const props = defineProps<NavigationMenuRootProps & { class?: HTMLAttributes['class'] }>()

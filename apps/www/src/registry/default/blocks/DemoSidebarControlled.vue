@@ -1,6 +1,16 @@
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
+import {
+  Frame,
+  LifeBuoy,
+  Map,
+  PanelLeftClose,
+  PanelLeftOpen,
+  PieChart,
+  Send,
+} from 'lucide-vue-next'
 
+import { ref } from 'vue'
+import { Button } from '@/registry/default/ui/button'
 import {
   Sidebar,
   SidebarContent,
@@ -13,16 +23,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/registry/default/ui/sidebar'
-import {
-  Frame,
-  LifeBuoy,
-  Map,
-  PanelLeftClose,
-  PanelLeftOpen,
-  PieChart,
-  Send,
-} from 'lucide-vue-next'
-import { ref } from 'vue'
 
 const projects = [
   {

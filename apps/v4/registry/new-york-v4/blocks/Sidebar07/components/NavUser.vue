@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import {
+  BadgeCheck,
+  Bell,
+  ChevronsUpDown,
+  CreditCard,
+  LogOut,
+  Sparkles,
+} from 'lucide-vue-next'
+
+import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/registry/new-york-v4/ui/avatar'
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,14 +28,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/registry/new-york-v4/ui/sidebar'
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from 'lucide-vue-next'
 
 const props = defineProps<{
   user: {

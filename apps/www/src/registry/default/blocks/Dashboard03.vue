@@ -5,8 +5,9 @@ export const containerClass = 'w-full h-full'
 </script>
 
 <script setup lang="ts">
-import { Badge } from '@/registry/default/ui/badge'
+import { Bird, Book, Bot, Code2, CornerDownLeft, LifeBuoy, Mic, Paperclip, Rabbit, Settings, Settings2, Share, SquareTerminal, SquareUser, Triangle, Turtle } from 'lucide-vue-next'
 
+import { Badge } from '@/registry/default/ui/badge'
 import { Button } from '@/registry/default/ui/button'
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/registry/default/ui/drawer'
 import { Input } from '@/registry/default/ui/input'
@@ -14,7 +15,6 @@ import { Label } from '@/registry/default/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/default/ui/select'
 import { Textarea } from '@/registry/default/ui/textarea'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/registry/default/ui/tooltip'
-import { Bird, Book, Bot, Code2, CornerDownLeft, LifeBuoy, Mic, Paperclip, Rabbit, Settings, Settings2, Share, SquareTerminal, SquareUser, Triangle, Turtle } from 'lucide-vue-next'
 </script>
 
 <template>

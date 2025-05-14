@@ -164,6 +164,12 @@ Next, we'll create a `<DataTable />` component to render our table.
 <script setup lang="ts" generic="TData, TValue">
 import type { ColumnDef } from '@tanstack/vue-table'
 import {
+  FlexRender,
+  getCoreRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
+
+import {
   Table,
   TableBody,
   TableCell,
@@ -171,12 +177,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-
-import {
-  FlexRender,
-  getCoreRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
 
 const props = defineProps<{
   columns: ColumnDef<TData, TValue>[]
@@ -317,9 +317,9 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 ```vue
 <script setup lang="ts">
+import { MoreHorizontal } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { MoreHorizontal } from 'lucide-vue-next'
 
 defineProps<{
   payment: {
@@ -358,8 +358,8 @@ function copy(id: string) {
 Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
 
 ```ts
-import DropdownAction from '@/components/DataTableDropDown.vue'
 import { ColumnDef } from '@tanstack/vue-table'
+import DropdownAction from '@/components/DataTableDropDown.vue'
 
 export const columns: ColumnDef<Payment>[] = [
   // ...

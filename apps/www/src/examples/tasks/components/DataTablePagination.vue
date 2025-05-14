@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import ChevronLeftIcon from '~icons/radix-icons/chevron-left'
+import ChevronRightIcon from '~icons/radix-icons/chevron-right'
+import DoubleArrowLeftIcon from '~icons/radix-icons/double-arrow-left'
+import DoubleArrowRightIcon from '~icons/radix-icons/double-arrow-right'
+
 import { Button } from '@/registry/new-york/ui/button'
 import {
   Select,
@@ -9,11 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/new-york/ui/select'
-import ChevronLeftIcon from '~icons/radix-icons/chevron-left'
-import ChevronRightIcon from '~icons/radix-icons/chevron-right'
-
-import DoubleArrowLeftIcon from '~icons/radix-icons/double-arrow-left'
-import DoubleArrowRightIcon from '~icons/radix-icons/double-arrow-right'
 
 interface DataTablePaginationProps {
   table: Table<Task>

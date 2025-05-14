@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { ChevronsUpDown } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/registry/new-york-v4/ui/collapsible'
-import { ChevronsUpDown } from 'lucide-vue-next'
 
 const open = ref(false)
 </script>

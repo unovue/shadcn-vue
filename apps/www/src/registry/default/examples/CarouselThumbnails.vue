@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Card, CardContent } from '@/registry/default/ui/card'
-import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/registry/default/ui/carousel'
 import { watchOnce } from '@vueuse/core'
 import { ref } from 'vue'
+import { Card, CardContent } from '@/registry/default/ui/card'
+import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/registry/default/ui/carousel'
 
 const emblaMainApi = ref<CarouselApi>()
 const emblaThumbnailApi = ref<CarouselApi>()

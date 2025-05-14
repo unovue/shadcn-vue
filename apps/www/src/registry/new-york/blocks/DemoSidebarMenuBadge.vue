@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Frame, LifeBuoy, Map, PieChart, Send } from 'lucide-vue-next'
+
 import {
   Sidebar,
   SidebarContent,
@@ -11,8 +13,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/registry/new-york/ui/sidebar'
-
-import { Frame, LifeBuoy, Map, PieChart, Send } from 'lucide-vue-next'
 
 const projects = [
   {

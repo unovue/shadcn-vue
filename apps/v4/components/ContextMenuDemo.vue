@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Code2Icon, PlusIcon, TrashIcon } from 'lucide-vue-next'
+
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -14,8 +16,6 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@/registry/new-york-v4/ui/context-menu'
-
-import { Code2Icon, PlusIcon, TrashIcon } from 'lucide-vue-next'
 </script>
 
 <template>

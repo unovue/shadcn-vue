@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Line } from '@unovis/ts'
+import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
 import {
   Card,
   CardContent,
@@ -6,8 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york/ui/card'
-import { Line } from '@unovis/ts'
-import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
 
 type Data = typeof data[number]
 const data = [

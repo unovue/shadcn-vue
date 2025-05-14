@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { toggleVariants } from '@/registry/default/ui/toggle'
 import type { VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
+import type { toggleVariants } from '@/registry/default/ui/toggle'
 import { ToggleGroupRoot, type ToggleGroupRootEmits, type ToggleGroupRootProps, useForwardPropsEmits } from 'reka-ui'
 import { computed, type HTMLAttributes, provide } from 'vue'
+import { cn } from '@/lib/utils'
 
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>
 

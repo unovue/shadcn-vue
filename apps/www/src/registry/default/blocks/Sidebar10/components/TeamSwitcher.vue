@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ChevronDown, Plus } from 'lucide-vue-next'
+import { type Component, ref } from 'vue'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,14 +10,12 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/registry/default/ui/dropdown-menu'
+
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/registry/default/ui/sidebar'
-import { ChevronDown, Plus } from 'lucide-vue-next'
-
-import { type Component, ref } from 'vue'
 
 const props = defineProps<{
   teams: {

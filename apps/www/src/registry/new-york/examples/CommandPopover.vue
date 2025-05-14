@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
+import { ref } from 'vue'
 
+import { Button } from '@/registry/new-york/ui/button'
 import {
   Command,
   CommandEmpty,
@@ -14,7 +15,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/registry/new-york/ui/popover'
-import { ref } from 'vue'
 
 interface Status {
   value: string

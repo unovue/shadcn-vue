@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+import { Check, Moon, Repeat, Sun } from 'lucide-vue-next'
+import { useData } from 'vitepress'
 import { Button } from '@/registry/new-york/ui/button'
 import { Label } from '@/registry/new-york/ui/label'
 import { baseColors } from '@/registry/registry-base-colors'
 import { RADII, useConfigStore } from '@/stores/config'
-import { Check, Moon, Repeat, Sun } from 'lucide-vue-next'
-import { useData } from 'vitepress'
 
 const { config, theme, radius, setRadius, setTheme } = useConfigStore()
 const { isDark } = useData()

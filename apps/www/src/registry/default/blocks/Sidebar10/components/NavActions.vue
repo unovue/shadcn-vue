@@ -1,20 +1,4 @@
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/registry/default/ui/popover'
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from '@/registry/default/ui/sidebar'
 import {
   ArrowDown,
   ArrowUp,
@@ -32,7 +16,23 @@ import {
   Trash,
   Trash2,
 } from 'lucide-vue-next'
+
 import { ref } from 'vue'
+import { Button } from '@/registry/default/ui/button'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/registry/default/ui/popover'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from '@/registry/default/ui/sidebar'
 
 const data = [
   [

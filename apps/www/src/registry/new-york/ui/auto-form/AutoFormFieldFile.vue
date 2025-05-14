@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { FieldProps } from './interface'
+import { Trash } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { Button } from '@/registry/new-york/ui/button'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/registry/new-york/ui/form'
 import { Input } from '@/registry/new-york/ui/input'
-import { Trash } from 'lucide-vue-next'
-import { ref } from 'vue'
 import AutoFormLabel from './AutoFormLabel.vue'
 import { beautifyObjectName } from './utils'
 

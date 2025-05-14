@@ -1,13 +1,13 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import type { BaseChartProps } from '.'
-import { cn } from '@/lib/utils'
-import { ChartCrosshair, ChartLegend, defaultColors } from '@/registry/default/ui/chart'
 import { type BulletLegendItemInterface, CurveType } from '@unovis/ts'
 import { Area, Axis, Line } from '@unovis/ts'
 import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 import { useMounted } from '@vueuse/core'
 import { useId } from 'reka-ui'
 import { type Component, computed, ref } from 'vue'
+import { cn } from '@/lib/utils'
+import { ChartCrosshair, ChartLegend, defaultColors } from '@/registry/default/ui/chart'
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**

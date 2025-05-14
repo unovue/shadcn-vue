@@ -27,9 +27,9 @@ We're using [`useToggle`](https://vueuse.org/shared/useToggle/) from [`@vueuse/c
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
 import { useToggle } from '@vueuse/core'
 import { useData } from 'vitepress'
+import { Button } from '@/registry/default/ui/button'
 
 const { frontmatter, isDark } = useData()
 const toggleDark = useToggle(isDark)

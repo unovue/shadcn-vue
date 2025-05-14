@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { TableOfContents, TableOfContentsItem } from '../types/docs'
-import { buttonVariants } from '@/registry/default/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/registry/default/ui/collapsible'
 import { onContentUpdated } from 'vitepress'
 import { shallowRef } from 'vue'
+import { buttonVariants } from '@/registry/default/ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/registry/default/ui/collapsible'
 import CarbonAds from '../components/CarbonAds.vue'
 import TableOfContentTree from './TableOfContentTree.vue'
 

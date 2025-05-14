@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { TableOfContentsItem } from '../types/docs'
-import { cn } from '@/lib/utils'
 import { useElementVisibility } from '@vueuse/core'
 import { computed } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<{
   item: TableOfContentsItem

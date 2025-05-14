@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { Check, Plus, Send } from 'lucide-vue-next'
+import { computed, ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york/ui/avatar'
 import { Button } from '@/registry/new-york/ui/button'
+
 import {
   Card,
   CardContent,
@@ -9,7 +12,6 @@ import {
   CardHeader,
 } from '@/registry/new-york/ui/card'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/registry/new-york/ui/command'
-
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/registry/new-york/ui/dialog'
 import { Input } from '@/registry/new-york/ui/input'
 import {
@@ -18,8 +20,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/registry/new-york/ui/tooltip'
-import { Check, Plus, Send } from 'lucide-vue-next'
-import { computed, ref } from 'vue'
 
 const input = ref('')
 const inputLength = computed(() => input.value.trim().length)

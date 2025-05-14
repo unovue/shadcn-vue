@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/default/ui/stepper'
-
 import { BookUser, Check, CreditCard, Truck } from 'lucide-vue-next'
+
+import { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/default/ui/stepper'
 
 const steps = [{
   step: 1,

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { HelpCircleIcon, SettingsIcon, Trash2Icon } from 'lucide-vue-next'
+
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -15,8 +17,6 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from '@/registry/new-york-v4/ui/menubar'
-
-import { HelpCircleIcon, SettingsIcon, Trash2Icon } from 'lucide-vue-next'
 </script>
 
 <template>

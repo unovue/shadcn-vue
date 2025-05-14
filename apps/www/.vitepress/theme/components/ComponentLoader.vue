@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useConfigStore } from '@/stores/config'
 import { defineAsyncComponent } from 'vue'
+import { useConfigStore } from '@/stores/config'
 import { Index } from '../../../__registry__'
 import Spinner from './Spinner.vue'
 

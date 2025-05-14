@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { Badge } from '@/registry/new-york-v4/ui/badge'
+import {
+  ArrowUpDownIcon,
+  EllipsisVerticalIcon,
+  ListFilterIcon,
+  PlusIcon,
+} from 'lucide-vue-next'
 
+import { Badge } from '@/registry/new-york-v4/ui/badge'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
 import {
@@ -33,12 +39,6 @@ import {
   TableRow,
 } from '@/registry/new-york-v4/ui/table'
 import { Tabs, TabsList, TabsTrigger } from '@/registry/new-york-v4/ui/tabs'
-import {
-  ArrowUpDownIcon,
-  EllipsisVerticalIcon,
-  ListFilterIcon,
-  PlusIcon,
-} from 'lucide-vue-next'
 
 const props = defineProps<{
   products: {

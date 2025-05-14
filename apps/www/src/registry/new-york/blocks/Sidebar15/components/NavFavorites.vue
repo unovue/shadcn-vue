@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import {
+  ArrowUpRight,
+  Link,
+  MoreHorizontal,
+  StarOff,
+  Trash2,
+} from 'lucide-vue-next'
+
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/registry/new-york/ui/dropdown-menu'
-
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -16,13 +23,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/registry/new-york/ui/sidebar'
-import {
-  ArrowUpRight,
-  Link,
-  MoreHorizontal,
-  StarOff,
-  Trash2,
-} from 'lucide-vue-next'
 
 defineProps<{
   favorites: {

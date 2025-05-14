@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york-v4/ui/button'
 import { MoonIcon, SunIcon } from 'lucide-vue-next'
+import { Button } from '@/registry/new-york-v4/ui/button'
 
 const colorMode = useColorMode()
 </script>

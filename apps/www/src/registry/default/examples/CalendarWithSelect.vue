@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
+import { useVModel } from '@vueuse/core'
+import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
+import { createDecade, createYear, toDate } from 'reka-ui/date'
+import { computed, type HTMLAttributes, type Ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@/registry/default/ui/calendar'
 import {
@@ -8,11 +13,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/default/ui/select'
-import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
-import { useVModel } from '@vueuse/core'
-import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
-import { createDecade, createYear, toDate } from 'reka-ui/date'
-import { computed, type HTMLAttributes, type Ref } from 'vue'
 
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>(), {
   modelValue: undefined,

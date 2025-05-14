@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { fromDate, getLocalTimeZone } from '@internationalized/date'
+import { toTypedSchema } from '@vee-validate/zod'
+import { format } from 'date-fns'
+import { CalendarIcon } from 'lucide-vue-next'
+import { useForm } from 'vee-validate'
+import { toast } from 'vue-sonner'
+
+import { z } from 'zod'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
@@ -12,7 +20,6 @@ import {
   FormMessage,
 } from '@/registry/new-york-v4/ui/form'
 import { Input } from '@/registry/new-york-v4/ui/input'
-
 import {
   Popover,
   PopoverContent,
@@ -31,13 +38,6 @@ import {
 } from '@/registry/new-york-v4/ui/select'
 import { Switch } from '@/registry/new-york-v4/ui/switch'
 import { Textarea } from '@/registry/new-york-v4/ui/textarea'
-import { fromDate, getLocalTimeZone } from '@internationalized/date'
-import { toTypedSchema } from '@vee-validate/zod'
-import { format } from 'date-fns'
-import { CalendarIcon } from 'lucide-vue-next'
-import { useForm } from 'vee-validate'
-import { toast } from 'vue-sonner'
-import { z } from 'zod'
 
 const items = [
   {

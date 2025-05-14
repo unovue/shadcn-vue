@@ -58,6 +58,7 @@ Use a custom component as `slot` for `<BreadcrumbSeparator />` to create a custo
 
 ```vue showLineNumbers {2,20-22}
 <script setup lang="ts">
+import { Slash } from 'lucide-vue-next'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -65,7 +66,6 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { Slash } from 'lucide-vue-next'
 </script>
 
 <template>
@@ -99,6 +99,8 @@ You can compose `<BreadcrumbItem />` with a `<DropdownMenu />` to create a dropd
 
 ```vue showLineNumbers {2-7,16-26}
 <script setup lang="ts">
+import ChevronDownIcon from '~icons/radix-icons/chevron-down'
+
 import { BreadcrumbItem } from '@/components/ui/breadcrumb'
 
 import {
@@ -107,8 +109,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/lib/components/ui/dropdown-menu'
-
-import ChevronDownIcon from '~icons/radix-icons/chevron-down'
 </script>
 
 <template>
@@ -169,13 +169,13 @@ To use a custom link component from your routing library, you can use the `asChi
 
 ```vue showLineNumbers {15-19}
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
 } from '@/components/ui/breadcrumb'
-import { RouterLink } from 'vue-router'
 </script>
 
 <template>

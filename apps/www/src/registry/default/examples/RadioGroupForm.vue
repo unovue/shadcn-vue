@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
+
 import { Button } from '@/registry/default/ui/button'
 import {
   FormControl,
@@ -9,11 +14,6 @@ import {
 } from '@/registry/default/ui/form'
 import { RadioGroup, RadioGroupItem } from '@/registry/default/ui/radio-group'
 import { toast } from '@/registry/default/ui/toast'
-
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   type: z.enum(['all', 'mentions', 'none'], {

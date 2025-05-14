@@ -3,8 +3,8 @@ export const description = 'A login page with a muted background color.'
 </script>
 
 <script setup lang="ts">
-import LoginForm from '@/registry/new-york-v4/blocks/Login03/components/LoginForm.vue'
 import { GalleryVerticalEnd } from 'lucide-vue-next'
+import LoginForm from '@/registry/new-york-v4/blocks/Login03/components/LoginForm.vue'
 </script>
 
 <template>

@@ -1,6 +1,18 @@
 <script setup lang="ts">
-import NavMain from '@/registry/new-york-v4/blocks/Sidebar16/components/NavMain.vue'
+import {
+  BookOpen,
+  Bot,
+  Command,
+  Frame,
+  LifeBuoy,
+  Map,
+  PieChart,
+  Send,
+  Settings2,
+  SquareTerminal,
+} from 'lucide-vue-next'
 
+import NavMain from '@/registry/new-york-v4/blocks/Sidebar16/components/NavMain.vue'
 import NavProjects from '@/registry/new-york-v4/blocks/Sidebar16/components/NavProjects.vue'
 import NavSecondary from '@/registry/new-york-v4/blocks/Sidebar16/components/NavSecondary.vue'
 import NavUser from '@/registry/new-york-v4/blocks/Sidebar16/components/NavUser.vue'
@@ -14,18 +26,6 @@ import {
   SidebarMenuItem,
   type SidebarProps,
 } from '@/registry/new-york-v4/ui/sidebar'
-import {
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  LifeBuoy,
-  Map,
-  PieChart,
-  Send,
-  Settings2,
-  SquareTerminal,
-} from 'lucide-vue-next'
 
 const props = defineProps<SidebarProps>()
 

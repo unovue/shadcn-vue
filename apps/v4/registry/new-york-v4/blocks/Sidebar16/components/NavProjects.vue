@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import {
+  Folder,
+  type LucideIcon,
+  MoreHorizontal,
+  Share,
+  Trash2,
+} from 'lucide-vue-next'
+
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/registry/new-york-v4/ui/dropdown-menu'
-
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -16,13 +23,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/registry/new-york-v4/ui/sidebar'
-import {
-  Folder,
-  type LucideIcon,
-  MoreHorizontal,
-  Share,
-  Trash2,
-} from 'lucide-vue-next'
 
 defineProps<{
   projects: {

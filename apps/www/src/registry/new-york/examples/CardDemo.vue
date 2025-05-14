@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Bell, Check } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york/ui/button'
 import {
@@ -10,7 +11,6 @@ import {
   CardTitle,
 } from '@/registry/new-york/ui/card'
 import { Switch } from '@/registry/new-york/ui/switch'
-import { Bell, Check } from 'lucide-vue-next'
 
 const notifications = [
   {

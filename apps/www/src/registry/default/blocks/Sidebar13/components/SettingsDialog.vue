@@ -1,5 +1,21 @@
 <script setup lang="ts">
 import {
+  Bell,
+  Check,
+  Globe,
+  Home,
+  Keyboard,
+  Link,
+  Lock,
+  Menu,
+  MessageCircle,
+  Paintbrush,
+  Settings,
+  Video,
+} from 'lucide-vue-next'
+
+import { ref } from 'vue'
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -7,7 +23,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/registry/default/ui/breadcrumb'
-
 import { Button } from '@/registry/default/ui/button'
 import {
   Dialog,
@@ -26,21 +41,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/registry/default/ui/sidebar'
-import {
-  Bell,
-  Check,
-  Globe,
-  Home,
-  Keyboard,
-  Link,
-  Lock,
-  Menu,
-  MessageCircle,
-  Paintbrush,
-  Settings,
-  Video,
-} from 'lucide-vue-next'
-import { ref } from 'vue'
 
 const data = {
   nav: [

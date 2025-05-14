@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { Check, ChevronsUpDown } from 'lucide-vue-next'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+
+import * as z from 'zod'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/default/ui/button'
 import {
@@ -17,18 +23,12 @@ import {
   FormLabel,
   FormMessage,
 } from '@/registry/default/ui/form'
-
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/registry/default/ui/popover'
 import { toast } from '@/registry/default/ui/toast'
-import { toTypedSchema } from '@vee-validate/zod'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const languages = [
   { label: 'English', value: 'en' },

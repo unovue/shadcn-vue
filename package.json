@@ -3,7 +3,7 @@
   "type": "module",
   "version": "2.1.0",
   "private": true,
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@9.15.9",
   "license": "MIT",
   "repository": "unovue/shadcn-vue",
   "workspaces": [
@@ -33,15 +33,15 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.2.0",
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@antfu/eslint-config": "^4.13.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@vitest/ui": "^2.1.9",
-    "bumpp": "^10.0.3",
-    "eslint": "^9.20.1",
-    "lint-staged": "^15.4.3",
-    "simple-git-hooks": "^2.11.1",
-    "taze": "^18.5.0",
+    "bumpp": "^10.1.0",
+    "eslint": "^9.26.0",
+    "lint-staged": "^16.0.0",
+    "simple-git-hooks": "^2.13.0",
+    "taze": "^19.1.0",
     "typescript": "catalog:",
     "vitest": "^2.1.9"
   },
@@ -52,10 +52,10 @@
   },
   "pnpm": {
     "overrides": {
-      "hasown": "npm:@nolyfill/hasown@^1.0.29",
+      "hasown": "npm:@nolyfill/hasown@^1.0.44",
       "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
-      "isarray": "npm:@nolyfill/isarray@^1.0.29",
-      "typedarray": "npm:@nolyfill/typedarray@^1.0.29"
+      "isarray": "npm:@nolyfill/isarray@^1.0.44",
+      "typedarray": "npm:@nolyfill/typedarray@^1.0.44"
     }
   },
   "simple-git-hooks": {

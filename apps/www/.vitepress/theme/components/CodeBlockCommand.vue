@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { Config } from '@/stores/config'
+import { useClipboard } from '@vueuse/core'
+import { CheckIcon, ClipboardIcon } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/new-york/ui/tabs'
 import { useConfigStore } from '@/stores/config'
-import { useClipboard } from '@vueuse/core'
-import { CheckIcon, ClipboardIcon } from 'lucide-vue-next'
 
 const props = defineProps<{
   tabs: Record<Config['packageManager'], string>

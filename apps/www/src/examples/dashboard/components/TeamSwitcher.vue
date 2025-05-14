@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import CaretSortIcon from '~icons/radix-icons/caret-sort'
+import CheckIcon from '~icons/radix-icons/check'
+import PlusCircledIcon from '~icons/radix-icons/plus-circled'
+
 import { cn } from '@/lib/utils'
 import {
   Avatar,
@@ -6,8 +11,8 @@ import {
   AvatarImage,
 } from '@/registry/new-york/ui/avatar'
 import { Button } from '@/registry/new-york/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/registry/new-york/ui/command'
 
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/registry/new-york/ui/command'
 import {
   Dialog,
   DialogContent,
@@ -19,7 +24,6 @@ import {
 } from '@/registry/new-york/ui/dialog'
 import { Input } from '@/registry/new-york/ui/input'
 import { Label } from '@/registry/new-york/ui/label'
-
 import {
   Popover,
   PopoverContent,
@@ -32,10 +36,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/new-york/ui/select'
-import { ref } from 'vue'
-import CaretSortIcon from '~icons/radix-icons/caret-sort'
-import CheckIcon from '~icons/radix-icons/check'
-import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 
 const groups = [
   {

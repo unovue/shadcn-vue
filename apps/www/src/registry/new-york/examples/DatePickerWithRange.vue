@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import type { DateRange } from 'reka-ui'
-import { cn } from '@/lib/utils'
-
-import { Button } from '@/registry/new-york/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
-import { RangeCalendar } from '@/registry/new-york/ui/range-calendar'
 import {
   CalendarDate,
   DateFormatter,
   getLocalTimeZone,
 } from '@internationalized/date'
+
 import { CalendarIcon } from 'lucide-vue-next'
 import { type Ref, ref } from 'vue'
+import { cn } from '@/lib/utils'
+import { Button } from '@/registry/new-york/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
+import { RangeCalendar } from '@/registry/new-york/ui/range-calendar'
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'medium',

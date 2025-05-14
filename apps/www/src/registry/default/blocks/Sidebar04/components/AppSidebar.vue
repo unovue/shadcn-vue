@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { GalleryVerticalEnd } from 'lucide-vue-next'
+
 import {
   Sidebar,
   SidebarContent,
@@ -12,8 +14,6 @@ import {
   SidebarMenuSubItem,
   type SidebarProps,
 } from '@/registry/default/ui/sidebar'
-
-import { GalleryVerticalEnd } from 'lucide-vue-next'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   variant: 'floating',

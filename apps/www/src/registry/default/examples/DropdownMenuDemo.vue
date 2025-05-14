@@ -1,20 +1,4 @@
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from '@/registry/default/ui/dropdown-menu'
 import {
   Cloud,
   CreditCard,
@@ -31,6 +15,22 @@ import {
   UserPlus,
   Users,
 } from 'lucide-vue-next'
+
+import { Button } from '@/registry/default/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@/registry/default/ui/dropdown-menu'
 </script>
 
 <template>

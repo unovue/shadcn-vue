@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import { z } from 'zod'
 import { Button } from '@/registry/new-york/ui/button'
 import {
   FormControl,
@@ -10,10 +14,6 @@ import {
 } from '@/registry/new-york/ui/form'
 import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/new-york/ui/tags-input'
 import { toast } from '@/registry/new-york/ui/toast'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import { z } from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   fruits: z.array(z.string()).min(1).max(3),

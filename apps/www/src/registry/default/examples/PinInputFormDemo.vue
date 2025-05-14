@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
 import { Button } from '@/registry/default/ui/button'
 import {
   FormControl,
@@ -14,10 +18,6 @@ import {
   PinInputInput,
 } from '@/registry/default/ui/pin-input'
 import { toast } from '@/registry/default/ui/toast'
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   pin: z.array(z.coerce.string()).length(5, { message: 'Invalid input' }),

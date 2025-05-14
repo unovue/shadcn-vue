@@ -1,10 +1,10 @@
 import type { Style } from '@/registry/registry-styles'
 import type { Theme } from '@/registry/registry-themes'
-import { styles } from '@/registry/registry-styles'
-import { themes } from '@/registry/registry-themes'
 import { useStorage } from '@vueuse/core'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+import { styles } from '@/registry/registry-styles'
+import { themes } from '@/registry/registry-themes'
 
 type PackageManager = 'pnpm' | 'npm' | 'yarn' | 'bun'
 

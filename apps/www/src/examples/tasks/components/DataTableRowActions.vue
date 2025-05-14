@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Row } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import { computed } from 'vue'
+import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 import { Button } from '@/registry/new-york/ui/button'
 import {
   DropdownMenu,
@@ -15,8 +17,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/registry/new-york/ui/dropdown-menu'
-import { computed } from 'vue'
-import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
 
 import { labels } from '../data/data'
 import { taskSchema } from '../data/schema'

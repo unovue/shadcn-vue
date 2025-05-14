@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
 import { reactiveOmit } from '@vueuse/core'
 import {
   MenubarItem,
@@ -8,6 +7,7 @@ import {
   type MenubarItemProps,
   useForwardPropsEmits,
 } from 'reka-ui'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<MenubarItemProps & {
   class?: HTMLAttributes['class']

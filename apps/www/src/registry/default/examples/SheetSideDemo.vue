@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { Button } from '@/registry/default/ui/button'
 import { Input } from '@/registry/default/ui/input'
 import { Label } from '@/registry/default/ui/label'
@@ -12,7 +13,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/registry/default/ui/sheet'
-import { ref } from 'vue'
 
 const SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const
 

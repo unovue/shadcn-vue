@@ -6,25 +6,6 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
-import { valueUpdater } from '@/lib/utils'
-import { Button } from '@/registry/new-york/ui/button'
-import { Checkbox } from '@/registry/new-york/ui/checkbox'
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
-
-import { Input } from '@/registry/new-york/ui/input'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/registry/new-york/ui/table'
 import {
   FlexRender,
   getCoreRowModel,
@@ -36,6 +17,25 @@ import {
 } from '@tanstack/vue-table'
 import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
 import { h, ref } from 'vue'
+import { valueUpdater } from '@/lib/utils'
+
+import { Button } from '@/registry/new-york/ui/button'
+import { Checkbox } from '@/registry/new-york/ui/checkbox'
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/registry/new-york/ui/dropdown-menu'
+import { Input } from '@/registry/new-york/ui/input'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/registry/new-york/ui/table'
 import DropdownAction from './DataTableDemoColumn.vue'
 
 export interface Payment {

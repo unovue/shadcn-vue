@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-clock'
 import { Button } from '@/registry/new-york/ui/button'
 import {
   HoverCard,
@@ -14,7 +15,6 @@ import {
   TabsTrigger,
 } from '@/registry/new-york/ui/tabs'
 import { Textarea } from '@/registry/new-york/ui/textarea'
-import CounterClockwiseClockIcon from '~icons/radix-icons/counter-clockwise-clock'
 import CodeViewer from './components/CodeViewer.vue'
 import MaxLengthSelector from './components/MaxLengthSelector.vue'
 

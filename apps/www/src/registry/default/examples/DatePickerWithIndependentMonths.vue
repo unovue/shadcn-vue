@@ -1,13 +1,26 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import {
+  CalendarDate,
+  type DateValue,
+  isEqualMonth,
+} from '@internationalized/date'
 
+import {
+  Calendar as CalendarIcon,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-vue-next'
+import { type DateRange, RangeCalendarRoot, useDateFormatter } from 'reka-ui'
+
+import { createMonth, type Grid, toDate } from 'reka-ui/date'
+import { type Ref, ref, watch } from 'vue'
+import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/registry/default/ui/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/registry/default/ui/popover'
-
 import {
   RangeCalendarCell,
   RangeCalendarCellTrigger,
@@ -17,19 +30,6 @@ import {
   RangeCalendarGridRow,
   RangeCalendarHeadCell,
 } from '@/registry/default/ui/range-calendar'
-import {
-  CalendarDate,
-  type DateValue,
-  isEqualMonth,
-} from '@internationalized/date'
-import {
-  Calendar as CalendarIcon,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-vue-next'
-import { type DateRange, RangeCalendarRoot, useDateFormatter } from 'reka-ui'
-import { createMonth, type Grid, toDate } from 'reka-ui/date'
-import { type Ref, ref, watch } from 'vue'
 
 const value = ref({
   start: new CalendarDate(2022, 1, 20),

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ChevronRight } from 'lucide-vue-next'
 import SearchForm from '@/registry/default/blocks/Sidebar02/components/SearchForm.vue'
 import VersionSwitcher from '@/registry/default/blocks/Sidebar02/components/VersionSwitcher.vue'
 import {
@@ -19,7 +20,6 @@ import {
   type SidebarProps,
   SidebarRail,
 } from '@/registry/default/ui/sidebar'
-import { ChevronRight } from 'lucide-vue-next'
 
 const props = defineProps<SidebarProps>()
 

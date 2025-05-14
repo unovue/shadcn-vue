@@ -46,8 +46,8 @@ import { Toaster } from '@/components/ui/sonner'
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
 import { toast } from 'vue-sonner'
+import { Button } from '@/components/ui/button'
 </script>
 
 <template>

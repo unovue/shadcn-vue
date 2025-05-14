@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import { useUrlSearchParams } from '@vueuse/core'
+import { cn } from '@/lib/utils'
 import ComponentLoader from './ComponentLoader.vue'
 
 const params = useUrlSearchParams('history')

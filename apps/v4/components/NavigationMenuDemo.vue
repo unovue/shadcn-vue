@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-vue-next'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,7 +9,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/registry/new-york-v4/ui/navigation-menu'
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-vue-next'
 // eslint-disable-next-line import/no-named-default
 import { default as ListItem } from './NavigationMenuItem.vue'
 

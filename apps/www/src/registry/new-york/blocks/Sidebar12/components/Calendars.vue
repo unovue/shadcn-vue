@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { Check, ChevronRight } from 'lucide-vue-next'
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/registry/new-york/ui/collapsible'
-
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -14,7 +15,6 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from '@/registry/new-york/ui/sidebar'
-import { Check, ChevronRight } from 'lucide-vue-next'
 
 const props = defineProps<{
   calendars: {

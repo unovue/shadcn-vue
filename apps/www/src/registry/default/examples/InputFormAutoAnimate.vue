@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { vAutoAnimate } from '@formkit/auto-animate/vue'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
+import { h } from 'vue'
+import * as z from 'zod'
+
 import { Button } from '@/registry/default/ui/button'
 import {
   FormControl,
@@ -10,12 +16,6 @@ import {
 } from '@/registry/default/ui/form'
 import { Input } from '@/registry/default/ui/input'
 import { toast } from '@/registry/default/ui/toast'
-import { vAutoAnimate } from '@formkit/auto-animate/vue'
-
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),

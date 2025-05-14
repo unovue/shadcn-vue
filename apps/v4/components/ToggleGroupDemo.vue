@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next'
+
 import {
   ToggleGroup,
   ToggleGroupItem,
 } from '@/registry/new-york-v4/ui/toggle-group'
-
-import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next'
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
+import { Check, Clipboard } from 'lucide-vue-next'
+import { toRefs } from 'vue'
 import { Button } from '@/registry/new-york/ui/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/registry/new-york/ui/tooltip'
-import { useClipboard } from '@vueuse/core'
-import { Check, Clipboard } from 'lucide-vue-next'
-import { toRefs } from 'vue'
 
 const props = withDefaults(defineProps<{
   code?: string

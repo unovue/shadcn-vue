@@ -1,6 +1,6 @@
 import type { VNode, VNodeArrayChildren } from 'vue'
-import { useConfigStore } from '@/stores/config'
 import { cloneVNode, defineComponent } from 'vue'
+import { useConfigStore } from '@/stores/config'
 
 function crawlSpan(children: VNodeArrayChildren, cb: (vnode: VNode) => void) {
   children.forEach((childNode) => {

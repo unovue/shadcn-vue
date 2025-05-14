@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { Check, Search } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
 import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList } from '@/registry/new-york/ui/combobox'
-import { Check, Search } from 'lucide-vue-next'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

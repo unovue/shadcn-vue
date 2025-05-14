@@ -1,16 +1,16 @@
 <script setup lang="ts">
+import { ChevronRight, File, Folder } from 'lucide-vue-next'
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/registry/new-york-v4/ui/collapsible'
-
 import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
 } from '@/registry/new-york-v4/ui/sidebar'
-import { ChevronRight, File, Folder } from 'lucide-vue-next'
 
 const props = defineProps<{
   item: string | any[]

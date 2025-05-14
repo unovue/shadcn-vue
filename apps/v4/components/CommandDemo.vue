@@ -1,6 +1,16 @@
 <script setup lang="ts">
 'use client'
 
+import { useMagicKeys, whenever } from '@vueuse/core'
+import {
+  Calculator,
+  Calendar,
+  CreditCard,
+  Settings,
+  Smile,
+  User,
+} from 'lucide-vue-next'
+
 import {
   CommandDialog,
   CommandEmpty,
@@ -11,16 +21,6 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from '@/registry/new-york-v4/ui/command'
-import { useMagicKeys, whenever } from '@vueuse/core'
-
-import {
-  Calculator,
-  Calendar,
-  CreditCard,
-  Settings,
-  Smile,
-  User,
-} from 'lucide-vue-next'
 
 const open = ref(false)
 

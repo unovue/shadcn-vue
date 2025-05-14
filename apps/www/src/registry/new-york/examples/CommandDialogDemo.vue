@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useMagicKeys } from '@vueuse/core'
+
+import { ref, watch } from 'vue'
 import {
   CommandDialog,
   CommandEmpty,
@@ -8,9 +11,6 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/registry/new-york/ui/command'
-
-import { useMagicKeys } from '@vueuse/core'
-import { ref, watch } from 'vue'
 
 const open = ref(false)
 

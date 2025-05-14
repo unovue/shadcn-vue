@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+import { Check } from 'lucide-vue-next'
+import { useData } from 'vitepress'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/registry/new-york/ui/tooltip'
 import { baseColors } from '@/registry/registry-base-colors'
 import { useConfigStore } from '@/stores/config'
-import { Check } from 'lucide-vue-next'
-import { useData } from 'vitepress'
 
 const { theme, setTheme } = useConfigStore()
 const { isDark } = useData()

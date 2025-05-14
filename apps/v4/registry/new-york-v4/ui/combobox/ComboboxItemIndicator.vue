@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { ComboboxItemIndicatorProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
 import { ComboboxItemIndicator, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<ComboboxItemIndicatorProps & { class?: HTMLAttributes['class'] }>()
 

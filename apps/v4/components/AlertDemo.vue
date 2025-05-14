@@ -1,12 +1,5 @@
 <script setup lang="ts">
 import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from '@/registry/new-york-v4/ui/alert'
-
-import { Button } from '@/registry/new-york-v4/ui/button'
-import {
   AlertCircleIcon,
   BookmarkCheckIcon,
   CheckCircle2Icon,
@@ -14,6 +7,13 @@ import {
   PopcornIcon,
   ShieldAlertIcon,
 } from 'lucide-vue-next'
+
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from '@/registry/new-york-v4/ui/alert'
+import { Button } from '@/registry/new-york-v4/ui/button'
 </script>
 
 <template>

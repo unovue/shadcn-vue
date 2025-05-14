@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Copy } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york/ui/button'
 import {
   Dialog,
@@ -12,7 +13,6 @@ import {
 } from '@/registry/new-york/ui/dialog'
 import { Input } from '@/registry/new-york/ui/input'
 import { Label } from '@/registry/new-york/ui/label'
-import { Copy } from 'lucide-vue-next'
 </script>
 
 <template>

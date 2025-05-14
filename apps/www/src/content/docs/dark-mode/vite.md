@@ -27,10 +27,10 @@ We're using [`useColorMode`](https://vueuse.org/core/usecolormode/) from [`@vueu
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Icon } from '@iconify/vue'
 import { useColorMode } from '@vueuse/core'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
 // Pass { disableTransition: false } to enable transitions
 const mode = useColorMode()

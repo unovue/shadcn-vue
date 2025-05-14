@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import { Button } from '@/registry/new-york/ui/button'
 import { ScrollArea, ScrollBar } from '@/registry/new-york/ui/scroll-area'
 import { Separator } from '@/registry/new-york/ui/separator'
+
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from '@/registry/new-york/ui/tabs'
-
-import PlusCircledIcon from '~icons/radix-icons/plus-circled'
 import AlbumArtwork from './components/AlbumArtwork.vue'
 import Menu from './components/Menu.vue'
 import PodcastEmptyPlaceholder from './components/PodcastEmptyPlaceholder.vue'

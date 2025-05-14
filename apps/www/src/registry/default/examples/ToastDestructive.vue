@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { h } from 'vue'
 import { Button } from '@/registry/default/ui/button'
 import { ToastAction } from '@/registry/default/ui/toast'
 import { useToast } from '@/registry/default/ui/toast/use-toast'
-import { h } from 'vue'
 
 const { toast } = useToast()
 </script>

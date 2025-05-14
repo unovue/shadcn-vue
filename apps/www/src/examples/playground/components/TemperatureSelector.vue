@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { SliderRootProps } from 'reka-ui'
 
+import { ref } from 'vue'
 import {
   HoverCard,
   HoverCardContent,
@@ -8,7 +9,6 @@ import {
 } from '@/registry/new-york/ui/hover-card'
 import { Label } from '@/registry/new-york/ui/label'
 import { Slider } from '@/registry/new-york/ui/slider'
-import { ref } from 'vue'
 
 const props = defineProps<{
   defaultValue: SliderRootProps['defaultValue']

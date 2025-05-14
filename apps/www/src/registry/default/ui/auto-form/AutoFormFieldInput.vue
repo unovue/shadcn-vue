@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { FieldProps } from './interface'
+import { computed } from 'vue'
 import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/registry/default/ui/form'
 import { Input } from '@/registry/default/ui/input'
 import { Textarea } from '@/registry/default/ui/textarea'
-import { computed } from 'vue'
 import AutoFormLabel from './AutoFormLabel.vue'
 import { beautifyObjectName } from './utils'
 

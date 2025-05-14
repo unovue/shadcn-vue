@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { VisStackedBar, VisXYContainer } from '@unovis/vue'
+import { Minus, Plus } from 'lucide-vue-next'
+import { ref } from 'vue'
 import { Button } from '@/registry/default/ui/button'
+
 import {
   Card,
   CardContent,
@@ -8,10 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/default/ui/card'
-import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { Minus, Plus } from 'lucide-vue-next'
-
-import { ref } from 'vue'
 
 const goal = ref(350)
 

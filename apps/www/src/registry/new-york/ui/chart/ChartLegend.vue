@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { BulletLegendItemInterface } from '@unovis/ts'
-import { buttonVariants } from '@/registry/new-york/ui/button'
 import { BulletLegend } from '@unovis/ts'
 import { VisBulletLegend } from '@unovis/vue'
 import { nextTick, onMounted, ref } from 'vue'
+import { buttonVariants } from '@/registry/new-york/ui/button'
 
 const props = withDefaults(defineProps<{ items: BulletLegendItemInterface[] }>(), {
   items: () => [],

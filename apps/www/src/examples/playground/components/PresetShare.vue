@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
+import CopyIcon from '~icons/radix-icons/copy'
 
+import { Button } from '@/registry/new-york/ui/button'
 import { Input } from '@/registry/new-york/ui/input'
 import { Label } from '@/registry/new-york/ui/label'
 import {
@@ -8,7 +9,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/registry/new-york/ui/popover'
-import CopyIcon from '~icons/radix-icons/copy'
 </script>
 
 <template>

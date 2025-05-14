@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { AreaChart } from '@/registry/default/ui/chart-area'
 import { CurveType } from '@unovis/ts'
+import { AreaChart } from '@/registry/default/ui/chart-area'
 
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 2000) + 1000 },

@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { Button } from '@/registry/new-york/ui/button'
+
 import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
 } from '@/registry/new-york/ui/drawer'
-
-import { ref } from 'vue'
 import { docsConfig } from '../config/docs'
 
 const open = ref(false)

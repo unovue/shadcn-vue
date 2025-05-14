@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
-import { baseColors } from '@/registry/registry-base-colors'
-import { useConfigStore } from '@/stores/config'
 import { useClipboard } from '@vueuse/core'
 import { computed, ref } from 'vue'
 import CheckIcon from '~icons/radix-icons/check'
 import CopyIcon from '~icons/radix-icons/copy'
+import { Button } from '@/registry/new-york/ui/button'
+import { baseColors } from '@/registry/registry-base-colors'
+import { useConfigStore } from '@/stores/config'
 
 const { theme, config } = useConfigStore()
 

@@ -1,18 +1,6 @@
 <script setup lang="ts">
 import type { SidebarProps } from '@/registry/new-york/ui/sidebar'
 
-import NavMain from '@/registry/new-york/blocks/Sidebar07/components/NavMain.vue'
-import NavProjects from '@/registry/new-york/blocks/Sidebar07/components/NavProjects.vue'
-import NavUser from '@/registry/new-york/blocks/Sidebar07/components/NavUser.vue'
-import TeamSwitcher from '@/registry/new-york/blocks/Sidebar07/components/TeamSwitcher.vue'
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarRail,
-} from '@/registry/new-york/ui/sidebar'
-
 import {
   AudioWaveform,
   BookOpen,
@@ -25,6 +13,18 @@ import {
   Settings2,
   SquareTerminal,
 } from 'lucide-vue-next'
+import NavMain from '@/registry/new-york/blocks/Sidebar07/components/NavMain.vue'
+import NavProjects from '@/registry/new-york/blocks/Sidebar07/components/NavProjects.vue'
+import NavUser from '@/registry/new-york/blocks/Sidebar07/components/NavUser.vue'
+import TeamSwitcher from '@/registry/new-york/blocks/Sidebar07/components/TeamSwitcher.vue'
+
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarRail,
+} from '@/registry/new-york/ui/sidebar'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: 'icon',

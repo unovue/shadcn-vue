@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import { Code2, ExternalLink } from 'lucide-vue-next'
 import { useData, useRoute } from 'vitepress'
+import { cn } from '@/lib/utils'
 import DocsBreadcrumb from '../components/DocsBreadcrumb.vue'
 import EditLink from '../components/EditLink.vue'
 import TableOfContent from '../components/TableOfContent.vue'

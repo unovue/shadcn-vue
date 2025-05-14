@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import { computed } from 'vue'
+import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
+
 import { Button } from '@/registry/new-york/ui/button'
 import {
   DropdownMenu,
@@ -10,9 +13,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/registry/new-york/ui/dropdown-menu'
-
-import { computed } from 'vue'
-import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
 
 interface DataTableViewOptionsProps {
   table: Table<Task>

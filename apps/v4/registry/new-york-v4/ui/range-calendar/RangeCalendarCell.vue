@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { cn } from '@/lib/utils'
 import { RangeCalendarCell, type RangeCalendarCellProps, useForwardProps } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<RangeCalendarCellProps & { class?: HTMLAttributes['class'] }>()
 

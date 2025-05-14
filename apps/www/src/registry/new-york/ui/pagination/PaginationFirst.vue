@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { ChevronsLeft } from 'lucide-vue-next'
+import { PaginationFirst, type PaginationFirstProps } from 'reka-ui'
+import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import {
   Button,
 } from '@/registry/new-york/ui/button'
-import { ChevronsLeft } from 'lucide-vue-next'
-import { PaginationFirst, type PaginationFirstProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
 
 const props = withDefaults(defineProps<PaginationFirstProps & { class?: HTMLAttributes['class'] }>(), {
   asChild: true,

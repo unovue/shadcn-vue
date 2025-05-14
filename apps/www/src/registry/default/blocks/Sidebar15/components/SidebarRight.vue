@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import Calendars from '@/registry/default/blocks/Sidebar15/components/Calendars.vue'
+import { Plus } from 'lucide-vue-next'
 
+import Calendars from '@/registry/default/blocks/Sidebar15/components/Calendars.vue'
 import DatePicker from '@/registry/default/blocks/Sidebar15/components/DatePicker.vue'
 import NavUser from '@/registry/default/blocks/Sidebar15/components/NavUser.vue'
 import {
@@ -14,7 +15,6 @@ import {
   type SidebarProps,
   SidebarSeparator,
 } from '@/registry/default/ui/sidebar'
-import { Plus } from 'lucide-vue-next'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: 'none',

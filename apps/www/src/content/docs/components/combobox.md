@@ -19,8 +19,10 @@ npx shadcn-vue@latest add combobox
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import { Check, ChevronsUpDown } from 'lucide-vue-next'
 
+import { ref } from 'vue'
+import { Button } from '@/components/ui/button'
 import {
   Command,
   CommandEmpty,
@@ -35,8 +37,6 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { ref } from 'vue'
 
 const frameworks = [
   { value: 'next.js', label: 'Next.js' },

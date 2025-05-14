@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { VisScatter } from '@unovis/vue'
 import { Card, CardContent, CardHeader, CardTitle } from '@/registry/new-york/ui/card'
 import { BarChart } from '@/registry/new-york/ui/chart-bar'
 import { LineChart } from '@/registry/new-york/ui/chart-line'
-import { VisScatter } from '@unovis/vue'
 
 type Data = typeof data[number]
 const data = [

@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { BathIcon, BedIcon, LandPlotIcon } from 'lucide-vue-next'
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from '@/registry/new-york-v4/ui/avatar'
-import { Badge } from '@/registry/new-york-v4/ui/badge'
 
+import { Badge } from '@/registry/new-york-v4/ui/badge'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,
@@ -17,7 +18,6 @@ import {
 } from '@/registry/new-york-v4/ui/card'
 import { Input } from '@/registry/new-york-v4/ui/input'
 import { Label } from '@/registry/new-york-v4/ui/label'
-import { BathIcon, BedIcon, LandPlotIcon } from 'lucide-vue-next'
 </script>
 
 <template>

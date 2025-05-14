@@ -1,19 +1,19 @@
 <script setup lang="ts">
+import { useMediaQuery } from '@vueuse/core'
+
+import { type LucideIcon, MoreHorizontal } from 'lucide-vue-next'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/registry/default/ui/dropdown-menu'
-
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/registry/default/ui/sidebar'
-import { useMediaQuery } from '@vueuse/core'
-import { type LucideIcon, MoreHorizontal } from 'lucide-vue-next'
 
 defineProps<{
   items: {

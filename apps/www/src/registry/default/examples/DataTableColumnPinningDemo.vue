@@ -5,9 +5,21 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import {
+  createColumnHelper,
+  FlexRender,
+  getCoreRowModel,
+  getExpandedRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useVueTable,
+} from '@tanstack/vue-table'
+import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+
+import { h, ref } from 'vue'
 import { cn, valueUpdater } from '@/lib/utils'
 import { Button } from '@/registry/default/ui/button'
-
 import { Checkbox } from '@/registry/default/ui/checkbox'
 import {
   DropdownMenu,
@@ -24,18 +36,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/registry/default/ui/table'
-import {
-  createColumnHelper,
-  FlexRender,
-  getCoreRowModel,
-  getExpandedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
-import { h, ref } from 'vue'
 import DropdownAction from './DataTableDemoColumn.vue'
 
 export interface Payment {

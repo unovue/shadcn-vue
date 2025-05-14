@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import {
+  Frame,
+  LifeBuoy,
+  Map,
+  MoreHorizontal,
+  PieChart,
+  Send,
+} from 'lucide-vue-next'
+
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/registry/default/ui/dropdown-menu'
-
 import {
   Sidebar,
   SidebarContent,
@@ -18,14 +26,6 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@/registry/default/ui/sidebar'
-import {
-  Frame,
-  LifeBuoy,
-  Map,
-  MoreHorizontal,
-  PieChart,
-  Send,
-} from 'lucide-vue-next'
 
 const projects = [
   {

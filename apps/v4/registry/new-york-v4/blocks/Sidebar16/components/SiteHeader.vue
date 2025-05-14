@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import SearchForm from '@/registry/new-york-v4/blocks/Sidebar16/components/SearchForm.vue'
+import { SidebarIcon } from 'lucide-vue-next'
 
+import SearchForm from '@/registry/new-york-v4/blocks/Sidebar16/components/SearchForm.vue'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,7 +13,6 @@ import {
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
 import { useSidebar } from '@/registry/new-york-v4/ui/sidebar'
-import { SidebarIcon } from 'lucide-vue-next'
 
 const { toggleSidebar } = useSidebar()
 </script>

@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
-import { RadioGroup, RadioGroupItem } from '@/registry/default/ui/radio-group'
-import { Button, buttonVariants } from '@/registry/new-york/ui/button'
-
-import { Separator } from '@/registry/new-york/ui/separator'
-import { toast } from '@/registry/new-york/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
 import { ChevronDown } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { h } from 'vue'
+
 import * as z from 'zod'
+import { cn } from '@/lib/utils'
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
+import { RadioGroup, RadioGroupItem } from '@/registry/default/ui/radio-group'
+import { Button, buttonVariants } from '@/registry/new-york/ui/button'
+import { Separator } from '@/registry/new-york/ui/separator'
+import { toast } from '@/registry/new-york/ui/toast'
 
 const appearanceFormSchema = toTypedSchema(z.object({
   theme: z.enum(['light', 'dark'], {

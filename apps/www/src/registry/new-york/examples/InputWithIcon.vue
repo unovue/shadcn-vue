@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Input } from '@/registry/new-york/ui/input'
 import { Search } from 'lucide-vue-next'
+import { Input } from '@/registry/new-york/ui/input'
 </script>
 
 <template>

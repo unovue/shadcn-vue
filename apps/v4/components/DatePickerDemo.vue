@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { CalendarDate, DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
 // import { DateRange } from "react-day-picker"
 
+import { CalendarIcon } from 'lucide-vue-next'
+import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 import {
@@ -10,8 +12,6 @@ import {
   PopoverTrigger,
 } from '@/registry/new-york-v4/ui/popover'
 import { RangeCalendar } from '@/registry/new-york-v4/ui/range-calendar'
-import { CalendarDate, DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
-import { CalendarIcon } from 'lucide-vue-next'
 
 const date = ref() as Ref<DateValue>
 

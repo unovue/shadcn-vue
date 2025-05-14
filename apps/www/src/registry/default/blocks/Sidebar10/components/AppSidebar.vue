@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import NavFavorites from '@/registry/default/blocks/Sidebar10/components/NavFavorites.vue'
-
-import NavMain from '@/registry/default/blocks/Sidebar10/components/NavMain.vue'
-import NavSecondary from '@/registry/default/blocks/Sidebar10/components/NavSecondary.vue'
-import NavWorkspaces from '@/registry/default/blocks/Sidebar10/components/NavWorkspaces.vue'
-import TeamSwitcher from '@/registry/default/blocks/Sidebar10/components/TeamSwitcher.vue'
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  type SidebarProps,
-  SidebarRail,
-} from '@/registry/default/ui/sidebar'
 import {
   AudioWaveform,
   Blocks,
@@ -25,6 +12,19 @@ import {
   Sparkles,
   Trash2,
 } from 'lucide-vue-next'
+
+import NavFavorites from '@/registry/default/blocks/Sidebar10/components/NavFavorites.vue'
+import NavMain from '@/registry/default/blocks/Sidebar10/components/NavMain.vue'
+import NavSecondary from '@/registry/default/blocks/Sidebar10/components/NavSecondary.vue'
+import NavWorkspaces from '@/registry/default/blocks/Sidebar10/components/NavWorkspaces.vue'
+import TeamSwitcher from '@/registry/default/blocks/Sidebar10/components/TeamSwitcher.vue'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  type SidebarProps,
+  SidebarRail,
+} from '@/registry/default/ui/sidebar'
 
 const props = defineProps<SidebarProps>()
 

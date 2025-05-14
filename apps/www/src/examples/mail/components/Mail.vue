@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import type { Mail } from '../data/mails'
 
+import { refDebounced } from '@vueuse/core'
+import {
+  Search,
+} from 'lucide-vue-next'
+import { computed, ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Input } from '@/registry/new-york/ui/input'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/registry/new-york/ui/resizable'
@@ -12,11 +17,6 @@ import {
   TabsTrigger,
 } from '@/registry/new-york/ui/tabs'
 import { TooltipProvider } from '@/registry/new-york/ui/tooltip'
-import { refDebounced } from '@vueuse/core'
-import {
-  Search,
-} from 'lucide-vue-next'
-import { computed, ref } from 'vue'
 import AccountSwitcher from './AccountSwitcher.vue'
 import MailDisplay from './MailDisplay.vue'
 import MailList from './MailList.vue'

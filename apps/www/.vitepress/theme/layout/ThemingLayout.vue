@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Color } from '../types/colors'
+import { onMounted, watch } from 'vue'
 import { Button } from '@/registry/new-york/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/registry/new-york/ui/dialog'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/registry/new-york/ui/drawer'
 import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
 import { useConfigStore } from '@/stores/config'
-import { onMounted, watch } from 'vue'
 import Announcement from '../components/Announcement.vue'
 import CustomizerCode from '../components/CustomizerCode.vue'
 import InlineThemePicker from '../components/InlineThemePicker.vue'

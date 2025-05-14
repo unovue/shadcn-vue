@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york/ui/button'
-import { Input } from '@/registry/new-york/ui/input'
-
-import { Label } from '@/registry/new-york/ui/label'
 import { ref } from 'vue'
 import LucideSpinner from '~icons/lucide/loader-2'
 import GitHubLogo from '~icons/radix-icons/github-logo'
+
+import { cn } from '@/lib/utils'
+import { Button } from '@/registry/new-york/ui/button'
+import { Input } from '@/registry/new-york/ui/input'
+import { Label } from '@/registry/new-york/ui/label'
 
 const isLoading = ref(false)
 async function onSubmit(event: Event) {
