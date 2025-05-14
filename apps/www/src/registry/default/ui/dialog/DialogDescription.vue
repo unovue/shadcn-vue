@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { DialogDescription, type DialogDescriptionProps, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
 
