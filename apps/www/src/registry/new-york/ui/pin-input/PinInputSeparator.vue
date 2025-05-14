@@ -11,5 +11,5 @@ const forwardedProps = useForwardProps(props)
     <slot>
       <Minus class="w-2" />
     </slot>
-  </primitive>
+  </Primitive>
 </template>

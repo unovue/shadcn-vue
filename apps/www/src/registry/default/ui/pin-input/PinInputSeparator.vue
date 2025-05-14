@@ -11,5 +11,5 @@ const forwardedProps = useForwardProps(props)
     <slot>
       <Dot />
     </slot>
-  </primitive>
+  </Primitive>
 </template>
