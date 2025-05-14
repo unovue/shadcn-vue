@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
 import { Check } from 'lucide-vue-next'
 import {
   DropdownMenuCheckboxItem,
@@ -8,6 +7,7 @@ import {
   DropdownMenuItemIndicator,
   useEmitAsProps,
 } from 'reka-ui'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DropdownMenuCheckboxItemProps & { class?: string }>()
 const emits = defineEmits<DropdownMenuCheckboxItemEmits>()

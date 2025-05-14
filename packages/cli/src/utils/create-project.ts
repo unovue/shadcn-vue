@@ -1,13 +1,13 @@
-import type { initOptionsSchema } from '@/src/commands/init'
 import type { z } from 'zod'
-import { highlighter } from '@/src/utils/highlighter'
-import { logger } from '@/src/utils/logger'
-import { spinner } from '@/src/utils/spinner'
+import type { initOptionsSchema } from '@/src/commands/init'
 import fs from 'fs-extra'
 import { detectPackageManager } from 'nypm'
 import path from 'pathe'
 import prompts from 'prompts'
 import { x } from 'tinyexec'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
+import { spinner } from '@/src/utils/spinner'
 
 export async function createProject(options: Pick<z.infer<typeof initOptionsSchema>, 'cwd' | 'force' | 'srcDir'>) {
   options = {

@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<DropdownMenuItemProps & {
   variant: 'default',
 })
 
-const delegatedProps = reactiveOmit(props, 'inset', 'variant')
+const delegatedProps = reactiveOmit(props, 'inset', 'variant', 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>

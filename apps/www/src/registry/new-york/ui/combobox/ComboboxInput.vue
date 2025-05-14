@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { ComboboxInput, type ComboboxInputEmits, type ComboboxInputProps, useForwardPropsEmits } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<ComboboxInputProps & {
@@ -9,11 +9,7 @@ const props = defineProps<ComboboxInputProps & {
 
 const emits = defineEmits<ComboboxInputEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>

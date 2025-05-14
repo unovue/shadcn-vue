@@ -1,12 +1,12 @@
-import type { migrateOptionsSchema } from '@/src/commands/migrate'
 import type { z } from 'zod'
+import type { migrateOptionsSchema } from '@/src/commands/migrate'
+import fs from 'fs-extra'
+import path from 'pathe'
 // import { addOptionsSchema } from '@/src/commands/add'
 import * as ERRORS from '@/src/utils/errors'
 import { getConfig } from '@/src/utils/get-config'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
-import fs from 'fs-extra'
-import path from 'pathe'
 
 export async function preFlightMigrate(
   options: z.infer<typeof migrateOptionsSchema>,

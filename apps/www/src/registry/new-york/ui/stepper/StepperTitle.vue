@@ -1,17 +1,13 @@
 <script lang="ts" setup>
 import type { StepperTitleProps } from 'reka-ui'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { StepperTitle, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
-
 import { cn } from '@/lib/utils'
 
 const props = defineProps<StepperTitleProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardProps(delegatedProps)
 </script>

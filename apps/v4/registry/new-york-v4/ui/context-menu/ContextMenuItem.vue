@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import {
   ContextMenuItem,
   type ContextMenuItemEmits,
   type ContextMenuItemProps,
   useForwardPropsEmits,
 } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(defineProps<ContextMenuItemProps & {
@@ -17,11 +18,7 @@ const props = withDefaults(defineProps<ContextMenuItemProps & {
 })
 const emits = defineEmits<ContextMenuItemEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>

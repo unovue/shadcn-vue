@@ -1,6 +1,10 @@
 import type { registryIndexSchema } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
 import { existsSync, promises as fs } from 'node:fs'
+import { Command } from 'commander'
+import { type Change, diffLines } from 'diff'
+import path from 'pathe'
+import { z } from 'zod'
 import {
   fetchTree,
   getItemTargetPath,
@@ -12,10 +16,6 @@ import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { transform } from '@/src/utils/transformers'
-import { Command } from 'commander'
-import { type Change, diffLines } from 'diff'
-import path from 'pathe'
-import { z } from 'zod'
 
 const updateOptionsSchema = z.object({
   component: z.string().optional(),

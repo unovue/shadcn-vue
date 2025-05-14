@@ -1,5 +1,9 @@
 import type { Config } from '@/src/utils/get-config'
 import { promises as fs } from 'node:fs'
+import { Command } from 'commander'
+import path from 'pathe'
+import prompts from 'prompts'
+import { z } from 'zod'
 import { preFlightInit } from '@/src/preflights/preflight-init'
 import { BASE_COLORS, getRegistryBaseColors, getRegistryItem, getRegistryStyles, isUrl } from '@/src/registry/api'
 import { addComponents } from '@/src/utils/add-components'
@@ -19,10 +23,6 @@ import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
 import { updateTailwindContent } from '@/src/utils/updaters/update-tailwind-content'
-import { Command } from 'commander'
-import path from 'pathe'
-import prompts from 'prompts'
-import { z } from 'zod'
 
 export const initOptionsSchema = z.object({
   cwd: z.string(),

@@ -221,17 +221,13 @@ Take a look at `DrawerDescription.vue`.
 ```vue
 <script lang="ts" setup>
 import type { DrawerDescriptionProps } from 'vaul-vue'
+import type { HTMLAttributes } from 'vue'
 import { DrawerDescription } from 'vaul-vue'
-import { computed, type HtmlHTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<DrawerDescriptionProps & { class?: HtmlHTMLAttributes['class'] }>()
+const props = defineProps<DrawerDescriptionProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 </script>
 
 <template>
@@ -244,7 +240,7 @@ const delegatedProps = computed(() => {
 As you can see, we have created a computed property named `delegatedProps` to remove `class` from props, and only then bind
 the returned value to our radix component (`DrawerDescription` in this case).
 
-As for our class, we first declared it as type of `HtmlHTMLAttributes['class']` and used `cn` to merge tailwind classes from `class` prop and our own classes.
+As for our class, we first declared it as type of `HTMLAttributes['class']` and used `cn` to merge tailwind classes from `class` prop and our own classes.
 
 This pattern only needs to be applied when the `cn` utility is required. For instances where there are no default Tailwind classes that need to be merged with user-provided classes, this pattern is not necessary. A good example of this is the `SelectValue.vue` component.
 
@@ -270,17 +266,13 @@ Take a look at `AccordionItem.vue`
 
 ```vue
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { AccordionItem, type AccordionItemProps, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<AccordionItemProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>

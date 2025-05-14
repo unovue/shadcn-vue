@@ -1,19 +1,19 @@
+import type Root from 'postcss/lib/root'
+import type Rule from 'postcss/lib/rule'
 import type {
   registryItemCssVarsSchema,
   registryItemTailwindSchema,
 } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
 import type { TailwindVersion } from '@/src/utils/get-project-info'
-import type Root from 'postcss/lib/root'
-import type Rule from 'postcss/lib/rule'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { getPackageInfo } from '@/src/utils/get-package-info'
-import { highlighter } from '@/src/utils/highlighter'
-import { spinner } from '@/src/utils/spinner'
 import postcss from 'postcss'
 import AtRule from 'postcss/lib/at-rule'
 import { z } from 'zod'
+import { getPackageInfo } from '@/src/utils/get-package-info'
+import { highlighter } from '@/src/utils/highlighter'
+import { spinner } from '@/src/utils/spinner'
 
 export async function updateCssVars(
   cssVars: z.infer<typeof registryItemCssVarsSchema> | undefined,

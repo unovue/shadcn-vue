@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { ChevronsLeft } from 'lucide-vue-next'
 import { PaginationFirst, type PaginationFirstProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import {
   Button,
@@ -11,11 +12,7 @@ const props = withDefaults(defineProps<PaginationFirstProps & { class?: HTMLAttr
   asChild: true,
 })
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 </script>
 
 <template>

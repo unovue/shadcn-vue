@@ -1,9 +1,9 @@
-import { getProjectInfo } from '@/src/utils/get-project-info'
-import { resolveImport } from '@/src/utils/resolve-import'
 import { cosmiconfig } from 'cosmiconfig'
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { z } from 'zod'
+import { getProjectInfo } from '@/src/utils/get-project-info'
+import { resolveImport } from '@/src/utils/resolve-import'
 import { highlighter } from './highlighter'
 
 /** @deprecated */

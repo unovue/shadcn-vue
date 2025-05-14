@@ -1,3 +1,7 @@
+import { Command } from 'commander'
+import path from 'pathe'
+import prompts from 'prompts'
+import { z } from 'zod'
 import { runInit } from '@/src/commands/init'
 import { preFlightAdd } from '@/src/preflights/preflight-add'
 import { getRegistryIndex } from '@/src/registry/api'
@@ -7,10 +11,6 @@ import { getProjectInfo } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
-import { Command } from 'commander'
-import path from 'pathe'
-import prompts from 'prompts'
-import { z } from 'zod'
 
 const DEPRECATED_COMPONENTS = [
   {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ListboxGroupProps } from 'reka-ui'
+import { reactiveOmit } from '@vueuse/core'
 import { ListboxGroup, ListboxGroupLabel, useId } from 'reka-ui'
 import { computed, type HTMLAttributes, onMounted, onUnmounted } from 'vue'
 import { cn } from '@/lib/utils'
@@ -10,11 +11,7 @@ const props = defineProps<ListboxGroupProps & {
   heading?: string
 }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const { allGroups, filterState } = useCommand()
 const id = useId()

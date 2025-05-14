@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { AlertDialogCancel, type AlertDialogCancelProps } from 'reka-ui'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { AlertDialogCancel, type AlertDialogCancelProps } from 'reka-ui'
 
 const props = defineProps<AlertDialogCancelProps>()
 </script>

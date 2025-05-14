@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { AlertDialogAction, type AlertDialogActionProps } from 'reka-ui'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { AlertDialogAction, type AlertDialogActionProps } from 'reka-ui'
 
 const props = defineProps<AlertDialogActionProps>()
 </script>

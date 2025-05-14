@@ -1,7 +1,7 @@
 import type { RegistryItem } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
-import { spinner } from '@/src/utils/spinner'
 import { addDependency } from 'nypm'
+import { spinner } from '@/src/utils/spinner'
 
 export async function updateDependencies(
   dependencies: RegistryItem['dependencies'],

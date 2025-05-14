@@ -1,4 +1,5 @@
 import type { Config, configSchema } from '@/src/utils/get-config'
+import { z } from 'zod'
 import { fetchRegistry, registryResolveItemsTree, resolveRegistryItems } from '@/src/registry/api'
 import { registryItemSchema } from '@/src/registry/schema'
 import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
@@ -10,7 +11,6 @@ import { updateCssVars } from '@/src/utils/updaters/update-css-vars'
 import { updateDependencies } from '@/src/utils/updaters/update-dependencies'
 import { updateFiles } from '@/src/utils/updaters/update-files'
 import { updateTailwindConfig } from '@/src/utils/updaters/update-tailwind-config'
-import { z } from 'zod'
 
 export async function addComponents(
   components: string[],

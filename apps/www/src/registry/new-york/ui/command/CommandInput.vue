@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { Search } from 'lucide-vue-next'
 import { ListboxFilter, type ListboxFilterProps, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { useCommand } from '.'
 
@@ -13,11 +14,7 @@ const props = defineProps<ListboxFilterProps & {
   class?: HTMLAttributes['class']
 }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 

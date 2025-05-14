@@ -3,6 +3,11 @@ import type {
   Config,
   RawConfig,
 } from '@/src/utils/get-config'
+import fs from 'fs-extra'
+import { parseTsconfig } from 'get-tsconfig'
+import path from 'pathe'
+import { glob } from 'tinyglobby'
+import { z } from 'zod'
 import { FRAMEWORKS } from '@/src/utils/frameworks'
 import {
   getConfig,
@@ -10,11 +15,6 @@ import {
   resolveConfigPaths,
 } from '@/src/utils/get-config'
 import { getPackageInfo } from '@/src/utils/get-package-info'
-import fs from 'fs-extra'
-import { parseTsconfig } from 'get-tsconfig'
-import path from 'pathe'
-import { glob } from 'tinyglobby'
-import { z } from 'zod'
 
 export type TailwindVersion = 'v3' | 'v4' | null
 

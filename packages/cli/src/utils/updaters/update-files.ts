@@ -1,9 +1,12 @@
+import type { z } from 'zod'
 import type { RegistryItem, registryItemFileSchema } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
 import type { ProjectInfo } from '@/src/utils/get-project-info'
-import type { z } from 'zod'
 import { existsSync, promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
+import path, { basename, dirname } from 'pathe'
+// import { transformIcons } from '@/src/utils/transformers/transform-icons'
+import prompts from 'prompts'
 import {
   getRegistryBaseColor,
 } from '@/src/registry/api'
@@ -12,9 +15,6 @@ import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
 import { transform } from '@/src/utils/transformers'
-import path, { basename, dirname } from 'pathe'
-// import { transformIcons } from '@/src/utils/transformers/transform-icons'
-import prompts from 'prompts'
 
 export async function updateFiles(
   files: RegistryItem['files'],

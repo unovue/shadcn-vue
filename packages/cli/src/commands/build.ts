@@ -1,13 +1,13 @@
 import * as fs from 'node:fs/promises'
+import { Command } from 'commander'
+import * as path from 'pathe'
+import { z } from 'zod'
 import { preFlightBuild } from '@/src/preflights/preflight-build'
 import { registryItemSchema, registrySchema } from '@/src/registry'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
-import { Command } from 'commander'
-import * as path from 'pathe'
-import { z } from 'zod'
 
 export const buildOptionsSchema = z.object({
   cwd: z.string(),

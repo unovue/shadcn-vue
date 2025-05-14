@@ -1,6 +1,3 @@
-import type { registryItemCssVarsSchema, registryItemTailwindSchema } from '@/src/registry/schema'
-import type { Config } from '@/src/utils/get-config'
-import type { TailwindVersion } from '@/src/utils/get-project-info'
 import type { Config as TailwindConfig } from 'tailwindcss'
 import type {
   ArrayLiteralExpression,
@@ -9,10 +6,11 @@ import type {
   VariableStatement,
 } from 'ts-morph'
 import type { z } from 'zod'
+import type { registryItemCssVarsSchema, registryItemTailwindSchema } from '@/src/registry/schema'
+import type { Config } from '@/src/utils/get-config'
+import type { TailwindVersion } from '@/src/utils/get-project-info'
 import { promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { highlighter } from '@/src/utils/highlighter'
-import { spinner } from '@/src/utils/spinner'
 import deepmerge from 'deepmerge'
 import path from 'pathe'
 import objectToString from 'stringify-object'
@@ -22,6 +20,8 @@ import {
   ScriptKind,
   SyntaxKind,
 } from 'ts-morph'
+import { highlighter } from '@/src/utils/highlighter'
+import { spinner } from '@/src/utils/spinner'
 
 export type UpdaterTailwindConfig = Omit<TailwindConfig, 'plugins'> & {
   // We only want string plugins for now.

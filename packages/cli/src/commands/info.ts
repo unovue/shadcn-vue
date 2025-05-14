@@ -1,8 +1,8 @@
+import { Command } from 'commander'
+import consola from 'consola'
 import { getConfig } from '@/src/utils/get-config'
 import { getProjectInfo } from '@/src/utils/get-project-info'
 import { logger } from '@/src/utils/logger'
-import { Command } from 'commander'
-import consola from 'consola'
 
 export const info = new Command()
   .name('info')

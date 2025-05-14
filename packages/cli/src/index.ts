@@ -1,11 +1,11 @@
 #!/usr/bin/env node
+import { Command } from 'commander'
 import { add } from '@/src/commands/add'
 import { build } from '@/src/commands/build'
 import { diff } from '@/src/commands/diff'
 import { info } from '@/src/commands/info'
 import { init } from '@/src/commands/init'
 import { migrate } from '@/src/commands/migrate'
-import { Command } from 'commander'
 
 import packageJson from '../package.json'
 

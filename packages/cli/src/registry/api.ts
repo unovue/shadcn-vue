@@ -1,3 +1,8 @@
+import deepmerge from 'deepmerge'
+import { ofetch } from 'ofetch'
+import path from 'pathe'
+import { ProxyAgent } from 'undici'
+import { z } from 'zod'
 import {
   iconsSchema,
   registryBaseColorSchema,
@@ -11,11 +16,6 @@ import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-inf
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 import { buildTailwindThemeColorsFromCssVars } from '@/src/utils/updaters/update-tailwind-config'
-import deepmerge from 'deepmerge'
-import { ofetch } from 'ofetch'
-import path from 'pathe'
-import { ProxyAgent } from 'undici'
-import { z } from 'zod'
 
 const REGISTRY_URL = process.env.REGISTRY_URL ?? 'https://shadcn-vue.com/r'
 

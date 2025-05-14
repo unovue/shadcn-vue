@@ -1,15 +1,15 @@
-import type { registryItemCssSchema } from '@/src/registry/schema'
-import type { Config } from '@/src/utils/get-config'
 import type AtRule from 'postcss/lib/at-rule'
 import type Declaration from 'postcss/lib/declaration'
 import type Root from 'postcss/lib/root'
 import type Rule from 'postcss/lib/rule'
 import type { z } from 'zod'
+import type { registryItemCssSchema } from '@/src/registry/schema'
+import type { Config } from '@/src/utils/get-config'
 import { promises as fs } from 'node:fs'
-import { highlighter } from '@/src/utils/highlighter'
-import { spinner } from '@/src/utils/spinner'
 import path from 'pathe'
 import postcss from 'postcss'
+import { highlighter } from '@/src/utils/highlighter'
+import { spinner } from '@/src/utils/spinner'
 
 export async function updateCss(
   css: z.infer<typeof registryItemCssSchema> | undefined,

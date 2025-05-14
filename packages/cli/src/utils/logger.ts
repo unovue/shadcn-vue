@@ -1,5 +1,5 @@
-import { highlighter } from '@/src/utils/highlighter'
 import consola from 'consola'
+import { highlighter } from '@/src/utils/highlighter'
 
 export const logger = {
   error(...args: unknown[]) {
