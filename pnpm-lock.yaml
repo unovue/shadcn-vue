@@ -270,7 +270,7 @@ importers:
         version: 0.7.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
       autoprefixer:
         specifier: ^10.4.20
-        version: 10.4.20(postcss@8.5.3)
+        version: 10.4.20(postcss@8.5.2)
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
@@ -306,7 +306,7 @@ importers:
         version: 22.0.0(@vue/compiler-sfc@3.5.13)
       vitepress:
         specifier: ^1.6.3
-        version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(lightningcss@1.29.1)(postcss@8.5.3)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.7.3)
+        version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(lightningcss@1.29.1)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.7.3)
       vitepress-plugin-llms:
         specifier: ^0.0.22
         version: 0.0.22
@@ -395,11 +395,11 @@ importers:
         specifier: ^24.0.0
         version: 24.0.0
       undici:
-        specifier: ^7.3.0
-        version: 7.3.0
+        specifier: ^7.5.0
+        version: 7.5.0
       vitest:
         specifier: '*'
-        version: 2.1.3(@types/node@22.13.4)(@vitest/ui@2.1.3)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0)
+        version: 2.1.3(@types/node@22.13.4)(@vitest/ui@2.1.3)(lightningcss@1.29.1)(msw@2.7.3(@types/node@22.13.4)(typescript@5.7.3))(stylus@0.57.0)(terser@5.39.0)
       vue-metamorph:
         specifier: 3.2.0
         version: 3.2.0(eslint@9.20.1(jiti@2.4.2))
@@ -2524,9 +2524,11 @@ packages:
 
   '@oxc-parser/wasm@0.50.0':
     resolution: {integrity: sha512-be/QsKqtXQbKhnIRzezPrV385L6EVaX1GNAGeaQaT+HX6Lny/SfmFetCrEZCRqn2/cAqo+P5rGDNJzv06dY/vw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@oxc-parser/wasm@0.56.5':
     resolution: {integrity: sha512-9vtn56ok7PHS0elihFP+Q+alveQuGR0vnF6OeZesxkKWLJr8mCk0kZJx5ZxLjibaPA/sxWTmOyn31UMM9jg9fg==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@oxc-project/types@0.50.0':
     resolution: {integrity: sha512-VGV87PmDCGv1D+57iEmIuDoso3ig8d8D4VIK9AS0H7h2aNiRwFoCpVyp01+3jvIuHjPcEM2wbo3NG5EKyfx6Jw==}
@@ -8827,8 +8829,8 @@ packages:
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
-  undici@7.3.0:
-    resolution: {integrity: sha512-Qy96NND4Dou5jKoSJ2gm8ax8AJM/Ey9o9mz7KN1bb9GP+G0l20Zw8afxTnY2f4b7hmhn/z8aC2kfArVQlAhFBw==}
+  undici@7.5.0:
+    resolution: {integrity: sha512-NFQG741e8mJ0fLQk90xKxFdaSM7z4+IQpAgsFI36bCDY9Z2+aXXZjVy2uUksMouWfMI9+w5ejOq5zYYTBCQJDQ==}
     engines: {node: '>=20.18.1'}
 
   unenv@1.10.0:
@@ -13076,12 +13078,13 @@ snapshots:
       chai: 5.2.0
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0))':
+  '@vitest/mocker@2.1.3(@vitest/spy@2.1.3)(msw@2.7.3(@types/node@22.13.4)(typescript@5.7.3))(vite@5.4.9(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0))':
     dependencies:
       '@vitest/spy': 2.1.3
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
+      msw: 2.7.3(@types/node@22.13.4)(typescript@5.7.3)
       vite: 5.4.9(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0)
 
   '@vitest/mocker@2.1.9(msw@2.7.3(@types/node@22.13.4)(typescript@5.6.3))(vite@5.4.9(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0))':
@@ -13150,7 +13153,7 @@ snapshots:
       sirv: 2.0.4
       tinyglobby: 0.2.10
       tinyrainbow: 1.2.0
-      vitest: 2.1.3(@types/node@22.13.4)(@vitest/ui@2.1.3)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0)
+      vitest: 2.1.3(@types/node@22.13.4)(@vitest/ui@2.1.3)(lightningcss@1.29.1)(msw@2.7.3(@types/node@22.13.4)(typescript@5.7.3))(stylus@0.57.0)(terser@5.39.0)
 
   '@vitest/ui@2.1.9(vitest@2.1.9)':
     dependencies:
@@ -13695,16 +13698,6 @@ snapshots:
       normalize-range: 0.1.2
       picocolors: 1.1.1
       postcss: 8.5.2
-      postcss-value-parser: 4.2.0
-
-  autoprefixer@10.4.20(postcss@8.5.3):
-    dependencies:
-      browserslist: 4.24.0
-      caniuse-lite: 1.0.30001669
-      fraction.js: 4.3.7
-      normalize-range: 0.1.2
-      picocolors: 1.1.1
-      postcss: 8.5.3
       postcss-value-parser: 4.2.0
 
   autoprefixer@10.4.21(postcss@8.5.3):
@@ -19514,7 +19507,7 @@ snapshots:
 
   undici-types@6.20.0: {}
 
-  undici@7.3.0: {}
+  undici@7.5.0: {}
 
   unenv@1.10.0:
     dependencies:
@@ -20054,7 +20047,7 @@ snapshots:
       picocolors: 1.1.1
       string-strip-html: 13.4.12
 
-  vitepress@1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(lightningcss@1.29.1)(postcss@8.5.3)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.7.3):
+  vitepress@1.6.3(@algolia/client-search@5.20.2)(@types/node@22.13.4)(change-case@5.4.4)(fuse.js@7.1.0)(lightningcss@1.29.1)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.7.3):
     dependencies:
       '@docsearch/css': 3.8.2
       '@docsearch/js': 3.8.2(@algolia/client-search@5.20.2)(search-insights@2.17.2)
@@ -20075,7 +20068,7 @@ snapshots:
       vite: 5.4.14(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0)
       vue: 3.5.13(typescript@5.7.3)
     optionalDependencies:
-      postcss: 8.5.3
+      postcss: 8.5.2
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/node'
@@ -20132,10 +20125,10 @@ snapshots:
       - vitest
       - yaml
 
-  vitest@2.1.3(@types/node@22.13.4)(@vitest/ui@2.1.3)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0):
+  vitest@2.1.3(@types/node@22.13.4)(@vitest/ui@2.1.3)(lightningcss@1.29.1)(msw@2.7.3(@types/node@22.13.4)(typescript@5.7.3))(stylus@0.57.0)(terser@5.39.0):
     dependencies:
       '@vitest/expect': 2.1.3
-      '@vitest/mocker': 2.1.3(@vitest/spy@2.1.3)(vite@5.4.9(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0))
+      '@vitest/mocker': 2.1.3(@vitest/spy@2.1.3)(msw@2.7.3(@types/node@22.13.4)(typescript@5.7.3))(vite@5.4.9(@types/node@22.13.4)(lightningcss@1.29.1)(stylus@0.57.0)(terser@5.39.0))
       '@vitest/pretty-format': 2.1.3
       '@vitest/runner': 2.1.3
       '@vitest/snapshot': 2.1.3
