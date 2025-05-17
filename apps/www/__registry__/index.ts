@@ -1245,11 +1245,23 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [{
+        path: "registry/new-york/ui/pagination/Pagination.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/pagination/PaginationContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
         path: "registry/new-york/ui/pagination/PaginationEllipsis.vue",
         type: "registry:ui",
         target: ""
       },{
         path: "registry/new-york/ui/pagination/PaginationFirst.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/pagination/PaginationItem.vue",
         type: "registry:ui",
         target: ""
       },{
@@ -1261,7 +1273,7 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/new-york/ui/pagination/PaginationPrev.vue",
+        path: "registry/new-york/ui/pagination/PaginationPrevious.vue",
         type: "registry:ui",
         target: ""
       },{
@@ -1269,7 +1281,7 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/new-york/ui/pagination/PaginationEllipsis.vue").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/pagination/Pagination.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -3906,7 +3918,7 @@ export const Index: Record<string, any> = {
       name: "PaginationDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button","pagination"],
+      registryDependencies: ["pagination"],
       files: [{
         path: "registry/new-york/examples/PaginationDemo.vue",
         type: "registry:example",
@@ -7183,11 +7195,23 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [{
+        path: "registry/default/ui/pagination/Pagination.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/pagination/PaginationContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
         path: "registry/default/ui/pagination/PaginationEllipsis.vue",
         type: "registry:ui",
         target: ""
       },{
         path: "registry/default/ui/pagination/PaginationFirst.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/pagination/PaginationItem.vue",
         type: "registry:ui",
         target: ""
       },{
@@ -7199,7 +7223,7 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/default/ui/pagination/PaginationPrev.vue",
+        path: "registry/default/ui/pagination/PaginationPrevious.vue",
         type: "registry:ui",
         target: ""
       },{
@@ -7207,7 +7231,7 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/default/ui/pagination/PaginationEllipsis.vue").then((m) => m.default),
+      component: () => import("@/registry/default/ui/pagination/Pagination.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -9844,7 +9868,7 @@ export const Index: Record<string, any> = {
       name: "PaginationDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button","pagination"],
+      registryDependencies: ["pagination"],
       files: [{
         path: "registry/default/examples/PaginationDemo.vue",
         type: "registry:example",

@@ -2,19 +2,20 @@
   "name": "radio-group",
   "type": "registry:ui",
   "dependencies": [
+    "@vueuse/core",
     "reka-ui"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/radio-group/RadioGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { RadioGroupRoot, type RadioGroupRootEmits, type RadioGroupRootProps, useForwardPropsEmits } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<RadioGroupRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<RadioGroupRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <RadioGroupRoot\n    :class=\"cn('grid gap-2', props.class)\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </RadioGroupRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { RadioGroupRoot, type RadioGroupRootEmits, type RadioGroupRootProps, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<RadioGroupRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<RadioGroupRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <RadioGroupRoot\n    :class=\"cn('grid gap-2', props.class)\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </RadioGroupRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/radio-group/RadioGroupItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { RadioGroupItemProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Check } from 'lucide-vue-next'\nimport {\n  RadioGroupIndicator,\n  RadioGroupItem,\n\n  useForwardProps,\n} from 'reka-ui'\nimport { computed } from 'vue'\n\nconst props = defineProps<RadioGroupItemProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <RadioGroupItem\n    v-bind=\"forwardedProps\"\n    :class=\"\n      cn(\n        'peer aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',\n        props.class,\n      )\n    \"\n  >\n    <RadioGroupIndicator class=\"flex items-center justify-center\">\n      <Check class=\"h-3.5 w-3.5 text-primary\" />\n    </RadioGroupIndicator>\n  </RadioGroupItem>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { RadioGroupItemProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Check } from 'lucide-vue-next'\nimport {\n  RadioGroupIndicator,\n  RadioGroupItem,\n\n  useForwardProps,\n} from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<RadioGroupItemProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <RadioGroupItem\n    v-bind=\"forwardedProps\"\n    :class=\"\n      cn(\n        'peer aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',\n        props.class,\n      )\n    \"\n  >\n    <RadioGroupIndicator class=\"flex items-center justify-center\">\n      <Check class=\"h-3.5 w-3.5 text-primary\" />\n    </RadioGroupIndicator>\n  </RadioGroupItem>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "examples/RangeCalendarDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { DateRange } from 'reka-ui'\nimport { RangeCalendar } from '@/registry/default/ui/range-calendar'\nimport { getLocalTimeZone, today } from '@internationalized/date'\nimport { type Ref, ref } from 'vue'\n\nconst start = today(getLocalTimeZone())\nconst end = start.add({ days: 7 })\n\nconst value = ref({\n  start,\n  end,\n}) as Ref<DateRange>\n</script>\n\n<template>\n  <RangeCalendar v-model=\"value\" class=\"rounded-md border\" />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { DateRange } from 'reka-ui'\nimport { getLocalTimeZone, today } from '@internationalized/date'\nimport { type Ref, ref } from 'vue'\nimport { RangeCalendar } from '@/registry/default/ui/range-calendar'\n\nconst start = today(getLocalTimeZone())\nconst end = start.add({ days: 7 })\n\nconst value = ref({\n  start,\n  end,\n}) as Ref<DateRange>\n</script>\n\n<template>\n  <RangeCalendar v-model=\"value\" class=\"rounded-md border\" />\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

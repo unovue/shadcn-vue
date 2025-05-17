@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "ui/avatar/Avatar.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { AvatarRoot } from 'reka-ui'\nimport { avatarVariant, type AvatarVariants } from '.'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  size?: AvatarVariants['size']\n  shape?: AvatarVariants['shape']\n}>(), {\n  size: 'sm',\n  shape: 'circle',\n})\n</script>\n\n<template>\n  <AvatarRoot :class=\"cn(avatarVariant({ size, shape }), props.class)\">\n    <slot />\n  </AvatarRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { AvatarRoot } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { avatarVariant, type AvatarVariants } from '.'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  size?: AvatarVariants['size']\n  shape?: AvatarVariants['shape']\n}>(), {\n  size: 'sm',\n  shape: 'circle',\n})\n</script>\n\n<template>\n  <AvatarRoot :class=\"cn(avatarVariant({ size, shape }), props.class)\">\n    <slot />\n  </AvatarRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

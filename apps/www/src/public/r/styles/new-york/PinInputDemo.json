@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/PinInputDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n} from '@/registry/new-york/ui/pin-input'\nimport { ref } from 'vue'\n\nconst value = ref<string[]>([])\nconst handleComplete = (e: string[]) => alert(e.join(''))\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      @complete=\"handleComplete\"\n    >\n      <PinInputGroup>\n        <PinInputInput\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n          :index=\"index\"\n        />\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n} from '@/registry/new-york/ui/pin-input'\n\nconst value = ref<string[]>([])\nconst handleComplete = (e: string[]) => alert(e.join(''))\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      @complete=\"handleComplete\"\n    >\n      <PinInputGroup>\n        <PinInputInput\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n          :index=\"index\"\n        />\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

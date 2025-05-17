@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "ui/button/Button.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Primitive, type PrimitiveProps } from 'reka-ui'\nimport { type ButtonVariants, buttonVariants } from '.'\n\ninterface Props extends PrimitiveProps {\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive, type PrimitiveProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { type ButtonVariants, buttonVariants } from '.'\n\ninterface Props extends PrimitiveProps {\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

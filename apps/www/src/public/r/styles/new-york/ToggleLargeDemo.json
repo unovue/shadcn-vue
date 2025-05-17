@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ToggleLargeDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Toggle } from '@/registry/new-york/ui/toggle'\nimport { Italic } from 'lucide-vue-next'\n</script>\n\n<template>\n  <Toggle size=\"lg\" aria-label=\"Toggle italic\">\n    <Italic class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Italic } from 'lucide-vue-next'\nimport { Toggle } from '@/registry/new-york/ui/toggle'\n</script>\n\n<template>\n  <Toggle size=\"lg\" aria-label=\"Toggle italic\">\n    <Italic class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }
