@@ -2,6 +2,7 @@
   "name": "table",
   "type": "registry:ui",
   "dependencies": [
+    "@vueuse/core",
     "@tanstack/vue-table"
   ],
   "registryDependencies": [],
@@ -32,7 +33,7 @@
     },
     {
       "path": "ui/table/TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { computed, type HTMLAttributes } from 'vue'\nimport TableCell from './TableCell.vue'\nimport TableRow from './TableRow.vue'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  colspan?: number\n}>(), {\n  colspan: 1,\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      v-bind=\"delegatedProps\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport TableCell from './TableCell.vue'\nimport TableRow from './TableRow.vue'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  colspan?: number\n}>(), {\n  colspan: 1,\n})\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      v-bind=\"delegatedProps\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

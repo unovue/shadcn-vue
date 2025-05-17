@@ -2,19 +2,20 @@
   "name": "scroll-area",
   "type": "registry:ui",
   "dependencies": [
+    "@vueuse/core",
     "reka-ui"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/scroll-area/ScrollArea.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport {\n  ScrollAreaCorner,\n  ScrollAreaRoot,\n  type ScrollAreaRootProps,\n  ScrollAreaViewport,\n} from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\nimport ScrollBar from './ScrollBar.vue'\n\nconst props = defineProps<ScrollAreaRootProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <ScrollAreaRoot\n    data-slot=\"scroll-area\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('relative', props.class)\"\n  >\n    <ScrollAreaViewport\n      data-slot=\"scroll-area-viewport\"\n      class=\"focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1\"\n    >\n      <slot />\n    </ScrollAreaViewport>\n    <ScrollBar />\n    <ScrollAreaCorner />\n  </ScrollAreaRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport {\n  ScrollAreaCorner,\n  ScrollAreaRoot,\n  type ScrollAreaRootProps,\n  ScrollAreaViewport,\n} from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport ScrollBar from './ScrollBar.vue'\n\nconst props = defineProps<ScrollAreaRootProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ScrollAreaRoot\n    data-slot=\"scroll-area\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('relative', props.class)\"\n  >\n    <ScrollAreaViewport\n      data-slot=\"scroll-area-viewport\"\n      class=\"focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1\"\n    >\n      <slot />\n    </ScrollAreaViewport>\n    <ScrollBar />\n    <ScrollAreaCorner />\n  </ScrollAreaRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/scroll-area/ScrollBar.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = withDefaults(defineProps<ScrollAreaScrollbarProps & { class?: HTMLAttributes['class'] }>(), {\n  orientation: 'vertical',\n})\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <ScrollAreaScrollbar\n    data-slot=\"scroll-area-scrollbar\"\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn('flex touch-none p-px transition-colors select-none',\n         orientation === 'vertical'\n           && 'h-full w-2.5 border-l border-l-transparent',\n         orientation === 'horizontal'\n           && 'h-2.5 flex-col border-t border-t-transparent',\n         props.class)\"\n  >\n    <ScrollAreaThumb\n      data-slot=\"scroll-area-thumb\"\n      class=\"bg-border relative flex-1 rounded-full\"\n    />\n  </ScrollAreaScrollbar>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ScrollAreaScrollbar, type ScrollAreaScrollbarProps, ScrollAreaThumb } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<ScrollAreaScrollbarProps & { class?: HTMLAttributes['class'] }>(), {\n  orientation: 'vertical',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ScrollAreaScrollbar\n    data-slot=\"scroll-area-scrollbar\"\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn('flex touch-none p-px transition-colors select-none',\n         orientation === 'vertical'\n           && 'h-full w-2.5 border-l border-l-transparent',\n         orientation === 'horizontal'\n           && 'h-2.5 flex-col border-t border-t-transparent',\n         props.class)\"\n  >\n    <ScrollAreaThumb\n      data-slot=\"scroll-area-thumb\"\n      class=\"bg-border relative flex-1 rounded-full\"\n    />\n  </ScrollAreaScrollbar>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

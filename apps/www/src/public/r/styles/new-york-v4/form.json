@@ -25,7 +25,7 @@
     },
     {
       "path": "ui/form/FormItem.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { cn } from '@/lib/utils'\nimport { useId } from 'reka-ui'\nimport { type HTMLAttributes, provide } from 'vue'\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst id = useId()\nprovide(FORM_ITEM_INJECTION_KEY, id)\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    :class=\"cn('grid gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { useId } from 'reka-ui'\nimport { type HTMLAttributes, provide } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst id = useId()\nprovide(FORM_ITEM_INJECTION_KEY, id)\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    :class=\"cn('grid gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
@@ -37,7 +37,7 @@
     },
     {
       "path": "ui/form/FormMessage.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { cn } from '@/lib/utils'\nimport { ErrorMessage } from 'vee-validate'\nimport { type HTMLAttributes, toValue } from 'vue'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { name, formMessageId } = useFormField()\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    data-slot=\"form-message\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    :class=\"cn('text-destructive-foreground text-sm', props.class)\"\n  />\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { ErrorMessage } from 'vee-validate'\nimport { type HTMLAttributes, toValue } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { name, formMessageId } = useFormField()\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    data-slot=\"form-message\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    :class=\"cn('text-destructive-foreground text-sm', props.class)\"\n  />\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

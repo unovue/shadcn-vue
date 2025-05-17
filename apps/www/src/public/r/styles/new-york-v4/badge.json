@@ -2,13 +2,14 @@
   "name": "badge",
   "type": "registry:ui",
   "dependencies": [
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/badge/Badge.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { Primitive } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\nimport { type BadgeVariants, badgeVariants } from '.'\n\nconst props = defineProps<PrimitiveProps & {\n  variant?: BadgeVariants['variant']\n  class?: HTMLAttributes['class']\n}>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"badge\"\n    :class=\"cn(badgeVariants({ variant }), props.class)\"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { type BadgeVariants, badgeVariants } from '.'\n\nconst props = defineProps<PrimitiveProps & {\n  variant?: BadgeVariants['variant']\n  class?: HTMLAttributes['class']\n}>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"badge\"\n    :class=\"cn(badgeVariants({ variant }), props.class)\"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

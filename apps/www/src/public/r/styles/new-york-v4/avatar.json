@@ -2,19 +2,20 @@
   "name": "avatar",
   "type": "registry:ui",
   "dependencies": [
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/avatar/Avatar.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { AvatarRoot } from 'reka-ui'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <AvatarRoot\n    data-slot=\"avatar\"\n    :class=\"cn('relative flex size-8 shrink-0 overflow-hidden rounded-full', props.class)\"\n  >\n    <slot />\n  </AvatarRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { AvatarRoot } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <AvatarRoot\n    data-slot=\"avatar\"\n    :class=\"cn('relative flex size-8 shrink-0 overflow-hidden rounded-full', props.class)\"\n  >\n    <slot />\n  </AvatarRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/avatar/AvatarFallback.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { AvatarFallback, type AvatarFallbackProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<AvatarFallbackProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n\n  return delegated\n})\n</script>\n\n<template>\n  <AvatarFallback\n    data-slot=\"avatar-fallback\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('bg-muted flex size-full items-center justify-center rounded-full', props.class)\"\n  >\n    <slot />\n  </AvatarFallback>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { AvatarFallback, type AvatarFallbackProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<AvatarFallbackProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <AvatarFallback\n    data-slot=\"avatar-fallback\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('bg-muted flex size-full items-center justify-center rounded-full', props.class)\"\n  >\n    <slot />\n  </AvatarFallback>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

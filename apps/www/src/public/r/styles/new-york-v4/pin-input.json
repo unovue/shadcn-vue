@@ -2,31 +2,32 @@
   "name": "pin-input",
   "type": "registry:ui",
   "dependencies": [
+    "@vueuse/core",
     "reka-ui"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "ui/pin-input/PinInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = withDefaults(defineProps<PinInputRootProps & { class?: HTMLAttributes['class'] }>(), {\n  modelValue: () => [],\n})\nconst emits = defineEmits<PinInputRootEmits>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n  return delegated\n})\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PinInputRoot\n    data-slot=\"pin-input\"\n    v-bind=\"forwarded\" :class=\"cn('flex items-center gap-2 has-disabled:opacity-50 disabled:cursor-not-allowed', props.class)\"\n  >\n    <slot />\n  </PinInputRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PinInputRootProps & { class?: HTMLAttributes['class'] }>(), {\n  modelValue: () => [],\n})\nconst emits = defineEmits<PinInputRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PinInputRoot\n    data-slot=\"pin-input\"\n    v-bind=\"forwarded\" :class=\"cn('flex items-center gap-2 has-disabled:opacity-50 disabled:cursor-not-allowed', props.class)\"\n  >\n    <slot />\n  </PinInputRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/pin-input/PinInputGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n  return delegated\n})\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-group\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn('flex items-center', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-group\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn('flex items-center', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/pin-input/PinInputSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Minus } from 'lucide-vue-next'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<PrimitiveProps>()\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <Minus />\n    </slot>\n  </primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Minus } from 'lucide-vue-next'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<PrimitiveProps>()\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <Minus />\n    </slot>\n  </Primitive>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/pin-input/PinInputSlot.vue",
-      "content": "<script setup lang=\"ts\">\nimport { cn } from '@/lib/utils'\nimport { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\n\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = computed(() => {\n  const { class: _, ...delegated } = props\n  return delegated\n})\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PinInputInput\n    data-slot=\"pin-input-slot\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn('border-input focus:border-ring focus:ring-ring/50 focus:aria-invalid:ring-destructive/20 dark:bg-input/30 dark:focus:aria-invalid:ring-destructive/40 aria-invalid:border-destructive focus:aria-invalid:border-destructive relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all outline-none text-center first:rounded-l-md first:border-l last:rounded-r-md focus:z-10 focus:ring-[3px]', props.class)\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PinInputInput\n    data-slot=\"pin-input-slot\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn('border-input focus:border-ring focus:ring-ring/50 focus:aria-invalid:ring-destructive/20 dark:bg-input/30 dark:focus:aria-invalid:ring-destructive/40 aria-invalid:border-destructive focus:aria-invalid:border-destructive relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all outline-none text-center first:rounded-l-md first:border-l last:rounded-r-md focus:z-10 focus:ring-[3px]', props.class)\"\n  />\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
