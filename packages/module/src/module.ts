@@ -13,7 +13,9 @@ export interface ModuleOptions {
   prefix?: string
   /**
    * Directory that the component lives in.
-   * @default "~/components/ui"
+   * Will respect the Nuxt aliases.
+   * @link https://nuxt.com/docs/api/nuxt-config#alias
+   * @default "@/components/ui"
    */
   componentDir?: string
 }
@@ -25,7 +27,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'Ui',
-    componentDir: '~/components/ui',
+    componentDir: '@/components/ui',
   },
   async setup({ prefix, componentDir }, nuxt) {
     const COMPONENT_DIR_PATH = componentDir!
