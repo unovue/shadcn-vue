@@ -201,6 +201,6 @@ See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-co
 
 ## Hex -> Color Channel
 
-You can use this tool to convert your HEX color to HSL without the color space function. Simply add your color in hex format, copy one of the generated values, then add them to the CSS variable.
+You can use [this tool](https://htmlcolors.com/hex-to-hsl) to convert your HEX color to HSL without the color space function. Simply add your color in hex format, copy one of the generated values, then add them to the CSS variable.
 
 <!-- <HexToChannels /> -->
