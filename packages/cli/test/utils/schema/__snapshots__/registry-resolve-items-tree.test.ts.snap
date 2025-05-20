@@ -15,6 +15,7 @@ exports[`registryResolveItemTree > should resolve index 1`] = `
     "lucide-vue-next",
     "clsx",
     "tailwind-merge",
+    "@vueuse/core",
     "reka-ui",
   ],
   "devDependencies": [],
@@ -43,17 +44,14 @@ export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref
     },
     {
       "content": "<script setup lang="ts">
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { Label, type LabelProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 </script>
 
 <template>
@@ -114,8 +112,8 @@ exports[`registryResolveItemTree > should resolve items tree 1`] = `
     {
       "content": "<script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
 import { Primitive, type PrimitiveProps } from 'reka-ui'
+import { cn } from '@/lib/utils'
 import { type ButtonVariants, buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
@@ -202,8 +200,8 @@ exports[`registryResolveItemTree > should resolve multiple items tree 1`] = `
     {
       "content": "<script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
 import { Primitive, type PrimitiveProps } from 'reka-ui'
+import { cn } from '@/lib/utils'
 import { type ButtonVariants, buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
@@ -275,8 +273,8 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>
     {
       "content": "<script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
 import { useVModel } from '@vueuse/core'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<{
   defaultValue?: string | number
@@ -312,9 +310,10 @@ const modelValue = useVModel(props, 'modelValue', emits, {
     {
       "content": "<script setup lang="ts">
 import type { ListboxRootEmits, ListboxRootProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import { reactiveOmit } from '@vueuse/core'
 import { ListboxRoot, useFilter, useForwardPropsEmits } from 'reka-ui'
-import { computed, type HTMLAttributes, reactive, ref, watch } from 'vue'
+import { type HTMLAttributes, reactive, ref, watch } from 'vue'
+import { cn } from '@/lib/utils'
 import { provideCommandContext } from '.'
 
 const props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttributes['class'] }>(), {
@@ -323,11 +322,7 @@ const props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttribut
 
 const emits = defineEmits<ListboxRootEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
@@ -410,8 +405,8 @@ provideCommandContext({
     {
       "content": "<script setup lang="ts">
 import type { DialogRootEmits, DialogRootProps } from 'reka-ui'
-import { Dialog, DialogContent } from '@/registry/default/ui/dialog'
 import { useForwardPropsEmits } from 'reka-ui'
+import { Dialog, DialogContent } from '@/registry/default/ui/dialog'
 import Command from './Command.vue'
 
 const props = defineProps<DialogRootProps>()
@@ -437,18 +432,15 @@ const forwarded = useForwardPropsEmits(props, emits)
     {
       "content": "<script setup lang="ts">
 import type { PrimitiveProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import { reactiveOmit } from '@vueuse/core'
 import { Primitive } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import { useCommand } from '.'
 
 const props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const { filterState } = useCommand()
 const isRender = computed(() => !!filterState.search && filterState.filtered.count === 0,
@@ -468,9 +460,10 @@ const isRender = computed(() => !!filterState.search && filterState.filtered.cou
     {
       "content": "<script setup lang="ts">
 import type { ListboxGroupProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import { reactiveOmit } from '@vueuse/core'
 import { ListboxGroup, ListboxGroupLabel, useId } from 'reka-ui'
 import { computed, type HTMLAttributes, onMounted, onUnmounted } from 'vue'
+import { cn } from '@/lib/utils'
 import { provideCommandGroupContext, useCommand } from '.'
 
 const props = defineProps<ListboxGroupProps & {
@@ -478,11 +471,7 @@ const props = defineProps<ListboxGroupProps & {
   heading?: string
 }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const { allGroups, filterState } = useCommand()
 const id = useId()
@@ -519,10 +508,11 @@ onUnmounted(() => {
     },
     {
       "content": "<script setup lang="ts">
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { Search } from 'lucide-vue-next'
 import { ListboxFilter, type ListboxFilterProps, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import { useCommand } from '.'
 
 defineOptions({
@@ -533,11 +523,7 @@ const props = defineProps<ListboxFilterProps & {
   class?: HTMLAttributes['class']
 }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 
@@ -563,20 +549,16 @@ const { filterState } = useCommand()
     {
       "content": "<script setup lang="ts">
 import type { ListboxItemEmits, ListboxItemProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
-import { useCurrentElement } from '@vueuse/core'
+import { reactiveOmit, useCurrentElement } from '@vueuse/core'
 import { ListboxItem, useForwardPropsEmits, useId } from 'reka-ui'
 import { computed, type HTMLAttributes, onMounted, onUnmounted, ref } from 'vue'
+import { cn } from '@/lib/utils'
 import { useCommand, useCommandGroup } from '.'
 
 const props = defineProps<ListboxItemProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<ListboxItemEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
@@ -608,7 +590,7 @@ onMounted(() => {
     return
 
   // textValue to perform filter
-  allItems.value.set(id, currentElement.value.textContent ?? props.value.toString())
+  allItems.value.set(id, currentElement.value.textContent ?? props?.value!.toString())
 
   const groupId = groupContext?.id
   if (groupId) {
@@ -647,17 +629,14 @@ onUnmounted(() => {
     {
       "content": "<script setup lang="ts">
 import type { ListboxContentProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { ListboxContent, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<ListboxContentProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardProps(delegatedProps)
 </script>
@@ -677,17 +656,14 @@ const forwarded = useForwardProps(delegatedProps)
     {
       "content": "<script setup lang="ts">
 import type { SeparatorProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { Separator } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<SeparatorProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 </script>
 
 <template>
@@ -793,7 +769,8 @@ const props = defineProps<DialogCloseProps>()
     },
     {
       "content": "<script setup lang="ts">
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { X } from 'lucide-vue-next'
 import {
   DialogClose,
@@ -804,16 +781,12 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DialogContentEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -849,17 +822,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     },
     {
       "content": "<script setup lang="ts">
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { DialogDescription, type DialogDescriptionProps, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogDescriptionProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>
@@ -926,7 +896,8 @@ const props = defineProps<{
     },
     {
       "content": "<script setup lang="ts">
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { X } from 'lucide-vue-next'
 import {
   DialogClose,
@@ -937,16 +908,12 @@ import {
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DialogContentEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -991,17 +958,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     },
     {
       "content": "<script setup lang="ts">
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { reactiveOmit } from '@vueuse/core'
 import { DialogTitle, type DialogTitleProps, useForwardProps } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<DialogTitleProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = reactiveOmit(props, 'class')
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>
