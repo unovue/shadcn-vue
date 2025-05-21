@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
     data-slot="button"
     :as="as"
     :as-child="asChild"
-    :class="cn(buttonVariants({ variant, size }), props.class)"
+    :class="cn('select-none cursor-pointer', buttonVariants({ variant, size }), props.class)"
   >
     <slot />
   </Primitive>
