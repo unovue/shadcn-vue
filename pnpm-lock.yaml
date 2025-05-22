@@ -126,8 +126,8 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.14(typescript@5.8.3))
       vue-sonner:
-        specifier: ^1.3.2
-        version: 1.3.2
+        specifier: ^2.0.0
+        version: 2.0.0
       zod:
         specifier: ^3.24.4
         version: 3.24.4
@@ -205,8 +205,8 @@ importers:
         specifier: ^3.5.14
         version: 3.5.14(typescript@5.8.3)
       vue-sonner:
-        specifier: ^1.3.2
-        version: 1.3.2
+        specifier: ^2.0.0
+        version: 2.0.0
       vue-wrap-balancer:
         specifier: ^1.2.1
         version: 1.2.1(vue@3.5.14(typescript@5.8.3))
@@ -270,7 +270,7 @@ importers:
         version: 0.7.0(typescript@5.8.3)(vue@3.5.14(typescript@5.8.3))
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.3)
+        version: 10.4.21(postcss@8.5.2)
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
@@ -306,7 +306,7 @@ importers:
         version: 22.1.0(@vue/compiler-sfc@3.5.14)
       vitepress:
         specifier: ^1.6.3
-        version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.15.18)(change-case@5.4.4)(fuse.js@7.1.0)(jwt-decode@4.0.0)(lightningcss@1.30.1)(postcss@8.5.3)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.8.3)
+        version: 1.6.3(@algolia/client-search@5.20.2)(@types/node@22.15.18)(change-case@5.4.4)(fuse.js@7.1.0)(jwt-decode@4.0.0)(lightningcss@1.30.1)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.8.3)
       vitepress-plugin-llms:
         specifier: ^1.1.4
         version: 1.1.4
@@ -10157,8 +10157,8 @@ packages:
       esbuild: '*'
       vue: ^3.5.13
 
-  vue-sonner@1.3.2:
-    resolution: {integrity: sha512-UbZ48E9VIya3ToiRHAZUbodKute/z/M1iT8/3fU8zEbwBRE11AKuHikssv18LMk2gTTr6eMQT4qf6JoLHWuj/A==}
+  vue-sonner@2.0.0:
+    resolution: {integrity: sha512-nvlqGGWvxEv9UnKcZxsGdKpHrODEdv3CXAJF3er+1pLC03caJt2+v9HuWtRqlBQwUr1SFttsYuwVbpbEl05n4A==}
 
   vue-tsc@2.2.10:
     resolution: {integrity: sha512-jWZ1xSaNbabEV3whpIDMbjVSVawjAyW+x1n3JeGQo7S0uv2n9F/JMgWW90tGWNFRKya4YwKMZgCtr0vRAM7DeQ==}
@@ -21632,7 +21632,7 @@ snapshots:
       - '@75lb/nature'
       - supports-color
 
-  vitepress@1.6.3(@algolia/client-search@5.20.2)(@types/node@22.15.18)(change-case@5.4.4)(fuse.js@7.1.0)(jwt-decode@4.0.0)(lightningcss@1.30.1)(postcss@8.5.3)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.8.3):
+  vitepress@1.6.3(@algolia/client-search@5.20.2)(@types/node@22.15.18)(change-case@5.4.4)(fuse.js@7.1.0)(jwt-decode@4.0.0)(lightningcss@1.30.1)(postcss@8.5.2)(search-insights@2.17.2)(stylus@0.57.0)(terser@5.39.0)(typescript@5.8.3):
     dependencies:
       '@docsearch/css': 3.8.2
       '@docsearch/js': 3.8.2(@algolia/client-search@5.20.2)(search-insights@2.17.2)
@@ -21653,7 +21653,7 @@ snapshots:
       vite: 5.4.14(@types/node@22.15.18)(lightningcss@1.30.1)(stylus@0.57.0)(terser@5.39.0)
       vue: 3.5.14(typescript@5.8.3)
     optionalDependencies:
-      postcss: 8.5.3
+      postcss: 8.5.2
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/node'
@@ -21910,7 +21910,7 @@ snapshots:
       esbuild: 0.25.4
       vue: 3.5.14(typescript@5.8.3)
 
-  vue-sonner@1.3.2: {}
+  vue-sonner@2.0.0: {}
 
   vue-tsc@2.2.10(typescript@5.8.3):
     dependencies:
