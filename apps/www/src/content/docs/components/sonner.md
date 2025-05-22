@@ -25,18 +25,22 @@ npx shadcn-vue@latest add sonner
 
 Add the following `Toaster` component to your `App.vue` file:
 
-```vue title="App.vue" {2,6}
+```vue title="App.vue" {2-3,7}
 <script setup lang="ts">
 import { Toaster } from '@/components/ui/sonner'
+import 'vue-sonner/style.css' // vue-sonner v2 requires this import
 </script>
 
 <template>
   <Toaster />
 
-  <!-- Nuxt  -->
+  <!-- Nuxt, vue-sonner v1 because inserting inline CSS with JS to the head tag -->
   <ClientOnly>
     <Toaster />
   </ClientOnly>
+
+  <!-- Nuxt, vue-sonner v2 no need to ClientOnly -->
+  <Toaster />
 </template>
 ```
 
@@ -75,9 +79,10 @@ Related issue https://github.com/unovue/shadcn-vue/issues/462
 
 Add `pointer-events-auto` class to Toaster component in your `App.vue` file:
 
-```vue {6}
+```vue {7}
 <script setup lang="ts">
 import { Toaster } from '@/components/ui/sonner'
+import 'vue-sonner/style.css' // vue-sonner v2 requires this import
 </script>
 
 <template>
