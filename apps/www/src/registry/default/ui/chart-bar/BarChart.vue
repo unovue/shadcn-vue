@@ -67,6 +67,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
       :data="data"
       :style="{ height: isMounted ? '100%' : 'auto' }"
       :margin="margin"
+      :y-domain="props.yDomain"
     >
       <ChartCrosshair v-if="showTooltip" :colors="colors" :items="legendItems" :custom-tooltip="customTooltip" :index="index" />
 
@@ -106,6 +107,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
             class: 'text-muted',
           },
         }"
+        :tick-values="yTickValues"
         tick-text-color="hsl(var(--vis-text-color))"
       />
 

@@ -64,7 +64,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
   <div :class="cn('w-full h-[400px] flex flex-col items-end', $attrs.class ?? '')">
     <ChartLegend v-if="showLegend" v-model:items="legendItems" @legend-item-click="handleLegendItemClick" />
 
-    <VisXYContainer :style="{ height: isMounted ? '100%' : 'auto' }" :margin="{ left: 20, right: 20 }" :data="data">
+    <VisXYContainer :style="{ height: isMounted ? '100%' : 'auto' }" :margin="{ left: 20, right: 20 }" :data="data" :y-domain="props.yDomain">
       <svg width="0" height="0">
         <defs>
           <linearGradient v-for="(color, i) in colors" :id="`${chartRef}-color-${i}`" :key="i" x1="0" y1="0" x2="0" y2="1">
@@ -130,6 +130,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
             class: 'text-muted',
           },
         }"
+        :tick-values="props.yTickValues"
         tick-text-color="hsl(var(--vis-text-color))"
       />
 

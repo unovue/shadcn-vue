@@ -58,6 +58,18 @@
     'required': false
   },
   {
+    'name': 'yTickValues',
+    'description': '<p>Ticks for yFormatter or Y axis</p>\n',
+    'type': 'number[] | Date[]',
+    'required': false
+  },
+  {
+    'name': 'yDomain',
+    'description': '<p>Two values for the minimum and maximum of the Y axis domain</p>\n',
+    'type': 'number[] | Date[]',
+    'required': false
+  },
+  {
     'name': 'showXAxis',
     'description': '<p>Controls the visibility of the X axis.</p>\n',
     'type': 'boolean',
