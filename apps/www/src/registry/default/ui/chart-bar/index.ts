@@ -63,4 +63,8 @@ export interface BaseChartProps<T extends Record<string, any>> {
    * @default true
    */
   showGridLine?: boolean
+  /**
+   * Select the categories from your data. Used to preselection the legend.
+   */
+  selectedLegend?: KeyOf<T>
 }

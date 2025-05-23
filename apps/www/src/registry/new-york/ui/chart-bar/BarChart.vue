@@ -46,7 +46,7 @@ const colors = computed(() => props.colors?.length ? props.colors : defaultColor
 const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((category, i) => ({
   name: category,
   color: colors.value[i],
-  inactive: false,
+  inactive: props.selectedLegend !== category && props.selectedLegend !== undefined,
 })))
 
 const isMounted = useMounted()

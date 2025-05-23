@@ -20,6 +20,12 @@
     'required': true
   },
   {
+    'name': 'selectedLegend',
+    'description': '<p>Select the categories from your data. Used to preselection the legend.</p>\n',
+    'type': 'string',
+    'required': false
+  },
+  {
     'name': 'colors',
     'description': '<p>Change the default colors.</p>\n',
     'type': 'string[]',
