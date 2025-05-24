@@ -34,6 +34,18 @@ export const initOptionsSchema = z.object({
   isNewProject: z.boolean(),
   srcDir: z.boolean().optional(),
   cssVariables: z.boolean(),
+  // template: z.string().optional(),
+  // .refine(
+  //     (val) => {
+  //       if (val) {
+  //         return TEMPLATES[val as keyof typeof TEMPLATES]
+  //       }
+  //       return true
+  //     },
+  //     {
+  //       message: "Invalid template. Please use 'next' or 'next-monorepo'.",
+  //     }
+  //   ),
   baseColor: z
     .string()
     .optional()

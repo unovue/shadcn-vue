@@ -1,4 +1,4 @@
-import type * as z from 'zod'
+import type { z } from 'zod'
 import type { registryBaseColorSchema } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
 import { transform as metaTransform } from 'vue-metamorph'
@@ -25,7 +25,7 @@ export async function transform(opts: TransformOpts) {
   return metaTransform(source, opts.filename, [
     transformImport(opts),
     transformCssVars(opts),
-    transformTwPrefix(opts),
+    await transformTwPrefix(opts),
     transformIcons(opts, registryIcons),
   ]).code
 }

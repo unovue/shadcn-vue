@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import deepmerge from 'deepmerge'
 import { ofetch } from 'ofetch'
 import path from 'pathe'
@@ -16,6 +17,7 @@ import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-inf
 import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 import { buildTailwindThemeColorsFromCssVars } from '@/src/utils/updaters/update-tailwind-config'
+import { highlighter } from '../utils/highlighter'
 
 const REGISTRY_URL = process.env.REGISTRY_URL ?? 'https://shadcn-vue.com/r'
 
@@ -190,13 +192,46 @@ export async function fetchRegistry(paths: string[]) {
           return registryCache.get(url)
         }
 
-        const response = await ofetch(url, { dispatcher: agent, parseResponse: JSON.parse })
-          .catch((error) => {
-            throw new Error(error.data)
-          })
+        // Store the promise in the cache before awaiting
+        const fetchPromise = ofetch(url, {
+          dispatcher: agent,
+          parseResponse: JSON.parse,
+        }).catch((error) => {
+          // Handle ofetch errors
+          const status = error.status || error.statusCode
 
-        registryCache.set(url, response)
-        return response
+          if (status === 401) {
+            throw new Error(
+              `You are not authorized to access the component at ${highlighter.info(
+                url,
+              )}.\nIf this is a remote registry, you may need to authenticate.`,
+            )
+          }
+
+          if (status === 404) {
+            throw new Error(
+              `The component at ${highlighter.info(
+                url,
+              )} was not found.\nIt may not exist at the registry. Please make sure it is a valid component.`,
+            )
+          }
+
+          if (status === 403) {
+            throw new Error(
+              `You do not have access to the component at ${highlighter.info(
+                url,
+              )}.\nIf this is a remote registry, you may need to authenticate or a token.`,
+            )
+          }
+
+          const message = error.data?.error || error.message || `HTTP ${status || 'Unknown'} Error`
+          throw new Error(
+            `Failed to fetch from ${highlighter.info(url)}.\n${message}`,
+          )
+        })
+
+        registryCache.set(url, fetchPromise)
+        return fetchPromise
       }),
     )
 
@@ -224,17 +259,8 @@ export async function registryResolveItemsTree(
       names.unshift('index')
     }
 
-    const registryDependencies: Set<string> = new Set()
-    for (const name of names) {
-      const itemRegistryDependencies = await resolveRegistryDependencies(
-        name,
-        config,
-      )
-      itemRegistryDependencies.forEach(dep => registryDependencies.add(dep))
-    }
-
-    const uniqueRegistryDependencies = Array.from(registryDependencies)
-    const result = await fetchRegistry(uniqueRegistryDependencies)
+    let registryItems = await resolveRegistryItems(names, config)
+    let result = await fetchRegistry(registryItems)
     const payload = z.array(registryItemSchema).parse(result)
 
     if (!payload) {
@@ -254,6 +280,14 @@ export async function registryResolveItemsTree(
       }
     }
 
+    // Sort the payload so that registry:theme is always first.
+    payload.sort((a, b) => {
+      if (a.type === 'registry:theme') {
+        return -1
+      }
+      return 1
+    })
+
     let tailwind = {}
     payload.forEach((item) => {
       tailwind = deepmerge(tailwind, item.tailwind ?? {})
@@ -264,6 +298,11 @@ export async function registryResolveItemsTree(
       cssVars = deepmerge(cssVars, item.cssVars ?? {})
     })
 
+    let css = {}
+    payload.forEach((item) => {
+      css = deepmerge(css, item.css ?? {})
+    })
+
     let docs = ''
     payload.forEach((item) => {
       if (item.docs) {
@@ -272,11 +311,16 @@ export async function registryResolveItemsTree(
     })
 
     return registryResolvedItemsTreeSchema.parse({
-      dependencies: Array.from(new Set(payload.flatMap(item => item.dependencies ?? []))),
-      devDependencies: Array.from(new Set(payload.flatMap(item => item.devDependencies ?? []))),
+      dependencies: deepmerge.all(
+        payload.map(item => item.dependencies ?? []),
+      ),
+      devDependencies: deepmerge.all(
+        payload.map(item => item.devDependencies ?? []),
+      ),
       files: deepmerge.all(payload.map(item => item.files ?? [])),
       tailwind,
       cssVars,
+      css,
       docs,
     })
   }
@@ -457,6 +501,7 @@ export function getRegistryTypeAliasMap() {
     ['registry:ui', 'ui'],
     ['registry:lib', 'lib'],
     ['registry:hook', 'hooks'],
+    ['registry:composable', 'composable'],
     ['registry:block', 'components'],
     ['registry:component', 'components'],
   ])

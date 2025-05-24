@@ -1,17 +1,34 @@
-import { consola } from 'consola'
+import { z } from 'zod'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
 
 export function handleError(error: unknown) {
-  consola.log('this is error: ', error)
+  logger.error(
+    `Something went wrong. Please check the error below for more details.`,
+  )
+  logger.error(`If the problem persists, please open an issue on GitHub.`)
+  logger.error('')
   if (typeof error === 'string') {
-    consola.error(error)
+    logger.error(error)
+    logger.break()
+    process.exit(1)
+  }
+
+  if (error instanceof z.ZodError) {
+    logger.error('Validation failed:')
+    for (const [key, value] of Object.entries(error.flatten().fieldErrors)) {
+      logger.error(`- ${highlighter.info(key)}: ${value}`)
+    }
+    logger.break()
     process.exit(1)
   }
 
   if (error instanceof Error) {
-    consola.error(error.message)
+    logger.error(error.message)
+    logger.break()
     process.exit(1)
   }
 
-  consola.error('Something went wrong. Please try again.')
+  logger.break()
   process.exit(1)
 }

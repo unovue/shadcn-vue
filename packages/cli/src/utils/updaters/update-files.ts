@@ -280,16 +280,26 @@ export function resolveFilePath(
   file: z.infer<typeof registryItemFileSchema>,
   config: Config,
   options: {
+    isSrcDir?: boolean
     commonRoot?: string
     framework?: ProjectInfo['framework']['name']
   },
 ) {
   if (file.target) {
-    const target = file.target
-    if (target.startsWith('~/')) {
-      return path.join(config.resolvedPaths.cwd, target.replace('~/', ''))
+    if (file.target.startsWith('~/')) {
+      return path.join(config.resolvedPaths.cwd, file.target.replace('~/', ''))
     }
-    return path.join(config.resolvedPaths.cwd, target)
+
+    let target = file.target
+
+    if (file.type === 'registry:page') {
+      target = resolvePageTarget(target, options.framework)
+      if (!target) {
+        return ''
+      }
+    }
+
+    return options.isSrcDir ? path.join(config.resolvedPaths.cwd, 'src', target.replace('src/', '')) : path.join(config.resolvedPaths.cwd, target.replace('src/', ''))
   }
 
   const targetDir = resolveFileTargetDirectory(file, config)
@@ -314,7 +324,7 @@ function resolveFileTargetDirectory(
     return config.resolvedPaths.components
   }
 
-  if (file.type === 'registry:hook') {
+  if (file.type === 'registry:hook' || file.type === 'registry:composable') {
     return config.resolvedPaths.composables
   }
 
@@ -382,4 +392,26 @@ export function resolveNestedFilePath(
 
 export async function getNormalizedFileContent(content: string) {
   return content.replace(/\r\n/g, '\n').trim()
+}
+
+export function resolvePageTarget(
+  target: string,
+  framework?: ProjectInfo['framework']['name'],
+) {
+  if (!framework) {
+    return ''
+  }
+
+  if (framework === 'nuxt') {
+    return target
+  }
+
+  if (framework === 'laravel') {
+    let result = target.replace(/^app\//, 'resources/js/pages/')
+    result = result.replace(/\/page(\.[jt]sx?)$/, '$1')
+
+    return result
+  }
+
+  return ''
 }

@@ -1,8 +1,11 @@
 import type { CodemodPlugin } from 'vue-metamorph'
 import type { TransformOpts } from '.'
+import { getProjectTailwindVersionFromConfig, type TailwindVersion } from '../get-project-info'
 import { splitClassName } from './transform-css-vars'
 
-export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
+export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlugin> {
+  const tailwindVersion = await getProjectTailwindVersionFromConfig(opts.config)
+
   return {
     type: 'codemod',
     name: 'add prefix to tailwind classes',
@@ -24,7 +27,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
               nodes.forEach((node) => {
                 // cva(base, ...)
                 if (node.type === 'Literal' && typeof node.value === 'string') {
-                  node.value = applyPrefix(node.value, config.tailwind.prefix)
+                  node.value = applyPrefix(node.value, config.tailwind.prefix, tailwindVersion)
                   transformCount++
                 }
 
@@ -35,7 +38,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
                       const nodes = astHelpers.findAll(node, { type: 'Literal' })
                       nodes.forEach((node) => {
                         if (typeof node.value === 'string') {
-                          node.value = applyPrefix(node.value, config.tailwind.prefix)
+                          node.value = applyPrefix(node.value, config.tailwind.prefix, tailwindVersion)
                           transformCount++
                         }
                       })
@@ -58,7 +61,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
                   const nodes = astHelpers.findAll(node, { type: 'Literal' })
                   nodes.forEach((node) => {
                     if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '') && typeof node.value === 'string') {
-                      node.value = applyPrefix(node.value, config.tailwind.prefix)
+                      node.value = applyPrefix(node.value, config.tailwind.prefix, tailwindVersion)
                       transformCount++
                     }
                   })
@@ -68,7 +71,7 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
             // handle class attribute without binding
             else if (node.type === 'VLiteral' && typeof node.value === 'string') {
               if (CLASS_IDENTIFIER.includes(node.parent.key.name)) {
-                node.value = `"${applyPrefix(node.value.replace(/"/g, ''), config.tailwind.prefix)}"`
+                node.value = `"${applyPrefix(node.value.replace(/"/g, ''), config.tailwind.prefix, tailwindVersion)}"`
                 transformCount++
               }
             }
@@ -84,31 +87,42 @@ export function transformTwPrefix(opts: TransformOpts): CodemodPlugin {
   }
 }
 
-export function applyPrefix(input: string, prefix: string = '') {
-  const classNames = input.split(' ')
-  const prefixed: string[] = []
-  for (const className of classNames) {
-    const [variant, value, modifier] = splitClassName(className)
-    if (variant) {
-      modifier
-        ? prefixed.push(`${variant}:${prefix}${value}/${modifier}`)
-        : prefixed.push(`${variant}:${prefix}${value}`)
-    }
-    else {
-      modifier
-        ? prefixed.push(`${prefix}${value}/${modifier}`)
-        : prefixed.push(`${prefix}${value}`)
-    }
+export function applyPrefix(input: string, prefix: string = '', tailwindVersion: TailwindVersion) {
+  if (tailwindVersion === 'v3') {
+    return input
+      .split(' ')
+      .map((className) => {
+        const [variant, value, modifier] = splitClassName(className)
+        if (variant) {
+          return modifier
+            ? `${variant}:${prefix}${value}/${modifier}`
+            : `${variant}:${prefix}${value}`
+        }
+        else {
+          return modifier
+            ? `${prefix}${value}/${modifier}`
+            : `${prefix}${value}`
+        }
+      })
+      .join(' ')
   }
-  return prefixed.join(' ')
+
+  return input
+    .split(' ')
+    .map(className =>
+      className.indexOf(`${prefix}:`) === 0
+        ? className
+        : `${prefix}:${className.trim()}`,
+    )
+    .join(' ')
 }
 
-export function applyPrefixesCss(css: string, prefix: string) {
+export function applyPrefixesCss(css: string, prefix: string, tailwindVersion: TailwindVersion) {
   const lines = css.split('\n')
   for (const line of lines) {
     if (line.includes('@apply')) {
       const originalTWCls = line.replace('@apply', '').trim()
-      const prefixedTwCls = applyPrefix(originalTWCls, prefix)
+      const prefixedTwCls = applyPrefix(originalTWCls, prefix, tailwindVersion)
       css = css.replace(originalTWCls, prefixedTwCls)
     }
   }

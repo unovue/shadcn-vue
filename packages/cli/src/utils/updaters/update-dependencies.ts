@@ -8,6 +8,7 @@ export async function updateDependencies(
   config: Config,
   options: {
     silent?: boolean
+    dev?: boolean
   },
 ) {
   dependencies = Array.from(new Set(dependencies))
@@ -23,6 +24,6 @@ export async function updateDependencies(
   const dependenciesSpinner = spinner(`Installing dependencies.`, { silent: options.silent })?.start()
   dependenciesSpinner?.start()
 
-  await addDependency(dependencies, { cwd: config.resolvedPaths.cwd })
+  await addDependency(dependencies, { cwd: config.resolvedPaths.cwd, silent: true, dev: options?.dev })
   dependenciesSpinner?.succeed()
 }

@@ -1,10 +1,11 @@
+import type { registryItemTypeSchema } from '../registry'
 import { Command } from 'commander'
 import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
 import { runInit } from '@/src/commands/init'
 import { preFlightAdd } from '@/src/preflights/preflight-add'
-import { getRegistryIndex } from '@/src/registry/api'
+import { getRegistryIndex, getRegistryItem, isUrl } from '@/src/registry/api'
 import { addComponents } from '@/src/utils/add-components'
 import * as ERRORS from '@/src/utils/errors'
 import { getProjectInfo } from '@/src/utils/get-project-info'
@@ -61,6 +62,10 @@ export const add = new Command()
     'use the src directory when creating a new project.',
     false,
   )
+  .option(
+    '--no-src-dir',
+    'do not use the src directory when creating a new project.',
+  )
   .option('--css-variables', 'use css variables for theming.', true)
   .option('--no-css-variables', 'do not use css variables for theming.')
   .action(async (components, opts) => {
@@ -71,23 +76,31 @@ export const add = new Command()
         ...opts,
       })
 
-      // Confirm if user is installing themes.
-      // For now, we assume a theme is prefixed with "theme-".
-      const isTheme = options.components?.some(component =>
-        component.includes('theme-'),
-      )
-      if (!options.yes && isTheme) {
+      let itemType: z.infer<typeof registryItemTypeSchema> | undefined
+
+      if (components.length > 0 && isUrl(components[0])) {
+        const item = await getRegistryItem(components[0], '')
+        itemType = item?.type
+      }
+
+      if (
+        !options.yes
+        && (itemType === 'registry:style' || itemType === 'registry:theme')
+      ) {
         logger.break()
         const { confirm } = await prompts({
           type: 'confirm',
           name: 'confirm',
           message: highlighter.warn(
-            'You are about to install a new theme. \nExisting CSS variables will be overwritten. Continue?',
+            `You are about to install a new ${itemType.replace(
+              'registry:',
+              '',
+            )}. \nExisting CSS variables and components will be overwritten. Continue?`,
           ),
         })
         if (!confirm) {
           logger.break()
-          logger.log('Theme installation cancelled.')
+          logger.log(`Installation cancelled.`)
           logger.break()
           process.exit(1)
         }
@@ -145,29 +158,7 @@ export const add = new Command()
         })
       }
 
-      // if (errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
-      //   const { projectPath } = await createProject({
-      //     cwd: options.cwd,
-      //     force: options.overwrite,
-      //     srcDir: options.srcDir,
-      //   })
-      //   if (!projectPath) {
-      //     logger.break()
-      //     process.exit(1)
-      //   }
-      //   options.cwd = projectPath
-
-      //   config = await runInit({
-      //     cwd: options.cwd,
-      //     yes: true,
-      //     force: true,
-      //     defaults: false,
-      //     skipPreflight: true,
-      //     silent: true,
-      //     isNewProject: true,
-      //     srcDir: options.srcDir,
-      //   })
-      // }
+      // createProject
 
       if (!config) {
         throw new Error(
@@ -187,6 +178,8 @@ async function promptForRegistryComponents(
   options: z.infer<typeof addOptionsSchema>,
 ) {
   const registryIndex = await getRegistryIndex()
+
+  console.log(registryIndex)
   if (!registryIndex) {
     logger.break()
     handleError(new Error('Failed to fetch registry index.'))

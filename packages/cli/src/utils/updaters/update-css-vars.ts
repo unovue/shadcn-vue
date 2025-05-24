@@ -7,7 +7,7 @@ import type {
 import type { Config } from '@/src/utils/get-config'
 import type { TailwindVersion } from '@/src/utils/get-project-info'
 import { promises as fs } from 'node:fs'
-import path from 'node:path'
+import path from 'pathe'
 import postcss from 'postcss'
 import AtRule from 'postcss/lib/at-rule'
 import { z } from 'zod'
