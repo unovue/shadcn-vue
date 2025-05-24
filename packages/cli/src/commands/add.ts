@@ -57,15 +57,15 @@ export const add = new Command()
   .option('-a, --all', 'add all available components', false)
   .option('-p, --path <path>', 'the path to add the component to.')
   .option('-s, --silent', 'mute output.', false)
-  .option(
-    '--src-dir',
-    'use the src directory when creating a new project.',
-    false,
-  )
-  .option(
-    '--no-src-dir',
-    'do not use the src directory when creating a new project.',
-  )
+  // .option(
+  //   '--src-dir',
+  //   'use the src directory when creating a new project.',
+  //   false,
+  // )
+  // .option(
+  //   '--no-src-dir',
+  //   'do not use the src directory when creating a new project.',
+  // )
   .option('--css-variables', 'use css variables for theming.', true)
   .option('--no-css-variables', 'do not use css variables for theming.')
   .action(async (components, opts) => {
@@ -179,7 +179,6 @@ async function promptForRegistryComponents(
 ) {
   const registryIndex = await getRegistryIndex()
 
-  console.log(registryIndex)
   if (!registryIndex) {
     logger.break()
     handleError(new Error('Failed to fetch registry index.'))
