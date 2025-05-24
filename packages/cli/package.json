@@ -89,7 +89,7 @@
     "@types/prompts": "^2.4.9",
     "@types/stringify-object": "^4.0.5",
     "msw": "^2.8.4",
-    "tsdown": "^0.12.2",
+    "tsdown": "^0.12.3",
     "type-fest": "^4.41.0",
     "typescript": "catalog:"
   }
