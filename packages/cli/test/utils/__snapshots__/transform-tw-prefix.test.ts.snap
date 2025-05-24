@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`transform tailwind prefix 1`] = `
-"import { cva } from 'class-variance-authority'
-export { default as Button } from './Button.vue'
-export type { ButtonType } from './Button.vue'
+"import { cva } from "class-variance-authority"
+export { default as Button } from "./Button.vue"
+export type { ButtonType } from "./Button.vue"
 
 export const testVariants = cva(
   'tw-bg-background hover:tw-bg-muted tw-text-primary-foreground sm:focus:tw-text-accent-foreground',
@@ -151,10 +151,10 @@ exports[`transform tailwind prefix 5`] = `
  
 @layer base {
   * {
-    @apply tw-border-border;
+    @apply tw-:border-border;
   }
   body {
-    @apply tw-bg-background tw-text-foreground;
+    @apply tw-:bg-background tw-:text-foreground;
   }
 }"
 `;
@@ -232,10 +232,10 @@ exports[`transform tailwind prefix 6`] = `
  
 @layer base {
   * {
-    @apply tw-border-border;
+    @apply tw-:border-border;
   }
   body {
-    @apply tw-bg-background tw-text-foreground;
+    @apply tw-:bg-background tw-:text-foreground;
   }
 }"
 `;

@@ -2,8 +2,8 @@
 
 exports[`transformIcons > does not transform lucide icons 1`] = `
 "<script setup>
-import { Check } from 'lucide-vue-next';
-import { Primitive } from 'reka-ui';
+import { Check } from "lucide-vue-next";
+import { Primitive } from "reka-ui";
 </script>
 
 <template>
@@ -15,8 +15,8 @@ import { Primitive } from 'reka-ui';
 
 exports[`transformIcons > does nothing 1`] = `
 "<script setup>
-import { Check } from 'lucide-vue-next';
-import { Primitive } from 'reka-ui';
+import { Check } from "lucide-vue-next";
+import { Primitive } from "reka-ui";
 </script>
 
 <template>
@@ -29,7 +29,7 @@ import { Primitive } from 'reka-ui';
 exports[`transformIcons > transforms radix icons 1`] = `
 "<script setup>
 import { CheckIcon } from '@radix-icons/vue';
-import { Primitive } from 'reka-ui';
+import { Primitive } from "reka-ui";
 </script>
 
 <template>

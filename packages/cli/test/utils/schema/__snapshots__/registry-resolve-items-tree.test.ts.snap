@@ -2,6 +2,7 @@
 
 exports[`registryResolveItemTree > should resolve index 1`] = `
 {
+  "css": {},
   "cssVars": {
     "dark": {},
     "light": {
@@ -102,6 +103,7 @@ const delegatedProps = reactiveOmit(props, 'class')
 
 exports[`registryResolveItemTree > should resolve items tree 1`] = `
 {
+  "css": {},
   "cssVars": {},
   "dependencies": [
     "reka-ui",
@@ -189,8 +191,13 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>
 
 exports[`registryResolveItemTree > should resolve multiple items tree 1`] = `
 {
+  "css": {},
   "cssVars": {},
   "dependencies": [
+    "reka-ui",
+    "@vueuse/core",
+    "reka-ui",
+    "@vueuse/core",
     "reka-ui",
     "@vueuse/core",
   ],
