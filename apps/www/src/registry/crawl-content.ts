@@ -1,7 +1,7 @@
 import type { RegistryStyle } from './registry-styles'
 import type { Registry, RegistryFiles } from './schema'
 import { readdir, readFile } from 'node:fs/promises'
-import { parseSync } from '@oxc-parser/wasm'
+import { parseSync } from 'oxc-parser'
 import { join, resolve } from 'pathe'
 import { compileScript, parse, walk } from 'vue/compiler-sfc'
 import { styles } from './registry-styles'
@@ -330,9 +330,8 @@ async function getFileDependencies(filename: string, sourceCode: string) {
   }
 
   if (filename.endsWith('.ts')) {
-    const ast = parseSync(sourceCode, {
+    const ast = parseSync(filename, sourceCode, {
       sourceType: 'module',
-      sourceFilename: filename,
     })
 
     const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)

@@ -7,7 +7,7 @@ import type {
 // @sts-nocheck
 import { existsSync, promises as fs } from 'node:fs'
 import path from 'node:path'
-import { template } from 'lodash-es'
+import { template } from 'es-toolkit/compat'
 import { rimraf } from 'rimraf'
 
 import { registry } from '../src/registry'

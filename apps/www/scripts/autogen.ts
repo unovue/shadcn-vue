@@ -2,9 +2,9 @@ import type { ComponentMeta, MetaCheckerOptions, PropertyMeta, PropertyMetaSchem
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join, parse, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import fg from 'fast-glob'
 import MarkdownIt from 'markdown-it'
-import { createComponentMetaChecker } from 'vue-component-meta'
+import { globSync } from 'tinyglobby'
+import { createChecker } from 'vue-component-meta'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
@@ -18,12 +18,12 @@ const checkerOptions: MetaCheckerOptions = {
   printer: { newLine: 1 },
 }
 
-const tsconfigChecker = createComponentMetaChecker(
+const tsconfigChecker = createChecker(
   resolve(__dirname, ROOTPATH, 'tsconfig.registry.json'),
   checkerOptions,
 )
 
-const components = fg.sync(['chart/**/*.vue', 'chart*/**/*.vue'], {
+const components = globSync(['chart/**/*.vue', 'chart*/**/*.vue'], {
   cwd: resolve(__dirname, ROOTPATH, 'registry/default/ui/'),
   absolute: true,
 })
