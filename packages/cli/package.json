@@ -76,7 +76,7 @@
     "stringify-object": "^5.0.0",
     "tailwindcss": "^4.1.7",
     "tinyexec": "^1.0.1",
-    "tinyglobby": "^0.2.13",
+    "tinyglobby": "catalog:",
     "ts-morph": "^26.0.0",
     "undici": "^7.10.0",
     "vue-metamorph": "^3.3.3",

@@ -12,6 +12,9 @@ catalogs:
     reka-ui:
       specifier: ^2.2.1
       version: 2.2.1
+    tinyglobby:
+      specifier: ^0.2.14
+      version: 0.2.14
     typescript:
       specifier: ^5.8.3
       version: 5.8.3
@@ -290,7 +293,7 @@ importers:
         specifier: ^3.4.17
         version: 3.4.17
       tinyglobby:
-        specifier: ^0.2.14
+        specifier: 'catalog:'
         version: 0.2.14
       tsx:
         specifier: ^4.19.4
@@ -377,8 +380,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       tinyglobby:
-        specifier: ^0.2.13
-        version: 0.2.13
+        specifier: 'catalog:'
+        version: 0.2.14
       ts-morph:
         specifier: ^26.0.0
         version: 26.0.0
@@ -20448,7 +20451,7 @@ snapshots:
       rolldown-plugin-dts: 0.13.4(rolldown@1.0.0-beta.9-commit.d91dfb5)(typescript@5.8.3)(vue-tsc@2.2.10(typescript@5.8.3))
       semver: 7.7.2
       tinyexec: 1.0.1
-      tinyglobby: 0.2.13
+      tinyglobby: 0.2.14
       unconfig: 7.3.2
     optionalDependencies:
       typescript: 5.8.3

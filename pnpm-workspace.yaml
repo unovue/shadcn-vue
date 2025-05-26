@@ -4,5 +4,6 @@ packages:
 catalog:
   oxc-parser: ^0.72.0
   reka-ui: ^2.2.1
+  tinyglobby: ^0.2.14
   typescript: ^5.8.3
   zod: ^3.25.28
