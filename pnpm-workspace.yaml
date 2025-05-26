@@ -2,7 +2,7 @@ packages:
   - apps/*
   - packages/*
 catalog:
-  '@oxc-parser/wasm': ^0.60.0
+  oxc-parser: ^0.72.0
   reka-ui: ^2.2.1
   typescript: ^5.8.3
   zod: ^3.25.28

@@ -1,7 +1,7 @@
-import { readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { parseSync } from '@oxc-parser/wasm'
+import { parseSync } from 'oxc-parser'
 
 // TODO: add test to make sure all registry is being parse correctly
 // Module options TypeScript interface definition
@@ -37,6 +37,12 @@ export default defineNuxtModule<ModuleOptions>({
     // Components Auto Imports
     const componentsPath = await resolvePath(COMPONENT_DIR_PATH)
 
+    // Early return if directory doesn't exist
+    if (!existsSync(componentsPath)) {
+      console.warn(`Component directory does not exist: ${componentsPath}`)
+      return
+    }
+
     // Tell Nuxt to not scan `componentsDir` for auto imports as we will do it manually
     // See https://github.com/unovue/shadcn-vue/pull/528#discussion_r1590206268
     nuxt.hook('components:dirs', (dirs) => {
@@ -53,15 +59,14 @@ export default defineNuxtModule<ModuleOptions>({
           try {
             const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
             const content = readFileSync(filePath, { encoding: 'utf8' })
-            const ast = parseSync(content, {
+            const ast = parseSync(filePath, content, {
               sourceType: 'module',
-              sourceFilename: filePath,
             })
 
             const exportedKeys: string[] = ast.program.body
               .filter(node => node.type === 'ExportNamedDeclaration')
               // @ts-expect-error parse return any
-              .flatMap(node => node.specifiers.map(specifier => specifier.exported.name))
+              .flatMap(node => node.specifiers?.map(specifier => specifier.exported?.name) || [])
               .filter((key: string) => /^[A-Z]/.test(key))
 
             exportedKeys.forEach((key) => {
