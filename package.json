@@ -33,17 +33,17 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.13.1",
+    "@antfu/eslint-config": "^4.13.2",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@vitest/ui": "^2.1.9",
+    "@vitest/ui": "^3.1.4",
     "bumpp": "^10.1.1",
     "eslint": "^9.27.0",
     "lint-staged": "^16.0.0",
     "simple-git-hooks": "^2.13.0",
     "taze": "^19.1.0",
     "typescript": "catalog:",
-    "vitest": "^2.1.9"
+    "vitest": "^3.1.4"
   },
   "commitlint": {
     "extends": [
@@ -52,9 +52,14 @@
   },
   "pnpm": {
     "overrides": {
+      "deep-equal": "npm:@nolyfill/deep-equal@^1.0.44",
       "hasown": "npm:@nolyfill/hasown@^1.0.44",
       "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
+      "is-generator-function": "npm:@nolyfill/is-generator-function@^1.0.44",
       "isarray": "npm:@nolyfill/isarray@^1.0.44",
+      "safe-buffer": "npm:@nolyfill/safe-buffer@^1.0.44",
+      "safer-buffer": "npm:@nolyfill/safer-buffer@^1.0.44",
+      "side-channel": "npm:@nolyfill/side-channel@^1.0.44",
       "typedarray": "npm:@nolyfill/typedarray@^1.0.44"
     }
   },

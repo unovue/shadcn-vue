@@ -69,7 +69,7 @@
     "nypm": "^0.6.0",
     "ofetch": "^1.4.1",
     "ora": "^8.2.0",
-    "pathe": "^2.0.3",
+    "pathe": "catalog:",
     "postcss": "^8.5.3",
     "prompts": "^2.4.2",
     "reka-ui": "catalog:",

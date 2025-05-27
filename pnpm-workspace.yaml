@@ -2,8 +2,19 @@ packages:
   - apps/*
   - packages/*
 catalog:
+  '@internationalized/date': ^3.8.1
+  '@vee-validate/zod': ^4.15.0
+  '@vueuse/core': ^13.2.0
+  class-variance-authority: ^0.7.1
+  clsx: ^2.1.1
+  date-fns: ^4.1.0
   oxc-parser: ^0.72.0
+  pathe: ^2.0.3
   reka-ui: ^2.2.1
   tinyglobby: ^0.2.14
   typescript: ^5.8.3
-  zod: ^3.25.28
+  vaul-vue: ^0.4.1
+  vee-validate: ^4.15.0
+  vue: ^3.5.15
+  vue-sonner: ^2.0.0
+  zod: ^3.25.30
