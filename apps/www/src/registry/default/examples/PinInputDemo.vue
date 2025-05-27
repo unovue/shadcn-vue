@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import {
   PinInput,
   PinInputGroup,
-  PinInputInput,
+  PinInputSlot,
 } from '@/registry/default/ui/pin-input'
 
 const value = ref<string[]>([])
@@ -19,7 +19,7 @@ const handleComplete = (e: string[]) => alert(e.join(''))
       @complete="handleComplete"
     >
       <PinInputGroup>
-        <PinInputInput
+        <PinInputSlot
           v-for="(id, index) in 5"
           :key="id"
           :index="index"

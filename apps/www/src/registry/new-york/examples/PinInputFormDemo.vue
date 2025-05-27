@@ -15,7 +15,7 @@ import {
 import {
   PinInput,
   PinInputGroup,
-  PinInputInput,
+  PinInputSlot,
 } from '@/registry/new-york/ui/pin-input'
 import { toast } from '@/registry/new-york/ui/toast'
 
@@ -56,11 +56,11 @@ const handleComplete = (e: string[]) => console.log(e.join(''))
             :name="componentField.name"
             @complete="handleComplete"
             @update:model-value="(arrStr) => {
-              setFieldValue('pin', arrStr.filter(Boolean))
+              setFieldValue('pin', arrStr)
             }"
           >
             <PinInputGroup>
-              <PinInputInput
+              <PinInputSlot
                 v-for="(id, index) in 5"
                 :key="id"
                 :index="index"

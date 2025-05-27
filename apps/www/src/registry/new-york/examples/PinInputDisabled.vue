@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import {
   PinInput,
   PinInputGroup,
-  PinInputInput,
+  PinInputSlot,
 } from '@/registry/new-york/ui/pin-input'
 
 const value = ref<string[]>([])
@@ -18,7 +18,7 @@ const value = ref<string[]>([])
       disabled
     >
       <PinInputGroup>
-        <PinInputInput
+        <PinInputSlot
           v-for="(id, index) in 5"
           :key="id"
           :index="index"
