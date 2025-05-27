@@ -1300,11 +1300,11 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/new-york/ui/pin-input/PinInputInput.vue",
+        path: "registry/new-york/ui/pin-input/PinInputSeparator.vue",
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/new-york/ui/pin-input/PinInputSeparator.vue",
+        path: "registry/new-york/ui/pin-input/PinInputSlot.vue",
         type: "registry:ui",
         target: ""
       },{
@@ -7250,11 +7250,11 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/default/ui/pin-input/PinInputInput.vue",
+        path: "registry/default/ui/pin-input/PinInputSeparator.vue",
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/default/ui/pin-input/PinInputSeparator.vue",
+        path: "registry/default/ui/pin-input/PinInputSlot.vue",
         type: "registry:ui",
         target: ""
       },{

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/PinInputDisabled.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputInput,\n} from '@/registry/default/ui/pin-input'\n\nconst value = ref<string[]>([])\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      disabled\n    >\n      <PinInputGroup>\n        <PinInputInput\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n          :index=\"index\"\n        />\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport {\n  PinInput,\n  PinInputGroup,\n  PinInputSlot,\n} from '@/registry/default/ui/pin-input'\n\nconst value = ref<string[]>([])\n</script>\n\n<template>\n  <div>\n    <PinInput\n      id=\"pin-input\"\n      v-model=\"value\"\n      placeholder=\"○\"\n      disabled\n    >\n      <PinInputGroup>\n        <PinInputSlot\n          v-for=\"(id, index) in 5\"\n          :key=\"id\"\n          :index=\"index\"\n        />\n      </PinInputGroup>\n    </PinInput>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

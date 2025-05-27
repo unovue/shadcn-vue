@@ -23,7 +23,7 @@
     },
     {
       "path": "ui/command/CommandEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { useCommand } from '.'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst { filterState } = useCommand()\nconst isRender = computed(() => !!filterState.search && filterState.filtered.count === 0,\n)\n</script>\n\n<template>\n  <Primitive\n    v-if=\"isRender\"\n    data-slot=\"command-empty\"\n    v-bind=\"delegatedProps\" :class=\"cn('py-6 text-center text-sm', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Primitive } from 'reka-ui'\nimport { computed, type HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { useCommand } from '.'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst { filterState } = useCommand()\nconst isRender = computed(() => !!filterState.search && filterState.filtered.count === 0,\n)\n</script>\n\n<template>\n  <Primitive\n    v-if=\"isRender\"\n    data-slot=\"command-empty\"\n    v-bind=\"delegatedProps\" :class=\"cn('py-6 text-center text-sm', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

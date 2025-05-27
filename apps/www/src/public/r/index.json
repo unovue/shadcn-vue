@@ -1316,11 +1316,11 @@
         "type": "registry:ui"
       },
       {
-        "path": "ui/pin-input/PinInputInput.vue",
+        "path": "ui/pin-input/PinInputSeparator.vue",
         "type": "registry:ui"
       },
       {
-        "path": "ui/pin-input/PinInputSeparator.vue",
+        "path": "ui/pin-input/PinInputSlot.vue",
         "type": "registry:ui"
       },
       {
@@ -3448,11 +3448,11 @@
         "type": "registry:ui"
       },
       {
-        "path": "ui/pin-input/PinInputInput.vue",
+        "path": "ui/pin-input/PinInputSeparator.vue",
         "type": "registry:ui"
       },
       {
-        "path": "ui/pin-input/PinInputSeparator.vue",
+        "path": "ui/pin-input/PinInputSlot.vue",
         "type": "registry:ui"
       },
       {

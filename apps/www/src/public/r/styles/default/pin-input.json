@@ -20,20 +20,20 @@
       "target": ""
     },
     {
-      "path": "ui/pin-input/PinInputInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PinInputInput v-bind=\"forwardedProps\" :class=\"cn('relative text-center focus:outline-none focus:ring-2 focus:ring-ring focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', props.class)\" />\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
       "path": "ui/pin-input/PinInputSeparator.vue",
       "content": "<script setup lang=\"ts\">\nimport { Dot } from 'lucide-vue-next'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<PrimitiveProps>()\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive v-bind=\"forwardedProps\">\n    <slot>\n      <Dot />\n    </slot>\n  </Primitive>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
+      "path": "ui/pin-input/PinInputSlot.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PinInputInput v-bind=\"forwardedProps\" :class=\"cn('relative text-center focus:outline-none focus:ring-2 focus:ring-ring focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', props.class)\" />\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/pin-input/index.ts",
-      "content": "export { default as PinInput } from './PinInput.vue'\nexport { default as PinInputGroup } from './PinInputGroup.vue'\nexport { default as PinInputInput } from './PinInputInput.vue'\nexport { default as PinInputSeparator } from './PinInputSeparator.vue'\n",
+      "content": "export { default as PinInput } from './PinInput.vue'\nexport { default as PinInputGroup } from './PinInputGroup.vue'\nexport { default as PinInputSeparator } from './PinInputSeparator.vue'\nexport { default as PinInputSlot } from './PinInputSlot.vue'\n",
       "type": "registry:ui",
       "target": ""
     }
