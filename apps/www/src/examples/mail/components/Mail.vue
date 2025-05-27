@@ -20,7 +20,7 @@ import { TooltipProvider } from '@/registry/new-york/ui/tooltip'
 import AccountSwitcher from './AccountSwitcher.vue'
 import MailDisplay from './MailDisplay.vue'
 import MailList from './MailList.vue'
-import Nav from './Nav.vue'
+import Nav, { type LinkProp } from './Nav.vue'
 
 interface MailProps {
   accounts: {

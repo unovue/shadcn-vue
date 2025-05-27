@@ -75,7 +75,7 @@ const onSubmit = handleSubmit((values) => {
           <PopoverContent class="w-auto p-0">
             <Calendar
               v-model:placeholder="placeholder"
-              v-model="value"
+              :model-value="value"
               calendar-label="Date of birth"
               initial-focus
               :min-value="new CalendarDate(1900, 1, 1)"

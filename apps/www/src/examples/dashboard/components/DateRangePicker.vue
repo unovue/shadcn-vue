@@ -3,7 +3,7 @@ import type { DateRange } from 'reka-ui'
 import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
 
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york/ui/button'
 import {

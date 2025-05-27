@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Icon } from 'lucide-vue-next'
 import {
   ArrowUpCircle,
   CheckCircle2,
@@ -7,7 +6,7 @@ import {
   HelpCircle,
   XCircle,
 } from 'lucide-vue-next'
-import { ref } from 'vue'
+import { type Component, ref } from 'vue'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/default/ui/button'
@@ -28,7 +27,7 @@ import {
 interface Status {
   value: string
   label: string
-  icon: Icon
+  icon: Component
 }
 
 const statuses: Status[] = [

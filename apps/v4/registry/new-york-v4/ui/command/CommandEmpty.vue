@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { PrimitiveProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
 import { Primitive } from 'reka-ui'
+import { computed, type HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { useCommand } from '.'
 

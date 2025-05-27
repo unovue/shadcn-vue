@@ -1,3 +1,4 @@
+import type { Theme } from 'vitepress'
 import * as components from './components'
 import DocsLayout from './layout/DocsLayout.vue'
 import ExamplesLayout from './layout/ExamplesLayout.vue'
@@ -16,6 +17,6 @@ export default {
     app.component('examples', ExamplesLayout)
 
     for (const component of Object.keys(components))
-      app.component(component, components[component])
+      app.component(component, (components as any)[component])
   },
-}
+} satisfies Theme

@@ -2,6 +2,7 @@ import type { ComponentMeta, MetaCheckerOptions, PropertyMeta, PropertyMetaSchem
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join, parse, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+// @ts-expect-error no types
 import MarkdownIt from 'markdown-it'
 import { globSync } from 'tinyglobby'
 import { createChecker } from 'vue-component-meta'

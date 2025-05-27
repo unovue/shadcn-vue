@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 import type { Mail } from '../data/mails'
-import addDays from 'date-fns/addDays'
-import addHours from 'date-fns/addHours'
-import format from 'date-fns/format'
-import nextSaturday from 'date-fns/nextSaturday'
+import { addDays, addHours, format, nextSaturday } from 'date-fns'
 import { Archive, ArchiveX, Clock, Forward, MoreVertical, Reply, ReplyAll, Trash2 } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { Avatar, AvatarFallback } from '@/registry/new-york/ui/avatar'

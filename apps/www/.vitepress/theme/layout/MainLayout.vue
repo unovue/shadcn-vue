@@ -24,7 +24,7 @@ import Logo from '../components/Logo.vue'
 import MobileNav from '../components/MobileNav.vue'
 
 import ThemePopover from '../components/ThemePopover.vue'
-import { docsConfig } from '../config/docs'
+import { docsConfig, type NavItem } from '../config/docs'
 import 'vue-sonner/style.css'
 
 const { radius, theme } = useConfigStore()
