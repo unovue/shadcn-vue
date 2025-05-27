@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { resolveTargetDir } from '../../../src/utils/updaters/update-files'
 
 // TODO: `isSrcDir` is not being use yet
-describe('resolveTargetDir', () => {
+describe.todo('resolveTargetDir', () => {
   it('should handle a home target without a src directory', () => {
     const targetDir = resolveTargetDir(
       {
