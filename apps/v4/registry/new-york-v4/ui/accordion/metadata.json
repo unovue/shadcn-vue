@@ -10,10 +10,10 @@
     },
     "@keyframes accordion-up": {
       "from": {
-        "height": "0"
+        "height": "var(--reka-accordion-content-height)"
       },
       "to": {
-        "height": "var(--reka-accordion-content-height)"
+        "height": "0"
       }
     }
   },
