@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyLead.vue",
-      "content": "<template>\r\n  <p class=\"text-xl text-muted-foreground\">\r\n    A modal dialog that interrupts the user with important content and expects a\r\n    response.\r\n  </p>\r\n</template>\r\n",
+      "content": "<template>\n  <p class=\"text-xl text-muted-foreground\">\n    A modal dialog that interrupts the user with important content and expects a\n    response.\n  </p>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }
