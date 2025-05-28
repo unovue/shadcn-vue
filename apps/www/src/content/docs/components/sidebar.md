@@ -311,7 +311,7 @@ export const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 ### Persisted State
 
-The `SidebarProvider` supports persisting the sidebar state across page reloads and server-side rendering. It uses cookies to store the current state of the sidebar. When the sidebar state changes, a default cookie named `sidebar:state` is set with the current open/closed state. This cookie is then read on subsequent page loads to restore the sidebar state.
+The `SidebarProvider` supports persisting the sidebar state across page reloads and server-side rendering. It uses cookies to store the current state of the sidebar. When the sidebar state changes, a default cookie named `sidebar_state` is set with the current open/closed state. This cookie is then read on subsequent page loads to restore the sidebar state.
 
 To persist sidebar state in SSR, set up your `SidebarProvider` in `App.vue` like this:
 
@@ -321,7 +321,7 @@ To persist sidebar state in SSR, set up your `SidebarProvider` in `App.vue` like
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import AppSidebar from "@/components/AppSidebar.vue"
 
-const defaultOpen = useCookie<boolean>("sidebar:state");
+const defaultOpen = useCookie<boolean>("sidebar_state");
 </script>
 
 <template>
@@ -339,7 +339,7 @@ const defaultOpen = useCookie<boolean>("sidebar:state");
 You can change the name of the cookie by updating the `SIDEBAR_COOKIE_NAME` variable in `sidebar/utils.ts`.
 
 ```ts:line-numbers title="@/components/ui/sidebar/utils.ts"
-export const SIDEBAR_COOKIE_NAME = "sidebar:state"
+export const SIDEBAR_COOKIE_NAME = "sidebar_state"
 ```
 
 ## Sidebar
