@@ -22,11 +22,11 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
               path.node.source.value = updatedImport
 
               // Replace `import { cn } from "@/lib/utils"`
-              if (updatedImport === utilsImport) {
+              if (sourcePath === utilsImport) {
                 const namedImports = path.node.specifiers?.map(node => node.local?.name ?? '') ?? []
                 const cnImport = namedImports.find(i => i === 'cn')
                 if (cnImport) {
-                  path.node.source.value = updatedImport === utilsImport ? sourcePath.replace(utilsImport, config.aliases.utils) : config.aliases.utils
+                  path.node.source.value = config.aliases.utils
                 }
               }
             }
