@@ -1,15 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`transform cn import based on components.json config 1`] = `
-"import { Foo } from "bar"
-import { Button } from "@/components/ui/button"
-import { Label} from "ui/label"
-import { Box } from '@/components/box'
-
-import { cn } from '~/utils/cn'
-"
-`;
-
 exports[`transform import 1`] = `
 "import { Foo } from "bar"
 import { Button } from '@/components/ui/button'
@@ -83,5 +73,15 @@ import Layout from '@custom-alias/components/layout/Layout.vue'
 
 
 import { cn } from '@custom-alias/lib/utils'
+"
+`;
+
+exports[`transform import 8`] = `
+"import { Foo } from "bar"
+import { Button } from "@/components/ui/button"
+import { Label} from "ui/label"
+import { Box } from '@/components/box'
+
+import { cn } from '~/utils/cn'
 "
 `;

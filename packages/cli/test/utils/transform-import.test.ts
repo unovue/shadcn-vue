@@ -161,9 +161,7 @@ it('transform import', async () => {
       },
     }),
   ).toMatchSnapshot()
-})
 
-it('transform cn import based on components.json config', async () => {
   expect(
     await transform({
       filename: 'app.ts',
