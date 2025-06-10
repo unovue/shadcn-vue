@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/fonts'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content'],
   vite: {
     plugins: [
       tailwindcss(),

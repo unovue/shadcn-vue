@@ -2,7 +2,5 @@
 </script>
 
 <template>
-  <div>
-    form
-  </div>
+  <slot />
 </template>

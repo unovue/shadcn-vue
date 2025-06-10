@@ -1,9 +1,9 @@
-import { isClient, watchImmediate } from '@vueuse/core'
+import { createSharedComposable, isClient, watchImmediate } from '@vueuse/core'
 
 const COOKIE_NAME = 'active_theme'
 const DEFAULT_THEME = 'default'
 
-export function useThemeConfig() {
+export const useThemeConfig = createSharedComposable(() => {
   const activeTheme = useCookie<string>(COOKIE_NAME, { default: () => DEFAULT_THEME, path: '/', maxAge: 31536000, sameSite: 'lax' })
 
   watchImmediate(activeTheme, () => {
@@ -24,4 +24,4 @@ export function useThemeConfig() {
   return {
     activeTheme,
   }
-}
+})
