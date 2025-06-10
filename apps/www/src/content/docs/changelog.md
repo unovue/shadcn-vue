@@ -13,7 +13,7 @@ This is a major step towards distributing code that you and your LLMs can access
 
 <Callout icon="⚠️">
 
-With the released of [Reka UI v2](https://reka-ui.com/), `shadcn-vue@latest` command will now install Reka UI. If you want to keep using [Radix Vue](https://radix-vue.com/), please visit [here](https://radix.shadcn-vue.com/) and run `shadcn-vue@radix` command instead.
+With the released of [Reka UI v2](https://reka-ui.com/), `shadcn-vue@latest` command will now install Reka UI. If you want to keep using [Radix Vue](https://radix-vue.com/), please visit [here](https://radix.shadcn-vue.com/) and run `shadcn-vue@radix` command instead. To continue using the CLI, you will also need to update previous `$schema` value in your configuration to point to `https://radix.shadcn-vue.com/schema.json`.
 
 </Callout>
 

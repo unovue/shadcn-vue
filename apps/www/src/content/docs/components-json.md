@@ -32,6 +32,8 @@ You can see the JSON Schema for `components.json` [here](https://shadcn-vue.com/
 }
 ```
 
+For the `shadcn-vue@radix` tag, the schema is located [here](https://radix.shadcn-vue.com/schema.json). See the [Changelog](/docs/changelog) for details.
+
 ## style
 
 The style for your components. **This cannot be changed after initialization.**
