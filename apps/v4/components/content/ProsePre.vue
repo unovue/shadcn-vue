@@ -42,14 +42,13 @@ const highlighted = highlighter.highlight(props.code.trimEnd(), { lang: lang.val
   <figure data-pretty-code-figure>
     <pre v-if="isNpmCommand" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><NpmCommand :code /></pre>
 
-    <!-- somehow we need this line to prevent vue component update error -->
-    <figure v-else-if="title">
+    <template v-else-if="title">
       <figcaption data-pretty-code-title :data-language="lang" class="text-code-foreground [&_svg]:text-code-foreground flex items-center gap-2 [&_svg]:size-4 [&_svg]:opacity-70">
         <component :is="IconExtension" v-if="IconExtension" />
         {{ title }}
       </figcaption>
       <pre :data-language="lang" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CopyButton :value="code" /><code v-html="highlighted" /></pre>
-    </figure>
+    </template>
 
     <pre v-else :data-language="lang" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CopyButton :value="code" /><code v-html="highlighted" /></pre>
   </figure>

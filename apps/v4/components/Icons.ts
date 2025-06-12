@@ -311,15 +311,15 @@ export function getIconForLanguageExtension(language: string) {
     case 'json':
       return Icons.json
     case 'css':
-      return h(Icons.css, { class: 'fill-foreground' })
+      return Icons.css
     case 'js':
     case 'jsx':
     case 'ts':
     case 'tsx':
     case 'typescript':
-      return h(Icons.ts, { class: 'fill-foreground' })
+      return Icons.ts
     case 'vue':
-      return h(Icons.vue, { class: '' })
+      return Icons.vue
     default:
       return FileIcon
   }

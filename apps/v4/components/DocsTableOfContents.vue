@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
 })
 
 const open = ref(false)
-const route = toRefs(useRoute())
+const { path } = toRefs(useRoute())
 
 const activeHeading = ref('')
 </script>
@@ -48,7 +48,7 @@ const activeHeading = ref('')
         class="data-[depth=3]:pl-6 data-[depth=4]:pl-8"
         @click="open = true"
       >
-        <a :href="`${route.path}#${item.id}`">{{ item.text }}</a>
+        <a :href="`${path}#${item.id}`">{{ item.text }}</a>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
@@ -60,7 +60,7 @@ const activeHeading = ref('')
     <a
       v-for="item in toc.links"
       :key="item.id"
-      :href="`${route.path}#${item.id}`"
+      :href="`${path}#${item.id}`"
       class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
       :data-active="item.text === `#${activeHeading}`"
       :data-depth="item.depth"
