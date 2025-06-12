@@ -13,7 +13,7 @@ const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('content').path(route.path).first()
 })
 
-const { data: neighbours } = await useAsyncData('surround', () => {
+const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => {
   return queryCollectionItemSurroundings('content', route.path)
 })
 </script>

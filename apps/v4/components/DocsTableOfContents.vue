@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
 })
 
 const open = ref(false)
-const route = useRoute()
+const route = toRefs(useRoute())
 
 const activeHeading = ref('')
 </script>

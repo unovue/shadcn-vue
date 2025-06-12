@@ -1,11 +1,7 @@
 <script setup lang="ts">
-// import { source } from '@/lib/source'
 import { SidebarProvider } from '@/registry/new-york-v4/ui/sidebar'
 
-const { data } = await useAsyncData('navigation', () => {
-  return queryCollectionNavigation('content')
-})
-
+const { data } = await useNavigation()
 const docData = computed(() => data.value!.find(i => i.stem === 'docs')!)
 </script>
 

@@ -1,14 +1,16 @@
 import { createSharedComposable, isClient, watchImmediate } from '@vueuse/core'
 
 const COOKIE_NAME = 'user_config'
-type Layout = 'fixed' | 'full'
+export type Layout = 'fixed' | 'full'
+export type PackageManager = 'pnpm' | 'npm' | 'yarn' | 'bun'
 
 export const useUserConfig = createSharedComposable(() => {
   const userConfig = useCookie<{
     layout: Layout
+    packageManager: PackageManager
   }>(
     COOKIE_NAME,
-    { default: () => ({ layout: 'full' }), path: '/', maxAge: 31536000, sameSite: 'lax' },
+    { default: () => ({ layout: 'full', packageManager: 'pnpm' }), path: '/', maxAge: 31536000, sameSite: 'lax' },
   )
 
   watchImmediate(() => userConfig.value.layout, (newLayout) => {

@@ -38,6 +38,8 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
+    "nuxt-shiki": "^0.3.1",
+    "shiki": "^3.4.2",
     "vue-tsc": "^2.2.10"
   }
 }

@@ -13,9 +13,7 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
 import { Icons } from './Icons'
 
-const { data } = await useAsyncData('navigation', () => {
-  return queryCollectionNavigation('content')
-})
+const { data } = await useNavigation()
 </script>
 
 <template>

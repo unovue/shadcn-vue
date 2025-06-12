@@ -8,7 +8,7 @@ import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 
-const { path } = useRoute()
+const { path } = toRefs(useRoute())
 </script>
 
 <template>

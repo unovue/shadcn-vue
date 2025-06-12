@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 @import "./themes.css";
-@import "./fonts.css";
+@import "./fonts.css"
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,8 +11,6 @@
 @theme inline {
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -269,7 +267,7 @@
     }
   }
 
-  /* [data-rehype-pretty-code-figure] {
+  [data-pretty-code-figure] {
     background-color: var(--color-code);
     color: var(--color-code-foreground);
     border-radius: var(--radius-lg);
@@ -282,12 +280,12 @@
     position: relative;
     @apply md:-mx-4;
 
-    &:has([data-rehype-pretty-code-title]) [data-slot="copy-button"] {
+    &:has([data-pretty-code-title]) [data-slot="copy-button"] {
       top: calc(var(--spacing) * 1.5) !important;
     }
   }
 
-  [data-rehype-pretty-code-title] {
+  [data-pretty-code-title] {
     border-bottom: color-mix(in oklab, var(--border) 30%, transparent);
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -323,11 +321,11 @@
     left: 0;
   }
 
-  [data-line-numbers] [data-highlighted-line][data-line]::before {
+  [data-line-numbers] [data-highlighted-line].line::before {
     background-color: var(--color-code-highlight);
   }
 
-  [data-line] {
+  .line {
     padding-top: calc(var(--spacing) * 0.5);
     padding-bottom: calc(var(--spacing) * 0.5);
     min-height: calc(var(--spacing) * 1);
@@ -335,7 +333,7 @@
     display: inline-block;
   }
 
-  [data-line] span {
+  .line span {
     color: var(--shiki-light);
 
     @variant dark {
@@ -371,5 +369,5 @@
     padding-block: 0.1rem;
     font-family: var(--font-mono);
     font-size: 0.8rem;
-  } */
+  }
 }

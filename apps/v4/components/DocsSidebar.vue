@@ -15,7 +15,7 @@ defineProps<{
   tree: ContentNavigationItem
 }>()
 
-const { path } = useRoute()
+const { path } = toRefs(useRoute())
 </script>
 
 <template>
