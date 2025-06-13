@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki'],
   components: [
     { path: '~/components' },
+    { path: '~/components/demo', global: true, pathPrefix: false },
     { path: '~/components/content', global: true, pathPrefix: false },
     { path: '~/registry/new-york-v4/ui/accordion', global: true, pathPrefix: false, ignore: ['*.ts'] },
   ],
@@ -28,7 +29,7 @@ export default defineNuxtConfig({
       light: 'github-light-default',
       dark: 'github-dark',
     },
-    bundledLangs: ['ts', 'js', 'vue', 'html', 'json', 'bash'],
+    bundledLangs: ['ts', 'tsx', 'js', 'vue', 'html', 'json', 'bash'],
   },
   vite: {
     plugins: [

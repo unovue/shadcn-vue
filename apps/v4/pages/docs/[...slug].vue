@@ -77,9 +77,8 @@ const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => 
               </Badge>
             </div>
           </div>
-          <div class="w-full flex-1 *:data-[slot=alert]:first:mt-0">
-            <ContentRenderer :value="page" />
-          </div>
+
+          <ContentRenderer :value="page" class="w-full flex-1 *:data-[slot=alert]:first:mt-0" />
         </div>
         <div class="mx-auto flex h-16 w-full max-w-2xl items-center gap-2 px-4 md:px-0">
           <Button

@@ -2,6 +2,7 @@
 import type { Toc } from '@nuxt/content'
 import type { HTMLAttributes } from 'vue'
 import { IconMenu3 } from '@tabler/icons-vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
@@ -23,6 +24,41 @@ const open = ref(false)
 const { path } = toRefs(useRoute())
 
 const activeHeading = ref('')
+
+const tocLinks = computed(() => {
+  const result: Toc['links'] = []
+
+  for (const node of props.toc.links) {
+    // Add the current node (without children property)
+    const { children, ...nodeWithoutChildren } = node
+    result.push(nodeWithoutChildren)
+
+    // Add all direct children if they exist
+    if (children && children.length > 0) {
+      for (const child of children) {
+        const { children: _, ...childWithoutChildren } = child
+        result.push(childWithoutChildren)
+      }
+    }
+  }
+
+  return result
+})
+
+onMounted(() => {
+  const elements = tocLinks.value.map(link => document.getElementById(link.id))
+  const observers = useIntersectionObserver(elements, (entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        activeHeading.value = entry.target.id
+      }
+    }
+  }, { rootMargin: '0% 0% -80% 0%' })
+
+  onBeforeUnmount(() => {
+    observers.stop()
+  })
+})
 </script>
 
 <template>
@@ -41,7 +77,7 @@ const activeHeading = ref('')
       class="no-scrollbar max-h-[70svh]"
     >
       <DropdownMenuItem
-        v-for="item in toc.links"
+        v-for="item in tocLinks"
         :key="item.id"
         as-child
         :data-depth="item.depth"
@@ -58,11 +94,11 @@ const activeHeading = ref('')
       On This Page
     </p>
     <a
-      v-for="item in toc.links"
+      v-for="item in tocLinks"
       :key="item.id"
       :href="`${path}#${item.id}`"
       class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-      :data-active="item.text === `#${activeHeading}`"
+      :data-active="item.id === activeHeading"
       :data-depth="item.depth"
     >
       {{ item.text }}

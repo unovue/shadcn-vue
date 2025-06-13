@@ -3,59 +3,73 @@ title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
 component: true
 links:
-  doc: https://www.radix-ui.com/docs/primitives/components/accordion
-  api: https://www.radix-ui.com/docs/primitives/components/accordion#api-reference
+  doc: https://reka-ui.com/docs/components/accordion
+  api: https://reka-ui.com/docs/components/accordion#api-reference
 ---
 
-<!-- <ComponentPreview
-  name="accordion-demo"
-  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
+<component-preview
+  name="AccordionDemo"
+  class="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
   description="An accordion with three items"
-  align="start"
-/>
+  align="start">
+</component-preview>
+
+
 
 ## Installation
 
-<CodeTabs>
+::code-tabs
 
-<TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
+::tabs-list
 
-<TabsContent value="cli">
+  ::tabs-trigger{value="cli"}
+  CLI
+  ::
 
-```bash
-npx shadcn@latest add accordion
-```
+  ::tabs-trigger{value="manual"}
+  Manual
+  ::
 
-</TabsContent>
+::
 
-<TabsContent value="manual">
 
-<Steps>
-
-<Step>Install the following dependencies:</Step>
+::tabs-content{value="cli"}
 
 ```bash
-npm install @radix-ui/react-accordion
+npx shadcn-vue@latest add accordion
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+::
 
-<ComponentSource name="accordion" title="components/ui/accordion.tsx" />
+::tabs-content{value="manual"}
 
-<Step>Update the import paths to match your project setup.</Step>
+  ::steps
 
-</Steps>
+    ::step
+    Install the following dependencies:
+    ::
 
-</TabsContent>
+    ```bash
+    npm install reka-ui
+    ```
 
-</CodeTabs> -->
+    ::step
+    Copy and paste the following code into your project.
+    ::
+
+    ::step
+    Update the import paths to match your project setup.
+    ::
+
+  ::
+
+::
+
+::
 
 ## Usage
 
-```tsx showLineNumbers
+```ts showLineNumbers
 import {
   Accordion,
   AccordionContent,

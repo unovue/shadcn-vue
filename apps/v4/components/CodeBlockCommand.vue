@@ -48,12 +48,12 @@ const tabs = computed(() => {
   return data
 })
 
-const { userConfig } = useUserConfig()
+const { config } = useConfig()
 </script>
 
 <template>
   <div class="overflow-x-auto">
-    <Tabs v-model="userConfig.packageManager" class="gap-0">
+    <Tabs v-model="config.packageManager" class="gap-0">
       <div class="border-border/50 flex items-center gap-2 border-b px-3 py-1">
         <div class="bg-foreground flex size-4 items-center justify-center rounded-[1px] opacity-70">
           <TerminalIcon class="text-code size-3" />
@@ -71,6 +71,6 @@ const { userConfig } = useUserConfig()
         </TabsContent>
       </div>
     </Tabs>
-    <CopyButton class="absolute top-1.5 right-1.5" :value="tabs[userConfig.packageManager]" />
+    <CopyButton class="absolute top-2 right-2 z-10 size-7 opacity-70 hover:opacity-100 focus-visible:opacity-100" :value="tabs[config.packageManager]" />
   </div>
 </template>

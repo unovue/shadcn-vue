@@ -321,11 +321,11 @@
     left: 0;
   }
 
-  [data-line-numbers] [data-highlighted-line].line::before {
+  [data-line-numbers] [data-highlighted-line][data-line]::before {
     background-color: var(--color-code-highlight);
   }
 
-  .line {
+  [data-line] {
     padding-top: calc(var(--spacing) * 0.5);
     padding-bottom: calc(var(--spacing) * 0.5);
     min-height: calc(var(--spacing) * 1);
@@ -333,7 +333,7 @@
     display: inline-block;
   }
 
-  .line span {
+  [data-line] span {
     color: var(--shiki-light);
 
     @variant dark {

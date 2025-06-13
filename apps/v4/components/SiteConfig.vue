@@ -9,11 +9,11 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const { userConfig } = useUserConfig()
+const { config } = useConfig()
 
 function setLayout() {
-  const newLayout = userConfig.value.layout === 'fixed' ? 'full' : 'fixed'
-  userConfig.value.layout = newLayout
+  const newLayout = config.value.layout === 'fixed' ? 'full' : 'fixed'
+  config.value.layout = newLayout
 }
 </script>
 
