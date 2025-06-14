@@ -30,7 +30,10 @@ const highlighted = highlighter.highlight(props.code.trimEnd(), { lang: lang.val
     root(node) {
       const pre = node.children.find(child => child.type === 'element' && child.tagName === 'pre')
       if (pre?.type === 'element') {
-        node.children = pre.children
+        const code = pre.children.find(child => child.type === 'element' && child.tagName === 'code')
+        if (code?.type === 'element') {
+          node.children = code.children
+        }
       }
     },
   },

@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "typecheck": "vue-tsc -b"
+    "typecheck": "vue-tsc -b",
+    "deploy": "pnpm build && npx wrangler --cwd .output/ deploy"
   },
   "dependencies": {
     "@internationalized/date": "catalog:",
@@ -17,6 +18,8 @@
     "@tabler/icons-vue": "^3.34.0",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/vue-table": "^8.21.3",
+    "@unovis/ts": "^1.5.2",
+    "@unovis/vue": "^1.5.2",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
     "class-variance-authority": "catalog:",

@@ -124,6 +124,12 @@ importers:
       '@tanstack/vue-table':
         specifier: ^8.21.3
         version: 8.21.3(vue@3.5.15(typescript@5.8.3))
+      '@unovis/ts':
+        specifier: ^1.5.2
+        version: 1.5.2
+      '@unovis/vue':
+        specifier: ^1.5.2
+        version: 1.5.2(@unovis/ts@1.5.2)(vue@3.5.15(typescript@5.8.3))
       '@vee-validate/zod':
         specifier: 'catalog:'
         version: 4.15.0(vue@3.5.15(typescript@5.8.3))(zod@3.25.30)

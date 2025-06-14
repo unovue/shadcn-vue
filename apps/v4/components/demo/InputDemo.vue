@@ -3,7 +3,7 @@ import { Input } from '@/registry/new-york-v4/ui/input'
 </script>
 
 <template>
-  <div className="flex flex-col flex-wrap gap-4 md:flex-row">
+  <div class="flex flex-col flex-wrap gap-4 md:flex-row">
     <Input type="email" placeholder="Email" />
     <Input type="text" placeholder="Error" aria-invalid="true" />
     <Input type="password" placeholder="Password" />

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Toaster } from '@/registry/new-york-v4/ui/sonner'
 
-const { isLayoutFull } = useConfig()
-const { activeTheme } = useThemeConfig()
+const { config, isLayoutFull } = useConfig()
+const activeTheme = computed(() => config.value.activeTheme)
 const isScaled = computed(() => !!activeTheme.value?.endsWith('-scaled'))
 const colorMode = useColorMode()
 </script>

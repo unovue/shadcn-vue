@@ -65,7 +65,7 @@ const { config } = useConfig()
         </TabsList>
       </div>
 
-      <div className="no-scrollbar overflow-x-auto">
+      <div class="no-scrollbar overflow-x-auto">
         <TabsContent v-for="([key, value]) in Object.entries(tabs)" :key="key" :value="key" class="mt-0 px-4 py-3.5">
           <pre class="language-bash shiki shiki-themes github-light-default github-dark"><code class="relative font-mono text-sm leading-none"><span class="line"><span>{{ value }}</span></span></code></pre>
         </TabsContent>

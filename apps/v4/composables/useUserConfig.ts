@@ -1,3 +1,4 @@
+import type { Theme } from '~/lib/themes'
 import { createSharedComposable, isClient, watchImmediate } from '@vueuse/core'
 
 const COOKIE_NAME = 'user_config'
@@ -10,9 +11,15 @@ export const useConfig = createSharedComposable(() => {
     layout: Layout
     packageManager: PackageManager
     installationType: InstallationType
+    activeTheme: Theme['value']
   }>(
     COOKIE_NAME,
-    { default: () => ({ layout: 'full', packageManager: 'pnpm', installationType: 'cli' }), path: '/', maxAge: 31536000, sameSite: 'lax' },
+    {
+      default: () => ({ layout: 'full', packageManager: 'pnpm', installationType: 'cli', activeTheme: 'neutral' }),
+      path: '/',
+      maxAge: 31536000,
+      sameSite: 'lax',
+    },
   )
 
   watchImmediate(() => config.value.layout, (newLayout) => {
@@ -23,6 +30,21 @@ export const useConfig = createSharedComposable(() => {
     document.documentElement.classList.remove('layout-fixed', 'layout-full')
     // Add the new layout class
     document.documentElement.classList.add(`layout-${newLayout}`)
+  })
+
+  watchImmediate(() => config.value.activeTheme, (activeTheme) => {
+    if (!isClient)
+      return
+
+    Array.from(document.body.classList)
+      .filter(className => className.startsWith('theme-'))
+      .forEach((className) => {
+        document.body.classList.remove(className)
+      })
+    document.body.classList.add(`theme-${activeTheme}`)
+    if (activeTheme.endsWith('-scaled')) {
+      document.body.classList.add('theme-scaled')
+    }
   })
 
   const isLayoutFull = computed(() => config.value.layout === 'full')

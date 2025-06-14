@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "pnpm --filter www dev",
     "build": "pnpm --filter www build",
+    "build:v4": "pnpm --filter v4 build",
     "preview": "pnpm --filter www preview",
     "prepare": "pnpm simple-git-hooks",
     "lint": "eslint .",
