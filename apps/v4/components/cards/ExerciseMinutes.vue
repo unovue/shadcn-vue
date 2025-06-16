@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Line } from '@unovis/ts'
-import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
+import { Line, Scatter } from '@unovis/ts'
+import { VisAxis, VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
 import {
   Card,
   CardContent,
@@ -8,47 +8,33 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york-v4/ui/card'
+import { type ChartConfig, ChartContainer, componentToString } from '~/registry/new-york-v4/ui/chart'
+import ChartTooltipContent from '~/registry/new-york-v4/ui/chart/ChartTooltipContent.vue'
 
 type Data = typeof data[number]
+
 const data = [
-  { average: 400, today: 240 },
-  { average: 300, today: 139 },
-  { average: 200, today: 980 },
-  { average: 278, today: 390 },
-  { average: 189, today: 480 },
-  { average: 239, today: 380 },
-  { average: 349, today: 430 },
+  { today: 240, average: 400, day: 1, dayLabel: 'Monday' },
+  { today: 139, average: 300, day: 2, dayLabel: 'Tuesday' },
+  { today: 980, average: 200, day: 3, dayLabel: 'Wednesday' },
+  { today: 390, average: 278, day: 4, dayLabel: 'Thursday' },
+  { today: 480, average: 189, day: 5, dayLabel: 'Friday' },
+  { today: 380, average: 239, day: 6, dayLabel: 'Saturday' },
+  { today: 430, average: 349, day: 7, dayLabel: 'Sunday' },
 ]
 
-const x = (d: Data, i: number) => i
-function template(d: Data) {
-  return `
-<div class="rounded-lg border bg-background p-2 shadow-sm">
-  <div class="grid grid-cols-2 gap-2">
-    <div class="flex flex-col">
-      <span class="text-[0.70rem] uppercase text-muted-foreground">
-        Average
-      </span>
-      <span class="font-bold text-muted-foreground">
-        ${d.average}
-      </span>
-    </div>
-    <div class="flex flex-col">
-      <span class="text-[0.70rem] uppercase text-muted-foreground">
-        Today
-      </span>
-      <span class="font-bold text-white">
-        ${d.today}
-      </span>
-    </div>
-  </div>
-</div>`
-}
+const chartConfig = {
+  today: {
+    label: 'Today',
+    color: 'var(--primary)',
+  },
+  average: {
+    label: 'Average',
+    color: 'var(--primary)',
+  },
+} satisfies ChartConfig
 
-function computeLineOpacity(val: any, index: number) {
-  if (index === 0)
-    return '0.5'
-}
+const x = (d: Data) => d.day
 </script>
 
 <template>
@@ -59,29 +45,72 @@ function computeLineOpacity(val: any, index: number) {
         Your exercise minutes are ahead of where you normally are.
       </CardDescription>
     </CardHeader>
-    <CardContent class="pb-4">
-      <div class="h-[200px]">
+    <CardContent>
+      <ChartContainer :config="chartConfig" class="w-full md:h-[200px]">
         <VisXYContainer
-          height="200px"
           :data="data"
-          :margin="{
-            top: 5,
-            right: 10,
-            left: 10,
-            bottom: 0,
-          }"
+          :margin="{ top: 5, right: 10, left: 10, bottom: 0 }"
+          :y-domain="[0, 1000]"
           :style="{
             '--vis-tooltip-padding': '0px',
             '--vis-tooltip-background-color': 'transparent',
             '--vis-tooltip-border-color': 'transparent',
           }"
         >
+          <VisAxis
+            type="x"
+            :tick-line="false"
+            :domain-line="false"
+            :grid-line="false"
+            :x="x"
+            :num-ticks="7"
+            :tick-format="(d: number, index: number) => {
+              return data[index].dayLabel.slice(0, 3)
+            }"
+          />
+          <VisAxis
+            type="y"
+            :tick-line="false"
+            :domain-line="false"
+            tick-text-hide-overlapping
+            :tick-format="(d: number) => {
+              return ''
+            }"
+          />
+          <VisLine
+            :x="x"
+            :y="(d: Data) => d.today"
+            color="var(--color-today)"
+          />
+          <VisLine
+            :x="x"
+            :y="(d: Data) => d.average"
+            color="var(--color-average)"
+            :attributes="{ [Line.selectors.linePath]: { opacity: 0.5 } }"
+          />
+          <VisScatter
+            :x="x"
+            :y="(d: Data) => d.today"
+            :size="8"
+            :stroke-width="2"
+            color="var(--color-today)"
+          />
+          <VisScatter
+            :x="x"
+            :y="(d: Data) => d.average"
+            :size="8"
+            :stroke-width="2"
+            color="var(--color-average)"
+            :attributes="{ [Scatter.selectors.point]: { opacity: 0.5 } }"
+          />
+
           <VisTooltip />
-          <VisLine :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :stroke-width="2" color="hsl(var(--primary))" :attributes="{ [Line.selectors.linePath]: { opacity: computeLineOpacity } }" />
-          <VisScatter :x="x" :y="[(d: Data) => d.average, (d: Data) => d.today]" :size="6" :stroke-width="2" stroke-color="hsl(var(--primary))" color="white" />
-          <VisCrosshair :template="template" />
+          <VisCrosshair
+            color="var(--color-today)"
+            :template="componentToString(chartConfig, ChartTooltipContent, { labelKey: 'dayLabel' })"
+          />
         </VisXYContainer>
-      </div>
+      </ChartContainer>
     </CardContent>
   </Card>
 </template>

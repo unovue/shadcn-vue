@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york-v4/ui/card'
+import { type ChartConfig, ChartContainer } from '~/registry/new-york-v4/ui/chart'
 
 const goal = ref(350)
 
@@ -30,67 +31,69 @@ const data = [
   { goal: 189 },
   { goal: 349 },
 ]
+
+const chartConfig = {
+  goal: {
+    label: 'Goal',
+    color: 'var(--primary)',
+  },
+} satisfies ChartConfig
 </script>
 
 <template>
-  <Card class="h-full">
-    <CardHeader class="pb-4">
-      <CardTitle class="text-base">
-        Move Goal
-      </CardTitle>
+  <Card class="h-full gap-5">
+    <CardHeader>
+      <CardTitle>Move Goal</CardTitle>
       <CardDescription>Set your daily activity goal.</CardDescription>
     </CardHeader>
-    <CardContent class="pb-2">
-      <div class="flex items-center justify-center space-x-2">
+    <CardContent class="flex flex-1 flex-col">
+      <div class="flex items-center justify-center gap-4">
         <Button
           variant="outline"
           size="icon"
-          class="h-8 w-8 shrink-0 rounded-full"
+          class="size-7 rounded-full"
           :disabled="goal <= 200"
           @click="goal -= 10"
         >
-          <Minus class="h-4 w-4" />
+          <Minus />
           <span class="sr-only">Decrease</span>
         </Button>
-        <div class="flex-1 text-center">
-          <div class="text-5xl font-bold tracking-tighter">
+        <div class="text-center">
+          <div class="text-4xl font-bold tracking-tighter tabular-nums">
             {{ goal }}
           </div>
-          <div class="text-[0.70rem] uppercase text-muted-foreground">
+          <div class="text-muted-foreground text-xs uppercase">
             Calories/day
           </div>
         </div>
         <Button
           variant="outline"
           size="icon"
-          class="h-8 w-8 shrink-0 rounded-full"
+          class="size-7 rounded-full"
           :disabled="goal >= 400"
           @click="goal += 10 "
         >
-          <Plus class="h-4 w-4" />
+          <Plus />
           <span class="sr-only">Increase</span>
         </Button>
       </div>
-      <div class="my-3 h-[60px]">
-        <VisXYContainer
-          :data="data"
-          height="60px"
-          :style="{
-            opacity: 0.2,
-          }"
-        >
-          <VisStackedBar
-            :x="(d: Data, i :number) => i"
-            :y="(d: Data) => d.goal"
-            color="hsl(var(--primary))"
-            :bar-padding="0.1"
-            :rounded-corners="0"
-          />
-        </VisXYContainer>
+
+      <div class="flex-1">
+        <ChartContainer :config="chartConfig" class="aspect-auto h-[70px] w-full">
+          <VisXYContainer :data="data">
+            <VisStackedBar
+              :x="(d: Data, i :number) => i"
+              :y="(d: Data) => d.goal"
+              color="var(--color-goal)"
+              :bar-padding="0.1"
+              :rounded-corners="4"
+            />
+          </VisXYContainer>
+        </ChartContainer>
       </div>
     </CardContent>
     <CardFooter>
-      <Button class="w-full">
+      <Button class="w-full" variant="secondary">
         Set Goal
       </Button>
     </CardFooter>

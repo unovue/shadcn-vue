@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { VisLine, VisScatter, VisStackedBar, VisXYContainer } from '@unovis/vue'
+import type { ChartConfig } from '~/registry/new-york-v4/ui/chart'
 
+import { VisArea, VisLine, VisScatter, VisXYContainer } from '@unovis/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,
@@ -10,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york-v4/ui/card'
+import { ChartContainer } from '~/registry/new-york-v4/ui/chart'
 
 type Data = typeof data[number]
 const data = [
@@ -23,40 +25,45 @@ const data = [
   { revenue: 26475, subscription: 189 },
 ]
 
-const lineX = (d: Data, i: number) => i
-const lineY = (d: Data) => d.revenue
+const x = (d: Data, i: number) => i
+
+const chartConfig = {
+  revenue: {
+    label: 'Revenue',
+    color: 'var(--primary)',
+  },
+  subscription: {
+    label: 'Subscriptions',
+    color: 'var(--primary)',
+  },
+} satisfies ChartConfig
 </script>
 
 <template>
   <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-2">
     <Card>
-      <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle class="text-sm font-normal">
-          Total Revenue
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div class="text-2xl font-bold">
+      <CardHeader>
+        <CardDescription>Total Revenue</CardDescription>
+        <CardTitle class="text-3xl">
           $15,231.89
-        </div>
-        <p class="text-xs text-muted-foreground">
-          +20.1% from last month
-        </p>
-
-        <div class="h-20">
+        </CardTitle>
+        <CardDescription>+20.1% from last month</CardDescription>
+      </CardHeader>
+      <CardContent class="pb-0">
+        <ChartContainer :config="chartConfig" class="h-[80px] w-full">
           <VisXYContainer
-            height="80px"
-            :data="data" :margin="{
+            :data="data"
+            :margin="{
               top: 5,
               right: 10,
               left: 10,
               bottom: 0,
             }"
           >
-            <VisLine :x="lineX" :y="lineY" color="hsl(var(--primary))" />
-            <VisScatter :x="lineX" :y="lineY" :size="6" stroke-color="hsl(var(--primary))" :stroke-width="2" color="white" />
+            <VisLine :x="x" :y="(d: Data) => d.revenue" color="var(--color-revenue)" />
+            <VisScatter :x="x" :y="(d: Data) => d.revenue" :size="6" stroke-color="var(--color-revenue)" :stroke-width="2" color="white" />
           </VisXYContainer>
-        </div>
+        </ChartContainer>
       </CardContent>
     </Card>
 
@@ -74,14 +81,27 @@ const lineY = (d: Data) => d.revenue
         </CardAction>
       </CardHeader>
       <CardContent class="mt-auto max-h-[124px] flex-1 p-0">
-        <VisXYContainer height="80px" :data="data">
-          <VisStackedBar
-            :x="lineX"
-            :y="(d: Data) => d.subscription"
-            :bar-padding="0.1"
-            :rounded-corners="0" color="hsl(var(--primary))"
-          />
-        </VisXYContainer>
+        <ChartContainer :config="chartConfig" class="size-full">
+          <VisXYContainer
+            :margin="{
+              left: 0,
+              right: 0,
+            }"
+            :data="data"
+          >
+            <VisArea
+              :x="x"
+              :y="(d: Data) => d.subscription"
+              color="var(--color-subscription)"
+              :opacity="0.05"
+            />
+            <VisLine
+              :x="x"
+              :y="(d: Data) => d.subscription"
+              color="var(--color-subscription)"
+            />
+          </VisXYContainer>
+        </ChartContainer>
       </CardContent>
     </Card>
   </div>

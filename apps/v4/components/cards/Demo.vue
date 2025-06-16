@@ -10,9 +10,9 @@
         <div class="pt-3 sm:pt-0 sm:pl-2 xl:pl-4">
           <CardsActivityGoal />
         </div>
-        <div class="pt-3 sm:col-span-2 xl:pt-4">
+        <!-- <div class="pt-3 sm:col-span-2 xl:pt-4">
           <CardsExerciseMinutes />
-        </div>
+        </div> -->
       </div>
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
         <div class="flex flex-col gap-4">
