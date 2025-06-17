@@ -18,6 +18,8 @@ import {
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
 import { Textarea } from '@/registry/new-york-v4/ui/textarea'
+
+const id = useId()
 </script>
 
 <template>
@@ -33,7 +35,7 @@ import { Textarea } from '@/registry/new-york-v4/ui/textarea'
         <div class="grid gap-2">
           <Label for="area">Area</Label>
           <Select default-value="billing">
-            <SelectTrigger id="area">
+            <SelectTrigger id="area" class="w-full">
               <SelectValue placeholder="Select" />
             </SelectTrigger>
             <SelectContent>
@@ -82,8 +84,8 @@ import { Textarea } from '@/registry/new-york-v4/ui/textarea'
         </div>
       </div>
       <div class="grid gap-2">
-        <Label for="subject">Subject</Label>
-        <Input id="subject" placeholder="I need help with..." />
+        <Label :for="`subject-${id}`">Subject</Label>
+        <Input :id="`subject-${id}`" placeholder="I need help with..." />
       </div>
       <div class="grid gap-2">
         <Label for="description">Description</Label>
@@ -93,11 +95,13 @@ import { Textarea } from '@/registry/new-york-v4/ui/textarea'
         />
       </div>
     </CardContent>
-    <CardFooter class="justify-between space-x-2">
-      <Button variant="ghost">
+    <CardFooter class="justify-end gap-2">
+      <Button variant="ghost" size="sm">
         Cancel
       </Button>
-      <Button>Submit</Button>
+      <Button size="sm">
+        Submit
+      </Button>
     </CardFooter>
   </Card>
 </template>

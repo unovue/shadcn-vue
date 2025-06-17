@@ -46,7 +46,7 @@ const x = (d: Data) => d.day
       </CardDescription>
     </CardHeader>
     <CardContent>
-      <ChartContainer :config="chartConfig" class="w-full md:h-[200px]">
+      <ChartContainer :config="chartConfig" class="w-full md:h-[200px]" cursor>
         <VisXYContainer
           :data="data"
           :margin="{ top: 5, right: 10, left: 10, bottom: 0 }"

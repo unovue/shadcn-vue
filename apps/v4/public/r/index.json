@@ -382,6 +382,45 @@
     ]
   },
   {
+    "name": "chart",
+    "type": "registry:ui",
+    "dependencies": [
+      "reka-ui",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui/chart/ChartContainer.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartLegendContent.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartStyle.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartTooltipContent.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartTooltipLabel.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/utils.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "checkbox",
     "type": "registry:ui",
     "dependencies": [

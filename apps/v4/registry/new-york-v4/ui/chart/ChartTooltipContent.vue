@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<{
   indicator?: 'line' | 'dot' | 'dashed'
   nameKey?: string
   labelKey?: string
+  labelFormatter?: (d: number | Date) => string
   payload?: Record<string, any>
   config?: ChartConfig
   class?: HTMLAttributes['class']
@@ -34,7 +35,12 @@ const payload = computed(() => {
 })
 
 const nestLabel = computed(() => Object.keys(props.payload).length === 1 && props.indicator !== 'dot')
-const tooltipLabel = computed(() => props.labelKey ? props.payload[props.labelKey] : props.x)
+const tooltipLabel = computed(() => {
+  if (props.labelFormatter && props.x !== undefined) {
+    return props.labelFormatter(props.x)
+  }
+  return props.labelKey ? props.payload[props.labelKey] : props.x
+})
 </script>
 
 <template>
@@ -44,8 +50,7 @@ const tooltipLabel = computed(() => props.labelKey ? props.payload[props.labelKe
       props.class,
     )"
   >
-    <!-- {!nestLabel ? tooltipLabel : null} -->
-    <div v-if="!nestLabel && tooltipLabel" class="font-medium">
+    <div v-if="!nestLabel" class="font-medium">
       {{ tooltipLabel }}
     </div>
     <div class="grid gap-1.5">
@@ -74,24 +79,21 @@ const tooltipLabel = computed(() => props.labelKey ? props.payload[props.labelKe
               '--color-border': indicatorColor,
             }"
           />
+        </template>
 
-          <div
-            :class="cn(
-              'flex flex-1 justify-between leading-none',
-              nestLabel ? 'items-end' : 'items-center',
-            )"
-          >
-            <div class="grid gap-1.5">
-              <!-- {nestLabel ? tooltipLabel : null} -->
-              <span class="text-muted-foreground">
-                {{ itemConfig?.label || value }}
-              </span>
+        <div :class="cn('flex flex-1 justify-between leading-none', nestLabel ? 'items-end' : 'items-center')">
+          <div class="grid gap-1.5">
+            <div v-if="nestLabel" class="font-medium">
+              {{ tooltipLabel }}
             </div>
-            <span v-if="value" class="text-foreground font-mono font-medium tabular-nums">
-              {{ value.toLocaleString() }}
+            <span class="text-muted-foreground">
+              {{ itemConfig?.label || value }}
             </span>
           </div>
-        </template>
+          <span v-if="value" class="text-foreground font-mono font-medium tabular-nums">
+            {{ value.toLocaleString() }}
+          </span>
+        </div>
       </div>
     </div>
   </div>

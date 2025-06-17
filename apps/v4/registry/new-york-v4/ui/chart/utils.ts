@@ -55,9 +55,12 @@ export function componentToString<P>(config: ChartConfig, component: string | Co
   if (!isClient)
     return
 
+  // This function will be called once during mount lifecycle
+  const id = useId()
+
   // https://unovis.dev/docs/auxiliary/Crosshair#component-props
   return (data: any, x: number | Date) => {
-    const serializedKey = serializeKey(data)
+    const serializedKey = `${id}-${serializeKey(data)}`
     const cachedContent = cache.get(serializedKey)
     if (cachedContent)
       return cachedContent
