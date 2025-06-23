@@ -21,25 +21,25 @@ import {
   Pagination,
   PaginationList,
   PaginationEllipsis,
-  PaginationItem,
+  PaginationListItem,
   PaginationNext,
-  PaginationPrevious,
+  PaginationPrev,
 } from '@/registry/default/ui/pagination'
 </script>
 
 <template>
   <Pagination v-slot="{ page }" :items-per-page="10" :total="30" :default-page="2">
     <PaginationList v-slot="{ items }">
-      <PaginationPrevious />
+      <PaginationPrev />
 
       <template v-for="(item, index) in items" :key="index">
-        <PaginationItem
+        <PaginationListItem
           v-if="item.type === 'page'"
           :value="item.value"
           :is-active="item.value === page"
         >
           {{ item.value }}
-        </PaginationItem>
+        </PaginationListItem>
       </template>
 
       <PaginationEllipsis :index="4" />
