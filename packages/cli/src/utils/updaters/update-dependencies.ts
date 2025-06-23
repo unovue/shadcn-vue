@@ -1,6 +1,6 @@
 import type { RegistryItem } from '@/src/registry/schema'
 import type { Config } from '@/src/utils/get-config'
-import { addDependency } from 'nypm'
+import { addDependency, addDevDependency } from 'nypm'
 import { spinner } from '@/src/utils/spinner'
 
 export async function updateDependencies(
@@ -24,6 +24,8 @@ export async function updateDependencies(
   const dependenciesSpinner = spinner(`Installing dependencies.`, { silent: options.silent })?.start()
   dependenciesSpinner?.start()
 
-  await addDependency(dependencies, { cwd: config.resolvedPaths.cwd, silent: true, dev: options?.dev })
+  options?.dev
+    ? await addDevDependency(dependencies, { cwd: config.resolvedPaths.cwd, silent: true })
+    : await addDependency(dependencies, { cwd: config.resolvedPaths.cwd, silent: true })
   dependenciesSpinner?.succeed()
 }
