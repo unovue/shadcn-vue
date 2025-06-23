@@ -19,7 +19,7 @@ npx shadcn-vue@latest add pagination
 <script setup lang="ts">
 import {
   Pagination,
-  PaginationContent,
+  PaginationList,
   PaginationEllipsis,
   PaginationItem,
   PaginationNext,
@@ -29,7 +29,7 @@ import {
 
 <template>
   <Pagination v-slot="{ page }" :items-per-page="10" :total="30" :default-page="2">
-    <PaginationContent v-slot="{ items }">
+    <PaginationList v-slot="{ items }">
       <PaginationPrevious />
 
       <template v-for="(item, index) in items" :key="index">
@@ -45,7 +45,7 @@ import {
       <PaginationEllipsis :index="4" />
 
       <PaginationNext />
-    </PaginationContent>
+    </PaginationList>
   </Pagination>
 </template>
 ```
