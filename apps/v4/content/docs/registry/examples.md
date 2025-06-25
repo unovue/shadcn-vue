@@ -164,7 +164,7 @@ This blocks installs the `Login01` block from the shadcn-vue registry.
       "target": "pages/login/index.vue"
     },
     {
-      "path": "blocks/Login01/components/LoginForm.vue",
+      "path": "blocks/login-01/components/LoginForm.vue",
       "content": "...",
       "type": "registry:component"
     }

@@ -11,6 +11,7 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Tooltip,
   TooltipContent,
+  TooltipProvider,
   TooltipTrigger,
 } from '@/registry/new-york-v4/ui/tooltip'
 
@@ -28,25 +29,27 @@ const { copy, copied } = useClipboard({ source: value })
 </script>
 
 <template>
-  <Tooltip>
-    <TooltipTrigger as-child>
-      <Button
-        data-slot="copy-button"
-        size="icon"
-        :variant="variant"
-        :class="cn(
-          'bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100',
-          props.class,
-        )"
-        v-bind="$attrs"
-        @click="copy()"
-      >
-        <span class="sr-only">Copy</span>
-        <CheckIcon v-if="copied" />  <ClipboardIcon v-else />
-      </Button>
-    </TooltipTrigger>
-    <TooltipContent>
-      {{ copied ? "Copied" : "Copy to Clipboard" }}
-    </TooltipContent>
-  </Tooltip>
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger as-child>
+        <Button
+          data-slot="copy-button"
+          size="icon"
+          :variant="variant"
+          :class="cn(
+            'bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100',
+            props.class,
+          )"
+          v-bind="$attrs"
+          @click="copy()"
+        >
+          <span class="sr-only">Copy</span>
+          <CheckIcon v-if="copied" />  <ClipboardIcon v-else />
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        {{ copied ? "Copied" : "Copy to Clipboard" }}
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
 </template>

@@ -14,7 +14,6 @@ export const Index: Record<string, any> = {
     type: "registry:lib",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/lib/utils.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -45,7 +44,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/accordion/Accordion.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -72,7 +70,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/alert/Alert.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -123,7 +120,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/alert-dialog/AlertDialog.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -142,7 +138,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/aspect-ratio/AspectRatio.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -169,7 +164,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/avatar/Avatar.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -188,7 +182,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/badge/Badge.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -231,7 +224,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/breadcrumb/Breadcrumb.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -250,7 +242,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/button/Button.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -313,7 +304,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/calendar/Calendar.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -356,7 +346,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/card/Card.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -399,7 +388,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/carousel/Carousel.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -438,7 +426,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/chart/ChartContainer.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -457,7 +444,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/checkbox/Checkbox.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -484,7 +470,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/collapsible/Collapsible.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -543,7 +528,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/combobox/Combobox.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -594,7 +578,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/command/Command.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -669,7 +652,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/context-menu/ContextMenu.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -724,7 +706,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/dialog/Dialog.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -775,7 +756,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/drawer/Drawer.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -846,7 +826,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/dropdown-menu/DropdownMenu.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -889,7 +868,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/form/FormControl.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -916,7 +894,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/hover-card/HoverCard.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -935,7 +912,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/input/Input.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -954,7 +930,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/label/Label.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1029,7 +1004,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/menubar/Menubar.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1076,7 +1050,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/navigation-menu/NavigationMenu.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1111,7 +1084,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/number-field/NumberField.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1158,7 +1130,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/pagination/Pagination.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1189,7 +1160,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/pin-input/PinInput.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1220,7 +1190,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/popover/Popover.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1239,7 +1208,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/progress/Progress.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1262,7 +1230,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/radio-group/RadioGroup.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1325,7 +1292,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/range-calendar/RangeCalendar.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1352,7 +1318,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/resizable/ResizableHandle.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1375,7 +1340,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/scroll-area/ScrollArea.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1434,7 +1398,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/select/Select.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1453,7 +1416,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/separator/Separator.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1504,7 +1466,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/sheet/Sheet.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1619,7 +1580,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/sidebar/Sidebar.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1638,7 +1598,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/skeleton/Skeleton.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1657,7 +1616,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/slider/Slider.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1676,7 +1634,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/sonner/Sonner.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1719,7 +1676,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/stepper/Stepper.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1738,7 +1694,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/switch/Switch.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1793,7 +1748,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/table/Table.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1824,7 +1778,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/tabs/Tabs.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1859,7 +1812,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/tags-input/TagsInput.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1878,7 +1830,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/textarea/Textarea.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1897,7 +1848,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/toggle/Toggle.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1920,7 +1870,6 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/toggle-group/ToggleGroup.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1951,595 +1900,572 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/tooltip/Tooltip.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
 },
-"Login01": {
-  name: "Login01",
+"login-01": {
+  name: "login-01",
   description: "",
   type: "registry:block",
   registryDependencies: ["button","card","input","label"],
   files: [{
-    path: "registry/new-york-v4/blocks/Login01/page.vue",
+    path: "registry/new-york-v4/blocks/login-01/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/login/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login01/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-01/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Login01/page.vue").then((m) => m.default),
   source: "",
-  category: "login",
+  category: "",
   subcategory: ""
 },
-"Login02": {
-  name: "Login02",
+"login-02": {
+  name: "login-02",
   description: "",
   type: "registry:block",
   registryDependencies: ["button","input","label"],
   files: [{
-    path: "registry/new-york-v4/blocks/Login02/page.vue",
+    path: "registry/new-york-v4/blocks/login-02/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/login/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login02/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-02/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Login02/page.vue").then((m) => m.default),
   source: "",
-  category: "login",
+  category: "",
   subcategory: ""
 },
-"Login03": {
-  name: "Login03",
+"login-03": {
+  name: "login-03",
   description: "",
   type: "registry:block",
   registryDependencies: ["button","card","input","label"],
   files: [{
-    path: "registry/new-york-v4/blocks/Login03/page.vue",
+    path: "registry/new-york-v4/blocks/login-03/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/login/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login03/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-03/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Login03/page.vue").then((m) => m.default),
   source: "",
-  category: "login",
+  category: "",
   subcategory: ""
 },
-"Login04": {
-  name: "Login04",
+"login-04": {
+  name: "login-04",
   description: "",
   type: "registry:block",
   registryDependencies: ["button","card","input","label"],
   files: [{
-    path: "registry/new-york-v4/blocks/Login04/page.vue",
+    path: "registry/new-york-v4/blocks/login-04/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/login/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login04/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-04/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Login04/page.vue").then((m) => m.default),
   source: "",
-  category: "login",
+  category: "",
   subcategory: ""
 },
-"Login05": {
-  name: "Login05",
+"login-05": {
+  name: "login-05",
   description: "",
   type: "registry:block",
   registryDependencies: ["button","input","label"],
   files: [{
-    path: "registry/new-york-v4/blocks/Login05/page.vue",
+    path: "registry/new-york-v4/blocks/login-05/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/login/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login05/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-05/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Login05/page.vue").then((m) => m.default),
   source: "",
-  category: "login",
+  category: "",
   subcategory: ""
 },
-"Products01": {
-  name: "Products01",
+"products-01": {
+  name: "products-01",
   description: "",
   type: "registry:block",
   registryDependencies: ["badge","button","checkbox","dropdown-menu","pagination","select","table","tabs"],
   files: [{
-    path: "registry/new-york-v4/blocks/Products01/page.vue",
+    path: "registry/new-york-v4/blocks/products-01/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/products/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Products01/components/ProductsTable.vue",
+    path: "registry/new-york-v4/blocks/products-01/components/ProductsTable.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Products01/page.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
 },
-"Sidebar01": {
-  name: "Sidebar01",
+"sidebar-01": {
+  name: "sidebar-01",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","label","dropdown-menu"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar01/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar01/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar01/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar01/components/VersionSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/components/VersionSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar01/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar02": {
-  name: "Sidebar02",
+"sidebar-02": {
+  name: "sidebar-02",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label","dropdown-menu"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar02/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar02/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar02/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar02/components/VersionSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/components/VersionSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar02/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar03": {
-  name: "Sidebar03",
+"sidebar-03": {
+  name: "sidebar-03",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar03/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-03/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar03/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-03/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar03/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar04": {
-  name: "Sidebar04",
+"sidebar-04": {
+  name: "sidebar-04",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar04/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-04/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar04/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-04/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar04/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar05": {
-  name: "Sidebar05",
+"sidebar-05": {
+  name: "sidebar-05",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar05/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-05/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar05/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-05/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar05/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-05/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar05/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar06": {
-  name: "Sidebar06",
+"sidebar-06": {
+  name: "sidebar-06",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","dropdown-menu","button","card"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar06/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar06/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar06/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar06/components/SidebarOptInForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/components/SidebarOptInForm.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar06/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar07": {
-  name: "Sidebar07",
+"sidebar-07": {
+  name: "sidebar-07",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar07/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/NavProjects.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/NavProjects.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/NavUser.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/TeamSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/TeamSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar07/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar08": {
-  name: "Sidebar08",
+"sidebar-08": {
+  name: "sidebar-08",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar08/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavProjects.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavProjects.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavUser.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar08/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar09": {
-  name: "Sidebar09",
+"sidebar-09": {
+  name: "sidebar-09",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","label","switch","avatar","dropdown-menu"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar09/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-09/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar09/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-09/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar09/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-09/components/NavUser.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar09/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar10": {
-  name: "Sidebar10",
+"sidebar-10": {
+  name: "sidebar-10",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","button","popover","dropdown-menu","collapsible"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar10/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavActions.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavActions.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavFavorites.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavFavorites.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavWorkspaces.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavWorkspaces.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/TeamSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/TeamSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar10/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar11": {
-  name: "Sidebar11",
+"sidebar-11": {
+  name: "sidebar-11",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar11/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-11/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar11/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-11/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar11/components/Tree.vue",
+    path: "registry/new-york-v4/blocks/sidebar-11/components/Tree.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar11/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar12": {
-  name: "Sidebar12",
+"sidebar-12": {
+  name: "sidebar-12",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","avatar","dropdown-menu"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar12/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/Calendars.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/Calendars.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/DatePicker.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/DatePicker.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/NavUser.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar12/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar13": {
-  name: "Sidebar13",
+"sidebar-13": {
+  name: "sidebar-13",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","button","dialog","sidebar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar13/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-13/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar13/components/SettingsDialog.vue",
+    path: "registry/new-york-v4/blocks/sidebar-13/components/SettingsDialog.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar13/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar14": {
-  name: "Sidebar14",
+"sidebar-14": {
+  name: "sidebar-14",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","sidebar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar14/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-14/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar14/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-14/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar14/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar15": {
-  name: "Sidebar15",
+"sidebar-15": {
+  name: "sidebar-15",
   description: "",
   type: "registry:block",
   registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","dropdown-menu","avatar"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar15/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/Calendars.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/Calendars.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/DatePicker.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/DatePicker.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavFavorites.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavFavorites.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavUser.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavWorkspaces.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavWorkspaces.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/SidebarLeft.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/SidebarLeft.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/SidebarRight.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/SidebarRight.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/TeamSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/TeamSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar15/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
-"Sidebar16": {
-  name: "Sidebar16",
+"sidebar-16": {
+  name: "sidebar-16",
   description: "",
   type: "registry:block",
   registryDependencies: ["sidebar","collapsible","dropdown-menu","avatar","label","breadcrumb","button","separator"],
   files: [{
-    path: "registry/new-york-v4/blocks/Sidebar16/page.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/page.vue",
     type: "registry:page",
-    target: "pages/dashboard/index.vue"
+    target: "pages/sidebar/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavProjects.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavProjects.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavUser.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/SiteHeader.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/SiteHeader.vue",
     type: "registry:component",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/blocks/Sidebar16/page.vue").then((m) => m.default),
   source: "",
-  category: "sidebar",
+  category: "",
   subcategory: ""
 },
 "ChartAreaAxes": {
@@ -2552,7 +2478,6 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/charts/ChartAreaAxes.vue").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2567,7 +2492,300 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/charts/ChartAreaGradient.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartAreaIcons": {
+  name: "ChartAreaIcons",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartAreaIcons.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartAreaInteractive": {
+  name: "ChartAreaInteractive",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["card","chart","select"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartAreaInteractive.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartBarDefault": {
+  name: "ChartBarDefault",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartBarDefault.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartBarHorizontal": {
+  name: "ChartBarHorizontal",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartBarHorizontal.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartBarInteractive": {
+  name: "ChartBarInteractive",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartBarInteractive.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartBarMultiple": {
+  name: "ChartBarMultiple",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartBarMultiple.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartLineDefault": {
+  name: "ChartLineDefault",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartLineDefault.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartLineInteractive": {
+  name: "ChartLineInteractive",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartLineInteractive.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartLineLinear": {
+  name: "ChartLineLinear",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartLineLinear.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartLineStep": {
+  name: "ChartLineStep",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartLineStep.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartPieDonut": {
+  name: "ChartPieDonut",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartPieDonut.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartPieDonutText": {
+  name: "ChartPieDonutText",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartPieDonutText.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartPieSimple": {
+  name: "ChartPieSimple",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartPieSimple.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartPieStacked": {
+  name: "ChartPieStacked",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartPieStacked.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipDefault": {
+  name: "ChartTooltipDefault",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipDefault.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipIcons": {
+  name: "ChartTooltipIcons",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipIcons.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipIndicatorLine": {
+  name: "ChartTooltipIndicatorLine",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipIndicatorLine.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipIndicatorNone": {
+  name: "ChartTooltipIndicatorNone",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipIndicatorNone.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipLabelCustom": {
+  name: "ChartTooltipLabelCustom",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipLabelCustom.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipLabelFormatter": {
+  name: "ChartTooltipLabelFormatter",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipLabelFormatter.vue",
+    type: "registry:block",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"ChartTooltipLabelNone": {
+  name: "ChartTooltipLabelNone",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["chart","card"],
+  files: [{
+    path: "registry/new-york-v4/charts/ChartTooltipLabelNone.vue",
+    type: "registry:block",
+    target: ""
+  }],
   source: "",
   category: "",
   subcategory: ""

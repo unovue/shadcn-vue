@@ -51,6 +51,13 @@ export async function buildRegistry() {
   return registry
 }
 
+function sanitizeString(input: string): string {
+  return input
+    .replace(/[-_]\d+/g, '') // Remove hyphens/underscores followed by digits
+    .replace(/\d+/g, '') // Remove any remaining digits
+    .toLowerCase() // Convert to lowercase
+}
+
 export async function buildRegistryV4() {
   const registryRootPath = resolve('../v4/registry')
   const registry: Registry = []
@@ -169,7 +176,7 @@ async function crawlBlock(rootPath: string) {
     const source = await readFile(filepath, { encoding: 'utf8' })
     const relativePath = join('blocks', dirent.name)
 
-    const target = 'pages/dashboard/index.vue'
+    const target = `pages/${sanitizeString(dirent.name)}/index.vue`
 
     const file = {
       name: dirent.name,
@@ -341,7 +348,7 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
     const filepath = join(blockPath, compPath)
     const relativePath = join('blocks', blockName, compPath)
     const source = await readFile(filepath, { encoding: 'utf8' })
-    const target = isPage ? `pages/dashboard/index.vue` : ''
+    const target = isPage ? `pages/${sanitizeString(blockName)}/index.vue` : ''
 
     files.push({ content: source, path: relativePath, type, target })
 

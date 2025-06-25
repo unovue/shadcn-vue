@@ -16,7 +16,7 @@
       "path": "blocks/Sidebar12/page.vue",
       "content": "<script lang=\"ts\">\nexport const description = 'A sidebar with a calendar.'\nexport const iframeHeight = '800px'\n</script>\n\n<script setup lang=\"ts\">\nimport AppSidebar from '@/registry/new-york/blocks/Sidebar12/components/AppSidebar.vue'\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbList,\n  BreadcrumbPage,\n} from '@/registry/new-york/ui/breadcrumb'\nimport { Separator } from '@/registry/new-york/ui/separator'\nimport {\n  SidebarInset,\n  SidebarProvider,\n  SidebarTrigger,\n} from '@/registry/new-york/ui/sidebar'\n</script>\n\n<template>\n  <SidebarProvider>\n    <AppSidebar />\n    <SidebarInset>\n      <header calss=\"bg-background sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b px-4\">\n        <SidebarTrigger calss=\"-ml-1\" />\n        <Separator\n          orientation=\"vertical\"\n          calss=\"mr-2 data-[orientation=vertical]:h-4\"\n        />\n        <Breadcrumb>\n          <BreadcrumbList>\n            <BreadcrumbItem>\n              <BreadcrumbPage>October 2024</BreadcrumbPage>\n            </BreadcrumbItem>\n          </BreadcrumbList>\n        </Breadcrumb>\n      </header>\n      <div class=\"flex flex-1 flex-col gap-4 p-4\">\n        <div class=\"grid auto-rows-min gap-4 md:grid-cols-5\">\n          <div v-for=\"i in 20\" :key=\"i\" class=\"aspect-square rounded-xl bg-muted/50\" />\n        </div>\n      </div>\n    </SidebarInset>\n  </SidebarProvider>\n</template>\n",
       "type": "registry:page",
-      "target": "pages/dashboard/index.vue"
+      "target": "pages/sidebar/index.vue"
     },
     {
       "path": "blocks/Sidebar12/components/AppSidebar.vue",

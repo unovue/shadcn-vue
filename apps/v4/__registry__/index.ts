@@ -1927,7 +1927,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login01/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-01/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -1946,7 +1946,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login02/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-02/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -1965,7 +1965,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login03/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-03/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -1984,7 +1984,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login04/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-04/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2003,7 +2003,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Login05/components/LoginForm.vue",
+    path: "registry/new-york-v4/blocks/login-05/components/LoginForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2041,15 +2041,15 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar01/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar01/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar01/components/VersionSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-01/components/VersionSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2068,15 +2068,15 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar02/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar02/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar02/components/VersionSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-02/components/VersionSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2095,7 +2095,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar03/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-03/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2114,7 +2114,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar04/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-04/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2133,11 +2133,11 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar05/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-05/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar05/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-05/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2156,15 +2156,15 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar06/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar06/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar06/components/SidebarOptInForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-06/components/SidebarOptInForm.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2183,23 +2183,23 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/NavProjects.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/NavProjects.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/NavUser.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar07/components/TeamSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-07/components/TeamSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2218,23 +2218,23 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavProjects.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavProjects.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar08/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-08/components/NavUser.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2253,11 +2253,11 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar09/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-09/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar09/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-09/components/NavUser.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2276,31 +2276,31 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavActions.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavActions.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavFavorites.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavFavorites.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/NavWorkspaces.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/NavWorkspaces.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar10/components/TeamSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-10/components/TeamSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2319,11 +2319,11 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar11/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-11/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar11/components/Tree.vue",
+    path: "registry/new-york-v4/blocks/sidebar-11/components/Tree.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2342,19 +2342,19 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/Calendars.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/Calendars.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/DatePicker.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/DatePicker.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar12/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-12/components/NavUser.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2373,7 +2373,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar13/components/SettingsDialog.vue",
+    path: "registry/new-york-v4/blocks/sidebar-13/components/SettingsDialog.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2392,7 +2392,7 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar14/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-14/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2411,47 +2411,47 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/Calendars.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/Calendars.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/DatePicker.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/DatePicker.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavFavorites.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavFavorites.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavUser.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/NavWorkspaces.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/NavWorkspaces.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/SidebarLeft.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/SidebarLeft.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/SidebarRight.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/SidebarRight.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar15/components/TeamSwitcher.vue",
+    path: "registry/new-york-v4/blocks/sidebar-15/components/TeamSwitcher.vue",
     type: "registry:component",
     target: ""
   }],
@@ -2470,31 +2470,31 @@ export const Index: Record<string, any> = {
     type: "registry:page",
     target: "pages/dashboard/index.vue"
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/AppSidebar.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/AppSidebar.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavMain.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavMain.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavProjects.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavProjects.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavSecondary.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavSecondary.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/NavUser.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/NavUser.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/SearchForm.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/SearchForm.vue",
     type: "registry:component",
     target: ""
   },{
-    path: "registry/new-york-v4/blocks/Sidebar16/components/SiteHeader.vue",
+    path: "registry/new-york-v4/blocks/sidebar-16/components/SiteHeader.vue",
     type: "registry:component",
     target: ""
   }],

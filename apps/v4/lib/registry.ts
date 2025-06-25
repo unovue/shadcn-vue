@@ -4,6 +4,8 @@ import { promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { registryItemSchema } from 'shadcn-vue/registry'
+import { blockMeta } from '@/registry/registry-block-meta'
+
 // import { Project, ScriptKind } from 'ts-morph'
 
 import { Index } from '~/registry/__index__'
@@ -14,8 +16,6 @@ export function getRegistryComponent(name: string) {
 
 export async function getRegistryItem(name: string) {
   const item = Index[name]
-
-  console.log(item)
   if (!item) {
     return null
   }
@@ -32,7 +32,7 @@ export async function getRegistryItem(name: string) {
     return null
   }
 
-  const files: typeof result.data.files = []
+  let files: typeof result.data.files = []
   for (const file of item.files) {
     const content = await getFileContent(file)
     const relativePath = path.relative(process.cwd(), file.path)
@@ -45,10 +45,11 @@ export async function getRegistryItem(name: string) {
   }
 
   // Fix file paths.
-  // files = fixFilePaths(files)
-
+  files = fixFilePaths(files)
+  const meta = blockMeta[name]
   const parsed = registryItemSchema.safeParse({
     ...result.data,
+    ...meta,
     files,
   })
 

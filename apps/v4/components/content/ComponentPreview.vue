@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type HTMLAttributes, resolveComponent } from 'vue'
+import type { HTMLAttributes } from 'vue'
+import { Index } from '@/registry/__index__'
 
 const props = defineProps<{
   name: string
@@ -10,7 +11,7 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const Component = resolveComponent(props.name)
+const Component = defineAsyncComponent(Index[props.name]?.component)
 </script>
 
 <template>
@@ -49,6 +50,6 @@ const Component = resolveComponent(props.name)
     :hide-code
     :component="Component"
   >
-    <ComponentSource :name :collapsible="false" />
+    <ComponentSource v-if="!hideCode" :name :collapsible="false" />
   </ComponentPreviewTabs>
 </template>
