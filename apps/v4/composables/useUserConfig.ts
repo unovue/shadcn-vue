@@ -33,7 +33,7 @@ export const useConfig = createSharedComposable(() => {
   })
 
   watchImmediate(() => config.value.activeTheme, (activeTheme) => {
-    if (!isClient)
+    if (!isClient || !activeTheme)
       return
 
     Array.from(document.body.classList)

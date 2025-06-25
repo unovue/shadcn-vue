@@ -3,6 +3,25 @@ import ChartAreaAxes from '~/registry/new-york-v4/charts/ChartAreaAxes.vue'
 import ChartAreaGradient from '~/registry/new-york-v4/charts/ChartAreaGradient.vue'
 import ChartAreaIcons from '~/registry/new-york-v4/charts/ChartAreaIcons.vue'
 import ChartAreaInteractive from '~/registry/new-york-v4/charts/ChartAreaInteractive.vue'
+import ChartBarDefault from '~/registry/new-york-v4/charts/ChartBarDefault.vue'
+import ChartBarHorizontal from '~/registry/new-york-v4/charts/ChartBarHorizontal.vue'
+import ChartBarInteractive from '~/registry/new-york-v4/charts/ChartBarInteractive.vue'
+import ChartBarMultiple from '~/registry/new-york-v4/charts/ChartBarMultiple.vue'
+import ChartLineDefault from '~/registry/new-york-v4/charts/ChartLineDefault.vue'
+import ChartLineInteractive from '~/registry/new-york-v4/charts/ChartLineInteractive.vue'
+import ChartLineLinear from '~/registry/new-york-v4/charts/ChartLineLinear.vue'
+import ChartLineStep from '~/registry/new-york-v4/charts/ChartLineStep.vue'
+import ChartPieDonut from '~/registry/new-york-v4/charts/ChartPieDonut.vue'
+import ChartPieDonutText from '~/registry/new-york-v4/charts/ChartPieDonutText.vue'
+import ChartPieSimple from '~/registry/new-york-v4/charts/ChartPieSimple.vue'
+import ChartTooltipDefault from '~/registry/new-york-v4/charts/ChartTooltipDefault.vue'
+import ChartTooltipIcons from '~/registry/new-york-v4/charts/ChartTooltipIcons.vue'
+import ChartTooltipIndicatorLine from '~/registry/new-york-v4/charts/ChartTooltipIndicatorLine.vue'
+import ChartTooltipIndicatorNone from '~/registry/new-york-v4/charts/ChartTooltipIndicatorNone.vue'
+import ChartTooltipLabelCustom from '~/registry/new-york-v4/charts/ChartTooltipLabelCustom.vue'
+import ChartTooltipLabelFormatter from '~/registry/new-york-v4/charts/ChartTooltipLabelFormatter.vue'
+import ChartTooltipLabelNone from '~/registry/new-york-v4/charts/ChartTooltipLabelNone.vue'
+// import ChartPieStacked from '~/registry/new-york-v4/charts/ChartPieStacked.vue'
 
 interface ChartItem {
   id: string
@@ -12,12 +31,12 @@ interface ChartItem {
 
 interface ChartGroups {
   area: ChartItem[]
-  // bar: ChartItem[]
-  // line: ChartItem[]
-  // pie: ChartItem[]
+  bar: ChartItem[]
+  line: ChartItem[]
+  pie: ChartItem[]
   // radar: ChartItem[]
   // radial: ChartItem[]
-  // tooltip: ChartItem[]
+  tooltip: ChartItem[]
 }
 
 export const charts: ChartGroups = {
@@ -38,51 +57,51 @@ export const charts: ChartGroups = {
     { id: 'ChartAreaGradient', component: ChartAreaGradient },
     { id: 'ChartAreaAxes', component: ChartAreaAxes },
   ],
-  // bar: [
-  //   {
-  //     id: "chart-bar-interactive",
-  //     component: ChartBarInteractive,
-  //     fullWidth: true,
-  //   },
-  //   { id: "chart-bar-default", component: ChartBarDefault },
-  //   { id: "chart-bar-horizontal", component: ChartBarHorizontal },
-  //   { id: "chart-bar-multiple", component: ChartBarMultiple },
-  //   { id: "chart-bar-stacked", component: ChartBarStacked },
-  //   { id: "chart-bar-label", component: ChartBarLabel },
-  //   { id: "chart-bar-label-custom", component: ChartBarLabelCustom },
-  //   { id: "chart-bar-mixed", component: ChartBarMixed },
-  //   { id: "chart-bar-active", component: ChartBarActive },
-  //   { id: "chart-bar-negative", component: ChartBarNegative },
-  // ],
-  // line: [
-  //   {
-  //     id: "chart-line-interactive",
-  //     component: ChartLineInteractive,
-  //     fullWidth: true,
-  //   },
-  //   { id: "chart-line-default", component: ChartLineDefault },
-  //   { id: "chart-line-linear", component: ChartLineLinear },
-  //   { id: "chart-line-step", component: ChartLineStep },
+  bar: [
+    {
+      id: 'ChartBarInteractive',
+      component: ChartBarInteractive,
+      fullWidth: true,
+    },
+    { id: 'ChartBarDefault', component: ChartBarDefault },
+    { id: 'ChartBarHorizontal', component: ChartBarHorizontal },
+    { id: 'ChartBarMultiple', component: ChartBarMultiple },
+    // { id: "chart-bar-stacked", component: ChartBarStacked },
+    // { id: "chart-bar-label", component: ChartBarLabel },
+    // { id: "chart-bar-label-custom", component: ChartBarLabelCustom },
+    // { id: "chart-bar-mixed", component: ChartBarMixed },
+    // { id: "chart-bar-active", component: ChartBarActive },
+    // { id: "chart-bar-negative", component: ChartBarNegative },
+  ],
+  line: [
+    {
+      id: 'ChartLineInteractive',
+      component: ChartLineInteractive,
+      fullWidth: true,
+    },
+    { id: 'ChartLineDefault', component: ChartLineDefault },
+    { id: 'ChartLineLinear', component: ChartLineLinear },
+    { id: 'ChartLineStep', component: ChartLineStep },
   //   { id: "chart-line-multiple", component: ChartLineMultiple },
   //   { id: "chart-line-dots", component: ChartLineDots },
   //   { id: "chart-line-dots-custom", component: ChartLineDotsCustom },
   //   { id: "chart-line-dots-colors", component: ChartLineDotsColors },
   //   { id: "chart-line-label", component: ChartLineLabel },
   //   { id: "chart-line-label-custom", component: ChartLineLabelCustom },
-  // ],
-  // pie: [
-  //   { id: "chart-pie-simple", component: ChartPieSimple },
-  //   { id: "chart-pie-separator-none", component: ChartPieSeparatorNone },
-  //   { id: "chart-pie-label", component: ChartPieLabel },
-  //   { id: "chart-pie-label-custom", component: ChartPieLabelCustom },
-  //   { id: "chart-pie-label-list", component: ChartPieLabelList },
-  //   { id: "chart-pie-legend", component: ChartPieLegend },
-  //   { id: "chart-pie-donut", component: ChartPieDonut },
-  //   { id: "chart-pie-donut-active", component: ChartPieDonutActive },
-  //   { id: "chart-pie-donut-text", component: ChartPieDonutText },
-  //   { id: "chart-pie-stacked", component: ChartPieStacked },
+  ],
+  pie: [
+    { id: 'ChartPieSimple', component: ChartPieSimple },
+    //   { id: "chart-pie-separator-none", component: ChartPieSeparatorNone },
+    //   { id: "chart-pie-label", component: ChartPieLabel },
+    //   { id: "chart-pie-label-custom", component: ChartPieLabelCustom },
+    //   { id: "chart-pie-label-list", component: ChartPieLabelList },
+    //   { id: "chart-pie-legend", component: ChartPieLegend },
+    { id: 'ChartPieDonut', component: ChartPieDonut },
+    //   { id: "chart-pie-donut-active", component: ChartPieDonutActive },
+    { id: 'ChartPieDonutText', component: ChartPieDonutText },
+    // { id: 'ChartPieStacked', component: ChartPieStacked },
   //   { id: "chart-pie-interactive", component: ChartPieInteractive },
-  // ],
+  ],
   // radar: [
   //   { id: "chart-radar-default", component: ChartRadarDefault },
   //   { id: "chart-radar-dots", component: ChartRadarDots },
@@ -110,24 +129,15 @@ export const charts: ChartGroups = {
   //   { id: "chart-radial-shape", component: ChartRadialShape },
   //   { id: "chart-radial-stacked", component: ChartRadialStacked },
   // ],
-  // tooltip: [
-  //   { id: "chart-tooltip-default", component: ChartTooltipDefault },
-  //   {
-  //     id: "chart-tooltip-indicator-line",
-  //     component: ChartTooltipIndicatorLine,
-  //   },
-  //   {
-  //     id: "chart-tooltip-indicator-none",
-  //     component: ChartTooltipIndicatorNone,
-  //   },
-  //   { id: "chart-tooltip-label-custom", component: ChartTooltipLabelCustom },
-  //   {
-  //     id: "chart-tooltip-label-formatter",
-  //     component: ChartTooltipLabelFormatter,
-  //   },
-  //   { id: "chart-tooltip-label-none", component: ChartTooltipLabelNone },
-  //   { id: "chart-tooltip-formatter", component: ChartTooltipFormatter },
-  //   { id: "chart-tooltip-icons", component: ChartTooltipIcons },
+  tooltip: [
+    { id: 'ChartTooltipDefault', component: ChartTooltipDefault },
+    { id: 'ChartTooltipIndicatorLine', component: ChartTooltipIndicatorLine },
+    { id: 'ChartTooltipIndicatorNone', component: ChartTooltipIndicatorNone },
+    { id: 'ChartTooltipLabelCustom', component: ChartTooltipLabelCustom },
+    { id: 'ChartTooltipLabelFormatter', component: ChartTooltipLabelFormatter },
+    { id: 'ChartTooltipLabelNone', component: ChartTooltipLabelNone },
+    //   { id: "chart-tooltip-formatter", component: ChartTooltipFormatter },
+    { id: 'ChartTooltipIcons', component: ChartTooltipIcons },
   //   { id: "chart-tooltip-advanced", component: ChartTooltipAdvanced },
-  // ],
+  ],
 }

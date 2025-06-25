@@ -3,7 +3,7 @@ import { Primitive } from 'reka-ui'
 import { computed, type HTMLAttributes } from 'vue'
 import { THEMES, useChart } from '.'
 
-const props = defineProps<{
+defineProps<{
   id?: HTMLAttributes['id']
 }>()
 

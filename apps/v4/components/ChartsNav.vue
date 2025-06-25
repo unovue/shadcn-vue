@@ -14,18 +14,18 @@ const links = [
     name: 'Area Charts',
     href: '/charts/area#charts',
   },
-  // {
-  //   name: 'Bar Charts',
-  //   href: '/charts/bar#charts',
-  // },
-  // {
-  //   name: 'Line Charts',
-  //   href: '/charts/line#charts',
-  // },
-  // {
-  //   name: 'Pie Charts',
-  //   href: '/charts/pie#charts',
-  // },
+  {
+    name: 'Bar Charts',
+    href: '/charts/bar#charts',
+  },
+  {
+    name: 'Line Charts',
+    href: '/charts/line#charts',
+  },
+  {
+    name: 'Pie Charts',
+    href: '/charts/pie#charts',
+  },
   // {
   //   name: 'Radar Charts',
   //   href: '/charts/radar#charts',
@@ -34,10 +34,10 @@ const links = [
   //   name: 'Radial Charts',
   //   href: '/charts/radial#charts',
   // },
-  // {
-  //   name: 'Tooltips',
-  //   href: '/charts/tooltip#charts',
-  // },
+  {
+    name: 'Tooltips',
+    href: '/charts/tooltip#charts',
+  },
 ]
 </script>
 

@@ -51,11 +51,6 @@ const x = (d: Data) => d.day
           :data="data"
           :margin="{ top: 5, right: 10, left: 10, bottom: 0 }"
           :y-domain="[0, 1000]"
-          :style="{
-            '--vis-tooltip-padding': '0px',
-            '--vis-tooltip-background-color': 'transparent',
-            '--vis-tooltip-border-color': 'transparent',
-          }"
         >
           <VisAxis
             type="x"
