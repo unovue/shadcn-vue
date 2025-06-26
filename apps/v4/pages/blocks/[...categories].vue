@@ -1,10 +1,11 @@
 <script setup lang="ts">
 const { params } = toRefs(useRoute())
-const chartType = computed(() => params.value.type.toString())
+const { data } = await useFetch(() => `/api/category/${params.value.categories}`)
+console.log(data.value)
 </script>
 
 <template>
-  <div class="grid flex-1 gap-12 lg:gap-24">
-    hi
+  <div class="flex flex-col gap-12 md:gap-24">
+    <BlockDisplay v-for="name in data?.blocks" :key="name" :name="name" />
   </div>
 </template>

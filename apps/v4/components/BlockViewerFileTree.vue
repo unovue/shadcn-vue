@@ -21,7 +21,7 @@ const { tree } = useBlockViewer()
       <SidebarGroup class="p-0">
         <SidebarGroupContent>
           <SidebarMenu class="translate-x-0 gap-1.5">
-            <Tree v-for="(file, index) in tree" :key="index" :item="file" :index="1" />
+            <BlockViewerTree v-for="(file, index) in tree" :key="index" :item="file" :index="1" />
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>

@@ -62,7 +62,7 @@ const { activeFile } = useBlockViewer()
       </CollapsibleTrigger>
       <CollapsibleContent>
         <SidebarMenuSub class="m-0 w-full translate-x-0 border-none p-0">
-          <Tree v-for="(subItem, key) in item.children" :key="key" :item="subItem" :index="index + 1" />
+          <BlockViewerTree v-for="(subItem, key) in item.children" :key="key" :item="subItem" :index="index + 1" />
         </SidebarMenuSub>
       </CollapsibleContent>
     </Collapsible>

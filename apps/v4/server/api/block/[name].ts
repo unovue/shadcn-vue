@@ -63,7 +63,7 @@ export default cachedEventHandler(async (event) => {
     highlightedFiles,
   }
 }, {
-  shouldBypassCache: () => true,
+  shouldBypassCache: () => !!import.meta.dev,
   maxAge: 0, // 60 * 60, // 1 hour
   getKey: (event: H3Event) => event.path,
 })
