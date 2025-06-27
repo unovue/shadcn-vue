@@ -1904,6 +1904,56 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"dashboard-01": {
+  name: "dashboard-01",
+  description: "",
+  type: "registry:block",
+  registryDependencies: ["sidebar","card","chart","select","badge","button","checkbox","dropdown-menu","input","table","tabs","avatar","separator"],
+  files: [{
+    path: "registry/new-york-v4/blocks/dashboard-01/page.vue",
+    type: "registry:page",
+    target: "pages/dashboard/index.vue"
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/AppSidebar.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/ChartAreaInteractive.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/DataTable.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/NavDocuments.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/NavMain.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/NavSecondary.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/NavUser.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/SectionCards.vue",
+    type: "registry:component",
+    target: ""
+  },{
+    path: "registry/new-york-v4/blocks/dashboard-01/components/SiteHeader.vue",
+    type: "registry:component",
+    target: ""
+  }],
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "login-01": {
   name: "login-01",
   description: "",

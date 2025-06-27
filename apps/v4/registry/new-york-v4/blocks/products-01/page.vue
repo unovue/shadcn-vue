@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProductsTable from '@/registry/new-york-v4/blocks/Products01/components/ProductsTable.vue'
+import ProductsTable from '@/registry/new-york-v4/blocks/products-01/components/ProductsTable.vue'
 
 // Load from database.
 const products = [
