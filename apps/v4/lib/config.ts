@@ -29,10 +29,10 @@ export const siteConfig = {
       href: '/themes',
       label: 'Themes',
     },
-    // {
-    //   href: '/colors',
-    //   label: 'Colors',
-    // },
+    {
+      href: '/colors',
+      label: 'Colors',
+    },
   ],
 }
 

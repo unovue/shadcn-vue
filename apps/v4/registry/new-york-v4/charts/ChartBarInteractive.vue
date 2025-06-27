@@ -210,7 +210,7 @@ const total = computed(() => ({
                 })
               },
             })"
-            :color="chartConfig.desktop.color"
+            color="#0000"
           />
         </VisXYContainer>
       </ChartContainer>

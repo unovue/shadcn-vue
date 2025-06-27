@@ -78,7 +78,7 @@ const chartConfig = {
           <ChartTooltip />
           <ChartCrosshair
             :template="componentToString(chartConfig, ChartTooltipContent, { hideLabel: true })"
-            :color="chartConfig.desktop.color"
+            color="#0000"
           />
         </VisXYContainer>
       </ChartContainer>

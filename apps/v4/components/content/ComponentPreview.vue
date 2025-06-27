@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { Index } from '@/registry/__index__'
 
 const props = defineProps<{
   name: string
@@ -11,7 +10,9 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const Component = defineAsyncComponent(Index[props.name]?.component)
+const Component = defineAsyncComponent({
+  loader: () => import(`@/components/demo/${props.name}.vue`),
+})
 </script>
 
 <template>

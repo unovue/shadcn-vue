@@ -16,13 +16,13 @@ import {
         Open popover
       </Button>
     </PopoverTrigger>
-    <PopoverContent class="w-80" align="start">
+    <PopoverContent class="w-80">
       <div class="grid gap-4">
-        <div class="grid gap-1.5">
-          <h4 class="leading-none font-medium">
+        <div class="space-y-2">
+          <h4 class="font-medium leading-none">
             Dimensions
           </h4>
-          <p class="text-muted-foreground text-sm">
+          <p class="text-sm text-muted-foreground">
             Set the dimensions for the layer.
           </p>
         </div>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { CalendarIcon } from 'lucide-vue-next'
-
+import { CalendarDaysIcon } from 'lucide-vue-next'
 import {
   Avatar,
   AvatarFallback,
@@ -21,22 +20,22 @@ import {
         @nextjs
       </Button>
     </HoverCardTrigger>
-    <HoverCardContent class="w-80" side="right">
-      <div class="flex justify-between gap-4">
+    <HoverCardContent class="w-80">
+      <div class="flex justify-between space-x-4">
         <Avatar>
           <AvatarImage src="https://github.com/vercel.png" />
           <AvatarFallback>VC</AvatarFallback>
         </Avatar>
-        <div class="flex flex-col gap-1">
+        <div class="space-y-1">
           <h4 class="text-sm font-semibold">
             @nextjs
           </h4>
           <p class="text-sm">
-            The React Framework - created and maintained by @vercel.
+            The React Framework – created and maintained by @vercel.
           </p>
-          <div class="mt-1 flex items-center gap-2">
-            <CalendarIcon class="text-muted-foreground size-4" />
-            <span class="text-muted-foreground text-xs">
+          <div class="flex items-center pt-2">
+            <CalendarDaysIcon class="mr-2 h-4 w-4 opacity-70" />
+            <span class="text-xs text-muted-foreground">
               Joined December 2021
             </span>
           </div>

@@ -41,7 +41,3 @@ export function componentToString<P>(config: ChartConfig, component: Constructor
     return div.innerHTML
   }
 }
-
-if (import.meta.hot) {
-  console.log('hmr')
-}

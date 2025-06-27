@@ -4,16 +4,16 @@ import { Separator } from '@/registry/new-york-v4/ui/separator'
 
 <template>
   <div>
-    <div class="flex flex-col gap-1">
-      <div class="text-sm leading-none font-medium">
-        Tailwind CSS
-      </div>
-      <div class="text-muted-foreground text-sm">
-        A utility-first CSS framework.
-      </div>
+    <div class="space-y-1">
+      <h4 class="text-sm font-medium leading-none">
+        Radix Primitives
+      </h4>
+      <p class="text-sm text-muted-foreground">
+        An open-source UI component library.
+      </p>
     </div>
     <Separator class="my-4" />
-    <div class="flex h-5 items-center gap-4 text-sm">
+    <div class="flex h-5 items-center space-x-4 text-sm">
       <div>Blog</div>
       <Separator orientation="vertical" />
       <div>Docs</div>

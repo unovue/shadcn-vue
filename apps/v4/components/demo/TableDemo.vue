@@ -85,7 +85,7 @@ const invoices = [
     </TableBody>
     <TableFooter>
       <TableRow>
-        <TableCell :colspan="3">
+        <TableCell colspan="3">
           Total
         </TableCell>
         <TableCell class="text-right">

@@ -8,7 +8,8 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki'],
   components: [
     { path: '~/components' },
-    { path: '~/components/demo', global: true, pathPrefix: false },
+    { path: '~/components/_internal', enabled: false },
+    { path: '~/components/demo', pathPrefix: false },
     { path: '~/components/content', global: true, pathPrefix: false },
     { path: '~/registry/new-york-v4/ui/accordion', global: true, pathPrefix: false, ignore: ['*.ts'] },
   ],

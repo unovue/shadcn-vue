@@ -1,0 +1,80 @@
+---
+title: Resizable
+description: Accessible resizable panel groups and layouts with keyboard support.
+component: true
+links:
+  doc: https://reka-ui.com/docs/components/splitter
+  api: https://reka-ui.com/docs/components/splitter#api-reference
+---
+
+::component-preview
+---
+name: ResizableDemo
+description: A resizable component.
+align: center
+---
+::
+
+## Installation
+
+::code-tabs
+
+::tabs-list
+
+  ::tabs-trigger{value="cli"}
+  CLI
+  ::
+
+  ::tabs-trigger{value="manual"}
+  Manual
+  ::
+
+::
+
+::tabs-content{value="cli"}
+
+```bash
+npx shadcn-vue@latest add resizable
+```
+
+::
+
+::tabs-content{value="manual"}
+  ::steps
+    ::step
+    Install the following dependencies:
+    ::
+
+    ```bash
+    npm install reka-ui
+    ```
+
+    ::step
+    Copy and paste the GitHub source code into your project.
+    ::
+    
+    ::step
+    Update the import paths to match your project setup.
+    ::
+  ::
+::
+
+::
+
+## Usage
+
+```vue showLineNumbers
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+```
+
+```vue showLineNumbers
+<ResizablePanelGroup direction="horizontal">
+  <ResizablePanel>One</ResizablePanel>
+  <ResizableHandle />
+  <ResizablePanel>Two</ResizablePanel>
+</ResizablePanelGroup>
+```

@@ -41,7 +41,7 @@ const tooltipLabel = computed(() => {
   if (props.labelFormatter && props.x !== undefined) {
     return props.labelFormatter(props.x)
   }
-  return props.labelKey ? props.config[props.labelKey].label || props.payload[props.labelKey] : props.x
+  return props.labelKey ? props.config[props.labelKey]?.label || props.payload[props.labelKey] : props.x
 })
 </script>
 

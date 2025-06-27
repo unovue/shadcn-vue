@@ -15,8 +15,9 @@ import {
 } from '@tanstack/vue-table'
 import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
 import { h, ref } from 'vue'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import DropdownAction from '@/components/_internal/sink/DataTableDemoColumn.vue'
 
+import { Button } from '@/registry/new-york-v4/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/registry/new-york-v4/ui/card'
 import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
 import {
@@ -28,7 +29,6 @@ import {
 import { Input } from '@/registry/new-york-v4/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/registry/new-york-v4/ui/table'
 import { valueUpdater } from '@/registry/new-york-v4/ui/table/utils'
-import DropdownAction from '../demo/DataTableDemoColumn.vue'
 
 export interface Payment {
   id: string

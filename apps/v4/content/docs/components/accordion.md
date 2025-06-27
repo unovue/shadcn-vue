@@ -7,12 +7,14 @@ links:
   api: https://reka-ui.com/docs/components/accordion#api-reference
 ---
 
-<component-preview
-  name="AccordionDemo"
-  class="[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]"
-  description="An accordion with three items"
-  align="start">
-</component-preview>
+::component-preview
+---
+name: AccordionDemo
+class: '[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]'
+description: An accordion with three items
+align: start
+---
+::
 
 
 
@@ -42,9 +44,7 @@ npx shadcn-vue@latest add accordion
 ::
 
 ::tabs-content{value="manual"}
-
   ::steps
-
     ::step
     Install the following dependencies:
     ::
@@ -54,37 +54,33 @@ npx shadcn-vue@latest add accordion
     ```
 
     ::step
-    Copy and paste the following code into your project.
+    Copy and paste the GitHub source code into your project.
     ::
-
-    ::step
-    Update the import paths to match your project setup.
-    ::
-
   ::
-
 ::
 
 ::
 
 ## Usage
 
-```ts showLineNumbers
+```vue showLineNumbers
+<script lang="ts">
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-```
+</script>
 
-```tsx showLineNumbers
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It adheres to the WAI-ARIA design pattern.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+<template>
+  <Accordion type="single" collapsible>
+    <AccordionItem value="item-1">
+      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+      <AccordionContent>
+        Yes. It adheres to the WAI-ARIA design pattern.
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
+</template>
 ```

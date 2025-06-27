@@ -16,9 +16,9 @@ const description
         <a href="#blocks">Browse Blocks</a>
       </Button>
       <Button as-child variant="ghost" size="sm">
-        <Link href="/docs/blocks">
+        <NuxtLink to="/docs/blocks">
           Add a block
-        </Link>
+        </NuxtLink>
       </Button>
     </PageActions>
   </PageHeader>
@@ -30,9 +30,9 @@ const description
       size="sm"
       class="mr-7 hidden shadow-none lg:flex"
     >
-      <Link href="/blocks/sidebar">
+      <NuxtLink to="/blocks/sidebar">
         Browse all blocks
-      </Link>
+      </NuxtLink>
     </Button>
   </PageNav>
   <div class="container-wrapper section-soft flex-1 md:py-12">
