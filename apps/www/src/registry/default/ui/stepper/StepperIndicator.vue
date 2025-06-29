@@ -15,6 +15,7 @@ const forwarded = useForwardProps(delegatedProps)
 
 <template>
   <StepperIndicator
+    v-slot="slotProps"
     v-bind="forwarded"
     :class="cn(
       'inline-flex items-center justify-center rounded-full text-muted-foreground/50 w-10 h-10',
@@ -27,6 +28,6 @@ const forwarded = useForwardProps(delegatedProps)
       props.class,
     )"
   >
-    <slot />
+    <slot v-bind="slotProps" />
   </StepperIndicator>
 </template>
