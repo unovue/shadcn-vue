@@ -120,6 +120,9 @@
     <ComponentWrapper name="Sonner">
       <LazySonnerDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Stepper">
+      <LazyStepperDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Switch">
       <LazySwitchDemo />
     </ComponentWrapper>
