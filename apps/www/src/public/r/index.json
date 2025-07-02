@@ -816,6 +816,18 @@
     ]
   },
   {
+    "name": "date-range-picker",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui/date-range-picker/DateRangePicker.vue",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "dialog",
     "type": "registry:ui",
     "dependencies": [
@@ -2943,6 +2955,26 @@
       },
       {
         "path": "ui/context-menu/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "date-range-picker",
+    "type": "registry:ui",
+    "dependencies": [
+      "reka-ui"
+    ],
+    "registryDependencies": [
+      "button"
+    ],
+    "files": [
+      {
+        "path": "ui/date-range-picker/DateRangePicker.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/date-range-picker/index.ts",
         "type": "registry:ui"
       }
     ]

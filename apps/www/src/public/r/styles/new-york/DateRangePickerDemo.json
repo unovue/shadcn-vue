@@ -1,0 +1,14 @@
+{
+  "name": "DateRangePickerDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "examples/DateRangePickerDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport  DateRangePicker  from '@/registry/default/ui/date-range-picker/DateRangePicker.vue'\n\nconst selectedDateRange = ref({\n  start:null,\n  end:null\n});\n\nconst setDateRange = () => {\n  console.log(\"setDateRange selectedDateRange\",selectedDateRange.value);\n};\n</script>\n\n<template>\n   <DateRangePicker\n    v-model=\"selectedDateRange\"\n    @update:modelValue=\"setDateRange()\" \n   />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

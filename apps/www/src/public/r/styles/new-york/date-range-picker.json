@@ -1,0 +1,14 @@
+{
+  "name": "date-range-picker",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/date-range-picker/DateRangePicker.vue",
+      "content": "---\ntitle: Date Range Picker\ndescription: A fully accessible and customizable date range picker built with Reka-UI primitives.\nsource: apps/www/src/registry/default/ui/date-range-picker/DateRangePicker.vue\nprimitive: https://www.reka-ui.com/docs/components/date-range-picker.html\n---\n\n<ComponentPreview name=\"DateRangePicker\" />\n\n## Installation\n\nThe `DateRangePicker` is composed using accessible and modular [Reka-UI](https://www.reka-ui.com) components:\n\n- [`<Popover />`](/docs/components/popover)\n- [`<DateRangePickerRoot />`](https://www.reka-ui.com/docs/components/date-range-picker)\n- [`<DateRangePickerCalendar />`](/docs/components/calendar)\n\nTo use this component, ensure the following are installed and configured:\n\n```bash\npnpm add reka-ui date-fns @iconify/vue\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

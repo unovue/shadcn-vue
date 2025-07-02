@@ -809,6 +809,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "date-range-picker": {
+      name: "date-range-picker",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/ui/date-range-picker/DateRangePicker.vue",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/date-range-picker/DateRangePicker.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "dialog": {
       name: "dialog",
       description: "",
@@ -3385,6 +3400,21 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/DatePickerWithRange.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "DateRangePickerDemo": {
+      name: "DateRangePickerDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/examples/DateRangePickerDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/DateRangePickerDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -6759,6 +6789,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "date-range-picker": {
+      name: "date-range-picker",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/default/ui/date-range-picker/DateRangePicker.vue",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/default/ui/date-range-picker/DateRangePicker.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "dialog": {
       name: "dialog",
       description: "",
@@ -9335,6 +9380,21 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/DatePickerWithRange.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "DateRangePickerDemo": {
+      name: "DateRangePickerDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: [],
+      files: [{
+        path: "registry/default/examples/DateRangePickerDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/DateRangePickerDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
