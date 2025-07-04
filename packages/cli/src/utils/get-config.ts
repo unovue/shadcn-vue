@@ -1,12 +1,12 @@
-import { cosmiconfig } from 'cosmiconfig'
+import { loadConfig } from 'c12'
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
 import { getProjectInfo } from '@/src/utils/get-project-info'
+import { logger } from '@/src/utils/logger'
 import { resolveImport } from '@/src/utils/resolve-import'
 import { highlighter } from './highlighter'
-import { logger } from '@/src/utils/logger'
 
 /** @deprecated */
 export const TAILWIND_CSS_PATH = {
@@ -27,15 +27,16 @@ export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
 // zernonia: replaced this from `c12` because it cause error with `components` folder in Nuxt.
 // TODO: Figure out if we want to support all cosmiconfig formats.
 // A simple components.json file would be nice.
-const explorer = cosmiconfig('components', {
-  searchPlaces: ['components.json'],
-})
+// const explorer = cosmiconfig('components', {
+//   searchPlaces: ['components.json'],
+// })
 
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
     style: z.string(),
     typescript: z.boolean().default(true),
+    tsconfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG).optional(),
     tailwind: z.object({
       config: z.string().optional(),
       css: z.string(),
@@ -104,7 +105,11 @@ export function getTSConfig(cwd: string, tsconfigName: 'tsconfig.json' | 'jsconf
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   // Read tsconfig.json.
   const tsconfigType = config.typescript ? 'tsconfig.json' : 'jsconfig.json'
-  const tsConfig = getTSConfig(cwd, tsconfigType)
+  const tsConfigPath = path.resolve(
+    cwd,
+    config.tsconfigPath!,
+  )
+  const tsConfig = getTSConfig(tsConfigPath, tsconfigType)
 
   return configSchema.parse({
     ...config,
@@ -145,8 +150,13 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
 
 export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   try {
-    const configResult = await explorer.search(cwd)
-    if (!configResult) {
+    const configResult = await loadConfig({
+      name: 'components',
+      configFile: 'components',
+      cwd,
+    })
+
+    if (!configResult.config || Object.keys(configResult.config).length === 0) {
       return null
     }
 

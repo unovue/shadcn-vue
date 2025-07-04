@@ -202,7 +202,7 @@ async function addWorkspaceComponents(
     }
 
     // 4. Update dependencies.
-    await Promise.allSettled([
+    await Promise.all([
       component.dependencies && component.dependencies.length
         ? updateDependencies(
             component.dependencies,

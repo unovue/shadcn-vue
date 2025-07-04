@@ -5,7 +5,8 @@ import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
 import { preFlightInit } from '@/src/preflights/preflight-init'
-import { BASE_COLORS, getRegistryBaseColors, getRegistryItem, getRegistryStyles, isUrl } from '@/src/registry/api'
+import { BASE_COLORS, getRegistryBaseColors, getRegistryItem, getRegistryStyles } from '@/src/registry/api'
+import { isLocalFile, isUrl } from '@/src/registry/utils'
 import { addComponents } from '@/src/utils/add-components'
 import * as ERRORS from '@/src/utils/errors'
 import {
@@ -71,7 +72,7 @@ export const init = new Command()
   .description('initialize your project and install dependencies')
   .argument(
     '[components...]',
-    'the components to add or a url to the component.',
+    'names, url or local path to component',
   )
   .option('-y, --yes', 'skip confirmation prompt.', true)
   .option('-d, --defaults,', 'use default configuration.', false)
@@ -102,7 +103,9 @@ export const init = new Command()
       // We need to check if we're initializing with a new style.
       // We fetch the payload of the first item.
       // This is okay since the request is cached and deduped.
-      if (components.length > 0 && isUrl(components[0])) {
+      if (components.length > 0
+        && (isUrl(components[0]) || isLocalFile(components[0]))
+      ) {
         const item = await getRegistryItem(components[0], '')
 
         // Skip base color if style.
@@ -247,6 +250,15 @@ async function promptForConfig(defaultConfig: Config | null = null) {
         value: color.name,
       })),
     },
+    // {
+    //   type: 'text',
+    //   name: 'tsConfigPath',
+    //   message: (prev, values) => `Where is your ${highlighter.info(values.typescript ? 'tsconfig.json' : 'jsconfig.json')} file?`,
+    //   initial: (prev, values) => {
+    //     const path = values.typescript ? './tsconfig.json' : './jsconfig.json'
+    //     return path
+    //   },
+    // },
     {
       type: 'text',
       name: 'tailwindCss',
