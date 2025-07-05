@@ -36,7 +36,7 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     typescript: z.boolean().default(true),
-    tsconfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG).optional(),
+    tsConfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG).optional(),
     tailwind: z.object({
       config: z.string().optional(),
       css: z.string(),
@@ -107,7 +107,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
   const tsconfigType = config.typescript ? 'tsconfig.json' : 'jsconfig.json'
   const tsConfigPath = path.resolve(
     cwd,
-    config.tsconfigPath!,
+    config.tsConfigPath!,
   )
   const tsConfig = getTSConfig(tsConfigPath, tsconfigType)
 
