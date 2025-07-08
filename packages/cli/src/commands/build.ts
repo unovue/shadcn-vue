@@ -1,6 +1,6 @@
-import * as fs from 'node:fs/promises'
+import fs from 'node:fs/promises'
 import { Command } from 'commander'
-import * as path from 'pathe'
+import path from 'pathe'
 import { z } from 'zod'
 import { preFlightBuild } from '@/src/preflights/preflight-build'
 import { registryItemSchema, registrySchema } from '@/src/registry'
