@@ -1,5 +1,6 @@
 /* eslint-disable prefer-const */
 
+import type { registryItemFileSchema } from '@/src/registry/schema'
 import type { Config, configSchema, workspaceConfigSchema } from '@/src/utils/get-config'
 import path from 'pathe'
 import { z } from 'zod'
@@ -8,6 +9,7 @@ import { registryItemSchema } from '@/src/registry/schema'
 import { findCommonRoot, findPackageRoot, getWorkspaceConfig } from '@/src/utils/get-config'
 import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
+import { isSafeTarget } from '@/src/utils/is-safe-target'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
 import { updateCss } from '@/src/utils/updaters/update-css'
@@ -68,6 +70,15 @@ async function addProjectComponents(
     registrySpinner?.fail()
     return handleError(new Error('Failed to fetch components from registry.'))
   }
+
+  try {
+    validateFilesTarget(tree.files ?? [], config.resolvedPaths.cwd)
+  }
+  catch (error) {
+    registrySpinner?.fail()
+    return handleError(error)
+  }
+
   registrySpinner?.succeed()
 
   const tailwindVersion = await getProjectTailwindVersionFromConfig(config)
@@ -135,6 +146,14 @@ async function addWorkspaceComponents(
   const filesCreated: string[] = []
   const filesUpdated: string[] = []
   const filesSkipped: string[] = []
+
+  const files = payload.flatMap(item => item.files ?? [])
+  try {
+    validateFilesTarget(files, config.resolvedPaths.cwd)
+  }
+  catch (error) {
+    return handleError(error)
+  }
 
   const rootSpinner = spinner(`Installing components.`)?.start()
 
@@ -313,4 +332,21 @@ async function shouldOverwriteCssVars(
     component =>
       component.type === 'registry:theme' || component.type === 'registry:style',
   )
+}
+
+function validateFilesTarget(
+  files: z.infer<typeof registryItemFileSchema>[],
+  cwd: string,
+) {
+  for (const file of files) {
+    if (!file?.target) {
+      continue
+    }
+
+    if (!isSafeTarget(file.target, cwd)) {
+      throw new Error(
+        `We found an unsafe file path "${file.target} in the registry item. Installation aborted.`,
+      )
+    }
+  }
 }
