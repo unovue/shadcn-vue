@@ -5,19 +5,20 @@ import { reactiveOmit } from '@vueuse/core'
 import { ComboboxContent, ComboboxPortal, useForwardPropsEmits } from 'reka-ui'
 import { cn } from '@/lib/utils'
 
-const props = withDefaults(defineProps<ComboboxContentProps & { class?: HTMLAttributes['class'] }>(), {
+const props = withDefaults(defineProps<ComboboxContentProps & { class?: HTMLAttributes['class'], usePortal?: boolean }>(), {
   position: 'popper',
   align: 'center',
   sideOffset: 4,
+  usePortal: true,
 })
 const emits = defineEmits<ComboboxContentEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, 'class', 'usePortal')
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
-  <ComboboxPortal>
+  <ComboboxPortal :disabled="!props.usePortal">
     <ComboboxContent
       data-slot="combobox-list"
       v-bind="forwarded"
