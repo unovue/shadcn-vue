@@ -4,7 +4,7 @@ import type { registryItemFileSchema } from '@/src/registry/schema'
 import type { Config, configSchema, workspaceConfigSchema } from '@/src/utils/get-config'
 import path from 'pathe'
 import { z } from 'zod'
-import { fetchRegistry, getRegistryParentMap, getRegistryTypeAliasMap, registryResolveItemsTree, resolveRegistryItems } from '@/src/registry/api'
+import { fetchRegistry, getRegistryItem, getRegistryParentMap, getRegistryTypeAliasMap, registryResolveItemsTree, resolveRegistryItems } from '@/src/registry/api'
 import { registryItemSchema } from '@/src/registry/schema'
 import { findCommonRoot, findPackageRoot, getWorkspaceConfig } from '@/src/utils/get-config'
 import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
@@ -324,8 +324,9 @@ async function shouldOverwriteCssVars(
   components: z.infer<typeof registryItemSchema>['name'][],
   config: z.infer<typeof configSchema>,
 ) {
-  const registryItems = await resolveRegistryItems(components, config)
-  const result = await fetchRegistry(registryItems)
+  let result = await Promise.all(
+    components.map(component => getRegistryItem(component, config.style)),
+  )
   const payload = z.array(registryItemSchema).parse(result)
 
   return payload.some(
