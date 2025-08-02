@@ -1,3 +1,19 @@
+<script lang="ts">
+import { z } from 'zod'
+import DraggableRow from './DraggableRow.vue'
+import DragHandle from './DragHandle.vue'
+
+export const schema = z.object({
+  id: z.number(),
+  header: z.string(),
+  type: z.string(),
+  status: z.string(),
+  target: z.string(),
+  limit: z.string(),
+  reviewer: z.string(),
+})
+</script>
+
 <script setup lang="ts">
 import type {
   ColumnDef,
@@ -5,6 +21,7 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import { RestrictToVerticalAxis } from '@dnd-kit/abstract/modifiers'
 import {
   IconChevronDown,
   IconChevronLeft,
@@ -16,28 +33,29 @@ import {
   IconLayoutColumns,
   IconLoader,
   IconPlus,
-  IconTrendingUp,
 } from '@tabler/icons-vue'
 import {
+  FlexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table'
-import { z } from 'zod'
-
+import { DragDropProvider } from 'dnd-kit-vue'
 import { Badge } from '@/registry/new-york-v4/ui/badge'
+
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
-
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/registry/new-york-v4/ui/dropdown-menu'
+
 import { Label } from '@/registry/new-york-v4/ui/label'
 import {
   Select,
@@ -46,6 +64,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/registry/new-york-v4/ui/table'
 
 import {
   Tabs,
@@ -57,16 +83,6 @@ import {
 const props = defineProps<{
   data: TableData[]
 }>()
-
-const schema = z.object({
-  id: z.number(),
-  header: z.string(),
-  type: z.string(),
-  status: z.string(),
-  target: z.string(),
-  limit: z.string(),
-  reviewer: z.string(),
-})
 
 interface TableData {
   id: number
@@ -85,15 +101,20 @@ const rowSelection = ref({})
 
 const columns: ColumnDef<TableData>[] = [
   {
+    id: 'drag',
+    header: () => null,
+    cell: ({ row }) => h(DragHandle),
+  },
+  {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
-      'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
-      'onUpdate:checked': (value: boolean) => table.toggleAllPageRowsSelected(!!value),
+      'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
+      'onUpdate:modelValue': value => table.toggleAllPageRowsSelected(!!value),
       'aria-label': 'Select all',
     }),
     cell: ({ row }) => h(Checkbox, {
-      'checked': row.getIsSelected(),
-      'onUpdate:checked': (value: boolean) => row.toggleSelected(!!value),
+      'modelValue': row.getIsSelected(),
+      'onUpdate:modelValue': value => row.toggleSelected(!!value),
       'aria-label': 'Select row',
     }),
     enableSorting: false,
@@ -102,7 +123,7 @@ const columns: ColumnDef<TableData>[] = [
   {
     accessorKey: 'header',
     header: 'Header',
-    cell: ({ row }) => h('div', { class: 'font-medium' }, String(row.getValue('header'))),
+    cell: ({ row }) => h('div', String(row.getValue('header'))),
     enableHiding: false,
   },
   {
@@ -129,14 +150,12 @@ const columns: ColumnDef<TableData>[] = [
     accessorKey: 'target',
     header: () => h('div', { class: 'flex items-center gap-1' }, [
       'Target',
-      h(IconTrendingUp, { class: 'h-3 w-3' }),
     ]),
     cell: ({ row }) => h(Button, {
       variant: 'ghost',
       size: 'sm',
       class: 'h-auto p-1 text-xs font-mono',
     }, () => [
-      'Target',
       h('span', { class: 'ml-1 font-semibold' }, String(row.getValue('target'))),
     ]),
   },
@@ -144,14 +163,12 @@ const columns: ColumnDef<TableData>[] = [
     accessorKey: 'limit',
     header: () => h('div', { class: 'flex items-center gap-1' }, [
       'Limit',
-      h(IconTrendingUp, { class: 'h-3 w-3' }),
     ]),
     cell: ({ row }) => h(Button, {
       variant: 'ghost',
       size: 'sm',
       class: 'h-auto p-1 text-xs font-mono',
     }, () => [
-      'Limit',
       h('span', { class: 'ml-1 font-semibold' }, String(row.getValue('limit'))),
     ]),
   },
@@ -309,27 +326,18 @@ const table = useVueTable({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" class="w-56">
-            <!-- {table
-                .getAllColumns()
-                .filter(
-                  (column) =>
-                    typeof column.accessorFn !== "undefined" &&
-                    column.getCanHide()
-                )
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      class="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
-                    >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
-                  )
-                })} -->
+            <template v-for="column in table.getAllColumns().filter((column) => typeof column.accessorFn !== 'undefined' && column.getCanHide())" :key="column.id">
+              <DropdownMenuCheckboxItem
+                class="capitalize"
+                :model-value="column.getIsVisible()"
+                @update:model-value="(value) => {
+
+                  column.toggleVisibility(!!value)
+                }"
+              >
+                {{ column.id }}
+              </DropdownMenuCheckboxItem>
+            </template>
           </DropdownMenuContent>
         </DropdownMenu>
         <Button variant="outline" size="sm">
@@ -343,6 +351,30 @@ const table = useVueTable({
       class="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
     >
       <div class="overflow-hidden rounded-lg border">
+        <DragDropProvider :modifiers="[RestrictToVerticalAxis]">
+          <Table>
+            <TableHeader class="bg-muted sticky top-0 z-10">
+              <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
+                <TableHead v-for="header in headerGroup.headers" :key="header.id" :col-span="header.colSpan">
+                  <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody class="**:data-[slot=table-cell]:first:w-8">
+              <template v-if="table.getRowModel().rows.length">
+                <DraggableRow v-for="row in table.getRowModel().rows" :key="row.id" :row="row" :index="row.index" />
+              </template>
+              <TableRow v-else>
+                <TableCell
+                  :col-span="columns.length"
+                  class="h-24 text-center"
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </DragDropProvider>
         <!-- <DndContext
             collisionDetection={closestCenter}
             modifiers={[restrictToVerticalAxis]}
@@ -350,47 +382,6 @@ const table = useVueTable({
             sensors={sensors}
             id={sortableId}
           > -->
-        <!-- <Table>
-              <TableHeader class="bg-muted sticky top-0 z-10">
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id}>
-                    {headerGroup.headers.map((header) => {
-                      return (
-                        <TableHead key={header.id} colSpan={header.colSpan}>
-                          {header.isPlaceholder
-                            ? null
-                            : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
-                        </TableHead>
-                      )
-                    })}
-                  </TableRow>
-                ))}
-              </TableHeader>
-              <TableBody class="**:data-[slot=table-cell]:first:w-8">
-                {table.getRowModel().rows?.length ? (
-                  <SortableContext
-                    items={dataIds}
-                    strategy={verticalListSortingStrategy}
-                  >
-                    {table.getRowModel().rows.map((row) => (
-                      <DraggableRow key={row.id} row={row} />
-                    ))}
-                  </SortableContext>
-                ) : (
-                  <TableRow>
-                    <TableCell
-                      colSpan={columns.length}
-                      class="h-24 text-center"
-                    >
-                      No results.
-                    </TableCell>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table> -->
         <!-- </DndContext> -->
       </div>
       <div class="flex items-center justify-between px-4">

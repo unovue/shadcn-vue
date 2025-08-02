@@ -7,7 +7,7 @@ import {
 </script>
 
 <template>
-  <div class="flex items-center space-x-4">
+  <div class="flex flex-row flex-wrap items-center gap-12">
     <Avatar>
       <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
       <AvatarFallback>CN</AvatarFallback>
@@ -16,17 +16,22 @@ import {
       <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
       <AvatarFallback>ER</AvatarFallback>
     </Avatar>
-    <Avatar>
-      <AvatarImage src="" alt="@broken" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
-    <Avatar>
-      <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
-      <AvatarFallback>LR</AvatarFallback>
-    </Avatar>
-    <Avatar>
-      <AvatarImage src="" alt="@broken" />
-      <AvatarFallback>ER</AvatarFallback>
-    </Avatar>
+    <div class="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="https://github.com/leerob.png" alt="@leerob" />
+        <AvatarFallback>LR</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage
+          src="https://github.com/evilrabbit.png"
+          alt="@evilrabbit"
+        />
+        <AvatarFallback>ER</AvatarFallback>
+      </Avatar>
+    </div>
   </div>
 </template>

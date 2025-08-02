@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-  <div class="space-y-4">
+  <div class="grid w-full max-w-xl items-start gap-4">
     <Alert>
       <CheckCircle2Icon />
       <AlertTitle>Success! Your changes have been saved</AlertTitle>

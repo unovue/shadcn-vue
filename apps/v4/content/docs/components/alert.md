@@ -7,9 +7,8 @@ component: true
 ::component-preview
 ---
 name: AlertDemo
-class: '[&_.preview]:min-h-[500px]'
+title: An alert with an icon, title and description.
 description: An alert with an icon, title and description.
-align: start
 ---
 ::
 
@@ -42,7 +41,7 @@ npx shadcn-vue@latest add alert
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::

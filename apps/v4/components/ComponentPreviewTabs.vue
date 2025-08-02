@@ -3,12 +3,14 @@ import type { Component, HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { Tabs, TabsList, TabsTrigger } from '@/registry/new-york-v4/ui/tabs'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   component: string | Component
   class?: HTMLAttributes['class']
   hideCode?: boolean
   align?: 'center' | 'start' | 'end'
-}>()
+}>(), {
+  align: 'center',
+})
 
 const tab = ref<'preview' | 'code'>('preview')
 </script>
@@ -35,7 +37,7 @@ const tab = ref<'preview' | 'code'>('preview')
         </TabsList>
       </div>
     </Tabs>
-    <div :data-tab="tab" class="data-[tab=code]:border-code relative rounded-lg border md:-mx-4">
+    <div :data-tab="tab" class="data-[tab=code]:border-code relative rounded-lg border md:-mx-1">
       <div
         data-slot="preview"
         :data-active="tab === 'preview'"

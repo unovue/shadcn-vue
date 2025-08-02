@@ -10,7 +10,7 @@ links:
 ::component-preview
 ---
 name: AccordionDemo
-class: '[&_.preview>[data-orientation=vertical]]:sm:max-w-[80%] **:[.preview]:min-h-[400px]'
+class: '[&_.preview>div]:sm:max-w-[80%] **:[.preview]:min-h-[400px]'
 description: An accordion with three items
 align: start
 ---

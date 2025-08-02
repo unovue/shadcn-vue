@@ -24,7 +24,7 @@ const Component = defineAsyncComponent({
     not found in registry.
   </p>
 
-  <div v-else-if="type === 'block'" class="relative aspect-[4/2.5] w-full overflow-hidden rounded-md border md:-mx-4">
+  <div v-else-if="type === 'block'" class="relative aspect-[4/2.5] w-full overflow-hidden rounded-md border md:-mx-1">
     <img
       :src="`/r/styles/new-york-v4/${name}-light.png`"
       :alt="name"
