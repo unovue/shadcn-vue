@@ -4,11 +4,15 @@ description: A composable, themeable and customizable sidebar component.
 component: true
 ---
 
+<!-- TODO: add all component preview -->
+
 ::component-preview
 ---
-name: SidebarDemo
-description: A composable and customizable sidebar component
-class: '[&_.preview]:min-h-[500px]'
+title: Sidebar
+name: sidebar-07
+description: A composable, themeable and customizable sidebar component built using shadcn/vue
+class: 'w-full'
+type: block
 ---
 ::
 
@@ -317,15 +321,27 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
   ```
 
   ::step
-  You've created your first sidebar
+  You've created your first sidebar.
   ::
 
-  <figure class="flex flex-col gap-4">
-    <BlockPreview url="/block-renderer?name=DemoSidebar&styles=new-york"></BlockPreview>
-    <figcaption class="text-center text-sm text-gray-500">
-      Your first sidebar
-    </figcaption>
-  </figure>
+  You should see something like this:
+
+<figure class="flex flex-col gap-4">
+
+  ::component-preview
+  ---
+  title: Sidebar
+  name: sidebar-demo
+  description: Your first sidebar.
+  class: 'w-full'
+  type: block
+  ---
+  ::
+
+  <figcaption class="text-center text-sm text-gray-500">
+    Your first sidebar
+  </figcaption>
+</figure>
 
 ::
 

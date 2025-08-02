@@ -10,9 +10,13 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const Component = defineAsyncComponent({
-  loader: () => import(`@/components/demo/${props.name}.vue`),
-})
+const Component = props.type === 'block'
+  ? defineAsyncComponent({
+      loader: () => import(`@/registry/new-york-v4/blocks/${props.name}/page.vue`),
+    })
+  : defineAsyncComponent({
+      loader: () => import(`@/components/demo/${props.name}.vue`),
+    })
 </script>
 
 <template>
