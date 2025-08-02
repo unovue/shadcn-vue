@@ -2,6 +2,7 @@
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,

@@ -63,12 +63,12 @@ function selectFramework(selectedValue: string) {
         class="w-[200px] justify-between"
       >
         {{ selectedFramework?.label || "Select framework..." }}
-        <ChevronsUpDownIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        <ChevronsUpDownIcon class="opacity-50" />
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0">
       <Command>
-        <CommandInput placeholder="Search framework..." />
+        <CommandInput class="h-9" placeholder="Search framework..." />
         <CommandList>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
@@ -76,15 +76,17 @@ function selectFramework(selectedValue: string) {
               v-for="framework in frameworks"
               :key="framework.value"
               :value="framework.value"
-              @select="selectFramework"
+              @select="(ev) => {
+                selectFramework(ev.detail.value as string)
+              }"
             >
+              {{ framework.label }}
               <CheckIcon
                 :class="cn(
-                  'mr-2 h-4 w-4',
+                  'ml-auto',
                   value === framework.value ? 'opacity-100' : 'opacity-0',
                 )"
               />
-              {{ framework.label }}
             </CommandItem>
           </CommandGroup>
         </CommandList>

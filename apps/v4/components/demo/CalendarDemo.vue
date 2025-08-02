@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { type DateValue, fromDate, getLocalTimeZone } from '@internationalized/date'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 
-const date = ref(new Date())
+const date = ref(fromDate(new Date(), getLocalTimeZone())) as Ref<DateValue>
 </script>
 
 <template>
-  <Calendar v-model="date" class="rounded-md border" />
+  <Calendar
+    v-model="date"
+    class="rounded-md border shadow-sm"
+  />
 </template>
