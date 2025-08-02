@@ -13,6 +13,6 @@ const props = defineProps<{
       'font-heading mt-8 scroll-m-32 text-xl font-medium tracking-tight', props.class,
     )"
   >
-    <slot />
+    <slot mdc-unwrap="p" />
   </h3>
 </template>
