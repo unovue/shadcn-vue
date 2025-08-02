@@ -11,7 +11,6 @@ links:
 ---
 name: PinInputDemo
 description: An input OTP component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add input-otp
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,26 +63,28 @@ npx shadcn-vue@latest add input-otp
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp"
-```
+</script>
 
-```vue showLineNumbers
-<InputOTP v-model="value" :maxlength="6">
-  <InputOTPGroup>
-    <InputOTPSlot :index="0" />
-    <InputOTPSlot :index="1" />
-    <InputOTPSlot :index="2" />
-  </InputOTPGroup>
-  <InputOTPSeparator />
-  <InputOTPGroup>
-    <InputOTPSlot :index="3" />
-    <InputOTPSlot :index="4" />
-    <InputOTPSlot :index="5" />
-  </InputOTPGroup>
-</InputOTP>
+<template>
+  <InputOTP v-model="value" :maxlength="6">
+    <InputOTPGroup>
+      <InputOTPSlot :index="0" />
+      <InputOTPSlot :index="1" />
+      <InputOTPSlot :index="2" />
+    </InputOTPGroup>
+    <InputOTPSeparator />
+    <InputOTPGroup>
+      <InputOTPSlot :index="3" />
+      <InputOTPSlot :index="4" />
+      <InputOTPSlot :index="5" />
+    </InputOTPGroup>
+  </InputOTP>
+</template>
 ```

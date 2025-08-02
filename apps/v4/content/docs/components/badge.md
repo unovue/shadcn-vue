@@ -7,9 +7,7 @@ component: true
 ::component-preview
 ---
 name: BadgeDemo
-class: '[&_.preview]:min-h-[200px]'
 description: A default badge
-align: center
 ---
 ::
 
@@ -42,7 +40,7 @@ npx shadcn-vue@latest add badge
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -54,11 +52,13 @@ npx shadcn-vue@latest add badge
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Badge } from "@/components/ui/badge"
-```
+</script>
 
-```vue showLineNumbers
-<Badge variant="default | outline | secondary | destructive">Badge</Badge>
+<template>
+  <Badge variant="default | outline | secondary | destructive">Badge</Badge>
+</template>
 ```
 
 ### Link

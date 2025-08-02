@@ -11,7 +11,6 @@ links:
 ---
 name: SelectDemo
 description: A select component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add select
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,6 +63,7 @@ npx shadcn-vue@latest add select
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Select,
   SelectContent,
@@ -71,19 +71,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-```
+</script>
 
-```vue showLineNumbers
-<Select>
-  <SelectTrigger>
-    <SelectValue placeholder="Select a fruit" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="apple">Apple</SelectItem>
-    <SelectItem value="banana">Banana</SelectItem>
-    <SelectItem value="blueberry">Blueberry</SelectItem>
-    <SelectItem value="grapes">Grapes</SelectItem>
-    <SelectItem value="pineapple">Pineapple</SelectItem>
-  </SelectContent>
-</Select>
+<template>
+  <Select>
+    <SelectTrigger>
+      <SelectValue placeholder="Select a fruit" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem value="apple">Apple</SelectItem>
+      <SelectItem value="banana">Banana</SelectItem>
+      <SelectItem value="blueberry">Blueberry</SelectItem>
+      <SelectItem value="grapes">Grapes</SelectItem>
+      <SelectItem value="pineapple">Pineapple</SelectItem>
+    </SelectContent>
+  </Select>
+</template>
 ```

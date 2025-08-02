@@ -8,7 +8,6 @@ component: true
 ---
 name: ComboboxDemo
 description: A combobox with a list of frameworks.
-align: center
 ---
 ::
 

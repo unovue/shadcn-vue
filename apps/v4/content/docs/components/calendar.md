@@ -11,7 +11,6 @@ links:
 ---
 name: CalendarDemo
 description: A calendar component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add calendar
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add calendar
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Calendar } from "@/components/ui/calendar"
-```
+</script>
 
-```vue showLineNumbers
-<Calendar />
+<template>
+  <Calendar />
+</template>
 ```

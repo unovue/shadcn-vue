@@ -1,35 +1,45 @@
 <script setup lang="ts">
-import { AlertCircleIcon, BadgeCheckIcon, CheckIcon } from 'lucide-vue-next'
+import { BadgeCheckIcon } from 'lucide-vue-next'
 import { Badge } from '@/registry/new-york-v4/ui/badge'
 </script>
 
 <template>
-  <div class="flex flex-wrap items-center gap-2">
-    <Badge>Badge</Badge>
-    <Badge variant="secondary">
-      Secondary
-    </Badge>
-    <Badge variant="destructive">
-      Destructive
-    </Badge>
-    <Badge variant="outline">
-      Outline
-    </Badge>
-
-    <Badge variant="secondary">
-      <BadgeCheckIcon class="h-3 w-3" />
-      Verified
-    </Badge>
-    <Badge variant="destructive">
-      <AlertCircleIcon class="h-3 w-3" />
-      8
-    </Badge>
-    <Badge variant="outline">
-      <CheckIcon class="h-3 w-3" />
-      99
-    </Badge>
-    <Badge>
-      20+
-    </Badge>
+  <div class="flex flex-col items-center gap-2">
+    <div class="flex w-full flex-wrap gap-2">
+      <Badge>Badge</Badge>
+      <Badge variant="secondary">
+        Secondary
+      </Badge>
+      <Badge variant="destructive">
+        Destructive
+      </Badge>
+      <Badge variant="outline">
+        Outline
+      </Badge>
+    </div>
+    <div class="flex w-full flex-wrap gap-2">
+      <Badge
+        variant="secondary"
+        class="bg-blue-500 text-white dark:bg-blue-600"
+      >
+        <BadgeCheckIcon />
+        Verified
+      </Badge>
+      <Badge class="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums">
+        8
+      </Badge>
+      <Badge
+        class="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums"
+        variant="destructive"
+      >
+        99
+      </Badge>
+      <Badge
+        class="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums"
+        variant="outline"
+      >
+        20+
+      </Badge>
+    </div>
   </div>
 </template>

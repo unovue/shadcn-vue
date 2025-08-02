@@ -11,7 +11,6 @@ links:
 ---
 name: DrawerDemo
 description: A drawer component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add drawer
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,6 +63,7 @@ npx shadcn-vue@latest add drawer
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Drawer,
   DrawerClose,
@@ -74,24 +74,25 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-```
+</script>
 
-```vue showLineNumbers
-<Drawer>
-  <DrawerTrigger>Open</DrawerTrigger>
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-      <DrawerDescription>
-        This action cannot be undone.
-      </DrawerDescription>
-    </DrawerHeader>
-    <DrawerFooter>
-      <Button>Submit</Button>
-      <DrawerClose>
-        <Button variant="outline">Cancel</Button>
-      </DrawerClose>
-    </DrawerFooter>
-  </DrawerContent>
-</Drawer>
+<template>
+  <Drawer>
+    <DrawerTrigger>Open</DrawerTrigger>
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+        <DrawerDescription>
+          This action cannot be undone.
+        </DrawerDescription>
+      </DrawerHeader>
+      <DrawerFooter>
+        <Button>Submit</Button>
+        <DrawerClose>
+          <Button variant="outline">Cancel</Button>
+        </DrawerClose>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</template>
 ```

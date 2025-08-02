@@ -9,7 +9,6 @@ component: true
 name: InputDemo
 class: '[&_input]:max-w-xs'
 description: A form input component.
-align: center
 ---
 ::
 
@@ -42,7 +41,7 @@ npx shadcn-vue@latest add input
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -54,9 +53,11 @@ npx shadcn-vue@latest add input
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Input } from "@/components/ui/input"
-```
+</script>
 
-```vue showLineNumbers
-<Input />
+<template>
+  <Input />
+</template>
 ```

@@ -11,7 +11,6 @@ links:
 ---
 name: ResizableDemo
 description: A resizable component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add resizable
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,17 +63,19 @@ npx shadcn-vue@latest add resizable
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
-```
+</script>
 
-```vue showLineNumbers
-<ResizablePanelGroup direction="horizontal">
-  <ResizablePanel>One</ResizablePanel>
-  <ResizableHandle />
-  <ResizablePanel>Two</ResizablePanel>
-</ResizablePanelGroup>
+<template>
+  <ResizablePanelGroup direction="horizontal">
+    <ResizablePanel>One</ResizablePanel>
+    <ResizableHandle />
+    <ResizablePanel>Two</ResizablePanel>
+  </ResizablePanelGroup>
+</template>
 ```

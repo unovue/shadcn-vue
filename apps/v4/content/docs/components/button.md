@@ -9,7 +9,6 @@ component: true
 ---
 name: ButtonDemo
 description: A button
-align: center
 ---
 ::
 
@@ -50,7 +49,7 @@ npx shadcn-vue@latest add button
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -62,11 +61,13 @@ npx shadcn-vue@latest add button
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Button } from "@/components/ui/button"
-```
+</script>
 
-```vue showLineNumbers
-<Button variant="outline">Button</Button>
+<template>
+  <Button variant="outline">Button</Button>
+</template>
 ```
 
 ## Link

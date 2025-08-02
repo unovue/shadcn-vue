@@ -8,7 +8,6 @@ component: true
 ---
 name: ChartDemo
 description: A chart component built with Recharts.
-align: center
 ---
 ::
 
@@ -49,7 +48,7 @@ npx shadcn-vue@latest add chart
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -59,25 +58,6 @@ npx shadcn-vue@latest add chart
 ::
 
 ## Usage
-
-```vue showLineNumbers
-import { TrendingUp } from "lucide-vue-next"
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart"
-```
 
 ```vue showLineNumbers
 <script setup lang="ts">

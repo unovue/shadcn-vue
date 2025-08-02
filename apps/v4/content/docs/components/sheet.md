@@ -11,7 +11,6 @@ links:
 ---
 name: SheetDemo
 description: A sheet component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add sheet
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,6 +63,7 @@ npx shadcn-vue@latest add sheet
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Sheet,
   SheetContent,
@@ -72,19 +72,20 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-```
+</script>
 
-```vue showLineNumbers
-<Sheet>
-  <SheetTrigger>Open</SheetTrigger>
-  <SheetContent>
-    <SheetHeader>
-      <SheetTitle>Are you absolutely sure?</SheetTitle>
-      <SheetDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
-      </SheetDescription>
-    </SheetHeader>
-  </SheetContent>
-</Sheet>
+<template>
+  <Sheet>
+    <SheetTrigger>Open</SheetTrigger>
+    <SheetContent>
+      <SheetHeader>
+        <SheetTitle>Are you absolutely sure?</SheetTitle>
+        <SheetDescription>
+          This action cannot be undone. This will permanently delete your account
+          and remove your data from our servers.
+        </SheetDescription>
+      </SheetHeader>
+    </SheetContent>
+  </Sheet>
+</template>
 ```

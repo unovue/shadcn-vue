@@ -11,7 +11,6 @@ links:
 ---
 name: LabelDemo
 description: A label
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add label
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add label
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Label } from "@/components/ui/label"
-```
+</script>
 
-```vue showLineNumbers
-<Label for="email">Your email address</Label>
+<template>
+  <Label for="email">Your email address</Label>
+</template>
 ```

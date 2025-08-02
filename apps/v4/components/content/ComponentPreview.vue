@@ -13,6 +13,7 @@ const props = defineProps<{
 const Component = defineAsyncComponent({
   loader: () => import(`@/components/demo/${props.name}.vue`),
 })
+console.log(props, Component)
 </script>
 
 <template>

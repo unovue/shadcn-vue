@@ -11,7 +11,6 @@ links:
 ---
 name: ProgressDemo
 description: A progress component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add progress
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add progress
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Progress } from "@/components/ui/progress"
-```
+</script>
 
-```vue showLineNumbers
-<Progress :model-value="33" />
+<template>
+  <Progress :model-value="33" />
+</template>
 ```

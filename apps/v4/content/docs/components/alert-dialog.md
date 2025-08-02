@@ -12,7 +12,6 @@ links:
 name: AlertDialogDemo
 class: '[&_.preview]:min-h-[400px]'
 description: An alert dialog that asks for user confirmation
-align: center
 ---
 ::
 

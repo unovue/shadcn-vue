@@ -11,7 +11,6 @@ links:
 ---
 name: ToggleDemo
 description: A toggle component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add toggle
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add toggle
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Toggle } from "@/components/ui/toggle"
-```
+</script>
 
-```vue showLineNumbers
-<Toggle>Toggle</Toggle>
+<template>
+  <Toggle>Toggle</Toggle>
+</template>
 ```

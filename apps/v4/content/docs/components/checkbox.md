@@ -11,7 +11,6 @@ links:
 ---
 name: CheckboxDemo
 description: A checkbox
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add checkbox
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add checkbox
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Checkbox } from "@/components/ui/checkbox"
-```
+</script>
 
-```vue showLineNumbers
-<Checkbox />
+<template>
+  <Checkbox />
+</template>
 ```

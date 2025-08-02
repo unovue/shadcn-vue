@@ -11,7 +11,6 @@ links:
 ---
 name: CollapsibleDemo
 description: A collapsible component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add collapsible
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,19 +63,21 @@ npx shadcn-vue@latest add collapsible
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-```
+</script>
 
-```vue showLineNumbers
-<Collapsible>
-  <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
-  <CollapsibleContent>
-    Yes. Free to use for personal and commercial projects. No attribution
-    required.
-  </CollapsibleContent>
-</Collapsible>
+<template>
+  <Collapsible>
+    <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+    <CollapsibleContent>
+      Yes. Free to use for personal and commercial projects. No attribution
+      required.
+    </CollapsibleContent>
+  </Collapsible>
+</template>
 ```

@@ -8,7 +8,6 @@ component: true
 ---
 name: SonnerDemo
 description: A sonner toast component.
-align: center
 ---
 ::
 
@@ -49,7 +48,7 @@ npx shadcn-vue@latest add sonner
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -59,10 +58,6 @@ npx shadcn-vue@latest add sonner
 ::
 
 ## Usage
-
-```vue showLineNumbers
-import { toast } from 'vue-sonner'
-```
 
 ```vue showLineNumbers
 <script setup lang="ts">

@@ -11,7 +11,6 @@ links:
 ---
 name: PopoverDemo
 description: A popover component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add popover
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,16 +63,18 @@ npx shadcn-vue@latest add popover
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-```
+</script>
 
-```vue showLineNumbers
-<Popover>
-  <PopoverTrigger>Open</PopoverTrigger>
-  <PopoverContent>Place content for the popover here.</PopoverContent>
-</Popover>
+<template>
+  <Popover>
+    <PopoverTrigger>Open</PopoverTrigger>
+    <PopoverContent>Place content for the popover here.</PopoverContent>
+  </Popover>
+</template>
 ```

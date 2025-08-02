@@ -1,6 +1,4 @@
 <script setup lang="ts">
-'use client'
-
 import { Minus, Plus } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {

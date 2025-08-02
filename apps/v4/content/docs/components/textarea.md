@@ -8,7 +8,6 @@ component: true
 ---
 name: TextareaDemo
 description: A textarea component.
-align: center
 ---
 ::
 
@@ -41,7 +40,7 @@ npx shadcn-vue@latest add textarea
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -53,9 +52,11 @@ npx shadcn-vue@latest add textarea
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Textarea } from "@/components/ui/textarea"
-```
+</script>
 
-```vue showLineNumbers
-<Textarea placeholder="Type your message here." />
+<template>
+  <Textarea placeholder="Type your message here." />
+</template>
 ```

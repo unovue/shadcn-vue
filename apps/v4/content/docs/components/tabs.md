@@ -11,7 +11,6 @@ links:
 ---
 name: TabsDemo
 description: A tabs component with account and password tabs.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add tabs
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,20 +63,22 @@ npx shadcn-vue@latest add tabs
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-```
+</script>
 
-```vue showLineNumbers
-<Tabs default-value="account">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
-  </TabsList>
-  <TabsContent value="account">
-    Make changes to your account here.
-  </TabsContent>
-  <TabsContent value="password">
-    Change your password here.
-  </TabsContent>
-</Tabs>
+<template>
+  <Tabs default-value="account">
+    <TabsList>
+      <TabsTrigger value="account">Account</TabsTrigger>
+      <TabsTrigger value="password">Password</TabsTrigger>
+    </TabsList>
+    <TabsContent value="account">
+      Make changes to your account here.
+    </TabsContent>
+    <TabsContent value="password">
+      Change your password here.
+    </TabsContent>
+  </Tabs>
+</template>
 ```

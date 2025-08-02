@@ -11,7 +11,6 @@ links:
 ---
 name: ToggleGroupDemo
 description: A toggle group component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add toggle-group
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,15 +63,17 @@ npx shadcn-vue@latest add toggle-group
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
-```
+</script>
 
-```vue showLineNumbers
-<ToggleGroup type="multiple">
-  <ToggleGroupItem value="bold">Bold</ToggleGroupItem>
-  <ToggleGroupItem value="italic">Italic</ToggleGroupItem>
-  <ToggleGroupItem value="underline">Underline</ToggleGroupItem>
-</ToggleGroup>
+<template>
+  <ToggleGroup type="multiple">
+    <ToggleGroupItem value="bold">Bold</ToggleGroupItem>
+    <ToggleGroupItem value="italic">Italic</ToggleGroupItem>
+    <ToggleGroupItem value="underline">Underline</ToggleGroupItem>
+  </ToggleGroup>
+</template>
 ```
 
 ## Examples

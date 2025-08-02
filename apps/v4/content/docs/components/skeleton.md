@@ -8,7 +8,6 @@ component: true
 ---
 name: SkeletonDemo
 description: A skeleton component.
-align: center
 ---
 ::
 
@@ -41,7 +40,7 @@ npx shadcn-vue@latest add skeleton
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -53,9 +52,11 @@ npx shadcn-vue@latest add skeleton
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Skeleton } from "@/components/ui/skeleton"
-```
+</script>
 
-```vue showLineNumbers
-<Skeleton class="w-[100px] h-[20px] rounded-full" />
+<template>
+  <Skeleton class="w-[100px] h-[20px] rounded-full" />
+</template>
 ```

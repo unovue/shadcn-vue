@@ -8,7 +8,6 @@ component: true
 ---
 name: CardDemo
 description: A card with a form
-align: center
 ---
 ::
 
@@ -41,7 +40,7 @@ npx shadcn-vue@latest add card
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -53,6 +52,7 @@ npx shadcn-vue@latest add card
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Card,
   CardContent,
@@ -61,19 +61,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-```
+</script>
 
-```vue showLineNumbers
-<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Card Content</p>
-  </CardContent>
-  <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter>
-</Card>
+<template>
+  <Card>
+    <CardHeader>
+      <CardTitle>Card Title</CardTitle>
+      <CardDescription>Card Description</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <p>Card Content</p>
+    </CardContent>
+    <CardFooter>
+      <p>Card Footer</p>
+    </CardFooter>
+  </Card>
+</template>
 ```

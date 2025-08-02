@@ -12,7 +12,6 @@ links:
 name: AvatarDemo
 class: '[&_.preview]:min-h-[200px]'
 description: An avatar with a fallback.
-align: center
 ---
 ::
 
@@ -53,7 +52,7 @@ npx shadcn-vue@latest add avatar
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -65,12 +64,14 @@ npx shadcn-vue@latest add avatar
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-```
+</script>
 
-```vue showLineNumbers
-<Avatar>
-  <AvatarImage src="https://github.com/shadcn.png" />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>
+<template>
+  <Avatar>
+    <AvatarImage src="https://github.com/shadcn.png" />
+    <AvatarFallback>CN</AvatarFallback>
+  </Avatar>
+</template>
 ```

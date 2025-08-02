@@ -11,7 +11,6 @@ links:
 ---
 name: SwitchDemo
 description: A switch component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add switch
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add switch
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Switch } from "@/components/ui/switch"
-```
+</script>
 
-```vue showLineNumbers
-<Switch />
+<template>
+  <Switch />
+</template>
 ```

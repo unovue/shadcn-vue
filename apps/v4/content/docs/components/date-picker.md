@@ -11,7 +11,6 @@ links:
 ---
 name: DatePickerDemo
 description: A date picker component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add date-picker
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::

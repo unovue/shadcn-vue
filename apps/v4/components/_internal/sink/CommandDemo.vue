@@ -1,6 +1,4 @@
 <script setup lang="ts">
-'use client'
-
 import { useMagicKeys, whenever } from '@vueuse/core'
 import {
   Calculator,

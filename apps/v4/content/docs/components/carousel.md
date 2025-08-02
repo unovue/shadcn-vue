@@ -8,7 +8,6 @@ component: true
 ---
 name: CarouselDemo
 description: A carousel component.
-align: center
 ---
 ::
 
@@ -49,7 +48,7 @@ npx shadcn-vue@latest add carousel
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -61,6 +60,7 @@ npx shadcn-vue@latest add carousel
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Carousel,
   CarouselContent,
@@ -68,16 +68,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-```
+</script>
 
-```vue showLineNumbers
-<Carousel>
-  <CarouselContent>
-    <CarouselItem>...</CarouselItem>
-    <CarouselItem>...</CarouselItem>
-    <CarouselItem>...</CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
+<template>
+  <Carousel>
+    <CarouselContent>
+      <CarouselItem>...</CarouselItem>
+      <CarouselItem>...</CarouselItem>
+      <CarouselItem>...</CarouselItem>
+    </CarouselContent>
+    <CarouselPrevious />
+    <CarouselNext />
+  </Carousel>
+</template>
 ```

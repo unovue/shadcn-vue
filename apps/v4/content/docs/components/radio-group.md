@@ -11,7 +11,6 @@ links:
 ---
 name: RadioGroupDemo
 description: A radio group component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add radio-group
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,23 +63,25 @@ npx shadcn-vue@latest add radio-group
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-```
+</script>
 
-```vue showLineNumbers
-<RadioGroup default-value="comfortable">
-  <div class="flex items-center space-x-2">
-    <RadioGroupItem value="default" id="r1" />
-    <Label for="r1">Default</Label>
-  </div>
-  <div class="flex items-center space-x-2">
-    <RadioGroupItem value="comfortable" id="r2" />
-    <Label for="r2">Comfortable</Label>
-  </div>
-  <div class="flex items-center space-x-2">
-    <RadioGroupItem value="compact" id="r3" />
-    <Label for="r3">Compact</Label>
-  </div>
-</RadioGroup>
+<template>
+  <RadioGroup default-value="comfortable">
+    <div class="flex items-center space-x-2">
+      <RadioGroupItem value="default" id="r1" />
+      <Label for="r1">Default</Label>
+    </div>
+    <div class="flex items-center space-x-2">
+      <RadioGroupItem value="comfortable" id="r2" />
+      <Label for="r2">Comfortable</Label>
+    </div>
+    <div class="flex items-center space-x-2">
+      <RadioGroupItem value="compact" id="r3" />
+      <Label for="r3">Compact</Label>
+    </div>
+  </RadioGroup>
+</template>
 ```

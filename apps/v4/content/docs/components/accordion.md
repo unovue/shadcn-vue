@@ -64,7 +64,7 @@ npx shadcn-vue@latest add accordion
 ## Usage
 
 ```vue showLineNumbers
-<script lang="ts">
+<script setup lang="ts">
 import {
   Accordion,
   AccordionContent,

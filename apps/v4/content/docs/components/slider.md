@@ -11,7 +11,6 @@ links:
 ---
 name: SliderDemo
 description: A slider component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add slider
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,9 +63,11 @@ npx shadcn-vue@latest add slider
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import { Slider } from "@/components/ui/slider"
-```
+</script>
 
-```vue showLineNumbers
-<Slider :default-value="[33]" :max="100" :step="1" />
+<template>
+  <Slider :default-value="[33]" :max="100" :step="1" />
+</template>
 ```

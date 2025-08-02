@@ -11,7 +11,6 @@ const props = withDefaults(defineProps<{
 }>(), {
   align: 'center',
 })
-
 const tab = ref<'preview' | 'code'>('preview')
 </script>
 

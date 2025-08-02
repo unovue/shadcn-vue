@@ -2,6 +2,7 @@
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -13,12 +14,17 @@ import { Label } from '@/registry/new-york-v4/ui/label'
 </script>
 
 <template>
-  <Card class="w-[350px]">
+  <Card class="w-full max-w-sm">
     <CardHeader>
       <CardTitle>Login to your account</CardTitle>
       <CardDescription>
         Enter your email below to login to your account
       </CardDescription>
+      <CardAction>
+        <Button variant="link">
+          Sign Up
+        </Button>
+      </CardAction>
     </CardHeader>
     <CardContent>
       <form>

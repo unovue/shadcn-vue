@@ -11,7 +11,6 @@ links:
 ---
 name: ContextMenuDemo
 description: A context menu component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add context-menu
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,6 +63,7 @@ npx shadcn-vue@latest add context-menu
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   ContextMenu,
   ContextMenuContent,
@@ -71,17 +71,18 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
-```
+</script>
 
-```vue showLineNumbers
-<ContextMenu>
-  <ContextMenuTrigger>Right click</ContextMenuTrigger>
-  <ContextMenuContent>
-    <ContextMenuItem>Profile</ContextMenuItem>
-    <ContextMenuItem>Billing</ContextMenuItem>
-    <ContextMenuItem>Team</ContextMenuItem>
-    <ContextMenuSeparator />
-    <ContextMenuItem>Subscription</ContextMenuItem>
-  </ContextMenuContent>
-</ContextMenu>
+<template>
+  <ContextMenu>
+    <ContextMenuTrigger>Right click</ContextMenuTrigger>
+    <ContextMenuContent>
+      <ContextMenuItem>Profile</ContextMenuItem>
+      <ContextMenuItem>Billing</ContextMenuItem>
+      <ContextMenuItem>Team</ContextMenuItem>
+      <ContextMenuSeparator />
+      <ContextMenuItem>Subscription</ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenu>
+</template>
 ```

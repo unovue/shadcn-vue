@@ -11,7 +11,6 @@ links:
 ---
 name: HoverCardDemo
 description: A hover card component.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add hover-card
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,18 +63,20 @@ npx shadcn-vue@latest add hover-card
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
-```
+</script>
 
-```vue showLineNumbers
-<HoverCard>
-  <HoverCardTrigger>Hover</HoverCardTrigger>
-  <HoverCardContent>
-    The Vue Framework – created and maintained by Evan You.
-  </HoverCardContent>
-</HoverCard>
+<template>
+  <HoverCard>
+    <HoverCardTrigger>Hover</HoverCardTrigger>
+    <HoverCardContent>
+      The Vue Framework – created and maintained by Evan You.
+    </HoverCardContent>
+  </HoverCard>
+</template>
 ```

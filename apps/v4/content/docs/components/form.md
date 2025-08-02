@@ -11,7 +11,6 @@ links:
 ---
 name: FormDemo
 description: A form with validation.
-align: center
 ---
 ::
 
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add form
     ::step
     Copy and paste the GitHub source code into your project.
     ::
-    
+
     ::step
     Update the import paths to match your project setup.
     ::
@@ -64,6 +63,7 @@ npx shadcn-vue@latest add form
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   FormControl,
   FormDescription,
@@ -72,19 +72,20 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-```
+</script>
 
-```vue showLineNumbers
-<FormField name="username">
-  <FormItem>
-    <FormLabel>Username</FormLabel>
-    <FormControl>
-      <Input placeholder="shadcn" />
-    </FormControl>
-    <FormDescription>
-      This is your public display name.
-    </FormDescription>
-    <FormMessage />
-  </FormItem>
-</FormField>
+<template>
+  <FormField name="username">
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <Input placeholder="shadcn" />
+      </FormControl>
+      <FormDescription>
+        This is your public display name.
+      </FormDescription>
+      <FormMessage />
+    </FormItem>
+  </FormField>
+</template>
 ```
