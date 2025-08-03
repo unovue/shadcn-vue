@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/BadgeSecondaryDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Badge } from '@/registry/new-york/ui/badge'\n</script>\n\n<template>\n  <Badge variant=\"secondary\">\n    Secondary\n  </Badge>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { Badge } from \"@/registry/new-york/ui/badge\"\r\n</script>\r\n\r\n<template>\r\n  <Badge variant=\"secondary\">\r\n    Secondary\r\n  </Badge>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

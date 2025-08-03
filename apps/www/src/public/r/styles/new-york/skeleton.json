@@ -5,14 +5,14 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/skeleton/Skeleton.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ninterface SkeletonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<SkeletonProps>()\n</script>\n\n<template>\n  <div :class=\"cn('animate-pulse rounded-md bg-primary/10', props.class)\" />\n</template>\n",
+      "path": "ui/skeleton/index.ts",
+      "content": "export { default as Skeleton } from \"./Skeleton.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/skeleton/index.ts",
-      "content": "export { default as Skeleton } from './Skeleton.vue'\n",
+      "path": "ui/skeleton/Skeleton.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\ninterface SkeletonProps {\r\n  class?: HTMLAttributes[\"class\"]\r\n}\r\n\r\nconst props = defineProps<SkeletonProps>()\r\n</script>\r\n\r\n<template>\r\n  <div :class=\"cn('animate-pulse rounded-md bg-primary/10', props.class)\" />\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

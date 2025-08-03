@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "examples/ToastDestructive.vue",
-      "content": "<script setup lang=\"ts\">\nimport { h } from 'vue'\nimport { Button } from '@/registry/default/ui/button'\nimport { ToastAction } from '@/registry/default/ui/toast'\nimport { useToast } from '@/registry/default/ui/toast/use-toast'\n\nconst { toast } = useToast()\n</script>\n\n<template>\n  <Button\n    variant=\"outline\" @click=\"() => {\n      toast({\n        title: 'Uh oh! Something went wrong.',\n        description: 'There was a problem with your request.',\n        variant: 'destructive',\n        action: h(ToastAction, {\n          altText: 'Try again',\n        }, {\n          default: () => 'Try again',\n        }),\n      });\n    }\"\n  >\n    Show Toast\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { h } from \"vue\"\r\nimport { Button } from \"@/registry/default/ui/button\"\r\nimport { ToastAction } from \"@/registry/default/ui/toast\"\r\nimport { useToast } from \"@/registry/default/ui/toast/use-toast\"\r\n\r\nconst { toast } = useToast()\r\n</script>\r\n\r\n<template>\r\n  <Button\r\n    variant=\"outline\" @click=\"() => {\r\n      toast({\r\n        title: 'Uh oh! Something went wrong.',\r\n        description: 'There was a problem with your request.',\r\n        variant: 'destructive',\r\n        action: h(ToastAction, {\r\n          altText: 'Try again',\r\n        }, {\r\n          default: () => 'Try again',\r\n        }),\r\n      });\r\n    }\"\r\n  >\r\n    Show Toast\r\n  </Button>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

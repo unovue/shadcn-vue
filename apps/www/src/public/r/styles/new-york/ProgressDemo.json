@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ProgressDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ref, watchEffect } from 'vue'\nimport { Progress } from '@/registry/new-york/ui/progress'\n\nconst progress = ref(13)\n\nwatchEffect((cleanupFn) => {\n  const timer = setTimeout(() => progress.value = 66, 500)\n  cleanupFn(() => clearTimeout(timer))\n})\n</script>\n\n<template>\n  <Progress v-model=\"progress\" class=\"w-3/5\" />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { ref, watchEffect } from \"vue\"\r\nimport { Progress } from \"@/registry/new-york/ui/progress\"\r\n\r\nconst progress = ref(13)\r\n\r\nwatchEffect((cleanupFn) => {\r\n  const timer = setTimeout(() => progress.value = 66, 500)\r\n  cleanupFn(() => clearTimeout(timer))\r\n})\r\n</script>\r\n\r\n<template>\r\n  <Progress v-model=\"progress\" class=\"w-3/5\" />\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

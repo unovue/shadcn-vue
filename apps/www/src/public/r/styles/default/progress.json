@@ -2,20 +2,20 @@
   "name": "progress",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/progress/Progress.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport {\n  ProgressIndicator,\n  ProgressRoot,\n  type ProgressRootProps,\n} from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(\n  defineProps<ProgressRootProps & { class?: HTMLAttributes['class'] }>(),\n  {\n    modelValue: 0,\n  },\n)\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ProgressRoot\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'relative h-4 w-full overflow-hidden rounded-full bg-secondary',\n        props.class,\n      )\n    \"\n  >\n    <ProgressIndicator\n      class=\"h-full w-full flex-1 bg-primary transition-all\"\n      :style=\"`transform: translateX(-${100 - (props.modelValue ?? 0)}%);`\"\n    />\n  </ProgressRoot>\n</template>\n",
+      "path": "ui/progress/index.ts",
+      "content": "export { default as Progress } from \"./Progress.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/progress/index.ts",
-      "content": "export { default as Progress } from './Progress.vue'\n",
+      "path": "ui/progress/Progress.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { ProgressRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport {\r\n  ProgressIndicator,\r\n  ProgressRoot,\r\n\r\n} from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = withDefaults(\r\n  defineProps<ProgressRootProps & { class?: HTMLAttributes[\"class\"] }>(),\r\n  {\r\n    modelValue: 0,\r\n  },\r\n)\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <ProgressRoot\r\n    v-bind=\"delegatedProps\"\r\n    :class=\"\r\n      cn(\r\n        'relative h-4 w-full overflow-hidden rounded-full bg-secondary',\r\n        props.class,\r\n      )\r\n    \"\r\n  >\r\n    <ProgressIndicator\r\n      class=\"h-full w-full flex-1 bg-primary transition-all\"\r\n      :style=\"`transform: translateX(-${100 - (props.modelValue ?? 0)}%);`\"\r\n    />\r\n  </ProgressRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

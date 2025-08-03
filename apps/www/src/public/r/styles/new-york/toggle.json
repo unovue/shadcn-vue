@@ -2,20 +2,20 @@
   "name": "toggle",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/toggle/Toggle.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Toggle, type ToggleEmits, type ToggleProps, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { type ToggleVariants, toggleVariants } from '.'\n\nconst props = withDefaults(defineProps<ToggleProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleVariants['variant']\n  size?: ToggleVariants['size']\n}>(), {\n  variant: 'default',\n  size: 'default',\n  disabled: false,\n})\n\nconst emits = defineEmits<ToggleEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size', 'variant')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <Toggle\n    v-slot=\"slotProps\"\n    v-bind=\"forwarded\"\n    :class=\"cn(toggleVariants({ variant, size }), props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </Toggle>\n</template>\n",
+      "path": "ui/toggle/index.ts",
+      "content": "import type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\r\n\r\nexport { default as Toggle } from \"./Toggle.vue\"\r\n\r\nexport const toggleVariants = cva(\r\n  \"inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"bg-transparent\",\r\n        outline:\r\n          \"border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground\",\r\n      },\r\n      size: {\r\n        default: \"h-9 px-2 min-w-9\",\r\n        sm: \"h-8 px-1.5 min-w-8\",\r\n        lg: \"h-10 px-2.5 min-w-10\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n      size: \"default\",\r\n    },\r\n  },\r\n)\r\n\r\nexport type ToggleVariants = VariantProps<typeof toggleVariants>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/toggle/index.ts",
-      "content": "import { cva, type VariantProps } from 'class-variance-authority'\n\nexport { default as Toggle } from './Toggle.vue'\n\nexport const toggleVariants = cva(\n  'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',\n  {\n    variants: {\n      variant: {\n        default: 'bg-transparent',\n        outline:\n          'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground',\n      },\n      size: {\n        default: 'h-9 px-2 min-w-9',\n        sm: 'h-8 px-1.5 min-w-8',\n        lg: 'h-10 px-2.5 min-w-10',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n)\n\nexport type ToggleVariants = VariantProps<typeof toggleVariants>\n",
+      "path": "ui/toggle/Toggle.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { ToggleEmits, ToggleProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport type { ToggleVariants } from \".\"\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { Toggle, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\nimport { toggleVariants } from \".\"\r\n\r\nconst props = withDefaults(defineProps<ToggleProps & {\r\n  class?: HTMLAttributes[\"class\"]\r\n  variant?: ToggleVariants[\"variant\"]\r\n  size?: ToggleVariants[\"size\"]\r\n}>(), {\r\n  variant: \"default\",\r\n  size: \"default\",\r\n  disabled: false,\r\n})\r\n\r\nconst emits = defineEmits<ToggleEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\", \"size\", \"variant\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <Toggle\r\n    v-slot=\"slotProps\"\r\n    v-bind=\"forwarded\"\r\n    :class=\"cn(toggleVariants({ variant, size }), props.class)\"\r\n  >\r\n    <slot v-bind=\"slotProps\" />\r\n  </Toggle>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }
