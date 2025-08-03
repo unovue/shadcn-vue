@@ -1,23 +1,23 @@
 <script lang="ts">
-export const iframeHeight = '800px'
-export const description = 'A left and right sidebar.'
+export const iframeHeight = "800px"
+export const description = "A left and right sidebar."
 </script>
 
 <script setup lang="ts">
-import SidebarLeft from '@/registry/default/blocks/Sidebar15/components/SidebarLeft.vue'
-import SidebarRight from '@/registry/default/blocks/Sidebar15/components/SidebarRight.vue'
+import SidebarLeft from "@/registry/default/blocks/Sidebar15/components/SidebarLeft.vue"
+import SidebarRight from "@/registry/default/blocks/Sidebar15/components/SidebarRight.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
-} from '@/registry/default/ui/breadcrumb'
-import { Separator } from '@/registry/default/ui/separator'
+} from "@/registry/default/ui/breadcrumb"
+import { Separator } from "@/registry/default/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 </script>
 
 <template>

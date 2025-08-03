@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import { z } from 'zod'
-import { Button } from '@/registry/default/ui/button'
+import { toTypedSchema } from "@vee-validate/zod"
+import { useForm } from "vee-validate"
+import { h } from "vue"
+import { z } from "zod"
+import { Button } from "@/registry/default/ui/button"
 import {
   FormControl,
   FormDescription,
@@ -11,9 +11,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/default/ui/form'
-import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/default/ui/tags-input'
-import { toast } from '@/registry/default/ui/toast'
+} from "@/registry/default/ui/form"
+import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from "@/registry/default/ui/tags-input"
+import { toast } from "@/registry/default/ui/toast"
 
 const formSchema = toTypedSchema(z.object({
   fruits: z.array(z.string()).min(1).max(3),
@@ -22,14 +22,14 @@ const formSchema = toTypedSchema(z.object({
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    fruits: ['Apple', 'Banana'],
+    fruits: ["Apple", "Banana"],
   },
 })
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

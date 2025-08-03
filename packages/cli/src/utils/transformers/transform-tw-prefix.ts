@@ -1,6 +1,7 @@
 import type { CodemodPlugin } from 'vue-metamorph'
 import type { TransformOpts } from '.'
-import { getProjectTailwindVersionFromConfig, type TailwindVersion } from '../get-project-info'
+import type { TailwindVersion } from '../get-project-info'
+import { getProjectTailwindVersionFromConfig } from '../get-project-info'
 import { splitClassName } from './transform-css-vars'
 
 export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlugin> {

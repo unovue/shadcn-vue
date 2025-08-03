@@ -15,11 +15,10 @@ export default antfu(
       'vue/one-component-per-file': 0,
       'vue/no-reserved-component-names': 0,
       'vue/no-useless-v-bind': 0,
-      'style/quotes': ['error', 'double'],
     },
   },
   {
-    files: ['**/registry/**/*.ts'],
+    files: ['**/registry/**/*.ts', '**/registry/**/*.vue'],
     rules: {
       'style/quotes': ['error', 'double'],
     },

@@ -1,9 +1,9 @@
 <script setup lang="ts" generic="U extends ZodAny">
-import type { ZodAny } from 'zod'
-import type { Config, ConfigItem, Shape } from './interface'
-import { computed } from 'vue'
-import { DEFAULT_ZOD_HANDLERS, INPUT_COMPONENTS } from './constant'
-import useDependencies from './dependencies'
+import type { ZodAny } from "zod"
+import type { Config, ConfigItem, Shape } from "./interface"
+import { computed } from "vue"
+import { DEFAULT_ZOD_HANDLERS, INPUT_COMPONENTS } from "./constant"
+import useDependencies from "./dependencies"
 
 const props = defineProps<{
   fieldName: string
@@ -16,7 +16,7 @@ function isValidConfig(config: any): config is ConfigItem {
 }
 
 const delegatedProps = computed(() => {
-  if (['ZodObject', 'ZodArray'].includes(props.shape?.type))
+  if (["ZodObject", "ZodArray"].includes(props.shape?.type))
     return { schema: props.shape?.schema }
   return undefined
 })

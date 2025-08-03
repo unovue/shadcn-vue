@@ -1,15 +1,15 @@
 <script lang="ts">
 export const description
-  = 'A simple login form with email and password. The submit button says \'Sign in\'.'
-export const iframeHeight = '600px'
-export const containerClass = 'w-full h-screen flex items-center justify-center px-4'
+  = "A simple login form with email and password. The submit button says 'Sign in'."
+export const iframeHeight = "600px"
+export const containerClass = "w-full h-screen flex items-center justify-center px-4"
 </script>
 
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/default/ui/card'
-import { Input } from '@/registry/default/ui/input'
-import { Label } from '@/registry/default/ui/label'
+import { Button } from "@/registry/default/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/default/ui/card"
+import { Input } from "@/registry/default/ui/input"
+import { Label } from "@/registry/default/ui/label"
 </script>
 
 <template>

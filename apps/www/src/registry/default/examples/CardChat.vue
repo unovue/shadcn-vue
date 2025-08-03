@@ -1,63 +1,63 @@
 <script setup lang="ts">
-import { Check, Plus, Send } from 'lucide-vue-next'
-import { computed, ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Avatar, AvatarFallback, AvatarImage } from '@/registry/default/ui/avatar'
-import { Button } from '@/registry/default/ui/button'
+import { Check, Plus, Send } from "lucide-vue-next"
+import { computed, ref } from "vue"
+import { cn } from "@/lib/utils"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/default/ui/avatar"
+import { Button } from "@/registry/default/ui/button"
 
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from '@/registry/default/ui/card'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/registry/default/ui/command'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/registry/default/ui/dialog'
-import { Input } from '@/registry/default/ui/input'
+} from "@/registry/default/ui/card"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/registry/default/ui/command"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/registry/default/ui/dialog"
+import { Input } from "@/registry/default/ui/input"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/registry/default/ui/tooltip'
+} from "@/registry/default/ui/tooltip"
 
-const input = ref('')
+const input = ref("")
 const inputLength = computed(() => input.value.trim().length)
 const users = ref([
   {
-    name: 'Olivia Martin',
-    email: 'm@example.com',
-    avatar: '/avatars/01.png',
+    name: "Olivia Martin",
+    email: "m@example.com",
+    avatar: "/avatars/01.png",
   },
   {
-    name: 'Isabella Nguyen',
-    email: 'isabella.nguyen@email.com',
-    avatar: '/avatars/03.png',
+    name: "Isabella Nguyen",
+    email: "isabella.nguyen@email.com",
+    avatar: "/avatars/03.png",
   },
   {
-    name: 'Emma Wilson',
-    email: 'emma@example.com',
-    avatar: '/avatars/05.png',
+    name: "Emma Wilson",
+    email: "emma@example.com",
+    avatar: "/avatars/05.png",
   },
   {
-    name: 'Jackson Lee',
-    email: 'lee@example.com',
-    avatar: '/avatars/02.png',
+    name: "Jackson Lee",
+    email: "lee@example.com",
+    avatar: "/avatars/02.png",
   },
   {
-    name: 'William Kim',
-    email: 'will@email.com',
-    avatar: '/avatars/04.png',
+    name: "William Kim",
+    email: "will@email.com",
+    avatar: "/avatars/04.png",
   },
 ])
 
 type User = (typeof users.value)[number]
 
 const messages = ref([
-  { role: 'agent', content: 'Hi, how can I help you today?' },
-  { role: 'user', content: 'Hey, I\'m having trouble with my account.' },
-  { role: 'agent', content: 'What seems to be the problem?' },
-  { role: 'user', content: 'I can\'t log in.' },
+  { role: "agent", content: "Hi, how can I help you today?" },
+  { role: "user", content: "Hey, I'm having trouble with my account." },
+  { role: "agent", content: "What seems to be the problem?" },
+  { role: "user", content: "I can't log in." },
 ])
 
 const open = ref(false)

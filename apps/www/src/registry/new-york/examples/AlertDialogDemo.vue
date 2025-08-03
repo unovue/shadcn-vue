@@ -9,8 +9,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/registry/new-york/ui/alert-dialog'
-import { Button } from '@/registry/new-york/ui/button'
+} from "@/registry/new-york/ui/alert-dialog"
+import { Button } from "@/registry/new-york/ui/button"
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/new-york/ui/avatar"
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Card, CardContent } from '@/registry/new-york/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/registry/new-york/ui/carousel'
+import { Card, CardContent } from "@/registry/new-york/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/registry/new-york/ui/carousel"
 </script>
 
 <template>

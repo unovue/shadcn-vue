@@ -1,15 +1,16 @@
 <script setup lang="ts">
+import type { Component } from "vue"
 import {
   ArrowUpCircle,
   CheckCircle2,
   Circle,
   HelpCircle,
   XCircle,
-} from 'lucide-vue-next'
-import { type Component, ref } from 'vue'
+} from "lucide-vue-next"
+import { ref } from "vue"
 
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/default/ui/button'
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/default/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -17,12 +18,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/registry/default/ui/command'
+} from "@/registry/default/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/default/ui/popover'
+} from "@/registry/default/ui/popover"
 
 interface Status {
   value: string
@@ -32,28 +33,28 @@ interface Status {
 
 const statuses: Status[] = [
   {
-    value: 'backlog',
-    label: 'Backlog',
+    value: "backlog",
+    label: "Backlog",
     icon: HelpCircle,
   },
   {
-    value: 'todo',
-    label: 'Todo',
+    value: "todo",
+    label: "Todo",
     icon: Circle,
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
+    value: "in progress",
+    label: "In Progress",
     icon: ArrowUpCircle,
   },
   {
-    value: 'done',
-    label: 'Done',
+    value: "done",
+    label: "Done",
     icon: CheckCircle2,
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
+    value: "canceled",
+    label: "Canceled",
     icon: XCircle,
   },
 ]

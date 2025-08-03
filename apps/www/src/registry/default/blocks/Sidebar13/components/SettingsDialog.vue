@@ -12,9 +12,9 @@ import {
   Paintbrush,
   Settings,
   Video,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
-import { ref } from 'vue'
+import { ref } from "vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -22,15 +22,15 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/default/ui/breadcrumb'
-import { Button } from '@/registry/default/ui/button'
+} from "@/registry/default/ui/breadcrumb"
+import { Button } from "@/registry/default/ui/button"
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/default/ui/dialog'
+} from "@/registry/default/ui/dialog"
 import {
   Sidebar,
   SidebarContent,
@@ -40,22 +40,22 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 
 const data = {
   nav: [
-    { name: 'Notifications', icon: Bell },
-    { name: 'Navigation', icon: Menu },
-    { name: 'Home', icon: Home },
-    { name: 'Appearance', icon: Paintbrush },
-    { name: 'Messages & media', icon: MessageCircle },
-    { name: 'Language & region', icon: Globe },
-    { name: 'Accessibility', icon: Keyboard },
-    { name: 'Mark as read', icon: Check },
-    { name: 'Audio & video', icon: Video },
-    { name: 'Connected accounts', icon: Link },
-    { name: 'Privacy & visibility', icon: Lock },
-    { name: 'Advanced', icon: Settings },
+    { name: "Notifications", icon: Bell },
+    { name: "Navigation", icon: Menu },
+    { name: "Home", icon: Home },
+    { name: "Appearance", icon: Paintbrush },
+    { name: "Messages & media", icon: MessageCircle },
+    { name: "Language & region", icon: Globe },
+    { name: "Accessibility", icon: Keyboard },
+    { name: "Mark as read", icon: Check },
+    { name: "Audio & video", icon: Video },
+    { name: "Connected accounts", icon: Link },
+    { name: "Privacy & visibility", icon: Lock },
+    { name: "Advanced", icon: Settings },
   ],
 }
 

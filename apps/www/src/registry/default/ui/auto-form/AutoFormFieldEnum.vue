@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { FieldProps } from './interface'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/registry/default/ui/form'
-import { Label } from '@/registry/default/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/registry/default/ui/radio-group'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/default/ui/select'
-import AutoFormLabel from './AutoFormLabel.vue'
-import { beautifyObjectName, maybeBooleanishToBoolean } from './utils'
+import type { FieldProps } from "./interface"
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/registry/default/ui/form"
+import { Label } from "@/registry/default/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/registry/default/ui/radio-group"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/registry/default/ui/select"
+import AutoFormLabel from "./AutoFormLabel.vue"
+import { beautifyObjectName, maybeBooleanishToBoolean } from "./utils"
 
 defineProps<FieldProps & {
   options?: string[]

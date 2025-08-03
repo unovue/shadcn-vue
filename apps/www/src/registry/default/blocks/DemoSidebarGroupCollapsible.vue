@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ChevronDown, LifeBuoy, Send } from 'lucide-vue-next'
+import { ChevronDown, LifeBuoy, Send } from "lucide-vue-next"
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/registry/default/ui/collapsible'
+} from "@/registry/default/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
@@ -16,7 +16,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 </script>
 
 <template>

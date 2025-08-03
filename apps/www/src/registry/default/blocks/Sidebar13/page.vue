@@ -1,10 +1,10 @@
 <script lang="ts">
-export const description = 'A sidebar in a dialog.'
-export const iframeHeight = '800px'
+export const description = "A sidebar in a dialog."
+export const iframeHeight = "800px"
 </script>
 
 <script setup lang="ts">
-import SettingsDialog from '@/registry/default/blocks/Sidebar13/components/SettingsDialog.vue'
+import SettingsDialog from "@/registry/default/blocks/Sidebar13/components/SettingsDialog.vue"
 </script>
 
 <template>

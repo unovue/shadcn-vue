@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { DateRange } from 'reka-ui'
-import { getLocalTimeZone, today } from '@internationalized/date'
-import { type Ref, ref } from 'vue'
-import { RangeCalendar } from '@/registry/new-york/ui/range-calendar'
+import type { DateRange } from "reka-ui"
+import type { Ref } from "vue"
+import { getLocalTimeZone, today } from "@internationalized/date"
+import { ref } from "vue"
+import { RangeCalendar } from "@/registry/new-york/ui/range-calendar"
 
 const start = today(getLocalTimeZone())
 const end = start.add({ days: 7 })

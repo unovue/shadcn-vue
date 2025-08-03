@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Search } from 'lucide-vue-next'
+import { Search } from "lucide-vue-next"
 
-import { Label } from '@/registry/new-york-v4/ui/label'
-import { SidebarInput } from '@/registry/new-york-v4/ui/sidebar'
+import { Label } from "@/registry/new-york-v4/ui/label"
+import { SidebarInput } from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

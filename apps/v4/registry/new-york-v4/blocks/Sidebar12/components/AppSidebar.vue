@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { Plus } from 'lucide-vue-next'
+import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
 
-import Calendars from '@/registry/new-york-v4/blocks/Sidebar12/components/Calendars.vue'
-import DatePicker from '@/registry/new-york-v4/blocks/Sidebar12/components/DatePicker.vue'
-import NavUser from '@/registry/new-york-v4/blocks/Sidebar12/components/NavUser.vue'
+import { Plus } from "lucide-vue-next"
+import Calendars from "@/registry/new-york-v4/blocks/Sidebar12/components/Calendars.vue"
+import DatePicker from "@/registry/new-york-v4/blocks/Sidebar12/components/DatePicker.vue"
+import NavUser from "@/registry/new-york-v4/blocks/Sidebar12/components/NavUser.vue"
 import {
   Sidebar,
   SidebarContent,
@@ -12,31 +13,31 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  type SidebarProps,
+
   SidebarRail,
   SidebarSeparator,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 const props = defineProps<SidebarProps>()
 // This is sample data.
 const data = {
   user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: "shadcn",
+    email: "m@example.com",
+    avatar: "/avatars/shadcn.jpg",
   },
   calendars: [
     {
-      name: 'My Calendars',
-      items: ['Personal', 'Work', 'Family'],
+      name: "My Calendars",
+      items: ["Personal", "Work", "Family"],
     },
     {
-      name: 'Favorites',
-      items: ['Holidays', 'Birthdays'],
+      name: "Favorites",
+      items: ["Holidays", "Birthdays"],
     },
     {
-      name: 'Other',
-      items: ['Travel', 'Reminders', 'Deadlines'],
+      name: "Other",
+      items: ["Travel", "Reminders", "Deadlines"],
     },
   ],
 }

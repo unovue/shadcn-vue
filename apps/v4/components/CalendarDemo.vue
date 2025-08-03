@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { CalendarDate, type DateValue, fromDate, getLocalTimeZone } from '@internationalized/date'
+import type { DateValue } from '@internationalized/date'
+import { CalendarDate, fromDate, getLocalTimeZone } from '@internationalized/date'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 import { RangeCalendar } from '@/registry/new-york-v4/ui/range-calendar'
 

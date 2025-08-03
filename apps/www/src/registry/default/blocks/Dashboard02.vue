@@ -1,18 +1,18 @@
 <script lang="ts">
-export const description = 'A products dashboard with a sidebar navigation and a main content area. The dashboard has a header with a search input and a user menu. The sidebar has a logo, navigation links, and a card with a call to action. The main content area shows an empty state with a call to action.'
-export const iframeHeight = '800px'
-export const containerClass = 'w-full h-full'
+export const description = "A products dashboard with a sidebar navigation and a main content area. The dashboard has a header with a search input and a user menu. The sidebar has a logo, navigation links, and a card with a call to action. The main content area shows an empty state with a call to action."
+export const iframeHeight = "800px"
+export const containerClass = "w-full h-full"
 </script>
 
 <script setup lang="ts">
-import { Bell, CircleUser, Home, LineChart, Menu, Package, Package2, Search, ShoppingCart, Users } from 'lucide-vue-next'
+import { Bell, CircleUser, Home, LineChart, Menu, Package, Package2, Search, ShoppingCart, Users } from "lucide-vue-next"
 
-import { Badge } from '@/registry/default/ui/badge'
-import { Button } from '@/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/registry/default/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/default/ui/dropdown-menu'
-import { Input } from '@/registry/default/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/registry/default/ui/sheet'
+import { Badge } from "@/registry/default/ui/badge"
+import { Button } from "@/registry/default/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/default/ui/card"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/registry/default/ui/dropdown-menu"
+import { Input } from "@/registry/default/ui/input"
+import { Sheet, SheetContent, SheetTrigger } from "@/registry/default/ui/sheet"
 </script>
 
 <template>

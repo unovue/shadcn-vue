@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { Check, Circle, Dot } from 'lucide-vue-next'
-import { h, ref } from 'vue'
-import * as z from 'zod'
-import { Button } from '@/registry/default/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/registry/default/ui/form'
-import { Input } from '@/registry/default/ui/input'
+import { toTypedSchema } from "@vee-validate/zod"
+import { Check, Circle, Dot } from "lucide-vue-next"
+import { h, ref } from "vue"
+import * as z from "zod"
+import { Button } from "@/registry/default/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/registry/default/ui/form"
+import { Input } from "@/registry/default/ui/input"
 import {
   Select,
   SelectContent,
@@ -13,9 +13,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/default/ui/select'
-import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/default/ui/stepper'
-import { toast } from '@/registry/default/ui/toast'
+} from "@/registry/default/ui/select"
+import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from "@/registry/default/ui/stepper"
+import { toast } from "@/registry/default/ui/toast"
 
 const formSchema = [
   z.object({
@@ -30,12 +30,12 @@ const formSchema = [
       return values.password === values.confirmPassword
     },
     {
-      message: 'Passwords must match!',
-      path: ['confirmPassword'],
+      message: "Passwords must match!",
+      path: ["confirmPassword"],
     },
   ),
   z.object({
-    favoriteDrink: z.union([z.literal('coffee'), z.literal('tea'), z.literal('soda')]),
+    favoriteDrink: z.union([z.literal("coffee"), z.literal("tea"), z.literal("soda")]),
   }),
 ]
 
@@ -43,25 +43,25 @@ const stepIndex = ref(1)
 const steps = [
   {
     step: 1,
-    title: 'Your details',
-    description: 'Provide your name and email',
+    title: "Your details",
+    description: "Provide your name and email",
   },
   {
     step: 2,
-    title: 'Your password',
-    description: 'Choose a password',
+    title: "Your password",
+    description: "Choose a password",
   },
   {
     step: 3,
-    title: 'Your Favorite Drink',
-    description: 'Choose a drink',
+    title: "Your Favorite Drink",
+    description: "Choose a drink",
   },
 ]
 
 function onSubmit(values: any) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 }
 </script>

@@ -13,7 +13,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from '@/registry/new-york/ui/menubar'
+} from "@/registry/new-york/ui/menubar"
 </script>
 
 <template>

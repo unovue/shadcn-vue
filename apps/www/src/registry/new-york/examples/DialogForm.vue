@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { h } from 'vue'
-import * as z from 'zod'
+import { toTypedSchema } from "@vee-validate/zod"
+import { h } from "vue"
+import * as z from "zod"
 
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -12,7 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/new-york/ui/dialog'
+} from "@/registry/new-york/ui/dialog"
 import {
   Form,
   FormControl,
@@ -21,9 +21,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/new-york/ui/form'
-import { Input } from '@/registry/new-york/ui/input'
-import { toast } from '@/registry/new-york/ui/toast'
+} from "@/registry/new-york/ui/form"
+import { Input } from "@/registry/new-york/ui/input"
+import { toast } from "@/registry/new-york/ui/toast"
 
 const formSchema = toTypedSchema(z.object({
   username: z.string().min(2).max(50),
@@ -31,8 +31,8 @@ const formSchema = toTypedSchema(z.object({
 
 function onSubmit(values: any) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 }
 </script>

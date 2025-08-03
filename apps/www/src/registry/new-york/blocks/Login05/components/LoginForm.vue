@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { GalleryVerticalEnd } from 'lucide-vue-next'
+import { GalleryVerticalEnd } from "lucide-vue-next"
 
-import { Button } from '@/registry/new-york/ui/button'
-import { Input } from '@/registry/new-york/ui/input'
-import { Label } from '@/registry/new-york/ui/label'
+import { Button } from "@/registry/new-york/ui/button"
+import { Input } from "@/registry/new-york/ui/input"
+import { Label } from "@/registry/new-york/ui/label"
 </script>
 
 <template>

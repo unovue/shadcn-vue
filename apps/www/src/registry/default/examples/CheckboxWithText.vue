@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Checkbox } from '@/registry/default/ui/checkbox'
+import { Checkbox } from "@/registry/default/ui/checkbox"
 </script>
 
 <template>

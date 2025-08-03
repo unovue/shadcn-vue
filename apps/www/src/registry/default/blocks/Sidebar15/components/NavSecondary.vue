@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { LucideIcon } from 'lucide-vue-next'
+import type { LucideIcon } from "lucide-vue-next"
 
-import type { Component } from 'vue'
+import type { Component } from "vue"
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -9,7 +9,7 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 
 defineProps<{
   items: {

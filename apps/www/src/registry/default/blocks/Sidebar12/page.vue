@@ -1,22 +1,22 @@
 <script lang="ts">
-export const description = 'A sidebar with a calendar.'
-export const iframeHeight = '800px'
+export const description = "A sidebar with a calendar."
+export const iframeHeight = "800px"
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/default/blocks/Sidebar12/components/AppSidebar.vue'
+import AppSidebar from "@/registry/default/blocks/Sidebar12/components/AppSidebar.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
-} from '@/registry/default/ui/breadcrumb'
-import { Separator } from '@/registry/default/ui/separator'
+} from "@/registry/default/ui/breadcrumb"
+import { Separator } from "@/registry/default/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 </script>
 
 <template>

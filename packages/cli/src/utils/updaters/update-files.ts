@@ -1,5 +1,6 @@
 import type { z } from 'zod'
 import type { RegistryItem, registryItemFileSchema } from '@/src/registry/schema'
+import type { Config } from '@/src/utils/get-config'
 import type { ProjectInfo } from '@/src/utils/get-project-info'
 import { existsSync, promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -9,7 +10,7 @@ import { transform as metaTransform } from 'vue-metamorph'
 import {
   getRegistryBaseColor,
 } from '@/src/registry/api'
-import { type Config, getTSConfig } from '@/src/utils/get-config'
+import { getTSConfig } from '@/src/utils/get-config'
 import { getProjectInfo } from '@/src/utils/get-project-info'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'

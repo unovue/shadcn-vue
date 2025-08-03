@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Label } from '@/registry/new-york/ui/label'
+import { Label } from "@/registry/new-york/ui/label"
 import {
   NumberField,
   NumberFieldContent,
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@/registry/new-york/ui/number-field'
+} from "@/registry/new-york/ui/number-field"
 </script>
 
 <template>

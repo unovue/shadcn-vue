@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
+import { Button } from "@/registry/default/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/default/ui/card'
-import { SidebarInput } from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/card"
+import { SidebarInput } from "@/registry/default/ui/sidebar"
 </script>
 
 <template>
