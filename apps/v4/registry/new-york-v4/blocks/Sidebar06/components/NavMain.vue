@@ -28,9 +28,7 @@ defineProps<{
   }[]
 }>()
 
-const isMobile = useMediaQuery('(max-width: 768px)', {
-  ssrWidth: 1024,
-})
+const isMobile = useMediaQuery('(max-width: 768px)')
 </script>
 
 <template>
