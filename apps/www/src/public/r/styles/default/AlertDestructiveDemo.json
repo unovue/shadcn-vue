@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/AlertDestructiveDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { AlertCircle } from 'lucide-vue-next'\nimport { Alert, AlertDescription, AlertTitle } from '@/registry/default/ui/alert'\n</script>\n\n<template>\n  <Alert variant=\"destructive\">\n    <AlertCircle class=\"w-4 h-4\" />\n    <AlertTitle>Error</AlertTitle>\n    <AlertDescription>\n      Your session has expired. Please log in again.\n    </AlertDescription>\n  </Alert>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { AlertCircle } from \"lucide-vue-next\"\r\nimport { Alert, AlertDescription, AlertTitle } from \"@/registry/default/ui/alert\"\r\n</script>\r\n\r\n<template>\r\n  <Alert variant=\"destructive\">\r\n    <AlertCircle class=\"w-4 h-4\" />\r\n    <AlertTitle>Error</AlertTitle>\r\n    <AlertDescription>\r\n      Your session has expired. Please log in again.\r\n    </AlertDescription>\r\n  </Alert>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

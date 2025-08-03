@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
-import { Input } from '@/registry/new-york/ui/input'
+import { Button } from "@/registry/new-york/ui/button"
+import { Input } from "@/registry/new-york/ui/input"
 </script>
 
 <template>

@@ -15,15 +15,15 @@ import {
   Star,
   Trash,
   Trash2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
-import { ref } from 'vue'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { ref } from "vue"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york-v4/ui/popover'
+} from "@/registry/new-york-v4/ui/popover"
 import {
   Sidebar,
   SidebarContent,
@@ -32,66 +32,66 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 const data = [
   [
     {
-      label: 'Customize Page',
+      label: "Customize Page",
       icon: Settings2,
     },
     {
-      label: 'Turn into wiki',
+      label: "Turn into wiki",
       icon: FileText,
     },
   ],
   [
     {
-      label: 'Copy Link',
+      label: "Copy Link",
       icon: Link,
     },
     {
-      label: 'Duplicate',
+      label: "Duplicate",
       icon: Copy,
     },
     {
-      label: 'Move to',
+      label: "Move to",
       icon: CornerUpRight,
     },
     {
-      label: 'Move to Trash',
+      label: "Move to Trash",
       icon: Trash2,
     },
   ],
   [
     {
-      label: 'Undo',
+      label: "Undo",
       icon: CornerUpLeft,
     },
     {
-      label: 'View analytics',
+      label: "View analytics",
       icon: LineChart,
     },
     {
-      label: 'Version History',
+      label: "Version History",
       icon: GalleryVerticalEnd,
     },
     {
-      label: 'Show delete pages',
+      label: "Show delete pages",
       icon: Trash,
     },
     {
-      label: 'Notifications',
+      label: "Notifications",
       icon: Bell,
     },
   ],
   [
     {
-      label: 'Import',
+      label: "Import",
       icon: ArrowUp,
     },
     {
-      label: 'Export',
+      label: "Export",
       icon: ArrowDown,
     },
   ],

@@ -7,14 +7,14 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/sonner/Sonner.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Toaster as Sonner, type ToasterProps } from 'vue-sonner'\n\nconst props = defineProps<ToasterProps>()\n</script>\n\n<template>\n  <Sonner\n    class=\"toaster group\"\n    v-bind=\"props\"\n    :toast-options=\"{\n      classes: {\n        toast: 'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',\n        description: 'group-[.toast]:text-muted-foreground',\n        actionButton:\n          'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',\n        cancelButton:\n          'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',\n      },\n    }\"\n  />\n</template>\n",
+      "path": "ui/sonner/index.ts",
+      "content": "export { default as Toaster } from \"./Sonner.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/sonner/index.ts",
-      "content": "export { default as Toaster } from './Sonner.vue'\n",
+      "path": "ui/sonner/Sonner.vue",
+      "content": "<script lang=\"ts\" setup>\r\nimport type { ToasterProps } from \"vue-sonner\"\nimport { Toaster as Sonner } from \"vue-sonner\"\r\n\r\nconst props = defineProps<ToasterProps>()\r\n</script>\r\n\r\n<template>\r\n  <Sonner\r\n    class=\"toaster group\"\r\n    v-bind=\"props\"\r\n    :toast-options=\"{\r\n      classes: {\r\n        toast: 'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',\r\n        description: 'group-[.toast]:text-muted-foreground',\r\n        actionButton:\r\n          'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',\r\n        cancelButton:\r\n          'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',\r\n      },\r\n    }\"\r\n  />\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

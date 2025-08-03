@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { Mail } from '../data/mails'
 
+import type { LinkProp } from './Nav.vue'
 import { refDebounced } from '@vueuse/core'
 import {
   Search,
@@ -20,7 +21,7 @@ import { TooltipProvider } from '@/registry/new-york/ui/tooltip'
 import AccountSwitcher from './AccountSwitcher.vue'
 import MailDisplay from './MailDisplay.vue'
 import MailList from './MailList.vue'
-import Nav, { type LinkProp } from './Nav.vue'
+import Nav from './Nav.vue'
 
 interface MailProps {
   accounts: {

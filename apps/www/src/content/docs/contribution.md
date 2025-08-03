@@ -189,11 +189,11 @@ Here's an example from `Accordion` root component.
 
 ```vue
 <script setup lang="ts">
+import type { AccordionRootEmits, AccordionRootProps } from 'reka-ui'
 import {
   AccordionRoot,
-  type AccordionRootEmits,
-  type AccordionRootProps,
-  useForwardPropsEmits,
+
+  useForwardPropsEmits
 } from 'reka-ui'
 
 const props = defineProps<AccordionRootProps>()
@@ -246,7 +246,8 @@ This pattern only needs to be applied when the `cn` utility is required. For ins
 
 ```vue
 <script setup lang="ts">
-import { SelectValue, type SelectValueProps } from 'reka-ui'
+import type { SelectValueProps } from 'reka-ui'
+import { SelectValue } from 'reka-ui'
 
 const props = defineProps<SelectValueProps>()
 </script>
@@ -266,8 +267,9 @@ Take a look at `AccordionItem.vue`
 
 ```vue
 <script setup lang="ts">
+import type { AccordionItemProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
-import { AccordionItem, type AccordionItemProps, useForwardProps } from 'reka-ui'
+import { AccordionItem, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<AccordionItemProps & { class?: HTMLAttributes['class'] }>()
@@ -298,10 +300,12 @@ Let's take a look at `Button.vue`
 
 ```vue
 <script setup lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
-import { Primitive, type PrimitiveProps } from 'reka-ui'
+import type { ButtonVariants } from '.'
+import { Primitive } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { type ButtonVariants, buttonVariants } from '.'
+import { buttonVariants } from '.'
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']

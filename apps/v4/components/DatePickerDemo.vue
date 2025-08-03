@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { CalendarDate, DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
+import type { DateValue } from '@internationalized/date'
+import { CalendarDate, DateFormatter, getLocalTimeZone } from '@internationalized/date'
 // import { DateRange } from "react-day-picker"
 
 import { CalendarIcon } from 'lucide-vue-next'

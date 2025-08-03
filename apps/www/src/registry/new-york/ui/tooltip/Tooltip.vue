@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { TooltipRoot, type TooltipRootEmits, type TooltipRootProps, useForwardPropsEmits } from 'reka-ui'
+import type { TooltipRootEmits, TooltipRootProps } from "reka-ui"
+import { TooltipRoot, useForwardPropsEmits } from "reka-ui"
 
 const props = defineProps<TooltipRootProps>()
 const emits = defineEmits<TooltipRootEmits>()

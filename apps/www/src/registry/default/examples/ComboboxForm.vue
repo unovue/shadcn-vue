@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
-import { useForm } from 'vee-validate'
+import { toTypedSchema } from "@vee-validate/zod"
+import { Check, ChevronsUpDown } from "lucide-vue-next"
+import { useForm } from "vee-validate"
 
-import { h } from 'vue'
+import { h } from "vue"
 
-import * as z from 'zod'
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/default/ui/button'
-import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from '@/registry/default/ui/combobox'
+import * as z from "zod"
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/default/ui/button"
+import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from "@/registry/default/ui/combobox"
 import {
   FormControl,
   FormDescription,
@@ -16,38 +16,38 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/default/ui/form'
-import { toast } from '@/registry/default/ui/toast'
+} from "@/registry/default/ui/form"
+import { toast } from "@/registry/default/ui/toast"
 
 const languages = [
-  { label: 'English', value: 'en' },
-  { label: 'French', value: 'fr' },
-  { label: 'German', value: 'de' },
-  { label: 'Spanish', value: 'es' },
-  { label: 'Portuguese', value: 'pt' },
-  { label: 'Russian', value: 'ru' },
-  { label: 'Japanese', value: 'ja' },
-  { label: 'Korean', value: 'ko' },
-  { label: 'Chinese', value: 'zh' },
+  { label: "English", value: "en" },
+  { label: "French", value: "fr" },
+  { label: "German", value: "de" },
+  { label: "Spanish", value: "es" },
+  { label: "Portuguese", value: "pt" },
+  { label: "Russian", value: "ru" },
+  { label: "Japanese", value: "ja" },
+  { label: "Korean", value: "ko" },
+  { label: "Chinese", value: "zh" },
 ] as const
 
 const formSchema = toTypedSchema(z.object({
   language: z.string({
-    required_error: 'Please select a language.',
+    required_error: "Please select a language.",
   }),
 }))
 
 const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    language: '',
+    language: "",
   },
 })
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

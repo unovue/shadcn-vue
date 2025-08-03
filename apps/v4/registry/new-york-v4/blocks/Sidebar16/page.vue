@@ -1,15 +1,15 @@
 <script lang="ts">
-export const iframeHeight = '800px'
-export const description = 'A sidebar with a header and a search form.'
+export const iframeHeight = "800px"
+export const description = "A sidebar with a header and a search form."
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar16/components/AppSidebar.vue'
-import SiteHeader from '@/registry/new-york-v4/blocks/Sidebar16/components/SiteHeader.vue'
+import AppSidebar from "@/registry/new-york-v4/blocks/Sidebar16/components/AppSidebar.vue"
+import SiteHeader from "@/registry/new-york-v4/blocks/Sidebar16/components/SiteHeader.vue"
 import {
   SidebarInset,
   SidebarProvider,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

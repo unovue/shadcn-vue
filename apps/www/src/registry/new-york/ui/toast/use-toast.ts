@@ -1,14 +1,14 @@
-import type { Component, VNode } from 'vue'
-import type { ToastProps } from '.'
-import { computed, ref } from 'vue'
+import type { Component, VNode } from "vue"
+import type { ToastProps } from "."
+import { computed, ref } from "vue"
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
 
-export type StringOrVNode =
-  | string
-  | VNode
-  | (() => VNode)
+export type StringOrVNode
+  = | string
+    | VNode
+    | (() => VNode)
 
 type ToasterToast = ToastProps & {
   id: string
@@ -18,10 +18,10 @@ type ToasterToast = ToastProps & {
 }
 
 const actionTypes = {
-  ADD_TOAST: 'ADD_TOAST',
-  UPDATE_TOAST: 'UPDATE_TOAST',
-  DISMISS_TOAST: 'DISMISS_TOAST',
-  REMOVE_TOAST: 'REMOVE_TOAST',
+  ADD_TOAST: "ADD_TOAST",
+  UPDATE_TOAST: "UPDATE_TOAST",
+  DISMISS_TOAST: "DISMISS_TOAST",
+  REMOVE_TOAST: "REMOVE_TOAST",
 } as const
 
 let count = 0
@@ -33,22 +33,22 @@ function genId() {
 
 type ActionType = typeof actionTypes
 
-type Action =
-  | {
-    type: ActionType['ADD_TOAST']
+type Action
+  = | {
+    type: ActionType["ADD_TOAST"]
     toast: ToasterToast
   }
   | {
-    type: ActionType['UPDATE_TOAST']
+    type: ActionType["UPDATE_TOAST"]
     toast: Partial<ToasterToast>
   }
   | {
-    type: ActionType['DISMISS_TOAST']
-    toastId?: ToasterToast['id']
+    type: ActionType["DISMISS_TOAST"]
+    toastId?: ToasterToast["id"]
   }
   | {
-    type: ActionType['REMOVE_TOAST']
-    toastId?: ToasterToast['id']
+    type: ActionType["REMOVE_TOAST"]
+    toastId?: ToasterToast["id"]
   }
 
 interface State {
@@ -129,7 +129,7 @@ function useToast() {
   }
 }
 
-type Toast = Omit<ToasterToast, 'id'>
+type Toast = Omit<ToasterToast, "id">
 
 function toast(props: Toast) {
   const id = genId()

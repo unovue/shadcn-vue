@@ -1,19 +1,20 @@
 <script setup lang="ts">
+import type { DateValue } from "@internationalized/date"
 import {
   DateFormatter,
-  type DateValue,
+
   getLocalTimeZone,
-} from '@internationalized/date'
-import { CalendarIcon } from 'lucide-vue-next'
+} from "@internationalized/date"
+import { CalendarIcon } from "lucide-vue-next"
 
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york/ui/button'
-import { Calendar } from '@/registry/new-york/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
+import { ref } from "vue"
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/new-york/ui/button"
+import { Calendar } from "@/registry/new-york/ui/calendar"
+import { Popover, PopoverContent, PopoverTrigger } from "@/registry/new-york/ui/popover"
 
-const df = new DateFormatter('en-US', {
-  dateStyle: 'long',
+const df = new DateFormatter("en-US", {
+  dateStyle: "long",
 })
 
 const value = ref<DateValue>()

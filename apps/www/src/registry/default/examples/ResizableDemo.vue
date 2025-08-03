@@ -3,7 +3,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from '@/registry/default/ui/resizable'
+} from "@/registry/default/ui/resizable"
 </script>
 
 <template>

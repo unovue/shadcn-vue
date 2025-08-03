@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Loader2 } from 'lucide-vue-next'
-import { Button } from '@/registry/new-york/ui/button'
+import { Loader2 } from "lucide-vue-next"
+import { Button } from "@/registry/new-york/ui/button"
 </script>
 
 <template>

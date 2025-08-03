@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { ref } from 'vue'
-import { Button } from '@/registry/default/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/registry/default/ui/command'
-import { Drawer, DrawerContent, DrawerTrigger } from '@/registry/default/ui/drawer'
-import { Popover, PopoverContent, PopoverTrigger } from '@/registry/default/ui/popover'
+import { createReusableTemplate, useMediaQuery } from "@vueuse/core"
+import { ref } from "vue"
+import { Button } from "@/registry/default/ui/button"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/registry/default/ui/command"
+import { Drawer, DrawerContent, DrawerTrigger } from "@/registry/default/ui/drawer"
+import { Popover, PopoverContent, PopoverTrigger } from "@/registry/default/ui/popover"
 
 interface Status {
   value: string
@@ -13,29 +13,29 @@ interface Status {
 
 const statuses: Status[] = [
   {
-    value: 'backlog',
-    label: 'Backlog',
+    value: "backlog",
+    label: "Backlog",
   },
   {
-    value: 'todo',
-    label: 'Todo',
+    value: "todo",
+    label: "Todo",
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
+    value: "in progress",
+    label: "In Progress",
   },
   {
-    value: 'done',
-    label: 'Done',
+    value: "done",
+    label: "Done",
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
+    value: "canceled",
+    label: "Canceled",
   },
 ]
 
 const [UseTemplate, StatusList] = createReusableTemplate()
-const isDesktop = useMediaQuery('(min-width: 768px)')
+const isDesktop = useMediaQuery("(min-width: 768px)")
 
 const isOpen = ref(false)
 const selectedStatus = ref<Status | null>(null)

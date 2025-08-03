@@ -1,10 +1,10 @@
 <script lang="ts">
-export const iframeHeight = '800px'
-export const description = 'A floating sidebar with submenus.'
+export const iframeHeight = "800px"
+export const description = "A floating sidebar with submenus."
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar04/components/AppSidebar.vue'
+import AppSidebar from "@/registry/new-york-v4/blocks/Sidebar04/components/AppSidebar.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,13 +12,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york-v4/ui/breadcrumb'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
+} from "@/registry/new-york-v4/ui/breadcrumb"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

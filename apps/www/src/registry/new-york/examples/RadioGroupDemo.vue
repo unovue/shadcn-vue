@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Label } from '@/registry/new-york/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/registry/new-york/ui/radio-group'
+import { Label } from "@/registry/new-york/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/registry/new-york/ui/radio-group"
 </script>
 
 <template>

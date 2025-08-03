@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { ChevronDown } from 'lucide-vue-next'
+import type { NavigationMenuTriggerProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { ChevronDown } from "lucide-vue-next"
 import {
   NavigationMenuTrigger,
-  type NavigationMenuTriggerProps,
+
   useForwardProps,
-} from 'reka-ui'
-import { cn } from '@/lib/utils'
-import { navigationMenuTriggerStyle } from '.'
+} from "reka-ui"
+import { cn } from "@/lib/utils"
+import { navigationMenuTriggerStyle } from "."
 
-const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { FieldProps } from './interface'
-import { computed } from 'vue'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/registry/new-york/ui/form'
-import { Input } from '@/registry/new-york/ui/input'
-import { Textarea } from '@/registry/new-york/ui/textarea'
-import AutoFormLabel from './AutoFormLabel.vue'
-import { beautifyObjectName } from './utils'
+import type { FieldProps } from "./interface"
+import { computed } from "vue"
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/registry/new-york/ui/form"
+import { Input } from "@/registry/new-york/ui/input"
+import { Textarea } from "@/registry/new-york/ui/textarea"
+import AutoFormLabel from "./AutoFormLabel.vue"
+import { beautifyObjectName } from "./utils"
 
 const props = defineProps<FieldProps>()
-const inputComponent = computed(() => props.config?.component === 'textarea' ? Textarea : Input)
+const inputComponent = computed(() => props.config?.component === "textarea" ? Textarea : Input)
 </script>
 
 <template>

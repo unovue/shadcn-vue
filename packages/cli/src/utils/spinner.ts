@@ -1,4 +1,5 @@
-import ora, { type Options } from 'ora'
+import type { Options } from 'ora'
+import ora from 'ora'
 
 export function spinner(
   text: Options['text'],

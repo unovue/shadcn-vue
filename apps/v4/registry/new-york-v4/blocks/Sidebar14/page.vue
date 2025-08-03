@@ -1,10 +1,10 @@
 <script lang="ts">
-export const iframeHeight = '800px'
-export const description = 'A sidebar on the right.'
+export const iframeHeight = "800px"
+export const description = "A sidebar on the right."
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar14/components/AppSidebar.vue'
+import AppSidebar from "@/registry/new-york-v4/blocks/Sidebar14/components/AppSidebar.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,12 +12,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york-v4/ui/breadcrumb'
+} from "@/registry/new-york-v4/ui/breadcrumb"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

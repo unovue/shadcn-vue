@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
+import { toTypedSchema } from "@vee-validate/zod"
+import { useForm } from "vee-validate"
+import { h } from "vue"
+import * as z from "zod"
 
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from "@/registry/new-york/ui/button"
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/new-york/ui/form'
-import { RadioGroup, RadioGroupItem } from '@/registry/new-york/ui/radio-group'
-import { toast } from '@/registry/new-york/ui/toast'
+} from "@/registry/new-york/ui/form"
+import { RadioGroup, RadioGroupItem } from "@/registry/new-york/ui/radio-group"
+import { toast } from "@/registry/new-york/ui/toast"
 
 const formSchema = toTypedSchema(z.object({
-  type: z.enum(['all', 'mentions', 'none'], {
-    required_error: 'You need to select a notification type.',
+  type: z.enum(["all", "mentions", "none"], {
+    required_error: "You need to select a notification type.",
   }),
 }))
 
@@ -27,8 +27,8 @@ const { handleSubmit } = useForm({
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

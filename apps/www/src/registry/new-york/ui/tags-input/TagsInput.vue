@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { TagsInputRoot, type TagsInputRootEmits, type TagsInputRootProps, useForwardPropsEmits } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { TagsInputRootEmits, TagsInputRootProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { TagsInputRoot, useForwardPropsEmits } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<TagsInputRootProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<TagsInputRootProps & { class?: HTMLAttributes["class"] }>()
 const emits = defineEmits<TagsInputRootEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>

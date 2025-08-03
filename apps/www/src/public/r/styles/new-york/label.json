@@ -2,20 +2,20 @@
   "name": "label",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/label/Label.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Label, type LabelProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <Label\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "path": "ui/label/index.ts",
+      "content": "export { default as Label } from \"./Label.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/label/index.ts",
-      "content": "export { default as Label } from './Label.vue'\n",
+      "path": "ui/label/Label.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { LabelProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { Label } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<LabelProps & { class?: HTMLAttributes[\"class\"] }>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <Label\r\n    v-bind=\"delegatedProps\"\r\n    :class=\"\r\n      cn(\r\n        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',\r\n        props.class,\r\n      )\r\n    \"\r\n  >\r\n    <slot />\r\n  </Label>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type AlertDialogEmits, type AlertDialogProps, AlertDialogRoot } from 'reka-ui'
+import type { AlertDialogEmits, AlertDialogProps } from 'reka-ui'
+import { AlertDialogRoot } from 'reka-ui'
 import { useEmitAsProps } from '@/lib/utils'
 
 const props = defineProps<AlertDialogProps>()

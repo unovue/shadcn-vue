@@ -7,62 +7,62 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/table/index.ts",
+      "content": "export { default as Table } from \"./Table.vue\"\r\nexport { default as TableBody } from \"./TableBody.vue\"\r\nexport { default as TableCaption } from \"./TableCaption.vue\"\r\nexport { default as TableCell } from \"./TableCell.vue\"\r\nexport { default as TableEmpty } from \"./TableEmpty.vue\"\r\nexport { default as TableFooter } from \"./TableFooter.vue\"\r\nexport { default as TableHead } from \"./TableHead.vue\"\r\nexport { default as TableHeader } from \"./TableHeader.vue\"\r\nexport { default as TableRow } from \"./TableRow.vue\"\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/table/Table.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div class=\"relative w-full overflow-auto\">\n    <table :class=\"cn('w-full caption-bottom text-sm', props.class)\">\n      <slot />\n    </table>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <div class=\"relative w-full overflow-auto\">\r\n    <table :class=\"cn('w-full caption-bottom text-sm', props.class)\">\r\n      <slot />\r\n    </table>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableBody.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tbody :class=\"cn('[&_tr:last-child]:border-0', props.class)\">\n    <slot />\n  </tbody>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <tbody :class=\"cn('[&_tr:last-child]:border-0', props.class)\">\r\n    <slot />\r\n  </tbody>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableCaption.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <caption :class=\"cn('mt-4 text-sm text-muted-foreground', props.class)\">\n    <slot />\n  </caption>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <caption :class=\"cn('mt-4 text-sm text-muted-foreground', props.class)\">\r\n    <slot />\r\n  </caption>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableCell.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <td\n    :class=\"\n      cn(\n        'p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </td>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <td\r\n    :class=\"\r\n      cn(\r\n        'p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5',\r\n        props.class,\r\n      )\r\n    \"\r\n  >\r\n    <slot />\r\n  </td>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport TableCell from './TableCell.vue'\nimport TableRow from './TableRow.vue'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  colspan?: number\n}>(), {\n  colspan: 1,\n})\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      v-bind=\"delegatedProps\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport TableCell from \"./TableCell.vue\"\r\nimport TableRow from \"./TableRow.vue\"\r\n\r\nconst props = withDefaults(defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n  colspan?: number\r\n}>(), {\r\n  colspan: 1,\r\n})\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <TableRow>\r\n    <TableCell\r\n      :class=\"\r\n        cn(\r\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\r\n          props.class,\r\n        )\r\n      \"\r\n      v-bind=\"delegatedProps\"\r\n    >\r\n      <div class=\"flex items-center justify-center py-10\">\r\n        <slot />\r\n      </div>\r\n    </TableCell>\r\n  </TableRow>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tfoot :class=\"cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', props.class)\">\n    <slot />\n  </tfoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <tfoot :class=\"cn('border-t bg-muted/50 font-medium [&>tr]:last:border-b-0', props.class)\">\r\n    <slot />\r\n  </tfoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableHead.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <th :class=\"cn('h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5', props.class)\">\n    <slot />\n  </th>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <th :class=\"cn('h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5', props.class)\">\r\n    <slot />\r\n  </th>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <thead :class=\"cn('[&_tr]:border-b', props.class)\">\n    <slot />\n  </thead>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <thead :class=\"cn('[&_tr]:border-b', props.class)\">\r\n    <slot />\r\n  </thead>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableRow.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tr :class=\"cn('border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted', props.class)\">\n    <slot />\n  </tr>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/table/index.ts",
-      "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\nexport { default as TableFooter } from './TableFooter.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableRow } from './TableRow.vue'\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <tr :class=\"cn('border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted', props.class)\">\r\n    <slot />\r\n  </tr>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

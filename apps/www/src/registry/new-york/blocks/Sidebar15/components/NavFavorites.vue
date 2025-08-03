@@ -5,7 +5,7 @@ import {
   MoreHorizontal,
   StarOff,
   Trash2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
 import {
   DropdownMenu,
@@ -13,7 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
+} from "@/registry/new-york/ui/dropdown-menu"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -22,7 +22,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/registry/new-york/ui/sidebar'
+} from "@/registry/new-york/ui/sidebar"
 
 defineProps<{
   favorites: {

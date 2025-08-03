@@ -6,7 +6,7 @@ import {
   Settings,
   Smile,
   User,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
 import {
   Command,
@@ -17,7 +17,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from '@/registry/new-york/ui/command'
+} from "@/registry/new-york/ui/command"
 </script>
 
 <template>

@@ -7,10 +7,10 @@ import {
   PanelLeftOpen,
   PieChart,
   Send,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
-import { ref } from 'vue'
-import { Button } from '@/registry/new-york/ui/button'
+import { ref } from "vue"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Sidebar,
   SidebarContent,
@@ -22,32 +22,32 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/new-york/ui/sidebar'
+} from "@/registry/new-york/ui/sidebar"
 
 const projects = [
   {
-    name: 'Design Engineering',
-    url: '#',
+    name: "Design Engineering",
+    url: "#",
     icon: Frame,
   },
   {
-    name: 'Sales & Marketing',
-    url: '#',
+    name: "Sales & Marketing",
+    url: "#",
     icon: PieChart,
   },
   {
-    name: 'Travel',
-    url: '#',
+    name: "Travel",
+    url: "#",
     icon: Map,
   },
   {
-    name: 'Support',
-    url: '#',
+    name: "Support",
+    url: "#",
     icon: LifeBuoy,
   },
   {
-    name: 'Feedback',
-    url: '#',
+    name: "Feedback",
+    url: "#",
     icon: Send,
   },
 ]

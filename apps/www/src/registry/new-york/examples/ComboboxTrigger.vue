@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { Check, ChevronsUpDown, Search } from 'lucide-vue-next'
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york/ui/button'
-import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from '@/registry/new-york/ui/combobox'
+import { Check, ChevronsUpDown, Search } from "lucide-vue-next"
+import { ref } from "vue"
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/new-york/ui/button"
+import { Combobox, ComboboxAnchor, ComboboxEmpty, ComboboxGroup, ComboboxInput, ComboboxItem, ComboboxItemIndicator, ComboboxList, ComboboxTrigger } from "@/registry/new-york/ui/combobox"
 
 const frameworks = [
-  { value: 'next.js', label: 'Next.js' },
-  { value: 'sveltekit', label: 'SvelteKit' },
-  { value: 'nuxt', label: 'Nuxt' },
-  { value: 'remix', label: 'Remix' },
-  { value: 'astro', label: 'Astro' },
+  { value: "next.js", label: "Next.js" },
+  { value: "sveltekit", label: "SvelteKit" },
+  { value: "nuxt", label: "Nuxt" },
+  { value: "remix", label: "Remix" },
+  { value: "astro", label: "Astro" },
 ]
 
 const value = ref<typeof frameworks[0]>()

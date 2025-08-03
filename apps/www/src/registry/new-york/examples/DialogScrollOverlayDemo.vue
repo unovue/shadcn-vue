@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Dialog,
   DialogDescription,
@@ -8,7 +8,7 @@ import {
   DialogScrollContent,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/new-york/ui/dialog'
+} from "@/registry/new-york/ui/dialog"
 </script>
 
 <template>
