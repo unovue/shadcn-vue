@@ -2,20 +2,20 @@
   "name": "separator",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/separator/Separator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Separator, type SeparatorProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<\n  SeparatorProps & { class?: HTMLAttributes['class'] }\n>(), {\n  orientation: 'horizontal',\n  decorative: true,\n})\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <Separator\n    data-slot=\"separator-root\"\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        `bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px`,\n        props.class,\n      )\n    \"\n  />\n</template>\n",
+      "path": "ui/separator/index.ts",
+      "content": "export { default as Separator } from \"./Separator.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/separator/index.ts",
-      "content": "export { default as Separator } from './Separator.vue'\n",
+      "path": "ui/separator/Separator.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { SeparatorProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { Separator } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = withDefaults(defineProps<\r\n  SeparatorProps & { class?: HTMLAttributes[\"class\"] }\r\n>(), {\r\n  orientation: \"horizontal\",\r\n  decorative: true,\r\n})\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <Separator\r\n    data-slot=\"separator-root\"\r\n    v-bind=\"delegatedProps\"\r\n    :class=\"\r\n      cn(\r\n        `bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px`,\r\n        props.class,\r\n      )\r\n    \"\r\n  />\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }
