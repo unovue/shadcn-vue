@@ -35,8 +35,9 @@ npm install -D typescript
 ```bash
 npm install tailwindcss @tailwindcss/vite
 ```
-
-Replace everything in `assets/css/tailwind.css` with the following:
+make file with the following:
+For Nuxt v4: `app/assets/css/tailwind.css`
+For Nuxt v3: `/assets/css/tailwind.css`
 
 ```css title="assets/css/tailwind.css"
 @import "tailwindcss";
@@ -238,7 +239,19 @@ npx nuxi prepare
 ```
 
 ### Run the CLI
-
+Update your tsconfig.json with the following configuration.
+```
+// ...
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./app/*"],
+      "~/*": ["./app/*"]
+    }
+  }
+}
+```
 Run the `shadcn-vue` init command to setup your project:
 
 ```bash
