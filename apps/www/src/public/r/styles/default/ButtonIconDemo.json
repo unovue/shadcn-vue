@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ButtonIconDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ChevronRight } from 'lucide-vue-next'\nimport { Button } from '@/registry/default/ui/button'\n</script>\n\n<template>\n  <Button variant=\"outline\" size=\"icon\">\n    <ChevronRight class=\"w-4 h-4\" />\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { ChevronRight } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/default/ui/button\"\r\n</script>\r\n\r\n<template>\r\n  <Button variant=\"outline\" size=\"icon\">\r\n    <ChevronRight class=\"w-4 h-4\" />\r\n  </Button>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

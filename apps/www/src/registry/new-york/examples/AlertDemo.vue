@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Rocket } from 'lucide-vue-next'
-import { Alert, AlertDescription, AlertTitle } from '@/registry/new-york/ui/alert'
+import { Rocket } from "lucide-vue-next"
+import { Alert, AlertDescription, AlertTitle } from "@/registry/new-york/ui/alert"
 </script>
 
 <template>

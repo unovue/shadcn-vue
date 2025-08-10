@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { DateRange } from 'reka-ui'
-import { getLocalTimeZone, today } from '@internationalized/date'
+import type { Ref } from 'vue'
 
-import { ref, type Ref } from 'vue'
+import { getLocalTimeZone, today } from '@internationalized/date'
+import { ref } from 'vue'
 
 import CookieSettings from '@/examples/cards/components/CookieSettings.vue'
 import CreateAccount from '@/examples/cards/components/CreateAccount.vue'

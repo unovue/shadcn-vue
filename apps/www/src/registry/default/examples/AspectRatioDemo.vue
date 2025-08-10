@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AspectRatio } from '@/registry/default/ui/aspect-ratio'
+import { AspectRatio } from "@/registry/default/ui/aspect-ratio"
 </script>
 
 <template>

@@ -1,6 +1,6 @@
-export { default as LineChart } from './LineChart.vue'
+export { default as LineChart } from "./LineChart.vue"
 
-import type { Spacing } from '@unovis/ts'
+import type { Spacing } from "@unovis/ts"
 
 type KeyOf<T extends Record<string, any>> = Extract<keyof T, string>
 

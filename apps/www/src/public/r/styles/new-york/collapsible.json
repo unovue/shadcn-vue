@@ -8,25 +8,25 @@
   "files": [
     {
       "path": "ui/collapsible/Collapsible.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from 'reka-ui'\nimport { CollapsibleRoot, useForwardPropsEmits } from 'reka-ui'\n\nconst props = defineProps<CollapsibleRootProps>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <CollapsibleRoot v-slot=\"{ open }\" v-bind=\"forwarded\">\n    <slot :open=\"open\" />\n  </CollapsibleRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from \"reka-ui\"\r\nimport { CollapsibleRoot, useForwardPropsEmits } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleRootProps>()\r\nconst emits = defineEmits<CollapsibleRootEmits>()\r\n\r\nconst forwarded = useForwardPropsEmits(props, emits)\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleRoot v-slot=\"{ open }\" v-bind=\"forwarded\">\r\n    <slot :open=\"open\" />\r\n  </CollapsibleRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/collapsible/CollapsibleContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport { CollapsibleContent, type CollapsibleContentProps } from 'reka-ui'\n\nconst props = defineProps<CollapsibleContentProps>()\n</script>\n\n<template>\n  <CollapsibleContent v-bind=\"props\" class=\"overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\n    <slot />\n  </CollapsibleContent>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleContentProps } from \"reka-ui\"\nimport { CollapsibleContent } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleContentProps>()\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleContent v-bind=\"props\" class=\"overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\r\n    <slot />\r\n  </CollapsibleContent>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/collapsible/CollapsibleTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport { CollapsibleTrigger, type CollapsibleTriggerProps } from 'reka-ui'\n\nconst props = defineProps<CollapsibleTriggerProps>()\n</script>\n\n<template>\n  <CollapsibleTrigger v-bind=\"props\">\n    <slot />\n  </CollapsibleTrigger>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleTriggerProps } from \"reka-ui\"\nimport { CollapsibleTrigger } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleTriggerProps>()\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleTrigger v-bind=\"props\">\r\n    <slot />\r\n  </CollapsibleTrigger>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/collapsible/index.ts",
-      "content": "export { default as Collapsible } from './Collapsible.vue'\nexport { default as CollapsibleContent } from './CollapsibleContent.vue'\nexport { default as CollapsibleTrigger } from './CollapsibleTrigger.vue'\n",
+      "content": "export { default as Collapsible } from \"./Collapsible.vue\"\r\nexport { default as CollapsibleContent } from \"./CollapsibleContent.vue\"\r\nexport { default as CollapsibleTrigger } from \"./CollapsibleTrigger.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     }

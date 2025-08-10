@@ -20,7 +20,7 @@ npx shadcn-vue@latest add calendar
 ```
 ::: tip
 The component depends on the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package, which solves a lot of the problems that come with working with dates and times in JavaScript.
-Check [Dates & Times in Radix Vue](https://www.reka-ui.com/docs/guides/dates.html) for more information and installation instructions.
+Check [Dates & Times in Reka UI](https://www.reka-ui.com/docs/guides/dates.html) for more information and installation instructions.
 :::
 
 ## Datepicker

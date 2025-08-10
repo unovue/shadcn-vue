@@ -2,20 +2,20 @@
   "name": "switch",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/switch/Switch.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport {\n  SwitchRoot,\n  type SwitchRootEmits,\n  type SwitchRootProps,\n  SwitchThumb,\n  useForwardPropsEmits,\n} from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SwitchRootProps & { class?: HTMLAttributes['class'] }>()\n\nconst emits = defineEmits<SwitchRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SwitchRoot\n    v-bind=\"forwarded\"\n    :class=\"cn(\n      'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',\n      props.class,\n    )\"\n  >\n    <SwitchThumb\n      :class=\"cn('pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5')\"\n    >\n      <slot name=\"thumb\" />\n    </SwitchThumb>\n  </SwitchRoot>\n</template>\n",
+      "path": "ui/switch/index.ts",
+      "content": "export { default as Switch } from \"./Switch.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/switch/index.ts",
-      "content": "export { default as Switch } from './Switch.vue'\n",
+      "path": "ui/switch/Switch.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { SwitchRootEmits, SwitchRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport {\r\n  SwitchRoot,\r\n\r\n  SwitchThumb,\r\n  useForwardPropsEmits,\r\n} from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<SwitchRootProps & { class?: HTMLAttributes[\"class\"] }>()\r\n\r\nconst emits = defineEmits<SwitchRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <SwitchRoot\r\n    v-bind=\"forwarded\"\r\n    :class=\"cn(\r\n      'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input',\r\n      props.class,\r\n    )\"\r\n  >\r\n    <SwitchThumb\r\n      :class=\"cn('pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5')\"\r\n    >\r\n      <slot name=\"thumb\" />\r\n    </SwitchThumb>\r\n  </SwitchRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { LucideIcon } from "lucide-vue-next"
 import {
   Folder,
   Forward,
-  type LucideIcon,
+
   MoreHorizontal,
   Trash2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
 import {
   DropdownMenu,
@@ -13,7 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/default/ui/dropdown-menu'
+} from "@/registry/default/ui/dropdown-menu"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -22,7 +23,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 
 defineProps<{
   projects: {

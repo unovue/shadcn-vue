@@ -1,25 +1,28 @@
 <script setup lang="ts">
-import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
-import { useVModel } from '@vueuse/core'
-import { CalendarRoot, type CalendarRootEmits, type CalendarRootProps, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
-import { createDecade, createYear, toDate } from 'reka-ui/date'
-import { computed, type HTMLAttributes, type Ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from '@/registry/default/ui/calendar'
+import type { DateValue } from "@internationalized/date"
+import type { CalendarRootEmits, CalendarRootProps } from "reka-ui"
+import type { HTMLAttributes, Ref } from "vue"
+import { getLocalTimeZone, today } from "@internationalized/date"
+import { useVModel } from "@vueuse/core"
+import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from "reka-ui"
+import { createDecade, createYear, toDate } from "reka-ui/date"
+import { computed } from "vue"
+import { cn } from "@/lib/utils"
+import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading } from "@/registry/default/ui/calendar"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/default/ui/select'
+} from "@/registry/default/ui/select"
 
-const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes['class'] }>(), {
+const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes["class"] }>(), {
   modelValue: undefined,
   placeholder() {
     return today(getLocalTimeZone())
   },
-  weekdayFormat: 'short',
+  weekdayFormat: "short",
 })
 const emits = defineEmits<CalendarRootEmits>()
 
@@ -29,14 +32,14 @@ const delegatedProps = computed(() => {
   return delegated
 })
 
-const placeholder = useVModel(props, 'modelValue', emits, {
+const placeholder = useVModel(props, "modelValue", emits, {
   passive: true,
   defaultValue: today(getLocalTimeZone()),
 }) as Ref<DateValue>
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
-const formatter = useDateFormatter('en')
+const formatter = useDateFormatter("en")
 </script>
 
 <template>

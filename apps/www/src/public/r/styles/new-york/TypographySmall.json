@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographySmall.vue",
-      "content": "<template>\n  <small class=\"text-sm font-medium leading-none\">\n    Email address\n  </small>\n</template>\n",
+      "content": "<template>\r\n  <small class=\"text-sm font-medium leading-none\">\r\n    Email address\r\n  </small>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

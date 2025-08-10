@@ -13,7 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from '@/registry/default/ui/context-menu'
+} from "@/registry/default/ui/context-menu"
 </script>
 
 <template>

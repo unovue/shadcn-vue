@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MailOpen } from 'lucide-vue-next'
-import { Button } from '@/registry/new-york/ui/button'
+import { MailOpen } from "lucide-vue-next"
+import { Button } from "@/registry/new-york/ui/button"
 </script>
 
 <template>

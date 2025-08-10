@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
-import { ref } from 'vue'
-import { Button } from '@/registry/new-york/ui/button'
+import { createReusableTemplate, useMediaQuery } from "@vueuse/core"
+import { ref } from "vue"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/new-york/ui/dialog'
+} from "@/registry/new-york/ui/dialog"
 import {
   Drawer,
   DrawerClose,
@@ -19,13 +19,13 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/registry/new-york/ui/drawer'
-import { Input } from '@/registry/new-york/ui/input'
-import { Label } from '@/registry/new-york/ui/label'
+} from "@/registry/new-york/ui/drawer"
+import { Input } from "@/registry/new-york/ui/input"
+import { Label } from "@/registry/new-york/ui/label"
 
 // Reuse `form` section
 const [UseTemplate, GridForm] = createReusableTemplate()
-const isDesktop = useMediaQuery('(min-width: 768px)')
+const isDesktop = useMediaQuery("(min-width: 768px)")
 
 const isOpen = ref(false)
 </script>

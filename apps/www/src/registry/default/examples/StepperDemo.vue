@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import { BookUser, Check, CreditCard, Truck } from 'lucide-vue-next'
+import { BookUser, Check, CreditCard, Truck } from "lucide-vue-next"
 
-import { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/default/ui/stepper'
+import { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from "@/registry/default/ui/stepper"
 
 const steps = [{
   step: 1,
-  title: 'Address',
-  description: 'Add your address here',
+  title: "Address",
+  description: "Add your address here",
   icon: BookUser,
 }, {
   step: 2,
-  title: 'Shipping',
-  description: 'Set your preferred shipping method',
+  title: "Shipping",
+  description: "Set your preferred shipping method",
   icon: Truck,
 }, {
   step: 3,
-  title: 'Payment',
-  description: 'Add any payment information you have',
+  title: "Payment",
+  description: "Add any payment information you have",
   icon: CreditCard,
 }, {
   step: 4,
-  title: 'Checkout',
-  description: 'Confirm your order',
+  title: "Checkout",
+  description: "Confirm your order",
   icon: Check,
 }]
 </script>

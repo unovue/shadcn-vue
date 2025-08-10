@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyH4.vue",
-      "content": "<template>\n  <h4 class=\"scroll-m-20 text-xl font-semibold tracking-tight\">\n    People stopped telling jokes\n  </h4>\n</template>\n",
+      "content": "<template>\r\n  <h4 class=\"scroll-m-20 text-xl font-semibold tracking-tight\">\r\n    People stopped telling jokes\r\n  </h4>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

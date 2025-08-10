@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/TagsInputDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/new-york/ui/tags-input'\n\nconst modelValue = ref(['Apple', 'Banana'])\n</script>\n\n<template>\n  <TagsInput v-model=\"modelValue\">\n    <TagsInputItem v-for=\"item in modelValue\" :key=\"item\" :value=\"item\">\n      <TagsInputItemText />\n      <TagsInputItemDelete />\n    </TagsInputItem>\n\n    <TagsInputInput placeholder=\"Fruits...\" />\n  </TagsInput>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { ref } from \"vue\"\r\nimport { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from \"@/registry/new-york/ui/tags-input\"\r\n\r\nconst modelValue = ref([\"Apple\", \"Banana\"])\r\n</script>\r\n\r\n<template>\r\n  <TagsInput v-model=\"modelValue\">\r\n    <TagsInputItem v-for=\"item in modelValue\" :key=\"item\" :value=\"item\">\r\n      <TagsInputItemText />\r\n      <TagsInputItemDelete />\r\n    </TagsInputItem>\r\n\r\n    <TagsInputInput placeholder=\"Fruits...\" />\r\n  </TagsInput>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

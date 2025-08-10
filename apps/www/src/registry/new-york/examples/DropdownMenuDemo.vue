@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from "@/registry/new-york/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +13,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
+} from "@/registry/new-york/ui/dropdown-menu"
 </script>
 
 <template>

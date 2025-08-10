@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Line } from '@unovis/ts'
-import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
+import { Line } from "@unovis/ts"
+import { VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from "@unovis/vue"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york/ui/card'
+} from "@/registry/new-york/ui/card"
 
 type Data = typeof data[number]
 const data = [
@@ -47,7 +47,7 @@ function template(d: Data) {
 
 function computeLineOpacity(val: any, index: number) {
   if (index === 0)
-    return '0.5'
+    return "0.5"
 }
 </script>
 

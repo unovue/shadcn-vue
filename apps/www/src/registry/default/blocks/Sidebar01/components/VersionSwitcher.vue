@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from 'lucide-vue-next'
+import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-vue-next"
 
-import { ref } from 'vue'
+import { ref } from "vue"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/registry/default/ui/dropdown-menu'
+} from "@/registry/default/ui/dropdown-menu"
 
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 
 const props = defineProps<{
   versions: string[]

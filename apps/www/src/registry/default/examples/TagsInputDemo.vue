@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from '@/registry/default/ui/tags-input'
+import { ref } from "vue"
+import { TagsInput, TagsInputInput, TagsInputItem, TagsInputItemDelete, TagsInputItemText } from "@/registry/default/ui/tags-input"
 
-const modelValue = ref(['Apple', 'Banana'])
+const modelValue = ref(["Apple", "Banana"])
 </script>
 
 <template>

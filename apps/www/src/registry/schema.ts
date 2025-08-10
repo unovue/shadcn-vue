@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from "zod"
 
 export const blockChunkSchema = z.object({
   name: z.string(),
@@ -14,15 +14,15 @@ export const blockChunkSchema = z.object({
 })
 
 export const registryItemTypeSchema = z.enum([
-  'registry:style',
-  'registry:lib',
-  'registry:example',
-  'registry:block',
-  'registry:component',
-  'registry:ui',
-  'registry:hook',
-  'registry:theme',
-  'registry:page',
+  "registry:style",
+  "registry:lib",
+  "registry:example",
+  "registry:block",
+  "registry:component",
+  "registry:ui",
+  "registry:hook",
+  "registry:theme",
+  "registry:page",
 ])
 
 export const registryItemFileSchema = z.object({
@@ -89,8 +89,8 @@ export type Registry = z.infer<typeof registrySchema>
 export type RegistryFiles = z.infer<typeof registryItemFileSchema>
 
 export const blockSchema = registryEntrySchema.extend({
-  type: z.literal('registry:block'),
-  style: z.enum(['default', 'new-york']),
+  type: z.literal("registry:block"),
+  style: z.enum(["default", "new-york"]),
   component: z.any(),
   raw: z.any(),
   container: z

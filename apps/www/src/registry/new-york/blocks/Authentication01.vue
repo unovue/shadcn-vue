@@ -1,15 +1,15 @@
 <script lang="ts">
 export const description
-  = 'A simple login form with email and password. The submit button says \'Sign in\'.'
-export const iframeHeight = '600px'
-export const containerClass = 'w-full h-screen flex items-center justify-center px-4'
+  = "A simple login form with email and password. The submit button says 'Sign in'."
+export const iframeHeight = "600px"
+export const containerClass = "w-full h-screen flex items-center justify-center px-4"
 </script>
 
 <script setup lang="ts">
-import { Button } from '@/registry/new-york/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/new-york/ui/card'
-import { Input } from '@/registry/new-york/ui/input'
-import { Label } from '@/registry/new-york/ui/label'
+import { Button } from "@/registry/new-york/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/new-york/ui/card"
+import { Input } from "@/registry/new-york/ui/input"
+import { Label } from "@/registry/new-york/ui/label"
 </script>
 
 <template>

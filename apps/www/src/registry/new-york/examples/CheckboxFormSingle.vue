@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
+import { toTypedSchema } from "@vee-validate/zod"
+import { useForm } from "vee-validate"
+import { h } from "vue"
+import * as z from "zod"
 
-import { Button } from '@/registry/new-york/ui/button'
-import { Checkbox } from '@/registry/new-york/ui/checkbox'
+import { Button } from "@/registry/new-york/ui/button"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
 import {
   FormControl,
   FormDescription,
@@ -13,8 +13,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/new-york/ui/form'
-import { toast } from '@/registry/new-york/ui/toast'
+} from "@/registry/new-york/ui/form"
+import { toast } from "@/registry/new-york/ui/toast"
 
 const formSchema = toTypedSchema(z.object({
   mobile: z.boolean().default(false).optional(),
@@ -29,8 +29,8 @@ const { handleSubmit } = useForm({
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

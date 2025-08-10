@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york/ui/breadcrumb'
+} from "@/registry/new-york/ui/breadcrumb"
 </script>
 
 <template>

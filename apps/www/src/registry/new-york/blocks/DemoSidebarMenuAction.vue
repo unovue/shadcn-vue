@@ -6,14 +6,14 @@ import {
   MoreHorizontal,
   PieChart,
   Send,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
+} from "@/registry/new-york/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -25,32 +25,32 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/new-york/ui/sidebar'
+} from "@/registry/new-york/ui/sidebar"
 
 const projects = [
   {
-    name: 'Design Engineering',
-    url: '#',
+    name: "Design Engineering",
+    url: "#",
     icon: Frame,
   },
   {
-    name: 'Sales & Marketing',
-    url: '#',
+    name: "Sales & Marketing",
+    url: "#",
     icon: PieChart,
   },
   {
-    name: 'Travel',
-    url: '#',
+    name: "Travel",
+    url: "#",
     icon: Map,
   },
   {
-    name: 'Support',
-    url: '#',
+    name: "Support",
+    url: "#",
     icon: LifeBuoy,
   },
   {
-    name: 'Feedback',
-    url: '#',
+    name: "Feedback",
+    url: "#",
     icon: Send,
   },
 ]

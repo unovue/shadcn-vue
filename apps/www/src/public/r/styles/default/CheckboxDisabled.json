@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/CheckboxDisabled.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Checkbox } from '@/registry/default/ui/checkbox'\n</script>\n\n<template>\n  <div class=\"items-top flex space-x-2\">\n    <Checkbox id=\"terms1\" disabled />\n    <label\n      for=\"terms2\"\n      class=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n    >\n      Accept terms and conditions\n    </label>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { Checkbox } from \"@/registry/default/ui/checkbox\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"items-top flex space-x-2\">\r\n    <Checkbox id=\"terms1\" disabled />\r\n    <label\r\n      for=\"terms2\"\r\n      class=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\r\n    >\r\n      Accept terms and conditions\r\n    </label>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { NavItem } from '../config/docs'
 import { useMagicKeys, useToggle } from '@vueuse/core'
 import { Content, useData, useRoute, useRouter } from 'vitepress'
 import { onMounted, ref, watch } from 'vue'
@@ -6,12 +7,12 @@ import MoonIcon from '~icons/lucide/moon'
 import SunIcon from '~icons/lucide/sun'
 import Circle from '~icons/radix-icons/circle'
 import File from '~icons/radix-icons/file'
-import GithubLogoIcon from '~icons/radix-icons/github-logo'
 
+import GithubLogoIcon from '~icons/radix-icons/github-logo'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/default/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/registry/default/ui/command'
 
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/registry/default/ui/command'
 import { Dialog, DialogContent } from '@/registry/default/ui/dialog'
 import { Toaster as DefaultToaster } from '@/registry/default/ui/toast'
 import { Toaster as NewYorkSonner } from '@/registry/new-york/ui/sonner'
@@ -21,10 +22,10 @@ import { useConfigStore } from '@/stores/config'
 import CodeConfigCustomizer from '../components/CodeConfigCustomizer.vue'
 import Kbd from '../components/Kbd.vue'
 import Logo from '../components/Logo.vue'
-import MobileNav from '../components/MobileNav.vue'
 
+import MobileNav from '../components/MobileNav.vue'
 import ThemePopover from '../components/ThemePopover.vue'
-import { docsConfig, type NavItem } from '../config/docs'
+import { docsConfig } from '../config/docs'
 import 'vue-sonner/style.css'
 
 const { radius, theme } = useConfigStore()

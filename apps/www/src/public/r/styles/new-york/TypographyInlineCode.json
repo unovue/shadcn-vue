@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyInlineCode.vue",
-      "content": "<template>\n  <code\n    class=\"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold\"\n  >\n    reka-ui\n  </code>\n</template>\n",
+      "content": "<template>\r\n  <code\r\n    class=\"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold\"\r\n  >\r\n    reka-ui\r\n  </code>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }
