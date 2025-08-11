@@ -14,13 +14,13 @@
     },
     {
       "path": "ui/collapsible/CollapsibleContent.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleContentProps } from \"reka-ui\"\nimport { CollapsibleContent } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleContentProps>()\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleContent v-bind=\"props\" class=\"overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\r\n    <slot />\r\n  </CollapsibleContent>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleContentProps } from \"reka-ui\"\r\nimport { CollapsibleContent } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleContentProps>()\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleContent v-bind=\"props\" class=\"overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\">\r\n    <slot />\r\n  </CollapsibleContent>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/collapsible/CollapsibleTrigger.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleTriggerProps } from \"reka-ui\"\nimport { CollapsibleTrigger } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleTriggerProps>()\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleTrigger v-bind=\"props\">\r\n    <slot />\r\n  </CollapsibleTrigger>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { CollapsibleTriggerProps } from \"reka-ui\"\r\nimport { CollapsibleTrigger } from \"reka-ui\"\r\n\r\nconst props = defineProps<CollapsibleTriggerProps>()\r\n</script>\r\n\r\n<template>\r\n  <CollapsibleTrigger v-bind=\"props\">\r\n    <slot />\r\n  </CollapsibleTrigger>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },

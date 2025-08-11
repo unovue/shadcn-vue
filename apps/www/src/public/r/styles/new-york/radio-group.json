@@ -15,7 +15,7 @@
     },
     {
       "path": "ui/radio-group/RadioGroup.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { RadioGroupRootEmits, RadioGroupRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { RadioGroupRoot, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<RadioGroupRootProps & { class?: HTMLAttributes[\"class\"] }>()\r\nconst emits = defineEmits<RadioGroupRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <RadioGroupRoot\r\n    :class=\"cn('grid gap-2', props.class)\"\r\n    v-bind=\"forwarded\"\r\n  >\r\n    <slot />\r\n  </RadioGroupRoot>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { RadioGroupRootEmits, RadioGroupRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { RadioGroupRoot, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<RadioGroupRootProps & { class?: HTMLAttributes[\"class\"] }>()\r\nconst emits = defineEmits<RadioGroupRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <RadioGroupRoot\r\n    :class=\"cn('grid gap-2', props.class)\"\r\n    v-bind=\"forwarded\"\r\n  >\r\n    <slot />\r\n  </RadioGroupRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
