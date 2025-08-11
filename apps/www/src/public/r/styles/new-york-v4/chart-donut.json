@@ -1,0 +1,26 @@
+{
+  "name": "chart-donut",
+  "type": "registry:ui",
+  "dependencies": [
+    "@unovis/vue",
+    "@unovis/ts",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "ui/chart-donut/DonutChart.vue",
+      "content": "<script setup lang=\"ts\" generic=\"T extends Record<string, any>\">\r\nimport type { BaseChartProps } from \".\"\r\nimport { Donut } from \"@unovis/ts\"\r\nimport { VisDonut, VisSingleContainer } from \"@unovis/vue\"\r\nimport { useMounted } from \"@vueuse/core\"\r\nimport { type Component, computed, ref } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { ChartSingleTooltip, defaultColors } from \"@/registry/new-york/ui/chart\"\r\n\r\nconst props = withDefaults(defineProps<Pick<BaseChartProps<T>, \"data\" | \"colors\" | \"index\" | \"margin\" | \"showLegend\" | \"showTooltip\" | \"filterOpacity\"> & {\r\n  /**\r\n   * Sets the name of the key containing the quantitative chart values.\r\n   */\r\n  category: KeyOfT\r\n  /**\r\n   * Change the type of the chart\r\n   * @default \"donut\"\r\n   */\r\n  type?: \"donut\" | \"pie\"\r\n  /**\r\n   * Function to sort the segment\r\n   */\r\n  sortFunction?: (a: any, b: any) => number | undefined\r\n  /**\r\n   * Controls the formatting for the label.\r\n   */\r\n  valueFormatter?: (tick: number, i?: number, ticks?: number[]) => string\r\n  /**\r\n   * Render custom tooltip component.\r\n   */\r\n  customTooltip?: Component\r\n}>(), {\r\n  margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),\r\n  sortFunction: () => undefined,\r\n  type: \"donut\",\r\n  filterOpacity: 0.2,\r\n  showTooltip: true,\r\n  showLegend: true,\r\n})\r\n\r\ntype KeyOfT = Extract<keyof T, string>\r\ntype Data = typeof props.data[number]\r\n\r\nconst valueFormatter = props.valueFormatter ?? ((tick: number) => `${tick}`)\r\nconst category = computed(() => props.category as KeyOfT)\r\nconst index = computed(() => props.index as KeyOfT)\r\n\r\nconst isMounted = useMounted()\r\nconst activeSegmentKey = ref<string>()\r\nconst colors = computed(() => props.colors?.length ? props.colors : defaultColors(props.data.filter(d => d[props.category]).filter(Boolean).length))\r\nconst legendItems = computed(() => props.data.map((item, i) => ({\r\n  name: item[props.index],\r\n  color: colors.value[i],\r\n  inactive: false,\r\n})))\r\n\r\nconst totalValue = computed(() => props.data.reduce((prev, curr) => {\r\n  return prev + curr[props.category]\r\n}, 0))\r\n</script>\r\n\r\n<template>\r\n  <div :class=\"cn('w-full h-48 flex flex-col items-end', $attrs.class ?? '')\">\r\n    <VisSingleContainer :style=\"{ height: isMounted ? '100%' : 'auto' }\" :margin=\"{ left: 20, right: 20 }\" :data=\"data\">\r\n      <ChartSingleTooltip\r\n        :selector=\"Donut.selectors.segment\"\r\n        :index=\"category\"\r\n        :items=\"legendItems\"\r\n        :value-formatter=\"valueFormatter\"\r\n        :custom-tooltip=\"customTooltip\"\r\n      />\r\n\r\n      <VisDonut\r\n        :value=\"(d: Data) => d[category]\"\r\n        :sort-function=\"sortFunction\"\r\n        :color=\"colors\"\r\n        :arc-width=\"type === 'donut' ? 20 : 0\"\r\n        :show-background=\"false\"\r\n        :central-label=\"type === 'donut' ? valueFormatter(totalValue) : ''\"\r\n        :events=\"{\r\n          [Donut.selectors.segment]: {\r\n            click: (d: Data, ev: PointerEvent, i: number, elements: HTMLElement[]) => {\r\n              if (d?.data?.[index] === activeSegmentKey) {\r\n                activeSegmentKey = undefined\r\n                elements.forEach(el => el.style.opacity = '1')\r\n              }\r\n              else {\r\n                activeSegmentKey = d?.data?.[index]\r\n                elements.forEach(el => el.style.opacity = `${filterOpacity}`)\r\n                elements[i].style.opacity = '1'\r\n              }\r\n            },\r\n          },\r\n        }\"\r\n      />\r\n\r\n      <slot />\r\n    </VisSingleContainer>\r\n  </div>\r\n</template>\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/chart-donut/index.ts",
+      "content": "export { default as DonutChart } from \"./DonutChart.vue\"\r\n\r\nimport type { Spacing } from \"@unovis/ts\"\r\n\r\ntype KeyOf<T extends Record<string, any>> = Extract<keyof T, string>\r\n\r\nexport interface BaseChartProps<T extends Record<string, any>> {\r\n  /**\r\n   * The source data, in which each entry is a dictionary.\r\n   */\r\n  data: T[]\r\n  /**\r\n   * Sets the key to map the data to the axis.\r\n   */\r\n  index: KeyOf<T>\r\n  /**\r\n   * Change the default colors.\r\n   */\r\n  colors?: string[]\r\n  /**\r\n   * Margin of each the container\r\n   */\r\n  margin?: Spacing\r\n  /**\r\n   * Change the opacity of the non-selected field\r\n   * @default 0.2\r\n   */\r\n  filterOpacity?: number\r\n  /**\r\n   * Controls the visibility of tooltip.\r\n   * @default true\r\n   */\r\n  showTooltip?: boolean\r\n  /**\r\n   * Controls the visibility of legend.\r\n   * @default true\r\n   */\r\n  showLegend?: boolean\r\n}\r\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

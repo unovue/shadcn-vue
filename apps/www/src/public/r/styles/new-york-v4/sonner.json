@@ -14,7 +14,7 @@
     },
     {
       "path": "ui/sonner/Sonner.vue",
-      "content": "<script lang=\"ts\" setup>\r\nimport type { ToasterProps } from \"vue-sonner\"\nimport { Toaster as Sonner } from \"vue-sonner\"\r\n\r\nconst props = defineProps<ToasterProps>()\r\n</script>\r\n\r\n<template>\r\n  <Sonner\r\n    class=\"toaster group\"\r\n    v-bind=\"props\"\r\n    :style=\"{\r\n      '--normal-bg': 'var(--popover)',\r\n      '--normal-text': 'var(--popover-foreground)',\r\n      '--normal-border': 'var(--border)',\r\n\r\n    }\"\r\n  />\r\n</template>\r\n",
+      "content": "<script lang=\"ts\" setup>\r\nimport type { ToasterProps } from \"vue-sonner\"\r\nimport { Toaster as Sonner } from \"vue-sonner\"\r\n\r\nconst props = defineProps<ToasterProps>()\r\n</script>\r\n\r\n<template>\r\n  <Sonner\r\n    class=\"toaster group\"\r\n    v-bind=\"props\"\r\n    :style=\"{\r\n      '--normal-bg': 'var(--popover)',\r\n      '--normal-text': 'var(--popover-foreground)',\r\n      '--normal-border': 'var(--border)',\r\n\r\n    }\"\r\n  />\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

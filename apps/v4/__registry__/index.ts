@@ -404,6 +404,117 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"chart": {
+  name: "chart",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["button","card"],
+  files: [{
+    path: "registry/new-york-v4/ui/chart/ChartCrosshair.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart/ChartLegend.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart/ChartSingleTooltip.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart/ChartTooltip.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart/interface.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/chart/ChartCrosshair.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"chart-area": {
+  name: "chart-area",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["chart"],
+  files: [{
+    path: "registry/new-york-v4/ui/chart-area/AreaChart.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart-area/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/chart-area/AreaChart.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"chart-bar": {
+  name: "chart-bar",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["chart"],
+  files: [{
+    path: "registry/new-york-v4/ui/chart-bar/BarChart.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart-bar/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/chart-bar/BarChart.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"chart-donut": {
+  name: "chart-donut",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["chart"],
+  files: [{
+    path: "registry/new-york-v4/ui/chart-donut/DonutChart.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart-donut/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/chart-donut/DonutChart.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"chart-line": {
+  name: "chart-line",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["chart"],
+  files: [{
+    path: "registry/new-york-v4/ui/chart-line/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart-line/LineChart.vue",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/chart-line/index.ts").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "checkbox": {
   name: "checkbox",
   description: "",
