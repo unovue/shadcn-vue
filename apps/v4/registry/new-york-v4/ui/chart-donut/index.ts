@@ -1,4 +1,4 @@
-export { default as AreaChart } from "./AreaChart.vue"
+export { default as DonutChart } from "./DonutChart.vue"
 
 import type { Spacing } from "@unovis/ts"
 
@@ -9,10 +9,6 @@ export interface BaseChartProps<T extends Record<string, any>> {
    * The source data, in which each entry is a dictionary.
    */
   data: T[]
-  /**
-   * Select the categories from your data. Used to populate the legend and toolip.
-   */
-  categories: KeyOf<T>[]
   /**
    * Sets the key to map the data to the axis.
    */
@@ -31,24 +27,6 @@ export interface BaseChartProps<T extends Record<string, any>> {
    */
   filterOpacity?: number
   /**
-   * Function to format X label
-   */
-  xFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
-  /**
-   * Function to format Y label
-   */
-  yFormatter?: (tick: number | Date, i: number, ticks: number[] | Date[]) => string
-  /**
-   * Controls the visibility of the X axis.
-   * @default true
-   */
-  showXAxis?: boolean
-  /**
-   * Controls the visibility of the Y axis.
-   * @default true
-   */
-  showYAxis?: boolean
-  /**
    * Controls the visibility of tooltip.
    * @default true
    */
@@ -58,9 +36,4 @@ export interface BaseChartProps<T extends Record<string, any>> {
    * @default true
    */
   showLegend?: boolean
-  /**
-   * Controls the visibility of gridline.
-   * @default true
-   */
-  showGridLine?: boolean
 }

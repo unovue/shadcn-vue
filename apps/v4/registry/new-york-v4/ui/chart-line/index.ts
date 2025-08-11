@@ -1,4 +1,4 @@
-export { default as AreaChart } from "./AreaChart.vue"
+export { default as LineChart } from "./LineChart.vue"
 
 import type { Spacing } from "@unovis/ts"
 
