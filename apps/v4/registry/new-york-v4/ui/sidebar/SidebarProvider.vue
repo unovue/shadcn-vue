@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
   open?: boolean
   class?: HTMLAttributes["class"]
 }>(), {
-  defaultOpen: true,
+  defaultOpen: document.cookie.includes(`${SIDEBAR_COOKIE_NAME}=true`),
   open: undefined,
 })
 
