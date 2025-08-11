@@ -1,13 +1,14 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
-import type { BaseChartProps } from '.'
-import { Donut } from '@unovis/ts'
-import { VisDonut, VisSingleContainer } from '@unovis/vue'
-import { useMounted } from '@vueuse/core'
-import { type Component, computed, ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { ChartSingleTooltip, defaultColors } from '@/registry/new-york/ui/chart'
+import type { Component } from "vue"
+import type { BaseChartProps } from "."
+import { Donut } from "@unovis/ts"
+import { VisDonut, VisSingleContainer } from "@unovis/vue"
+import { useMounted } from "@vueuse/core"
+import { computed, ref } from "vue"
+import { cn } from "@/lib/utils"
+import { ChartSingleTooltip, defaultColors } from "@/registry/new-york/ui/chart"
 
-const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors' | 'index' | 'margin' | 'showLegend' | 'showTooltip' | 'filterOpacity'> & {
+const props = withDefaults(defineProps<Pick<BaseChartProps<T>, "data" | "colors" | "index" | "margin" | "showLegend" | "showTooltip" | "filterOpacity"> & {
   /**
    * Sets the name of the key containing the quantitative chart values.
    */
@@ -16,7 +17,7 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors'
    * Change the type of the chart
    * @default "donut"
    */
-  type?: 'donut' | 'pie'
+  type?: "donut" | "pie"
   /**
    * Function to sort the segment
    */
@@ -32,7 +33,7 @@ const props = withDefaults(defineProps<Pick<BaseChartProps<T>, 'data' | 'colors'
 }>(), {
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   sortFunction: () => undefined,
-  type: 'donut',
+  type: "donut",
   filterOpacity: 0.2,
   showTooltip: true,
   showLegend: true,

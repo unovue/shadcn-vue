@@ -1,23 +1,23 @@
 <script lang="ts">
-export const description = 'A sidebar in a popover.'
-export const iframeHeight = '800px'
+export const description = "A sidebar in a popover."
+export const iframeHeight = "800px"
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar10/components/AppSidebar.vue'
-import NavActions from '@/registry/new-york-v4/blocks/Sidebar10/components/NavActions.vue'
+import AppSidebar from "@/registry/new-york-v4/blocks/Sidebar10/components/AppSidebar.vue"
+import NavActions from "@/registry/new-york-v4/blocks/Sidebar10/components/NavActions.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
-} from '@/registry/new-york-v4/ui/breadcrumb'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
+} from "@/registry/new-york-v4/ui/breadcrumb"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

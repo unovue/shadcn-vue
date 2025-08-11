@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/TextareaWithButton.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Button } from '@/registry/new-york/ui/button'\nimport { Textarea } from '@/registry/new-york/ui/textarea'\n</script>\n\n<template>\n  <div class=\"grid w-full gap-2\">\n    <Textarea placeholder=\"Type your message here.\" />\n    <Button>Send message</Button>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"grid w-full gap-2\">\r\n    <Textarea placeholder=\"Type your message here.\" />\r\n    <Button>Send message</Button>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

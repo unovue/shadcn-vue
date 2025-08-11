@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Badge } from '@/registry/default/ui/badge'
+import { Badge } from "@/registry/default/ui/badge"
 </script>
 
 <template>

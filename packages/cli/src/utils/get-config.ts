@@ -4,9 +4,9 @@ import path from 'pathe'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
 import { getProjectInfo } from '@/src/utils/get-project-info'
+import { logger } from '@/src/utils/logger'
 import { resolveImport } from '@/src/utils/resolve-import'
 import { highlighter } from './highlighter'
-import { logger } from '@/src/utils/logger'
 
 /** @deprecated */
 export const TAILWIND_CSS_PATH = {

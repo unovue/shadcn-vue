@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyLarge.vue",
-      "content": "<template>\n  <div class=\"text-lg font-semibold\">\n    Are you absolutely sure?\n  </div>\n</template>\n",
+      "content": "<template>\r\n  <div class=\"text-lg font-semibold\">\r\n    Are you absolutely sure?\r\n  </div>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

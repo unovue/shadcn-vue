@@ -1,7 +1,7 @@
 <script lang="ts">
-export const description = 'An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions.'
-export const iframeHeight = '938px'
-export const containerClass = 'w-full h-full'
+export const description = "An products dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. It displays a list of products in a table with actions."
+export const iframeHeight = "938px"
+export const containerClass = "w-full h-full"
 </script>
 
 <script setup lang="ts">
@@ -20,9 +20,9 @@ import {
   Settings,
   ShoppingCart,
   Users2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
-import { Badge } from '@/registry/default/ui/badge'
+import { Badge } from "@/registry/default/ui/badge"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -30,12 +30,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/default/ui/breadcrumb'
-import { Button } from '@/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/default/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/default/ui/dropdown-menu'
-import { Input } from '@/registry/default/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/registry/default/ui/sheet'
+} from "@/registry/default/ui/breadcrumb"
+import { Button } from "@/registry/default/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/default/ui/card"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/registry/default/ui/dropdown-menu"
+import { Input } from "@/registry/default/ui/input"
+import { Sheet, SheetContent, SheetTrigger } from "@/registry/default/ui/sheet"
 import {
   Table,
   TableBody,
@@ -43,19 +43,19 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/registry/default/ui/table'
+} from "@/registry/default/ui/table"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/registry/default/ui/tabs'
+} from "@/registry/default/ui/tabs"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/registry/default/ui/tooltip'
+} from "@/registry/default/ui/tooltip"
 </script>
 
 <template>

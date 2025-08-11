@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { DrawerCloseProps } from 'vaul-vue'
-import { DrawerClose } from 'vaul-vue'
+import type { DrawerCloseProps } from "vaul-vue"
+import { DrawerClose } from "vaul-vue"
 
 const props = defineProps<DrawerCloseProps>()
 </script>

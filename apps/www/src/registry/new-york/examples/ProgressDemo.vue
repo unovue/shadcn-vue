@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
-import { Progress } from '@/registry/new-york/ui/progress'
+import { ref, watchEffect } from "vue"
+import { Progress } from "@/registry/new-york/ui/progress"
 
 const progress = ref(13)
 

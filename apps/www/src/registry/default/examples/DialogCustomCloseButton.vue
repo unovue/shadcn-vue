@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Copy } from 'lucide-vue-next'
-import { Button } from '@/registry/default/ui/button'
+import { Copy } from "lucide-vue-next"
+import { Button } from "@/registry/default/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -10,9 +10,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/default/ui/dialog'
-import { Input } from '@/registry/default/ui/input'
-import { Label } from '@/registry/default/ui/label'
+} from "@/registry/default/ui/dialog"
+import { Input } from "@/registry/default/ui/input"
+import { Label } from "@/registry/default/ui/label"
 </script>
 
 <template>

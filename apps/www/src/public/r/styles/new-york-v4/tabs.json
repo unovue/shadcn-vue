@@ -8,32 +8,32 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/tabs/index.ts",
+      "content": "export { default as Tabs } from \"./Tabs.vue\"\r\nexport { default as TabsContent } from \"./TabsContent.vue\"\r\nexport { default as TabsList } from \"./TabsList.vue\"\r\nexport { default as TabsTrigger } from \"./TabsTrigger.vue\"\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/tabs/Tabs.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { TabsRootEmits, TabsRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TabsRoot, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TabsRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<TabsRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <TabsRoot\n    data-slot=\"tabs\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex flex-col gap-2', props.class)\"\n  >\n    <slot />\n  </TabsRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { TabsRootEmits, TabsRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { TabsRoot, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<TabsRootProps & { class?: HTMLAttributes[\"class\"] }>()\r\nconst emits = defineEmits<TabsRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <TabsRoot\r\n    data-slot=\"tabs\"\r\n    v-bind=\"forwarded\"\r\n    :class=\"cn('flex flex-col gap-2', props.class)\"\r\n  >\r\n    <slot />\r\n  </TabsRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/tabs/TabsContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TabsContent, type TabsContentProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TabsContentProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <TabsContent\n    data-slot=\"tabs-content\"\n    :class=\"cn('flex-1 outline-none', props.class)\"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </TabsContent>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { TabsContentProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { TabsContent } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<TabsContentProps & { class?: HTMLAttributes[\"class\"] }>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <TabsContent\r\n    data-slot=\"tabs-content\"\r\n    :class=\"cn('flex-1 outline-none', props.class)\"\r\n    v-bind=\"delegatedProps\"\r\n  >\r\n    <slot />\r\n  </TabsContent>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/tabs/TabsList.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TabsList, type TabsListProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TabsListProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <TabsList\n    data-slot=\"tabs-list\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      'bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]',\n      props.class,\n    )\"\n  >\n    <slot />\n  </TabsList>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { TabsListProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { TabsList } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<TabsListProps & { class?: HTMLAttributes[\"class\"] }>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <TabsList\r\n    data-slot=\"tabs-list\"\r\n    v-bind=\"delegatedProps\"\r\n    :class=\"cn(\r\n      'bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]',\r\n      props.class,\r\n    )\"\r\n  >\r\n    <slot />\r\n  </TabsList>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/tabs/TabsTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TabsTrigger, type TabsTriggerProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TabsTriggerProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TabsTrigger\n    data-slot=\"tabs-trigger\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn(\n      `data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,\n      props.class,\n    )\"\n  >\n    <slot />\n  </TabsTrigger>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/tabs/index.ts",
-      "content": "export { default as Tabs } from './Tabs.vue'\nexport { default as TabsContent } from './TabsContent.vue'\nexport { default as TabsList } from './TabsList.vue'\nexport { default as TabsTrigger } from './TabsTrigger.vue'\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { TabsTriggerProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { TabsTrigger, useForwardProps } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<TabsTriggerProps & { class?: HTMLAttributes[\"class\"] }>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwardedProps = useForwardProps(delegatedProps)\r\n</script>\r\n\r\n<template>\r\n  <TabsTrigger\r\n    data-slot=\"tabs-trigger\"\r\n    v-bind=\"forwardedProps\"\r\n    :class=\"cn(\r\n      `data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,\r\n      props.class,\r\n    )\"\r\n  >\r\n    <slot />\r\n  </TabsTrigger>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/registry/new-york-v4/lib/utils'
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Input } from '@/registry/new-york-v4/ui/input'
-import { Label } from '@/registry/new-york-v4/ui/label'
+import type { HTMLAttributes } from "vue"
+import { cn } from "@/registry/new-york-v4/lib/utils"
+import { Button } from "@/registry/new-york-v4/ui/button"
+import { Input } from "@/registry/new-york-v4/ui/input"
+import { Label } from "@/registry/new-york-v4/ui/label"
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 </script>
 

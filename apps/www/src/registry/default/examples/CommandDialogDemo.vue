@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useMagicKeys } from '@vueuse/core'
+import { useMagicKeys } from "@vueuse/core"
 
-import { ref, watch } from 'vue'
+import { ref, watch } from "vue"
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,14 +10,14 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/registry/default/ui/command'
+} from "@/registry/default/ui/command"
 
 const open = ref(false)
 
 const { Meta_J, Ctrl_J } = useMagicKeys({
   passive: false,
   onEventFired(e) {
-    if (e.key === 'j' && (e.metaKey || e.ctrlKey))
+    if (e.key === "j" && (e.metaKey || e.ctrlKey))
       e.preventDefault()
   },
 })

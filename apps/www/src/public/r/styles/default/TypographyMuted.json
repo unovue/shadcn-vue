@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyMuted.vue",
-      "content": "<template>\n  <p class=\"text-sm text-muted-foreground\">\n    Enter your email address.\n  </p>\n</template>\n",
+      "content": "<template>\r\n  <p class=\"text-sm text-muted-foreground\">\r\n    Enter your email address.\r\n  </p>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

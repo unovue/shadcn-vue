@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ChevronsUpDown, Plus } from 'lucide-vue-next'
+import type { Component } from "vue"
 
-import { type Component, ref } from 'vue'
+import { ChevronsUpDown, Plus } from "lucide-vue-next"
+import { ref } from "vue"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,14 +11,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from "@/registry/new-york-v4/ui/dropdown-menu"
 
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 const props = defineProps<{
   teams: {

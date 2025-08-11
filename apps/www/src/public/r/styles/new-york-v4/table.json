@@ -8,68 +8,68 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/table/index.ts",
+      "content": "export { default as Table } from \"./Table.vue\"\r\nexport { default as TableBody } from \"./TableBody.vue\"\r\nexport { default as TableCaption } from \"./TableCaption.vue\"\r\nexport { default as TableCell } from \"./TableCell.vue\"\r\nexport { default as TableEmpty } from \"./TableEmpty.vue\"\r\nexport { default as TableFooter } from \"./TableFooter.vue\"\r\nexport { default as TableHead } from \"./TableHead.vue\"\r\nexport { default as TableHeader } from \"./TableHeader.vue\"\r\nexport { default as TableRow } from \"./TableRow.vue\"\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/table/Table.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div data-slot=\"table-container\" class=\"relative w-full overflow-auto\">\n    <table data-slot=\"table\" :class=\"cn('w-full caption-bottom text-sm', props.class)\">\n      <slot />\n    </table>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <div data-slot=\"table-container\" class=\"relative w-full overflow-auto\">\r\n    <table data-slot=\"table\" :class=\"cn('w-full caption-bottom text-sm', props.class)\">\r\n      <slot />\r\n    </table>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableBody.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tbody\n    data-slot=\"table-body\"\n    :class=\"cn('[&_tr:last-child]:border-0', props.class)\"\n  >\n    <slot />\n  </tbody>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <tbody\r\n    data-slot=\"table-body\"\r\n    :class=\"cn('[&_tr:last-child]:border-0', props.class)\"\r\n  >\r\n    <slot />\r\n  </tbody>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableCaption.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <caption\n    data-slot=\"table-caption\"\n    :class=\"cn('text-muted-foreground mt-4 text-sm', props.class)\"\n  >\n    <slot />\n  </caption>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <caption\r\n    data-slot=\"table-caption\"\r\n    :class=\"cn('text-muted-foreground mt-4 text-sm', props.class)\"\r\n  >\r\n    <slot />\r\n  </caption>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableCell.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <td\n    data-slot=\"table-cell\"\n    :class=\"\n      cn(\n        'p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </td>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <td\r\n    data-slot=\"table-cell\"\r\n    :class=\"\r\n      cn(\r\n        'p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',\r\n        props.class,\r\n      )\r\n    \"\r\n  >\r\n    <slot />\r\n  </td>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableEmpty.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport TableCell from './TableCell.vue'\nimport TableRow from './TableRow.vue'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  colspan?: number\n}>(), {\n  colspan: 1,\n})\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <TableRow>\n    <TableCell\n      :class=\"\n        cn(\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\n          props.class,\n        )\n      \"\n      v-bind=\"delegatedProps\"\n    >\n      <div class=\"flex items-center justify-center py-10\">\n        <slot />\n      </div>\n    </TableCell>\n  </TableRow>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport TableCell from \"./TableCell.vue\"\r\nimport TableRow from \"./TableRow.vue\"\r\n\r\nconst props = withDefaults(defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n  colspan?: number\r\n}>(), {\r\n  colspan: 1,\r\n})\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n</script>\r\n\r\n<template>\r\n  <TableRow>\r\n    <TableCell\r\n      :class=\"\r\n        cn(\r\n          'p-4 whitespace-nowrap align-middle text-sm text-foreground',\r\n          props.class,\r\n        )\r\n      \"\r\n      v-bind=\"delegatedProps\"\r\n    >\r\n      <div class=\"flex items-center justify-center py-10\">\r\n        <slot />\r\n      </div>\r\n    </TableCell>\r\n  </TableRow>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tfoot\n    data-slot=\"table-footer\"\n    :class=\"cn('bg-muted/50 border-t font-medium [&>tr]:last:border-b-0', props.class)\"\n  >\n    <slot />\n  </tfoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <tfoot\r\n    data-slot=\"table-footer\"\r\n    :class=\"cn('bg-muted/50 border-t font-medium [&>tr]:last:border-b-0', props.class)\"\r\n  >\r\n    <slot />\r\n  </tfoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableHead.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <th\n    data-slot=\"table-head\"\n    :class=\"cn('text-muted-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', props.class)\"\n  >\n    <slot />\n  </th>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <th\r\n    data-slot=\"table-head\"\r\n    :class=\"cn('text-muted-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', props.class)\"\r\n  >\r\n    <slot />\r\n  </th>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <thead\n    data-slot=\"table-header\"\n    :class=\"cn('[&_tr]:border-b', props.class)\"\n  >\n    <slot />\n  </thead>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <thead\r\n    data-slot=\"table-header\"\r\n    :class=\"cn('[&_tr]:border-b', props.class)\"\r\n  >\r\n    <slot />\r\n  </thead>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/TableRow.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <tr\n    data-slot=\"table-row\"\n    :class=\"cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors', props.class)\"\n  >\n    <slot />\n  </tr>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/table/index.ts",
-      "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\nexport { default as TableFooter } from './TableFooter.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableRow } from './TableRow.vue'\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <tr\r\n    data-slot=\"table-row\"\r\n    :class=\"cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors', props.class)\"\r\n  >\r\n    <slot />\r\n  </tr>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/table/utils.ts",
-      "content": "import type { Updater } from '@tanstack/vue-table'\nimport type { Ref } from 'vue'\n\nexport function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {\n  ref.value\n    = typeof updaterOrValue === 'function'\n      ? updaterOrValue(ref.value)\n      : updaterOrValue\n}\n",
+      "content": "import type { Updater } from \"@tanstack/vue-table\"\r\n\r\nimport type { Ref } from \"vue\"\r\nimport { isFunction } from \"@tanstack/vue-table\"\r\n\r\nexport function valueUpdater<T>(updaterOrValue: Updater<T>, ref: Ref<T>) {\r\n  ref.value = isFunction(updaterOrValue)\r\n    ? updaterOrValue(ref.value)\r\n    : updaterOrValue\r\n}\r\n",
       "type": "registry:ui",
       "target": ""
     }

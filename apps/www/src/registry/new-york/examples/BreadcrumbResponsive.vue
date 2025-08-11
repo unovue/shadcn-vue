@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useMediaQuery } from '@vueuse/core'
-import { computed, ref } from 'vue'
+import { useMediaQuery } from "@vueuse/core"
+import { computed, ref } from "vue"
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -9,8 +9,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york/ui/breadcrumb'
-import { Button } from '@/registry/new-york/ui/button'
+} from "@/registry/new-york/ui/breadcrumb"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Drawer,
   DrawerClose,
@@ -20,22 +20,22 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/registry/new-york/ui/drawer'
+} from "@/registry/new-york/ui/drawer"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
+} from "@/registry/new-york/ui/dropdown-menu"
 
-const isDesktop = useMediaQuery('(min-width: 768px)')
+const isDesktop = useMediaQuery("(min-width: 768px)")
 const isOpen = ref(false)
 const items = ref([
-  { href: '#', label: 'Home' },
-  { href: '#', label: 'Documentation' },
-  { href: '#', label: 'Building Your Application' },
-  { href: '#', label: 'Data Fetching' },
-  { label: 'Caching and Revalidating' },
+  { href: "#", label: "Home" },
+  { href: "#", label: "Documentation" },
+  { href: "#", label: "Building Your Application" },
+  { href: "#", label: "Data Fetching" },
+  { label: "Caching and Revalidating" },
 ])
 
 const itemsToDisplay = 3

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
-import { Button } from '@/registry/new-york/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/new-york/ui/dropdown-menu'
+import { MoreHorizontal } from "lucide-vue-next"
+import { Button } from "@/registry/new-york/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/registry/new-york/ui/dropdown-menu"
 
 defineProps<{
   payment: {
@@ -10,7 +10,7 @@ defineProps<{
 }>()
 
 defineEmits<{
-  (e: 'expand'): void
+  (e: "expand"): void
 }>()
 
 function copy(id: string) {

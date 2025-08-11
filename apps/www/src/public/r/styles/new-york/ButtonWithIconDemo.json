@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ButtonWithIconDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { MailOpen } from 'lucide-vue-next'\nimport { Button } from '@/registry/new-york/ui/button'\n</script>\n\n<template>\n  <Button>\n    <MailOpen class=\"w-4 h-4 mr-2\" /> Login with Email\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { MailOpen } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\n</script>\r\n\r\n<template>\r\n  <Button>\r\n    <MailOpen class=\"w-4 h-4 mr-2\" /> Login with Email\r\n  </Button>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

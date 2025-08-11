@@ -191,6 +191,24 @@ declare module '@nuxt/schema' {
   </TabMarkdown>
 </TabsMarkdown>
 
+### Add a Nuxt Plugin for providing ssrWidth
+
+Some components require a ssrWidth to be set through VueUse to avoid Hydration errors on mobile.
+
+Add the following plugin to your Nuxt application:<br>
+For Nuxt v4: `app/plugins/ssr-width.ts`<br>
+For Nuxt v3: `plugins/ssr-width.ts`
+
+Read more about [`useSSRWidth`](https://vueuse.org/core/useSSRWidth/)
+
+```ts
+import { provideSSRWidth } from '@vueuse/core'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  provideSSRWidth(1024, nuxtApp.vueApp)
+})
+```
+
 ### Configure `nuxt.config.ts`
 
 ```ts
@@ -207,7 +225,7 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
-  }
+  },
 })
 ```
 

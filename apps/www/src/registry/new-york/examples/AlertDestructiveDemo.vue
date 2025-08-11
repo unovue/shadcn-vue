@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { AlertCircle } from 'lucide-vue-next'
-import { Alert, AlertDescription, AlertTitle } from '@/registry/new-york/ui/alert'
+import { AlertCircle } from "lucide-vue-next"
+import { Alert, AlertDescription, AlertTitle } from "@/registry/new-york/ui/alert"
 </script>
 
 <template>

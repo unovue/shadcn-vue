@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Label } from '@/registry/default/ui/label'
+import { Label } from "@/registry/default/ui/label"
 import {
   NumberField,
   NumberFieldContent,
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@/registry/default/ui/number-field'
+} from "@/registry/default/ui/number-field"
 </script>
 
 <template>

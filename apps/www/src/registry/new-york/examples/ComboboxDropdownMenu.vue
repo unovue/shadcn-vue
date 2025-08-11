@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
-import { ref } from 'vue'
+import { MoreHorizontal } from "lucide-vue-next"
+import { ref } from "vue"
 
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -10,7 +10,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/registry/new-york/ui/command'
+} from "@/registry/new-york/ui/command"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,19 +23,19 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
+} from "@/registry/new-york/ui/dropdown-menu"
 
 const labels = [
-  'feature',
-  'bug',
-  'enhancement',
-  'documentation',
-  'design',
-  'question',
-  'maintenance',
+  "feature",
+  "bug",
+  "enhancement",
+  "documentation",
+  "design",
+  "question",
+  "maintenance",
 ]
 
-const labelRef = ref('feature')
+const labelRef = ref("feature")
 const open = ref(false)
 </script>
 

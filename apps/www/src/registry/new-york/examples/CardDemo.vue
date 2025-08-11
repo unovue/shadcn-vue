@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Bell, Check } from 'lucide-vue-next'
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york/ui/button'
+import { Bell, Check } from "lucide-vue-next"
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Card,
   CardContent,
@@ -9,21 +9,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york/ui/card'
-import { Switch } from '@/registry/new-york/ui/switch'
+} from "@/registry/new-york/ui/card"
+import { Switch } from "@/registry/new-york/ui/switch"
 
 const notifications = [
   {
-    title: 'Your call has been confirmed.',
-    description: '1 hour ago',
+    title: "Your call has been confirmed.",
+    description: "1 hour ago",
   },
   {
-    title: 'You have a new message!',
-    description: '1 hour ago',
+    title: "You have a new message!",
+    description: "1 hour ago",
   },
   {
-    title: 'Your subscription is expiring soon!',
-    description: '2 hours ago',
+    title: "Your subscription is expiring soon!",
+    description: "2 hours ago",
   },
 ]
 </script>

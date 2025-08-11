@@ -1,9 +1,9 @@
 <script lang="ts">
-export const description = 'A simple login form.'
+export const description = "A simple login form."
 </script>
 
 <script setup lang="ts">
-import LoginForm from '@/registry/new-york-v4/blocks/Login01/components/LoginForm.vue'
+import LoginForm from "@/registry/new-york-v4/blocks/Login01/components/LoginForm.vue"
 </script>
 
 <template>

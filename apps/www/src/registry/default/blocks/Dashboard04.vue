@@ -1,18 +1,18 @@
 <script lang="ts">
-export const description = 'A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings.'
-export const iframeHeight = '780px'
-export const containerClass = 'w-full h-full'
+export const description = "A settings page. The settings page has a sidebar navigation and a main content area. The main content area has a form to update the store name and a form to update the plugins directory. The sidebar navigation has links to general, security, integrations, support, organizations, and advanced settings."
+export const iframeHeight = "780px"
+export const containerClass = "w-full h-full"
 </script>
 
 <script setup lang="ts">
-import { CircleUser, Menu, Package2, Search } from 'lucide-vue-next'
+import { CircleUser, Menu, Package2, Search } from "lucide-vue-next"
 
-import { Button } from '@/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/default/ui/card'
-import { Checkbox } from '@/registry/default/ui/checkbox'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/default/ui/dropdown-menu'
-import { Input } from '@/registry/default/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/registry/default/ui/sheet'
+import { Button } from "@/registry/default/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/default/ui/card"
+import { Checkbox } from "@/registry/default/ui/checkbox"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/registry/default/ui/dropdown-menu"
+import { Input } from "@/registry/default/ui/input"
+import { Sheet, SheetContent, SheetTrigger } from "@/registry/default/ui/sheet"
 </script>
 
 <template>

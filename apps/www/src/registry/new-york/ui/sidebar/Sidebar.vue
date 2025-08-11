@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { SidebarProps } from '.'
-import { cn } from '@/lib/utils'
-import { Sheet, SheetContent } from '@/registry/new-york/ui/sheet'
-import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
+import type { SidebarProps } from "."
+import { cn } from "@/lib/utils"
+import { Sheet, SheetContent } from "@/registry/new-york/ui/sheet"
+import { SIDEBAR_WIDTH_MOBILE, useSidebar } from "./utils"
 
 defineOptions({
   inheritAttrs: false,
 })
 
 const props = withDefaults(defineProps<SidebarProps>(), {
-  side: 'left',
-  variant: 'sidebar',
-  collapsible: 'offcanvas',
+  side: "left",
+  variant: "sidebar",
+  collapsible: "offcanvas",
 })
 
 const { isMobile, state, openMobile, setOpenMobile } = useSidebar()

@@ -2,38 +2,38 @@
   "name": "pin-input",
   "type": "registry:ui",
   "dependencies": [
-    "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/pin-input/index.ts",
+      "content": "export { default as PinInput } from \"./PinInput.vue\"\r\nexport { default as PinInputGroup } from \"./PinInputGroup.vue\"\r\nexport { default as PinInputSeparator } from \"./PinInputSeparator.vue\"\r\nexport { default as PinInputSlot } from \"./PinInputSlot.vue\"\r\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/pin-input/PinInput.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PinInputRoot, type PinInputRootEmits, type PinInputRootProps, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = withDefaults(defineProps<PinInputRootProps & { class?: HTMLAttributes['class'] }>(), {\n  modelValue: () => [],\n})\nconst emits = defineEmits<PinInputRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PinInputRoot v-bind=\"forwarded\" :class=\"cn('flex gap-2 items-center', props.class)\">\n    <slot />\n  </PinInputRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { PinInputRootEmits, PinInputRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { PinInputRoot, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = withDefaults(defineProps<PinInputRootProps & { class?: HTMLAttributes[\"class\"] }>(), {\r\n  modelValue: () => [],\r\n})\r\nconst emits = defineEmits<PinInputRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <PinInputRoot v-bind=\"forwarded\" :class=\"cn('flex gap-2 items-center', props.class)\">\r\n    <slot />\r\n  </PinInputRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/pin-input/PinInputGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <Primitive v-bind=\"forwardedProps\" :class=\"cn('flex items-center', props.class)\">\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { PrimitiveProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { Primitive, useForwardProps } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<PrimitiveProps & { class?: HTMLAttributes[\"class\"] }>()\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\nconst forwardedProps = useForwardProps(delegatedProps)\r\n</script>\r\n\r\n<template>\r\n  <Primitive v-bind=\"forwardedProps\" :class=\"cn('flex items-center', props.class)\">\r\n    <slot />\r\n  </Primitive>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/pin-input/PinInputSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Minus } from 'lucide-vue-next'\nimport { Primitive, type PrimitiveProps, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<PrimitiveProps>()\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive v-bind=\"forwardedProps\">\n    <slot>\n      <Minus class=\"w-2\" />\n    </slot>\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { PrimitiveProps } from \"reka-ui\"\r\nimport { Minus } from \"lucide-vue-next\"\nimport { Primitive, useForwardProps } from \"reka-ui\"\r\n\r\nconst props = defineProps<PrimitiveProps>()\r\nconst forwardedProps = useForwardProps(props)\r\n</script>\r\n\r\n<template>\r\n  <Primitive v-bind=\"forwardedProps\">\r\n    <slot>\r\n      <Minus class=\"w-2\" />\r\n    </slot>\r\n  </Primitive>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/pin-input/PinInputSlot.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { PinInputInput, type PinInputInputProps, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PinInputInput v-bind=\"forwardedProps\" :class=\"cn('relative text-center focus:outline-none focus:ring-2 focus:ring-ring focus:relative focus:z-10 flex h-9 w-9 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', props.class)\" />\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/pin-input/index.ts",
-      "content": "export { default as PinInput } from './PinInput.vue'\nexport { default as PinInputGroup } from './PinInputGroup.vue'\nexport { default as PinInputSeparator } from './PinInputSeparator.vue'\nexport { default as PinInputSlot } from './PinInputSlot.vue'\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { PinInputInputProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { PinInputInput, useForwardProps } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes[\"class\"] }>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwardedProps = useForwardProps(delegatedProps)\r\n</script>\r\n\r\n<template>\r\n  <PinInputInput v-bind=\"forwardedProps\" :class=\"cn('relative text-center focus:outline-none focus:ring-2 focus:ring-ring focus:relative focus:z-10 flex h-9 w-9 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', props.class)\" />\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

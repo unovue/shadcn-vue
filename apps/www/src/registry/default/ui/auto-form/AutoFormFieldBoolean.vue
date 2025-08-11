@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { FieldProps } from './interface'
-import { computed } from 'vue'
-import { Checkbox } from '@/registry/default/ui/checkbox'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/registry/default/ui/form'
-import { Switch } from '@/registry/default/ui/switch'
-import AutoFormLabel from './AutoFormLabel.vue'
-import { beautifyObjectName, maybeBooleanishToBoolean } from './utils'
+import type { FieldProps } from "./interface"
+import { computed } from "vue"
+import { Checkbox } from "@/registry/default/ui/checkbox"
+import { FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/registry/default/ui/form"
+import { Switch } from "@/registry/default/ui/switch"
+import AutoFormLabel from "./AutoFormLabel.vue"
+import { beautifyObjectName, maybeBooleanishToBoolean } from "./utils"
 
 const props = defineProps<FieldProps>()
 
-const booleanComponent = computed(() => props.config?.component === 'switch' ? Switch : Checkbox)
+const booleanComponent = computed(() => props.config?.component === "switch" ? Switch : Checkbox)
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <script setup lang="ts" generic="T extends ZodRawShape">
-import type { ZodAny, ZodObject, ZodRawShape } from 'zod'
-import type { Config, ConfigItem, Shape } from './interface'
-import { FieldContextKey, useField } from 'vee-validate'
-import { computed, provide } from 'vue'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/registry/new-york/ui/accordion'
-import { FormItem } from '@/registry/new-york/ui/form'
-import AutoFormField from './AutoFormField.vue'
-import AutoFormLabel from './AutoFormLabel.vue'
-import { beautifyObjectName, getBaseSchema, getBaseType, getDefaultValueInZodStack } from './utils'
+import type { ZodAny, ZodObject, ZodRawShape } from "zod"
+import type { Config, ConfigItem, Shape } from "./interface"
+import { FieldContextKey, useField } from "vee-validate"
+import { computed, provide } from "vue"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/registry/new-york/ui/accordion"
+import { FormItem } from "@/registry/new-york/ui/form"
+import AutoFormField from "./AutoFormField.vue"
+import AutoFormLabel from "./AutoFormLabel.vue"
+import { beautifyObjectName, getBaseSchema, getBaseType, getDefaultValueInZodStack } from "./utils"
 
 const props = defineProps<{
   fieldName: string
@@ -29,15 +29,15 @@ const shapes = computed(() => {
   Object.keys(shape).forEach((name) => {
     const item = shape[name] as ZodAny
     const baseItem = getBaseSchema(item) as ZodAny
-    let options = (baseItem && 'values' in baseItem._def) ? baseItem._def.values as string[] : undefined
-    if (!Array.isArray(options) && typeof options === 'object')
+    let options = (baseItem && "values" in baseItem._def) ? baseItem._def.values as string[] : undefined
+    if (!Array.isArray(options) && typeof options === "object")
       options = Object.values(options)
 
     val[name as keyof T] = {
       type: getBaseType(item),
       default: getDefaultValueInZodStack(item),
       options,
-      required: !['ZodOptional', 'ZodNullable'].includes(item._def.typeName),
+      required: !["ZodOptional", "ZodNullable"].includes(item._def.typeName),
       schema: item,
     }
   })

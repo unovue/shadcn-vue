@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
-import { toTypedSchema } from '@vee-validate/zod'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { toDate } from 'reka-ui/date'
-import { useForm } from 'vee-validate'
-import { computed, h, ref } from 'vue'
-import { z } from 'zod'
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/default/ui/button'
-import { Calendar } from '@/registry/default/ui/calendar'
+import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today } from "@internationalized/date"
+import { toTypedSchema } from "@vee-validate/zod"
+import { Calendar as CalendarIcon } from "lucide-vue-next"
+import { toDate } from "reka-ui/date"
+import { useForm } from "vee-validate"
+import { computed, h, ref } from "vue"
+import { z } from "zod"
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/default/ui/button"
+import { Calendar } from "@/registry/default/ui/calendar"
 import {
   FormControl,
   FormDescription,
@@ -16,18 +16,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/default/ui/form'
-import { Popover, PopoverContent, PopoverTrigger } from '@/registry/default/ui/popover'
-import { toast } from '@/registry/default/ui/toast'
+} from "@/registry/default/ui/form"
+import { Popover, PopoverContent, PopoverTrigger } from "@/registry/default/ui/popover"
+import { toast } from "@/registry/default/ui/toast"
 
-const df = new DateFormatter('en-US', {
-  dateStyle: 'long',
+const df = new DateFormatter("en-US", {
+  dateStyle: "long",
 })
 
 const formSchema = toTypedSchema(z.object({
   dob: z
     .string()
-    .refine(v => v, { message: 'A date of birth is required.' }),
+    .refine(v => v, { message: "A date of birth is required." }),
 }))
 
 const placeholder = ref()
@@ -43,8 +43,8 @@ const value = computed({
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

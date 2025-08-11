@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 import {
   PinInput,
   PinInputGroup,
   PinInputSlot,
-} from '@/registry/new-york/ui/pin-input'
+} from "@/registry/new-york/ui/pin-input"
 
-const value = ref<string[]>(['1', '2', '3'])
-const handleComplete = (e: string[]) => alert(e.join(''))
+const value = ref<string[]>(["1", "2", "3"])
+const handleComplete = (e: string[]) => alert(e.join(""))
 </script>
 
 <template>
