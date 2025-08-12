@@ -382,6 +382,133 @@
     ]
   },
   {
+    "name": "chart",
+    "type": "registry:ui",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts"
+    ],
+    "registryDependencies": [
+      "button",
+      "card"
+    ],
+    "files": [
+      {
+        "path": "ui/chart/ChartCrosshair.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartLegend.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartSingleTooltip.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/ChartTooltip.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart/interface.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "chart-area",
+    "type": "registry:ui",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core",
+      "reka-ui"
+    ],
+    "registryDependencies": [
+      "chart"
+    ],
+    "files": [
+      {
+        "path": "ui/chart-area/AreaChart.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart-area/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "chart-bar",
+    "type": "registry:ui",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart"
+    ],
+    "files": [
+      {
+        "path": "ui/chart-bar/BarChart.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart-bar/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "chart-donut",
+    "type": "registry:ui",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart"
+    ],
+    "files": [
+      {
+        "path": "ui/chart-donut/DonutChart.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart-donut/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "chart-line",
+    "type": "registry:ui",
+    "dependencies": [
+      "@unovis/vue",
+      "@unovis/ts",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "chart"
+    ],
+    "files": [
+      {
+        "path": "ui/chart-line/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/chart-line/LineChart.vue",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "checkbox",
     "type": "registry:ui",
     "dependencies": [

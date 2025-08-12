@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/combobox/Combobox.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { ComboboxRootEmits, ComboboxRootProps } from \"reka-ui\"\nimport { ComboboxRoot, useForwardPropsEmits } from \"reka-ui\"\r\n\r\nconst props = defineProps<ComboboxRootProps>()\r\nconst emits = defineEmits<ComboboxRootEmits>()\r\n\r\nconst forwarded = useForwardPropsEmits(props, emits)\r\n</script>\r\n\r\n<template>\r\n  <ComboboxRoot v-bind=\"forwarded\">\r\n    <slot />\r\n  </ComboboxRoot>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { ComboboxRootEmits, ComboboxRootProps } from \"reka-ui\"\r\nimport { ComboboxRoot, useForwardPropsEmits } from \"reka-ui\"\r\n\r\nconst props = defineProps<ComboboxRootProps>()\r\nconst emits = defineEmits<ComboboxRootEmits>()\r\n\r\nconst forwarded = useForwardPropsEmits(props, emits)\r\n</script>\r\n\r\n<template>\r\n  <ComboboxRoot v-bind=\"forwarded\">\r\n    <slot />\r\n  </ComboboxRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
@@ -33,7 +33,7 @@
     },
     {
       "path": "ui/combobox/ComboboxInput.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { ComboboxInputEmits, ComboboxInputProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { ComboboxInput, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<ComboboxInputProps & {\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n\r\nconst emits = defineEmits<ComboboxInputEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <ComboboxInput\r\n    v-bind=\"forwarded\"\r\n    :class=\"cn('flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50', props.class)\"\r\n  >\r\n    <slot />\r\n  </ComboboxInput>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { ComboboxInputEmits, ComboboxInputProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { ComboboxInput, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<ComboboxInputProps & {\r\n  class?: HTMLAttributes[\"class\"]\r\n}>()\r\n\r\nconst emits = defineEmits<ComboboxInputEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <ComboboxInput\r\n    v-bind=\"forwarded\"\r\n    :class=\"cn('flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50', props.class)\"\r\n  >\r\n    <slot />\r\n  </ComboboxInput>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
