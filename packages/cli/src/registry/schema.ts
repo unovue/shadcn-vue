@@ -192,7 +192,7 @@ export const configSchema = rawConfigSchema.extend({
     components: z.string(),
     lib: z.string(),
     hooks: z.string().optional(),
-    composables: z.string(),
+    composables: z.string().optional(),
     ui: z.string(),
   }),
 })

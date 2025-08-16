@@ -51,7 +51,7 @@ export async function fetchRegistry(
           // Get headers from context for this URL.
           const headers = getRegistryHeadersFromContext(url)
 
-          const response = await ofetch(url, {
+          const response = await ofetch.raw(url, {
             agent,
             dispatcher: agent,
             parseResponse: JSON.parse,
@@ -66,7 +66,7 @@ export async function fetchRegistry(
             if (
               response.headers.get("content-type")?.includes("application/json")
             ) {
-              const json = await response.json()
+              const json = await response._data
               const parsed = z
                 .object({
                   // RFC 7807.
@@ -107,7 +107,7 @@ export async function fetchRegistry(
             )
           }
 
-          return response.json()
+          return response._data
         })()
 
         if (options.useCache) {
