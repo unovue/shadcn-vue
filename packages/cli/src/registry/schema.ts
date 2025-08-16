@@ -1,5 +1,4 @@
 import { z } from "zod"
-import { DEFAULT_TYPESCRIPT_CONFIG } from "@/src/utils/get-config"
 
 // Note: if you edit the schema here, you must also edit the schema in the
 // apps/www/public/schema/registry-item.json file.
@@ -163,7 +162,7 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     typescript: z.boolean().default(true),
-    tsConfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG).optional(),
+    tsConfigPath: z.string().default("./tsconfig.json").optional(),
     tailwind: z.object({
       config: z.string().optional(),
       css: z.string(),
