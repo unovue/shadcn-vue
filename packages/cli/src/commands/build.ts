@@ -3,7 +3,7 @@ import { Command } from 'commander'
 import path from 'pathe'
 import { z } from 'zod'
 import { preFlightBuild } from '@/src/preflights/preflight-build'
-import { registryItemSchema, registrySchema } from '@/src/registry'
+import { registryItemSchema, registrySchema } from '@/src/schema'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
@@ -88,6 +88,12 @@ export const build = new Command()
           JSON.stringify(result.data, null, 2),
         )
       }
+
+      // Copy registry.json to the output directory.
+      await fs.copyFile(
+        resolvePaths.registryFile,
+        path.resolve(resolvePaths.outputDir, 'registry.json'),
+      )
 
       buildSpinner.succeed('Building registry.')
     }

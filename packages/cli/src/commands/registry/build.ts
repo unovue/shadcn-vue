@@ -1,18 +1,18 @@
-import type { configSchema } from '@/src/utils/get-config'
-import type { ProjectInfo } from '@/src/utils/get-project-info'
-import fs from 'node:fs/promises'
-import { Command } from 'commander'
-import path from 'pathe'
-import { z } from 'zod'
-import { preFlightRegistryBuild } from '@/src/preflights/preflight-registry'
-import { registryItemSchema, registrySchema } from '@/src/registry'
-import { recursivelyResolveFileImports } from '@/src/registry/utils'
-import * as ERRORS from '@/src/utils/errors'
-import { getProjectInfo } from '@/src/utils/get-project-info'
-import { handleError } from '@/src/utils/handle-error'
-import { highlighter } from '@/src/utils/highlighter'
-import { logger } from '@/src/utils/logger'
-import { spinner } from '@/src/utils/spinner'
+import type { configSchema } from "@/src/schema"
+import type { ProjectInfo } from "@/src/utils/get-project-info"
+import fs from "node:fs/promises"
+import { Command } from "commander"
+import path from "pathe"
+import { z } from "zod"
+import { preFlightRegistryBuild } from "@/src/preflights/preflight-registry"
+import { recursivelyResolveFileImports } from "@/src/registry/utils"
+import { registryItemSchema, registrySchema } from "@/src/schema"
+import * as ERRORS from "@/src/utils/errors"
+import { getProjectInfo } from "@/src/utils/get-project-info"
+import { handleError } from "@/src/utils/handle-error"
+import { highlighter } from "@/src/utils/highlighter"
+import { logger } from "@/src/utils/logger"
+import { spinner } from "@/src/utils/spinner"
 
 export const buildOptionsSchema = z.object({
   cwd: z.string(),
@@ -22,20 +22,20 @@ export const buildOptionsSchema = z.object({
 })
 
 export const build = new Command()
-  .name('registry:build')
-  .description('builds the registry [EXPERIMENTAL]')
-  .argument('[registry]', 'path to registry.json file', './registry.json')
+  .name("registry:build")
+  .description("builds the registry [EXPERIMENTAL]")
+  .argument("[registry]", "path to registry.json file", "./registry.json")
   .option(
-    '-o, --output <path>',
-    'destination directory for json files',
-    './public/r',
+    "-o, --output <path>",
+    "destination directory for json files",
+    "./public/r",
   )
   .option(
-    '-c, --cwd <cwd>',
-    'the working directory. defaults to the current directory.',
+    "-c, --cwd <cwd>",
+    "the working directory. defaults to the current directory.",
     process.cwd(),
   )
-  .option('-v, --verbose', 'verbose output')
+  .option("-v, --verbose", "verbose output")
   .action(async (registry: string, opts) => {
     await buildRegistry({
       cwd: path.resolve(opts.cwd),
@@ -57,9 +57,9 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
     if (errors[ERRORS.MISSING_CONFIG] || !config || !projectInfo) {
       logger.error(
         `A ${highlighter.info(
-          'components.json',
+          "components.json",
         )} file is required to build the registry. Run ${highlighter.info(
-          'shadcn init',
+          "shadcn init",
         )} to create one.`,
       )
       logger.break()
@@ -76,7 +76,7 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
       process.exit(1)
     }
 
-    const content = await fs.readFile(resolvePaths.registryFile, 'utf-8')
+    const content = await fs.readFile(resolvePaths.registryFile, "utf-8")
     const result = registrySchema.safeParse(JSON.parse(content))
 
     if (!result.success) {
@@ -89,7 +89,7 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
       process.exit(1)
     }
 
-    const buildSpinner = spinner('Building registry...')
+    const buildSpinner = spinner("Building registry...")
 
     // Recursively resolve the registry items.
     const resolvedRegistry = await resolveRegistryItems(
@@ -123,7 +123,7 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
 
       // Add the schema to the registry item.
       registryItem.$schema
-        = 'https://ui.shadcn.com/schema/registry-item.json'
+        = "https://shadcn-vue.com/schema/registry-item.json"
 
       for (const file of registryItem.files) {
         const absPath = path.resolve(resolvePaths.cwd, file.path)
@@ -132,10 +132,10 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
           if (!stat.isFile()) {
             continue
           }
-          file.content = await fs.readFile(absPath, 'utf-8')
+          file.content = await fs.readFile(absPath, "utf-8")
         }
         catch (err) {
-          console.error('Error reading file in registry build:', absPath, err)
+          console.error("Error reading file in registry build:", absPath, err)
           continue
         }
       }
@@ -160,10 +160,10 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
     // Copy registry.json to the output directory.
     await fs.copyFile(
       resolvePaths.registryFile,
-      path.resolve(resolvePaths.outputDir, 'registry.json'),
+      path.resolve(resolvePaths.outputDir, "registry.json"),
     )
 
-    buildSpinner.succeed('Building registry.')
+    buildSpinner.succeed("Building registry.")
 
     if (options.verbose) {
       spinner(

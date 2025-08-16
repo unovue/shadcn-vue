@@ -1,80 +1,27 @@
+import type { z } from 'zod'
 import { loadConfig } from 'c12'
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { glob } from 'tinyglobby'
-import { z } from 'zod'
+import { BUILTIN_REGISTRIES } from '@/src/registry/constants'
+import {
+  configSchema,
+  rawConfigSchema,
+  workspaceConfigSchema,
+} from '@/src/schema'
 import { getProjectInfo } from '@/src/utils/get-project-info'
-import { logger } from '@/src/utils/logger'
 import { resolveImport } from '@/src/utils/resolve-import'
 import { highlighter } from './highlighter'
-
-/** @deprecated */
-export const TAILWIND_CSS_PATH = {
-  nuxt: 'assets/css/tailwind.css',
-  vite: 'src/assets/index.css',
-  laravel: 'resources/css/app.css',
-  astro: 'src/styles/globals.css',
-}
 
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
 export const DEFAULT_UTILS = '@/lib/utils'
-export const DEFAULT_TAILWIND_CSS = TAILWIND_CSS_PATH.nuxt // decide to go with Nuxt's as default
+export const DEFAULT_TAILWIND_CSS = 'assets/css/tailwind.css' // decide to go with Nuxt's as default
 export const DEFAULT_TAILWIND_CONFIG = 'tailwind.config.js'
 export const DEFAULT_TAILWIND_BASE_COLOR = 'slate'
 export const DEFAULT_TYPESCRIPT_CONFIG = './tsconfig.json'
 
-// zernonia: replaced this from `c12` because it cause error with `components` folder in Nuxt.
-// TODO: Figure out if we want to support all cosmiconfig formats.
-// A simple components.json file would be nice.
-// const explorer = cosmiconfig('components', {
-//   searchPlaces: ['components.json'],
-// })
-
-export const rawConfigSchema = z
-  .object({
-    $schema: z.string().optional(),
-    style: z.string(),
-    typescript: z.boolean().default(true),
-    tsConfigPath: z.string().default(DEFAULT_TYPESCRIPT_CONFIG).optional(),
-    tailwind: z.object({
-      config: z.string().optional(),
-      css: z.string(),
-      baseColor: z.string(),
-      cssVariables: z.boolean().default(true),
-      prefix: z.string().default('').optional(),
-    }),
-    aliases: z.object({
-      components: z.string(),
-      composables: z.string().optional(),
-      utils: z.string(),
-      ui: z.string().optional(),
-      lib: z.string().optional(),
-    }),
-    iconLibrary: z.string().optional(),
-  })
-  .strict()
-
-export type RawConfig = z.infer<typeof rawConfigSchema>
-
-export const configSchema = rawConfigSchema.extend({
-  resolvedPaths: z.object({
-    cwd: z.string(),
-    tailwindConfig: z.string(),
-    tailwindCss: z.string(),
-    utils: z.string(),
-    components: z.string(),
-    composables: z.string(),
-    lib: z.string(),
-    ui: z.string(),
-  }),
-})
-
 export type Config = z.infer<typeof configSchema>
-
-// TODO: type the key.
-// Okay for now since I don't want a breaking change.
-export const workspaceConfigSchema = z.record(configSchema)
 
 export async function getConfig(cwd: string) {
   const config = await getRawConfig(cwd)
@@ -91,25 +38,29 @@ export async function getConfig(cwd: string) {
   return await resolveConfigPaths(cwd, config)
 }
 
-export function getTSConfig(cwd: string, tsconfigName: 'tsconfig.json' | 'jsconfig.json') {
-  const parsedConfig = getTsconfig(path.resolve(cwd, 'package.json'), tsconfigName)
-  if (parsedConfig === null) {
-    throw new Error(
-      `Failed to find ${highlighter.info(tsconfigName)}`,
-    )
+export async function resolveConfigPaths(
+  cwd: string,
+  config: z.infer<typeof rawConfigSchema>,
+) {
+  // Merge built-in registries with user registries
+  config.registries = {
+    ...BUILTIN_REGISTRIES,
+    ...(config.registries || {}),
   }
 
-  return parsedConfig
-}
-
-export async function resolveConfigPaths(cwd: string, config: RawConfig) {
-  // Read tsconfig.json.
-  const tsconfigType = config.typescript ? 'tsconfig.json' : 'jsconfig.json'
   const tsConfigPath = path.resolve(
     cwd,
     config.tsConfigPath!,
   )
-  const tsConfig = getTSConfig(tsConfigPath, tsconfigType)
+
+  // Read tsconfig.json.
+  const tsConfig = await getTsconfig(tsConfigPath)
+
+  if (tsConfig === null) {
+    throw new Error(
+      `Failed to load ${config.typescript ? 'tsconfig' : 'jsconfig'}.json.`.trim(),
+    )
+  }
 
   return configSchema.parse({
     ...config,
@@ -136,19 +87,21 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
             (await resolveImport(config.aliases.utils, tsConfig)) ?? cwd,
             '..',
           ),
-      composables: config.aliases.composables
-        ? await resolveImport(config.aliases.composables, tsConfig)
+      hooks: config.aliases.hooks
+        ? await resolveImport(config.aliases.hooks, tsConfig)
         : path.resolve(
             (await resolveImport(config.aliases.components, tsConfig))
             ?? cwd,
             '..',
-            'composables',
+            'hooks',
           ),
     },
   })
 }
 
-export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
+export async function getRawConfig(
+  cwd: string,
+): Promise<z.infer<typeof rawConfigSchema> | null> {
   try {
     const configResult = await loadConfig({
       name: 'components',
@@ -160,11 +113,29 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
       return null
     }
 
-    return rawConfigSchema.parse(configResult.config)
+    const config = rawConfigSchema.parse(configResult.config)
+
+    // Check if user is trying to override built-in registries
+    if (config.registries) {
+      for (const registryName of Object.keys(config.registries)) {
+        if (registryName in BUILTIN_REGISTRIES) {
+          throw new Error(
+            `"${registryName}" is a built-in registry and cannot be overridden.`,
+          )
+        }
+      }
+    }
+
+    return config
   }
   catch (error) {
-    logger.error(`Unable to parse configuration found in ${cwd}/components.json. Please check that your project is using the correct $schema https://www.shadcn-vue.com/docs/components-json`)
-    throw error
+    const componentPath = `${cwd}/components.json`
+    if (error instanceof Error && error.message.includes('reserved registry')) {
+      throw error
+    }
+    throw new Error(
+      `Invalid configuration found in ${highlighter.info(componentPath)}.`,
+    )
   }
 }
 
@@ -183,7 +154,7 @@ export async function getWorkspaceConfig(config: Config) {
     const resolvedPath = config.resolvedPaths[key]
     const packageRoot = await findPackageRoot(
       config.resolvedPaths.cwd,
-      resolvedPath,
+      resolvedPath!,
     )
 
     if (!packageRoot) {
@@ -280,9 +251,14 @@ export function createConfig(partial?: DeepPartial<Config>): Config {
       baseColor: '',
       cssVariables: false,
     },
+    // rsc: false,
+    // tsx: true,
     aliases: {
       components: '',
       utils: '',
+    },
+    registries: {
+      ...BUILTIN_REGISTRIES,
     },
   }
 

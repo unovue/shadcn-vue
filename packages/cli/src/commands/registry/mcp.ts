@@ -1,24 +1,22 @@
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
-import { Command } from 'commander'
-import { server } from '@/src/mcp'
-import { handleError } from '@/src/utils/handle-error'
-import { logger } from '@/src/utils/logger'
+import { Command } from "commander"
+import { highlighter } from "@/src/utils/highlighter"
+import { logger } from "@/src/utils/logger"
 
 export const mcp = new Command()
-  .name('registry:mcp')
-  .description('starts the registry MCP server [EXPERIMENTAL]')
+  .name("registry:mcp")
+  .description("starts the registry MCP server [DEPRECATED]")
   .option(
-    '-c, --cwd <cwd>',
-    'the working directory. defaults to the current directory.',
+    "-c, --cwd <cwd>",
+    "the working directory. defaults to the current directory.",
     process.cwd(),
   )
   .action(async () => {
-    try {
-      const transport = new StdioServerTransport()
-      await server.connect(transport)
-    }
-    catch (error) {
-      logger.break()
-      handleError(error)
-    }
+    logger.warn(
+      `The ${highlighter.info(
+        "shadcn registry:mcp",
+      )} command is deprecated. Use the ${highlighter.info(
+        "shadcn mcp",
+      )} command instead.`,
+    )
+    logger.break()
   })

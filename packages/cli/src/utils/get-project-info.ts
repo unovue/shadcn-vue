@@ -1,25 +1,22 @@
+import type { rawConfigSchema } from '@/src/schema'
 import type { Framework } from '@/src/utils/frameworks'
-import type {
-  Config,
-  RawConfig,
-} from '@/src/utils/get-config'
+import type { Config } from '@/src/utils/get-config'
 import fs from 'fs-extra'
-import { parseTsconfig } from 'get-tsconfig'
+import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
 import { FRAMEWORKS } from '@/src/utils/frameworks'
-import {
-  getConfig,
-  getTSConfig,
-  resolveConfigPaths,
-} from '@/src/utils/get-config'
+import { getConfig, resolveConfigPaths } from '@/src/utils/get-config'
 import { getPackageInfo } from '@/src/utils/get-package-info'
 
 export type TailwindVersion = 'v3' | 'v4' | null
 
 export interface ProjectInfo {
   framework: Framework
+  // isSrcDir: boolean
+  // isRSC: boolean
+  // isTsx: boolean
   typescript: boolean
   tailwindConfigFile: string | null
   tailwindCssFile: string | null
@@ -45,6 +42,8 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   const [
     configFiles,
     typescript,
+    // isSrcDir,
+    // isTsx,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
@@ -56,6 +55,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
       deep: 3,
       ignore: PROJECT_SHARED_IGNORE,
     }),
+    // fs.pathExists(path.resolve(cwd, 'src')),
     isTypeScriptProject(cwd),
     getTailwindConfigFile(cwd),
     getTailwindCssFile(cwd),
@@ -64,8 +64,15 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     getPackageInfo(cwd, false),
   ])
 
+  // const isUsingAppDir = await fs.pathExists(
+  //   path.resolve(cwd, `app`),
+  // )
+
   const type: ProjectInfo = {
     framework: FRAMEWORKS.manual,
+    // isSrcDir,
+    // isRSC: false,
+    // isTsx,
     typescript,
     tailwindConfigFile,
     tailwindCssFile,
@@ -105,7 +112,7 @@ export async function getTailwindVersion(
   cwd: string,
 ): Promise<ProjectInfo['tailwindVersion']> {
   const [packageInfo, config] = await Promise.all([
-    getPackageInfo(cwd),
+    getPackageInfo(cwd, false),
     getConfig(cwd),
   ])
 
@@ -180,12 +187,16 @@ export async function getTailwindConfigFile(cwd: string) {
 
 export async function getTsConfigAliasPrefix(cwd: string) {
   const isTypescript = await isTypeScriptProject(cwd)
-  const tsconfigType = isTypescript ? 'tsconfig.json' : 'jsconfig.json'
+  const tsConfig = await getTsconfig(cwd, isTypescript ? 'tsconfig.json' : 'jsconfig.json')
 
-  const tsConfig = getTSConfig(cwd, tsconfigType)
-  const parsedTsConfig = parseTsconfig(tsConfig.path)
+  if (
+    tsConfig === null
+    || !Object.entries(tsConfig.config.compilerOptions?.paths ?? {}).length
+  ) {
+    return null
+  }
 
-  const aliasPaths = parsedTsConfig.compilerOptions?.paths ?? {}
+  const aliasPaths = tsConfig.config.compilerOptions?.paths ?? {}
 
   // This assume that the first alias is the prefix.
   for (const [alias, paths] of Object.entries(aliasPaths)) {
@@ -265,8 +276,10 @@ export async function getProjectConfig(
     return null
   }
 
-  const config: RawConfig = {
+  const config: z.infer<typeof rawConfigSchema> = {
     $schema: 'https://shadcn-vue.com/schema.json',
+    // rsc: projectInfo.isRSC,
+    // tsx: projectInfo.isTsx,
     typescript: projectInfo.typescript,
     style: 'new-york',
     tailwind: {
@@ -289,9 +302,9 @@ export async function getProjectConfig(
   return await resolveConfigPaths(cwd, config)
 }
 
-export async function getProjectTailwindVersionFromConfig(
-  config: Config,
-): Promise<TailwindVersion> {
+export async function getProjectTailwindVersionFromConfig(config: {
+  resolvedPaths: Pick<Config['resolvedPaths'], 'cwd'>
+}): Promise<TailwindVersion> {
   if (!config.resolvedPaths?.cwd) {
     return 'v3'
   }

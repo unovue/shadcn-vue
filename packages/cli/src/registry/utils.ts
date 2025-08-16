@@ -1,16 +1,27 @@
-import type { z } from 'zod'
-import type { registryItemSchema } from '@/src/registry'
-import type { configSchema } from '@/src/utils/get-config'
-import type { ProjectInfo } from '@/src/utils/get-project-info'
-import fs from 'node:fs/promises'
-import { tmpdir } from 'node:os'
-import { getTsconfig } from 'get-tsconfig'
-import path from 'pathe'
-import { Project, ScriptKind } from 'ts-morph'
-import { resolveImport } from '@/src/utils/resolve-import'
+import type {
+  configSchema,
+  registryItemSchema,
+} from "@/src/schema"
+import type { Config } from "@/src/utils/get-config"
+import type { ProjectInfo } from "@/src/utils/get-project-info"
+import * as fs from "node:fs/promises"
+import { tmpdir } from "node:os"
+import { getTsconfig } from "get-tsconfig"
+import * as path from "pathe"
+import { Project, ScriptKind } from "ts-morph"
+import { z } from "zod"
+import {
+  registryItemFileSchema,
+} from "@/src/schema"
+import { getProjectInfo } from "@/src/utils/get-project-info"
+import { resolveImport } from "@/src/utils/resolve-import"
+import {
+  findCommonRoot,
+  resolveFilePath,
+} from "@/src/utils/updaters/update-files"
 
-const FILE_EXTENSIONS_FOR_LOOKUP = ['.tsx', '.ts', '.jsx', '.js', '.css']
-const FILE_PATH_SKIP_LIST = ['lib/utils.ts']
+const FILE_EXTENSIONS_FOR_LOOKUP = [".tsx", ".ts", ".jsx", ".js", ".css"]
+const FILE_PATH_SKIP_LIST = ["lib/utils.ts"]
 const DEPENDENCY_SKIP_LIST = [
   /^(react|react-dom|next)(\/.*)?$/, // Matches react, react-dom, next and their submodules
   /^(node|jsr|npm):.*$/, // Matches node:, jsr:, and npm: prefixed modules
@@ -32,16 +43,16 @@ export function getDependencyFromModuleSpecifier(
 
   // If the module specifier does not start with `@` and has a /, add the dependency first part only.
   // E.g. `foo/bar` -> `foo`
-  if (!moduleSpecifier.startsWith('@') && moduleSpecifier.includes('/')) {
-    moduleSpecifier = moduleSpecifier.split('/')[0]
+  if (!moduleSpecifier.startsWith("@") && moduleSpecifier.includes("/")) {
+    moduleSpecifier = moduleSpecifier.split("/")[0]
   }
 
   // For scoped packages, we want to keep the first two parts
   // E.g. `@types/react/dom` -> `@types/react`
-  if (moduleSpecifier.startsWith('@')) {
-    const parts = moduleSpecifier.split('/')
+  if (moduleSpecifier.startsWith("@")) {
+    const parts = moduleSpecifier.split("/")
     if (parts.length > 2) {
-      moduleSpecifier = parts.slice(0, 2).join('/')
+      moduleSpecifier = parts.slice(0, 2).join("/")
     }
   }
 
@@ -53,7 +64,7 @@ export async function recursivelyResolveFileImports(
   config: z.infer<typeof configSchema>,
   projectInfo: ProjectInfo,
   processedFiles: Set<string> = new Set(),
-): Promise<Pick<z.infer<typeof registryItemSchema>, 'files' | 'dependencies'>> {
+): Promise<Pick<z.infer<typeof registryItemSchema>, "files" | "dependencies">> {
   const resolvedFilePath = path.resolve(config.resolvedPaths.cwd, filePath)
   const relativeRegistryFilePath = path.relative(
     config.resolvedPaths.cwd,
@@ -83,7 +94,7 @@ export async function recursivelyResolveFileImports(
     return { dependencies: [], files: [] }
   }
 
-  const content = await fs.readFile(resolvedFilePath, 'utf-8')
+  const content = await fs.readFile(resolvedFilePath, "utf-8")
   const tempFile = await createTempSourceFile(path.basename(resolvedFilePath))
   const sourceFile = project.createSourceFile(tempFile, content, {
     scriptKind: ScriptKind.TSX,
@@ -93,7 +104,7 @@ export async function recursivelyResolveFileImports(
     return { dependencies: [], files: [] }
   }
 
-  const files: z.infer<typeof registryItemSchema>['files'] = []
+  const files: z.infer<typeof registryItemSchema>["files"] = []
   const dependencies = new Set<string>()
 
   // Add the original file first
@@ -101,7 +112,7 @@ export async function recursivelyResolveFileImports(
   const originalFile = {
     path: relativeRegistryFilePath,
     type: fileType,
-    target: '',
+    target: "",
   }
   files.push(originalFile)
 
@@ -110,7 +121,7 @@ export async function recursivelyResolveFileImports(
   for (const importStatement of importStatements) {
     const moduleSpecifier = importStatement.getModuleSpecifierValue()
 
-    const isRelativeImport = moduleSpecifier.startsWith('.')
+    const isRelativeImport = moduleSpecifier.startsWith(".")
     const isAliasImport = moduleSpecifier.startsWith(
       `${projectInfo.aliasPrefix}/`,
     )
@@ -171,11 +182,11 @@ export async function recursivelyResolveFileImports(
     const file = {
       path: nestedRelativeRegistryFilePath,
       type: fileType,
-      target: '',
+      target: "",
     }
 
     // TODO (shadcn): fix this.
-    if (fileType === 'registry:page' || fileType === 'registry:file') {
+    if (fileType === "registry:page" || fileType === "registry:file") {
       file.target = moduleSpecifier
     }
 
@@ -216,7 +227,7 @@ export async function recursivelyResolveFileImports(
 }
 
 async function createTempSourceFile(filename: string) {
-  const dir = await fs.mkdtemp(path.join(tmpdir(), 'shadcn-'))
+  const dir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-"))
   return path.join(dir, filename)
 }
 
@@ -224,24 +235,24 @@ async function createTempSourceFile(filename: string) {
 // For now we'll use the module specifier to determine the type.
 function determineFileType(
   moduleSpecifier: string,
-): z.infer<typeof registryItemSchema>['type'] {
-  if (moduleSpecifier.includes('/ui/')) {
-    return 'registry:ui'
+): z.infer<typeof registryItemSchema>["type"] {
+  if (moduleSpecifier.includes("/ui/")) {
+    return "registry:ui"
   }
 
-  if (moduleSpecifier.includes('/lib/')) {
-    return 'registry:lib'
+  if (moduleSpecifier.includes("/lib/")) {
+    return "registry:lib"
   }
 
-  if (moduleSpecifier.includes('/hooks/')) {
-    return 'registry:hook'
+  if (moduleSpecifier.includes("/hooks/") || moduleSpecifier.includes("/composables/")) {
+    return "registry:composable"
   }
 
-  if (moduleSpecifier.includes('/components/')) {
-    return 'registry:component'
+  if (moduleSpecifier.includes("/components/")) {
+    return "registry:component"
   }
 
-  return 'registry:component'
+  return "registry:component"
 }
 
 // Additional utility functions for local file support
@@ -257,10 +268,11 @@ export function isUrl(path: string) {
 }
 
 export function isLocalFile(path: string) {
-  return path.endsWith('.json') && !isUrl(path)
+  return path.endsWith(".json") && !isUrl(path)
 }
 
 /**
+ * Check if a registry item is universal (framework-agnostic).
  * A universal registry item must have all files with:
  * 1. Explicit targets
  * 2. Type "registry:file"
@@ -268,14 +280,66 @@ export function isLocalFile(path: string) {
  */
 export function isUniversalRegistryItem(
   registryItem:
-    | Pick<z.infer<typeof registryItemSchema>, 'files'>
+    | Pick<z.infer<typeof registryItemSchema>, "files">
     | null
     | undefined,
 ): boolean {
   return (
     !!registryItem?.files?.length
     && registryItem.files.every(
-      file => !!file.target && file.type === 'registry:file',
+      file =>
+        !!file.target
+        && (file.type === "registry:file" || file.type === "registry:item"),
     )
+  )
+}
+
+// Deduplicates files based on their resolved target paths.
+// When multiple files resolve to the same target path, the last one wins.
+export async function deduplicateFilesByTarget(
+  filesArrays: Array<z.infer<typeof registryItemFileSchema>[] | undefined>,
+  config: Config,
+) {
+  // Fallback to simple concatenation when we don't have complete config.
+  if (!canDeduplicateFiles(config)) {
+    return z
+      .array(registryItemFileSchema)
+      .parse(filesArrays.flat().filter(Boolean))
+  }
+
+  // Get project info for file resolution.
+  const projectInfo = await getProjectInfo(config.resolvedPaths.cwd)
+  const targetMap = new Map<string, z.infer<typeof registryItemFileSchema>>()
+  const allFiles = z
+    .array(registryItemFileSchema)
+    .parse(filesArrays.flat().filter(Boolean))
+
+  allFiles.forEach((file) => {
+    const resolvedPath = resolveFilePath(file, config, {
+      // isSrcDir: projectInfo?.isSrcDir,
+      framework: projectInfo?.framework.name,
+      commonRoot: findCommonRoot(
+        allFiles.map(f => f.path),
+        file.path,
+      ),
+    })
+
+    if (resolvedPath) {
+      // Last one wins - overwrites previous entry.
+      targetMap.set(resolvedPath, file)
+    }
+  })
+
+  return Array.from(targetMap.values())
+}
+
+// Checks if the config has the minimum required paths for file deduplication.
+export function canDeduplicateFiles(config: Config) {
+  return !!(
+    config?.resolvedPaths?.cwd
+    && (config?.resolvedPaths?.ui
+      || config?.resolvedPaths?.lib
+      || config?.resolvedPaths?.components
+      || config?.resolvedPaths?.composables)
   )
 }

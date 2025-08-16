@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import type { registryBaseColorSchema } from '@/src/registry/schema'
+import type { registryBaseColorSchema } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import { transform as metaTransform } from 'vue-metamorph'
 import { getRegistryIcons } from '@/src/registry/api'

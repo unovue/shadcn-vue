@@ -6,7 +6,10 @@ import type {
   VariableStatement,
 } from 'ts-morph'
 import type { z } from 'zod'
-import type { registryItemCssVarsSchema, registryItemTailwindSchema } from '@/src/registry/schema'
+import type {
+  registryItemCssVarsSchema,
+  registryItemTailwindSchema,
+} from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import type { TailwindVersion } from '@/src/utils/get-project-info'
 import { promises as fs } from 'node:fs'
@@ -205,6 +208,7 @@ async function addTailwindConfigTheme(
   if (themeInitializer?.isKind(SyntaxKind.ObjectLiteralExpression)) {
     const themeObjectString = themeInitializer.getText()
     const themeObject = await parseObjectLiteral(themeObjectString)
+    // @ts-expect-error type error
     const result = deepmerge(themeObject, theme, {
       arrayMerge: (dst, src) => src,
     })
@@ -384,7 +388,7 @@ export function unnestSpreadProperties(obj: ObjectLiteralExpression) {
         initializer
         && initializer.isKind(SyntaxKind.ArrayLiteralExpression)
       ) {
-        unnsetSpreadElements(
+        unsetSpreadElements(
           initializer.asKindOrThrow(SyntaxKind.ArrayLiteralExpression),
         )
       }
@@ -392,7 +396,7 @@ export function unnestSpreadProperties(obj: ObjectLiteralExpression) {
   }
 }
 
-export function unnsetSpreadElements(arr: ArrayLiteralExpression) {
+export function unsetSpreadElements(arr: ArrayLiteralExpression) {
   const elements = arr.getElements()
   for (let j = 0; j < elements.length; j++) {
     const element = elements[j]
@@ -404,7 +408,7 @@ export function unnsetSpreadElements(arr: ArrayLiteralExpression) {
     }
     else if (element.isKind(SyntaxKind.ArrayLiteralExpression)) {
       // Recursive check on nested arrays
-      unnsetSpreadElements(
+      unsetSpreadElements(
         element.asKindOrThrow(SyntaxKind.ArrayLiteralExpression),
       )
     }
