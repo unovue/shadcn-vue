@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "ui/button/Button.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { PrimitiveProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\nimport type { ButtonVariants } from \".\"\r\nimport { Primitive } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\nimport { buttonVariants } from \".\"\r\n\r\ninterface Props extends PrimitiveProps {\r\n  variant?: ButtonVariants[\"variant\"]\r\n  size?: ButtonVariants[\"size\"]\r\n  class?: HTMLAttributes[\"class\"]\r\n}\r\n\r\nconst props = withDefaults(defineProps<Props>(), {\r\n  as: \"button\",\r\n})\r\n</script>\r\n\r\n<template>\r\n  <Primitive\r\n    :as=\"as\"\r\n    :as-child=\"asChild\"\r\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\r\n  >\r\n    <slot />\r\n  </Primitive>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { PrimitiveProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport type { ButtonVariants } from \".\"\r\nimport { Primitive } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { buttonVariants } from \".\"\r\n\r\ninterface Props extends PrimitiveProps {\r\n  variant?: ButtonVariants[\"variant\"]\r\n  size?: ButtonVariants[\"size\"]\r\n  class?: HTMLAttributes[\"class\"]\r\n}\r\n\r\nconst props = withDefaults(defineProps<Props>(), {\r\n  as: \"button\",\r\n})\r\n</script>\r\n\r\n<template>\r\n  <Primitive\r\n    :as=\"as\"\r\n    :as-child=\"asChild\"\r\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\r\n  >\r\n    <slot />\r\n  </Primitive>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
