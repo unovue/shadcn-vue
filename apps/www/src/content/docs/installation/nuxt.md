@@ -36,9 +36,9 @@ npm install -D typescript
 npm install tailwindcss @tailwindcss/vite
 ```
 
-Replace everything in `assets/css/tailwind.css` with the following:
+Replace everything in `./app/assets/css/tailwind.css` with the following:
 
-```css title="assets/css/tailwind.css"
+```css title="./app/assets/css/tailwind.css"
 @import "tailwindcss";
 ```
 
