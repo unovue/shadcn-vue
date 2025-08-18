@@ -1,5 +1,6 @@
 import { cosmiconfig } from 'cosmiconfig'
 import { getTsconfig } from 'get-tsconfig'
+import fs from 'node:fs'
 import path from 'pathe'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
@@ -96,6 +97,60 @@ export function getTSConfig(cwd: string, tsconfigName: 'tsconfig.json' | 'jsconf
     throw new Error(
       `Failed to find ${highlighter.info(tsconfigName)}`,
     )
+  }
+
+  // Handle TypeScript project references (Nuxt 4 style)
+  // 
+  // Issue: When Nuxt 4 uses project references, the main tsconfig.json contains:
+  // {
+  //   "files": [],
+  //   "references": [
+  //     { "path": "./.nuxt/tsconfig.app.json" },
+  //     { "path": "./.nuxt/tsconfig.server.json" },
+  //     ...
+  //   ]
+  // }
+  // 
+  // The path mappings are defined in the referenced configs (e.g., .nuxt/tsconfig.app.json)
+  // but get-tsconfig doesn't automatically resolve them. This causes resolveImport() to 
+  // return undefined, leading to validation failures in resolveConfigPaths().
+  //
+  // Fix: If main config has no paths but has references, read referenced configs directly
+  // to find the first one containing path mappings.
+  if (!parsedConfig.config.compilerOptions?.paths && parsedConfig.config.references?.length) {
+    for (const reference of parsedConfig.config.references) {
+      const referencePath = path.resolve(path.dirname(parsedConfig.path), reference.path)
+      
+      try {
+        // Read the referenced tsconfig file directly
+        const referenceContent = fs.readFileSync(referencePath, 'utf8')
+        const referenceConfig = JSON.parse(referenceContent)
+        
+        if (referenceConfig.compilerOptions?.paths) {
+          // Resolve baseUrl relative to the referenced config's directory
+          let resolvedBaseUrl = parsedConfig.config.compilerOptions?.baseUrl
+          if (referenceConfig.compilerOptions.baseUrl) {
+            resolvedBaseUrl = path.resolve(path.dirname(referencePath), referenceConfig.compilerOptions.baseUrl)
+          }
+          
+          // Create a new config object that merges the referenced paths
+          return {
+            ...parsedConfig,
+            config: {
+              ...parsedConfig.config,
+              compilerOptions: {
+                ...parsedConfig.config.compilerOptions,
+                baseUrl: resolvedBaseUrl,
+                paths: referenceConfig.compilerOptions.paths,
+              },
+            },
+          }
+        }
+      } catch (error) {
+        // If we can't read the referenced file, continue to the next reference
+        continue
+      }
+    }
   }
 
   return parsedConfig

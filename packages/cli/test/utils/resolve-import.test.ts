@@ -1,6 +1,7 @@
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { expect, it } from 'vitest'
+import { getTSConfig } from '../../src/utils/get-config'
 import { resolveImport } from '../../src/utils/resolve-import'
 
 it('resolve import', async () => {
@@ -98,4 +99,19 @@ it('resolve import without base url', async () => {
   // expect(resolveImport('foo/bar', config)).toEqual(
   //   path.resolve(cwd, 'foo/bar'),
   // )
+})
+
+it('resolve import with project references (Nuxt 4 style)', async () => {
+  const cwd = path.resolve(__dirname, '../fixtures/nuxt4-broken')
+  const config = getTSConfig(cwd, 'tsconfig.json')
+
+  expect(resolveImport('@/components', config)).toEqual(
+    path.resolve(cwd, 'components'),
+  )
+  expect(resolveImport('@/lib/utils', config)).toEqual(
+    path.resolve(cwd, 'lib/utils'),
+  )
+  expect(resolveImport('~/components/ui', config)).toEqual(
+    path.resolve(cwd, 'components/ui'),
+  )
 })

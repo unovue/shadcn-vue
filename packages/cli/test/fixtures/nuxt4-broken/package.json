@@ -1,0 +1,19 @@
+{
+  "name": "nuxt4-broken-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vueuse/core": "^13.7.0",
+    "nuxt": "^4.0.1",
+    "reka-ui": "^2.4.1",
+    "shadcn-nuxt": "2.2.0",
+    "vue": "^3.5.13"
+  }
+}
