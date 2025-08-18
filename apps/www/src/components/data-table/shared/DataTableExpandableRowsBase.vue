@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="TData, TValue">
+<script setup lang="ts" generic="TData extends Record<string, unknown>">
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -30,68 +30,14 @@ import {
 
 import { h, ref } from "vue"
 import { valueUpdater } from "@/lib/utils"
-
-export interface Order {
-  id: string
-  customerName: string
-  customerEmail: string
-  customerPhone: string
-  customerAddress: string
-  orderDate: string
-  status: "pending" | "processing" | "shipped" | "delivered" | "cancelled"
-  total: number
-  items: OrderItem[]
-  shippingInfo: ShippingInfo
-  paymentInfo: PaymentInfo
-}
-
-export interface OrderItem {
-  id: string
-  name: string
-  quantity: number
-  price: number
-  image?: string
-}
-
-export interface ShippingInfo {
-  carrier: string
-  trackingNumber: string
-  estimatedDelivery: string
-  address: string
-}
-
-export interface PaymentInfo {
-  method: string
-  cardLast4?: string
-  transactionId: string
-  paidAt: string
-}
-
-// Props for UI components - to be injected by style-specific wrappers
-interface UIComponents {
-  Badge: any
-  Button: any
-  Card: any
-  CardContent: any
-  CardHeader: any
-  CardTitle: any
-  Checkbox: any
-  DropdownMenu: any
-  DropdownMenuCheckboxItem: any
-  DropdownMenuContent: any
-  DropdownMenuTrigger: any
-  Input: any
-  Separator: any
-  Table: any
-  TableBody: any
-  TableCell: any
-  TableHead: any
-  TableHeader: any
-  TableRow: any
-}
+import type { Order, OrderItem, ShippingInfo, PaymentInfo } from "./types"
+import { generateOrders } from "./types"
+import type { ExpandableRowsUIComponents } from "./ui-components"
 
 const props = defineProps<{
-  uiComponents: UIComponents
+  data?: TData[]
+  columns?: ColumnDef<TData>[]
+  uiComponents: ExpandableRowsUIComponents
 }>()
 
 const { 
@@ -116,140 +62,10 @@ const {
   TableRow
 } = props.uiComponents
 
-// Sample data with detailed information for expansion
-const data: Order[] = [
-  {
-    id: "ORD-001",
-    customerName: "John Smith",
-    customerEmail: "john.smith@email.com",
-    customerPhone: "+1 (555) 123-4567",
-    customerAddress: "123 Main St, Anytown, ST 12345",
-    orderDate: "2024-01-15T10:30:00Z",
-    status: "delivered",
-    total: 299.99,
-    items: [
-      { id: "1", name: "Wireless Headphones", quantity: 1, price: 199.99 },
-      { id: "2", name: "Phone Case", quantity: 2, price: 49.99 },
-    ],
-    shippingInfo: {
-      carrier: "FedEx",
-      trackingNumber: "1Z999AA1234567890",
-      estimatedDelivery: "2024-01-18",
-      address: "123 Main St, Anytown, ST 12345"
-    },
-    paymentInfo: {
-      method: "Credit Card",
-      cardLast4: "1234",
-      transactionId: "txn_1234567890",
-      paidAt: "2024-01-15T10:35:00Z"
-    }
-  },
-  {
-    id: "ORD-002",
-    customerName: "Sarah Johnson",
-    customerEmail: "sarah.j@email.com",
-    customerPhone: "+1 (555) 234-5678",
-    customerAddress: "456 Oak Ave, Another City, ST 67890",
-    orderDate: "2024-01-14T14:20:00Z",
-    status: "processing",
-    total: 1249.97,
-    items: [
-      { id: "3", name: "Laptop", quantity: 1, price: 999.99 },
-      { id: "4", name: "Wireless Mouse", quantity: 1, price: 79.99 },
-      { id: "5", name: "Keyboard", quantity: 1, price: 169.99 },
-    ],
-    shippingInfo: {
-      carrier: "UPS",
-      trackingNumber: "1Z999AA1234567891",
-      estimatedDelivery: "2024-01-20",
-      address: "456 Oak Ave, Another City, ST 67890"
-    },
-    paymentInfo: {
-      method: "PayPal",
-      transactionId: "txn_1234567891",
-      paidAt: "2024-01-14T14:25:00Z"
-    }
-  },
-  {
-    id: "ORD-003",
-    customerName: "Mike Davis",
-    customerEmail: "mike.davis@email.com",
-    customerPhone: "+1 (555) 345-6789",
-    customerAddress: "789 Pine St, Somewhere, ST 54321",
-    orderDate: "2024-01-13T09:15:00Z",
-    status: "shipped",
-    total: 599.98,
-    items: [
-      { id: "6", name: "Gaming Monitor", quantity: 1, price: 399.99 },
-      { id: "7", name: "HDMI Cable", quantity: 2, price: 99.99 },
-    ],
-    shippingInfo: {
-      carrier: "DHL",
-      trackingNumber: "1Z999AA1234567892",
-      estimatedDelivery: "2024-01-17",
-      address: "789 Pine St, Somewhere, ST 54321"
-    },
-    paymentInfo: {
-      method: "Credit Card",
-      cardLast4: "5678",
-      transactionId: "txn_1234567892",
-      paidAt: "2024-01-13T09:20:00Z"
-    }
-  },
-  {
-    id: "ORD-004",
-    customerName: "Emily Chen",
-    customerEmail: "emily.chen@email.com",
-    customerPhone: "+1 (555) 456-7890",
-    customerAddress: "321 Elm St, Elsewhere, ST 98765",
-    orderDate: "2024-01-12T16:45:00Z",
-    status: "pending",
-    total: 149.99,
-    items: [
-      { id: "8", name: "Bluetooth Speaker", quantity: 1, price: 149.99 },
-    ],
-    shippingInfo: {
-      carrier: "FedEx",
-      trackingNumber: "1Z999AA1234567893",
-      estimatedDelivery: "2024-01-19",
-      address: "321 Elm St, Elsewhere, ST 98765"
-    },
-    paymentInfo: {
-      method: "Credit Card",
-      cardLast4: "9012",
-      transactionId: "txn_1234567893",
-      paidAt: "2024-01-12T16:50:00Z"
-    }
-  },
-  {
-    id: "ORD-005",
-    customerName: "Robert Wilson",
-    customerEmail: "rob.wilson@email.com",
-    customerPhone: "+1 (555) 567-8901",
-    customerAddress: "654 Maple Dr, Nowhere, ST 13579",
-    orderDate: "2024-01-11T11:30:00Z",
-    status: "cancelled",
-    total: 89.99,
-    items: [
-      { id: "9", name: "Phone Charger", quantity: 1, price: 29.99 },
-      { id: "10", name: "Screen Protector", quantity: 3, price: 19.99 },
-    ],
-    shippingInfo: {
-      carrier: "N/A",
-      trackingNumber: "N/A",
-      estimatedDelivery: "N/A",
-      address: "654 Maple Dr, Nowhere, ST 13579"
-    },
-    paymentInfo: {
-      method: "Credit Card",
-      cardLast4: "3456",
-      transactionId: "txn_1234567894",
-      paidAt: "2024-01-11T11:35:00Z"
-    }
-  },
-]
+// Use provided data or generate default orders
+const data = (props.data || generateOrders()) as TData[]
 
-const columns: ColumnDef<Order>[] = [
+const defaultColumns: ColumnDef<TData>[] = [
   {
     id: "expand",
     header: "",
@@ -299,11 +115,11 @@ const columns: ColumnDef<Order>[] = [
         onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
       }, () => ["Customer", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })])
     },
-    cell: ({ row }) => {
-      const order = row.original
+cell: ({ row }) => {
+      const order = row.original as Record<string, unknown>
       return h("div", {}, [
-        h("div", { class: "font-medium" }, order.customerName),
-        h("div", { class: "text-sm text-muted-foreground" }, order.customerEmail),
+        h("div", { class: "font-medium" }, order.customerName as string),
+        h("div", { class: "text-sm text-muted-foreground" }, order.customerEmail as string),
       ])
     },
   },
@@ -315,8 +131,8 @@ const columns: ColumnDef<Order>[] = [
         onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
       }, () => ["Date", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })])
     },
-    cell: ({ row }) => {
-      const date = new Date(row.getValue("orderDate"))
+cell: ({ row }) => {
+      const date = new Date(row.getValue("orderDate") as string)
       return h("div", { class: "text-sm" }, date.toLocaleDateString())
     },
   },
@@ -345,8 +161,8 @@ const columns: ColumnDef<Order>[] = [
         onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
       }, () => ["Total", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })])
     },
-    cell: ({ row }) => {
-      const total = Number.parseFloat(row.getValue("total"))
+cell: ({ row }) => {
+      const total = Number.parseFloat(row.getValue("total") as string)
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -357,12 +173,15 @@ const columns: ColumnDef<Order>[] = [
   {
     id: "items",
     header: "Items",
-    cell: ({ row }) => {
-      const order = row.original
-      return h("div", { class: "text-sm text-muted-foreground" }, `${order.items.length} item(s)`)
+cell: ({ row }) => {
+      const order = row.original as Record<string, unknown>
+      const items = order.items as OrderItem[]
+      return h("div", { class: "text-sm text-muted-foreground" }, `${items.length} item(s)`)
     },
   },
 ]
+
+const columns = props.columns || defaultColumns
 
 const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
@@ -408,7 +227,7 @@ const table = useVueTable({
         <Input
           placeholder="Filter orders..."
           :model-value="table.getColumn('customerName')?.getFilterValue() as string"
-          @update:model-value="table.getColumn('customerName')?.setFilterValue($event)"
+@update:model-value="(value: string) => table.getColumn('customerName')?.setFilterValue(value)"
           class="max-w-sm"
         />
       </div>
@@ -475,18 +294,18 @@ const table = useVueTable({
                             Customer Information
                           </CardTitle>
                         </CardHeader>
-                        <CardContent class="space-y-3">
+<CardContent class="space-y-3">
                           <div>
-                            <p class="text-sm font-medium">{{ row.original.customerName }}</p>
-                            <p class="text-xs text-muted-foreground">{{ row.original.customerEmail }}</p>
+                            <p class="text-sm font-medium">{{ (row.original as Record<string, unknown>).customerName }}</p>
+                            <p class="text-xs text-muted-foreground">{{ (row.original as Record<string, unknown>).customerEmail }}</p>
                           </div>
                           <div class="flex items-center gap-2">
                             <Phone class="h-3 w-3 text-muted-foreground" />
-                            <span class="text-xs">{{ row.original.customerPhone }}</span>
+                            <span class="text-xs">{{ (row.original as Record<string, unknown>).customerPhone }}</span>
                           </div>
                           <div class="flex items-start gap-2">
                             <MapPin class="h-3 w-3 text-muted-foreground mt-0.5" />
-                            <span class="text-xs">{{ row.original.customerAddress }}</span>
+                            <span class="text-xs">{{ (row.original as Record<string, unknown>).customerAddress }}</span>
                           </div>
                         </CardContent>
                       </Card>
@@ -500,9 +319,9 @@ const table = useVueTable({
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <div class="space-y-3">
+<div class="space-y-3">
                             <div 
-                              v-for="item in row.original.items" 
+                              v-for="item in ((row.original as Record<string, unknown>).items as OrderItem[])" 
                               :key="item.id"
                               class="flex items-center justify-between pb-2 border-b border-muted last:border-0 last:pb-0"
                             >
@@ -520,7 +339,7 @@ const table = useVueTable({
                             <div class="flex items-center justify-between">
                               <p class="text-sm font-medium">Total</p>
                               <p class="text-sm font-bold">
-                                {{ new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(row.original.total) }}
+                                {{ new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format((row.original as Record<string, unknown>).total as number) }}
                               </p>
                             </div>
                           </div>
@@ -537,18 +356,18 @@ const table = useVueTable({
                               Shipping
                             </CardTitle>
                           </CardHeader>
-                          <CardContent class="space-y-2">
+<CardContent class="space-y-2">
                             <div>
                               <p class="text-xs text-muted-foreground">Carrier</p>
-                              <p class="text-sm font-medium">{{ row.original.shippingInfo.carrier }}</p>
+                              <p class="text-sm font-medium">{{ ((row.original as Record<string, unknown>).shippingInfo as ShippingInfo).carrier }}</p>
                             </div>
                             <div>
                               <p class="text-xs text-muted-foreground">Tracking</p>
-                              <p class="text-sm font-mono">{{ row.original.shippingInfo.trackingNumber }}</p>
+                              <p class="text-sm font-mono">{{ ((row.original as Record<string, unknown>).shippingInfo as ShippingInfo).trackingNumber }}</p>
                             </div>
                             <div>
                               <p class="text-xs text-muted-foreground">Est. Delivery</p>
-                              <p class="text-sm">{{ new Date(row.original.shippingInfo.estimatedDelivery).toLocaleDateString() }}</p>
+                              <p class="text-sm">{{ new Date(((row.original as Record<string, unknown>).shippingInfo as ShippingInfo).estimatedDelivery).toLocaleDateString() }}</p>
                             </div>
                           </CardContent>
                         </Card>
@@ -561,23 +380,23 @@ const table = useVueTable({
                               Payment
                             </CardTitle>
                           </CardHeader>
-                          <CardContent class="space-y-2">
+<CardContent class="space-y-2">
                             <div>
                               <p class="text-xs text-muted-foreground">Method</p>
                               <p class="text-sm font-medium">
-                                {{ row.original.paymentInfo.method }}
-                                <span v-if="row.original.paymentInfo.cardLast4" class="text-muted-foreground">
-                                  •••• {{ row.original.paymentInfo.cardLast4 }}
+                                {{ ((row.original as Record<string, unknown>).paymentInfo as PaymentInfo).method }}
+                                <span v-if="((row.original as Record<string, unknown>).paymentInfo as PaymentInfo).cardLast4" class="text-muted-foreground">
+                                  •••• {{ ((row.original as Record<string, unknown>).paymentInfo as PaymentInfo).cardLast4 }}
                                 </span>
                               </p>
                             </div>
                             <div>
                               <p class="text-xs text-muted-foreground">Transaction ID</p>
-                              <p class="text-sm font-mono">{{ row.original.paymentInfo.transactionId }}</p>
+                              <p class="text-sm font-mono">{{ ((row.original as Record<string, unknown>).paymentInfo as PaymentInfo).transactionId }}</p>
                             </div>
                             <div>
                               <p class="text-xs text-muted-foreground">Paid At</p>
-                              <p class="text-sm">{{ new Date(row.original.paymentInfo.paidAt).toLocaleString() }}</p>
+                              <p class="text-sm">{{ new Date(((row.original as Record<string, unknown>).paymentInfo as PaymentInfo).paidAt).toLocaleString() }}</p>
                             </div>
                           </CardContent>
                         </Card>

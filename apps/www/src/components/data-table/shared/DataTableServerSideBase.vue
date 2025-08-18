@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="TData, TValue">
+<script setup lang="ts" generic="TData extends Record<string, unknown>">
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -16,51 +16,22 @@ import { ArrowUpDown, ChevronDown, ChevronLeft, ChevronRight, ChevronsLeft, Chev
 
 import { computed, h, ref, watch } from "vue"
 import { valueUpdater } from "@/lib/utils"
-
-export interface ServerProduct {
-  id: string
-  name: string
-  category: string
-  price: number
-  stock: number
-  status: "available" | "discontinued" | "out-of-stock"
-  supplier: string
-  createdAt: string
-}
-
-export interface ServerResponse {
-  data: ServerProduct[]
-  totalCount: number
-  page: number
-  pageSize: number
-  totalPages: number
-}
-
-// Props for UI components - to be injected by style-specific wrappers
-interface UIComponents {
-  Button: any
-  Checkbox: any
-  DropdownMenu: any
-  DropdownMenuCheckboxItem: any
-  DropdownMenuContent: any
-  DropdownMenuTrigger: any
-  Input: any
-  Label: any
-  Select: any
-  SelectContent: any
-  SelectItem: any
-  SelectTrigger: any
-  SelectValue: any
-  Table: any
-  TableBody: any
-  TableCell: any
-  TableHead: any
-  TableHeader: any
-  TableRow: any
-}
+import type { ServerProduct, ServerResponse } from "./types"
+import { generateServerProducts, mockApiCall } from "./types"
+import type { ServerSideUIComponents } from "./ui-components"
 
 const props = defineProps<{
-  uiComponents: UIComponents
+  data?: TData[]
+  columns?: ColumnDef<TData>[]
+  uiComponents: ServerSideUIComponents
+  fetchFunction?: (params: {
+    page: number
+    pageSize: number
+    search?: string
+    sortField?: string
+    sortOrder?: 'asc' | 'desc'
+    categoryFilter?: string
+  }) => Promise<ServerResponse<TData>>
 }>()
 
 const { 
@@ -85,95 +56,12 @@ const {
   TableRow
 } = props.uiComponents
 
-// Simulate server data
-const generateServerProducts = (count: number): ServerProduct[] => {
-  const categories = ["Electronics", "Clothing", "Books", "Home & Garden", "Sports", "Toys", "Health", "Beauty", "Automotive", "Office"]
-  const suppliers = ["Supplier A", "Supplier B", "Supplier C", "Supplier D", "Supplier E"]
-  const statuses: ServerProduct['status'][] = ["available", "discontinued", "out-of-stock"]
-  
-  return Array.from({ length: count }, (_, i) => ({
-    id: `server-prod-${i + 1}`,
-    name: `Server Product ${i + 1}`,
-    category: categories[i % categories.length],
-    price: Math.floor(Math.random() * 1000) + 10,
-    stock: Math.floor(Math.random() * 500),
-    status: statuses[Math.floor(Math.random() * statuses.length)],
-    supplier: suppliers[i % suppliers.length],
-    createdAt: new Date(Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000).toISOString(),
-  }))
-}
-
 // Mock server data (500 total records)
 const serverData = generateServerProducts(500)
 
-// Simulate API call with delay
-async function fetchProducts(params: {
-  page: number
-  pageSize: number
-  search?: string
-  sortField?: string
-  sortOrder?: 'asc' | 'desc'
-  categoryFilter?: string
-}): Promise<ServerResponse> {
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 800))
-
-  let filteredData = [...serverData]
-
-  // Apply search filter
-  if (params.search) {
-    filteredData = filteredData.filter(product =>
-      product.name.toLowerCase().includes(params.search!.toLowerCase()) ||
-      product.category.toLowerCase().includes(params.search!.toLowerCase()) ||
-      product.supplier.toLowerCase().includes(params.search!.toLowerCase())
-    )
-  }
-
-  // Apply category filter
-  if (params.categoryFilter) {
-    filteredData = filteredData.filter(product => product.category === params.categoryFilter)
-  }
-
-  // Apply sorting
-  if (params.sortField && params.sortOrder) {
-    filteredData.sort((a, b) => {
-      const aVal = a[params.sortField as keyof ServerProduct]
-      const bVal = b[params.sortField as keyof ServerProduct]
-      
-      if (typeof aVal === 'string' && typeof bVal === 'string') {
-        return params.sortOrder === 'asc' 
-          ? aVal.localeCompare(bVal)
-          : bVal.localeCompare(aVal)
-      }
-      
-      if (typeof aVal === 'number' && typeof bVal === 'number') {
-        return params.sortOrder === 'asc' 
-          ? aVal - bVal
-          : bVal - aVal
-      }
-      
-      return 0
-    })
-  }
-
-  const totalCount = filteredData.length
-  const totalPages = Math.ceil(totalCount / params.pageSize)
-  const startIndex = (params.page - 1) * params.pageSize
-  const endIndex = startIndex + params.pageSize
-  const data = filteredData.slice(startIndex, endIndex)
-
-  return {
-    data,
-    totalCount,
-    page: params.page,
-    pageSize: params.pageSize,
-    totalPages,
-  }
-}
-
 // Component state
 const loading = ref(false)
-const data = ref<ServerProduct[]>([])
+const data = ref<TData[]>([])
 const totalCount = ref(0)
 const totalPages = ref(0)
 
@@ -191,6 +79,26 @@ const pagination = ref<PaginationState>({
 const globalFilter = ref("")
 const categoryFilter = ref("")
 
+// Default fetch function using mock API
+const defaultFetchFunction = async (params: {
+  page: number
+  pageSize: number
+  search?: string
+  sortField?: string
+  sortOrder?: 'asc' | 'desc'
+  categoryFilter?: string
+}) => {
+  return await mockApiCall({
+    data: serverData as unknown as TData[],
+    page: params.page,
+    pageSize: params.pageSize,
+    search: params.search,
+    sortField: params.sortField as keyof TData,
+    sortOrder: params.sortOrder,
+    categoryFilter: params.categoryFilter,
+  })
+}
+
 // Load data function
 async function loadData() {
   loading.value = true
@@ -204,7 +112,8 @@ async function loadData() {
       sortOrder: sorting.value[0]?.desc ? 'desc' as const : 'asc' as const,
     }
     
-    const response = await fetchProducts(params)
+    const fetchFunction = props.fetchFunction || defaultFetchFunction
+    const response = await fetchFunction(params)
     data.value = response.data
     totalCount.value = response.totalCount
     totalPages.value = response.totalPages
@@ -230,8 +139,8 @@ watch(categoryFilter, () => {
   loadData()
 })
 
-// Table column definitions
-const columns: ColumnDef<ServerProduct>[] = [
+// Default table column definitions
+const defaultColumns: ColumnDef<TData>[] = [
   {
     id: "select",
     header: ({ table }) => h(Checkbox, {
@@ -252,7 +161,7 @@ const columns: ColumnDef<ServerProduct>[] = [
     header: ({ column }) => {
       return h(Button, {
         variant: "ghost",
-        onClick: () => {
+onClick: () => {
           column.toggleSorting(column.getIsSorted() === "asc")
           // Trigger server-side sorting
           setTimeout(() => loadData(), 100)
@@ -271,14 +180,14 @@ const columns: ColumnDef<ServerProduct>[] = [
     header: ({ column }) => {
       return h(Button, {
         variant: "ghost",
-        onClick: () => {
+onClick: () => {
           column.toggleSorting(column.getIsSorted() === "asc")
           setTimeout(() => loadData(), 100)
         },
       }, () => ["Price", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })])
     },
-    cell: ({ row }) => {
-      const price = Number.parseFloat(row.getValue("price"))
+cell: ({ row }) => {
+      const price = Number.parseFloat(row.getValue("price") as string)
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -291,7 +200,7 @@ const columns: ColumnDef<ServerProduct>[] = [
     header: ({ column }) => {
       return h(Button, {
         variant: "ghost",
-        onClick: () => {
+onClick: () => {
           column.toggleSorting(column.getIsSorted() === "asc")
           setTimeout(() => loadData(), 100)
         },
@@ -322,15 +231,17 @@ const columns: ColumnDef<ServerProduct>[] = [
   {
     accessorKey: "createdAt",
     header: "Created",
-    cell: ({ row }) => {
-      const date = new Date(row.getValue("createdAt"))
+cell: ({ row }) => {
+      const date = new Date(row.getValue("createdAt") as string)
       return h("div", { class: "text-sm" }, date.toLocaleDateString())
     },
   },
 ]
 
+const columns = props.columns || defaultColumns
+
 const table = useVueTable({
-  get data() { return data.value },
+  data: data.value as TData[],
   columns,
   getCoreRowModel: getCoreRowModel(),
   manualPagination: true,
@@ -386,12 +297,12 @@ loadData()
         <div class="relative max-w-xs">
           <Input
             placeholder="Search products..."
-            :model-value="globalFilter"
-            @update:model-value="globalFilter = $event"
+:model-value="globalFilter"
+            @update:model-value="(value: string) => globalFilter = value"
           />
           <Loader2 v-if="loading" class="absolute right-3 top-3 h-4 w-4 animate-spin" />
         </div>
-        <Select v-model="categoryFilter">
+<Select :model-value="categoryFilter" @update:model-value="(value: string) => categoryFilter = value">
           <SelectTrigger class="w-48">
             <SelectValue placeholder="All Categories" />
           </SelectTrigger>
@@ -489,7 +400,7 @@ loadData()
         <Label class="text-sm font-medium">Rows per page:</Label>
         <Select
           :model-value="String(pageSize)"
-          @update:model-value="(value: string) => {
+@update:model-value="(value: string) => {
             table.setPageSize(Number(value))
             pagination.pageIndex = 0
           }"

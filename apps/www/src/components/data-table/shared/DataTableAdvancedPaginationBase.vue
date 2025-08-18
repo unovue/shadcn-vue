@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="TData, TValue">
+<script setup lang="ts" generic="TData extends Record<string, unknown>">
 import type {
   ColumnDef,
   ColumnFiltersState,
@@ -17,42 +17,13 @@ import {
 import { ArrowUpDown, ChevronDown, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-vue-next"
 import { computed, h, ref } from "vue"
 import { valueUpdater } from "@/lib/utils"
-
-export interface Product {
-  id: string
-  name: string
-  category: string
-  price: number
-  stock: number
-  status: "in-stock" | "low-stock" | "out-of-stock"
-  description: string
-}
-
-// Props for UI components - to be injected by style-specific wrappers
-interface UIComponents {
-  Button: any
-  Checkbox: any
-  DropdownMenu: any
-  DropdownMenuCheckboxItem: any
-  DropdownMenuContent: any
-  DropdownMenuTrigger: any
-  Input: any
-  Label: any
-  Select: any
-  SelectContent: any
-  SelectItem: any
-  SelectTrigger: any
-  SelectValue: any
-  Table: any
-  TableBody: any
-  TableCell: any
-  TableHead: any
-  TableHeader: any
-  TableRow: any
-}
+import { generateProducts } from "./types"
+import type { BaseUIComponents } from "./ui-components"
 
 const props = defineProps<{
-  uiComponents: UIComponents
+  data?: TData[]
+  columns?: ColumnDef<TData>[]
+  uiComponents: BaseUIComponents
 }>()
 
 const { 
@@ -63,7 +34,6 @@ const {
   DropdownMenuContent, 
   DropdownMenuTrigger,
   Input,
-  Label,
   Select,
   SelectContent,
   SelectItem,
@@ -77,25 +47,10 @@ const {
   TableRow
 } = props.uiComponents
 
-// Generate sample data for pagination demo
-const generateProducts = (count: number): Product[] => {
-  const categories = ["Electronics", "Clothing", "Books", "Home & Garden", "Sports", "Toys"]
-  const statuses: Product['status'][] = ["in-stock", "low-stock", "out-of-stock"]
-  
-  return Array.from({ length: count }, (_, i) => ({
-    id: `prod-${i + 1}`,
-    name: `Product ${i + 1}`,
-    category: categories[i % categories.length],
-    price: Math.floor(Math.random() * 500) + 10,
-    stock: Math.floor(Math.random() * 100),
-    status: statuses[Math.floor(Math.random() * statuses.length)],
-    description: `This is a sample description for Product ${i + 1}`,
-  }))
-}
+// Use provided data or generate default products
+const data = (props.data || generateProducts(100)) as TData[]
 
-const data = generateProducts(100)
-
-const columns: ColumnDef<Product>[] = [
+const defaultColumns: ColumnDef<TData>[] = [
   {
     id: "select",
     header: ({ table }) => h(Checkbox, {
@@ -135,7 +90,7 @@ const columns: ColumnDef<Product>[] = [
       }, () => ["Price", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })])
     },
     cell: ({ row }) => {
-      const price = Number.parseFloat(row.getValue("price"))
+      const price = Number.parseFloat(row.getValue("price") as string)
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
@@ -169,6 +124,8 @@ const columns: ColumnDef<Product>[] = [
     },
   },
 ]
+
+const columns = props.columns || defaultColumns
 
 const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
@@ -311,7 +268,7 @@ const pageSizeOptions = [5, 10, 20, 30, 50, 100]
 
       <!-- Page Size Control -->
       <div class="flex items-center gap-2">
-        <Label class="text-sm font-medium">Rows per page:</Label>
+        <label class="text-sm font-medium">Rows per page:</label>
         <Select
           :model-value="String(pageSize)"
           @update:model-value="table.setPageSize(Number($event))"
