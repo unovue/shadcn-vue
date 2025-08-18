@@ -4,17 +4,28 @@ description: Powerful table and datagrids built using TanStack Table.
 primitive: https://tanstack.com/table/v8/docs/introduction
 ---
 
+## Quick Start
+
+Here's a basic data table to get you started:
+
 <ComponentPreview name="DataTableDemo" />
+
+Want more features? Jump to our [examples](#examples-by-complexity) organized by complexity level.
 
 ## Introduction
 
-Every data table or datagrid I've created has been unique. They all behave differently, have specific sorting and filtering requirements, and work with different data sources.
+Data tables are essential for displaying and managing large amounts of structured data in web applications. Whether you're building a admin dashboard, e-commerce platform, or data management system, you'll likely need sophisticated table features like:
 
-It doesn't make sense to combine all of these variations into a single component. If we do that, we'll lose the flexibility that [headless UI](https://tanstack.com/table/latest/docs/introduction#what-is-headless-ui) provides.
+- **Sorting and filtering** data based on user preferences
+- **Pagination** to handle large datasets efficiently  
+- **Row selection** for bulk operations
+- **CRUD operations** (Create, Read, Update, Delete)
+- **Server-side integration** for real-time data
+- **Expandable rows** for detailed information
 
-So instead of a data-table component, I thought it would be more helpful to provide a guide on how to build your own.
+Every data table has unique requirements and behaviors. Rather than providing a single rigid component, this guide shows you how to build flexible, customizable data tables using [TanStack Table](https://tanstack.com/table/latest/docs/introduction#what-is-headless-ui) (a headless UI library) and shadcn-vue components.
 
-We'll start with the basic `<Table />` component and build a complex data table from scratch.
+We'll start with simple examples and progress to advanced implementations that you can use in production applications.
 
 <Callout class="mt-4">
 
@@ -26,6 +37,12 @@ We'll start with the basic `<Table />` component and build a complex data table 
 
 This guide will show you how to use [TanStack Table](https://tanstack.com/table/v8) and the `<Table />` component to build your own custom data table. We'll cover the following topics:
 
+**Examples by Complexity:**
+- [Basic Examples](#basic-examples) - Column pinning, reactive tables
+- [Intermediate Examples](#intermediate-examples) - Advanced pagination, filtering, CRUD operations
+- [Advanced Examples](#advanced-examples) - Server-side integration, expandable rows
+
+**Step-by-Step Guide:**
 - [Basic Table](#basic-table)
 - [Row Actions](#row-actions)
 - [Pagination](#pagination)
@@ -49,13 +66,17 @@ npx shadcn-vue@latest add table
 npm install @tanstack/vue-table
 ```
 
-## Examples
+## Examples by Complexity
 
-### Column Pinning
+### Basic Examples
+
+Perfect for getting started with data tables. These examples demonstrate fundamental concepts and features.
+
+#### Column Pinning
 
 <ComponentPreview name="DataTableColumnPinningDemo" />
 
-### Reactive Table
+#### Reactive Table
 
 A reactive table was added in `v8.20.0` of the TanStack Table. You can see the [docs](https://tanstack.com/table/latest/docs/framework/vue/guide/table-state#using-reactive-data) for more information. We added an example where we are randomizing `status` column. One main point is that you need to mutate **full** data, as it is a `shallowRef` object.
 
@@ -68,6 +89,60 @@ If you want to mutate `props.data`, you should use [`defineModel`](https://vuejs
 There is no difference between using `ref` or `shallowRef` for your data object; it will be automatically mutated by the TanStack Table to `shallowRef`.
 
 <ComponentPreview name="DataTableReactiveDemo" />
+
+### Intermediate Examples
+
+More advanced features that are commonly needed in production applications.
+
+#### Advanced Pagination
+
+Comprehensive client-side pagination with page size controls and navigation.
+
+<ComponentPreview name="DataTableAdvancedPaginationDemo" />
+
+#### Advanced Filtering
+
+Multi-level filtering with global search, faceted filters, and range controls.
+
+<ComponentPreview name="DataTableAdvancedFilteringDemo" />
+
+#### CRUD Operations
+
+Complete Create, Read, Update, Delete functionality with modal integration.
+
+<ComponentPreview name="DataTableCrudActionsDemo" />
+
+### Advanced Examples
+
+Complex features for sophisticated data management needs.
+
+#### Server-Side Integration
+
+Server-side pagination, sorting, and filtering with API integration.
+
+<ComponentPreview name="DataTableServerSideDemo" />
+
+#### Expandable Rows
+
+Detailed row expansion with nested content and complex layouts.
+
+<ComponentPreview name="DataTableExpandableRowsDemo" />
+
+## Getting Started Guide
+
+If you're new to data tables, we recommend following this learning path:
+
+1. **Start Simple** - Begin with the [basic table example](#basic-table) to understand the fundamentals
+2. **Add Features Gradually** - Implement [pagination](#pagination), [sorting](#sorting), and [filtering](#filtering) one at a time
+3. **Study the Examples** - Look at our [intermediate examples](#intermediate-examples) to see these features combined
+4. **Go Advanced** - When ready, explore [server-side integration](#server-side-integration) and [expandable rows](#expandable-rows)
+
+### Common Use Cases
+
+- **Admin Dashboards** - Use CRUD operations and advanced filtering for data management
+- **E-commerce** - Implement server-side pagination for large product catalogs  
+- **Analytics** - Add expandable rows for detailed metrics and reports
+- **CRM Systems** - Combine all features for comprehensive customer data tables
 
 ## Prerequisites
 
