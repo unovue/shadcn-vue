@@ -57,9 +57,11 @@ export async function resolveConfigPaths(
       ? './.nuxt/tsconfig.app.json'
       : detectedFramework?.name === 'nuxt3'
         ? './.nuxt/tsconfig.json'
-        : isTypeScript
-          ? './tsconfig.json'
-          : './jsconfig.json',
+        : detectedFramework?.name === 'inertia'
+          ? './inertia/tsconfig.json'
+          : isTypeScript
+            ? './tsconfig.json'
+            : './jsconfig.json',
   )
 
   // Read tsconfig.json.

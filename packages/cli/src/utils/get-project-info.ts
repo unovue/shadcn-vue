@@ -39,6 +39,7 @@ const TS_CONFIG_SCHEMA = z.object({
 })
 
 export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework | null> {
+  const packageInfo = await getPackageInfo(cwd, false)
   const configFiles = await glob('**/{nuxt,vite,astro}.config.*|composer.json', {
     cwd,
     deep: 3,
@@ -59,6 +60,11 @@ export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework
   // Check for Laravel
   if (configFiles.find(file => file.startsWith('composer.json'))) {
     return FRAMEWORKS.laravel
+  }
+
+  if (packageInfo?.dependencies?.['@inertiajs/vue3']
+    || packageInfo?.devDependencies?.['@inertiajs/vue3'] || (await fs.pathExists(path.join(cwd, 'resources/js')))) {
+    return FRAMEWORKS.inertia
   }
 
   // Check for Vite
@@ -100,10 +106,6 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     getTsConfigAliasPrefix(cwd),
     getPackageInfo(cwd, false),
   ])
-
-  const isUsingAppDir = await fs.pathExists(
-    path.resolve(cwd, `app`),
-  )
 
   const type: ProjectInfo = {
     framework: detectedFramework || FRAMEWORKS.manual,
@@ -209,9 +211,11 @@ export async function getTsConfigAliasPrefix(cwd: string) {
     ? './.nuxt/tsconfig.app.json'
     : detectedFramework?.name === 'nuxt3'
       ? './.nuxt/tsconfig.json'
-      : isTypeScript
-        ? './tsconfig.json'
-        : './jsconfig.json')
+      : detectedFramework?.name === 'inertia'
+        ? './inertia/tsconfig.json'
+        : isTypeScript
+          ? './tsconfig.json'
+          : './jsconfig.json')
 
   if (
     tsConfig === null

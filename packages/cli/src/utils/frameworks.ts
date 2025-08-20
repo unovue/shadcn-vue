@@ -47,6 +47,14 @@ export const FRAMEWORKS = {
       tailwind: 'https://tailwindcss.com/docs/installation',
     },
   },
+  inertia: {
+    name: 'inertia',
+    label: 'Inertia',
+    links: {
+      installation: 'https://shadcn-vue.com/docs/installation/manual',
+      tailwind: 'https://tailwindcss.com/docs/installation',
+    },
+  },
 } as const
 
 export type Framework = (typeof FRAMEWORKS)[keyof typeof FRAMEWORKS]
