@@ -14,7 +14,7 @@ export type TailwindVersion = 'v3' | 'v4' | null
 
 export interface ProjectInfo {
   framework: Framework
-  // isSrcDir: boolean
+  isSrcDir: boolean
   // isRSC: boolean
   // isTsx: boolean
   typescript: boolean
@@ -42,12 +42,11 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   const [
     configFiles,
     typescript,
-    // isSrcDir,
+    isSrcDir,
     // isTsx,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
-    aliasPrefix,
     packageJson,
   ] = await Promise.all([
     glob('**/{nuxt,vite,astro}.config.*|composer.json', {
@@ -55,34 +54,35 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
       deep: 3,
       ignore: PROJECT_SHARED_IGNORE,
     }),
-    // fs.pathExists(path.resolve(cwd, 'src')),
     isTypeScriptProject(cwd),
+    fs.pathExists(path.resolve(cwd, 'src')),
     getTailwindConfigFile(cwd),
     getTailwindCssFile(cwd),
     getTailwindVersion(cwd),
-    getTsConfigAliasPrefix(cwd),
+
     getPackageInfo(cwd, false),
   ])
 
-  // const isUsingAppDir = await fs.pathExists(
-  //   path.resolve(cwd, `app`),
-  // )
+  const isUsingAppDir = await fs.pathExists(
+    path.resolve(cwd, `app`),
+  )
 
   const type: ProjectInfo = {
     framework: FRAMEWORKS.manual,
-    // isSrcDir,
-    // isRSC: false,
-    // isTsx,
     typescript,
+    isSrcDir,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
-    aliasPrefix,
+    aliasPrefix: await getTsConfigAliasPrefix(cwd, 'manual', typescript),
   }
 
   // Nuxt.
   if (configFiles.find(file => file.startsWith('nuxt.config.'))?.length) {
-    type.framework = FRAMEWORKS.nuxt
+    type.framework = isUsingAppDir
+      ? FRAMEWORKS.nuxt4
+      : FRAMEWORKS.nuxt3
+    type.aliasPrefix = await getTsConfigAliasPrefix(cwd, type.framework.name)
     return type
   }
 
@@ -185,9 +185,14 @@ export async function getTailwindConfigFile(cwd: string) {
   return files[0]
 }
 
-export async function getTsConfigAliasPrefix(cwd: string) {
-  const isTypescript = await isTypeScriptProject(cwd)
-  const tsConfig = await getTsconfig(cwd, isTypescript ? 'tsconfig.json' : 'jsconfig.json')
+export async function getTsConfigAliasPrefix(cwd: string, frameworkName: string, typescript?: boolean) {
+  const tsConfig = await getTsconfig(cwd, frameworkName === 'nuxt4'
+    ? './.nuxt/tsconfig.app.json'
+    : frameworkName === 'nuxt3'
+      ? './.nuxt/tsconfig.json'
+      : typescript
+        ? './tsconfig.json'
+        : './jsconfig.json')
 
   if (
     tsConfig === null

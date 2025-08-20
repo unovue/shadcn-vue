@@ -107,6 +107,13 @@ export async function getRawConfig(
       name: 'components',
       configFile: 'components',
       cwd,
+      configFileRequired: true,
+      dotenv: false,
+      packageJson: false,
+      rcFile: false,
+      jitiOptions: {
+        moduleCache: false,
+      },
     })
 
     if (!configResult.config || Object.keys(configResult.config).length === 0) {

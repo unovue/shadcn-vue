@@ -7,8 +7,16 @@ export const FRAMEWORKS = {
       tailwind: 'https://tailwindcss.com/docs/guides/vite',
     },
   },
-  nuxt: {
-    name: 'nuxt',
+  nuxt3: {
+    name: 'nuxt3',
+    label: 'Nuxt',
+    links: {
+      installation: 'https://shadcn-vue.com/docs/installation/nuxt',
+      tailwind: 'https://tailwindcss.com/docs/guides/nuxtjs',
+    },
+  },
+  nuxt4: {
+    name: 'nuxt4',
     label: 'Nuxt',
     links: {
       installation: 'https://shadcn-vue.com/docs/installation/nuxt',
