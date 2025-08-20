@@ -38,28 +38,66 @@ const TS_CONFIG_SCHEMA = z.object({
   }),
 })
 
+export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework | null> {
+  const configFiles = await glob('**/{nuxt,vite,astro}.config.*|composer.json', {
+    cwd,
+    deep: 3,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  // Check for Nuxt
+  if (configFiles.find(file => file.startsWith('nuxt.config.'))) {
+    const isUsingAppDir = await fs.pathExists(path.resolve(cwd, 'app'))
+    return isUsingAppDir ? FRAMEWORKS.nuxt4 : FRAMEWORKS.nuxt3
+  }
+
+  // Check for Astro
+  if (configFiles.find(file => file.startsWith('astro.config.'))) {
+    return FRAMEWORKS.astro
+  }
+
+  // Check for Laravel
+  if (configFiles.find(file => file.startsWith('composer.json'))) {
+    return FRAMEWORKS.laravel
+  }
+
+  // Check for Vite
+  if (configFiles.find(file => file.startsWith('vite.config.'))) {
+    return FRAMEWORKS.vite
+  }
+
+  return null
+}
+
+export async function isTypeScriptProject(cwd: string) {
+  const files = await glob('tsconfig.*', {
+    cwd,
+    deep: 1,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  return files.length > 0
+}
+
 export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   const [
-    configFiles,
+    detectedFramework,
     typescript,
     isSrcDir,
     // isTsx,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
+    aliasPrefix,
     packageJson,
   ] = await Promise.all([
-    glob('**/{nuxt,vite,astro}.config.*|composer.json', {
-      cwd,
-      deep: 3,
-      ignore: PROJECT_SHARED_IGNORE,
-    }),
+    detectFrameworkConfigFiles(cwd),
     isTypeScriptProject(cwd),
     fs.pathExists(path.resolve(cwd, 'src')),
     getTailwindConfigFile(cwd),
     getTailwindCssFile(cwd),
     getTailwindVersion(cwd),
-
+    getTsConfigAliasPrefix(cwd),
     getPackageInfo(cwd, false),
   ])
 
@@ -68,41 +106,13 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   )
 
   const type: ProjectInfo = {
-    framework: FRAMEWORKS.manual,
+    framework: detectedFramework || FRAMEWORKS.manual,
     typescript,
     isSrcDir,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
-    aliasPrefix: await getTsConfigAliasPrefix(cwd, 'manual', typescript),
-  }
-
-  // Nuxt.
-  if (configFiles.find(file => file.startsWith('nuxt.config.'))?.length) {
-    type.framework = isUsingAppDir
-      ? FRAMEWORKS.nuxt4
-      : FRAMEWORKS.nuxt3
-    type.aliasPrefix = await getTsConfigAliasPrefix(cwd, type.framework.name)
-    return type
-  }
-
-  // Astro.
-  if (configFiles.find(file => file.startsWith('astro.config.'))?.length) {
-    type.framework = FRAMEWORKS.astro
-    return type
-  }
-
-  // Laravel.
-  if (configFiles.find(file => file.startsWith('composer.json'))?.length) {
-    type.framework = FRAMEWORKS.laravel
-    return type
-  }
-
-  // Vite.
-  // We'll assume that it got caught by the Remix check above.
-  if (configFiles.find(file => file.startsWith('vite.config.'))?.length) {
-    type.framework = FRAMEWORKS.vite
-    return type
+    aliasPrefix,
   }
 
   return type
@@ -121,10 +131,17 @@ export async function getTailwindVersion(
     return 'v4'
   }
 
-  if (
-    !packageInfo?.dependencies?.tailwindcss
-    && !packageInfo?.devDependencies?.tailwindcss
-  ) {
+  const hasNuxtTailwind = !!(
+    packageInfo?.dependencies?.['@nuxtjs/tailwindcss']
+    || packageInfo?.devDependencies?.['@nuxtjs/tailwindcss']
+  )
+
+  const hasTailwindCss = !!(
+    packageInfo?.dependencies?.tailwindcss
+    || packageInfo?.devDependencies?.tailwindcss
+  )
+
+  if (!hasTailwindCss && !hasNuxtTailwind) {
     return null
   }
 
@@ -185,12 +202,14 @@ export async function getTailwindConfigFile(cwd: string) {
   return files[0]
 }
 
-export async function getTsConfigAliasPrefix(cwd: string, frameworkName: string, typescript?: boolean) {
-  const tsConfig = await getTsconfig(cwd, frameworkName === 'nuxt4'
+export async function getTsConfigAliasPrefix(cwd: string) {
+  const detectedFramework = await detectFrameworkConfigFiles(cwd)
+  const isTypeScript = await isTypeScriptProject(cwd)
+  const tsConfig = await getTsconfig(cwd, detectedFramework?.name === 'nuxt4'
     ? './.nuxt/tsconfig.app.json'
-    : frameworkName === 'nuxt3'
+    : detectedFramework?.name === 'nuxt3'
       ? './.nuxt/tsconfig.json'
-      : typescript
+      : isTypeScript
         ? './tsconfig.json'
         : './jsconfig.json')
 
@@ -219,16 +238,6 @@ export async function getTsConfigAliasPrefix(cwd: string, frameworkName: string,
 
   // Use the first alias as the prefix.
   return Object.keys(aliasPaths)?.[0]?.replace(/\/\*$/, '') ?? null
-}
-
-export async function isTypeScriptProject(cwd: string) {
-  const files = await glob('tsconfig.*', {
-    cwd,
-    deep: 1,
-    ignore: PROJECT_SHARED_IGNORE,
-  })
-
-  return files.length > 0
 }
 
 export async function getTsConfig(cwd: string) {

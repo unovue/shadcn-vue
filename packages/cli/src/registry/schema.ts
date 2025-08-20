@@ -162,7 +162,6 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     typescript: z.boolean().default(true),
-    tsConfigPath: z.string().default("./tsconfig.json").optional(),
     tailwind: z.object({
       config: z.string().optional(),
       css: z.string(),

@@ -297,7 +297,7 @@ export async function runInit(
     silent: options.silent,
     baseStyle: options.baseStyle,
     isNewProject:
-      options.isNewProject || projectInfo?.framework.name === 'nuxt',
+      options.isNewProject || projectInfo?.framework.name === 'nuxt4',
   })
 
   // If a new project is using src dir, let's update the tailwind content config.

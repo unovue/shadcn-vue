@@ -9,7 +9,7 @@ import {
   rawConfigSchema,
   workspaceConfigSchema,
 } from '@/src/schema'
-import { getProjectInfo } from '@/src/utils/get-project-info'
+import { detectFrameworkConfigFiles, getProjectInfo, isTypeScriptProject } from '@/src/utils/get-project-info'
 import { resolveImport } from '@/src/utils/resolve-import'
 import { highlighter } from './highlighter'
 
@@ -48,9 +48,18 @@ export async function resolveConfigPaths(
     ...(config.registries || {}),
   }
 
+  const detectedFramework = await detectFrameworkConfigFiles(cwd)
+  const isTypeScript = await isTypeScriptProject(cwd)
+
   const tsConfigPath = path.resolve(
     cwd,
-    config.tsConfigPath!,
+    detectedFramework?.name === 'nuxt4'
+      ? './.nuxt/tsconfig.app.json'
+      : detectedFramework?.name === 'nuxt3'
+        ? './.nuxt/tsconfig.json'
+        : isTypeScript
+          ? './tsconfig.json'
+          : './jsconfig.json',
   )
 
   // Read tsconfig.json.
@@ -80,20 +89,20 @@ export async function resolveConfigPaths(
             'ui',
           ),
       // TODO: Make this configurable.
-      // For now, we assume the lib and hooks directories are one level up from the components directory.
+      // For now, we assume the lib and composables directories are one level up from the components directory.
       lib: config.aliases.lib
         ? await resolveImport(config.aliases.lib, tsConfig)
         : path.resolve(
             (await resolveImport(config.aliases.utils, tsConfig)) ?? cwd,
             '..',
           ),
-      hooks: config.aliases.hooks
-        ? await resolveImport(config.aliases.hooks, tsConfig)
+      composables: config.aliases.composables
+        ? await resolveImport(config.aliases.composables, tsConfig)
         : path.resolve(
             (await resolveImport(config.aliases.components, tsConfig))
             ?? cwd,
             '..',
-            'hooks',
+            'composables',
           ),
     },
   })
@@ -107,12 +116,12 @@ export async function getRawConfig(
       name: 'components',
       configFile: 'components',
       cwd,
-      configFileRequired: true,
       dotenv: false,
       packageJson: false,
       rcFile: false,
       jitiOptions: {
-        moduleCache: false,
+        rebuildFsCache: true,
+        moduleCache: true,
       },
     })
 
@@ -141,7 +150,7 @@ export async function getRawConfig(
       throw error
     }
     throw new Error(
-      `Invalid configuration found in ${highlighter.info(componentPath)}.`,
+      `Invalid configuration found in ${highlighter.info(componentPath)}. ${error}`,
     )
   }
 }
