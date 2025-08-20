@@ -64,7 +64,7 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.48.4",
+    "@dotenvx/dotenvx": "^1.49.0",
     "@modelcontextprotocol/sdk": "^1.16.0",
     "@unovue/detypes": "^0.8.5",
     "@vue/compiler-sfc": "^3.5",
@@ -90,7 +90,7 @@
     "tinyexec": "^1.0.1",
     "tinyglobby": "catalog:",
     "ts-morph": "^26.0.0",
-    "undici": "^7.13.0",
+    "undici": "^7.14.0",
     "vue-metamorph": "^3.3.3",
     "zod": "catalog:",
     "zod-to-json-schema": "^3.24.6"
