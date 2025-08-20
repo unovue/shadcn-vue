@@ -21,6 +21,7 @@
     "@internationalized/date": "catalog:",
     "@radix-icons/vue": "^1.0.0",
     "@stackblitz/sdk": "^1.11.0",
+    "@tabler/icons-vue": "^1.0.0",
     "@tanstack/vue-table": "^8.21.3",
     "@unovis/ts": "^1.5.2",
     "@unovis/vue": "^1.5.2",

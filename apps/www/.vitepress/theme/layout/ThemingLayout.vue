@@ -83,7 +83,7 @@ watch(radius, (radius) => {
 
         <Popover>
           <PopoverTrigger as-child>
-            <Button size="sm">
+            <Button size="sm" class="max-md:hidden">
               Customize
             </Button>
           </PopoverTrigger>
