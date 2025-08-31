@@ -373,8 +373,8 @@ importers:
         specifier: ^1.49.0
         version: 1.49.0
       '@modelcontextprotocol/sdk':
-        specifier: ^1.16.0
-        version: 1.16.0
+        specifier: ^1.17.4
+        version: 1.17.4
       '@unovue/detypes':
         specifier: ^0.8.5
         version: 0.8.5
@@ -2015,8 +2015,8 @@ packages:
     resolution: {integrity: sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==}
     engines: {node: '>=6.0.0'}
 
-  '@modelcontextprotocol/sdk@1.16.0':
-    resolution: {integrity: sha512-8ofX7gkZcLj9H9rSd50mCgm3SSF8C7XoclxJuLoV0Cz3rEQ1tv9MZRYYvJtm9n1BiEQQMzSmE/w2AEkNacLYfg==}
+  '@modelcontextprotocol/sdk@1.17.4':
+    resolution: {integrity: sha512-zq24hfuAmmlNZvik0FLI58uE5sriN0WWsQzIlYnzSuKDAHFqJtBFrl/LfB1NLgJT5Y7dEBzaX4yAKqOPrcetaw==}
     engines: {node: '>=18'}
 
   '@mswjs/interceptors@0.39.6':
@@ -11729,7 +11729,7 @@ snapshots:
 
   '@mapbox/whoots-js@3.1.0': {}
 
-  '@modelcontextprotocol/sdk@1.16.0':
+  '@modelcontextprotocol/sdk@1.17.4':
     dependencies:
       ajv: 6.12.6
       content-type: 1.0.5
