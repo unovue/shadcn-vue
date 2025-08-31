@@ -7,11 +7,11 @@ import {
   nestSpreadProperties,
   transformTailwindConfig,
   unnestSpreadProperties,
-  unnsetSpreadElements,
+  unsetSpreadElements,
 } from '../../../src/utils/updaters/update-tailwind-config'
 
 const SHARED_CONFIG = {
-  $schema: 'https://shadcn-vue.com/schema.json',
+  $schema: 'https://ui.shadcn.com/schema.json',
   style: 'new-york',
   rsc: true,
   tsx: true,
@@ -1192,7 +1192,7 @@ describe('unnestSpreadElements', () => {
     if (!configObject)
       throw new Error('Config object not found')
 
-    unnsetSpreadElements(configObject)
+    unsetSpreadElements(configObject)
 
     const result = configObject.getText()
     expect(result.replace(/\s+/g, '')).toBe(expected.replace(/\s+/g, ''))

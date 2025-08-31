@@ -1,5 +1,5 @@
+import path from 'node:path'
 import { getTsconfig } from 'get-tsconfig'
-import path from 'pathe'
 import { expect, it } from 'vitest'
 import { resolveImport } from '../../src/utils/resolve-import'
 
