@@ -9,7 +9,7 @@ export const FRAMEWORKS = {
   },
   nuxt3: {
     name: 'nuxt3',
-    label: 'Nuxt',
+    label: 'Nuxt 3',
     links: {
       installation: 'https://shadcn-vue.com/docs/installation/nuxt',
       tailwind: 'https://tailwindcss.com/docs/guides/nuxtjs',
@@ -17,7 +17,7 @@ export const FRAMEWORKS = {
   },
   nuxt4: {
     name: 'nuxt4',
-    label: 'Nuxt',
+    label: 'Nuxt 4',
     links: {
       installation: 'https://shadcn-vue.com/docs/installation/nuxt',
       tailwind: 'https://tailwindcss.com/docs/guides/nuxtjs',
