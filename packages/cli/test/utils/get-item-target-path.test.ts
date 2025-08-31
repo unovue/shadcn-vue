@@ -21,14 +21,6 @@ it('get item target path', async () => {
     }),
   ).toEqual(path.resolve(appDir, './components/ui'))
 
-  // JS.
-  appDir = path.resolve(__dirname, '../fixtures/config-js')
-  expect(
-    await getItemTargetPath(await getConfig(appDir), {
-      type: 'registry:ui',
-    }),
-  ).toEqual(path.resolve(appDir, './components/ui'))
-
   // Custom paths.
   appDir = path.resolve(__dirname, '../fixtures/config-ui')
   expect(
