@@ -5,7 +5,7 @@ import { getRegistriesConfig } from '@/src/registry/api'
 
 const SHADCN_CLI_COMMAND = 'shadcn-vue'
 
-export async function npxShadcn(command: string) {
+export async function npxShadcnVue(command: string) {
   const packageRunner = await detectPackageManager(process.cwd())
 
   return `${packageRunner?.name} ${SHADCN_CLI_COMMAND} ${command}`
@@ -46,7 +46,7 @@ export function formatSearchResultsWithPagination(
     }
 
     parts.push(
-      `\n  Add command: \`${npxShadcn(`add ${item.addCommandArgument}`)}\``,
+      `\n  Add command: \`${npxShadcnVue(`add ${item.addCommandArgument}`)}\``,
     )
 
     return parts.join(' ')

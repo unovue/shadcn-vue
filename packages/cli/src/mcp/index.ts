@@ -14,12 +14,12 @@ import {
   formatRegistryItems,
   formatSearchResultsWithPagination,
   getMcpConfig,
-  npxShadcn,
+  npxShadcnVue,
 } from './utils'
 
 export const server = new Server(
   {
-    name: 'shadcn',
+    name: 'shadcnVue',
     version: '1.0.0',
   },
   {
@@ -124,7 +124,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       {
         name: 'get_add_command_for_items',
         description:
-          'Get the shadcn CLI add command for specific items in a registry. This is useful for adding one or more components to your project.',
+          'Get the shadcn-vue CLI add command for specific items in a registry. This is useful for adding one or more components to your project.',
         inputSchema: zodToJsonSchema(
           z.object({
             items: z
@@ -134,6 +134,12 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               ),
           }),
         ),
+      },
+      {
+        name: 'get_audit_checklist',
+        description:
+          'After creating new components or generating new code files, use this tool for a quick checklist to verify that everything is working as expected. Make sure to run the tool after all required steps have been completed.',
+        inputSchema: zodToJsonSchema(z.object({})),
       },
     ],
   }
@@ -175,11 +181,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                   .join('\n')}
 
                 You can view the items in a registry by running:
-                \`${await npxShadcn('view @name-of-registry')}\`
+                \`${await npxShadcnVue('view @name-of-registry')}\`
 
-                For example: \`${await npxShadcn(
+                For example: \`${await npxShadcnVue(
                   'view @shadcn',
-                )}\` or \`${await npxShadcn(
+                )}\` or \`${await npxShadcnVue(
                   'view @shadcn @acme',
                 )}\` to view multiple registries.
                 `,
@@ -374,7 +380,28 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           content: [
             {
               type: 'text',
-              text: await npxShadcn(`add ${args.items.join(' ')}`),
+              text: await npxShadcnVue(`add ${args.items.join(' ')}`),
+            },
+          ],
+        }
+      }
+
+      case 'get_audit_checklist': {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: dedent`## Component Audit Checklist
+
+              After adding or generating components, check the following common issues:
+
+              - [ ] Ensure imports are correct i.e named vs default imports
+              - [ ] If using next/image, ensure images.remotePatterns next.config.js is configured correctly.
+              - [ ] Ensure all dependencies are installed.
+              - [ ] Check for linting errors or warnings
+              - [ ] Check for TypeScript errors
+              - [ ] Use the Playwright MCP if available.
+              `,
             },
           ],
         }
