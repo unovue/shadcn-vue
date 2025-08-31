@@ -4,6 +4,7 @@ import type { Config } from '@/src/utils/get-config'
 import fs from 'fs-extra'
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
+import { coerce } from 'semver'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
 import { FRAMEWORKS } from '@/src/utils/frameworks'
@@ -48,8 +49,17 @@ export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework
 
   // Check for Nuxt
   if (configFiles.find(file => file.startsWith('nuxt.config.'))) {
-    const isUsingAppDir = await fs.pathExists(path.resolve(cwd, 'app'))
-    return isUsingAppDir ? FRAMEWORKS.nuxt4 : FRAMEWORKS.nuxt3
+    const nuxtPkg = packageInfo?.dependencies?.nuxt || packageInfo?.devDependencies?.nuxt
+    const nuxtVersion = (nuxtPkg && coerce(nuxtPkg)?.version) || '3.0.0'
+
+    if (nuxtVersion.startsWith('4')) {
+      return FRAMEWORKS.nuxt4
+    }
+    else if (nuxtVersion.startsWith('3')) {
+      return FRAMEWORKS.nuxt3
+    }
+
+    return null
   }
 
   // Check for Astro
