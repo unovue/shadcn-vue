@@ -200,6 +200,9 @@ importers:
       '@stackblitz/sdk':
         specifier: ^1.11.0
         version: 1.11.0
+      '@tabler/icons-vue':
+        specifier: ^3.34.1
+        version: 3.34.1(vue@3.5.18(typescript@5.8.3))
       '@tanstack/vue-table':
         specifier: ^8.21.3
         version: 8.21.3(vue@3.5.18(typescript@5.8.3))
@@ -2858,6 +2861,14 @@ packages:
 
   '@swc/helpers@0.5.13':
     resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
+
+  '@tabler/icons-vue@3.34.1':
+    resolution: {integrity: sha512-bUJHhZYnhSo7pNueHWn9z2Lx9F2GY54a6D4Fd6HP0n0G5h9fTeq4mYSV2Ptcxr/gMetx7IC1PF5SA+tOhAdZmA==}
+    peerDependencies:
+      vue: '>=3.0.1'
+
+  '@tabler/icons@3.34.1':
+    resolution: {integrity: sha512-9gTnUvd7Fd/DmQgr3MKY+oJLa1RfNsQo8c/ir3TJAWghOuZXodbtbVp0QBY2DxWuuvrSZFys0HEbv1CoiI5y6A==}
 
   '@tailwindcss/node@4.1.7':
     resolution: {integrity: sha512-9rsOpdY9idRI2NH6CL4wORFY0+Q6fnx9XP9Ju+iq/0wJwGD5IByIgFmwVbyy4ymuyprj8Qh4ErxMKTUL4uNh3g==}
@@ -12520,6 +12531,13 @@ snapshots:
   '@swc/helpers@0.5.13':
     dependencies:
       tslib: 2.8.1
+
+  '@tabler/icons-vue@3.34.1(vue@3.5.18(typescript@5.8.3))':
+    dependencies:
+      '@tabler/icons': 3.34.1
+      vue: 3.5.18(typescript@5.8.3)
+
+  '@tabler/icons@3.34.1': {}
 
   '@tailwindcss/node@4.1.7':
     dependencies:
