@@ -415,7 +415,7 @@ export function resolvePageTarget(
     return ''
   }
 
-  if (framework === 'nuxt') {
+  if (framework === 'nuxt3' || framework === 'nuxt4') {
     return target
   }
 
