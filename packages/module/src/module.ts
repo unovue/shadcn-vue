@@ -18,11 +18,6 @@ export interface ModuleOptions {
    * @default "@/components/ui"
    */
   componentDir?: string
-  /**
-   * Whether to enable auto-importing of components from the components directory.
-   * @default true
-   */
-  autoImport?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -33,9 +28,8 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     prefix: 'Ui',
     componentDir: '@/components/ui',
-    autoImport: true,
   },
-  async setup({ prefix, componentDir, autoImport }, nuxt) {
+  async setup({ prefix, componentDir }, nuxt) {
     const COMPONENT_DIR_PATH = componentDir!
     const ROOT_DIR_PATH = nuxt.options.rootDir
     const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
@@ -58,42 +52,40 @@ export default defineNuxtModule<ModuleOptions>({
       })
     })
 
-    if (autoImport) {
-      // Manually scan `componentsDir` for components and register them for auto imports
-      try {
-        await Promise.all(readdirSync(componentsPath).map(async (dir) => {
-          try {
-            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
-            const content = readFileSync(filePath, { encoding: 'utf8' })
-            const ast = parseSync(filePath, content, {
-              sourceType: 'module',
-            })
+    // Manually scan `componentsDir` for components and register them for auto imports
+    try {
+      await Promise.all(readdirSync(componentsPath).map(async (dir) => {
+        try {
+          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+          const content = readFileSync(filePath, { encoding: 'utf8' })
+          const ast = parseSync(filePath, content, {
+            sourceType: 'module',
+          })
 
-            const exportedKeys: string[] = ast.program.body
-              .filter(node => node.type === 'ExportNamedDeclaration')
-              // @ts-expect-error parse return any
-              .flatMap(node => node.specifiers?.map(specifier => specifier.exported?.name) || [])
-              .filter((key: string) => /^[A-Z]/.test(key))
+          const exportedKeys: string[] = ast.program.body
+            .filter(node => node.type === 'ExportNamedDeclaration')
+          // @ts-expect-error parse return any
+            .flatMap(node => node.specifiers?.map(specifier => specifier.exported?.name) || [])
+            .filter((key: string) => /^[A-Z]/.test(key))
 
-            exportedKeys.forEach((key) => {
-              addComponent({
-                name: `${prefix}${key}`, // name of the component to be used in vue templates
-                export: key, // (optional) if the component is a named (rather than default) export
-                filePath: resolve(filePath),
-                priority: 1,
-              })
+          exportedKeys.forEach((key) => {
+            addComponent({
+              name: `${prefix}${key}`, // name of the component to be used in vue templates
+              export: key, // (optional) if the component is a named (rather than default) export
+              filePath: resolve(filePath),
+              priority: 1,
             })
-          }
-          catch (err) {
-            if (err instanceof Error)
-              console.warn('Module error: ', err.message)
-          }
-        }))
-      }
-      catch (err) {
-        if (err instanceof Error)
-          console.warn(err.message)
-      }
+          })
+        }
+        catch (err) {
+          if (err instanceof Error)
+            console.warn('Module error: ', err.message)
+        }
+      }))
+    }
+    catch (err) {
+      if (err instanceof Error)
+        console.warn(err.message)
     }
   },
 })

@@ -87,22 +87,15 @@ import {
 
 export interface ShadcnVueOptions {
   /**
-   * Prefix for all the imported component.
-   * @default "Ui"
+   * Prefix for all the imported component
    */
-  prefix?: string
+  prefix: string;
+
   /**
    * Directory that the component lives in.
-   * Will respect the Nuxt aliases.
-   * @link https://nuxt.com/docs/api/nuxt-config#alias
-   * @default "@/components/ui"
+   * @default "~/components/ui"
    */
-  componentDir?: string
-  /**
-   * Whether to enable auto-importing of components from the components directory.
-   * @default true
-   */
-  autoImport?: boolean
+  componentDir: string;
 }
 
 export default defineNuxtModule<ShadcnVueOptions>({
