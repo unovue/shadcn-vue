@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ChevronRight, type LucideIcon } from 'lucide-vue-next'
+import type { LucideIcon } from "lucide-vue-next"
+import { ChevronRight } from "lucide-vue-next"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/registry/new-york-v4/ui/collapsible'
+} from "@/registry/new-york-v4/ui/collapsible"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -14,7 +15,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 defineProps<{
   items: {

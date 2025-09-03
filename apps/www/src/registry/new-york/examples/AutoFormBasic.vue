@@ -1,44 +1,44 @@
 <script setup lang="ts">
-import { h } from 'vue'
-import * as z from 'zod'
-import { AutoForm, AutoFormField } from '@/registry/new-york/ui/auto-form'
-import { Button } from '@/registry/new-york/ui/button'
-import { toast } from '@/registry/new-york/ui/toast'
+import { h } from "vue"
+import * as z from "zod"
+import { AutoForm, AutoFormField } from "@/registry/new-york/ui/auto-form"
+import { Button } from "@/registry/new-york/ui/button"
+import { toast } from "@/registry/new-york/ui/toast"
 
 enum Sports {
-  Football = 'Football/Soccer',
-  Basketball = 'Basketball',
-  Baseball = 'Baseball',
-  Hockey = 'Hockey (Ice)',
-  None = 'I don\'t like sports',
+  Football = "Football/Soccer",
+  Basketball = "Basketball",
+  Baseball = "Baseball",
+  Hockey = "Hockey (Ice)",
+  None = "I don't like sports",
 }
 
 const schema = z.object({
   username: z
     .string({
-      required_error: 'Username is required.',
+      required_error: "Username is required.",
     })
     .min(2, {
-      message: 'Username must be at least 2 characters.',
+      message: "Username must be at least 2 characters.",
     }),
 
   password: z
     .string({
-      required_error: 'Password is required.',
+      required_error: "Password is required.",
     })
     .min(8, {
-      message: 'Password must be at least 8 characters.',
+      message: "Password must be at least 8 characters.",
     }),
 
   favouriteNumber: z.coerce
     .number({
-      invalid_type_error: 'Favourite number must be a number.',
+      invalid_type_error: "Favourite number must be a number.",
     })
     .min(1, {
-      message: 'Favourite number must be at least 1.',
+      message: "Favourite number must be at least 1.",
     })
     .max(10, {
-      message: 'Favourite number must be at most 10.',
+      message: "Favourite number must be at most 10.",
     })
     .default(1)
     .optional(),
@@ -46,30 +46,30 @@ const schema = z.object({
   acceptTerms: z
     .boolean()
     .refine(value => value, {
-      message: 'You must accept the terms and conditions.',
-      path: ['acceptTerms'],
+      message: "You must accept the terms and conditions.",
+      path: ["acceptTerms"],
     }),
 
   sendMeMails: z.boolean().optional(),
 
   birthday: z.coerce.date().optional(),
 
-  color: z.enum(['red', 'green', 'blue']).optional(),
+  color: z.enum(["red", "green", "blue"]).optional(),
 
   // Another enum example
   marshmallows: z
-    .enum(['not many', 'a few', 'a lot', 'too many']),
+    .enum(["not many", "a few", "a lot", "too many"]),
 
   // Native enum example
-  sports: z.nativeEnum(Sports).describe('What is your favourite sport?'),
+  sports: z.nativeEnum(Sports).describe("What is your favourite sport?"),
 
   bio: z
     .string()
     .min(10, {
-      message: 'Bio must be at least 10 characters.',
+      message: "Bio must be at least 10 characters.",
     })
     .max(160, {
-      message: 'Bio must not be longer than 30 characters.',
+      message: "Bio must not be longer than 30 characters.",
     })
     .optional(),
 
@@ -80,8 +80,8 @@ const schema = z.object({
 
 function onSubmit(values: Record<string, any>) {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 }
 </script>

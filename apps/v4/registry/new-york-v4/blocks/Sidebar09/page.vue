@@ -1,10 +1,10 @@
 <script lang="ts">
-export const description = 'Collapsible nested sidebars.'
-export const iframeHeight = '800px'
+export const description = "Collapsible nested sidebars."
+export const iframeHeight = "800px"
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar09/components/AppSidebar.vue'
+import AppSidebar from "@/registry/new-york-v4/blocks/Sidebar09/components/AppSidebar.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,13 +12,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york-v4/ui/breadcrumb'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
+} from "@/registry/new-york-v4/ui/breadcrumb"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

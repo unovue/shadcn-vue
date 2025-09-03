@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
+import { toTypedSchema } from "@vee-validate/zod"
+import { useForm } from "vee-validate"
+import { h } from "vue"
+import * as z from "zod"
 
-import { Button } from '@/registry/default/ui/button'
+import { Button } from "@/registry/default/ui/button"
 import {
   FormControl,
   FormDescription,
@@ -12,18 +12,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/default/ui/form'
+} from "@/registry/default/ui/form"
 import {
   NumberField,
   NumberFieldContent,
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@/registry/default/ui/number-field'
-import { toast } from '@/registry/default/ui/toast'
+} from "@/registry/default/ui/number-field"
+import { toast } from "@/registry/default/ui/toast"
 
 const formSchema = toTypedSchema(z.object({
-  payment: z.number().min(10, 'Min 10 euros to send payment').max(5000, 'Max 5000 euros to send payment'),
+  payment: z.number().min(10, "Min 10 euros to send payment").max(5000, "Max 5000 euros to send payment"),
 }))
 
 const { handleSubmit, setFieldValue } = useForm({
@@ -35,8 +35,8 @@ const { handleSubmit, setFieldValue } = useForm({
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

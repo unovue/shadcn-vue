@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
-import { Separator } from '@/registry/default/ui/separator'
+import type { HTMLAttributes } from "vue"
+import { cn } from "@/lib/utils"
+import { Separator } from "@/registry/default/ui/separator"
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 </script>
 

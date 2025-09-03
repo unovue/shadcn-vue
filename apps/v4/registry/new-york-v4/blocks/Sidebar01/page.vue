@@ -1,11 +1,11 @@
 <script lang="ts">
-export const iframeHeight = '800px'
+export const iframeHeight = "800px"
 export const description
-  = 'A simple sidebar with navigation grouped by section.'
+  = "A simple sidebar with navigation grouped by section."
 </script>
 
 <script setup lang="ts">
-import AppSidebar from '@/registry/new-york-v4/blocks/Sidebar01/components/AppSidebar.vue'
+import AppSidebar from "@/registry/new-york-v4/blocks/Sidebar01/components/AppSidebar.vue"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,13 +13,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york-v4/ui/breadcrumb'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
+} from "@/registry/new-york-v4/ui/breadcrumb"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

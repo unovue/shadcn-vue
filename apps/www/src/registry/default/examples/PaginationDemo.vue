@@ -6,7 +6,7 @@ import {
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from '@/registry/default/ui/pagination'
+} from "@/registry/default/ui/pagination"
 </script>
 
 <template>

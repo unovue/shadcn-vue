@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/registry/new-york-v4/lib/utils'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import type { HTMLAttributes } from "vue"
+import { cn } from "@/registry/new-york-v4/lib/utils"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
-import { Input } from '@/registry/new-york-v4/ui/input'
-import { Label } from '@/registry/new-york-v4/ui/label'
+} from "@/registry/new-york-v4/ui/card"
+import { Input } from "@/registry/new-york-v4/ui/input"
+import { Label } from "@/registry/new-york-v4/ui/label"
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 </script>
 

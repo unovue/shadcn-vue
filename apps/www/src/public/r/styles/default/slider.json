@@ -8,14 +8,14 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/slider/Slider.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { SliderRootEmits, SliderRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<SliderRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<SliderRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SliderRoot\n    :class=\"cn(\n      'relative flex w-full touch-none select-none items-center data-[orientation=vertical]:flex-col data-[orientation=vertical]:w-2 data-[orientation=vertical]:h-full',\n      props.class,\n    )\"\n    v-bind=\"forwarded\"\n  >\n    <SliderTrack class=\"relative h-2 w-full data-[orientation=vertical]:w-2 grow overflow-hidden rounded-full bg-secondary\">\n      <SliderRange class=\"absolute h-full data-[orientation=vertical]:w-full bg-primary\" />\n    </SliderTrack>\n    <SliderThumb\n      v-for=\"(_, key) in modelValue\"\n      :key=\"key\"\n      class=\"block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50\"\n    />\n  </SliderRoot>\n</template>\n",
+      "path": "ui/slider/index.ts",
+      "content": "export { default as Slider } from \"./Slider.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/slider/index.ts",
-      "content": "export { default as Slider } from './Slider.vue'\n",
+      "path": "ui/slider/Slider.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport type { SliderRootEmits, SliderRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<SliderRootProps & { class?: HTMLAttributes[\"class\"] }>()\r\nconst emits = defineEmits<SliderRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <SliderRoot\r\n    :class=\"cn(\r\n      'relative flex w-full touch-none select-none items-center data-[orientation=vertical]:flex-col data-[orientation=vertical]:w-2 data-[orientation=vertical]:h-full',\r\n      props.class,\r\n    )\"\r\n    v-bind=\"forwarded\"\r\n  >\r\n    <SliderTrack class=\"relative h-2 w-full data-[orientation=vertical]:w-2 grow overflow-hidden rounded-full bg-secondary\">\r\n      <SliderRange class=\"absolute h-full data-[orientation=vertical]:w-full bg-primary\" />\r\n    </SliderTrack>\r\n    <SliderThumb\r\n      v-for=\"(_, key) in modelValue\"\r\n      :key=\"key\"\r\n      class=\"block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50\"\r\n    />\r\n  </SliderRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }

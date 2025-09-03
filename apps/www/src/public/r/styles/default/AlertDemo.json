@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/AlertDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Terminal } from 'lucide-vue-next'\nimport { Alert, AlertDescription, AlertTitle } from '@/registry/default/ui/alert'\n</script>\n\n<template>\n  <Alert>\n    <Terminal class=\"h-4 w-4\" />\n    <AlertTitle>Heads up!</AlertTitle>\n    <AlertDescription>\n      You can add components to your app using the cli.\n    </AlertDescription>\n  </Alert>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { Terminal } from \"lucide-vue-next\"\r\nimport { Alert, AlertDescription, AlertTitle } from \"@/registry/default/ui/alert\"\r\n</script>\r\n\r\n<template>\r\n  <Alert>\r\n    <Terminal class=\"h-4 w-4\" />\r\n    <AlertTitle>Heads up!</AlertTitle>\r\n    <AlertDescription>\r\n      You can add components to your app using the cli.\r\n    </AlertDescription>\r\n  </Alert>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

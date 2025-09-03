@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/ScrollAreaDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ScrollArea } from '@/registry/default/ui/scroll-area'\nimport { Separator } from '@/registry/default/ui/separator'\n\nconst tags = Array.from({ length: 50 }).map(\n  (_, i, a) => `v1.2.0-beta.${a.length - i}`,\n)\n</script>\n\n<template>\n  <ScrollArea class=\"h-72 w-48 rounded-md border\">\n    <div class=\"p-4\">\n      <h4 class=\"mb-4 text-sm font-medium leading-none\">\n        Tags\n      </h4>\n\n      <div v-for=\"tag in tags\" :key=\"tag\">\n        <div class=\"text-sm\">\n          {{ tag }}\n        </div>\n        <Separator class=\"my-2\" />\n      </div>\n    </div>\n  </ScrollArea>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { ScrollArea } from \"@/registry/default/ui/scroll-area\"\r\nimport { Separator } from \"@/registry/default/ui/separator\"\r\n\r\nconst tags = Array.from({ length: 50 }).map(\r\n  (_, i, a) => `v1.2.0-beta.${a.length - i}`,\r\n)\r\n</script>\r\n\r\n<template>\r\n  <ScrollArea class=\"h-72 w-48 rounded-md border\">\r\n    <div class=\"p-4\">\r\n      <h4 class=\"mb-4 text-sm font-medium leading-none\">\r\n        Tags\r\n      </h4>\r\n\r\n      <div v-for=\"tag in tags\" :key=\"tag\">\r\n        <div class=\"text-sm\">\r\n          {{ tag }}\r\n        </div>\r\n        <Separator class=\"my-2\" />\r\n      </div>\r\n    </div>\r\n  </ScrollArea>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

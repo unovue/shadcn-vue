@@ -54,35 +54,34 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Manually scan `componentsDir` for components and register them for auto imports
     try {
-      readdirSync(componentsPath)
-        .forEach(async (dir) => {
-          try {
-            const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
-            const content = readFileSync(filePath, { encoding: 'utf8' })
-            const ast = parseSync(filePath, content, {
-              sourceType: 'module',
-            })
+      await Promise.all(readdirSync(componentsPath).map(async (dir) => {
+        try {
+          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+          const content = readFileSync(filePath, { encoding: 'utf8' })
+          const ast = parseSync(filePath, content, {
+            sourceType: 'module',
+          })
 
-            const exportedKeys: string[] = ast.program.body
-              .filter(node => node.type === 'ExportNamedDeclaration')
-              // @ts-expect-error parse return any
-              .flatMap(node => node.specifiers?.map(specifier => specifier.exported?.name) || [])
-              .filter((key: string) => /^[A-Z]/.test(key))
+          const exportedKeys: string[] = ast.program.body
+            .filter(node => node.type === 'ExportNamedDeclaration')
+          // @ts-expect-error parse return any
+            .flatMap(node => node.specifiers?.map(specifier => specifier.exported?.name) || [])
+            .filter((key: string) => /^[A-Z]/.test(key))
 
-            exportedKeys.forEach((key) => {
-              addComponent({
-                name: `${prefix}${key}`, // name of the component to be used in vue templates
-                export: key, // (optional) if the component is a named (rather than default) export
-                filePath: resolve(filePath),
-                priority: 1,
-              })
+          exportedKeys.forEach((key) => {
+            addComponent({
+              name: `${prefix}${key}`, // name of the component to be used in vue templates
+              export: key, // (optional) if the component is a named (rather than default) export
+              filePath: resolve(filePath),
+              priority: 1,
             })
-          }
-          catch (err) {
-            if (err instanceof Error)
-              console.warn('Module error: ', err.message)
-          }
-        })
+          })
+        }
+        catch (err) {
+          if (err instanceof Error)
+            console.warn('Module error: ', err.message)
+        }
+      }))
     }
     catch (err) {
       if (err instanceof Error)

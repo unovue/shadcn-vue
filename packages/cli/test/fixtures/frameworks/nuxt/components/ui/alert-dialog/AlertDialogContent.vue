@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import type { AlertDialogContentEmits, AlertDialogContentProps } from 'reka-ui'
 import {
   AlertDialogContent,
-  type AlertDialogContentEmits,
-  type AlertDialogContentProps,
+
   AlertDialogOverlay,
   AlertDialogPortal,
 } from 'reka-ui'

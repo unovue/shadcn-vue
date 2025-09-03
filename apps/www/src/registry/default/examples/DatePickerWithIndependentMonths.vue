@@ -1,26 +1,30 @@
 <script setup lang="ts">
+import type { DateValue } from "@internationalized/date"
+import type { DateRange } from "reka-ui"
+
+import type { Grid } from "reka-ui/date"
+import type { Ref } from "vue"
 import {
   CalendarDate,
-  type DateValue,
+
   isEqualMonth,
-} from '@internationalized/date'
+} from "@internationalized/date"
 
 import {
   Calendar as CalendarIcon,
   ChevronLeft,
   ChevronRight,
-} from 'lucide-vue-next'
-import { type DateRange, RangeCalendarRoot, useDateFormatter } from 'reka-ui'
-
-import { createMonth, type Grid, toDate } from 'reka-ui/date'
-import { type Ref, ref, watch } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button, buttonVariants } from '@/registry/default/ui/button'
+} from "lucide-vue-next"
+import { RangeCalendarRoot, useDateFormatter } from "reka-ui"
+import { createMonth, toDate } from "reka-ui/date"
+import { ref, watch } from "vue"
+import { cn } from "@/lib/utils"
+import { Button, buttonVariants } from "@/registry/default/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/default/ui/popover'
+} from "@/registry/default/ui/popover"
 import {
   RangeCalendarCell,
   RangeCalendarCellTrigger,
@@ -29,14 +33,14 @@ import {
   RangeCalendarGridHead,
   RangeCalendarGridRow,
   RangeCalendarHeadCell,
-} from '@/registry/default/ui/range-calendar'
+} from "@/registry/default/ui/range-calendar"
 
 const value = ref({
   start: new CalendarDate(2022, 1, 20),
   end: new CalendarDate(2022, 1, 20).add({ days: 20 }),
 }) as Ref<DateRange>
 
-const locale = ref('en-US')
+const locale = ref("en-US")
 const formatter = useDateFormatter(locale.value)
 
 const placeholder = ref(value.value.start) as Ref<DateValue>
@@ -59,8 +63,8 @@ const secondMonth = ref(
   }),
 ) as Ref<Grid<DateValue>>
 
-function updateMonth(reference: 'first' | 'second', months: number) {
-  if (reference === 'first') {
+function updateMonth(reference: "first" | "second", months: number) {
+  if (reference === "first") {
     placeholder.value = placeholder.value.add({ months })
   }
   else {

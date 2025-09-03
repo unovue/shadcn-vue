@@ -1,43 +1,43 @@
 <script setup lang="ts">
-import { DonutChart } from '@/registry/new-york/ui/chart-donut'
+import { DonutChart } from "@/registry/new-york/ui/chart-donut"
 
 const data = [
   {
-    name: 'Jan',
+    name: "Jan",
     total: Math.floor(Math.random() * 2000) + 500,
     predicted: Math.floor(Math.random() * 2000) + 500,
   },
   {
-    name: 'Feb',
+    name: "Feb",
     total: Math.floor(Math.random() * 2000) + 500,
     predicted: Math.floor(Math.random() * 2000) + 500,
   },
   {
-    name: 'Mar',
+    name: "Mar",
     total: Math.floor(Math.random() * 2000) + 500,
     predicted: Math.floor(Math.random() * 2000) + 500,
   },
   {
-    name: 'Apr',
+    name: "Apr",
     total: Math.floor(Math.random() * 2000) + 500,
     predicted: Math.floor(Math.random() * 2000) + 500,
   },
   {
-    name: 'May',
+    name: "May",
     total: Math.floor(Math.random() * 2000) + 500,
     predicted: Math.floor(Math.random() * 2000) + 500,
   },
   {
-    name: 'Jun',
+    name: "Jun",
     total: Math.floor(Math.random() * 2000) + 500,
     predicted: Math.floor(Math.random() * 2000) + 500,
   },
 ]
 
 function valueFormatter(tick: number | Date) {
-  return typeof tick === 'number'
-    ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
-    : ''
+  return typeof tick === "number"
+    ? `$ ${new Intl.NumberFormat("us").format(tick).toString()}`
+    : ""
 }
 </script>
 

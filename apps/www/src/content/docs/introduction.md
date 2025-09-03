@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Re-usable components built with Radix Vue, and Tailwind CSS.
+description: Re-usable components built with Reka UI, and Tailwind CSS.
 ---
 
 <script setup>

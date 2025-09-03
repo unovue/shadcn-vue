@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Label } from '@/registry/new-york/ui/label'
-import { Switch } from '@/registry/new-york/ui/switch'
+import { Label } from "@/registry/new-york/ui/label"
+import { Switch } from "@/registry/new-york/ui/switch"
 </script>
 
 <template>

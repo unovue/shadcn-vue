@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { useMediaQuery } from '@vueuse/core'
+import type { LucideIcon } from "lucide-vue-next"
 
-import { type LucideIcon, MoreHorizontal } from 'lucide-vue-next'
+import { useMediaQuery } from "@vueuse/core"
+import { MoreHorizontal } from "lucide-vue-next"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from "@/registry/new-york-v4/ui/dropdown-menu"
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 defineProps<{
   items: {
@@ -28,7 +29,7 @@ defineProps<{
   }[]
 }>()
 
-const isMobile = useMediaQuery('(max-width: 768px)')
+const isMobile = useMediaQuery("(max-width: 768px)")
 </script>
 
 <template>

@@ -1,12 +1,13 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
-import type { BulletLegendItemInterface } from '@unovis/ts'
-import type { BaseChartProps } from '.'
-import { Axis, GroupedBar, StackedBar } from '@unovis/ts'
-import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { useMounted } from '@vueuse/core'
-import { type Component, computed, ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { ChartCrosshair, ChartLegend, defaultColors } from '@/registry/new-york/ui/chart'
+import type { BulletLegendItemInterface } from "@unovis/ts"
+import type { Component } from "vue"
+import type { BaseChartProps } from "."
+import { Axis, GroupedBar, StackedBar } from "@unovis/ts"
+import { VisAxis, VisGroupedBar, VisStackedBar, VisXYContainer } from "@unovis/vue"
+import { useMounted } from "@vueuse/core"
+import { computed, ref } from "vue"
+import { cn } from "@/lib/utils"
+import { ChartCrosshair, ChartLegend, defaultColors } from "@/registry/new-york/ui/chart"
 
 const props = withDefaults(defineProps<BaseChartProps<T> & {
   /**
@@ -17,14 +18,14 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
    * Change the type of the chart
    * @default "grouped"
    */
-  type?: 'stacked' | 'grouped'
+  type?: "stacked" | "grouped"
   /**
    * Rounded bar corners
    * @default 0
    */
   roundedCorners?: number
 }>(), {
-  type: 'grouped',
+  type: "grouped",
   margin: () => ({ top: 0, bottom: 0, left: 0, right: 0 }),
   filterOpacity: 0.2,
   roundedCorners: 0,
@@ -52,11 +53,11 @@ const legendItems = ref<BulletLegendItemInterface[]>(props.categories.map((categ
 const isMounted = useMounted()
 
 function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
-  emits('legendItemClick', d, i)
+  emits("legendItemClick", d, i)
 }
 
-const VisBarComponent = computed(() => props.type === 'grouped' ? VisGroupedBar : VisStackedBar)
-const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.selectors.bar : StackedBar.selectors.bar)
+const VisBarComponent = computed(() => props.type === "grouped" ? VisGroupedBar : VisStackedBar)
+const selectorsBar = computed(() => props.type === "grouped" ? GroupedBar.selectors.bar : StackedBar.selectors.bar)
 </script>
 
 <template>

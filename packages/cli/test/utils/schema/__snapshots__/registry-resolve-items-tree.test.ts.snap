@@ -16,17 +16,18 @@ exports[`registryResolveItemTree > should resolve index 1`] = `
     "lucide-vue-next",
     "clsx",
     "tailwind-merge",
-    "@vueuse/core",
     "reka-ui",
+    "@vueuse/core",
   ],
   "devDependencies": [],
   "docs": "",
   "files": [
     {
-      "content": "import type { Updater } from '@tanstack/vue-table'
-import type { Ref } from 'vue'
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+      "content": "import type { Updater } from "@tanstack/vue-table"
+import type { ClassValue } from "clsx"
+import type { Ref } from "vue"
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -34,7 +35,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value
-    = typeof updaterOrValue === 'function'
+    = typeof updaterOrValue === "function"
       ? updaterOrValue(ref.value)
       : updaterOrValue
 }
@@ -44,15 +45,23 @@ export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref
       "type": "registry:lib",
     },
     {
+      "content": "export { default as Label } from "./Label.vue"
+",
+      "path": "ui/label/index.ts",
+      "target": "",
+      "type": "registry:ui",
+    },
+    {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { Label, type LabelProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { LabelProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { Label } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<LabelProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 </script>
 
 <template>
@@ -70,13 +79,6 @@ const delegatedProps = reactiveOmit(props, 'class')
 </template>
 ",
       "path": "ui/label/Label.vue",
-      "target": "",
-      "type": "registry:ui",
-    },
-    {
-      "content": "export { default as Label } from './Label.vue'
-",
-      "path": "ui/label/index.ts",
       "target": "",
       "type": "registry:ui",
     },
@@ -113,19 +115,21 @@ exports[`registryResolveItemTree > should resolve items tree 1`] = `
   "files": [
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { Primitive, type PrimitiveProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
-import { type ButtonVariants, buttonVariants } from '.'
+import type { PrimitiveProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import type { ButtonVariants } from "."
+import { Primitive } from "reka-ui"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "."
 
 interface Props extends PrimitiveProps {
-  variant?: ButtonVariants['variant']
-  size?: ButtonVariants['size']
-  class?: HTMLAttributes['class']
+  variant?: ButtonVariants["variant"]
+  size?: ButtonVariants["size"]
+  class?: HTMLAttributes["class"]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  as: 'button',
+  as: "button",
 })
 </script>
 
@@ -144,36 +148,37 @@ const props = withDefaults(defineProps<Props>(), {
       "type": "registry:ui",
     },
     {
-      "content": "import { cva, type VariantProps } from 'class-variance-authority'
+      "content": "import type { VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
 
-export { default as Button } from './Button.vue'
+export { default as Button } from "./Button.vue"
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive:
-          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
-          'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: 'h-9 px-4 py-2',
-        xs: 'h-7 rounded px-2',
-        sm: 'h-8 rounded-md px-3 text-xs',
-        lg: 'h-10 rounded-md px-8',
-        icon: 'h-9 w-9',
+        default: "h-9 px-4 py-2",
+        xs: "h-7 rounded px-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
       },
     },
     defaultVariants: {
-      variant: 'default',
-      size: 'default',
+      variant: "default",
+      size: "default",
     },
   },
 )
@@ -206,19 +211,21 @@ exports[`registryResolveItemTree > should resolve multiple items tree 1`] = `
   "files": [
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { Primitive, type PrimitiveProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
-import { type ButtonVariants, buttonVariants } from '.'
+import type { PrimitiveProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import type { ButtonVariants } from "."
+import { Primitive } from "reka-ui"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "."
 
 interface Props extends PrimitiveProps {
-  variant?: ButtonVariants['variant']
-  size?: ButtonVariants['size']
-  class?: HTMLAttributes['class']
+  variant?: ButtonVariants["variant"]
+  size?: ButtonVariants["size"]
+  class?: HTMLAttributes["class"]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  as: 'button',
+  as: "button",
 })
 </script>
 
@@ -237,36 +244,36 @@ const props = withDefaults(defineProps<Props>(), {
       "type": "registry:ui",
     },
     {
-      "content": "import type { VariantProps } from 'class-variance-authority'
-import { cva } from 'class-variance-authority'
+      "content": "import type { VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
 
-export { default as Button } from './Button.vue'
+export { default as Button } from "./Button.vue"
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10',
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {
-      variant: 'default',
-      size: 'default',
+      variant: "default",
+      size: "default",
     },
   },
 )
@@ -278,22 +285,29 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>
       "type": "registry:ui",
     },
     {
+      "content": "export { default as Input } from "./Input.vue"
+",
+      "path": "ui/input/index.ts",
+      "target": "",
+      "type": "registry:ui",
+    },
+    {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { useVModel } from '@vueuse/core'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from "vue"
+import { useVModel } from "@vueuse/core"
+import { cn } from "@/lib/utils"
 
 const props = defineProps<{
   defaultValue?: string | number
   modelValue?: string | number
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 
 const emits = defineEmits<{
-  (e: 'update:modelValue', payload: string | number): void
+  (e: "update:modelValue", payload: string | number): void
 }>()
 
-const modelValue = useVModel(props, 'modelValue', emits, {
+const modelValue = useVModel(props, "modelValue", emits, {
   passive: true,
   defaultValue: props.defaultValue,
 })
@@ -308,37 +322,31 @@ const modelValue = useVModel(props, 'modelValue', emits, {
       "type": "registry:ui",
     },
     {
-      "content": "export { default as Input } from './Input.vue'
-",
-      "path": "ui/input/index.ts",
-      "target": "",
-      "type": "registry:ui",
-    },
-    {
       "content": "<script setup lang="ts">
-import type { ListboxRootEmits, ListboxRootProps } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { ListboxRoot, useFilter, useForwardPropsEmits } from 'reka-ui'
-import { type HTMLAttributes, reactive, ref, watch } from 'vue'
-import { cn } from '@/lib/utils'
-import { provideCommandContext } from '.'
+import type { ListboxRootEmits, ListboxRootProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { ListboxRoot, useFilter, useForwardPropsEmits } from "reka-ui"
+import { reactive, ref, watch } from "vue"
+import { cn } from "@/lib/utils"
+import { provideCommandContext } from "."
 
-const props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttributes['class'] }>(), {
-  modelValue: '',
+const props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttributes["class"] }>(), {
+  modelValue: "",
 })
 
 const emits = defineEmits<ListboxRootEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 const allItems = ref<Map<string, string>>(new Map())
 const allGroups = ref<Map<string, Set<string>>>(new Map())
 
-const { contains } = useFilter({ sensitivity: 'base' })
+const { contains } = useFilter({ sensitivity: "base" })
 const filterState = reactive({
-  search: '',
+  search: "",
   filtered: {
     /** The count of all visible items. */
     count: 0,
@@ -382,7 +390,7 @@ function filterItems() {
 }
 
 function handleSelect() {
-  filterState.search = ''
+  filterState.search = ""
 }
 
 watch(() => filterState.search, () => {
@@ -411,10 +419,10 @@ provideCommandContext({
     },
     {
       "content": "<script setup lang="ts">
-import type { DialogRootEmits, DialogRootProps } from 'reka-ui'
-import { useForwardPropsEmits } from 'reka-ui'
-import { Dialog, DialogContent } from '@/registry/default/ui/dialog'
-import Command from './Command.vue'
+import type { DialogRootEmits, DialogRootProps } from "reka-ui"
+import { useForwardPropsEmits } from "reka-ui"
+import { Dialog, DialogContent } from "@/registry/default/ui/dialog"
+import Command from "./Command.vue"
 
 const props = defineProps<DialogRootProps>()
 const emits = defineEmits<DialogRootEmits>()
@@ -438,16 +446,17 @@ const forwarded = useForwardPropsEmits(props, emits)
     },
     {
       "content": "<script setup lang="ts">
-import type { PrimitiveProps } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { Primitive } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
-import { useCommand } from '.'
+import type { PrimitiveProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { Primitive } from "reka-ui"
+import { computed } from "vue"
+import { cn } from "@/lib/utils"
+import { useCommand } from "."
 
-const props = defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<PrimitiveProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const { filterState } = useCommand()
 const isRender = computed(() => !!filterState.search && filterState.filtered.count === 0,
@@ -466,19 +475,20 @@ const isRender = computed(() => !!filterState.search && filterState.filtered.cou
     },
     {
       "content": "<script setup lang="ts">
-import type { ListboxGroupProps } from 'reka-ui'
-import { reactiveOmit } from '@vueuse/core'
-import { ListboxGroup, ListboxGroupLabel, useId } from 'reka-ui'
-import { computed, type HTMLAttributes, onMounted, onUnmounted } from 'vue'
-import { cn } from '@/lib/utils'
-import { provideCommandGroupContext, useCommand } from '.'
+import type { ListboxGroupProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { ListboxGroup, ListboxGroupLabel, useId } from "reka-ui"
+import { computed, onMounted, onUnmounted } from "vue"
+import { cn } from "@/lib/utils"
+import { provideCommandGroupContext, useCommand } from "."
 
 const props = defineProps<ListboxGroupProps & {
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
   heading?: string
 }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const { allGroups, filterState } = useCommand()
 const id = useId()
@@ -515,22 +525,23 @@ onUnmounted(() => {
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { Search } from 'lucide-vue-next'
-import { ListboxFilter, type ListboxFilterProps, useForwardProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
-import { useCommand } from '.'
+import type { ListboxFilterProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { Search } from "lucide-vue-next"
+import { ListboxFilter, useForwardProps } from "reka-ui"
+import { cn } from "@/lib/utils"
+import { useCommand } from "."
 
 defineOptions({
   inheritAttrs: false,
 })
 
 const props = defineProps<ListboxFilterProps & {
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwardedProps = useForwardProps(delegatedProps)
 
@@ -555,17 +566,18 @@ const { filterState } = useCommand()
     },
     {
       "content": "<script setup lang="ts">
-import type { ListboxItemEmits, ListboxItemProps } from 'reka-ui'
-import { reactiveOmit, useCurrentElement } from '@vueuse/core'
-import { ListboxItem, useForwardPropsEmits, useId } from 'reka-ui'
-import { computed, type HTMLAttributes, onMounted, onUnmounted, ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { useCommand, useCommandGroup } from '.'
+import type { ListboxItemEmits, ListboxItemProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit, useCurrentElement } from "@vueuse/core"
+import { ListboxItem, useForwardPropsEmits, useId } from "reka-ui"
+import { computed, onMounted, onUnmounted, ref } from "vue"
+import { cn } from "@/lib/utils"
+import { useCommand, useCommandGroup } from "."
 
-const props = defineProps<ListboxItemProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<ListboxItemProps & { class?: HTMLAttributes["class"] }>()
 const emits = defineEmits<ListboxItemEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
@@ -635,15 +647,15 @@ onUnmounted(() => {
     },
     {
       "content": "<script setup lang="ts">
-import type { ListboxContentProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { ListboxContent, useForwardProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { ListboxContentProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { ListboxContent, useForwardProps } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<ListboxContentProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<ListboxContentProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardProps(delegatedProps)
 </script>
@@ -662,15 +674,15 @@ const forwarded = useForwardProps(delegatedProps)
     },
     {
       "content": "<script setup lang="ts">
-import type { SeparatorProps } from 'reka-ui'
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { Separator } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { SeparatorProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { Separator } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<SeparatorProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<SeparatorProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 </script>
 
 <template>
@@ -688,11 +700,11 @@ const delegatedProps = reactiveOmit(props, 'class')
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from "vue"
+import { cn } from "@/lib/utils"
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 </script>
 
@@ -707,18 +719,18 @@ const props = defineProps<{
       "type": "registry:ui",
     },
     {
-      "content": "import type { Ref } from 'vue'
-import { createContext } from 'reka-ui'
+      "content": "import type { Ref } from "vue"
+import { createContext } from "reka-ui"
 
-export { default as Command } from './Command.vue'
-export { default as CommandDialog } from './CommandDialog.vue'
-export { default as CommandEmpty } from './CommandEmpty.vue'
-export { default as CommandGroup } from './CommandGroup.vue'
-export { default as CommandInput } from './CommandInput.vue'
-export { default as CommandItem } from './CommandItem.vue'
-export { default as CommandList } from './CommandList.vue'
-export { default as CommandSeparator } from './CommandSeparator.vue'
-export { default as CommandShortcut } from './CommandShortcut.vue'
+export { default as Command } from "./Command.vue"
+export { default as CommandDialog } from "./CommandDialog.vue"
+export { default as CommandEmpty } from "./CommandEmpty.vue"
+export { default as CommandGroup } from "./CommandGroup.vue"
+export { default as CommandInput } from "./CommandInput.vue"
+export { default as CommandItem } from "./CommandItem.vue"
+export { default as CommandList } from "./CommandList.vue"
+export { default as CommandSeparator } from "./CommandSeparator.vue"
+export { default as CommandShortcut } from "./CommandShortcut.vue"
 
 export const [useCommand, provideCommandContext] = createContext<{
   allItems: Ref<Map<string, string>>
@@ -727,11 +739,11 @@ export const [useCommand, provideCommandContext] = createContext<{
     search: string
     filtered: { count: number, items: Map<string, number>, groups: Set<string> }
   }
-}>('Command')
+}>("Command")
 
 export const [useCommandGroup, provideCommandGroupContext] = createContext<{
   id?: string
-}>('CommandGroup')
+}>("CommandGroup")
 ",
       "path": "ui/command/index.ts",
       "target": "",
@@ -739,7 +751,8 @@ export const [useCommandGroup, provideCommandGroupContext] = createContext<{
     },
     {
       "content": "<script setup lang="ts">
-import { DialogRoot, type DialogRootEmits, type DialogRootProps, useForwardPropsEmits } from 'reka-ui'
+import type { DialogRootEmits, DialogRootProps } from "reka-ui"
+import { DialogRoot, useForwardPropsEmits } from "reka-ui"
 
 const props = defineProps<DialogRootProps>()
 const emits = defineEmits<DialogRootEmits>()
@@ -759,7 +772,8 @@ const forwarded = useForwardPropsEmits(props, emits)
     },
     {
       "content": "<script setup lang="ts">
-import { DialogClose, type DialogCloseProps } from 'reka-ui'
+import type { DialogCloseProps } from "reka-ui"
+import { DialogClose } from "reka-ui"
 
 const props = defineProps<DialogCloseProps>()
 </script>
@@ -776,24 +790,24 @@ const props = defineProps<DialogCloseProps>()
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { X } from 'lucide-vue-next'
+import type { DialogContentEmits, DialogContentProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { X } from "lucide-vue-next"
 import {
   DialogClose,
   DialogContent,
-  type DialogContentEmits,
-  type DialogContentProps,
+
   DialogOverlay,
   DialogPortal,
   useForwardPropsEmits,
-} from 'reka-ui'
-import { cn } from '@/lib/utils'
+} from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes["class"] }>()
 const emits = defineEmits<DialogContentEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -829,14 +843,15 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { DialogDescription, type DialogDescriptionProps, useForwardProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { DialogDescriptionProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { DialogDescription, useForwardProps } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<DialogDescriptionProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<DialogDescriptionProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>
@@ -856,10 +871,10 @@ const forwardedProps = useForwardProps(delegatedProps)
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from "vue"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<{ class?: HTMLAttributes['class'] }>()
+const props = defineProps<{ class?: HTMLAttributes["class"] }>()
 </script>
 
 <template>
@@ -881,11 +896,11 @@ const props = defineProps<{ class?: HTMLAttributes['class'] }>()
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import type { HTMLAttributes } from "vue"
+import { cn } from "@/lib/utils"
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
 }>()
 </script>
 
@@ -903,24 +918,24 @@ const props = defineProps<{
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { X } from 'lucide-vue-next'
+import type { DialogContentEmits, DialogContentProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { X } from "lucide-vue-next"
 import {
   DialogClose,
   DialogContent,
-  type DialogContentEmits,
-  type DialogContentProps,
+
   DialogOverlay,
   DialogPortal,
   useForwardPropsEmits,
-} from 'reka-ui'
-import { cn } from '@/lib/utils'
+} from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<DialogContentProps & { class?: HTMLAttributes["class"] }>()
 const emits = defineEmits<DialogContentEmits>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -965,14 +980,15 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     },
     {
       "content": "<script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
-import { DialogTitle, type DialogTitleProps, useForwardProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
+import type { DialogTitleProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
+import { DialogTitle, useForwardProps } from "reka-ui"
+import { cn } from "@/lib/utils"
 
-const props = defineProps<DialogTitleProps & { class?: HTMLAttributes['class'] }>()
+const props = defineProps<DialogTitleProps & { class?: HTMLAttributes["class"] }>()
 
-const delegatedProps = reactiveOmit(props, 'class')
+const delegatedProps = reactiveOmit(props, "class")
 
 const forwardedProps = useForwardProps(delegatedProps)
 </script>
@@ -997,7 +1013,8 @@ const forwardedProps = useForwardProps(delegatedProps)
     },
     {
       "content": "<script setup lang="ts">
-import { DialogTrigger, type DialogTriggerProps } from 'reka-ui'
+import type { DialogTriggerProps } from "reka-ui"
+import { DialogTrigger } from "reka-ui"
 
 const props = defineProps<DialogTriggerProps>()
 </script>
@@ -1013,15 +1030,15 @@ const props = defineProps<DialogTriggerProps>()
       "type": "registry:ui",
     },
     {
-      "content": "export { default as Dialog } from './Dialog.vue'
-export { default as DialogClose } from './DialogClose.vue'
-export { default as DialogContent } from './DialogContent.vue'
-export { default as DialogDescription } from './DialogDescription.vue'
-export { default as DialogFooter } from './DialogFooter.vue'
-export { default as DialogHeader } from './DialogHeader.vue'
-export { default as DialogScrollContent } from './DialogScrollContent.vue'
-export { default as DialogTitle } from './DialogTitle.vue'
-export { default as DialogTrigger } from './DialogTrigger.vue'
+      "content": "export { default as Dialog } from "./Dialog.vue"
+export { default as DialogClose } from "./DialogClose.vue"
+export { default as DialogContent } from "./DialogContent.vue"
+export { default as DialogDescription } from "./DialogDescription.vue"
+export { default as DialogFooter } from "./DialogFooter.vue"
+export { default as DialogHeader } from "./DialogHeader.vue"
+export { default as DialogScrollContent } from "./DialogScrollContent.vue"
+export { default as DialogTitle } from "./DialogTitle.vue"
+export { default as DialogTrigger } from "./DialogTrigger.vue"
 ",
       "path": "ui/dialog/index.ts",
       "target": "",

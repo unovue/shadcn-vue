@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LifeBuoy, Send } from 'lucide-vue-next'
+import { LifeBuoy, Send } from "lucide-vue-next"
 
 import {
   Sidebar,
@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/new-york/ui/sidebar'
+} from "@/registry/new-york/ui/sidebar"
 </script>
 
 <template>

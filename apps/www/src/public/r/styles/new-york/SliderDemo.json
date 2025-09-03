@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/SliderDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Slider } from '@/registry/new-york/ui/slider'\n\nconst modelValue = ref([50])\n</script>\n\n<template>\n  <Slider\n    v-model=\"modelValue\"\n    :max=\"100\"\n    :step=\"1\"\n    :class=\"cn('w-3/5', $attrs.class ?? '')\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { ref } from \"vue\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { Slider } from \"@/registry/new-york/ui/slider\"\r\n\r\nconst modelValue = ref([50])\r\n</script>\r\n\r\n<template>\r\n  <Slider\r\n    v-model=\"modelValue\"\r\n    :max=\"100\"\r\n    :step=\"1\"\r\n    :class=\"cn('w-3/5', $attrs.class ?? '')\"\r\n  />\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }
