@@ -32,7 +32,7 @@ export function transformIcons(opts: TransformOpts, registryIcons: Record<string
         traverseScriptAST(scriptAST, {
 
           visitImportDeclaration(path) {
-            if (![ICON_LIBRARIES.radix.import, ICON_LIBRARIES.lucide.import].includes(`${path.node.source.value}`))
+            if (![ICON_LIBRARIES.tabler.import, ICON_LIBRARIES.radix.import, ICON_LIBRARIES.lucide.import].includes(`${path.node.source.value}`))
               return this.traverse(path)
 
             for (const specifier of path.node.specifiers ?? []) {
