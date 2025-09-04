@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/TextareaWithText.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Label } from '@/registry/default/ui/label'\nimport { Textarea } from '@/registry/default/ui/textarea'\n</script>\n\n<template>\n  <div class=\"grid w-full gap-1.5\">\n    <Label for=\"message-2\">Your message</Label>\n    <Textarea id=\"message-2\" placeholder=\"Type your message here.\" />\n    <p class=\"text-sm text-muted-foreground\">\n      Your message will be copied to the support team.\n    </p>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { Label } from \"@/registry/default/ui/label\"\r\nimport { Textarea } from \"@/registry/default/ui/textarea\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"grid w-full gap-1.5\">\r\n    <Label for=\"message-2\">Your message</Label>\r\n    <Textarea id=\"message-2\" placeholder=\"Type your message here.\" />\r\n    <p class=\"text-sm text-muted-foreground\">\r\n      Your message will be copied to the support team.\r\n    </p>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

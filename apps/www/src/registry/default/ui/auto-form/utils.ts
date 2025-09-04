@@ -1,9 +1,9 @@
-import type { z } from 'zod'
+import type { z } from "zod"
 
 // TODO: This should support recursive ZodEffects but TypeScript doesn't allow circular type definitions.
-export type ZodObjectOrWrapped =
-  | z.ZodObject<any, any>
-  | z.ZodEffects<z.ZodObject<any, any>>
+export type ZodObjectOrWrapped
+  = | z.ZodObject<any, any>
+    | z.ZodEffects<z.ZodObject<any, any>>
 
 /**
  * Beautify a camelCase string.
@@ -12,7 +12,7 @@ export type ZodObjectOrWrapped =
 export function beautifyObjectName(string: string) {
   // Remove bracketed indices
   // if numbers only return the string
-  let output = string.replace(/\[\d+\]/g, '').replace(/([A-Z])/g, ' $1')
+  let output = string.replace(/\[\d+\]/g, "").replace(/([A-Z])/g, " $1")
   output = output.charAt(0).toUpperCase() + output.slice(1)
   return output
 }
@@ -40,10 +40,10 @@ export function getBaseSchema<
 >(schema: ChildType | z.ZodEffects<ChildType>): ChildType | null {
   if (!schema)
     return null
-  if ('innerType' in schema._def)
+  if ("innerType" in schema._def)
     return getBaseSchema(schema._def.innerType as ChildType)
 
-  if ('schema' in schema._def)
+  if ("schema" in schema._def)
     return getBaseSchema(schema._def.schema as ChildType)
 
   return schema as ChildType
@@ -55,7 +55,7 @@ export function getBaseSchema<
  */
 export function getBaseType(schema: z.ZodAny) {
   const baseSchema = getBaseSchema(schema)
-  return baseSchema ? baseSchema._def.typeName : ''
+  return baseSchema ? baseSchema._def.typeName : ""
 }
 
 /**
@@ -66,15 +66,15 @@ export function getDefaultValueInZodStack(schema: z.ZodAny): any {
     z.ZodNumber | z.ZodString
   >
 
-  if (typedSchema._def.typeName === 'ZodDefault')
+  if (typedSchema._def.typeName === "ZodDefault")
     return typedSchema._def.defaultValue()
 
-  if ('innerType' in typedSchema._def) {
+  if ("innerType" in typedSchema._def) {
     return getDefaultValueInZodStack(
       typedSchema._def.innerType as unknown as z.ZodAny,
     )
   }
-  if ('schema' in typedSchema._def) {
+  if ("schema" in typedSchema._def) {
     return getDefaultValueInZodStack(
       (typedSchema._def as any).schema as z.ZodAny,
     )
@@ -86,7 +86,7 @@ export function getDefaultValueInZodStack(schema: z.ZodAny): any {
 export function getObjectFormSchema(
   schema: ZodObjectOrWrapped,
 ): z.ZodObject<any, any> {
-  if (schema?._def.typeName === 'ZodEffects') {
+  if (schema?._def.typeName === "ZodEffects") {
     const typedSchema = schema as z.ZodEffects<z.ZodObject<any, any>>
     return getObjectFormSchema(typedSchema._def.schema)
   }
@@ -100,9 +100,9 @@ function isIndex(value: unknown): value is number {
  * Constructs a path with dot paths for arrays to use brackets to be compatible with vee-validate path syntax
  */
 export function normalizeFormPath(path: string): string {
-  const pathArr = path.split('.')
+  const pathArr = path.split(".")
   if (!pathArr.length)
-    return ''
+    return ""
 
   let fullPath = String(pathArr[0])
   for (let i = 1; i < pathArr.length; i++) {
@@ -125,14 +125,14 @@ export function isNotNestedPath(path: string) {
   return /^\[.+\]$/.test(path)
 }
 function isObject(obj: unknown): obj is Record<string, unknown> {
-  return obj !== null && !!obj && typeof obj === 'object' && !Array.isArray(obj)
+  return obj !== null && !!obj && typeof obj === "object" && !Array.isArray(obj)
 }
 function isContainerValue(value: unknown): value is Record<string, unknown> {
   return isObject(value) || Array.isArray(value)
 }
 function cleanupNonNestedPath(path: string) {
   if (isNotNestedPath(path))
-    return path.replace(/\[|\]/g, '')
+    return path.replace(/\[|\]/g, "")
 
   return path
 }
@@ -157,7 +157,7 @@ export function getFromPath<TValue = unknown, TFallback = TValue>(
   if (isNotNestedPath(path))
     return object[cleanupNonNestedPath(path)] as TValue | undefined
 
-  const resolvedValue = (path || '')
+  const resolvedValue = (path || "")
     .split(/\.|\[(\d+)\]/)
     .filter(Boolean)
     .reduce((acc, propKey) => {
@@ -170,14 +170,14 @@ export function getFromPath<TValue = unknown, TFallback = TValue>(
   return resolvedValue as TValue | undefined
 }
 
-type Booleanish = boolean | 'true' | 'false'
+type Booleanish = boolean | "true" | "false"
 
 export function booleanishToBoolean(value: Booleanish) {
   switch (value) {
-    case 'true':
+    case "true":
     case true:
       return true
-    case 'false':
+    case "false":
     case false:
       return false
   }

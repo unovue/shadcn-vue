@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -9,12 +9,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/registry/new-york/ui/command'
+} from "@/registry/new-york/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york/ui/popover'
+} from "@/registry/new-york/ui/popover"
 
 interface Status {
   value: string
@@ -23,24 +23,24 @@ interface Status {
 
 const statuses: Status[] = [
   {
-    value: 'backlog',
-    label: 'Backlog',
+    value: "backlog",
+    label: "Backlog",
   },
   {
-    value: 'todo',
-    label: 'Todo',
+    value: "todo",
+    label: "Todo",
   },
   {
-    value: 'in progress',
-    label: 'In Progress',
+    value: "in progress",
+    label: "In Progress",
   },
   {
-    value: 'done',
-    label: 'Done',
+    value: "done",
+    label: "Done",
   },
   {
-    value: 'canceled',
-    label: 'Canceled',
+    value: "canceled",
+    label: "Canceled",
   },
 ]
 

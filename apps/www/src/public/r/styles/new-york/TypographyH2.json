@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyH2.vue",
-      "content": "<template>\n  <h2\n    class=\"scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0\"\n  >\n    The People of the Kingdom\n  </h2>\n</template>\n",
+      "content": "<template>\r\n  <h2\r\n    class=\"scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0\"\r\n  >\r\n    The People of the Kingdom\r\n  </h2>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

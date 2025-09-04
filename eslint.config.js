@@ -20,6 +20,12 @@ export default antfu(
     },
   },
   {
+    files: ['**/registry/**/*.ts', '**/registry/**/*.vue'],
+    rules: {
+      'style/quotes': ['error', 'double'],
+    },
+  },
+  {
     files: ['**/registry/default/examples/*.vue', '**/registry/new-york/examples/*.vue', '**/registry/new-york-v4/examples/*.vue'],
     rules: {
       'no-alert': 0,

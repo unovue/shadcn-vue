@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import { h } from 'vue'
-import * as z from 'zod'
+import { toTypedSchema } from "@vee-validate/zod"
+import { useForm } from "vee-validate"
+import { h } from "vue"
+import * as z from "zod"
 
-import { Button } from '@/registry/new-york/ui/button'
-import { Checkbox } from '@/registry/new-york/ui/checkbox'
+import { Button } from "@/registry/new-york/ui/button"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
 import {
   FormControl,
   FormDescription,
@@ -13,53 +13,53 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/registry/new-york/ui/form'
-import { toast } from '@/registry/new-york/ui/toast'
+} from "@/registry/new-york/ui/form"
+import { toast } from "@/registry/new-york/ui/toast"
 
 const items = [
   {
-    id: 'recents',
-    label: 'Recents',
+    id: "recents",
+    label: "Recents",
   },
   {
-    id: 'home',
-    label: 'Home',
+    id: "home",
+    label: "Home",
   },
   {
-    id: 'applications',
-    label: 'Applications',
+    id: "applications",
+    label: "Applications",
   },
   {
-    id: 'desktop',
-    label: 'Desktop',
+    id: "desktop",
+    label: "Desktop",
   },
   {
-    id: 'downloads',
-    label: 'Downloads',
+    id: "downloads",
+    label: "Downloads",
   },
   {
-    id: 'documents',
-    label: 'Documents',
+    id: "documents",
+    label: "Documents",
   },
 ] as const
 
 const formSchema = toTypedSchema(z.object({
   items: z.array(z.string()).refine(value => value.some(item => item), {
-    message: 'You have to select at least one item.',
+    message: "You have to select at least one item.",
   }),
 }))
 
 const { handleSubmit } = useForm({
   validationSchema: formSchema,
   initialValues: {
-    items: ['recents', 'home'],
+    items: ["recents", "home"],
   },
 })
 
 const onSubmit = handleSubmit((values) => {
   toast({
-    title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    title: "You submitted the following values:",
+    description: h("pre", { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" }, h("code", { class: "text-white" }, JSON.stringify(values, null, 2))),
   })
 })
 </script>

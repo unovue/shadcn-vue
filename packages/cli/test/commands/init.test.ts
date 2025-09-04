@@ -32,6 +32,7 @@ it.skip('init config-full', async () => {
       'tailwind-merge',
       'lucide-vue-next',
       '@radix-icons/vue',
+      '@tabler/icons-vue',
     ],
     registryDependencies: [],
     tailwind: {
@@ -100,6 +101,7 @@ it.skip('init config-full', async () => {
       'tailwind-merge',
       'reka-ui',
       '@radix-icons/vue',
+      '@tabler/icons-vue',
     ],
     {
       cwd: targetDir,

@@ -4,8 +4,8 @@ import {
   Map,
   PieChart,
   Plus,
-} from 'lucide-vue-next'
-import { toast, Toaster } from 'vue-sonner'
+} from "lucide-vue-next"
+import { toast, Toaster } from "vue-sonner"
 
 import {
   Sidebar,
@@ -18,7 +18,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/new-york/ui/sidebar'
+} from "@/registry/new-york/ui/sidebar"
 </script>
 
 <template>

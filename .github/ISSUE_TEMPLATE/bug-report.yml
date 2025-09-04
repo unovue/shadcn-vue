@@ -41,7 +41,7 @@ body:
     id: system-info
     attributes:
       label: System Info
-      description: Output of `npx envinfo --system --npmPackages vue,@vueuse/core,radix-vue,nuxt,shadcn-vue,shadcn-nuxt,unplugin-auto-import --binaries --browsers`
+      description: Output of `npx envinfo --system --npmPackages vue,@vueuse/core,radix-vue,reka-ui,nuxt,shadcn-vue,shadcn-nuxt,unplugin-auto-import --binaries --browsers`
       render: bash
       placeholder: System, Binaries, Browsers
     validations:

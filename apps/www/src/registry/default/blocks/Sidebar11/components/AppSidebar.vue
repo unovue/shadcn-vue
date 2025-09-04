@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { File } from 'lucide-vue-next'
-import Tree from '@/registry/default/blocks/Sidebar11/components/Tree.vue'
+import type { SidebarProps } from "@/registry/default/ui/sidebar"
+import { File } from "lucide-vue-next"
+import Tree from "@/registry/default/blocks/Sidebar11/components/Tree.vue"
 import {
   Sidebar,
   SidebarContent,
@@ -11,9 +12,9 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-  type SidebarProps,
+
   SidebarRail,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 
 const props = defineProps<SidebarProps>()
 
@@ -21,43 +22,43 @@ const props = defineProps<SidebarProps>()
 const data = {
   changes: [
     {
-      file: 'README.md',
-      state: 'M',
+      file: "README.md",
+      state: "M",
     },
     {
-      file: 'api/hello/route.ts',
-      state: 'U',
+      file: "api/hello/route.ts",
+      state: "U",
     },
     {
-      file: 'app/layout.tsx',
-      state: 'M',
+      file: "app/layout.tsx",
+      state: "M",
     },
   ],
   tree: [
     [
-      'app',
+      "app",
       [
-        'api',
-        ['hello', ['route.ts']],
-        'page.tsx',
-        'layout.tsx',
-        ['blog', ['page.tsx']],
+        "api",
+        ["hello", ["route.ts"]],
+        "page.tsx",
+        "layout.tsx",
+        ["blog", ["page.tsx"]],
       ],
     ],
     [
-      'components',
-      ['ui', 'button.tsx', 'card.tsx'],
-      'header.tsx',
-      'footer.tsx',
+      "components",
+      ["ui", "button.tsx", "card.tsx"],
+      "header.tsx",
+      "footer.tsx",
     ],
-    ['lib', ['util.ts']],
-    ['public', 'favicon.ico', 'vercel.svg'],
-    '.eslintrc.json',
-    '.gitignore',
-    'next.config.js',
-    'tailwind.config.js',
-    'package.json',
-    'README.md',
+    ["lib", ["util.ts"]],
+    ["public", "favicon.ico", "vercel.svg"],
+    ".eslintrc.json",
+    ".gitignore",
+    "next.config.js",
+    "tailwind.config.js",
+    "package.json",
+    "README.md",
   ],
 }
 </script>

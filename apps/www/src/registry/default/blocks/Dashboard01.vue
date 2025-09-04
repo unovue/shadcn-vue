@@ -1,19 +1,19 @@
 <script lang="ts">
-export const description = 'An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales.'
-export const iframeHeight = '825px'
-export const containerClass = 'w-full h-full'
+export const description = "An application shell with a header and main content area. The header has a navbar, a search input and and a user nav dropdown. The user nav is toggled by a button with an avatar image. The main content area is divided into two rows. The first row has a grid of cards with statistics. The second row has a grid of cards with a table of recent transactions and a list of recent sales."
+export const iframeHeight = "825px"
+export const containerClass = "w-full h-full"
 </script>
 
 <script setup lang="ts">
-import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from 'lucide-vue-next'
-import { Avatar, AvatarFallback, AvatarImage } from '@/registry/default/ui/avatar'
-import { Badge } from '@/registry/default/ui/badge'
-import { Button } from '@/registry/default/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/registry/default/ui/card'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/default/ui/dropdown-menu'
-import { Input } from '@/registry/default/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/registry/default/ui/sheet'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/registry/default/ui/table'
+import { Activity, ArrowUpRight, CircleUser, CreditCard, DollarSign, Menu, Package2, Search, Users } from "lucide-vue-next"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/default/ui/avatar"
+import { Badge } from "@/registry/default/ui/badge"
+import { Button } from "@/registry/default/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/default/ui/card"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/registry/default/ui/dropdown-menu"
+import { Input } from "@/registry/default/ui/input"
+import { Sheet, SheetContent, SheetTrigger } from "@/registry/default/ui/sheet"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/registry/default/ui/table"
 </script>
 
 <template>

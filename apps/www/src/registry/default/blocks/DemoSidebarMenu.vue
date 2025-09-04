@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Frame, LifeBuoy, Map, PieChart, Send } from 'lucide-vue-next'
+import { Frame, LifeBuoy, Map, PieChart, Send } from "lucide-vue-next"
 
 import {
   Sidebar,
@@ -11,32 +11,32 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/registry/default/ui/sidebar'
+} from "@/registry/default/ui/sidebar"
 
 const projects = [
   {
-    name: 'Design Engineering',
-    url: '#',
+    name: "Design Engineering",
+    url: "#",
     icon: Frame,
   },
   {
-    name: 'Sales & Marketing',
-    url: '#',
+    name: "Sales & Marketing",
+    url: "#",
     icon: PieChart,
   },
   {
-    name: 'Travel',
-    url: '#',
+    name: "Travel",
+    url: "#",
     icon: Map,
   },
   {
-    name: 'Support',
-    url: '#',
+    name: "Support",
+    url: "#",
     icon: LifeBuoy,
   },
   {
-    name: 'Feedback',
-    url: '#',
+    name: "Feedback",
+    url: "#",
     icon: Send,
   },
 ]

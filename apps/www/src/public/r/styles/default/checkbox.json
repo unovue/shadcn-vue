@@ -9,13 +9,13 @@
   "files": [
     {
       "path": "ui/checkbox/Checkbox.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { CheckboxRootEmits, CheckboxRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Check } from 'lucide-vue-next'\nimport { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<CheckboxRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<CheckboxRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <CheckboxRoot\n    v-bind=\"forwarded\"\n    :class=\"\n      cn('peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',\n         props.class)\"\n  >\n    <CheckboxIndicator class=\"flex h-full w-full items-center justify-center text-current\">\n      <slot>\n        <Check class=\"h-4 w-4\" />\n      </slot>\n    </CheckboxIndicator>\n  </CheckboxRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { CheckboxRootEmits, CheckboxRootProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport { Check } from \"lucide-vue-next\"\r\nimport { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = defineProps<CheckboxRootProps & { class?: HTMLAttributes[\"class\"] }>()\r\nconst emits = defineEmits<CheckboxRootEmits>()\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\r\n</script>\r\n\r\n<template>\r\n  <CheckboxRoot\r\n    v-bind=\"forwarded\"\r\n    :class=\"\r\n      cn('peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',\r\n         props.class)\"\r\n  >\r\n    <CheckboxIndicator class=\"flex h-full w-full items-center justify-center text-current\">\r\n      <slot>\r\n        <Check class=\"h-4 w-4\" />\r\n      </slot>\r\n    </CheckboxIndicator>\r\n  </CheckboxRoot>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/checkbox/index.ts",
-      "content": "export { default as Checkbox } from './Checkbox.vue'\n",
+      "content": "export { default as Checkbox } from \"./Checkbox.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     }

@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/default/ui/breadcrumb'
+} from "@/registry/default/ui/breadcrumb"
 </script>
 
 <template>

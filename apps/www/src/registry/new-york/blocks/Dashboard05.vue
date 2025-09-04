@@ -1,7 +1,7 @@
 <script lang="ts">
-export const description = 'An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.'
-export const iframeHeight = '1112px'
-export const containerClass = 'w-full h-full'
+export const description = "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information."
+export const iframeHeight = "1112px"
+export const containerClass = "w-full h-full"
 </script>
 
 <script setup lang="ts">
@@ -22,9 +22,9 @@ import {
   ShoppingCart,
   Truck,
   Users2,
-} from 'lucide-vue-next'
+} from "lucide-vue-next"
 
-import { Badge } from '@/registry/new-york/ui/badge'
+import { Badge } from "@/registry/new-york/ui/badge"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -32,21 +32,21 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/registry/new-york/ui/breadcrumb'
-import { Button } from '@/registry/new-york/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/new-york/ui/card'
-import { Checkbox } from '@/registry/new-york/ui/checkbox'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/registry/new-york/ui/input'
+} from "@/registry/new-york/ui/breadcrumb"
+import { Button } from "@/registry/new-york/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/new-york/ui/card"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/registry/new-york/ui/dropdown-menu"
+import { Input } from "@/registry/new-york/ui/input"
 import {
   Pagination,
   PaginationContent,
   PaginationNext,
   PaginationPrevious,
-} from '@/registry/new-york/ui/pagination'
-import { Progress } from '@/registry/new-york/ui/progress'
-import { Separator } from '@/registry/new-york/ui/separator'
-import { Sheet, SheetContent, SheetTrigger } from '@/registry/new-york/ui/sheet'
+} from "@/registry/new-york/ui/pagination"
+import { Progress } from "@/registry/new-york/ui/progress"
+import { Separator } from "@/registry/new-york/ui/separator"
+import { Sheet, SheetContent, SheetTrigger } from "@/registry/new-york/ui/sheet"
 import {
   Table,
   TableBody,
@@ -54,18 +54,18 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/registry/new-york/ui/table'
+} from "@/registry/new-york/ui/table"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/registry/new-york/ui/tabs'
+} from "@/registry/new-york/ui/tabs"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/registry/new-york/ui/tooltip'
+} from "@/registry/new-york/ui/tooltip"
 </script>
 
 <template>

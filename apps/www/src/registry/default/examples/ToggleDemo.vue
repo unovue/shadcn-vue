@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Bold } from 'lucide-vue-next'
+import { Bold } from "lucide-vue-next"
 
-import { Toggle } from '@/registry/default/ui/toggle'
+import { Toggle } from "@/registry/default/ui/toggle"
 </script>
 
 <template>

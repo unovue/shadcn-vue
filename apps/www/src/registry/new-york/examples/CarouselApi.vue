@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { CarouselApi } from '@/registry/new-york/ui/carousel'
-import { watchOnce } from '@vueuse/core'
-import { ref } from 'vue'
-import { Card, CardContent } from '@/registry/new-york/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/registry/new-york/ui/carousel'
+import type { CarouselApi } from "@/registry/new-york/ui/carousel"
+import { watchOnce } from "@vueuse/core"
+import { ref } from "vue"
+import { Card, CardContent } from "@/registry/new-york/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/registry/new-york/ui/carousel"
 
 const api = ref<CarouselApi>()
 const totalCount = ref(0)
@@ -20,7 +20,7 @@ watchOnce(api, (api) => {
   totalCount.value = api.scrollSnapList().length
   current.value = api.selectedScrollSnap() + 1
 
-  api.on('select', () => {
+  api.on("select", () => {
     current.value = api.selectedScrollSnap() + 1
   })
 })

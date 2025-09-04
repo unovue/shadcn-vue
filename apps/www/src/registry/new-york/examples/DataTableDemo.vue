@@ -5,7 +5,7 @@ import type {
   ExpandedState,
   SortingState,
   VisibilityState,
-} from '@tanstack/vue-table'
+} from "@tanstack/vue-table"
 import {
   FlexRender,
   getCoreRowModel,
@@ -14,20 +14,20 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useVueTable,
-} from '@tanstack/vue-table'
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
-import { h, ref } from 'vue'
-import { valueUpdater } from '@/lib/utils'
+} from "@tanstack/vue-table"
+import { ArrowUpDown, ChevronDown } from "lucide-vue-next"
+import { h, ref } from "vue"
+import { valueUpdater } from "@/lib/utils"
 
-import { Button } from '@/registry/new-york/ui/button'
-import { Checkbox } from '@/registry/new-york/ui/checkbox'
+import { Button } from "@/registry/new-york/ui/button"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
-import { Input } from '@/registry/new-york/ui/input'
+} from "@/registry/new-york/ui/dropdown-menu"
+import { Input } from "@/registry/new-york/ui/input"
 import {
   Table,
   TableBody,
@@ -35,97 +35,97 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/registry/new-york/ui/table'
-import DropdownAction from './DataTableDemoColumn.vue'
+} from "@/registry/new-york/ui/table"
+import DropdownAction from "./DataTableDemoColumn.vue"
 
 export interface Payment {
   id: string
   amount: number
-  status: 'pending' | 'processing' | 'success' | 'failed'
+  status: "pending" | "processing" | "success" | "failed"
   email: string
 }
 
 const data: Payment[] = [
   {
-    id: 'm5gr84i9',
+    id: "m5gr84i9",
     amount: 316,
-    status: 'success',
-    email: 'ken99@yahoo.com',
+    status: "success",
+    email: "ken99@yahoo.com",
   },
   {
-    id: '3u1reuv4',
+    id: "3u1reuv4",
     amount: 242,
-    status: 'success',
-    email: 'Abe45@gmail.com',
+    status: "success",
+    email: "Abe45@gmail.com",
   },
   {
-    id: 'derv1ws0',
+    id: "derv1ws0",
     amount: 837,
-    status: 'processing',
-    email: 'Monserrat44@gmail.com',
+    status: "processing",
+    email: "Monserrat44@gmail.com",
   },
   {
-    id: '5kma53ae',
+    id: "5kma53ae",
     amount: 874,
-    status: 'success',
-    email: 'Silas22@gmail.com',
+    status: "success",
+    email: "Silas22@gmail.com",
   },
   {
-    id: 'bhqecj4p',
+    id: "bhqecj4p",
     amount: 721,
-    status: 'failed',
-    email: 'carmella@hotmail.com',
+    status: "failed",
+    email: "carmella@hotmail.com",
   },
 ]
 
 const columns: ColumnDef<Payment>[] = [
   {
-    id: 'select',
+    id: "select",
     header: ({ table }) => h(Checkbox, {
-      'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
-      'onUpdate:modelValue': value => table.toggleAllPageRowsSelected(!!value),
-      'ariaLabel': 'Select all',
+      "modelValue": table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate"),
+      "onUpdate:modelValue": value => table.toggleAllPageRowsSelected(!!value),
+      "ariaLabel": "Select all",
     }),
     cell: ({ row }) => h(Checkbox, {
-      'modelValue': row.getIsSelected(),
-      'onUpdate:modelValue': value => row.toggleSelected(!!value),
-      'ariaLabel': 'Select row',
+      "modelValue": row.getIsSelected(),
+      "onUpdate:modelValue": value => row.toggleSelected(!!value),
+      "ariaLabel": "Select row",
     }),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'status',
-    header: 'Status',
-    cell: ({ row }) => h('div', { class: 'capitalize' }, row.getValue('status')),
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => h("div", { class: "capitalize" }, row.getValue("status")),
   },
   {
-    accessorKey: 'email',
+    accessorKey: "email",
     header: ({ column }) => {
       return h(Button, {
-        variant: 'ghost',
-        onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => ['Email', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+        variant: "ghost",
+        onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
+      }, () => ["Email", h(ArrowUpDown, { class: "ml-2 h-4 w-4" })])
     },
-    cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
+    cell: ({ row }) => h("div", { class: "lowercase" }, row.getValue("email")),
   },
   {
-    accessorKey: 'amount',
-    header: () => h('div', { class: 'text-right' }, 'Amount'),
+    accessorKey: "amount",
+    header: () => h("div", { class: "text-right" }, "Amount"),
     cell: ({ row }) => {
-      const amount = Number.parseFloat(row.getValue('amount'))
+      const amount = Number.parseFloat(row.getValue("amount"))
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
       }).format(amount)
 
-      return h('div', { class: 'text-right font-medium' }, formatted)
+      return h("div", { class: "text-right font-medium" }, formatted)
     },
   },
   {
-    id: 'actions',
+    id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Checkbox } from '@/registry/default/ui/checkbox'
-import { Label } from '@/registry/default/ui/label'
+import { Checkbox } from "@/registry/default/ui/checkbox"
+import { Label } from "@/registry/default/ui/label"
 </script>
 
 <template>

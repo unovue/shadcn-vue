@@ -1,20 +1,20 @@
 <script lang="ts">
-export const description = 'An AI playground with a sidebar navigation and a main content area. The playground has a header with a settings drawer and a share button. The sidebar has navigation links and a user menu. The main content area shows a form to configure the model and messages.'
-export const iframeHeight = '740px'
-export const containerClass = 'w-full h-full'
+export const description = "An AI playground with a sidebar navigation and a main content area. The playground has a header with a settings drawer and a share button. The sidebar has navigation links and a user menu. The main content area shows a form to configure the model and messages."
+export const iframeHeight = "740px"
+export const containerClass = "w-full h-full"
 </script>
 
 <script setup lang="ts">
-import { Bird, Book, Bot, Code2, CornerDownLeft, LifeBuoy, Mic, Paperclip, Rabbit, Settings, Settings2, Share, SquareTerminal, SquareUser, Triangle, Turtle } from 'lucide-vue-next'
+import { Bird, Book, Bot, Code2, CornerDownLeft, LifeBuoy, Mic, Paperclip, Rabbit, Settings, Settings2, Share, SquareTerminal, SquareUser, Triangle, Turtle } from "lucide-vue-next"
 
-import { Badge } from '@/registry/new-york/ui/badge'
-import { Button } from '@/registry/new-york/ui/button'
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/registry/new-york/ui/drawer'
-import { Input } from '@/registry/new-york/ui/input'
-import { Label } from '@/registry/new-york/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/new-york/ui/select'
-import { Textarea } from '@/registry/new-york/ui/textarea'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york/ui/tooltip'
+import { Badge } from "@/registry/new-york/ui/badge"
+import { Button } from "@/registry/new-york/ui/button"
+import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/registry/new-york/ui/drawer"
+import { Input } from "@/registry/new-york/ui/input"
+import { Label } from "@/registry/new-york/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/registry/new-york/ui/select"
+import { Textarea } from "@/registry/new-york/ui/textarea"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/new-york/ui/tooltip"
 </script>
 
 <template>

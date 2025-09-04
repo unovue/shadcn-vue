@@ -1,41 +1,41 @@
-import type { RegistryStyle } from './registry-styles'
-import type { Registry, RegistryFiles } from './schema'
-import { readdir, readFile } from 'node:fs/promises'
-import { parseSync } from 'oxc-parser'
-import { join, resolve } from 'pathe'
-import { compileScript, parse, walk } from 'vue/compiler-sfc'
-import { styles } from './registry-styles'
+import type { RegistryStyle } from "./registry-styles"
+import type { Registry, RegistryFiles } from "./schema"
+import { readdir, readFile } from "node:fs/promises"
+import { parseSync } from "oxc-parser"
+import { join, resolve } from "pathe"
+import { compileScript, parse, walk } from "vue/compiler-sfc"
+import { styles } from "./registry-styles"
 
 // [Dependency, [...PeerDependencies]]
 const DEPENDENCIES = new Map<string, string[]>([
-  ['reka-ui', []],
-  ['@vueuse/core', []],
-  ['vue-sonner', []],
-  ['vaul-vue', []],
-  ['@tanstack/vue-table', []],
-  ['@unovis/vue', ['@unovis/ts']],
-  ['embla-carousel-vue', []],
-  ['vee-validate', ['@vee-validate/zod', 'zod']],
+  ["reka-ui", []],
+  ["@vueuse/core", []],
+  ["vue-sonner", []],
+  ["vaul-vue", []],
+  ["@tanstack/vue-table", []],
+  ["@unovis/vue", ["@unovis/ts"]],
+  ["embla-carousel-vue", []],
+  ["vee-validate", ["@vee-validate/zod", "zod"]],
 ])
 
-const REGISTRY_DEPENDENCY = '@/'
-const CATEGORIES = ['authentication', 'sidebar', 'login', 'dashboard']
+const REGISTRY_DEPENDENCY = "@/"
+const CATEGORIES = ["authentication", "sidebar", "login", "dashboard"]
 
 type ArrayItem<T> = T extends Array<infer X> ? X : never
 type RegistryItem = ArrayItem<Registry>
 
 function getCategory(text: string) {
-  return CATEGORIES.find(category => category === text.replace(/\d+/g, '').toLowerCase()) || undefined
+  return CATEGORIES.find(category => category === text.replace(/\d+/g, "").toLowerCase()) || undefined
 }
 
 export async function buildRegistry() {
-  const registryRootPath = resolve('src', 'registry')
+  const registryRootPath = resolve("src", "registry")
   const registry: Registry = []
 
   for (const { name: style } of styles) {
-    const uiPath = resolve(registryRootPath, style, 'ui')
-    const examplePath = resolve(registryRootPath, style, 'examples')
-    const blockPath = resolve(registryRootPath, style, 'blocks')
+    const uiPath = resolve(registryRootPath, style, "ui")
+    const examplePath = resolve(registryRootPath, style, "examples")
+    const blockPath = resolve(registryRootPath, style, "blocks")
     // const hookPath = resolve(registryRootPath, style, 'hook')
 
     const [ui, example, block] = await Promise.all([
@@ -53,20 +53,20 @@ export async function buildRegistry() {
 
 function sanitizeString(input: string): string {
   return input
-    .replace(/[-_]\d+/g, '') // Remove hyphens/underscores followed by digits
-    .replace(/\d+/g, '') // Remove any remaining digits
+    .replace(/[-_]\d+/g, "") // Remove hyphens/underscores followed by digits
+    .replace(/\d+/g, "") // Remove any remaining digits
     .toLowerCase() // Convert to lowercase
 }
 
 export async function buildRegistryV4() {
-  const registryRootPath = resolve('../v4/registry')
+  const registryRootPath = resolve("../v4/registry")
   const registry: Registry = []
 
-  const uiPath = resolve(registryRootPath, 'new-york-v4', 'ui')
+  const uiPath = resolve(registryRootPath, "new-york-v4", "ui")
   // const examplePath = resolve(registryRootPath, 'new-york-v4', 'example')
-  const blockPath = resolve(registryRootPath, 'new-york-v4', 'blocks')
+  const blockPath = resolve(registryRootPath, "new-york-v4", "blocks")
   // const hookPath = resolve(registryRootPath, 'new-york-v4', 'hook')
-  const chartPath = resolve(registryRootPath, 'new-york-v4', 'charts')
+  const chartPath = resolve(registryRootPath, "new-york-v4", "charts")
 
   const [
     ui,
@@ -109,28 +109,28 @@ async function crawlUI(rootPath: string) {
 }
 
 async function crawlExample(rootPath: string) {
-  const type = `registry:example` as const
+  const type = "registry:example" as const
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
   const registry: Registry = []
 
   for (const dirent of dir) {
-    if (!dirent.name.endsWith('.vue') || !dirent.isFile())
+    if (!dirent.name.endsWith(".vue") || !dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue')
+    const [name] = dirent.name.split(".vue")
 
     const filepath = join(rootPath, dirent.name)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('examples', dirent.name)
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const relativePath = join("examples", dirent.name)
 
     const file = {
       name: dirent.name,
       content: source,
       path: relativePath,
       // style,
-      target: '',
+      target: "",
       type,
     }
     const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
@@ -149,7 +149,7 @@ async function crawlExample(rootPath: string) {
 }
 
 async function crawlBlock(rootPath: string) {
-  const type = `registry:block` as const
+  const type = "registry:block" as const
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
@@ -167,14 +167,14 @@ async function crawlBlock(rootPath: string) {
       }
       continue
     }
-    if (!dirent.name.endsWith('.vue') || !dirent.isFile())
+    if (!dirent.name.endsWith(".vue") || !dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue')
+    const [name] = dirent.name.split(".vue")
 
     const filepath = join(rootPath, dirent.name)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('blocks', dirent.name)
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const relativePath = join("blocks", dirent.name)
 
     const target = `pages/${sanitizeString(dirent.name)}/index.vue`
 
@@ -201,7 +201,7 @@ async function crawlBlock(rootPath: string) {
 }
 
 async function crawlChart(rootPath: string) {
-  const type = `registry:block` as const
+  const type = "registry:block" as const
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
@@ -219,15 +219,15 @@ async function crawlChart(rootPath: string) {
       }
       continue
     }
-    if (!dirent.name.endsWith('.vue') || !dirent.isFile())
+    if (!dirent.name.endsWith(".vue") || !dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue')
+    const [name] = dirent.name.split(".vue")
 
     const filepath = join(rootPath, dirent.name)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('charts', dirent.name)
-    const target = ''
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const relativePath = join("charts", dirent.name)
+    const target = ""
     const file = {
       name: dirent.name,
       content: source,
@@ -251,7 +251,7 @@ async function crawlChart(rootPath: string) {
 }
 
 async function crawlHook(rootPath: string, style: RegistryStyle) {
-  const type = `registry:hook` as const
+  const type = "registry:hook" as const
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
@@ -261,11 +261,11 @@ async function crawlHook(rootPath: string, style: RegistryStyle) {
     if (!dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue.ts')
+    const [name] = dirent.name.split(".vue.ts")
 
     const filepath = join(rootPath, dirent.name)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('hook', dirent.name)
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const relativePath = join("hook", dirent.name)
 
     const file = {
       name: dirent.name,
@@ -297,21 +297,21 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
   const files: RegistryFiles[] = []
   const dependencies = new Set<string>()
   const registryDependencies = new Set<string>()
-  const type = 'registry:ui'
+  const type = "registry:ui"
 
   for (const dirent of dir) {
     if (!dirent.isFile())
       continue
 
     const filepath = join(componentPath, dirent.name)
-    const relativePath = join('ui', componentName, dirent.name)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const target = ''
+    const relativePath = join("ui", componentName, dirent.name)
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const target = ""
 
     files.push({ content: source, path: relativePath, type, target })
 
     // only grab deps from the vue files
-    if (dirent.name === 'index.ts')
+    if (dirent.name === "index.ts")
       continue
 
     const deps = await getFileDependencies(filepath, source)
@@ -341,14 +341,14 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
   for (const dirent of dir) {
     if (!dirent.isFile())
       continue
-    const isPage = dirent.name === 'page.vue'
-    const type = isPage ? 'registry:page' : 'registry:component'
+    const isPage = dirent.name === "page.vue"
+    const type = isPage ? "registry:page" : "registry:component"
 
     const compPath = isPage ? dirent.name : `components/${dirent.name}`
     const filepath = join(blockPath, compPath)
-    const relativePath = join('blocks', blockName, compPath)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const target = isPage ? `pages/${sanitizeString(blockName)}/index.vue` : ''
+    const relativePath = join("blocks", blockName, compPath)
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const target = isPage ? `pages/${sanitizeString(blockName)}/index.vue` : ""
 
     files.push({ content: source, path: relativePath, type, target })
 
@@ -361,7 +361,7 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
   }
 
   return {
-    type: 'registry:block',
+    type: "registry:block",
     files,
     name: blockName,
     registryDependencies: Array.from(registryDependencies),
@@ -385,19 +385,19 @@ async function getFileDependencies(filename: string, sourceCode: string) {
       peerDeps.forEach(dep => dependencies.add(dep))
     }
 
-    if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith('.vue')) {
-      const component = source.split('/').at(-1)!
-      if (component !== 'utils')
+    if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith(".vue")) {
+      const component = source.split("/").at(-1)!
+      if (component !== "utils")
         registryDependencies.add(component)
     }
   }
 
-  if (filename.endsWith('.ts')) {
+  if (filename.endsWith(".ts")) {
     const ast = parseSync(filename, sourceCode, {
-      sourceType: 'module',
+      sourceType: "module",
     })
 
-    const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
+    const sources = ast.program.body.filter((i: any) => i.type === "ImportDeclaration").map((i: any) => i.source)
     sources.forEach((source: any) => {
       populateDeps(source.value)
     })
@@ -405,7 +405,7 @@ async function getFileDependencies(filename: string, sourceCode: string) {
   else {
     const parsed = parse(sourceCode, { filename })
     if (parsed.descriptor.script?.content || parsed.descriptor.scriptSetup?.content) {
-      const compiled = compileScript(parsed.descriptor, { id: 'id' })
+      const compiled = compileScript(parsed.descriptor, { id: "id" })
 
       Object.values(compiled.imports!).forEach((value) => {
         populateDeps(value.source)
@@ -423,15 +423,15 @@ export async function getBlockMetadata(filename: string, sourceCode: string) {
     containerClass: null as string | null,
   }
 
-  if (filename.endsWith('.vue')) {
+  if (filename.endsWith(".vue")) {
     const { descriptor } = parse(sourceCode, { filename })
     if (descriptor.script?.content) {
-      const ast = compileScript(descriptor, { id: 'id' })
+      const ast = compileScript(descriptor, { id: "id" })
       walk(ast.scriptAst, {
         enter(node: any) {
           const declaration = node.declaration
           // Check if the declaration is a variable declaration
-          if (declaration?.type === 'VariableDeclaration') {
+          if (declaration?.type === "VariableDeclaration") {
             // Extract variable names and their values
             declaration.declarations.forEach((decl: any) => {
               // @ts-expect-error ignore missing type

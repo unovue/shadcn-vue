@@ -4,6 +4,7 @@ import path from 'pathe'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
 import { getProjectInfo } from '@/src/utils/get-project-info'
+import { logger } from '@/src/utils/logger'
 import { resolveImport } from '@/src/utils/resolve-import'
 import { highlighter } from './highlighter'
 
@@ -152,7 +153,8 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
     return rawConfigSchema.parse(configResult.config)
   }
   catch (error) {
-    throw new Error(`Invalid configuration found in ${cwd}/components.json.`)
+    logger.error(`Unable to parse configuration found in ${cwd}/components.json. Please check that your project is using the correct $schema https://www.shadcn-vue.com/docs/components-json`)
+    throw error
   }
 }
 

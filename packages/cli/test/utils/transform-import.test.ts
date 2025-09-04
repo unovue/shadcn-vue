@@ -83,7 +83,7 @@ it('transform import', async () => {
         aliases: {
           components: '~/src/components',
           utils: '~/src/utils',
-          ui: '~/src/components',
+          ui: '~/src/ui',
         },
         typescript: true,
       },
@@ -156,6 +156,30 @@ it('transform import', async () => {
         aliases: {
           components: '@custom-alias/components',
           utils: '@custom-alias/lib/utils',
+        },
+        typescript: true,
+      },
+    }),
+  ).toMatchSnapshot()
+
+  expect(
+    await transform({
+      filename: 'app.ts',
+      raw: `import { Foo } from "bar"
+      import { Button } from "@/components/ui/button"
+      import { Label} from "ui/label"
+      import { Box } from "@/registry/new-york/box"
+
+      import { cn } from "@/lib/utils"
+      `,
+      config: {
+        tailwind: {
+          baseColor: 'neutral',
+          cssVariables: true,
+        },
+        aliases: {
+          components: '@/components',
+          utils: '~/utils/cn',
         },
         typescript: true,
       },

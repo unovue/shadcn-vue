@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ChevronUp } from 'lucide-vue-next'
+import { ChevronUp } from "lucide-vue-next"
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu'
+} from "@/registry/new-york/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from '@/registry/new-york/ui/sidebar'
+} from "@/registry/new-york/ui/sidebar"
 </script>
 
 <template>

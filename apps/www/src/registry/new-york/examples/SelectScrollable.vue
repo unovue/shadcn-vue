@@ -7,7 +7,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york/ui/select'
+} from "@/registry/new-york/ui/select"
 </script>
 
 <template>

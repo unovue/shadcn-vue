@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Button } from '@/registry/new-york/ui/button'
-import { Input } from '@/registry/new-york/ui/input'
-import { Label } from '@/registry/new-york/ui/label'
+import { ref } from "vue"
+import { Button } from "@/registry/new-york/ui/button"
+import { Input } from "@/registry/new-york/ui/input"
+import { Label } from "@/registry/new-york/ui/label"
 import {
   Sheet,
   SheetClose,
@@ -12,11 +12,11 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/registry/new-york/ui/sheet'
+} from "@/registry/new-york/ui/sheet"
 
-const SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const
+const SHEET_SIDES = ["top", "right", "bottom", "left"] as const
 
-const username = ref('')
+const username = ref("")
 </script>
 
 <template>

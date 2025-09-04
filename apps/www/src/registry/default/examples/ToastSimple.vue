@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from '@/registry/default/ui/button'
-import { useToast } from '@/registry/default/ui/toast/use-toast'
+import { Button } from "@/registry/default/ui/button"
+import { useToast } from "@/registry/default/ui/toast/use-toast"
 
 const { toast } = useToast()
 </script>

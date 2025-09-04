@@ -1,10 +1,10 @@
 <script lang="ts">
-export const description = 'A login page with a muted background color.'
+export const description = "A login page with a muted background color."
 </script>
 
 <script setup lang="ts">
-import { GalleryVerticalEnd } from 'lucide-vue-next'
-import LoginForm from '@/registry/default/blocks/Login03/components/LoginForm.vue'
+import { GalleryVerticalEnd } from "lucide-vue-next"
+import LoginForm from "@/registry/default/blocks/Login03/components/LoginForm.vue"
 </script>
 
 <template>

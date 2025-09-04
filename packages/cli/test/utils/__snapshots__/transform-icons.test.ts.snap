@@ -38,3 +38,16 @@ import { Primitive } from "reka-ui";
 </template>
 "
 `;
+
+exports[`transformIcons > transforms tabler icons 1`] = `
+"<script setup>
+import { IconCheck } from '@tabler/icons-vue';
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <IconCheck />
+  <Primitive />
+</template>
+"
+`;

@@ -1,28 +1,29 @@
 <script setup lang="ts">
+import type { DateValue } from "@internationalized/date"
 import {
   DateFormatter,
-  type DateValue,
+
   getLocalTimeZone,
   today,
-} from '@internationalized/date'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
+} from "@internationalized/date"
+import { Calendar as CalendarIcon } from "lucide-vue-next"
 
-import { ref } from 'vue'
-import { cn } from '@/lib/utils'
-import { Button } from '@/registry/default/ui/button'
-import { Calendar } from '@/registry/default/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/registry/default/ui/popover'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/registry/default/ui/select'
+import { ref } from "vue"
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/default/ui/button"
+import { Calendar } from "@/registry/default/ui/calendar"
+import { Popover, PopoverContent, PopoverTrigger } from "@/registry/default/ui/popover"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/registry/default/ui/select"
 
-const df = new DateFormatter('en-US', {
-  dateStyle: 'long',
+const df = new DateFormatter("en-US", {
+  dateStyle: "long",
 })
 
 const items = [
-  { value: 0, label: 'Today' },
-  { value: 1, label: 'Tomorrow' },
-  { value: 3, label: 'In 3 days' },
-  { value: 7, label: 'In a week' },
+  { value: 0, label: "Today" },
+  { value: 1, label: "Tomorrow" },
+  { value: 3, label: "In 3 days" },
+  { value: 7, label: "In a week" },
 ]
 
 const value = ref<DateValue>()

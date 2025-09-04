@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { GalleryVerticalEnd } from 'lucide-vue-next'
+import { GalleryVerticalEnd } from "lucide-vue-next"
 
-import { Button } from '@/registry/default/ui/button'
-import { Input } from '@/registry/default/ui/input'
-import { Label } from '@/registry/default/ui/label'
+import { Button } from "@/registry/default/ui/button"
+import { Input } from "@/registry/default/ui/input"
+import { Label } from "@/registry/default/ui/label"
 </script>
 
 <template>

@@ -32,31 +32,58 @@ npm install -D typescript
 
 ### Add Tailwind CSS
 
-```bash
-npm install tailwindcss @tailwindcss/vite
-```
+  ```bash
+  npm install tailwindcss @tailwindcss/vite
+  ```
 
-Replace everything in `assets/css/tailwind.css` with the following:
+  or install `@nuxtjs/tailwindcss@7.0.0-beta.0` or newer
 
-```css title="assets/css/tailwind.css"
-@import "tailwindcss";
-```
+  ```bash
+  npm install tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.0
+  ```
 
-Update `nuxt.config.ts` with the following:
+  For Nuxt v4: `app/assets/css/tailwind.css`<br>
+  For Nuxt v3: `assets/css/tailwind.css`<br><br>
+  Replace everything in `tailwind.css` with the following:
 
-```ts
-import tailwindcss from '@tailwindcss/vite'
+  ```css
+  @import "tailwindcss";
+  ```
 
-export default defineNuxtConfig({
-  // ...
-  css: ['~/assets/css/tailwind.css'],
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-  },
-})
-```
+  Update `nuxt.config.ts` with the following:
+
+  <TabsMarkdown>
+
+  <TabMarkdown title="@tailwindcss/vite">
+
+  ```ts
+  import tailwindcss from '@tailwindcss/vite'
+
+  export default defineNuxtConfig({
+    // ...
+    css: ['~/assets/css/tailwind.css'],
+    vite: {
+      plugins: [
+        tailwindcss(),
+      ],
+    },
+  })
+  ```
+
+  </TabMarkdown>
+
+  <TabMarkdown title="@nuxtjs/tailwindcss">
+
+  ```ts
+  export default defineNuxtConfig({
+    // ...
+    modules: ['@nuxtjs/tailwindcss'],
+  })
+  ```
+
+  </TabMarkdown>
+
+  </TabsMarkdown>
 
 ### Add `Nuxt` module
 
@@ -191,6 +218,24 @@ declare module '@nuxt/schema' {
   </TabMarkdown>
 </TabsMarkdown>
 
+### Add a Nuxt Plugin for providing ssrWidth
+
+Some components require a ssrWidth to be set through VueUse to avoid Hydration errors on mobile.
+
+Add the following plugin to your Nuxt application:<br>
+For Nuxt v4: `app/plugins/ssr-width.ts`<br>
+For Nuxt v3: `plugins/ssr-width.ts`
+
+Read more about [`useSSRWidth`](https://vueuse.org/core/useSSRWidth/)
+
+```ts
+import { provideSSRWidth } from '@vueuse/core'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  provideSSRWidth(1024, nuxtApp.vueApp)
+})
+```
+
 ### Configure `nuxt.config.ts`
 
 ```ts
@@ -207,7 +252,7 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
-  }
+  },
 })
 ```
 

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "ui/button/Button.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive, type PrimitiveProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { type ButtonVariants, buttonVariants } from '.'\n\ninterface Props extends PrimitiveProps {\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"button\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport type { PrimitiveProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport type { ButtonVariants } from \".\"\r\nimport { Primitive } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { buttonVariants } from \".\"\r\n\r\ninterface Props extends PrimitiveProps {\r\n  variant?: ButtonVariants[\"variant\"]\r\n  size?: ButtonVariants[\"size\"]\r\n  class?: HTMLAttributes[\"class\"]\r\n}\r\n\r\nconst props = withDefaults(defineProps<Props>(), {\r\n  as: \"button\",\r\n})\r\n</script>\r\n\r\n<template>\r\n  <Primitive\r\n    data-slot=\"button\"\r\n    :as=\"as\"\r\n    :as-child=\"asChild\"\r\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\r\n  >\r\n    <slot />\r\n  </Primitive>\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     },
