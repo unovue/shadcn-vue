@@ -10,6 +10,7 @@ import { rawConfigSchema } from '@/src/schema'
 import { loadEnvFiles } from '@/src/utils/env-loader'
 import { createConfig, getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
+import { ensureRegistriesInConfig } from '@/src/utils/registries'
 
 const searchOptionsSchema = z.object({
   cwd: z.string(),
@@ -83,6 +84,19 @@ export const search = new Command()
       }
       catch {
         // Use shadow config if getConfig fails (partial components.json).
+      }
+
+      const { config: updatedConfig, newRegistries }
+        = await ensureRegistriesInConfig(
+          registries.map(registry => `${registry}/registry`),
+          config,
+          {
+            silent: true,
+            writeFile: false,
+          },
+        )
+      if (newRegistries.length > 0) {
+        config.registries = updatedConfig.registries
       }
 
       // Validate registries early for better error messages.

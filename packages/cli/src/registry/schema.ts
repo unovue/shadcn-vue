@@ -217,3 +217,9 @@ export const searchResultsSchema = z.object({
   }),
   items: z.array(searchResultItemSchema),
 })
+
+export const registriesIndexSchema = z.record(
+  // eslint-disable-next-line regexp/prefer-w, regexp/use-ignore-case
+  z.string().regex(/^@[a-zA-Z0-9][a-zA-Z0-9-_]*$/),
+  z.string(),
+)
