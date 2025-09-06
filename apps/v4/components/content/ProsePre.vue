@@ -10,6 +10,7 @@ const props = defineProps<{
   highlights?: number[]
   meta?: string
   class?: HTMLAttributes['class']
+  unwrap?: boolean
 }>()
 
 const npmBlock = ['npm install', 'npm create', 'npm run', 'npx']
@@ -64,7 +65,8 @@ const codeAttributes = computed(() => isShowingLineNumber.value
 </script>
 
 <template>
-  <figure data-pretty-code-figure>
+  <pre v-if="unwrap" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0 !bg-transparent', props.class)" :data-language="lang"><code v-bind="codeAttributes" v-html="highlighted" /></pre>
+  <figure v-else data-pretty-code-figure>
     <pre v-if="isNpmCommand" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CodeBlockCommand :code /></pre>
 
     <template v-else-if="title">

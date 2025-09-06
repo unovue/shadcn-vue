@@ -14,9 +14,13 @@ const Component = props.type === 'block'
   ? defineAsyncComponent({
       loader: () => import(`@/registry/new-york-v4/blocks/${props.name}/page.vue`),
     })
-  : defineAsyncComponent({
-      loader: () => import(`@/components/demo/${props.name}.vue`),
-    })
+  : props.name.toLowerCase().includes('chart') && !props.name.toLocaleLowerCase().includes('demo')
+    ? defineAsyncComponent({
+        loader: () => import(`@/registry/new-york-v4/charts/${props.name}.vue`),
+      })
+    : defineAsyncComponent({
+        loader: () => import(`@/components/demo/${props.name}.vue`),
+      })
 </script>
 
 <template>
