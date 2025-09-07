@@ -11,7 +11,7 @@ catalog:
   oxc-parser: ^0.72.0
   pathe: ^2.0.3
   reka-ui: ^2.5.0
-  tinyglobby: ^0.2.14
+  tinyglobby: ^0.2.15
   typescript: ^5.9.2
   vaul-vue: ^0.4.1
   vee-validate: ^4.15.0

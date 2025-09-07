@@ -41,7 +41,7 @@ const TS_CONFIG_SCHEMA = z.object({
 
 export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework | null> {
   const packageInfo = await getPackageInfo(cwd, false)
-  const configFiles = await glob('**/{nuxt,vite,astro}.config.*|composer.json', {
+  const configFiles = await glob('**/{nuxt,vite,astro,wxt}.config.*|composer.json', {
     cwd,
     deep: 3,
     ignore: PROJECT_SHARED_IGNORE,
@@ -50,7 +50,7 @@ export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework
   // Check for Nuxt
   if (configFiles.find(file => file.startsWith('nuxt.config.'))) {
     const nuxtPkg = packageInfo?.dependencies?.nuxt || packageInfo?.devDependencies?.nuxt
-    const nuxtVersion = (nuxtPkg && coerce(nuxtPkg)?.version) || '3.0.0'
+    const nuxtVersion = (nuxtPkg && coerce(nuxtPkg)?.version) || '4.0.0'
 
     if (nuxtVersion.startsWith('4')) {
       return FRAMEWORKS.nuxt4
@@ -75,6 +75,11 @@ export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework
   if (packageInfo?.dependencies?.['@inertiajs/vue3']
     || packageInfo?.devDependencies?.['@inertiajs/vue3'] || (await fs.pathExists(path.join(cwd, 'resources/js')))) {
     return FRAMEWORKS.inertia
+  }
+
+  // Check for WXT
+  if (configFiles.find(file => file.startsWith('wxt.config.'))) {
+    return FRAMEWORKS.vite
   }
 
   // Check for Vite
