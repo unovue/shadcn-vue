@@ -18,6 +18,10 @@ This repository is structured as follows:
 
 ```
 apps
+├── v4
+│   └── registry
+│       └── new-york-v4
+│           └── ui
 └── www
     ├── src
     │   └── content
@@ -89,14 +93,13 @@ We use a registry system for developing components. You can find the source code
 apps
 └── www
     └── src
-        └── lib
-            └── registry
-                ├── default
-                │   ├── example
-                │   └── ui
-                └── new-york
-                    ├── example
-                    └── ui
+        └── registry
+            ├── default
+            │   ├── example
+            │   └── ui
+            └── new-york
+                ├── example
+                └── ui
 ```
 
 When adding or modifying components, please ensure that:
