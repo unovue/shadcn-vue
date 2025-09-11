@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/ToastSimple.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/default/ui/button\"\r\nimport { useToast } from \"@/registry/default/ui/toast/use-toast\"\r\n\r\nconst { toast } = useToast()\r\n</script>\r\n\r\n<template>\r\n  <Button\r\n    variant=\"outline\" @click=\"() => {\r\n      toast({\r\n        description: 'Your message has been sent.',\r\n      });\r\n    }\"\r\n  >\r\n    Show Toast\r\n  </Button>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\nimport { useToast } from \"@/registry/default/ui/toast/use-toast\"\n\nconst { toast } = useToast()\n</script>\n\n<template>\n  <Button\n    variant=\"outline\" @click=\"() => {\n      toast({\n        description: 'Your message has been sent.',\n      });\n    }\"\n  >\n    Show Toast\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

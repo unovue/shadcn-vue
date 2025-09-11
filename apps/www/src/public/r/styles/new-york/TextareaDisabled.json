@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/TextareaDisabled.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\r\n</script>\r\n\r\n<template>\r\n  <Textarea placeholder=\"Type your message here.\" disabled />\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\n</script>\n\n<template>\n  <Textarea placeholder=\"Type your message here.\" disabled />\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

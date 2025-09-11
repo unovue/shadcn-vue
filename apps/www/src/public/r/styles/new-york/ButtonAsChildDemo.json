@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ButtonAsChildDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\n</script>\r\n\r\n<template>\r\n  <Button as-child>\r\n    <a href=\"/login\">\r\n      Login\r\n    </a>\r\n  </Button>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york/ui/button\"\n</script>\n\n<template>\n  <Button as-child>\n    <a href=\"/login\">\n      Login\n    </a>\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

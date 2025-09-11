@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/NumberFieldDecimal.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Label } from \"@/registry/new-york/ui/label\"\r\nimport {\r\n  NumberField,\r\n  NumberFieldContent,\r\n  NumberFieldDecrement,\r\n  NumberFieldIncrement,\r\n  NumberFieldInput,\r\n} from \"@/registry/new-york/ui/number-field\"\r\n</script>\r\n\r\n<template>\r\n  <NumberField\r\n    id=\"number\"\r\n    :default-value=\"5\"\r\n    :format-options=\"{\r\n      signDisplay: 'exceptZero',\r\n      minimumFractionDigits: 1,\r\n    }\"\r\n  >\r\n    <Label for=\"number\">Number</Label>\r\n    <NumberFieldContent>\r\n      <NumberFieldDecrement />\r\n      <NumberFieldInput />\r\n      <NumberFieldIncrement />\r\n    </NumberFieldContent>\r\n  </NumberField>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/new-york/ui/label\"\nimport {\n  NumberField,\n  NumberFieldContent,\n  NumberFieldDecrement,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@/registry/new-york/ui/number-field\"\n</script>\n\n<template>\n  <NumberField\n    id=\"number\"\n    :default-value=\"5\"\n    :format-options=\"{\n      signDisplay: 'exceptZero',\n      minimumFractionDigits: 1,\n    }\"\n  >\n    <Label for=\"number\">Number</Label>\n    <NumberFieldContent>\n      <NumberFieldDecrement />\n      <NumberFieldInput />\n      <NumberFieldIncrement />\n    </NumberFieldContent>\n  </NumberField>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }
