@@ -236,6 +236,31 @@ export default defineNuxtPlugin((nuxtApp) => {
 })
 ```
 
+### Configure `tsconfig.json` (aliases)
+
+The shadcn-vue CLI validates import aliases from your `tsconfig.json`/`jsconfig.json`.
+Nuxt’s runtime aliases are not enough — you must define `compilerOptions.paths` explicitly.
+
+```json
+{
+  "references": [
+    { "path": "./.nuxt/tsconfig.app.json" },
+    { "path": "./.nuxt/tsconfig.server.json" },
+    { "path": "./.nuxt/tsconfig.shared.json" },
+    { "path": "./.nuxt/tsconfig.node.json" }
+  ],
+  "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "~/*": ["./*"],
+      "@/components/*": ["./app/components/*"]
+    }
+  }
+}
+```
+
 ### Configure `nuxt.config.ts`
 
 ```ts
@@ -248,8 +273,9 @@ export default defineNuxtConfig({
      */
     prefix: '',
     /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
+     * Directory where components live.
+     * Nuxt 4 (app directory): './app/components/ui'
+     * Nuxt 3 (classic):       './components/ui'
      */
     componentDir: './components/ui'
   },
