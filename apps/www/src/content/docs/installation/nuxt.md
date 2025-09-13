@@ -251,7 +251,6 @@ Nuxt’s runtime aliases are not enough — you must define `compilerOptions.pat
   ],
   "files": [],
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
       "~/*": ["./*"],
