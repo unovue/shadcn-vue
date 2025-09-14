@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addComponentsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { parseSync } from 'oxc-parser'
 
 // TODO: add test to make sure all registry is being parse correctly
@@ -45,11 +45,12 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Tell Nuxt to not scan `componentsDir` for auto imports as we will do it manually
     // See https://github.com/unovue/shadcn-vue/pull/528#discussion_r1590206268
-    nuxt.hook('components:dirs', (dirs) => {
-      dirs.unshift({
-        path: componentsPath,
-        extensions: [],
-      })
+    addComponentsDir({
+      path: componentsPath,
+      extensions: [],
+      ignore: ['**/*'],
+    }, {
+      prepend: true,
     })
 
     // Manually scan `componentsDir` for components and register them for auto imports
