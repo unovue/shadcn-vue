@@ -9,7 +9,7 @@
   },
   {
     'name': 'categories',
-    'description': '<p>Select the categories from your data. Used to populate the legend and toolip.</p>\n',
+    'description': '<p>Select the categories from your data. Used to populate the legend and tooltip.</p>\n',
     'type': 'string[]',
     'required': true
   },

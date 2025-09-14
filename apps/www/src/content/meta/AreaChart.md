@@ -9,7 +9,7 @@
   },
   {
     'name': 'categories',
-    'description': '<p>Select the categories from your data. Used to populate the legend and toolip.</p>\n',
+    'description': '<p>Select the categories from your data. Used to populate the legend and tooltip.</p>\n',
     'type': 'string[]',
     'required': true
   },
@@ -100,7 +100,7 @@
     'default': 'CurveType.MonotoneX'
   },
   {
-    'name': 'showGradiant',
+    'name': 'showGradient',
     'description': '<p>Controls the visibility of gradient.</p>\n',
     'type': 'boolean',
     'required': false,

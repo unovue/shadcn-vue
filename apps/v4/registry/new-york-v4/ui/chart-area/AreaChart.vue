@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
    * Controls the visibility of gradient.
    * @default true
    */
-  showGradiant?: boolean
+  showGradient?: boolean
 }>(), {
   curveType: CurveType.MonotoneX,
   filterOpacity: 0.2,
@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
   showTooltip: true,
   showLegend: true,
   showGridLine: true,
-  showGradiant: true,
+  showGradient: true,
 })
 
 const emits = defineEmits<{
@@ -68,7 +68,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
       <svg width="0" height="0">
         <defs>
           <linearGradient v-for="(color, i) in colors" :id="`${chartRef}-color-${i}`" :key="i" x1="0" y1="0" x2="0" y2="1">
-            <template v-if="showGradiant">
+            <template v-if="showGradient">
               <stop offset="5%" :stop-color="color" stop-opacity="0.4" />
               <stop offset="95%" :stop-color="color" stop-opacity="0" />
             </template>
