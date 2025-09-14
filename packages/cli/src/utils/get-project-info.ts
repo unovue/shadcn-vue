@@ -1,25 +1,23 @@
+import type { rawConfigSchema } from '@/src/schema'
 import type { Framework } from '@/src/utils/frameworks'
-import type {
-  Config,
-  RawConfig,
-} from '@/src/utils/get-config'
+import type { Config } from '@/src/utils/get-config'
 import fs from 'fs-extra'
-import { parseTsconfig } from 'get-tsconfig'
+import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
+import { coerce } from 'semver'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
 import { FRAMEWORKS } from '@/src/utils/frameworks'
-import {
-  getConfig,
-  getTSConfig,
-  resolveConfigPaths,
-} from '@/src/utils/get-config'
+import { getConfig, resolveConfigPaths } from '@/src/utils/get-config'
 import { getPackageInfo } from '@/src/utils/get-package-info'
 
 export type TailwindVersion = 'v3' | 'v4' | null
 
 export interface ProjectInfo {
   framework: Framework
+  isSrcDir: boolean
+  // isRSC: boolean
+  // isTsx: boolean
   typescript: boolean
   tailwindConfigFile: string | null
   tailwindCssFile: string | null
@@ -41,22 +39,82 @@ const TS_CONFIG_SCHEMA = z.object({
   }),
 })
 
+export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework | null> {
+  const packageInfo = await getPackageInfo(cwd, false)
+  const configFiles = await glob('**/{nuxt,vite,astro,wxt}.config.*|composer.json', {
+    cwd,
+    deep: 3,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  // Check for Nuxt
+  if (configFiles.find(file => file.startsWith('nuxt.config.'))) {
+    const nuxtPkg = packageInfo?.dependencies?.nuxt || packageInfo?.devDependencies?.nuxt
+    const nuxtVersion = (nuxtPkg && coerce(nuxtPkg)?.version) || '4.0.0'
+
+    if (nuxtVersion.startsWith('4')) {
+      return FRAMEWORKS.nuxt4
+    }
+    else if (nuxtVersion.startsWith('3')) {
+      return FRAMEWORKS.nuxt3
+    }
+
+    return null
+  }
+
+  // Check for Astro
+  if (configFiles.find(file => file.startsWith('astro.config.'))) {
+    return FRAMEWORKS.astro
+  }
+
+  // Check for Laravel
+  if (configFiles.find(file => file.startsWith('composer.json'))) {
+    return FRAMEWORKS.laravel
+  }
+
+  if (packageInfo?.dependencies?.['@inertiajs/vue3']
+    || packageInfo?.devDependencies?.['@inertiajs/vue3'] || (await fs.pathExists(path.join(cwd, 'resources/js')))) {
+    return FRAMEWORKS.inertia
+  }
+
+  // Check for WXT
+  if (configFiles.find(file => file.startsWith('wxt.config.'))) {
+    return FRAMEWORKS.vite
+  }
+
+  // Check for Vite
+  if (configFiles.find(file => file.startsWith('vite.config.'))) {
+    return FRAMEWORKS.vite
+  }
+
+  return null
+}
+
+export async function isTypeScriptProject(cwd: string) {
+  const files = await glob('tsconfig.*', {
+    cwd,
+    deep: 1,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  return files.length > 0
+}
+
 export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   const [
-    configFiles,
+    detectedFramework,
     typescript,
+    isSrcDir,
+    // isTsx,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
     aliasPrefix,
     packageJson,
   ] = await Promise.all([
-    glob('**/{nuxt,vite,astro}.config.*|composer.json', {
-      cwd,
-      deep: 3,
-      ignore: PROJECT_SHARED_IGNORE,
-    }),
+    detectFrameworkConfigFiles(cwd),
     isTypeScriptProject(cwd),
+    fs.pathExists(path.resolve(cwd, 'src')),
     getTailwindConfigFile(cwd),
     getTailwindCssFile(cwd),
     getTailwindVersion(cwd),
@@ -65,37 +123,13 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   ])
 
   const type: ProjectInfo = {
-    framework: FRAMEWORKS.manual,
+    framework: detectedFramework || FRAMEWORKS.manual,
     typescript,
+    isSrcDir,
     tailwindConfigFile,
     tailwindCssFile,
     tailwindVersion,
     aliasPrefix,
-  }
-
-  // Nuxt.
-  if (configFiles.find(file => file.startsWith('nuxt.config.'))?.length) {
-    type.framework = FRAMEWORKS.nuxt
-    return type
-  }
-
-  // Astro.
-  if (configFiles.find(file => file.startsWith('astro.config.'))?.length) {
-    type.framework = FRAMEWORKS.astro
-    return type
-  }
-
-  // Laravel.
-  if (configFiles.find(file => file.startsWith('composer.json'))?.length) {
-    type.framework = FRAMEWORKS.laravel
-    return type
-  }
-
-  // Vite.
-  // We'll assume that it got caught by the Remix check above.
-  if (configFiles.find(file => file.startsWith('vite.config.'))?.length) {
-    type.framework = FRAMEWORKS.vite
-    return type
   }
 
   return type
@@ -105,7 +139,7 @@ export async function getTailwindVersion(
   cwd: string,
 ): Promise<ProjectInfo['tailwindVersion']> {
   const [packageInfo, config] = await Promise.all([
-    getPackageInfo(cwd),
+    getPackageInfo(cwd, false),
     getConfig(cwd),
   ])
 
@@ -114,10 +148,17 @@ export async function getTailwindVersion(
     return 'v4'
   }
 
-  if (
-    !packageInfo?.dependencies?.tailwindcss
-    && !packageInfo?.devDependencies?.tailwindcss
-  ) {
+  const hasNuxtTailwind = !!(
+    packageInfo?.dependencies?.['@nuxtjs/tailwindcss']
+    || packageInfo?.devDependencies?.['@nuxtjs/tailwindcss']
+  )
+
+  const hasTailwindCss = !!(
+    packageInfo?.dependencies?.tailwindcss
+    || packageInfo?.devDependencies?.tailwindcss
+  )
+
+  if (!hasTailwindCss && !hasNuxtTailwind) {
     return null
   }
 
@@ -179,13 +220,26 @@ export async function getTailwindConfigFile(cwd: string) {
 }
 
 export async function getTsConfigAliasPrefix(cwd: string) {
-  const isTypescript = await isTypeScriptProject(cwd)
-  const tsconfigType = isTypescript ? 'tsconfig.json' : 'jsconfig.json'
+  const detectedFramework = await detectFrameworkConfigFiles(cwd)
+  const isTypeScript = await isTypeScriptProject(cwd)
+  const tsConfig = await getTsconfig(cwd, detectedFramework?.name === 'nuxt4'
+    ? './.nuxt/tsconfig.app.json'
+    : detectedFramework?.name === 'nuxt3'
+      ? './.nuxt/tsconfig.json'
+      : detectedFramework?.name === 'inertia'
+        ? './inertia/tsconfig.json'
+        : isTypeScript
+          ? './tsconfig.json'
+          : './jsconfig.json')
 
-  const tsConfig = getTSConfig(cwd, tsconfigType)
-  const parsedTsConfig = parseTsconfig(tsConfig.path)
+  if (
+    tsConfig === null
+    || !Object.entries(tsConfig.config.compilerOptions?.paths ?? {}).length
+  ) {
+    return null
+  }
 
-  const aliasPaths = parsedTsConfig.compilerOptions?.paths ?? {}
+  const aliasPaths = tsConfig.config.compilerOptions?.paths ?? {}
 
   // This assume that the first alias is the prefix.
   for (const [alias, paths] of Object.entries(aliasPaths)) {
@@ -203,16 +257,6 @@ export async function getTsConfigAliasPrefix(cwd: string) {
 
   // Use the first alias as the prefix.
   return Object.keys(aliasPaths)?.[0]?.replace(/\/\*$/, '') ?? null
-}
-
-export async function isTypeScriptProject(cwd: string) {
-  const files = await glob('tsconfig.*', {
-    cwd,
-    deep: 1,
-    ignore: PROJECT_SHARED_IGNORE,
-  })
-
-  return files.length > 0
 }
 
 export async function getTsConfig(cwd: string) {
@@ -265,8 +309,10 @@ export async function getProjectConfig(
     return null
   }
 
-  const config: RawConfig = {
+  const config: z.infer<typeof rawConfigSchema> = {
     $schema: 'https://shadcn-vue.com/schema.json',
+    // rsc: projectInfo.isRSC,
+    // tsx: projectInfo.isTsx,
     typescript: projectInfo.typescript,
     style: 'new-york',
     tailwind: {
@@ -289,9 +335,9 @@ export async function getProjectConfig(
   return await resolveConfigPaths(cwd, config)
 }
 
-export async function getProjectTailwindVersionFromConfig(
-  config: Config,
-): Promise<TailwindVersion> {
+export async function getProjectTailwindVersionFromConfig(config: {
+  resolvedPaths: Pick<Config['resolvedPaths'], 'cwd'>
+}): Promise<TailwindVersion> {
   if (!config.resolvedPaths?.cwd) {
     return 'v3'
   }

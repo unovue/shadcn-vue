@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import type { iconsSchema } from '@/src/registry/schema'
+import type { iconsSchema } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import { randomBytes } from 'node:crypto'
 import { promises as fs } from 'node:fs'
@@ -98,7 +98,7 @@ export async function migrateIcons(config: Config) {
   }
 
   if (targetLibrary.package) {
-    await updateDependencies([targetLibrary.package], config, {
+    await updateDependencies([targetLibrary.package], [], config, {
       silent: false,
     })
   }

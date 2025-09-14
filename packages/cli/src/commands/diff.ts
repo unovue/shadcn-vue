@@ -1,5 +1,5 @@
 import type { Change } from 'diff'
-import type { registryIndexSchema } from '@/src/registry/schema'
+import type { registryIndexSchema } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import { existsSync, promises as fs } from 'node:fs'
 import { Command } from 'commander'
@@ -10,7 +10,7 @@ import {
   fetchTree,
   getItemTargetPath,
   getRegistryBaseColor,
-  getRegistryIndex,
+  getShadcnRegistryIndex,
 } from '@/src/registry/api'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
@@ -59,7 +59,7 @@ export const diff = new Command()
         process.exit(1)
       }
 
-      const registryIndex = await getRegistryIndex()
+      const registryIndex = await getShadcnRegistryIndex()
 
       if (!registryIndex) {
         handleError(new Error('Failed to fetch registry index.'))

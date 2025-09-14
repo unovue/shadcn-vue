@@ -1,22 +1,28 @@
 import type { z } from 'zod'
-import type { RegistryItem, registryItemFileSchema } from '@/src/registry/schema'
+import type { RegistryItem, registryItemFileSchema } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import type { ProjectInfo } from '@/src/utils/get-project-info'
 import { existsSync, promises as fs } from 'node:fs'
-import { tmpdir } from 'node:os'
-import path, { basename, dirname } from 'pathe'
+// import { tmpdir } from 'node:os'
+import { getTsconfig } from 'get-tsconfig'
+import path, { basename } from 'pathe'
 import prompts from 'prompts'
 import { transform as metaTransform } from 'vue-metamorph'
+import { getRegistryBaseColor } from '@/src/registry/api'
+import { isContentSame } from '@/src/utils/compare'
 import {
-  getRegistryBaseColor,
-} from '@/src/registry/api'
-import { getTSConfig } from '@/src/utils/get-config'
+  findExistingEnvFile,
+  getNewEnvKeys,
+  isEnvFile,
+  mergeEnvContent,
+  parseEnvContent,
+} from '@/src/utils/env-helpers'
 import { getProjectInfo } from '@/src/utils/get-project-info'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
+import { resolveImport } from '@/src/utils/resolve-import'
 import { spinner } from '@/src/utils/spinner'
 import { transform } from '@/src/utils/transformers'
-// import { resolveImport } from '../resolve-import'
 
 export async function updateFiles(
   files: RegistryItem['files'],
@@ -27,6 +33,7 @@ export async function updateFiles(
     silent?: boolean
     rootSpinner?: ReturnType<typeof spinner>
     isRemote?: boolean
+    isWorkspace?: boolean
   },
 ) {
   if (!files?.length) {
@@ -41,6 +48,7 @@ export async function updateFiles(
     force: false,
     silent: false,
     isRemote: false,
+    isWorkspace: false,
     ...options,
   }
   const filesCreatedSpinner = spinner(`Updating files.`, {
@@ -49,46 +57,16 @@ export async function updateFiles(
 
   const [projectInfo, baseColor] = await Promise.all([
     getProjectInfo(config.resolvedPaths.cwd),
-    getRegistryBaseColor(config.tailwind.baseColor),
+    config.tailwind.baseColor
+      ? getRegistryBaseColor(config.tailwind.baseColor)
+      : Promise.resolve(undefined),
   ])
 
   let filesCreated: string[] = []
   let filesUpdated: string[] = []
   let filesSkipped: string[] = []
-  const folderSkipped = new Map<string, boolean>()
-
-  let tempRoot = ''
-  if (!config.typescript) {
-    for (const file of files) {
-      if (!file.content) {
-        continue
-      }
-      const dirName = path.dirname(file.path)
-      tempRoot = path.join(tmpdir(), 'shadcn-vue')
-
-      // Create the full temp directory path with original directory structure
-      const tempDir = path.join(tempRoot, 'registry', config.style, dirName)
-      const tempPath = path.join(tempRoot, 'registry', config.style, file.path)
-
-      await fs.mkdir(tempDir, { recursive: true })
-      await fs.writeFile(tempPath, file.content, 'utf-8')
-    }
-
-    await fs.cp(path.join(process.cwd(), 'node_modules'), tempRoot, {
-      recursive: true,
-      filter: src => !src.includes('/.bin/'),
-    })
-    await fs.writeFile(path.join(tempRoot, 'tsconfig.json'), `{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    },
-  },
-  "include": ["**/*.vue", "**/*.ts"],
-  "exclude": ["node_modules"]
-}`, 'utf8')
-  }
+  let envVarsAdded: string[] = []
+  let envFile: string | null = null
 
   for (const file of files) {
     if (!file.content) {
@@ -96,6 +74,7 @@ export async function updateFiles(
     }
 
     let filePath = resolveFilePath(file, config, {
+      // isSrcDir: projectInfo?.isSrcDir,
       framework: projectInfo?.framework.name,
       commonRoot: findCommonRoot(
         files.map(f => f.path),
@@ -114,82 +93,72 @@ export async function updateFiles(
       filePath = filePath.replace(/\.ts?$/, match => '.js')
     }
 
+    if (isEnvFile(filePath) && !existsSync(filePath)) {
+      const alternativeEnvFile = findExistingEnvFile(targetDir)
+      if (alternativeEnvFile) {
+        filePath = alternativeEnvFile
+      }
+    }
+
     const existingFile = existsSync(filePath)
 
     // Run our transformers.
-    const content = await transform({
-      filename: path.join(tempRoot, 'registry', config.style, file.path),
-      raw: file.content,
-      config,
-      baseColor,
-      isRemote: options.isRemote,
-    })
+    // Skip transformers for .env files to preserve exact content
+    const content = isEnvFile(filePath)
+      ? file.content
+      : await transform(
+          {
+            filename: file.path,
+            raw: file.content,
+            config,
+            baseColor,
+            // transformJsx: !config.tsx,
+            isRemote: options.isRemote,
+          },
+        )
 
     // Skip the file if it already exists and the content is the same.
-    if (existingFile) {
+    // Exception: Don't skip .env files as we merge content instead of replacing
+    if (existingFile && !isEnvFile(filePath)) {
       const existingFileContent = await fs.readFile(filePath, 'utf-8')
-      const [normalizedExisting, normalizedNew] = await Promise.all([
-        getNormalizedFileContent(existingFileContent),
-        getNormalizedFileContent(content),
-      ])
-      if (normalizedExisting === normalizedNew) {
+
+      if (
+        isContentSame(existingFileContent, content, {
+          // Ignore import differences for workspace components.
+          // TODO: figure out if we always want this.
+          ignoreImports: options.isWorkspace,
+        })
+      ) {
         filesSkipped.push(path.relative(config.resolvedPaths.cwd, filePath))
         continue
       }
     }
 
-    // Check for existing folder in UI component only
-    if (file.type === 'registry:ui') {
-      const folderName = basename(dirname(filePath))
-      const existingFolder = existsSync(dirname(filePath))
-
-      if (!existingFolder) {
-        folderSkipped.set(folderName, false)
+    // Skip overwrite prompt for .env files - we'll handle them specially
+    if (existingFile && !options.overwrite && !isEnvFile(filePath)) {
+      filesCreatedSpinner.stop()
+      if (options.rootSpinner) {
+        options.rootSpinner.stop()
       }
+      const { overwrite } = await prompts({
+        type: 'confirm',
+        name: 'overwrite',
+        message: `The file ${highlighter.info(
+          fileName,
+        )} already exists. Would you like to overwrite?`,
+        initial: false,
+      })
 
-      if (!folderSkipped.has(folderName) && !options.overwrite) {
-        filesCreatedSpinner.stop()
-        const { overwrite } = await prompts({
-          type: 'confirm',
-          name: 'overwrite',
-          message: `The folder ${highlighter.info(folderName)} already exists. Would you like to overwrite?`,
-          initial: false,
-        })
-        folderSkipped.set(folderName, !overwrite)
-        filesCreatedSpinner?.start()
-      }
-
-      if (folderSkipped.get(folderName) === true) {
+      if (!overwrite) {
         filesSkipped.push(path.relative(config.resolvedPaths.cwd, filePath))
-        continue
-      }
-    }
-    else {
-      if (existingFile && !options.overwrite) {
-        filesCreatedSpinner.stop()
-        if (options.rootSpinner) {
-          options.rootSpinner.stop()
-        }
-        const { overwrite } = await prompts({
-          type: 'confirm',
-          name: 'overwrite',
-          message: `The file ${highlighter.info(
-            fileName,
-          )} already exists. Would you like to overwrite?`,
-          initial: false,
-        })
-
-        if (!overwrite) {
-          filesSkipped.push(path.relative(config.resolvedPaths.cwd, filePath))
-          if (options.rootSpinner) {
-            options.rootSpinner.start()
-          }
-          continue
-        }
-        filesCreatedSpinner?.start()
         if (options.rootSpinner) {
           options.rootSpinner.start()
         }
+        continue
+      }
+      filesCreatedSpinner?.start()
+      if (options.rootSpinner) {
+        options.rootSpinner.start()
       }
     }
 
@@ -198,10 +167,37 @@ export async function updateFiles(
       await fs.mkdir(targetDir, { recursive: true })
     }
 
+    // Special handling for .env files - append only new keys
+    if (isEnvFile(filePath) && existingFile) {
+      const existingFileContent = await fs.readFile(filePath, 'utf-8')
+      const mergedContent = mergeEnvContent(existingFileContent, content)
+      envVarsAdded = getNewEnvKeys(existingFileContent, content)
+      envFile = path.relative(config.resolvedPaths.cwd, filePath)
+
+      if (!envVarsAdded.length) {
+        filesSkipped.push(path.relative(config.resolvedPaths.cwd, filePath))
+        continue
+      }
+
+      await fs.writeFile(filePath, mergedContent, 'utf-8')
+      filesUpdated.push(path.relative(config.resolvedPaths.cwd, filePath))
+      continue
+    }
+
     await fs.writeFile(filePath, content, 'utf-8')
-    existingFile
-      ? filesUpdated.push(path.relative(config.resolvedPaths.cwd, filePath))
-      : filesCreated.push(path.relative(config.resolvedPaths.cwd, filePath))
+
+    // Handle file creation logging
+    if (!existingFile) {
+      filesCreated.push(path.relative(config.resolvedPaths.cwd, filePath))
+
+      if (isEnvFile(filePath)) {
+        envVarsAdded = Object.keys(parseEnvContent(content))
+        envFile = path.relative(config.resolvedPaths.cwd, filePath)
+      }
+    }
+    else {
+      filesUpdated.push(path.relative(config.resolvedPaths.cwd, filePath))
+    }
   }
 
   const allFiles = [...filesCreated, ...filesUpdated, ...filesSkipped]
@@ -258,7 +254,7 @@ export async function updateFiles(
   if (filesSkipped.length) {
     spinner(
       `Skipped ${filesSkipped.length} ${
-        filesSkipped.length === 1 ? 'file' : 'files'
+        filesUpdated.length === 1 ? 'file' : 'files'
       }: (files might be identical, use --overwrite to overwrite)`,
       {
         silent: options.silent,
@@ -267,6 +263,17 @@ export async function updateFiles(
     if (!options.silent) {
       for (const file of filesSkipped) {
         logger.log(`  - ${file}`)
+      }
+    }
+  }
+
+  if (envVarsAdded.length && envFile) {
+    spinner(
+      `Added the following variables to ${highlighter.info(envFile)}:`,
+    )?.info()
+    if (!options.silent) {
+      for (const key of envVarsAdded) {
+        logger.log(`  ${highlighter.success('+')} ${key}`)
       }
     }
   }
@@ -286,6 +293,7 @@ export function resolveFilePath(
   file: z.infer<typeof registryItemFileSchema>,
   config: Config,
   options: {
+    // isSrcDir?: boolean
     commonRoot?: string
     framework?: ProjectInfo['framework']['name']
   },
@@ -303,6 +311,10 @@ export function resolveFilePath(
         return ''
       }
     }
+
+    // return options.isSrcDir
+    //   ? path.join(config.resolvedPaths.cwd, 'src', target.replace('src/', ''))
+    //   : path.join(config.resolvedPaths.cwd, target.replace('src/', ''))
 
     return path.join(config.resolvedPaths.cwd, target.replace('src/', ''))
   }
@@ -395,10 +407,6 @@ export function resolveNestedFilePath(
   return fileSegments.slice(commonDirIndex + 1).join('/')
 }
 
-export async function getNormalizedFileContent(content: string) {
-  return content.replace(/\r\n/g, '\n').trim()
-}
-
 export function resolvePageTarget(
   target: string,
   framework?: ProjectInfo['framework']['name'],
@@ -407,9 +415,23 @@ export function resolvePageTarget(
     return ''
   }
 
-  if (framework === 'nuxt') {
+  if (framework === 'nuxt3' || framework === 'nuxt4') {
     return target
   }
+
+  // if (framework === 'next-pages') {
+  //   let result = target.replace(/^app\//, 'pages/')
+  //   result = result.replace(/\/page(\.[jt]sx?)$/, '$1')
+
+  //   return result
+  // }
+
+  // if (framework === 'react-router') {
+  //   let result = target.replace(/^app\//, 'app/routes/')
+  //   result = result.replace(/\/page(\.[jt]sx?)$/, '$1')
+
+  //   return result
+  // }
 
   if (framework === 'laravel') {
     let result = target.replace(/^app\//, 'resources/js/pages/')
@@ -424,7 +446,7 @@ export function resolvePageTarget(
 // Replace the resolveImports function with this vue-metamorph version:
 async function resolveImports(filePaths: string[], config: Config) {
   const projectInfo = await getProjectInfo(config.resolvedPaths.cwd)
-  const tsConfig = await getTSConfig(config.resolvedPaths.cwd, projectInfo?.typescript ? 'tsconfig.json' : 'jsconfig.json')
+  const tsConfig = getTsconfig(config.resolvedPaths.cwd)
   const updatedFiles = []
 
   if (!projectInfo || tsConfig === null) {
@@ -459,7 +481,11 @@ async function resolveImports(filePaths: string[], config: Config) {
             }
 
             // Find the probable import file path.
-            const probableImportFilePath = resolveImportSync(moduleSpecifier, tsConfig)
+            // This is where we expect to find the file on disk.
+            const probableImportFilePath = resolveImport(
+              moduleSpecifier,
+              tsConfig,
+            )
 
             if (!probableImportFilePath) {
               return
@@ -514,29 +540,6 @@ async function resolveImports(filePaths: string[], config: Config) {
   return updatedFiles
 }
 
-// Helper function to resolve imports synchronously
-function resolveImportSync(moduleSpecifier: string, tsConfig: any): string | null {
-  if (!tsConfig?.compilerOptions?.paths) {
-    return null
-  }
-
-  const { baseUrl = '', paths } = tsConfig.compilerOptions
-
-  // Simple alias resolution
-  for (const [alias, pathList] of Object.entries(paths)) {
-    if (typeof alias === 'string' && Array.isArray(pathList)) {
-      const aliasPattern = alias.replace('/*', '')
-      if (moduleSpecifier.startsWith(aliasPattern)) {
-        const relativePath = moduleSpecifier.replace(aliasPattern, '')
-        const basePath = pathList[0]?.replace('/*', '') || ''
-        return path.resolve(baseUrl, basePath, relativePath)
-      }
-    }
-  }
-
-  return null
-}
-
 /**
  * Given an absolute "probable" import path (no ext),
  * plus an array of absolute file paths you already know about,
@@ -546,7 +549,7 @@ export function resolveModuleByProbablePath(
   probableImportFilePath: string,
   files: string[],
   config: Config,
-  extensions: string[] = ['.vue', '.ts', '.js', '.css'],
+  extensions: string[] = ['.vue', '.ts', '.js', '.tsx', '.jsx', '.css'],
 ) {
   const cwd = path.normalize(config.resolvedPaths.cwd)
 
@@ -639,11 +642,11 @@ export function toAliasedImport(
   // 2️⃣ Compute the path UNDER that root
   let rel = path.relative(rootDir, abs)
   // force POSIX-style separators
-  rel = rel.split(path.sep).join('/') // e.g. "button/index.vue"
+  rel = rel.split(path.sep).join('/') // e.g. "button/index.tsx"
 
   // 3️⃣ Strip code-file extensions, keep others (css, json, etc.)
   const ext = path.posix.extname(rel)
-  const codeExts = ['.ts', '.vue', '.js']
+  const codeExts = ['.vue', '.ts', '.tsx', '.js', '.jsx']
   const keepExt = codeExts.includes(ext) ? '' : ext
   let noExt = rel.slice(0, rel.length - ext.length)
 

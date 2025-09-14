@@ -1,22 +1,28 @@
 import { Command } from 'commander'
-import consola from 'consola'
 import path from 'pathe'
 import { z } from 'zod'
 import { migrateIcons } from '@/src/migrations/migrate-icons'
+// import { migrateRadix } from '@/src/migrations/migrate-radix'
 import { preFlightMigrate } from '@/src/preflights/preflight-migrate'
 import * as ERRORS from '@/src/utils/errors'
 import { handleError } from '@/src/utils/handle-error'
+import { logger } from '@/src/utils/logger'
 
 export const migrations = [
   {
     name: 'icons',
     description: 'migrate your ui components to a different icon library.',
   },
+  // {
+  //   name: 'radix',
+  //   description: 'migrate to radix-ui.',
+  // },
 ] as const
 
 export const migrateOptionsSchema = z.object({
   cwd: z.string(),
   list: z.boolean(),
+  yes: z.boolean(),
   migration: z
     .string()
     .refine(
@@ -40,18 +46,20 @@ export const migrate = new Command()
     process.cwd(),
   )
   .option('-l, --list', 'list all migrations.', false)
+  .option('-y, --yes', 'skip confirmation prompt.', false)
   .action(async (migration, opts) => {
     try {
       const options = migrateOptionsSchema.parse({
         cwd: path.resolve(opts.cwd),
         migration,
         list: opts.list,
+        yes: opts.yes,
       })
 
       if (options.list || !options.migration) {
-        consola.info('Available migrations:')
+        logger.info('Available migrations:')
         for (const migration of migrations) {
-          consola.info(`- ${migration.name}: ${migration.description}`)
+          logger.info(`- ${migration.name}: ${migration.description}`)
         }
         return
       }
@@ -82,8 +90,13 @@ export const migrate = new Command()
       if (options.migration === 'icons') {
         await migrateIcons(config)
       }
+
+      // if (options.migration === 'radix') {
+      //   await migrateRadix(config, { yes: options.yes })
+      // }
     }
     catch (error) {
+      logger.break()
       handleError(error)
     }
   })

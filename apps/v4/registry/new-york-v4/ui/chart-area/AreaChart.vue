@@ -1,11 +1,13 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
+import type { BulletLegendItemInterface } from "@unovis/ts"
+import type { Component } from "vue"
 import type { BaseChartProps } from "."
-import { type BulletLegendItemInterface, CurveType } from "@unovis/ts"
-import { Area, Axis, Line } from "@unovis/ts"
+import { Area, Axis, CurveType, Line } from "@unovis/ts"
+
 import { VisArea, VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
 import { useMounted } from "@vueuse/core"
 import { useId } from "reka-ui"
-import { type Component, computed, ref } from "vue"
+import { computed, ref } from "vue"
 import { cn } from "@/lib/utils"
 import { ChartCrosshair, ChartLegend, defaultColors } from "@/registry/new-york/ui/chart"
 
@@ -22,7 +24,7 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
    * Controls the visibility of gradient.
    * @default true
    */
-  showGradiant?: boolean
+  showGradient?: boolean
 }>(), {
   curveType: CurveType.MonotoneX,
   filterOpacity: 0.2,
@@ -32,7 +34,7 @@ const props = withDefaults(defineProps<BaseChartProps<T> & {
   showTooltip: true,
   showLegend: true,
   showGridLine: true,
-  showGradiant: true,
+  showGradient: true,
 })
 
 const emits = defineEmits<{
@@ -68,7 +70,7 @@ function handleLegendItemClick(d: BulletLegendItemInterface, i: number) {
       <svg width="0" height="0">
         <defs>
           <linearGradient v-for="(color, i) in colors" :id="`${chartRef}-color-${i}`" :key="i" x1="0" y1="0" x2="0" y2="1">
-            <template v-if="showGradiant">
+            <template v-if="showGradient">
               <stop offset="5%" :stop-color="color" stop-opacity="0.4" />
               <stop offset="95%" :stop-color="color" stop-opacity="0" />
             </template>
