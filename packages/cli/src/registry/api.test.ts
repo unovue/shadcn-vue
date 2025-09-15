@@ -1251,6 +1251,10 @@ describe("getRegistriesConfig", () => {
           },
         },
       },
+      aliases: {
+        components: "@/components",
+        utils: "@/lib/utils",
+      },
     }
 
     await fs.writeFile(configFile, JSON.stringify(config, null, 2))
@@ -1323,6 +1327,10 @@ describe("getRegistriesConfig", () => {
         baseColor: "neutral",
         cssVariables: true,
       },
+      aliases: {
+        components: "@/components",
+        utils: "@/lib/utils",
+      },
       // No registries field
     }
 
@@ -1352,8 +1360,11 @@ describe("getRegistriesConfig", () => {
       expect.fail("Should have thrown an error")
     }
     catch (error) {
-      // cosmiconfig throws a JSONError for malformed JSON
-      expect((error as Error).message).toContain("JSON Error")
+      expect(error).toBeInstanceOf(ConfigParseError)
+      if (error instanceof ConfigParseError) {
+        expect(error.cwd).toBe(tempDir)
+        expect(error.message).toContain("Syntax error")
+      }
     }
     finally {
       await fs.unlink(configFile)
@@ -1402,8 +1413,17 @@ describe("getRegistriesConfig", () => {
 
     const config = {
       style: "new-york",
+      tailwind: {
+        config: "./tailwind.config.ts",
+        css: "./src/app/globals.css",
+        baseColor: "neutral",
+        cssVariables: true,
+      },
+      aliases: {
+        components: "@/components",
+        utils: "@/lib/utils",
+      },
       registries: {
-        "@shadcn": "https://shadcn-vue.com/r/styles/{style}/{name}.json",
         "@acme": "https://acme.com/registry/{name}.json",
         "@private": {
           url: "https://private.registry.com/{name}.json",
@@ -1422,9 +1442,6 @@ describe("getRegistriesConfig", () => {
       const result = await getRegistriesConfig(tempDir)
 
       expect(result.registries).toBeDefined()
-      expect(result.registries?.["@shadcn"]).toBe(
-        "https://shadcn-vue.com/r/styles/{style}/{name}.json",
-      )
       expect(result.registries?.["@acme"]).toBe(
         "https://acme.com/registry/{name}.json",
       )
@@ -1445,6 +1462,43 @@ describe("getRegistriesConfig", () => {
     }
   })
 
+  it("should fail when overriding built-in registries", async () => {
+    const tempDir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-test-"))
+    const configFile = path.join(tempDir, "components.json")
+
+    const config = {
+      style: "new-york",
+      tailwind: {
+        config: "./tailwind.config.ts",
+        css: "./src/app/globals.css",
+        baseColor: "neutral",
+        cssVariables: true,
+      },
+      aliases: {
+        components: "@/components",
+        utils: "@/lib/utils",
+      },
+      registries: {
+        "@shadcn": "https://shadcn-vue.com/r/styles/{style}/{name}.json",
+      },
+    }
+
+    await fs.writeFile(configFile, JSON.stringify(config, null, 2))
+
+    try {
+      await getRegistriesConfig(tempDir)
+    }
+    catch (error) {
+      expect(error).toBeInstanceOf(ConfigParseError)
+      if (error instanceof ConfigParseError) {
+        expect(error.cwd).toBe(tempDir)
+        expect(error.message).toContain(
+          "\"@shadcn\" is a built-in registry and cannot be overridden",
+        )
+      }
+    }
+  })
+
   describe("caching behavior", () => {
     it("should use cache by default", async () => {
       const tempDir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-test-"))
@@ -1452,6 +1506,16 @@ describe("getRegistriesConfig", () => {
 
       const initialConfig = {
         style: "new-york",
+        tailwind: {
+          config: "./tailwind.config.ts",
+          css: "./src/app/globals.css",
+          baseColor: "neutral",
+          cssVariables: true,
+        },
+        aliases: {
+          components: "@/components",
+          utils: "@/lib/utils",
+        },
         registries: {
           "@cached": "https://cached.com/{name}.json",
         },
@@ -1487,152 +1551,6 @@ describe("getRegistriesConfig", () => {
       }
     })
 
-    it("should use cache when explicitly enabled", async () => {
-      const tempDir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-test-"))
-      const configFile = path.join(tempDir, "components.json")
-
-      const initialConfig = {
-        style: "new-york",
-        registries: {
-          "@test": "https://test.com/{name}.json",
-        },
-      }
-
-      await fs.writeFile(configFile, JSON.stringify(initialConfig, null, 2))
-
-      try {
-        // First call with cache enabled
-        const result1 = await getRegistriesConfig(tempDir, { useCache: true })
-        expect(result1.registries?.["@test"]).toBe(
-          "https://test.com/{name}.json",
-        )
-
-        // Modify the file
-        const updatedConfig = {
-          style: "new-york",
-          registries: {
-            "@test": "https://modified.com/{name}.json",
-          },
-        }
-        await fs.writeFile(configFile, JSON.stringify(updatedConfig, null, 2))
-
-        // Second call with cache enabled - should return cached result
-        const result2 = await getRegistriesConfig(tempDir, { useCache: true })
-        expect(result2.registries?.["@test"]).toBe(
-          "https://test.com/{name}.json",
-        )
-      }
-      finally {
-        await fs.unlink(configFile)
-        await fs.rmdir(tempDir)
-      }
-    })
-
-    it("should bypass cache when useCache is false", async () => {
-      const tempDir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-test-"))
-      const configFile = path.join(tempDir, "components.json")
-
-      const initialConfig = {
-        style: "new-york",
-        registries: {
-          "@nocache": "https://nocache.com/{name}.json",
-        },
-      }
-
-      await fs.writeFile(configFile, JSON.stringify(initialConfig, null, 2))
-
-      try {
-        // First call - should read from file
-        const result1 = await getRegistriesConfig(tempDir, { useCache: false })
-        expect(result1.registries?.["@nocache"]).toBe(
-          "https://nocache.com/{name}.json",
-        )
-
-        // Modify the file
-        const updatedConfig = {
-          style: "new-york",
-          registries: {
-            "@nocache": "https://fresh.com/{name}.json",
-          },
-        }
-        await fs.writeFile(configFile, JSON.stringify(updatedConfig, null, 2))
-
-        // Second call with cache disabled - should read fresh data
-        const result2 = await getRegistriesConfig(tempDir, { useCache: false })
-        expect(result2.registries?.["@nocache"]).toBe(
-          "https://fresh.com/{name}.json",
-        )
-      }
-      finally {
-        await fs.unlink(configFile)
-        await fs.rmdir(tempDir)
-      }
-    })
-
-    it("should clear cache for subsequent calls when useCache is false", async () => {
-      const tempDir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-test-"))
-      const configFile = path.join(tempDir, "components.json")
-
-      const config1 = {
-        style: "new-york",
-        registries: {
-          "@step1": "https://step1.com/{name}.json",
-        },
-      }
-
-      await fs.writeFile(configFile, JSON.stringify(config1, null, 2))
-
-      try {
-        // First call with cache enabled
-        const result1 = await getRegistriesConfig(tempDir, { useCache: true })
-        expect(result1.registries?.["@step1"]).toBe(
-          "https://step1.com/{name}.json",
-        )
-
-        // Update config
-        const config2 = {
-          style: "new-york",
-          registries: {
-            "@step2": "https://step2.com/{name}.json",
-          },
-        }
-        await fs.writeFile(configFile, JSON.stringify(config2, null, 2))
-
-        // Call with cache disabled - should clear cache and read fresh
-        const result2 = await getRegistriesConfig(tempDir, { useCache: false })
-        expect(result2.registries?.["@step2"]).toBe(
-          "https://step2.com/{name}.json",
-        )
-        expect(result2.registries?.["@step1"]).toBeUndefined()
-
-        // Update config again
-        const config3 = {
-          style: "new-york",
-          registries: {
-            "@step3": "https://step3.com/{name}.json",
-          },
-        }
-        await fs.writeFile(configFile, JSON.stringify(config3, null, 2))
-
-        // Call with cache disabled again to ensure we get fresh data
-        const result3 = await getRegistriesConfig(tempDir, { useCache: false })
-        expect(result3.registries?.["@step3"]).toBe(
-          "https://step3.com/{name}.json",
-        )
-        expect(result3.registries?.["@step2"]).toBeUndefined()
-
-        // Now a call with cache enabled should cache the current state
-        const result4 = await getRegistriesConfig(tempDir, { useCache: true })
-        expect(result4.registries?.["@step3"]).toBe(
-          "https://step3.com/{name}.json",
-        )
-      }
-      finally {
-        await fs.unlink(configFile)
-        await fs.rmdir(tempDir)
-      }
-    })
-
     it("should handle missing config with cache options", async () => {
       const tempDir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-test-"))
 
@@ -1641,12 +1559,7 @@ describe("getRegistriesConfig", () => {
         const result1 = await getRegistriesConfig(tempDir)
         expect(result1.registries).toEqual(BUILTIN_REGISTRIES)
 
-        // With cache explicitly enabled
-        const result2 = await getRegistriesConfig(tempDir, { useCache: true })
-        expect(result2.registries).toEqual(BUILTIN_REGISTRIES)
-
-        // With cache disabled
-        const result3 = await getRegistriesConfig(tempDir, { useCache: false })
+        const result3 = await getRegistriesConfig(tempDir)
         expect(result3.registries).toEqual(BUILTIN_REGISTRIES)
       }
       finally {

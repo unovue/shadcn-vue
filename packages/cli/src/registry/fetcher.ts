@@ -1,3 +1,4 @@
+import type { FetchError } from "ofetch"
 import { promises as fs } from "node:fs"
 import { homedir } from "node:os"
 import { ofetch } from "ofetch"
@@ -58,9 +59,12 @@ export async function fetchRegistry(
             headers: {
               ...headers,
             },
-          })
+          }).catch(async (error: FetchError) => {
+            if (!error.response) {
+              throw new RegistryFetchError(url, undefined, error.message)
+            }
+            const response = error.response
 
-          if (!response.ok) {
             let messageFromServer
 
             if (
@@ -105,7 +109,7 @@ export async function fetchRegistry(
               response.status,
               messageFromServer,
             )
-          }
+          })
 
           return response._data
         })()

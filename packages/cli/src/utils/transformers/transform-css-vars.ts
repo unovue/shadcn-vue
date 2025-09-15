@@ -19,9 +19,13 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
         traverseScriptAST(scriptAST, {
           visitLiteral(path) {
             if (path.parent.value.type !== 'ImportDeclaration' && typeof path.node.value === 'string') {
-            // mutate the node
-              path.node.value = applyColorMapping(path.node.value.replace(/"/g, ''), baseColor.inlineColors)
-              transformCount++
+              // mutate the node
+              const raw = path.node.value
+              const mapped = applyColorMapping(raw, baseColor.inlineColors).trim()
+              if (mapped !== raw) {
+                path.node.value = mapped
+                transformCount++
+              }
             }
 
             return this.traverse(path)
@@ -34,15 +38,23 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
           enterNode(node) {
             if (node.type === 'Literal' && typeof node.value === 'string') {
               if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '')) {
-                node.value = applyColorMapping(node.value.replace(/"/g, ''), baseColor.inlineColors)
-                transformCount++
+                const raw = node.value
+                const mapped = applyColorMapping(raw, baseColor.inlineColors).trim()
+                if (mapped !== raw) {
+                  node.value = mapped
+                  transformCount++
+                }
               }
             }
             // handle class attribute without binding
             else if (node.type === 'VLiteral' && typeof node.value === 'string') {
               if (node.parent.key.name === 'class') {
-                node.value = `"${applyColorMapping(node.value.replace(/"/g, ''), baseColor.inlineColors)}"`
-                transformCount++
+                const raw = node.value
+                const mapped = applyColorMapping(raw, baseColor.inlineColors).trim()
+                if (mapped !== raw) {
+                  node.value = mapped
+                  transformCount++
+                }
               }
             }
           },

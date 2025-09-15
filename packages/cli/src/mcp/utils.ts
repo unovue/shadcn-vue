@@ -12,9 +12,7 @@ export async function npxShadcnVue(command: string) {
 }
 
 export async function getMcpConfig(cwd = process.cwd()) {
-  const config = await getRegistriesConfig(cwd, {
-    useCache: false,
-  })
+  const config = await getRegistriesConfig(cwd)
 
   return {
     registries: config.registries,

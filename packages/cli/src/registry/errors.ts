@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { highlighter } from "@/src/utils/highlighter"
 
 // Error codes for programmatic error handling
 export const RegistryErrorCode = {
@@ -272,8 +273,16 @@ export class ConfigParseError extends RegistryError {
   constructor(public readonly cwd: string, parseError: unknown) {
     let message = `Invalid components.json configuration in ${cwd}.`
 
+    if (parseError instanceof Error && parseError.message.includes("built-in registry and cannot be overridden")) {
+      message = `Invalid components.json configuration in ${highlighter.info(`${cwd}/components.json`)}:\n  - ${parseError.message}`
+    }
+
+    if (parseError instanceof SyntaxError) {
+      message = `Invalid components.json configuration in ${highlighter.info(`${cwd}/components.json`)}:\n  - Syntax error: ${parseError.message.replace(`${cwd}/components.json`, "")}`
+    }
+
     if (parseError instanceof z.ZodError) {
-      message = `Invalid components.json configuration in ${cwd}:\n${parseError.errors
+      message = `Invalid components.json configuration in ${highlighter.info(`${cwd}/components.json`)}:\n${parseError.errors
         .map(e => `  - ${e.path.join(".")}: ${e.message}`)
         .join("\n")}`
     }
@@ -286,5 +295,44 @@ export class ConfigParseError extends RegistryError {
         "Check your components.json file for syntax errors or invalid configuration. Run 'npx shadcn@latest init' to regenerate a valid configuration.",
     })
     this.name = "ConfigParseError"
+  }
+}
+
+export class RegistriesIndexParseError extends RegistryError {
+  public readonly parseError: unknown
+
+  constructor(parseError: unknown) {
+    let message = "Failed to parse registries index"
+
+    if (parseError instanceof z.ZodError) {
+      const invalidNamespaces = parseError.errors
+        .filter(e => e.path.length > 0)
+        .map(e => `"${e.path[0]}"`)
+        .filter((v, i, arr) => arr.indexOf(v) === i) // remove duplicates
+
+      if (invalidNamespaces.length > 0) {
+        message = `Failed to parse registries index. Invalid registry namespace(s): ${invalidNamespaces.join(
+          ", ",
+        )}\n${parseError.errors
+          .map(e => `  - ${e.path.join(".")}: ${e.message}`)
+          .join("\n")}`
+      }
+      else {
+        message = `Failed to parse registries index:\n${parseError.errors
+          .map(e => `  - ${e.path.join(".")}: ${e.message}`)
+          .join("\n")}`
+      }
+    }
+
+    super(message, {
+      code: RegistryErrorCode.PARSE_ERROR,
+      cause: parseError,
+      context: { parseError },
+      suggestion:
+        "The registries index may be corrupted or have invalid registry namespace format. Registry names must start with @ (e.g., @shadcn, @example).",
+    })
+
+    this.parseError = parseError
+    this.name = "RegistriesIndexParseError"
   }
 }
