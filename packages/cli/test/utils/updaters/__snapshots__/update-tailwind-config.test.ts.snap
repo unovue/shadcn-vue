@@ -298,10 +298,10 @@ exports[`transformTailwindConfig -> theme > should add theme if not in config 1`
       	extend: {
       		colors: {
       			background: 'hsl(var(--background))',
-      			foreground: 'hsl(var(--foreground))',
+      			'foreground': 'hsl(var(--foreground))',
       			primary: {
       				DEFAULT: 'hsl(var(--primary))',
-      				foreground: 'hsl(var(--primary-foreground))'
+      				'foreground': 'hsl(var(--primary-foreground))'
       			}
       		}
       	}
@@ -339,17 +339,17 @@ const config: Config = {
   		colors: {
                 ...defaultColors,
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			'foreground': 'hsl(var(--foreground))',
   			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
+  			'input': 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				'foreground': 'hsl(var(--primary-foreground))'
   			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				'foreground': 'hsl(var(--card-foreground))'
   			}
   		},
   		boxShadow: {
@@ -465,14 +465,14 @@ const config: Config = {
   		colors: {
                 ...defaultColors,
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			'foreground': 'hsl(var(--foreground))',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				'foreground': 'hsl(var(--primary-foreground))'
   			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				'foreground': 'hsl(var(--card-foreground))'
   			}
   		}
   	}
@@ -497,14 +497,14 @@ const config: Config = {
   		colors: {
                 ...defaultColors,
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			'foreground': 'hsl(var(--foreground))',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				'foreground': 'hsl(var(--primary-foreground))'
   			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				'foreground': 'hsl(var(--card-foreground))'
   			}
   		}
   	}
@@ -534,14 +534,14 @@ const config: Config = {
   		},
   		colors: {
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			'foreground': 'hsl(var(--foreground))',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				'foreground': 'hsl(var(--primary-foreground))'
   			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				'foreground': 'hsl(var(--card-foreground))'
   			}
   		}
   	}
