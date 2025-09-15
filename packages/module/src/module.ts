@@ -3,6 +3,8 @@ import { join } from 'node:path'
 import { addComponent, addComponentsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { parseSync } from 'oxc-parser'
 
+// TODO: add test to make sure all registry is being parse correctly
+// Module options TypeScript interface definition
 export interface ModuleOptions {
   /**
    * Prefix for all the imported component.
