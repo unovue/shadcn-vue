@@ -7,26 +7,55 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
     name: 'modify import based on user config',
 
     transform({ scriptASTs, utils: { traverseScriptAST } }) {
-      const transformCount = 0
+      let transformCount = 0
       const { config, isRemote } = opts
       const utilsImport = '@/lib/utils'
 
       for (const scriptAST of scriptASTs) {
         traverseScriptAST(scriptAST, {
-          visitImportDeclaration(path) {
-            if (typeof path.node.source.value === 'string') {
-              const sourcePath = path.node.source.value
+          visitLiteral(path) {
+            if (typeof path.node.value === 'string') {
+              const parent = path.parent.value
 
-              // Alias to `moduleSpecifier`
-              const updatedImport = updateImportAliases(sourcePath, config, isRemote)
-              path.node.source.value = updatedImport
+              // Handle both static imports and dynamic imports
+              if (parent.type === 'ImportDeclaration'
+                || (parent.type === 'CallExpression' && parent.callee?.name === 'import')) {
+                const sourcePath = path.node.value
+                const updatedImport = updateImportAliases(sourcePath, config, isRemote)
 
-              // Replace `import { cn } from "@/lib/utils"`
-              if (sourcePath === utilsImport) {
-                const namedImports = path.node.specifiers?.map(node => node.local?.name ?? '') ?? []
-                const cnImport = namedImports.find(i => i === 'cn')
-                if (cnImport) {
-                  path.node.source.value = config.aliases.utils
+                if (updatedImport !== sourcePath) {
+                  path.node.value = updatedImport
+                  transformCount++
+                }
+
+                // Replace `import { cn } from "@/lib/utils"` or `await import("@/lib/utils")`
+                if (sourcePath === utilsImport || updatedImport === utilsImport) {
+                  // For static imports, check named imports
+                  if (parent.type === 'ImportDeclaration') {
+                    const namedImports = parent.specifiers?.map(node => node.local?.name ?? '') ?? []
+                    const cnImport = namedImports.find(i => i === 'cn')
+                    if (cnImport) {
+                      path.node.value = config.aliases.utils
+                      transformCount++
+                    }
+                  }
+                  // For dynamic imports, we need to check the context differently
+                  // This is a simplified approach - you might need more sophisticated checking
+                  else if (parent.type === 'CallExpression') {
+                    // Check if this dynamic import is destructuring cn
+                    // This would require more complex AST traversal to determine usage
+                    const grandParent = path.parent.parent?.value
+                    if (grandParent?.type === 'VariableDeclarator'
+                      && grandParent.id?.type === 'ObjectPattern') {
+                      const hasCnProperty = grandParent.id.properties?.some(
+                        prop => prop.key?.name === 'cn',
+                      )
+                      if (hasCnProperty) {
+                        path.node.value = config.aliases.utils
+                        transformCount++
+                      }
+                    }
+                  }
                 }
               }
             }

@@ -1,6 +1,12 @@
-export { getRegistry, getRegistryItems, resolveRegistryItems } from "./api"
+export {
+  getRegistriesIndex,
+  getRegistry,
+  getRegistryItems,
+  resolveRegistryItems,
+} from "./api"
 
 export {
+  RegistriesIndexParseError,
   RegistryError,
   RegistryFetchError,
   RegistryForbiddenError,
