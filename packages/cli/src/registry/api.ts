@@ -120,15 +120,7 @@ export async function resolveRegistryItems(
 
 export async function getRegistriesConfig(
   cwd: string,
-  options?: { useCache?: boolean },
 ) {
-  const { useCache = true } = options || {}
-
-  // Clear cache if requested
-  // if (!useCache) {
-  //   explorer.clearCaches()
-  // }
-
   const configResult = await getRawConfig(cwd)
 
   if (!configResult) {

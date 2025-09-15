@@ -4,6 +4,7 @@ import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
 import { glob } from 'tinyglobby'
 import { BUILTIN_REGISTRIES } from '@/src/registry/constants'
+import { ConfigParseError } from '@/src/registry/errors'
 import {
   configSchema,
   rawConfigSchema,
@@ -11,7 +12,6 @@ import {
 } from '@/src/schema'
 import { detectFrameworkConfigFiles, getProjectInfo, isTypeScriptProject } from '@/src/utils/get-project-info'
 import { resolveImport } from '@/src/utils/resolve-import'
-import { highlighter } from './highlighter'
 
 export const DEFAULT_STYLE = 'default'
 export const DEFAULT_COMPONENTS = '@/components'
@@ -147,13 +147,7 @@ export async function getRawConfig(
     return config
   }
   catch (error) {
-    const componentPath = `${cwd}/components.json`
-    if (error instanceof Error && error.message.includes('reserved registry')) {
-      throw error
-    }
-    throw new Error(
-      `Invalid configuration found in ${highlighter.info(componentPath)}. ${error}`,
-    )
+    throw new ConfigParseError(cwd, error)
   }
 }
 

@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { highlighter } from "@/src/utils/highlighter"
 
 // Error codes for programmatic error handling
 export const RegistryErrorCode = {
@@ -272,8 +273,16 @@ export class ConfigParseError extends RegistryError {
   constructor(public readonly cwd: string, parseError: unknown) {
     let message = `Invalid components.json configuration in ${cwd}.`
 
+    if (parseError instanceof Error && parseError.message.includes("built-in registry and cannot be overridden")) {
+      message = `Invalid components.json configuration in ${highlighter.info(`${cwd}/components.json`)}:\n  - ${parseError.message}`
+    }
+
+    if (parseError instanceof SyntaxError) {
+      message = `Invalid components.json configuration in ${highlighter.info(`${cwd}/components.json`)}:\n  - Syntax error: ${parseError.message.replace(`${cwd}/components.json`, "")}`
+    }
+
     if (parseError instanceof z.ZodError) {
-      message = `Invalid components.json configuration in ${cwd}:\n${parseError.errors
+      message = `Invalid components.json configuration in ${highlighter.info(`${cwd}/components.json`)}:\n${parseError.errors
         .map(e => `  - ${e.path.join(".")}: ${e.message}`)
         .join("\n")}`
     }
