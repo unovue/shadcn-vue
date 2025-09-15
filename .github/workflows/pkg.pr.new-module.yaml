@@ -20,7 +20,7 @@ jobs:
     if: >
       github.repository == 'unovue/shadcn-vue' &&
       (github.event_name == 'push' ||
-      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'trigger: preview')))
+      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'trigger: module preview')))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
