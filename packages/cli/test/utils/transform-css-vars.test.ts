@@ -12,6 +12,7 @@ it('transform css vars', async () => {
 <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">foo</div>
 </template>"`,
       config: {
+        typescript: true,
         tailwind: {
           baseColor: 'stone',
           cssVariables: true,
@@ -33,6 +34,7 @@ it('transform css vars', async () => {
 <div class="bg-background hover:bg-muted text-primary-foreground sm:focus:text-accent-foreground">foo</div>
 </template>"`,
       config: {
+        typescript: true,
         tailwind: {
           baseColor: 'stone',
           cssVariables: false,
@@ -54,6 +56,29 @@ it('transform css vars', async () => {
 <div :class="cn('bg-background hover:bg-muted', true && 'text-primary-foreground sm:focus:text-accent-foreground')">foo</div>
 </template>"`,
       config: {
+        typescript: true,
+        tailwind: {
+          baseColor: 'stone',
+          cssVariables: false,
+        },
+        aliases: {
+          components: '@/components',
+          utils: '@/lib/utils',
+        },
+      },
+      baseColor: stone,
+    }),
+  ).toMatchSnapshot()
+
+  expect(
+    await transform({
+      filename: 'app.vue',
+      raw: `<script setup lang="ts"></script>
+<template>
+<div :class="cn('bg-background border border-input')">foo</div>
+</template>"`,
+      config: {
+        typescript: true,
         tailwind: {
           baseColor: 'stone',
           cssVariables: false,
