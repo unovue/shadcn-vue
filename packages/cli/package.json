@@ -68,7 +68,7 @@
     "@modelcontextprotocol/sdk": "^1.18.0",
     "@unovue/detypes": "^0.8.5",
     "@vue/compiler-sfc": "^3.5",
-    "c12": "^3.2.0",
+    "c12": "^3.3.0",
     "commander": "^14.0.1",
     "consola": "^3.4.2",
     "dedent": "^1.7.0",
