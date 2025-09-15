@@ -8,7 +8,7 @@ catalog:
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  oxc-parser: ^0.72.0
+  oxc-parser: ^0.89.0
   pathe: ^2.0.3
   reka-ui: ^2.5.0
   tinyglobby: ^0.2.15
