@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type {
   ChartConfig,
-} from '@/registry/new-york-v4/ui/chart'
+} from "@/registry/new-york-v4/ui/chart"
 
-import { VisAxis, VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { TrendingUp } from 'lucide-vue-next'
+import { VisAxis, VisStackedBar, VisXYContainer } from "@unovis/vue"
+import { TrendingUp } from "lucide-vue-next"
 import {
   Card,
   CardContent,
@@ -12,36 +12,36 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from "@/registry/new-york-v4/ui/card"
 import {
   ChartContainer,
   ChartCrosshair,
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
-} from '@/registry/new-york-v4/ui/chart'
+} from "@/registry/new-york-v4/ui/chart"
 
-const description = 'A line chart'
+const description = "A line chart"
 
 const chartData = [
-  { date: new Date('2024-07-15'), running: 450, swimming: 300 },
-  { date: new Date('2024-07-16'), running: 380, swimming: 420 },
-  { date: new Date('2024-07-17'), running: 520, swimming: 120 },
-  { date: new Date('2024-07-18'), running: 140, swimming: 550 },
-  { date: new Date('2024-07-19'), running: 600, swimming: 350 },
-  { date: new Date('2024-07-20'), running: 480, swimming: 400 },
+  { date: new Date("2024-07-15"), running: 450, swimming: 300 },
+  { date: new Date("2024-07-16"), running: 380, swimming: 420 },
+  { date: new Date("2024-07-17"), running: 520, swimming: 120 },
+  { date: new Date("2024-07-18"), running: 140, swimming: 550 },
+  { date: new Date("2024-07-19"), running: 600, swimming: 350 },
+  { date: new Date("2024-07-20"), running: 480, swimming: 400 },
 ]
 
 type Data = typeof chartData[number]
 
 const chartConfig = {
   running: {
-    label: 'Running',
-    color: 'var(--chart-1)',
+    label: "Running",
+    color: "var(--chart-1)",
   },
   swimming: {
-    label: 'Swimming',
-    color: 'var(--chart-2)',
+    label: "Swimming",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 </script>

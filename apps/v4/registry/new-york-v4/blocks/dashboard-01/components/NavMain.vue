@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
-import { IconCirclePlusFilled, IconMail } from '@tabler/icons-vue'
+import type { Component } from "vue"
+import { IconCirclePlusFilled, IconMail } from "@tabler/icons-vue"
 
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 interface NavItem {
   title: string

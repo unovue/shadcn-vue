@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
-import { SidebarTrigger } from '@/registry/new-york-v4/ui/sidebar'
+import { Button } from "@/registry/new-york-v4/ui/button"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
+import { SidebarTrigger } from "@/registry/new-york-v4/ui/sidebar"
 </script>
 
 <template>

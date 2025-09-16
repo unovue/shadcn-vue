@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import type { Component } from "vue"
 
 import {
   IconDots,
   IconFolder,
   IconShare3,
   IconTrash,
-} from '@tabler/icons-vue'
+} from "@tabler/icons-vue"
 
 import {
   DropdownMenu,
@@ -14,7 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from "@/registry/new-york-v4/ui/dropdown-menu"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -23,7 +23,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 interface Document {
   name: string

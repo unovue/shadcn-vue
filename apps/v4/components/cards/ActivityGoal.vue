@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ChartConfig } from '~/registry/new-york-v4/ui/chart'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { Minus, Plus } from 'lucide-vue-next'
 import { ref } from 'vue'
@@ -11,7 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york-v4/ui/card'
-import { type ChartConfig, ChartContainer } from '~/registry/new-york-v4/ui/chart'
+import { ChartContainer } from '~/registry/new-york-v4/ui/chart'
 
 const goal = ref(350)
 

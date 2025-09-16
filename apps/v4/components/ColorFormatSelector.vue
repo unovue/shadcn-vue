@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 
-import { type Color, type ColorFormat, getColorFormat } from '@/lib/colors'
+import type { Color, ColorFormat } from '@/lib/colors'
+import { getColorFormat } from '@/lib/colors'
 import { cn } from '@/lib/utils'
 import {
   Select,

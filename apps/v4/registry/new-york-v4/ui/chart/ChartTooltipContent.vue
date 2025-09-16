@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import type { ChartConfig } from '.'
-import { cn } from '~/lib/utils'
+import type { HTMLAttributes } from "vue"
+import type { ChartConfig } from "."
+import { cn } from "~/lib/utils"
 
 const props = withDefaults(defineProps<{
   hideLabel?: boolean
   hideIndicator?: boolean
-  indicator?: 'line' | 'dot' | 'dashed'
+  indicator?: "line" | "dot" | "dashed"
   nameKey?: string
   labelKey?: string
   labelFormatter?: (d: number | Date) => string
   payload?: Record<string, any>
   config?: ChartConfig
-  class?: HTMLAttributes['class']
+  class?: HTMLAttributes["class"]
   color?: string
   x?: number | Date
 }>(), {
   payload: () => ({}),
   config: () => ({}),
-  indicator: 'dot',
+  indicator: "dot",
 })
 
 // TODO: currently we use `createElement` and `render` to render the
@@ -34,7 +34,7 @@ const payload = computed(() => {
   }).filter(i => i.itemConfig)
 })
 
-const nestLabel = computed(() => Object.keys(props.payload).length === 1 && props.indicator !== 'dot')
+const nestLabel = computed(() => Object.keys(props.payload).length === 1 && props.indicator !== "dot")
 const tooltipLabel = computed(() => {
   if (props.hideLabel)
     return null

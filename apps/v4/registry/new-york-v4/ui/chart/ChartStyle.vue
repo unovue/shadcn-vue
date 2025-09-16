@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Primitive } from 'reka-ui'
-import { computed, type HTMLAttributes } from 'vue'
-import { THEMES, useChart } from '.'
+import type { HTMLAttributes } from "vue"
+import { Primitive } from "reka-ui"
+import { computed } from "vue"
+import { THEMES, useChart } from "."
 
 defineProps<{
-  id?: HTMLAttributes['id']
+  id?: HTMLAttributes["id"]
 }>()
 
 const { config } = useChart()

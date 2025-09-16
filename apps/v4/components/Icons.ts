@@ -1,5 +1,6 @@
+import type { VNode } from 'vue'
 import { FileIcon } from 'lucide-vue-next'
-import { defineComponent, h, type VNode } from 'vue'
+import { defineComponent, h } from 'vue'
 
 interface IconProps {
   class?: string
