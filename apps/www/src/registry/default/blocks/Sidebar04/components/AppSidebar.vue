@@ -13,7 +13,6 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-
 } from "@/registry/default/ui/sidebar"
 
 const props = withDefaults(defineProps<SidebarProps>(), {

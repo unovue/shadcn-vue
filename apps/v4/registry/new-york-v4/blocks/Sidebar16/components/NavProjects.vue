@@ -2,7 +2,6 @@
 import type { LucideIcon } from "lucide-vue-next"
 import {
   Folder,
-
   MoreHorizontal,
   Share,
   Trash2,

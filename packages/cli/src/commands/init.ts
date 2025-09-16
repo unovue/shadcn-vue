@@ -28,7 +28,6 @@ import {
   restoreFileBackup,
 } from '@/src/utils/file-helper'
 import {
-
   DEFAULT_COMPONENTS,
   DEFAULT_TAILWIND_CONFIG,
   DEFAULT_TAILWIND_CSS,

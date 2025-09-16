@@ -23,7 +23,6 @@ import {
   Sidebar,
   SidebarContent,
   SidebarHeader,
-
   SidebarRail,
 } from "@/registry/new-york/ui/sidebar"
 

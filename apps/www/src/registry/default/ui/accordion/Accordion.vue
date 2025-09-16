@@ -2,7 +2,6 @@
 import type { AccordionRootEmits, AccordionRootProps } from "reka-ui"
 import {
   AccordionRoot,
-
   useForwardPropsEmits,
 } from "reka-ui"
 

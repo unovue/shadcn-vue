@@ -16,7 +16,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-
   useSidebar,
 } from "@/registry/new-york-v4/ui/sidebar"
 import { Switch } from "@/registry/new-york-v4/ui/switch"

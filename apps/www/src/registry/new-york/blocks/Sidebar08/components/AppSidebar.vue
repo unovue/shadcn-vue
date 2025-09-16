@@ -25,7 +25,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-
 } from "@/registry/new-york/ui/sidebar"
 
 const props = withDefaults(defineProps<SidebarProps>(), {

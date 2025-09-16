@@ -5,7 +5,6 @@ import { reactiveOmit } from "@vueuse/core"
 import {
   ScrollAreaCorner,
   ScrollAreaRoot,
-
   ScrollAreaViewport,
 } from "reka-ui"
 import { cn } from "@/lib/utils"

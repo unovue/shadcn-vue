@@ -192,7 +192,6 @@ Here's an example from `Accordion` root component.
 import type { AccordionRootEmits, AccordionRootProps } from 'reka-ui'
 import {
   AccordionRoot,
-
   useForwardPropsEmits
 } from 'reka-ui'
 

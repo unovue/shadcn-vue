@@ -5,7 +5,6 @@ import { reactiveOmit } from "@vueuse/core"
 import { Check } from "lucide-vue-next"
 import {
   MenubarCheckboxItem,
-
   MenubarItemIndicator,
   useForwardPropsEmits,
 } from "reka-ui"
