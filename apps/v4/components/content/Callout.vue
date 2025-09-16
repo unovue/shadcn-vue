@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import type { AlertVariants } from '@/registry/new-york-v4/ui/alert'
 import { cn } from '@/lib/utils'
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-  type AlertVariants,
 } from '@/registry/new-york-v4/ui/alert'
 
 const props = defineProps<{

@@ -2,7 +2,6 @@
 import type { NavigationMenuLinkEmits, NavigationMenuLinkProps } from "reka-ui"
 import {
   NavigationMenuLink,
-
   useForwardPropsEmits,
 } from "reka-ui"
 

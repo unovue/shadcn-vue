@@ -20,7 +20,7 @@ import {
 import { useBlockViewer } from './BlockViewer.vue'
 
 const { view, item, iframeKey, resizablePanelRef }
-    = useBlockViewer()
+  = useBlockViewer()
 
 const { copy, copied } = useClipboard()
 </script>

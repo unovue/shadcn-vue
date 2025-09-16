@@ -1,7 +1,7 @@
 <script lang="ts">
-import { z } from 'zod'
-import DraggableRow from './DraggableRow.vue'
-import DragHandle from './DragHandle.vue'
+import { z } from "zod"
+import DraggableRow from "./DraggableRow.vue"
+import DragHandle from "./DragHandle.vue"
 
 export const schema = z.object({
   id: z.number(),
@@ -20,8 +20,8 @@ import type {
   ColumnFiltersState,
   SortingState,
   VisibilityState,
-} from '@tanstack/vue-table'
-import { RestrictToVerticalAxis } from '@dnd-kit/abstract/modifiers'
+} from "@tanstack/vue-table"
+import { RestrictToVerticalAxis } from "@dnd-kit/abstract/modifiers"
 import {
   IconChevronDown,
   IconChevronLeft,
@@ -33,7 +33,7 @@ import {
   IconLayoutColumns,
   IconLoader,
   IconPlus,
-} from '@tabler/icons-vue'
+} from "@tabler/icons-vue"
 import {
   FlexRender,
   getCoreRowModel,
@@ -41,12 +41,12 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useVueTable,
-} from '@tanstack/vue-table'
-import { DragDropProvider } from 'dnd-kit-vue'
-import { Badge } from '@/registry/new-york-v4/ui/badge'
+} from "@tanstack/vue-table"
+import { DragDropProvider } from "dnd-kit-vue"
+import { Badge } from "@/registry/new-york-v4/ui/badge"
 
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
+import { Button } from "@/registry/new-york-v4/ui/button"
+import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -54,16 +54,16 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from "@/registry/new-york-v4/ui/dropdown-menu"
 
-import { Label } from '@/registry/new-york-v4/ui/label'
+import { Label } from "@/registry/new-york-v4/ui/label"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york-v4/ui/select'
+} from "@/registry/new-york-v4/ui/select"
 import {
   Table,
   TableBody,
@@ -71,14 +71,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/registry/new-york-v4/ui/table'
+} from "@/registry/new-york-v4/ui/table"
 
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/registry/new-york-v4/ui/tabs'
+} from "@/registry/new-york-v4/ui/tabs"
 
 const props = defineProps<{
   data: TableData[]
@@ -101,97 +101,97 @@ const rowSelection = ref({})
 
 const columns: ColumnDef<TableData>[] = [
   {
-    id: 'drag',
+    id: "drag",
     header: () => null,
     cell: ({ row }) => h(DragHandle),
   },
   {
-    id: 'select',
+    id: "select",
     header: ({ table }) => h(Checkbox, {
-      'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
-      'onUpdate:modelValue': value => table.toggleAllPageRowsSelected(!!value),
-      'aria-label': 'Select all',
+      "modelValue": table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate"),
+      "onUpdate:modelValue": value => table.toggleAllPageRowsSelected(!!value),
+      "aria-label": "Select all",
     }),
     cell: ({ row }) => h(Checkbox, {
-      'modelValue': row.getIsSelected(),
-      'onUpdate:modelValue': value => row.toggleSelected(!!value),
-      'aria-label': 'Select row',
+      "modelValue": row.getIsSelected(),
+      "onUpdate:modelValue": value => row.toggleSelected(!!value),
+      "aria-label": "Select row",
     }),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'header',
-    header: 'Header',
-    cell: ({ row }) => h('div', String(row.getValue('header'))),
+    accessorKey: "header",
+    header: "Header",
+    cell: ({ row }) => h("div", String(row.getValue("header"))),
     enableHiding: false,
   },
   {
-    accessorKey: 'type',
-    header: 'Section Type',
+    accessorKey: "type",
+    header: "Section Type",
     cell: ({ row }) => h(Badge, {
-      variant: 'outline',
-    }, () => String(row.getValue('type'))),
+      variant: "outline",
+    }, () => String(row.getValue("type"))),
   },
   {
-    accessorKey: 'status',
-    header: 'Status',
+    accessorKey: "status",
+    header: "Status",
     cell: ({ row }) => {
-      const status = row.getValue('status') as string
-      return h('div', { class: 'flex items-center gap-2' }, [
-        status === 'Done'
-          ? h(IconCircleCheckFilled, { class: 'h-4 w-4 text-emerald-500' })
-          : h(IconLoader, { class: 'h-4 w-4 animate-spin text-muted-foreground' }),
-        h('span', {}, status),
+      const status = row.getValue("status") as string
+      return h("div", { class: "flex items-center gap-2" }, [
+        status === "Done"
+          ? h(IconCircleCheckFilled, { class: "h-4 w-4 text-emerald-500" })
+          : h(IconLoader, { class: "h-4 w-4 animate-spin text-muted-foreground" }),
+        h("span", {}, status),
       ])
     },
   },
   {
-    accessorKey: 'target',
-    header: () => h('div', { class: 'flex items-center gap-1' }, [
-      'Target',
+    accessorKey: "target",
+    header: () => h("div", { class: "flex items-center gap-1" }, [
+      "Target",
     ]),
     cell: ({ row }) => h(Button, {
-      variant: 'ghost',
-      size: 'sm',
-      class: 'h-auto p-1 text-xs font-mono',
+      variant: "ghost",
+      size: "sm",
+      class: "h-auto p-1 text-xs font-mono",
     }, () => [
-      h('span', { class: 'ml-1 font-semibold' }, String(row.getValue('target'))),
+      h("span", { class: "ml-1 font-semibold" }, String(row.getValue("target"))),
     ]),
   },
   {
-    accessorKey: 'limit',
-    header: () => h('div', { class: 'flex items-center gap-1' }, [
-      'Limit',
+    accessorKey: "limit",
+    header: () => h("div", { class: "flex items-center gap-1" }, [
+      "Limit",
     ]),
     cell: ({ row }) => h(Button, {
-      variant: 'ghost',
-      size: 'sm',
-      class: 'h-auto p-1 text-xs font-mono',
+      variant: "ghost",
+      size: "sm",
+      class: "h-auto p-1 text-xs font-mono",
     }, () => [
-      h('span', { class: 'ml-1 font-semibold' }, String(row.getValue('limit'))),
+      h("span", { class: "ml-1 font-semibold" }, String(row.getValue("limit"))),
     ]),
   },
   {
-    accessorKey: 'reviewer',
-    header: 'Reviewer',
+    accessorKey: "reviewer",
+    header: "Reviewer",
     cell: ({ row }) => {
-      const reviewer = row.getValue('reviewer') as string
-      const isAssigned = reviewer !== 'Assign reviewer'
+      const reviewer = row.getValue("reviewer") as string
+      const isAssigned = reviewer !== "Assign reviewer"
 
       if (isAssigned) {
-        return h('span', {}, reviewer)
+        return h("span", {}, reviewer)
       }
 
       return h(Select, {}, {
         default: () => [
-          h(SelectTrigger, { class: 'w-full' }, {
-            default: () => h(SelectValue, { placeholder: 'Assign reviewer' }),
+          h(SelectTrigger, { class: "w-full" }, {
+            default: () => h(SelectValue, { placeholder: "Assign reviewer" }),
           }),
           h(SelectContent, {}, {
             default: () => [
-              h(SelectItem, { value: 'eddie' }, () => 'Eddie Lake'),
-              h(SelectItem, { value: 'jamik' }, () => 'Jamik Tashpulatov'),
+              h(SelectItem, { value: "eddie" }, () => "Eddie Lake"),
+              h(SelectItem, { value: "jamik" }, () => "Jamik Tashpulatov"),
             ],
           }),
         ],
@@ -199,27 +199,27 @@ const columns: ColumnDef<TableData>[] = [
     },
   },
   {
-    id: 'actions',
+    id: "actions",
     cell: () => h(DropdownMenu, {}, {
       default: () => [
         h(DropdownMenuTrigger, { asChild: true }, {
           default: () => h(Button, {
-            variant: 'ghost',
-            class: 'h-8 w-8 p-0',
+            variant: "ghost",
+            class: "h-8 w-8 p-0",
           }, {
             default: () => [
-              h('span', { class: 'sr-only' }, 'Open menu'),
-              h(IconDotsVertical, { class: 'h-4 w-4' }),
+              h("span", { class: "sr-only" }, "Open menu"),
+              h(IconDotsVertical, { class: "h-4 w-4" }),
             ],
           }),
         }),
-        h(DropdownMenuContent, { align: 'end' }, {
+        h(DropdownMenuContent, { align: "end" }, {
           default: () => [
-            h(DropdownMenuItem, {}, () => 'Edit'),
-            h(DropdownMenuItem, {}, () => 'Make a copy'),
-            h(DropdownMenuItem, {}, () => 'Favorite'),
+            h(DropdownMenuItem, {}, () => "Edit"),
+            h(DropdownMenuItem, {}, () => "Make a copy"),
+            h(DropdownMenuItem, {}, () => "Favorite"),
             h(DropdownMenuSeparator, {}),
-            h(DropdownMenuItem, {}, () => 'Delete'),
+            h(DropdownMenuItem, {}, () => "Delete"),
           ],
         }),
       ],
@@ -237,22 +237,22 @@ const table = useVueTable({
   getSortedRowModel: getSortedRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   onSortingChange: (updaterOrValue) => {
-    sorting.value = typeof updaterOrValue === 'function'
+    sorting.value = typeof updaterOrValue === "function"
       ? updaterOrValue(sorting.value)
       : updaterOrValue
   },
   onColumnFiltersChange: (updaterOrValue) => {
-    columnFilters.value = typeof updaterOrValue === 'function'
+    columnFilters.value = typeof updaterOrValue === "function"
       ? updaterOrValue(columnFilters.value)
       : updaterOrValue
   },
   onColumnVisibilityChange: (updaterOrValue) => {
-    columnVisibility.value = typeof updaterOrValue === 'function'
+    columnVisibility.value = typeof updaterOrValue === "function"
       ? updaterOrValue(columnVisibility.value)
       : updaterOrValue
   },
   onRowSelectionChange: (updaterOrValue) => {
-    rowSelection.value = typeof updaterOrValue === 'function'
+    rowSelection.value = typeof updaterOrValue === "function"
       ? updaterOrValue(rowSelection.value)
       : updaterOrValue
   },

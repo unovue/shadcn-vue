@@ -6,7 +6,6 @@ import type { Grid } from "reka-ui/date"
 import type { Ref } from "vue"
 import {
   CalendarDate,
-
   isEqualMonth,
 } from "@internationalized/date"
 

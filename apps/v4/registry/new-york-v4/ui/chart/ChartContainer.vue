@@ -1,8 +1,10 @@
 <script lang="ts">
+import type { HTMLAttributes } from "vue"
+import type { ChartConfig } from "."
 import { useId } from "reka-ui"
-import { defineSlots, type HTMLAttributes } from "vue"
+import { defineSlots } from "vue"
 import { cn } from "@/lib/utils"
-import { type ChartConfig, provideChartContext } from "."
+import { provideChartContext } from "."
 import ChartStyle from "./ChartStyle.vue"
 </script>
 

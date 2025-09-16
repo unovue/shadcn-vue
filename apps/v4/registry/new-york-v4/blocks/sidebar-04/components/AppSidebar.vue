@@ -13,7 +13,6 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-
 } from "@/registry/new-york-v4/ui/sidebar"
 
 const props = withDefaults(defineProps<SidebarProps>(), {

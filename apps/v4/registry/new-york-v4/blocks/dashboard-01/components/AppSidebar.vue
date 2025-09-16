@@ -14,12 +14,12 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
-} from '@tabler/icons-vue'
+} from "@tabler/icons-vue"
 
-import NavDocuments from '@/registry/new-york-v4/blocks/dashboard-01/components/NavDocuments.vue'
-import NavMain from '@/registry/new-york-v4/blocks/dashboard-01/components/NavMain.vue'
-import NavSecondary from '@/registry/new-york-v4/blocks/dashboard-01/components/NavSecondary.vue'
-import NavUser from '@/registry/new-york-v4/blocks/dashboard-01/components/NavUser.vue'
+import NavDocuments from "@/registry/new-york-v4/blocks/dashboard-01/components/NavDocuments.vue"
+import NavMain from "@/registry/new-york-v4/blocks/dashboard-01/components/NavMain.vue"
+import NavSecondary from "@/registry/new-york-v4/blocks/dashboard-01/components/NavSecondary.vue"
+import NavUser from "@/registry/new-york-v4/blocks/dashboard-01/components/NavUser.vue"
 import {
   Sidebar,
   SidebarContent,
@@ -28,120 +28,120 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from "@/registry/new-york-v4/ui/sidebar"
 
 const data = {
   user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: "shadcn",
+    email: "m@example.com",
+    avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
     {
-      title: 'Dashboard',
-      url: '#',
+      title: "Dashboard",
+      url: "#",
       icon: IconDashboard,
     },
     {
-      title: 'Lifecycle',
-      url: '#',
+      title: "Lifecycle",
+      url: "#",
       icon: IconListDetails,
     },
     {
-      title: 'Analytics',
-      url: '#',
+      title: "Analytics",
+      url: "#",
       icon: IconChartBar,
     },
     {
-      title: 'Projects',
-      url: '#',
+      title: "Projects",
+      url: "#",
       icon: IconFolder,
     },
     {
-      title: 'Team',
-      url: '#',
+      title: "Team",
+      url: "#",
       icon: IconUsers,
     },
   ],
   navClouds: [
     {
-      title: 'Capture',
+      title: "Capture",
       icon: IconCamera,
       isActive: true,
-      url: '#',
+      url: "#",
       items: [
         {
-          title: 'Active Proposals',
-          url: '#',
+          title: "Active Proposals",
+          url: "#",
         },
         {
-          title: 'Archived',
-          url: '#',
+          title: "Archived",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Proposal',
+      title: "Proposal",
       icon: IconFileDescription,
-      url: '#',
+      url: "#",
       items: [
         {
-          title: 'Active Proposals',
-          url: '#',
+          title: "Active Proposals",
+          url: "#",
         },
         {
-          title: 'Archived',
-          url: '#',
+          title: "Archived",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Prompts',
+      title: "Prompts",
       icon: IconFileAi,
-      url: '#',
+      url: "#",
       items: [
         {
-          title: 'Active Proposals',
-          url: '#',
+          title: "Active Proposals",
+          url: "#",
         },
         {
-          title: 'Archived',
-          url: '#',
+          title: "Archived",
+          url: "#",
         },
       ],
     },
   ],
   navSecondary: [
     {
-      title: 'Settings',
-      url: '#',
+      title: "Settings",
+      url: "#",
       icon: IconSettings,
     },
     {
-      title: 'Get Help',
-      url: '#',
+      title: "Get Help",
+      url: "#",
       icon: IconHelp,
     },
     {
-      title: 'Search',
-      url: '#',
+      title: "Search",
+      url: "#",
       icon: IconSearch,
     },
   ],
   documents: [
     {
-      name: 'Data Library',
-      url: '#',
+      name: "Data Library",
+      url: "#",
       icon: IconDatabase,
     },
     {
-      name: 'Reports',
-      url: '#',
+      name: "Reports",
+      url: "#",
       icon: IconReport,
     },
     {
-      name: 'Word Assistant',
-      url: '#',
+      name: "Word Assistant",
+      url: "#",
       icon: IconFileDescription,
     },
   ],

@@ -2,7 +2,6 @@
 import type { AlertDialogContentEmits, AlertDialogContentProps } from 'reka-ui'
 import {
   AlertDialogContent,
-
   AlertDialogOverlay,
   AlertDialogPortal,
 } from 'reka-ui'

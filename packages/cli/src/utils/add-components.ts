@@ -13,7 +13,6 @@ import {
   registryItemSchema,
 } from '@/src/schema'
 import {
-
   findCommonRoot,
   findPackageRoot,
   getWorkspaceConfig,

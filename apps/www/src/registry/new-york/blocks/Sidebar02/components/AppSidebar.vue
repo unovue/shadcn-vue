@@ -18,7 +18,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-
   SidebarRail,
 } from "@/registry/new-york/ui/sidebar"
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
+import type { DateValue } from '@internationalized/date'
+import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
 
 import { CalendarIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'

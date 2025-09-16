@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ChartConfig } from '~/registry/new-york-v4/ui/chart'
 import { Line, Scatter } from '@unovis/ts'
 import { VisAxis, VisCrosshair, VisLine, VisScatter, VisTooltip, VisXYContainer } from '@unovis/vue'
 import {
@@ -8,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york-v4/ui/card'
-import { type ChartConfig, ChartContainer, componentToString } from '~/registry/new-york-v4/ui/chart'
+import { ChartContainer, componentToString } from '~/registry/new-york-v4/ui/chart'
 import ChartTooltipContent from '~/registry/new-york-v4/ui/chart/ChartTooltipContent.vue'
 
 type Data = typeof data[number]

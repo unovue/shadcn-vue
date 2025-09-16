@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type {
   ChartConfig,
-} from '@/registry/new-york-v4/ui/chart'
+} from "@/registry/new-york-v4/ui/chart"
 // import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
-import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
-import { TrendingDown, TrendingUp } from 'lucide-vue-next'
+import { VisArea, VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
+import { TrendingDown, TrendingUp } from "lucide-vue-next"
 
 import {
   Card,
@@ -13,7 +13,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from "@/registry/new-york-v4/ui/card"
 import {
   ChartContainer,
   ChartCrosshair,
@@ -21,30 +21,30 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
-} from '@/registry/new-york-v4/ui/chart'
+} from "@/registry/new-york-v4/ui/chart"
 
-const description = 'An area chart with axes'
+const description = "An area chart with axes"
 
 const chartData = [
-  { month: 1, monthLabel: 'January', desktop: 186, mobile: 80 },
-  { month: 2, monthLabel: 'February', desktop: 305, mobile: 200 },
-  { month: 3, monthLabel: 'March', desktop: 237, mobile: 120 },
-  { month: 4, monthLabel: 'April', desktop: 73, mobile: 190 },
-  { month: 5, monthLabel: 'May', desktop: 209, mobile: 130 },
-  { month: 6, monthLabel: 'June', desktop: 214, mobile: 140 },
+  { month: 1, monthLabel: "January", desktop: 186, mobile: 80 },
+  { month: 2, monthLabel: "February", desktop: 305, mobile: 200 },
+  { month: 3, monthLabel: "March", desktop: 237, mobile: 120 },
+  { month: 4, monthLabel: "April", desktop: 73, mobile: 190 },
+  { month: 5, monthLabel: "May", desktop: 209, mobile: 130 },
+  { month: 6, monthLabel: "June", desktop: 214, mobile: 140 },
 ]
 
 type Data = typeof chartData[number]
 
 const chartConfig = {
   mobile: {
-    label: 'Mobile',
-    color: 'var(--chart-2)',
+    label: "Mobile",
+    color: "var(--chart-2)",
     icon: TrendingUp,
   },
   desktop: {
-    label: 'Desktop',
-    color: 'var(--chart-1)',
+    label: "Desktop",
+    color: "var(--chart-1)",
     icon: TrendingDown,
   },
 } satisfies ChartConfig

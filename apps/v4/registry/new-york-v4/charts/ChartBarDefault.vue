@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type {
   ChartConfig,
-} from '@/registry/new-york-v4/ui/chart'
+} from "@/registry/new-york-v4/ui/chart"
 
-import { VisAxis, VisGroupedBar, VisXYContainer } from '@unovis/vue'
-import { TrendingUp } from 'lucide-vue-next'
+import { VisAxis, VisGroupedBar, VisXYContainer } from "@unovis/vue"
+import { TrendingUp } from "lucide-vue-next"
 import {
   Card,
   CardContent,
@@ -12,32 +12,32 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from "@/registry/new-york-v4/ui/card"
 import {
   ChartContainer,
   ChartCrosshair,
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
-} from '@/registry/new-york-v4/ui/chart'
+} from "@/registry/new-york-v4/ui/chart"
 
-const description = 'A line chart'
+const description = "A line chart"
 
 const chartData = [
-  { date: new Date('2024-01-01'), desktop: 186 },
-  { date: new Date('2024-02-01'), desktop: 305 },
-  { date: new Date('2024-03-01'), desktop: 237 },
-  { date: new Date('2024-04-01'), desktop: 73 },
-  { date: new Date('2024-05-01'), desktop: 209 },
-  { date: new Date('2024-06-01'), desktop: 214 },
+  { date: new Date("2024-01-01"), desktop: 186 },
+  { date: new Date("2024-02-01"), desktop: 305 },
+  { date: new Date("2024-03-01"), desktop: 237 },
+  { date: new Date("2024-04-01"), desktop: 73 },
+  { date: new Date("2024-05-01"), desktop: 209 },
+  { date: new Date("2024-06-01"), desktop: 214 },
 ]
 
 type Data = typeof chartData[number]
 
 const chartConfig = {
   desktop: {
-    label: 'Desktop',
-    color: 'var(--chart-1)',
+    label: "Desktop",
+    color: "var(--chart-1)",
   },
 } satisfies ChartConfig
 </script>

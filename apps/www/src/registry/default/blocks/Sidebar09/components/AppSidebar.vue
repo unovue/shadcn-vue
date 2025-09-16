@@ -16,7 +16,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-
   useSidebar,
 } from "@/registry/default/ui/sidebar"
 import { Switch } from "@/registry/default/ui/switch"
