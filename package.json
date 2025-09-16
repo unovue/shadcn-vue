@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "pnpm --filter www dev",
     "build": "pnpm --filter www build",
+    "build:v4": "pnpm --filter v4 build",
     "preview": "pnpm --filter www preview",
     "prepare": "pnpm simple-git-hooks",
     "lint": "eslint .",
@@ -24,6 +25,7 @@
     "dev:v4": "pnpm --filter v4 dev",
     "start:cli": "pnpm --filter shadcn-vue start:dev",
     "build:cli": "pnpm --filter shadcn-vue build",
+    "build:registryV4": "pnpm --filter=www build:registryV4",
     "build:registry": "pnpm --filter=www build:registry && pnpm --filter=www build:registryV4",
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
     "pub:beta": "cd packages/cli && pnpm pub:beta",

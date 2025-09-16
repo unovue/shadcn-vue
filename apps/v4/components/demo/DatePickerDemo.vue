@@ -1,0 +1,39 @@
+<script setup lang="ts">
+import { DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
+
+import { CalendarIcon } from 'lucide-vue-next'
+import { cn } from '@/lib/utils'
+import { Button } from '@/registry/new-york-v4/ui/button'
+import { Calendar } from '@/registry/new-york-v4/ui/calendar'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/registry/new-york-v4/ui/popover'
+
+const date = ref() as Ref<DateValue>
+
+const df = new DateFormatter('en-US', {
+  dateStyle: 'long',
+})
+</script>
+
+<template>
+  <Popover>
+    <PopoverTrigger as-child>
+      <Button
+        variant="outline"
+        :class="cn('w-[240px] justify-start text-left font-normal', !date && 'text-muted-foreground')"
+      >
+        <CalendarIcon />
+        {{ date ? df.format(date.toDate(getLocalTimeZone())) : "Pick a date" }}
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent class="w-auto p-0" align="start">
+      <Calendar
+        v-model="date"
+        initial-focus
+      />
+    </PopoverContent>
+  </Popover>
+</template>

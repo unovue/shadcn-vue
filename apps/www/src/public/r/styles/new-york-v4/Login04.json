@@ -13,7 +13,7 @@
       "path": "blocks/Login04/page.vue",
       "content": "<script lang=\"ts\">\r\nexport const description = \"A login page with form and image.\"\r\n</script>\r\n\r\n<script setup lang=\"ts\">\r\nimport LoginForm from \"@/registry/new-york/blocks/Login04/components/LoginForm.vue\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10\">\r\n    <div class=\"w-full max-w-sm md:max-w-3xl\">\r\n      <LoginForm />\r\n    </div>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:page",
-      "target": "pages/dashboard/index.vue"
+      "target": "pages/login/index.vue"
     },
     {
       "path": "blocks/Login04/components/LoginForm.vue",

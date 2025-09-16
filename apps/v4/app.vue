@@ -1,23 +1,25 @@
 <script setup lang="ts">
 import { Toaster } from '@/registry/new-york-v4/ui/sonner'
 
-const activeTheme = useCookie<string>('active_theme', { readonly: true })
+const { config, isLayoutFull } = useConfig()
+const activeTheme = computed(() => config.value.activeTheme)
 const isScaled = computed(() => !!activeTheme.value?.endsWith('-scaled'))
 const colorMode = useColorMode()
 </script>
 
 <template>
   <Body
-    class="bg-background overscroll-none font-sans antialiased"
+    class="text-foreground group/body overscroll-none font-sans antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
     :class="[
       activeTheme ? `theme-${activeTheme}` : '',
       isScaled ? 'theme-scaled' : '',
+      isLayoutFull ? 'layout-full' : 'layout-fixed',
     ]"
   >
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
 
-    <Toaster :theme="colorMode.preference as any || 'system'" />
+    <Toaster :theme="colorMode.preference as any || 'system'" position="top-center" />
   </Body>
 </template>

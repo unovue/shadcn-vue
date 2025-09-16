@@ -6,7 +6,9 @@ export default antfu(
     typescript: true,
     ignores: [
       '**/__registry__/index.ts',
-      '**/__registry__/block.ts',
+      '**/__registry__/index.ts',
+      '**/registry/__index__.ts',
+      '**/*.md',
     ],
   },
   {

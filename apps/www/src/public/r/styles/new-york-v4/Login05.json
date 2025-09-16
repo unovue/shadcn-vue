@@ -12,7 +12,7 @@
       "path": "blocks/Login05/page.vue",
       "content": "<script lang=\"ts\">\r\nexport const description = \"A simple email-only login page.\"\r\n</script>\r\n\r\n<script setup lang=\"ts\">\r\nimport LoginForm from \"@/registry/new-york/blocks/Login05/components/LoginForm.vue\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10\">\r\n    <div class=\"w-full max-w-sm\">\r\n      <LoginForm />\r\n    </div>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:page",
-      "target": "pages/dashboard/index.vue"
+      "target": "pages/login/index.vue"
     },
     {
       "path": "blocks/Login05/components/LoginForm.vue",

@@ -44,7 +44,7 @@ const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = [
 // }
 
 // ----------------------------------------------------------------------------
-// Build __registry__/index.ts.
+// Build registry/__index__.ts.
 // ----------------------------------------------------------------------------
 async function buildRegistry(registry: Registry) {
   let index = `// @ts-nocheck
@@ -81,6 +81,8 @@ export const Index: Record<string, any> = {
       }
     }
 
+    // removed > component: () => import("${componentPath}").then((m) => m.default),
+
     index += `
 "${item.name}": {
   name: "${item.name}",
@@ -100,7 +102,6 @@ export const Index: Record<string, any> = {
     target: "${file.target ?? ''}"
   }`
   })}],
-  component: () => import("${componentPath}").then((m) => m.default),
   source: "${sourceFilename}",
   category: "${item.category ?? ''}",
   subcategory: "${item.subcategory ?? ''}"
@@ -133,8 +134,8 @@ export const Index: Record<string, any> = {
   )
 
   // Write style index.
-  rimraf.sync(path.join(ROOT_PATH, '__registry__/index.ts'))
-  await writeFile(path.join(ROOT_PATH, '__registry__/index.ts'), index)
+  rimraf.sync(path.join(ROOT_PATH, 'registry/__index__.ts'))
+  await writeFile(path.join(ROOT_PATH, 'registry/__index__.ts'), index)
 }
 
 // ----------------------------------------------------------------------------

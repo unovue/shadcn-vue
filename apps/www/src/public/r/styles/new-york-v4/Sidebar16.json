@@ -17,7 +17,7 @@
       "path": "blocks/Sidebar16/page.vue",
       "content": "<script lang=\"ts\">\r\nexport const iframeHeight = \"800px\"\r\nexport const description = \"A sidebar with a header and a search form.\"\r\n</script>\r\n\r\n<script setup lang=\"ts\">\r\nimport AppSidebar from \"@/registry/new-york/blocks/Sidebar16/components/AppSidebar.vue\"\r\nimport SiteHeader from \"@/registry/new-york/blocks/Sidebar16/components/SiteHeader.vue\"\r\nimport {\r\n  SidebarInset,\r\n  SidebarProvider,\r\n} from \"@/registry/new-york/ui/sidebar\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"[--header-height:calc(--spacing(14))]\">\r\n    <SidebarProvider class=\"flex flex-col\">\r\n      <SiteHeader />\r\n      <div class=\"flex flex-1\">\r\n        <AppSidebar />\r\n        <SidebarInset>\r\n          <div class=\"flex flex-1 flex-col gap-4 p-4\">\r\n            <div class=\"grid auto-rows-min gap-4 md:grid-cols-3\">\r\n              <div class=\"bg-muted/50 aspect-video rounded-xl\" />\r\n              <div class=\"bg-muted/50 aspect-video rounded-xl\" />\r\n              <div class=\"bg-muted/50 aspect-video rounded-xl\" />\r\n            </div>\r\n            <div class=\"bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min\" />\r\n          </div>\r\n        </SidebarInset>\r\n      </div>\r\n    </SidebarProvider>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:page",
-      "target": "pages/dashboard/index.vue"
+      "target": "pages/sidebar/index.vue"
     },
     {
       "path": "blocks/Sidebar16/components/AppSidebar.vue",

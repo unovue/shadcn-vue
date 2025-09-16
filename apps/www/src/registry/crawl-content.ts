@@ -51,6 +51,13 @@ export async function buildRegistry() {
   return registry
 }
 
+function sanitizeString(input: string): string {
+  return input
+    .replace(/[-_]\d+/g, "") // Remove hyphens/underscores followed by digits
+    .replace(/\d+/g, "") // Remove any remaining digits
+    .toLowerCase() // Convert to lowercase
+}
+
 export async function buildRegistryV4() {
   const registryRootPath = resolve("../v4/registry")
   const registry: Registry = []
@@ -59,20 +66,26 @@ export async function buildRegistryV4() {
   // const examplePath = resolve(registryRootPath, 'new-york-v4', 'example')
   const blockPath = resolve(registryRootPath, "new-york-v4", "blocks")
   // const hookPath = resolve(registryRootPath, 'new-york-v4', 'hook')
+  const chartPath = resolve(registryRootPath, "new-york-v4", "charts")
 
-  const [ui,
+  const [
+    ui,
     // example,
-    block] = await Promise.all([
+    block,
+    charts,
+  ] = await Promise.all([
     crawlUI(uiPath),
     // crawlExample(examplePath),
     crawlBlock(blockPath),
     // crawlHook(hookPath),
+    crawlChart(chartPath),
   ])
 
   registry.push(
     ...ui,
     //  ...example,
     ...block,
+    ...charts,
   )
 
   return registry
@@ -163,8 +176,58 @@ async function crawlBlock(rootPath: string) {
     const source = await readFile(filepath, { encoding: "utf8" })
     const relativePath = join("blocks", dirent.name)
 
-    const target = "pages/dashboard/index.vue"
+    const target = `pages/${sanitizeString(dirent.name)}/index.vue`
 
+    const file = {
+      name: dirent.name,
+      content: source,
+      path: relativePath,
+      target,
+      type,
+    }
+    const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
+
+    registry.push({
+      name,
+      type,
+      files: [file],
+      registryDependencies: Array.from(registryDependencies),
+      dependencies: Array.from(dependencies),
+      category: getCategory(name),
+    })
+  }
+
+  return registry
+}
+
+async function crawlChart(rootPath: string) {
+  const type = "registry:block" as const
+
+  const dir = await readdir(rootPath, { withFileTypes: true })
+
+  const registry: Registry = []
+
+  for (const dirent of dir) {
+    if (!dirent.isFile()) {
+      const result = await buildBlockRegistry(
+        `${rootPath}/${dirent.name}`,
+        dirent.name,
+      )
+
+      if (result.files.length) {
+        registry.push(result)
+      }
+      continue
+    }
+    if (!dirent.name.endsWith(".vue") || !dirent.isFile())
+      continue
+
+    const [name] = dirent.name.split(".vue")
+
+    const filepath = join(rootPath, dirent.name)
+    const source = await readFile(filepath, { encoding: "utf8" })
+    const relativePath = join("charts", dirent.name)
+    const target = ""
     const file = {
       name: dirent.name,
       content: source,
@@ -285,7 +348,7 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
     const filepath = join(blockPath, compPath)
     const relativePath = join("blocks", blockName, compPath)
     const source = await readFile(filepath, { encoding: "utf8" })
-    const target = isPage ? "pages/dashboard/index.vue" : ""
+    const target = isPage ? `pages/${sanitizeString(blockName)}/index.vue` : ""
 
     files.push({ content: source, path: relativePath, type, target })
 
