@@ -1,6 +1,6 @@
-import type { Registry } from "./schema"
+import type { Registry } from "shadcn-vue/schema"
 
-export const lib: Registry = [
+export const lib: Registry["items"] = [
   {
     name: "utils",
     type: "registry:lib",

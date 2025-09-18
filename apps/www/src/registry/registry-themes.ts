@@ -1,6 +1,6 @@
-import type { Registry } from "./schema"
+import type { Registry } from "shadcn-vue/schema"
 
-export const themes: Registry = [
+export const themes: Registry["items"] = [
   {
     name: "theme-daylight",
     type: "registry:theme",
@@ -176,5 +176,3 @@ export const themes: Registry = [
     },
   },
 ]
-
-export type Theme = Registry[number]
