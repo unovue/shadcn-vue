@@ -31,6 +31,7 @@
     "lucide-vue-next": "^0.513.0",
     "nuxt": "^3.17.5",
     "reka-ui": "catalog:",
+    "shadcn-vue": "workspace:*",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.11",
     "tw-animate-css": "^1.3.4",

@@ -163,6 +163,9 @@ importers:
       reka-ui:
         specifier: 'catalog:'
         version: 2.5.0(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2))
+      shadcn-vue:
+        specifier: workspace:*
+        version: link:../../packages/cli
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
@@ -197,9 +200,6 @@ importers:
       nuxt-shiki:
         specifier: ^0.3.1
         version: 0.3.1(magicast@0.3.5)
-      shadcn-vue:
-        specifier: ^2.2.0
-        version: 2.2.0(eslint@9.35.0(jiti@2.5.1))(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2))
       shiki:
         specifier: ^3.4.2
         version: 3.4.2
@@ -266,6 +266,9 @@ importers:
       reka-ui:
         specifier: 'catalog:'
         version: 2.5.0(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2))
+      shadcn-vue:
+        specifier: workspace:*
+        version: link:../../packages/cli
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
@@ -3700,9 +3703,6 @@ packages:
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
-
-  '@ts-morph/common@0.27.0':
-    resolution: {integrity: sha512-Wf29UqxWDpc+i61k3oIOzcUfQt79PIT9y/MWfAGlrkjg6lBC1hwDECLXPVJAhWjiGbfBCxZd65F/LIZF3+jeJQ==}
 
   '@ts-morph/common@0.28.0':
     resolution: {integrity: sha512-4w6X/oFmvXcwux6y6ExfM/xSqMHw20cYwFJH+BlYrtGa6nwY9qGq8GXnUs1sVYeF2o/KT3S8hAH6sKBI3VOkBg==}
@@ -9941,10 +9941,6 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn-vue@2.2.0:
-    resolution: {integrity: sha512-D7RZC1WHb6YFQczEpVhKQl4esok8tKNByO1sZTbzMyRlLMlgRuo//bZqeXU/zxFiFhrRhgtpxO3adQGIMmMP8A==}
-    hasBin: true
-
   shebang-command@1.2.0:
     resolution: {integrity: sha512-EV3L1+UQWGor21OmnvojK36mhg+TyIKDh3iFBKBohr5xeXIhNBcx8oWdgkTEEQ+BEFFYdLRuqMfd5L84N1V5Vg==}
     engines: {node: '>=0.10.0'}
@@ -10195,10 +10191,6 @@ packages:
 
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
-
-  stringify-object@5.0.0:
-    resolution: {integrity: sha512-zaJYxz2FtcMb4f+g60KsRNFOpVMUyuJgA51Zi5Z1DOTC3S59+OQiVOzE9GZt0x72uBGWKsQIuBKeF9iusmKFsg==}
-    engines: {node: '>=14.16'}
 
   stringify-object@6.0.0:
     resolution: {integrity: sha512-6f94vIED6vmJJfh3lyVsVWxCYSfI5uM+16ntED/Ql37XIyV6kj0mRAAiTeMMc/QLYIaizC3bUprQ8pQnDDrKfA==}
@@ -10566,9 +10558,6 @@ packages:
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
-
-  ts-morph@26.0.0:
-    resolution: {integrity: sha512-ztMO++owQnz8c/gIENcM9XfCEzgoGphTv+nKpYNM1bgsdOVC/jRZuEBf6N+mLLDNg68Kl+GgUZfOySaRiG1/Ug==}
 
   ts-morph@27.0.0:
     resolution: {integrity: sha512-xcqelpTR5PCuZMs54qp9DE3t7tPgA2v/P1/qdW4ke5b3Y5liTGTYj6a/twT35EQW/H5okRqp1UOqwNlgg0K0eQ==}
@@ -15299,12 +15288,6 @@ snapshots:
       vue: 3.5.21(typescript@5.9.2)
 
   '@trysound/sax@0.2.0': {}
-
-  '@ts-morph/common@0.27.0':
-    dependencies:
-      fast-glob: 3.3.3
-      minimatch: 10.0.1
-      path-browserify: 1.0.1
 
   '@ts-morph/common@0.28.0':
     dependencies:
@@ -23510,40 +23493,6 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn-vue@2.2.0(eslint@9.35.0(jiti@2.5.1))(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2)):
-    dependencies:
-      '@unovue/detypes': 0.8.5
-      '@vue/compiler-sfc': 3.5.18
-      commander: 14.0.1
-      consola: 3.4.2
-      cosmiconfig: 9.0.0(typescript@5.9.2)
-      deepmerge: 4.3.1
-      diff: 8.0.2
-      fs-extra: 11.3.1
-      get-tsconfig: 4.10.1
-      magic-string: 0.30.19
-      nypm: 0.6.1
-      ofetch: 1.4.1
-      ora: 8.2.0
-      pathe: 2.0.3
-      postcss: 8.5.6
-      prompts: 2.4.2
-      reka-ui: 2.5.0(typescript@5.9.2)(vue@3.5.18(typescript@5.9.2))
-      stringify-object: 5.0.0
-      tailwindcss: 4.1.12
-      tinyexec: 1.0.1
-      tinyglobby: 0.2.15
-      ts-morph: 26.0.0
-      undici: 7.16.0
-      vue-metamorph: 3.3.3(eslint@9.35.0(jiti@2.5.1))
-      zod: 3.25.30
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - eslint
-      - supports-color
-      - typescript
-      - vue
-
   shebang-command@1.2.0:
     dependencies:
       shebang-regex: 1.0.0
@@ -23817,12 +23766,6 @@ snapshots:
     dependencies:
       character-entities-html4: 2.1.0
       character-entities-legacy: 3.0.0
-
-  stringify-object@5.0.0:
-    dependencies:
-      get-own-enumerable-keys: 1.0.0
-      is-obj: 3.0.0
-      is-regexp: 3.1.0
 
   stringify-object@6.0.0:
     dependencies:
@@ -24231,11 +24174,6 @@ snapshots:
       typescript: 5.9.2
 
   ts-interface-checker@0.1.13: {}
-
-  ts-morph@26.0.0:
-    dependencies:
-      '@ts-morph/common': 0.27.0
-      code-block-writer: 13.0.3
 
   ts-morph@27.0.0:
     dependencies:

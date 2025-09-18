@@ -17,7 +17,7 @@
     "build": "pnpm --filter www build",
     "build:v4": "pnpm --filter v4 build",
     "preview": "pnpm --filter www preview",
-    "prepare": "pnpm simple-git-hooks",
+    "prepare": "pnpm simple-git-hooks && pnpm --filter shadcn-vue build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev:cli": "pnpm --filter shadcn-vue dev",

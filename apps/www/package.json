@@ -36,6 +36,7 @@
     "lucide-vue-next": "^0.511.0",
     "magic-string": "^0.30.17",
     "reka-ui": "catalog:",
+    "shadcn-vue": "workspace:*",
     "tailwindcss-animate": "^1.0.7",
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
