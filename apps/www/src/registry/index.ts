@@ -2,7 +2,7 @@ import type { Registry } from "shadcn-vue/schema"
 
 // import { blocks } from "@/registry/registry-blocks"
 // import { charts } from "@/registry/registry-charts"
-// import { composables } from "@/registry/registry-composables"
+import { composables } from "@/registry/registry-composables"
 // import { examples } from "@/registry/registry-examples"
 // import { internal } from "@/registry/registry-internal"
 import { lib } from "@/registry/registry-lib"
@@ -19,7 +19,7 @@ export const registry = {
       dependencies: [
         "tailwindcss-animate",
         "class-variance-authority",
-        "lucide-react",
+        "lucide-vue-next",
       ],
       registryDependencies: ["utils"],
       tailwind: {
@@ -51,7 +51,7 @@ export const registry = {
     // ...blocks,
     // ...charts,
     ...lib,
-    // ...composables,
+    ...composables,
     ...themes,
 
     // Internal use only.

@@ -1,9 +1,11 @@
-import type { RegistryStyle } from "./registry-styles"
-import type { Registry, RegistryFiles } from "./schema"
+import type { RegistryItem } from "shadcn-vue/schema"
+
+type RegistryFile = NonNullable<RegistryItem["files"]>[number]
 import { readdir, readFile } from "node:fs/promises"
 import { parseSync } from "oxc-parser"
 import { join, resolve } from "pathe"
 import { compileScript, parse, walk } from "vue/compiler-sfc"
+import { registryCategories } from "./registry-categories"
 import { styles } from "./registry-styles"
 
 // [Dependency, [...PeerDependencies]]
@@ -19,18 +21,25 @@ const DEPENDENCIES = new Map<string, string[]>([
 ])
 
 const REGISTRY_DEPENDENCY = "@/"
-const CATEGORIES = ["authentication", "sidebar", "login", "dashboard"]
 
-type ArrayItem<T> = T extends Array<infer X> ? X : never
-type RegistryItem = ArrayItem<Registry>
+function getCategories(text: string): string[] {
+  const normalizedText = text.replace(/[-_]\d+/g, "").replace(/\d+/g, "").toLowerCase()
 
-function getCategory(text: string) {
-  return CATEGORIES.find(category => category === text.replace(/\d+/g, "").toLowerCase()) || undefined
+  // Find matching categories
+  const matchingCategories = registryCategories
+    .filter(category =>
+      normalizedText.includes(category.slug)
+      || category.slug.includes(normalizedText)
+      || normalizedText === category.slug,
+    )
+    .map(category => category.slug)
+
+  return matchingCategories.length > 0 ? matchingCategories : []
 }
 
 export async function buildRegistry() {
   const registryRootPath = resolve("src", "registry")
-  const registry: Registry = []
+  const registry: RegistryItem[] = []
 
   for (const { name: style } of styles) {
     const uiPath = resolve(registryRootPath, style, "ui")
@@ -60,7 +69,7 @@ function sanitizeString(input: string): string {
 
 export async function buildRegistryV4() {
   const registryRootPath = resolve("../v4/registry")
-  const registry: Registry = []
+  const registry: RegistryItem[] = []
 
   const uiPath = resolve(registryRootPath, "new-york-v4", "ui")
   // const examplePath = resolve(registryRootPath, 'new-york-v4', 'example')
@@ -94,7 +103,7 @@ export async function buildRegistryV4() {
 async function crawlUI(rootPath: string) {
   const dir = await readdir(rootPath, { recursive: true, withFileTypes: true })
 
-  const uiRegistry: Registry = []
+  const uiRegistry: RegistryItem[] = []
 
   for (const dirent of dir) {
     if (!dirent.isDirectory())
@@ -113,7 +122,7 @@ async function crawlExample(rootPath: string) {
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
-  const registry: Registry = []
+  const registry: RegistryItem[] = []
 
   for (const dirent of dir) {
     if (!dirent.name.endsWith(".vue") || !dirent.isFile())
@@ -153,7 +162,7 @@ async function crawlBlock(rootPath: string) {
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
-  const registry: Registry = []
+  const registry: RegistryItem[] = []
 
   for (const dirent of dir) {
     if (!dirent.isFile()) {
@@ -193,7 +202,7 @@ async function crawlBlock(rootPath: string) {
       files: [file],
       registryDependencies: Array.from(registryDependencies),
       dependencies: Array.from(dependencies),
-      category: getCategory(name),
+      categories: getCategories(name),
     })
   }
 
@@ -205,7 +214,7 @@ async function crawlChart(rootPath: string) {
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
-  const registry: Registry = []
+  const registry: RegistryItem[] = []
 
   for (const dirent of dir) {
     if (!dirent.isFile()) {
@@ -243,36 +252,33 @@ async function crawlChart(rootPath: string) {
       files: [file],
       registryDependencies: Array.from(registryDependencies),
       dependencies: Array.from(dependencies),
-      category: getCategory(name),
+      categories: getCategories(name),
     })
   }
 
   return registry
 }
 
-async function crawlHook(rootPath: string, style: RegistryStyle) {
-  const type = "registry:hook" as const
+async function crawlComposables(rootPath: string) {
+  const type = "registry:composable" as const
 
   const dir = await readdir(rootPath, { withFileTypes: true })
 
-  const registry: Registry = []
+  const registry: RegistryItem[] = []
 
   for (const dirent of dir) {
     if (!dirent.isFile())
       continue
 
-    const [name] = dirent.name.split(".vue.ts")
+    const [name] = dirent.name.split(".ts")
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: "utf8" })
-    const relativePath = join("hook", dirent.name)
+    const relativePath = join("composables", dirent.name)
 
     const file = {
-      name: dirent.name,
       content: source,
       path: relativePath,
-      style,
-      target: dirent.name,
       type,
     }
     const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
@@ -294,7 +300,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
     withFileTypes: true,
   })
 
-  const files: RegistryFiles[] = []
+  const files: RegistryFile[] = []
   const dependencies = new Set<string>()
   const registryDependencies = new Set<string>()
   const type = "registry:ui"
@@ -334,7 +340,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 async function buildBlockRegistry(blockPath: string, blockName: string) {
   const dir = await readdir(blockPath, { withFileTypes: true, recursive: true })
 
-  const files: RegistryFiles[] = []
+  const files: RegistryFile[] = []
   const dependencies = new Set<string>()
   const registryDependencies = new Set<string>()
 
@@ -366,7 +372,7 @@ async function buildBlockRegistry(blockPath: string, blockName: string) {
     name: blockName,
     registryDependencies: Array.from(registryDependencies),
     dependencies: Array.from(dependencies),
-    category: getCategory(blockName),
+    categories: getCategories(blockName),
   } satisfies RegistryItem
 }
 
