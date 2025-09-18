@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Block } from '@/registry/schema'
+// import type { Block } from '@/registry/schema'
 import { useClipboard } from '@vueuse/core'
 import { Check, Fullscreen, Monitor, Smartphone, Tablet, Terminal } from 'lucide-vue-next'
 import MagicString from 'magic-string'
@@ -27,7 +27,7 @@ const { copied, copy } = useClipboard()
 const isLoading = ref(true)
 const tabValue = ref('preview')
 const resizableRef = ref<InstanceType<typeof ResizablePanel>>()
-const componentRegistry = ref<Block>()
+const componentRegistry = ref<any>() // Block
 
 const rawString = ref('')
 const codeHtml = ref('')

@@ -1,4 +1,4 @@
-import { registryItemSchema } from 'shadcn-vue/registry'
+import { registryItemSchema } from 'shadcn-vue/schema'
 import { z } from 'zod'
 
 export async function getAllBlockIds(

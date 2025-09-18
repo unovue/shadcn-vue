@@ -7,14 +7,14 @@ export interface FileTree {
 </script>
 
 <script setup lang="ts">
-import type { Block } from '@/registry/schema'
+// import type { Block } from '@/registry/schema'
 import { ChevronRight, File, Folder } from 'lucide-vue-next'
 import { TreeItem, TreeRoot } from 'reka-ui'
 import { computed, ref, watch } from 'vue'
 import Button from '@/registry/new-york/ui/button/Button.vue'
 
 const props = defineProps<{
-  item: Block
+  item: any // Block
 }>()
 
 const activeFile = defineModel<FileTree>()

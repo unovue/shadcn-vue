@@ -37,7 +37,7 @@ const onSubmit = handleSubmit(({ pin }) => {
   })
 })
 
-const handleComplete = (e: string[]) => console.log(e.join(""))
+const handleComplete = (e: number[]) => console.log(e.join(""))
 </script>
 
 <template>
@@ -56,7 +56,7 @@ const handleComplete = (e: string[]) => console.log(e.join(""))
             :name="componentField.name"
             @complete="handleComplete"
             @update:model-value="(arrStr) => {
-              setFieldValue('pin', arrStr)
+              setFieldValue('pin', arrStr.map(String))
             }"
           >
             <PinInputGroup>

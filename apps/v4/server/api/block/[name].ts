@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import type { registryItemFileSchema } from 'shadcn-vue/registry'
+import type { registryItemFileSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
 import { createFileTreeForRegistryItemFiles, getRegistryItem } from '~/lib/registry'
 

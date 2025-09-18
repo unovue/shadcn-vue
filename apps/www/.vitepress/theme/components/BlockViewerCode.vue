@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FileTree } from './BlockViewerFileTree.vue'
-import type { Block } from '@/registry/schema'
+// import type { Block } from '@/registry/schema'
 import { File } from 'lucide-vue-next'
 import { computed, onBeforeMount, ref } from 'vue'
 import { highlight } from '../config/shiki'
@@ -8,7 +8,7 @@ import BlockCopyCodeButton from './BlockCopyCodeButton.vue'
 import BlockViewerFileTree from './BlockViewerFileTree.vue'
 
 const props = defineProps<{
-  item: Block
+  item: any // Block
 }>()
 
 const activeFile = ref<FileTree>()

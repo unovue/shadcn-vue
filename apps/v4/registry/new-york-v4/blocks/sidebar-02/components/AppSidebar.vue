@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
 import { ChevronRight } from "lucide-vue-next"
 import SearchForm from "@/registry/new-york-v4/blocks/sidebar-02/components/SearchForm.vue"
 import VersionSwitcher from "@/registry/new-york-v4/blocks/sidebar-02/components/VersionSwitcher.vue"

@@ -1,9 +1,9 @@
-import type { registryItemFileSchema } from 'shadcn-vue/registry'
+import type { registryItemFileSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
 import { promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { registryItemSchema } from 'shadcn-vue/registry'
+import { registryItemSchema } from 'shadcn-vue/schema'
 import { blockMeta } from '@/registry/registry-block-meta'
 
 // import { Project, ScriptKind } from 'ts-morph'

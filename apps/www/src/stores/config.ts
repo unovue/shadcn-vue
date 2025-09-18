@@ -1,5 +1,5 @@
+import type { Registry } from 'shadcn-vue/schema'
 import type { Style } from '@/registry/registry-styles'
-import type { Theme } from '@/registry/registry-themes'
 import { useStorage } from '@vueuse/core'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
@@ -9,7 +9,7 @@ import { themes } from '@/registry/registry-themes'
 type PackageManager = 'pnpm' | 'npm' | 'yarn' | 'bun'
 
 export interface Config {
-  theme?: Theme['name']
+  theme?: Registry['items'][number]['name']
   radius: number
   style: Style['name']
   packageManager: PackageManager
@@ -43,8 +43,8 @@ export function useConfigStore() {
   const radius = computed(() => config.value.radius)
   const style = computed(() => config.value.style)
 
-  function setTheme(themeName: Theme['name']) {
-    config.value.theme = themeName
+  function setTheme(themeName: Config['theme']) {
+    config.value.theme = themeName!
   }
 
   function setRadius(newRadius: number) {

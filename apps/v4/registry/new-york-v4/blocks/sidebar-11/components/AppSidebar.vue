@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
 import { File } from "lucide-vue-next"
 import Tree from "@/registry/new-york-v4/blocks/sidebar-11/components/Tree.vue"
 import {
