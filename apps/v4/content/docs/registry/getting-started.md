@@ -154,7 +154,7 @@ npm run registry:build
 
 **Note:** By default, the build script will generate the registry JSON files in `public/r` e.g `public/r/hello-world.json`.
 
-You can change the output directory by passing the `--output` option. See the [shadcn build command](/docs/cli#build) for more information.
+You can change the output directory by passing the `--output` option. See the [shadcn-vue build command](/docs/cli#build) for more information.
 
 </Callout>
 
