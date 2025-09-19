@@ -10,7 +10,7 @@ import { themes } from "@/registry/registry-themes"
 // import { ui } from "@/registry/registry-ui"
 
 export const registry = {
-  name: "shadcn-vue/ui",
+  name: "shadcn-vue",
   homepage: "https://shadcn-vue.com",
   items: [
     {

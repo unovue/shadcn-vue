@@ -2,6 +2,7 @@ import type { RegistryItem } from "shadcn-vue/schema"
 
 type RegistryFile = NonNullable<RegistryItem["files"]>[number]
 import { readdir, readFile } from "node:fs/promises"
+import { pathToFileURL } from "node:url"
 import { parseSync } from "oxc-parser"
 import { join, resolve } from "pathe"
 import { compileScript, parse, walk } from "vue/compiler-sfc"
@@ -68,36 +69,33 @@ function sanitizeString(input: string): string {
 }
 
 export async function buildRegistryV4() {
-  const registryRootPath = resolve("../v4/registry")
-  const registry: RegistryItem[] = []
+  // Import v4's static registry files
+  try {
+    const registryPath = resolve("../v4/registry/index.ts")
+    const fileUrl = pathToFileURL(registryPath).href
+    const { registry } = await import(fileUrl)
+    return registry.items || []
+  }
+  catch (error) {
+    console.warn("Failed to import v4 static registry, falling back to file crawling:", error)
 
-  const uiPath = resolve(registryRootPath, "new-york-v4", "ui")
-  // const examplePath = resolve(registryRootPath, 'new-york-v4', 'example')
-  const blockPath = resolve(registryRootPath, "new-york-v4", "blocks")
-  // const hookPath = resolve(registryRootPath, 'new-york-v4', 'hook')
-  const chartPath = resolve(registryRootPath, "new-york-v4", "charts")
+    // Fallback to old file crawling method
+    const registryRootPath = resolve("../v4/registry")
+    const registry: RegistryItem[] = []
 
-  const [
-    ui,
-    // example,
-    block,
-    charts,
-  ] = await Promise.all([
-    crawlUI(uiPath),
-    // crawlExample(examplePath),
-    crawlBlock(blockPath),
-    // crawlHook(hookPath),
-    crawlChart(chartPath),
-  ])
+    const uiPath = resolve(registryRootPath, "new-york-v4", "ui")
+    const blockPath = resolve(registryRootPath, "new-york-v4", "blocks")
+    const chartPath = resolve(registryRootPath, "new-york-v4", "charts")
 
-  registry.push(
-    ...ui,
-    //  ...example,
-    ...block,
-    ...charts,
-  )
+    const [ui, block, charts] = await Promise.all([
+      crawlUI(uiPath),
+      crawlBlock(blockPath),
+      crawlChart(chartPath),
+    ])
 
-  return registry
+    registry.push(...ui, ...block, ...charts)
+    return registry
+  }
 }
 
 async function crawlUI(rootPath: string) {
