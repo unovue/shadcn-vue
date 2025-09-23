@@ -1,5 +1,5 @@
-import { inject, computed } from "vue"
 import { FieldContextKey } from "vee-validate"
+import { computed, inject } from "vue"
 import { FORM_ITEM_INJECTION_KEY } from "./injectionKeys"
 
 export function useFormField() {
@@ -9,14 +9,14 @@ export function useFormField() {
   if (!fieldContext || !fieldItemContext)
     throw new Error("useFormField should be used within <FormField> and <FormItem>")
 
-  const { name, errorMessage, meta } = fieldContext
+  const { name, errorMessage: error, meta } = fieldContext
   const id = fieldItemContext
 
   const fieldState = {
     valid: computed(() => meta.valid),
     isDirty: computed(() => meta.dirty),
     isTouched: computed(() => meta.touched),
-    error: computed(() => errorMessage.value),
+    error,
   }
 
   return {
