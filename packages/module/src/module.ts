@@ -1,6 +1,15 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { addComponent, addComponentsDir, createResolver, defineNuxtModule } from '@nuxt/kit'
+import {
+  addComponent,
+  addComponentsDir,
+  createResolver,
+  defineNuxtModule,
+  findPath,
+  getLayerDirectories,
+  resolvePath as resolvePathNuxt,
+  useLogger,
+} from '@nuxt/kit'
 import { parseSync } from 'oxc-parser'
 
 // TODO: add test to make sure all registry is being parse correctly
@@ -32,16 +41,32 @@ export default defineNuxtModule<ModuleOptions>({
   async setup({ prefix, componentDir }, nuxt) {
     const COMPONENT_DIR_PATH = componentDir!
     const ROOT_DIR_PATH = nuxt.options.rootDir
-    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
 
-    // Components Auto Imports
-    const componentsPath = await resolvePath(COMPONENT_DIR_PATH)
+    const logger = useLogger('shadcn-nuxt')
+    logger.start('Setting up shadcn-nuxt module', { COMPONENT_DIR_PATH, ROOT_DIR_PATH })
+    // Build list of potential component directory paths from all layers
+    const layerDirectories = getLayerDirectories()
+    const potentialPaths = await Promise.all(
+      layerDirectories.map((layer) => {
+        let layerPath = ROOT_DIR_PATH
+        if ('cwd' in layer && typeof layer.cwd === 'string') {
+          layerPath = layer.cwd
+        }
+        if ('app' in layer && typeof layer.app === 'string') {
+          layerPath = layer.app
+        }
+        return resolvePathNuxt(COMPONENT_DIR_PATH, { cwd: layerPath })
+      }),
+    )
 
-    // Early return if directory doesn't exist
-    if (!existsSync(componentsPath)) {
-      console.warn(`Component directory does not exist: ${componentsPath}`)
-      return
-    }
+    logger.info('Checking', { potentialPaths })
+    // Use findPath to find the first existing component directory
+    const componentsPath = (await findPath(potentialPaths, {}, 'dir')) || ROOT_DIR_PATH
+
+    logger.info('Decided on', { componentsPath })
+
+    // Create resolver relative to the found components path
+    const { resolve, resolvePath } = createResolver(componentsPath)
 
     // Tell Nuxt to not scan `componentsDir` for auto imports as we will do it manually
     // See https://github.com/unovue/shadcn-vue/pull/528#discussion_r1590206268
@@ -57,7 +82,7 @@ export default defineNuxtModule<ModuleOptions>({
     try {
       await Promise.all(readdirSync(componentsPath).map(async (dir) => {
         try {
-          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+          const filePath = await resolvePath(join(componentsPath, dir, 'index'), { extensions: ['.ts', '.js'] })
           const content = readFileSync(filePath, { encoding: 'utf8' })
           const ast = parseSync(filePath, content, {
             sourceType: 'module',

@@ -37,3 +37,4 @@ vite.config.ts.timestamp*
 **/.vitepress/cache/*
 **/.vitepress/.temp
 **/temp.json
+*.tgz
