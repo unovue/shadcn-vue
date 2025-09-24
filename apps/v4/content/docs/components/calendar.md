@@ -71,3 +71,12 @@ import { Calendar } from "@/components/ui/calendar"
   <Calendar />
 </template>
 ```
+
+## Persian / Hijri / Jalali Calendar
+
+::component-preview
+---
+name: CalendarDemoPersian
+description: A calendar component.
+---
+::
