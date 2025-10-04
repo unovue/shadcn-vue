@@ -278,6 +278,10 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/input',
         },
         {
+          title: 'Kbd',
+          href: '/docs/components/kbd',
+        },
+        {
           title: 'Label',
           href: '/docs/components/label',
         },

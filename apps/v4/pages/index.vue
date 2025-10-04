@@ -72,6 +72,9 @@
     <ComponentWrapper name="Input">
       <LazyInputDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="kbd">
+      <LazyKbdDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Label">
       <LazyLabelDemo />
     </ComponentWrapper>

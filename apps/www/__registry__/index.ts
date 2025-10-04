@@ -3749,6 +3749,51 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "KbdDemo": {
+      name: "KbdDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ['kbd'],
+      files: [{
+        path: "registry/new-york/examples/KbdDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/KbdDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "KbdWithButton": {
+      name: "KbdWithButton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ['kbd', 'button'],
+      files: [{
+        path: "registry/new-york/examples/KbdWithButton.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/KbdWithButton.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "KbdWithTooltip": {
+      name: "KbdWithTooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/examples/KbdWithTooltip.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/KbdWithTooltip.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "LineChartCustomTooltip": {
       name: "LineChartCustomTooltip",
       description: "",
@@ -9695,6 +9740,51 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/LabelDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "KbdDemo": {
+      name: "KbdDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ['kbd'],
+      files: [{
+        path: "registry/default/examples/KbdDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/KbdDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+     "KbdWithButton": {
+      name: "KbdWithButton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ['kbd','button'],
+      files: [{
+        path: "registry/default/examples/KbdWithButton.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/KbdWithButton.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "KbdWithTooltip": {
+      name: "KbdWithTooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ['kbd','button','tooltip'],
+      files: [{
+        path: "registry/default/examples/KbdWithTooltip.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/KbdWithTooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
