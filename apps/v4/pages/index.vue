@@ -27,6 +27,9 @@
     <ComponentWrapper name="Button">
       <LazyButtonDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="ButtonGroup">
+      <LazyButtonGroupDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Calendar">
       <LazyCalendarDemo />
     </ComponentWrapper>
