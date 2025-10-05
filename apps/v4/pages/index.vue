@@ -117,6 +117,9 @@
     <ComponentWrapper name="Sheet">
       <LazySheetDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Spinner">
+      <LazySpinnerDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Skeleton">
       <LazySkeletonDemo />
     </ComponentWrapper>
