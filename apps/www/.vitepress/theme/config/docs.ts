@@ -282,6 +282,10 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/input',
         },
         {
+          title: 'Input Group',
+          href: '/docs/components/input-group',
+        },
+        {
           title: 'Kbd',
           href: '/docs/components/kbd',
         },

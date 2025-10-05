@@ -1090,6 +1090,45 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "input-group": {
+      name: "input-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ['input-group', 'input', 'textarea', 'button'],
+      files: [{
+        path: "registry/new-york/ui/input-group/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/input-group/InputGroup.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/input-group/InputGroupAddon.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/input-group/InputGroupButton.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/input-group/InputGroupInput.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/input-group/InputGroupText.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/input-group/InputGroupTextarea.vue",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/input-group/index.ts").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "kbd": {
       name: "kbd",
       description: "",
@@ -3930,6 +3969,171 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/InputWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupDemo": {
+      name: "InputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","dropdown-menu","tooltip","separator"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithIcon": {
+      name: "InputGroupWithIcon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithIcon.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithIcon.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithText": {
+      name: "InputGroupWithText",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithText.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithText.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButton": {
+      name: "InputGroupWithButton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","popover"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithButton.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithButton.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTooltip": {
+      name: "InputGroupWithTooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","tooltip"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithTooltip.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithTooltip.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTextarea": {
+      name: "InputGroupWithTextarea",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithTextarea.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithTextarea.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithSpinner": {
+      name: "InputGroupWithSpinner",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","spinner"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithSpinner.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithSpinner.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithLabel": {
+      name: "InputGroupWithLabel",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","label","tooltip"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithLabel.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithDropdown": {
+      name: "InputGroupWithDropdown",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","dropdown-menu"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithDropdown.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithDropdown.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButtonGroup": {
+      name: "InputGroupWithButtonGroup",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","button-group","label"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithButtonGroup.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithButtonGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithCustomInput": {
+      name: "InputGroupWithCustomInput",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithCustomInput.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithCustomInput.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7360,6 +7564,45 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "input-group": {
+      name: "input-group",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ['input-group', 'input', 'textarea', 'button'],
+      files: [{
+        path: "registry/default/ui/input-group/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/input-group/InputGroup.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/input-group/InputGroupAddon.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/input-group/InputGroupButton.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/input-group/InputGroupInput.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/input-group/InputGroupText.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/input-group/InputGroupTextarea.vue",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/default/ui/input-group/index.ts").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "kbd": {
       name: "kbd",
       description: "",
@@ -10219,6 +10462,171 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/InputWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupDemo": {
+      name: "InputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","dropdown-menu","tooltip","separator"],
+      files: [{
+        path: "registry/default/examples/InputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithIcon": {
+      name: "InputGroupWithIcon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithIcon.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithIcon.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithText": {
+      name: "InputGroupWithText",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithText.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithText.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButton": {
+      name: "InputGroupWithButton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","popover"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithButton.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithButton.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTooltip": {
+      name: "InputGroupWithTooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","tooltip"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithTooltip.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithTooltip.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTextarea": {
+      name: "InputGroupWithTextarea",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithTextarea.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithTextarea.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithSpinner": {
+      name: "InputGroupWithSpinner",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","spinner"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithSpinner.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithSpinner.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithLabel": {
+      name: "InputGroupWithLabel",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","label","tooltip"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithLabel.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithDropdown": {
+      name: "InputGroupWithDropdown",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithDropdown.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithDropdown.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButtonGroup": {
+      name: "InputGroupWithButtonGroup",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","button-group","label"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithButtonGroup.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithButtonGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithCustomInput": {
+      name: "InputGroupWithCustomInput",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithCustomInput.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithCustomInput.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
