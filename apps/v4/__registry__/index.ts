@@ -1753,6 +1753,25 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"spinner": {
+  name: "spinner",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/new-york-v4/ui/spinner/Spinner.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/spinner/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/spinner/Spinner.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "stepper": {
   name: "stepper",
   description: "",

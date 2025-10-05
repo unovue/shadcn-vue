@@ -1759,6 +1759,22 @@
     ]
   },
   {
+    "name": "spinner",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui/spinner/Spinner.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/spinner/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "stepper",
     "type": "registry:ui",
     "dependencies": [

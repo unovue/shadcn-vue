@@ -4334,6 +4334,81 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "SpinnerButtonsDemo": {
+      name: "SpinnerButtonsDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerButtonsDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerButtonsDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerColorsDemo": {
+      name: "SpinnerColorsDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerColorsDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerColorsDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerCustomDemo": {
+      name: "SpinnerCustomDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/examples/SpinnerCustomDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerCustomDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerDemo": {
+      name: "SpinnerDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerSizesDemo": {
+      name: "SpinnerSizesDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerSizesDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerSizesDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "StepperDemo": {
       name: "StepperDemo",
       description: "",
@@ -7738,6 +7813,25 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/ui/sonner/index.ts").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "spinner": {
+      name: "spinner",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/ui/spinner/Spinner.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/spinner/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/spinner/Spinner.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""

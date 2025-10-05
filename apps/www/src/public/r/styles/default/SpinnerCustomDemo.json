@@ -1,0 +1,14 @@
+{
+  "name": "SpinnerCustomDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "examples/SpinnerCustomDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { LoaderIcon } from \"lucide-vue-next\";\nimport { cn } from \"@/lib/utils\";\n</script>\n\n<template>\n  <LoaderIcon\n    role=\"status\"\n    aria-label=\"Loading\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n    v-bind=\"$attrs\"\n  />\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

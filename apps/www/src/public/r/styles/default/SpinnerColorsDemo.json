@@ -1,0 +1,16 @@
+{
+  "name": "SpinnerColorsDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "examples/SpinnerColorsDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n</script>\n\n<template>\n  <div className=\"flex items-center gap-6\">\n    <Spinner class=\"size-6 text-red-500\" />\n    <Spinner class=\"size-6 text-green-500\" />\n    <Spinner class=\"size-6 text-blue-500\" />\n    <Spinner class=\"size-6 text-yellow-500\" />\n    <Spinner class=\"size-6 text-purple-500\" />\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
