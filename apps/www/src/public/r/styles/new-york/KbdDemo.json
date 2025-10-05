@@ -1,0 +1,16 @@
+{
+  "name": "KbdDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "examples/KbdDemo.vue",
+      "content": "<script lang='ts' setup>\r\nimport { Kbd, KbdGroup } from \"@/registry/new-york/ui/kbd\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex flex-col items-center gap-4\">\r\n    <KbdGroup>\r\n      <Kbd>⌘</Kbd>\r\n      <Kbd>⇧</Kbd>\r\n      <Kbd>⌥</Kbd>\r\n      <Kbd>⌃</Kbd>\r\n    </KbdGroup>\r\n\r\n    <KbdGroup>\r\n      <Kbd>Ctrl</Kbd>\r\n      <span>+</span>\r\n      <Kbd>B</Kbd>\r\n    </KbdGroup>\r\n  </div>\r\n</template>\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

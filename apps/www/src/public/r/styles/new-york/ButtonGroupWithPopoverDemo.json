@@ -1,0 +1,20 @@
+{
+  "name": "ButtonGroupWithPopoverDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "popover",
+    "separator",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupWithPopoverDemo.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport { BotIcon, ChevronDownIcon } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { ButtonGroup } from \"@/registry/new-york/ui/button-group\"\r\nimport {\r\n  Popover,\r\n  PopoverContent,\r\n  PopoverTrigger,\r\n} from \"@/registry/new-york/ui/popover\"\r\nimport { Separator } from \"@/registry/new-york/ui/separator\"\r\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\r\n</script>\r\n\r\n<template>\r\n  <ButtonGroup>\r\n    <Button variant=\"outline\">\r\n      <BotIcon /> Copilot\r\n    </Button>\r\n    <Popover>\r\n      <PopoverTrigger as-child>\r\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Open Popover\">\r\n          <ChevronDownIcon />\r\n        </Button>\r\n      </PopoverTrigger>\r\n      <PopoverContent align=\"end\" class=\"p-0 text-sm rounded-xl\">\r\n        <div class=\"px-4 py-3\">\r\n          <div class=\"text-sm font-medium\">\r\n            Agent Tasks\r\n          </div>\r\n        </div>\r\n        <Separator />\r\n        <div class=\"p-4 text-sm *:[p:not(:last-child)]:mb-2\">\r\n          <Textarea\r\n            placeholder=\"Describe your task in natural language.\"\r\n            class=\"mb-4 resize-none\"\r\n          />\r\n          <p class=\"font-medium\">\r\n            Start a new task with Copilot\r\n          </p>\r\n          <p class=\"text-muted-foreground\">\r\n            Describe your task in natural language. Copilot will work in the\r\n            background and open a pull request for your review.\r\n          </p>\r\n        </div>\r\n      </PopoverContent>\r\n    </Popover>\r\n  </ButtonGroup>\r\n</template>\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
