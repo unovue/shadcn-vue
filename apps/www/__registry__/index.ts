@@ -334,7 +334,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroup",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/new-york/ui/button-group/ButtonGroup.vue",
         type: "registry:ui",
@@ -2760,7 +2760,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupDemo.vue",
         type: "registry:example",
@@ -2775,7 +2775,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupOrientationDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupOrientationDemo.vue",
         type: "registry:example",
@@ -2790,7 +2790,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupSizeDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupSizeDemo.vue",
         type: "registry:example",
@@ -2805,7 +2805,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupNestedDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupNestedDemo.vue",
         type: "registry:example",
@@ -2820,7 +2820,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupSeparatorDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupSeparatorDemo.vue",
         type: "registry:example",
@@ -2835,7 +2835,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupSplitDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupSplitDemo.vue",
         type: "registry:example",
@@ -2850,7 +2850,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithInputDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'input'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupWithInputDemo.vue",
         type: "registry:example",
@@ -2865,7 +2865,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithDropdownMenuDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupWithDropdownMenuDemo.vue",
         type: "registry:example",
@@ -2880,7 +2880,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithSelectDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'input', 'select'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupWithSelectDemo.vue",
         type: "registry:example",
@@ -2895,7 +2895,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithPopoverDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'popover', 'textarea'],
       files: [{
         path: "registry/new-york/examples/ButtonGroupWithPopoverDemo.vue",
         type: "registry:example",
@@ -6461,7 +6461,7 @@ export const Index: Record<string, any> = {
       name: "button-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/default/ui/button-group/ButtonGroup.vue",
         type: "registry:ui",
@@ -8887,7 +8887,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
       files: [{
         path: "registry/default/examples/ButtonGroupDemo.vue",
         type: "registry:example",
@@ -8902,7 +8902,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupOrientationDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/default/examples/ButtonGroupOrientationDemo.vue",
         type: "registry:example",
@@ -8917,7 +8917,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupSizeDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/default/examples/ButtonGroupSizeDemo.vue",
         type: "registry:example",
@@ -8932,7 +8932,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupNestedDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/default/examples/ButtonGroupNestedDemo.vue",
         type: "registry:example",
@@ -8947,7 +8947,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupSeparatorDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/default/examples/ButtonGroupSeparatorDemo.vue",
         type: "registry:example",
@@ -8962,7 +8962,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupSplitDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator'],
       files: [{
         path: "registry/default/examples/ButtonGroupSplitDemo.vue",
         type: "registry:example",
@@ -8977,7 +8977,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithInputDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'input'],
       files: [{
         path: "registry/default/examples/ButtonGroupWithInputDemo.vue",
         type: "registry:example",
@@ -8992,7 +8992,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithDropdownMenuDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
       files: [{
         path: "registry/default/examples/ButtonGroupWithDropdownMenuDemo.vue",
         type: "registry:example",
@@ -9007,7 +9007,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithSelectDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'input', 'select'],
       files: [{
         path: "registry/default/examples/ButtonGroupWithSelectDemo.vue",
         type: "registry:example",
@@ -9022,7 +9022,7 @@ export const Index: Record<string, any> = {
       name: "ButtonGroupWithPopoverDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button"],
+      registryDependencies: ['button-group', 'button', 'separator', 'popover', 'textarea'],
       files: [{
         path: "registry/default/examples/ButtonGroupWithPopoverDemo.vue",
         type: "registry:example",
