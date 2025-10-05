@@ -66,6 +66,9 @@
     <ComponentWrapper name="DropdownMenu">
       <LazyDropdownMenuDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Empty">
+      <LazyEmptyDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Form">
       <LazyFormDemo />
     </ComponentWrapper>
