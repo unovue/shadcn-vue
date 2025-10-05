@@ -354,6 +354,10 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Spinner',
+          href: '/docs/components/spinner',
+        },
+        {
           title: 'Stepper',
           href: '/docs/components/stepper',
         },
