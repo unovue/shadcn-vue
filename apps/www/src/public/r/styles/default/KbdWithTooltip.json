@@ -1,0 +1,18 @@
+{
+  "name": "KbdWithTooltip",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "kbd",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "examples/KbdWithTooltip.vue",
+      "content": "<script lang='ts' setup>\r\nimport { Button } from \"@/registry/default/ui/button\"\r\nimport { Kbd } from \"@/registry/default/ui/kbd\"\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipTrigger,\r\n} from \"@/registry/default/ui/tooltip\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex flex-col items-center gap-4\">\r\n    <Tooltip>\r\n      <TooltipTrigger as-child>\r\n        <Button variant=\"outline\" size=\"sm\" class=\"pr-2\">\r\n          Save\r\n        </Button>\r\n      </TooltipTrigger>\r\n      <TooltipContent>\r\n        <div className=\"flex items-center gap-2\">\r\n          Save Changes <Kbd>S</Kbd>\r\n        </div>\r\n      </TooltipContent>\r\n    </Tooltip>\r\n  </div>\r\n</template>\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

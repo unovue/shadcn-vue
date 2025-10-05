@@ -255,6 +255,33 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"button-group": {
+  name: "button-group",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["separator"],
+  files: [{
+    path: "registry/new-york-v4/ui/button-group/ButtonGroup.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/button-group/ButtonGroupSeparator.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/button-group/ButtonGroupText.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/button-group/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/button-group/ButtonGroup.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "calendar": {
   name: "calendar",
   description: "",
@@ -1012,6 +1039,29 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"kbd": {
+  name: "kbd",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/new-york-v4/ui/kbd/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/kbd/Kbd.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/kbd/KbdGroup.vue",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/kbd/index.ts").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "label": {
   name: "label",
   description: "",
@@ -1749,6 +1799,25 @@ export const Index: Record<string, any> = {
     target: ""
   }],
   component: () => import("@/registry/new-york-v4/ui/sonner/index.ts").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"spinner": {
+  name: "spinner",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/new-york-v4/ui/spinner/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/spinner/Spinner.vue",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/spinner/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""

@@ -1,9 +1,15 @@
 packages:
   - apps/*
   - packages/*
+
+shellEmulator: true
+
 catalog:
   '@internationalized/date': ^3.10.0
-  '@vee-validate/zod': ^4.15.0
+  '@types/node': ^22
+  '@unovis/ts': ^1.6.1
+  '@unovis/vue': ^1.6.1
+  '@vee-validate/zod': ^4.15.1
   '@vueuse/core': ^13.9.0
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
@@ -14,7 +20,9 @@ catalog:
   tinyglobby: ^0.2.15
   typescript: ^5.9.3
   vaul-vue: ^0.4.1
-  vee-validate: ^4.15.0
+  vee-validate: ^4.15.1
   vue: ^3.5.22
+  vue-component-meta: ^3.1.0
   vue-sonner: ^2.0.9
+  vue-tsc: ^3.1.0
   zod: ^3.25.76

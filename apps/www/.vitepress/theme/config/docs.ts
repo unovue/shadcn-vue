@@ -210,6 +210,10 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/button',
         },
         {
+          title: 'ButtonGroup',
+          href: '/docs/components/button-group',
+        },
+        {
           title: 'Calendar',
           href: '/docs/components/calendar',
           items: [],
@@ -276,6 +280,10 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Input',
           href: '/docs/components/input',
+        },
+        {
+          title: 'Kbd',
+          href: '/docs/components/kbd',
         },
         {
           title: 'Label',
@@ -352,6 +360,10 @@ export const docsConfig: DocsConfig = {
           title: 'Sonner',
           href: '/docs/components/sonner',
           items: [],
+        },
+        {
+          title: 'Spinner',
+          href: '/docs/components/spinner',
         },
         {
           title: 'Stepper',

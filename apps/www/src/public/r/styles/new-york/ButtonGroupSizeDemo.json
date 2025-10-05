@@ -1,0 +1,17 @@
+{
+  "name": "ButtonGroupSizeDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupSizeDemo.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport { PlusIcon } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { ButtonGroup } from \"@/registry/new-york/ui/button-group\"\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex flex-col items-start gap-8\">\r\n    <ButtonGroup>\r\n      <Button variant=\"outline\" size=\"sm\">\r\n        Small\r\n      </Button>\r\n      <Button variant=\"outline\" size=\"sm\">\r\n        Button\r\n      </Button>\r\n      <Button variant=\"outline\" size=\"sm\">\r\n        Group\r\n      </Button>\r\n      <Button variant=\"outline\" size=\"icon-sm\">\r\n        <PlusIcon />\r\n      </Button>\r\n    </ButtonGroup>\r\n    <ButtonGroup>\r\n      <Button variant=\"outline\">\r\n        Default\r\n      </Button>\r\n      <Button variant=\"outline\">\r\n        Button\r\n      </Button>\r\n      <Button variant=\"outline\">\r\n        Group\r\n      </Button>\r\n      <Button variant=\"outline\">\r\n        <PlusIcon />\r\n      </Button>\r\n    </ButtonGroup>\r\n    <ButtonGroup>\r\n      <Button variant=\"outline\" size=\"lg\">\r\n        Large\r\n      </Button>\r\n      <Button variant=\"outline\" size=\"lg\">\r\n        Button\r\n      </Button>\r\n      <Button variant=\"outline\" size=\"lg\">\r\n        Group\r\n      </Button>\r\n      <Button variant=\"outline\" size=\"icon-lg\">\r\n        <PlusIcon />\r\n      </Button>\r\n    </ButtonGroup>\r\n  </div>\r\n</template>\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

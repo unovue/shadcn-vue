@@ -1,0 +1,16 @@
+{
+  "name": "SpinnerSizesDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "examples/SpinnerSizesDemo.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport { Spinner } from \"@/registry/default/ui/spinner\"\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex items-center gap-6\">\r\n    <Spinner class=\"size-3\" />\r\n    <Spinner class=\"size-4\" />\r\n    <Spinner class=\"size-6\" />\r\n    <Spinner class=\"size-8\" />\r\n  </div>\r\n</template>\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

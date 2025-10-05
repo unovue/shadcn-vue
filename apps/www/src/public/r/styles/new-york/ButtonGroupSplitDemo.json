@@ -1,0 +1,17 @@
+{
+  "name": "ButtonGroupSplitDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupSplitDemo.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport { PlusIcon } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/new-york/ui/button-group\"\r\n</script>\r\n\r\n<template>\r\n  <ButtonGroup>\r\n    <Button variant=\"secondary\">\r\n      Button\r\n    </Button>\r\n    <ButtonGroupSeparator />\r\n    <Button size=\"icon\" variant=\"secondary\">\r\n      <PlusIcon />\r\n    </Button>\r\n  </ButtonGroup>\r\n</template>\r\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
