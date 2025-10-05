@@ -259,18 +259,16 @@ export const Index: Record<string, any> = {
   name: "button-group",
   description: "",
   type: "registry:ui",
-  registryDependencies: [],
+  registryDependencies: ["separator"],
   files: [{
     path: "registry/new-york-v4/ui/button-group/ButtonGroup.vue",
     type: "registry:ui",
     target: ""
-  },
-  {
+  },{
     path: "registry/new-york-v4/ui/button-group/ButtonGroupSeparator.vue",
     type: "registry:ui",
     target: ""
-  },
-  {
+  },{
     path: "registry/new-york-v4/ui/button-group/ButtonGroupText.vue",
     type: "registry:ui",
     target: ""
@@ -1041,6 +1039,29 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"kbd": {
+  name: "kbd",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/new-york-v4/ui/kbd/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/kbd/Kbd.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/kbd/KbdGroup.vue",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/kbd/index.ts").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "label": {
   name: "label",
   description: "",
@@ -1788,15 +1809,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/spinner/Spinner.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/spinner/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/spinner/Spinner.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/spinner/Spinner.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/spinner/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2072,29 +2093,6 @@ export const Index: Record<string, any> = {
     target: ""
   }],
   component: () => import("@/registry/new-york-v4/ui/tooltip/index.ts").then((m) => m.default),
-  source: "",
-  category: "",
-  subcategory: ""
-},
-"kbd":{
-  name: "kbd",
-  description: "",
-  type: "registry:ui",
-  registryDependencies: [],
-  files: [{
-    path: "registry/new-york-v4/ui/kbd/index.ts",
-    type: "registry:ui",
-    target: ""
-  },{
-    path: "registry/new-york-v4/ui/kbd/Kbd.vue",
-    type: "registry:ui",
-    target: ""
-  },{
-    path: "registry/new-york-v4/ui/kbd/KbdGroup.vue",
-    type: "registry:ui",
-    target: ""
-  }],
-  component: () => import("@/registry/new-york-v4/ui/kbd/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""

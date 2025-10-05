@@ -5,14 +5,14 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/spinner/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Loader2Icon } from \"lucide-vue-next\";\nimport { cn } from \"@/lib/utils\";\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    aria-label=\"Loading\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n    v-bind=\"$attrs\"\n  />\n</template>\n",
+      "path": "ui/spinner/index.ts",
+      "content": "export { default as Spinner } from \"./Spinner.vue\"\r\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/spinner/index.ts",
-      "content": "export { default as Spinner } from \"./Spinner.vue\"\n",
+      "path": "ui/spinner/Spinner.vue",
+      "content": "<script setup lang=\"ts\">\r\nimport { Loader2Icon } from \"lucide-vue-next\"\r\nimport { cn } from \"@/lib/utils\"\r\n</script>\r\n\r\n<template>\r\n  <Loader2Icon\r\n    role=\"status\"\r\n    aria-label=\"Loading\"\r\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\r\n    v-bind=\"$attrs\"\r\n  />\r\n</template>\r\n",
       "type": "registry:ui",
       "target": ""
     }
