@@ -1063,6 +1063,29 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "kbd": {
+      name: "kbd",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/ui/kbd/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/kbd/Kbd.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/kbd/KbdGroup.vue",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/kbd/index.ts").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "label": {
       name: "label",
       description: "",
@@ -3783,7 +3806,7 @@ export const Index: Record<string, any> = {
       name: "KbdWithTooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: [],
+      registryDependencies: ['kbd', 'button', 'tooltip'],
       files: [{
         path: "registry/new-york/examples/KbdWithTooltip.vue",
         type: "registry:example",
@@ -7058,6 +7081,29 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "kbd": {
+      name: "kbd",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/default/ui/kbd/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/kbd/Kbd.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/kbd/KbdGroup.vue",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/default/ui/kbd/index.ts").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "label": {
       name: "label",
       description: "",
@@ -9759,7 +9805,7 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
-     "KbdWithButton": {
+    "KbdWithButton": {
       name: "KbdWithButton",
       description: "",
       type: "registry:example",
