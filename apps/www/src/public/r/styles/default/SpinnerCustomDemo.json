@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/SpinnerCustomDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { LoaderIcon } from \"lucide-vue-next\";\nimport { cn } from \"@/lib/utils\";\n</script>\n\n<template>\n  <LoaderIcon\n    role=\"status\"\n    aria-label=\"Loading\"\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\n    v-bind=\"$attrs\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { LoaderIcon } from \"lucide-vue-next\"\r\nimport { cn } from \"@/lib/utils\"\r\n</script>\r\n\r\n<template>\r\n  <LoaderIcon\r\n    role=\"status\"\r\n    aria-label=\"Loading\"\r\n    :class=\"cn('size-4 animate-spin', $attrs.class ?? '')\"\r\n    v-bind=\"$attrs\"\r\n  />\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }

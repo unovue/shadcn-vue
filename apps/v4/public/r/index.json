@@ -232,6 +232,35 @@
     ]
   },
   {
+    "name": "button-group",
+    "type": "registry:ui",
+    "dependencies": [
+      "reka-ui",
+      "@vueuse/core"
+    ],
+    "registryDependencies": [
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "ui/button-group/ButtonGroup.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/button-group/ButtonGroupSeparator.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/button-group/ButtonGroupText.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/button-group/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "calendar",
     "type": "registry:ui",
     "dependencies": [
@@ -1011,6 +1040,26 @@
     ]
   },
   {
+    "name": "kbd",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [],
+    "files": [
+      {
+        "path": "ui/kbd/index.ts",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/kbd/Kbd.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/kbd/KbdGroup.vue",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "label",
     "type": "registry:ui",
     "dependencies": [
@@ -1765,11 +1814,11 @@
     "registryDependencies": [],
     "files": [
       {
-        "path": "ui/spinner/Spinner.vue",
+        "path": "ui/spinner/index.ts",
         "type": "registry:ui"
       },
       {
-        "path": "ui/spinner/index.ts",
+        "path": "ui/spinner/Spinner.vue",
         "type": "registry:ui"
       }
     ]

@@ -33,17 +33,17 @@
     "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.1.0",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@vitest/ui": "^3.1.4",
-    "bumpp": "^10.1.1",
-    "eslint": "^9.32.0",
-    "lint-staged": "^16.1.2",
+    "@antfu/eslint-config": "^5.4.1",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@vitest/ui": "^3.2.4",
+    "bumpp": "^10.2.3",
+    "eslint": "^9.37.0",
+    "lint-staged": "^16.2.3",
     "simple-git-hooks": "^2.13.1",
-    "taze": "^19.1.0",
+    "taze": "^19.7.0",
     "typescript": "catalog:",
-    "vitest": "^3.1.4"
+    "vitest": "^3.2.4"
   },
   "commitlint": {
     "extends": [

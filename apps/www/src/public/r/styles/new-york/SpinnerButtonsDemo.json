@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/SpinnerButtonsDemo.vue",
-      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york/ui/button\";\nimport { Spinner } from \"@/registry/new-york/ui/spinner\";\n</script>\n\n<template>\n  <div className=\"flex flex-col items-center gap-4\">\n    <Button disabled size=\"sm\">\n      <Spinner />\n      Loading...\n    </Button>\n    <Button variant=\"outline\" disabled size=\"sm\">\n      <Spinner />\n      Please wait\n    </Button>\n    <Button variant=\"secondary\" disabled size=\"sm\">\n      <Spinner />\n      Processing\n    </Button>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { Spinner } from \"@/registry/new-york/ui/spinner\"\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex flex-col items-center gap-4\">\r\n    <Button disabled size=\"sm\">\r\n      <Spinner />\r\n      Loading...\r\n    </Button>\r\n    <Button variant=\"outline\" disabled size=\"sm\">\r\n      <Spinner />\r\n      Please wait\r\n    </Button>\r\n    <Button variant=\"secondary\" disabled size=\"sm\">\r\n      <Spinner />\r\n      Processing\r\n    </Button>\r\n  </div>\r\n</template>\r\n",
       "type": "registry:example",
       "target": ""
     }
