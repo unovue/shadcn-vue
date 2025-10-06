@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { BadgeCheckIcon, ChevronRightIcon } from "lucide-vue-next"
 import { Button } from "@/registry/default/ui/button"
-
 import {
   Item,
   ItemActions,
