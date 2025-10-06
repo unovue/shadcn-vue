@@ -37,7 +37,6 @@ onMounted(() => {
       verticalAlign === 'top' ? 'pb-3' : 'pt-3',
       props.class,
     )"
-    data-slot="chart-legend"
   >
     <div
       v-for="{ key, itemConfig } in payload"
