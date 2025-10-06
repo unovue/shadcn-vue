@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Plus } from "lucide-vue-next"
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/default/ui/avatar"
-import { Button } from "@/registry/default/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/new-york/ui/avatar"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Item,
   ItemActions,
@@ -9,7 +9,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/registry/default/ui/item"
+} from "@/registry/new-york/ui/item"
 </script>
 
 <template>
