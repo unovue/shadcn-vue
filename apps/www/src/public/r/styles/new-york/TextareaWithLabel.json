@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/TextareaWithLabel.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Label } from \"@/registry/new-york/ui/label\"\r\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"grid w-full gap-1.5\">\r\n    <Label for=\"message\">Your message</Label>\r\n    <Textarea id=\"message\" placeholder=\"Type your message here.\" />\r\n  </div>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/new-york/ui/label\"\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\n</script>\n\n<template>\n  <div class=\"grid w-full gap-1.5\">\n    <Label for=\"message\">Your message</Label>\n    <Textarea id=\"message\" placeholder=\"Type your message here.\" />\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

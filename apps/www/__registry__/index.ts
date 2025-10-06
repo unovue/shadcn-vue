@@ -330,11 +330,11 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
-    "ButtonGroup": {
-      name: "ButtonGroup",
+    "button-group": {
+      name: "button-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: ['button-group', 'button', 'separator'],
+      registryDependencies: ["separator"],
       files: [{
         path: "registry/new-york/ui/button-group/ButtonGroup.vue",
         type: "registry:ui",
@@ -600,15 +600,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["chart"],
       files: [{
-        path: "registry/new-york/ui/chart-line/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/chart-line/LineChart.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/chart-line/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/chart-line/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/chart-line/LineChart.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1077,15 +1077,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/input/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/input/Input.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/input/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/input/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/input/Input.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1094,12 +1094,8 @@ export const Index: Record<string, any> = {
       name: "input-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: ['input-group', 'input', 'textarea', 'button'],
+      registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/input-group/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/input-group/InputGroup.vue",
         type: "registry:ui",
         target: ""
@@ -1123,8 +1119,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/input-group/InputGroupTextarea.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/input-group/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/input-group/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/input-group/InputGroup.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1135,10 +1135,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/kbd/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/kbd/Kbd.vue",
         type: "registry:ui",
         target: ""
@@ -1146,8 +1142,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/kbd/KbdGroup.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/kbd/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/kbd/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/kbd/Kbd.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1158,15 +1158,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/label/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/label/Label.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/label/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/label/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/label/Label.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1177,10 +1177,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/menubar/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/menubar/Menubar.vue",
         type: "registry:ui",
         target: ""
@@ -1240,8 +1236,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/menubar/MenubarTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/menubar/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/menubar/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/menubar/Menubar.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1252,10 +1252,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/navigation-menu/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/navigation-menu/NavigationMenu.vue",
         type: "registry:ui",
         target: ""
@@ -1287,8 +1283,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/navigation-menu/NavigationMenuViewport.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/navigation-menu/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/navigation-menu/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/navigation-menu/NavigationMenu.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1299,10 +1299,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/number-field/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/number-field/NumberField.vue",
         type: "registry:ui",
         target: ""
@@ -1322,8 +1318,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/number-field/NumberFieldInput.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/number-field/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/number-field/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/number-field/NumberField.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1334,10 +1334,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [{
-        path: "registry/new-york/ui/pagination/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/pagination/Pagination.vue",
         type: "registry:ui",
         target: ""
@@ -1369,8 +1365,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/pagination/PaginationPrevious.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/pagination/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/pagination/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/pagination/Pagination.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1381,10 +1381,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/pin-input/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/pin-input/PinInput.vue",
         type: "registry:ui",
         target: ""
@@ -1400,8 +1396,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/pin-input/PinInputSlot.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/pin-input/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/pin-input/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/pin-input/PinInput.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1412,10 +1412,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/popover/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/popover/Popover.vue",
         type: "registry:ui",
         target: ""
@@ -1427,8 +1423,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/popover/PopoverTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/popover/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/popover/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/popover/Popover.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1439,15 +1439,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/progress/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/progress/Progress.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/progress/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/progress/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/progress/Progress.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1458,10 +1458,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/radio-group/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/radio-group/RadioGroup.vue",
         type: "registry:ui",
         target: ""
@@ -1469,8 +1465,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/radio-group/RadioGroupItem.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/radio-group/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/radio-group/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/radio-group/RadioGroup.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1481,10 +1481,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [{
-        path: "registry/new-york/ui/range-calendar/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/range-calendar/RangeCalendar.vue",
         type: "registry:ui",
         target: ""
@@ -1532,8 +1528,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/range-calendar/RangeCalendarPrevButton.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/range-calendar/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/range-calendar/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/range-calendar/RangeCalendar.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1544,10 +1544,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/resizable/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/resizable/ResizableHandle.vue",
         type: "registry:ui",
         target: ""
@@ -1555,8 +1551,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/resizable/ResizablePanelGroup.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/resizable/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/resizable/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/resizable/ResizableHandle.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1567,10 +1567,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/scroll-area/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/scroll-area/ScrollArea.vue",
         type: "registry:ui",
         target: ""
@@ -1578,8 +1574,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/scroll-area/ScrollBar.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/scroll-area/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/scroll-area/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/scroll-area/ScrollArea.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1590,10 +1590,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/select/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/select/Select.vue",
         type: "registry:ui",
         target: ""
@@ -1637,8 +1633,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/select/SelectValue.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/select/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/select/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/select/Select.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1649,15 +1649,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/separator/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/separator/Separator.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/separator/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/separator/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/separator/Separator.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1668,10 +1668,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/sheet/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/sheet/Sheet.vue",
         type: "registry:ui",
         target: ""
@@ -1703,8 +1699,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/sheet/SheetTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/sheet/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/sheet/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/sheet/Sheet.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1715,10 +1715,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
       files: [{
-        path: "registry/new-york/ui/sidebar/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/sidebar/Sidebar.vue",
         type: "registry:ui",
         target: ""
@@ -1815,11 +1811,15 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
+        path: "registry/new-york/ui/sidebar/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
         path: "registry/new-york/ui/sidebar/utils.ts",
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/new-york/ui/sidebar/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/sidebar/Sidebar.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1830,15 +1830,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/skeleton/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/skeleton/Skeleton.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/skeleton/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/skeleton/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/skeleton/Skeleton.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1849,15 +1849,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/slider/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/slider/Slider.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/slider/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/slider/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/slider/Slider.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1868,15 +1868,34 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/sonner/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/sonner/Sonner.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/sonner/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/sonner/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/sonner/Sonner.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "spinner": {
+      name: "spinner",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: [],
+      files: [{
+        path: "registry/new-york/ui/spinner/Spinner.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/spinner/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/spinner/Spinner.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1887,10 +1906,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/stepper/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/stepper/Stepper.vue",
         type: "registry:ui",
         target: ""
@@ -1918,8 +1933,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/stepper/StepperTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/stepper/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/stepper/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/stepper/Stepper.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1930,15 +1949,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/switch/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/switch/Switch.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/switch/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/switch/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/switch/Switch.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -1949,10 +1968,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/table/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/table/Table.vue",
         type: "registry:ui",
         target: ""
@@ -1988,8 +2003,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/table/TableRow.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/table/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/table/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/table/Table.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2000,10 +2019,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/tabs/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/tabs/Tabs.vue",
         type: "registry:ui",
         target: ""
@@ -2019,8 +2034,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/tabs/TabsTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/tabs/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/tabs/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/tabs/Tabs.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2031,10 +2050,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/tags-input/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/tags-input/TagsInput.vue",
         type: "registry:ui",
         target: ""
@@ -2054,8 +2069,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/tags-input/TagsInputItemText.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/tags-input/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/tags-input/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/tags-input/TagsInput.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2066,15 +2085,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/textarea/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/textarea/Textarea.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/textarea/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/textarea/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/textarea/Textarea.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2085,10 +2104,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/toast/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/toast/Toast.vue",
         type: "registry:ui",
         target: ""
@@ -2105,10 +2120,6 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/new-york/ui/toast/Toaster.vue",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/toast/ToastProvider.vue",
         type: "registry:ui",
         target: ""
@@ -2121,11 +2132,19 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
+        path: "registry/new-york/ui/toast/Toaster.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/toast/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
         path: "registry/new-york/ui/toast/use-toast.ts",
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/new-york/ui/toast/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/toast/Toast.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2136,15 +2155,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/toggle/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/toggle/Toggle.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/toggle/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/toggle/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/toggle/Toggle.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2155,10 +2174,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["toggle"],
       files: [{
-        path: "registry/new-york/ui/toggle-group/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/toggle-group/ToggleGroup.vue",
         type: "registry:ui",
         target: ""
@@ -2166,8 +2181,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/toggle-group/ToggleGroupItem.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/toggle-group/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/toggle-group/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/toggle-group/ToggleGroup.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2178,10 +2197,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/tooltip/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/new-york/ui/tooltip/Tooltip.vue",
         type: "registry:ui",
         target: ""
@@ -2197,8 +2212,12 @@ export const Index: Record<string, any> = {
         path: "registry/new-york/ui/tooltip/TooltipTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/new-york/ui/tooltip/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/new-york/ui/tooltip/index.ts").then((m) => m.default),
+      component: () => import("@/registry/new-york/ui/tooltip/Tooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -2728,6 +2747,156 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "ButtonGroupDemo": {
+      name: "ButtonGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","dropdown-menu"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupNestedDemo": {
+      name: "ButtonGroupNestedDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupNestedDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupNestedDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupOrientationDemo": {
+      name: "ButtonGroupOrientationDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupOrientationDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupOrientationDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupSeparatorDemo": {
+      name: "ButtonGroupSeparatorDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupSeparatorDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupSeparatorDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupSizeDemo": {
+      name: "ButtonGroupSizeDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupSizeDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupSizeDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupSplitDemo": {
+      name: "ButtonGroupSplitDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupSplitDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupSplitDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithDropdownMenuDemo": {
+      name: "ButtonGroupWithDropdownMenuDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","dropdown-menu"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupWithDropdownMenuDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupWithDropdownMenuDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithInputDemo": {
+      name: "ButtonGroupWithInputDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","input"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupWithInputDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupWithInputDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithPopoverDemo": {
+      name: "ButtonGroupWithPopoverDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","popover","separator","textarea"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupWithPopoverDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupWithPopoverDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithSelectDemo": {
+      name: "ButtonGroupWithSelectDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","input","select"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupWithSelectDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupWithSelectDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "ButtonIconDemo": {
       name: "ButtonIconDemo",
       description: "",
@@ -2814,156 +2983,6 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/ButtonWithIconDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupDemo": {
-      name: "ButtonGroupDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupOrientationDemo": {
-      name: "ButtonGroupOrientationDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupOrientationDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupOrientationDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupSizeDemo": {
-      name: "ButtonGroupSizeDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupSizeDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupSizeDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupNestedDemo": {
-      name: "ButtonGroupNestedDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupNestedDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupNestedDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupSeparatorDemo": {
-      name: "ButtonGroupSeparatorDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupSeparatorDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupSeparatorDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupSplitDemo": {
-      name: "ButtonGroupSplitDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupSplitDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupSplitDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithInputDemo": {
-      name: "ButtonGroupWithInputDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'input'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupWithInputDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupWithInputDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithDropdownMenuDemo": {
-      name: "ButtonGroupWithDropdownMenuDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupWithDropdownMenuDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupWithDropdownMenuDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithSelectDemo": {
-      name: "ButtonGroupWithSelectDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'input', 'select'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupWithSelectDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupWithSelectDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithPopoverDemo": {
-      name: "ButtonGroupWithPopoverDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'popover', 'textarea'],
-      files: [{
-        path: "registry/new-york/examples/ButtonGroupWithPopoverDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/ButtonGroupWithPopoverDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -3928,6 +3947,171 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "InputGroupDemo": {
+      name: "InputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dropdown-menu","input-group","separator","tooltip"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButton": {
+      name: "InputGroupWithButton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","popover"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithButton.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithButton.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButtonGroup": {
+      name: "InputGroupWithButtonGroup",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button-group","input-group","label"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithButtonGroup.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithButtonGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithCustomInput": {
+      name: "InputGroupWithCustomInput",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithCustomInput.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithCustomInput.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithDropdown": {
+      name: "InputGroupWithDropdown",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dropdown-menu","input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithDropdown.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithDropdown.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithIcon": {
+      name: "InputGroupWithIcon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithIcon.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithIcon.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithLabel": {
+      name: "InputGroupWithLabel",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","label","tooltip"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithLabel.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithSpinner": {
+      name: "InputGroupWithSpinner",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","spinner"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithSpinner.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithSpinner.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithText": {
+      name: "InputGroupWithText",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithText.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithText.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTextarea": {
+      name: "InputGroupWithTextarea",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithTextarea.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithTextarea.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTooltip": {
+      name: "InputGroupWithTooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","tooltip"],
+      files: [{
+        path: "registry/new-york/examples/InputGroupWithTooltip.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/InputGroupWithTooltip.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "InputWithButton": {
       name: "InputWithButton",
       description: "",
@@ -3973,167 +4157,47 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
-    "InputGroupDemo": {
-      name: "InputGroupDemo",
+    "KbdDemo": {
+      name: "KbdDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input-group","dropdown-menu","tooltip","separator"],
+      registryDependencies: ["kbd"],
       files: [{
-        path: "registry/new-york/examples/InputGroupDemo.vue",
+        path: "registry/new-york/examples/KbdDemo.vue",
         type: "registry:example",
         target: ""
       }],
-      component: () => import("@/registry/new-york/examples/InputGroupDemo.vue").then((m) => m.default),
+      component: () => import("@/registry/new-york/examples/KbdDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
     },
-    "InputGroupWithIcon": {
-      name: "InputGroupWithIcon",
+    "KbdWithButton": {
+      name: "KbdWithButton",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input-group"],
+      registryDependencies: ["button","kbd"],
       files: [{
-        path: "registry/new-york/examples/InputGroupWithIcon.vue",
+        path: "registry/new-york/examples/KbdWithButton.vue",
         type: "registry:example",
         target: ""
       }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithIcon.vue").then((m) => m.default),
+      component: () => import("@/registry/new-york/examples/KbdWithButton.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
     },
-    "InputGroupWithText": {
-      name: "InputGroupWithText",
+    "KbdWithTooltip": {
+      name: "KbdWithTooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input-group"],
+      registryDependencies: ["button","kbd","tooltip"],
       files: [{
-        path: "registry/new-york/examples/InputGroupWithText.vue",
+        path: "registry/new-york/examples/KbdWithTooltip.vue",
         type: "registry:example",
         target: ""
       }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithText.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithButton": {
-      name: "InputGroupWithButton",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","popover"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithButton.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithButton.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithTooltip": {
-      name: "InputGroupWithTooltip",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","tooltip"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithTooltip.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithTooltip.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithTextarea": {
-      name: "InputGroupWithTextarea",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithTextarea.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithTextarea.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithSpinner": {
-      name: "InputGroupWithSpinner",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","spinner"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithSpinner.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithSpinner.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithLabel": {
-      name: "InputGroupWithLabel",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","label","tooltip"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithLabel.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithLabel.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithDropdown": {
-      name: "InputGroupWithDropdown",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","dropdown-menu"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithDropdown.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithDropdown.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithButtonGroup": {
-      name: "InputGroupWithButtonGroup",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","button-group","label"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithButtonGroup.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithButtonGroup.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithCustomInput": {
-      name: "InputGroupWithCustomInput",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group"],
-      files: [{
-        path: "registry/new-york/examples/InputGroupWithCustomInput.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/InputGroupWithCustomInput.vue").then((m) => m.default),
+      component: () => import("@/registry/new-york/examples/KbdWithTooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -4149,51 +4213,6 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/LabelDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "KbdDemo": {
-      name: "KbdDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['kbd'],
-      files: [{
-        path: "registry/new-york/examples/KbdDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/KbdDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "KbdWithButton": {
-      name: "KbdWithButton",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['kbd', 'button'],
-      files: [{
-        path: "registry/new-york/examples/KbdWithButton.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/KbdWithButton.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "KbdWithTooltip": {
-      name: "KbdWithTooltip",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['kbd', 'button', 'tooltip'],
-      files: [{
-        path: "registry/new-york/examples/KbdWithTooltip.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/new-york/examples/KbdWithTooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -6808,7 +6827,7 @@ export const Index: Record<string, any> = {
       name: "button-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: ['button-group', 'button', 'separator'],
+      registryDependencies: ["separator"],
       files: [{
         path: "registry/default/ui/button-group/ButtonGroup.vue",
         type: "registry:ui",
@@ -7074,15 +7093,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["chart"],
       files: [{
-        path: "registry/default/ui/chart-line/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/chart-line/LineChart.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/chart-line/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/chart-line/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/chart-line/LineChart.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7551,15 +7570,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/input/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/input/Input.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/input/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/input/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/input/Input.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7568,12 +7587,8 @@ export const Index: Record<string, any> = {
       name: "input-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: ['input-group', 'input', 'textarea', 'button'],
+      registryDependencies: [],
       files: [{
-        path: "registry/default/ui/input-group/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/input-group/InputGroup.vue",
         type: "registry:ui",
         target: ""
@@ -7597,8 +7612,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/input-group/InputGroupTextarea.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/input-group/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/input-group/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/input-group/InputGroup.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7609,10 +7628,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/kbd/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/kbd/Kbd.vue",
         type: "registry:ui",
         target: ""
@@ -7620,8 +7635,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/kbd/KbdGroup.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/kbd/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/kbd/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/kbd/Kbd.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7632,15 +7651,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/label/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/label/Label.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/label/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/label/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/label/Label.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7651,10 +7670,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/menubar/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/menubar/Menubar.vue",
         type: "registry:ui",
         target: ""
@@ -7714,8 +7729,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/menubar/MenubarTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/menubar/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/menubar/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/menubar/Menubar.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7726,10 +7745,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/navigation-menu/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/navigation-menu/NavigationMenu.vue",
         type: "registry:ui",
         target: ""
@@ -7761,8 +7776,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/navigation-menu/NavigationMenuViewport.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/navigation-menu/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/navigation-menu/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/navigation-menu/NavigationMenu.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7773,10 +7792,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/number-field/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/number-field/NumberField.vue",
         type: "registry:ui",
         target: ""
@@ -7796,8 +7811,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/number-field/NumberFieldInput.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/number-field/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/number-field/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/number-field/NumberField.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7808,10 +7827,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [{
-        path: "registry/default/ui/pagination/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/pagination/Pagination.vue",
         type: "registry:ui",
         target: ""
@@ -7843,8 +7858,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/pagination/PaginationPrevious.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/pagination/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/pagination/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/pagination/Pagination.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7855,10 +7874,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/pin-input/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/pin-input/PinInput.vue",
         type: "registry:ui",
         target: ""
@@ -7874,8 +7889,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/pin-input/PinInputSlot.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/pin-input/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/pin-input/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/pin-input/PinInput.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7886,10 +7905,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/popover/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/popover/Popover.vue",
         type: "registry:ui",
         target: ""
@@ -7901,8 +7916,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/popover/PopoverTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/popover/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/popover/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/popover/Popover.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7913,15 +7932,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/progress/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/progress/Progress.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/progress/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/progress/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/progress/Progress.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7932,10 +7951,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/radio-group/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/radio-group/RadioGroup.vue",
         type: "registry:ui",
         target: ""
@@ -7943,8 +7958,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/radio-group/RadioGroupItem.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/radio-group/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/radio-group/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/radio-group/RadioGroup.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7955,10 +7974,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [{
-        path: "registry/default/ui/range-calendar/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/range-calendar/RangeCalendar.vue",
         type: "registry:ui",
         target: ""
@@ -8006,8 +8021,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/range-calendar/RangeCalendarPrevButton.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/range-calendar/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/range-calendar/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/range-calendar/RangeCalendar.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8018,10 +8037,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/resizable/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/resizable/ResizableHandle.vue",
         type: "registry:ui",
         target: ""
@@ -8029,8 +8044,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/resizable/ResizablePanelGroup.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/resizable/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/resizable/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/resizable/ResizableHandle.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8041,10 +8060,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/scroll-area/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/scroll-area/ScrollArea.vue",
         type: "registry:ui",
         target: ""
@@ -8052,8 +8067,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/scroll-area/ScrollBar.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/scroll-area/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/scroll-area/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/scroll-area/ScrollArea.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8064,10 +8083,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/select/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/select/Select.vue",
         type: "registry:ui",
         target: ""
@@ -8111,8 +8126,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/select/SelectValue.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/select/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/select/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/select/Select.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8123,15 +8142,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/separator/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/separator/Separator.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/separator/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/separator/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/separator/Separator.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8142,10 +8161,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/sheet/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/sheet/Sheet.vue",
         type: "registry:ui",
         target: ""
@@ -8177,8 +8192,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/sheet/SheetTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/sheet/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/sheet/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/sheet/Sheet.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8189,10 +8208,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
       files: [{
-        path: "registry/default/ui/sidebar/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/sidebar/Sidebar.vue",
         type: "registry:ui",
         target: ""
@@ -8289,11 +8304,15 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
+        path: "registry/default/ui/sidebar/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
         path: "registry/default/ui/sidebar/utils.ts",
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/default/ui/sidebar/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/sidebar/Sidebar.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8304,15 +8323,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/skeleton/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/skeleton/Skeleton.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/skeleton/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/skeleton/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/skeleton/Skeleton.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8323,15 +8342,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/slider/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/slider/Slider.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/slider/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/slider/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/slider/Slider.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8342,15 +8361,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/sonner/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/sonner/Sonner.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/sonner/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/sonner/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/sonner/Sonner.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8361,15 +8380,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/new-york/ui/spinner/Spinner.vue",
+        path: "registry/default/ui/spinner/Spinner.vue",
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/new-york/ui/spinner/index.ts",
+        path: "registry/default/ui/spinner/index.ts",
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/new-york/ui/spinner/Spinner.vue").then((m) => m.default),
+      component: () => import("@/registry/default/ui/spinner/Spinner.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8380,10 +8399,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/stepper/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/stepper/Stepper.vue",
         type: "registry:ui",
         target: ""
@@ -8411,8 +8426,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/stepper/StepperTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/stepper/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/stepper/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/stepper/Stepper.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8423,15 +8442,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/switch/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/switch/Switch.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/switch/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/switch/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/switch/Switch.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8442,10 +8461,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/table/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/table/Table.vue",
         type: "registry:ui",
         target: ""
@@ -8481,8 +8496,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/table/TableRow.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/table/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/table/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/table/Table.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8493,10 +8512,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/tabs/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/tabs/Tabs.vue",
         type: "registry:ui",
         target: ""
@@ -8512,8 +8527,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/tabs/TabsTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/tabs/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/tabs/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/tabs/Tabs.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8524,10 +8543,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/tags-input/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/tags-input/TagsInput.vue",
         type: "registry:ui",
         target: ""
@@ -8547,8 +8562,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/tags-input/TagsInputItemText.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/tags-input/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/tags-input/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/tags-input/TagsInput.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8559,15 +8578,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/textarea/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/textarea/Textarea.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/textarea/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/textarea/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/textarea/Textarea.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8578,10 +8597,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/toast/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/toast/Toast.vue",
         type: "registry:ui",
         target: ""
@@ -8598,10 +8613,6 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
-        path: "registry/default/ui/toast/Toaster.vue",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/toast/ToastProvider.vue",
         type: "registry:ui",
         target: ""
@@ -8614,11 +8625,19 @@ export const Index: Record<string, any> = {
         type: "registry:ui",
         target: ""
       },{
+        path: "registry/default/ui/toast/Toaster.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/toast/index.ts",
+        type: "registry:ui",
+        target: ""
+      },{
         path: "registry/default/ui/toast/use-toast.ts",
         type: "registry:ui",
         target: ""
       }],
-      component: () => import("@/registry/default/ui/toast/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/toast/Toast.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8629,15 +8648,15 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/toggle/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/toggle/Toggle.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/toggle/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/toggle/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/toggle/Toggle.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8648,10 +8667,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["toggle"],
       files: [{
-        path: "registry/default/ui/toggle-group/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/toggle-group/ToggleGroup.vue",
         type: "registry:ui",
         target: ""
@@ -8659,8 +8674,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/toggle-group/ToggleGroupItem.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/toggle-group/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/toggle-group/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/toggle-group/ToggleGroup.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -8671,10 +8690,6 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: [],
       files: [{
-        path: "registry/default/ui/tooltip/index.ts",
-        type: "registry:ui",
-        target: ""
-      },{
         path: "registry/default/ui/tooltip/Tooltip.vue",
         type: "registry:ui",
         target: ""
@@ -8690,8 +8705,12 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/tooltip/TooltipTrigger.vue",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/ui/tooltip/index.ts",
+        type: "registry:ui",
+        target: ""
       }],
-      component: () => import("@/registry/default/ui/tooltip/index.ts").then((m) => m.default),
+      component: () => import("@/registry/default/ui/tooltip/Tooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -9221,6 +9240,156 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "ButtonGroupDemo": {
+      name: "ButtonGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupNestedDemo": {
+      name: "ButtonGroupNestedDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupNestedDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupNestedDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupOrientationDemo": {
+      name: "ButtonGroupOrientationDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupOrientationDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupOrientationDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupSeparatorDemo": {
+      name: "ButtonGroupSeparatorDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupSeparatorDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupSeparatorDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupSizeDemo": {
+      name: "ButtonGroupSizeDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupSizeDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupSizeDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupSplitDemo": {
+      name: "ButtonGroupSplitDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupSplitDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupSplitDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithDropdownMenuDemo": {
+      name: "ButtonGroupWithDropdownMenuDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupWithDropdownMenuDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupWithDropdownMenuDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithInputDemo": {
+      name: "ButtonGroupWithInputDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","input"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupWithInputDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupWithInputDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithPopoverDemo": {
+      name: "ButtonGroupWithPopoverDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","popover","separator","textarea"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupWithPopoverDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupWithPopoverDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ButtonGroupWithSelectDemo": {
+      name: "ButtonGroupWithSelectDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","input","select"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupWithSelectDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupWithSelectDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "ButtonIconDemo": {
       name: "ButtonIconDemo",
       description: "",
@@ -9307,156 +9476,6 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/ButtonWithIconDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupDemo": {
-      name: "ButtonGroupDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupOrientationDemo": {
-      name: "ButtonGroupOrientationDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupOrientationDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupOrientationDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupSizeDemo": {
-      name: "ButtonGroupSizeDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupSizeDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupSizeDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupNestedDemo": {
-      name: "ButtonGroupNestedDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupNestedDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupNestedDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupSeparatorDemo": {
-      name: "ButtonGroupSeparatorDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupSeparatorDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupSeparatorDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupSplitDemo": {
-      name: "ButtonGroupSplitDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupSplitDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupSplitDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithInputDemo": {
-      name: "ButtonGroupWithInputDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'input'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupWithInputDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupWithInputDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithDropdownMenuDemo": {
-      name: "ButtonGroupWithDropdownMenuDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'dropdown-menu'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupWithDropdownMenuDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupWithDropdownMenuDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithSelectDemo": {
-      name: "ButtonGroupWithSelectDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'input', 'select'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupWithSelectDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupWithSelectDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "ButtonGroupWithPopoverDemo": {
-      name: "ButtonGroupWithPopoverDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['button-group', 'button', 'separator', 'popover', 'textarea'],
-      files: [{
-        path: "registry/default/examples/ButtonGroupWithPopoverDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/ButtonGroupWithPopoverDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -10421,6 +10440,171 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "InputGroupDemo": {
+      name: "InputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dropdown-menu","input-group","separator","tooltip"],
+      files: [{
+        path: "registry/default/examples/InputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButton": {
+      name: "InputGroupWithButton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","popover"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithButton.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithButton.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithButtonGroup": {
+      name: "InputGroupWithButtonGroup",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button-group","input-group","label"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithButtonGroup.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithButtonGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithCustomInput": {
+      name: "InputGroupWithCustomInput",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithCustomInput.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithCustomInput.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithDropdown": {
+      name: "InputGroupWithDropdown",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["dropdown-menu","input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithDropdown.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithDropdown.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithIcon": {
+      name: "InputGroupWithIcon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithIcon.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithIcon.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithLabel": {
+      name: "InputGroupWithLabel",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","label","tooltip"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithLabel.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithSpinner": {
+      name: "InputGroupWithSpinner",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","spinner"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithSpinner.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithSpinner.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithText": {
+      name: "InputGroupWithText",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithText.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithText.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTextarea": {
+      name: "InputGroupWithTextarea",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithTextarea.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithTextarea.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "InputGroupWithTooltip": {
+      name: "InputGroupWithTooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","tooltip"],
+      files: [{
+        path: "registry/default/examples/InputGroupWithTooltip.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/InputGroupWithTooltip.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "InputWithButton": {
       name: "InputWithButton",
       description: "",
@@ -10466,167 +10650,47 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
-    "InputGroupDemo": {
-      name: "InputGroupDemo",
+    "KbdDemo": {
+      name: "KbdDemo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input-group","dropdown-menu","tooltip","separator"],
+      registryDependencies: ["kbd"],
       files: [{
-        path: "registry/default/examples/InputGroupDemo.vue",
+        path: "registry/default/examples/KbdDemo.vue",
         type: "registry:example",
         target: ""
       }],
-      component: () => import("@/registry/default/examples/InputGroupDemo.vue").then((m) => m.default),
+      component: () => import("@/registry/default/examples/KbdDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
     },
-    "InputGroupWithIcon": {
-      name: "InputGroupWithIcon",
+    "KbdWithButton": {
+      name: "KbdWithButton",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input-group"],
+      registryDependencies: ["button","kbd"],
       files: [{
-        path: "registry/default/examples/InputGroupWithIcon.vue",
+        path: "registry/default/examples/KbdWithButton.vue",
         type: "registry:example",
         target: ""
       }],
-      component: () => import("@/registry/default/examples/InputGroupWithIcon.vue").then((m) => m.default),
+      component: () => import("@/registry/default/examples/KbdWithButton.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
     },
-    "InputGroupWithText": {
-      name: "InputGroupWithText",
+    "KbdWithTooltip": {
+      name: "KbdWithTooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["input-group"],
+      registryDependencies: ["button","kbd","tooltip"],
       files: [{
-        path: "registry/default/examples/InputGroupWithText.vue",
+        path: "registry/default/examples/KbdWithTooltip.vue",
         type: "registry:example",
         target: ""
       }],
-      component: () => import("@/registry/default/examples/InputGroupWithText.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithButton": {
-      name: "InputGroupWithButton",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","popover"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithButton.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithButton.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithTooltip": {
-      name: "InputGroupWithTooltip",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","tooltip"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithTooltip.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithTooltip.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithTextarea": {
-      name: "InputGroupWithTextarea",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithTextarea.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithTextarea.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithSpinner": {
-      name: "InputGroupWithSpinner",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","spinner"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithSpinner.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithSpinner.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithLabel": {
-      name: "InputGroupWithLabel",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","label","tooltip"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithLabel.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithLabel.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithDropdown": {
-      name: "InputGroupWithDropdown",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","dropdown-menu"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithDropdown.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithDropdown.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithButtonGroup": {
-      name: "InputGroupWithButtonGroup",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group","button-group","label"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithButtonGroup.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithButtonGroup.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "InputGroupWithCustomInput": {
-      name: "InputGroupWithCustomInput",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["input-group"],
-      files: [{
-        path: "registry/default/examples/InputGroupWithCustomInput.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/InputGroupWithCustomInput.vue").then((m) => m.default),
+      component: () => import("@/registry/default/examples/KbdWithTooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -10642,51 +10706,6 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/LabelDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "KbdDemo": {
-      name: "KbdDemo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['kbd'],
-      files: [{
-        path: "registry/default/examples/KbdDemo.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/KbdDemo.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "KbdWithButton": {
-      name: "KbdWithButton",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['kbd','button'],
-      files: [{
-        path: "registry/default/examples/KbdWithButton.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/KbdWithButton.vue").then((m) => m.default),
-      source: "",
-      category: "",
-      subcategory: ""
-    },
-    "KbdWithTooltip": {
-      name: "KbdWithTooltip",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ['kbd','button','tooltip'],
-      files: [{
-        path: "registry/default/examples/KbdWithTooltip.vue",
-        type: "registry:example",
-        target: ""
-      }],
-      component: () => import("@/registry/default/examples/KbdWithTooltip.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -11272,6 +11291,81 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/SonnerWithDialog.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerButtonsDemo": {
+      name: "SpinnerButtonsDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerButtonsDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerButtonsDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerColorsDemo": {
+      name: "SpinnerColorsDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerColorsDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerColorsDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerCustomDemo": {
+      name: "SpinnerCustomDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: [],
+      files: [{
+        path: "registry/default/examples/SpinnerCustomDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerCustomDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerDemo": {
+      name: "SpinnerDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerSizesDemo": {
+      name: "SpinnerSizesDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerSizesDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerSizesDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""

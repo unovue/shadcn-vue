@@ -212,6 +212,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'ButtonGroup',
           href: '/docs/components/button-group',
+          label: 'New',
         },
         {
           title: 'Calendar',
@@ -288,6 +289,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Kbd',
           href: '/docs/components/kbd',
+          label: 'New',
         },
         {
           title: 'Label',
@@ -368,6 +370,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Spinner',
           href: '/docs/components/spinner',
+          label: 'New',
         },
         {
           title: 'Stepper',

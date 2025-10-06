@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ButtonLinkDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/default/ui/button\"\r\n</script>\r\n\r\n<template>\r\n  <Button variant=\"link\">\r\n    Link\r\n  </Button>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\n</script>\n\n<template>\n  <Button variant=\"link\">\n    Link\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/InputFile.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Input } from \"@/registry/default/ui/input\"\r\nimport { Label } from \"@/registry/default/ui/label\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"grid w-full max-w-sm items-center gap-1.5\">\r\n    <Label for=\"picture\">Picture</Label>\r\n    <Input id=\"picture\" type=\"file\" />\r\n  </div>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from \"@/registry/default/ui/input\"\nimport { Label } from \"@/registry/default/ui/label\"\n</script>\n\n<template>\n  <div class=\"grid w-full max-w-sm items-center gap-1.5\">\n    <Label for=\"picture\">Picture</Label>\n    <Input id=\"picture\" type=\"file\" />\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }
