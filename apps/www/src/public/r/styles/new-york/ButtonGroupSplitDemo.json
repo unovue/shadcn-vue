@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/ButtonGroupSplitDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { PlusIcon } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/new-york/ui/button-group\"\r\n</script>\r\n\r\n<template>\r\n  <ButtonGroup>\r\n    <Button variant=\"secondary\">\r\n      Button\r\n    </Button>\r\n    <ButtonGroupSeparator />\r\n    <Button size=\"icon\" variant=\"secondary\">\r\n      <PlusIcon />\r\n    </Button>\r\n  </ButtonGroup>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { PlusIcon } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/new-york/ui/button-group\"\n</script>\n\n<template>\n  <ButtonGroup>\n    <Button variant=\"secondary\">\n      Button\n    </Button>\n    <ButtonGroupSeparator />\n    <Button size=\"icon\" variant=\"secondary\">\n      <PlusIcon />\n    </Button>\n  </ButtonGroup>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

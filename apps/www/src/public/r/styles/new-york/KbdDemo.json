@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/KbdDemo.vue",
-      "content": "<script lang='ts' setup>\r\nimport { Kbd, KbdGroup } from \"@/registry/new-york/ui/kbd\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex flex-col items-center gap-4\">\r\n    <KbdGroup>\r\n      <Kbd>⌘</Kbd>\r\n      <Kbd>⇧</Kbd>\r\n      <Kbd>⌥</Kbd>\r\n      <Kbd>⌃</Kbd>\r\n    </KbdGroup>\r\n\r\n    <KbdGroup>\r\n      <Kbd>Ctrl</Kbd>\r\n      <span>+</span>\r\n      <Kbd>B</Kbd>\r\n    </KbdGroup>\r\n  </div>\r\n</template>\r\n",
+      "content": "<script lang='ts' setup>\nimport { Kbd, KbdGroup } from \"@/registry/new-york/ui/kbd\"\n</script>\n\n<template>\n  <div class=\"flex flex-col items-center gap-4\">\n    <KbdGroup>\n      <Kbd>⌘</Kbd>\n      <Kbd>⇧</Kbd>\n      <Kbd>⌥</Kbd>\n      <Kbd>⌃</Kbd>\n    </KbdGroup>\n\n    <KbdGroup>\n      <Kbd>Ctrl</Kbd>\n      <span>+</span>\n      <Kbd>B</Kbd>\n    </KbdGroup>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

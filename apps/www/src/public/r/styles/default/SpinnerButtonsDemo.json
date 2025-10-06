@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/SpinnerButtonsDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/default/ui/button\"\r\nimport { Spinner } from \"@/registry/default/ui/spinner\"\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex flex-col items-center gap-4\">\r\n    <Button disabled size=\"sm\">\r\n      <Spinner class=\"size-2\" />\r\n      Loading...\r\n    </Button>\r\n    <Button variant=\"outline\" disabled size=\"sm\">\r\n      <Spinner class=\"size-2\" />\r\n      Please wait\r\n    </Button>\r\n    <Button variant=\"secondary\" disabled size=\"sm\">\r\n      <Spinner class=\"size-2\" />\r\n      Processing\r\n    </Button>\r\n  </div>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\nimport { Spinner } from \"@/registry/default/ui/spinner\"\n</script>\n\n<template>\n  <div className=\"flex flex-col items-center gap-4\">\n    <Button disabled size=\"sm\">\n      <Spinner class=\"size-2\" />\n      Loading...\n    </Button>\n    <Button variant=\"outline\" disabled size=\"sm\">\n      <Spinner class=\"size-2\" />\n      Please wait\n    </Button>\n    <Button variant=\"secondary\" disabled size=\"sm\">\n      <Spinner class=\"size-2\" />\n      Processing\n    </Button>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/ButtonGroupOrientationDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { MinusIcon, PlusIcon } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/default/ui/button\"\r\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\"\r\n</script>\r\n\r\n<template>\r\n  <ButtonGroup\r\n    orientation=\"vertical\"\r\n    aria-label=\"Media controls\"\r\n    class=\"h-fit\"\r\n  >\r\n    <Button variant=\"outline\" size=\"icon\">\r\n      <PlusIcon />\r\n    </Button>\r\n    <Button variant=\"outline\" size=\"icon\">\r\n      <MinusIcon />\r\n    </Button>\r\n  </ButtonGroup>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { MinusIcon, PlusIcon } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/default/ui/button\"\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\"\n</script>\n\n<template>\n  <ButtonGroup\n    orientation=\"vertical\"\n    aria-label=\"Media controls\"\n    class=\"h-fit\"\n  >\n    <Button variant=\"outline\" size=\"icon\">\n      <PlusIcon />\n    </Button>\n    <Button variant=\"outline\" size=\"icon\">\n      <MinusIcon />\n    </Button>\n  </ButtonGroup>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

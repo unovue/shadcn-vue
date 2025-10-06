@@ -1,0 +1,18 @@
+{
+  "name": "EmptyAvatarGroupDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "examples/EmptyAvatarGroupDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Plus } from \"lucide-vue-next\"\nimport {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from \"@/registry/new-york/ui/avatar\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/new-york/ui/empty\"\n</script>\n\n<template>\n  <Empty>\n    <EmptyHeader>\n      <EmptyMedia variant=\"default\">\n        <div class=\"*:ring-background flex -space-x-2 *:size-12 *:ring-2 *:grayscale\">\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/ace-of-aces.png\"\n              alt=\"@ace-of-aces\"\n            />\n            <AvatarFallback>AA</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/sadeghbarati.png\"\n              alt=\"@sadeghbarati\"\n            />\n            <AvatarFallback>SB</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/zernonia.png\"\n              alt=\"@zernonia\"\n            />\n            <AvatarFallback>ZN</AvatarFallback>\n          </Avatar>\n        </div>\n      </EmptyMedia>\n      <EmptyTitle>No Team Members</EmptyTitle>\n      <EmptyDescription>\n        Invite your team to collaborate on this project.\n      </EmptyDescription>\n    </EmptyHeader>\n    <EmptyContent>\n      <Button size=\"sm\">\n        <Plus />\n        Invite Members\n      </Button>\n    </EmptyContent>\n  </Empty>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

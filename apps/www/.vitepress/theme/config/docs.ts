@@ -212,6 +212,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'ButtonGroup',
           href: '/docs/components/button-group',
+          label: 'New',
         },
         {
           title: 'Calendar',
@@ -266,6 +267,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: 'Empty',
+          href: '/docs/components/empty',
+          label: 'New',
+        },
+        {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
         },
@@ -282,8 +288,14 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/input',
         },
         {
+          title: 'Input Group',
+          href: '/docs/components/input-group',
+          label: 'New',
+        },
+        {
           title: 'Kbd',
           href: '/docs/components/kbd',
+          label: 'New',
         },
         {
           title: 'Label',
@@ -364,6 +376,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Spinner',
           href: '/docs/components/spinner',
+          label: 'New',
         },
         {
           title: 'Stepper',

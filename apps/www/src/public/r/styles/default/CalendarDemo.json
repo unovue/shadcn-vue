@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/CalendarDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { DateValue } from \"@internationalized/date\"\r\nimport type { Ref } from \"vue\"\r\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\r\nimport { ref } from \"vue\"\r\nimport { Calendar } from \"@/registry/default/ui/calendar\"\r\n\r\nconst value = ref(today(getLocalTimeZone())) as Ref<DateValue>\r\n</script>\r\n\r\n<template>\r\n  <Calendar v-model=\"value\" :weekday-format=\"'short'\" class=\"rounded-md border\" />\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { DateValue } from \"@internationalized/date\"\nimport type { Ref } from \"vue\"\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\nimport { ref } from \"vue\"\nimport { Calendar } from \"@/registry/default/ui/calendar\"\n\nconst value = ref(today(getLocalTimeZone())) as Ref<DateValue>\n</script>\n\n<template>\n  <Calendar v-model=\"value\" :weekday-format=\"'short'\" class=\"rounded-md border\" />\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

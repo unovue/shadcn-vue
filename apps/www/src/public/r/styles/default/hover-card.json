@@ -9,25 +9,25 @@
   "files": [
     {
       "path": "ui/hover-card/HoverCard.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { HoverCardRootEmits, HoverCardRootProps } from \"reka-ui\"\r\nimport { HoverCardRoot, useForwardPropsEmits } from \"reka-ui\"\r\n\r\nconst props = defineProps<HoverCardRootProps>()\r\nconst emits = defineEmits<HoverCardRootEmits>()\r\n\r\nconst forwarded = useForwardPropsEmits(props, emits)\r\n</script>\r\n\r\n<template>\r\n  <HoverCardRoot v-bind=\"forwarded\">\r\n    <slot />\r\n  </HoverCardRoot>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HoverCardRootEmits, HoverCardRootProps } from \"reka-ui\"\nimport { HoverCardRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<HoverCardRootProps>()\nconst emits = defineEmits<HoverCardRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <HoverCardRoot v-bind=\"forwarded\">\n    <slot />\n  </HoverCardRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/hover-card/HoverCardContent.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { HoverCardContentProps } from \"reka-ui\"\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport { reactiveOmit } from \"@vueuse/core\"\r\nimport {\r\n  HoverCardContent,\r\n\r\n  HoverCardPortal,\r\n  useForwardProps,\r\n} from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\n\r\nconst props = withDefaults(\r\n  defineProps<HoverCardContentProps & { class?: HTMLAttributes[\"class\"] }>(),\r\n  {\r\n    sideOffset: 4,\r\n  },\r\n)\r\n\r\nconst delegatedProps = reactiveOmit(props, \"class\")\r\n\r\nconst forwardedProps = useForwardProps(delegatedProps)\r\n</script>\r\n\r\n<template>\r\n  <HoverCardPortal>\r\n    <HoverCardContent\r\n      v-bind=\"forwardedProps\"\r\n      :class=\"\r\n        cn(\r\n          'z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\r\n          props.class,\r\n        )\r\n      \"\r\n    >\r\n      <slot />\r\n    </HoverCardContent>\r\n  </HoverCardPortal>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HoverCardContentProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport {\n  HoverCardContent,\n\n  HoverCardPortal,\n  useForwardProps,\n} from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = withDefaults(\n  defineProps<HoverCardContentProps & { class?: HTMLAttributes[\"class\"] }>(),\n  {\n    sideOffset: 4,\n  },\n)\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <HoverCardPortal>\n    <HoverCardContent\n      v-bind=\"forwardedProps\"\n      :class=\"\n        cn(\n          'z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n    </HoverCardContent>\n  </HoverCardPortal>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/hover-card/HoverCardTrigger.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { HoverCardTriggerProps } from \"reka-ui\"\r\nimport { HoverCardTrigger } from \"reka-ui\"\r\n\r\nconst props = defineProps<HoverCardTriggerProps>()\r\n</script>\r\n\r\n<template>\r\n  <HoverCardTrigger v-bind=\"props\">\r\n    <slot />\r\n  </HoverCardTrigger>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HoverCardTriggerProps } from \"reka-ui\"\nimport { HoverCardTrigger } from \"reka-ui\"\n\nconst props = defineProps<HoverCardTriggerProps>()\n</script>\n\n<template>\n  <HoverCardTrigger v-bind=\"props\">\n    <slot />\n  </HoverCardTrigger>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/hover-card/index.ts",
-      "content": "export { default as HoverCard } from \"./HoverCard.vue\"\r\nexport { default as HoverCardContent } from \"./HoverCardContent.vue\"\r\nexport { default as HoverCardTrigger } from \"./HoverCardTrigger.vue\"\r\n",
+      "content": "export { default as HoverCard } from \"./HoverCard.vue\"\nexport { default as HoverCardContent } from \"./HoverCardContent.vue\"\nexport { default as HoverCardTrigger } from \"./HoverCardTrigger.vue\"\n",
       "type": "registry:ui",
       "target": ""
     }

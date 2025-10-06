@@ -1,0 +1,16 @@
+{
+  "name": "InputGroupWithCustomInput",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "examples/InputGroupWithCustomInput.vue",
+      "content": "<script lang='ts' setup>\nimport { InputGroup, InputGroupAddon, InputGroupButton } from \"@/registry/default/ui/input-group\"\n</script>\n\n<template>\n  <div class=\"grid w-full max-w-sm gap-6\">\n    <InputGroup>\n      <textarea\n        data-slot=\"input-group-control\"\n        class=\"flex field-sizing-content min-h-16 w-full resize-none rounded-md bg-transparent px-3 py-2.5 text-base transition-[color,box-shadow] outline-none md:text-sm\"\n        placeholder=\"Autoresize textarea...\"\n      />\n      <InputGroupAddon align=\"block-end\">\n        <InputGroupButton class=\"ml-auto\" size=\"sm\" variant=\"default\">\n          Submit\n        </InputGroupButton>\n      </InputGroupAddon>\n    </InputGroup>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
