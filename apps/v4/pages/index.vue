@@ -81,6 +81,9 @@
     <ComponentWrapper name="InputGroup">
       <LazyInputGroupDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Item">
+      <LazyItemDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="kbd">
       <LazyKbdDemo />
     </ComponentWrapper>
