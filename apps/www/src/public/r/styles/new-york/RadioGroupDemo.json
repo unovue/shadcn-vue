@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/RadioGroupDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Label } from \"@/registry/new-york/ui/label\"\r\nimport { RadioGroup, RadioGroupItem } from \"@/registry/new-york/ui/radio-group\"\r\n</script>\r\n\r\n<template>\r\n  <RadioGroup default-value=\"comfortable\" :orientation=\"'vertical'\">\r\n    <div class=\"flex items-center space-x-2\">\r\n      <RadioGroupItem id=\"r1\" value=\"default\" />\r\n      <Label for=\"r1\">Default</Label>\r\n    </div>\r\n    <div class=\"flex items-center space-x-2\">\r\n      <RadioGroupItem id=\"r2\" value=\"comfortable\" />\r\n      <Label for=\"r2\">Comfortable</Label>\r\n    </div>\r\n    <div class=\"flex items-center space-x-2\">\r\n      <RadioGroupItem id=\"r3\" value=\"compact\" />\r\n      <Label for=\"r3\">Compact</Label>\r\n    </div>\r\n  </RadioGroup>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Label } from \"@/registry/new-york/ui/label\"\nimport { RadioGroup, RadioGroupItem } from \"@/registry/new-york/ui/radio-group\"\n</script>\n\n<template>\n  <RadioGroup default-value=\"comfortable\" :orientation=\"'vertical'\">\n    <div class=\"flex items-center space-x-2\">\n      <RadioGroupItem id=\"r1\" value=\"default\" />\n      <Label for=\"r1\">Default</Label>\n    </div>\n    <div class=\"flex items-center space-x-2\">\n      <RadioGroupItem id=\"r2\" value=\"comfortable\" />\n      <Label for=\"r2\">Comfortable</Label>\n    </div>\n    <div class=\"flex items-center space-x-2\">\n      <RadioGroupItem id=\"r3\" value=\"compact\" />\n      <Label for=\"r3\">Compact</Label>\n    </div>\n  </RadioGroup>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

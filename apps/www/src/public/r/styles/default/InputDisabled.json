@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/InputDisabled.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Input } from \"@/registry/default/ui/input\"\r\n</script>\r\n\r\n<template>\r\n  <Input disabled type=\"email\" placeholder=\"Email\" />\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Input } from \"@/registry/default/ui/input\"\n</script>\n\n<template>\n  <Input disabled type=\"email\" placeholder=\"Email\" />\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

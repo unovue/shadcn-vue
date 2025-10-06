@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/TooltipDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport {\r\n  Tooltip,\r\n  TooltipContent,\r\n  TooltipProvider,\r\n  TooltipTrigger,\r\n} from \"@/registry/new-york/ui/tooltip\"\r\n</script>\r\n\r\n<template>\r\n  <TooltipProvider>\r\n    <Tooltip>\r\n      <TooltipTrigger as-child>\r\n        <Button variant=\"outline\">\r\n          Hover\r\n        </Button>\r\n      </TooltipTrigger>\r\n      <TooltipContent>\r\n        <p>Add to library</p>\r\n      </TooltipContent>\r\n    </Tooltip>\r\n  </TooltipProvider>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@/registry/new-york/ui/tooltip\"\n</script>\n\n<template>\n  <TooltipProvider>\n    <Tooltip>\n      <TooltipTrigger as-child>\n        <Button variant=\"outline\">\n          Hover\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        <p>Add to library</p>\n      </TooltipContent>\n    </Tooltip>\n  </TooltipProvider>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

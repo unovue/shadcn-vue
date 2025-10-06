@@ -65,7 +65,7 @@ export async function resolveConfigPaths(
   )
 
   // Read tsconfig.json.
-  const tsConfig = await getTsconfig(tsConfigPath)
+  const tsConfig = await getTsconfig(tsConfigPath, isTypeScript ? undefined : 'jsconfig.json')
 
   if (tsConfig === null) {
     throw new Error(

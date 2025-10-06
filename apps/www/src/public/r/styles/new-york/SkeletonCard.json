@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/SkeletonCard.vue",
-      "content": "<script lang=\"ts\" setup>\r\nimport { Skeleton } from \"@/registry/new-york/ui/skeleton\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex flex-col space-y-3\">\r\n    <Skeleton class=\"h-[125px] w-[250px] rounded-xl\" />\r\n    <div class=\"space-y-2\">\r\n      <Skeleton class=\"h-4 w-[250px]\" />\r\n      <Skeleton class=\"h-4 w-[200px]\" />\r\n    </div>\r\n  </div>\r\n</template>\r\n",
+      "content": "<script lang=\"ts\" setup>\nimport { Skeleton } from \"@/registry/new-york/ui/skeleton\"\n</script>\n\n<template>\n  <div class=\"flex flex-col space-y-3\">\n    <Skeleton class=\"h-[125px] w-[250px] rounded-xl\" />\n    <div class=\"space-y-2\">\n      <Skeleton class=\"h-4 w-[250px]\" />\n      <Skeleton class=\"h-4 w-[200px]\" />\n    </div>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

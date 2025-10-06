@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ButtonLoadingDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Loader2 } from \"lucide-vue-next\"\r\nimport { Button } from \"@/registry/default/ui/button\"\r\n</script>\r\n\r\n<template>\r\n  <Button disabled>\r\n    <Loader2 class=\"w-4 h-4 mr-2 animate-spin\" />\r\n    Please wait\r\n  </Button>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Loader2 } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/default/ui/button\"\n</script>\n\n<template>\n  <Button disabled>\n    <Loader2 class=\"w-4 h-4 mr-2 animate-spin\" />\n    Please wait\n  </Button>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

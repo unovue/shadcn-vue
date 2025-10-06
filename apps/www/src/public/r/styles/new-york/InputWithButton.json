@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/InputWithButton.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/new-york/ui/button\"\r\nimport { Input } from \"@/registry/new-york/ui/input\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"flex w-full max-w-sm items-center gap-1.5\">\r\n    <Input id=\"email\" type=\"email\" placeholder=\"Email\" />\r\n    <Button type=\"submit\">\r\n      Subscribe\r\n    </Button>\r\n  </div>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { Input } from \"@/registry/new-york/ui/input\"\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-sm items-center gap-1.5\">\n    <Input id=\"email\" type=\"email\" placeholder=\"Email\" />\n    <Button type=\"submit\">\n      Subscribe\n    </Button>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "examples/TypographyH3.vue",
-      "content": "<template>\r\n  <h3 class=\"scroll-m-20 text-2xl font-semibold tracking-tight\">\r\n    The Joke Tax\r\n  </h3>\r\n</template>\r\n",
+      "content": "<template>\n  <h3 class=\"scroll-m-20 text-2xl font-semibold tracking-tight\">\n    The Joke Tax\n  </h3>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

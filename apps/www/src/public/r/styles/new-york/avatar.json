@@ -8,25 +8,25 @@
   "files": [
     {
       "path": "ui/avatar/Avatar.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { HTMLAttributes } from \"vue\"\r\nimport type { AvatarVariants } from \".\"\r\nimport { AvatarRoot } from \"reka-ui\"\r\nimport { cn } from \"@/lib/utils\"\r\nimport { avatarVariant } from \".\"\r\n\r\nconst props = withDefaults(defineProps<{\r\n  class?: HTMLAttributes[\"class\"]\r\n  size?: AvatarVariants[\"size\"]\r\n  shape?: AvatarVariants[\"shape\"]\r\n}>(), {\r\n  size: \"sm\",\r\n  shape: \"circle\",\r\n})\r\n</script>\r\n\r\n<template>\r\n  <AvatarRoot :class=\"cn(avatarVariant({ size, shape }), props.class)\">\r\n    <slot />\r\n  </AvatarRoot>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport type { AvatarVariants } from \".\"\nimport { AvatarRoot } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\nimport { avatarVariant } from \".\"\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes[\"class\"]\n  size?: AvatarVariants[\"size\"]\n  shape?: AvatarVariants[\"shape\"]\n}>(), {\n  size: \"sm\",\n  shape: \"circle\",\n})\n</script>\n\n<template>\n  <AvatarRoot :class=\"cn(avatarVariant({ size, shape }), props.class)\">\n    <slot />\n  </AvatarRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/avatar/AvatarFallback.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { AvatarFallbackProps } from \"reka-ui\"\r\nimport { AvatarFallback } from \"reka-ui\"\r\n\r\nconst props = defineProps<AvatarFallbackProps>()\r\n</script>\r\n\r\n<template>\r\n  <AvatarFallback v-bind=\"props\">\r\n    <slot />\r\n  </AvatarFallback>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AvatarFallbackProps } from \"reka-ui\"\nimport { AvatarFallback } from \"reka-ui\"\n\nconst props = defineProps<AvatarFallbackProps>()\n</script>\n\n<template>\n  <AvatarFallback v-bind=\"props\">\n    <slot />\n  </AvatarFallback>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/avatar/AvatarImage.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport type { AvatarImageProps } from \"reka-ui\"\r\nimport { AvatarImage } from \"reka-ui\"\r\n\r\nconst props = defineProps<AvatarImageProps>()\r\n</script>\r\n\r\n<template>\r\n  <AvatarImage v-bind=\"props\" class=\"h-full w-full object-cover\">\r\n    <slot />\r\n  </AvatarImage>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AvatarImageProps } from \"reka-ui\"\nimport { AvatarImage } from \"reka-ui\"\n\nconst props = defineProps<AvatarImageProps>()\n</script>\n\n<template>\n  <AvatarImage v-bind=\"props\" class=\"h-full w-full object-cover\">\n    <slot />\n  </AvatarImage>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
     {
       "path": "ui/avatar/index.ts",
-      "content": "import type { VariantProps } from \"class-variance-authority\"\r\nimport { cva } from \"class-variance-authority\"\r\n\r\nexport { default as Avatar } from \"./Avatar.vue\"\r\nexport { default as AvatarFallback } from \"./AvatarFallback.vue\"\r\nexport { default as AvatarImage } from \"./AvatarImage.vue\"\r\n\r\nexport const avatarVariant = cva(\r\n  \"inline-flex items-center justify-center font-normal text-foreground select-none shrink-0 bg-secondary overflow-hidden\",\r\n  {\r\n    variants: {\r\n      size: {\r\n        sm: \"h-10 w-10 text-xs\",\r\n        base: \"h-16 w-16 text-2xl\",\r\n        lg: \"h-32 w-32 text-5xl\",\r\n      },\r\n      shape: {\r\n        circle: \"rounded-full\",\r\n        square: \"rounded-md\",\r\n      },\r\n    },\r\n  },\r\n)\r\n\r\nexport type AvatarVariants = VariantProps<typeof avatarVariant>\r\n",
+      "content": "import type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport { default as Avatar } from \"./Avatar.vue\"\nexport { default as AvatarFallback } from \"./AvatarFallback.vue\"\nexport { default as AvatarImage } from \"./AvatarImage.vue\"\n\nexport const avatarVariant = cva(\n  \"inline-flex items-center justify-center font-normal text-foreground select-none shrink-0 bg-secondary overflow-hidden\",\n  {\n    variants: {\n      size: {\n        sm: \"h-10 w-10 text-xs\",\n        base: \"h-16 w-16 text-2xl\",\n        lg: \"h-32 w-32 text-5xl\",\n      },\n      shape: {\n        circle: \"rounded-full\",\n        square: \"rounded-md\",\n      },\n    },\n  },\n)\n\nexport type AvatarVariants = VariantProps<typeof avatarVariant>\n",
       "type": "registry:ui",
       "target": ""
     }

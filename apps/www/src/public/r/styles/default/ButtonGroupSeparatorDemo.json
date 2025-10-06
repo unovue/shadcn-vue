@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "examples/ButtonGroupSeparatorDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Button } from \"@/registry/default/ui/button\"\r\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/default/ui/button-group\"\r\n</script>\r\n\r\n<template>\r\n  <ButtonGroup>\r\n    <Button variant=\"secondary\" size=\"sm\">\r\n      Copy\r\n    </Button>\r\n    <ButtonGroupSeparator />\r\n    <Button variant=\"secondary\" size=\"sm\">\r\n      Paste\r\n    </Button>\r\n  </ButtonGroup>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/default/ui/button-group\"\n</script>\n\n<template>\n  <ButtonGroup>\n    <Button variant=\"secondary\" size=\"sm\">\n      Copy\n    </Button>\n    <ButtonGroupSeparator />\n    <Button variant=\"secondary\" size=\"sm\">\n      Paste\n    </Button>\n  </ButtonGroup>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }
