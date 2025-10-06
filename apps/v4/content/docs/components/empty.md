@@ -125,3 +125,113 @@ name: EmptyInputGroupDemo
 class: '[&_.preview]:p-0'
 ---
 ::
+
+## API Reference
+
+### Empty
+
+The main component of the empty state. Wraps the `EmptyHeader` and `EmptyContent` components.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```vue
+<template>
+  <Empty>
+    <EmptyHeader />
+    <EmptyContent />
+  </Empty>
+</template>
+```
+
+### EmptyHeader
+
+The `EmptyHeader` component wraps the empty media, title, and description.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```vue
+<template>
+  <EmptyHeader>
+    <EmptyMedia />
+    <EmptyTitle />
+    <EmptyDescription />
+  </EmptyHeader>
+</template>
+```
+
+### EmptyMedia
+
+Use the `EmptyMedia` component to display the media of the empty state such as an icon or an image. You can also use it to display other components such as an avatar.
+
+| Prop        | Type                  | Default   |
+| ----------- | --------------------- | --------- |
+| `variant`   | `"default" \| "icon"` | `default` |
+| `className` | `string`              |           |
+
+```vue
+<template>
+  <EmptyMedia variant="icon">
+    <Icon />
+  </EmptyMedia>
+</template>
+```
+
+```vue
+<template>
+  <EmptyMedia>
+    <Avatar>
+      <AvatarImage src="..." />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  </EmptyMedia>
+</template>
+```
+
+### EmptyTitle
+
+Use the `EmptyTitle` component to display the title of the empty state.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```vue
+<template>
+  <EmptyTitle>No data</EmptyTitle>
+</template>
+```
+
+### EmptyDescription
+
+Use the `EmptyDescription` component to display the description of the empty state.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```vue
+<template>
+  <EmptyDescription>You do not have any notifications.</EmptyDescription>
+</template>
+```
+
+### EmptyContent
+
+Use the `EmptyContent` component to display the content of the empty state such as a button, input or a link.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```vue
+<template>
+  <EmptyContent>
+    <Button>Add Project</Button>
+  </EmptyContent>
+</template>
+```
+

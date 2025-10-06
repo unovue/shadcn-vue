@@ -140,3 +140,19 @@ You can place a spinner inside an empty state.
 name: SpinnerEmptyDemo
 ---
 ::
+
+## API Reference
+
+### Spinner
+
+Use the `Spinner` component to display a spinner.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `class`     | `string` |         |
+
+```vue
+<template>
+  <Spinner />
+</template>
+```
