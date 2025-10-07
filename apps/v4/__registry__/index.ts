@@ -529,15 +529,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: ["chart"],
   files: [{
-    path: "registry/new-york-v4/ui/chart-line/LineChart.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/chart-line/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/chart-line/LineChart.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/chart-line/LineChart.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/chart-line/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1065,15 +1065,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/input/Input.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/input/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/input/Input.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/input/Input.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/input/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1082,8 +1082,12 @@ export const Index: Record<string, any> = {
   name: "input-group",
   description: "",
   type: "registry:ui",
-  registryDependencies: [],
+  registryDependencies: ["button","input","textarea"],
   files: [{
+    path: "registry/new-york-v4/ui/input-group/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/input-group/InputGroup.vue",
     type: "registry:ui",
     target: ""
@@ -1107,12 +1111,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/input-group/InputGroupTextarea.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/input-group/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/input-group/InputGroup.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/input-group/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1123,6 +1123,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: ["separator"],
   files: [{
+    path: "registry/new-york-v4/ui/item/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/item/Item.vue",
     type: "registry:ui",
     target: ""
@@ -1162,12 +1166,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/item/ItemTitle.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/item/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/item/Item.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/item/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1178,6 +1178,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/kbd/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/kbd/Kbd.vue",
     type: "registry:ui",
     target: ""
@@ -1185,12 +1189,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/kbd/KbdGroup.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/kbd/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/kbd/Kbd.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/kbd/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1201,15 +1201,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/label/Label.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/label/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/label/Label.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/label/Label.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/label/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1220,6 +1220,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/menubar/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/menubar/Menubar.vue",
     type: "registry:ui",
     target: ""
@@ -1279,12 +1283,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/menubar/MenubarTrigger.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/menubar/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/menubar/Menubar.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/menubar/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1295,6 +1295,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/navigation-menu/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/navigation-menu/NavigationMenu.vue",
     type: "registry:ui",
     target: ""
@@ -1326,12 +1330,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/navigation-menu/NavigationMenuViewport.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/navigation-menu/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/navigation-menu/NavigationMenu.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/navigation-menu/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1342,6 +1342,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/number-field/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/number-field/NumberField.vue",
     type: "registry:ui",
     target: ""
@@ -1361,12 +1365,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/number-field/NumberFieldInput.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/number-field/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/number-field/NumberField.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/number-field/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1377,6 +1377,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: ["button"],
   files: [{
+    path: "registry/new-york-v4/ui/pagination/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/pagination/Pagination.vue",
     type: "registry:ui",
     target: ""
@@ -1408,12 +1412,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/pagination/PaginationPrevious.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/pagination/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/pagination/Pagination.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/pagination/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1424,6 +1424,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/pin-input/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/pin-input/PinInput.vue",
     type: "registry:ui",
     target: ""
@@ -1439,12 +1443,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/pin-input/PinInputSlot.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/pin-input/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/pin-input/PinInput.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/pin-input/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1455,6 +1455,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/popover/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/popover/Popover.vue",
     type: "registry:ui",
     target: ""
@@ -1470,12 +1474,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/popover/PopoverTrigger.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/popover/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/popover/Popover.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/popover/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1486,15 +1486,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/progress/Progress.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/progress/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/progress/Progress.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/progress/Progress.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/progress/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1505,6 +1505,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/radio-group/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/radio-group/RadioGroup.vue",
     type: "registry:ui",
     target: ""
@@ -1512,12 +1516,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/radio-group/RadioGroupItem.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/radio-group/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/radio-group/RadioGroup.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/radio-group/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1528,6 +1528,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: ["button"],
   files: [{
+    path: "registry/new-york-v4/ui/range-calendar/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/range-calendar/RangeCalendar.vue",
     type: "registry:ui",
     target: ""
@@ -1575,12 +1579,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/range-calendar/RangeCalendarPrevButton.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/range-calendar/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/range-calendar/RangeCalendar.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/range-calendar/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1591,6 +1591,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/resizable/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/resizable/ResizableHandle.vue",
     type: "registry:ui",
     target: ""
@@ -1602,12 +1606,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/resizable/ResizablePanelGroup.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/resizable/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/resizable/ResizableHandle.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/resizable/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1618,6 +1618,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/scroll-area/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/scroll-area/ScrollArea.vue",
     type: "registry:ui",
     target: ""
@@ -1625,12 +1629,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/scroll-area/ScrollBar.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/scroll-area/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/scroll-area/ScrollArea.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/scroll-area/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1641,6 +1641,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/select/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/select/Select.vue",
     type: "registry:ui",
     target: ""
@@ -1684,12 +1688,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/select/SelectValue.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/select/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/select/Select.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/select/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1700,15 +1700,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/separator/Separator.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/separator/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/separator/Separator.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/separator/Separator.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/separator/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1719,6 +1719,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/sheet/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/sheet/Sheet.vue",
     type: "registry:ui",
     target: ""
@@ -1754,12 +1758,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/sheet/SheetTrigger.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/sheet/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/sheet/Sheet.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/sheet/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1770,6 +1770,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
   files: [{
+    path: "registry/new-york-v4/ui/sidebar/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/sidebar/Sidebar.vue",
     type: "registry:ui",
     target: ""
@@ -1866,15 +1870,11 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   },{
-    path: "registry/new-york-v4/ui/sidebar/index.ts",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/sidebar/utils.ts",
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/sidebar/Sidebar.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/sidebar/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1885,15 +1885,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/skeleton/Skeleton.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/skeleton/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/skeleton/Skeleton.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/skeleton/Skeleton.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/skeleton/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1904,15 +1904,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/slider/Slider.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/slider/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/slider/Slider.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/slider/Slider.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/slider/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1923,15 +1923,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/sonner/Sonner.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/sonner/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/sonner/Sonner.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/sonner/Sonner.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/sonner/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1942,15 +1942,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/spinner/Spinner.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/spinner/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/spinner/Spinner.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/spinner/Spinner.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/spinner/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -1961,6 +1961,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/stepper/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/stepper/Stepper.vue",
     type: "registry:ui",
     target: ""
@@ -1988,12 +1992,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/stepper/StepperTrigger.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/stepper/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/stepper/Stepper.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/stepper/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2004,15 +2004,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/switch/Switch.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/switch/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/switch/Switch.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/switch/Switch.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/switch/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2023,6 +2023,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/table/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/table/Table.vue",
     type: "registry:ui",
     target: ""
@@ -2059,15 +2063,11 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     target: ""
   },{
-    path: "registry/new-york-v4/ui/table/index.ts",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/table/utils.ts",
     type: "registry:ui",
     target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/table/Table.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/table/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2078,6 +2078,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/tabs/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/tabs/Tabs.vue",
     type: "registry:ui",
     target: ""
@@ -2093,12 +2097,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/tabs/TabsTrigger.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/tabs/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/tabs/Tabs.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/tabs/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2109,6 +2109,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/tags-input/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/tags-input/TagsInput.vue",
     type: "registry:ui",
     target: ""
@@ -2128,12 +2132,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/tags-input/TagsInputItemText.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/tags-input/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/tags-input/TagsInput.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/tags-input/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2144,15 +2144,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/textarea/Textarea.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/textarea/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/textarea/Textarea.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/textarea/Textarea.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/textarea/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2163,15 +2163,15 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
-    path: "registry/new-york-v4/ui/toggle/Toggle.vue",
-    type: "registry:ui",
-    target: ""
-  },{
     path: "registry/new-york-v4/ui/toggle/index.ts",
     type: "registry:ui",
     target: ""
+  },{
+    path: "registry/new-york-v4/ui/toggle/Toggle.vue",
+    type: "registry:ui",
+    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/toggle/Toggle.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/toggle/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2182,6 +2182,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: ["toggle"],
   files: [{
+    path: "registry/new-york-v4/ui/toggle-group/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/toggle-group/ToggleGroup.vue",
     type: "registry:ui",
     target: ""
@@ -2189,12 +2193,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/toggle-group/ToggleGroupItem.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/toggle-group/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/toggle-group/ToggleGroup.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/toggle-group/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
@@ -2205,6 +2205,10 @@ export const Index: Record<string, any> = {
   type: "registry:ui",
   registryDependencies: [],
   files: [{
+    path: "registry/new-york-v4/ui/tooltip/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
     path: "registry/new-york-v4/ui/tooltip/Tooltip.vue",
     type: "registry:ui",
     target: ""
@@ -2220,12 +2224,8 @@ export const Index: Record<string, any> = {
     path: "registry/new-york-v4/ui/tooltip/TooltipTrigger.vue",
     type: "registry:ui",
     target: ""
-  },{
-    path: "registry/new-york-v4/ui/tooltip/index.ts",
-    type: "registry:ui",
-    target: ""
   }],
-  component: () => import("@/registry/new-york-v4/ui/tooltip/Tooltip.vue").then((m) => m.default),
+  component: () => import("@/registry/new-york-v4/ui/tooltip/index.ts").then((m) => m.default),
   source: "",
   category: "",
   subcategory: ""
