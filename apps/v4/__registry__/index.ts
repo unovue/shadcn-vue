@@ -1117,6 +1117,61 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"item": {
+  name: "item",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["separator"],
+  files: [{
+    path: "registry/new-york-v4/ui/item/Item.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemActions.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemContent.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemDescription.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemFooter.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemGroup.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemHeader.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemMedia.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemSeparator.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/ItemTitle.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/item/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/item/Item.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "kbd": {
   name: "kbd",
   description: "",
