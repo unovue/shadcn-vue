@@ -1175,6 +1175,62 @@
     ]
   },
   {
+    "name": "item",
+    "type": "registry:ui",
+    "dependencies": [
+      "reka-ui"
+    ],
+    "registryDependencies": [
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "ui/item/Item.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemActions.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemContent.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemDescription.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemFooter.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemGroup.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemHeader.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemMedia.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemSeparator.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemTitle.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "kbd",
     "type": "registry:ui",
     "dependencies": [],
@@ -3439,6 +3495,62 @@
       },
       {
         "path": "ui/input-group/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "item",
+    "type": "registry:ui",
+    "dependencies": [
+      "reka-ui"
+    ],
+    "registryDependencies": [
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "ui/item/Item.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemActions.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemContent.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemDescription.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemFooter.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemGroup.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemHeader.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemMedia.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemSeparator.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/ItemTitle.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/item/index.ts",
         "type": "registry:ui"
       }
     ]

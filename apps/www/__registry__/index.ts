@@ -1168,6 +1168,61 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "item": {
+      name: "item",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["separator"],
+      files: [{
+        path: "registry/new-york/ui/item/Item.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemActions.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemDescription.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemFooter.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemGroup.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemHeader.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemMedia.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemSeparator.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/ItemTitle.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/item/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/item/Item.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "kbd": {
       name: "kbd",
       description: "",
@@ -4267,6 +4322,156 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/InputWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemAvatarDemo": {
+      name: "ItemAvatarDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemAvatarDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemAvatarDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemDemo": {
+      name: "ItemDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemDropdownDemo": {
+      name: "ItemDropdownDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","dropdown-menu","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemDropdownDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemDropdownDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemGroupDemo": {
+      name: "ItemGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemHeaderDemo": {
+      name: "ItemHeaderDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item"],
+      files: [{
+        path: "registry/new-york/examples/ItemHeaderDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemHeaderDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemIconDemo": {
+      name: "ItemIconDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemIconDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemIconDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemImageDemo": {
+      name: "ItemImageDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item"],
+      files: [{
+        path: "registry/new-york/examples/ItemImageDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemImageDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemLinkDemo": {
+      name: "ItemLinkDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item"],
+      files: [{
+        path: "registry/new-york/examples/ItemLinkDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemLinkDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemSizeDemo": {
+      name: "ItemSizeDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemSizeDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemSizeDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemVariantDemo": {
+      name: "ItemVariantDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/new-york/examples/ItemVariantDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ItemVariantDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7775,6 +7980,61 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "item": {
+      name: "item",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["separator"],
+      files: [{
+        path: "registry/default/ui/item/Item.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemActions.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemDescription.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemFooter.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemGroup.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemHeader.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemMedia.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemSeparator.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/ItemTitle.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/item/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/default/ui/item/Item.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "kbd": {
       name: "kbd",
       description: "",
@@ -10874,6 +11134,156 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/InputWithLabel.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemAvatarDemo": {
+      name: "ItemAvatarDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","item"],
+      files: [{
+        path: "registry/default/examples/ItemAvatarDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemAvatarDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemDemo": {
+      name: "ItemDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/default/examples/ItemDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemDropdownDemo": {
+      name: "ItemDropdownDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","dropdown-menu","item"],
+      files: [{
+        path: "registry/default/examples/ItemDropdownDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemDropdownDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemGroupDemo": {
+      name: "ItemGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar","button","item"],
+      files: [{
+        path: "registry/default/examples/ItemGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemHeaderDemo": {
+      name: "ItemHeaderDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item"],
+      files: [{
+        path: "registry/default/examples/ItemHeaderDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemHeaderDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemIconDemo": {
+      name: "ItemIconDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/default/examples/ItemIconDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemIconDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemImageDemo": {
+      name: "ItemImageDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item"],
+      files: [{
+        path: "registry/default/examples/ItemImageDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemImageDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemLinkDemo": {
+      name: "ItemLinkDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item"],
+      files: [{
+        path: "registry/default/examples/ItemLinkDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemLinkDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemSizeDemo": {
+      name: "ItemSizeDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/default/examples/ItemSizeDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemSizeDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "ItemVariantDemo": {
+      name: "ItemVariantDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item"],
+      files: [{
+        path: "registry/default/examples/ItemVariantDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ItemVariantDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
