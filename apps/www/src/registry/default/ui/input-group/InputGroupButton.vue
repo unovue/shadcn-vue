@@ -1,8 +1,8 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import type { InputGroupButtonProps } from "."
 import { cn } from "@/lib/utils"
+import { Button } from "@/registry/default/ui/button"
 import { inputGroupButtonVariants } from "."
-import Button from "../button/Button.vue"
 
 const props = withDefaults(defineProps<InputGroupButtonProps>(), {
   size: "xs",

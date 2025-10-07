@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { InputGroup, InputGroupAddon, InputGroupButton } from "@/registry/default/ui/input-group"
 </script>
 

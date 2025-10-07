@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import type { InputGroupVariants } from "."
 import { cn } from "@/lib/utils"

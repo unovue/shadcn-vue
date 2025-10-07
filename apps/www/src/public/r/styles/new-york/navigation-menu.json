@@ -8,6 +8,12 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/navigation-menu/index.ts",
+      "content": "import { cva } from \"class-variance-authority\"\n\nexport { default as NavigationMenu } from \"./NavigationMenu.vue\"\nexport { default as NavigationMenuContent } from \"./NavigationMenuContent.vue\"\nexport { default as NavigationMenuIndicator } from \"./NavigationMenuIndicator.vue\"\nexport { default as NavigationMenuItem } from \"./NavigationMenuItem.vue\"\nexport { default as NavigationMenuLink } from \"./NavigationMenuLink.vue\"\nexport { default as NavigationMenuList } from \"./NavigationMenuList.vue\"\nexport { default as NavigationMenuTrigger } from \"./NavigationMenuTrigger.vue\"\nexport { default as NavigationMenuViewport } from \"./NavigationMenuViewport.vue\"\n\nexport const navigationMenuTriggerStyle = cva(\n  \"group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50\",\n)\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/navigation-menu/NavigationMenu.vue",
       "content": "<script setup lang=\"ts\">\nimport type { NavigationMenuRootEmits, NavigationMenuRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport {\n  NavigationMenuRoot,\n\n  useForwardPropsEmits,\n} from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\nimport NavigationMenuViewport from \"./NavigationMenuViewport.vue\"\n\nconst props = defineProps<NavigationMenuRootProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst emits = defineEmits<NavigationMenuRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <NavigationMenuRoot\n    v-bind=\"forwarded\"\n    :class=\"cn('relative z-10 flex max-w-max flex-1 items-center justify-center', props.class)\"\n  >\n    <slot />\n    <NavigationMenuViewport />\n  </NavigationMenuRoot>\n</template>\n",
       "type": "registry:ui",
@@ -52,12 +58,6 @@
     {
       "path": "ui/navigation-menu/NavigationMenuViewport.vue",
       "content": "<script setup lang=\"ts\">\nimport type { NavigationMenuViewportProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport {\n  NavigationMenuViewport,\n\n  useForwardProps,\n} from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<NavigationMenuViewportProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div class=\"absolute left-0 top-full flex justify-center\">\n    <NavigationMenuViewport\n      v-bind=\"forwardedProps\"\n      :class=\"\n        cn(\n          'origin-top-center relative mt-1.5 h-[--reka-navigation-menu-viewport-height] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[--reka-navigation-menu-viewport-width] left-[var(--reka-navigation-menu-viewport-left)]',\n          props.class,\n        )\n      \"\n    />\n  </div>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/navigation-menu/index.ts",
-      "content": "import { cva } from \"class-variance-authority\"\n\nexport { default as NavigationMenu } from \"./NavigationMenu.vue\"\nexport { default as NavigationMenuContent } from \"./NavigationMenuContent.vue\"\nexport { default as NavigationMenuIndicator } from \"./NavigationMenuIndicator.vue\"\nexport { default as NavigationMenuItem } from \"./NavigationMenuItem.vue\"\nexport { default as NavigationMenuLink } from \"./NavigationMenuLink.vue\"\nexport { default as NavigationMenuList } from \"./NavigationMenuList.vue\"\nexport { default as NavigationMenuTrigger } from \"./NavigationMenuTrigger.vue\"\nexport { default as NavigationMenuViewport } from \"./NavigationMenuViewport.vue\"\n\nexport const navigationMenuTriggerStyle = cva(\n  \"group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50\",\n)\n",
       "type": "registry:ui",
       "target": ""
     }

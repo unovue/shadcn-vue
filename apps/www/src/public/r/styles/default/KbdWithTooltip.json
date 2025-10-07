@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "examples/KbdWithTooltip.vue",
-      "content": "<script lang='ts' setup>\nimport { Button } from \"@/registry/default/ui/button\"\nimport { Kbd } from \"@/registry/default/ui/kbd\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/registry/default/ui/tooltip\"\n</script>\n\n<template>\n  <div class=\"flex flex-col items-center gap-4\">\n    <Tooltip>\n      <TooltipTrigger as-child>\n        <Button variant=\"outline\" size=\"sm\" class=\"pr-2\">\n          Save\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        <div className=\"flex items-center gap-2\">\n          Save Changes <Kbd>S</Kbd>\n        </div>\n      </TooltipContent>\n    </Tooltip>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\nimport { Kbd } from \"@/registry/default/ui/kbd\"\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipTrigger,\n} from \"@/registry/default/ui/tooltip\"\n</script>\n\n<template>\n  <div class=\"flex flex-col items-center gap-4\">\n    <Tooltip>\n      <TooltipTrigger as-child>\n        <Button variant=\"outline\" size=\"sm\" class=\"pr-2\">\n          Save\n        </Button>\n      </TooltipTrigger>\n      <TooltipContent>\n        <div className=\"flex items-center gap-2\">\n          Save Changes <Kbd>S</Kbd>\n        </div>\n      </TooltipContent>\n    </Tooltip>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

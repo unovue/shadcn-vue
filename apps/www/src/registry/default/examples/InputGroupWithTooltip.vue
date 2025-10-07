@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { HelpCircle, InfoIcon } from "lucide-vue-next"
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/registry/default/ui/input-group"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/registry/default/ui/tooltip"

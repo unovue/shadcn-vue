@@ -8,6 +8,12 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/table/index.ts",
+      "content": "export { default as Table } from \"./Table.vue\"\nexport { default as TableBody } from \"./TableBody.vue\"\nexport { default as TableCaption } from \"./TableCaption.vue\"\nexport { default as TableCell } from \"./TableCell.vue\"\nexport { default as TableEmpty } from \"./TableEmpty.vue\"\nexport { default as TableFooter } from \"./TableFooter.vue\"\nexport { default as TableHead } from \"./TableHead.vue\"\nexport { default as TableHeader } from \"./TableHeader.vue\"\nexport { default as TableRow } from \"./TableRow.vue\"\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/table/Table.vue",
       "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div data-slot=\"table-container\" class=\"relative w-full overflow-auto\">\n    <table data-slot=\"table\" :class=\"cn('w-full caption-bottom text-sm', props.class)\">\n      <slot />\n    </table>\n  </div>\n</template>\n",
       "type": "registry:ui",
@@ -58,12 +64,6 @@
     {
       "path": "ui/table/TableRow.vue",
       "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <tr\n    data-slot=\"table-row\"\n    :class=\"cn('hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors', props.class)\"\n  >\n    <slot />\n  </tr>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/table/index.ts",
-      "content": "export { default as Table } from \"./Table.vue\"\nexport { default as TableBody } from \"./TableBody.vue\"\nexport { default as TableCaption } from \"./TableCaption.vue\"\nexport { default as TableCell } from \"./TableCell.vue\"\nexport { default as TableEmpty } from \"./TableEmpty.vue\"\nexport { default as TableFooter } from \"./TableFooter.vue\"\nexport { default as TableHead } from \"./TableHead.vue\"\nexport { default as TableHeader } from \"./TableHeader.vue\"\nexport { default as TableRow } from \"./TableRow.vue\"\n",
       "type": "registry:ui",
       "target": ""
     },

@@ -8,6 +8,12 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/stepper/index.ts",
+      "content": "export { default as Stepper } from \"./Stepper.vue\"\nexport { default as StepperDescription } from \"./StepperDescription.vue\"\nexport { default as StepperIndicator } from \"./StepperIndicator.vue\"\nexport { default as StepperItem } from \"./StepperItem.vue\"\nexport { default as StepperSeparator } from \"./StepperSeparator.vue\"\nexport { default as StepperTitle } from \"./StepperTitle.vue\"\nexport { default as StepperTrigger } from \"./StepperTrigger.vue\"\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/stepper/Stepper.vue",
       "content": "<script lang=\"ts\" setup>\nimport type { StepperRootEmits, StepperRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { StepperRoot, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<StepperRootProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<StepperRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <StepperRoot\n    v-slot=\"slotProps\"\n    :class=\"cn(\n      'flex gap-2',\n      props.class,\n    )\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </StepperRoot>\n</template>\n",
       "type": "registry:ui",
@@ -46,12 +52,6 @@
     {
       "path": "ui/stepper/StepperTrigger.vue",
       "content": "<script lang=\"ts\" setup>\nimport type { StepperTriggerProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { StepperTrigger, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<StepperTriggerProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <StepperTrigger\n    v-bind=\"forwarded\"\n    :class=\"cn('p-1 flex flex-col items-center text-center gap-1 rounded-md', props.class)\"\n  >\n    <slot />\n  </StepperTrigger>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/stepper/index.ts",
-      "content": "export { default as Stepper } from \"./Stepper.vue\"\nexport { default as StepperDescription } from \"./StepperDescription.vue\"\nexport { default as StepperIndicator } from \"./StepperIndicator.vue\"\nexport { default as StepperItem } from \"./StepperItem.vue\"\nexport { default as StepperSeparator } from \"./StepperSeparator.vue\"\nexport { default as StepperTitle } from \"./StepperTitle.vue\"\nexport { default as StepperTrigger } from \"./StepperTrigger.vue\"\n",
       "type": "registry:ui",
       "target": ""
     }
