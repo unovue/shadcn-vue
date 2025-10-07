@@ -11,7 +11,7 @@ description: Display additional information or actions to an input or textarea.
 <template #CLI>
 
 ```bash
-npx shadcn-vue@latest add input-group
+npx shadcn-vue@latest add input-group textarea
 ```
 </template>
 
