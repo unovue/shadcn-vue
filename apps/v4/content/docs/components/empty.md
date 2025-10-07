@@ -27,11 +27,10 @@ class: '[&_.preview]:p-0'
 
 ::
 
-
 ::tabs-content{value="cli"}
 
 ```bash
-npx shadcn-vue@latest add button-group
+npx shadcn-vue@latest add empty
 ```
 
 ::
