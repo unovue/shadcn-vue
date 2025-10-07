@@ -38,7 +38,7 @@ import {
     </Item>
     <Item variant="outline">
       <ItemMedia>
-        <div class="*:ring-background flex -space-x-2 *:ring-2 *:grayscale">
+        <div class="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
           <Avatar class="hidden sm:flex">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
