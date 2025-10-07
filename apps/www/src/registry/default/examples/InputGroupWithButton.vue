@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { useClipboard } from "@vueuse/core"
 import { CheckIcon, CopyIcon, InfoIcon, StarIcon } from "lucide-vue-next"
 import { ref } from "vue"

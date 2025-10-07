@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from "lucide-vue-next"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/registry/default/ui/dropdown-menu"
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText, InputGroupTextarea } from "@/registry/default/ui/input-group"
