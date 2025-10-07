@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/CustomChartTooltip.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Card, CardContent } from \"@/registry/new-york/ui/card\"\r\n\r\ndefineProps<{\r\n  title?: string\r\n  data: {\r\n    name: string\r\n    color: string\r\n    value: any\r\n  }[]\r\n}>()\r\n</script>\r\n\r\n<template>\r\n  <Card class=\"text-sm\">\r\n    <CardContent class=\"p-3 min-w-[180px] flex flex-col gap-2\">\r\n      <div v-for=\"(item, key) in data\" :key=\"key\" class=\"flex justify-between items-center\">\r\n        <div class=\"flex items-center\">\r\n          <span class=\"w-1 h-7 mr-4 rounded-full\" :style=\"{ background: item.color }\" />\r\n          <span>{{ item.name }}</span>\r\n        </div>\r\n        <span class=\"font-semibold ml-4\">{{ item.value }}</span>\r\n      </div>\r\n    </CardContent>\r\n  </Card>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Card, CardContent } from \"@/registry/new-york/ui/card\"\n\ndefineProps<{\n  title?: string\n  data: {\n    name: string\n    color: string\n    value: any\n  }[]\n}>()\n</script>\n\n<template>\n  <Card class=\"text-sm\">\n    <CardContent class=\"p-3 min-w-[180px] flex flex-col gap-2\">\n      <div v-for=\"(item, key) in data\" :key=\"key\" class=\"flex justify-between items-center\">\n        <div class=\"flex items-center\">\n          <span class=\"w-1 h-7 mr-4 rounded-full\" :style=\"{ background: item.color }\" />\n          <span>{{ item.name }}</span>\n        </div>\n        <span class=\"font-semibold ml-4\">{{ item.value }}</span>\n      </div>\n    </CardContent>\n  </Card>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

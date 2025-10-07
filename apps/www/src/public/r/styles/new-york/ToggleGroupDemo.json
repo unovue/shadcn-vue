@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/ToggleGroupDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Bold, Italic, Underline } from \"lucide-vue-next\"\r\nimport { ToggleGroup, ToggleGroupItem } from \"@/registry/new-york/ui/toggle-group\"\r\n</script>\r\n\r\n<template>\r\n  <ToggleGroup type=\"multiple\">\r\n    <ToggleGroupItem value=\"bold\" aria-label=\"Toggle bold\">\r\n      <Bold class=\"h-4 w-4\" />\r\n    </ToggleGroupItem>\r\n    <ToggleGroupItem value=\"italic\" aria-label=\"Toggle italic\">\r\n      <Italic class=\"h-4 w-4\" />\r\n    </ToggleGroupItem>\r\n    <ToggleGroupItem value=\"underline\" aria-label=\"Toggle underline\">\r\n      <Underline class=\"h-4 w-4\" />\r\n    </ToggleGroupItem>\r\n  </ToggleGroup>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Bold, Italic, Underline } from \"lucide-vue-next\"\nimport { ToggleGroup, ToggleGroupItem } from \"@/registry/new-york/ui/toggle-group\"\n</script>\n\n<template>\n  <ToggleGroup type=\"multiple\">\n    <ToggleGroupItem value=\"bold\" aria-label=\"Toggle bold\">\n      <Bold class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem value=\"italic\" aria-label=\"Toggle italic\">\n      <Italic class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n    <ToggleGroupItem value=\"underline\" aria-label=\"Toggle underline\">\n      <Underline class=\"h-4 w-4\" />\n    </ToggleGroupItem>\n  </ToggleGroup>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

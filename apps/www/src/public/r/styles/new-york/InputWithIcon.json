@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/InputWithIcon.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Search } from \"lucide-vue-next\"\r\nimport { Input } from \"@/registry/new-york/ui/input\"\r\n</script>\r\n\r\n<template>\r\n  <div class=\"relative w-full max-w-sm items-center\">\r\n    <Input id=\"search\" type=\"text\" placeholder=\"Search...\" class=\"pl-10\" />\r\n    <span class=\"absolute start-0 inset-y-0 flex items-center justify-center px-2\">\r\n      <Search class=\"size-6 text-muted-foreground\" />\r\n    </span>\r\n  </div>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Search } from \"lucide-vue-next\"\nimport { Input } from \"@/registry/new-york/ui/input\"\n</script>\n\n<template>\n  <div class=\"relative w-full max-w-sm items-center\">\n    <Input id=\"search\" type=\"text\" placeholder=\"Search...\" class=\"pl-10\" />\n    <span class=\"absolute start-0 inset-y-0 flex items-center justify-center px-2\">\n      <Search class=\"size-6 text-muted-foreground\" />\n    </span>\n  </div>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "examples/AvatarDemo.vue",
-      "content": "<script setup lang=\"ts\">\r\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\"\r\n</script>\r\n\r\n<template>\r\n  <Avatar>\r\n    <AvatarImage src=\"https://github.com/unovue.png\" alt=\"@unovue\" />\r\n    <AvatarFallback>CN</AvatarFallback>\r\n  </Avatar>\r\n</template>\r\n",
+      "content": "<script setup lang=\"ts\">\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\"\n</script>\n\n<template>\n  <Avatar>\n    <AvatarImage src=\"https://github.com/unovue.png\" alt=\"@unovue\" />\n    <AvatarFallback>CN</AvatarFallback>\n  </Avatar>\n</template>\n",
       "type": "registry:example",
       "target": ""
     }
