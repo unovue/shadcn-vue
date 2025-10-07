@@ -1133,7 +1133,7 @@ export const Index: Record<string, any> = {
       name: "input-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: ['button','input','textarea'],
       files: [{
         path: "registry/new-york/ui/input-group/InputGroup.vue",
         type: "registry:ui",
@@ -7740,7 +7740,7 @@ export const Index: Record<string, any> = {
       name: "input-group",
       description: "",
       type: "registry:ui",
-      registryDependencies: [],
+      registryDependencies: ['button','input','textarea'],
       files: [{
         path: "registry/default/ui/input-group/InputGroup.vue",
         type: "registry:ui",
