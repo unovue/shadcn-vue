@@ -7,6 +7,7 @@ import type {
 // @sts-nocheck
 import { existsSync, promises as fs } from 'node:fs'
 import path from 'node:path'
+import eol from 'eol'
 import { template } from 'es-toolkit/compat'
 import { rimraf } from 'rimraf'
 
@@ -312,7 +313,7 @@ async function buildStyles(registry: Registry) {
             path: file.path,
             type: file.type,
             // replace all reference of `new-york-v4` because it's styling in component is `new-york`
-            content: content.replaceAll('/new-york-v4/', '/new-york/'),
+            content: eol.lf(content.replaceAll('/new-york-v4/', '/new-york/')),
             target,
           }
         }),

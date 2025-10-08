@@ -16,7 +16,7 @@ npx shadcn-vue@latest add empty
 ```vue
 <script setup lang="ts">
 import { FolderOpen } from 'lucide-vue-next'
-import { Button } from '@/registry/default/ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Empty,
   EmptyContent,
@@ -24,7 +24,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/registry/default/ui/empty'
+} from '@/components/ui/empty'
 </script>
 
 <template>

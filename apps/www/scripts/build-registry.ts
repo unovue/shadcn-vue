@@ -7,6 +7,7 @@ import type {
 // @sts-nocheck
 import { existsSync, promises as fs } from 'node:fs'
 import path from 'node:path'
+import eol from 'eol'
 import { template } from 'es-toolkit/compat'
 import { rimraf } from 'rimraf'
 
@@ -537,7 +538,7 @@ async function buildStyles(registry: Registry) {
               path: file.path,
               type: file.type,
               // content: sourceFile.getText(),
-              content,
+              content: eol.lf(content),
               target,
             }
           }),

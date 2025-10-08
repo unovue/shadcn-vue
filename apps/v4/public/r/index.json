@@ -984,6 +984,61 @@
     ]
   },
   {
+    "name": "field",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [
+      "label",
+      "separator"
+    ],
+    "files": [
+      {
+        "path": "ui/field/Field.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldContent.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldDescription.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldError.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldGroup.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldLabel.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldLegend.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldSeparator.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldSet.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/FieldTitle.vue",
+        "type": "registry:ui"
+      },
+      {
+        "path": "ui/field/index.ts",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "form",
     "type": "registry:ui",
     "dependencies": [

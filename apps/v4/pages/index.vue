@@ -69,6 +69,9 @@
     <ComponentWrapper name="Empty">
       <LazyEmptyDemo />
     </ComponentWrapper>
+    <ComponentWrapper name="Field">
+      <LazyFieldDemo />
+    </ComponentWrapper>
     <ComponentWrapper name="Form">
       <LazyFormDemo />
     </ComponentWrapper>

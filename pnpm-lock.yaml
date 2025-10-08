@@ -312,6 +312,9 @@ importers:
       '@shikijs/transformers':
         specifier: ^3.13.0
         version: 3.13.0
+      '@tailwindcss/container-queries':
+        specifier: ^0.1.1
+        version: 0.1.1(tailwindcss@3.4.18)
       '@types/node':
         specifier: 'catalog:'
         version: 22.18.1
@@ -333,6 +336,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.6)
+      eol:
+        specifier: ^0.10.0
+        version: 0.10.0
       es-toolkit:
         specifier: ^1.39.10
         version: 1.39.10
@@ -3199,6 +3205,11 @@ packages:
   '@tabler/icons@3.35.0':
     resolution: {integrity: sha512-yYXe+gJ56xlZFiXwV9zVoe3FWCGuZ/D7/G4ZIlDtGxSx5CGQK110wrnT29gUj52kEZoxqF7oURTk97GQxELOFQ==}
 
+  '@tailwindcss/container-queries@0.1.1':
+    resolution: {integrity: sha512-p18dswChx6WnTSaJCSGx6lTmrGzNNvm2FtXmiO6AuA1V4U5REyoqwmT6kgAsIMdjo07QdAfYXHJ4hnMtfHzWgA==}
+    peerDependencies:
+      tailwindcss: '>=3.2.0'
+
   '@tailwindcss/node@4.1.14':
     resolution: {integrity: sha512-hpz+8vFk3Ic2xssIA3e01R6jkmsAhvkQdXlEbRTk6S10xDAtiQiM3FyvZVGsucefq764euO/b8WUW9ysLdThHw==}
 
@@ -5710,6 +5721,9 @@ packages:
   environment@1.1.0:
     resolution: {integrity: sha512-xUtoPkMggbz0MPyPiIWr1Kp4aeWJjDZ6SMvURhimjdZgsRuDplF5/s9hcgGhyXMhs+6vpnuoiZ2kFiu3FMnS8Q==}
     engines: {node: '>=18'}
+
+  eol@0.10.0:
+    resolution: {integrity: sha512-+w3ktYrOphcIqC1XKmhQYvM+o2uxgQFiimL7B6JPZJlWVxf7Lno9e/JWLPIgbHo7DoZ+b7jsf/NzrUcNe6ZTZQ==}
 
   err-code@1.1.2:
     resolution: {integrity: sha512-CJAN+O0/yA1CKfRn9SXOGctSpEM7DCon/r/5r2eXFMY2zCCJBasFhcM5I+1kh3Ap11FsQCX+vGHceNPvpWKhoA==}
@@ -14030,6 +14044,10 @@ snapshots:
 
   '@tabler/icons@3.35.0': {}
 
+  '@tailwindcss/container-queries@0.1.1(tailwindcss@3.4.18)':
+    dependencies:
+      tailwindcss: 3.4.18
+
   '@tailwindcss/node@4.1.14':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -16999,6 +17017,8 @@ snapshots:
   env-paths@3.0.0: {}
 
   environment@1.1.0: {}
+
+  eol@0.10.0: {}
 
   err-code@1.1.2: {}
 
