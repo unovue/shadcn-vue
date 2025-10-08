@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { Link2Icon } from "lucide-vue-next"
 import { ButtonGroup, ButtonGroupText } from "@/registry/default/ui/button-group"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/registry/default/ui/input-group"

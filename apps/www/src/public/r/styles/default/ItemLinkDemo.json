@@ -1,0 +1,16 @@
+{
+  "name": "ItemLinkDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "examples/ItemLinkDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ChevronRightIcon, ExternalLinkIcon } from \"lucide-vue-next\"\n\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemTitle,\n} from \"@/registry/default/ui/item\"\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-md flex-col gap-4\">\n    <Item as-child>\n      <a href=\"#\">\n        <ItemContent>\n          <ItemTitle>Visit our documentation</ItemTitle>\n          <ItemDescription>\n            Learn how to get started with our components.\n          </ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <ChevronRightIcon class=\"size-4\" />\n        </ItemActions>\n      </a>\n    </Item>\n    <Item variant=\"outline\" as-child>\n      <a href=\"#\" target=\"_blank\" rel=\"noopener noreferrer\">\n        <ItemContent>\n          <ItemTitle>External resource</ItemTitle>\n          <ItemDescription>\n            Opens in a new tab with security attributes.\n          </ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <ExternalLinkIcon class=\"size-4\" />\n        </ItemActions>\n      </a>\n    </Item>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

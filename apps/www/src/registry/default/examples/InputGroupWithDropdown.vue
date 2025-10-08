@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { ChevronDownIcon, MoreHorizontal } from "lucide-vue-next"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/registry/default/ui/dropdown-menu"
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/registry/default/ui/input-group"

@@ -5,14 +5,14 @@
   "registryDependencies": [],
   "files": [
     {
-      "path": "ui/spinner/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { Loader2Icon } from \"lucide-vue-next\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    aria-label=\"Loading\"\n    :class=\"cn('size-4 animate-spin', props.class)\"\n  />\n</template>\n",
+      "path": "ui/spinner/index.ts",
+      "content": "export { default as Spinner } from \"./Spinner.vue\"\n",
       "type": "registry:ui",
       "target": ""
     },
     {
-      "path": "ui/spinner/index.ts",
-      "content": "export { default as Spinner } from \"./Spinner.vue\"\n",
+      "path": "ui/spinner/Spinner.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { Loader2Icon } from \"lucide-vue-next\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Loader2Icon\n    role=\"status\"\n    aria-label=\"Loading\"\n    :class=\"cn('size-4 animate-spin', props.class)\"\n  />\n</template>\n",
       "type": "registry:ui",
       "target": ""
     }

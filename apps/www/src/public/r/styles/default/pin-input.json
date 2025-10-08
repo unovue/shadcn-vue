@@ -8,6 +8,12 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/pin-input/index.ts",
+      "content": "export { default as PinInput } from \"./PinInput.vue\"\nexport { default as PinInputGroup } from \"./PinInputGroup.vue\"\nexport { default as PinInputSeparator } from \"./PinInputSeparator.vue\"\nexport { default as PinInputSlot } from \"./PinInputSlot.vue\"\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/pin-input/PinInput.vue",
       "content": "<script setup lang=\"ts\" generic=\"Type extends 'text' | 'number' = 'text'\">\nimport type { PinInputRootEmits, PinInputRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { PinInputRoot, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = withDefaults(defineProps<PinInputRootProps<Type> & { class?: HTMLAttributes[\"class\"] }>(), {\n  modelValue: () => [],\n})\nconst emits = defineEmits<PinInputRootEmits<Type>>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <PinInputRoot v-bind=\"forwarded\" :class=\"cn('flex gap-2 items-center', props.class)\">\n    <slot />\n  </PinInputRoot>\n</template>\n",
       "type": "registry:ui",
@@ -28,12 +34,6 @@
     {
       "path": "ui/pin-input/PinInputSlot.vue",
       "content": "<script setup lang=\"ts\">\nimport type { PinInputInputProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { PinInputInput, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<PinInputInputProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <PinInputInput v-bind=\"forwardedProps\" :class=\"cn('relative text-center focus:outline-none focus:ring-2 focus:ring-ring focus:relative focus:z-10 flex h-10 w-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md', props.class)\" />\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/pin-input/index.ts",
-      "content": "export { default as PinInput } from \"./PinInput.vue\"\nexport { default as PinInputGroup } from \"./PinInputGroup.vue\"\nexport { default as PinInputSeparator } from \"./PinInputSeparator.vue\"\nexport { default as PinInputSlot } from \"./PinInputSlot.vue\"\n",
       "type": "registry:ui",
       "target": ""
     }

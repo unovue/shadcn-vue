@@ -293,6 +293,11 @@ export const docsConfig: DocsConfig = {
           label: 'New',
         },
         {
+          title: 'Item',
+          href: '/docs/components/item',
+          label: 'New',
+        },
+        {
           title: 'Kbd',
           href: '/docs/components/kbd',
           label: 'New',
