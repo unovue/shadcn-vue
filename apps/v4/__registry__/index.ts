@@ -989,6 +989,61 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"field": {
+  name: "field",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: ["label","separator"],
+  files: [{
+    path: "registry/new-york-v4/ui/field/Field.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldContent.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldDescription.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldError.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldGroup.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldLabel.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldLegend.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldSeparator.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldSet.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/FieldTitle.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/field/index.ts",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/new-york-v4/ui/field/Field.vue").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "form": {
   name: "form",
   description: "",

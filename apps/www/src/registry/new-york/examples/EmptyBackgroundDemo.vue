@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Bell, RefreshCcw } from "lucide-vue-next"
-import { Button } from "@/registry/default/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Empty,
   EmptyContent,
@@ -8,7 +8,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/registry/default/ui/empty"
+} from "@/registry/new-york/ui/empty"
 </script>
 
 <template>

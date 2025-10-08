@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Button } from "@/registry/default/ui/button"
-import { Kbd } from "@/registry/default/ui/kbd"
+import { ButtonGroup } from "@/registry/default/ui/button-group"
+import { Kbd, KbdGroup } from "@/registry/default/ui/kbd"
 import {
   Tooltip,
   TooltipContent,
@@ -9,18 +10,36 @@ import {
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-4">
-    <Tooltip>
-      <TooltipTrigger as-child>
-        <Button variant="outline" size="sm" class="pr-2">
-          Save
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent>
-        <div className="flex items-center gap-2">
-          Save Changes <Kbd>S</Kbd>
-        </div>
-      </TooltipContent>
-    </Tooltip>
+  <div class="flex flex-wrap gap-4">
+    <ButtonGroup>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Button size="sm" variant="outline">
+            Save
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <div class="flex items-center gap-2">
+            Save Changes <Kbd>S</Kbd>
+          </div>
+        </TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Button size="sm" variant="outline">
+            Print
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <div class="flex items-center gap-2">
+            Print Document
+            <KbdGroup>
+              <Kbd>Ctrl</Kbd>
+              <Kbd>P</Kbd>
+            </KbdGroup>
+          </div>
+        </TooltipContent>
+      </Tooltip>
+    </ButtonGroup>
   </div>
 </template>

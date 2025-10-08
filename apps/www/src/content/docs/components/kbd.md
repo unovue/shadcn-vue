@@ -50,7 +50,6 @@ import { Kbd } from '@/components/ui/kbd'
 </template>
 ```
 
-<!-- TODO 这里根据 shadcn 的文档更新 -->
 ## Examples
 
 ### Group
@@ -70,3 +69,40 @@ Use the `Kbd` component inside a `Button` component to display a keyboard key in
 You can use the `Kbd` component inside a `Tooltip` component to display a tooltip with a keyboard key.
 
 <ComponentPreview name="KbdWithTooltip" />
+
+### Input Group
+
+You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
+
+<ComponentPreview name="KbdWithInputGroup" />
+
+## API Reference
+
+### Kbd
+
+Use the `Kbd` component to display a keyboard key.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `class` | `string` | ``      |
+
+```vue
+<Kbd>
+Ctrl
+</Kbd>
+```
+
+### KbdGroup
+
+Use the `KbdGroup` component to group `Kbd` components together.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `class` | `string` | ``      |
+
+```vue
+<KbdGroup>
+  <Kbd>Ctrl</Kbd>
+  <Kbd>B</Kbd>
+</KbdGroup>
+```

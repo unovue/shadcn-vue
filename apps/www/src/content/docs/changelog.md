@@ -115,7 +115,7 @@ The following form has been created by passing a `zod` schema object to our `Aut
 
 ### Component Updated - Calendar
 
-The [`Calendar`](/docs/components/calendar.html) component has been updated and is now built on top of the [RadixVue Calendar](https://www.reka-ui.com/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
+The [`Calendar`](/docs/components/calendar.html) component has been updated and is now built on top of the [Reka UI Calendar](https://www.reka-ui.com/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
 If you're looking for a range calendar, check out the [`Range Calendar`](/docs/components/range-calendar.html) component.
 

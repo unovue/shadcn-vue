@@ -1040,6 +1040,61 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "field": {
+      name: "field",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["label","separator"],
+      files: [{
+        path: "registry/new-york/ui/field/Field.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldDescription.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldError.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldGroup.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldLabel.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldLegend.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldSeparator.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldSet.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/FieldTitle.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/new-york/ui/field/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/ui/field/Field.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "form": {
       name: "form",
       description: "",
@@ -2856,6 +2911,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "ButtonGroupInputGroupDemo": {
+      name: "ButtonGroupInputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","input-group","tooltip"],
+      files: [{
+        path: "registry/new-york/examples/ButtonGroupInputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/ButtonGroupInputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "ButtonGroupNestedDemo": {
       name: "ButtonGroupNestedDemo",
       description: "",
@@ -4011,6 +4081,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "EmptyInputGroupDemo": {
+      name: "EmptyInputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["empty","input-group","kbd"],
+      files: [{
+        path: "registry/new-york/examples/EmptyInputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/EmptyInputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "EmptyOutlineDemo": {
       name: "EmptyOutlineDemo",
       description: "",
@@ -4022,6 +4107,186 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/EmptyOutlineDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldCheckboxDemo": {
+      name: "FieldCheckboxDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox","field"],
+      files: [{
+        path: "registry/new-york/examples/FieldCheckboxDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldCheckboxDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldChoiceCardDemo": {
+      name: "FieldChoiceCardDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","radio-group"],
+      files: [{
+        path: "registry/new-york/examples/FieldChoiceCardDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldChoiceCardDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldDemo": {
+      name: "FieldDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","checkbox","field","input","select","textarea"],
+      files: [{
+        path: "registry/new-york/examples/FieldDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldFieldsetDemo": {
+      name: "FieldFieldsetDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","input"],
+      files: [{
+        path: "registry/new-york/examples/FieldFieldsetDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldFieldsetDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldGroupDemo": {
+      name: "FieldGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox","field"],
+      files: [{
+        path: "registry/new-york/examples/FieldGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldInputDemo": {
+      name: "FieldInputDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","input"],
+      files: [{
+        path: "registry/new-york/examples/FieldInputDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldInputDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldRadioDemo": {
+      name: "FieldRadioDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","radio-group"],
+      files: [{
+        path: "registry/new-york/examples/FieldRadioDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldRadioDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldResponsiveDemo": {
+      name: "FieldResponsiveDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","field","input","textarea"],
+      files: [{
+        path: "registry/new-york/examples/FieldResponsiveDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldResponsiveDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldSelectDemo": {
+      name: "FieldSelectDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","select"],
+      files: [{
+        path: "registry/new-york/examples/FieldSelectDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldSelectDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldSliderDemo": {
+      name: "FieldSliderDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","slider"],
+      files: [{
+        path: "registry/new-york/examples/FieldSliderDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldSliderDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldSwitchDemo": {
+      name: "FieldSwitchDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","switch"],
+      files: [{
+        path: "registry/new-york/examples/FieldSwitchDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldSwitchDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldTextareaDemo": {
+      name: "FieldTextareaDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","textarea"],
+      files: [{
+        path: "registry/new-york/examples/FieldTextareaDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/FieldTextareaDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -4506,11 +4771,26 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "KbdWithInputGroup": {
+      name: "KbdWithInputGroup",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","kbd"],
+      files: [{
+        path: "registry/new-york/examples/KbdWithInputGroup.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/KbdWithInputGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "KbdWithTooltip": {
       name: "KbdWithTooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button","kbd","tooltip"],
+      registryDependencies: ["button","button-group","kbd","tooltip"],
       files: [{
         path: "registry/new-york/examples/KbdWithTooltip.vue",
         type: "registry:example",
@@ -5121,6 +5401,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "SpinnerBadgeDemo": {
+      name: "SpinnerBadgeDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["badge","spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerBadgeDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerBadgeDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "SpinnerButtonsDemo": {
       name: "SpinnerButtonsDemo",
       description: "",
@@ -5177,6 +5472,51 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/new-york/examples/SpinnerDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerEmptyDemo": {
+      name: "SpinnerEmptyDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty","spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerEmptyDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerEmptyDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerInputGroupDemo": {
+      name: "SpinnerInputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerInputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerInputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerItemDemo": {
+      name: "SpinnerItemDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item","progress","spinner"],
+      files: [{
+        path: "registry/new-york/examples/SpinnerItemDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/new-york/examples/SpinnerItemDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -7852,6 +8192,61 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "field": {
+      name: "field",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["label","separator"],
+      files: [{
+        path: "registry/default/ui/field/Field.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldContent.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldDescription.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldError.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldGroup.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldLabel.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldLegend.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldSeparator.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldSet.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/FieldTitle.vue",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/ui/field/index.ts",
+        type: "registry:ui",
+        target: ""
+      }],
+      component: () => import("@/registry/default/ui/field/Field.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "form": {
       name: "form",
       description: "",
@@ -9668,6 +10063,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "ButtonGroupInputGroupDemo": {
+      name: "ButtonGroupInputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","input-group","tooltip"],
+      files: [{
+        path: "registry/default/examples/ButtonGroupInputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/ButtonGroupInputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "ButtonGroupNestedDemo": {
       name: "ButtonGroupNestedDemo",
       description: "",
@@ -10823,6 +11233,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "EmptyInputGroupDemo": {
+      name: "EmptyInputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["empty","input-group","kbd"],
+      files: [{
+        path: "registry/default/examples/EmptyInputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/EmptyInputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "EmptyOutlineDemo": {
       name: "EmptyOutlineDemo",
       description: "",
@@ -10834,6 +11259,186 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/EmptyOutlineDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldCheckboxDemo": {
+      name: "FieldCheckboxDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox","field"],
+      files: [{
+        path: "registry/default/examples/FieldCheckboxDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldCheckboxDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldChoiceCardDemo": {
+      name: "FieldChoiceCardDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","radio-group"],
+      files: [{
+        path: "registry/default/examples/FieldChoiceCardDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldChoiceCardDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldDemo": {
+      name: "FieldDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","checkbox","field","input","select","textarea"],
+      files: [{
+        path: "registry/default/examples/FieldDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldFieldsetDemo": {
+      name: "FieldFieldsetDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","input"],
+      files: [{
+        path: "registry/default/examples/FieldFieldsetDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldFieldsetDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldGroupDemo": {
+      name: "FieldGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox","field"],
+      files: [{
+        path: "registry/default/examples/FieldGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldInputDemo": {
+      name: "FieldInputDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","input"],
+      files: [{
+        path: "registry/default/examples/FieldInputDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldInputDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldRadioDemo": {
+      name: "FieldRadioDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","radio-group"],
+      files: [{
+        path: "registry/default/examples/FieldRadioDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldRadioDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldResponsiveDemo": {
+      name: "FieldResponsiveDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","field","input","textarea"],
+      files: [{
+        path: "registry/default/examples/FieldResponsiveDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldResponsiveDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldSelectDemo": {
+      name: "FieldSelectDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","select"],
+      files: [{
+        path: "registry/default/examples/FieldSelectDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldSelectDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldSliderDemo": {
+      name: "FieldSliderDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","slider"],
+      files: [{
+        path: "registry/default/examples/FieldSliderDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldSliderDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldSwitchDemo": {
+      name: "FieldSwitchDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","switch"],
+      files: [{
+        path: "registry/default/examples/FieldSwitchDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldSwitchDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "FieldTextareaDemo": {
+      name: "FieldTextareaDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","textarea"],
+      files: [{
+        path: "registry/default/examples/FieldTextareaDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/FieldTextareaDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""
@@ -11318,11 +11923,26 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "KbdWithInputGroup": {
+      name: "KbdWithInputGroup",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","kbd"],
+      files: [{
+        path: "registry/default/examples/KbdWithInputGroup.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/KbdWithInputGroup.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "KbdWithTooltip": {
       name: "KbdWithTooltip",
       description: "",
       type: "registry:example",
-      registryDependencies: ["button","kbd","tooltip"],
+      registryDependencies: ["button","button-group","kbd","tooltip"],
       files: [{
         path: "registry/default/examples/KbdWithTooltip.vue",
         type: "registry:example",
@@ -11933,6 +12553,21 @@ export const Index: Record<string, any> = {
       category: "",
       subcategory: ""
     },
+    "SpinnerBadgeDemo": {
+      name: "SpinnerBadgeDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["badge","spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerBadgeDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerBadgeDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
     "SpinnerButtonsDemo": {
       name: "SpinnerButtonsDemo",
       description: "",
@@ -11989,6 +12624,51 @@ export const Index: Record<string, any> = {
         target: ""
       }],
       component: () => import("@/registry/default/examples/SpinnerDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerEmptyDemo": {
+      name: "SpinnerEmptyDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","empty","spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerEmptyDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerEmptyDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerInputGroupDemo": {
+      name: "SpinnerInputGroupDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerInputGroupDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerInputGroupDemo.vue").then((m) => m.default),
+      source: "",
+      category: "",
+      subcategory: ""
+    },
+    "SpinnerItemDemo": {
+      name: "SpinnerItemDemo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","item","progress","spinner"],
+      files: [{
+        path: "registry/default/examples/SpinnerItemDemo.vue",
+        type: "registry:example",
+        target: ""
+      }],
+      component: () => import("@/registry/default/examples/SpinnerItemDemo.vue").then((m) => m.default),
       source: "",
       category: "",
       subcategory: ""

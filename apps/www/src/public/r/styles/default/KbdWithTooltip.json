@@ -4,6 +4,7 @@
   "dependencies": [],
   "registryDependencies": [
     "button",
+    "button-group",
     "kbd",
     "tooltip"
   ],

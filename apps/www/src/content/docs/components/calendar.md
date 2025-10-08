@@ -9,7 +9,7 @@ primitive: https://www.reka-ui.com/docs/components/calendar.html
 
 ## About
 
-The `<Calendar />` component is built on top of the [RadixVue Calendar](https://www.reka-ui.com/docs/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
+The `<Calendar />` component is built on top of the [Reka UI Calendar](https://www.reka-ui.com/docs/components/calendar.html) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
 If you're looking for a range calendar, check out the [Range Calendar](/docs/components/range-calendar) component.
 

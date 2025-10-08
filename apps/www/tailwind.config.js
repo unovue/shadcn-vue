@@ -1,3 +1,4 @@
+import tailwindcssContainerQueries from '@tailwindcss/container-queries'
 import tailwindcssAnimate from 'tailwindcss-animate'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
@@ -90,5 +91,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, tailwindcssContainerQueries],
 }

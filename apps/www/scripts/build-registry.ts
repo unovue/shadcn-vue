@@ -4,13 +4,13 @@ import type {
 } from 'shadcn-vue/schema'
 import type { z } from 'zod'
 import { existsSync, promises as fs } from 'node:fs'
+import eol from 'eol'
 import { template } from 'es-toolkit/compat'
 import path from 'pathe'
 import { rimraf } from 'rimraf'
 import {
   registryItemSchema,
 } from 'shadcn-vue/schema'
-
 import { registry } from '../src/registry'
 import { buildRegistryV4 as crawlContent } from '../src/registry/crawl-content'
 import { baseColors, baseColorsV4 } from '../src/registry/registry-base-colors'
@@ -538,7 +538,7 @@ async function buildStyles(registryItems: RegistryItem[]) {
               path: file.path,
               type: file.type,
               // content: sourceFile.getText(),
-              content,
+              content: eol.lf(content),
               target,
             }
           }),

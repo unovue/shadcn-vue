@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { LoaderIcon } from "lucide-vue-next"
 import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@/registry/new-york/ui/input-group"
 import { Spinner } from "@/registry/new-york/ui/spinner"

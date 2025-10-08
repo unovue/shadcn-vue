@@ -6,7 +6,7 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from "@/registry/default/ui/item"
+} from "@/registry/new-york/ui/item"
 
 const music = [
   {

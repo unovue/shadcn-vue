@@ -43,6 +43,12 @@ import {
 </template>
 ```
 
+## Item vs Field
+
+Use `Field` if you need to display a form input such as a checkbox, input, radio, or select.
+
+If you only need to display content such as a title, description, and actions, use `Item`.
+
 ## Examples
 
 ### Variants

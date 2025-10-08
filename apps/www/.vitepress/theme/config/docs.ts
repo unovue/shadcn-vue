@@ -272,6 +272,11 @@ export const docsConfig: DocsConfig = {
           label: 'New',
         },
         {
+          title: 'Field',
+          href: '/docs/components/field',
+          label: 'New',
+        },
+        {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
         },

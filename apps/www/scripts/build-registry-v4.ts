@@ -1,13 +1,13 @@
 import type { RegistryItem, registryItemTypeSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
 import { existsSync, promises as fs } from 'node:fs'
+import eol from 'eol'
 import path from 'pathe'
 import { rimraf } from 'rimraf'
 import {
   registryItemSchema,
   registrySchema,
 } from 'shadcn-vue/schema'
-
 import { registry } from '../src/registry'
 import { buildRegistryV4 as crawlContent } from '../src/registry/crawl-content'
 import { styles } from '../src/registry/registry-styles'
@@ -175,7 +175,7 @@ async function buildStyles(registryItems: RegistryItem[]) {
             path: file.path,
             type: file.type,
             // replace all reference of `new-york-v4` because it's styling in component is `new-york`
-            content: content.replaceAll('/new-york-v4/', '/new-york/'),
+            content: eol.lf(content.replaceAll('/new-york-v4/', '/new-york/')),
             target,
           }
         }),

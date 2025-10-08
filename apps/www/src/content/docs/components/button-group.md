@@ -120,6 +120,12 @@ Wrap an `Input` component with buttons.
 
 <ComponentPreview name="ButtonGroupWithInputDemo" />
 
+### Input Group
+
+Wrap an `InputGroup` component to create complex input layouts.
+
+<ComponentPreview name="ButtonGroupInputGroupDemo" />
+
 ### Dropdown Menu
 
 Create a split button group with a `DropdownMenu` component.
