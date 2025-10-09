@@ -8,6 +8,12 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/toast/index.ts",
+      "content": "import type { ToastRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\n\nexport { default as Toast } from \"./Toast.vue\"\nexport { default as ToastAction } from \"./ToastAction.vue\"\nexport { default as ToastClose } from \"./ToastClose.vue\"\nexport { default as ToastDescription } from \"./ToastDescription.vue\"\nexport { default as Toaster } from \"./Toaster.vue\"\nexport { default as ToastProvider } from \"./ToastProvider.vue\"\nexport { default as ToastTitle } from \"./ToastTitle.vue\"\nexport { default as ToastViewport } from \"./ToastViewport.vue\"\nexport { toast, useToast } from \"./use-toast\"\n\nimport type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport const toastVariants = cva(\n  \"group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[--reka-toast-swipe-end-x] data-[swipe=move]:translate-x-[--reka-toast-swipe-move-x] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full\",\n  {\n    variants: {\n      variant: {\n        default: \"border bg-background text-foreground\",\n        destructive:\n                    \"destructive group border-destructive bg-destructive text-destructive-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  },\n)\n\ntype ToastVariants = VariantProps<typeof toastVariants>\n\nexport interface ToastProps extends ToastRootProps {\n  class?: HTMLAttributes[\"class\"]\n  variant?: ToastVariants[\"variant\"]\n  onOpenChange?: ((value: boolean) => void) | undefined\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/toast/Toast.vue",
       "content": "<script setup lang=\"ts\">\nimport type { ToastRootEmits } from \"reka-ui\"\nimport type { ToastProps } from \".\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { ToastRoot, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\nimport { toastVariants } from \".\"\n\nconst props = defineProps<ToastProps>()\n\nconst emits = defineEmits<ToastRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <ToastRoot\n    v-bind=\"forwarded\"\n    :class=\"cn(toastVariants({ variant }), props.class)\"\n    @update:open=\"onOpenChange\"\n  >\n    <slot />\n  </ToastRoot>\n</template>\n",
       "type": "registry:ui",
@@ -32,6 +38,12 @@
       "target": ""
     },
     {
+      "path": "ui/toast/Toaster.vue",
+      "content": "<script setup lang=\"ts\">\nimport { isVNode } from \"vue\"\nimport { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from \".\"\nimport { useToast } from \"./use-toast\"\n\nconst { toasts } = useToast()\n</script>\n\n<template>\n  <ToastProvider>\n    <Toast v-for=\"toast in toasts\" :key=\"toast.id\" v-bind=\"toast\">\n      <div class=\"grid gap-1\">\n        <ToastTitle v-if=\"toast.title\">\n          {{ toast.title }}\n        </ToastTitle>\n        <template v-if=\"toast.description\">\n          <ToastDescription v-if=\"isVNode(toast.description)\">\n            <component :is=\"toast.description\" />\n          </ToastDescription>\n          <ToastDescription v-else>\n            {{ toast.description }}\n          </ToastDescription>\n        </template>\n        <ToastClose />\n      </div>\n      <component :is=\"toast.action\" />\n    </Toast>\n    <ToastViewport />\n  </ToastProvider>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/toast/ToastProvider.vue",
       "content": "<script setup lang=\"ts\">\nimport type { ToastProviderProps } from \"reka-ui\"\nimport { ToastProvider } from \"reka-ui\"\n\nconst props = defineProps<ToastProviderProps>()\n</script>\n\n<template>\n  <ToastProvider v-bind=\"props\">\n    <slot />\n  </ToastProvider>\n</template>\n",
       "type": "registry:ui",
@@ -46,18 +58,6 @@
     {
       "path": "ui/toast/ToastViewport.vue",
       "content": "<script setup lang=\"ts\">\nimport type { ToastViewportProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { ToastViewport } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<ToastViewportProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n</script>\n\n<template>\n  <ToastViewport v-bind=\"delegatedProps\" :class=\"cn('fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]', props.class)\" />\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/toast/Toaster.vue",
-      "content": "<script setup lang=\"ts\">\nimport { isVNode } from \"vue\"\nimport { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from \".\"\nimport { useToast } from \"./use-toast\"\n\nconst { toasts } = useToast()\n</script>\n\n<template>\n  <ToastProvider>\n    <Toast v-for=\"toast in toasts\" :key=\"toast.id\" v-bind=\"toast\">\n      <div class=\"grid gap-1\">\n        <ToastTitle v-if=\"toast.title\">\n          {{ toast.title }}\n        </ToastTitle>\n        <template v-if=\"toast.description\">\n          <ToastDescription v-if=\"isVNode(toast.description)\">\n            <component :is=\"toast.description\" />\n          </ToastDescription>\n          <ToastDescription v-else>\n            {{ toast.description }}\n          </ToastDescription>\n        </template>\n        <ToastClose />\n      </div>\n      <component :is=\"toast.action\" />\n    </Toast>\n    <ToastViewport />\n  </ToastProvider>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/toast/index.ts",
-      "content": "import type { ToastRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\n\nexport { default as Toast } from \"./Toast.vue\"\nexport { default as ToastAction } from \"./ToastAction.vue\"\nexport { default as ToastClose } from \"./ToastClose.vue\"\nexport { default as ToastDescription } from \"./ToastDescription.vue\"\nexport { default as Toaster } from \"./Toaster.vue\"\nexport { default as ToastProvider } from \"./ToastProvider.vue\"\nexport { default as ToastTitle } from \"./ToastTitle.vue\"\nexport { default as ToastViewport } from \"./ToastViewport.vue\"\nexport { toast, useToast } from \"./use-toast\"\n\nimport type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport const toastVariants = cva(\n  \"group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[--reka-toast-swipe-end-x] data-[swipe=move]:translate-x-[--reka-toast-swipe-move-x] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full\",\n  {\n    variants: {\n      variant: {\n        default: \"border bg-background text-foreground\",\n        destructive:\n                    \"destructive group border-destructive bg-destructive text-destructive-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  },\n)\n\ntype ToastVariants = VariantProps<typeof toastVariants>\n\nexport interface ToastProps extends ToastRootProps {\n  class?: HTMLAttributes[\"class\"]\n  variant?: ToastVariants[\"variant\"]\n  onOpenChange?: ((value: boolean) => void) | undefined\n}\n",
       "type": "registry:ui",
       "target": ""
     },

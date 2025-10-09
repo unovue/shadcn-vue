@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Spinner } from "@/registry/default/ui/spinner"
+import { Spinner } from "@/registry/new-york/ui/spinner"
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { InfoIcon } from "lucide-vue-next"
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/registry/new-york/ui/input-group"
 import { Label } from "@/registry/new-york/ui/label"

@@ -8,6 +8,12 @@
   "registryDependencies": [],
   "files": [
     {
+      "path": "ui/sheet/index.ts",
+      "content": "import type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport { default as Sheet } from \"./Sheet.vue\"\nexport { default as SheetClose } from \"./SheetClose.vue\"\nexport { default as SheetContent } from \"./SheetContent.vue\"\nexport { default as SheetDescription } from \"./SheetDescription.vue\"\nexport { default as SheetFooter } from \"./SheetFooter.vue\"\nexport { default as SheetHeader } from \"./SheetHeader.vue\"\nexport { default as SheetTitle } from \"./SheetTitle.vue\"\nexport { default as SheetTrigger } from \"./SheetTrigger.vue\"\n\nexport const sheetVariants = cva(\n  \"fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500\",\n  {\n    variants: {\n      side: {\n        top: \"inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top\",\n        bottom:\n            \"inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom\",\n        left: \"inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm\",\n        right:\n            \"inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm\",\n      },\n    },\n    defaultVariants: {\n      side: \"right\",\n    },\n  },\n)\n\nexport type SheetVariants = VariantProps<typeof sheetVariants>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
       "path": "ui/sheet/Sheet.vue",
       "content": "<script setup lang=\"ts\">\nimport type { DialogRootEmits, DialogRootProps } from \"reka-ui\"\nimport { DialogRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<DialogRootProps>()\nconst emits = defineEmits<DialogRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DialogRoot v-bind=\"forwarded\">\n    <slot />\n  </DialogRoot>\n</template>\n",
       "type": "registry:ui",
@@ -52,12 +58,6 @@
     {
       "path": "ui/sheet/SheetTrigger.vue",
       "content": "<script setup lang=\"ts\">\nimport type { DialogTriggerProps } from \"reka-ui\"\nimport { DialogTrigger } from \"reka-ui\"\n\nconst props = defineProps<DialogTriggerProps>()\n</script>\n\n<template>\n  <DialogTrigger v-bind=\"props\">\n    <slot />\n  </DialogTrigger>\n</template>\n",
-      "type": "registry:ui",
-      "target": ""
-    },
-    {
-      "path": "ui/sheet/index.ts",
-      "content": "import type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport { default as Sheet } from \"./Sheet.vue\"\nexport { default as SheetClose } from \"./SheetClose.vue\"\nexport { default as SheetContent } from \"./SheetContent.vue\"\nexport { default as SheetDescription } from \"./SheetDescription.vue\"\nexport { default as SheetFooter } from \"./SheetFooter.vue\"\nexport { default as SheetHeader } from \"./SheetHeader.vue\"\nexport { default as SheetTitle } from \"./SheetTitle.vue\"\nexport { default as SheetTrigger } from \"./SheetTrigger.vue\"\n\nexport const sheetVariants = cva(\n  \"fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500\",\n  {\n    variants: {\n      side: {\n        top: \"inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top\",\n        bottom:\n            \"inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom\",\n        left: \"inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm\",\n        right:\n            \"inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm\",\n      },\n    },\n    defaultVariants: {\n      side: \"right\",\n    },\n  },\n)\n\nexport type SheetVariants = VariantProps<typeof sheetVariants>\n",
       "type": "registry:ui",
       "target": ""
     }

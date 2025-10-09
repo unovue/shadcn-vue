@@ -272,6 +272,11 @@ export const docsConfig: DocsConfig = {
           label: 'New',
         },
         {
+          title: 'Field',
+          href: '/docs/components/field',
+          label: 'New',
+        },
+        {
           title: 'Dropdown Menu',
           href: '/docs/components/dropdown-menu',
         },
@@ -290,6 +295,11 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Input Group',
           href: '/docs/components/input-group',
+          label: 'New',
+        },
+        {
+          title: 'Item',
+          href: '/docs/components/item',
           label: 'New',
         },
         {

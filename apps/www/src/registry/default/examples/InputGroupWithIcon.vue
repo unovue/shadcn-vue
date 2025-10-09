@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { CheckIcon, CreditCardIcon, InfoIcon, MailIcon, SearchIcon, StarIcon } from "lucide-vue-next"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/registry/default/ui/input-group"
 </script>

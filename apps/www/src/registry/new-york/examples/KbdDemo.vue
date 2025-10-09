@@ -1,4 +1,4 @@
-<script lang='ts' setup>
+<script setup lang="ts">
 import { Kbd, KbdGroup } from "@/registry/new-york/ui/kbd"
 </script>
 

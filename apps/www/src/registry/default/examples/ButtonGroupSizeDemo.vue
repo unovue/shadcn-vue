@@ -16,7 +16,7 @@ import { ButtonGroup } from "@/registry/default/ui/button-group"
       <Button variant="outline" size="sm">
         Group
       </Button>
-      <Button variant="outline" size="icon">
+      <Button variant="outline" size="icon-sm">
         <PlusIcon />
       </Button>
     </ButtonGroup>
@@ -44,7 +44,7 @@ import { ButtonGroup } from "@/registry/default/ui/button-group"
       <Button variant="outline" size="lg">
         Group
       </Button>
-      <Button variant="outline" size="icon">
+      <Button variant="outline" size="icon-lg">
         <PlusIcon />
       </Button>
     </ButtonGroup>
