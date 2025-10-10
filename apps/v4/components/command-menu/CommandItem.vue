@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import type { ListboxItemProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
-import { reactiveOmit } from '@vueuse/core'
+import { reactiveOmit, useMutationObserver } from '@vueuse/core'
 import { useForwardPropsEmits } from 'reka-ui'
-import { useMutationObserver } from '@/composables/useMutationObserver'
 import { cn } from '@/lib/utils'
 import { CommandItem } from '@/registry/new-york-v4/ui/command'
 
@@ -30,6 +29,11 @@ useMutationObserver(itemRef, (mutations) => {
       emits('highlight')
     }
   })
+}, {
+  attributes: true,
+  characterData: true,
+  childList: true,
+  subtree: true,
 })
 </script>
 
@@ -37,7 +41,7 @@ useMutationObserver(itemRef, (mutations) => {
   <CommandItem
     v-bind="forwarded"
     ref="itemRef"
-    :class="cn('data-[selected=true]:border-input data-[selected=true]:bg-input/50 h-9 rounded-md border border-transparent !px-3 font-medium', props.class)"
+    :class="cn('data-[highlighted]:border-input data-[selected=true]:border-input data-[selected=true]:bg-input/50 data-[highlighted]:bg-input/50  h-9 rounded-md border border-transparent !px-3 font-medium', props.class)"
   >
     <slot />
   </CommandItem>

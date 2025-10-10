@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Color, ColorPalette } from '@/lib/colors'
+import type { NavigationItem } from '~/composables/useNavigation'
 import { IconArrowRight } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
 import { CornerDownLeft, Square } from 'lucide-vue-next'
@@ -108,7 +109,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Dialog :open="open" @update:open="open = $event">
+  <Dialog v-model:open="open">
     <DialogTrigger as-child>
       <Button
         variant="secondary"
@@ -129,12 +130,14 @@ onMounted(() => {
     </DialogTrigger>
     <DialogContent
       class="rounded-xl border-none bg-clip-padding p-2 pb-11 shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800"
+      :show-close-button="false"
     >
       <DialogHeader class="sr-only">
         <DialogTitle>Search documentation...</DialogTitle>
         <DialogDescription>Search for a command to run...</DialogDescription>
       </DialogHeader>
       <Command
+        highlight-on-hover
         class="**:data-[slot=command-input-wrapper]:bg-input/50 **:data-[slot=command-input-wrapper]:border-input rounded-none bg-transparent **:data-[slot=command-input]:!h-9 **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:!h-9 **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border"
         :filter="(value: string, search: string, keywords?: string[]) => {
           const extendValue = `${value} ${keywords?.join(' ') || ''}`
@@ -152,7 +155,7 @@ onMounted(() => {
           <CommandGroup
             v-if="navItems && navItems.length > 0"
             heading="Pages"
-            class="!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1"
+            class="!p-0 [&_[data-slot=command-group-heading]]:scroll-mt-16 [&_[data-slot=command-group-heading]]:!p-3 [&_[data-slot=command-group-heading]]:!pb-1"
           >
             <CommandMenuItem
               v-for="item in navItems"
@@ -172,7 +175,7 @@ onMounted(() => {
             v-for="group in tree.children"
             :key="group.title"
             :heading="group.title"
-            class="!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1"
+            class="!p-0 [&_[data-slot=command-group-heading]]:scroll-mt-16 [&_[data-slot=command-group-heading]]:!p-3 [&_[data-slot=command-group-heading]]:!pb-1"
           >
             <template v-if="group.type === 'group'">
               <CommandMenuItem
@@ -193,7 +196,7 @@ onMounted(() => {
             v-for="colorPalette in colors"
             :key="colorPalette.name"
             :heading="colorPalette.name.charAt(0).toUpperCase() + colorPalette.name.slice(1)"
-            class="!p-0 [&_[cmdk-group-heading]]:!p-3"
+            class="!p-0 [&_[data-slot=command-group-heading]]:!p-3"
           >
             <CommandMenuItem
               v-for="color in colorPalette.colors"
@@ -216,7 +219,7 @@ onMounted(() => {
           <CommandGroup
             v-if="blocks?.length"
             heading="Blocks"
-            class="!p-0 [&_[cmdk-group-heading]]:!p-3"
+            class="!p-0 [&_[data-slot=command-group-heading]]:!p-3"
           >
             <CommandMenuItem
               v-for="block in blocks"
