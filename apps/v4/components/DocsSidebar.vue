@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/registry/new-york-v4/ui/sidebar'
+import { PAGES_NEW } from '~/lib/docs'
 
 defineProps<{
   tree: ContentNavigationItem
@@ -39,7 +40,9 @@ const { path } = toRefs(useRoute())
                   class="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
                 >
                   <NuxtLink :to="childItem.path">
+                    <span class="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
                     {{ childItem.title }}
+                    <span v-if="PAGES_NEW.includes(childItem.path)" className="flex size-2 rounded-full bg-blue-500" />
                   </NuxtLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
