@@ -1,0 +1,19 @@
+{
+  "name": "ItemDropdownDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "dropdown-menu",
+    "item"
+  ],
+  "files": [
+    {
+      "path": "examples/ItemDropdownDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ChevronDownIcon } from \"lucide-vue-next\"\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/new-york/ui/avatar\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/registry/new-york/ui/dropdown-menu\"\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/new-york/ui/item\"\n\nconst people = [\n  {\n    username: \"shadcn\",\n    avatar: \"https://github.com/shadcn.png\",\n    email: \"shadcn@vercel.com\",\n  },\n  {\n    username: \"maxleiter\",\n    avatar: \"https://github.com/maxleiter.png\",\n    email: \"maxleiter@vercel.com\",\n  },\n  {\n    username: \"evilrabbit\",\n    avatar: \"https://github.com/evilrabbit.png\",\n    email: \"evilrabbit@vercel.com\",\n  },\n]\n</script>\n\n<template>\n  <div class=\"flex min-h-64 w-full max-w-md flex-col items-center gap-6\">\n    <DropdownMenu>\n      <DropdownMenuTrigger as-child>\n        <Button variant=\"outline\" size=\"sm\" class=\"w-fit\">\n          Select <ChevronDownIcon />\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent class=\"w-72 [--radius:0.65rem]\" align=\"end\">\n        <DropdownMenuItem v-for=\"person in people\" :key=\"person.username\" class=\"p-0\">\n          <Item size=\"sm\" class=\"w-full p-2\">\n            <ItemMedia>\n              <Avatar class=\"size-8\">\n                <AvatarImage :src=\"person.avatar\" class=\"grayscale\" />\n                <AvatarFallback>{{ person.username.charAt(0) }}</AvatarFallback>\n              </Avatar>\n            </ItemMedia>\n            <ItemContent class=\"gap-0.5\">\n              <ItemTitle>{{ person.username }}</ItemTitle>\n              <ItemDescription>{{ person.email }}</ItemDescription>\n            </ItemContent>\n          </Item>\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

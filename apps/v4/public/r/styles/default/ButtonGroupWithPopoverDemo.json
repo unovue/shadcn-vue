@@ -1,0 +1,20 @@
+{
+  "name": "ButtonGroupWithPopoverDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "popover",
+    "separator",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupWithPopoverDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { BotIcon, ChevronDownIcon } from \"lucide-vue-next\"\n\nimport { Button } from \"@/registry/default/ui/button\"\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\"\nimport {\n  Popover,\n  PopoverContent,\n  PopoverTrigger,\n} from \"@/registry/default/ui/popover\"\nimport { Separator } from \"@/registry/default/ui/separator\"\nimport { Textarea } from \"@/registry/default/ui/textarea\"\n</script>\n\n<template>\n  <ButtonGroup>\n    <Button variant=\"outline\">\n      <BotIcon /> Copilot\n    </Button>\n    <Popover>\n      <PopoverTrigger as-child>\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Open Popover\">\n          <ChevronDownIcon />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent align=\"end\" class=\"p-0 text-sm rounded-xl\">\n        <div class=\"px-4 py-3\">\n          <div class=\"text-sm font-medium\">\n            Agent Tasks\n          </div>\n        </div>\n        <Separator />\n        <div class=\"p-4 text-sm *:[p:not(:last-child)]:mb-2\">\n          <Textarea\n            placeholder=\"Describe your task in natural language.\"\n            class=\"mb-4 resize-none\"\n          />\n          <p class=\"font-medium\">\n            Start a new task with Copilot\n          </p>\n          <p class=\"text-muted-foreground\">\n            Describe your task in natural language. Copilot will work in the\n            background and open a pull request for your review.\n          </p>\n        </div>\n      </PopoverContent>\n    </Popover>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

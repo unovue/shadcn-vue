@@ -1,0 +1,17 @@
+{
+  "name": "SpinnerDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "examples/SpinnerDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { Spinner } from \"@/registry/new-york/ui/spinner\"\n</script>\n\n<template>\n  <Button disabled>\n    <Spinner />\n    Processing Payment\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

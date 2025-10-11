@@ -2,14 +2,14 @@ import type { Registry } from "shadcn-vue/schema"
 import { registryItemSchema } from "shadcn-vue/schema"
 import { z } from "zod"
 
-import { blocks } from "./registry-blocks"
-import { charts } from "./registry-charts"
-import { composables } from "./registry-composables"
-import { examples } from "./registry-examples"
-import { internal } from "./registry-internal"
-import { lib } from "./registry-lib"
-import { themes } from "./registry-themes"
-import { ui } from "./registry-ui"
+import { blocks } from "@/registry/registry-blocks"
+import { charts } from "@/registry/registry-charts"
+import { composables } from "@/registry/registry-composables"
+import { examples } from "@/registry/registry-examples"
+import { internal } from "@/registry/registry-internal"
+import { lib } from "@/registry/registry-lib"
+import { themes } from "@/registry/registry-themes"
+import { ui } from "@/registry/registry-ui"
 
 const DEPRECATED_ITEMS = [
   "toast",
@@ -20,8 +20,8 @@ const DEPRECATED_ITEMS = [
   "toast-with-title",
 ]
 
-// Shared style configuration similar to shadcn-ui's NEW_YORK_V4_STYLE
-const DEFAULT_V4_STYLE = {
+// Shared between index and style for backward compatibility.
+const NEW_YORK_V4_STYLE = {
   type: "registry:style",
   dependencies: ["class-variance-authority", "lucide-vue-next"],
   devDependencies: ["tw-animate-css"],
@@ -37,11 +37,11 @@ export const registry = {
     [
       {
         name: "index",
-        ...DEFAULT_V4_STYLE,
+        ...NEW_YORK_V4_STYLE,
       },
       {
         name: "style",
-        ...DEFAULT_V4_STYLE,
+        ...NEW_YORK_V4_STYLE,
       },
       ...ui,
       ...blocks,
@@ -62,7 +62,8 @@ export const registry = {
         }
 
         if (item.name === "accordion" && "tailwind" in item) {
-          delete item.tailwind
+          // we are not deleting tailwind meta
+          // delete item.tailwind
         }
 
         return item

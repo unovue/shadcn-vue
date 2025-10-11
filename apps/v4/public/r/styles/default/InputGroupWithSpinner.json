@@ -1,0 +1,17 @@
+{
+  "name": "InputGroupWithSpinner",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "input-group",
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "examples/InputGroupWithSpinner.vue",
+      "content": "<script setup lang=\"ts\">\nimport { LoaderIcon } from \"lucide-vue-next\"\nimport { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from \"@/registry/default/ui/input-group\"\nimport { Spinner } from \"@/registry/default/ui/spinner\"\n</script>\n\n<template>\n  <div class=\"grid w-full max-w-sm gap-4\">\n    <InputGroup data-disabled>\n      <InputGroupInput placeholder=\"Searching...\" disabled />\n      <InputGroupAddon align=\"inline-end\">\n        <Spinner />\n      </InputGroupAddon>\n    </InputGroup>\n    <InputGroup data-disabled>\n      <InputGroupInput placeholder=\"Processing...\" disabled />\n      <InputGroupAddon>\n        <Spinner />\n      </InputGroupAddon>\n    </InputGroup>\n    <InputGroup data-disabled>\n      <InputGroupInput placeholder=\"Saving changes...\" disabled />\n      <InputGroupAddon align=\"inline-end\">\n        <InputGroupText>Saving...</InputGroupText>\n        <Spinner />\n      </InputGroupAddon>\n    </InputGroup>\n    <InputGroup data-disabled>\n      <InputGroupInput placeholder=\"Refreshing data...\" disabled />\n      <InputGroupAddon>\n        <LoaderIcon class=\"animate-spin\" />\n      </InputGroupAddon>\n      <InputGroupAddon align=\"inline-end\">\n        <InputGroupText class=\"text-muted-foreground\">\n          Please wait...\n        </InputGroupText>\n      </InputGroupAddon>\n    </InputGroup>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

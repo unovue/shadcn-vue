@@ -13,8 +13,7 @@
     "pnpm": ">=9.6.0"
   },
   "scripts": {
-    "dev": "pnpm --filter www dev",
-    "build": "pnpm --filter www build",
+    "dev": "pnpm --filter v4 dev",
     "build:v4": "pnpm --filter v4 build",
     "preview": "pnpm --filter www preview",
     "prepare": "pnpm simple-git-hooks && pnpm --filter shadcn-vue build",
@@ -22,11 +21,10 @@
     "lint:fix": "eslint . --fix",
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "dev:nuxt": "pnpm --filter shadcn-nuxt dev",
-    "dev:v4": "pnpm --filter v4 dev",
     "start:cli": "pnpm --filter shadcn-vue start:dev",
     "build:cli": "pnpm --filter shadcn-vue build",
-    "build:registryV4": "pnpm --filter=www build:registryV4",
-    "build:registry": "pnpm --filter=www build:registry && pnpm --filter=www build:registryV4",
+    "registry:build-only": "pnpm --filter=v4 registry:build",
+    "registry:build": "pnpm --filter=v4 registry:build && pnpm lint:fix",
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",

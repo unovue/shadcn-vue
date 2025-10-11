@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "vue-tsc -b",
-    "deploy": "pnpm build && npx wrangler --cwd .output/ deploy"
+    "deploy": "pnpm build && npx wrangler --cwd .output/ deploy",
+    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts"
   },
   "dependencies": {
     "@dnd-kit/abstract": "^0.1.21",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
     "nuxt-shiki": "^0.3.1",
+    "rimraf": "^6.0.1",
     "shiki": "^3.13.0",
     "vue-tsc": "catalog:"
   }

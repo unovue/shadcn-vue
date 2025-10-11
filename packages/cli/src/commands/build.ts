@@ -1,6 +1,6 @@
-import fs from 'node:fs/promises'
+import * as fs from 'node:fs/promises'
+import * as path from 'node:path'
 import { Command } from 'commander'
-import path from 'pathe'
 import { z } from 'zod'
 import { preFlightBuild } from '@/src/preflights/preflight-build'
 import { registryItemSchema, registrySchema } from '@/src/schema'
@@ -17,7 +17,7 @@ export const buildOptionsSchema = z.object({
 
 export const build = new Command()
   .name('build')
-  .description('build components for a shadcn registry')
+  .description('build components for a shadcn-vue registry')
   .argument('[registry]', 'path to registry.json file', './registry.json')
   .option(
     '-o, --output <path>',

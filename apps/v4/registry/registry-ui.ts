@@ -4,7 +4,7 @@ export const ui: Registry["items"] = [
   {
     name: "accordion",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/accordion/Accordion.vue",
@@ -75,7 +75,7 @@ export const ui: Registry["items"] = [
   {
     name: "alert-dialog",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     registryDependencies: ["button"],
     files: [
       {
@@ -138,7 +138,7 @@ export const ui: Registry["items"] = [
   {
     name: "avatar",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/avatar/Avatar.vue",
@@ -161,6 +161,7 @@ export const ui: Registry["items"] = [
   {
     name: "badge",
     type: "registry:ui",
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/badge/Badge.vue",
@@ -175,6 +176,7 @@ export const ui: Registry["items"] = [
   {
     name: "breadcrumb",
     type: "registry:ui",
+    dependencies: ["reka-ui"],
     files: [
       {
         path: "ui/breadcrumb/Breadcrumb.vue",
@@ -213,6 +215,7 @@ export const ui: Registry["items"] = [
   {
     name: "button",
     type: "registry:ui",
+    dependencies: ["reka-ui"],
     files: [
       {
         path: "ui/button/Button.vue",
@@ -227,7 +230,7 @@ export const ui: Registry["items"] = [
   {
     name: "calendar",
     type: "registry:ui",
-    dependencies: ["reka-ui", "@internationalized/date", "date-fns"],
+    dependencies: ["reka-ui", "@internationalized/date", "date-fns", "@vueuse/core"],
     registryDependencies: ["button"],
     files: [
       {
@@ -363,125 +366,9 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "chart",
-    type: "registry:ui",
-    dependencies: ["@unovis/vue", "@unovis/ts", "lucide-vue-next"],
-    registryDependencies: ["card"],
-    files: [
-      {
-        path: "ui/chart/ChartContainer.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartCrosshair.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartLegend.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartLegendContent.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartSingleTooltip.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartStyle.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartTooltip.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartTooltipContent.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/ChartTooltipLabel.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/index.ts",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/interface.ts",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart/utils.ts",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "chart-area",
-    type: "registry:ui",
-    registryDependencies: ["chart"],
-    files: [
-      {
-        path: "ui/chart-area/AreaChart.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart-area/index.ts",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "chart-bar",
-    type: "registry:ui",
-    registryDependencies: ["chart"],
-    files: [
-      {
-        path: "ui/chart-bar/BarChart.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart-bar/index.ts",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "chart-donut",
-    type: "registry:ui",
-    registryDependencies: ["chart"],
-    files: [
-      {
-        path: "ui/chart-donut/DonutChart.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart-donut/index.ts",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "chart-line",
-    type: "registry:ui",
-    registryDependencies: ["chart"],
-    files: [
-      {
-        path: "ui/chart-line/LineChart.vue",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/chart-line/index.ts",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "checkbox",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/checkbox/Checkbox.vue",
@@ -496,7 +383,7 @@ export const ui: Registry["items"] = [
   {
     name: "collapsible",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/collapsible/Collapsible.vue",
@@ -519,7 +406,7 @@ export const ui: Registry["items"] = [
   {
     name: "combobox",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/combobox/Combobox.vue",
@@ -574,6 +461,7 @@ export const ui: Registry["items"] = [
   {
     name: "command",
     type: "registry:ui",
+    dependencies: ["reka-ui", "@vueuse/core"],
     registryDependencies: ["dialog"],
     files: [
       {
@@ -621,7 +509,7 @@ export const ui: Registry["items"] = [
   {
     name: "context-menu",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/context-menu/ContextMenu.vue",
@@ -692,7 +580,7 @@ export const ui: Registry["items"] = [
   {
     name: "dialog",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/dialog/Dialog.vue",
@@ -790,7 +678,7 @@ export const ui: Registry["items"] = [
   {
     name: "dropdown-menu",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/dropdown-menu/DropdownMenu.vue",
@@ -897,7 +785,7 @@ export const ui: Registry["items"] = [
   {
     name: "hover-card",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/hover-card/HoverCard.vue",
@@ -920,6 +808,7 @@ export const ui: Registry["items"] = [
   {
     name: "input",
     type: "registry:ui",
+    dependencies: ["@vueuse/core"],
     files: [
       {
         path: "ui/input/Input.vue",
@@ -949,7 +838,7 @@ export const ui: Registry["items"] = [
   {
     name: "menubar",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/menubar/Menubar.vue",
@@ -1020,7 +909,7 @@ export const ui: Registry["items"] = [
   {
     name: "navigation-menu",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/navigation-menu/NavigationMenu.vue",
@@ -1063,7 +952,7 @@ export const ui: Registry["items"] = [
   {
     name: "number-field",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/number-field/NumberField.vue",
@@ -1094,6 +983,7 @@ export const ui: Registry["items"] = [
   {
     name: "pagination",
     type: "registry:ui",
+    dependencies: ["reka-ui", "@vueuse/core"],
     registryDependencies: ["button"],
     files: [
       {
@@ -1137,7 +1027,7 @@ export const ui: Registry["items"] = [
   {
     name: "pin-input",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/pin-input/PinInput.vue",
@@ -1164,7 +1054,7 @@ export const ui: Registry["items"] = [
   {
     name: "popover",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/popover/Popover.vue",
@@ -1206,7 +1096,7 @@ export const ui: Registry["items"] = [
   {
     name: "radio-group",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/radio-group/RadioGroup.vue",
@@ -1225,7 +1115,7 @@ export const ui: Registry["items"] = [
   {
     name: "range-calendar",
     type: "registry:ui",
-    dependencies: ["reka-ui", "@internationalized/date", "date-fns"],
+    dependencies: ["reka-ui", "@internationalized/date", "date-fns", "@vueuse/core"],
     files: [
       {
         path: "ui/range-calendar/RangeCalendar.vue",
@@ -1307,7 +1197,7 @@ export const ui: Registry["items"] = [
   {
     name: "scroll-area",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/scroll-area/ScrollArea.vue",
@@ -1326,7 +1216,7 @@ export const ui: Registry["items"] = [
   {
     name: "select",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/select/Select.vue",
@@ -1396,7 +1286,7 @@ export const ui: Registry["items"] = [
   {
     name: "sheet",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/sheet/Sheet.vue",
@@ -1443,7 +1333,7 @@ export const ui: Registry["items"] = [
   {
     name: "sidebar",
     type: "registry:ui",
-    dependencies: ["class-variance-authority", "lucide-vue-next"],
+    dependencies: ["class-variance-authority", "reka-ui", "@vueuse/core"],
     registryDependencies: ["button", "separator", "sheet", "tooltip", "input", "skeleton"],
     files: [
       {
@@ -1745,7 +1635,7 @@ export const ui: Registry["items"] = [
   {
     name: "tabs",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/tabs/Tabs.vue",
@@ -1803,6 +1693,7 @@ export const ui: Registry["items"] = [
   {
     name: "textarea",
     type: "registry:ui",
+    dependencies: ["@vueuse/core"],
     files: [
       {
         path: "ui/textarea/Textarea.vue",
@@ -1817,7 +1708,7 @@ export const ui: Registry["items"] = [
   {
     name: "toggle",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/toggle/Toggle.vue",
@@ -1832,7 +1723,7 @@ export const ui: Registry["items"] = [
   {
     name: "toggle-group",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     registryDependencies: ["toggle"],
     files: [
       {
@@ -1852,7 +1743,7 @@ export const ui: Registry["items"] = [
   {
     name: "tooltip",
     type: "registry:ui",
-    dependencies: ["reka-ui"],
+    dependencies: ["reka-ui", "@vueuse/core"],
     files: [
       {
         path: "ui/tooltip/Tooltip.vue",

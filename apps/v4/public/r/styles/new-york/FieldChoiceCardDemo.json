@@ -1,0 +1,17 @@
+{
+  "name": "FieldChoiceCardDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "field",
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "examples/FieldChoiceCardDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldSet,\n  FieldTitle,\n} from \"@/registry/new-york/ui/field\"\nimport {\n  RadioGroup,\n  RadioGroupItem,\n} from \"@/registry/new-york/ui/radio-group\"\n</script>\n\n<template>\n  <div class=\"w-full max-w-md\">\n    <FieldGroup>\n      <FieldSet>\n        <FieldLabel for=\"compute-environment-p8w\">\n          Compute Environment\n        </FieldLabel>\n        <FieldDescription>\n          Select the compute environment for your cluster.\n        </FieldDescription>\n        <RadioGroup default-value=\"kubernetes\">\n          <FieldLabel for=\"kubernetes-r2h\">\n            <Field orientation=\"horizontal\">\n              <FieldContent>\n                <FieldTitle>Kubernetes</FieldTitle>\n                <FieldDescription>\n                  Run GPU workloads on a K8s configured cluster.\n                </FieldDescription>\n              </FieldContent>\n              <RadioGroupItem id=\"kubernetes-r2h\" value=\"kubernetes\" />\n            </Field>\n          </FieldLabel>\n          <FieldLabel for=\"vm-z4k\">\n            <Field orientation=\"horizontal\">\n              <FieldContent>\n                <FieldTitle>Virtual Machine</FieldTitle>\n                <FieldDescription>\n                  Access a VM configured cluster to run GPU workloads.\n                </FieldDescription>\n              </FieldContent>\n              <RadioGroupItem id=\"vm-z4k\" value=\"vm\" />\n            </Field>\n          </FieldLabel>\n        </RadioGroup>\n      </FieldSet>\n    </FieldGroup>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

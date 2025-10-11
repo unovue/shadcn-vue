@@ -26,6 +26,12 @@ export default antfu(
     },
   },
   {
+    files: ['**/__registry__/**/*.ts'],
+    rules: {
+      'ts/ban-ts-comment': 0,
+    },
+  },
+  {
     files: ['**/registry/default/examples/*.vue', '**/registry/new-york/examples/*.vue', '**/registry/new-york-v4/examples/*.vue'],
     rules: {
       'no-alert': 0,

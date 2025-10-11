@@ -8,6 +8,10 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*/" },
+    { "pattern": "packages/*/" }
+  ],
   "eslint.useFlatConfig": true,
   "eslint.rules.customizations": [
     { "rule": "style/*", "severity": "off", "fixable": true },
