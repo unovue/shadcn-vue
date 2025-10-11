@@ -57,7 +57,7 @@ function handleNavigate(path: string) {
     </PopoverTrigger>
 
     <PopoverContent
-      class="bg-background/90 no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur duration-100"
+      class="bg-background/90 no-scrollbar h-(--reka-popper-available-height) w-(--reka-popper-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur duration-100"
       align="start"
       side="bottom"
       :align-offset="-16"

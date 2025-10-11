@@ -536,7 +536,7 @@ Used to render the sidebar footer.
           </DropdownMenuTrigger>
           <DropdownMenuContent
             side="top"
-            class="w-[--radix-popper-anchor-width]"
+            class="w-[--reka-popper-anchor-width]"
           >
             <DropdownMenuItem>
               <span>Account</span>

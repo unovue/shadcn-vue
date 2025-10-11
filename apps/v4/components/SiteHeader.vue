@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { siteConfig } from '@/lib/config'
-// import { source } from '@/lib/source'
-// import { CommandMenu } from "@/components/command-menu"
 // import { GitHubLink } from "@/components/github-link"
 // import { Icons } from "@/components/icons"
 // import { MainNav } from "@/components/main-nav"
@@ -11,9 +9,11 @@ import { siteConfig } from '@/lib/config'
 // import blocks from "@/registry/__blocks__.json"
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
+import { getColors } from '~/lib/colors'
 import { Icons } from './Icons'
 
 const { data } = await useNavigation()
+const docData = computed(() => data.value!.find(i => i.stem === 'docs')!)
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const { data } = await useNavigation()
         <MainNav :items="siteConfig.navItems" class="hidden lg:flex" />
         <div class="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
           <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-            <!-- <CommandMenu tree="{pageTree}" colors="{colors}" /> -->
+            <CommandMenu :tree="docData" :colors="getColors()" :nav-items="siteConfig.navItems" />
           </div>
           <Separator
             orientation="vertical"
