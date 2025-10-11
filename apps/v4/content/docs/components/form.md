@@ -5,11 +5,10 @@ primitive: https://vee-validate.logaretm.com/v4/guide/overview/
 component: true
 ---
 
-::component-preview
----
-name: FormDemo
-description: A form with validation using VeeValidate and Zod
----
+::callout{title="We are not actively developing this component anymore."}
+
+The Form component is an abstraction over the `vee-validate` library. Going forward, we recommend using the [`<Field />`](/docs/components/field) component to build forms. See the [Form](/docs/forms) documentation for more information.
+
 ::
 
 Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.

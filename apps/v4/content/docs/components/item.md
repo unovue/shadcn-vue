@@ -10,7 +10,7 @@ You can pretty much achieve the same result with the `div` element and some clas
 
 ::component-preview
 ---
-name: EmptyDemo
+name: ItemDemo
 class: '[&_.preview]:p-0'
 ---
 ::

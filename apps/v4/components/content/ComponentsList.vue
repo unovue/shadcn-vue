@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { PAGES_NEW } from '~/lib/docs'
+
 const { data } = await useNavigation()
 
 const list = computed(() => data.value?.[0].children.find(item => item.title === 'Components')?.children ?? [])
@@ -10,9 +12,15 @@ const list = computed(() => data.value?.[0].children.find(item => item.title ===
       v-for="component in list"
       :key="component.title"
       :to="component.path"
-      class="text-lg font-medium underline-offset-4 hover:underline md:text-base"
+      class="inline-flex items-center gap-2 text-lg font-medium underline-offset-4 hover:underline md:text-base"
     >
       {{ component.title }}
+
+      <span
+        v-if="PAGES_NEW.includes(component.path)"
+        class="flex size-2 rounded-full bg-blue-500"
+        title="New"
+      />
     </NuxtLink>
   </div>
 </template>

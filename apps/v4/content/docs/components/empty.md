@@ -133,7 +133,7 @@ The main component of the empty state. Wraps the `EmptyHeader` and `EmptyContent
 
 | Prop        | Type     | Default |
 | ----------- | -------- | ------- |
-| `className` | `string` |         |
+| `class` | `string` |         |
 
 ```vue
 <template>
@@ -150,7 +150,7 @@ The `EmptyHeader` component wraps the empty media, title, and description.
 
 | Prop        | Type     | Default |
 | ----------- | -------- | ------- |
-| `className` | `string` |         |
+| `class` | `string` |         |
 
 ```vue
 <template>
@@ -169,7 +169,7 @@ Use the `EmptyMedia` component to display the media of the empty state such as a
 | Prop        | Type                  | Default   |
 | ----------- | --------------------- | --------- |
 | `variant`   | `"default" \| "icon"` | `default` |
-| `className` | `string`              |           |
+| `class` | `string`              |           |
 
 ```vue
 <template>
@@ -196,7 +196,7 @@ Use the `EmptyTitle` component to display the title of the empty state.
 
 | Prop        | Type     | Default |
 | ----------- | -------- | ------- |
-| `className` | `string` |         |
+| `class` | `string` |         |
 
 ```vue
 <template>
@@ -210,7 +210,7 @@ Use the `EmptyDescription` component to display the description of the empty sta
 
 | Prop        | Type     | Default |
 | ----------- | -------- | ------- |
-| `className` | `string` |         |
+| `class` | `string` |         |
 
 ```vue
 <template>
@@ -224,7 +224,7 @@ Use the `EmptyContent` component to display the content of the empty state such 
 
 | Prop        | Type     | Default |
 | ----------- | -------- | ------- |
-| `className` | `string` |         |
+| `class` | `string` |         |
 
 ```vue
 <template>

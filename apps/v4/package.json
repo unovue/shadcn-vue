@@ -30,7 +30,7 @@
     "dnd-kit-vue": "^0.0.2",
     "embla-carousel-vue": "^8.6.0",
     "lucide-vue-next": "^0.544.0",
-    "nuxt": "^3.19.2",
+    "nuxt": "^3.19.3",
     "reka-ui": "catalog:",
     "shadcn-vue": "workspace:*",
     "tailwind-merge": "^3.3.1",

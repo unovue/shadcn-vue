@@ -19,7 +19,7 @@ const props = defineProps<{
 <template>
   <Alert
     :class="cn(
-      'bg-surface text-surface-foreground mt-6 w-auto border-none md:-mx-1',
+      'bg-background text-foreground mt-6 w-auto border md:-mx-1',
       props.class,
     )"
     :variant
