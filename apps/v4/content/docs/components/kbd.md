@@ -8,10 +8,8 @@ new: true
 ::component-preview
 ---
 name: KbdDemo
-class: '[&_.preview]:min-h-[400px]'
 ---
 ::
-
 
 ## Installation
 
@@ -28,7 +26,6 @@ class: '[&_.preview]:min-h-[400px]'
   ::
 
 ::
-
 
 ::tabs-content{value="cli"}
 
@@ -51,8 +48,97 @@ npx shadcn-vue@latest add kbd
     ::step
     Copy and paste the GitHub source code into your project.
     ::
+
+    ::step
+    Update the import paths to match your project setup.
+    ::
   ::
 ::
 
 ::
 
+## Usage
+
+
+```vue 
+import { Kbd } from "@/components/ui/kbd"
+</script>
+
+<template>
+  <Kbd>Ctrl</Kbd>
+</template>
+```
+
+## Examples
+
+### Group
+
+Use the `KbdGroup` component to group keyboard keys together.
+
+::component-preview
+---
+name: KbdGroupDemo
+---
+::
+
+### Button
+
+Use the `Kbd` component inside a `Button` component to display a keyboard key inside a button.
+
+::component-preview
+---
+name: KbdWithButton
+---
+::
+
+### Tooltip
+
+You can use the `Kbd` component inside a `Tooltip` component to display a tooltip with a keyboard key.
+
+::component-preview
+---
+name: KbdWithTooltip
+---
+::
+
+### Input Group
+
+You can use the `Kbd` component inside a `InputGroupAddon` component to display a keyboard key inside an input group.
+
+
+::component-preview
+---
+name: KbdWithInputGroup
+---
+::
+
+## API Reference
+
+### Kbd
+
+Use the `Kbd` component to display a keyboard key.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `class` | `string` | ``      |
+
+```vue
+<Kbd>
+Ctrl
+</Kbd>
+```
+
+### KbdGroup
+
+Use the `KbdGroup` component to group `Kbd` components together.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `class` | `string` | ``      |
+
+```vue
+<KbdGroup>
+  <Kbd>Ctrl</Kbd>
+  <Kbd>B</Kbd>
+</KbdGroup>
+```

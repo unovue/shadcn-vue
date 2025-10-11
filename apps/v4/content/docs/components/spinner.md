@@ -68,9 +68,7 @@ import { Spinner } from '@/components/ui/Spinner'
 </template>
 ```
 
-## Examples
-
-### Customization
+## Customization
 
 You can replace the default spinner icon with any other icon by editing the `Spinner` component.
 
@@ -139,6 +137,17 @@ You can place a spinner inside an empty state.
 ::component-preview
 ---
 name: SpinnerEmptyDemo
+---
+::
+
+### Item
+
+Use the spinner inside `<ItemMedia>` to indicate a loading state.
+
+
+::component-preview
+---
+name: SpinnerItemDemo
 ---
 ::
 
