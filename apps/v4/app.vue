@@ -10,14 +10,7 @@ const useIdFunction = () => useId()
 </script>
 
 <template>
-  <Body
-    class="text-foreground group/body overscroll-none font-sans antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
-    :class="[
-      activeTheme ? `theme-${activeTheme}` : '',
-      isScaled ? 'theme-scaled' : '',
-      isLayoutFull ? 'layout-full' : 'layout-fixed',
-    ]"
-  >
+  <SiteBody>
     <ConfigProvider>
       <NuxtLayout :use-id="useIdFunction">
         <NuxtPage />
@@ -25,5 +18,5 @@ const useIdFunction = () => useId()
     </ConfigProvider>
 
     <Toaster :theme="colorMode.preference as any || 'system'" position="top-center" />
-  </Body>
+  </SiteBody>
 </template>
