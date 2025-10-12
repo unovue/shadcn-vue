@@ -4,7 +4,7 @@
 const EXCLUDED_PARENT_TITLE = ['Components', 'Registry']
 export async function useNavigation() {
   const { data } = await useAsyncData('navigation', () => {
-    return queryCollectionNavigation('content')
+    return queryCollectionNavigation('content', ['new'])
   }, {
     default: () => ([]),
     transform: (data) => {

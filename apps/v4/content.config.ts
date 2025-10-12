@@ -13,6 +13,7 @@ export default defineContentConfig({
           doc: z.string(),
           api: z.string(),
         }),
+        new: z.boolean(),
       }),
     }),
   },

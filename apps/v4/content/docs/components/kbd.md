@@ -2,6 +2,7 @@
 title: Kbd
 description: Used to display textual user input from keyboard.
 component: true
+new: true
 ---
 
 ::component-preview
