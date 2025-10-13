@@ -36,10 +36,10 @@ npm install -D typescript
   npm install tailwindcss @tailwindcss/vite
   ```
 
-  or install `@nuxtjs/tailwindcss@7.0.0-beta.0` or newer
+  or install `@nuxtjs/tailwindcss@7.0.0-beta.1` or newer
 
   ```bash
-  npm install tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.0
+  npm install tailwindcss @nuxtjs/tailwindcss@7.0.0-beta.1
   ```
 
   For Nuxt v4: `app/assets/css/tailwind.css`<br>
@@ -102,117 +102,89 @@ Skipping this step triggers numerous console warnings due to Nuxt's auto-import 
 
   <TabMarkdown title="manual">
 
-  Add the following code to `modules/shadcn.ts`.
+Install the `@types/node`
 
 ```bash
+npm install -D @types/node
+```
+
+Add the following code to `modules/shadcn.ts`.
+
+```ts
+import { readdirSync } from 'node:fs'
+import { join } from 'node:path'
 import {
-  defineNuxtModule,
-  addComponent,
+  addComponentExports,
   addComponentsDir,
-  tryResolveModule,
-} from 'nuxt/kit';
+  createResolver,
+  defineNuxtModule,
+} from 'nuxt/kit'
 
 export interface ShadcnVueOptions {
   /**
    * Prefix for all the imported component
+   * @default "Ui"
    */
-  prefix: string;
+  prefix: string
 
   /**
    * Directory that the component lives in.
-   * @default "~/components/ui"
+   * @default "@/components/ui"
    */
-  componentDir: string;
+  componentDir: string
 }
 
 export default defineNuxtModule<ShadcnVueOptions>({
   defaults: {
     prefix: 'Ui',
-    componentDir: '~/components/ui',
+    componentDir: '@/components/ui',
   },
   meta: {
     name: 'ShadcnVue',
     configKey: 'shadcn',
     version: '0.0.1',
     compatibility: {
-      nuxt: '>=3.9.0',
-      bridge: false,
+      nuxt: '>=3.17.0',
     },
   },
-  async setup({ componentDir, prefix }) {
-    const veeValidate = await tryResolveModule('vee-validate');
-    const vaulVue = await tryResolveModule('vaul-vue');
+  async setup({ componentDir, prefix }, nuxt) {
+    const COMPONENT_DIR_PATH = componentDir!
+    const ROOT_DIR_PATH = nuxt.options.rootDir
+    const { resolve, resolvePath } = createResolver(ROOT_DIR_PATH)
 
-    addComponentsDir(
-      {
-        path: componentDir,
-        extensions: ['.vue'],
-        prefix,
-        pathPrefix: false,
-      },
-      {
-        prepend: true,
-      }
-    );
+    const componentsPath = await resolvePath(COMPONENT_DIR_PATH)
 
-    if (veeValidate !== undefined) {
-      addComponent({
-        filePath: 'vee-validate',
-        export: 'Form',
-        name: `${prefix}Form`,
-        priority: 999,
-      });
+    addComponentsDir({
+      path: componentsPath,
+      extensions: [],
+      ignore: ['**/*'],
+    }, {
+      prepend: true,
+    })
 
-      addComponent({
-        filePath: 'vee-validate',
-        export: 'Field',
-        name: `${prefix}FormField`,
-        priority: 999,
-      });
+    try {
+      await Promise.all(readdirSync(componentsPath).map(async (dir) => {
+        try {
+          const filePath = await resolvePath(join(COMPONENT_DIR_PATH, dir, 'index'), { extensions: ['.ts', '.js'] })
+
+          addComponentExports({
+            prefix,
+            filePath: resolve(filePath),
+            priority: 1,
+          })
+        }
+        catch (err) {
+          if (err instanceof Error)
+            console.warn('Module error: ', err.message)
+        }
+      }))
     }
-
-    if(vaulVue !== undefined) {
-      ['DrawerPortal', 'DrawerTrigger', 'DrawerClose'].forEach((item) => {
-        addComponent({
-          filePath: 'vaul-vue',
-          export: item,
-          name: prefix + item,
-          priority: 999,
-        });
-      })
+    catch (err) {
+      if (err instanceof Error)
+        console.warn(err.message)
     }
-
-    addComponent({
-      filePath: 'reka-ui',
-      export: 'PaginationRoot',
-      name: `${prefix}Pagination`,
-      priority: 999,
-    });
-
-    addComponent({
-      filePath: 'reka-ui',
-      export: 'PaginationList',
-      name: `${prefix}PaginationList`,
-      priority: 999,
-    });
-
-    addComponent({
-      filePath: 'reka-ui',
-      export: 'PaginationListItem',
-      name: `${prefix}PaginationListItem`,
-      priority: 999,
-    });
   },
-});
-
-declare module '@nuxt/schema' {
-  interface NuxtConfig {
-    shadcn?: ShadcnVueOptions;
-  }
-  interface NuxtOptions {
-    shadcn?: ShadcnVueOptions;
-  }
-}
+})
 ```
 
   </TabMarkdown>
