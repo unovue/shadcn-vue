@@ -17,7 +17,7 @@ description: Install and configure Vite.
 Start by creating a new Vue project using `vite`:
 
 ```bash
-npm create vite@latest my-vue-app -- --template vue-ts
+npm create vite@latest my-vue-app --template vue-ts
 ```
 
 ### Add Tailwind CSS
@@ -26,9 +26,9 @@ npm create vite@latest my-vue-app -- --template vue-ts
 npm install tailwindcss @tailwindcss/vite
 ```
 
-Replace everything in `src/index.css` with the following:
+Replace everything in `src/style.css` with the following:
 
-```css title="src/index.css"
+```css title="src/style.css"
 @import "tailwindcss";
 ```
 
@@ -79,11 +79,16 @@ Add the following code to the `tsconfig.app.json` file to resolve paths, for you
 
 ### Update vite.config.ts
 
+<TabsMarkdown>
+  <TabMarkdown title="resolve">
+
 Add the following code to the vite.config.ts so your app can resolve paths without error:
 
 ```bash
 npm install -D @types/node
 ```
+
+<br />
 
 ```typescript
 import path from 'node:path'
@@ -100,6 +105,32 @@ export default defineConfig({
   },
 })
 ```
+
+  </TabMarkdown>
+
+  <TabMarkdown title="vite-tsconfig-paths">
+
+Use `vite-tsconfig-paths` to resolve imports using TypeScript's path mapping
+
+```bash
+npm install -D vite-tsconfig-paths
+```
+
+<br />
+
+```ts
+import tailwindcss from '@tailwindcss/vite'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+
+export default defineConfig({
+  plugins: [vue(), tailwindcss(), tsconfigPaths()],
+})
+```
+
+  </TabMarkdown>
+</TabsMarkdown>
 
 ### Run the CLI
 
