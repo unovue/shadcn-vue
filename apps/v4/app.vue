@@ -17,6 +17,6 @@ const useIdFunction = () => useId()
       </NuxtLayout>
     </ConfigProvider>
 
-    <Toaster :theme="colorMode.preference as any || 'system'" position="top-center" />
+    <Toaster class="pointer-events-auto" :theme="colorMode.preference as any || 'system'" position="top-center" />
   </SiteBody>
 </template>

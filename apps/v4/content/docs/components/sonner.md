@@ -93,39 +93,21 @@ import { Toaster } from '@/components/ui/sonner'
 
 ## Examples
 
-### Simple
+### Types
 
-```vue showLineNumbers
-toast('Event has been created')
-```
+::component-preview
+---
+name: SonnerTypesDemo
+---
+::
 
-### With Description
+### With Dialog
 
-```vue showLineNumbers
-toast('Event has been created', {
-  description: 'Sunday, December 03, 2023 at 9:00 AM',
-})
-```
+::component-preview
+---
+name: SonnerWithDialogDemo
+---
+::
 
-### Success
 
-```vue showLineNumbers
-toast.success('Event has been created')
-```
 
-### Error
-
-```vue showLineNumbers
-toast.error('Event has not been created')
-```
-
-### Action
-
-```vue showLineNumbers
-toast('Event has been created', {
-  action: {
-    label: 'Undo',
-    onClick: () => console.log('Undo'),
-  },
-})
-```
