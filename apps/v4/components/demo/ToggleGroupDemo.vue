@@ -15,7 +15,7 @@ import {
     <ToggleGroupItem value="italic" aria-label="Toggle italic">
       <Italic class="h-4 w-4" />
     </ToggleGroupItem>
-    <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
+    <ToggleGroupItem value="underline" aria-label="Toggle underline">
       <Underline class="h-4 w-4" />
     </ToggleGroupItem>
   </ToggleGroup>
