@@ -6,13 +6,13 @@ import { ToggleGroup, ToggleGroupItem } from '@/registry/new-york-v4/ui/toggle-g
 <template>
   <ToggleGroup type="multiple" size="lg">
     <ToggleGroupItem value="bold" aria-label="Toggle bold">
-      <Bold class="size-4" />
+      <Bold class="h-4 w-4" />
     </ToggleGroupItem>
     <ToggleGroupItem value="italic" aria-label="Toggle italic">
-      <Italic class="size-4" />
+      <Italic class="h-4 w-4" />
     </ToggleGroupItem>
     <ToggleGroupItem value="underline" aria-label="Toggle underline">
-      <Underline class="size-4" />
+      <Underline class="h-4 w-4" />
     </ToggleGroupItem>
   </ToggleGroup>
 </template>
