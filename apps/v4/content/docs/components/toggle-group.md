@@ -69,31 +69,59 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 <template>
   <ToggleGroup type="multiple">
-    <ToggleGroupItem value="bold">Bold</ToggleGroupItem>
-    <ToggleGroupItem value="italic">Italic</ToggleGroupItem>
-    <ToggleGroupItem value="underline">Underline</ToggleGroupItem>
+    <ToggleGroupItem value="a">A</ToggleGroupItem>
+    <ToggleGroupItem value="b">B</ToggleGroupItem>
+    <ToggleGroupItem value="c">C</ToggleGroupItem>
   </ToggleGroup>
 </template>
 ```
 
 ## Examples
 
+### Default
+
+::component-preview
+---
+name: ToggleGroupDefaultDemo
+---
+::
+
+### Outline
+
+::component-preview
+---
+name: ToggleGroupDemo
+---
+::
+
 ### Single
 
-```vue showLineNumbers
-<ToggleGroup type="single">
-  <ToggleGroupItem value="left">Left</ToggleGroupItem>
-  <ToggleGroupItem value="center">Center</ToggleGroupItem>
-  <ToggleGroupItem value="right">Right</ToggleGroupItem>
-</ToggleGroup>
-```
+::component-preview
+---
+name: ToggleGroupSingleDemo
+---
+::
 
-### Multiple
+### Small
 
-```vue showLineNumbers
-<ToggleGroup type="multiple">
-  <ToggleGroupItem value="bold">Bold</ToggleGroupItem>
-  <ToggleGroupItem value="italic">Italic</ToggleGroupItem>
-  <ToggleGroupItem value="underline">Underline</ToggleGroupItem>
-</ToggleGroup>
-```
+::component-preview
+---
+name: ToggleGroupSmallDemo
+---
+::
+
+### Large
+
+::component-preview
+---
+name: ToggleGroupLargeDemo
+---
+::
+
+### Disabled
+
+::component-preview
+---
+name: ToggleGroupDisabledDemo
+---
+::
