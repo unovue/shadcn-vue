@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-  <ToggleGroup variant="outline" type="multiple">
+  <ToggleGroup type="multiple" disabled>
     <ToggleGroupItem value="bold" aria-label="Toggle bold">
       <Bold class="h-4 w-4" />
     </ToggleGroupItem>

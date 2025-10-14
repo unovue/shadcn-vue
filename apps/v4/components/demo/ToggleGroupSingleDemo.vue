@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { Bold, Italic, Underline } from 'lucide-vue-next'
-
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from '@/registry/new-york-v4/ui/toggle-group'
+import { ToggleGroup, ToggleGroupItem } from '@/registry/new-york-v4/ui/toggle-group'
 </script>
 
 <template>
-  <ToggleGroup variant="outline" type="multiple">
+  <ToggleGroup type="single">
     <ToggleGroupItem value="bold" aria-label="Toggle bold">
       <Bold class="h-4 w-4" />
     </ToggleGroupItem>
