@@ -71,3 +71,53 @@ import { Toggle } from "@/components/ui/toggle"
   <Toggle>Toggle</Toggle>
 </template>
 ```
+
+## Examples
+
+### Default
+
+::component-preview
+---
+name: ToggleDemo
+---
+::
+
+### Outline
+
+::component-preview
+---
+name: ToggleOutlineDemo
+---
+::
+
+### With Text
+
+::component-preview
+---
+name: ToggleTextDemo
+---
+::
+
+### Small
+
+::component-preview
+---
+name: ToggleSmallDemo
+---
+::
+
+### Large
+
+::component-preview
+---
+name: ToggleLargeDemo
+---
+::
+
+### Disabled
+
+::component-preview
+---
+name: ToggleDisabledDemo
+---
+::
