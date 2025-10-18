@@ -273,9 +273,9 @@ export function isLocalFile(path: string) {
 
 /**
  * Check if a registry item is universal (framework-agnostic).
- * A universal registry item must have all files with:
- * 1. Explicit targets
- * 2. Type "registry:file"
+ * A universal registry item must:
+ * 1. Have type "registry:item" or "registry:file"
+ * 2. If it has files, all files must have explicit targets and be type "registry:file" or "registry:item"
  * It can be installed without framework detection or components.json.
  */
 export function isUniversalRegistryItem(

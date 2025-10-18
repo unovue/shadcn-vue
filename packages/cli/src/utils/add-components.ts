@@ -39,6 +39,7 @@ export async function addComponents(
     isNewProject?: boolean
     baseStyle?: boolean
     registryHeaders?: Record<string, Record<string, string>>
+    path?: string
   },
 ) {
   options = {
@@ -73,6 +74,7 @@ async function addProjectComponents(
     silent?: boolean
     isNewProject?: boolean
     baseStyle?: boolean
+    path?: string
   },
 ) {
   if (!options.baseStyle && !components.length) {
@@ -131,6 +133,7 @@ async function addProjectComponents(
   await updateFiles(tree.files, config, {
     overwrite: options.overwrite,
     silent: options.silent,
+    path: options.path,
   })
 
   if (tree.docs) {
@@ -148,6 +151,7 @@ async function addWorkspaceComponents(
     isNewProject?: boolean
     isRemote?: boolean
     baseStyle?: boolean
+    path?: string
   },
 ) {
   if (!options.baseStyle && !components.length) {
@@ -282,6 +286,7 @@ async function addWorkspaceComponents(
       rootSpinner,
       isRemote: options.isRemote,
       isWorkspace: true,
+      path: options.path,
     })
 
     filesCreated.push(
