@@ -1,7 +1,7 @@
 {
   "name": "shadcn-nuxt",
   "type": "module",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Add shadcn-vue module to Nuxt",
   "publishConfig": {
     "access": "public"
