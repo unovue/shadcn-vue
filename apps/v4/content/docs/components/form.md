@@ -203,11 +203,7 @@ import {
 ```
 
 
-::steps
-
-  ::step
-  Create a form schema
-  ::
+### Create a form schema
 
   Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev).
 
@@ -227,9 +223,7 @@ import {
   ```
 
 
-  ::step
-  Define a form
-  ::
+### Define a form
 
   Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a form.
 
@@ -320,11 +314,8 @@ import {
 
     ::
 
-  ::
 
-  ::step
-  Build your form
-  ::
+### Build your form
 
   Based on last step we can either use `<Form />` component or `useForm` composable
   `useForm` is recommended because values are typed automatically
@@ -381,9 +372,7 @@ import {
   ```
 
 
-  ::step
-  Done
-  ::
+### Done
 
   That's it. You now have a fully accessible form that is type-safe with client-side validation.
 
@@ -395,20 +384,6 @@ import {
   ::
 
 ::
-
-## Examples
-
-See the following links for more examples on how to use the `vee-validate` features with other components:
-
-- [Checkbox](/docs/components/checkbox#form)
-- [Date Picker](/docs/components/date-picker#form)
-- [Input](/docs/components/input#form)
-- [Radio Group](/docs/components/radio-group#form)
-- [Select](/docs/components/select#form)
-- [Slider](/docs/components/slider#form)
-- [Switch](/docs/components/switch#form)
-- [Textarea](/docs/components/textarea#form)
-- [Combobox](/docs/components/combobox#form)
 
 <!-- ## Extras
 

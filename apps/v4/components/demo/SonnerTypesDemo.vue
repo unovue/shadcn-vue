@@ -9,7 +9,7 @@ function handlePromiseClick() {
   toast.promise<{ name: string }>(
     () =>
       new Promise(resolve =>
-        setTimeout(() => resolve({ name: 'Event' }), 50000),
+        setTimeout(() => resolve({ name: 'Event' }), 2000),
       ),
     {
       loading: 'Loading...',

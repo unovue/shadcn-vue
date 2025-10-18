@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { TabsList } from '@/registry/new-york-v4/ui/tabs'
+import { cn } from '~/lib/utils'
+
+const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </script>
 
 <template>
-  <TabsList class="justify-start gap-4 rounded-none bg-transparent px-2 md:px-0">
+  <TabsList :class="cn('justify-start gap-4 rounded-none bg-transparent px-0', props.class)">
     <slot />
   </TabsList>
 </template>
