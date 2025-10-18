@@ -202,12 +202,11 @@ import {
 </template>
 ```
 
-## Building Forms
 
 ::steps
 
   ::step
-   Create a form schema
+  Create a form schema
   ::
 
   Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev).
