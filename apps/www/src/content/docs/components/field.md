@@ -15,6 +15,7 @@ npx shadcn-vue@latest add field
 ## Usage
 
 ```vue showLineNumbers
+<script setup lang="ts">
 import {
   Field,
   FieldContent,
@@ -34,22 +35,23 @@ import {
     <FieldLegend>Profile</FieldLegend>
     <FieldDescription>This appears on invoices and emails.</FieldDescription>
     <FieldGroup>
-        <Field>
+      <Field>
         <FieldLabel for="name">Full name</FieldLabel>
         <Input id="name" autoComplete="off" placeholder="Evil Rabbit" />
         <FieldDescription>This appears on invoices and emails.</FieldDescription>
-        </Field>
-        <Field>
+      </Field>
+      <Field>
         <FieldLabel for="username">Username</FieldLabel>
         <Input id="username" autoComplete="off" aria-invalid />
         <FieldError>Choose another username.</FieldError>
-        </Field>
-        <Field orientation="horizontal">
+      </Field>
+      <Field orientation="horizontal">
         <Switch id="newsletter" />
         <FieldLabel for="newsletter">Subscribe to the newsletter</FieldLabel>
-        </Field>
+      </Field>
     </FieldGroup>
- </FieldSet>
+  </FieldSet>
+</template>
 ```
 
 ## Anatomy
