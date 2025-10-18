@@ -280,17 +280,28 @@ export function isLocalFile(path: string) {
  */
 export function isUniversalRegistryItem(
   registryItem:
-    | Pick<z.infer<typeof registryItemSchema>, "files">
+    | Pick<z.infer<typeof registryItemSchema>, "files" | "type">
     | null
     | undefined,
 ): boolean {
-  return (
-    !!registryItem?.files?.length
-    && registryItem.files.every(
-      file =>
-        !!file.target
-        && (file.type === "registry:file" || file.type === "registry:item"),
-    )
+  if (!registryItem) {
+    return false
+  }
+
+  if (
+    registryItem.type !== "registry:item"
+    && registryItem.type !== "registry:file"
+  ) {
+    return false
+  }
+
+  const files = registryItem.files ?? []
+
+  // If there are files, all must have targets and be of type registry:file or registry:item.
+  return files.every(
+    file =>
+      !!file.target
+      && (file.type === "registry:file" || file.type === "registry:item"),
   )
 }
 
