@@ -100,6 +100,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/cli',
         },
         {
+          title: 'MCP Server',
+          href: '/docs/mcp',
+          label: 'New',
+        },
+        {
           title: 'Tailwind v4',
           href: '/docs/tailwind-v4',
           items: [],
