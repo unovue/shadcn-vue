@@ -59,7 +59,7 @@ function isActive(href: string) {
 
 <template>
   <Sidebar
-    class="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] bg-transparent lg:flex"
+    class="text-sidebar-foreground w-(--sidebar-width) flex-col sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)+2rem)] bg-transparent lg:flex"
     collapsible="none"
   >
     <SidebarContent class="no-scrollbar px-2 pb-12">
