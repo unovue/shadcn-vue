@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { PAGES_NEW } from '~/lib/docs'
-
 const { data } = await useNavigation()
 
 const list = computed(() => data.value?.[0].children.find(item => item.title === 'Components')?.children ?? [])
@@ -17,7 +15,7 @@ const list = computed(() => data.value?.[0].children.find(item => item.title ===
       {{ component.title }}
 
       <span
-        v-if="PAGES_NEW.includes(component.path)"
+        v-if="component.new"
         class="flex size-2 rounded-full bg-blue-500"
         title="New"
       />

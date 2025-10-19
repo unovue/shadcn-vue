@@ -7,7 +7,7 @@ const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </script>
 
 <template>
-  <Tabs :class="cn('relative mt-6 w-full', props.class)">
+  <Tabs :class="cn(props.class)">
     <slot />
   </Tabs>
 </template>

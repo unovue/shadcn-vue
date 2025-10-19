@@ -16,7 +16,7 @@ export interface NavigationItem {
   [key: string]: unknown
 }
 
-const EXCLUDED_PARENT_TITLE = ['Components', 'Registry', 'Forms']
+const EXCLUDED_PARENT_TITLE = ['Components', 'Registry', 'Forms', 'MCP Server']
 
 // TODO: Find a better heuristic to determine item type
 function navigationItemType(item: ContentNavigationItem, parent: ContentNavigationItem | null): 'component' | 'block' | 'group' | 'page' {
@@ -43,7 +43,7 @@ function mapWithType(item: ContentNavigationItem, parent: ContentNavigationItem 
 }
 
 export async function useNavigation() {
-  const { data } = await useAsyncData('navigation', () => {
+  const { data } = useAsyncData('navigation', () => {
     return queryCollectionNavigation('content', ['new'])
   }, {
     default: () => ([]),

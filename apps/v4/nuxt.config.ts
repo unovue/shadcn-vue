@@ -34,7 +34,7 @@ export default defineNuxtConfig({
       light: 'github-light-default',
       dark: 'github-dark',
     },
-    bundledLangs: ['ts', 'tsx', 'js', 'vue', 'html', 'json', 'bash', 'astro'],
+    bundledLangs: ['ts', 'tsx', 'js', 'vue', 'html', 'json', 'bash', 'astro', 'toml'],
   },
   vite: {
     plugins: [
