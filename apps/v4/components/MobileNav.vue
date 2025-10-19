@@ -94,10 +94,10 @@ function handleNavigate(path: string) {
             Menu
           </div>
           <div class="flex flex-col gap-3">
-            <NuxtLink class="text-2xl font-medium" to="/" @click="handleNavigate">
+            <NuxtLink class="text-2xl font-medium" to="/" @click="handleNavigate('/')">
               Home
             </NuxtLink>
-            <NuxtLink v-for="(item, index) in items" :key="index" class="text-2xl font-medium" :to="item.href" @click="handleNavigate">
+            <NuxtLink v-for="(item, index) in items" :key="index" class="text-2xl font-medium" :to="item.href" @click="handleNavigate(item.href)">
               {{ item.label }}
             </NuxtLink>
           </div>
@@ -126,7 +126,7 @@ function handleNavigate(path: string) {
                 {{ group.title }}
               </div>
               <div class="flex flex-col gap-3">
-                <NuxtLink v-for="item in group.children" :key="item.path" class="text-2xl font-medium" :to="item.path" @click="handleNavigate">
+                <NuxtLink v-for="item in group.children" :key="item.path" class="text-2xl font-medium" :to="item.path" @click="handleNavigate(item.path)">
                   {{ item.title }}
                 </NuxtLink>
               </div>
