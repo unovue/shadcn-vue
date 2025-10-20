@@ -4,13 +4,11 @@ import { Label } from '@/registry/new-york-v4/ui/label'
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
+import { baseColors } from '@/registry/registry-base-colors'
 import { cn } from '~/lib/utils'
 
 const props = defineProps<{
@@ -19,51 +17,9 @@ const props = defineProps<{
 
 const { config } = useConfig()
 
-const DEFAULT_THEMES = [
-  {
-    name: 'Default',
-    value: 'neutral',
-  },
-  {
-    name: 'Scaled',
-    value: 'scaled',
-  },
-  {
-    name: 'Mono',
-    value: 'mono',
-  },
-]
-
-const COLOR_THEMES = [
-  {
-    name: 'Blue',
-    value: 'blue',
-  },
-  {
-    name: 'Green',
-    value: 'green',
-  },
-  {
-    name: 'Amber',
-    value: 'amber',
-  },
-  {
-    name: 'Rose',
-    value: 'rose',
-  },
-  {
-    name: 'Purple',
-    value: 'purple',
-  },
-  {
-    name: 'Orange',
-    value: 'orange',
-  },
-  {
-    name: 'Teal',
-    value: 'teal',
-  },
-]
+const COLOR_THEMES = baseColors.filter(
+  theme => !['slate', 'stone', 'gray', 'zinc'].includes(theme.name),
+)
 </script>
 
 <template>
@@ -78,33 +34,17 @@ const COLOR_THEMES = [
         class="bg-secondary text-secondary-foreground border-secondary justify-start shadow-none *:data-[slot=select-value]:w-12"
       >
         <span class="font-medium">Theme:</span>
-        <SelectValue placeholder="Select a theme">
-          {{ [...DEFAULT_THEMES, ...COLOR_THEMES].find(theme => theme.value === config.activeTheme)?.name }}
-        </SelectValue>
+        <SelectValue placeholder="Select a theme" />
       </SelectTrigger>
       <SelectContent align="end">
-        <SelectGroup>
-          <SelectItem
-            v-for="theme in DEFAULT_THEMES"
-            :key="theme.name"
-            :value="theme.value"
-            class="data-[state=checked]:opacity-50"
-          >
-            {{ theme.name }}
-          </SelectItem>
-        </SelectGroup>
-        <SelectSeparator />
-        <SelectGroup>
-          <SelectLabel>Colors</SelectLabel>
-          <SelectItem
-            v-for="theme in COLOR_THEMES"
-            :key="theme.name"
-            :value="theme.value"
-            class="data-[state=checked]:opacity-50"
-          >
-            {{ theme.name }}
-          </SelectItem>
-        </SelectGroup>
+        <SelectItem
+          v-for="theme in COLOR_THEMES"
+          :key="theme.name"
+          :value="theme.name"
+          class="data-[state=checked]:opacity-50"
+        >
+          {{ theme.label === "Neutral" ? "Default" : theme.label }}
+        </SelectItem>
       </SelectContent>
     </Select>
   </div>

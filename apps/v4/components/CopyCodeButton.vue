@@ -55,7 +55,7 @@ const { config } = useConfig()
         Copy Code
       </Button>
     </DialogTrigger>
-    <DialogContent class="outline-none md:max-w-3xl">
+    <DialogContent class="rounded-xl border-none bg-clip-padding shadow-2xl ring-4 ring-neutral-200/80 outline-none md:max-w-2xl dark:bg-neutral-800 dark:ring-neutral-900">
       <DialogHeader>
         <DialogTitle class="capitalize">
           {{ config.activeTheme === "neutral" ? "Default" : config.activeTheme }}
