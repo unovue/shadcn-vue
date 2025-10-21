@@ -42,7 +42,6 @@ const EXCLUDED_SECTIONS = ['installation', 'dark mode']
 const EXCLUDED_PAGES = ['/docs/introduction', '/docs/changelog']
 
 const { path } = toRefs(useRoute())
-const pathname = computed(() => path.value)
 
 const filteredSections = computed(() =>
   TOP_LEVEL_SECTIONS.filter(section =>
@@ -52,8 +51,8 @@ const filteredSections = computed(() =>
 
 function isActive(href: string) {
   return href === '/docs'
-    ? pathname.value === href
-    : pathname.value.startsWith(href)
+    ? path.value === href
+    : path.value.startsWith(href)
 }
 </script>
 

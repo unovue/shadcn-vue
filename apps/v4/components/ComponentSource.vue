@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<{
   language?: string
   collapsible?: boolean
   class?: HTMLAttributes['class']
+  chromeLessOnMobile?: boolean
 }>(), {
   language: 'vue',
   collapsible: true,

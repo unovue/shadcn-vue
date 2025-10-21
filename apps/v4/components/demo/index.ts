@@ -99,3 +99,14 @@ export { default as TextareaDisabled } from './TextareaDisabled.vue'
 
 // Tooltip demos
 export { default as TooltipDemo } from './TooltipDemo.vue'
+
+export { default as VeeValidateArrayDemo } from './VeeValidateArrayDemo.vue'
+export { default as VeeValidateCheckboxDemo } from './VeeValidateCheckboxDemo.vue'
+export { default as VeeValidateComplexDemo } from './VeeValidateComplexDemo.vue'
+// VeeValidate demos
+export { default as VeeValidateDemo } from './VeeValidateDemo.vue'
+export { default as VeeValidateInputDemo } from './VeeValidateInputDemo.vue'
+export { default as VeeValidateRadioGroupDemo } from './VeeValidateRadioGroupDemo.vue'
+export { default as VeeValidateSelectDemo } from './VeeValidateSelectDemo.vue'
+export { default as VeeValidateSwitchDemo } from './VeeValidateSwitchDemo.vue'
+export { default as VeeValidateTextareaDemo } from './VeeValidateTextareaDemo.vue'
