@@ -16,13 +16,13 @@ catalog:
   date-fns: ^4.1.0
   oxc-parser: ^0.93.0
   pathe: ^2.0.3
-  reka-ui: ^2.5.1
+  reka-ui: ^2.6.0
   tinyglobby: ^0.2.15
   typescript: ^5.9.3
   vaul-vue: ^0.4.1
   vee-validate: ^4.15.1
   vue: ^3.5.22
-  vue-component-meta: ^3.1.0
+  vue-component-meta: ^3.1.1
   vue-sonner: ^2.0.9
-  vue-tsc: ^3.1.0
+  vue-tsc: ^3.1.1
   zod: ^3.25.76
