@@ -6,7 +6,7 @@ import { PinInputRoot, useForwardPropsEmits } from "reka-ui"
 import { cn } from "@/lib/utils"
 
 const props = withDefaults(defineProps<PinInputRootProps<Type> & { class?: HTMLAttributes["class"] }>(), {
-  modelValue: () => [],
+  otp: true,
 })
 const emits = defineEmits<PinInputRootEmits<Type>>()
 
@@ -17,6 +17,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <PinInputRoot
+    :otp="props.otp"
     data-slot="pin-input"
     v-bind="forwarded" :class="cn('flex items-center gap-2 has-disabled:opacity-50 disabled:cursor-not-allowed', props.class)"
   >
