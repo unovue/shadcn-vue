@@ -9,7 +9,7 @@ const forwardedProps = useForwardProps(props)
 
 <template>
   <Primitive
-    data-slot="pin-input-separator"
+    data-slot="input-otp-separator"
     v-bind="forwardedProps"
   >
     <slot>

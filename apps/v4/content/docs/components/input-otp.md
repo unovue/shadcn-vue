@@ -9,7 +9,7 @@ links:
 
 ::component-preview
 ---
-name: PinInputDemo
+name: InputOTPDemo
 description: An input OTP component.
 ---
 ::
