@@ -2,8 +2,8 @@
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm, Field as VeeField } from 'vee-validate'
 import { toast } from 'vue-sonner'
-
 import { z } from 'zod'
+
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,
@@ -49,10 +49,14 @@ const { handleSubmit, resetForm } = useForm({
   },
 })
 
-const onSubmit = handleSubmit((values) => {
-  toast({
-    title: 'You submitted the following values:',
-    description: `Bug Report: ${values.title} - ${values.description}`,
+const onSubmit = handleSubmit((data) => {
+  toast('You submitted the following values:', {
+    description: h('pre', { class: 'bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4' }, h('code', JSON.stringify(data, null, 2))),
+    position: 'bottom-right',
+    class: 'flex flex-col gap-2',
+    style: {
+      '--border-radius': 'calc(var(--radius)  + 4px)',
+    },
   })
 })
 </script>
