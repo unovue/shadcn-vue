@@ -92,11 +92,22 @@ export { default as TableDemo } from './TableDemo.vue'
 // Tabs demos
 export { default as TabsDemo } from './TabsDemo.vue'
 
+// TanStack Form demos
+export { default as TanStackFormArray } from './TanStackFormArray.vue'
+
+export { default as TanStackFormCheckbox } from './TanStackFormCheckbox.vue'
+
+export { default as TanStackFormComplex } from './TanStackFormComplex.vue'
+
+export { default as TanStackFormDemo } from './TanStackFormDemo.vue'
+export { default as TanStackFormInput } from './TanStackFormInput.vue'
+export { default as TanStackFormRadioGroup } from './TanStackFormRadioGroup.vue'
+export { default as TanStackFormSelect } from './TanStackFormSelect.vue'
+export { default as TanStackFormSwitch } from './TanStackFormSwitch.vue'
+export { default as TanStackFormTextarea } from './TanStackFormTextarea.vue'
 // Textarea demos
 export { default as TextareaDemo } from './TextareaDemo.vue'
-
 export { default as TextareaDisabled } from './TextareaDisabled.vue'
-
 // Tooltip demos
 export { default as TooltipDemo } from './TooltipDemo.vue'
 

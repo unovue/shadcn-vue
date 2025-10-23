@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const props = defineProps<{
   class?: HTMLAttributes["class"]
-  errors?: Array<string | undefined>
+  errors?: Array<string | { message: string | undefined } | undefined>
 }>()
 
 const content = computed(() => {
@@ -13,10 +13,10 @@ const content = computed(() => {
     return null
 
   if (props.errors.length === 1 && props.errors[0]) {
-    return props.errors[0]
+    return typeof props.errors[0] === "string" ? props.errors[0] : props.errors[0].message
   }
 
-  return props.errors
+  return props.errors.map(error => typeof error === "string" ? error : error?.message)
 })
 </script>
 
