@@ -20,7 +20,7 @@ const df = new DateFormatter('en-US', {
 </script>
 
 <template>
-  <Popover>
+  <Popover v-slot="{ close }">
     <PopoverTrigger as-child>
       <Button
         variant="outline"
@@ -34,6 +34,7 @@ const df = new DateFormatter('en-US', {
       <Calendar
         v-model="date"
         initial-focus
+        @update:model-value="close"
       />
     </PopoverContent>
   </Popover>

@@ -22,12 +22,18 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-bind="forwarded"
   >
     <CalendarHeader>
-      <CalendarHeading />
+      <slot name="calendar-heading">
+        <CalendarHeading />
+      </slot>
 
-      <div class="flex items-center gap-1">
-        <CalendarPrevButton />
-        <CalendarNextButton />
-      </div>
+      <nav class="flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
+        <CalendarPrevButton>
+          <slot name="calendar-prev-icon" />
+        </CalendarPrevButton>
+        <CalendarNextButton>
+          <slot name="calendar-next-icon" />
+        </CalendarNextButton>
+      </nav>
     </CalendarHeader>
 
     <div class="flex flex-col gap-y-4 mt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0">

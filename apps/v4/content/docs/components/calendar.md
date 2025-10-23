@@ -84,7 +84,7 @@ import { Calendar } from "@/components/ui/calendar"
 Here, we'll use the Persian calendar as an example to show how to use calendar systems with the `<Calendar />` component or any other Calendar components.
 
 The default calendar system is `gregory`.<br/>
-To use a different calendar system, you need to provide a value with the desired system through the `defaultValue`, `modelValue`, or `placeholder` props.
+To use a different calendar system, you need to provide a value with the desired system through the `minValue`, `maxValue`, `defaultValue`, `modelValue`, or `placeholder` props.
 
 If none of these props are provided, the emitted dates will use the `Gregorian` calendar by default, since it is the most widely used system.
 
@@ -133,6 +133,16 @@ const date = ref(toCalendar(fromDate(new Date(), getLocalTimeZone()), new Persia
 ::component-preview
 ---
 name: CalendarPersianDemo
-description: A calendar component.
+description: A Persian calendar.
+---
+::
+
+## Examples
+
+### Range Calendar
+
+::component-preview
+---
+name: CalendarRangeDemo
 ---
 ::
