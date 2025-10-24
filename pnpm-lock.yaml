@@ -157,9 +157,6 @@ importers:
       '@vueuse/core':
         specifier: 'catalog:'
         version: 13.9.0(vue@3.5.22(typescript@5.9.3))
-      better-sqlite3:
-        specifier: ^12.4.1
-        version: 12.4.1
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
@@ -205,9 +202,6 @@ importers:
       vue:
         specifier: 'catalog:'
         version: 3.5.22(typescript@5.9.3)
-      vue-router:
-        specifier: ^4.6.3
-        version: 4.6.3(vue@3.5.22(typescript@5.9.3))
       vue-sonner:
         specifier: 'catalog:'
         version: 2.0.9(@nuxt/kit@4.1.3(magicast@0.3.5))(nuxt@3.19.3(@parcel/watcher@2.5.1)(@types/node@24.9.1)(@vue/compiler-sfc@3.5.22)(better-sqlite3@12.4.1)(db0@0.3.4(better-sqlite3@12.4.1))(encoding@0.1.13)(eslint@9.38.0(jiti@2.6.1))(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.3.5)(optionator@0.9.4)(rolldown@1.0.0-beta.44)(rollup@4.52.5)(stylus@0.57.0)(terser@5.44.0)(tsx@4.20.6)(typescript@5.9.3)(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.57.0)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))(vue-tsc@3.1.1(typescript@5.9.3))(yaml@2.8.1))
@@ -13222,6 +13216,7 @@ snapshots:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
+    optional: true
 
   binary-extensions@2.3.0: {}
 
@@ -13243,6 +13238,7 @@ snapshots:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.2
+    optional: true
 
   blob-to-buffer@1.2.9: {}
 
@@ -13316,6 +13312,7 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
+    optional: true
 
   buffer@6.0.3:
     dependencies:
@@ -14114,6 +14111,7 @@ snapshots:
   decompress-response@6.0.0:
     dependencies:
       mimic-response: 3.1.0
+    optional: true
 
   dedent@1.7.0(babel-plugin-macros@3.1.0):
     optionalDependencies:
@@ -14856,7 +14854,8 @@ snapshots:
       strip-final-newline: 4.0.0
       yoctocolors: 2.1.2
 
-  expand-template@2.0.3: {}
+  expand-template@2.0.3:
+    optional: true
 
   expand-tilde@1.2.2:
     dependencies:
@@ -15232,7 +15231,8 @@ snapshots:
     dependencies:
       remote-origin-url: 0.4.0
 
-  github-from-package@0.0.0: {}
+  github-from-package@0.0.0:
+    optional: true
 
   github-slugger@2.0.0: {}
 
@@ -16701,7 +16701,8 @@ snapshots:
 
   mimic-function@5.0.1: {}
 
-  mimic-response@3.1.0: {}
+  mimic-response@3.1.0:
+    optional: true
 
   minimark@0.2.0: {}
 
@@ -16759,7 +16760,8 @@ snapshots:
 
   mitt@3.0.1: {}
 
-  mkdirp-classic@0.5.3: {}
+  mkdirp-classic@0.5.3:
+    optional: true
 
   mkdirp@0.5.6:
     dependencies:
@@ -16883,7 +16885,8 @@ snapshots:
 
   nanotar@0.2.0: {}
 
-  napi-build-utils@2.0.0: {}
+  napi-build-utils@2.0.0:
+    optional: true
 
   napi-postinstall@0.3.4: {}
 
@@ -17000,6 +17003,7 @@ snapshots:
   node-abi@3.78.0:
     dependencies:
       semver: 7.7.3
+    optional: true
 
   node-addon-api@7.1.1: {}
 
@@ -18038,6 +18042,7 @@ snapshots:
       simple-get: 4.0.1
       tar-fs: 2.1.4
       tunnel-agent: 0.6.0
+    optional: true
 
   prelude-ls@1.2.1: {}
 
@@ -18102,6 +18107,7 @@ snapshots:
     dependencies:
       end-of-stream: 1.4.5
       once: 1.4.0
+    optional: true
 
   pumpify@1.5.1:
     dependencies:
@@ -18173,6 +18179,7 @@ snapshots:
       inherits: 2.0.4
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
+    optional: true
 
   readable-stream@4.7.0:
     dependencies:
@@ -18720,13 +18727,15 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-concat@1.0.1: {}
+  simple-concat@1.0.1:
+    optional: true
 
   simple-get@4.0.1:
     dependencies:
       decompress-response: 6.0.0
       once: 1.4.0
       simple-concat: 1.0.1
+    optional: true
 
   simple-git-hooks@2.13.1: {}
 
@@ -19125,6 +19134,7 @@ snapshots:
       mkdirp-classic: 0.5.3
       pump: 3.0.3
       tar-stream: 2.2.0
+    optional: true
 
   tar-stream@1.6.2:
     dependencies:
@@ -19143,6 +19153,7 @@ snapshots:
       fs-constants: 1.0.0
       inherits: 2.0.4
       readable-stream: 3.6.2
+    optional: true
 
   tar-stream@3.1.7:
     dependencies:
@@ -19357,6 +19368,7 @@ snapshots:
   tunnel-agent@0.6.0:
     dependencies:
       safe-buffer: '@nolyfill/safe-buffer@1.0.44'
+    optional: true
 
   tw-animate-css@1.4.0: {}
 

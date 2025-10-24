@@ -25,7 +25,6 @@
     "@unovis/vue": "^1.6.1",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
-    "better-sqlite3": "^12.4.1",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",
@@ -41,7 +40,6 @@
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:",
-    "vue-router": "^4.6.3",
     "vue-sonner": "catalog:",
     "zod": "catalog:"
   },
