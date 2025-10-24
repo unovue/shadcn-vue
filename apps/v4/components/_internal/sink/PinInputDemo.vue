@@ -5,7 +5,7 @@ import {
   PinInputGroup,
   PinInputSeparator,
   PinInputSlot,
-} from '~/registry/new-york-v4/ui/pin-input'
+} from '@/registry/new-york-v4/ui/pin-input'
 
 const value = ref(['1', '2', '3', '4', '5', '6'])
 </script>
