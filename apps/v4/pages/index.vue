@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { Button } from '@/registry/new-york-v4/ui/button'
 
-const title = 'Build your Component Library'
+const title = 'The Foundation for your Design System'
 const description
-  = 'A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.'
+  = 'A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code.'
 </script>
 
 <template>
   <div class="flex flex-1 flex-col">
     <PageHeader>
       <Announcement />
-      <PageHeaderHeading>{{ title }}</PageHeaderHeading>
+      <PageHeaderHeading class="max-w-4xl">
+        {{ title }}
+      </PageHeaderHeading>
       <PageHeaderDescription>{{ description }}</PageHeaderDescription>
       <PageActions>
         <Button as-child size="sm">

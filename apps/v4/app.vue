@@ -6,13 +6,12 @@ const { config, isLayoutFull } = useConfig()
 const activeTheme = computed(() => config.value.activeTheme)
 const isScaled = computed(() => !!activeTheme.value?.endsWith('-scaled'))
 const colorMode = useColorMode()
-const useIdFunction = () => useId()
 </script>
 
 <template>
   <SiteBody>
     <ConfigProvider>
-      <NuxtLayout :use-id="useIdFunction">
+      <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
     </ConfigProvider>

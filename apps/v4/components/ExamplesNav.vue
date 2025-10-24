@@ -11,25 +11,25 @@ const examples = [
   {
     name: 'Dashboard',
     href: '/examples/dashboard',
-    code: 'https://github.com/shadcn/ui/tree/main/apps/v4/app/(app)/examples/dashboard',
+    code: 'https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/pages/examples/dashboard',
     hidden: false,
   },
   {
     name: 'Tasks',
     href: '/examples/tasks',
-    code: 'https://github.com/shadcn/ui/tree/main/apps/v4/app/(app)/examples/tasks',
+    code: 'https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/pages/examples/tasks',
     hidden: false,
   },
   {
     name: 'Playground',
     href: '/examples/playground',
-    code: 'https://github.com/shadcn/ui/tree/main/apps/v4/app/(app)/examples/playground',
+    code: 'https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/pages/examples/playground',
     hidden: false,
   },
   {
     name: 'Authentication',
     href: '/examples/authentication',
-    code: 'https://github.com/shadcn/ui/tree/main/apps/v4/app/(app)/examples/authentication',
+    code: 'https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/pages/examples/authentication',
     hidden: false,
   },
 ]
@@ -45,7 +45,7 @@ const { path } = useRoute()
           Examples
         </NuxtLink>
 
-        <!-- <NuxtLink
+        <NuxtLink
           v-for="example in examples"
           :key="example.href"
           :to="example.href"
@@ -53,7 +53,7 @@ const { path } = useRoute()
           class="text-muted-foreground hover:text-primary data-[active=true]:text-primary flex h-7 items-center justify-center px-4 text-center text-base font-medium transition-colors"
         >
           {{ example.name }}
-        </NuxtLink> -->
+        </NuxtLink>
       </div>
       <ScrollBar orientation="horizontal" class="invisible" />
     </ScrollArea>
