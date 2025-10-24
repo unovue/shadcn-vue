@@ -9,7 +9,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york/ui/card'
+} from '@/registry/new-york-v4/ui/card'
 </script>
 
 <template>

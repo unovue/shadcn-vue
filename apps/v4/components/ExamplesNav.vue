@@ -34,7 +34,7 @@ const examples = [
   },
 ]
 
-const { path } = useRoute()
+const { path } = toRefs(useRoute())
 </script>
 
 <template>
@@ -44,7 +44,6 @@ const { path } = useRoute()
         <NuxtLink class="text-muted-foreground hover:text-primary data-[active=true]:text-primary flex h-7 items-center justify-center px-4 text-center text-base font-medium transition-colors" to="/" :data-active="path === '/'">
           Examples
         </NuxtLink>
-
         <NuxtLink
           v-for="example in examples"
           :key="example.href"
