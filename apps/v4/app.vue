@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ConfigProvider } from 'reka-ui'
+import { ConfigProvider, TooltipProvider } from 'reka-ui'
 import { Toaster } from '@/registry/new-york-v4/ui/sonner'
 
 const { config, isLayoutFull } = useConfig()
@@ -11,9 +11,11 @@ const colorMode = useColorMode()
 <template>
   <SiteBody>
     <ConfigProvider>
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
+      <TooltipProvider>
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </TooltipProvider>
     </ConfigProvider>
 
     <Toaster class="pointer-events-auto" :theme="colorMode.preference as any || 'system'" position="top-center" />

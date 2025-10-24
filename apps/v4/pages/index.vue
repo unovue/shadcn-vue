@@ -21,8 +21,8 @@ const description
           </NuxtLink>
         </Button>
         <Button as-child size="sm" variant="ghost">
-          <NuxtLink to="/blocks">
-            Browse Blocks
+          <NuxtLink to="/docs/components">
+            View Components
           </NuxtLink>
         </Button>
       </PageActions>
@@ -52,7 +52,7 @@ const description
             > -->
         </section>
         <section class="theme-container hidden md:block">
-          <CardsDemo />
+          <ExamplesRoot />
         </section>
       </div>
     </div>

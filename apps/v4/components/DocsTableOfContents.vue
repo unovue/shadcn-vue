@@ -90,7 +90,7 @@ onMounted(() => {
   </DropdownMenu>
 
   <div v-else :class="cn('flex flex-col gap-2 p-4 pt-0 text-sm', props.class)">
-    <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">
+    <p v-if="tocLinks.length" class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">
       On This Page
     </p>
     <a
