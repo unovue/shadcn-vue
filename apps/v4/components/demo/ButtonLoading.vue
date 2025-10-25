@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Loader2Icon } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york-v4/ui/button'
+import { Spinner } from '@/registry/new-york-v4/ui/spinner'
 </script>
 
 <template>
-  <Button disabled>
-    <Loader2Icon class="animate-spin" />
-    Please wait
+  <Button size="sm" variant="outline" disabled>
+    <Spinner class="animate-spin" />
+    Submit
   </Button>
 </template>

@@ -38,7 +38,7 @@ const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => 
                   {{ page.title }}
                 </h1>
                 <div class="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
-                  <!-- TODO -->
+                  <DocsCopyPage :page="page" />
                   <!-- Copy page -->
                   <Button
                     v-if="neighbours?.[0]"
@@ -114,13 +114,13 @@ const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => 
 
       <div class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div class="h-(--top-spacing) shrink-0" />
-        <div v-if="page.body.toc" class="no-scrollbar overflow-y-auto px-8">
+        <div v-if="page.body.toc?.links.length" class="no-scrollbar overflow-y-auto px-8">
           <DocsTableOfContents :toc="page.body.toc" />
           <div class="h-12" />
         </div>
-        <!-- <div class="flex flex-1 flex-col gap-12 px-6">
-          <ads here />
-        </div> -->
+        <div class="flex flex-1 flex-col gap-12 px-6">
+          <CarbonAds />
+        </div>
       </div>
     </div>
   </template>

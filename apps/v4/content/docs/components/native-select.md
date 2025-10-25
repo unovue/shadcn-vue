@@ -5,6 +5,13 @@ component: true
 new: true
 ---
 
+::callout
+---
+icon: true
+---
+For a styled select component, see the [Select](/docs/components/select) component.
+::
+
 ::component-preview
 ---
 name: NativeSelectDemo

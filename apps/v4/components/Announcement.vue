@@ -5,7 +5,7 @@ import { Badge } from '@/registry/new-york-v4/ui/badge'
 </script>
 
 <template>
-  <Badge as-child variant="secondary" class="rounded-full">
+  <Badge as-child variant="secondary" class="bg-transparent">
     <NuxtLink href="/docs/components/calendar">
       New Calendar Component <ArrowRightIcon />
     </NuxtLink>

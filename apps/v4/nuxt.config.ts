@@ -1,3 +1,6 @@
+import {
+  transformerMetaWordHighlight,
+} from '@shikijs/transformers'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -38,6 +41,11 @@ export default defineNuxtConfig({
     },
   },
   shiki: {
+    highlightOptions: {
+      transformers: [
+        transformerMetaWordHighlight(),
+      ],
+    },
     defaultTheme: {
       light: 'github-light-default',
       dark: 'github-dark',
