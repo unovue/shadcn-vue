@@ -3,13 +3,12 @@ title: Input OTP
 description: Accessible one-time password component with copy paste functionality.
 component: true
 links:
-  doc: https://reka-ui.com/docs/components/pin-input
-  api: https://reka-ui.com/docs/components/pin-input#api-reference
+  doc: https://vue-input-otp.vercel.app/
 ---
 
 ::component-preview
 ---
-name: PinInputDemo
+name: InputOTPDemo
 description: An input OTP component.
 ---
 ::
@@ -88,3 +87,92 @@ import {
   </InputOTP>
 </template>
 ```
+
+## Examples
+
+### Pattern
+
+Use the `pattern` prop to define a custom pattern for the OTP input.
+
+::component-preview
+---
+name: InputOTPPatternDemo
+description: An input OTP component with a custom pattern.
+---
+::
+
+```vue showLineNumbers {2,9}
+<script setup lang="ts">
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from "vue-input-otp"
+// ...
+</script>
+
+<template>
+  <InputOTP
+    maxlength="6"
+    :pattern="REGEXP_ONLY_DIGITS_AND_CHARS"
+  >
+    <InputOTPGroup>
+      <InputOTPSlot :index="0" />
+      <!-- ... -->
+    </InputOTPGroup>
+  </InputOTP>
+</template>
+```
+
+### Separator
+You can use the `<InputOTPSeparator />` component to add a separator between the input groups.
+
+::component-preview
+---
+name: InputOTPSeparatorDemo
+description: An input OTP component with a separator.
+---
+::
+
+```vue showLineNumbers {5,17}
+<script setup lang="ts">
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp"
+// ...
+</script>
+
+<template>
+  <InputOTP maxlength="4">
+    <InputOTPGroup>
+      <InputOTPSlot :index="0" />
+      <InputOTPSlot :index="1" />
+    </InputOTPGroup>
+    <InputOTPSeparator />
+    <InputOTPGroup>
+      <InputOTPSlot :index="2" />
+      <InputOTPSlot :index="3" />
+    </InputOTPGroup>
+  </InputOTP>
+</template>
+```
+
+### Controlled
+You can use the `v-model` directive to control the input value.
+
+::component-preview
+---
+name: InputOTPControlledDemo
+description: A controlled input OTP component.
+---
+::
+
+### Form
+
+You can use the InputOTP component within a form, for example with VeeValidate.
+
+::component-preview
+---
+name: InputOTPFormDemo
+description: An input OTP component used within a form.
+---
+::
