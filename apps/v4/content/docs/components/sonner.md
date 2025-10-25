@@ -2,6 +2,8 @@
 title: Sonner
 description: An opinionated toast component for Vue.
 component: true
+links:
+  doc: https://vue-sonner.vercel.app/
 ---
 
 ::component-preview

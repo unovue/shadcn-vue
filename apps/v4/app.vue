@@ -18,6 +18,8 @@ const colorMode = useColorMode()
       </TooltipProvider>
     </ConfigProvider>
 
-    <Toaster class="pointer-events-auto" :theme="colorMode.preference as any || 'system'" position="top-center" />
+    <ClientOnly>
+      <Toaster class="pointer-events-auto" :theme="colorMode.preference as any || 'system'" position="top-center" />
+    </ClientOnly>
   </SiteBody>
 </template>
