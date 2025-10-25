@@ -114,13 +114,13 @@ const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => 
 
       <div class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div class="h-(--top-spacing) shrink-0" />
-        <div v-if="page.body.toc" class="no-scrollbar overflow-y-auto px-8">
+        <div v-if="page.body.toc?.links.length" class="no-scrollbar overflow-y-auto px-8">
           <DocsTableOfContents :toc="page.body.toc" />
           <div class="h-12" />
         </div>
-        <!-- <div class="flex flex-1 flex-col gap-12 px-6">
-          <ads here />
-        </div> -->
+        <div class="flex flex-1 flex-col gap-12 px-6">
+          <CarbonAds />
+        </div>
       </div>
     </div>
   </template>
