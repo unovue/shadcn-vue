@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/registry/new-york-v4/ui/button'
+import { IconCheck, IconCopy } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
-import { CheckIcon, ClipboardIcon } from 'lucide-vue-next'
 
 import { toRefs } from 'vue'
 
@@ -44,7 +44,7 @@ const { copy, copied } = useClipboard({ source: value })
           @click="copy()"
         >
           <span class="sr-only">Copy</span>
-          <CheckIcon v-if="copied" />  <ClipboardIcon v-else />
+          <IconCheck v-if="copied" /><IconCopy v-else />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
