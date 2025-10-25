@@ -2,8 +2,9 @@
 import type {
   BaseColor,
 } from '@/registry/registry-base-colors'
+import { IconCopy } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
-import { CheckIcon, ClipboardIcon } from 'lucide-vue-next'
+import { CheckIcon } from 'lucide-vue-next'
 import { Icons } from '@/components/Icons'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
@@ -178,7 +179,7 @@ function getThemeCode(theme: BaseColor | undefined, radius: number) {
             }"
           >
           <span class="sr-only">Copy</span>
-          <CheckIcon v-if="copied" />  <ClipboardIcon v-else />
+          <CheckIcon v-if="copied" />  <IconCopy v-else />
         </Button></pre>
       </figure>
     </TabsContent>
@@ -247,7 +248,7 @@ copy(tailwindVersion === 'v3'
               }"
             >
               <span class="sr-only">Copy</span>
-              <CheckIcon v-if="copied" />  <ClipboardIcon v-else />
+              <CheckIcon v-if="copied" />  <IconCopy v-else />
             </Button></pre>
       </figure>
     </TabsContent>

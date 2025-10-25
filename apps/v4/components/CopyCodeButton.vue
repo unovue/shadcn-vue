@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import type { ButtonVariants } from '@/registry/new-york-v4/ui/button'
 import { IconCopy } from '@tabler/icons-vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
@@ -26,6 +27,7 @@ defineOptions({
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
+  size?: ButtonVariants['size']
 }>()
 
 const { config } = useConfig()
@@ -52,7 +54,7 @@ const { config } = useConfig()
   </Drawer>
   <Dialog>
     <DialogTrigger as-child>
-      <Button :class="cn('hidden sm:flex', props.class)" v-bind="$attrs">
+      <Button :data-size="props.size" :class="cn('group/button hidden sm:flex', props.class)" :size="props.size" v-bind="$attrs">
         <IconCopy />
         <span class="group-data-[size=icon-sm]/button:sr-only">
           Copy Code

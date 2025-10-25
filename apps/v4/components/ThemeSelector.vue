@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from '@/lib/utils'
 import { Label } from '@/registry/new-york-v4/ui/label'
 import {
   Select,
@@ -9,7 +10,6 @@ import {
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
 import { baseColors } from '@/registry/registry-base-colors'
-import { cn } from '~/lib/utils'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
@@ -47,5 +47,6 @@ const COLOR_THEMES = baseColors.filter(
         </SelectItem>
       </SelectContent>
     </Select>
+    <CopyCodeButton variant="secondary" size="icon-sm" />
   </div>
 </template>
