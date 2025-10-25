@@ -70,7 +70,150 @@ import { Button } from "@/components/ui/button"
 </template>
 ```
 
-## Link
+
+## Cursor
+
+Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) from `cursor: pointer` to `cursor: default` for the button component.
+
+If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
+
+```css showLineNumbers title="tailwind.css"
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+```
+
+
+## Examples
+
+### Size
+
+::component-preview
+---
+name: ButtonSize
+class: mb-4
+---
+::
+
+### Default
+
+::component-preview
+---
+name: ButtonDefault
+class: mb-4
+---
+::
+
+### Outline
+
+::component-preview
+---
+name: ButtonOutline
+class: mb-4
+---
+::
+
+### Secondary
+
+::component-preview
+---
+name: ButtonSecondary
+class: mb-4
+---
+::
+
+### Ghost
+
+::component-preview
+---
+name: ButtonGhost
+class: mb-4
+---
+::
+
+### Destructive
+
+::component-preview
+---
+name: ButtonDestructive
+class: mb-4
+---
+::
+
+### Link
+
+::component-preview
+---
+name: ButtonLink
+class: mb-4
+---
+::
+
+
+### Icon
+
+::component-preview
+---
+name: ButtonIcon
+class: mb-4
+---
+::
+
+```vue showLineNumbers
+<template>
+  <Button variant="outline" size="icon" aria-label="Submit">
+    <CircleFadingArrowUpIcon />
+  </Button>
+</template>
+```
+
+### With Icon
+
+The spacing between the icon and the text is automatically adjusted based on the size of the button. You do not need any margin on the icon.
+
+::component-preview
+---
+name: ButtonWithIcon
+class: mb-4
+---
+::
+
+
+### Rounded
+
+Use the `rounded-full` class to make the button rounded.
+
+::component-preview
+---
+name: ButtonRounded
+class: mb-4
+---
+::
+
+### Spinner
+
+::component-preview
+---
+name: ButtonLoading
+class: mb-4
+---
+::
+
+### Button Group
+
+::component-preview
+---
+name: ButtonGroupDemo
+class: mb-4
+---
+::
+
+To create a button group, use the `ButtonGroup` component. See the [Button Group](/docs/components/button-group) documentation for more details.
+
+### Link (asChild)
 
 You can use the `as-child` prop to make another component look like a button. Here's an example of a link that looks like a button.
 
@@ -85,3 +228,16 @@ import { Button } from '@/components/ui/button'
   </Button>
 </template>
 ```
+
+
+## API Reference
+
+### Button
+
+The `Button` component is a wrapper around the `button` element that adds a variety of styles and functionality.
+
+| Prop      | Type                                                                          | Default     |
+| --------- | ----------------------------------------------------------------------------- | ----------- |
+| `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"` | `"default"` |
+| `size`    | `"default" \| "sm" \| "lg" \| "icon" \| "icon-sm" \| "icon-lg"`               | `"default"` |
+| `asChild` | `boolean`                                                                     | `false`     |
