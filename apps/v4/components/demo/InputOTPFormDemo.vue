@@ -26,7 +26,7 @@ const formSchema = toTypedSchema(
   }),
 )
 
-const { handleSubmit, meta } = useForm({
+const { handleSubmit } = useForm({
   validationSchema: formSchema,
   initialValues: {
     pin: '',
@@ -43,14 +43,14 @@ const onSubmit = handleSubmit((data) => {
 <template>
   <form id="form-otp-demo" class="space-y-6 w-sm" @submit="onSubmit">
     <FieldGroup>
-      <VeeField v-slot="{ field, errors }" name="pin" :validate-on-blur="false" :validate-on-input="false" :validate-on-model-update="false">
+      <VeeField v-slot="{ componentField, errors }" name="pin">
         <Field :data-invalid="!!errors.length">
           <FieldLabel for="form-otp-demo-pin">
             One-Time Password
           </FieldLabel>
           <InputOTP
             id="form-otp-demo-pin"
-            v-bind="field"
+            v-bind="componentField"
             :maxlength="6"
             :aria-invalid="!!errors.length"
           >
@@ -70,7 +70,7 @@ const onSubmit = handleSubmit((data) => {
         </Field>
       </VeeField>
     </FieldGroup>
-    <Button type="submit" form="form-otp-demo" :disabled="meta.pending">
+    <Button type="submit" form="form-otp-demo">
       Submit
     </Button>
   </form>
