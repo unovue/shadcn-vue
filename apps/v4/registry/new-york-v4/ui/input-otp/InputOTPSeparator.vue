@@ -14,6 +14,8 @@ const forwarded = useForwardProps(props)
     role="separator"
     v-bind="forwarded"
   >
-    <MinusIcon />
+    <slot>
+      <MinusIcon />
+    </slot>
   </div>
 </template>
