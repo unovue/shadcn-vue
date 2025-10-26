@@ -44,7 +44,7 @@ npx shadcn-vue@latest add input-otp
     ::
 
     ```bash
-    npm install reka-ui
+    npm install vue-input-otp
     ```
 
     ::step
