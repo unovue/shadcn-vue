@@ -3,11 +3,11 @@ import type { z } from 'zod'
 import { promises as fs } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { registryItemSchema } from 'shadcn-vue/schema'
-import { blockMeta } from '@/registry/registry-block-meta'
 
 // import { Project, ScriptKind } from 'ts-morph'
 
+import { registryItemSchema } from 'shadcn-vue/schema'
+import { blockMeta } from '@/registry/registry-block-meta'
 import { Index } from '~/registry/__index__'
 
 export function getRegistryComponent(name: string) {
@@ -62,7 +62,8 @@ export async function getRegistryItem(name: string) {
 }
 
 async function getFileContent(file: z.infer<typeof registryItemFileSchema>) {
-  const raw = await fs.readFile(file.path, 'utf-8')
+  const key = file.path.replaceAll('registry/new-york-v4/blocks/', '').replaceAll('/', ':')
+  const raw = await useStorage<string | Uint8Array>('assets:blocks').getItem(key)
 
   // const project = new Project({
   //   compilerOptions: {},
@@ -78,7 +79,7 @@ async function getFileContent(file: z.infer<typeof registryItemFileSchema>) {
   // removeVariable(sourceFile, "containerClassName")
   // removeVariable(sourceFile, "description")
 
-  let code = raw // sourceFile.getFullText()
+  let code = typeof raw === 'string' ? raw : new TextDecoder().decode(raw ?? undefined)// sourceFile.getFullText()
   // Fix imports.
   code = fixImport(code)
 

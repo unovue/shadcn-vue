@@ -85,5 +85,8 @@ export default defineNuxtConfig({
         },
       },
     },
+    serverAssets: [
+      { baseName: 'blocks', dir: '../registry/new-york-v4/blocks' },
+    ],
   },
 })
