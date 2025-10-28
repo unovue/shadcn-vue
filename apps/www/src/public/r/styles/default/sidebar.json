@@ -28,7 +28,7 @@
     },
     {
       "path": "ui/sidebar/SidebarContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-sidebar=\"content\"\n    :class=\"cn('flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-sidebar=\"content\"\n    :class=\"cn('flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-x-hidden', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
