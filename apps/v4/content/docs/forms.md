@@ -1,19 +1,19 @@
 ---
 title: Forms
-description: Build forms with React and shadcn/ui.
+description: Build forms with Vue and shadcn-vue.
 ---
 
 
 
 ## Pick Your Framework
 
-Start by selecting your framework. Then follow the instructions to learn how to build forms with shadcn/ui and the form library of your choice.
+Start by selecting your framework. Then follow the instructions to learn how to build forms with shadcn-vue and the form library of your choice.
 
 <div class="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6">
   <linked-card href="/docs/forms/vee-validate">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 687.36 595.28005" class="size-10 fill-current">
-  <path d="m572.4 0-57.49 99.56-171.23 296.59L172.45 99.56h118.02l53.21 92.14 53.21-92.14L454.36 0H0l343.68 595.28L687.36 0Z"/>
-</svg>
+      <path d="m572.4 0-57.49 99.56-171.23 296.59L172.45 99.56h118.02l53.21 92.14 53.21-92.14L454.36 0H0l343.68 595.28L687.36 0Z"/>
+    </svg>
     <p class="mt-2 font-medium">VeeValidate</p>
   </linked-card>
   <linked-card href="/docs/forms/tanstack-form">
@@ -31,6 +31,5 @@ Start by selecting your framework. Then follow the instructions to learn how to 
   <svg xmlns="http://www.w3.org/2000/svg" class="size-10" viewBox="0 0 24 24"><!-- Icon from Akar Icons by Arturo Wibawa - https://github.com/artcoholic/akar-icons/blob/master/LICENSE --><path fill="currentColor" d="M19.114 2H15l-3 4.9L9.429 2H0l12 21L24 2zM3 3.75h2.914L12 14.6l6.086-10.85H21L12 19.5z"/></svg>
     <p class="mt-2 font-medium">Composable</p>
     <p class="text-muted-foreground mt-1 text-xs">(Coming Soon)</p>
-
   </linked-card>
 </div>

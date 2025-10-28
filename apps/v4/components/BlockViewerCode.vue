@@ -27,7 +27,7 @@ const language = computed(() => file.value?.path.split('.').pop() ?? 'vue')
         <component :is="getIconForLanguageExtension(language)" />
         {{ file.target }}
         <div class="ml-auto flex items-center gap-2">
-          <CopyButton />
+          <CopyButton :value="file.content" />
         </div>
       </figcaption>
       <div

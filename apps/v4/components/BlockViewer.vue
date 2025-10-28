@@ -23,7 +23,7 @@ export const [useBlockViewer, provideBlockViewerContext] = createContext<BlockVi
 
 <script setup lang="ts">
 import type { SplitterPanel as ResizablePanel } from 'reka-ui'
-import type { registryItemFileSchema, registryItemSchema } from 'shadcn-vue/registry'
+import type { registryItemFileSchema, registryItemSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
 import type { createFileTreeForRegistryItemFiles } from '~/lib/registry'
 

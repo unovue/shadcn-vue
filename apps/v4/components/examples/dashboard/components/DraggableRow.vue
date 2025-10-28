@@ -19,10 +19,7 @@ const { elementRef, isDragging } = useSortable({
 
 <template>
   <TableRow
-    :ref="(vnode) => {
-      console.log('ssr?')
-      elementRef(vnode)
-    }"
+    :ref="elementRef"
     :data-state="row.getIsSelected() && 'selected'"
     :data-dragging="isDragging"
     class="relative z-0 data-[dragging=true]:z-10 data-[dragging=true]:opacity-80"
