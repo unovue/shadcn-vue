@@ -28,7 +28,7 @@ import {
             <FieldLabel
               for="finder-pref-9k2-hard-disks-ljj"
               class="font-normal"
-              default-checked
+              :default-value="true"
             >
               Hard disks
             </FieldLabel>
@@ -64,7 +64,7 @@ import {
       </FieldSet>
       <FieldSeparator />
       <Field orientation="horizontal">
-        <Checkbox id="finder-pref-9k2-sync-folders-nep" default-checked />
+        <Checkbox id="finder-pref-9k2-sync-folders-nep" :default-value="true" />
         <FieldContent>
           <FieldLabel for="finder-pref-9k2-sync-folders-nep">
             Sync Desktop & Documents folders

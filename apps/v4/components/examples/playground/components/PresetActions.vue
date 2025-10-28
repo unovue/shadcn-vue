@@ -72,7 +72,7 @@ const showDeleteDialog = ref(false)
           Playground Warnings
         </h4>
         <div class="flex items-start justify-between space-x-4 pt-3">
-          <Switch id="show" name="show" :default-checked="true" />
+          <Switch id="show" name="show" :default-value="true" />
           <Label class="grid gap-1 font-normal" for="show">
             <span class="font-semibold">
               Show a warning when content is flagged

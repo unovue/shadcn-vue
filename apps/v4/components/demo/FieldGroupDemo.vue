@@ -21,7 +21,7 @@ import {
         </FieldDescription>
         <FieldGroup data-slot="checkbox-group">
           <Field orientation="horizontal">
-            <Checkbox id="push" default-checked disabled />
+            <Checkbox id="push" :default-value="true" disabled />
             <FieldLabel for="push" class="font-normal">
               Push notifications
             </FieldLabel>

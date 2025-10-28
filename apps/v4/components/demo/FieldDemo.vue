@@ -152,7 +152,7 @@ import { Textarea } from '@/registry/new-york-v4/ui/textarea'
             <Field orientation="horizontal">
               <Checkbox
                 id="checkout-7j9-same-as-shipping-wgm"
-                default-checked
+                :default-value="true"
               />
               <FieldLabel
                 for="checkout-7j9-same-as-shipping-wgm"
