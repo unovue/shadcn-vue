@@ -4,7 +4,7 @@ import { Spinner } from "@/registry/new-york/ui/spinner"
 </script>
 
 <template>
-  <div className="flex flex-col items-center gap-4">
+  <div class="flex flex-col items-center gap-4">
     <Button disabled size="sm">
       <Spinner />
       Loading...

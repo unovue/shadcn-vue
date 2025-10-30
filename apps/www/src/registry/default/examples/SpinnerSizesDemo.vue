@@ -3,7 +3,7 @@ import { Spinner } from "@/registry/default/ui/spinner"
 </script>
 
 <template>
-  <div className="flex items-center gap-6">
+  <div class="flex items-center gap-6">
     <Spinner class="size-3" />
     <Spinner class="size-4" />
     <Spinner class="size-6" />

@@ -3,7 +3,7 @@ import { Spinner } from '@/registry/new-york-v4/ui/spinner'
 </script>
 
 <template>
-  <div className="flex items-center gap-6">
+  <div class="flex items-center gap-6">
     <Spinner class="size-6 text-red-500" />
     <Spinner class="size-6 text-green-500" />
     <Spinner class="size-6 text-blue-500" />

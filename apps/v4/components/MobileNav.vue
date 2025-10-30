@@ -102,11 +102,11 @@ function handleNavigate(path: string) {
             </NuxtLink>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="text-muted-foreground text-sm font-medium">
+        <div class="flex flex-col gap-4">
+          <div class="text-muted-foreground text-sm font-medium">
             Sections
           </div>
-          <div className="flex flex-col gap-3">
+          <div class="flex flex-col gap-3">
             <NuxtLink
               v-for="{ name, href } in TOP_LEVEL_SECTIONS"
               v-show="!(!showMcpDocs && href.includes('/mcp'))"

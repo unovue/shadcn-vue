@@ -4,7 +4,7 @@ import { Spinner } from '@/registry/new-york-v4/ui/spinner'
 </script>
 
 <template>
-  <div className="flex items-center gap-4 [--radius:1.2rem]">
+  <div class="flex items-center gap-4 [--radius:1.2rem]">
     <Badge>
       <Spinner />
       Syncing

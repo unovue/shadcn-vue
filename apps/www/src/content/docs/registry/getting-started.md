@@ -182,7 +182,7 @@ A common simple approach is to use a `token` query parameter to authenticate req
 
 Use the secure token to authenticate requests and return a 401 Unauthorized response if the token is invalid. Both the `shadcn` CLI and `Open in v0` will handle the 401 response and display a message to the user.
 
-<Callout className="mt-6">
+<Callout class="mt-6">
   **Note:** Make sure to encrypt and expire tokens.
 </Callout>
 

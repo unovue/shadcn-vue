@@ -4,7 +4,7 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 </script>
 
 <template>
-  <div className="flex flex-col gap-8">
+  <div class="flex flex-col gap-8">
     <Button variant="outline" size="icon" class="rounded-full">
       <ArrowUpIcon />
     </Button>

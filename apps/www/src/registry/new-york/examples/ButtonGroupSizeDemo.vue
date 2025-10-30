@@ -5,7 +5,7 @@ import { ButtonGroup } from "@/registry/new-york/ui/button-group"
 </script>
 
 <template>
-  <div className="flex flex-col items-start gap-8">
+  <div class="flex flex-col items-start gap-8">
     <ButtonGroup>
       <Button variant="outline" size="sm">
         Small
