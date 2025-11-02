@@ -84,7 +84,7 @@ import { Calendar } from "@/components/ui/calendar"
 Here, we'll use the Persian calendar as an example to show how to use calendar systems with the `<Calendar />` component or any other Calendar components.
 
 The default calendar system is `gregory`.<br/>
-To use a different calendar system, you need to provide a value with the desired system through the `minValue`, `maxValue`, `defaultValue`, `modelValue`, or `placeholder` props.
+To use a different calendar system, you need to provide a value with the desired system through the `defaultValue`, `modelValue` or `placeholder` props.
 
 If none of these props are provided, the emitted dates will use the `Gregorian` calendar by default, since it is the most widely used system.
 
@@ -146,3 +146,58 @@ description: A Persian calendar.
 name: CalendarRangeDemo
 ---
 ::
+
+### Month and Year Selector
+
+::component-preview
+---
+name: CalendarYearAndMonthSelector
+title: Month and Year Selector
+description: A calendar with month and year dropdowns.
+---
+::
+
+### Date of Birth Picker
+
+::component-preview
+---
+name: CalendarDateBirth
+title: Date of Birth Picker
+description: A calendar with date of birth picker.
+---
+::
+
+### Date and Time Picker
+
+::component-preview
+---
+name: CalendarDateAndTimePicker
+title: Date and Time Picker
+description: A calendar with date and time picker.
+---
+::
+
+### Natural Language Picker
+
+This component uses the `chrono-node` library to parse natural language dates.
+
+::component-preview
+---
+name: CalendarNaturalLanguagePicker
+title: Natural Language Picker
+description: A calendar with natural language picker.
+---
+::
+
+### Custom Heading and Cell Size
+
+::component-preview
+---
+name: CalendarCustomCellSize
+title: Custom Heading and Cell Size
+description: A calendar with custom cell size that's responsive.
+className: '**:[.preview]:h-[560px]'
+---
+::
+
+

@@ -25,6 +25,7 @@
     "@unovis/vue": "^1.6.1",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
+    "chrono-node": "^2.9.0",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",
