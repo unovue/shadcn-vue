@@ -26,7 +26,7 @@ const formSchema = toTypedSchema(
   }),
 )
 
-const { handleSubmit } = useForm({
+const { handleSubmit, submitCount } = useForm({
   validationSchema: formSchema,
   initialValues: {
     pin: '',
@@ -43,7 +43,7 @@ const onSubmit = handleSubmit((data) => {
 <template>
   <form id="form-otp-demo" class="space-y-6 w-sm" @submit="onSubmit">
     <FieldGroup>
-      <VeeField v-slot="{ componentField, errors }" name="pin">
+      <VeeField v-slot="{ componentField, errors }" name="pin" :validate-on-blur="false" :validate-on-input="submitCount > 0" :validate-on-model-update="submitCount > 0">
         <Field :data-invalid="!!errors.length">
           <FieldLabel for="form-otp-demo-pin">
             One-Time Password
