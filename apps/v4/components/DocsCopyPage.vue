@@ -26,6 +26,8 @@ const url = computed(() => {
   return isClient ? window.location.href : ''
 })
 
+const route = useRoute()
+
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
     `I’m looking at this shadcn-vue documentation: ${url}.
@@ -41,7 +43,7 @@ const menuItems = {
     h(
       'a',
       {
-        href: `${url}.md`,
+        href: `${window.location.origin}/raw${route.path}.md`,
         target: '_blank',
         rel: 'noopener noreferrer',
       },
