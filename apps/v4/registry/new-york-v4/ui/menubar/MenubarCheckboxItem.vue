@@ -29,7 +29,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   >
     <span class="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
       <MenubarItemIndicator>
-        <Check class="size-4" />
+        <slot name="indicator-icon">
+          <Check class="size-4" />
+        </slot>
       </MenubarItemIndicator>
     </span>
     <slot />
