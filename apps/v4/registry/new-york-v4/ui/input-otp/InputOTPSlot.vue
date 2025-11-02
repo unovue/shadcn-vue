@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { HTMLAttributes, ToRefs } from "vue"
-import type { RenderProps } from "vue-input-otp"
+import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
 import { useForwardProps } from "reka-ui"
+import { useVueOTPContext } from "vue-input-otp"
 import { cn } from "@/lib/utils"
 
 const props = defineProps<{ index: number, class?: HTMLAttributes["class"] }>()
@@ -11,9 +11,9 @@ const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardProps(delegatedProps)
 
-const context = inject<ToRefs<RenderProps>>("OTPInputContext")?.slots
+const context = useVueOTPContext()
 
-const slot = computed(() => context?.value[props.index])
+const slot = computed(() => context?.value.slots[props.index])
 </script>
 
 <template>
