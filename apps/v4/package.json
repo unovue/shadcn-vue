@@ -42,7 +42,7 @@
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:",
-    "vue-input-otp": "^0.3.0",
+    "vue-input-otp": "^0.3.1",
     "vue-sonner": "catalog:",
     "zod": "catalog:"
   },
