@@ -2,7 +2,6 @@
 import type { CalendarRootEmits, CalendarRootProps, DateValue } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import type { LayoutTypes } from "."
-import { CalendarDate, getLocalTimeZone, today } from "@internationalized/date"
 import { createReusableTemplate, reactiveOmit, useVModel } from "@vueuse/core"
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from "reka-ui"
 import { createYear, createYearRange, toDate } from "reka-ui/date"
@@ -13,9 +12,7 @@ import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, Cale
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes["class"], layout?: LayoutTypes, yearRange?: DateValue[] }>(), {
   modelValue: undefined,
   layout: undefined,
-  placeholder() {
-    return today(getLocalTimeZone())
-  },
+  placeholder: undefined,
 })
 const emits = defineEmits<CalendarRootEmits>()
 
@@ -23,13 +20,12 @@ const delegatedProps = reactiveOmit(props, "class", "layout", "placeholder")
 
 const placeholder = useVModel(props, "placeholder", emits, {
   passive: true,
-  defaultValue: today(getLocalTimeZone()),
 }) as Ref<DateValue>
 
 const formatter = useDateFormatter(props.locale ?? "en")
 
 const [DefineMonthTemplate, ReuseMonthTemplate] = createReusableTemplate<{ date: DateValue }>()
-const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate()
+const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ date: DateValue }>()
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -43,14 +39,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
         </div>
         <NativeSelect
           class="text-xs h-8 pr-6 pl-2 text-transparent relative"
-          placeholder=""
           @change="(e: Event) => {
             placeholder = placeholder.set({
-              month: Number(e?.target?.value),
+              month: Number((e?.target as any)?.value),
             })
           }"
         >
-          <NativeSelectOption v-for="(month, index) in createYear({ dateObj: date })" :key="`${month}-${index}`" :value="month.month" :selected="date.month === month.month">
+          <NativeSelectOption v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month" :selected="date.month === month.month">
             {{ formatter.custom(toDate(month), { month: 'short' }) }}
           </NativeSelectOption>
         </NativeSelect>
@@ -66,14 +61,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
         </div>
         <NativeSelect
           class="text-xs h-8 pr-6 pl-2 text-transparent relative"
-          placeholder=""
           @change="(e: Event) => {
             placeholder = placeholder.set({
-              year: Number(e?.target?.value),
+              year: Number((e?.target as any)?.value),
             })
           }"
         >
-          <NativeSelectOption v-for="(year, index) in yearRange ?? createYearRange({ start: new CalendarDate(1925, 1, 1), end: today(getLocalTimeZone()) })" :key="`${year}-${index}`" :value="year.year" :selected="date.year === year.year">
+          <NativeSelectOption v-for="(year) in yearRange ?? createYearRange({ start: date.cycle('year', -100), end: date })" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
             {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
           </NativeSelectOption>
         </NativeSelect>

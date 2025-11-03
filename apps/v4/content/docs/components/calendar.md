@@ -84,7 +84,27 @@ import { Calendar } from "@/components/ui/calendar"
 Here, we'll use the Persian calendar as an example to show how to use calendar systems with the `<Calendar />` component or any other Calendar components.
 
 The default calendar system is `gregory`.<br/>
-To use a different calendar system, you need to provide a value with the desired system through the `defaultValue`, `modelValue` or `placeholder` props.
+To use a different calendar system, you need to provide a value with the desired system through the **`placeholder`** prop.
+
+```vue
+<script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
+import { getLocalTimeZone, PersianCalendar, toCalendar, today } from '@internationalized/date'
+import { Calendar } from '@/registry/new-york-v4/ui/calendar'
+
+const date = ref(today(getLocalTimeZone())) as Ref<DateValue> // no need to add calendar identifier to modelValue when using placeholder
+const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar())) as Ref<DateValue>
+</script>
+
+<template>
+  <Calendar
+    v-model="date"
+    v-model:placeholder="placeholder"
+    locale="fa-IR"
+  />
+</template>
+```
+
 
 If none of these props are provided, the emitted dates will use the `Gregorian` calendar by default, since it is the most widely used system.
 
