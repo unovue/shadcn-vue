@@ -15,7 +15,7 @@
   "dependencies": {
     "@dnd-kit/abstract": "^0.1.21",
     "@internationalized/date": "catalog:",
-    "@nuxt/content": "^3.7.1",
+    "@nuxt/content": "^3.8.0",
     "@nuxt/fonts": "0.11.4",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.16",
@@ -33,7 +33,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
     "lucide-vue-next": "^0.544.0",
-    "nuxt": "^3.19.3",
+    "nuxt": "^3.20.0",
     "reka-ui": "catalog:",
     "shadcn-vue": "workspace:*",
     "tailwind-merge": "^3.3.1",
@@ -48,10 +48,9 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
-    "@shikijs/transformers": "^3.13.0",
     "nuxt-shiki": "^0.3.1",
-    "rimraf": "^6.0.1",
-    "shiki": "^3.13.0",
+    "rimraf": "^6.1.0",
+    "shiki": "^3.14.0",
     "vue-tsc": "catalog:"
   }
 }
