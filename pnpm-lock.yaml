@@ -209,8 +209,8 @@ importers:
         specifier: 'catalog:'
         version: 3.5.22(typescript@5.9.3)
       vue-input-otp:
-        specifier: ^0.3.0
-        version: 0.3.0(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
+        specifier: ^0.3.1
+        version: 0.3.1(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
       vue-sonner:
         specifier: 'catalog:'
         version: 2.0.9(@nuxt/kit@4.1.3(magicast@0.3.5))(nuxt@3.19.3(@parcel/watcher@2.5.1)(@types/node@24.9.1)(@vue/compiler-sfc@3.5.22)(better-sqlite3@12.4.1)(db0@0.3.4(better-sqlite3@12.4.1))(encoding@0.1.13)(eslint@9.38.0(jiti@2.6.1))(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.3.5)(optionator@0.9.4)(rolldown@1.0.0-beta.44)(rollup@4.52.5)(stylus@0.57.0)(terser@5.44.0)(tsx@4.20.6)(typescript@5.9.3)(vite@7.1.11(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(stylus@0.57.0)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))(vue-tsc@3.1.1(typescript@5.9.3))(yaml@2.8.1))
@@ -9295,8 +9295,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  vue-input-otp@0.3.0:
-    resolution: {integrity: sha512-Q1iVDNc18K5GTOeFCYQIZzVtnPdULpsp4CuxdJtfB8m+8xX3xP1xc1sMUJX4Peo2TyZ6JmE/D1b0u8kRRE9eEg==}
+  vue-input-otp@0.3.1:
+    resolution: {integrity: sha512-WlfoqbIa2rEa1qrHnGMo0zfzSfUTiFJq6leZe0Cdq2FJAcZdiIlxPNf0VXYa4okI+MeCEy8fqNYpPUMXEVu7Fw==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -20212,7 +20212,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vue-input-otp@0.3.0(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3)):
+  vue-input-otp@0.3.1(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       '@vueuse/core': 12.8.2(typescript@5.9.3)
       reka-ui: 2.6.0(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
