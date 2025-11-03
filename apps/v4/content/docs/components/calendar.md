@@ -137,11 +137,14 @@ const date = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar()));
 const date = ref(new CalendarDate(new PersianCalendar(), 1404, 1, 1));
 // or
 const date = ref(toCalendar(fromDate(new Date(), getLocalTimeZone()), new PersianCalendar()))
+
+const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar()))
 </script>
 
 <template>
   <Calendar
     v-model="date"
+    v-model:placeholder="placeholder"
     locale="fa-IR"
     dir="rtl"
   />
