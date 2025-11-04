@@ -1,15 +1,19 @@
-import type { Registry } from "shadcn-vue/schema"
+import type { RegistryItem } from "shadcn-vue/schema"
 
-export const lib: Registry["items"] = [
+export const lib: RegistryItem[] = [
   {
-    name: "utils",
-    type: "registry:lib",
-    dependencies: ["clsx", "tailwind-merge"],
-    files: [
-      {
-        path: "lib/utils.ts",
-        type: "registry:lib",
-      },
+    "name": "utils",
+    "type": "registry:lib",
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
     ],
-  },
+    "files": [
+      {
+        "path": "lib/utils.ts",
+        "type": "registry:lib"
+      }
+    ]
+  }
 ]
+

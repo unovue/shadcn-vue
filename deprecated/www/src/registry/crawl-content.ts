@@ -68,36 +68,6 @@ function sanitizeString(input: string): string {
     .toLowerCase() // Convert to lowercase
 }
 
-export async function buildRegistryV4() {
-  // Import v4's static registry files
-  try {
-    const registryPath = resolve("../v4/registry/index.ts")
-    const fileUrl = pathToFileURL(registryPath).href
-    const { registry } = await import(fileUrl)
-    return registry.items || []
-  }
-  catch (error) {
-    console.warn("Failed to import v4 static registry, falling back to file crawling:", error)
-
-    // Fallback to old file crawling method
-    const registryRootPath = resolve("../v4/registry")
-    const registry: RegistryItem[] = []
-
-    const uiPath = resolve(registryRootPath, "new-york-v4", "ui")
-    const blockPath = resolve(registryRootPath, "new-york-v4", "blocks")
-    const chartPath = resolve(registryRootPath, "new-york-v4", "charts")
-
-    const [ui, block, charts] = await Promise.all([
-      crawlUI(uiPath),
-      crawlBlock(blockPath),
-      crawlChart(chartPath),
-    ])
-
-    registry.push(...ui, ...block, ...charts)
-    return registry
-  }
-}
-
 async function crawlUI(rootPath: string) {
   const dir = await readdir(rootPath, { recursive: true, withFileTypes: true })
 

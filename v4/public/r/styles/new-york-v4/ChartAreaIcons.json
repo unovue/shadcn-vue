@@ -1,0 +1,20 @@
+{
+  "name": "ChartAreaIcons",
+  "type": "registry:block",
+  "dependencies": [
+    "@unovis/vue",
+    "@unovis/ts"
+  ],
+  "registryDependencies": [
+    "chart",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "charts/ChartAreaIcons.vue",
+      "content": "<script setup lang=\"ts\">\nimport type {\n  ChartConfig,\n} from '@/registry/new-york/ui/chart'\n// import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from \"recharts\"\nimport { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'\nimport { TrendingDown, TrendingUp } from 'lucide-vue-next'\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from '@/registry/new-york/ui/card'\nimport {\n  ChartContainer,\n  ChartCrosshair,\n  ChartLegendContent,\n  ChartTooltip,\n  ChartTooltipContent,\n  componentToString,\n} from '@/registry/new-york/ui/chart'\n\nconst description = 'An area chart with axes'\n\nconst chartData = [\n  { month: 1, monthLabel: 'January', desktop: 186, mobile: 80 },\n  { month: 2, monthLabel: 'February', desktop: 305, mobile: 200 },\n  { month: 3, monthLabel: 'March', desktop: 237, mobile: 120 },\n  { month: 4, monthLabel: 'April', desktop: 73, mobile: 190 },\n  { month: 5, monthLabel: 'May', desktop: 209, mobile: 130 },\n  { month: 6, monthLabel: 'June', desktop: 214, mobile: 140 },\n]\n\ntype Data = typeof chartData[number]\n\nconst chartConfig = {\n  mobile: {\n    label: 'Mobile',\n    color: 'var(--chart-2)',\n    icon: TrendingUp,\n  },\n  desktop: {\n    label: 'Desktop',\n    color: 'var(--chart-1)',\n    icon: TrendingDown,\n  },\n} satisfies ChartConfig\n</script>\n\n<template>\n  <Card>\n    <CardHeader>\n      <CardTitle>Area Chart - Icons</CardTitle>\n      <CardDescription>\n        Showing total visitors for the last 6 months\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <ChartContainer :config=\"chartConfig\">\n        <VisXYContainer :data=\"chartData\" :margin=\"{ top: 10, bottom: 10 }\">\n          <VisArea\n            :x=\"(d: Data) => d.month\"\n            :y=\"[(d: Data) => d.mobile, (d: Data) => d.desktop]\"\n            :color=\"(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]\"\n            :opacity=\"0.4\"\n          />\n          <VisLine\n            :x=\"(d: Data) => d.month\"\n            :y=\"[(d: Data) => d.mobile, (d: Data) => d.mobile + d.desktop]\"\n            :color=\"(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]\"\n            :line-width=\"1\"\n          />\n          <VisAxis\n            type=\"x\"\n            :x=\"(d: Data) => d.month\"\n            :tick-line=\"false\"\n            :domain-line=\"false\"\n            :grid-line=\"false\"\n            :num-ticks=\"6\"\n            :tick-format=\"(d: number, index: number) => {\n              return chartData[index].monthLabel.slice(0, 3)\n            }\"\n          />\n          <VisAxis\n            type=\"y\"\n            :num-ticks=\"3\"\n            :tick-line=\"false\"\n            :domain-line=\"false\"\n            :tick-format=\"(d: number, index: number) => ''\"\n          />\n          <ChartTooltip />\n          <ChartCrosshair\n            :template=\"componentToString(chartConfig, ChartTooltipContent, { labelKey: 'monthLabel', indicator: 'line' })\"\n            :color=\"(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i % 2]\"\n          />\n        </VisXYContainer>\n\n        <ChartLegendContent />\n      </ChartContainer>\n    </CardContent>\n    <CardFooter>\n      <div class=\"flex w-full items-start gap-2 text-sm\">\n        <div class=\"grid gap-2\">\n          <div class=\"flex items-center gap-2 leading-none font-medium\">\n            Trending up by 5.2% this month <TrendingUp class=\"h-4 w-4\" />\n          </div>\n          <div class=\"text-muted-foreground flex items-center gap-2 leading-none\">\n            January - June 2024\n          </div>\n        </div>\n      </div>\n    </CardFooter>\n  </Card>\n</template>\n",
+      "type": "registry:block",
+      "target": ""
+    }
+  ]
+}

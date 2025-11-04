@@ -1,13 +1,13 @@
 import type { Registry } from "shadcn-vue/schema"
 
-// import { blocks } from "@/registry/registry-blocks"
+import { blocks } from "@/registry/registry-blocks"
 // import { charts } from "@/registry/registry-charts"
 import { composables } from "@/registry/registry-composables"
-// import { examples } from "@/registry/registry-examples"
+import { examples } from "@/registry/registry-examples"
 // import { internal } from "@/registry/registry-internal"
 import { lib } from "@/registry/registry-lib"
 import { themes } from "@/registry/registry-themes"
-// import { ui } from "@/registry/registry-ui"
+import { ui } from "@/registry/registry-ui"
 
 export const registry = {
   name: "shadcn-vue",
@@ -47,8 +47,8 @@ export const registry = {
       cssVars: {},
       files: [],
     },
-    // ...ui,
-    // ...blocks,
+    ...ui,
+    ...blocks,
     // ...charts,
     ...lib,
     ...composables,
@@ -56,6 +56,6 @@ export const registry = {
 
     // Internal use only.
     // ...internal,
-    // ...examples,
+    ...examples,
   ],
 } satisfies Registry

@@ -1,0 +1,17 @@
+{
+  "name": "ButtonGroupSeparatorDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupSeparatorDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/new-york/ui/button-group\"\n</script>\n\n<template>\n  <ButtonGroup>\n    <Button variant=\"secondary\" size=\"sm\">\n      Copy\n    </Button>\n    <ButtonGroupSeparator />\n    <Button variant=\"secondary\" size=\"sm\">\n      Paste\n    </Button>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

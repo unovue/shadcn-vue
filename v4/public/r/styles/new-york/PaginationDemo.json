@@ -1,0 +1,16 @@
+{
+  "name": "PaginationDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "pagination"
+  ],
+  "files": [
+    {
+      "path": "examples/PaginationDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Pagination,\n  PaginationContent,\n  PaginationEllipsis,\n  PaginationItem,\n  PaginationNext,\n  PaginationPrevious,\n} from \"@/registry/new-york/ui/pagination\"\n</script>\n\n<template>\n  <Pagination v-slot=\"{ page }\" :items-per-page=\"10\" :total=\"30\" :default-page=\"2\">\n    <PaginationContent v-slot=\"{ items }\">\n      <PaginationPrevious />\n\n      <template v-for=\"(item, index) in items\" :key=\"index\">\n        <PaginationItem\n          v-if=\"item.type === 'page'\"\n          :value=\"item.value\"\n          :is-active=\"item.value === page\"\n        >\n          {{ item.value }}\n        </PaginationItem>\n      </template>\n\n      <PaginationEllipsis :index=\"4\" />\n\n      <PaginationNext />\n    </PaginationContent>\n  </Pagination>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ToastWithAction",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "toast",
+    "use-toast"
+  ],
+  "files": [
+    {
+      "path": "examples/ToastWithAction.vue",
+      "content": "<script setup lang=\"ts\">\nimport { h } from \"vue\"\nimport { Button } from \"@/registry/default/ui/button\"\nimport { ToastAction } from \"@/registry/default/ui/toast\"\nimport { useToast } from \"@/registry/default/ui/toast/use-toast\"\n\nconst { toast } = useToast()\n</script>\n\n<template>\n  <Button\n    variant=\"outline\" @click=\"() => {\n      toast({\n        title: 'Uh oh! Something went wrong.',\n        description: 'There was a problem with your request.',\n        action: h(ToastAction, {\n          altText: 'Try again',\n        }, {\n          default: () => 'Try again',\n        }),\n      });\n    }\"\n  >\n    Show Toast\n  </Button>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
