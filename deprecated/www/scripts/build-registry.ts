@@ -886,7 +886,7 @@ async function writeFile(path: string, payload: any) {
 async function syncRegistry() {
   // Copy the public/r directory to v4/public/r without triggering v4's build
   const wwwPublicR = path.resolve(process.cwd(), 'src/public/r')
-  const v4PublicR = path.resolve(process.cwd(), '../../v4/public/r')
+  const v4PublicR = path.resolve(process.cwd(), '../../apps/v4/public/r')
 
   // Ensure the source directory exists
   if (!existsSync(wwwPublicR)) {

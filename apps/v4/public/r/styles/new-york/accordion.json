@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "ui/accordion/Accordion.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { AccordionRootEmits, AccordionRootProps } from \"reka-ui\"\nimport {\n  AccordionRoot,\n\n  useForwardPropsEmits,\n} from \"reka-ui\"\n\nconst props = defineProps<AccordionRootProps>()\nconst emits = defineEmits<AccordionRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <AccordionRoot v-bind=\"forwarded\">\n    <slot />\n  </AccordionRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AccordionRootEmits, AccordionRootProps } from \"reka-ui\"\nimport {\n  AccordionRoot,\n  useForwardPropsEmits,\n} from \"reka-ui\"\n\nconst props = defineProps<AccordionRootProps>()\nconst emits = defineEmits<AccordionRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <AccordionRoot v-bind=\"forwarded\">\n    <slot />\n  </AccordionRoot>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
@@ -27,7 +27,7 @@
     },
     {
       "path": "ui/accordion/AccordionTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { AccordionTriggerProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { ChevronDown } from \"lucide-vue-next\"\nimport {\n  AccordionHeader,\n  AccordionTrigger,\n\n} from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n</script>\n\n<template>\n  <AccordionHeader class=\"flex\">\n    <AccordionTrigger\n      v-bind=\"delegatedProps\"\n      :class=\"\n        cn(\n          'flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n      <slot name=\"icon\">\n        <ChevronDown\n          class=\"h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200\"\n        />\n      </slot>\n    </AccordionTrigger>\n  </AccordionHeader>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AccordionTriggerProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { ChevronDown } from \"lucide-vue-next\"\nimport {\n  AccordionHeader,\n  AccordionTrigger,\n} from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n</script>\n\n<template>\n  <AccordionHeader class=\"flex\">\n    <AccordionTrigger\n      v-bind=\"delegatedProps\"\n      :class=\"\n        cn(\n          'flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',\n          props.class,\n        )\n      \"\n    >\n      <slot />\n      <slot name=\"icon\">\n        <ChevronDown\n          class=\"h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200\"\n        />\n      </slot>\n    </AccordionTrigger>\n  </AccordionHeader>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },

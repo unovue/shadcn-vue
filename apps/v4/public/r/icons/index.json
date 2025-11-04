@@ -67,7 +67,7 @@
   "ChevronsUpDown": {
     "lucide": "ChevronsUpDown",
     "radix": "CaretSortIcon",
-    "tabler": "IconArrowsSort"
+    "tabler": "IconSelector"
   },
   "Circle": {
     "lucide": "Circle",

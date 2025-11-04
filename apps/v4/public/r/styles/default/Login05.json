@@ -12,7 +12,7 @@
       "path": "blocks/Login05/page.vue",
       "content": "<script lang=\"ts\">\nexport const description = \"A simple email-only login page.\"\n</script>\n\n<script setup lang=\"ts\">\nimport LoginForm from \"@/registry/default/blocks/Login05/components/LoginForm.vue\"\n</script>\n\n<template>\n  <div class=\"flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10\">\n    <div class=\"w-full max-w-sm\">\n      <LoginForm />\n    </div>\n  </div>\n</template>\n",
       "type": "registry:page",
-      "target": "pages/dashboard/index.vue"
+      "target": "pages/login/index.vue"
     },
     {
       "path": "blocks/Login05/components/LoginForm.vue",
@@ -20,5 +20,8 @@
       "type": "registry:component",
       "target": ""
     }
+  ],
+  "categories": [
+    "login"
   ]
 }

@@ -13,7 +13,7 @@
       "path": "blocks/Sidebar13/page.vue",
       "content": "<script lang=\"ts\">\nexport const description = \"A sidebar in a dialog.\"\nexport const iframeHeight = \"800px\"\n</script>\n\n<script setup lang=\"ts\">\nimport SettingsDialog from \"@/registry/new-york/blocks/Sidebar13/components/SettingsDialog.vue\"\n</script>\n\n<template>\n  <div class=\"flex h-svh items-center justify-center\">\n    <SettingsDialog />\n  </div>\n</template>\n",
       "type": "registry:page",
-      "target": "pages/dashboard/index.vue"
+      "target": "pages/sidebar/index.vue"
     },
     {
       "path": "blocks/Sidebar13/components/SettingsDialog.vue",
@@ -21,5 +21,8 @@
       "type": "registry:component",
       "target": ""
     }
+  ],
+  "categories": [
+    "sidebar"
   ]
 }
