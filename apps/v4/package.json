@@ -49,6 +49,7 @@
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
     "nuxt-shiki": "^0.3.1",
+    "prettier": "^3.6.2",
     "rimraf": "^6.1.0",
     "shiki": "^3.14.0",
     "vue-tsc": "catalog:"
