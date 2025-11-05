@@ -4,7 +4,8 @@
   "type": "registry:ui",
   "dependencies": [
     "vaul-vue",
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "files": [
     {

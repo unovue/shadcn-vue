@@ -243,11 +243,36 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "button-group": {
+    name: "button-group",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["separator"],
+    files: [{
+      path: "registry/new-york-v4/ui/button-group/ButtonGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/button-group/ButtonGroupSeparator.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/button-group/ButtonGroupText.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/button-group/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
   "calendar": {
     name: "calendar",
     description: "",
     type: "registry:ui",
-    registryDependencies: ["button"],
+    registryDependencies: ["native-select","button"],
     files: [{
       path: "registry/new-york-v4/ui/calendar/Calendar.vue",
       type: "registry:ui",
@@ -380,6 +405,39 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/carousel/useCarousel.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "chart": {
+    name: "chart",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/chart/ChartContainer.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/chart/ChartLegendContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/chart/ChartStyle.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/chart/ChartTooltipContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/chart/index.ts",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/chart/utils.ts",
       type: "registry:ui",
       target: ""
     }],
@@ -778,11 +836,101 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "empty": {
+    name: "empty",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/empty/Empty.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/empty/EmptyContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/empty/EmptyDescription.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/empty/EmptyHeader.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/empty/EmptyMedia.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/empty/EmptyTitle.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/empty/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "field": {
+    name: "field",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["label","separator"],
+    files: [{
+      path: "registry/new-york-v4/ui/field/Field.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldDescription.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldError.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldLabel.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldLegend.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldSeparator.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldSet.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/FieldTitle.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/field/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
   "form": {
     name: "form",
     description: "",
     type: "registry:ui",
-    registryDependencies: ["button","label"],
+    registryDependencies: ["label"],
     files: [{
       path: "registry/new-york-v4/ui/form/FormControl.vue",
       type: "registry:ui",
@@ -855,6 +1003,146 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/input/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-group": {
+    name: "input-group",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button","input","textarea"],
+    files: [{
+      path: "registry/new-york-v4/ui/input-group/InputGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-group/InputGroupAddon.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-group/InputGroupButton.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-group/InputGroupInput.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-group/InputGroupText.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-group/InputGroupTextarea.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-group/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-otp": {
+    name: "input-otp",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/input-otp/InputOTP.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-otp/InputOTPGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-otp/InputOTPSeparator.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-otp/InputOTPSlot.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/input-otp/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "item": {
+    name: "item",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["separator"],
+    files: [{
+      path: "registry/new-york-v4/ui/item/Item.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemActions.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemDescription.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemFooter.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemHeader.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemMedia.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemSeparator.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/ItemTitle.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/item/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "kbd": {
+    name: "kbd",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/kbd/Kbd.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/kbd/KbdGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/kbd/index.ts",
       type: "registry:ui",
       target: ""
     }],
@@ -945,6 +1233,31 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/menubar/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "native-select": {
+    name: "native-select",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/native-select/NativeSelect.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/native-select/NativeSelectOptGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/native-select/NativeSelectOption.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/native-select/index.ts",
       type: "registry:ui",
       target: ""
     }],
@@ -1174,7 +1487,7 @@ export const Index: Record<string, any> = {
     name: "range-calendar",
     description: "",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["button"],
     files: [{
       path: "registry/new-york-v4/ui/range-calendar/RangeCalendar.vue",
       type: "registry:ui",
@@ -1404,7 +1717,7 @@ export const Index: Record<string, any> = {
     name: "sidebar",
     description: "",
     type: "registry:ui",
-    registryDependencies: ["button","separator","sheet","tooltip","input","skeleton"],
+    registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
     files: [{
       path: "registry/new-york-v4/ui/sidebar/Sidebar.vue",
       type: "registry:ui",
@@ -1558,6 +1871,23 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/sonner/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner": {
+    name: "spinner",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/spinner/Spinner.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/spinner/index.ts",
       type: "registry:ui",
       target: ""
     }],
@@ -1823,13 +2153,13 @@ export const Index: Record<string, any> = {
   },
   "dashboard-01": {
     name: "dashboard-01",
-    description: "A dashboard with sidebar, data table, and analytics cards.",
+    description: "A dashboard with sidebar, charts and data table.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","badge","button","card","checkbox","dropdown-menu","label","select","table","chart"],
+    registryDependencies: ["sidebar","chart","card","select","badge","button","checkbox","dropdown-menu","label","table","tabs","avatar","separator"],
     files: [{
       path: "registry/new-york-v4/blocks/dashboard-01/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/dashboard/index.vue"
     },{
       path: "registry/new-york-v4/blocks/dashboard-01/components/AppSidebar.vue",
       type: "registry:component",
@@ -1843,11 +2173,11 @@ export const Index: Record<string, any> = {
       type: "registry:component",
       target: ""
     },{
-      path: "registry/new-york-v4/blocks/dashboard-01/components/DraggableRow.vue",
+      path: "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
       type: "registry:component",
       target: ""
     },{
-      path: "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
+      path: "registry/new-york-v4/blocks/dashboard-01/components/DraggableRow.vue",
       type: "registry:component",
       target: ""
     },{
@@ -1886,13 +2216,13 @@ export const Index: Record<string, any> = {
     files: [{
       path: "registry/new-york-v4/blocks/login-01/page.vue",
       type: "registry:page",
-      target: "app/login/page.vue"
+      target: "pages/login/index.vue"
     },{
       path: "registry/new-york-v4/blocks/login-01/components/LoginForm.vue",
       type: "registry:component",
       target: ""
     }],
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-02": {
@@ -1903,13 +2233,13 @@ export const Index: Record<string, any> = {
     files: [{
       path: "registry/new-york-v4/blocks/login-02/page.vue",
       type: "registry:page",
-      target: "app/login/page.vue"
+      target: "pages/login/index.vue"
     },{
       path: "registry/new-york-v4/blocks/login-02/components/LoginForm.vue",
       type: "registry:component",
       target: ""
     }],
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-03": {
@@ -1920,13 +2250,13 @@ export const Index: Record<string, any> = {
     files: [{
       path: "registry/new-york-v4/blocks/login-03/page.vue",
       type: "registry:page",
-      target: "app/login/page.vue"
+      target: "pages/login/index.vue"
     },{
       path: "registry/new-york-v4/blocks/login-03/components/LoginForm.vue",
       type: "registry:component",
       target: ""
     }],
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-04": {
@@ -1937,13 +2267,13 @@ export const Index: Record<string, any> = {
     files: [{
       path: "registry/new-york-v4/blocks/login-04/page.vue",
       type: "registry:page",
-      target: "app/login/page.vue"
+      target: "pages/login/index.vue"
     },{
       path: "registry/new-york-v4/blocks/login-04/components/LoginForm.vue",
       type: "registry:component",
       target: ""
     }],
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-05": {
@@ -1954,41 +2284,41 @@ export const Index: Record<string, any> = {
     files: [{
       path: "registry/new-york-v4/blocks/login-05/page.vue",
       type: "registry:page",
-      target: "app/login/page.vue"
+      target: "pages/login/index.vue"
     },{
       path: "registry/new-york-v4/blocks/login-05/components/LoginForm.vue",
       type: "registry:component",
       target: ""
     }],
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "products-01": {
     name: "products-01",
-    description: "A products table with filtering and pagination.",
+    description: "",
     type: "registry:block",
     registryDependencies: ["badge","button","checkbox","dropdown-menu","pagination","select","table","tabs"],
     files: [{
       path: "registry/new-york-v4/blocks/products-01/page.vue",
       type: "registry:page",
-      target: "app/products/page.vue"
+      target: "pages/products/index.vue"
     },{
       path: "registry/new-york-v4/blocks/products-01/components/ProductsTable.vue",
       type: "registry:component",
       target: ""
     }],
-    categories: ["table"],
+    categories: undefined,
     meta: undefined,
   },
   "sidebar-01": {
     name: "sidebar-01",
     description: "A simple sidebar with navigation grouped by section.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+    registryDependencies: ["breadcrumb","separator","sidebar","label","dropdown-menu"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-01/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-01/components/AppSidebar.vue",
       type: "registry:component",
@@ -2009,11 +2339,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-02",
     description: "A sidebar with collapsible sections.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","collapsible","label","dropdown-menu"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label","dropdown-menu"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-02/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-02/components/AppSidebar.vue",
       type: "registry:component",
@@ -2034,11 +2364,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-03",
     description: "A sidebar with submenus.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator"],
+    registryDependencies: ["breadcrumb","separator","sidebar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-03/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-03/components/AppSidebar.vue",
       type: "registry:component",
@@ -2051,11 +2381,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-04",
     description: "A floating sidebar with submenus.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator"],
+    registryDependencies: ["breadcrumb","separator","sidebar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-04/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-04/components/AppSidebar.vue",
       type: "registry:component",
@@ -2068,11 +2398,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-05",
     description: "A sidebar with collapsible submenus.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","collapsible","label"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible","label"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-05/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-05/components/AppSidebar.vue",
       type: "registry:component",
@@ -2089,11 +2419,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-06",
     description: "A sidebar with submenus as dropdowns.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","dropdown-menu","button","card"],
+    registryDependencies: ["breadcrumb","separator","sidebar","dropdown-menu","button","card"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-06/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-06/components/AppSidebar.vue",
       type: "registry:component",
@@ -2112,13 +2442,13 @@ export const Index: Record<string, any> = {
   },
   "sidebar-07": {
     name: "sidebar-07",
-    description: "A sidebar that collapses to icons.",
+    description: "A sidebar that collapses to icons",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-07/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-07/components/AppSidebar.vue",
       type: "registry:component",
@@ -2147,11 +2477,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-08",
     description: "An inset sidebar with secondary navigation.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","collapsible","dropdown-menu","avatar"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible","dropdown-menu","avatar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-08/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-08/components/AppSidebar.vue",
       type: "registry:component",
@@ -2180,11 +2510,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-09",
     description: "Collapsible nested sidebars.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","label","switch","avatar","dropdown-menu"],
+    registryDependencies: ["breadcrumb","separator","sidebar","label","switch","avatar","dropdown-menu"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-09/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-09/components/AppSidebar.vue",
       type: "registry:component",
@@ -2201,11 +2531,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-10",
     description: "A sidebar in a popover.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","button","popover","dropdown-menu","collapsible"],
+    registryDependencies: ["breadcrumb","separator","sidebar","button","popover","dropdown-menu","collapsible"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-10/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-10/components/AppSidebar.vue",
       type: "registry:component",
@@ -2242,11 +2572,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-11",
     description: "A sidebar with a collapsible file tree.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","collapsible"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-11/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-11/components/AppSidebar.vue",
       type: "registry:component",
@@ -2263,11 +2593,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-12",
     description: "A sidebar with a calendar.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","collapsible","calendar","avatar","dropdown-menu"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","avatar","dropdown-menu"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-12/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-12/components/AppSidebar.vue",
       type: "registry:component",
@@ -2292,11 +2622,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-13",
     description: "A sidebar in a dialog.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","button","dialog"],
+    registryDependencies: ["breadcrumb","button","dialog","sidebar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-13/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-13/components/SettingsDialog.vue",
       type: "registry:component",
@@ -2309,11 +2639,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-14",
     description: "A sidebar on the right.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb"],
+    registryDependencies: ["breadcrumb","sidebar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-14/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-14/components/AppSidebar.vue",
       type: "registry:component",
@@ -2326,11 +2656,11 @@ export const Index: Record<string, any> = {
     name: "sidebar-15",
     description: "A left and right sidebar.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","calendar","avatar","dropdown-menu","collapsible"],
+    registryDependencies: ["breadcrumb","separator","sidebar","collapsible","calendar","dropdown-menu","avatar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-15/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-15/components/AppSidebar.vue",
       type: "registry:component",
@@ -2381,13 +2711,13 @@ export const Index: Record<string, any> = {
   },
   "sidebar-16": {
     name: "sidebar-16",
-    description: "A sidebar with a header and a search form.",
+    description: "A sidebar with a sticky site header.",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","dropdown-menu","avatar","button"],
+    registryDependencies: ["sidebar","collapsible","dropdown-menu","avatar","label","breadcrumb","button","separator"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-16/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar/index.vue"
     },{
       path: "registry/new-york-v4/blocks/sidebar-16/components/AppSidebar.vue",
       type: "registry:component",
@@ -2422,15 +2752,314 @@ export const Index: Record<string, any> = {
   },
   "sidebar-demo": {
     name: "sidebar-demo",
-    description: "A demo sidebar showcasing various features and components.",
+    description: "",
     type: "registry:block",
-    registryDependencies: ["sidebar","breadcrumb","separator","button","dropdown-menu","collapsible"],
+    registryDependencies: ["sidebar"],
     files: [{
       path: "registry/new-york-v4/blocks/sidebar-demo/page.vue",
       type: "registry:page",
-      target: "app/dashboard/page.vue"
+      target: "pages/sidebar-demo/index.vue"
     }],
-    categories: ["sidebar","dashboard","demo"],
+    categories: undefined,
+    meta: undefined,
+  },
+  "ChartAreaAxes": {
+    name: "ChartAreaAxes",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartAreaAxes.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-area"],
+    meta: undefined,
+  },
+  "ChartAreaGradient": {
+    name: "ChartAreaGradient",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartAreaGradient.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-area"],
+    meta: undefined,
+  },
+  "ChartAreaIcons": {
+    name: "ChartAreaIcons",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartAreaIcons.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-area"],
+    meta: undefined,
+  },
+  "ChartAreaInteractive": {
+    name: "ChartAreaInteractive",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card","select"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartAreaInteractive.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-area"],
+    meta: undefined,
+  },
+  "ChartBarDefault": {
+    name: "ChartBarDefault",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartBarDefault.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-bar"],
+    meta: undefined,
+  },
+  "ChartBarHorizontal": {
+    name: "ChartBarHorizontal",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartBarHorizontal.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-bar"],
+    meta: undefined,
+  },
+  "ChartBarInteractive": {
+    name: "ChartBarInteractive",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartBarInteractive.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-bar"],
+    meta: undefined,
+  },
+  "ChartBarMultiple": {
+    name: "ChartBarMultiple",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartBarMultiple.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-bar"],
+    meta: undefined,
+  },
+  "ChartLineDefault": {
+    name: "ChartLineDefault",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartLineDefault.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-line"],
+    meta: undefined,
+  },
+  "ChartLineInteractive": {
+    name: "ChartLineInteractive",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartLineInteractive.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-line"],
+    meta: undefined,
+  },
+  "ChartLineLinear": {
+    name: "ChartLineLinear",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartLineLinear.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-line"],
+    meta: undefined,
+  },
+  "ChartLineStep": {
+    name: "ChartLineStep",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartLineStep.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-line"],
+    meta: undefined,
+  },
+  "ChartPieDonut": {
+    name: "ChartPieDonut",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartPieDonut.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-pie"],
+    meta: undefined,
+  },
+  "ChartPieDonutText": {
+    name: "ChartPieDonutText",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartPieDonutText.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-pie"],
+    meta: undefined,
+  },
+  "ChartPieSimple": {
+    name: "ChartPieSimple",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartPieSimple.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-pie"],
+    meta: undefined,
+  },
+  "ChartPieStacked": {
+    name: "ChartPieStacked",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartPieStacked.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-pie"],
+    meta: undefined,
+  },
+  "ChartTooltipDefault": {
+    name: "ChartTooltipDefault",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipDefault.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
+    meta: undefined,
+  },
+  "ChartTooltipIcons": {
+    name: "ChartTooltipIcons",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipIcons.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
+    meta: undefined,
+  },
+  "ChartTooltipIndicatorLine": {
+    name: "ChartTooltipIndicatorLine",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipIndicatorLine.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
+    meta: undefined,
+  },
+  "ChartTooltipIndicatorNone": {
+    name: "ChartTooltipIndicatorNone",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipIndicatorNone.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
+    meta: undefined,
+  },
+  "ChartTooltipLabelCustom": {
+    name: "ChartTooltipLabelCustom",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipLabelCustom.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
+    meta: undefined,
+  },
+  "ChartTooltipLabelFormatter": {
+    name: "ChartTooltipLabelFormatter",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipLabelFormatter.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
+    meta: undefined,
+  },
+  "ChartTooltipLabelNone": {
+    name: "ChartTooltipLabelNone",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["chart","card"],
+    files: [{
+      path: "registry/new-york-v4/charts/ChartTooltipLabelNone.vue",
+      type: "registry:block",
+      target: ""
+    }],
+    categories: ["chart","chart-tooltip"],
     meta: undefined,
   },
   "utils": {

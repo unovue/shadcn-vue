@@ -3,7 +3,8 @@
   "name": "resizable",
   "type": "registry:ui",
   "dependencies": [
-    "vue-resizable-panels"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "files": [
     {

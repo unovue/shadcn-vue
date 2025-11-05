@@ -3,17 +3,16 @@
   "name": "sidebar",
   "type": "registry:ui",
   "dependencies": [
-    "class-variance-authority",
     "reka-ui",
     "@vueuse/core"
   ],
   "registryDependencies": [
-    "button",
-    "separator",
     "sheet",
-    "tooltip",
     "input",
-    "skeleton"
+    "tooltip",
+    "skeleton",
+    "separator",
+    "button"
   ],
   "files": [
     {
@@ -146,47 +145,5 @@
       "content": "import type { ComputedRef, Ref } from \"vue\"\nimport { createContext } from \"reka-ui\"\n\nexport const SIDEBAR_COOKIE_NAME = \"sidebar_state\"\nexport const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7\nexport const SIDEBAR_WIDTH = \"16rem\"\nexport const SIDEBAR_WIDTH_MOBILE = \"18rem\"\nexport const SIDEBAR_WIDTH_ICON = \"3rem\"\nexport const SIDEBAR_KEYBOARD_SHORTCUT = \"b\"\n\nexport const [useSidebar, provideSidebarContext] = createContext<{\n  state: ComputedRef<\"expanded\" | \"collapsed\">\n  open: Ref<boolean>\n  setOpen: (value: boolean) => void\n  isMobile: Ref<boolean>\n  openMobile: Ref<boolean>\n  setOpenMobile: (value: boolean) => void\n  toggleSidebar: () => void\n}>(\"Sidebar\")\n",
       "type": "registry:ui"
     }
-  ],
-  "tailwind": {
-    "config": {
-      "theme": {
-        "extend": {
-          "colors": {
-            "sidebar": {
-              "DEFAULT": "hsl(var(--sidebar-background))",
-              "foreground": "hsl(var(--sidebar-foreground))",
-              "primary": "hsl(var(--sidebar-primary))",
-              "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-              "accent": "hsl(var(--sidebar-accent))",
-              "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-              "border": "hsl(var(--sidebar-border))",
-              "ring": "hsl(var(--sidebar-ring))"
-            }
-          }
-        }
-      }
-    }
-  },
-  "cssVars": {
-    "light": {
-      "sidebar-background": "0 0% 98%",
-      "sidebar-foreground": "240 5.3% 26.1%",
-      "sidebar-primary": "240 5.9% 10%",
-      "sidebar-primary-foreground": "0 0% 98%",
-      "sidebar-accent": "240 4.8% 95.9%",
-      "sidebar-accent-foreground": "240 5.9% 10%",
-      "sidebar-border": "220 13% 91%",
-      "sidebar-ring": "217.2 91.2% 59.8%"
-    },
-    "dark": {
-      "sidebar-background": "240 5.9% 10%",
-      "sidebar-foreground": "240 4.8% 95.9%",
-      "sidebar-primary": "224.3 76.3% 48%",
-      "sidebar-primary-foreground": "0 0% 100%",
-      "sidebar-accent": "240 3.7% 15.9%",
-      "sidebar-accent-foreground": "240 4.8% 95.9%",
-      "sidebar-border": "240 3.7% 15.9%",
-      "sidebar-ring": "217.2 91.2% 59.8%"
-    }
-  }
+  ]
 }

@@ -4,9 +4,9 @@
   "type": "registry:block",
   "description": "A sidebar with collapsible sections.",
   "registryDependencies": [
-    "sidebar",
     "breadcrumb",
     "separator",
+    "sidebar",
     "collapsible",
     "label",
     "dropdown-menu"
@@ -16,7 +16,7 @@
       "path": "registry/new-york-v4/blocks/sidebar-02/page.vue",
       "content": "<script lang=\"ts\">\nexport const iframeHeight = \"800px\"\nexport const description = \"A sidebar with collapsible sections.\"\n</script>\n\n<script setup lang=\"ts\">\nimport AppSidebar from \"@/registry/new-york-v4/blocks/sidebar-02/components/AppSidebar.vue\"\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/new-york-v4/ui/breadcrumb\"\nimport { Separator } from \"@/registry/new-york-v4/ui/separator\"\nimport {\n  SidebarInset,\n  SidebarProvider,\n  SidebarTrigger,\n} from \"@/registry/new-york-v4/ui/sidebar\"\n</script>\n\n<template>\n  <SidebarProvider>\n    <AppSidebar />\n    <SidebarInset>\n      <header class=\"bg-background sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b px-4\">\n        <SidebarTrigger class=\"-ml-1\" />\n        <Separator orientation=\"vertical\" class=\"mr-2 h-4\" />\n        <Breadcrumb>\n          <BreadcrumbList>\n            <BreadcrumbItem class=\"hidden md:block\">\n              <BreadcrumbLink href=\"#\">\n                Building Your Application\n              </BreadcrumbLink>\n            </BreadcrumbItem>\n            <BreadcrumbSeparator class=\"hidden md:block\" />\n            <BreadcrumbItem>\n              <BreadcrumbPage>Data Fetching</BreadcrumbPage>\n            </BreadcrumbItem>\n          </BreadcrumbList>\n        </Breadcrumb>\n      </header>\n      <div class=\"flex flex-1 flex-col gap-4 p-4\">\n        <div\n          v-for=\"i in 24\"\n          :key=\"i\"\n          class=\"aspect-video h-12 w-full rounded-lg bg-muted/50\"\n        />\n      </div>\n    </SidebarInset>\n  </SidebarProvider>\n</template>\n",
       "type": "registry:page",
-      "target": "app/dashboard/page.vue"
+      "target": "pages/sidebar/index.vue"
     },
     {
       "path": "registry/new-york-v4/blocks/sidebar-02/components/AppSidebar.vue",

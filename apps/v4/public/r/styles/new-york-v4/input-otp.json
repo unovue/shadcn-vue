@@ -1,0 +1,36 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "input-otp",
+  "type": "registry:ui",
+  "dependencies": [
+    "@vueuse/core",
+    "reka-ui"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/ui/input-otp/InputOTP.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport type { OTPInputEmits, OTPInputProps } from \"vue-input-otp\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { useForwardPropsEmits } from \"reka-ui\"\nimport { OTPInput } from \"vue-input-otp\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<OTPInputProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst emits = defineEmits<OTPInputEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <OTPInput\n    v-slot=\"slotProps\"\n    v-bind=\"forwarded\"\n    :container-class=\"cn('flex items-center gap-2 has-disabled:opacity-50', props.class)\"\n    data-slot=\"input-otp\"\n    class=\"disabled:cursor-not-allowed\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </OTPInput>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/input-otp/InputOTPGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{ class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-group\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex items-center', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/input-otp/InputOTPSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { MinusIcon } from \"lucide-vue-next\"\nimport { useForwardProps } from \"reka-ui\"\n\nconst props = defineProps<{ class?: HTMLAttributes[\"class\"] }>()\n\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/input-otp/InputOTPSlot.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { useForwardProps } from \"reka-ui\"\nimport { useVueOTPContext } from \"vue-input-otp\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{ index: number, class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardProps(delegatedProps)\n\nconst context = useVueOTPContext()\n\nconst slot = computed(() => context?.value.slots[props.index])\n</script>\n\n<template>\n  <div\n    v-bind=\"forwarded\"\n    data-slot=\"input-otp-slot\"\n    :data-active=\"slot?.isActive\"\n    :class=\"cn('data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive dark:bg-input/30 border-input relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all outline-none first:rounded-l-md first:border-l last:rounded-r-md data-[active=true]:z-10 data-[active=true]:ring-[3px]', props.class)\"\n  >\n    {{ slot?.char }}\n    <div v-if=\"slot?.hasFakeCaret\" class=\"pointer-events-none absolute inset-0 flex items-center justify-center\">\n      <div class=\"animate-caret-blink bg-foreground h-4 w-px duration-1000\" />\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/input-otp/index.ts",
+      "content": "export { default as InputOTP } from \"./InputOTP.vue\"\nexport { default as InputOTPGroup } from \"./InputOTPGroup.vue\"\nexport { default as InputOTPSeparator } from \"./InputOTPSeparator.vue\"\nexport { default as InputOTPSlot } from \"./InputOTPSlot.vue\"\n",
+      "type": "registry:ui"
+    }
+  ]
+}

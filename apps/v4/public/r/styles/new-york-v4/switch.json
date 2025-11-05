@@ -3,7 +3,8 @@
   "name": "switch",
   "type": "registry:ui",
   "dependencies": [
-    "reka-ui"
+    "reka-ui",
+    "@vueuse/core"
   ],
   "files": [
     {

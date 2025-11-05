@@ -14,7 +14,7 @@
       "path": "registry/new-york-v4/blocks/login-01/page.vue",
       "content": "<script lang=\"ts\">\nexport const description = \"A simple login form.\"\n</script>\n\n<script setup lang=\"ts\">\nimport LoginForm from \"@/registry/new-york-v4/blocks/login-01/components/LoginForm.vue\"\n</script>\n\n<template>\n  <div class=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n    <div class=\"w-full max-w-sm\">\n      <LoginForm />\n    </div>\n  </div>\n</template>\n",
       "type": "registry:page",
-      "target": "app/login/page.vue"
+      "target": "pages/login/index.vue"
     },
     {
       "path": "registry/new-york-v4/blocks/login-01/components/LoginForm.vue",
@@ -23,6 +23,7 @@
     }
   ],
   "categories": [
-    "authentication"
+    "authentication",
+    "login"
   ]
 }

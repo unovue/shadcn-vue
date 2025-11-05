@@ -4,9 +4,9 @@
   "type": "registry:block",
   "description": "Collapsible nested sidebars.",
   "registryDependencies": [
-    "sidebar",
     "breadcrumb",
     "separator",
+    "sidebar",
     "label",
     "switch",
     "avatar",
@@ -17,7 +17,7 @@
       "path": "registry/new-york-v4/blocks/sidebar-09/page.vue",
       "content": "<script lang=\"ts\">\nexport const description = \"Collapsible nested sidebars.\"\nexport const iframeHeight = \"800px\"\n</script>\n\n<script setup lang=\"ts\">\nimport AppSidebar from \"@/registry/new-york-v4/blocks/sidebar-09/components/AppSidebar.vue\"\nimport {\n  Breadcrumb,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/new-york-v4/ui/breadcrumb\"\nimport { Separator } from \"@/registry/new-york-v4/ui/separator\"\nimport {\n  SidebarInset,\n  SidebarProvider,\n  SidebarTrigger,\n} from \"@/registry/new-york-v4/ui/sidebar\"\n</script>\n\n<template>\n  <SidebarProvider\n    :style=\"{\n      '--sidebar-width': '350px',\n    }\"\n  >\n    <AppSidebar />\n    <SidebarInset>\n      <header class=\"bg-background sticky top-0 flex shrink-0 items-center gap-2 border-b p-4\">\n        <SidebarTrigger class=\"-ml-1\" />\n        <Separator\n          orientation=\"vertical\"\n          class=\"mr-2 data-[orientation=vertical]:h-4\"\n        />\n        <Breadcrumb>\n          <BreadcrumbList>\n            <BreadcrumbItem class=\"hidden md:block\">\n              <BreadcrumbLink href=\"#\">\n                All Inboxes\n              </BreadcrumbLink>\n            </BreadcrumbItem>\n            <BreadcrumbSeparator class=\"hidden md:block\" />\n            <BreadcrumbItem>\n              <BreadcrumbPage>Inbox</BreadcrumbPage>\n            </BreadcrumbItem>\n          </BreadcrumbList>\n        </Breadcrumb>\n      </header>\n      <div class=\"flex flex-1 flex-col gap-4 p-4\">\n        <div\n          v-for=\"index in 24\"\n          :key=\"index\"\n          class=\"aspect-video h-12 w-full rounded-lg bg-muted/50\"\n        />\n      </div>\n    </SidebarInset>\n  </SidebarProvider>\n</template>\n",
       "type": "registry:page",
-      "target": "app/dashboard/page.vue"
+      "target": "pages/sidebar/index.vue"
     },
     {
       "path": "registry/new-york-v4/blocks/sidebar-09/components/AppSidebar.vue",

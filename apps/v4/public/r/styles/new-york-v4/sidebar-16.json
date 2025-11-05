@@ -2,21 +2,23 @@
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sidebar-16",
   "type": "registry:block",
-  "description": "A sidebar with a header and a search form.",
+  "description": "A sidebar with a sticky site header.",
   "registryDependencies": [
     "sidebar",
-    "breadcrumb",
-    "separator",
+    "collapsible",
     "dropdown-menu",
     "avatar",
-    "button"
+    "label",
+    "breadcrumb",
+    "button",
+    "separator"
   ],
   "files": [
     {
       "path": "registry/new-york-v4/blocks/sidebar-16/page.vue",
       "content": "<script lang=\"ts\">\nexport const iframeHeight = \"800px\"\nexport const description = \"A sidebar with a header and a search form.\"\n</script>\n\n<script setup lang=\"ts\">\nimport AppSidebar from \"@/registry/new-york-v4/blocks/sidebar-16/components/AppSidebar.vue\"\nimport SiteHeader from \"@/registry/new-york-v4/blocks/sidebar-16/components/SiteHeader.vue\"\nimport {\n  SidebarInset,\n  SidebarProvider,\n} from \"@/registry/new-york-v4/ui/sidebar\"\n</script>\n\n<template>\n  <div class=\"[--header-height:calc(--spacing(14))]\">\n    <SidebarProvider class=\"flex flex-col\">\n      <SiteHeader />\n      <div class=\"flex flex-1\">\n        <AppSidebar />\n        <SidebarInset>\n          <div class=\"flex flex-1 flex-col gap-4 p-4\">\n            <div class=\"grid auto-rows-min gap-4 md:grid-cols-3\">\n              <div class=\"bg-muted/50 aspect-video rounded-xl\" />\n              <div class=\"bg-muted/50 aspect-video rounded-xl\" />\n              <div class=\"bg-muted/50 aspect-video rounded-xl\" />\n            </div>\n            <div class=\"bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min\" />\n          </div>\n        </SidebarInset>\n      </div>\n    </SidebarProvider>\n  </div>\n</template>\n",
       "type": "registry:page",
-      "target": "app/dashboard/page.vue"
+      "target": "pages/sidebar/index.vue"
     },
     {
       "path": "registry/new-york-v4/blocks/sidebar-16/components/AppSidebar.vue",

@@ -2,6 +2,10 @@
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "table",
   "type": "registry:ui",
+  "dependencies": [
+    "@vueuse/core",
+    "@tanstack/vue-table"
+  ],
   "files": [
     {
       "path": "registry/new-york-v4/ui/table/Table.vue",
