@@ -58,11 +58,11 @@ function isActive(href: string) {
 
 <template>
   <Sidebar
-    class="text-sidebar-foreground w-(--sidebar-width) flex-col sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)+2rem)] bg-transparent lg:flex"
+    class="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)-4rem)] bg-transparent lg:flex"
     collapsible="none"
   >
-    <SidebarContent class="no-scrollbar px-2 pb-12">
-      <div class="h-(--top-spacing) shrink-0" />
+    <SidebarContent class="no-scrollbar overflow-x-hidden px-2">
+      <div class="from-background via-background/80 to-background/50 sticky -top-1 z-10 h-8 shrink-0 bg-gradient-to-b blur-xs" />
       <SidebarGroup>
         <SidebarGroupLabel class="text-muted-foreground font-medium">
           Sections
@@ -118,6 +118,7 @@ function isActive(href: string) {
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>
+      <div class="from-background via-background/80 to-background/50 sticky -bottom-1 z-10 h-16 shrink-0 bg-gradient-to-t blur-xs" />
     </SidebarContent>
   </Sidebar>
 </template>
