@@ -216,6 +216,12 @@ importers:
       nuxt-shiki:
         specifier: ^0.3.1
         version: 0.3.1(magicast@0.5.1)
+      oxc-parser:
+        specifier: 'catalog:'
+        version: 0.96.0
+      pathe:
+        specifier: 'catalog:'
+        version: 2.0.3
       prettier:
         specifier: ^3.6.2
         version: 3.6.2

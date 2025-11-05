@@ -1,12 +1,58 @@
-// import type { Style } from '@/registry/styles'
 import { exec, execFile } from 'node:child_process'
 import { existsSync, promises as fs } from 'node:fs'
-import path from 'node:path'
+import path, { resolve } from 'node:path'
 
 import { rimraf } from 'rimraf'
 import { getAllBlocks } from '@/lib/blocks'
 import { registry } from '@/registry/index'
-// import { STYLES } from '@/registry/styles'
+import { crawlBlock, crawlUI } from './crawl-content'
+
+async function writeFile(path: string, payload: any) {
+  return fs.writeFile(
+    path,
+    `${payload}\r\n`,
+    'utf8',
+  )
+}
+
+// Generate /registry/new-york-v4/registry-ui.ts
+async function buildRegistryUI() {
+  const result = await crawlUI(resolve('registry', 'new-york-v4', 'ui'))
+  await writeFile(
+    resolve('registry', 'registry-ui.ts'),
+    `import type { Registry } from "shadcn-vue/schema"
+
+export const ui: Registry["items"] = ${JSON.stringify(result ?? '', null, 2)}`,
+  )
+
+  exec(`eslint --fix registry/registry-ui.ts`)
+}
+
+// Generate /registry/new-york-v4/registry-blocks.ts
+async function buildRegistryBlocks() {
+  const result = await crawlBlock(resolve('registry', 'new-york-v4', 'blocks'))
+  await writeFile(
+    resolve('registry', 'registry-blocks.ts'),
+    `import type { Registry } from "shadcn-vue/schema"
+
+export const blocks: Registry["items"] = ${JSON.stringify(result ?? '', null, 2)}`,
+  )
+
+  exec(`eslint --fix registry/registry-blocks.ts`)
+}
+
+// Generate /registry/new-york-v4/registry-charts.ts
+async function buildRegistryCharts() {
+  const result = await crawlBlock(resolve('registry', 'new-york-v4', 'charts'))
+  await writeFile(
+    resolve('registry', 'registry-charts.ts'),
+    `import type { Registry } from "shadcn-vue/schema"
+
+export const charts: Registry["items"] = ${JSON.stringify(result ?? '', null, 2)}`,
+  )
+
+  exec(`eslint --fix registry/registry-charts.ts`)
+}
 
 async function buildRegistryIndex() {
   let index = `/* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -125,6 +171,7 @@ async function buildRegistry() {
   })
 }
 
+// shadcn-vue: we dont need to sync as we will be using older version of cli for old registry
 // async function syncRegistry() {
 //   // Store the current registry content
 //   const registryDir = path.join(process.cwd(), 'registry')
@@ -184,10 +231,14 @@ async function buildBlocksIndex() {
     JSON.stringify(payload, null, 2),
   )
 
-  await exec(`prettier --write registry/__blocks__.json`)
+  await exec(`eslint --fix registry/__blocks__.json`)
 }
 
 try {
+  await buildRegistryUI()
+  await buildRegistryBlocks()
+  await buildRegistryCharts()
+
   console.log('🗂️ Building registry/__index__.ts...')
   await buildRegistryIndex()
 
