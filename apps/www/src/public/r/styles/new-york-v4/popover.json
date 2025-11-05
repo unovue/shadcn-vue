@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/ui/popover/Popover.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PopoverRootEmits, PopoverRootProps } from \"reka-ui\"\nimport { PopoverRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<PopoverRootProps>()\nconst emits = defineEmits<PopoverRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <PopoverRoot\n    data-slot=\"popover\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </PopoverRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverRootEmits, PopoverRootProps } from \"reka-ui\"\nimport { PopoverRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<PopoverRootProps>()\nconst emits = defineEmits<PopoverRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <PopoverRoot\n    v-slot=\"slotProps\"\n    data-slot=\"popover\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </PopoverRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
