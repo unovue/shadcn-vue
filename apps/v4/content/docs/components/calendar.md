@@ -70,7 +70,7 @@ npx shadcn-vue@latest add calendar
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Calendar } from "@/components/ui/calendar"
+import { Calendar } from '@/components/ui/calendar'
 </script>
 
 <template>
@@ -84,7 +84,9 @@ import { Calendar } from "@/components/ui/calendar"
 Here, we'll use the Persian calendar as an example to show how to use calendar systems with the `<Calendar />` component or any other Calendar components.
 
 The default calendar system is `gregory`.<br/>
-To use a different calendar system, you need to provide a value with the desired system through the **`placeholder`** prop.
+To use a different calendar system, you need to provide a value with the desired system through the **`defaultPlaceholder`** or **`placeholder`** props.
+
+It's recomended to add either the `placeholder` or `defaultPlaceholder` to the component even if you don't use any other calendar system
 
 ```vue
 <script setup lang="ts">
@@ -93,7 +95,10 @@ import { getLocalTimeZone, PersianCalendar, toCalendar, today } from '@internati
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue> // no need to add calendar identifier to modelValue when using placeholder
+
 const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar())) as Ref<DateValue>
+// or
+const defaultPlaceholder = toCalendar(today(getLocalTimeZone()))
 </script>
 
 <template>
@@ -102,39 +107,43 @@ const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalenda
     v-model:placeholder="placeholder"
     locale="fa-IR"
   />
+  <!-- or -->
+  <Calendar
+    v-model="date"
+    :default-placeholder="placeholder"
+    locale="fa-IR"
+  />
 </template>
 ```
 
-
-If none of these props are provided, the emitted dates will use the `Gregorian` calendar by default, since it is the most widely used system.
+If none of these props are provided, the emitted dates will use the `gregorian` calendar by default, since it is the most widely used system.
 
 The emitted value from the Calendar component will vary depending on the specified calendar system identifier. <br />
 
 You can also change the locale using the `locale` prop to match the calendar system interface.
 
-
 ::code-collapsible-wrapper
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ref } from 'vue'
-import { 
+import {
   CalendarDate,
   fromDate,
   getLocalTimeZone,
-  parseDate, 
-  PersianCalendar, 
+  parseDate,
+  PersianCalendar,
   toCalendar,
   today
 } from '@internationalized/date'
+import { ref } from 'vue'
 
 const date = ref(toCalendar(new CalendarDate(2025, 1, 1), new PersianCalendar()))
 // or
-const date = ref(toCalendar(parseDate('2022-02-03'), new PersianCalendar()));
+const date = ref(toCalendar(parseDate('2022-02-03'), new PersianCalendar()))
 // or
-const date = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar()));
-// or 
-const date = ref(new CalendarDate(new PersianCalendar(), 1404, 1, 1));
+const date = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar()))
+// or
+const date = ref(new CalendarDate(new PersianCalendar(), 1404, 1, 1))
 // or
 const date = ref(toCalendar(fromDate(new Date(), getLocalTimeZone()), new PersianCalendar()))
 
@@ -171,6 +180,8 @@ name: CalendarRangeDemo
 ::
 
 ### Month and Year Selector
+
+Make sure to pass either the `placeholder` or `defaultPlaceholder` prop when using this feature.
 
 ::component-preview
 ---
@@ -222,5 +233,3 @@ description: A calendar with custom cell size that's responsive.
 className: '**:[.preview]:h-[560px]'
 ---
 ::
-
-

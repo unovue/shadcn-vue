@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import type { DateValue } from '@internationalized/date'
+import type { DateRange } from 'reka-ui'
 import { getLocalTimeZone, today } from '@internationalized/date'
-import { Calendar } from '@/registry/new-york-v4/ui/calendar'
+import { RangeCalendar } from '@/registry/new-york-v4/ui/range-calendar'
 
-const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
+const start = today(getLocalTimeZone())
+const end = start.add({ days: 7 })
+
+const dateRange = ref({
+  start,
+  end,
+}) as Ref<DateRange>
 </script>
 
 <template>
-  <Calendar
-    v-model="date"
+  <RangeCalendar
+    v-model="dateRange"
     class="rounded-md border shadow-sm"
     :number-of-months="2"
     disable-days-outside-current-view

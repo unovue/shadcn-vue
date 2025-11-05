@@ -12,7 +12,6 @@ import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, Cale
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes["class"], layout?: LayoutTypes, yearRange?: DateValue[] }>(), {
   modelValue: undefined,
   layout: undefined,
-  placeholder: undefined,
 })
 const emits = defineEmits<CalendarRootEmits>()
 
@@ -20,6 +19,7 @@ const delegatedProps = reactiveOmit(props, "class", "layout", "placeholder")
 
 const placeholder = useVModel(props, "placeholder", emits, {
   passive: true,
+  defaultValue: props.defaultPlaceholder,
 }) as Ref<DateValue>
 
 const formatter = useDateFormatter(props.locale ?? "en")

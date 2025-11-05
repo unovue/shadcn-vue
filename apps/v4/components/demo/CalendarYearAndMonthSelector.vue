@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
 
+const defaultPlaceholder = today(getLocalTimeZone())
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
 const layout = ref<LayoutTypes>('month-and-year')
 </script>
@@ -21,6 +22,7 @@ const layout = ref<LayoutTypes>('month-and-year')
   <div class="flex flex-col gap-4">
     <Calendar
       v-model="date"
+      :default-placeholder="defaultPlaceholder"
       class="rounded-md border shadow-sm"
       :layout
       disable-days-outside-current-view
