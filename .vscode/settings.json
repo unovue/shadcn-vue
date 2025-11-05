@@ -45,5 +45,8 @@
     "pcss",
     "postcss"
   ],
-  "tailwindCSS.classFunctions": ["cva", "cn"]
+  "tailwindCSS.classFunctions": ["cva", "cn"],
+  "files.exclude": {
+    "deprecated": true
+  }
 }

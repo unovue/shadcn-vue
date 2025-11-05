@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/ui/accordion/Accordion.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { AccordionRootEmits, AccordionRootProps } from \"reka-ui\"\nimport {\n  AccordionRoot,\n  useForwardPropsEmits,\n} from \"reka-ui\"\n\nconst props = defineProps<AccordionRootProps>()\nconst emits = defineEmits<AccordionRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <AccordionRoot data-slot=\"accordion\" v-bind=\"forwarded\">\n    <slot />\n  </AccordionRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AccordionRootEmits, AccordionRootProps } from \"reka-ui\"\nimport {\n  AccordionRoot,\n  useForwardPropsEmits,\n} from \"reka-ui\"\n\nconst props = defineProps<AccordionRootProps>()\nconst emits = defineEmits<AccordionRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <AccordionRoot v-slot=\"slotProps\" data-slot=\"accordion\" v-bind=\"forwarded\">\n    <slot v-bind=\"slotProps\" />\n  </AccordionRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -19,7 +19,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/accordion/AccordionItem.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { AccordionItemProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { AccordionItem, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<AccordionItemProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <AccordionItem\n    data-slot=\"accordion-item\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn('border-b last:border-b-0', props.class)\"\n  >\n    <slot />\n  </AccordionItem>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AccordionItemProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { AccordionItem, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<AccordionItemProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <AccordionItem\n    v-slot=\"slotProps\"\n    data-slot=\"accordion-item\"\n    v-bind=\"forwardedProps\"\n    :class=\"cn('border-b last:border-b-0', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </AccordionItem>\n</template>\n",
       "type": "registry:ui"
     },
     {

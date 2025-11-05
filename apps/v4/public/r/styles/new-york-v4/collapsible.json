@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/ui/collapsible/Collapsible.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from \"reka-ui\"\nimport { CollapsibleRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<CollapsibleRootProps>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <CollapsibleRoot\n    v-slot=\"{ open }\"\n    data-slot=\"collapsible\"\n    v-bind=\"forwarded\"\n  >\n    <slot :open=\"open\" />\n  </CollapsibleRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from \"reka-ui\"\nimport { CollapsibleRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<CollapsibleRootProps>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <CollapsibleRoot\n    v-slot=\"slotProps\"\n    data-slot=\"collapsible\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </CollapsibleRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {

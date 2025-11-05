@@ -18,14 +18,11 @@ This repository is structured as follows:
 
 ```
 apps
-└── www
-    ├── src
-    │   └── content
+└── v4
+    ├── components
+    ├── content
     └── registry
-        ├── default
-        │   ├── example
-        │   └── ui
-        └── new-york
+        └── new-york-v4
             ├── example
             └── ui
 packages
@@ -34,9 +31,10 @@ packages
 
 | Path                        | Description                                |
 | ----------------------------| -------------------------------------------|
-| `apps/www/.vitepress`       | The Vitepress application for the website. |
-| `apps/www/src/content`      | The content for the website.               |
-| `apps/www/registry` | The registry for the components.           |
+| `apps/v4`       | The Nuxt application for the website. |
+| `apps/v4/components`      | The Vue components for the website.               |
+| `apps/v4/content`      | The content for the website.               |
+| `apps/v4/registry` | The registry for the components.           |
 | `packages/cli`              | The `shadcn-vue` package.                  |
 
 ## Development
@@ -73,30 +71,25 @@ pnpm dev:cli
 
 ## Documentation
 
-The documentation for this project is located in the `www` workspace. You can run the documentation locally by running the following command:
+The documentation for this project is located in the `v4` workspace. You can run the documentation locally by running the following command:
 
 ```bash
 pnpm dev
 ```
 
-Documentation is written using [md](https://vitepress.dev/guide/markdown). You can find the documentation files in the `apps/www/src/content` directory.
+Documentation is written using [md](https://content.nuxt.com/). You can find the documentation files in the `apps/v4/content` directory.
 
 ## Components
 
-We use a registry system for developing components. You can find the source code for the components under `apps/www/registry`. The components are organized by styles.
+We use a registry system for developing components. You can find the source code for the components under `apps/v4/registry`. The components are organized by styles.
 
 ```bash
 apps
-└── www
-    └── src
-        └── lib
-            └── registry
-                ├── default
-                │   ├── example
-                │   └── ui
-                └── new-york
-                    ├── example
-                    └── ui
+└── v4
+    └── registry
+        └── new-york-v4
+            ├── example
+            └── ui
 ```
 
 When adding or modifying components, please ensure that:

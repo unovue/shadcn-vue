@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/ui/tooltip/Tooltip.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { TooltipRootEmits, TooltipRootProps } from \"reka-ui\"\nimport { TooltipRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<TooltipRootProps>()\nconst emits = defineEmits<TooltipRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <TooltipRoot\n    data-slot=\"tooltip\"\n    v-bind=\"forwarded\"\n  >\n    <slot />\n  </TooltipRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { TooltipRootEmits, TooltipRootProps } from \"reka-ui\"\nimport { TooltipRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<TooltipRootProps>()\nconst emits = defineEmits<TooltipRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <TooltipRoot\n    v-slot=\"slotProps\"\n    data-slot=\"tooltip\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </TooltipRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {

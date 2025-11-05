@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/ui/number-field/NumberField.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { NumberFieldRoot, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<NumberFieldRootProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<NumberFieldRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <NumberFieldRoot v-bind=\"forwarded\" :class=\"cn('grid gap-1.5', props.class)\">\n    <slot />\n  </NumberFieldRoot>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { NumberFieldRoot, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<NumberFieldRootProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<NumberFieldRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <NumberFieldRoot v-slot=\"slotProps\" v-bind=\"forwarded\" :class=\"cn('grid gap-1.5', props.class)\">\n    <slot v-bind=\"slotProps\" />\n  </NumberFieldRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {

@@ -1,5 +1,5 @@
 {
-  "name": "new-york",
+  "name": "index",
   "type": "registry:style",
   "dependencies": [
     "tailwindcss-animate",
@@ -9,6 +9,7 @@
   "registryDependencies": [
     "utils"
   ],
+  "files": [],
   "tailwind": {
     "config": {
       "plugins": [
@@ -16,6 +17,5 @@
       ]
     }
   },
-  "cssVars": {},
-  "files": []
+  "cssVars": {}
 }

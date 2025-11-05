@@ -9,6 +9,7 @@ export default antfu(
       '**/__registry__/index.ts',
       '**/registry/__index__.ts',
       '**/*.md',
+      'deprecated/**/*',
     ],
   },
   {

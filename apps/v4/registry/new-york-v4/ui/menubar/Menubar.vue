@@ -18,6 +18,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <MenubarRoot
+    v-slot="slotProps"
     data-slot="menubar"
     v-bind="forwarded"
     :class="
@@ -27,6 +28,6 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       )
     "
   >
-    <slot />
+    <slot v-bind="slotProps" />
   </MenubarRoot>
 </template>

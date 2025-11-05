@@ -1,6 +1,6 @@
 ---
 title: Empty
-description: An indicator that can be used to show a loading state.
+description: Use the Empty component to display an empty state.
 component: true
 new: true
 ---
@@ -73,7 +73,7 @@ import {
 
 ### Outline
 
-Use the `border` utility class to create a outline empty state.
+Use the `border` utility class to create an outline empty state.
 
 ::component-preview
 ---

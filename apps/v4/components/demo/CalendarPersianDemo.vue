@@ -1,21 +1,23 @@
 <script setup lang="ts">
 import type { DateValue } from '@internationalized/date'
-import { fromDate, getLocalTimeZone, PersianCalendar, toCalendar } from '@internationalized/date'
+import { getLocalTimeZone, PersianCalendar, toCalendar, today } from '@internationalized/date'
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { useDateFormatter } from 'reka-ui'
 import { toDate } from 'reka-ui/date'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 
-const date = ref(toCalendar(fromDate(new Date(), getLocalTimeZone()), new PersianCalendar())) as Ref<DateValue>
-
+const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
+const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar())) as Ref<DateValue>
 const formatter = useDateFormatter('fa')
 </script>
 
 <template>
-  <div>
+  <div class="**:data-[slot=native-select-icon]:right-[unset] **:data-[slot=native-select-icon]:left-3.5">
     <Calendar
       v-model="date"
+      v-model:placeholder="placeholder"
       locale="fa-IR"
+      layout="month-and-year"
       class="rounded-md border shadow-sm"
       dir="rtl"
     >

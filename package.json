@@ -3,7 +3,7 @@
   "type": "module",
   "version": "2.3.2",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.20.0",
   "license": "MIT",
   "repository": "unovue/shadcn-vue",
   "workspaces": [
@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "pnpm --filter v4 dev",
     "build:v4": "pnpm --filter v4 build",
-    "preview": "pnpm --filter www preview",
+    "preview": "pnpm --filter v4 preview",
     "prepare": "pnpm simple-git-hooks && pnpm --filter shadcn-vue build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -32,15 +32,15 @@
     "taze": "taze -frI"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.4.1",
+    "@antfu/eslint-config": "^6.2.0",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@vitest/ui": "^3.2.4",
-    "bumpp": "^10.2.3",
-    "eslint": "^9.37.0",
-    "lint-staged": "^16.2.3",
+    "bumpp": "^10.3.1",
+    "eslint": "^9.39.1",
+    "lint-staged": "^16.2.6",
     "simple-git-hooks": "^2.13.1",
-    "taze": "^19.7.0",
+    "taze": "^19.9.0",
     "typescript": "catalog:",
     "vitest": "^3.2.4"
   },
@@ -59,8 +59,18 @@
       "safe-buffer": "npm:@nolyfill/safe-buffer@^1.0.44",
       "safer-buffer": "npm:@nolyfill/safer-buffer@^1.0.44",
       "side-channel": "npm:@nolyfill/side-channel@^1.0.44",
+      "typed-array-buffer": "npm:@nolyfill/typed-array-buffer@^1",
       "typedarray": "npm:@nolyfill/typedarray@^1.0.44"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "maplibre-gl",
+      "msw",
+      "simple-git-hooks",
+      "unrs-resolver",
+      "vue-demi"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
