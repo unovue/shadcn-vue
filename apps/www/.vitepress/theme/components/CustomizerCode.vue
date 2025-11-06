@@ -25,9 +25,8 @@ async function copyCode() {
 
 <template>
   <div class="relative">
-    <pre class="max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 !py-0 dark:bg-zinc-900">
-<code ref="codeRef" class="relative block rounded font-mono text-sm">
-<template v-if="tailwindVersion === 'v3'"><span class="line text-white">@layer base &#123;</span>
+    <pre class="max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 dark:bg-zinc-900">
+<code ref="codeRef" class="relative block rounded font-mono text-sm"><template v-if="tailwindVersion === 'v3'"><span class="line text-white">@layer base &#123;</span>
   <span class="line text-white">:root &#123;</span>
   <span class="line text-white">&nbsp;&nbsp;--background: {{ activeTheme?.cssVars?.light?.background }};</span>
   <span class="line text-white">&nbsp;&nbsp;--foreground: {{ activeTheme?.cssVars?.light?.foreground }};</span>
@@ -75,8 +74,7 @@ async function copyCode() {
 <span class="line text-white">&nbsp;&nbsp;--border: hsl({{ activeTheme?.cssVars?.dark?.border }});</span>
 <span class="line text-white">&nbsp;&nbsp;--input: hsl({{ activeTheme?.cssVars?.dark?.input }});</span>
 <span class="line text-white">&nbsp;&nbsp;--ring: hsl({{ activeTheme?.cssVars?.dark?.ring }});</span>
-<span class="line text-white">&#125;</span></template>
-</code>
+<span class="line text-white">&#125;</span></template></code>
 </pre>
     <Button size="sm" class="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground" @click="copyCode">
       <CheckIcon v-if="copied" class="mr-2 h-4 w-4" />
