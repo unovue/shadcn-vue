@@ -34,22 +34,22 @@ async function copyCode() {
     <span class="line text-white">--{{ prefix }}: {{ activeTheme?.cssVars?.light?.[prefix] }};</span>
     <span class="line text-white">--{{ prefix }}-foreground: {{ activeTheme?.cssVars?.light?.[ `${prefix}-foreground`] }};</span>
   </template>
-  <span class="line text-white">&nbsp;&nbsp;--border:{{ activeTheme?.cssVars?.light?.border }};</span>
-  <span class="line text-white">&nbsp;&nbsp;--input:{{ activeTheme?.cssVars?.light?.input }};</span>
-  <span class="line text-white">&nbsp;&nbsp;--ring:{{ activeTheme?.cssVars?.light?.ring }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--border: {{ activeTheme?.cssVars?.light?.border }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--input: {{ activeTheme?.cssVars?.light?.input }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--ring: {{ activeTheme?.cssVars?.light?.ring }};</span>
   <span class="line text-white">&nbsp;&nbsp;--radius: {{ config.radius }}rem;</span>
   <span class="line text-white">&#125;</span>
   <span class="line text-white">&nbsp;</span>
   <span class="line text-white">.dark &#123;</span>
-  <span class="line text-white">&nbsp;&nbsp;--background:{{ activeTheme?.cssVars?.dark?.background }};</span>
-  <span class="line text-white">&nbsp;&nbsp;--foreground:{{ activeTheme?.cssVars?.dark?.foreground }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--background: {{ activeTheme?.cssVars?.dark?.background }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--foreground: {{ activeTheme?.cssVars?.dark?.foreground }};</span>
   <template v-for="prefix in (['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'] as const)" :key="prefix">
-    <span class="line text-white">--{{ prefix }}:{{ activeTheme?.cssVars?.dark?.[ prefix] }};</span>
-    <span class="line text-white">--{{ prefix }}-foreground:{{ activeTheme?.cssVars?.dark?.[ `${prefix}-foreground`] }};</span>
+    <span class="line text-white">--{{ prefix }}: {{ activeTheme?.cssVars?.dark?.[ prefix] }};</span>
+    <span class="line text-white">--{{ prefix }}-foreground: {{ activeTheme?.cssVars?.dark?.[ `${prefix}-foreground`] }};</span>
   </template>
-  <span class="line text-white">&nbsp;&nbsp;--border:{{ activeTheme?.cssVars?.dark?.border }};</span>
-  <span class="line text-white">&nbsp;&nbsp;--input:{{ activeTheme?.cssVars?.dark?.input }};</span>
-  <span class="line text-white">&nbsp;&nbsp;--ring:{{ activeTheme?.cssVars?.dark?.ring }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--border: {{ activeTheme?.cssVars?.dark?.border }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--input: {{ activeTheme?.cssVars?.dark?.input }};</span>
+  <span class="line text-white">&nbsp;&nbsp;--ring: {{ activeTheme?.cssVars?.dark?.ring }};</span>
   <span class="line text-white">&#125;</span>
 <span class="line text-white">&#125;</span></template><template v-else-if="tailwindVersion === 'v4'"><span class="line text-white">:root &#123;</span>
 <span class="line text-white">&nbsp;&nbsp;--background: hsl({{ activeTheme?.cssVars?.light?.background }});</span>
