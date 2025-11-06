@@ -31,7 +31,7 @@ import CommandMenuItem from './CommandItem.vue'
 import CommandMenuKbd from './CommandMenuKbd.vue'
 
 interface Props {
-  tree: {
+  tree?: {
     children: NavigationItem[]
     title: string
     path: string
@@ -172,7 +172,7 @@ onMounted(() => {
             </CommandMenuItem>
           </CommandGroup>
           <CommandGroup
-            v-for="group in tree.children"
+            v-for="group in tree?.children"
             :key="group.title"
             :heading="group.title"
             class="!p-0 [&_[data-slot=command-group-heading]]:scroll-mt-16 [&_[data-slot=command-group-heading]]:!p-3 [&_[data-slot=command-group-heading]]:!pb-1"
