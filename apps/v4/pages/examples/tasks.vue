@@ -3,6 +3,11 @@ import { columns } from '@/components/examples/tasks/components/columns'
 import DataTable from '@/components/examples/tasks/components/DataTable.vue'
 import UserNav from '@/components/examples/tasks/components/UserNav.vue'
 import tasks from '@/components/examples/tasks/data/tasks.json'
+
+useSeoMeta({
+  title: 'Tasks',
+  description: 'A task and issue tracker build using Tanstack Table.',
+})
 </script>
 
 <template>

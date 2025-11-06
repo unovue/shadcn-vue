@@ -12,7 +12,7 @@ const { path } = toRefs(useRoute())
 </script>
 
 <template>
-  <nav :class="cn('items-center gap-0.5', props.class)">
+  <nav :class="cn('items-center', props.class)">
     <Button v-for="item in items" :key="item.href" variant="ghost" as-child size="sm">
       <NuxtLink
         :to="item.href"

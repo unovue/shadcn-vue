@@ -20,6 +20,14 @@ if (!page.value) {
 const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => {
   return queryCollectionItemSurroundings('content', route.path)
 })
+
+useSeoMeta({
+  title: page.value.title,
+  description: page.value.description,
+  ogTitle: page.value.title,
+  ogDescription: page.value.description,
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>

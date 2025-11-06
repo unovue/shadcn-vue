@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'shadcn-vue',
+  name: 'shadcn/vue',
   url: 'https://shadcn-vue.com',
   ogImage: 'https://shadcn-vue.com/og.jpg',
   description:

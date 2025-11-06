@@ -3,6 +3,11 @@ import UserAuthForm from '@/components/examples/authentication/components/UserAu
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/registry/new-york-v4/ui/button'
 import { FieldDescription } from '~/registry/new-york-v4/ui/field'
+
+useSeoMeta({
+  title: 'Authentication',
+  description: 'Authentication forms built using the components.',
+})
 </script>
 
 <template>

@@ -25,6 +25,11 @@ import {
   TabsTrigger,
 } from '@/registry/new-york-v4/ui/tabs'
 import { Textarea } from '@/registry/new-york-v4/ui/textarea'
+
+useSeoMeta({
+  title: 'Playground',
+  description: 'The OpenAI Playground built using the components.',
+})
 </script>
 
 <template>

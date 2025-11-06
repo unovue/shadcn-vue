@@ -4,6 +4,14 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 const title = 'Pick a Color. Make it yours.'
 const description
   = 'Try our hand-picked themes. Copy and paste them into your project. New theme editor coming soon.'
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>

@@ -4,6 +4,14 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 const title = 'Build your Component Library'
 const description
   = 'A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.'
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>
