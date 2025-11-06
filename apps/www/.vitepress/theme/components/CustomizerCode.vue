@@ -7,6 +7,10 @@ import { Button } from '@/registry/new-york/ui/button'
 import { baseColors } from '@/registry/registry-base-colors'
 import { useConfigStore } from '@/stores/config'
 
+const { tailwindVersion = 'v3' } = defineProps<{
+  tailwindVersion?: 'v3' | 'v4'
+}>()
+
 const { theme, config } = useConfigStore()
 
 const activeTheme = computed(() => baseColors.find(i => i.name === theme.value))
@@ -23,7 +27,7 @@ async function copyCode() {
   <div class="relative">
     <pre class="max-h-[450px] overflow-x-auto rounded-lg border bg-zinc-950 !py-0 dark:bg-zinc-900">
 <code ref="codeRef" class="relative block rounded font-mono text-sm">
-<span class="line text-white">@layer base &#123;</span>
+<template v-if="tailwindVersion === 'v3'"><span class="line text-white">@layer base &#123;</span>
   <span class="line text-white">:root &#123;</span>
   <span class="line text-white">&nbsp;&nbsp;--background: {{ activeTheme?.cssVars?.light?.background }};</span>
   <span class="line text-white">&nbsp;&nbsp;--foreground: {{ activeTheme?.cssVars?.light?.foreground }};</span>
@@ -48,7 +52,30 @@ async function copyCode() {
   <span class="line text-white">&nbsp;&nbsp;--input:{{ activeTheme?.cssVars?.dark?.input }};</span>
   <span class="line text-white">&nbsp;&nbsp;--ring:{{ activeTheme?.cssVars?.dark?.ring }};</span>
   <span class="line text-white">&#125;</span>
+<span class="line text-white">&#125;</span></template><template v-else-if="tailwindVersion === 'v4'"><span class="line text-white">:root &#123;</span>
+<span class="line text-white">&nbsp;&nbsp;--background: hsl({{ activeTheme?.cssVars?.light?.background }});</span>
+<span class="line text-white">&nbsp;&nbsp;--foreground: hsl({{ activeTheme?.cssVars?.light?.foreground }});</span>
+<template v-for="prefix in (['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'] as const)" :key="prefix">
+  <span class="line text-white">--{{ prefix }}: hsl({{ activeTheme?.cssVars?.light?.[prefix] }});</span>
+  <span class="line text-white">--{{ prefix }}-foreground: hsl({{ activeTheme?.cssVars?.light?.[ `${prefix}-foreground`] }});</span>
+</template>
+<span class="line text-white">&nbsp;&nbsp;--border: hsl({{ activeTheme?.cssVars?.light?.border }});</span>
+<span class="line text-white">&nbsp;&nbsp;--input: hsl({{ activeTheme?.cssVars?.light?.input }});</span>
+<span class="line text-white">&nbsp;&nbsp;--ring: hsl({{ activeTheme?.cssVars?.light?.ring }});</span>
+<span class="line text-white">&nbsp;&nbsp;--radius: {{ config.radius }}rem;</span>
 <span class="line text-white">&#125;</span>
+<span class="line text-white" />
+<span class="line text-white">.dark &#123;</span>
+<span class="line text-white">&nbsp;&nbsp;--background: hsl({{ activeTheme?.cssVars?.dark?.background }});</span>
+<span class="line text-white">&nbsp;&nbsp;--foreground: hsl({{ activeTheme?.cssVars?.dark?.foreground }});</span>
+<template v-for="prefix in (['card', 'popover', 'primary', 'secondary', 'muted', 'accent', 'destructive'] as const)" :key="prefix">
+  <span class="line text-white">--{{ prefix }}: hsl({{ activeTheme?.cssVars?.dark?.[ prefix] }});</span>
+  <span class="line text-white">--{{ prefix }}-foreground: hsl({{ activeTheme?.cssVars?.dark?.[ `${prefix}-foreground`] }});</span>
+</template>
+<span class="line text-white">&nbsp;&nbsp;--border: hsl({{ activeTheme?.cssVars?.dark?.border }});</span>
+<span class="line text-white">&nbsp;&nbsp;--input: hsl({{ activeTheme?.cssVars?.dark?.input }});</span>
+<span class="line text-white">&nbsp;&nbsp;--ring: hsl({{ activeTheme?.cssVars?.dark?.ring }});</span>
+<span class="line text-white">&#125;</span></template>
 </code>
 </pre>
     <Button size="sm" class="absolute right-4 top-4 bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground" @click="copyCode">

@@ -5,6 +5,7 @@ import { Button } from '@/registry/new-york/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/registry/new-york/ui/dialog'
 import { Drawer, DrawerContent, DrawerTrigger } from '@/registry/new-york/ui/drawer'
 import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york/ui/popover'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/registry/new-york/ui/tabs'
 import { useConfigStore } from '@/stores/config'
 import Announcement from '../components/Announcement.vue'
 import CustomizerCode from '../components/CustomizerCode.vue'
@@ -105,7 +106,22 @@ watch(radius, (radius) => {
                 Copy and paste the following code into your CSS file.
               </DialogDescription>
             </DialogHeader>
-            <CustomizerCode />
+            <Tabs default-value="v3">
+              <TabsList>
+                <TabsTrigger value="v3">
+                  Tailwind v3
+                </TabsTrigger>
+                <TabsTrigger value="v4">
+                  Tailwind v4
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent value="v3">
+                <CustomizerCode tailwind-version="v3" />
+              </TabsContent>
+              <TabsContent value="v4">
+                <CustomizerCode tailwind-version="v4" />
+              </TabsContent>
+            </Tabs>
           </DialogContent>
         </Dialog>
       </PageAction>
