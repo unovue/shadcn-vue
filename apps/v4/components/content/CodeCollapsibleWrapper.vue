@@ -19,7 +19,7 @@ const open = ref(false)
 <template>
   <Collapsible
     v-model:open="open"
-    :class="cn('group/collapsible relative md:-mx-4', props.class)"
+    :class="cn('group/collapsible relative md:-mx-1', props.class)"
   >
     <CollapsibleTrigger as-child>
       <div class="absolute top-1.5 right-9 z-10 flex items-center">

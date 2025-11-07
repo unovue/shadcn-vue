@@ -47,7 +47,7 @@ npx shadcn-vue@latest add button
     ```
 
     ::step
-    Copy and paste the GitHub source code into your project.
+    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/button) into your project.
     ::
 
     ::step

@@ -46,7 +46,7 @@ npx shadcn-vue@latest add kbd
     ```
 
     ::step
-    Copy and paste the GitHub source code into your project.
+    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/kbd) into your project.
     ::
 
     ::step
@@ -60,7 +60,7 @@ npx shadcn-vue@latest add kbd
 ## Usage
 
 
-```vue 
+```vue
 import { Kbd } from "@/components/ui/kbd"
 </script>
 

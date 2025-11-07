@@ -47,7 +47,7 @@ npx shadcn-vue@latest add carousel
     ```
 
     ::step
-    Copy and paste the GitHub source code into your project.
+    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/carousel) into your project.
     ::
 
     ::step
