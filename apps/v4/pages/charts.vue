@@ -4,6 +4,15 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 const title = 'Beautiful Charts & Graphs'
 const description
   = 'A collection of ready-to-use chart components built with Unovis/vue. From basic charts to rich data displays, copy and paste into your apps.'
+
+useHead({
+  title,
+})
+
+useSeoMeta({
+  description,
+  ogDescription: description,
+})
 </script>
 
 <template>

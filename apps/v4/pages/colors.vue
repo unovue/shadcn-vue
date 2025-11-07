@@ -4,6 +4,15 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 const title = 'Tailwind Colors in Every Format'
 const description
   = 'The complete Tailwind color palette in HEX, RGB, HSL, CSS variables, and classes. Ready to copy and paste into your project.'
+
+useHead({
+  title,
+})
+
+useSeoMeta({
+  description,
+  ogDescription: description,
+})
 </script>
 
 <template>

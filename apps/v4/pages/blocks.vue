@@ -4,6 +4,15 @@ import { Button } from '@/registry/new-york-v4/ui/button'
 const title = 'Building Blocks for the Web'
 const description
   = 'Clean, modern building blocks. Copy and paste into your apps. Works with all React frameworks. Open Source. Free forever.'
+
+useHead({
+  title,
+})
+
+useSeoMeta({
+  description,
+  ogDescription: description,
+})
 </script>
 
 <template>

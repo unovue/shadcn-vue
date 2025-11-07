@@ -6,6 +6,15 @@ const { config, isLayoutFull } = useConfig()
 const activeTheme = computed(() => config.value.activeTheme)
 const isScaled = computed(() => !!activeTheme.value?.endsWith('-scaled'))
 const colorMode = useColorMode()
+
+useSeoMeta({
+  creator: 'unovue',
+  ogLocale: 'en_US',
+  ogType: 'website',
+  ogSiteName: 'shadcn/vue',
+  ogUrl: 'https://shadcn-vue.com',
+  themeColor: '#41b883',
+})
 </script>
 
 <template>

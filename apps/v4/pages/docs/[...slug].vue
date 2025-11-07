@@ -20,6 +20,15 @@ if (!page.value) {
 const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => {
   return queryCollectionItemSurroundings('content', route.path)
 })
+
+useHead({
+  title: page.value.title,
+})
+
+useSeoMeta({
+  description: page.value.description,
+  ogDescription: page.value.description,
+})
 </script>
 
 <template>
