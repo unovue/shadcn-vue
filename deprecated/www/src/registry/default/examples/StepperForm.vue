@@ -185,7 +185,7 @@ function onSubmit(values: any) {
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="coffee">
-                        Coffe
+                        Coffee
                       </SelectItem>
                       <SelectItem value="tea">
                         Tea

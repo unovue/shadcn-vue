@@ -86,7 +86,7 @@ Here, we'll use the Persian calendar as an example to show how to use calendar s
 The default calendar system is `gregory`.<br/>
 To use a different calendar system, you need to provide a value with the desired system through the **`defaultPlaceholder`** or **`placeholder`** props.
 
-It's recomended to add either the `placeholder` or `defaultPlaceholder` to the component even if you don't use any other calendar system
+It's recommended to add either the `placeholder` or `defaultPlaceholder` to the component even if you don't use any other calendar system
 
 ```vue
 <script setup lang="ts">
