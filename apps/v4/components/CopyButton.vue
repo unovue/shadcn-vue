@@ -19,9 +19,11 @@ const props = withDefaults(defineProps<{
   value?: string
   class?: HTMLAttributes['class']
   variant?: ButtonVariants['variant']
+  tooltip?: string
 }>(), {
   value: '',
   variant: 'ghost',
+  tooltip: 'Copy to Clipboard',
 })
 const { value } = toRefs(props)
 
@@ -48,7 +50,7 @@ const { copy, copied } = useClipboard({ source: value })
         </Button>
       </TooltipTrigger>
       <TooltipContent>
-        {{ copied ? "Copied" : "Copy to Clipboard" }}
+        {{ copied ? "Copied" : tooltip }}
       </TooltipContent>
     </Tooltip>
   </TooltipProvider>
