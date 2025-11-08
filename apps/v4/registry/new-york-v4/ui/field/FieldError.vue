@@ -12,11 +12,22 @@ const content = computed(() => {
   if (!props.errors || props.errors.length === 0)
     return null
 
-  if (props.errors.length === 1 && props.errors[0]) {
-    return typeof props.errors[0] === "string" ? props.errors[0] : props.errors[0].message
+  const uniqueErrors = [
+    ...new Map(
+      props.errors
+        .filter(Boolean)
+        .map((error) => {
+          const message = typeof error === "string" ? error : error?.message
+          return [message, error]
+        }),
+    ).values(),
+  ]
+
+  if (uniqueErrors.length === 1 && uniqueErrors[0]) {
+    return typeof uniqueErrors[0] === "string" ? uniqueErrors[0] : uniqueErrors[0].message
   }
 
-  return props.errors.map(error => typeof error === "string" ? error : error?.message)
+  return uniqueErrors.map(error => typeof error === "string" ? error : error?.message)
 })
 </script>
 
