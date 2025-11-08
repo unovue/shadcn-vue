@@ -506,7 +506,7 @@ The following dependency types are supported:
 
 The `when` function is called with the value of the source field and the value of the target field and should return a boolean to indicate if the dependency should be applied.
 
-Please note that dependencies will not cause the inverse action when returning `false` - for example, if you mark a field as required in your zod schema (i.e. by not explicitly setting `optional`), returning `false` in your `REQURIES` dependency will not mark it as optional. You should instead use zod's `optional` method to mark as optional by default and use the `REQURIES` dependency to mark it as required when the dependency is met.
+Please note that dependencies will not cause the inverse action when returning `false` - for example, if you mark a field as required in your zod schema (i.e. by not explicitly setting `optional`), returning `false` in your `REQUIRES` dependency will not mark it as optional. You should instead use zod's `optional` method to mark as optional by default and use the `REQUIRES` dependency to mark it as required when the dependency is met.
 
 Please note that dependencies do not have any effect on the validation of the form. You should use zod's `refine` method to validate the form based on the value of other fields.
 

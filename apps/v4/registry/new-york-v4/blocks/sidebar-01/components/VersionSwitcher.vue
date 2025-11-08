@@ -37,7 +37,7 @@ const selectedVersion = ref(props.defaultVersion)
             </div>
             <div class="flex flex-col gap-0.5 leading-none">
               <span class="font-medium">Documentation</span>
-              <span class="">v{selectedVersion}</span>
+              <span class="">v{{ selectedVersion }}</span>
             </div>
             <ChevronsUpDown class="ml-auto" />
           </SidebarMenuButton>

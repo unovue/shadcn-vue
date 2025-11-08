@@ -80,7 +80,6 @@ const { isMobile } = useSidebar()
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
-      ))}
       <SidebarMenuItem>
         <SidebarMenuButton class="text-sidebar-foreground/70">
           <IconDots class="text-sidebar-foreground/70" />

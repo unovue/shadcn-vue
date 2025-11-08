@@ -23,11 +23,11 @@ import {
   <SidebarProvider>
     <AppSidebar />
     <SidebarInset>
-      <header calss="bg-background sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b px-4">
-        <SidebarTrigger calss="-ml-1" />
+      <header class="bg-background sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b px-4">
+        <SidebarTrigger class="-ml-1" />
         <Separator
           orientation="vertical"
-          calss="mr-2 data-[orientation=vertical]:h-4"
+          class="mr-2 data-[orientation=vertical]:h-4"
         />
         <Breadcrumb>
           <BreadcrumbList>

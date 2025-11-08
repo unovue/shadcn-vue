@@ -6,7 +6,7 @@ const steps = [
   {
     step: 1,
     title: 'Address',
-    description: 'Add your addres',
+    description: 'Add your address',
     icon: BookUser,
   },
   {
