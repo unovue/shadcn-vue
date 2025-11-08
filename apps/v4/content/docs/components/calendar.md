@@ -171,6 +171,37 @@ description: A Persian calendar.
 
 ## Examples
 
+### Calendar Systems
+
+importing `createCalendar` into your project will result in all available calendars being included in your bundle. If you wish to limit the supported calendars to reduce bundle sizes, you can create your own implementation that only imports the desired classes. This way, your bundler can tree-shake the unused calendar implementations.
+
+
+Check [`@internationalized/date`](https://react-spectrum.adobe.com/internationalized/date/), especially the section on [**Calendar Identifiers**](https://react-spectrum.adobe.com/internationalized/date/Calendar.html#calendar-identifiers).
+
+```ts
+import {GregorianCalendar, JapaneseCalendar} from '@internationalized/date';
+
+function createCalendar(identifier) {
+  switch (identifier) {
+    case 'gregory':
+      return new GregorianCalendar();
+    case 'japanese':
+      return new JapaneseCalendar();
+    default:
+      throw new Error(`Unsupported calendar ${identifier}`);
+  }
+}
+```
+
+::component-preview
+---
+name: CalendarSystems
+title: Calendar systems
+description: A calendar with multiple calendar systems
+className: '**:[.preview]:h-[560px] mt-8'
+---
+::
+
 ### Range Calendar
 
 ::component-preview

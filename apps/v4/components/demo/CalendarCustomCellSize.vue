@@ -4,11 +4,13 @@ import { getLocalTimeZone, today } from '@internationalized/date'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
+const defaultPlaceholder = today(getLocalTimeZone())
 </script>
 
 <template>
   <Calendar
     v-model="date"
+    :default-placeholder="defaultPlaceholder"
     weekday-format="short"
     class="rounded-md border shadow-sm **:data-[slot=calendar-cell-trigger]:size-12!"
   >
