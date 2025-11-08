@@ -59,7 +59,8 @@
       "safe-buffer": "npm:@nolyfill/safe-buffer@^1.0.44",
       "safer-buffer": "npm:@nolyfill/safer-buffer@^1.0.44",
       "side-channel": "npm:@nolyfill/side-channel@^1.0.44",
-      "typed-array-buffer": "npm:@nolyfill/typed-array-buffer@^1",
+      "string.prototype.codepointat": "npm:@nolyfill/string.prototype.codepointat@^1.0.44",
+      "typed-array-buffer": "npm:@nolyfill/typed-array-buffer@^1.0.44",
       "typedarray": "npm:@nolyfill/typedarray@^1.0.44"
     },
     "onlyBuiltDependencies": [
