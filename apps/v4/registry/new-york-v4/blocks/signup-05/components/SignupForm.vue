@@ -40,7 +40,7 @@ const props = defineProps<{
           </FieldDescription>
         </div>
         <Field>
-          <FieldLabel html-for="email">
+          <FieldLabel for="email">
             Email
           </FieldLabel>
           <Input

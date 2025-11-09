@@ -37,13 +37,13 @@ const props = defineProps<{
         <form>
           <FieldGroup>
             <Field>
-              <FieldLabel html-for="name">
+              <FieldLabel for="name">
                 Full Name
               </FieldLabel>
               <Input id="name" type="text" placeholder="John Doe" required />
             </Field>
             <Field>
-              <FieldLabel html-for="email">
+              <FieldLabel for="email">
                 Email
               </FieldLabel>
               <Input
@@ -56,13 +56,13 @@ const props = defineProps<{
             <Field>
               <Field class="grid grid-cols-2 gap-4">
                 <Field>
-                  <FieldLabel html-for="password">
+                  <FieldLabel for="password">
                     Password
                   </FieldLabel>
                   <Input id="password" type="password" required />
                 </Field>
                 <Field>
-                  <FieldLabel html-for="confirm-password">
+                  <FieldLabel for="confirm-password">
                     Confirm Password
                   </FieldLabel>
                   <Input id="confirm-password" type="password" required />
