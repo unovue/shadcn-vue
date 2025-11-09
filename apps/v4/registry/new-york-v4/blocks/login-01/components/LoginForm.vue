@@ -9,8 +9,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/new-york-v4/ui/card"
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import { Label } from "@/registry/new-york-v4/ui/label"
 
 const props = defineProps<{
   class?: HTMLAttributes["class"]
@@ -28,19 +33,23 @@ const props = defineProps<{
       </CardHeader>
       <CardContent>
         <form>
-          <div class="flex flex-col gap-6">
-            <div class="grid gap-3">
-              <Label for="email">Email</Label>
+          <FieldGroup>
+            <Field>
+              <FieldLabel for="email">
+                Email
+              </FieldLabel>
               <Input
                 id="email"
                 type="email"
                 placeholder="m@example.com"
                 required
               />
-            </div>
-            <div class="grid gap-3">
+            </Field>
+            <Field>
               <div class="flex items-center">
-                <Label for="password">Password</Label>
+                <FieldLabel for="password">
+                  Password
+                </FieldLabel>
                 <a
                   href="#"
                   class="ml-auto inline-block text-sm underline-offset-4 hover:underline"
@@ -49,22 +58,22 @@ const props = defineProps<{
                 </a>
               </div>
               <Input id="password" type="password" required />
-            </div>
-            <div class="flex flex-col gap-3">
-              <Button type="submit" class="w-full">
+            </Field>
+            <Field>
+              <Button type="submit">
                 Login
               </Button>
-              <Button variant="outline" class="w-full">
+              <Button variant="outline" type="button">
                 Login with Google
               </Button>
-            </div>
-          </div>
-          <div class="mt-4 text-center text-sm">
-            Don't have an account?
-            <a href="#" class="underline underline-offset-4">
-              Sign up
-            </a>
-          </div>
+              <FieldDescription class="text-center">
+                Don't have an account?
+                <a href="#">
+                  Sign up
+                </a>
+              </FieldDescription>
+            </Field>
+          </FieldGroup>
         </form>
       </CardContent>
     </Card>
