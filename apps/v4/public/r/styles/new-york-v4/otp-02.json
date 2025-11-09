@@ -1,0 +1,28 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "otp-02",
+  "type": "registry:block",
+  "description": "A two column OTP page with a cover image.",
+  "registryDependencies": [
+    "button",
+    "field",
+    "input-otp"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/blocks/otp-02/page.vue",
+      "content": "<script setup lang=\"ts\">\nimport OTPForm from \"~/registry/new-york-v4/blocks/otp-02/components/OTPForm.vue\"\n</script>\n\n<template>\n  <div class=\"flex min-h-svh w-full\">\n    <div class=\"flex w-full items-center justify-center p-6 lg:w-1/2\">\n      <div class=\"w-full max-w-xs\">\n        <OTPForm />\n      </div>\n    </div>\n    <div class=\"relative hidden w-1/2 lg:block\">\n      <img\n        alt=\"Authentication\"\n        class=\"absolute inset-0 h-full w-full object-cover\"\n        height=\"{1080}\"\n        src=\"/placeholder.svg\"\n        width=\"{1920}\"\n      >\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:page",
+      "target": "pages/otp/index.vue"
+    },
+    {
+      "path": "registry/new-york-v4/blocks/otp-02/components/OTPForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/registry/new-york-v4/lib/utils\"\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from \"@/registry/new-york-v4/ui/field\"\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/registry/new-york-v4/ui/input-otp\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col gap-6', props.class)\">\n    <form>\n      <FieldGroup>\n        <div class=\"flex flex-col items-center gap-1 text-center\">\n          <h1 class=\"text-2xl font-bold\">\n            Enter verification code\n          </h1>\n          <p class=\"text-muted-foreground text-sm text-balance\">\n            We sent a 6-digit code to your email.\n          </p>\n        </div>\n        <Field>\n          <FieldLabel for=\"otp\" class=\"sr-only\">\n            Verification code\n          </FieldLabel>\n          <InputOTP id=\"otp\" :maxlength=\"6\" required>\n            <InputOTPGroup class=\"gap-2 *:data-[slot=input-otp-slot]:rounded-md *:data-[slot=input-otp-slot]:border\">\n              <InputOTPSlot :index=\"0\" />\n              <InputOTPSlot :index=\"1\" />\n            </InputOTPGroup>\n            <InputOTPSeparator />\n            <InputOTPGroup class=\"gap-2 *:data-[slot=input-otp-slot]:rounded-md *:data-[slot=input-otp-slot]:border\">\n              <InputOTPSlot :index=\"2\" />\n              <InputOTPSlot :index=\"3\" />\n            </InputOTPGroup>\n            <InputOTPSeparator />\n            <InputOTPGroup class=\"gap-2 *:data-[slot=input-otp-slot]:rounded-md *:data-[slot=input-otp-slot]:border\">\n              <InputOTPSlot :index=\"4\" />\n              <InputOTPSlot :index=\"5\" />\n            </InputOTPGroup>\n          </InputOTP>\n          <FieldDescription class=\"text-center\">\n            Enter the 6-digit code sent to your email.\n          </FieldDescription>\n        </Field>\n        <Button type=\"submit\">\n          Verify\n        </Button>\n        <FieldDescription class=\"text-center\">\n          Didn't receive the code? <a href=\"#\">Resend</a>\n        </FieldDescription>\n      </FieldGroup>\n    </form>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication",
+    "otp"
+  ]
+}

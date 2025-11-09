@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "vue"
 
 import { GalleryVerticalEnd } from "lucide-vue-next"
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/new-york-v4/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Field,
@@ -36,10 +36,7 @@ const props = defineProps<{
             Welcome to Acme Inc.
           </h1>
           <FieldDescription>
-            Don't have an account?
-            <a href="#">
-              Sign up
-            </a>
+            Already have an account? <a href="#">Sign in</a>
           </FieldDescription>
         </div>
         <Field>
@@ -55,7 +52,7 @@ const props = defineProps<{
         </Field>
         <Field>
           <Button type="submit">
-            Login
+            Create Account
           </Button>
         </Field>
         <FieldSeparator>Or</FieldSeparator>

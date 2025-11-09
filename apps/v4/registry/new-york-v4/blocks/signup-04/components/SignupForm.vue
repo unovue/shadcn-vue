@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
-import { cn } from "@/lib/utils"
+import { cn } from "@/registry/new-york-v4/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Card, CardContent } from "@/registry/new-york-v4/ui/card"
 import {
@@ -25,10 +25,10 @@ const props = defineProps<{
           <FieldGroup>
             <div class="flex flex-col items-center gap-2 text-center">
               <h1 class="text-2xl font-bold">
-                Welcome back
+                Create your account
               </h1>
-              <p class="text-muted-foreground text-balance">
-                Login to your Acme Inc account
+              <p class="text-muted-foreground text-sm text-balance">
+                Enter your email below to create your account
               </p>
             </div>
             <Field>
@@ -41,24 +41,33 @@ const props = defineProps<{
                 placeholder="m@example.com"
                 required
               />
+              <FieldDescription>
+                We'll use this to contact you. We will not share your
+                email with anyone else.
+              </FieldDescription>
             </Field>
             <Field>
-              <div class="flex items-center">
-                <FieldLabel for="password">
-                  Password
-                </FieldLabel>
-                <a
-                  href="#"
-                  class="ml-auto text-sm underline-offset-2 hover:underline"
-                >
-                  Forgot your password?
-                </a>
-              </div>
-              <Input id="password" type="password" required />
+              <Field class="grid grid-cols-2 gap-4">
+                <Field>
+                  <FieldLabel for="password">
+                    Password
+                  </FieldLabel>
+                  <Input id="password" type="password" required />
+                </Field>
+                <Field>
+                  <FieldLabel for="confirm-password">
+                    Confirm Password
+                  </FieldLabel>
+                  <Input id="confirm-password" type="password" required />
+                </Field>
+              </Field>
+              <FieldDescription>
+                Must be at least 8 characters long.
+              </FieldDescription>
             </Field>
             <Field>
               <Button type="submit">
-                Login
+                Create Account
               </Button>
             </Field>
             <FieldSeparator class="*:data-[slot=field-separator-content]:bg-card">
@@ -72,7 +81,7 @@ const props = defineProps<{
                     fill="currentColor"
                   />
                 </svg>
-                <span class="sr-only">Login with Apple</span>
+                <span class="sr-only">Sign up with Apple</span>
               </Button>
               <Button variant="outline" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -81,7 +90,7 @@ const props = defineProps<{
                     fill="currentColor"
                   />
                 </svg>
-                <span class="sr-only">Login with Google</span>
+                <span class="sr-only">Sign up with Google</span>
               </Button>
               <Button variant="outline" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -90,14 +99,11 @@ const props = defineProps<{
                     fill="currentColor"
                   />
                 </svg>
-                <span class="sr-only">Login with Meta</span>
+                <span class="sr-only">Sign up with Meta</span>
               </Button>
             </Field>
             <FieldDescription class="text-center">
-              Don't have an account?
-              <a href="#">
-                Sign up
-              </a>
+              Already have an account? <a href="#">Sign in</a>
             </FieldDescription>
           </FieldGroup>
         </form>

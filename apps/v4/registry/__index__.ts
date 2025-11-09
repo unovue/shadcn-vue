@@ -2212,7 +2212,7 @@ export const Index: Record<string, any> = {
     name: "login-01",
     description: "A simple login form.",
     type: "registry:block",
-    registryDependencies: ["button","card","input","label"],
+    registryDependencies: ["button","card","field","input"],
     files: [{
       path: "registry/new-york-v4/blocks/login-01/page.vue",
       type: "registry:page",
@@ -2229,7 +2229,7 @@ export const Index: Record<string, any> = {
     name: "login-02",
     description: "A two column login page with a cover image.",
     type: "registry:block",
-    registryDependencies: ["button","input","label"],
+    registryDependencies: ["button","field","input"],
     files: [{
       path: "registry/new-york-v4/blocks/login-02/page.vue",
       type: "registry:page",
@@ -2246,7 +2246,7 @@ export const Index: Record<string, any> = {
     name: "login-03",
     description: "A login page with a muted background color.",
     type: "registry:block",
-    registryDependencies: ["button","card","input","label"],
+    registryDependencies: ["button","card","field","input"],
     files: [{
       path: "registry/new-york-v4/blocks/login-03/page.vue",
       type: "registry:page",
@@ -2263,7 +2263,7 @@ export const Index: Record<string, any> = {
     name: "login-04",
     description: "A login page with form and image.",
     type: "registry:block",
-    registryDependencies: ["button","card","input","label"],
+    registryDependencies: ["button","card","field","input"],
     files: [{
       path: "registry/new-york-v4/blocks/login-04/page.vue",
       type: "registry:page",
@@ -2280,7 +2280,7 @@ export const Index: Record<string, any> = {
     name: "login-05",
     description: "A simple email-only login page.",
     type: "registry:block",
-    registryDependencies: ["button","input","label"],
+    registryDependencies: ["button","field","input"],
     files: [{
       path: "registry/new-york-v4/blocks/login-05/page.vue",
       type: "registry:page",
@@ -2291,6 +2291,91 @@ export const Index: Record<string, any> = {
       target: ""
     }],
     categories: ["authentication","login"],
+    meta: undefined,
+  },
+  "otp-01": {
+    name: "otp-01",
+    description: "A simple OTP verification form.",
+    type: "registry:block",
+    registryDependencies: ["button","card","field","input-otp"],
+    files: [{
+      path: "registry/new-york-v4/blocks/otp-01/page.vue",
+      type: "registry:page",
+      target: "pages/otp/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/otp-01/components/OTPForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-02": {
+    name: "otp-02",
+    description: "A two column OTP page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button","field","input-otp"],
+    files: [{
+      path: "registry/new-york-v4/blocks/otp-02/page.vue",
+      type: "registry:page",
+      target: "pages/otp/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/otp-02/components/OTPForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-03": {
+    name: "otp-03",
+    description: "An OTP page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button","card","field","input-otp"],
+    files: [{
+      path: "registry/new-york-v4/blocks/otp-03/page.vue",
+      type: "registry:page",
+      target: "pages/otp/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/otp-03/components/OTPForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-04": {
+    name: "otp-04",
+    description: "An OTP page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","field","input-otp"],
+    files: [{
+      path: "registry/new-york-v4/blocks/otp-04/page.vue",
+      type: "registry:page",
+      target: "pages/otp/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/otp-04/components/OTPForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-05": {
+    name: "otp-05",
+    description: "A simple OTP form with social providers.",
+    type: "registry:block",
+    registryDependencies: ["button","field","input-otp"],
+    files: [{
+      path: "registry/new-york-v4/blocks/otp-05/page.vue",
+      type: "registry:page",
+      target: "pages/otp/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/otp-05/components/OTPForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","otp"],
     meta: undefined,
   },
   "products-01": {
@@ -2761,6 +2846,91 @@ export const Index: Record<string, any> = {
       target: "pages/sidebar-demo/index.vue"
     }],
     categories: undefined,
+    meta: undefined,
+  },
+  "signup-01": {
+    name: "signup-01",
+    description: "A simple signup form.",
+    type: "registry:block",
+    registryDependencies: ["button","card","field","input"],
+    files: [{
+      path: "registry/new-york-v4/blocks/signup-01/page.vue",
+      type: "registry:page",
+      target: "pages/signup/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/signup-01/components/SignupForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-02": {
+    name: "signup-02",
+    description: "A two column signup page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button","field","input"],
+    files: [{
+      path: "registry/new-york-v4/blocks/signup-02/page.vue",
+      type: "registry:page",
+      target: "pages/signup/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/signup-02/components/SignupForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-03": {
+    name: "signup-03",
+    description: "A signup page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button","card","field","input"],
+    files: [{
+      path: "registry/new-york-v4/blocks/signup-03/page.vue",
+      type: "registry:page",
+      target: "pages/signup/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/signup-03/components/SignupForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-04": {
+    name: "signup-04",
+    description: "A signup page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","field","input"],
+    files: [{
+      path: "registry/new-york-v4/blocks/signup-04/page.vue",
+      type: "registry:page",
+      target: "pages/signup/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/signup-04/components/SignupForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-05": {
+    name: "signup-05",
+    description: "A simple signup form with social providers.",
+    type: "registry:block",
+    registryDependencies: ["button","field","input"],
+    files: [{
+      path: "registry/new-york-v4/blocks/signup-05/page.vue",
+      type: "registry:page",
+      target: "pages/signup/index.vue"
+    },{
+      path: "registry/new-york-v4/blocks/signup-05/components/SignupForm.vue",
+      type: "registry:component",
+      target: ""
+    }],
+    categories: ["authentication","signup"],
     meta: undefined,
   },
   "ChartAreaAxes": {
