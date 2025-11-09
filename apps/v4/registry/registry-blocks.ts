@@ -87,8 +87,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: [
       "button",
       "card",
+      "field",
       "input",
-      "label",
     ],
     files: [
       {
@@ -112,8 +112,8 @@ export const blocks: Registry["items"] = [
     description: "A two column login page with a cover image.",
     registryDependencies: [
       "button",
+      "field",
       "input",
-      "label",
     ],
     files: [
       {
@@ -138,8 +138,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: [
       "button",
       "card",
+      "field",
       "input",
-      "label",
     ],
     files: [
       {
@@ -164,8 +164,8 @@ export const blocks: Registry["items"] = [
     registryDependencies: [
       "button",
       "card",
+      "field",
       "input",
-      "label",
     ],
     files: [
       {
@@ -189,8 +189,8 @@ export const blocks: Registry["items"] = [
     description: "A simple email-only login page.",
     registryDependencies: [
       "button",
+      "field",
       "input",
-      "label",
     ],
     files: [
       {
@@ -206,6 +206,134 @@ export const blocks: Registry["items"] = [
     categories: [
       "authentication",
       "login",
+    ],
+  },
+  {
+    name: "otp-01",
+    type: "registry:block",
+    description: "A simple OTP verification form.",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input-otp",
+    ],
+    files: [
+      {
+        path: "blocks/otp-01/page.vue",
+        type: "registry:page",
+        target: "pages/otp/index.vue",
+      },
+      {
+        path: "blocks/otp-01/components/OTPForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "otp",
+    ],
+  },
+  {
+    name: "otp-02",
+    type: "registry:block",
+    description: "A two column OTP page with a cover image.",
+    registryDependencies: [
+      "button",
+      "field",
+      "input-otp",
+    ],
+    files: [
+      {
+        path: "blocks/otp-02/page.vue",
+        type: "registry:page",
+        target: "pages/otp/index.vue",
+      },
+      {
+        path: "blocks/otp-02/components/OTPForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "otp",
+    ],
+  },
+  {
+    name: "otp-03",
+    type: "registry:block",
+    description: "An OTP page with a muted background color.",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input-otp",
+    ],
+    files: [
+      {
+        path: "blocks/otp-03/page.vue",
+        type: "registry:page",
+        target: "pages/otp/index.vue",
+      },
+      {
+        path: "blocks/otp-03/components/OTPForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "otp",
+    ],
+  },
+  {
+    name: "otp-04",
+    type: "registry:block",
+    description: "An OTP page with form and image.",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input-otp",
+    ],
+    files: [
+      {
+        path: "blocks/otp-04/page.vue",
+        type: "registry:page",
+        target: "pages/otp/index.vue",
+      },
+      {
+        path: "blocks/otp-04/components/OTPForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "otp",
+    ],
+  },
+  {
+    name: "otp-05",
+    type: "registry:block",
+    description: "A simple OTP form with social providers.",
+    registryDependencies: [
+      "button",
+      "field",
+      "input-otp",
+    ],
+    files: [
+      {
+        path: "blocks/otp-05/page.vue",
+        type: "registry:page",
+        target: "pages/otp/index.vue",
+      },
+      {
+        path: "blocks/otp-05/components/OTPForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "otp",
     ],
   },
   {
@@ -854,6 +982,134 @@ export const blocks: Registry["items"] = [
         type: "registry:page",
         target: "pages/sidebar-demo/index.vue",
       },
+    ],
+  },
+  {
+    name: "signup-01",
+    type: "registry:block",
+    description: "A simple signup form.",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input",
+    ],
+    files: [
+      {
+        path: "blocks/signup-01/page.vue",
+        type: "registry:page",
+        target: "pages/signup/index.vue",
+      },
+      {
+        path: "blocks/signup-01/components/SignupForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "signup",
+    ],
+  },
+  {
+    name: "signup-02",
+    type: "registry:block",
+    description: "A two column signup page with a cover image.",
+    registryDependencies: [
+      "button",
+      "field",
+      "input",
+    ],
+    files: [
+      {
+        path: "blocks/signup-02/page.vue",
+        type: "registry:page",
+        target: "pages/signup/index.vue",
+      },
+      {
+        path: "blocks/signup-02/components/SignupForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "signup",
+    ],
+  },
+  {
+    name: "signup-03",
+    type: "registry:block",
+    description: "A signup page with a muted background color.",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input",
+    ],
+    files: [
+      {
+        path: "blocks/signup-03/page.vue",
+        type: "registry:page",
+        target: "pages/signup/index.vue",
+      },
+      {
+        path: "blocks/signup-03/components/SignupForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "signup",
+    ],
+  },
+  {
+    name: "signup-04",
+    type: "registry:block",
+    description: "A signup page with form and image.",
+    registryDependencies: [
+      "button",
+      "card",
+      "field",
+      "input",
+    ],
+    files: [
+      {
+        path: "blocks/signup-04/page.vue",
+        type: "registry:page",
+        target: "pages/signup/index.vue",
+      },
+      {
+        path: "blocks/signup-04/components/SignupForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "signup",
+    ],
+  },
+  {
+    name: "signup-05",
+    type: "registry:block",
+    description: "A simple signup form with social providers.",
+    registryDependencies: [
+      "button",
+      "field",
+      "input",
+    ],
+    files: [
+      {
+        path: "blocks/signup-05/page.vue",
+        type: "registry:page",
+        target: "pages/signup/index.vue",
+      },
+      {
+        path: "blocks/signup-05/components/SignupForm.vue",
+        type: "registry:component",
+      },
+    ],
+    categories: [
+      "authentication",
+      "signup",
     ],
   },
 ]

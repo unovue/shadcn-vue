@@ -1,0 +1,29 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "signup-01",
+  "type": "registry:block",
+  "description": "A simple signup form.",
+  "registryDependencies": [
+    "button",
+    "card",
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/blocks/signup-01/page.vue",
+      "content": "<script setup lang=\"ts\">\nimport SignupForm from \"@/registry/new-york-v4/blocks/signup-01/components/SignupForm.vue\"\n</script>\n\n<template>\n  <div class=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n    <div class=\"w-full max-w-sm\">\n      <SignupForm />\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:page",
+      "target": "pages/signup/index.vue"
+    },
+    {
+      "path": "registry/new-york-v4/blocks/signup-01/components/SignupForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/new-york-v4/ui/card\"\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from \"@/registry/new-york-v4/ui/field\"\nimport { Input } from \"@/registry/new-york-v4/ui/input\"\n</script>\n\n<template>\n  <Card>\n    <CardHeader>\n      <CardTitle>Create an account</CardTitle>\n      <CardDescription>\n        Enter your information below to create your account\n      </CardDescription>\n    </CardHeader>\n    <CardContent>\n      <form>\n        <FieldGroup>\n          <Field>\n            <FieldLabel for=\"name\">\n              Full Name\n            </FieldLabel>\n            <Input id=\"name\" type=\"text\" placeholder=\"John Doe\" required />\n          </Field>\n          <Field>\n            <FieldLabel for=\"email\">\n              Email\n            </FieldLabel>\n            <Input\n              id=\"email\"\n              type=\"email\"\n              placeholder=\"m@example.com\"\n              required\n            />\n            <FieldDescription>\n              We'll use this to contact you. We will not share your email with\n              anyone else.\n            </FieldDescription>\n          </Field>\n          <Field>\n            <FieldLabel for=\"password\">\n              Password\n            </FieldLabel>\n            <Input id=\"password\" type=\"password\" required />\n            <FieldDescription>Must be at least 8 characters long.</FieldDescription>\n          </Field>\n          <Field>\n            <FieldLabel for=\"confirm-password\">\n              Confirm Password\n            </FieldLabel>\n            <Input id=\"confirm-password\" type=\"password\" required />\n            <FieldDescription>Please confirm your password.</FieldDescription>\n          </Field>\n          <FieldGroup>\n            <Field>\n              <Button type=\"submit\">\n                Create Account\n              </Button>\n              <Button variant=\"outline\" type=\"button\">\n                Sign up with Google\n              </Button>\n              <FieldDescription class=\"px-6 text-center\">\n                Already have an account? <a href=\"#\">Sign in</a>\n              </FieldDescription>\n            </Field>\n          </FieldGroup>\n        </FieldGroup>\n      </form>\n    </CardContent>\n  </Card>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication",
+    "signup"
+  ]
+}
