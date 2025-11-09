@@ -81,7 +81,8 @@ const props = defineProps<{
       </CardContent>
     </Card>
     <FieldDescription class="text-center">
-      By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+      By clicking continue, you agree to our <a href="#">Terms of Service</a>
+      and <a href="#">Privacy Policy</a>.
     </FieldDescription>
   </div>
 </template>
