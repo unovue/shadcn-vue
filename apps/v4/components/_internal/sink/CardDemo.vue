@@ -33,7 +33,7 @@ import { Label } from '@/registry/new-york-v4/ui/label'
         <form>
           <div class="flex flex-col gap-6">
             <div class="grid gap-2">
-              <Label html-for="email">Email</Label>
+              <Label for="email">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -43,7 +43,7 @@ import { Label } from '@/registry/new-york-v4/ui/label'
             </div>
             <div class="grid gap-2">
               <div class="flex items-center">
-                <Label html-for="password">Password</Label>
+                <Label for="password">Password</Label>
                 <a
                   href="#"
                   class="ml-auto inline-block text-sm underline-offset-4 hover:underline"

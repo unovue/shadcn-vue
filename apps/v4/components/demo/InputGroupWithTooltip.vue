@@ -39,7 +39,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york-v4/
             </InputGroupButton>
           </TooltipTrigger>
           <TooltipContent>
-            <p>We&apos;ll use this to send you notifications</p>
+            <p>We'll use this to send you notifications</p>
           </TooltipContent>
         </Tooltip>
       </InputGroupAddon>
