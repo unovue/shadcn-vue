@@ -198,7 +198,7 @@ function createCalendar(identifier) {
 name: CalendarSystems
 title: Calendar systems
 description: A calendar with multiple calendar systems
-className: '**:[.preview]:h-[560px] mt-8'
+class: '**:[.preview]:h-[560px] mt-8'
 ---
 ::
 
@@ -261,6 +261,6 @@ description: A calendar with natural language picker.
 name: CalendarCustomCellSize
 title: Custom Heading and Cell Size
 description: A calendar with custom cell size that's responsive.
-className: '**:[.preview]:h-[560px]'
+class: '**:[.preview]:h-[560px]'
 ---
 ::

@@ -34,7 +34,7 @@ import {
           <CardHeader>
             <CardTitle>Account</CardTitle>
             <CardDescription>
-              Make changes to your account here. Click save when you&apos;re
+              Make changes to your account here. Click save when you're
               done.
             </CardDescription>
           </CardHeader>
@@ -58,7 +58,7 @@ import {
           <CardHeader>
             <CardTitle>Password</CardTitle>
             <CardDescription>
-              Change your password here. After saving, you&apos;ll be logged
+              Change your password here. After saving, you'll be logged
               out.
             </CardDescription>
           </CardHeader>

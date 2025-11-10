@@ -25,7 +25,7 @@ import {
       <SheetHeader>
         <SheetTitle>Edit profile</SheetTitle>
         <SheetDescription>
-          Make changes to your profile here. Click save when you&apos;re done.
+          Make changes to your profile here. Click save when you're done.
         </SheetDescription>
       </SheetHeader>
       <div class="grid flex-1 auto-rows-min gap-6 px-4">

@@ -282,7 +282,7 @@ import { Label } from '@/components/ui/label'
 <template>
   <ButtonGroup>
     <ButtonGroupText as-child>
-      <Label html-for="name">Text</Label>
+      <Label for="name">Text</Label>
     </ButtonGroupText>
     <Input id="name" placeholder="Type something here..." />
   </ButtonGroup>

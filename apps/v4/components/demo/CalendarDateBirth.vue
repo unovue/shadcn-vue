@@ -16,7 +16,7 @@ const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
 
 <template>
   <div class="flex flex-col gap-3">
-    <Label html-for="date" class="px-1">
+    <Label for="date" class="px-1">
       Date of birth
     </Label>
     <Popover v-slot="{ close }">

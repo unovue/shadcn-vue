@@ -32,7 +32,7 @@ import {
       <FieldSet>
         <FieldLabel>Tasks</FieldLabel>
         <FieldDescription>
-          Get notified when tasks you&apos;ve created have updates.{" "}
+          Get notified when tasks you've created have updates.
           <a href="#">Manage tasks</a>
         </FieldDescription>
         <FieldGroup data-slot="checkbox-group">
