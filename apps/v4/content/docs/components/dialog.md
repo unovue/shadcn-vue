@@ -90,3 +90,61 @@ import {
   </Dialog>
 </template>
 ```
+
+## Example
+
+### Custom close button
+
+::component-preview
+---
+name: DialogCloseButton
+---
+::
+
+### Dialog with form
+
+To keep field value after `Dialog` unmounts
+
+::component-preview
+---
+name: DialogForm
+---
+::
+
+## Notes
+
+To use the `Dialog` component from within a `Context Menu` or `Dropdown Menu`, you must encase the `Context Menu` or
+`Dropdown Menu` component in the `Dialog` component.
+
+```vue showLineNumbers title="components/EampleDialogContext.vue" {2, 29}
+<template>
+  <Dialog>
+    <ContextMenu>
+      <ContextMenuTrigger>Right click</ContextMenuTrigger>
+      <ContextMenuContent>
+        <ContextMenuItem>Open</ContextMenuItem>
+        <ContextMenuItem>Download</ContextMenuItem>
+        <DialogTrigger as-child>
+          <ContextMenuItem>
+            <span>Delete</span>
+          </ContextMenuItem>
+        </DialogTrigger>
+      </ContextMenuContent>
+    </ContextMenu>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Are you absolutely sure?</DialogTitle>
+        <DialogDescription>
+          This action cannot be undone. Are you sure you want to permanently
+          delete this file from our servers?
+        </DialogDescription>
+      </DialogHeader>
+      <DialogFooter>
+        <Button type="submit">
+          Confirm
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+</template>
+```
