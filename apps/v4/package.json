@@ -17,6 +17,7 @@
     "@internationalized/date": "catalog:",
     "@nuxt/content": "^3.8.0",
     "@nuxt/fonts": "0.11.4",
+    "@nuxt/image": "2.0.0",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/vue-form": "^1.23.8",

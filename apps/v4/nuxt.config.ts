@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
     { path: '~/components/demo', pathPrefix: false },

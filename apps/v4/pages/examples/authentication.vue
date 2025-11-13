@@ -12,14 +12,20 @@ useSeoMeta({
 
 <template>
   <div class="md:hidden">
-    <!-- <VPImage
-      alt="Authentication"
+    <NuxtImg
+      src="/examples/authentication-light.png"
       width="1280"
-      height="1214" class="block" :image="{
-        dark: '/examples/authentication-dark.png',
-        light: '/examples/authentication-light.png',
-      }"
-    /> -->
+      height="843"
+      alt="Authentication"
+      class="block dark:hidden"
+    />
+    <NuxtImg
+      src="/examples/authentication-dark.png"
+      width="1280"
+      height="843"
+      alt="Authentication"
+      class="hidden dark:block"
+    />
   </div>
 
   <div class="relative container hidden flex-1 shrink-0 items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">

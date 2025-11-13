@@ -34,14 +34,20 @@ useSeoMeta({
 
 <template>
   <div class="md:hidden">
-    <!-- <VPImage
-      alt="Playground"
+    <NuxtImg
+      src="/examples/playground-light.png"
       width="1280"
-      height="1214" class="block" :image="{
-        dark: '/examples/playground-dark.png',
-        light: '/examples/playground-light.png',
-      }"
-    /> -->
+      height="916"
+      alt="Playground"
+      class="block dark:hidden"
+    />
+    <NuxtImg
+      src="/examples/playground-dark.png"
+      width="1280"
+      height="916"
+      alt="Playground"
+      class="hidden dark:block"
+    />
   </div>
 
   <div class="hidden h-full flex-col md:flex">

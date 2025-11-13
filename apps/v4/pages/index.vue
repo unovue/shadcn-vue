@@ -43,22 +43,20 @@ useSeoMeta({
     <div class="container-wrapper section-soft flex-1 pb-6">
       <div class="container overflow-hidden">
         <section class="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
-          <!-- <img
-              src="/r/styles/new-york-v4/dashboard-01-light.png"
-              width="1400"
-              height="875"
-              alt="Dashboard"
-              class="block dark:hidden"
-              priority
-            >
-            <img
-              src="/r/styles/new-york-v4/dashboard-01-dark.png"
-              width="1400"
-              height="875"
-              alt="Dashboard"
-              class="hidden dark:block"
-              priority
-            > -->
+          <NuxtImg
+            src="/r/styles/new-york-v4/dashboard-01-light.png"
+            width="1400"
+            height="875"
+            alt="Dashboard"
+            class="block dark:hidden"
+          />
+          <NuxtImg
+            src="/r/styles/new-york-v4/dashboard-01-dark.png"
+            width="1400"
+            height="875"
+            alt="Dashboard"
+            class="hidden dark:block"
+          />
         </section>
         <section class="theme-container hidden md:block">
           <ExamplesRoot />

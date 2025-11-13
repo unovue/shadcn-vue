@@ -14,22 +14,20 @@ import {
 
 <template>
   <div class="md:hidden">
-    <!-- <Image
-          src="/examples/dashboard-light.png"
-          width={1280}
-          height={843}
-          alt="Authentication"
-          class="block dark:hidden"
-          priority
-        />
-        <Image
-          src="/examples/dashboard-dark.png"
-          width={1280}
-          height={843}
-          alt="Authentication"
-          class="hidden dark:block"
-          priority
-        /> -->
+    <NuxtImg
+      src="/examples/dashboard-light.png"
+      width="1280"
+      height="843"
+      alt="Dashboard"
+      class="block dark:hidden"
+    />
+    <NuxtImg
+      src="/examples/dashboard-dark.png"
+      width="1280"
+      height="843"
+      alt="Dashboard"
+      class="hidden dark:block"
+    />
   </div>
   <SidebarProvider
     class="hidden md:flex"
