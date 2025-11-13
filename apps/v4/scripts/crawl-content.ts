@@ -57,7 +57,7 @@ export async function crawlExample(rootPath: string) {
     if (!dirent.name.endsWith('.vue') || !dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue')
+    const [name = ''] = dirent.name.split('.vue')
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
@@ -108,7 +108,7 @@ export async function crawlBlock(rootPath: string) {
     if (!dirent.name.endsWith('.vue') || !dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue')
+    const [name = ''] = dirent.name.split('.vue')
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
@@ -155,7 +155,7 @@ export async function crawlChart(rootPath: string) {
     if (!dirent.name.endsWith('.vue') || !dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.vue')
+    const [name = ''] = dirent.name.split('.vue')
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
@@ -193,7 +193,7 @@ export async function crawlComposables(rootPath: string) {
     if (!dirent.isFile())
       continue
 
-    const [name] = dirent.name.split('.ts')
+    const [name = ''] = dirent.name.split('.ts')
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })

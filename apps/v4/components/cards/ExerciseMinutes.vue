@@ -61,7 +61,7 @@ const x = (d: Data) => d.day
             :x="x"
             :num-ticks="7"
             :tick-format="(d: number, index: number) => {
-              return data[index].dayLabel.slice(0, 3)
+              return data[index]?.dayLabel.slice(0, 3)
             }"
           />
           <VisAxis

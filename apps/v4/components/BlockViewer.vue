@@ -30,7 +30,7 @@ import type { createFileTreeForRegistryItemFiles } from '~/lib/registry'
 const props = defineProps<Pick<BlockViewerContext, 'item' | 'highlightedFiles' | 'tree'>>()
 
 const view = ref<'code' | 'preview'>('preview')
-const activeFile = ref(props.highlightedFiles?.[0].target ?? null)
+const activeFile = ref(props.highlightedFiles?.[0]?.target ?? null)
 const resizablePanelRef = ref<InstanceType<typeof ResizablePanel> | null>(null)
 const iframeKey = ref(0)
 

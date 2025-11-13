@@ -35,7 +35,7 @@ const steps = [
       :step="step.step"
     >
       <StepperSeparator
-        v-if="step.step !== steps[steps.length - 1].step"
+        v-if="step.step !== steps[steps.length - 1]?.step"
         class="absolute left-[18px] top-[38px] block h-[105%] w-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary"
       />
 

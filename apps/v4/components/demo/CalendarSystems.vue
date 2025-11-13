@@ -48,8 +48,8 @@ const calendars = [
   { key: 'ethioaa', name: 'Ethiopic (Amete Alem)' },
 ]
 
-const locale = ref(preferences[0].locale)
-const calendar = ref(calendars[0].key) as Ref<CalendarIdentifier>
+const locale = ref(preferences[0]?.locale)
+const calendar = ref(calendars[0]?.key) as Ref<CalendarIdentifier>
 
 const pref = computed(() => preferences.find(p => p.locale === locale.value))
 const preferredCalendars = computed(() => pref.value ? pref.value.ordering.split(' ').map(p => calendars.find(c => c.key === p)).filter(Boolean) : [calendars[0]])

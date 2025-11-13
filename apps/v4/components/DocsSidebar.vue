@@ -108,7 +108,7 @@ function isActive(href: string) {
                     {{ childItem.title }}
                     <span
                       v-if="childItem.new"
-                      class="flex size-2 rounded-full bg-blue-500"
+                      class="flex size-2 rounded-full bg-green-500"
                       title="New"
                     />
                   </NuxtLink>

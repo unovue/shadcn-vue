@@ -119,7 +119,7 @@ const activeType = ref(allTypes[0])
     <template v-for="type in allTypes" :key="type.name">
       <Button
         variant="ghost"
-        :data-active="activeType.name === type.name"
+        :data-active="activeType?.name === type.name"
         @click="() => {
           type.action()
           activeType = type

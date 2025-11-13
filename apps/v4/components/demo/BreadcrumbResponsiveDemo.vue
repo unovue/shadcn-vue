@@ -48,7 +48,7 @@ const isDesktop = useMediaQuery('(min-width: 768px)')
     <BreadcrumbList>
       <BreadcrumbItem>
         <BreadcrumbLink as-child>
-          <NuxtLink :to="items[0].href || '/'">
+          <NuxtLink :to="items[0]?.href || '/'">
             {{ items[0].label }}
           </NuxtLink>
         </BreadcrumbLink>

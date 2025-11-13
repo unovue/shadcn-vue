@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { registryItemSchema } from 'shadcn-vue/registry'
+import type { registryItemSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
 import { cn } from '~/lib/utils'
 

@@ -157,7 +157,7 @@ const grouped = computed(() => {
         if (!acc[item.type]) {
           acc[item.type] = []
         }
-        acc[item.type].push(item)
+        acc[item.type]?.push(item)
       }
       return acc
     },
@@ -286,7 +286,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
               <TooltipTrigger as-child>
                 <DropdownMenuTrigger as-child>
                   <InputGroupButton size="sm" class="rounded-full">
-                    {{ selectedModel.name }}
+                    {{ selectedModel?.name }}
                   </InputGroupButton>
                 </DropdownMenuTrigger>
               </TooltipTrigger>
@@ -304,7 +304,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
                 <DropdownMenuCheckboxItem
                   v-for="model in SAMPLE_DATA.models"
                   :key="model.name"
-                  :model-value="model.name === selectedModel.name"
+                  :model-value="model.name === selectedModel?.name"
                   class="pl-2 *:[span:first-child]:right-2 *:[span:first-child]:left-auto"
                   @update:model-value="(checked) => {
                     if (checked) {

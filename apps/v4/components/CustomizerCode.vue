@@ -77,7 +77,7 @@ function getThemeCodeHSLV4(theme: BaseColor | undefined, radius: number) {
 
 function template(base: string, data: Record<string, any>) {
   return base.replace(/<%-(.*?)%>/g, (match, path) => {
-    return path.trim().split(/[.[\]"']/).filter(Boolean).reduce((obj, key) => obj?.[key], data) ?? ''
+    return path.trim().split(/[.[\]"']/).filter(Boolean).reduce((obj: any, key: any) => obj?.[key], data) ?? ''
   })
 };
 

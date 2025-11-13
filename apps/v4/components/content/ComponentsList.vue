@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { data } = await useNavigation()
 
-const list = computed(() => data.value?.[0].children.find(item => item.title === 'Components')?.children ?? [])
+const list = computed(() => data.value?.[0]?.children.find(item => item.title === 'Components')?.children ?? [])
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const list = computed(() => data.value?.[0].children.find(item => item.title ===
 
       <span
         v-if="component.new"
-        class="flex size-2 rounded-full bg-blue-500"
+        class="flex size-2 rounded-full bg-green-500"
         title="New"
       />
     </NuxtLink>
