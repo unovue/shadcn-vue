@@ -34,7 +34,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
     "lucide-vue-next": "^0.553.0",
-    "nuxt": "^3.20.1",
+    "nuxt": "^4.2.1",
     "nuxt-og-image": "5.1.12",
     "reka-ui": "catalog:",
     "shadcn-vue": "workspace:*",

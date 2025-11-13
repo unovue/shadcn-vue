@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { charts } from '@/constants/charts'
 import { cn } from '~/lib/utils'
-import { charts } from './constants'
 
 const chartTypes = [
   'area',
@@ -14,7 +14,7 @@ const chartTypes = [
 type ChartType = (typeof chartTypes)[number]
 
 const { params } = toRefs(useRoute())
-const chartType = computed(() => params.value.type.toString())
+const chartType = computed(() => params.value.type?.toString() ?? '')
 const chartList = computed(() => charts[chartType.value as ChartType])
 </script>
 

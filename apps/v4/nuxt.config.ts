@@ -5,6 +5,7 @@ import { siteConfig } from './lib/config'
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-05',
   devtools: { enabled: true },
+  srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
   modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image'],
   components: [
@@ -66,6 +67,12 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'cloudflare-module',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+      failOnError: false,
+      autoSubfolderIndex: false,
+    },
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
