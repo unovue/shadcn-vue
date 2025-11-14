@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NavItem } from '../config/docs'
 import { useMagicKeys, useToggle } from '@vueuse/core'
+import { ArrowRightIcon } from 'lucide-vue-next'
 import { Content, useData, useRoute, useRouter } from 'vitepress'
 import { onMounted, ref, watch } from 'vue'
 import MoonIcon from '~icons/lucide/moon'
@@ -75,6 +76,15 @@ function handleSelectLink(item: NavItem) {
 
 <template>
   <TooltipProvider>
+    <div class="bg-muted text-muted-foreground sticky top-0 z-[100] flex h-10 items-center justify-center gap-2 px-4 text-sm">
+      You are viewing the v3 docs.
+      <a
+        href="https://shadcn-vue.com"
+        class="text-primary flex items-center gap-1 underline"
+      >
+        Switch to latest <ArrowRightIcon class="size-3" />
+      </a>
+    </div>
     <div v-if="$route.data.frontmatter.layout === false">
       <Content :key="$route.path" />
     </div>
