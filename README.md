@@ -5,7 +5,7 @@
  </h1>
 </p>
 
-[shadcn-vue](https://www.shadcn-vue.com/) is an unofficial community-led [Vue](https://vuejs.org) port of [shadcn/ui](https://ui.shadcn.com/).
+[shadcn-vue](https://shadcn-vue.com/) is an unofficial community-led [Vue](https://vuejs.org) port of [shadcn/ui](https://ui.shadcn.com/).
 
 > **Note** <br> **We are not affiliated with shadcn, but we did get his blessing prior to creating this project** <br> This is a project born out of the need for a similar project for the vue ecosystem.
 
