@@ -7,7 +7,6 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
     "typecheck": "vue-tsc -b"
   },
   "dependencies": {
