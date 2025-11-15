@@ -20,7 +20,7 @@ const delegatedProps = reactiveOmit(props, "class", "layout", "placeholder")
 
 const placeholder = useVModel(props, "placeholder", emits, {
   passive: true,
-  defaultValue: props.defaultPlaceholder,
+  defaultValue: props.defaultPlaceholder ?? today(getLocalTimeZone()),
 }) as Ref<DateValue>
 
 const formatter = useDateFormatter(props.locale ?? "en")
