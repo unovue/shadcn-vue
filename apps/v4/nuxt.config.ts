@@ -59,9 +59,6 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  colorMode: {
-    classSuffix: '',
-  },
   build: {
     transpile: ['vee-validate', 'vue-sonner'],
   },

@@ -68,9 +68,11 @@
       "esbuild",
       "maplibre-gl",
       "msw",
+      "sharp",
       "simple-git-hooks",
       "unrs-resolver",
-      "vue-demi"
+      "vue-demi",
+      "workerd"
     ]
   },
   "simple-git-hooks": {
