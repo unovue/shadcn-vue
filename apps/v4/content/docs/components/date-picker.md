@@ -66,6 +66,7 @@ npx shadcn-vue@latest add date-picker
 <script setup lang="ts">
 import { ref } from 'vue'
 import { CalendarIcon } from 'lucide-vue-next'
+import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
@@ -76,6 +77,7 @@ import {
 } from '@/components/ui/popover'
 
 const date = ref<Date>()
+const defaultPlaceholder = today(getLocalTimeZone())
 </script>
 
 <template>
@@ -93,7 +95,12 @@ const date = ref<Date>()
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" :initial-focus="true" />
+      <Calendar
+        v-model="date"
+        :initial-focus="true"
+        :default-placeholder="defaultPlaceholder"
+        layout="month-and-year"
+      />
     </PopoverContent>
   </Popover>
 </template>

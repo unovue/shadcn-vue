@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { DateValue } from '@internationalized/date'
-import { DateFormatter, getLocalTimeZone } from '@internationalized/date'
+import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 
 import { CalendarIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
@@ -12,6 +12,7 @@ import {
   PopoverTrigger,
 } from '@/registry/new-york-v4/ui/popover'
 
+const defaultPlaceholder = today(getLocalTimeZone())
 const date = ref() as Ref<DateValue>
 
 const df = new DateFormatter('en-US', {
@@ -33,6 +34,8 @@ const df = new DateFormatter('en-US', {
     <PopoverContent class="w-auto p-0" align="start">
       <Calendar
         v-model="date"
+        :default-placeholder="defaultPlaceholder"
+        layout="month-and-year"
         initial-focus
         @update:model-value="close"
       />
