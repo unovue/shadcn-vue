@@ -2,6 +2,7 @@
 import type { CalendarRootEmits, CalendarRootProps, DateValue } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import type { LayoutTypes } from "."
+import { getLocalTimeZone, today } from "@internationalized/date"
 import { createReusableTemplate, reactiveOmit, useVModel } from "@vueuse/core"
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from "reka-ui"
 import { createYear, createYearRange, toDate } from "reka-ui/date"
@@ -23,6 +24,15 @@ const placeholder = useVModel(props, "placeholder", emits, {
 }) as Ref<DateValue>
 
 const formatter = useDateFormatter(props.locale ?? "en")
+
+const yearRange = computed(() => {
+  return props.yearRange ?? createYearRange({
+    start: (toRaw(props.placeholder) ?? props.defaultPlaceholder ?? today(getLocalTimeZone()))
+      .cycle("year", -100),
+
+    end: today(getLocalTimeZone()),
+  })
+})
 
 const [DefineMonthTemplate, ReuseMonthTemplate] = createReusableTemplate<{ date: DateValue }>()
 const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ date: DateValue }>()
@@ -67,7 +77,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
             })
           }"
         >
-          <NativeSelectOption v-for="(year) in yearRange ?? createYearRange({ start: date.cycle('year', -100), end: date })" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
+          <NativeSelectOption v-for="(year) in yearRange" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
             {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
           </NativeSelectOption>
         </NativeSelect>
