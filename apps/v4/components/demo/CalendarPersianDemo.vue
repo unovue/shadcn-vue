@@ -8,6 +8,9 @@ import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
 const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalendar())) as Ref<DateValue>
+// or
+const defaultPlaceholder = toCalendar(today(getLocalTimeZone()), new PersianCalendar())
+
 const formatter = useDateFormatter('fa')
 </script>
 
