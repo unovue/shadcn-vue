@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { registryItemSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
+import { fixImport } from '~/lib/registry-utils'
 import { cn } from '~/lib/utils'
 
 export type Chart = z.infer<typeof registryItemSchema> & {
@@ -16,7 +17,7 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const code = (await import(`@/registry/new-york-v4/charts/${props.name}.vue?raw`)).default
+const code = fixImport((await import(`@/registry/new-york-v4/charts/${props.name}.vue?raw`)).default)
 </script>
 
 <template>
