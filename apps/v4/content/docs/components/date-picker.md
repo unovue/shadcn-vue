@@ -16,49 +16,11 @@ description: A date picker component.
 
 ## Installation
 
-::code-tabs
+The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
 
-::tabs-list
+See installation instructions for the [Popover](/docs/components/popover) and the [Calendar](/docs/components/calendar) components.
 
-  ::tabs-trigger{value="cli"}
-  CLI
-  ::
 
-  ::tabs-trigger{value="manual"}
-  Manual
-  ::
-
-::
-
-::tabs-content{value="cli"}
-
-```bash
-npx shadcn-vue@latest add date-picker
-```
-
-::
-
-::tabs-content{value="manual"}
-  ::steps
-    ::step
-    Install the following dependencies:
-    ::
-
-    ```bash
-    npm install reka-ui
-    ```
-
-    ::step
-    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/date-picker) into your project.
-    ::
-
-    ::step
-    Update the import paths to match your project setup.
-    ::
-  ::
-::
-
-::
 
 ## Usage
 
