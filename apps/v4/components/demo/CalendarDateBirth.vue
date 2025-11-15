@@ -33,6 +33,7 @@ const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
       <PopoverContent class="w-auto overflow-hidden p-0" align="start">
         <Calendar
           :model-value="date"
+          layout="month-and-year"
           @update:model-value="(value) => {
             if (value) {
               date = value

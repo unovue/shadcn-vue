@@ -10,5 +10,6 @@ const date = ref(fromDate(new Date(), getLocalTimeZone())) as Ref<DateValue>
   <Calendar
     v-model="date"
     class="rounded-md border shadow-sm"
+    layout="month-and-year"
   />
 </template>
