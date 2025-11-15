@@ -8,6 +8,7 @@ import path from 'node:path'
 
 import { registryItemSchema } from 'shadcn-vue/schema'
 import { blockMeta } from '@/registry/registry-block-meta'
+import { fixImport } from '~/lib/registry-utils'
 import { Index } from '~/registry/__index__'
 
 export function getRegistryComponent(name: string) {
@@ -136,35 +137,6 @@ function fixFilePaths(files: z.infer<typeof registryItemSchema>['files']) {
       target: getFileTarget(file),
     }
   })
-}
-
-export function fixImport(content: string) {
-  // eslint-disable-next-line regexp/no-super-linear-backtracking
-  const regex = /@\/(.+?)\/((?:.*?\/)?(?:components|ui|hooks|lib))\/([\w-]+)/g
-
-  const replacement = (
-    match: string,
-    path: string,
-    type: string,
-    component: string,
-  ) => {
-    if (type.endsWith('components')) {
-      return `@/components/${component}`
-    }
-    else if (type.endsWith('ui')) {
-      return `@/components/ui/${component}`
-    }
-    else if (type.endsWith('hooks')) {
-      return `@/hooks/${component}`
-    }
-    else if (type.endsWith('lib')) {
-      return `@/lib/${component}`
-    }
-
-    return match
-  }
-
-  return content.replace(regex, replacement)
 }
 
 export interface FileTree {
