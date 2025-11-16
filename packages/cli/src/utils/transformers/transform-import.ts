@@ -9,7 +9,13 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
     transform({ scriptASTs, utils: { traverseScriptAST } }) {
       let transformCount = 0
       const { config, isRemote } = opts
-      const utilsImport = '@/lib/utils'
+
+      const utilsAlias = config.aliases?.utils
+      const workspaceAlias
+        = typeof utilsAlias === 'string' && utilsAlias.includes('/')
+          ? utilsAlias.split('/')[0]
+          : '@'
+      const utilsImport = `${workspaceAlias}/lib/utils`
 
       for (const scriptAST of scriptASTs) {
         traverseScriptAST(scriptAST, {
@@ -29,13 +35,16 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
                 }
 
                 // Replace `import { cn } from "@/lib/utils"` or `await import("@/lib/utils")`
-                if (sourcePath === utilsImport || updatedImport === utilsImport) {
+                if (utilsImport === updatedImport || updatedImport === '@/lib/utils') {
                   // For static imports, check named imports
                   if (parent.type === 'ImportDeclaration') {
                     const namedImports = parent.specifiers?.map(node => node.local?.name ?? '') ?? []
-                    const cnImport = namedImports.find(i => i === 'cn')
-                    if (cnImport) {
-                      path.node.value = config.aliases.utils
+                    const isCnImport = namedImports.find(i => i === 'cn')
+
+                    if (isCnImport && config.aliases.utils) {
+                      path.node.value = utilsImport === updatedImport
+                        ? updatedImport.replace(utilsImport, config.aliases.utils)
+                        : config.aliases.utils
                       transformCount++
                     }
                   }
@@ -50,8 +59,11 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
                       const hasCnProperty = grandParent.id.properties?.some(
                         prop => prop.key?.name === 'cn',
                       )
-                      if (hasCnProperty) {
-                        path.node.value = config.aliases.utils
+
+                      if (hasCnProperty && config.aliases.utils) {
+                        path.node.value = utilsImport === updatedImport
+                          ? updatedImport.replace(utilsImport, config.aliases.utils)
+                          : config.aliases.utils
                         transformCount++
                       }
                     }
