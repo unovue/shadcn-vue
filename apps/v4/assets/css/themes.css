@@ -183,25 +183,25 @@
 
 .theme-green .theme-container,
 .theme-green [data-reka-popper-content-wrapper] {
-  --primary: var(--color-lime-600);
-  --primary-foreground: var(--color-lime-50);
-  --ring: var(--color-lime-400);
+  --primary: var(--color-green-600);
+  --primary-foreground: var(--color-green-50);
+  --ring: var(--color-green-400);
   --chart-1: var(--color-green-300);
   --chart-2: var(--color-green-500);
   --chart-3: var(--color-green-600);
   --chart-4: var(--color-green-700);
   --chart-5: var(--color-green-800);
-  --sidebar-primary: var(--color-lime-600);
-  --sidebar-primary-foreground: var(--color-lime-50);
-  --sidebar-ring: var(--color-lime-400);
+  --sidebar-primary: var(--color-green-600);
+  --sidebar-primary-foreground: var(--color-green-50);
+  --sidebar-ring: var(--color-green-400);
 
   @variant dark {
-    --primary: var(--color-lime-600);
-    --primary-foreground: var(--color-lime-50);
-    --ring: var(--color-lime-900);
-    --sidebar-primary: var(--color-lime-500);
-    --sidebar-primary-foreground: var(--color-lime-50);
-    --sidebar-ring: var(--color-lime-900);
+    --primary: var(--color-green-600);
+    --primary-foreground: var(--color-green-50);
+    --ring: var(--color-green-900);
+    --sidebar-primary: var(--color-green-500);
+    --sidebar-primary-foreground: var(--color-green-50);
+    --sidebar-ring: var(--color-green-900);
   }
 }
 
