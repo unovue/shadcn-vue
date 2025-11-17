@@ -120,14 +120,15 @@ function handleNavigate(path: string) {
           </div>
         </div>
         <div class="flex flex-col gap-8">
-          <template v-for="(group, index) in tree" :key="index">
+          <template v-for="(group, index) in tree[0]?.children" :key="index">
             <div class="flex flex-col gap-4">
               <div class="text-muted-foreground text-sm font-medium">
                 {{ group.title }}
               </div>
               <div class="flex flex-col gap-3">
-                <NuxtLink v-for="item in group.children" :key="item.path" class="text-2xl font-medium" :to="item.path" @click="handleNavigate(item.path)">
+                <NuxtLink v-for="item in group.children" :key="item.path" class="flex items-center gap-2 text-2xl font-medium" :to="item.path" @click="handleNavigate(item.path)">
                   {{ item.title }}
+                  <span v-if="item.new" class="flex size-2 rounded-full bg-green-500" />
                 </NuxtLink>
               </div>
             </div>
