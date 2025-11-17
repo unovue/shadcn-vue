@@ -8,14 +8,17 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = defineProps<{ class?: HTMLAttributes["class"] }>()
-const delegatedProps = reactiveOmit(props, "class")
+const props = defineProps<{ class?: HTMLAttributes["class"], wrapperClasses?: HTMLAttributes["class"] }>()
+const delegatedProps = reactiveOmit(props, "class", "wrapperClasses")
 </script>
 
 <template>
   <div
-    class="group/native-select relative w-fit has-[select:disabled]:opacity-50"
     data-slot="native-select-wrapper"
+    :class="cn(
+      'group/native-select relative w-fit has-[select:disabled]:opacity-50',
+      props.wrapperClasses,
+    )"
   >
     <select
       data-slot="native-select"
