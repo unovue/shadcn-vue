@@ -240,9 +240,10 @@ The main select component that wraps the native HTML select element.
 
 | Prop        | Type     | Default |
 | ----------- | -------- | ------- |
+| `wrapperClasses` | `string` |         |
 | `class` | `string` |         |
 
-All other props are passed through to the underlying `<select>` element.
+Class and all other props are passed through to the underlying `<select>` element.
 
 ```vue
 <NativeSelect>
