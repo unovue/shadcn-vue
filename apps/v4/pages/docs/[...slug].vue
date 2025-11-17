@@ -52,7 +52,7 @@ useSeoMeta({
                     v-if="neighbours?.[0]"
                     variant="secondary"
                     size="icon"
-                    class="extend-touch-target size-8 shadow-none md:size-7"
+                    class="extend-touch-target ml-auto size-8 shadow-none md:size-7"
                     as-child
                   >
                     <NuxtLink :to="neighbours[0].path">
