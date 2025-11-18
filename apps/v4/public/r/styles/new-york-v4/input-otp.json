@@ -4,7 +4,8 @@
   "type": "registry:ui",
   "dependencies": [
     "@vueuse/core",
-    "reka-ui"
+    "reka-ui",
+    "vue-input-otp"
   ],
   "files": [
     {
