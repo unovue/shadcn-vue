@@ -18,6 +18,7 @@ catalog:
   pathe: ^2.0.3
   reka-ui: ^2.6.0
   tinyglobby: ^0.2.15
+  tsx: ^4.20.6
   typescript: ^5.9.3
   vaul-vue: ^0.4.1
   vee-validate: ^4.15.1
