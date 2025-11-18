@@ -18,6 +18,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['@unovis/vue', ['@unovis/ts']],
   ['embla-carousel-vue', []],
   ['vee-validate', ['@vee-validate/zod', 'zod']],
+  ['vue-input-otp', []],
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
