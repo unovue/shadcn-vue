@@ -1,4 +1,4 @@
-import { exec, execFile } from 'node:child_process'
+import { exec } from 'node:child_process'
 import { existsSync, promises as fs } from 'node:fs'
 import path, { resolve } from 'node:path'
 
@@ -135,8 +135,9 @@ async function buildRegistryJsonFile() {
 
   const registryJsonPath = path.join(outputDir, 'registry.json')
   await fs.writeFile(registryJsonPath, JSON.stringify(fixedRegistry, null, 2))
+  // 使用 exec 替代 execFile，通过 npx 调用本地安装的 prettier
   await new Promise<void>((resolve, reject) => {
-    execFile('prettier', ['--write', registryJsonPath], (error) => {
+    exec(`npx prettier --write "${registryJsonPath}"`, (error) => {
       if (error) {
         reject(error)
       }

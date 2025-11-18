@@ -44,11 +44,11 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
       {
-        path: "blocks/dashboard-01/components/DragHandle.vue",
+        path: "blocks/dashboard-01/components/DraggableRow.vue",
         type: "registry:component",
       },
       {
-        path: "blocks/dashboard-01/components/DraggableRow.vue",
+        path: "blocks/dashboard-01/components/DragHandle.vue",
         type: "registry:component",
       },
       {
