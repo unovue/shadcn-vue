@@ -61,10 +61,11 @@ export const build = new Command()
 
         // Loop through each file in the files array.
         for (const file of registryItem.files ?? []) {
-          file.content = await fs.readFile(
+          const content = await fs.readFile(
             path.resolve(resolvePaths.cwd, file.path),
             'utf-8',
           )
+          file.content = content.replace(/\r\n/g, '\n')
         }
 
         // Validate the registry item.

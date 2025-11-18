@@ -1059,9 +1059,9 @@
     "name": "input-otp",
     "type": "registry:ui",
     "dependencies": [
+      "vue-input-otp",
       "@vueuse/core",
-      "reka-ui",
-      "vue-input-otp"
+      "reka-ui"
     ],
     "files": [
       {

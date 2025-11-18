@@ -11,7 +11,7 @@ import { crawlBlock, crawlUI } from './crawl-content'
 async function writeFile(path: string, payload: any) {
   return fs.writeFile(
     path,
-    `${payload}\r\n`,
+    `${payload}\n`,
     'utf8',
   )
 }

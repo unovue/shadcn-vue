@@ -1061,6 +1061,7 @@ export const ui: Registry["items"] = [
     name: "input-otp",
     type: "registry:ui",
     dependencies: [
+      "vue-input-otp",
       "@vueuse/core",
       "reka-ui",
     ],
