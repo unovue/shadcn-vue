@@ -135,9 +135,8 @@ async function buildRegistryJsonFile() {
 
   const registryJsonPath = path.join(outputDir, 'registry.json')
   await fs.writeFile(registryJsonPath, JSON.stringify(fixedRegistry, null, 2))
-  // 使用 exec 替代 execFile，通过 npx 调用本地安装的 prettier
   await new Promise<void>((resolve, reject) => {
-    exec(`npx prettier --write "${registryJsonPath}"`, (error) => {
+    exec(`pnpm exec prettier --write "${registryJsonPath}"`, (error) => {
       if (error) {
         reject(error)
       }
