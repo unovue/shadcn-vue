@@ -1009,11 +1009,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/input/index.ts",
+        path: "ui/input/Input.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/input/Input.vue",
+        path: "ui/input/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1027,10 +1027,6 @@ export const ui: Registry["items"] = [
       "textarea",
     ],
     files: [
-      {
-        path: "ui/input-group/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/input-group/InputGroup.vue",
         type: "registry:ui",
@@ -1055,6 +1051,10 @@ export const ui: Registry["items"] = [
         path: "ui/input-group/InputGroupTextarea.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/input-group/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1066,10 +1066,6 @@ export const ui: Registry["items"] = [
       "reka-ui",
     ],
     files: [
-      {
-        path: "ui/input-otp/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/input-otp/InputOTP.vue",
         type: "registry:ui",
@@ -1086,6 +1082,10 @@ export const ui: Registry["items"] = [
         path: "ui/input-otp/InputOTPSlot.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/input-otp/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1098,10 +1098,6 @@ export const ui: Registry["items"] = [
       "separator",
     ],
     files: [
-      {
-        path: "ui/item/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/item/Item.vue",
         type: "registry:ui",
@@ -1142,6 +1138,10 @@ export const ui: Registry["items"] = [
         path: "ui/item/ItemTitle.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/item/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1149,15 +1149,15 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     files: [
       {
-        path: "ui/kbd/index.ts",
-        type: "registry:ui",
-      },
-      {
         path: "ui/kbd/Kbd.vue",
         type: "registry:ui",
       },
       {
         path: "ui/kbd/KbdGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/kbd/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1171,11 +1171,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/label/index.ts",
+        path: "ui/label/Label.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/label/Label.vue",
+        path: "ui/label/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1188,10 +1188,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/menubar/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/menubar/Menubar.vue",
         type: "registry:ui",
@@ -1252,19 +1248,20 @@ export const ui: Registry["items"] = [
         path: "ui/menubar/MenubarTrigger.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/menubar/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
     name: "native-select",
     type: "registry:ui",
     dependencies: [
+      "reka-ui",
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/native-select/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/native-select/NativeSelect.vue",
         type: "registry:ui",
@@ -1277,6 +1274,10 @@ export const ui: Registry["items"] = [
         path: "ui/native-select/NativeSelectOption.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/native-select/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1287,10 +1288,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/navigation-menu/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/navigation-menu/NavigationMenu.vue",
         type: "registry:ui",
@@ -1323,6 +1320,10 @@ export const ui: Registry["items"] = [
         path: "ui/navigation-menu/NavigationMenuViewport.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/navigation-menu/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1333,10 +1334,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/number-field/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/number-field/NumberField.vue",
         type: "registry:ui",
@@ -1357,6 +1354,10 @@ export const ui: Registry["items"] = [
         path: "ui/number-field/NumberFieldInput.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/number-field/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1370,10 +1371,6 @@ export const ui: Registry["items"] = [
       "button",
     ],
     files: [
-      {
-        path: "ui/pagination/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/pagination/Pagination.vue",
         type: "registry:ui",
@@ -1406,6 +1403,10 @@ export const ui: Registry["items"] = [
         path: "ui/pagination/PaginationPrevious.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/pagination/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1416,10 +1417,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/pin-input/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/pin-input/PinInput.vue",
         type: "registry:ui",
@@ -1436,6 +1433,10 @@ export const ui: Registry["items"] = [
         path: "ui/pin-input/PinInputSlot.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/pin-input/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1446,10 +1447,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/popover/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/popover/Popover.vue",
         type: "registry:ui",
@@ -1466,6 +1463,10 @@ export const ui: Registry["items"] = [
         path: "ui/popover/PopoverTrigger.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/popover/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1477,11 +1478,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/progress/index.ts",
+        path: "ui/progress/Progress.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/progress/Progress.vue",
+        path: "ui/progress/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1495,15 +1496,15 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/radio-group/index.ts",
-        type: "registry:ui",
-      },
-      {
         path: "ui/radio-group/RadioGroup.vue",
         type: "registry:ui",
       },
       {
         path: "ui/radio-group/RadioGroupItem.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/radio-group/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1519,10 +1520,6 @@ export const ui: Registry["items"] = [
       "button",
     ],
     files: [
-      {
-        path: "ui/range-calendar/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/range-calendar/RangeCalendar.vue",
         type: "registry:ui",
@@ -1571,6 +1568,10 @@ export const ui: Registry["items"] = [
         path: "ui/range-calendar/RangeCalendarPrevButton.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/range-calendar/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1582,10 +1583,6 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/resizable/index.ts",
-        type: "registry:ui",
-      },
-      {
         path: "ui/resizable/ResizableHandle.vue",
         type: "registry:ui",
       },
@@ -1595,6 +1592,10 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/resizable/ResizablePanelGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/resizable/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1608,15 +1609,15 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/scroll-area/index.ts",
-        type: "registry:ui",
-      },
-      {
         path: "ui/scroll-area/ScrollArea.vue",
         type: "registry:ui",
       },
       {
         path: "ui/scroll-area/ScrollBar.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/scroll-area/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1629,10 +1630,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/select/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/select/Select.vue",
         type: "registry:ui",
@@ -1677,6 +1674,10 @@ export const ui: Registry["items"] = [
         path: "ui/select/SelectValue.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/select/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1688,11 +1689,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/separator/index.ts",
+        path: "ui/separator/Separator.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/separator/Separator.vue",
+        path: "ui/separator/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1705,10 +1706,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/sheet/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/sheet/Sheet.vue",
         type: "registry:ui",
@@ -1745,6 +1742,10 @@ export const ui: Registry["items"] = [
         path: "ui/sheet/SheetTrigger.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/sheet/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1763,10 +1764,6 @@ export const ui: Registry["items"] = [
       "button",
     ],
     files: [
-      {
-        path: "ui/sidebar/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/sidebar/Sidebar.vue",
         type: "registry:ui",
@@ -1864,6 +1861,10 @@ export const ui: Registry["items"] = [
         type: "registry:ui",
       },
       {
+        path: "ui/sidebar/index.ts",
+        type: "registry:ui",
+      },
+      {
         path: "ui/sidebar/utils.ts",
         type: "registry:ui",
       },
@@ -1874,11 +1875,11 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     files: [
       {
-        path: "ui/skeleton/index.ts",
+        path: "ui/skeleton/Skeleton.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/skeleton/Skeleton.vue",
+        path: "ui/skeleton/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1892,11 +1893,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/slider/index.ts",
+        path: "ui/slider/Slider.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/slider/Slider.vue",
+        path: "ui/slider/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1909,11 +1910,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/sonner/index.ts",
+        path: "ui/sonner/Sonner.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/sonner/Sonner.vue",
+        path: "ui/sonner/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1923,11 +1924,11 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     files: [
       {
-        path: "ui/spinner/index.ts",
+        path: "ui/spinner/Spinner.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/spinner/Spinner.vue",
+        path: "ui/spinner/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1940,10 +1941,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/stepper/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/stepper/Stepper.vue",
         type: "registry:ui",
@@ -1972,6 +1969,10 @@ export const ui: Registry["items"] = [
         path: "ui/stepper/StepperTrigger.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/stepper/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -1983,11 +1984,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/switch/index.ts",
+        path: "ui/switch/Switch.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/switch/Switch.vue",
+        path: "ui/switch/index.ts",
         type: "registry:ui",
       },
     ],
@@ -2000,10 +2001,6 @@ export const ui: Registry["items"] = [
       "@tanstack/vue-table",
     ],
     files: [
-      {
-        path: "ui/table/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/table/Table.vue",
         type: "registry:ui",
@@ -2041,6 +2038,10 @@ export const ui: Registry["items"] = [
         type: "registry:ui",
       },
       {
+        path: "ui/table/index.ts",
+        type: "registry:ui",
+      },
+      {
         path: "ui/table/utils.ts",
         type: "registry:ui",
       },
@@ -2054,10 +2055,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/tabs/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/tabs/Tabs.vue",
         type: "registry:ui",
@@ -2074,6 +2071,10 @@ export const ui: Registry["items"] = [
         path: "ui/tabs/TabsTrigger.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/tabs/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -2084,10 +2085,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/tags-input/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/tags-input/TagsInput.vue",
         type: "registry:ui",
@@ -2108,6 +2105,10 @@ export const ui: Registry["items"] = [
         path: "ui/tags-input/TagsInputItemText.vue",
         type: "registry:ui",
       },
+      {
+        path: "ui/tags-input/index.ts",
+        type: "registry:ui",
+      },
     ],
   },
   {
@@ -2118,11 +2119,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/textarea/index.ts",
+        path: "ui/textarea/Textarea.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/textarea/Textarea.vue",
+        path: "ui/textarea/index.ts",
         type: "registry:ui",
       },
     ],
@@ -2136,11 +2137,11 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/toggle/index.ts",
+        path: "ui/toggle/Toggle.vue",
         type: "registry:ui",
       },
       {
-        path: "ui/toggle/Toggle.vue",
+        path: "ui/toggle/index.ts",
         type: "registry:ui",
       },
     ],
@@ -2157,15 +2158,15 @@ export const ui: Registry["items"] = [
     ],
     files: [
       {
-        path: "ui/toggle-group/index.ts",
-        type: "registry:ui",
-      },
-      {
         path: "ui/toggle-group/ToggleGroup.vue",
         type: "registry:ui",
       },
       {
         path: "ui/toggle-group/ToggleGroupItem.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/toggle-group/index.ts",
         type: "registry:ui",
       },
     ],
@@ -2178,10 +2179,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     files: [
-      {
-        path: "ui/tooltip/index.ts",
-        type: "registry:ui",
-      },
       {
         path: "ui/tooltip/Tooltip.vue",
         type: "registry:ui",
@@ -2196,6 +2193,10 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/tooltip/TooltipTrigger.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/tooltip/index.ts",
         type: "registry:ui",
       },
     ],
