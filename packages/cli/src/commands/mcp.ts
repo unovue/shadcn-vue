@@ -68,6 +68,21 @@ command = "npx"
 args = ["shadcn-vue@${SHADCN_MCP_VERSION}", "mcp"]
 `,
   },
+  {
+    name: 'opencode',
+    label: 'Opencode',
+    configPath: 'opencode.json',
+    config: {
+      $schema: 'https://opencode.ai/config.json',
+      mcp: {
+        shadcnVue: {
+          type: 'local',
+          enabled: true,
+          command: ['npx', `shadcn-vue@${SHADCN_MCP_VERSION}`, 'mcp'],
+        },
+      },
+    },
+  },
 ] as const
 
 const DEPENDENCIES = [`shadcn-vue@${SHADCN_MCP_VERSION}`]
@@ -93,7 +108,7 @@ export const mcp = new Command()
   })
 
 const mcpInitOptionsSchema = z.object({
-  client: z.enum(['claude', 'cursor', 'vscode', 'codex']),
+  client: z.enum(['claude', 'cursor', 'vscode', 'codex', 'opencode']),
   cwd: z.string(),
 })
 
@@ -146,7 +161,8 @@ mcp
         }
         else {
           const packageManager = await detectPackageManager(options.cwd)
-          const installCommand = packageManager?.name === 'npm' ? 'install' : 'add'
+          const installCommand
+            = packageManager?.name === 'npm' ? 'install' : 'add'
           const devFlag = packageManager?.name === 'npm' ? '--save-dev' : '-D'
 
           const installSpinner = spinner('Installing dependencies...').start()
@@ -192,7 +208,8 @@ args = ["shadcn-vue@${SHADCN_MCP_VERSION}", "mcp"]`)
       }
       else {
         const packageManager = await detectPackageManager(options.cwd)
-        const installCommand = packageManager?.name === 'npm' ? 'install' : 'add'
+        const installCommand
+          = packageManager?.name === 'npm' ? 'install' : 'add'
         const devFlag = packageManager?.name === 'npm' ? '--save-dev' : '-D'
 
         const installSpinner = spinner('Installing dependencies...').start()
