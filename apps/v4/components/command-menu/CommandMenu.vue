@@ -106,7 +106,7 @@ onMounted(() => {
       e.preventDefault()
       open.value = !open.value
     }
-    if (e.key === 'c' && (e.metaKey || e.ctrlKey)) {
+    if (e.key === 'c' && (e.metaKey || e.ctrlKey) && open.value && copyPayload.value) {
       runCommand(copy)
     }
   }
