@@ -5,6 +5,13 @@ import { ICON_LIBRARIES } from '@/src/utils/icon-libraries'
 // Lucide is the default icon library in the registry.
 const SOURCE_LIBRARY = 'lucide'
 
+// Precompute the set of known icon library import sources to avoid hardcoding lists.
+const ICON_LIBRARY_IMPORTS = new Set(
+  Object.values(ICON_LIBRARIES)
+    .map(l => l.import)
+    .filter(Boolean),
+)
+
 export function transformIcons(opts: TransformOpts, registryIcons: Record<string, Record<string, string>>): CodemodPlugin {
   return {
     type: 'codemod',
@@ -32,7 +39,7 @@ export function transformIcons(opts: TransformOpts, registryIcons: Record<string
         traverseScriptAST(scriptAST, {
 
           visitImportDeclaration(path) {
-            if (![ICON_LIBRARIES.tabler.import, ICON_LIBRARIES.radix.import, ICON_LIBRARIES.lucide.import].includes(`${path.node.source.value}`))
+            if (!ICON_LIBRARY_IMPORTS.has(String(path.node.source.value)))
               return this.traverse(path)
 
             for (const specifier of path.node.specifiers ?? []) {
