@@ -82,7 +82,7 @@ const label = ref('personal')
             </DropdownMenuItem>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <TagIcon />
+                <TagIcon class="mr-2 size-4" />
                 Label As...
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
