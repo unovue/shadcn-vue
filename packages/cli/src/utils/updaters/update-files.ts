@@ -155,7 +155,7 @@ export async function updateFiles(
         type: 'confirm',
         name: 'overwrite',
         message: `The file ${highlighter.info(
-          fileName,
+          path.relative(config.resolvedPaths.ui, filePath),
         )} already exists. Would you like to overwrite?`,
         initial: false,
       })
