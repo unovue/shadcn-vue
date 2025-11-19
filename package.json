@@ -41,6 +41,7 @@
     "lint-staged": "^16.2.6",
     "simple-git-hooks": "^2.13.1",
     "taze": "^19.9.0",
+    "tsx": "catalog:",
     "typescript": "catalog:",
     "vitest": "^3.2.4"
   },

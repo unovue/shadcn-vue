@@ -1,4 +1,4 @@
-import { exec, execFile } from 'node:child_process'
+import { exec } from 'node:child_process'
 import { existsSync, promises as fs } from 'node:fs'
 import path, { resolve } from 'node:path'
 
@@ -11,7 +11,7 @@ import { crawlBlock, crawlUI } from './crawl-content'
 async function writeFile(path: string, payload: any) {
   return fs.writeFile(
     path,
-    `${payload}\r\n`,
+    `${payload}\n`,
     'utf8',
   )
 }
@@ -136,7 +136,7 @@ async function buildRegistryJsonFile() {
   const registryJsonPath = path.join(outputDir, 'registry.json')
   await fs.writeFile(registryJsonPath, JSON.stringify(fixedRegistry, null, 2))
   await new Promise<void>((resolve, reject) => {
-    execFile('prettier', ['--write', registryJsonPath], (error) => {
+    exec(`pnpm exec prettier --write "${registryJsonPath}"`, (error) => {
       if (error) {
         reject(error)
       }

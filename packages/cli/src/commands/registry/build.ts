@@ -132,7 +132,8 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
           if (!stat.isFile()) {
             continue
           }
-          file.content = await fs.readFile(absPath, "utf-8")
+          const content = await fs.readFile(absPath, "utf-8")
+          file.content = content.replace(/\r\n/g, "\n")
         }
         catch (err) {
           console.error("Error reading file in registry build:", absPath, err)
