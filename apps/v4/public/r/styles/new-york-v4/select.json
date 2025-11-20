@@ -8,11 +8,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york-v4/ui/select/index.ts",
-      "content": "export { default as Select } from \"./Select.vue\"\nexport { default as SelectContent } from \"./SelectContent.vue\"\nexport { default as SelectGroup } from \"./SelectGroup.vue\"\nexport { default as SelectItem } from \"./SelectItem.vue\"\nexport { default as SelectItemText } from \"./SelectItemText.vue\"\nexport { default as SelectLabel } from \"./SelectLabel.vue\"\nexport { default as SelectScrollDownButton } from \"./SelectScrollDownButton.vue\"\nexport { default as SelectScrollUpButton } from \"./SelectScrollUpButton.vue\"\nexport { default as SelectSeparator } from \"./SelectSeparator.vue\"\nexport { default as SelectTrigger } from \"./SelectTrigger.vue\"\nexport { default as SelectValue } from \"./SelectValue.vue\"\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "registry/new-york-v4/ui/select/Select.vue",
       "content": "<script setup lang=\"ts\">\nimport type { SelectRootEmits, SelectRootProps } from \"reka-ui\"\nimport { SelectRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<SelectRootProps>()\nconst emits = defineEmits<SelectRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <SelectRoot\n    v-slot=\"slotProps\"\n    data-slot=\"select\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </SelectRoot>\n</template>\n",
       "type": "registry:ui"
@@ -65,6 +60,11 @@
     {
       "path": "registry/new-york-v4/ui/select/SelectValue.vue",
       "content": "<script setup lang=\"ts\">\nimport type { SelectValueProps } from \"reka-ui\"\nimport { SelectValue } from \"reka-ui\"\n\nconst props = defineProps<SelectValueProps>()\n</script>\n\n<template>\n  <SelectValue\n    data-slot=\"select-value\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </SelectValue>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/select/index.ts",
+      "content": "export { default as Select } from \"./Select.vue\"\nexport { default as SelectContent } from \"./SelectContent.vue\"\nexport { default as SelectGroup } from \"./SelectGroup.vue\"\nexport { default as SelectItem } from \"./SelectItem.vue\"\nexport { default as SelectItemText } from \"./SelectItemText.vue\"\nexport { default as SelectLabel } from \"./SelectLabel.vue\"\nexport { default as SelectScrollDownButton } from \"./SelectScrollDownButton.vue\"\nexport { default as SelectScrollUpButton } from \"./SelectScrollUpButton.vue\"\nexport { default as SelectSeparator } from \"./SelectSeparator.vue\"\nexport { default as SelectTrigger } from \"./SelectTrigger.vue\"\nexport { default as SelectValue } from \"./SelectValue.vue\"\n",
       "type": "registry:ui"
     }
   ]
