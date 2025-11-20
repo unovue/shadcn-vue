@@ -161,8 +161,7 @@ mcp
         }
         else {
           const packageManager = await detectPackageManager(options.cwd)
-          const installCommand
-            = packageManager?.name === 'npm' ? 'install' : 'add'
+          const installCommand = packageManager?.name === 'npm' ? 'install' : 'add'
           const devFlag = packageManager?.name === 'npm' ? '--save-dev' : '-D'
 
           const installSpinner = spinner('Installing dependencies...').start()
@@ -208,8 +207,7 @@ args = ["shadcn-vue@${SHADCN_MCP_VERSION}", "mcp"]`)
       }
       else {
         const packageManager = await detectPackageManager(options.cwd)
-        const installCommand
-          = packageManager?.name === 'npm' ? 'install' : 'add'
+        const installCommand = packageManager?.name === 'npm' ? 'install' : 'add'
         const devFlag = packageManager?.name === 'npm' ? '--save-dev' : '-D'
 
         const installSpinner = spinner('Installing dependencies...').start()
