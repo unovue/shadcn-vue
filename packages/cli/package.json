@@ -94,7 +94,7 @@
     "undici": "^7.16.0",
     "vue-metamorph": "^3.3.3",
     "zod": "catalog:",
-    "zod-to-json-schema": "^3.24.6"
+    "zod-to-json-schema": "^3.25.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
@@ -103,7 +103,7 @@
     "@types/semver": "^7.7.1",
     "@types/stringify-object": "^4.0.5",
     "msw": "^2.12.2",
-    "tsdown": "^0.15.12",
+    "tsdown": "^0.16.6",
     "type-fest": "^5.2.0",
     "typescript": "catalog:"
   }
