@@ -1,3 +1,6 @@
+<!-- @fallthroughAttributes true -->
+<!-- @strictTemplates true -->
+
 <script setup lang="ts">
 </script>
 
