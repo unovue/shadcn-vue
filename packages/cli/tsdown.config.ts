@@ -7,4 +7,5 @@ export default defineConfig({
   shims: true,
   nodeProtocol: 'strip',
   fixedExtension: false,
+  platform: 'node',
 })
