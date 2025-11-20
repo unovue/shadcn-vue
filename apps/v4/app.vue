@@ -1,23 +1,25 @@
 <script setup lang="ts">
+import { ConfigProvider, TooltipProvider } from 'reka-ui'
 import { Toaster } from '@/registry/new-york-v4/ui/sonner'
 
-const activeTheme = useCookie<string>('active_theme', { readonly: true })
+const { config, isLayoutFull } = useConfig()
+const activeTheme = computed(() => config.value.activeTheme)
 const isScaled = computed(() => !!activeTheme.value?.endsWith('-scaled'))
 const colorMode = useColorMode()
 </script>
 
 <template>
-  <Body
-    class="bg-background overscroll-none font-sans antialiased"
-    :class="[
-      activeTheme ? `theme-${activeTheme}` : '',
-      isScaled ? 'theme-scaled' : '',
-    ]"
-  >
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+  <SiteBody>
+    <ConfigProvider>
+      <TooltipProvider>
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </TooltipProvider>
+    </ConfigProvider>
 
-    <Toaster :theme="colorMode.preference as any || 'system'" />
-  </Body>
+    <ClientOnly>
+      <Toaster class="pointer-events-auto" :theme="colorMode.preference as any || 'system'" position="top-center" />
+    </ClientOnly>
+  </SiteBody>
 </template>

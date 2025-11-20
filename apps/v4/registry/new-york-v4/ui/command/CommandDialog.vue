@@ -17,14 +17,14 @@ const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
-  <Dialog v-bind="forwarded">
+  <Dialog v-slot="slotProps" v-bind="forwarded">
     <DialogContent class="overflow-hidden p-0 ">
       <DialogHeader class="sr-only">
         <DialogTitle>{{ title }}</DialogTitle>
         <DialogDescription>{{ description }}</DialogDescription>
       </DialogHeader>
       <Command>
-        <slot />
+        <slot v-bind="slotProps" />
       </Command>
     </DialogContent>
   </Dialog>

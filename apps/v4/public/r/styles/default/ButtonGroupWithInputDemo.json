@@ -1,0 +1,18 @@
+{
+  "name": "ButtonGroupWithInputDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupWithInputDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { SearchIcon } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/default/ui/button\"\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\"\nimport { Input } from \"@/registry/default/ui/input\"\n</script>\n\n<template>\n  <ButtonGroup>\n    <Input placeholder=\"Search...\" />\n    <Button variant=\"outline\" aria-label=\"Search\">\n      <SearchIcon />\n    </Button>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

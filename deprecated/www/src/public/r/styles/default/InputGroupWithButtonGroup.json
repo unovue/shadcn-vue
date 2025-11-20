@@ -1,0 +1,18 @@
+{
+  "name": "InputGroupWithButtonGroup",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button-group",
+    "input-group",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "examples/InputGroupWithButtonGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Link2Icon } from \"lucide-vue-next\"\nimport { ButtonGroup, ButtonGroupText } from \"@/registry/default/ui/button-group\"\nimport { InputGroup, InputGroupAddon, InputGroupInput } from \"@/registry/default/ui/input-group\"\nimport { Label } from \"@/registry/default/ui/label\"\n</script>\n\n<template>\n  <div class=\"grid w-full max-w-sm\">\n    <ButtonGroup class=\"!gap-0\">\n      <ButtonGroupText as-child>\n        <Label for=\"url\">https://</Label>\n      </ButtonGroupText>\n      <InputGroup>\n        <InputGroupInput id=\"url\" />\n        <InputGroupAddon align=\"inline-end\">\n          <Link2Icon />\n        </InputGroupAddon>\n      </InputGroup>\n      <ButtonGroupText>.com</ButtonGroupText>\n    </ButtonGroup>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

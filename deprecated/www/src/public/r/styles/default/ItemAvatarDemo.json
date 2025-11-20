@@ -1,0 +1,18 @@
+{
+  "name": "ItemAvatarDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "item"
+  ],
+  "files": [
+    {
+      "path": "examples/ItemAvatarDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Plus } from \"lucide-vue-next\"\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\"\nimport { Button } from \"@/registry/default/ui/button\"\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/default/ui/item\"\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-lg flex-col gap-6\">\n    <Item variant=\"outline\">\n      <ItemMedia>\n        <Avatar class=\"size-10\">\n          <AvatarImage src=\"https://github.com/evilrabbit.png\" />\n          <AvatarFallback>ER</AvatarFallback>\n        </Avatar>\n      </ItemMedia>\n      <ItemContent>\n        <ItemTitle>Evil Rabbit</ItemTitle>\n        <ItemDescription>Last seen 5 months ago</ItemDescription>\n      </ItemContent>\n      <ItemActions>\n        <Button\n          size=\"icon-sm\"\n          variant=\"outline\"\n          class=\"rounded-full\"\n          aria-label=\"Invite\"\n        >\n          <Plus />\n        </Button>\n      </ItemActions>\n    </Item>\n    <Item variant=\"outline\">\n      <ItemMedia>\n        <div class=\"*:ring-background flex -space-x-2 *:ring-2 *:grayscale\">\n          <Avatar class=\"hidden sm:flex\">\n            <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n            <AvatarFallback>CN</AvatarFallback>\n          </Avatar>\n          <Avatar class=\"hidden sm:flex\">\n            <AvatarImage\n              src=\"https://github.com/maxleiter.png\"\n              alt=\"@maxleiter\"\n            />\n            <AvatarFallback>LR</AvatarFallback>\n          </Avatar>\n          <Avatar>\n            <AvatarImage\n              src=\"https://github.com/evilrabbit.png\"\n              alt=\"@evilrabbit\"\n            />\n            <AvatarFallback>ER</AvatarFallback>\n          </Avatar>\n        </div>\n      </ItemMedia>\n      <ItemContent>\n        <ItemTitle>No Team Members</ItemTitle>\n        <ItemDescription>\n          Invite your team to collaborate on this project.\n        </ItemDescription>\n      </ItemContent>\n      <ItemActions>\n        <Button size=\"sm\" variant=\"outline\">\n          Invite\n        </Button>\n      </ItemActions>\n    </Item>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

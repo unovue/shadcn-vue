@@ -15,10 +15,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <SplitterGroup
+    v-slot="slotProps"
     data-slot="resizable-panel-group"
     v-bind="forwarded"
     :class="cn('flex h-full w-full data-[orientation=vertical]:flex-col', props.class)"
   >
-    <slot />
+    <slot v-bind="slotProps" />
   </SplitterGroup>
 </template>

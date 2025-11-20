@@ -1,0 +1,2910 @@
+{
+  "name": "shadcn-vue",
+  "homepage": "https://shadcn-vue.com",
+  "items": [
+    {
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": ["class-variance-authority", "lucide-vue-next"],
+      "devDependencies": ["tw-animate-css"],
+      "registryDependencies": ["utils"],
+      "files": [],
+      "cssVars": {}
+    },
+    {
+      "name": "style",
+      "type": "registry:style",
+      "dependencies": ["class-variance-authority", "lucide-vue-next"],
+      "devDependencies": ["tw-animate-css"],
+      "registryDependencies": ["utils"],
+      "files": [],
+      "cssVars": {}
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/accordion/Accordion.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/accordion/AccordionContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/accordion/AccordionItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/accordion/AccordionTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/accordion/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/alert/Alert.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert/AlertDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert/AlertTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogCancel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/AlertDialogTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/alert-dialog/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/aspect-ratio/AspectRatio.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/aspect-ratio/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/avatar/Avatar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/avatar/AvatarFallback.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/avatar/AvatarImage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/avatar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/badge/Badge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/badge/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/Breadcrumb.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/BreadcrumbEllipsis.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/BreadcrumbItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/BreadcrumbLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/BreadcrumbList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/BreadcrumbPage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/BreadcrumbSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/breadcrumb/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/button/Button.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/button/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@internationalized/date",
+        "date-fns",
+        "@vueuse/core"
+      ],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/calendar/Calendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarGridHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarHeadCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/CalendarPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/card/Card.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/CardAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/CardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/CardDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/CardFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/CardHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/CardTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/card/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": ["embla-carousel-vue"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/carousel/Carousel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/CarouselContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/CarouselItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/CarouselNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/CarouselPrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/interface.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/carousel/useCarousel.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/checkbox/Checkbox.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/checkbox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/collapsible/Collapsible.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/collapsible/CollapsibleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/collapsible/CollapsibleTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/collapsible/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/combobox/Combobox.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxItemIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/ComboboxViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/combobox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["dialog"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/command/Command.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandDialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/CommandShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/command/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuPortal.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/ContextMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/context-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/dialog/Dialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogScrollContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/DialogTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dialog/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "dependencies": ["vaul-vue", "reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/drawer/Drawer.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/DrawerTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/drawer/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/dropdown-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "dependencies": ["vee-validate", "@vee-validate/zod", "zod"],
+      "registryDependencies": ["button", "label"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/form/FormControl.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/FormDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/FormItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/FormLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/FormMessage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/injectionKeys.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/form/useFormField.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/hover-card/HoverCard.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/hover-card/HoverCardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/hover-card/HoverCardTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/hover-card/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": ["@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/input/Input.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/label/Label.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/label/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/menubar/Menubar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/MenubarTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/menubar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenuViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/navigation-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/number-field/NumberField.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/number-field/NumberFieldContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/number-field/NumberFieldDecrement.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/number-field/NumberFieldIncrement.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/number-field/NumberFieldInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/number-field/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/pagination/Pagination.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationEllipsis.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationFirst.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationLast.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/PaginationPrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pagination/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/pin-input/PinInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pin-input/PinInputGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pin-input/PinInputSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pin-input/PinInputSlot.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/pin-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/popover/Popover.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/popover/PopoverAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/popover/PopoverContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/popover/PopoverTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/popover/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/progress/Progress.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/progress/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/radio-group/RadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/radio-group/RadioGroupItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/radio-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "range-calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@internationalized/date",
+        "date-fns",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarGridHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarHeadCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/RangeCalendarPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/range-calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": ["vue-resizable-panels"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/resizable/ResizableHandle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/resizable/ResizablePanel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/resizable/ResizablePanelGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/resizable/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/scroll-area/ScrollArea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/scroll-area/ScrollBar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/scroll-area/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/select/Select.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectItemText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectScrollDownButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectScrollUpButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/SelectValue.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/select/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/separator/Separator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/separator/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/sheet/Sheet.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/SheetTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sheet/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": ["class-variance-authority", "reka-ui", "@vueuse/core"],
+      "registryDependencies": [
+        "button",
+        "separator",
+        "sheet",
+        "tooltip",
+        "input",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/sidebar/Sidebar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarGroupAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarGroupContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarGroupLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarInset.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuBadge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuButtonChild.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuSkeleton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuSubButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarMenuSubItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarRail.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/SidebarTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sidebar/utils.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "sidebar": {
+                  "DEFAULT": "hsl(var(--sidebar-background))",
+                  "foreground": "hsl(var(--sidebar-foreground))",
+                  "primary": "hsl(var(--sidebar-primary))",
+                  "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+                  "accent": "hsl(var(--sidebar-accent))",
+                  "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+                  "border": "hsl(var(--sidebar-border))",
+                  "ring": "hsl(var(--sidebar-ring))"
+                }
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "light": {
+          "sidebar-background": "0 0% 98%",
+          "sidebar-foreground": "240 5.3% 26.1%",
+          "sidebar-primary": "240 5.9% 10%",
+          "sidebar-primary-foreground": "0 0% 98%",
+          "sidebar-accent": "240 4.8% 95.9%",
+          "sidebar-accent-foreground": "240 5.9% 10%",
+          "sidebar-border": "220 13% 91%",
+          "sidebar-ring": "217.2 91.2% 59.8%"
+        },
+        "dark": {
+          "sidebar-background": "240 5.9% 10%",
+          "sidebar-foreground": "240 4.8% 95.9%",
+          "sidebar-primary": "224.3 76.3% 48%",
+          "sidebar-primary-foreground": "0 0% 100%",
+          "sidebar-accent": "240 3.7% 15.9%",
+          "sidebar-accent-foreground": "240 4.8% 95.9%",
+          "sidebar-border": "240 3.7% 15.9%",
+          "sidebar-ring": "217.2 91.2% 59.8%"
+        }
+      }
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/skeleton/Skeleton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/skeleton/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/slider/Slider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/slider/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "dependencies": ["vue-sonner"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/sonner/Sonner.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/sonner/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/stepper/Stepper.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/StepperDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/StepperIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/StepperItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/StepperSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/StepperTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/StepperTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/stepper/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/switch/Switch.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/switch/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/table/Table.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableCaption.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/TableRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/table/utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/tabs/Tabs.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tabs/TabsContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tabs/TabsList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tabs/TabsTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tabs/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/tags-input/TagsInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tags-input/TagsInputInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tags-input/TagsInputItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tags-input/TagsInputItemDelete.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tags-input/TagsInputItemText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tags-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "dependencies": ["@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/textarea/Textarea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/textarea/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/toggle/Toggle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/toggle/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["toggle"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/toggle-group/ToggleGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/toggle-group/ToggleGroupItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/toggle-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/tooltip/Tooltip.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tooltip/TooltipContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tooltip/TooltipProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tooltip/TooltipTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/tooltip/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "description": "A dashboard with sidebar, data table, and analytics cards.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "badge",
+        "button",
+        "card",
+        "checkbox",
+        "dropdown-menu",
+        "label",
+        "select",
+        "table",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/ChartAreaInteractive.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/DataTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/DraggableRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/NavDocuments.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/NavSecondary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/NavUser.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/SectionCards.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/SiteHeader.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["dashboard"]
+    },
+    {
+      "name": "login-01",
+      "type": "registry:block",
+      "description": "A simple login form.",
+      "registryDependencies": ["button", "card", "input", "label"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/login-01/page.vue",
+          "type": "registry:page",
+          "target": "app/login/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/login-01/components/LoginForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "login-02",
+      "type": "registry:block",
+      "description": "A two column login page with a cover image.",
+      "registryDependencies": ["button", "input", "label"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/login-02/page.vue",
+          "type": "registry:page",
+          "target": "app/login/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/login-02/components/LoginForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "login-03",
+      "type": "registry:block",
+      "description": "A login page with a muted background color.",
+      "registryDependencies": ["button", "card", "input", "label"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/login-03/page.vue",
+          "type": "registry:page",
+          "target": "app/login/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/login-03/components/LoginForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "login-04",
+      "type": "registry:block",
+      "description": "A login page with form and image.",
+      "registryDependencies": ["button", "card", "input", "label"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/login-04/page.vue",
+          "type": "registry:page",
+          "target": "app/login/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/login-04/components/LoginForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "login-05",
+      "type": "registry:block",
+      "description": "A simple email-only login page.",
+      "registryDependencies": ["button", "input", "label"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/login-05/page.vue",
+          "type": "registry:page",
+          "target": "app/login/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/login-05/components/LoginForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "products-01",
+      "type": "registry:block",
+      "description": "A products table with filtering and pagination.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "checkbox",
+        "dropdown-menu",
+        "pagination",
+        "select",
+        "table",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/products-01/page.vue",
+          "type": "registry:page",
+          "target": "app/products/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/products-01/components/ProductsTable.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["table"]
+    },
+    {
+      "name": "sidebar-01",
+      "type": "registry:block",
+      "description": "A simple sidebar with navigation grouped by section.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "label",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-01/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-01/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-01/components/SearchForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-01/components/VersionSwitcher.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-02",
+      "type": "registry:block",
+      "description": "A sidebar with collapsible sections.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "collapsible",
+        "label",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-02/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-02/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-02/components/SearchForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-02/components/VersionSwitcher.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-03",
+      "type": "registry:block",
+      "description": "A sidebar with submenus.",
+      "registryDependencies": ["sidebar", "breadcrumb", "separator"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-03/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-03/components/AppSidebar.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-04",
+      "type": "registry:block",
+      "description": "A floating sidebar with submenus.",
+      "registryDependencies": ["sidebar", "breadcrumb", "separator"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-04/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-04/components/AppSidebar.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-05",
+      "type": "registry:block",
+      "description": "A sidebar with collapsible submenus.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "collapsible",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-05/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-05/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-05/components/SearchForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-06",
+      "type": "registry:block",
+      "description": "A sidebar with submenus as dropdowns.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "dropdown-menu",
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-06/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-06/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-06/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-06/components/SidebarOptInForm.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-07",
+      "type": "registry:block",
+      "description": "A sidebar that collapses to icons.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "collapsible",
+        "dropdown-menu",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-07/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-07/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-07/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-07/components/NavProjects.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-07/components/NavUser.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-07/components/TeamSwitcher.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-08",
+      "type": "registry:block",
+      "description": "An inset sidebar with secondary navigation.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "collapsible",
+        "dropdown-menu",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-08/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-08/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-08/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-08/components/NavProjects.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-08/components/NavSecondary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-08/components/NavUser.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-09",
+      "type": "registry:block",
+      "description": "Collapsible nested sidebars.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "label",
+        "switch",
+        "avatar",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-09/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-09/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-09/components/NavUser.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-10",
+      "type": "registry:block",
+      "description": "A sidebar in a popover.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "button",
+        "popover",
+        "dropdown-menu",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/NavActions.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/NavFavorites.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/NavSecondary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/NavWorkspaces.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-10/components/TeamSwitcher.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-11",
+      "type": "registry:block",
+      "description": "A sidebar with a collapsible file tree.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-11/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-11/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-11/components/Tree.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-12",
+      "type": "registry:block",
+      "description": "A sidebar with a calendar.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "collapsible",
+        "calendar",
+        "avatar",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-12/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-12/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-12/components/Calendars.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-12/components/DatePicker.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-12/components/NavUser.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-13",
+      "type": "registry:block",
+      "description": "A sidebar in a dialog.",
+      "registryDependencies": ["sidebar", "breadcrumb", "button", "dialog"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-13/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-13/components/SettingsDialog.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-14",
+      "type": "registry:block",
+      "description": "A sidebar on the right.",
+      "registryDependencies": ["sidebar", "breadcrumb"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-14/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-14/components/AppSidebar.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-15",
+      "type": "registry:block",
+      "description": "A left and right sidebar.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "calendar",
+        "avatar",
+        "dropdown-menu",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/Calendars.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/DatePicker.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/NavFavorites.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/NavSecondary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/NavUser.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/NavWorkspaces.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/SidebarLeft.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/SidebarRight.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-15/components/TeamSwitcher.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-16",
+      "type": "registry:block",
+      "description": "A sidebar with a header and a search form.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "dropdown-menu",
+        "avatar",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/AppSidebar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/NavMain.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/NavProjects.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/NavSecondary.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/NavUser.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/SearchForm.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-16/components/SiteHeader.vue",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["sidebar", "dashboard"]
+    },
+    {
+      "name": "sidebar-demo",
+      "type": "registry:block",
+      "description": "A demo sidebar showcasing various features and components.",
+      "registryDependencies": [
+        "sidebar",
+        "breadcrumb",
+        "separator",
+        "button",
+        "dropdown-menu",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/sidebar-demo/page.vue",
+          "type": "registry:page",
+          "target": "app/dashboard/page.vue"
+        }
+      ],
+      "categories": ["sidebar", "dashboard", "demo"]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "theme-stone",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.147 0.004 49.25)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.147 0.004 49.25)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.147 0.004 49.25)",
+          "primary": "oklch(0.216 0.006 56.043)",
+          "primary-foreground": "oklch(0.985 0.001 106.423)",
+          "secondary": "oklch(0.97 0.001 106.424)",
+          "secondary-foreground": "oklch(0.216 0.006 56.043)",
+          "muted": "oklch(0.97 0.001 106.424)",
+          "muted-foreground": "oklch(0.553 0.013 58.071)",
+          "accent": "oklch(0.97 0.001 106.424)",
+          "accent-foreground": "oklch(0.216 0.006 56.043)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.923 0.003 48.717)",
+          "input": "oklch(0.923 0.003 48.717)",
+          "ring": "oklch(0.709 0.01 56.259)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0.001 106.423)",
+          "sidebar-foreground": "oklch(0.147 0.004 49.25)",
+          "sidebar-primary": "oklch(0.216 0.006 56.043)",
+          "sidebar-primary-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-accent": "oklch(0.97 0.001 106.424)",
+          "sidebar-accent-foreground": "oklch(0.216 0.006 56.043)",
+          "sidebar-border": "oklch(0.923 0.003 48.717)",
+          "sidebar-ring": "oklch(0.709 0.01 56.259)"
+        },
+        "dark": {
+          "background": "oklch(0.147 0.004 49.25)",
+          "foreground": "oklch(0.985 0.001 106.423)",
+          "card": "oklch(0.216 0.006 56.043)",
+          "card-foreground": "oklch(0.985 0.001 106.423)",
+          "popover": "oklch(0.216 0.006 56.043)",
+          "popover-foreground": "oklch(0.985 0.001 106.423)",
+          "primary": "oklch(0.923 0.003 48.717)",
+          "primary-foreground": "oklch(0.216 0.006 56.043)",
+          "secondary": "oklch(0.268 0.007 34.298)",
+          "secondary-foreground": "oklch(0.985 0.001 106.423)",
+          "muted": "oklch(0.268 0.007 34.298)",
+          "muted-foreground": "oklch(0.709 0.01 56.259)",
+          "accent": "oklch(0.268 0.007 34.298)",
+          "accent-foreground": "oklch(0.985 0.001 106.423)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.553 0.013 58.071)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.216 0.006 56.043)",
+          "sidebar-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-accent": "oklch(0.268 0.007 34.298)",
+          "sidebar-accent-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.553 0.013 58.071)"
+        }
+      }
+    },
+    {
+      "name": "theme-zinc",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.141 0.005 285.823)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.141 0.005 285.823)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.141 0.005 285.823)",
+          "primary": "oklch(0.21 0.006 285.885)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.967 0.001 286.375)",
+          "secondary-foreground": "oklch(0.21 0.006 285.885)",
+          "muted": "oklch(0.967 0.001 286.375)",
+          "muted-foreground": "oklch(0.552 0.016 285.938)",
+          "accent": "oklch(0.967 0.001 286.375)",
+          "accent-foreground": "oklch(0.21 0.006 285.885)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.92 0.004 286.32)",
+          "input": "oklch(0.92 0.004 286.32)",
+          "ring": "oklch(0.705 0.015 286.067)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0 0)",
+          "sidebar-foreground": "oklch(0.141 0.005 285.823)",
+          "sidebar-primary": "oklch(0.21 0.006 285.885)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.967 0.001 286.375)",
+          "sidebar-accent-foreground": "oklch(0.21 0.006 285.885)",
+          "sidebar-border": "oklch(0.92 0.004 286.32)",
+          "sidebar-ring": "oklch(0.705 0.015 286.067)"
+        },
+        "dark": {
+          "background": "oklch(0.141 0.005 285.823)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.21 0.006 285.885)",
+          "card-foreground": "oklch(0.985 0 0)",
+          "popover": "oklch(0.21 0.006 285.885)",
+          "popover-foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.92 0.004 286.32)",
+          "primary-foreground": "oklch(0.21 0.006 285.885)",
+          "secondary": "oklch(0.274 0.006 286.033)",
+          "secondary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.274 0.006 286.033)",
+          "muted-foreground": "oklch(0.705 0.015 286.067)",
+          "accent": "oklch(0.274 0.006 286.033)",
+          "accent-foreground": "oklch(0.985 0 0)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.552 0.016 285.938)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.21 0.006 285.885)",
+          "sidebar-foreground": "oklch(0.985 0 0)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.274 0.006 286.033)",
+          "sidebar-accent-foreground": "oklch(0.985 0 0)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.552 0.016 285.938)"
+        }
+      }
+    },
+    {
+      "name": "theme-neutral",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.145 0 0)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.145 0 0)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.145 0 0)",
+          "primary": "oklch(0.205 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.97 0 0)",
+          "secondary-foreground": "oklch(0.205 0 0)",
+          "muted": "oklch(0.97 0 0)",
+          "muted-foreground": "oklch(0.556 0 0)",
+          "accent": "oklch(0.97 0 0)",
+          "accent-foreground": "oklch(0.205 0 0)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.922 0 0)",
+          "input": "oklch(0.922 0 0)",
+          "ring": "oklch(0.708 0 0)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0 0)",
+          "sidebar-foreground": "oklch(0.145 0 0)",
+          "sidebar-primary": "oklch(0.205 0 0)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.97 0 0)",
+          "sidebar-accent-foreground": "oklch(0.205 0 0)",
+          "sidebar-border": "oklch(0.922 0 0)",
+          "sidebar-ring": "oklch(0.708 0 0)"
+        },
+        "dark": {
+          "background": "oklch(0.145 0 0)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.205 0 0)",
+          "card-foreground": "oklch(0.985 0 0)",
+          "popover": "oklch(0.205 0 0)",
+          "popover-foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.922 0 0)",
+          "primary-foreground": "oklch(0.205 0 0)",
+          "secondary": "oklch(0.269 0 0)",
+          "secondary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.269 0 0)",
+          "muted-foreground": "oklch(0.708 0 0)",
+          "accent": "oklch(0.269 0 0)",
+          "accent-foreground": "oklch(0.985 0 0)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.556 0 0)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.205 0 0)",
+          "sidebar-foreground": "oklch(0.985 0 0)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.269 0 0)",
+          "sidebar-accent-foreground": "oklch(0.985 0 0)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.556 0 0)"
+        }
+      }
+    },
+    {
+      "name": "theme-gray",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.13 0.028 261.692)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.13 0.028 261.692)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.13 0.028 261.692)",
+          "primary": "oklch(0.21 0.034 264.665)",
+          "primary-foreground": "oklch(0.985 0.002 247.839)",
+          "secondary": "oklch(0.967 0.003 264.542)",
+          "secondary-foreground": "oklch(0.21 0.034 264.665)",
+          "muted": "oklch(0.967 0.003 264.542)",
+          "muted-foreground": "oklch(0.551 0.027 264.364)",
+          "accent": "oklch(0.967 0.003 264.542)",
+          "accent-foreground": "oklch(0.21 0.034 264.665)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.928 0.006 264.531)",
+          "input": "oklch(0.928 0.006 264.531)",
+          "ring": "oklch(0.707 0.022 261.325)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0.002 247.839)",
+          "sidebar-foreground": "oklch(0.13 0.028 261.692)",
+          "sidebar-primary": "oklch(0.21 0.034 264.665)",
+          "sidebar-primary-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-accent": "oklch(0.967 0.003 264.542)",
+          "sidebar-accent-foreground": "oklch(0.21 0.034 264.665)",
+          "sidebar-border": "oklch(0.928 0.006 264.531)",
+          "sidebar-ring": "oklch(0.707 0.022 261.325)"
+        },
+        "dark": {
+          "background": "oklch(0.13 0.028 261.692)",
+          "foreground": "oklch(0.985 0.002 247.839)",
+          "card": "oklch(0.21 0.034 264.665)",
+          "card-foreground": "oklch(0.985 0.002 247.839)",
+          "popover": "oklch(0.21 0.034 264.665)",
+          "popover-foreground": "oklch(0.985 0.002 247.839)",
+          "primary": "oklch(0.928 0.006 264.531)",
+          "primary-foreground": "oklch(0.21 0.034 264.665)",
+          "secondary": "oklch(0.278 0.033 256.848)",
+          "secondary-foreground": "oklch(0.985 0.002 247.839)",
+          "muted": "oklch(0.278 0.033 256.848)",
+          "muted-foreground": "oklch(0.707 0.022 261.325)",
+          "accent": "oklch(0.278 0.033 256.848)",
+          "accent-foreground": "oklch(0.985 0.002 247.839)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.551 0.027 264.364)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.21 0.034 264.665)",
+          "sidebar-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-accent": "oklch(0.278 0.033 256.848)",
+          "sidebar-accent-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.551 0.027 264.364)"
+        }
+      }
+    },
+    {
+      "name": "theme-slate",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.129 0.042 264.695)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.129 0.042 264.695)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.129 0.042 264.695)",
+          "primary": "oklch(0.208 0.042 265.755)",
+          "primary-foreground": "oklch(0.984 0.003 247.858)",
+          "secondary": "oklch(0.968 0.007 247.896)",
+          "secondary-foreground": "oklch(0.208 0.042 265.755)",
+          "muted": "oklch(0.968 0.007 247.896)",
+          "muted-foreground": "oklch(0.554 0.046 257.417)",
+          "accent": "oklch(0.968 0.007 247.896)",
+          "accent-foreground": "oklch(0.208 0.042 265.755)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.929 0.013 255.508)",
+          "input": "oklch(0.929 0.013 255.508)",
+          "ring": "oklch(0.704 0.04 256.788)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.984 0.003 247.858)",
+          "sidebar-foreground": "oklch(0.129 0.042 264.695)",
+          "sidebar-primary": "oklch(0.208 0.042 265.755)",
+          "sidebar-primary-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-accent": "oklch(0.968 0.007 247.896)",
+          "sidebar-accent-foreground": "oklch(0.208 0.042 265.755)",
+          "sidebar-border": "oklch(0.929 0.013 255.508)",
+          "sidebar-ring": "oklch(0.704 0.04 256.788)"
+        },
+        "dark": {
+          "background": "oklch(0.129 0.042 264.695)",
+          "foreground": "oklch(0.984 0.003 247.858)",
+          "card": "oklch(0.208 0.042 265.755)",
+          "card-foreground": "oklch(0.984 0.003 247.858)",
+          "popover": "oklch(0.208 0.042 265.755)",
+          "popover-foreground": "oklch(0.984 0.003 247.858)",
+          "primary": "oklch(0.929 0.013 255.508)",
+          "primary-foreground": "oklch(0.208 0.042 265.755)",
+          "secondary": "oklch(0.279 0.041 260.031)",
+          "secondary-foreground": "oklch(0.984 0.003 247.858)",
+          "muted": "oklch(0.279 0.041 260.031)",
+          "muted-foreground": "oklch(0.704 0.04 256.788)",
+          "accent": "oklch(0.279 0.041 260.031)",
+          "accent-foreground": "oklch(0.984 0.003 247.858)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.551 0.027 264.364)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.208 0.042 265.755)",
+          "sidebar-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-accent": "oklch(0.279 0.041 260.031)",
+          "sidebar-accent-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.551 0.027 264.364)"
+        }
+      }
+    }
+  ]
+}

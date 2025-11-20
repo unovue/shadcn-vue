@@ -1,0 +1,29 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "login-01",
+  "type": "registry:block",
+  "description": "A simple login form.",
+  "registryDependencies": [
+    "button",
+    "card",
+    "field",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/blocks/login-01/page.vue",
+      "content": "<script lang=\"ts\">\nexport const description = \"A simple login form.\"\n</script>\n\n<script setup lang=\"ts\">\nimport LoginForm from \"@/registry/new-york-v4/blocks/login-01/components/LoginForm.vue\"\n</script>\n\n<template>\n  <div class=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n    <div class=\"w-full max-w-sm\">\n      <LoginForm />\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:page",
+      "target": "pages/login/index.vue"
+    },
+    {
+      "path": "registry/new-york-v4/blocks/login-01/components/LoginForm.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/registry/new-york-v4/lib/utils\"\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/new-york-v4/ui/card\"\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n} from \"@/registry/new-york-v4/ui/field\"\nimport { Input } from \"@/registry/new-york-v4/ui/input\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div :class=\"cn('flex flex-col gap-6', props.class)\">\n    <Card>\n      <CardHeader>\n        <CardTitle>Login to your account</CardTitle>\n        <CardDescription>\n          Enter your email below to login to your account\n        </CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form>\n          <FieldGroup>\n            <Field>\n              <FieldLabel for=\"email\">\n                Email\n              </FieldLabel>\n              <Input\n                id=\"email\"\n                type=\"email\"\n                placeholder=\"m@example.com\"\n                required\n              />\n            </Field>\n            <Field>\n              <div class=\"flex items-center\">\n                <FieldLabel for=\"password\">\n                  Password\n                </FieldLabel>\n                <a\n                  href=\"#\"\n                  class=\"ml-auto inline-block text-sm underline-offset-4 hover:underline\"\n                >\n                  Forgot your password?\n                </a>\n              </div>\n              <Input id=\"password\" type=\"password\" required />\n            </Field>\n            <Field>\n              <Button type=\"submit\">\n                Login\n              </Button>\n              <Button variant=\"outline\" type=\"button\">\n                Login with Google\n              </Button>\n              <FieldDescription class=\"text-center\">\n                Don't have an account?\n                <a href=\"#\">\n                  Sign up\n                </a>\n              </FieldDescription>\n            </Field>\n          </FieldGroup>\n        </form>\n      </CardContent>\n    </Card>\n  </div>\n</template>\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": [
+    "authentication",
+    "login"
+  ]
+}

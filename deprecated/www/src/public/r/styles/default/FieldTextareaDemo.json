@@ -1,0 +1,17 @@
+{
+  "name": "FieldTextareaDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "field",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "examples/FieldTextareaDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldSet,\n} from \"@/registry/default/ui/field\"\nimport { Textarea } from \"@/registry/default/ui/textarea\"\n</script>\n\n<template>\n  <div class=\"w-full max-w-md\">\n    <FieldSet>\n      <FieldGroup>\n        <Field>\n          <FieldLabel for=\"feedback\">\n            Feedback\n          </FieldLabel>\n          <Textarea\n            id=\"feedback\"\n            placeholder=\"Your feedback helps us improve...\"\n            :rows=\"4\"\n          />\n          <FieldDescription>\n            Share your thoughts about our service.\n          </FieldDescription>\n        </Field>\n      </FieldGroup>\n    </FieldSet>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

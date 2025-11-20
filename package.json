@@ -1,9 +1,9 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "2.2.0",
+  "version": "2.3.3",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.22.0",
   "license": "MIT",
   "repository": "unovue/shadcn-vue",
   "workspaces": [
@@ -13,37 +13,37 @@
     "pnpm": ">=9.6.0"
   },
   "scripts": {
-    "dev": "pnpm --filter www dev",
-    "build": "pnpm --filter www build",
-    "preview": "pnpm --filter www preview",
-    "prepare": "pnpm simple-git-hooks",
+    "dev": "pnpm --filter v4 dev",
+    "build": "pnpm --filter v4 build",
+    "preview": "pnpm --filter v4 preview",
+    "prepare": "pnpm simple-git-hooks && pnpm --filter shadcn-vue build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev:cli": "pnpm --filter shadcn-vue dev",
     "dev:nuxt": "pnpm --filter shadcn-nuxt dev",
-    "dev:v4": "pnpm --filter v4 dev",
     "start:cli": "pnpm --filter shadcn-vue start:dev",
     "build:cli": "pnpm --filter shadcn-vue build",
-    "build:registry": "pnpm --filter=www build:registry && pnpm --filter=www build:registryV4",
+    "registry:build-only": "pnpm --filter=v4 registry:build",
+    "registry:build": "pnpm --filter=v4 registry:build && pnpm lint:fix",
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",
     "test": "pnpm --filter shadcn-vue test",
-    "taze": "taze major -frI --ignore-paths ./packages/cli/test/** --exclude typescript,/@iconify/",
-    "taze:minor": "taze minor -fwri --ignore-paths ./packages/cli/test/** --exclude /@iconify/"
+    "taze": "taze -frI"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.1.0",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@vitest/ui": "^3.1.4",
-    "bumpp": "^10.1.1",
-    "eslint": "^9.32.0",
-    "lint-staged": "^16.1.2",
+    "@antfu/eslint-config": "^6.2.0",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@vitest/ui": "^3.2.4",
+    "bumpp": "^10.3.1",
+    "eslint": "^9.39.1",
+    "lint-staged": "^16.2.6",
     "simple-git-hooks": "^2.13.1",
-    "taze": "^19.1.0",
+    "taze": "^19.9.0",
+    "tsx": "catalog:",
     "typescript": "catalog:",
-    "vitest": "^3.1.4"
+    "vitest": "^3.2.4"
   },
   "commitlint": {
     "extends": [
@@ -60,8 +60,21 @@
       "safe-buffer": "npm:@nolyfill/safe-buffer@^1.0.44",
       "safer-buffer": "npm:@nolyfill/safer-buffer@^1.0.44",
       "side-channel": "npm:@nolyfill/side-channel@^1.0.44",
+      "string.prototype.codepointat": "npm:@nolyfill/string.prototype.codepointat@^1.0.44",
+      "typed-array-buffer": "npm:@nolyfill/typed-array-buffer@^1.0.44",
       "typedarray": "npm:@nolyfill/typedarray@^1.0.44"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "maplibre-gl",
+      "msw",
+      "sharp",
+      "simple-git-hooks",
+      "unrs-resolver",
+      "vue-demi",
+      "workerd"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",

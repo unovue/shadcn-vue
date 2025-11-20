@@ -10,9 +10,10 @@ const forwarded = useForwardPropsEmits(props, emits)
 
 <template>
   <HoverCardRoot
+    v-slot="slotProps"
     data-slot="hover-card"
     v-bind="forwarded"
   >
-    <slot />
+    <slot v-bind="slotProps" />
   </HoverCardRoot>
 </template>

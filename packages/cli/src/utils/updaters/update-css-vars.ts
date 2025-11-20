@@ -3,7 +3,7 @@ import type Rule from 'postcss/lib/rule'
 import type {
   registryItemCssVarsSchema,
   registryItemTailwindSchema,
-} from '@/src/registry/schema'
+} from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import type { TailwindVersion } from '@/src/utils/get-project-info'
 import { promises as fs } from 'node:fs'
@@ -906,5 +906,6 @@ export function isColorValue(value: string) {
     || value.startsWith('rgb')
     || value.startsWith('#')
     || value.startsWith('oklch')
+    || value.startsWith('var(--color-')
   )
 }

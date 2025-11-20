@@ -1,0 +1,24 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "ChartPieStacked",
+  "type": "registry:block",
+  "dependencies": [
+    "@unovis/vue",
+    "@unovis/ts"
+  ],
+  "registryDependencies": [
+    "chart",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/charts/ChartPieStacked.vue",
+      "content": "<script setup lang=\"ts\">\nimport type {\n  ChartConfig,\n} from \"@/registry/new-york-v4/ui/chart\"\n\nimport { Donut } from \"@unovis/ts\"\nimport { VisDonut, VisSingleContainer } from \"@unovis/vue\"\nimport { TrendingUp } from \"lucide-vue-next\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/new-york-v4/ui/card\"\nimport {\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n  componentToString,\n} from \"@/registry/new-york-v4/ui/chart\"\n\nconst description = \"A pie chart with stacked sections\"\n\nconst desktopData = [\n  { month: \"january\", desktop: 186, fill: \"var(--color-january)\" },\n  { month: \"february\", desktop: 305, fill: \"var(--color-february)\" },\n  { month: \"march\", desktop: 237, fill: \"var(--color-march)\" },\n  { month: \"april\", desktop: 173, fill: \"var(--color-april)\" },\n  { month: \"may\", desktop: 209, fill: \"var(--color-may)\" },\n]\nconst mobileData = [\n  { month: \"january\", mobile: 80, fill: \"var(--color-january)\" },\n  { month: \"february\", mobile: 200, fill: \"var(--color-february)\" },\n  { month: \"march\", mobile: 120, fill: \"var(--color-march)\" },\n  { month: \"april\", mobile: 190, fill: \"var(--color-april)\" },\n  { month: \"may\", mobile: 130, fill: \"var(--color-may)\" },\n]\n\ntype DesktopData = typeof desktopData[number]\ntype MobileData = typeof mobileData[number]\n\nconst chartConfig = {\n  visitors: {\n    label: \"Visitors\",\n    color: undefined,\n  },\n  desktop: {\n    label: \"Desktop\",\n    color: undefined,\n  },\n  mobile: {\n    label: \"Mobile\",\n    color: undefined,\n  },\n  january: {\n    label: \"January\",\n    color: \"var(--chart-1)\",\n  },\n  february: {\n    label: \"February\",\n    color: \"var(--chart-2)\",\n  },\n  march: {\n    label: \"March\",\n    color: \"var(--chart-3)\",\n  },\n  april: {\n    label: \"April\",\n    color: \"var(--chart-4)\",\n  },\n  may: {\n    label: \"May\",\n    color: \"var(--chart-5)\",\n  },\n} satisfies ChartConfig\n</script>\n\n<template>\n  <Card class=\"flex flex-col\">\n    <CardHeader class=\"items-center pb-0\">\n      <CardTitle>Pie Chart</CardTitle>\n      <CardDescription>January - June 2024</CardDescription>\n    </CardHeader>\n    <CardContent class=\"flex-1 pb-0\">\n      <ChartContainer\n        :config=\"chartConfig\"\n        class=\"relative mx-auto aspect-square max-h-[250px] [&_[data-vis-single-container]]:!absolute\"\n      >\n        <VisSingleContainer\n          :margin=\"{ top: 30, bottom: 30 }\"\n        >\n          <VisDonut\n            :data=\"mobileData\"\n            :value=\"(d: MobileData) => d.mobile\"\n            :color=\"(d: MobileData) => chartConfig[d.month as keyof typeof chartConfig].color\"\n            :arc-width=\"25\"\n          />\n          <ChartTooltip\n            :triggers=\"{\n              [Donut.selectors.segment]: componentToString(chartConfig, ChartTooltipContent, { hideLabel: true })!,\n            }\"\n          />\n        </VisSingleContainer>\n        <VisSingleContainer\n          :margin=\"{ top: 30, bottom: 30 }\"\n        >\n          <VisDonut\n            :data=\"desktopData\"\n            :value=\"(d: DesktopData) => d.desktop\"\n            :color=\"(d: DesktopData) => chartConfig[d.month as keyof typeof chartConfig].color\"\n            :arc-width=\"0\"\n            :radius=\"50\"\n          />\n          <ChartTooltip\n            :triggers=\"{\n              [Donut.selectors.segment]: componentToString(chartConfig, ChartTooltipContent, { hideLabel: true })!,\n            }\"\n          />\n        </VisSingleContainer>\n      </ChartContainer>\n    </CardContent>\n    <CardFooter class=\"flex-col gap-2 text-sm\">\n      <div class=\"flex items-center gap-2 font-medium leading-none\">\n        Trending up by 5.2% this month <TrendingUp class=\"h-4 w-4\" />\n      </div>\n      <div class=\"leading-none text-muted-foreground\">\n        Showing total visitors for the last 6 months\n      </div>\n    </CardFooter>\n  </Card>\n</template>\n",
+      "type": "registry:block"
+    }
+  ],
+  "categories": [
+    "chart",
+    "chart-pie"
+  ]
+}

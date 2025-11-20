@@ -9,4 +9,9 @@ export const ICON_LIBRARIES = {
     package: '@radix-icons/vue',
     import: '@radix-icons/vue',
   },
+  tabler: {
+    name: '@tabler/icons-vue',
+    package: '@tabler/icons-vue',
+    import: '@tabler/icons-vue',
+  },
 }

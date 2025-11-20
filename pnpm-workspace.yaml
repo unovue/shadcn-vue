@@ -1,20 +1,29 @@
 packages:
   - apps/*
   - packages/*
+
+shellEmulator: true
+
 catalog:
-  '@internationalized/date': ^3.8.1
-  '@vee-validate/zod': ^4.15.0
-  '@vueuse/core': ^13.2.0
+  '@internationalized/date': ^3.10.0
+  '@types/node': ^24
+  '@unovis/ts': ^1.6.2
+  '@unovis/vue': ^1.6.2
+  '@vee-validate/zod': ^4.15.1
+  '@vueuse/core': ^13.9.0
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  oxc-parser: ^0.72.0
+  oxc-parser: ^0.97.0
   pathe: ^2.0.3
-  reka-ui: ^2.2.1
-  tinyglobby: ^0.2.14
-  typescript: ^5.8.3
+  reka-ui: ^2.6.0
+  tinyglobby: ^0.2.15
+  tsx: ^4.20.6
+  typescript: ^5.9.3
   vaul-vue: ^0.4.1
-  vee-validate: ^4.15.0
-  vue: ^3.5.15
-  vue-sonner: ^2.0.0
-  zod: ^3.25.30
+  vee-validate: ^4.15.1
+  vue: ^3.5.24
+  vue-component-meta: ^3.1.4
+  vue-sonner: ^2.0.9
+  vue-tsc: ^3.1.4
+  zod: ^3.25.76

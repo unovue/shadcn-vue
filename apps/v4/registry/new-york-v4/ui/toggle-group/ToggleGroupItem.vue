@@ -8,7 +8,9 @@ import { inject } from "vue"
 import { cn } from "@/lib/utils"
 import { toggleVariants } from "@/registry/new-york-v4/ui/toggle"
 
-type ToggleGroupVariants = VariantProps<typeof toggleVariants>
+type ToggleGroupVariants = VariantProps<typeof toggleVariants> & {
+  spacing?: number
+}
 
 const props = defineProps<ToggleGroupItemProps & {
   class?: HTMLAttributes["class"]
@@ -28,13 +30,15 @@ const forwardedProps = useForwardProps(delegatedProps)
     data-slot="toggle-group-item"
     :data-variant="context?.variant || variant"
     :data-size="context?.size || size"
+    :data-spacing="context?.spacing"
     v-bind="forwardedProps"
     :class="cn(
       toggleVariants({
         variant: context?.variant || variant,
         size: context?.size || size,
       }),
-      'min-w-0 flex-1 shrink-0 rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l',
+      'w-auto min-w-0 shrink-0 px-3 focus:z-10 focus-visible:z-10',
+      'data-[spacing=0]:rounded-none data-[spacing=0]:shadow-none data-[spacing=0]:first:rounded-l-md data-[spacing=0]:last:rounded-r-md data-[spacing=0]:data-[variant=outline]:border-l-0 data-[spacing=0]:data-[variant=outline]:first:border-l',
       props.class)"
   >
     <slot v-bind="slotProps" />

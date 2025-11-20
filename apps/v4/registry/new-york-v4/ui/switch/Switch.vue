@@ -4,7 +4,6 @@ import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
 import {
   SwitchRoot,
-
   SwitchThumb,
   useForwardPropsEmits,
 } from "reka-ui"
@@ -21,6 +20,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <SwitchRoot
+    v-slot="slotProps"
     data-slot="switch"
     v-bind="forwarded"
     :class="cn(
@@ -32,7 +32,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       data-slot="switch-thumb"
       :class="cn('bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0')"
     >
-      <slot name="thumb" />
+      <slot name="thumb" v-bind="slotProps" />
     </SwitchThumb>
   </SwitchRoot>
 </template>

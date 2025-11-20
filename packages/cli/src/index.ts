@@ -5,6 +5,7 @@ import { build } from '@/src/commands/build'
 import { diff } from '@/src/commands/diff'
 import { info } from '@/src/commands/info'
 import { init } from '@/src/commands/init'
+import { mcp } from '@/src/commands/mcp'
 import { migrate } from '@/src/commands/migrate'
 
 import packageJson from '../package.json'
@@ -29,6 +30,7 @@ async function main() {
     .addCommand(migrate)
     .addCommand(info)
     .addCommand(build)
+    .addCommand(mcp)
 
   program.parse()
 }

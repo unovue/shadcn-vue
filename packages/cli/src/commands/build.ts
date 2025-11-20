@@ -1,9 +1,9 @@
 import * as fs from 'node:fs/promises'
+import * as path from 'node:path'
 import { Command } from 'commander'
-import * as path from 'pathe'
 import { z } from 'zod'
 import { preFlightBuild } from '@/src/preflights/preflight-build'
-import { registryItemSchema, registrySchema } from '@/src/registry'
+import { registryItemSchema, registrySchema } from '@/src/schema'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
@@ -17,7 +17,7 @@ export const buildOptionsSchema = z.object({
 
 export const build = new Command()
   .name('build')
-  .description('build components for a shadcn registry')
+  .description('build components for a shadcn-vue registry')
   .argument('[registry]', 'path to registry.json file', './registry.json')
   .option(
     '-o, --output <path>',
@@ -53,10 +53,6 @@ export const build = new Command()
 
       const buildSpinner = spinner('Building registry...')
       for (const registryItem of result.data.items) {
-        if (!registryItem.files) {
-          continue
-        }
-
         buildSpinner.start(`Building ${registryItem.name}...`)
 
         // Add the schema to the registry item.
@@ -64,11 +60,12 @@ export const build = new Command()
           = 'https://shadcn-vue.com/schema/registry-item.json'
 
         // Loop through each file in the files array.
-        for (const file of registryItem.files) {
-          file.content = await fs.readFile(
+        for (const file of registryItem.files ?? []) {
+          const content = await fs.readFile(
             path.resolve(resolvePaths.cwd, file.path),
             'utf-8',
           )
+          file.content = content.replace(/\r\n/g, '\n')
         }
 
         // Validate the registry item.
@@ -88,6 +85,12 @@ export const build = new Command()
           JSON.stringify(result.data, null, 2),
         )
       }
+
+      // Copy registry.json to the output directory.
+      await fs.copyFile(
+        resolvePaths.registryFile,
+        path.resolve(resolvePaths.outputDir, 'registry.json'),
+      )
 
       buildSpinner.succeed('Building registry.')
     }

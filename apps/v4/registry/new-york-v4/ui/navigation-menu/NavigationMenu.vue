@@ -4,7 +4,6 @@ import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
 import {
   NavigationMenuRoot,
-
   useForwardPropsEmits,
 } from "reka-ui"
 import { cn } from "@/lib/utils"
@@ -24,12 +23,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <NavigationMenuRoot
+    v-slot="slotProps"
     data-slot="navigation-menu"
     :data-viewport="viewport"
     v-bind="forwarded"
     :class="cn('group/navigation-menu relative flex max-w-max flex-1 items-center justify-center', props.class)"
   >
-    <slot />
+    <slot v-bind="slotProps" />
     <NavigationMenuViewport v-if="viewport" />
   </NavigationMenuRoot>
 </template>

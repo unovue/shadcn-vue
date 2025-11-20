@@ -3,7 +3,6 @@ import type { DropdownMenuCheckboxItemEmits, DropdownMenuCheckboxItemProps } fro
 import { Check } from 'lucide-vue-next'
 import {
   DropdownMenuCheckboxItem,
-
   DropdownMenuItemIndicator,
   useEmitAsProps,
 } from 'reka-ui'

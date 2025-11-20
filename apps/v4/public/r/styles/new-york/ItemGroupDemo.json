@@ -1,0 +1,18 @@
+{
+  "name": "ItemGroupDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "item"
+  ],
+  "files": [
+    {
+      "path": "examples/ItemGroupDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Plus } from \"lucide-vue-next\"\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/new-york/ui/avatar\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemSeparator,\n  ItemTitle,\n} from \"@/registry/new-york/ui/item\"\n\nconst people = [\n  {\n    username: \"shadcn\",\n    avatar: \"https://github.com/shadcn.png\",\n    email: \"shadcn@vercel.com\",\n  },\n  {\n    username: \"maxleiter\",\n    avatar: \"https://github.com/maxleiter.png\",\n    email: \"maxleiter@vercel.com\",\n  },\n  {\n    username: \"evilrabbit\",\n    avatar: \"https://github.com/evilrabbit.png\",\n    email: \"evilrabbit@vercel.com\",\n  },\n]\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-md flex-col gap-6\">\n    <ItemGroup>\n      <template v-for=\"(person, index) in people\" :key=\"person.username\">\n        <Item>\n          <ItemMedia>\n            <Avatar>\n              <AvatarImage :src=\"person.avatar\" class=\"grayscale\" />\n              <AvatarFallback>{{ person.username.charAt(0) }}</AvatarFallback>\n            </Avatar>\n          </ItemMedia>\n          <ItemContent class=\"gap-1\">\n            <ItemTitle>{{ person.username }}</ItemTitle>\n            <ItemDescription>{{ person.email }}</ItemDescription>\n          </ItemContent>\n          <ItemActions>\n            <Button variant=\"ghost\" size=\"icon\" class=\"rounded-full\">\n              <Plus />\n            </Button>\n          </ItemActions>\n        </Item>\n        <ItemSeparator v-if=\"index !== people.length - 1\" />\n      </template>\n    </ItemGroup>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

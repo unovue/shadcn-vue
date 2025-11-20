@@ -1,33 +1,21 @@
 <script setup lang="ts">
-import { Separator } from '@/registry/new-york-v4/ui/separator'
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/registry/new-york-v4/ui/sidebar'
+import { siteConfig } from '~/lib/config'
 
-const defaultOpen = useCookie<boolean>('sidebar_state')
+useSeoMeta({
+  title: siteConfig.name,
+  titleTemplate: `%s - ${siteConfig.name}`,
+  description: siteConfig.description,
+})
+
+defineOgImageComponent('Custom')
 </script>
 
 <template>
-  <SidebarProvider :default-open>
-    <AppSidebar />
-    <SidebarInset>
-      <header class="bg-background sticky inset-x-0 top-0 isolate z-10 flex shrink-0 items-center gap-2 border-b">
-        <div class="flex h-14 w-full items-center gap-2 px-4">
-          <SidebarTrigger class="-ml-1.5" />
-          <Separator
-            orientation="vertical"
-            class="mr-2 data-[orientation=vertical]:h-4"
-          />
-          <NavHeader />
-          <div class="ml-auto flex items-center gap-2">
-            <ThemeSelector />
-            <ModeSwitcher />
-          </div>
-        </div>
-      </header>
+  <div data-slot="layout" class="bg-background relative z-10 flex min-h-svh flex-col">
+    <SiteHeader />
+    <main class="flex flex-1 flex-col">
       <slot />
-    </SidebarInset>
-  </SidebarProvider>
+    </main>
+    <SiteFooter />
+  </div>
 </template>

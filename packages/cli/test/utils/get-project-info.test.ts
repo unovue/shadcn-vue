@@ -9,7 +9,8 @@ describe('get project info', async () => {
     {
       name: 'nuxt',
       type: {
-        framework: FRAMEWORKS.nuxt,
+        framework: FRAMEWORKS.nuxt3,
+        isSrcDir: false,
         typescript: true,
         tailwindConfigFile: 'tailwind.config.ts',
         tailwindCssFile: 'assets/css/tailwind.css',
@@ -21,6 +22,7 @@ describe('get project info', async () => {
       name: 'vite',
       type: {
         framework: FRAMEWORKS.vite,
+        isSrcDir: true,
         typescript: true,
         tailwindConfigFile: 'tailwind.config.js',
         tailwindCssFile: 'src/index.css',
@@ -32,6 +34,7 @@ describe('get project info', async () => {
       name: 'vite-tw3',
       type: {
         framework: FRAMEWORKS.vite,
+        isSrcDir: true,
         typescript: true,
         tailwindConfigFile: 'tailwind.config.js',
         tailwindCssFile: 'src/index.css',

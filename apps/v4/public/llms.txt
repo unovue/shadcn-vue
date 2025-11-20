@@ -1,0 +1,166 @@
+# shadcn-vue
+
+> shadcn-vue is a collection of beautifully-designed, accessible components and a code distribution platform. It is built with TypeScript, Tailwind CSS, and Reka UI primitives. It supports multiple frameworks including Vite, Nuxt, Astro, and Laravel. Open Source. Open Code. AI-Ready. It also comes with a command-line tool to install and manage components and a registry system to publish and distribute code.
+
+## Overview
+
+- [Introduction](https://shadcn-vue.com/docs): Core principles—Open Code, Composition, Distribution, Beautiful Defaults, and AI-Ready design.
+- [CLI](https://shadcn-vue.com/docs/cli): Command-line tool for installing and managing components.
+- [components.json](https://shadcn-vue.com/docs/components-json): Configuration file for customizing the CLI and component installation.
+- [Theming](https://shadcn-vue.com/docs/theming): Guide to customizing colors, typography, and design tokens.
+- [Changelog](https://shadcn-vue.com/docs/changelog): Release notes and version history.
+- [About](https://shadcn-vue.com/docs/about): Credits and project information.
+
+## Installation
+
+- [Vite](https://shadcn-vue.com/docs/installation/vite): Install shadcn-vue in a Vite project.
+- [Nuxt](https://shadcn-vue.com/docs/installation/nuxt): Install shadcn-vue in a Nuxt project.
+- [Astro](https://shadcn-vue.com/docs/installation/astro): Install shadcn-vue in an Astro project.
+- [Laravel](https://shadcn-vue.com/docs/installation/laravel): Install shadcn-vue in a Laravel project.
+- [Manual Installation](https://shadcn-vue.com/docs/installation/manual): Manually install shadcn-vue without the CLI.
+
+## Components
+
+### Form & Input
+
+- [Form](https://shadcn-vue.com/docs/components/form): Building forms with VeeValidate and Zod validation.
+- [Field](https://shadcn-vue.com/docs/components/field): Field component for form inputs with labels and error messages.
+- [Button](https://shadcn-vue.com/docs/components/button): Button component with multiple variants.
+- [Button Group](https://shadcn-vue.com/docs/components/button-group): Group multiple buttons together.
+- [Input](https://shadcn-vue.com/docs/components/input): Text input component.
+- [Input Group](https://shadcn-vue.com/docs/components/input-group): Input component with prefix and suffix addons.
+- [Input OTP](https://shadcn-vue.com/docs/components/input-otp): One-time password input component.
+- [Pin Input](https://shadcn-vue.com/docs/components/pin-input): Pin code input component.
+- [Textarea](https://shadcn-vue.com/docs/components/textarea): Multi-line text input component.
+- [Checkbox](https://shadcn-vue.com/docs/components/checkbox): Checkbox input component.
+- [Radio Group](https://shadcn-vue.com/docs/components/radio-group): Radio button group component.
+- [Select](https://shadcn-vue.com/docs/components/select): Select dropdown component.
+- [Native Select](https://shadcn-vue.com/docs/components/native-select): Native HTML select component with styling.
+- [Switch](https://shadcn-vue.com/docs/components/switch): Toggle switch component.
+- [Slider](https://shadcn-vue.com/docs/components/slider): Slider input component.
+- [Calendar](https://shadcn-vue.com/docs/components/calendar): Calendar component for date selection.
+- [Date Picker](https://shadcn-vue.com/docs/components/date-picker): Date picker component combining input and calendar.
+- [Combobox](https://shadcn-vue.com/docs/components/combobox): Searchable select component with autocomplete.
+- [Label](https://shadcn-vue.com/docs/components/label): Form label component.
+
+### Layout & Navigation
+
+- [Accordion](https://shadcn-vue.com/docs/components/accordion): Collapsible accordion component.
+- [Breadcrumb](https://shadcn-vue.com/docs/components/breadcrumb): Breadcrumb navigation component.
+- [Navigation Menu](https://shadcn-vue.com/docs/components/navigation-menu): Accessible navigation menu with dropdowns.
+- [Sidebar](https://shadcn-vue.com/docs/components/sidebar): Collapsible sidebar component for app layouts.
+- [Tabs](https://shadcn-vue.com/docs/components/tabs): Tabbed interface component.
+- [Stepper](https://shadcn-vue.com/docs/components/stepper): Step-by-step navigation component.
+- [Separator](https://shadcn-vue.com/docs/components/separator): Visual divider between content sections.
+- [Scroll Area](https://shadcn-vue.com/docs/components/scroll-area): Custom scrollable area with styled scrollbars.
+- [Resizable](https://shadcn-vue.com/docs/components/resizable): Resizable panel layout component.
+
+### Overlays & Dialogs
+
+- [Dialog](https://shadcn-vue.com/docs/components/dialog): Modal dialog component.
+- [Alert Dialog](https://shadcn-vue.com/docs/components/alert-dialog): Alert dialog for confirmation prompts.
+- [Sheet](https://shadcn-vue.com/docs/components/sheet): Slide-out panel component (drawer).
+- [Drawer](https://shadcn-vue.com/docs/components/drawer): Mobile-friendly drawer component using Vaul Vue.
+- [Popover](https://shadcn-vue.com/docs/components/popover): Floating popover component.
+- [Tooltip](https://shadcn-vue.com/docs/components/tooltip): Tooltip component for additional context.
+- [Hover Card](https://shadcn-vue.com/docs/components/hover-card): Card that appears on hover.
+- [Context Menu](https://shadcn-vue.com/docs/components/context-menu): Right-click context menu.
+- [Dropdown Menu](https://shadcn-vue.com/docs/components/dropdown-menu): Dropdown menu component.
+- [Menubar](https://shadcn-vue.com/docs/components/menubar): Horizontal menubar component.
+- [Command](https://shadcn-vue.com/docs/components/command): Command palette component (cmdk).
+
+### Feedback & Status
+
+- [Alert](https://shadcn-vue.com/docs/components/alert): Alert component for messages and notifications.
+- [Toast](https://shadcn-vue.com/docs/components/toast): Toast notification component.
+- [Sonner](https://shadcn-vue.com/docs/components/sonner): Opinionated toast component using Vue Sonner.
+- [Progress](https://shadcn-vue.com/docs/components/progress): Progress bar component.
+- [Spinner](https://shadcn-vue.com/docs/components/spinner): Loading spinner component.
+- [Skeleton](https://shadcn-vue.com/docs/components/skeleton): Skeleton loading placeholder.
+- [Badge](https://shadcn-vue.com/docs/components/badge): Badge component for labels and status indicators.
+- [Empty](https://shadcn-vue.com/docs/components/empty): Empty state component for no data scenarios.
+
+### Display & Media
+
+- [Avatar](https://shadcn-vue.com/docs/components/avatar): Avatar component for user profiles.
+- [Card](https://shadcn-vue.com/docs/components/card): Card container component.
+- [Table](https://shadcn-vue.com/docs/components/table): Table component for displaying data.
+- [Data Table](https://shadcn-vue.com/docs/components/data-table): Advanced data table with sorting, filtering, and pagination.
+- [Chart](https://shadcn-vue.com/docs/components/chart): Chart components using Recharts.
+- [Carousel](https://shadcn-vue.com/docs/components/carousel): Carousel component using Embla Carousel.
+- [Aspect Ratio](https://shadcn-vue.com/docs/components/aspect-ratio): Container that maintains aspect ratio.
+- [Typography](https://shadcn-vue.com/docs/components/typography): Typography styles and components.
+- [Item](https://shadcn-vue.com/docs/components/item): Generic item component for lists and menus.
+- [Kbd](https://shadcn-vue.com/docs/components/kbd): Keyboard shortcut display component.
+
+### Misc
+
+- [Collapsible](https://shadcn-vue.com/docs/components/collapsible): Collapsible container component.
+- [Toggle](https://shadcn-vue.com/docs/components/toggle): Toggle button component.
+- [Toggle Group](https://shadcn-vue.com/docs/components/toggle-group): Group of toggle buttons.
+- [Pagination](https://shadcn-vue.com/docs/components/pagination): Pagination component for lists and tables.
+
+## Dark Mode
+
+- [Dark Mode](https://shadcn-vue.com/docs/dark-mode): Overview of dark mode implementation.
+- [Dark Mode - Vite](https://shadcn-vue.com/docs/dark-mode/vite): Dark mode setup for Vite.
+- [Dark Mode - Nuxt](https://shadcn-vue.com/docs/dark-mode/nuxt): Dark mode setup for Nuxt.
+- [Dark Mode - VitePress](https://shadcn-vue.com/docs/dark-mode/vitepress): Dark mode setup for VitePress.
+- [Dark Mode - Astro](https://shadcn-vue.com/docs/dark-mode/astro): Dark mode setup for Astro.
+
+## Forms
+
+- [Forms Overview](https://shadcn-vue.com/docs/forms): Guide to building forms with shadcn-vue.
+- [VeeValidate](https://shadcn-vue.com/docs/forms/vee-validate): Using shadcn-vue with VeeValidate.
+- [TanStack Form](https://shadcn-vue.com/docs/forms/tanstack-form): Using shadcn-vue with TanStack Form.
+
+## Advanced
+
+- [JavaScript](https://shadcn-vue.com/docs/javascript): Using shadcn-vue with JavaScript (no TypeScript).
+- [Figma](https://shadcn-vue.com/docs/figma): Figma design resources.
+- [Legacy](https://shadcn-vue.com/docs/legacy): Information about legacy versions.
+
+## MCP Server
+
+- [MCP Server](https://shadcn-vue.com/docs/mcp): Model Context Protocol server for AI integrations. Allows AI assistants to browse, search, and install components from registries using natural language. Works with Claude Code, Cursor, VS Code (GitHub Copilot), Codex and more.
+
+## Registry
+
+- [Registry Overview](https://shadcn-vue.com/docs/registry): Creating and publishing your own component registry.
+- [Getting Started](https://shadcn-vue.com/docs/registry/getting-started): Set up your own registry.
+- [Examples](https://shadcn-vue.com/docs/registry/examples): Example registries.
+- [FAQ](https://shadcn-vue.com/docs/registry/faq): Common questions about registries.
+
+### Registry Schemas
+
+- [Registry Schema](https://shadcn-vue.com/schema/registry.json): JSON Schema for registry index files. Defines the structure for a collection of components, hooks, pages, etc. Requires name, homepage, and items array.
+- [Registry Item Schema](https://shadcn-vue.com/schema/registry-item.json): JSON Schema for individual registry items. Defines components, hooks, themes, and other distributable code with properties for dependencies, files, Tailwind config, CSS variables, and more.
+
+## Key Differences from shadcn/ui
+
+shadcn-vue is a Vue/Nuxt port of shadcn/ui with the following key differences:
+
+### Framework Support
+- **Vue-based**: Built for Vue 3 and Nuxt 3 instead of React
+- **Reka UI**: Uses Reka UI primitives instead of Radix UI
+- **Vite & Nuxt**: Primary frameworks are Vite and Nuxt instead of Next.js
+
+### Form Libraries
+- **VeeValidate**: Primary form library instead of React Hook Form
+- **TanStack Form**: Also supported as an alternative
+- **No Server Actions**: Form handling uses Vue patterns instead of Next.js Server Actions
+
+### Components
+- **Native Select**: Additional native HTML select component with styling
+- **Pin Input**: Dedicated pin input component (in addition to Input OTP)
+- **Stepper**: Step-by-step navigation component
+- **Vue Sonner**: Uses Vue Sonner for toast notifications
+
+### CLI Command
+- Uses `shadcn-vue` instead of `shadcn` for CLI commands
+- Example: `npx shadcn-vue@latest init` instead of `npx shadcn@latest init`
+
+### Credits
+- Maintained by [unovue](https://github.com/unovue)
+- Original design and methodology by [shadcn](https://twitter.com/shadcn)
+- Built on [Reka UI](https://reka-ui.com) primitives

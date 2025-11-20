@@ -7,9 +7,17 @@ export const FRAMEWORKS = {
       tailwind: 'https://tailwindcss.com/docs/guides/vite',
     },
   },
-  nuxt: {
-    name: 'nuxt',
-    label: 'Nuxt',
+  nuxt3: {
+    name: 'nuxt3',
+    label: 'Nuxt 3',
+    links: {
+      installation: 'https://shadcn-vue.com/docs/installation/nuxt',
+      tailwind: 'https://tailwindcss.com/docs/guides/nuxtjs',
+    },
+  },
+  nuxt4: {
+    name: 'nuxt4',
+    label: 'Nuxt 4',
     links: {
       installation: 'https://shadcn-vue.com/docs/installation/nuxt',
       tailwind: 'https://tailwindcss.com/docs/guides/nuxtjs',
@@ -34,6 +42,14 @@ export const FRAMEWORKS = {
   manual: {
     name: 'manual',
     label: 'Manual',
+    links: {
+      installation: 'https://shadcn-vue.com/docs/installation/manual',
+      tailwind: 'https://tailwindcss.com/docs/installation',
+    },
+  },
+  inertia: {
+    name: 'inertia',
+    label: 'Inertia',
     links: {
       installation: 'https://shadcn-vue.com/docs/installation/manual',
       tailwind: 'https://tailwindcss.com/docs/installation',

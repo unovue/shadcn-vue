@@ -5,7 +5,6 @@ import { reactiveOmit } from "@vueuse/core"
 import { ChevronDown } from "lucide-vue-next"
 import {
   NavigationMenuTrigger,
-
   useForwardProps,
 } from "reka-ui"
 import { cn } from "@/lib/utils"
