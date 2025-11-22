@@ -95,7 +95,7 @@ function isInvalid(field: any) {
                   placeholder="Login button not working on mobile"
                   autocomplete="off"
                   @blur="field.handleBlur"
-                  @input="field.handleChange"
+                  @input="field.handleChange($event.target.value)"
                 />
                 <FieldError
                   v-if="isInvalid(field)"
@@ -121,7 +121,7 @@ function isInvalid(field: any) {
                     class="min-h-24 resize-none"
                     :aria-invalid="isInvalid(field)"
                     @blur="field.handleBlur"
-                    @input="field.handleChange"
+                    @input="field.handleChange($event.target.value)"
                   />
                   <InputGroupAddon align="block-end">
                     <InputGroupText class="tabular-nums">
