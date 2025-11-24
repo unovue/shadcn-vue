@@ -53,7 +53,7 @@
     "clean": "node ./scripts/rimraf.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start:dev": "REGISTRY_URL=http://localhost:5173/r node dist/index.js",
+    "start:dev": "REGISTRY_URL=http://localhost:3000/r node dist/index.js",
     "start": "node dist/index.js",
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",

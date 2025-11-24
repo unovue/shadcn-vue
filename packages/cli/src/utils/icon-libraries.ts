@@ -14,4 +14,9 @@ export const ICON_LIBRARIES = {
     package: '@tabler/icons-vue',
     import: '@tabler/icons-vue',
   },
+  phosphor: {
+    name: '@phosphor-icons/vue',
+    package: '@phosphor-icons/vue',
+    import: '@phosphor-icons/vue',
+  },
 }

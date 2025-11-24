@@ -56,9 +56,9 @@
     "oxc-parser": "catalog:",
     "pathe": "catalog:",
     "prettier": "^3.6.2",
-    "rimraf": "^6.1.0",
+    "rimraf": "^6.1.2",
     "shiki": "^3.15.0",
     "vue-tsc": "catalog:",
-    "wrangler": "^4.47.0"
+    "wrangler": "^4.49.1"
   }
 }

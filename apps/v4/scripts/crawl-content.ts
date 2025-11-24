@@ -17,7 +17,8 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['@tanstack/vue-table', []],
   ['@unovis/vue', ['@unovis/ts']],
   ['embla-carousel-vue', []],
-  ['vee-validate', ['@vee-validate/zod', 'zod']],
+  // TODO: remove version tag after vee-validate v5
+  ['vee-validate', ['@vee-validate/zod', 'zod@3.25.76']],
   ['vue-input-otp', []],
 ])
 

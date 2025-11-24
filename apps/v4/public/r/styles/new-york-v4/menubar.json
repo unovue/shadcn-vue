@@ -8,11 +8,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york-v4/ui/menubar/index.ts",
-      "content": "export { default as Menubar } from \"./Menubar.vue\"\nexport { default as MenubarCheckboxItem } from \"./MenubarCheckboxItem.vue\"\nexport { default as MenubarContent } from \"./MenubarContent.vue\"\nexport { default as MenubarGroup } from \"./MenubarGroup.vue\"\nexport { default as MenubarItem } from \"./MenubarItem.vue\"\nexport { default as MenubarLabel } from \"./MenubarLabel.vue\"\nexport { default as MenubarMenu } from \"./MenubarMenu.vue\"\nexport { default as MenubarRadioGroup } from \"./MenubarRadioGroup.vue\"\nexport { default as MenubarRadioItem } from \"./MenubarRadioItem.vue\"\nexport { default as MenubarSeparator } from \"./MenubarSeparator.vue\"\nexport { default as MenubarShortcut } from \"./MenubarShortcut.vue\"\nexport { default as MenubarSub } from \"./MenubarSub.vue\"\nexport { default as MenubarSubContent } from \"./MenubarSubContent.vue\"\nexport { default as MenubarSubTrigger } from \"./MenubarSubTrigger.vue\"\nexport { default as MenubarTrigger } from \"./MenubarTrigger.vue\"\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "registry/new-york-v4/ui/menubar/Menubar.vue",
       "content": "<script setup lang=\"ts\">\nimport type { MenubarRootEmits, MenubarRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport {\n  MenubarRoot,\n  useForwardPropsEmits,\n} from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<MenubarRootProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<MenubarRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <MenubarRoot\n    v-slot=\"slotProps\"\n    data-slot=\"menubar\"\n    v-bind=\"forwarded\"\n    :class=\"\n      cn(\n        'bg-background flex h-9 items-center gap-1 rounded-md border p-1 shadow-xs',\n        props.class,\n      )\n    \"\n  >\n    <slot v-bind=\"slotProps\" />\n  </MenubarRoot>\n</template>\n",
       "type": "registry:ui"
@@ -85,6 +80,11 @@
     {
       "path": "registry/new-york-v4/ui/menubar/MenubarTrigger.vue",
       "content": "<script setup lang=\"ts\">\nimport type { MenubarTriggerProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { MenubarTrigger, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<MenubarTriggerProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <MenubarTrigger\n    data-slot=\"menubar-trigger\"\n    v-bind=\"forwardedProps\"\n    :class=\"\n      cn(\n        'focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex items-center rounded-sm px-2 py-1 text-sm font-medium outline-hidden select-none',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </MenubarTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/menubar/index.ts",
+      "content": "export { default as Menubar } from \"./Menubar.vue\"\nexport { default as MenubarCheckboxItem } from \"./MenubarCheckboxItem.vue\"\nexport { default as MenubarContent } from \"./MenubarContent.vue\"\nexport { default as MenubarGroup } from \"./MenubarGroup.vue\"\nexport { default as MenubarItem } from \"./MenubarItem.vue\"\nexport { default as MenubarLabel } from \"./MenubarLabel.vue\"\nexport { default as MenubarMenu } from \"./MenubarMenu.vue\"\nexport { default as MenubarRadioGroup } from \"./MenubarRadioGroup.vue\"\nexport { default as MenubarRadioItem } from \"./MenubarRadioItem.vue\"\nexport { default as MenubarSeparator } from \"./MenubarSeparator.vue\"\nexport { default as MenubarShortcut } from \"./MenubarShortcut.vue\"\nexport { default as MenubarSub } from \"./MenubarSub.vue\"\nexport { default as MenubarSubContent } from \"./MenubarSubContent.vue\"\nexport { default as MenubarSubTrigger } from \"./MenubarSubTrigger.vue\"\nexport { default as MenubarTrigger } from \"./MenubarTrigger.vue\"\n",
       "type": "registry:ui"
     }
   ]
