@@ -64,6 +64,28 @@ export default defineNuxtConfig({
 
 That's it! You can now use Shadcn Nuxt in your Nuxt app ✨
 
+### Multiple component directories
+
+Projects that split their base UI components from custom extensions can configure multiple directories, each with its own optional prefix:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['shadcn-nuxt'],
+  shadcn: {
+    prefix: 'Ui',
+    componentDir: [
+      '@/components/ui',
+      {
+        path: '@/components/ai',
+        prefix: 'Ai',
+      },
+    ],
+  },
+})
+```
+
+Each directory is ignored by Nuxt's default auto-import scanning and re-registered through the module, ensuring clean separation without console warnings. See [issue #1593](https://github.com/unovue/shadcn-vue/issues/1593) for the background.
+
 ## Development
 
 ```bash
