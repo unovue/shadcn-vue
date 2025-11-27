@@ -2,186 +2,223 @@
   "AlertCircle": {
     "lucide": "AlertCircle",
     "radix": "ExclamationTriangleIcon",
-    "tabler": "IconExclamationCircle"
+    "tabler": "IconExclamationCircle",
+    "phosphor": "PhWarningCircle"
   },
   "ArrowLeft": {
     "lucide": "ArrowLeft",
     "radix": "ArrowLeftIcon",
-    "tabler": "IconArrowLeft"
+    "tabler": "IconArrowLeft",
+    "phosphor": "PhArrowLeft"
   },
   "ArrowRight": {
     "lucide": "ArrowRight",
     "radix": "ArrowRightIcon",
-    "tabler": "IconArrowRight"
+    "tabler": "IconArrowRight",
+    "phosphor": "PhArrowRight"
   },
   "ArrowUpDown": {
     "lucide": "ArrowUpDown",
     "radix": "CaretSortIcon",
-    "tabler": "IconArrowsSort"
+    "tabler": "IconArrowsSort",
+    "phosphor": "PhArrowsVertical"
   },
   "BellRing": {
     "lucide": "BellRing",
     "radix": "BellIcon",
-    "tabler": "IconBellRinging"
+    "tabler": "IconBellRinging",
+    "phosphor": "PhBellRinging"
   },
   "Bold": {
     "lucide": "Bold",
     "radix": "FontBoldIcon",
-    "tabler": "IconBold"
+    "tabler": "IconBold",
+    "phosphor": "PhTextB"
   },
   "Calculator": {
     "lucide": "Calculator",
     "radix": "ComponentPlaceholderIcon",
-    "tabler": "IconCalculator"
+    "tabler": "IconCalculator",
+    "phosphor": "PhCalculator"
   },
   "Calendar": {
     "lucide": "Calendar",
     "radix": "CalendarIcon",
-    "tabler": "IconCalendar"
+    "tabler": "IconCalendar",
+    "phosphor": "PhCalendarBlank"
   },
   "Check": {
     "lucide": "Check",
     "radix": "CheckIcon",
-    "tabler": "IconCheck"
+    "tabler": "IconCheck",
+    "phosphor": "PhCheck"
   },
   "ChevronDown": {
     "lucide": "ChevronDown",
     "radix": "ChevronDownIcon",
-    "tabler": "IconChevronDown"
+    "tabler": "IconChevronDown",
+    "phosphor": "PhCaretDown"
   },
   "ChevronLeft": {
     "lucide": "ChevronLeft",
     "radix": "ChevronLeftIcon",
-    "tabler": "IconChevronLeft"
+    "tabler": "IconChevronLeft",
+    "phosphor": "PhCaretLeft"
   },
   "ChevronRight": {
     "lucide": "ChevronRight",
     "radix": "ChevronRightIcon",
-    "tabler": "IconChevronRight"
+    "tabler": "IconChevronRight",
+    "phosphor": "PhCaretRight"
   },
   "ChevronUp": {
     "lucide": "ChevronUp",
     "radix": "ChevronUpIcon",
-    "tabler": "IconChevronUp"
+    "tabler": "IconChevronUp",
+    "phosphor": "PhCaretUp"
   },
   "ChevronsUpDown": {
     "lucide": "ChevronsUpDown",
     "radix": "CaretSortIcon",
-    "tabler": "IconSelector"
+    "tabler": "IconSelector",
+    "phosphor": "PhCaretUpDown"
   },
   "Circle": {
     "lucide": "Circle",
     "radix": "DotFilledIcon",
-    "tabler": "IconCircle"
+    "tabler": "IconCircle",
+    "phosphor": "PhCircle"
   },
   "Copy": {
     "lucide": "Copy",
     "radix": "CopyIcon",
-    "tabler": "IconCopy"
+    "tabler": "IconCopy",
+    "phosphor": "PhCopy"
   },
   "CreditCard": {
     "lucide": "CreditCard",
     "radix": "ComponentPlaceholderIcon",
-    "tabler": "IconCreditCard"
+    "tabler": "IconCreditCard",
+    "phosphor": "PhCreditCard"
   },
   "GripVertical": {
     "lucide": "GripVertical",
     "radix": "DragHandleDots2Icon",
-    "tabler": "IconGripVertical"
+    "tabler": "IconGripVertical",
+    "phosphor": "PhDotsSixVertical"
   },
   "Italic": {
     "lucide": "Italic",
     "radix": "FontItalicIcon",
-    "tabler": "IconItalic"
+    "tabler": "IconItalic",
+    "phosphor": "PhTextItalic"
   },
   "Loader2": {
     "lucide": "Loader2",
     "radix": "ReloadIcon",
-    "tabler": "IconLoader2"
+    "tabler": "IconLoader2",
+    "phosphor": "PhCircleNotch"
   },
   "Mail": {
     "lucide": "Mail",
     "radix": "EnvelopeClosedIcon",
-    "tabler": "IconMail"
+    "tabler": "IconMail",
+    "phosphor": "PhEnvelopeSimple"
   },
   "MailOpen": {
     "lucide": "MailOpen",
     "radix": "EnvelopeOpenIcon",
-    "tabler": "IconMailOpened"
+    "tabler": "IconMailOpened",
+    "phosphor": "PhEnvelopeSimpleOpen"
   },
   "Minus": {
     "lucide": "Minus",
     "radix": "MinusIcon",
-    "tabler": "IconMinus"
+    "tabler": "IconMinus",
+    "phosphor": "PhMinus"
   },
   "Moon": {
     "lucide": "Moon",
     "radix": "MoonIcon",
-    "tabler": "IconMoon"
+    "tabler": "IconMoon",
+    "phosphor": "PhMoon"
   },
   "MoreHorizontal": {
     "lucide": "MoreHorizontal",
     "radix": "DotsHorizontalIcon",
-    "tabler": "IconDots"
+    "tabler": "IconDots",
+    "phosphor": "PhDotsThree"
   },
   "PanelLeft": {
     "lucide": "PanelLeft",
     "radix": "ViewVerticalIcon",
-    "tabler": "IconLayoutSidebar"
+    "tabler": "IconLayoutSidebar",
+    "phosphor": "PhSidebarSimple"
   },
   "Plus": {
     "lucide": "Plus",
     "radix": "PlusIcon",
-    "tabler": "IconPlus"
+    "tabler": "IconPlus",
+    "phosphor": "PhPlus"
   },
   "Search": {
     "lucide": "Search",
     "radix": "MagnifyingGlassIcon",
-    "tabler": "IconSearch"
+    "tabler": "IconSearch",
+    "phosphor": "PhMagnifyingGlass"
   },
   "Send": {
     "lucide": "Send",
     "radix": "PaperPlaneIcon",
-    "tabler": "IconSend"
+    "tabler": "IconSend",
+    "phosphor": "PhPaperPlaneTilt"
   },
   "Settings": {
     "lucide": "Settings",
     "radix": "GearIcon",
-    "tabler": "IconSettings"
+    "tabler": "IconSettings",
+    "phosphor": "PhGear"
   },
   "Slash": {
     "lucide": "Slash",
     "radix": "SlashIcon",
-    "tabler": "IconSlash"
+    "tabler": "IconSlash",
+    "phosphor": "PhCaretRight"
   },
   "Smile": {
     "lucide": "Smile",
     "radix": "FaceIcon",
-    "tabler": "IconMoodSmile"
+    "tabler": "IconMoodSmile",
+    "phosphor": "PhSmiley"
   },
   "Sun": {
     "lucide": "Sun",
     "radix": "SunIcon",
-    "tabler": "IconSun"
+    "tabler": "IconSun",
+    "phosphor": "PhSun"
   },
   "Terminal": {
     "lucide": "Terminal",
     "radix": "RocketIcon",
-    "tabler": "IconTerminal"
+    "tabler": "IconTerminal",
+    "phosphor": "PhTerminal"
   },
   "Underline": {
     "lucide": "Underline",
     "radix": "UnderlineIcon",
-    "tabler": "IconUnderline"
+    "tabler": "IconUnderline",
+    "phosphor": "PhTextUnderline"
   },
   "User": {
     "lucide": "User",
     "radix": "PersonIcon",
-    "tabler": "IconUser"
+    "tabler": "IconUser",
+    "phosphor": "PhUser"
   },
   "X": {
     "lucide": "X",
     "radix": "Cross2Icon",
-    "tabler": "IconX"
+    "tabler": "IconX",
+    "phosphor": "PhX"
   }
 }

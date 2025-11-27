@@ -8,11 +8,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york-v4/ui/tooltip/index.ts",
-      "content": "export { default as Tooltip } from \"./Tooltip.vue\"\nexport { default as TooltipContent } from \"./TooltipContent.vue\"\nexport { default as TooltipProvider } from \"./TooltipProvider.vue\"\nexport { default as TooltipTrigger } from \"./TooltipTrigger.vue\"\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "registry/new-york-v4/ui/tooltip/Tooltip.vue",
       "content": "<script setup lang=\"ts\">\nimport type { TooltipRootEmits, TooltipRootProps } from \"reka-ui\"\nimport { TooltipRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<TooltipRootProps>()\nconst emits = defineEmits<TooltipRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <TooltipRoot\n    v-slot=\"slotProps\"\n    data-slot=\"tooltip\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </TooltipRoot>\n</template>\n",
       "type": "registry:ui"
@@ -30,6 +25,11 @@
     {
       "path": "registry/new-york-v4/ui/tooltip/TooltipTrigger.vue",
       "content": "<script setup lang=\"ts\">\nimport type { TooltipTriggerProps } from \"reka-ui\"\nimport { TooltipTrigger } from \"reka-ui\"\n\nconst props = defineProps<TooltipTriggerProps>()\n</script>\n\n<template>\n  <TooltipTrigger\n    data-slot=\"tooltip-trigger\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </TooltipTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/tooltip/index.ts",
+      "content": "export { default as Tooltip } from \"./Tooltip.vue\"\nexport { default as TooltipContent } from \"./TooltipContent.vue\"\nexport { default as TooltipProvider } from \"./TooltipProvider.vue\"\nexport { default as TooltipTrigger } from \"./TooltipTrigger.vue\"\n",
       "type": "registry:ui"
     }
   ]

@@ -76,10 +76,11 @@ import { Button } from '@/components/ui/button'
 
 ## Installation
 
-The `<Toaster />` component is required to display toasts. Add it to your root layout.
+The `<Toaster />` component and its specific CSS are required to display toasts. Add them to your root layout.
 
 ```vue showLineNumbers
 <script setup lang="ts">
+import 'vue-sonner/style.css'
 import { Toaster } from '@/components/ui/sonner'
 </script>
 

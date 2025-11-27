@@ -53,7 +53,7 @@
     "clean": "node ./scripts/rimraf.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start:dev": "REGISTRY_URL=http://localhost:5173/r node dist/index.js",
+    "start:dev": "REGISTRY_URL=http://localhost:3000/r node dist/index.js",
     "start": "node dist/index.js",
     "release": "changeset version",
     "pub:beta": "pnpm build && pnpm publish --no-git-checks --access public --tag beta",
@@ -94,7 +94,7 @@
     "undici": "^7.16.0",
     "vue-metamorph": "^3.3.3",
     "zod": "catalog:",
-    "zod-to-json-schema": "^3.24.6"
+    "zod-to-json-schema": "^3.25.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
@@ -103,7 +103,7 @@
     "@types/semver": "^7.7.1",
     "@types/stringify-object": "^4.0.5",
     "msw": "^2.12.2",
-    "tsdown": "^0.15.12",
+    "tsdown": "^0.16.6",
     "type-fest": "^5.2.0",
     "typescript": "catalog:"
   }

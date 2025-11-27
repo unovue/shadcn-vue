@@ -14,7 +14,7 @@ catalog:
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  oxc-parser: ^0.97.0
+  oxc-parser: ^0.98.0
   pathe: ^2.0.3
   reka-ui: ^2.6.0
   tinyglobby: ^0.2.15

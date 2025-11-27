@@ -8,11 +8,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york-v4/ui/sheet/index.ts",
-      "content": "export { default as Sheet } from \"./Sheet.vue\"\nexport { default as SheetClose } from \"./SheetClose.vue\"\nexport { default as SheetContent } from \"./SheetContent.vue\"\nexport { default as SheetDescription } from \"./SheetDescription.vue\"\nexport { default as SheetFooter } from \"./SheetFooter.vue\"\nexport { default as SheetHeader } from \"./SheetHeader.vue\"\nexport { default as SheetTitle } from \"./SheetTitle.vue\"\nexport { default as SheetTrigger } from \"./SheetTrigger.vue\"\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "registry/new-york-v4/ui/sheet/Sheet.vue",
       "content": "<script setup lang=\"ts\">\nimport type { DialogRootEmits, DialogRootProps } from \"reka-ui\"\nimport { DialogRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<DialogRootProps>()\nconst emits = defineEmits<DialogRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DialogRoot\n    v-slot=\"slotProps\"\n    data-slot=\"sheet\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </DialogRoot>\n</template>\n",
       "type": "registry:ui"
@@ -55,6 +50,11 @@
     {
       "path": "registry/new-york-v4/ui/sheet/SheetTrigger.vue",
       "content": "<script setup lang=\"ts\">\nimport type { DialogTriggerProps } from \"reka-ui\"\nimport { DialogTrigger } from \"reka-ui\"\n\nconst props = defineProps<DialogTriggerProps>()\n</script>\n\n<template>\n  <DialogTrigger\n    data-slot=\"sheet-trigger\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </DialogTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/sheet/index.ts",
+      "content": "export { default as Sheet } from \"./Sheet.vue\"\nexport { default as SheetClose } from \"./SheetClose.vue\"\nexport { default as SheetContent } from \"./SheetContent.vue\"\nexport { default as SheetDescription } from \"./SheetDescription.vue\"\nexport { default as SheetFooter } from \"./SheetFooter.vue\"\nexport { default as SheetHeader } from \"./SheetHeader.vue\"\nexport { default as SheetTitle } from \"./SheetTitle.vue\"\nexport { default as SheetTrigger } from \"./SheetTrigger.vue\"\n",
       "type": "registry:ui"
     }
   ]
