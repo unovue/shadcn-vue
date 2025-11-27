@@ -305,7 +305,7 @@ export function resolveFilePath(
   config: Config,
   options: {
     // isSrcDir?: boolean
-    commonRoot?: string
+    commonRoot: string
     framework?: ProjectInfo['framework']['name']
     path?: string
     fileIndex?: number
@@ -357,7 +357,7 @@ export function resolveFilePath(
 
   const targetDir = resolveFileTargetDirectory(file, config)
 
-  const relativePath = resolveNestedFilePath(file.path, targetDir!)
+  const relativePath = resolveNestedFilePath(file.path, options.commonRoot)
   return path.join(targetDir!, relativePath)
 }
 
@@ -418,29 +418,18 @@ export function findCommonRoot(paths: string[], needle: string): string {
 
 export function resolveNestedFilePath(
   filePath: string,
-  targetDir: string,
+  commonRoot: string,
 ): string {
   // Normalize paths by removing leading/trailing slashes
   const normalizedFilePath = filePath.replace(/^\/|\/$/g, '')
-  const normalizedTargetDir = targetDir.replace(/^\/|\/$/g, '')
+  const normalizedCommonRoot = commonRoot.replace(/^\/|\/$/g, '')
 
-  // Split paths into segments
-  const fileSegments = normalizedFilePath.split('/')
-  const targetSegments = normalizedTargetDir.split('/')
+  const lastCommonRootSegment = normalizedCommonRoot.split('/').pop()
 
-  // Find the last matching segment from targetDir in filePath
-  const lastTargetSegment = targetSegments[targetSegments.length - 1]
-  const commonDirIndex = fileSegments.findIndex(
-    segment => segment === lastTargetSegment,
-  )
-
-  if (commonDirIndex === -1) {
-    // Return just the filename if no common directory is found
-    return fileSegments[fileSegments.length - 1]
-  }
-
-  // Return everything after the common directory
-  return fileSegments.slice(commonDirIndex + 1).join('/')
+  // normalizedFilePath: registry/new-york-v4/ui/button/Button.vue
+  // normalizedCommonRoot: registry/new-york-v4/ui/button
+  // return button/Button.vue
+  return lastCommonRootSegment + normalizedFilePath.replace(normalizedCommonRoot, '')
 }
 
 export function resolvePageTarget(
