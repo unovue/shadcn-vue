@@ -6,4 +6,5 @@ export default defineConfig({
   sourcemap: true,
   shims: true,
   nodeProtocol: 'strip',
+  fixedExtension: false,
 })

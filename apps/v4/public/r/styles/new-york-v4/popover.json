@@ -8,11 +8,6 @@
   ],
   "files": [
     {
-      "path": "registry/new-york-v4/ui/popover/index.ts",
-      "content": "export { default as Popover } from \"./Popover.vue\"\nexport { default as PopoverAnchor } from \"./PopoverAnchor.vue\"\nexport { default as PopoverContent } from \"./PopoverContent.vue\"\nexport { default as PopoverTrigger } from \"./PopoverTrigger.vue\"\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "registry/new-york-v4/ui/popover/Popover.vue",
       "content": "<script setup lang=\"ts\">\nimport type { PopoverRootEmits, PopoverRootProps } from \"reka-ui\"\nimport { PopoverRoot, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<PopoverRootProps>()\nconst emits = defineEmits<PopoverRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <PopoverRoot\n    v-slot=\"slotProps\"\n    data-slot=\"popover\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </PopoverRoot>\n</template>\n",
       "type": "registry:ui"
@@ -30,6 +25,11 @@
     {
       "path": "registry/new-york-v4/ui/popover/PopoverTrigger.vue",
       "content": "<script setup lang=\"ts\">\nimport type { PopoverTriggerProps } from \"reka-ui\"\nimport { PopoverTrigger } from \"reka-ui\"\n\nconst props = defineProps<PopoverTriggerProps>()\n</script>\n\n<template>\n  <PopoverTrigger\n    data-slot=\"popover-trigger\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </PopoverTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/popover/index.ts",
+      "content": "export { default as Popover } from \"./Popover.vue\"\nexport { default as PopoverAnchor } from \"./PopoverAnchor.vue\"\nexport { default as PopoverContent } from \"./PopoverContent.vue\"\nexport { default as PopoverTrigger } from \"./PopoverTrigger.vue\"\n",
       "type": "registry:ui"
     }
   ]

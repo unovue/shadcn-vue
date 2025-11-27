@@ -33,6 +33,7 @@ it.skip('init config-full', async () => {
       'lucide-vue-next',
       '@radix-icons/vue',
       '@tabler/icons-vue',
+      '@phosphor-icons/vue',
     ],
     registryDependencies: [],
     tailwind: {
@@ -102,6 +103,7 @@ it.skip('init config-full', async () => {
       'reka-ui',
       '@radix-icons/vue',
       '@tabler/icons-vue',
+      '@phosphor-icons/vue',
     ],
     {
       cwd: targetDir,

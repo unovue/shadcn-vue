@@ -26,6 +26,19 @@ import { Primitive } from "reka-ui";
 "
 `;
 
+exports[`transformIcons > transforms phosphor icons 1`] = `
+"<script setup>
+import { PhCheck } from '@phosphor-icons/vue';
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <PhCheck />
+  <Primitive />
+</template>
+"
+`;
+
 exports[`transformIcons > transforms radix icons 1`] = `
 "<script setup>
 import { CheckIcon } from '@radix-icons/vue';
