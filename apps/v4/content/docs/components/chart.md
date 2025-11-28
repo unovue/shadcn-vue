@@ -120,35 +120,54 @@ npx shadcn-vue@latest add chart
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import type { ChartConfig } from '@/components/ui/chart'
-import { VisGroupedBar, VisXYContainer } from '@unovis/vue'
+import type { ChartConfig } from "@/components/ui/chart"
+import { VisGroupedBar, VisXYContainer } from "@unovis/vue"
 import {
   ChartContainer,
   ChartCrosshair,
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
-} from '@/components/ui/chart'
+} from "@/components/ui/chart"
+
+const chartData = [
+  { date: new Date("2024-01-01"), desktop: 186, mobile: 80 },
+  { date: new Date("2024-02-01"), desktop: 305, mobile: 200 },
+  { date: new Date("2024-03-01"), desktop: 237, mobile: 120 },
+];
+type Data = (typeof chartData)[number]
 
 const chartConfig = {
   desktop: {
-    label: 'Desktop',
-    color: 'var(--chart-1)',
+    label: "Desktop",
+    color: "#2563eb",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "#60a5fa",
   },
 } satisfies ChartConfig
 </script>
-
 <template>
-  <ChartContainer :config="chartConfig" class="min-h-[200px] w-full">
+  <ChartContainer :config="chartConfig" class="min-h-[400px] w-[600px]">
     <VisXYContainer :data="chartData">
       <VisGroupedBar
-        :x="(d) => d.month"
-        :y="(d) => d.desktop"
-        :color="chartConfig.desktop.color"
+        :x="(d: Data) => d.date"
+        :y="[(d: Data) => d.desktop, (d: Data) => d.mobile]"
+        :color="[chartConfig.desktop.color, chartConfig.mobile.color]"
       />
       <ChartTooltip />
       <ChartCrosshair
-        :template="componentToString(chartConfig, ChartTooltipContent)"
+        :template="
+          componentToString(chartConfig, ChartTooltipContent, {
+            labelFormatter(d) {
+              return new Date(d).toLocaleDateString('en-US', {
+                month: 'long',
+              });
+            },
+          })
+        "
+        :color="[chartConfig.desktop.color, chartConfig.mobile.color]"
       />
     </VisXYContainer>
   </ChartContainer>
@@ -169,12 +188,12 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
 
   ```ts showLineNumbers
   const chartData = [
-    { month: 'January', desktop: 186, mobile: 80 },
-    { month: 'February', desktop: 305, mobile: 200 },
-    { month: 'March', desktop: 237, mobile: 120 },
-    { month: 'April', desktop: 73, mobile: 190 },
-    { month: 'May', desktop: 209, mobile: 130 },
-    { month: 'June', desktop: 214, mobile: 140 },
+    { date: new Date('2024-01-01'), desktop: 186, mobile: 80 },
+    { date: new Date('2024-02-01'), desktop: 305, mobile: 200 },
+    { date: new Date('2024-03-01'), desktop: 237, mobile: 120 },
+    { date: new Date('2024-04-01'), desktop: 73, mobile: 190 },
+    { date: new Date('2024-05-01'), desktop: 209, mobile: 130 },
+    { date: new Date('2024-06-01'), desktop: 214, mobile: 140 },
   ]
   ```
 
@@ -190,11 +209,11 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
   const chartConfig = {
     desktop: {
       label: 'Desktop',
-      color: 'var(--chart-1)',
+      color: '#2563eb',
     },
     mobile: {
       label: 'Mobile',
-      color: 'var(--chart-2)',
+      color: '#60a5fa',
     },
   } satisfies ChartConfig
   ```
