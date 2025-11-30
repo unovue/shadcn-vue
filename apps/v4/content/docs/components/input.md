@@ -61,3 +61,52 @@ import { Input } from '@/components/ui/input'
   <Input />
 </template>
 ```
+
+## Examples
+
+### Default
+
+::component-preview
+---
+name: InputDemo
+class: '[&_input]:max-w-xs'
+description: A default input component.
+---
+::
+
+### File
+
+::component-preview
+---
+name: InputFile
+description: An input with a file upload field.
+---
+::
+
+### Disabled
+
+::component-preview
+---
+name: InputDisabled
+class: '[&_input]:max-w-xs'
+description: A disabled input component.
+---
+::
+
+### With Label
+
+::component-preview
+---
+name: InputWithLabel
+description: An input with a label.
+---
+::
+
+### With Button
+
+::component-preview
+---
+name: InputWithButton
+description: An input with a button.
+---
+::
