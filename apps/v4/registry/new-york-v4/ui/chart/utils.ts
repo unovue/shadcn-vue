@@ -1,6 +1,6 @@
 import type { ChartConfig } from "."
 import { isClient } from "@vueuse/core"
-import { h, render } from "vue"
+import { h, render, useId } from "vue"
 
 // Simple cache using a Map to store serialized object keys
 const cache = new Map<string, string>()
