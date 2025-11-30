@@ -120,15 +120,15 @@ npx shadcn-vue@latest add chart
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import type { ChartConfig } from "@/components/ui/chart"
-import { VisGroupedBar, VisXYContainer } from "@unovis/vue"
+import type { ChartConfig } from '@/components/ui/chart'
+import { VisGroupedBar, VisXYContainer } from '@unovis/vue'
 import {
   ChartContainer,
   ChartCrosshair,
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
-} from "@/components/ui/chart"
+} from '@/components/ui/chart'
 
 const chartData = [
   { date: new Date("2024-01-01"), desktop: 186, mobile: 80 },
@@ -140,16 +140,16 @@ type Data = (typeof chartData)[number]
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#2563eb",
+    color: "var(--chart-1)",
   },
   mobile: {
     label: "Mobile",
-    color: "#60a5fa",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 </script>
 <template>
-  <ChartContainer :config="chartConfig" class="min-h-[400px] w-[600px]">
+  <ChartContainer :config="chartConfig" class="min-h-[400px] w-full">
     <VisXYContainer :data="chartData">
       <VisGroupedBar
         :x="(d: Data) => d.date"
@@ -188,12 +188,12 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
 
   ```ts showLineNumbers
   const chartData = [
-    { date: new Date('2024-01-01'), desktop: 186, mobile: 80 },
-    { date: new Date('2024-02-01'), desktop: 305, mobile: 200 },
-    { date: new Date('2024-03-01'), desktop: 237, mobile: 120 },
-    { date: new Date('2024-04-01'), desktop: 73, mobile: 190 },
-    { date: new Date('2024-05-01'), desktop: 209, mobile: 130 },
-    { date: new Date('2024-06-01'), desktop: 214, mobile: 140 },
+    { month: 'January', desktop: 186, mobile: 80 },
+    { month: 'February', desktop: 305, mobile: 200 },
+    { month: 'March', desktop: 237, mobile: 120 },
+    { month: 'April', desktop: 73, mobile: 190 },
+    { month: 'May', desktop: 209, mobile: 130 },
+    { month: 'June', desktop: 214, mobile: 140 },
   ]
   ```
 
@@ -209,11 +209,11 @@ Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip
   const chartConfig = {
     desktop: {
       label: 'Desktop',
-      color: '#2563eb',
+      color: 'var(--chart-1)',
     },
     mobile: {
       label: 'Mobile',
-      color: '#60a5fa',
+      color: 'var(--chart-2)',
     },
   } satisfies ChartConfig
   ```
