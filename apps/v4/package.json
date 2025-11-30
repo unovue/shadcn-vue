@@ -20,11 +20,11 @@
     "@nuxt/image": "2.0.0",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.17",
-    "@tanstack/vue-form": "^1.25.0",
+    "@tanstack/vue-form": "^1.26.0",
     "@tanstack/vue-table": "^8.21.3",
     "@unhead/vue": "^2.0.19",
-    "@unovis/ts": "^1.6.2",
-    "@unovis/vue": "^1.6.2",
+    "@unovis/ts": "catalog:",
+    "@unovis/vue": "catalog:",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
     "chrono-node": "^2.9.0",
@@ -42,7 +42,7 @@
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17",
     "tw-animate-css": "^1.4.0",
-    "unstorage": "^1.17.2",
+    "unstorage": "^1.17.3",
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:",
@@ -55,10 +55,10 @@
     "nuxt-shiki": "^0.3.1",
     "oxc-parser": "catalog:",
     "pathe": "catalog:",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.3",
     "rimraf": "^6.1.2",
-    "shiki": "^3.15.0",
+    "shiki": "^3.17.0",
     "vue-tsc": "catalog:",
-    "wrangler": "^4.49.1"
+    "wrangler": "^4.51.0"
   }
 }

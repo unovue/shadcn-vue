@@ -18,7 +18,7 @@ description: A calendar component.
 
 The `<Calendar />` component is built on top of the [Reka UI Calendar](https://www.reka-ui.com/docs/components/calendar) component, which uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to handle dates.
 
-If you're looking for a range calendar, check out the Range Calendar component.
+If you're looking for a range calendar, check out the [Range Calendar](./range-calendar.md) component.
 
 ## Installation
 
@@ -198,14 +198,6 @@ name: CalendarSystems
 title: Calendar systems
 description: A calendar with multiple calendar systems
 class: '**:[.preview]:h-[560px] mt-8'
----
-::
-
-### Range Calendar
-
-::component-preview
----
-name: CalendarRangeDemo
 ---
 ::
 
