@@ -44,6 +44,7 @@ export { default as CollapsibleDemo } from './CollapsibleDemo.vue'
 export { default as ComboboxDemo } from './ComboboxDemo.vue'
 // Dialog demos
 export { default as DialogDemo } from './DialogDemo.vue'
+export { default as DialogResponsive } from './DialogResponsive.vue'
 
 // Hover Card demos
 export { default as HoverCardDemo } from './HoverCardDemo.vue'

@@ -111,6 +111,16 @@ name: DialogForm
 ---
 ::
 
+### Responsive Modal (Dialog & Drawer)
+
+Use a `Drawer` component for smaller viewport sizes and a `Dialog` component otherwise. This can be further made reusable by using slots for various parts of the modal.
+
+::component-preview
+---
+name: DialogResponsive
+---
+::
+
 ## Notes
 
 To use the `Dialog` component from within a `Context Menu` or `Dropdown Menu`, you must encase the `Context Menu` or
