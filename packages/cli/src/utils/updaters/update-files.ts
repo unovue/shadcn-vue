@@ -357,7 +357,7 @@ export function resolveFilePath(
 
   const targetDir = resolveFileTargetDirectory(file, config)
 
-  const relativePath = resolveNestedFilePath(file.path, options.commonRoot)
+  const relativePath = resolveNestedFilePath(file.path, options.commonRoot, config)
   return path.join(targetDir!, relativePath)
 }
 
@@ -419,11 +419,28 @@ export function findCommonRoot(paths: string[], needle: string): string {
 export function resolveNestedFilePath(
   filePath: string,
   commonRoot: string,
+  config: Config,
 ): string {
   // Normalize paths by removing leading/trailing slashes
   const normalizedFilePath = filePath.replace(/^\/|\/$/g, '')
   const normalizedCommonRoot = commonRoot.replace(/^\/|\/$/g, '')
 
+  // Get component alias without @ prefix and normalize
+  const componentAlias = config.aliases.components.replace(/^@\//, '').replace(/^\/|\/$/g, '')
+
+  // Check if the common root contains the component alias
+  if (normalizedCommonRoot.includes(componentAlias)) {
+    // Find where the component alias ends in the file path
+    const aliasEndIndex = normalizedFilePath.indexOf(componentAlias) + componentAlias.length
+
+    // Return everything after the alias (skip the leading slash if present)
+    // Example: "components/ai-elements/artifact/Artifact.vue" -> "ai-elements/artifact/Artifact.vue"
+    // Example: "src/ui/design-system/button/Button.vue" -> "design-system/button/Button.vue"
+    return normalizedFilePath.substring(aliasEndIndex).replace(/^\//, '')
+  }
+
+  // Fallback to original logic for non-component paths
+  // Example: "registry/new-york-v4/ui/button/Button.vue" -> "button/Button.vue"
   const lastCommonRootSegment = normalizedCommonRoot.split('/').pop()
 
   // normalizedFilePath: registry/new-york-v4/ui/button/Button.vue
