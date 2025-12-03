@@ -10,15 +10,15 @@ catalog:
   '@unovis/ts': ^1.6.2
   '@unovis/vue': ^1.6.2
   '@vee-validate/zod': ^4.15.1
-  '@vueuse/core': ^13.9.0
+  '@vueuse/core': ^14.1.0
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  oxc-parser: ^0.99.0
+  oxc-parser: ^0.101.0
   pathe: ^2.0.3
-  reka-ui: ^2.6.0
+  reka-ui: ^2.6.1
   tinyglobby: ^0.2.15
-  tsx: ^4.20.6
+  tsx: ^4.21.0
   typescript: ^5.9.3
   vaul-vue: ^0.4.1
   vee-validate: ^4.15.1

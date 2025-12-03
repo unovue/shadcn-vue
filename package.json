@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "private": true,
   "packageManager": "pnpm@10.24.0",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "taze": "taze -frI"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.2.0",
+    "@antfu/eslint-config": "^6.3.0",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@vitest/ui": "^3.2.4",

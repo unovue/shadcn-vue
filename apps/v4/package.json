@@ -20,7 +20,7 @@
     "@nuxt/image": "2.0.0",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.17",
-    "@tanstack/vue-form": "^1.26.0",
+    "@tanstack/vue-form": "^1.27.0",
     "@tanstack/vue-table": "^8.21.3",
     "@unhead/vue": "^2.0.19",
     "@unovis/ts": "catalog:",
@@ -34,7 +34,7 @@
     "dnd-kit-vue": "^0.0.2",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
-    "lucide-vue-next": "^0.553.0",
+    "lucide-vue-next": "^0.555.0",
     "nuxt": "^4.2.1",
     "nuxt-og-image": "5.1.12",
     "reka-ui": "catalog:",
@@ -46,7 +46,7 @@
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:",
-    "vue-input-otp": "^0.3.1",
+    "vue-input-otp": "^0.3.2",
     "vue-sonner": "catalog:",
     "zod": "catalog:"
   },
@@ -55,9 +55,9 @@
     "nuxt-shiki": "^0.3.1",
     "oxc-parser": "catalog:",
     "pathe": "catalog:",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "rimraf": "^6.1.2",
-    "shiki": "^3.17.0",
+    "shiki": "^3.18.0",
     "vue-tsc": "catalog:",
     "wrangler": "^4.51.0"
   }
