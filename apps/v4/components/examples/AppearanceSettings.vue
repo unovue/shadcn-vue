@@ -32,6 +32,7 @@ function handleGpuInputChange(e: InputEvent) {
   if (!Number.isNaN(value) && value >= 1 && value <= 99) {
     gpuCount.value = (value)
   }
+  target.value = `${gpuCount.value}`
 }
 </script>
 
