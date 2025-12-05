@@ -18,6 +18,13 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
       if (!config.tailwind?.prefix)
         return transformCount
 
+      const addPrefix = (input: string) => {
+        const result = applyPrefix(input, config.tailwind.prefix, tailwindVersion)
+        transformCount++
+
+        return result
+      }
+
       // Helper function to check if a node is a variant property
       function isVariantProperty(node: any): boolean {
         if (node.type === 'Property') {
@@ -41,25 +48,21 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
           && expression.callee.name === 'cn') {
           expression.arguments.forEach((arg: any) => {
             if (arg.type === 'Literal' && typeof arg.value === 'string') {
-              arg.value = applyPrefix(arg.value, config.tailwind.prefix, tailwindVersion)
-              transformCount++
+              arg.value = addPrefix(arg.value)
             }
             else if (arg.type === 'ConditionalExpression') {
               // Only transform consequent and alternate, not the test condition
               if (arg.consequent?.type === 'Literal' && typeof arg.consequent.value === 'string') {
-                arg.consequent.value = applyPrefix(arg.consequent.value, config.tailwind.prefix, tailwindVersion)
-                transformCount++
+                arg.consequent.value = addPrefix(arg.consequent.value)
               }
               if (arg.alternate?.type === 'Literal' && typeof arg.alternate.value === 'string') {
-                arg.alternate.value = applyPrefix(arg.alternate.value, config.tailwind.prefix, tailwindVersion)
-                transformCount++
+                arg.alternate.value = addPrefix(arg.alternate.value)
               }
             }
             else if (arg.type === 'BinaryExpression') {
               // Only transform the right side if it's a string literal
               if (arg.right?.type === 'Literal' && typeof arg.right.value === 'string') {
-                arg.right.value = applyPrefix(arg.right.value, config.tailwind.prefix, tailwindVersion)
-                transformCount++
+                arg.right.value = addPrefix(arg.right.value)
               }
             }
             else if (arg.type === 'ObjectExpression') {
@@ -68,8 +71,7 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                 if (prop.type === 'Property' && prop.value?.type === 'Literal' && typeof prop.value.value === 'string') {
                   // Only transform if it's NOT a variant property
                   if (!isVariantProperty(prop)) {
-                    prop.value.value = applyPrefix(prop.value.value, config.tailwind.prefix, tailwindVersion)
-                    transformCount++
+                    prop.value.value = addPrefix(prop.value.value)
                   }
                 }
               })
@@ -91,8 +93,7 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                   }
 
                   if (shouldTransform) {
-                    literal.value = applyPrefix(literal.value, config.tailwind.prefix, tailwindVersion)
-                    transformCount++
+                    literal.value = addPrefix(literal.value)
                   }
                 }
               })
@@ -124,8 +125,7 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
 
               // cva(base, ...)
               if (args[0]?.type === 'Literal' && typeof args[0].value === 'string') {
-                args[0].value = applyPrefix(args[0].value, config.tailwind.prefix, tailwindVersion)
-                transformCount++
+                args[0].value = addPrefix(args[0].value)
               }
 
               // cva(..., { variants: { ... } })
@@ -141,8 +141,15 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                   const allProperties = astHelpers.findAll(variantsProperty.value, { type: 'Property' })
                   allProperties.forEach((prop: any) => {
                     if (prop.value?.type === 'Literal' && typeof prop.value.value === 'string') {
-                      prop.value.value = applyPrefix(prop.value.value, config.tailwind.prefix, tailwindVersion)
-                      transformCount++
+                      prop.value.value = addPrefix(prop.value.value)
+                    }
+                    // Handle ArrayExpression values (e.g., vertical: ["flex-col", "w-full"])
+                    else if (prop.value?.type === 'ArrayExpression') {
+                      prop.value.elements.forEach((element: any) => {
+                        if (element?.type === 'Literal' && typeof element.value === 'string') {
+                          element.value = addPrefix(element.value)
+                        }
+                      })
                     }
                   })
                 }
@@ -153,25 +160,21 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
             if (path.node.callee.type === 'Identifier' && path.node.callee.name === 'cn') {
               path.node.arguments.forEach((arg) => {
                 if (arg.type === 'Literal' && typeof arg.value === 'string') {
-                  arg.value = applyPrefix(arg.value, config.tailwind.prefix, tailwindVersion)
-                  transformCount++
+                  arg.value = addPrefix(arg.value)
                 }
                 else if (arg.type === 'ConditionalExpression') {
                   // Only transform consequent and alternate, not the test condition
                   if (arg.consequent?.type === 'Literal' && typeof arg.consequent.value === 'string') {
-                    arg.consequent.value = applyPrefix(arg.consequent.value, config.tailwind.prefix, tailwindVersion)
-                    transformCount++
+                    arg.consequent.value = addPrefix(arg.consequent.value)
                   }
                   if (arg.alternate?.type === 'Literal' && typeof arg.alternate.value === 'string') {
-                    arg.alternate.value = applyPrefix(arg.alternate.value, config.tailwind.prefix, tailwindVersion)
-                    transformCount++
+                    arg.alternate.value = addPrefix(arg.alternate.value)
                   }
                 }
                 else if (arg.type === 'BinaryExpression') {
                   // Only transform the right side if it's a string literal
                   if (arg.right?.type === 'Literal' && typeof arg.right.value === 'string') {
-                    arg.right.value = applyPrefix(arg.right.value, config.tailwind.prefix, tailwindVersion)
-                    transformCount++
+                    arg.right.value = addPrefix(arg.right.value)
                   }
                 }
                 else if (arg.type === 'ObjectExpression') {
@@ -180,8 +183,7 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                     if (prop.type === 'Property' && prop.value?.type === 'Literal' && typeof prop.value.value === 'string') {
                       // Only transform if it's NOT a variant property
                       if (!isVariantProperty(prop)) {
-                        prop.value.value = applyPrefix(prop.value.value, config.tailwind.prefix, tailwindVersion)
-                        transformCount++
+                        prop.value.value = addPrefix(prop.value.value)
                       }
                     }
                   })
@@ -203,8 +205,7 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                       }
 
                       if (shouldTransform) {
-                        literal.value = applyPrefix(literal.value, config.tailwind.prefix, tailwindVersion)
-                        transformCount++
+                        literal.value = addPrefix(literal.value)
                       }
                     }
                   })
@@ -238,9 +239,8 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                 && node.parent.key?.type === 'VIdentifier'
                 && ['class', 'className', 'classes', 'classNames'].includes(node.parent.key.name)) {
                 const cleanValue = node.value.replace(/"/g, '')
-                const prefixedValue = applyPrefix(cleanValue, config.tailwind.prefix, tailwindVersion)
+                const prefixedValue = addPrefix(cleanValue)
                 node.value = `"${prefixedValue}"`
-                transformCount++
               }
             }
           },
