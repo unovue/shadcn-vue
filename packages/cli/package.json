@@ -103,7 +103,7 @@
     "@types/semver": "^7.7.1",
     "@types/stringify-object": "^4.0.5",
     "msw": "^2.12.3",
-    "tsdown": "^0.16.8",
+    "tsdown": "^0.17.0",
     "type-fest": "^5.3.0",
     "typescript": "catalog:"
   }
