@@ -425,21 +425,26 @@ export function resolveNestedFilePath(
   const normalizedFilePath = filePath.replace(/^\/|\/$/g, '')
   const normalizedCommonRoot = commonRoot.replace(/^\/|\/$/g, '')
 
-  // Get component alias without @ prefix and normalize
-  const componentAlias = config.aliases.components.replace(/^@\//, '').replace(/^\/|\/$/g, '')
+  // Get all aliases without @ prefix and normalize
+  const aliases = Object.values(config.aliases)
+    .map(alias => alias.replace(/^@\//, '').replace(/^\/|\/$/g, ''))
+    .sort((a, b) => b.length - a.length) // Sort by length descending to match most specific first
 
-  // Check if the common root contains the component alias
-  if (normalizedCommonRoot.includes(componentAlias)) {
-    // Find where the component alias ends in the file path
-    const aliasEndIndex = normalizedFilePath.indexOf(componentAlias) + componentAlias.length
+  // Check if the common root contains any of the aliases
+  for (const alias of aliases) {
+    if (normalizedCommonRoot.includes(alias)) {
+      // Find where the alias ends in the file path
+      const aliasEndIndex = normalizedFilePath.indexOf(alias) + alias.length
 
-    // Return everything after the alias (skip the leading slash if present)
-    // Example: "components/ai-elements/artifact/Artifact.vue" -> "ai-elements/artifact/Artifact.vue"
-    // Example: "src/ui/design-system/button/Button.vue" -> "design-system/button/Button.vue"
-    return normalizedFilePath.substring(aliasEndIndex).replace(/^\//, '')
+      // Return everything after the alias (skip the leading slash if present)
+      // Example: "components/ai-elements/artifact/Artifact.vue" -> "ai-elements/artifact/Artifact.vue"
+      // Example: "lib/utils/cn.ts" -> "utils/cn.ts"
+      // Example: "composables/useCounter.ts" -> "useCounter.ts"
+      return normalizedFilePath.substring(aliasEndIndex).replace(/^\//, '')
+    }
   }
 
-  // Fallback to original logic for non-component paths
+  // Fallback to original logic for non-aliased paths
   // Example: "registry/new-york-v4/ui/button/Button.vue" -> "button/Button.vue"
   const lastCommonRootSegment = normalizedCommonRoot.split('/').pop()
 
