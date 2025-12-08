@@ -1,8 +1,25 @@
+catalogMode: prefer
+cleanupUnusedCatalogs: true
+
+shellEmulator: true
+trustPolicy: no-downgrade
+
 packages:
   - apps/*
   - packages/*
 
-shellEmulator: true
+overrides:
+  deep-equal: npm:@nolyfill/deep-equal@^1.0.44
+  hasown: npm:@nolyfill/hasown@^1.0.44
+  is-core-module: npm:@nolyfill/is-core-module@^1.0.39
+  is-generator-function: npm:@nolyfill/is-generator-function@^1.0.44
+  isarray: npm:@nolyfill/isarray@^1.0.44
+  safe-buffer: npm:@nolyfill/safe-buffer@^1.0.44
+  safer-buffer: npm:@nolyfill/safer-buffer@^1.0.44
+  side-channel: npm:@nolyfill/side-channel@^1.0.44
+  string.prototype.codepointat: npm:@nolyfill/string.prototype.codepointat@^1.0.44
+  typed-array-buffer: npm:@nolyfill/typed-array-buffer@^1.0.44
+  typedarray: npm:@nolyfill/typedarray@^1.0.44
 
 catalog:
   '@internationalized/date': ^3.10.0
@@ -10,20 +27,30 @@ catalog:
   '@unovis/ts': ^1.6.2
   '@unovis/vue': ^1.6.2
   '@vee-validate/zod': ^4.15.1
-  '@vueuse/core': ^13.9.0
+  '@vueuse/core': ^14.1.0
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  oxc-parser: ^0.98.0
+  oxc-parser: ^0.101.0
   pathe: ^2.0.3
-  reka-ui: ^2.6.0
+  reka-ui: ^2.6.1
   tinyglobby: ^0.2.15
-  tsx: ^4.20.6
+  tsx: ^4.21.0
   typescript: ^5.9.3
   vaul-vue: ^0.4.1
   vee-validate: ^4.15.1
-  vue: ^3.5.24
-  vue-component-meta: ^3.1.4
+  vue: ^3.5.25
   vue-sonner: ^2.0.9
-  vue-tsc: ^3.1.4
+  vue-tsc: ^3.1.5
   zod: ^3.25.76
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - maplibre-gl
+  - msw
+  - sharp
+  - simple-git-hooks
+  - unrs-resolver
+  - vue-demi
+  - workerd

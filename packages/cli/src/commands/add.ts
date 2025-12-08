@@ -1,4 +1,5 @@
 /* eslint-disable prefer-const */
+import type { registryItemTypeSchema } from '@/src/registry/schema'
 import { Command } from 'commander'
 import path from 'pathe'
 import prompts from 'prompts'
@@ -89,11 +90,12 @@ export const add = new Command()
         hasNewRegistries = newRegistries.length > 0
       }
 
+      let itemType: z.infer<typeof registryItemTypeSchema> | undefined
       if (components.length > 0) {
         const [registryItem] = await getRegistryItems([components[0]], {
           config: initialConfig,
         })
-        const itemType = registryItem?.type
+        itemType = registryItem?.type
 
         if (isUniversalRegistryItem(registryItem)) {
           await addComponents(components, initialConfig, options)
@@ -173,7 +175,7 @@ export const add = new Command()
           isNewProject: false,
           srcDir: options.srcDir,
           cssVariables: options.cssVariables,
-          baseStyle: true,
+          baseStyle: itemType !== 'registry:theme',
           components: options.components,
         })
       }
@@ -234,7 +236,10 @@ export const add = new Command()
       config = updatedConfig
 
       if (!initHasRun) {
-        await addComponents(options.components, config, options)
+        await addComponents(options.components, config, {
+          ...options,
+          baseStyle: itemType !== 'registry:theme',
+        })
       }
 
       // If we're adding a single component and it's from the v0 registry,

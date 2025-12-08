@@ -42,6 +42,7 @@ export default antfu(
   {
     // Without `files`, they are general rules for all files
     rules: {
+      'pnpm/json-enforce-catalog': 0,
       'symbol-description': 0,
       'no-console': 1,
       'no-tabs': 0,

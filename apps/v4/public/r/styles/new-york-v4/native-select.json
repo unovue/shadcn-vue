@@ -14,7 +14,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/native-select/NativeSelectOptGroup.vue",
-      "content": "<!-- @fallthroughAttributes true -->\n<!-- @strictTemplates true -->\n\n<script setup lang=\"ts\">\n</script>\n\n<template>\n  <optgroup data-slot=\"native-select-optgroup\">\n    <slot />\n  </optgroup>\n</template>\n",
+      "content": "<!-- @fallthroughAttributes true -->\n<!-- @strictTemplates true -->\n\n<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{ class?: HTMLAttributes[\"class\"] }>()\n</script>\n\n<template>\n  <optgroup data-slot=\"native-select-optgroup\" :class=\"cn('bg-popover text-popover-foreground', props.class)\">\n    <slot />\n  </optgroup>\n</template>\n",
       "type": "registry:ui"
     },
     {

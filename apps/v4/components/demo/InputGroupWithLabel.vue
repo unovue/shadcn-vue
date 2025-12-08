@@ -2,7 +2,7 @@
 import { InfoIcon } from 'lucide-vue-next'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/registry/new-york-v4/ui/input-group'
 import { Label } from '@/registry/new-york-v4/ui/label'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york-v4/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/registry/new-york-v4/ui/tooltip'
 </script>
 
 <template>
@@ -19,21 +19,23 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york-v4/
         <Label for="email-2" class="text-foreground">
           Email
         </Label>
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <InputGroupButton
-              variant="ghost"
-              aria-label="Help"
-              class="ml-auto rounded-full"
-              size="icon-xs"
-            >
-              <InfoIcon />
-            </InputGroupButton>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>We'll use this to send you notifications</p>
-          </TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <InputGroupButton
+                variant="ghost"
+                aria-label="Help"
+                class="ml-auto rounded-full"
+                size="icon-xs"
+              >
+                <InfoIcon />
+              </InputGroupButton>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>We'll use this to send you notifications</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </InputGroupAddon>
     </InputGroup>
   </div>

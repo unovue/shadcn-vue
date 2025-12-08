@@ -1,5 +1,6 @@
 import type { ChartConfig } from "."
 import { isClient } from "@vueuse/core"
+import { useId } from "reka-ui"
 import { h, render } from "vue"
 
 // Simple cache using a Map to store serialized object keys
