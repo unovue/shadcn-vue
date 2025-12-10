@@ -1,9 +1,9 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "private": true,
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.25.0",
   "license": "MIT",
   "repository": "unovue/shadcn-vue",
   "workspaces": [
@@ -32,7 +32,7 @@
     "taze": "taze --ignore-paths \"deprecated/**\" -frI"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.4.2",
+    "@antfu/eslint-config": "^6.6.1",
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
     "@vitest/ui": "^3.2.4",

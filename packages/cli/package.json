@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Add components to your apps.",
   "publishConfig": {
     "access": "public"
@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.1",
-    "@modelcontextprotocol/sdk": "^1.24.1",
+    "@modelcontextprotocol/sdk": "^1.24.3",
     "@unovue/detypes": "^0.8.5",
     "@vue/compiler-sfc": "^3.5",
     "c12": "^3.3.2",
@@ -102,9 +102,9 @@
     "@types/prompts": "^2.4.9",
     "@types/semver": "^7.7.1",
     "@types/stringify-object": "^4.0.5",
-    "msw": "^2.12.3",
-    "tsdown": "^0.17.0",
-    "type-fest": "^5.3.0",
+    "msw": "^2.12.4",
+    "tsdown": "^0.17.2",
+    "type-fest": "^5.3.1",
     "typescript": "catalog:"
   }
 }

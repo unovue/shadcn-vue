@@ -36,10 +36,12 @@ const Modal = computed(() => ({
   Footer: isDesktop.value ? DialogFooter : DrawerFooter,
   Close: isDesktop.value ? DialogClose : DrawerClose,
 }))
+
+const open = ref(false)
 </script>
 
 <template>
-  <component :is="Modal.Root">
+  <component :is="Modal.Root" v-model:open="open">
     <component :is="Modal.Trigger" as-child>
       <Button variant="outline">
         Open Dialog

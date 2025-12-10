@@ -20,7 +20,7 @@
     "@nuxt/image": "2.0.0",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.17",
-    "@tanstack/vue-form": "^1.27.1",
+    "@tanstack/vue-form": "^1.27.2",
     "@tanstack/vue-table": "^8.21.3",
     "@unhead/vue": "^2.0.19",
     "@unovis/ts": "catalog:",

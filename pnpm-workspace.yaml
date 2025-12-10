@@ -31,7 +31,7 @@ catalog:
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
-  oxc-parser: ^0.101.0
+  oxc-parser: ^0.102.0
   pathe: ^2.0.3
   reka-ui: ^2.6.1
   tinyglobby: ^0.2.15
@@ -41,7 +41,7 @@ catalog:
   vee-validate: ^4.15.1
   vue: ^3.5.25
   vue-sonner: ^2.0.9
-  vue-tsc: ^3.1.5
+  vue-tsc: ^3.1.8
   zod: ^3.25.76
 
 onlyBuiltDependencies:
