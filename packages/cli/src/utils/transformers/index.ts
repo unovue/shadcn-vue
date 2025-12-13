@@ -8,6 +8,7 @@ import { transformImport } from '@/src/utils/transformers/transform-import'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
 import { transformTwPrefix } from '@/src/utils/transformers/transform-tw-prefix'
 import { transformIcons } from './transform-icons'
+import { transformMenu } from './transform-menu'
 
 export interface TransformOpts {
   filename: string
@@ -27,5 +28,6 @@ export async function transform(opts: TransformOpts) {
     transformCssVars(opts),
     await transformTwPrefix(opts),
     transformIcons(opts, registryIcons),
+    transformMenu(opts),
   ]).code
 }

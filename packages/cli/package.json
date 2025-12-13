@@ -40,6 +40,17 @@
     "./mcp": {
       "types": "./dist/mcp/index.d.ts",
       "default": "./dist/mcp/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "default": "./dist/utils/index.js"
+    },
+    "./icons": {
+      "types": "./dist/icons/index.d.ts",
+      "default": "./dist/icons/index.js"
+    },
+    "./tailwind.css": {
+      "style": "./dist/tailwind.css"
     }
   },
   "bin": "./dist/index.js",
@@ -83,6 +94,7 @@
     "ora": "^9.0.0",
     "pathe": "catalog:",
     "postcss": "^8.5.6",
+    "postcss-selector-parser": "^7.1.1",
     "prompts": "^2.4.2",
     "reka-ui": "catalog:",
     "semver": "^7.7.3",
