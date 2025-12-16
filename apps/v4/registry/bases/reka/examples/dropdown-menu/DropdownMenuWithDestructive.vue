@@ -1,0 +1,64 @@
+<script setup lang="ts">
+import IconPlaceholder from "@/components/IconPlaceholder.vue"
+import { Example } from "@/registry/bases/reka/components/example"
+import { Button } from "@/registry/bases/reka/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/registry/bases/reka/ui/dropdown-menu"
+</script>
+
+<template>
+  <Example title="With Destructive Items">
+    <DropdownMenu>
+      <DropdownMenuTrigger :as-child="true">
+        <Button variant="outline" class="w-fit">
+          Actions
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <IconPlaceholder
+              lucide="PencilIcon"
+              tabler="IconPencil"
+              hugeicons="EditIcon"
+            />
+            Edit
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <IconPlaceholder
+              lucide="ShareIcon"
+              tabler="IconShare"
+              hugeicons="ShareIcon"
+            />
+            Share
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <IconPlaceholder
+              lucide="ArchiveIcon"
+              tabler="IconArchive"
+              hugeicons="Archive02Icon"
+            />
+            Archive
+          </DropdownMenuItem>
+          <DropdownMenuItem variant="destructive">
+            <IconPlaceholder
+              lucide="TrashIcon"
+              tabler="IconTrash"
+              hugeicons="DeleteIcon"
+            />
+            Delete
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </Example>
+</template>

@@ -1,0 +1,36 @@
+<script setup lang="ts">
+import IconPlaceholder from "@/components/IconPlaceholder.vue"
+import { Button } from "@/registry/bases/reka/ui/button"
+import { ButtonGroup } from "@/registry/bases/reka/ui/button-group"
+import { Example } from "~/registry/bases/reka/components/example"
+</script>
+
+<template>
+  <Example title="With Icons">
+    <div class="flex flex-col gap-4">
+      <ButtonGroup>
+        <Button variant="outline">
+          <IconPlaceholder
+            lucide="FlipHorizontalIcon"
+            tabler="IconFlipHorizontal"
+            hugeicons="FlipHorizontalIcon"
+          />
+        </Button>
+        <Button variant="outline">
+          <IconPlaceholder
+            lucide="FlipVerticalIcon"
+            tabler="IconFlipVertical"
+            hugeicons="FlipVerticalIcon"
+          />
+        </Button>
+        <Button variant="outline">
+          <IconPlaceholder
+            lucide="RotateCwIcon"
+            tabler="IconRotateClockwise2"
+            hugeicons="Rotate01Icon"
+          />
+        </Button>
+      </ButtonGroup>
+    </div>
+  </Example>
+</template>

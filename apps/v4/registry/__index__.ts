@@ -3245,4 +3245,4 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  }
+}

@@ -4231,6 +4231,22 @@
           "sidebar-ring": "oklch(0.551 0.027 264.364)"
         }
       }
+    },
+    {
+      "name": "alert-example",
+      "type": "registry:example",
+      "title": "Alert",
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/alert-example.vue",
+          "type": "registry:example"
+        }
+      ]
     }
   ]
 }

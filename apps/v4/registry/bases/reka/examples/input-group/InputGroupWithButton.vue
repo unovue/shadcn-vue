@@ -1,0 +1,56 @@
+<script setup lang="ts">
+import IconPlaceholder from "@/components/IconPlaceholder.vue"
+import { Button } from "@/registry/bases/reka/ui/button"
+import {
+  InputGroup,
+  InputGroupButton,
+  InputGroupInput,
+} from "@/registry/bases/reka/ui/input-group"
+import { Example } from "~/registry/bases/reka/components/example"
+</script>
+
+<template>
+  <Example title="Input Group with Button">
+    <div class="grid w-full max-w-sm items-center gap-4">
+      <InputGroup>
+        <InputGroupInput type="text" placeholder="Search..." />
+        <InputGroupButton>
+          <Button>
+            <IconPlaceholder
+              lucide="SearchIcon"
+              tabler="IconSearch"
+              hugeicons="Search01Icon"
+            />
+          </Button>
+        </InputGroupButton>
+      </InputGroup>
+
+      <InputGroup>
+        <InputGroupButton>
+          <Button variant="outline">
+            <IconPlaceholder
+              lucide="CopyIcon"
+              tabler="IconCopy"
+              hugeicons="Copy01Icon"
+            />
+          </Button>
+        </InputGroupButton>
+        <InputGroupInput type="text" placeholder="Copy this text" />
+      </InputGroup>
+
+      <InputGroup>
+        <InputGroupButton>
+          <Button variant="outline" size="sm">
+            -
+          </Button>
+        </InputGroupButton>
+        <InputGroupInput type="number" placeholder="0" />
+        <InputGroupButton>
+          <Button variant="outline" size="sm">
+            +
+          </Button>
+        </InputGroupButton>
+      </InputGroup>
+    </div>
+  </Example>
+</template>
