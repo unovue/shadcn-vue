@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useUrlSearchParams } from '@vueuse/core'
-
 import { ArrowLeftIcon } from 'lucide-vue-next'
 // import { siteConfig } from "@/lib/config"
 // import { absoluteUrl } from "@/lib/utils"
@@ -21,8 +19,7 @@ import { SidebarProvider } from '@/registry/new-york-v4/ui/sidebar'
 // import { WelcomeDialog } from "@/app/(create)/components/welcome-dialog"
 // import { getItemsForBase } from "@/app/(create)/lib/api"
 // import { designSystemSearchParamsCache } from "@/app/(create)/lib/search-params"
-
-const searchParams = useUrlSearchParams()
+const params = useDesignSystemSearchParams()
 
 definePageMeta({
   layout: 'blank',
@@ -87,7 +84,7 @@ definePageMeta({
         >
           <ItemExplorer />
           <!-- <Preview /> -->
-          <!-- <Customizer /> -->
+          <Customizer />
         </div>
       </SidebarProvider>
       <!-- <WelcomeDialog /> -->

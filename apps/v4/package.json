@@ -29,6 +29,7 @@
     "@unovis/vue": "catalog:",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
+    "@vueuse/router": "^14.1.0",
     "chrono-node": "^2.9.0",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",

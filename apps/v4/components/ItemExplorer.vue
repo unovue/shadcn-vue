@@ -40,7 +40,7 @@ const currentItem = computed(() => {
   return items.value.find(item => item.name === '') ?? null
 })
 
-console.log(groupedItems, items)
+// console.log(groupedItems, items)
 </script>
 
 <template>

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { IconLibraryName } from 'shadcn-vue/icons'
 import { SquareIcon } from 'lucide-vue-next'
 import { computed, defineAsyncComponent } from 'vue'
-import { useDesignSystemParam } from '@/app/(create)/hooks/use-design-system'
 
-interface Props extends Record<IconLibraryName, string> {
-}
+// manually type from  `import type { IconLibraryName } from 'shadcn-vue/icons'`
+const props = defineProps<{ lucide: string, tabler: string, hugeicons: string }>()
 
-const props = defineProps<Props>()
+const { iconLibrary } = useDesignSystemSearchParams()
 
 const IconLucide = defineAsyncComponent(() =>
   import('@/registry/icons/icon-lucide').then(mod => mod.IconLucide),
@@ -21,7 +19,6 @@ const IconHugeicons = defineAsyncComponent(() =>
   import('@/registry/icons/icon-hugeicons').then(mod => mod.IconHugeicons),
 )
 
-const iconLibrary = useDesignSystemParam('iconLibrary')
 const iconName = computed(() => props[iconLibrary.value])
 
 const svgProps = computed(() => {
