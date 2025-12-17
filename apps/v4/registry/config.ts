@@ -110,7 +110,7 @@ export const designSystemConfigSchema = z
 export type DesignSystemConfig = z.infer<typeof designSystemConfigSchema>
 
 export const DEFAULT_CONFIG: DesignSystemConfig = {
-  base: "radix",
+  base: "reka",
   style: "vega",
   baseColor: "neutral",
   theme: "neutral",
@@ -130,12 +130,12 @@ export type Preset = {
 } & DesignSystemConfig
 
 export const PRESETS: Preset[] = [
-  // Radix.
+  // Reka.
   {
-    name: "radix-vega",
-    title: "Vega (Radix)",
+    name: "reka-vega",
+    title: "Vega (Reka)",
     description: "Vega / Lucide / Geist Sans",
-    base: "radix",
+    base: "reka",
     style: "vega",
     baseColor: "neutral",
     theme: "neutral",
@@ -147,10 +147,10 @@ export const PRESETS: Preset[] = [
     radius: "default",
   },
   {
-    name: "radix-nova",
-    title: "Nova (Radix)",
+    name: "reka-nova",
+    title: "Nova (Reka)",
     description: "Nova / Hugeicons / Inter",
-    base: "radix",
+    base: "reka",
     style: "nova",
     baseColor: "neutral",
     theme: "neutral",
@@ -162,10 +162,10 @@ export const PRESETS: Preset[] = [
     radius: "default",
   },
   {
-    name: "radix-maia",
-    title: "Maia (Radix)",
+    name: "reka-maia",
+    title: "Maia (Reka)",
     description: "Maia / Hugeicons / Figtree",
-    base: "radix",
+    base: "reka",
     style: "maia",
     baseColor: "neutral",
     theme: "neutral",
@@ -177,10 +177,10 @@ export const PRESETS: Preset[] = [
     radius: "default",
   },
   {
-    name: "radix-lyra",
-    title: "Lyra (Radix)",
+    name: "reka-lyra",
+    title: "Lyra (Reka)",
     description: "Lyra / Tabler / JetBrains Mono",
-    base: "radix",
+    base: "reka",
     style: "lyra",
     baseColor: "neutral",
     theme: "neutral",
@@ -253,10 +253,10 @@ export const PRESETS: Preset[] = [
     radius: "default",
   },
   {
-    name: "radix-mira",
-    title: "Mira (Radix)",
+    name: "reka-mira",
+    title: "Mira (Reka)",
     description: "Mira / Hugeicons / Inter",
-    base: "radix",
+    base: "reka",
     style: "mira",
     baseColor: "neutral",
     theme: "neutral",

@@ -14,6 +14,8 @@ import { HugeiconsIcon } from '@hugeicons/vue'
 // import { StylePicker } from '@/app/(create)/components/style-picker'
 // import { ThemePicker } from '@/app/(create)/components/theme-picker'
 // import { FONTS } from '@/app/(create)/lib/fonts'
+
+import { FONTS } from '@/lib/fonts'
 import { getThemesForBaseColor, PRESETS, STYLES } from '@/registry/config'
 import { FieldGroup } from '@/registry/new-york-v4/ui/field'
 
@@ -35,7 +37,7 @@ const anchorRef = ref<HTMLDivElement | null>(null)
       />
       <div class="relative flex flex-col gap-1 rounded-lg text-[13px]/snug">
         <div class="flex items-center gap-1 font-medium text-balance">
-          Build your own shadcn/vue
+          Build your own theme
         </div>
         <div class="hidden md:flex">
           When you're done, click Create Project to start a new project.
@@ -51,19 +53,29 @@ const anchorRef = ref<HTMLDivElement | null>(null)
         />
         <!-- <BasePicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" /> -->
         <StylePicker
-          :styles="STYLES"
+          :styles="STYLES as any"
           :is-mobile="isMobile"
           :anchor-ref="anchorRef"
         />
-        <!-- <BaseColorPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
-        <ThemePicker
-          themes="{availableThemes}"
-          is-mobile="{isMobile}"
-          anchor-ref="{anchorRef}"
+        <BaseColorPicker
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
         />
-        <IconLibraryPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
-        <FontPicker fonts="{FONTS}" is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
-        <RadiusPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
+        <ThemePicker
+          :themes="availableThemes"
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
+        />
+        <IconLibraryPicker
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
+        />
+        <FontPicker
+          :fonts="FONTS as any"
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
+        />
+        <!-- <RadiusPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
         <MenuColorPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
         <MenuAccentPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
         <CustomizerControls class="mt-auto hidden w-full flex-col md:flex" /> -->

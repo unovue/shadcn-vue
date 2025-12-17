@@ -23,6 +23,19 @@ export default defineNuxtConfig({
     defaults: {
       weights: [400, 500, 600, 700],
     },
+    families: [
+      // To improve and only load font when needed
+      { name: 'Inter', global: true, provider: 'google' },
+      { name: 'Noto Sans', global: true, provider: 'google' },
+      { name: 'Nunito Sans', global: true, provider: 'google' },
+      { name: 'Figtree', global: true, provider: 'google' },
+      { name: 'JetBrains Mono', global: true, provider: 'google' },
+      { name: 'Roboto', global: true, provider: 'google' },
+      { name: 'Raleway', global: true, provider: 'google' },
+      { name: 'DM Sans', global: true, provider: 'google' },
+      { name: 'Public Sans', global: true, provider: 'google' },
+      { name: 'Outfit', global: true, provider: 'google' },
+    ],
   },
   content: {
     build: {

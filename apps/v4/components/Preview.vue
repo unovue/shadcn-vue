@@ -1,0 +1,111 @@
+<script setup lang="ts">
+import type { SplitterPanel } from 'reka-ui'
+import { useEventListener } from '@vueuse/core'
+
+// import { RANDOMIZE_FORWARD_TYPE } from '@/app/(create)/components/customizer-controls'
+// import { CMD_K_FORWARD_TYPE } from '@/app/(create)/components/item-picker'
+// import { DARK_MODE_FORWARD_TYPE } from '@/components/mode-switcher'
+import { Badge } from '@/registry/new-york-v4/ui/badge'
+
+const MESSAGE_TYPE = 'design-system-params'
+
+const params = useDesignSystemSearchParams()
+const iframeRef = ref<HTMLIFrameElement | null>(null)
+const resizablePanelRef = ref<InstanceType<typeof SplitterPanel> | null>(null)
+
+const initialParams = ref({ ...params })
+const iframeKey = ref(0)
+
+watch(params.size, () => {
+  resizablePanelRef.value?.resize(params.size.value)
+})
+
+watch(() => params, () => {
+  const iframe = iframeRef.value
+  if (!iframe) {
+    return
+  }
+
+  const sendParams = () => {
+    iframe.contentWindow?.postMessage(
+      {
+        type: MESSAGE_TYPE,
+        params,
+      },
+      '*',
+    )
+  }
+
+  if (iframe.contentWindow) {
+    sendParams()
+  }
+
+  iframe.addEventListener('load', sendParams)
+  onWatcherCleanup(() => {
+    iframe.removeEventListener('load', sendParams)
+  })
+}, { deep: true })
+
+function handleMessage(event: MessageEvent) {
+  // if (event.data.type === CMD_K_FORWARD_TYPE) {
+  //   const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent)
+  //   const key = event.data.key || 'k'
+
+  //   const syntheticEvent = new KeyboardEvent('keydown', {
+  //     key,
+  //     metaKey: isMac,
+  //     ctrlKey: !isMac,
+  //     bubbles: true,
+  //     cancelable: true,
+  //   })
+  //   document.dispatchEvent(syntheticEvent)
+  // }
+
+  // if (event.data.type === RANDOMIZE_FORWARD_TYPE) {
+  //   const key = event.data.key || 'r'
+
+  //   const syntheticEvent = new KeyboardEvent('keydown', {
+  //     key,
+  //     bubbles: true,
+  //     cancelable: true,
+  //   })
+  //   document.dispatchEvent(syntheticEvent)
+  // }
+
+  // if (event.data.type === DARK_MODE_FORWARD_TYPE) {
+  //   const key = event.data.key || 'd'
+
+  //   const syntheticEvent = new KeyboardEvent('keydown', {
+  //     key,
+  //     bubbles: true,
+  //     cancelable: true,
+  //   })
+  //   document.dispatchEvent(syntheticEvent)
+  // }
+}
+
+useEventListener(globalThis.window, 'message', handleMessage)
+
+const iframeSrc = computed(() => `/preview/${params.base.value}/${params.item.value}?theme=${params.theme.value ?? 'neutral'}&iconLibrary=${params.iconLibrary.value ?? 'lucide'}&style=${params.style.value ?? 'vega'}&font=${params.font.value ?? 'inter'}&baseColor=${params.baseColor.value ?? 'neutral'}`)
+</script>
+
+<template>
+  <div class="relative -mx-1 flex flex-1 flex-col justify-center sm:mx-0">
+    <div class="ring-foreground/15 3xl:max-h-[1200px] 3xl:max-w-[1800px] relative -z-0 mx-auto flex w-full flex-1 flex-col overflow-hidden rounded-2xl ring-1">
+      <div class="bg-muted dark:bg-muted/30 absolute inset-0 rounded-2xl" />
+      <!-- <iframe
+        ref="iframeRef"
+        :key="`${params.item}-${iframeKey}`"
+        :src="iframeSrc"
+        class="z-10 size-full flex-1"
+        title="Preview"
+      /> -->
+      <Badge
+        class="absolute right-2 bottom-2 isolate z-10"
+        variant="secondary"
+      >
+        Preview
+      </Badge>
+    </div>
+  </div>
+</template>

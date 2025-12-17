@@ -83,7 +83,7 @@ definePageMeta({
           class="3xl:fixed:container flex w-full flex-1 flex-col gap-2 p-6 pt-1 pb-4 [--sidebar-width:--spacing(40)] sm:gap-2 sm:pt-2 md:flex-row md:pb-6 2xl:gap-6"
         >
           <ItemExplorer />
-          <!-- <Preview /> -->
+          <Preview />
           <Customizer />
         </div>
       </SidebarProvider>

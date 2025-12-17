@@ -39,7 +39,7 @@ export function useDesignSystemSearchParams() {
 
   const radius = useRouteQuery<RadiusValue>('radius', 'default', { mode: 'push' })
 
-  const template = useRouteQuery<'next' | 'start' | 'vite'>('template', 'next', { mode: 'push' })
+  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', { mode: 'push' })
 
   const size = useRouteQuery<number>('size', 100, { mode: 'push' })
 

@@ -13,17 +13,18 @@ export { default as ItemSeparator } from "./ItemSeparator.vue"
 export { default as ItemTitle } from "./ItemTitle.vue"
 
 export const itemVariants = cva(
-  "group/item flex items-center border border-transparent text-sm rounded-md transition-colors [a]:hover:bg-accent/50 [a]:transition-colors duration-100 flex-wrap outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+  "cn-item w-full group/item focus-visible:border-ring focus-visible:ring-ring/50 flex items-center flex-wrap outline-none transition-colors duration-100 focus-visible:ring-[3px] [a]:transition-colors",
   {
     variants: {
       variant: {
-        default: "bg-transparent",
-        outline: "border-border",
-        muted: "bg-muted/50",
+        default: "cn-item-variant-default",
+        outline: "cn-item-variant-outline",
+        muted: "cn-item-variant-muted",
       },
       size: {
-        default: "p-4 gap-4 ",
-        sm: "py-3 px-4 gap-2.5",
+        default: "cn-item-size-default",
+        sm: "cn-item-size-sm",
+        xs: "cn-item-size-xs",
       },
     },
     defaultVariants: {
