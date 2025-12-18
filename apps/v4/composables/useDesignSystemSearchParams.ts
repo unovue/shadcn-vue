@@ -2,48 +2,48 @@ import type { BaseColorName, BaseName, FontValue, IconLibraryName, MenuAccentVal
 import { useRouteQuery } from '@vueuse/router'
 import { DEFAULT_CONFIG } from '@/registry/config'
 
-export function useDesignSystemSearchParams() {
-  const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, { mode: 'push' })
+export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
+  const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, { mode })
 
-  const item = useRouteQuery<string>('item', 'preview', { mode: 'push' })
+  const item = useRouteQuery<string>('item', 'preview', { mode })
 
   const iconLibrary = useRouteQuery<IconLibraryName>(
     'iconLibrary',
     DEFAULT_CONFIG.iconLibrary,
-    { mode: 'push' },
+    { mode },
   )
 
-  const style = useRouteQuery<StyleName>('style', DEFAULT_CONFIG.style, { mode: 'push' })
+  const style = useRouteQuery<StyleName>('style', DEFAULT_CONFIG.style, { mode })
 
-  const theme = useRouteQuery<ThemeName>('theme', DEFAULT_CONFIG.theme, { mode: 'push' })
+  const theme = useRouteQuery<ThemeName>('theme', DEFAULT_CONFIG.theme, { mode })
 
-  const font = useRouteQuery<FontValue>('font', DEFAULT_CONFIG.font, { mode: 'push' })
+  const font = useRouteQuery<FontValue>('font', DEFAULT_CONFIG.font, { mode })
 
   const baseColor = useRouteQuery<BaseColorName>(
     'baseColor',
     DEFAULT_CONFIG.baseColor,
-    { mode: 'push' },
+    { mode },
   )
 
   const menuAccent = useRouteQuery<MenuAccentValue>(
     'menuAccent',
     DEFAULT_CONFIG.menuAccent,
-    { mode: 'push' },
+    { mode },
   )
 
   const menuColor = useRouteQuery<MenuColorValue>(
     'menuColor',
     DEFAULT_CONFIG.menuColor,
-    { mode: 'push' },
+    { mode },
   )
 
-  const radius = useRouteQuery<RadiusValue>('radius', 'default', { mode: 'push' })
+  const radius = useRouteQuery<RadiusValue>('radius', 'default', { mode })
 
-  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', { mode: 'push' })
+  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', { mode })
 
-  const size = useRouteQuery<number>('size', 100, { mode: 'push' })
+  const size = useRouteQuery<number>('size', 100, { mode })
 
-  const custom = useRouteQuery<any>('custom', false, { mode: 'push' })
+  const custom = useRouteQuery<any>('custom', false, { mode })
 
   return {
     base,
@@ -61,3 +61,5 @@ export function useDesignSystemSearchParams() {
     custom,
   }
 }
+
+export type DesignSystemSearchParams = Record<keyof ReturnType<typeof useDesignSystemSearchParams>, any>

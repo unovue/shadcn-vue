@@ -47,8 +47,7 @@ const currentBaseColor = computed(
         :align="isMobile ? 'center' : 'start'"
       >
         <PickerRadioGroup
-
-          :value="currentBaseColor?.name"
+          :model-value="currentBaseColor?.name"
           @update:model-value="(value) => {
             if (value === 'dark') {
               colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'

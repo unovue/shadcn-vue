@@ -84,7 +84,7 @@ const filteredTheme = computed(() => props.themes
         class="max-h-96"
       >
         <PickerRadioGroup
-          :value="currentTheme?.name"
+          :model-value="currentTheme?.name"
           @update:model-value="(value) => {
             params.theme.value = value as ThemeName
           }"

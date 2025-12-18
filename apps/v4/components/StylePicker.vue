@@ -32,7 +32,7 @@ const currentStyle = computed(() => props.styles.find(style => style.name === pa
         class="md:w-64"
       >
         <PickerRadioGroup
-          :value="currentStyle?.name"
+          :model-value="currentStyle?.name"
           @update:model-value="(value) => {
             params.style.value = value as StyleName
           }"

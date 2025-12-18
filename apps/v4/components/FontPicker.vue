@@ -42,7 +42,7 @@ const currentFont = computed(
         class="max-h-80 md:w-72"
       >
         <PickerRadioGroup
-          :value="currentFont?.value"
+          :model-value="currentFont?.value"
           @update:model-value="(value) => {
             params.font.value = value as FontValue
           }"

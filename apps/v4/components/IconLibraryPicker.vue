@@ -169,7 +169,7 @@ const currentIconLibrary = computed(
         :align="isMobile ? 'center' : 'start'"
       >
         <PickerRadioGroup
-          :value="currentIconLibrary?.name"
+          :model-value="currentIconLibrary?.name"
           @update:model-value="(value) => {
             params.iconLibrary.value = value as IconLibraryName
           }"

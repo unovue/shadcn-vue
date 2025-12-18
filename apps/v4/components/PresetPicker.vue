@@ -66,7 +66,7 @@ function handlePresetChange(value: string) {
       class="md:w-72"
     >
       <PickerRadioGroup
-        :value="currentPreset?.title ?? ''"
+        :model-value="currentPreset?.title ?? ''"
         @update:model-value="handlePresetChange"
       >
         <PickerGroup>

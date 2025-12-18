@@ -33,21 +33,21 @@ const svgProps = computed(() => {
       <IconLucide
         v-if="iconLibrary === 'lucide'"
         :name="iconName"
-        v-bind="svgProps"
+        v-bind="{ ...svgProps, $attrs }"
       />
       <IconTabler
         v-else-if="iconLibrary === 'tabler'"
         :name="iconName"
-        v-bind="svgProps"
+        v-bind="{ ...svgProps, $attrs }"
       />
       <IconHugeicons
         v-else-if="iconLibrary === 'hugeicons'"
         :name="iconName"
-        v-bind="svgProps"
+        v-bind="{ ...svgProps, $attrs }"
       />
     </template>
     <template #fallback>
-      <SquareIcon v-bind="svgProps" />
+      <SquareIcon v-bind="{ ...svgProps, $attrs }" />
     </template>
   </Suspense>
 </template>
