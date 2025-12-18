@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/new-york-v4/ui/select'
-import { baseColors } from '@/registry/registry-base-colors'
+import { baseColors } from '~/registry/_legacy-base-colors'
 
 const THEMES = baseColors.filter(
   theme => !['slate', 'stone', 'gray', 'zinc'].includes(theme.name),

@@ -4,43 +4,25 @@
   "items": [
     {
       "name": "index",
-      "type": "registry:style",
-      "dependencies": [
-        "class-variance-authority",
-        "lucide-vue-next"
-      ],
-      "devDependencies": [
-        "tw-animate-css"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "dependencies": ["class-variance-authority", "lucide-vue-next"],
+      "devDependencies": ["tw-animate-css"],
+      "registryDependencies": ["utils"],
       "files": [],
-      "cssVars": {}
+      "cssVars": {},
+      "type": "registry:style"
     },
     {
       "name": "style",
-      "type": "registry:style",
-      "dependencies": [
-        "class-variance-authority",
-        "lucide-vue-next"
-      ],
-      "devDependencies": [
-        "tw-animate-css"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "dependencies": ["class-variance-authority", "lucide-vue-next"],
+      "devDependencies": ["tw-animate-css"],
+      "registryDependencies": ["utils"],
       "files": [],
-      "cssVars": {}
+      "cssVars": {},
+      "type": "registry:style"
     },
     {
       "name": "accordion",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/accordion/Accordion.vue",
@@ -62,11 +44,11 @@
           "path": "registry/new-york-v4/ui/accordion/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "alert",
-      "type": "registry:ui",
       "files": [
         {
           "path": "registry/new-york-v4/ui/alert/Alert.vue",
@@ -84,18 +66,13 @@
           "path": "registry/new-york-v4/ui/alert/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "alert-dialog",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/alert-dialog/AlertDialog.vue",
@@ -137,14 +114,12 @@
           "path": "registry/new-york-v4/ui/alert-dialog/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "aspect-ratio",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui"
-      ],
+      "dependencies": ["reka-ui"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/aspect-ratio/AspectRatio.vue",
@@ -154,15 +129,12 @@
           "path": "registry/new-york-v4/ui/aspect-ratio/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "avatar",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/avatar/Avatar.vue",
@@ -180,15 +152,12 @@
           "path": "registry/new-york-v4/ui/avatar/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "badge",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/badge/Badge.vue",
@@ -198,14 +167,12 @@
           "path": "registry/new-york-v4/ui/badge/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "breadcrumb",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui"
-      ],
+      "dependencies": ["reka-ui"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/breadcrumb/Breadcrumb.vue",
@@ -239,14 +206,12 @@
           "path": "registry/new-york-v4/ui/breadcrumb/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "button",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui"
-      ],
+      "dependencies": ["reka-ui"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/button/Button.vue",
@@ -256,18 +221,13 @@
           "path": "registry/new-york-v4/ui/button/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "button-group",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "separator"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["separator"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/button-group/ButtonGroup.vue",
@@ -285,19 +245,13 @@
           "path": "registry/new-york-v4/ui/button-group/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "calendar",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "native-select",
-        "button"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["native-select", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/calendar/Calendar.vue",
@@ -351,11 +305,11 @@
           "path": "registry/new-york-v4/ui/calendar/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "card",
-      "type": "registry:ui",
       "files": [
         {
           "path": "registry/new-york-v4/ui/card/Card.vue",
@@ -389,18 +343,13 @@
           "path": "registry/new-york-v4/ui/card/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "carousel",
-      "type": "registry:ui",
-      "dependencies": [
-        "embla-carousel-vue",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["embla-carousel-vue", "@vueuse/core"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/carousel/Carousel.vue",
@@ -434,15 +383,12 @@
           "path": "registry/new-york-v4/ui/carousel/useCarousel.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "chart",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/chart/ChartContainer.vue",
@@ -468,15 +414,12 @@
           "path": "registry/new-york-v4/ui/chart/utils.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "checkbox",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/checkbox/Checkbox.vue",
@@ -486,14 +429,12 @@
           "path": "registry/new-york-v4/ui/checkbox/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "collapsible",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui"
-      ],
+      "dependencies": ["reka-ui"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/collapsible/Collapsible.vue",
@@ -511,15 +452,12 @@
           "path": "registry/new-york-v4/ui/collapsible/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "combobox",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/combobox/Combobox.vue",
@@ -569,18 +507,13 @@
           "path": "registry/new-york-v4/ui/combobox/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "command",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "dialog"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["dialog"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/command/Command.vue",
@@ -622,15 +555,12 @@
           "path": "registry/new-york-v4/ui/command/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "context-menu",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/context-menu/ContextMenu.vue",
@@ -696,15 +626,12 @@
           "path": "registry/new-york-v4/ui/context-menu/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dialog",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/dialog/Dialog.vue",
@@ -750,16 +677,12 @@
           "path": "registry/new-york-v4/ui/dialog/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "drawer",
-      "type": "registry:ui",
-      "dependencies": [
-        "vaul-vue",
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["vaul-vue", "reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/drawer/Drawer.vue",
@@ -801,15 +724,12 @@
           "path": "registry/new-york-v4/ui/drawer/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dropdown-menu",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/dropdown-menu/DropdownMenu.vue",
@@ -871,11 +791,11 @@
           "path": "registry/new-york-v4/ui/dropdown-menu/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "empty",
-      "type": "registry:ui",
       "files": [
         {
           "path": "registry/new-york-v4/ui/empty/Empty.vue",
@@ -905,15 +825,12 @@
           "path": "registry/new-york-v4/ui/empty/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "field",
-      "type": "registry:ui",
-      "registryDependencies": [
-        "label",
-        "separator"
-      ],
+      "registryDependencies": ["label", "separator"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/field/Field.vue",
@@ -959,20 +876,18 @@
           "path": "registry/new-york-v4/ui/field/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "form",
-      "type": "registry:ui",
       "dependencies": [
         "reka-ui",
         "vee-validate",
         "@vee-validate/zod",
         "zod@3.25.76"
       ],
-      "registryDependencies": [
-        "label"
-      ],
+      "registryDependencies": ["label"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/form/FormControl.vue",
@@ -1006,15 +921,12 @@
           "path": "registry/new-york-v4/ui/form/useFormField.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "hover-card",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/hover-card/HoverCard.vue",
@@ -1032,14 +944,12 @@
           "path": "registry/new-york-v4/ui/hover-card/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input",
-      "type": "registry:ui",
-      "dependencies": [
-        "@vueuse/core"
-      ],
+      "dependencies": ["@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/input/Input.vue",
@@ -1049,16 +959,12 @@
           "path": "registry/new-york-v4/ui/input/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input-group",
-      "type": "registry:ui",
-      "registryDependencies": [
-        "button",
-        "input",
-        "textarea"
-      ],
+      "registryDependencies": ["button", "input", "textarea"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/input-group/InputGroup.vue",
@@ -1088,16 +994,12 @@
           "path": "registry/new-york-v4/ui/input-group/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input-otp",
-      "type": "registry:ui",
-      "dependencies": [
-        "vue-input-otp",
-        "@vueuse/core",
-        "reka-ui"
-      ],
+      "dependencies": ["vue-input-otp", "@vueuse/core", "reka-ui"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/input-otp/InputOTP.vue",
@@ -1119,17 +1021,13 @@
           "path": "registry/new-york-v4/ui/input-otp/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "item",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui"
-      ],
-      "registryDependencies": [
-        "separator"
-      ],
+      "dependencies": ["reka-ui"],
+      "registryDependencies": ["separator"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/item/Item.vue",
@@ -1175,11 +1073,11 @@
           "path": "registry/new-york-v4/ui/item/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "kbd",
-      "type": "registry:ui",
       "files": [
         {
           "path": "registry/new-york-v4/ui/kbd/Kbd.vue",
@@ -1193,15 +1091,12 @@
           "path": "registry/new-york-v4/ui/kbd/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "label",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/label/Label.vue",
@@ -1211,15 +1106,12 @@
           "path": "registry/new-york-v4/ui/label/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "menubar",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/menubar/Menubar.vue",
@@ -1285,15 +1177,12 @@
           "path": "registry/new-york-v4/ui/menubar/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "native-select",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/native-select/NativeSelect.vue",
@@ -1311,15 +1200,12 @@
           "path": "registry/new-york-v4/ui/native-select/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "navigation-menu",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/navigation-menu/NavigationMenu.vue",
@@ -1357,15 +1243,12 @@
           "path": "registry/new-york-v4/ui/navigation-menu/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "number-field",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/number-field/NumberField.vue",
@@ -1391,18 +1274,13 @@
           "path": "registry/new-york-v4/ui/number-field/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "pagination",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/pagination/Pagination.vue",
@@ -1440,15 +1318,12 @@
           "path": "registry/new-york-v4/ui/pagination/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "pin-input",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/pin-input/PinInput.vue",
@@ -1470,15 +1345,12 @@
           "path": "registry/new-york-v4/ui/pin-input/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "popover",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/popover/Popover.vue",
@@ -1500,15 +1372,12 @@
           "path": "registry/new-york-v4/ui/popover/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "progress",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/progress/Progress.vue",
@@ -1518,15 +1387,12 @@
           "path": "registry/new-york-v4/ui/progress/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "radio-group",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/radio-group/RadioGroup.vue",
@@ -1540,18 +1406,13 @@
           "path": "registry/new-york-v4/ui/radio-group/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "range-calendar",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/range-calendar/RangeCalendar.vue",
@@ -1605,15 +1466,12 @@
           "path": "registry/new-york-v4/ui/range-calendar/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "resizable",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/resizable/ResizableHandle.vue",
@@ -1631,15 +1489,12 @@
           "path": "registry/new-york-v4/ui/resizable/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "scroll-area",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/scroll-area/ScrollArea.vue",
@@ -1653,15 +1508,12 @@
           "path": "registry/new-york-v4/ui/scroll-area/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "select",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/select/Select.vue",
@@ -1711,15 +1563,12 @@
           "path": "registry/new-york-v4/ui/select/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "separator",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/separator/Separator.vue",
@@ -1729,15 +1578,12 @@
           "path": "registry/new-york-v4/ui/separator/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sheet",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/sheet/Sheet.vue",
@@ -1779,15 +1625,12 @@
           "path": "registry/new-york-v4/ui/sheet/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sidebar",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "registryDependencies": [
         "sheet",
         "input",
@@ -1901,11 +1744,11 @@
           "path": "registry/new-york-v4/ui/sidebar/utils.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "skeleton",
-      "type": "registry:ui",
       "files": [
         {
           "path": "registry/new-york-v4/ui/skeleton/Skeleton.vue",
@@ -1915,15 +1758,12 @@
           "path": "registry/new-york-v4/ui/skeleton/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "slider",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/slider/Slider.vue",
@@ -1933,14 +1773,12 @@
           "path": "registry/new-york-v4/ui/slider/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sonner",
-      "type": "registry:ui",
-      "dependencies": [
-        "vue-sonner"
-      ],
+      "dependencies": ["vue-sonner"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/sonner/Sonner.vue",
@@ -1950,11 +1788,11 @@
           "path": "registry/new-york-v4/ui/sonner/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "spinner",
-      "type": "registry:ui",
       "files": [
         {
           "path": "registry/new-york-v4/ui/spinner/Spinner.vue",
@@ -1964,15 +1802,12 @@
           "path": "registry/new-york-v4/ui/spinner/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "stepper",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/stepper/Stepper.vue",
@@ -2006,15 +1841,12 @@
           "path": "registry/new-york-v4/ui/stepper/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "switch",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/switch/Switch.vue",
@@ -2024,15 +1856,12 @@
           "path": "registry/new-york-v4/ui/switch/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "table",
-      "type": "registry:ui",
-      "dependencies": [
-        "@vueuse/core",
-        "@tanstack/vue-table"
-      ],
+      "dependencies": ["@vueuse/core", "@tanstack/vue-table"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/table/Table.vue",
@@ -2078,15 +1907,12 @@
           "path": "registry/new-york-v4/ui/table/utils.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tabs",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/tabs/Tabs.vue",
@@ -2108,15 +1934,12 @@
           "path": "registry/new-york-v4/ui/tabs/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tags-input",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/tags-input/TagsInput.vue",
@@ -2142,14 +1965,12 @@
           "path": "registry/new-york-v4/ui/tags-input/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "textarea",
-      "type": "registry:ui",
-      "dependencies": [
-        "@vueuse/core"
-      ],
+      "dependencies": ["@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/textarea/Textarea.vue",
@@ -2159,15 +1980,12 @@
           "path": "registry/new-york-v4/ui/textarea/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toggle",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/toggle/Toggle.vue",
@@ -2177,18 +1995,13 @@
           "path": "registry/new-york-v4/ui/toggle/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toggle-group",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
-      "registryDependencies": [
-        "toggle"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["toggle"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/toggle-group/ToggleGroup.vue",
@@ -2202,15 +2015,12 @@
           "path": "registry/new-york-v4/ui/toggle-group/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tooltip",
-      "type": "registry:ui",
-      "dependencies": [
-        "reka-ui",
-        "@vueuse/core"
-      ],
+      "dependencies": ["reka-ui", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/tooltip/Tooltip.vue",
@@ -2232,11 +2042,11 @@
           "path": "registry/new-york-v4/ui/tooltip/index.ts",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dashboard-01",
-      "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",
       "dependencies": [
         "@unovis/vue",
@@ -2310,20 +2120,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "dashboard"
-      ]
+      "categories": ["dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "login-01",
-      "type": "registry:block",
       "description": "A simple login form.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/login-01/page.vue",
@@ -2335,20 +2138,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "login"
-      ]
+      "categories": ["authentication", "login"],
+      "type": "registry:block"
     },
     {
       "name": "login-02",
-      "type": "registry:block",
       "description": "A two column login page with a cover image.",
-      "registryDependencies": [
-        "button",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/login-02/page.vue",
@@ -2360,21 +2156,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "login"
-      ]
+      "categories": ["authentication", "login"],
+      "type": "registry:block"
     },
     {
       "name": "login-03",
-      "type": "registry:block",
       "description": "A login page with a muted background color.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/login-03/page.vue",
@@ -2386,21 +2174,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "login"
-      ]
+      "categories": ["authentication", "login"],
+      "type": "registry:block"
     },
     {
       "name": "login-04",
-      "type": "registry:block",
       "description": "A login page with form and image.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/login-04/page.vue",
@@ -2412,20 +2192,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "login"
-      ]
+      "categories": ["authentication", "login"],
+      "type": "registry:block"
     },
     {
       "name": "login-05",
-      "type": "registry:block",
       "description": "A simple email-only login page.",
-      "registryDependencies": [
-        "button",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/login-05/page.vue",
@@ -2437,21 +2210,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "login"
-      ]
+      "categories": ["authentication", "login"],
+      "type": "registry:block"
     },
     {
       "name": "otp-01",
-      "type": "registry:block",
       "description": "A simple OTP verification form.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input-otp"
-      ],
+      "registryDependencies": ["button", "card", "field", "input-otp"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/otp-01/page.vue",
@@ -2463,20 +2228,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "otp"
-      ]
+      "categories": ["authentication", "otp"],
+      "type": "registry:block"
     },
     {
       "name": "otp-02",
-      "type": "registry:block",
       "description": "A two column OTP page with a cover image.",
-      "registryDependencies": [
-        "button",
-        "field",
-        "input-otp"
-      ],
+      "registryDependencies": ["button", "field", "input-otp"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/otp-02/page.vue",
@@ -2488,21 +2246,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "otp"
-      ]
+      "categories": ["authentication", "otp"],
+      "type": "registry:block"
     },
     {
       "name": "otp-03",
-      "type": "registry:block",
       "description": "An OTP page with a muted background color.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input-otp"
-      ],
+      "registryDependencies": ["button", "card", "field", "input-otp"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/otp-03/page.vue",
@@ -2514,21 +2264,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "otp"
-      ]
+      "categories": ["authentication", "otp"],
+      "type": "registry:block"
     },
     {
       "name": "otp-04",
-      "type": "registry:block",
       "description": "An OTP page with form and image.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input-otp"
-      ],
+      "registryDependencies": ["button", "card", "field", "input-otp"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/otp-04/page.vue",
@@ -2540,20 +2282,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "otp"
-      ]
+      "categories": ["authentication", "otp"],
+      "type": "registry:block"
     },
     {
       "name": "otp-05",
-      "type": "registry:block",
       "description": "A simple OTP form with social providers.",
-      "registryDependencies": [
-        "button",
-        "field",
-        "input-otp"
-      ],
+      "registryDependencies": ["button", "field", "input-otp"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/otp-05/page.vue",
@@ -2565,14 +2300,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "otp"
-      ]
+      "categories": ["authentication", "otp"],
+      "type": "registry:block"
     },
     {
       "name": "products-01",
-      "type": "registry:block",
       "registryDependencies": [
         "badge",
         "button",
@@ -2593,11 +2325,11 @@
           "path": "registry/new-york-v4/blocks/products-01/components/ProductsTable.vue",
           "type": "registry:component"
         }
-      ]
+      ],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-01",
-      "type": "registry:block",
       "description": "A simple sidebar with navigation grouped by section.",
       "registryDependencies": [
         "breadcrumb",
@@ -2625,14 +2357,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-02",
-      "type": "registry:block",
       "description": "A sidebar with collapsible sections.",
       "registryDependencies": [
         "breadcrumb",
@@ -2661,20 +2390,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-03",
-      "type": "registry:block",
       "description": "A sidebar with submenus.",
-      "registryDependencies": [
-        "breadcrumb",
-        "separator",
-        "sidebar"
-      ],
+      "registryDependencies": ["breadcrumb", "separator", "sidebar"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/sidebar-03/page.vue",
@@ -2686,20 +2408,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-04",
-      "type": "registry:block",
       "description": "A floating sidebar with submenus.",
-      "registryDependencies": [
-        "breadcrumb",
-        "separator",
-        "sidebar"
-      ],
+      "registryDependencies": ["breadcrumb", "separator", "sidebar"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/sidebar-04/page.vue",
@@ -2711,14 +2426,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-05",
-      "type": "registry:block",
       "description": "A sidebar with collapsible submenus.",
       "registryDependencies": [
         "breadcrumb",
@@ -2742,18 +2454,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-06",
-      "type": "registry:block",
       "description": "A sidebar with submenus as dropdowns.",
-      "dependencies": [
-        "@vueuse/core"
-      ],
+      "dependencies": ["@vueuse/core"],
       "registryDependencies": [
         "breadcrumb",
         "separator",
@@ -2781,14 +2488,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-07",
-      "type": "registry:block",
       "description": "A sidebar that collapses to icons",
       "registryDependencies": [
         "breadcrumb",
@@ -2825,14 +2529,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-08",
-      "type": "registry:block",
       "description": "An inset sidebar with secondary navigation.",
       "registryDependencies": [
         "breadcrumb",
@@ -2869,14 +2570,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-09",
-      "type": "registry:block",
       "description": "Collapsible nested sidebars.",
       "registryDependencies": [
         "breadcrumb",
@@ -2902,14 +2600,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-10",
-      "type": "registry:block",
       "description": "A sidebar in a popover.",
       "registryDependencies": [
         "breadcrumb",
@@ -2955,14 +2650,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-11",
-      "type": "registry:block",
       "description": "A sidebar with a collapsible file tree.",
       "registryDependencies": [
         "breadcrumb",
@@ -2985,14 +2677,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-12",
-      "type": "registry:block",
       "description": "A sidebar with a calendar.",
       "registryDependencies": [
         "breadcrumb",
@@ -3026,21 +2715,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-13",
-      "type": "registry:block",
       "description": "A sidebar in a dialog.",
-      "registryDependencies": [
-        "breadcrumb",
-        "button",
-        "dialog",
-        "sidebar"
-      ],
+      "registryDependencies": ["breadcrumb", "button", "dialog", "sidebar"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/sidebar-13/page.vue",
@@ -3052,19 +2733,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-14",
-      "type": "registry:block",
       "description": "A sidebar on the right.",
-      "registryDependencies": [
-        "breadcrumb",
-        "sidebar"
-      ],
+      "registryDependencies": ["breadcrumb", "sidebar"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/sidebar-14/page.vue",
@@ -3076,14 +2751,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-15",
-      "type": "registry:block",
       "description": "A left and right sidebar.",
       "registryDependencies": [
         "breadcrumb",
@@ -3145,14 +2817,11 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-16",
-      "type": "registry:block",
       "description": "A sidebar with a sticky site header.",
       "registryDependencies": [
         "sidebar",
@@ -3199,35 +2868,25 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "sidebar",
-        "dashboard"
-      ]
+      "categories": ["sidebar", "dashboard"],
+      "type": "registry:block"
     },
     {
       "name": "sidebar-demo",
-      "type": "registry:block",
-      "registryDependencies": [
-        "sidebar"
-      ],
+      "registryDependencies": ["sidebar"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/sidebar-demo/page.vue",
           "type": "registry:page",
           "target": "pages/sidebar-demo/index.vue"
         }
-      ]
+      ],
+      "type": "registry:block"
     },
     {
       "name": "signup-01",
-      "type": "registry:block",
       "description": "A simple signup form.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/signup-01/page.vue",
@@ -3239,20 +2898,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "signup"
-      ]
+      "categories": ["authentication", "signup"],
+      "type": "registry:block"
     },
     {
       "name": "signup-02",
-      "type": "registry:block",
       "description": "A two column signup page with a cover image.",
-      "registryDependencies": [
-        "button",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/signup-02/page.vue",
@@ -3264,21 +2916,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "signup"
-      ]
+      "categories": ["authentication", "signup"],
+      "type": "registry:block"
     },
     {
       "name": "signup-03",
-      "type": "registry:block",
       "description": "A signup page with a muted background color.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/signup-03/page.vue",
@@ -3290,21 +2934,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "signup"
-      ]
+      "categories": ["authentication", "signup"],
+      "type": "registry:block"
     },
     {
       "name": "signup-04",
-      "type": "registry:block",
       "description": "A signup page with form and image.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "card", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/signup-04/page.vue",
@@ -3316,20 +2952,13 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "signup"
-      ]
+      "categories": ["authentication", "signup"],
+      "type": "registry:block"
     },
     {
       "name": "signup-05",
-      "type": "registry:block",
       "description": "A simple signup form with social providers.",
-      "registryDependencies": [
-        "button",
-        "field",
-        "input"
-      ],
+      "registryDependencies": ["button", "field", "input"],
       "files": [
         {
           "path": "registry/new-york-v4/blocks/signup-05/page.vue",
@@ -3341,535 +2970,322 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication",
-        "signup"
-      ]
+      "categories": ["authentication", "signup"],
+      "type": "registry:block"
     },
     {
       "name": "ChartAreaAxes",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartAreaAxes.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-area"
-      ]
+      "categories": ["chart", "chart-area"],
+      "type": "registry:block"
     },
     {
       "name": "ChartAreaGradient",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartAreaGradient.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-area"
-      ]
+      "categories": ["chart", "chart-area"],
+      "type": "registry:block"
     },
     {
       "name": "ChartAreaIcons",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartAreaIcons.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-area"
-      ]
+      "categories": ["chart", "chart-area"],
+      "type": "registry:block"
     },
     {
       "name": "ChartAreaInteractive",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card",
-        "select"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card", "select"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartAreaInteractive.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-area"
-      ]
+      "categories": ["chart", "chart-area"],
+      "type": "registry:block"
     },
     {
       "name": "ChartBarDefault",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartBarDefault.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-bar"
-      ]
+      "categories": ["chart", "chart-bar"],
+      "type": "registry:block"
     },
     {
       "name": "ChartBarHorizontal",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartBarHorizontal.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-bar"
-      ]
+      "categories": ["chart", "chart-bar"],
+      "type": "registry:block"
     },
     {
       "name": "ChartBarInteractive",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartBarInteractive.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-bar"
-      ]
+      "categories": ["chart", "chart-bar"],
+      "type": "registry:block"
     },
     {
       "name": "ChartBarMultiple",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartBarMultiple.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-bar"
-      ]
+      "categories": ["chart", "chart-bar"],
+      "type": "registry:block"
     },
     {
       "name": "ChartLineDefault",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartLineDefault.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-line"
-      ]
+      "categories": ["chart", "chart-line"],
+      "type": "registry:block"
     },
     {
       "name": "ChartLineInteractive",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartLineInteractive.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-line"
-      ]
+      "categories": ["chart", "chart-line"],
+      "type": "registry:block"
     },
     {
       "name": "ChartLineLinear",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartLineLinear.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-line"
-      ]
+      "categories": ["chart", "chart-line"],
+      "type": "registry:block"
     },
     {
       "name": "ChartLineStep",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartLineStep.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-line"
-      ]
+      "categories": ["chart", "chart-line"],
+      "type": "registry:block"
     },
     {
       "name": "ChartPieDonut",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartPieDonut.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-pie"
-      ]
+      "categories": ["chart", "chart-pie"],
+      "type": "registry:block"
     },
     {
       "name": "ChartPieDonutText",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartPieDonutText.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-pie"
-      ]
+      "categories": ["chart", "chart-pie"],
+      "type": "registry:block"
     },
     {
       "name": "ChartPieSimple",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartPieSimple.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-pie"
-      ]
+      "categories": ["chart", "chart-pie"],
+      "type": "registry:block"
     },
     {
       "name": "ChartPieStacked",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartPieStacked.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-pie"
-      ]
+      "categories": ["chart", "chart-pie"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipDefault",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipDefault.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipIcons",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipIcons.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipIndicatorLine",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipIndicatorLine.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipIndicatorNone",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipIndicatorNone.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipLabelCustom",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipLabelCustom.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipLabelFormatter",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipLabelFormatter.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "ChartTooltipLabelNone",
-      "type": "registry:block",
-      "dependencies": [
-        "@unovis/vue",
-        "@unovis/ts"
-      ],
-      "registryDependencies": [
-        "chart",
-        "card"
-      ],
+      "dependencies": ["@unovis/vue", "@unovis/ts"],
+      "registryDependencies": ["chart", "card"],
       "files": [
         {
           "path": "registry/new-york-v4/charts/ChartTooltipLabelNone.vue",
           "type": "registry:block"
         }
       ],
-      "categories": [
-        "chart",
-        "chart-tooltip"
-      ]
+      "categories": ["chart", "chart-tooltip"],
+      "type": "registry:block"
     },
     {
       "name": "utils",
-      "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "registry/new-york-v4/lib/utils.ts",
           "type": "registry:lib"
         }
-      ]
+      ],
+      "type": "registry:lib"
     },
     {
       "name": "theme-stone",
-      "type": "registry:theme",
+      "dependencies": [],
       "cssVars": {
         "light": {
           "background": "oklch(1 0 0)",
@@ -3938,11 +3354,12 @@
           "sidebar-border": "oklch(1 0 0 / 10%)",
           "sidebar-ring": "oklch(0.553 0.013 58.071)"
         }
-      }
+      },
+      "type": "registry:theme"
     },
     {
       "name": "theme-zinc",
-      "type": "registry:theme",
+      "dependencies": [],
       "cssVars": {
         "light": {
           "background": "oklch(1 0 0)",
@@ -4011,11 +3428,12 @@
           "sidebar-border": "oklch(1 0 0 / 10%)",
           "sidebar-ring": "oklch(0.552 0.016 285.938)"
         }
-      }
+      },
+      "type": "registry:theme"
     },
     {
       "name": "theme-neutral",
-      "type": "registry:theme",
+      "dependencies": [],
       "cssVars": {
         "light": {
           "background": "oklch(1 0 0)",
@@ -4084,11 +3502,12 @@
           "sidebar-border": "oklch(1 0 0 / 10%)",
           "sidebar-ring": "oklch(0.556 0 0)"
         }
-      }
+      },
+      "type": "registry:theme"
     },
     {
       "name": "theme-gray",
-      "type": "registry:theme",
+      "dependencies": [],
       "cssVars": {
         "light": {
           "background": "oklch(1 0 0)",
@@ -4157,11 +3576,12 @@
           "sidebar-border": "oklch(1 0 0 / 10%)",
           "sidebar-ring": "oklch(0.551 0.027 264.364)"
         }
-      }
+      },
+      "type": "registry:theme"
     },
     {
       "name": "theme-slate",
-      "type": "registry:theme",
+      "dependencies": [],
       "cssVars": {
         "light": {
           "background": "oklch(1 0 0)",
@@ -4230,23 +3650,8 @@
           "sidebar-border": "oklch(1 0 0 / 10%)",
           "sidebar-ring": "oklch(0.551 0.027 264.364)"
         }
-      }
-    },
-    {
-      "name": "alert-example",
-      "type": "registry:example",
-      "title": "Alert",
-      "registryDependencies": [
-        "alert",
-        "badge",
-        "button"
-      ],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/alert-example.vue",
-          "type": "registry:example"
-        }
-      ]
+      },
+      "type": "registry:theme"
     }
   ]
 }

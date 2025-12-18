@@ -7,9 +7,9 @@ import path from 'node:path'
 // import { Project, ScriptKind } from 'ts-morph'
 
 import { registryItemSchema } from 'shadcn-vue/schema'
-import { blockMeta } from '@/registry/registry-block-meta'
 import { fixImport } from '~/lib/registry-utils'
 import { Index } from '~/registry/__index__'
+import { blockMeta } from '~/registry/new-york-v4/blocks/_meta'
 
 export function getRegistryComponent(name: string) {
   return Index[name]?.component

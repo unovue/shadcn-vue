@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "typecheck": "vue-tsc -b",
     "deploy": "pnpm build && npx wrangler --cwd .output/ deploy",
-    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts"
+    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts",
+    "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts"
   },
   "dependencies": {
     "@dnd-kit/abstract": "^0.1.21",

@@ -2,11 +2,10 @@ import type { RegistryItem } from 'shadcn-vue/schema'
 
 type RegistryFile = NonNullable<RegistryItem['files']>[number]
 import { readdir, readFile } from 'node:fs/promises'
-import { kebabCase } from '@unovis/ts'
 import { parseSync } from 'oxc-parser'
 import { join, resolve } from 'pathe'
 import { compileScript, parse, walk } from 'vue/compiler-sfc'
-import { blockMeta } from '~/registry/registry-block-meta'
+import { blockMeta } from '~/registry/new-york-v4/blocks/_meta'
 
 // [Dependency, [...PeerDependencies]]
 const DEPENDENCIES = new Map<string, string[]>([
@@ -29,6 +28,28 @@ function sanitizeString(input: string): string {
     .replace(/[-_]\d+/g, '') // Remove hyphens/underscores followed by digits
     .replace(/\d+/g, '') // Remove any remaining digits
     .toLowerCase() // Convert to lowercase
+}
+
+/**
+ * Extract chart categories from component name
+ * Example: ChartAreaAxes -> ["chart", "chart-area"]
+ * Example: ChartBarDefault -> ["chart", "chart-bar"]
+ */
+function getChartCategories(componentName: string): string[] {
+  // Remove file extension if present
+  const name = componentName.replace(/\.vue$/, '')
+
+  // Match pattern: Chart + Type (e.g., ChartArea, ChartBar)
+  // The type is everything after "Chart" until the next capital letter or end
+  const match = name.match(/^Chart([A-Z][a-z]+)/)
+
+  if (match && match[1]) {
+    const chartType = match[1].toLowerCase()
+    return ['chart', `chart-${chartType}`]
+  }
+
+  // Fallback: just return 'chart'
+  return ['chart']
 }
 
 export async function crawlUI(rootPath: string) {
@@ -55,34 +76,55 @@ export async function crawlExample(rootPath: string) {
 
   const registry: RegistryItem[] = []
 
+  // Group files by folder
+  const folderMap = new Map<string, { files: any[], deps: Set<string>, regDeps: Set<string> }>()
+
   for (const dirent of dir) {
-    if (!dirent.name.endsWith('.vue') || !dirent.isFile())
+    if (!dirent.isDirectory())
       continue
 
-    const [name = ''] = dirent.name.split('.vue')
+    const folderName = dirent.name
+    const folderPath = join(rootPath, folderName)
+    const filesInFolder = await readdir(folderPath, { withFileTypes: true })
 
-    const filepath = join(rootPath, dirent.name)
-    const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('examples', dirent.name)
+    const files: any[] = []
+    const dependencies = new Set<string>()
+    const registryDependencies = new Set<string>()
 
-    const file = {
-      name: dirent.name,
-      content: source,
-      path: relativePath,
-      // style,
-      target: '',
-      type,
+    for (const file of filesInFolder) {
+      if (!file.name.endsWith('.vue') || !file.isFile())
+        continue
+
+      const filepath = join(folderPath, file.name)
+      const source = await readFile(filepath, { encoding: 'utf8' })
+      const relativePath = join(folderName, file.name)
+
+      files.push({
+        path: relativePath,
+        type,
+      })
+
+      const deps = await getFileDependencies(filepath, source)
+      deps.dependencies.forEach(dep => dependencies.add(dep))
+      deps.registryDependencies.forEach(dep => registryDependencies.add(dep))
     }
-    const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
 
-    registry.push({
-      name,
-      type,
-      // style,
-      files: [file],
-      registryDependencies: Array.from(registryDependencies),
-      dependencies: Array.from(dependencies),
-    })
+    if (files.length > 0) {
+      // Generate title from folder name (convert kebab-case to Title Case)
+      const title = folderName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+
+      registry.push({
+        name: `${folderName}-example`,
+        title,
+        type,
+        files,
+        registryDependencies: Array.from(registryDependencies),
+        dependencies: Array.from(dependencies),
+      })
+    }
   }
 
   return registry
@@ -128,7 +170,7 @@ export async function crawlBlock(rootPath: string) {
       files: [file],
       registryDependencies: Array.from(registryDependencies),
       dependencies: Array.from(dependencies),
-      categories: kebabCase(name).split('-').slice(0, 2).map((value, index) => index === 1 ? `chart-${value}` : 'chart'),
+      categories: getChartCategories(name),
     })
   }
 
@@ -162,11 +204,8 @@ export async function crawlChart(rootPath: string) {
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
     const relativePath = join('charts', dirent.name)
-    const target = ''
     const file = {
-      name: dirent.name,
       path: relativePath,
-      target,
       type,
     }
     const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
@@ -177,7 +216,7 @@ export async function crawlChart(rootPath: string) {
       dependencies: dependencies.size ? Array.from(dependencies) : undefined,
       registryDependencies: registryDependencies.size ? Array.from(registryDependencies) : undefined,
       files: [file],
-      categories: [], // TODO: get from file name
+      categories: getChartCategories(name),
     })
   }
 
@@ -202,7 +241,6 @@ export async function crawlComposables(rootPath: string) {
     const relativePath = join('composables', dirent.name)
 
     const file = {
-      content: source,
       path: relativePath,
       type,
     }
