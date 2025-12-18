@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { RegistryItem } from 'shadcn-vue/schema'
+import type { Base } from '~/registry/bases'
 import { ChevronRightIcon } from 'lucide-vue-next'
-
-// import { designSystemSearchParams } from '@/app/(create)/lib/search-params'
 import { cn } from '@/lib/utils'
 import {
   Collapsible,
@@ -18,29 +17,22 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/registry/new-york-v4/ui/sidebar'
-import { ALLOWED_ITEM_TYPES } from '~/lib/constants'
 import { groupItemsByType } from '~/lib/create'
 
-const { data } = await useFetch<Record<string, RegistryItem>>('/api/all-items')
-const items = computed(() => {
-  return Object.values(data.value ?? {}).filter(item =>
-    ALLOWED_ITEM_TYPES.includes(item.type),
-  ).map(item => ({
-    name: item.name,
-    title: item.name ?? item.title,
-    type: item.type,
-  }))
-})
+const props = defineProps<{
+  base: Base['name']
+  items: Pick<RegistryItem, 'name' | 'title' | 'type'>[]
+}>()
+
+const params = useDesignSystemSearchParams()
 
 const groupedItems = computed(() => {
-  return groupItemsByType(items.value)
+  return groupItemsByType(props.items)
 })
 
 const currentItem = computed(() => {
-  return items.value.find(item => item.name === '') ?? null
+  return props.items.find(item => item.name === params.item.value) ?? null
 })
-
-// console.log(groupedItems, items)
 </script>
 
 <template>
@@ -76,8 +68,7 @@ const currentItem = computed(() => {
                     :data-active="item.name === currentItem?.name"
                     :is-active="item.name === currentItem?.name"
                     @click="() => {
-
-                    // setParams({ item: item.name })}
+                      params.item.value = item.name
                     }"
                   >
                     {{ item.title }}

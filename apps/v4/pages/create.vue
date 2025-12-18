@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { RegistryItem } from 'shadcn-vue/schema'
 import { ArrowLeftIcon } from 'lucide-vue-next'
 // import { siteConfig } from "@/lib/config"
 // import { absoluteUrl } from "@/lib/utils"
@@ -19,7 +20,20 @@ import { SidebarProvider } from '@/registry/new-york-v4/ui/sidebar'
 // import { WelcomeDialog } from "@/app/(create)/components/welcome-dialog"
 // import { getItemsForBase } from "@/app/(create)/lib/api"
 // import { designSystemSearchParamsCache } from "@/app/(create)/lib/search-params"
+import { ALLOWED_ITEM_TYPES } from '~/lib/constants'
+
 const params = useDesignSystemSearchParams()
+
+const { data } = await useFetch<Record<string, RegistryItem>>(`/api/base/${params.base.value}`)
+const items = computed(() => {
+  return Object.values(data.value ?? {}).filter(item =>
+    ALLOWED_ITEM_TYPES.includes(item.type),
+  ).map(item => ({
+    name: item.name,
+    title: item.title ?? item.name,
+    type: item.type,
+  }))
+})
 
 definePageMeta({
   layout: 'blank',
@@ -82,7 +96,7 @@ definePageMeta({
           data-slot="designer"
           class="3xl:fixed:container flex w-full flex-1 flex-col gap-2 p-6 pt-1 pb-4 [--sidebar-width:--spacing(40)] sm:gap-2 sm:pt-2 md:flex-row md:pb-6 2xl:gap-6"
         >
-          <ItemExplorer />
+          <ItemExplorer :base="params.base.value" :items="items" />
           <Preview />
           <Customizer />
         </div>
