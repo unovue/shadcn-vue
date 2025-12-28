@@ -48,5 +48,6 @@
   "tailwindCSS.classFunctions": ["cva", "cn"],
   "files.exclude": {
     "deprecated": true
-  }
+  },
+  "explorer.sortOrderLexicographicOptions": "upper"
 }
