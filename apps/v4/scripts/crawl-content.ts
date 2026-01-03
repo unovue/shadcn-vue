@@ -32,7 +32,7 @@ function sanitizeString(input: string): string {
 }
 
 export async function crawlUI(rootPath: string) {
-  const dir = await readdir(rootPath, { recursive: true, withFileTypes: true })
+  const dir = (await readdir(rootPath, { recursive: true, withFileTypes: true })).sort()
 
   const uiRegistry: RegistryItem[] = []
 
@@ -51,7 +51,7 @@ export async function crawlUI(rootPath: string) {
 export async function crawlExample(rootPath: string) {
   const type = 'registry:example' as const
 
-  const dir = await readdir(rootPath, { withFileTypes: true })
+  const dir = (await readdir(rootPath, { withFileTypes: true })).sort()
 
   const registry: RegistryItem[] = []
 
@@ -91,7 +91,7 @@ export async function crawlExample(rootPath: string) {
 export async function crawlBlock(rootPath: string) {
   const type = 'registry:block' as const
 
-  const dir = await readdir(rootPath, { withFileTypes: true })
+  const dir = (await readdir(rootPath, { withFileTypes: true })).sort()
 
   const registry: RegistryItem[] = []
 
@@ -138,7 +138,7 @@ export async function crawlBlock(rootPath: string) {
 export async function crawlChart(rootPath: string) {
   const type = 'registry:block' as const
 
-  const dir = await readdir(rootPath, { withFileTypes: true })
+  const dir = (await readdir(rootPath, { withFileTypes: true })).sort()
 
   const registry: RegistryItem[] = []
 
@@ -187,7 +187,7 @@ export async function crawlChart(rootPath: string) {
 export async function crawlComposables(rootPath: string) {
   const type = 'registry:composable' as const
 
-  const dir = await readdir(rootPath, { withFileTypes: true })
+  const dir = (await readdir(rootPath, { withFileTypes: true })).sort()
 
   const registry: RegistryItem[] = []
 
@@ -221,9 +221,9 @@ export async function crawlComposables(rootPath: string) {
 }
 
 async function buildUIRegistry(componentPath: string, componentName: string) {
-  const dir = await readdir(componentPath, {
+  const dir = (await readdir(componentPath, {
     withFileTypes: true,
-  })
+  })).sort()
 
   const files: RegistryFile[] = []
   const dependencies = new Set<string>()
@@ -262,7 +262,7 @@ async function buildUIRegistry(componentPath: string, componentName: string) {
 }
 
 async function buildBlockRegistry(blockPath: string, blockName: string) {
-  const dir = await readdir(blockPath, { withFileTypes: true, recursive: true })
+  const dir = (await readdir(blockPath, { withFileTypes: true, recursive: true })).sort()
 
   const files: RegistryFile[] = []
   const dependencies = new Set<string>()
