@@ -11,9 +11,9 @@ import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
 
 export const TEMPLATES = {
-  nuxt: 'nuxt',
-  vite: 'vite',
-  start: 'start',
+  'nuxt': 'nuxt',
+  'vite': 'vite',
+  'vite-router': 'vite-router',
 } as const
 
 export type TemplateType = keyof typeof TEMPLATES
@@ -41,7 +41,7 @@ export async function createProject(
         choices: [
           { title: 'Nuxt', value: 'nuxt' },
           { title: 'Vite', value: 'vite' },
-          { title: 'TanStack Start', value: 'start' },
+          { title: 'Vite + Vue Router', value: 'vite-router' },
         ],
         initial: 0,
       },
@@ -106,8 +106,8 @@ export async function createProject(
     })
   }
 
-  if (template === TEMPLATES.start) {
-    await createTanStackStartProject(projectPath, {
+  if (template === TEMPLATES['vite-router']) {
+    await createViteRouterProject(projectPath, {
       cwd: options.cwd,
       packageManager: packageManager?.name || 'npm',
     })
@@ -206,7 +206,7 @@ async function createViteProject(
   }
 }
 
-async function createTanStackStartProject(
+async function createViteRouterProject(
   projectPath: string,
   options: {
     cwd: string
@@ -214,7 +214,7 @@ async function createTanStackStartProject(
   },
 ) {
   const createSpinner = spinner(
-    `Creating a new TanStack Start project. This may take a few minutes.`,
+    `Creating a new Vite + Vue Router project. This may take a few minutes.`,
   ).start()
 
   try {
@@ -227,40 +227,45 @@ async function createTanStackStartProject(
     const packageJson = {
       name: projectName,
       private: true,
+      version: '0.0.0',
       type: 'module',
       scripts: {
-        dev: 'vinxi dev',
-        build: 'vinxi build',
-        start: 'vinxi start',
+        dev: 'vite',
+        build: 'vue-tsc -b && vite build',
+        preview: 'vite preview',
       },
       dependencies: {
-        '@tanstack/react-router': 'latest',
-        '@tanstack/start': 'latest',
-        'vinxi': 'latest',
-        'vue': 'latest',
+        'vue': '^3.5.13',
+        'vue-router': '^4.5.0',
       },
       devDependencies: {
-        '@types/node': 'latest',
-        'typescript': 'latest',
-        'vue-tsc': 'latest',
+        '@types/node': '^22.10.0',
+        '@vitejs/plugin-vue': '^5.2.1',
+        'typescript': '~5.7.2',
+        'vite': '^6.0.0',
+        'vue-tsc': '^2.2.0',
       },
     }
 
     await fs.writeJson(path.join(projectPath, 'package.json'), packageJson, { spaces: 2 })
 
-    // Create basic app.config.ts
-    const appConfig = `import { defineConfig } from '@tanstack/start/config'
+    // Create vite.config.ts
+    const viteConfig = `import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-  vite: {
-    plugins: [vue()],
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
 })
 `
-    await fs.writeFile(path.join(projectPath, 'app.config.ts'), appConfig)
+    await fs.writeFile(path.join(projectPath, 'vite.config.ts'), viteConfig)
 
-    // Create basic tsconfig.json
+    // Create tsconfig.json
     const tsConfig = {
       compilerOptions: {
         target: 'ES2022',
@@ -279,43 +284,116 @@ export default defineConfig({
         noUnusedParameters: true,
         noFallthroughCasesInSwitch: true,
         paths: {
-          '@/*': ['./app/*'],
+          '@/*': ['./src/*'],
         },
       },
-      include: ['app/**/*.ts', 'app/**/*.tsx', 'app/**/*.vue'],
+      include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue'],
+      references: [{ path: './tsconfig.node.json' }],
     }
-
     await fs.writeJson(path.join(projectPath, 'tsconfig.json'), tsConfig, { spaces: 2 })
 
-    // Create app directory structure
-    await fs.ensureDir(path.join(projectPath, 'app'))
-    await fs.ensureDir(path.join(projectPath, 'app/routes'))
+    // Create tsconfig.node.json
+    const tsConfigNode = {
+      compilerOptions: {
+        target: 'ES2022',
+        lib: ['ES2023'],
+        module: 'ESNext',
+        skipLibCheck: true,
+        moduleResolution: 'bundler',
+        allowImportingTsExtensions: true,
+        resolveJsonModule: true,
+        isolatedModules: true,
+        noEmit: true,
+        strict: true,
+        noUnusedLocals: true,
+        noUnusedParameters: true,
+        noFallthroughCasesInSwitch: true,
+      },
+      include: ['vite.config.ts'],
+    }
+    await fs.writeJson(path.join(projectPath, 'tsconfig.node.json'), tsConfigNode, { spaces: 2 })
 
-    // Create basic root route
-    const rootRoute = `<script setup lang="ts">
-// Root layout component
+    // Create directory structure
+    await fs.ensureDir(path.join(projectPath, 'src'))
+    await fs.ensureDir(path.join(projectPath, 'src/components'))
+    await fs.ensureDir(path.join(projectPath, 'src/views'))
+    await fs.ensureDir(path.join(projectPath, 'src/router'))
+
+    // Create index.html
+    const indexHtml = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${projectName}</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+`
+    await fs.writeFile(path.join(projectPath, 'index.html'), indexHtml)
+
+    // Create main.ts
+    const mainTs = `import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+
+import './assets/index.css'
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
+`
+    await fs.writeFile(path.join(projectPath, 'src/main.ts'), mainTs)
+
+    // Create App.vue
+    const appVue = `<script setup lang="ts">
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div>
-    <slot />
-  </div>
+  <RouterView />
 </template>
 `
-    await fs.writeFile(path.join(projectPath, 'app/routes/__root.vue'), rootRoute)
+    await fs.writeFile(path.join(projectPath, 'src/App.vue'), appVue)
 
-    // Create index route
-    const indexRoute = `<script setup lang="ts">
-// Index page
+    // Create router/index.ts
+    const routerTs = `import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView,
+    },
+  ],
+})
+
+export default router
+`
+    await fs.writeFile(path.join(projectPath, 'src/router/index.ts'), routerTs)
+
+    // Create HomeView.vue
+    const homeView = `<script setup lang="ts">
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center">
-    <h1 class="text-4xl font-bold">Welcome to TanStack Start + Vue</h1>
-  </div>
+  <main class="min-h-screen flex items-center justify-center">
+    <h1 class="text-4xl font-bold">Welcome to Vue + Vite</h1>
+  </main>
 </template>
 `
-    await fs.writeFile(path.join(projectPath, 'app/routes/index.vue'), indexRoute)
+    await fs.writeFile(path.join(projectPath, 'src/views/HomeView.vue'), homeView)
+
+    // Create assets directory with empty CSS file
+    await fs.ensureDir(path.join(projectPath, 'src/assets'))
+    await fs.writeFile(path.join(projectPath, 'src/assets/index.css'), '')
 
     // Install dependencies
     await x(options.packageManager, ['install'], {
@@ -324,10 +402,10 @@ export default defineConfig({
       },
     })
 
-    createSpinner?.succeed('Created a new TanStack Start project.')
+    createSpinner?.succeed('Created a new Vite + Vue Router project.')
   }
   catch (error) {
-    createSpinner?.fail('Something went wrong creating a new TanStack Start project.')
+    createSpinner?.fail('Something went wrong creating a new Vite + Vue Router project.')
     handleError(error)
   }
 }

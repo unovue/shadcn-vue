@@ -25,6 +25,7 @@ export async function updateCssVars(
     silent?: boolean
     tailwindVersion?: TailwindVersion
     tailwindConfig?: z.infer<typeof registryItemTailwindSchema>['config']
+    fontImport?: string
   },
 ) {
   if (!config.resolvedPaths.tailwindCss || !Object.keys(cssVars ?? {}).length) {
@@ -57,6 +58,7 @@ export async function updateCssVars(
     tailwindConfig: options.tailwindConfig,
     overwriteCssVars: options.overwriteCssVars,
     initIndex: options.initIndex,
+    fontImport: options.fontImport,
   })
   await fs.writeFile(cssFilepath, output, 'utf8')
   cssVarsSpinner.succeed()
@@ -72,6 +74,7 @@ export async function transformCssVars(
     tailwindConfig?: z.infer<typeof registryItemTailwindSchema>['config']
     overwriteCssVars?: boolean
     initIndex?: boolean
+    fontImport?: string
   } = {
     cleanupDefaultNextStyles: false,
     tailwindVersion: 'v3',
@@ -91,12 +94,22 @@ export async function transformCssVars(
 
   let plugins = [updateCssVarsPlugin(cssVars)]
 
+  // Add font import if provided
+  if (options.fontImport) {
+    plugins.unshift(addFontImportPlugin({ fontImport: options.fontImport }))
+  }
+
   if (options.cleanupDefaultNextStyles) {
     plugins.push(cleanupDefaultNextStylesPlugin())
   }
 
   if (options.tailwindVersion === 'v4') {
     plugins = []
+
+    // Add font import at the very beginning if provided
+    if (options.fontImport) {
+      plugins.push(addFontImportPlugin({ fontImport: options.fontImport }))
+    }
 
     // Only add tw-animate-css if project does not have tailwindcss-animate
     if (config.resolvedPaths?.cwd) {
@@ -698,6 +711,44 @@ function addCustomImport({ params }: { params: string }) {
         }
         else {
           // If no imports and no custom-variant, insert at the start
+          root.prepend(importNode)
+          root.insertAfter(importNode, postcss.comment({ text: '---break---' }))
+        }
+      }
+    },
+  }
+}
+
+/**
+ * Add Google Fonts import at the top of CSS file.
+ */
+export function addFontImportPlugin({ fontImport }: { fontImport: string }) {
+  return {
+    postcssPlugin: 'add-font-import',
+    Once(root: Root) {
+      if (!fontImport)
+        return
+
+      // Check if this font import already exists
+      const hasImport = root.nodes.some(
+        (node): node is AtRule =>
+          node.type === 'atrule'
+          && node.name === 'import'
+          && node.params.includes('fonts.googleapis.com'),
+      )
+
+      if (!hasImport) {
+        // Create the import node - fontImport already includes @import
+        // We need to extract just the URL part
+        const urlMatch = fontImport.match(/url\(['"]?([^'"]+)['"]?\)/)
+        if (urlMatch) {
+          const importNode = postcss.atRule({
+            name: 'import',
+            params: `url('${urlMatch[1]}')`,
+            raws: { semicolon: true, before: '' },
+          })
+
+          // Insert at the very beginning of the file
           root.prepend(importNode)
           root.insertAfter(importNode, postcss.comment({ text: '---break---' }))
         }

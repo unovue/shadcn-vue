@@ -45,13 +45,53 @@ export const STYLES = [
   },
 ] as const
 
-// Available fonts
+// Available fonts with Google Fonts configuration
 export const FONTS = [
-  { name: "inter", label: "Inter" },
-  { name: "figtree", label: "Figtree" },
-  { name: "jetbrains-mono", label: "JetBrains Mono" },
-  { name: "geist", label: "Geist" },
-  { name: "geist-mono", label: "Geist Mono" },
+  {
+    name: "inter",
+    label: "Inter",
+    family: "Inter",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "figtree",
+    label: "Figtree",
+    family: "Figtree",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "jetbrains-mono",
+    label: "JetBrains Mono",
+    family: "JetBrains Mono",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');",
+    variable: "--font-mono",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "geist",
+    label: "Geist",
+    family: "Geist",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "geist-mono",
+    label: "Geist Mono",
+    family: "Geist Mono",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');",
+    variable: "--font-mono",
+    weight: ["400", "500", "600", "700"],
+  },
 ] as const
 
 // Available icon libraries

@@ -88,7 +88,7 @@ export const initOptionsSchema = z.object({
         return true
       },
       {
-        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'start\'.',
+        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'vite-router\'.',
       },
     ),
   base: z
@@ -173,7 +173,7 @@ export const init = new Command()
   .argument('[components...]', 'names, url or local path to component')
   .option(
     '-t, --template <template>',
-    'the template to use. (nuxt, vite, start)',
+    'the template to use. (nuxt, vite, vite-router)',
   )
   .option(
     '--base <base>',

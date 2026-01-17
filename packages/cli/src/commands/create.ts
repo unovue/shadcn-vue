@@ -31,7 +31,7 @@ export const createOptionsSchema = z.object({
         return true
       },
       {
-        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'start\'.',
+        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'vite-router\'.',
       },
     ),
   base: z
@@ -123,7 +123,7 @@ export const create = new Command()
   )
   .option(
     '-t, --template <template>',
-    'the framework template to use. (nuxt, vite, start)',
+    'the framework template to use. (nuxt, vite, vite-router)',
   )
   .option(
     '--base <base>',
@@ -189,7 +189,7 @@ export const create = new Command()
             choices: [
               { title: 'Nuxt', value: 'nuxt', description: 'Full-stack Vue framework with file-based routing' },
               { title: 'Vite', value: 'vite', description: 'Fast build tool with Vue SPA template' },
-              { title: 'TanStack Start', value: 'start', description: 'Modern full-stack framework' },
+              { title: 'Vite + Vue Router', value: 'vite-router', description: 'Vite with Vue Router for client-side routing' },
             ],
             initial: 0,
           },

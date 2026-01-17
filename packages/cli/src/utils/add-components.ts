@@ -12,6 +12,7 @@ import { resolveRegistryTree } from '@/src/registry/resolver'
 import {
   registryItemSchema,
 } from '@/src/schema'
+import { getFontImport } from '@/src/utils/fonts'
 import {
   findCommonRoot,
   findPackageRoot,
@@ -108,6 +109,7 @@ async function addProjectComponents(
   })
 
   const overwriteCssVars = await shouldOverwriteCssVars(components, config)
+  const fontImport = config.font ? getFontImport(config.font) : undefined
   await updateCssVars(tree.cssVars, config, {
     cleanupDefaultNextStyles: options.isNewProject,
     silent: options.silent,
@@ -115,6 +117,7 @@ async function addProjectComponents(
     tailwindConfig: tree.tailwind?.config,
     overwriteCssVars,
     initIndex: options.baseStyle,
+    fontImport,
   })
 
   // Add CSS updater
@@ -211,11 +214,13 @@ async function addWorkspaceComponents(
   // 2. Update css vars.
   if (tree.cssVars) {
     const overwriteCssVars = await shouldOverwriteCssVars(components, config)
+    const fontImport = mainTargetConfig.font ? getFontImport(mainTargetConfig.font) : undefined
     await updateCssVars(tree.cssVars, mainTargetConfig, {
       silent: true,
       tailwindVersion,
       tailwindConfig: tree.tailwind?.config,
       overwriteCssVars,
+      fontImport,
     })
     filesUpdated.push(
       path.relative(workspaceRoot, mainTargetConfig.resolvedPaths.tailwindCss),
