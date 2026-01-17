@@ -38,6 +38,8 @@ const open = ref(false)
                   lucide="UserIcon"
                   tabler="IconUser"
                   hugeicons="UserIcon"
+                  phosphor="UserIcon"
+                  remixicon="RiUserLine"
                 />
                 <span>Profile</span>
                 <CommandShortcut>⌘P</CommandShortcut>
@@ -47,6 +49,8 @@ const open = ref(false)
                   lucide="CreditCardIcon"
                   tabler="IconCreditCard"
                   hugeicons="CreditCardIcon"
+                  phosphor="CreditCardIcon"
+                  remixicon="RiBankCardLine"
                 />
                 <span>Billing</span>
                 <CommandShortcut>⌘B</CommandShortcut>
@@ -56,6 +60,8 @@ const open = ref(false)
                   lucide="SettingsIcon"
                   tabler="IconSettings"
                   hugeicons="SettingsIcon"
+                  phosphor="GearIcon"
+                  remixicon="RiSettings3Line"
                 />
                 <span>Settings</span>
                 <CommandShortcut>⌘S</CommandShortcut>

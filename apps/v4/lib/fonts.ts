@@ -1,5 +1,12 @@
 export const FONTS = [
   {
+    name: 'Geist Sans',
+    value: 'geist',
+    cssVar: '--font-geist',
+    fontFamily: '\'Geist Variable\', sans-serif',
+    type: 'sans',
+  },
+  {
     name: 'Inter',
     value: 'inter',
     cssVar: '--font-inter',

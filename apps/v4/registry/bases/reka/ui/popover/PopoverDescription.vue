@@ -8,10 +8,10 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
+  <p
     data-slot="popover-description"
-    :class="cn('text-muted-foreground text-sm', props.class)"
+    :class="cn('cn-popover-description', props.class)"
   >
     <slot />
-  </div>
+  </p>
 </template>

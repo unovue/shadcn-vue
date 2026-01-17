@@ -11,7 +11,7 @@ const props = defineProps<{
   <div
     data-slot="avatar-group"
     :class="cn(
-      'flex items-center -space-x-3',
+      'cn-avatar-group *:data-[slot=avatar]:ring-background group/avatar-group flex -space-x-2 *:data-[slot=avatar]:ring-2',
       props.class,
     )"
   >

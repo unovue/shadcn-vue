@@ -10,6 +10,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="BoldIcon"
         tabler="IconBold"
         hugeicons="TextBoldIcon"
+        phosphor="TextBIcon"
+        remixicon="RiBold"
       />
     </Toggle>
     <Toggle aria-label="Toggle italic">
@@ -17,6 +19,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="ItalicIcon"
         tabler="IconItalic"
         hugeicons="TextItalicIcon"
+        phosphor="TextItalicIcon"
+        remixicon="RiItalic"
       />
     </Toggle>
     <Toggle aria-label="Toggle underline">
@@ -24,6 +28,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="UnderlineIcon"
         tabler="IconUnderline"
         hugeicons="TextUnderlineIcon"
+        phosphor="TextUnderlineIcon"
+        remixicon="RiUnderline"
       />
     </Toggle>
   </div>

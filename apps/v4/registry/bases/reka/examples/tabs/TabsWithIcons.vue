@@ -11,6 +11,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/reka/ui/tabs"
           lucide="AppWindowIcon"
           tabler="IconAppWindow"
           hugeicons="CursorInWindowIcon"
+          phosphor="AppWindowIcon"
+          remixicon="RiWindow2Line"
         />
         Preview
       </TabsTrigger>
@@ -19,6 +21,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/reka/ui/tabs"
           lucide="CodeIcon"
           tabler="IconCode"
           hugeicons="CodeIcon"
+          phosphor="CodeIcon"
+          remixicon="RiCodeLine"
         />
         Code
       </TabsTrigger>

@@ -166,6 +166,8 @@ const value2 = ref("000000")
                     lucide="RefreshCwIcon"
                     hugeicons="RefreshIcon"
                     tabler="IconRefresh"
+                    phosphor="ArrowClockwiseIcon"
+                    remixicon="RiRefreshLine"
                     data-icon="inline-start"
                   />
                   Resend Code

@@ -12,6 +12,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Default
@@ -21,6 +23,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Secondary
@@ -30,6 +34,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Outline
@@ -39,6 +45,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Ghost
@@ -48,6 +56,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Destructive
@@ -57,6 +67,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Link
@@ -68,6 +80,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Default
@@ -77,6 +91,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Secondary
@@ -86,6 +102,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Outline
@@ -95,6 +113,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Ghost
@@ -104,6 +124,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Destructive
@@ -113,6 +135,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Link
@@ -124,6 +148,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Default
@@ -133,6 +159,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Secondary
@@ -142,6 +170,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Outline
@@ -151,6 +181,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Ghost
@@ -160,6 +192,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Destructive
@@ -169,6 +203,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Link
@@ -180,6 +216,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Default
@@ -189,6 +227,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Secondary
@@ -198,6 +238,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Outline
@@ -207,6 +249,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Ghost
@@ -216,6 +260,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Destructive
@@ -225,6 +271,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftCircleIcon"
           hugeicons="CircleArrowLeft02Icon"
           tabler="IconCircleArrowLeft"
+          phosphor="ArrowCircleLeftIcon"
+          remixicon="RiArrowLeftCircleLine"
           data-icon="inline-start"
         />
         Link

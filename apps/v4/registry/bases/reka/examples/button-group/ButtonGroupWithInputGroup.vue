@@ -21,6 +21,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="SearchIcon"
             tabler="IconSearch"
             hugeicons="Search01Icon"
+            phosphor="MagnifyingGlassIcon"
+            remixicon="RiSearchLine"
           />
         </InputGroupAddon>
       </InputGroup>

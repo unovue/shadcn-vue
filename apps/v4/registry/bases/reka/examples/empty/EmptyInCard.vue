@@ -21,6 +21,8 @@ import {
             lucide="FolderIcon"
             tabler="IconFolder"
             hugeicons="Folder01Icon"
+            phosphor="FolderIcon"
+            remixicon="RiFolderLine"
           />
         </EmptyMedia>
         <EmptyTitle>No projects yet</EmptyTitle>
@@ -45,6 +47,8 @@ import {
               lucide="ArrowUpRightIcon"
               tabler="IconArrowUpRight"
               hugeicons="ArrowUpRight01Icon"
+              phosphor="ArrowUpRightIcon"
+              remixicon="RiArrowRightUpLine"
             />
           </a>
         </Button>

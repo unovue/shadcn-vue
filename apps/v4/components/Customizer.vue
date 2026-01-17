@@ -1,20 +1,6 @@
 <script setup lang="ts">
 import { Settings05Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
-
-// import { MenuAccentPicker } from '@/app/(create)/components/accent-picker'
-// import { BaseColorPicker } from '@/app/(create)/components/base-color-picker'
-// import { BasePicker } from '@/app/(create)/components/base-picker'
-// import { CustomizerControls } from '@/app/(create)/components/customizer-controls'
-// import { FontPicker } from '@/app/(create)/components/font-picker'
-// import { IconLibraryPicker } from '@/app/(create)/components/icon-library-picker'
-// import { MenuColorPicker } from '@/app/(create)/components/menu-picker'
-// import { PresetPicker } from '@/app/(create)/components/preset-picker'
-// import { RadiusPicker } from '@/app/(create)/components/radius-picker'
-// import { StylePicker } from '@/app/(create)/components/style-picker'
-// import { ThemePicker } from '@/app/(create)/components/theme-picker'
-// import { FONTS } from '@/app/(create)/lib/fonts'
-
 import { FONTS } from '@/lib/fonts'
 import { getThemesForBaseColor, PRESETS, STYLES } from '@/registry/config'
 import { FieldGroup } from '@/registry/new-york-v4/ui/field'
@@ -51,7 +37,6 @@ const anchorRef = ref<HTMLDivElement | null>(null)
           :is-mobile="isMobile"
           :anchor-ref="anchorRef"
         />
-        <!-- <BasePicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" /> -->
         <StylePicker
           :styles="STYLES as any"
           :is-mobile="isMobile"
@@ -75,10 +60,19 @@ const anchorRef = ref<HTMLDivElement | null>(null)
           :is-mobile="isMobile"
           :anchor-ref="anchorRef"
         />
-        <!-- <RadiusPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
-        <MenuColorPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
-        <MenuAccentPicker is-mobile="{isMobile}" anchor-ref="{anchorRef}" />
-        <CustomizerControls class="mt-auto hidden w-full flex-col md:flex" /> -->
+        <RadiusPicker
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
+        />
+        <MenuColorPicker
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
+        />
+        <MenuAccentPicker
+          :is-mobile="isMobile"
+          :anchor-ref="anchorRef"
+        />
+        <CustomizerControls class="mt-auto hidden w-full md:flex" />
       </FieldGroup>
     </div>
   </div>

@@ -81,6 +81,8 @@ const lineChartConfig = {
                 lucide="TrendingUpIcon"
                 tabler="IconTrendingUp"
                 hugeicons="ChartUpIcon"
+                phosphor="TrendUpIcon"
+                remixicon="RiLineChartLine"
                 class="size-4"
               />
             </div>

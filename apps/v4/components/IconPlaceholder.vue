@@ -3,7 +3,13 @@ import { SquareIcon } from 'lucide-vue-next'
 import { computed, defineAsyncComponent } from 'vue'
 
 // manually type from  `import type { IconLibraryName } from 'shadcn-vue/icons'`
-const props = defineProps<{ lucide: string, tabler: string, hugeicons: string }>()
+const props = defineProps<{
+  lucide?: string
+  tabler?: string
+  hugeicons?: string
+  phosphor?: string
+  remixicon?: string
+}>()
 
 const { iconLibrary } = useDesignSystemSearchParams()
 
@@ -19,10 +25,21 @@ const IconHugeicons = defineAsyncComponent(() =>
   import('@/registry/icons/icon-hugeicons').then(mod => mod.IconHugeicons),
 )
 
-const iconName = computed(() => props[iconLibrary.value])
+const IconPhosphor = defineAsyncComponent(() =>
+  import('@/registry/icons/icon-phosphor').then(mod => mod.IconPhosphor),
+)
+
+const IconRemixicon = defineAsyncComponent(() =>
+  import('@/registry/icons/icon-remixicon').then(mod => mod.IconRemixicon),
+)
+
+const iconName = computed(() => {
+  const lib = iconLibrary.value as keyof typeof props
+  return props[lib]
+})
 
 const svgProps = computed(() => {
-  const { lucide, tabler, hugeicons, ...rest } = props
+  const { lucide, tabler, hugeicons, phosphor, remixicon, ...rest } = props
   return rest
 })
 </script>
@@ -33,21 +50,31 @@ const svgProps = computed(() => {
       <IconLucide
         v-if="iconLibrary === 'lucide'"
         :name="iconName"
-        v-bind="{ ...svgProps, $attrs }"
+        v-bind="{ ...svgProps, ...$attrs }"
       />
       <IconTabler
         v-else-if="iconLibrary === 'tabler'"
         :name="iconName"
-        v-bind="{ ...svgProps, $attrs }"
+        v-bind="{ ...svgProps, ...$attrs }"
       />
       <IconHugeicons
         v-else-if="iconLibrary === 'hugeicons'"
         :name="iconName"
-        v-bind="{ ...svgProps, $attrs }"
+        v-bind="{ ...svgProps, ...$attrs }"
+      />
+      <IconPhosphor
+        v-else-if="iconLibrary === 'phosphor'"
+        :name="iconName"
+        v-bind="{ ...svgProps, ...$attrs }"
+      />
+      <IconRemixicon
+        v-else-if="iconLibrary === 'remixicon'"
+        :name="iconName"
+        v-bind="{ ...svgProps, ...$attrs }"
       />
     </template>
     <template #fallback>
-      <SquareIcon v-bind="{ ...svgProps, $attrs }" />
+      <SquareIcon v-bind="{ ...svgProps, ...$attrs }" />
     </template>
   </Suspense>
 </template>

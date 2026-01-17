@@ -15,7 +15,7 @@ const dateRange = ref<DateRange>({
 <template>
   <Example
     title="Range"
-    container-class-name="lg:col-span-full 2xl:col-span-full"
+    container-class="lg:col-span-full 2xl:col-span-full"
     class="p-12"
   >
     <Card class="mx-auto w-fit p-0">

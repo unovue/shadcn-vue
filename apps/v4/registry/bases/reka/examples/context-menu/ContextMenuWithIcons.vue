@@ -24,6 +24,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="CopyIcon"
               tabler="IconCopy"
               hugeicons="CopyIcon"
+              phosphor="CopyIcon"
+              remixicon="RiFileCopyLine"
             />
             Copy
           </ContextMenuItem>
@@ -32,6 +34,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="ScissorsIcon"
               tabler="IconCut"
               hugeicons="ScissorIcon"
+              phosphor="ScissorsIcon"
+              remixicon="RiScissorsCutLine"
             />
             Cut
           </ContextMenuItem>
@@ -40,6 +44,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="ClipboardPasteIcon"
               tabler="IconClipboard"
               hugeicons="ClipboardIcon"
+              phosphor="ClipboardIcon"
+              remixicon="RiClipboardLine"
             />
             Paste
           </ContextMenuItem>
@@ -51,6 +57,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="TrashIcon"
               tabler="IconTrash"
               hugeicons="DeleteIcon"
+              phosphor="TrashIcon"
+              remixicon="RiDeleteBinLine"
             />
             Delete
           </ContextMenuItem>

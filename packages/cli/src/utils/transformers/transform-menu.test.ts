@@ -464,7 +464,7 @@ const isOpen = ref(false)
       const result = metaTransform(
         `<template>
   <div class="cn-menu-target p-4">Standard class works</div>
-  <CustomComponent class-name="cn-menu-target p-4" />
+  <CustomComponent class="cn-menu-target p-4" />
 </template>
 
 <script setup lang="ts">
@@ -486,7 +486,7 @@ import CustomComponent from './CustomComponent.vue'
       expect(result.code).toMatchInlineSnapshot(`
         "<template>
           <div class="dark p-4">Standard class works</div>
-          <CustomComponent class-name="cn-menu-target p-4" />
+          <CustomComponent class="cn-menu-target p-4" />
         </template>
 
         <script setup lang="ts">

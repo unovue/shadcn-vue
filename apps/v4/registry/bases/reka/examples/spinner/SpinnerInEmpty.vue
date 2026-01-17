@@ -14,7 +14,7 @@ import { Spinner } from "@/registry/bases/reka/ui/spinner"
 </script>
 
 <template>
-  <Example title="In Empty State" container-class-name="lg:col-span-full">
+  <Example title="In Empty State" container-class="lg:col-span-full">
     <Empty class="min-h-[300px]">
       <EmptyHeader>
         <EmptyMedia variant="icon">
@@ -42,6 +42,8 @@ import { Spinner } from "@/registry/bases/reka/ui/spinner"
               lucide="ArrowRightIcon"
               tabler="IconArrowRight"
               hugeicons="ArrowRight02Icon"
+              phosphor="ArrowRightIcon"
+              remixicon="RiArrowRightLine"
             />
           </a>
         </Button>

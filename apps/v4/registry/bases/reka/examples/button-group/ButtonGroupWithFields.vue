@@ -37,6 +37,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="MinusIcon"
               tabler="IconMinus"
               hugeicons="MinusSignIcon"
+              phosphor="MinusIcon"
+              remixicon="RiSubtractLine"
             />
           </Button>
           <Button variant="outline" size="icon">
@@ -44,6 +46,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="PlusIcon"
               tabler="IconPlus"
               hugeicons="PlusSignIcon"
+              phosphor="PlusIcon"
+              remixicon="RiAddLine"
             />
           </Button>
         </ButtonGroup>

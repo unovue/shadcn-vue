@@ -14,6 +14,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="ArrowLeftIcon"
             tabler="IconArrowLeft"
             hugeicons="ArrowLeft01Icon"
+            phosphor="ArrowLeftIcon"
+            remixicon="RiArrowLeftLine"
           />
         </Button>
         <Button variant="outline">
@@ -21,6 +23,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="ArrowRightIcon"
             tabler="IconArrowRight"
             hugeicons="ArrowRight01Icon"
+            phosphor="ArrowRightIcon"
+            remixicon="RiArrowRightLine"
           />
         </Button>
       </ButtonGroup>
@@ -30,6 +34,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="ArrowLeftIcon"
             tabler="IconArrowLeft"
             hugeicons="ArrowLeft01Icon"
+            phosphor="ArrowLeftIcon"
+            remixicon="RiArrowLeftLine"
           />
         </Button>
       </ButtonGroup>

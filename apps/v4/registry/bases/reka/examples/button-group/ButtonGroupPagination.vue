@@ -13,6 +13,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowLeftIcon"
           tabler="IconArrowLeft"
           hugeicons="ArrowLeft01Icon"
+          phosphor="ArrowLeftIcon"
+          remixicon="RiArrowLeftLine"
           data-icon="inline-start"
         />
         Previous
@@ -38,6 +40,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight01Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
           data-icon="inline-end"
         />
       </Button>

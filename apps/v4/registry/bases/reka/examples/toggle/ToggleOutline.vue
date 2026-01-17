@@ -10,6 +10,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="ItalicIcon"
         tabler="IconItalic"
         hugeicons="TextItalicIcon"
+        phosphor="TextItalicIcon"
+        remixicon="RiItalic"
       />
       Italic
     </Toggle>
@@ -18,6 +20,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="BoldIcon"
         tabler="IconBold"
         hugeicons="TextBoldIcon"
+        phosphor="TextBIcon"
+        remixicon="RiBold"
       />
       Bold
     </Toggle>

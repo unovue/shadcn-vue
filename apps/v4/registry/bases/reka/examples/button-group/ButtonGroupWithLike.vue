@@ -11,8 +11,10 @@ import { Example } from "~/registry/bases/reka/components/example"
       <Button variant="outline">
         <IconPlaceholder
           lucide="HeartIcon"
-          tabler="IconBell"
-          hugeicons="Notification02Icon"
+          tabler="IconHeart"
+          hugeicons="HeartIcon"
+          phosphor="HeartIcon"
+          remixicon="RiHeartLine"
           data-icon="inline-start"
         />
         Like

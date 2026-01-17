@@ -12,6 +12,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="BoldIcon"
           tabler="IconBold"
           hugeicons="TextBoldIcon"
+          phosphor="TextBIcon"
+          remixicon="RiBold"
         />
       </Button>
       <Toggle variant="outline" aria-label="Toggle sm icon" size="sm">
@@ -19,6 +21,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="BoldIcon"
           tabler="IconBold"
           hugeicons="TextBoldIcon"
+          phosphor="TextBIcon"
+          remixicon="RiBold"
         />
       </Toggle>
     </div>
@@ -28,6 +32,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="ItalicIcon"
           tabler="IconItalic"
           hugeicons="TextItalicIcon"
+          phosphor="TextItalicIcon"
+          remixicon="RiItalic"
         />
       </Button>
       <Toggle
@@ -39,6 +45,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="ItalicIcon"
           tabler="IconItalic"
           hugeicons="TextItalicIcon"
+          phosphor="TextItalicIcon"
+          remixicon="RiItalic"
         />
       </Toggle>
     </div>
@@ -48,6 +56,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="UnderlineIcon"
           tabler="IconUnderline"
           hugeicons="TextUnderlineIcon"
+          phosphor="TextUnderlineIcon"
+          remixicon="RiUnderline"
         />
       </Button>
       <Toggle variant="outline" aria-label="Toggle lg icon" size="lg">
@@ -55,6 +65,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="UnderlineIcon"
           tabler="IconUnderline"
           hugeicons="TextUnderlineIcon"
+          phosphor="TextUnderlineIcon"
+          remixicon="RiUnderline"
         />
       </Toggle>
     </div>

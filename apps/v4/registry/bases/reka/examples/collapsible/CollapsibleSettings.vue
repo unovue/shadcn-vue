@@ -70,12 +70,16 @@ const isOpen = ref(false)
                 lucide="MinimizeIcon"
                 tabler="IconMinimize"
                 hugeicons="MinusSignIcon"
+                phosphor="ArrowsInIcon"
+                remixicon="RiContractLine"
               />
               <IconPlaceholder
                 v-else
                 lucide="MaximizeIcon"
                 tabler="IconMaximize"
                 hugeicons="PlusSignIcon"
+                phosphor="ArrowsOutIcon"
+                remixicon="RiExpandLine"
               />
             </Button>
           </CollapsibleTrigger>

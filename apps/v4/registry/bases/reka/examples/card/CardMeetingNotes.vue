@@ -34,6 +34,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="CaptionsIcon"
               tabler="IconTextCaption"
               hugeicons="TextCheckIcon"
+              phosphor="ClosedCaptioningIcon"
+              remixicon="RiClosedCaptioningLine"
               data-icon="inline-start"
             />
             Transcribe

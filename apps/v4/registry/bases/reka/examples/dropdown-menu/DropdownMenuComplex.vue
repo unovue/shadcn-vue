@@ -44,6 +44,8 @@ const theme = ref("light")
               lucide="FileIcon"
               tabler="IconFile"
               hugeicons="FileIcon"
+              phosphor="FileIcon"
+              remixicon="RiFileLine"
             />
             New File
             <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
@@ -53,6 +55,8 @@ const theme = ref("light")
               lucide="FolderIcon"
               tabler="IconFolder"
               hugeicons="FolderIcon"
+              phosphor="FolderIcon"
+              remixicon="RiFolderLine"
             />
             New Folder
             <DropdownMenuShortcut>⇧⌘N</DropdownMenuShortcut>
@@ -63,6 +67,8 @@ const theme = ref("light")
                 lucide="FolderOpenIcon"
                 tabler="IconFolderOpen"
                 hugeicons="FolderOpenIcon"
+                phosphor="FolderOpenIcon"
+                remixicon="RiFolderOpenLine"
               />
               Open Recent
             </DropdownMenuSubTrigger>
@@ -74,6 +80,8 @@ const theme = ref("light")
                     lucide="FileCodeIcon"
                     tabler="IconFileCode"
                     hugeicons="CodeIcon"
+                    phosphor="FileCodeIcon"
+                    remixicon="RiFileCodeLine"
                   />
                   Project Alpha
                 </DropdownMenuItem>
@@ -82,6 +90,8 @@ const theme = ref("light")
                     lucide="FileCodeIcon"
                     tabler="IconFileCode"
                     hugeicons="CodeIcon"
+                    phosphor="FileCodeIcon"
+                    remixicon="RiFileCodeLine"
                   />
                   Project Beta
                 </DropdownMenuItem>
@@ -91,6 +101,8 @@ const theme = ref("light")
                       lucide="MoreHorizontalIcon"
                       tabler="IconDots"
                       hugeicons="MoreHorizontalCircle01Icon"
+                      phosphor="DotsThreeIcon"
+                      remixicon="RiMoreLine"
                     />
                     More Projects
                   </DropdownMenuSubTrigger>
@@ -100,6 +112,8 @@ const theme = ref("light")
                         lucide="FileCodeIcon"
                         tabler="IconFileCode"
                         hugeicons="CodeIcon"
+                        phosphor="FileCodeIcon"
+                        remixicon="RiFileCodeLine"
                       />
                       Project Gamma
                     </DropdownMenuItem>
@@ -108,6 +122,8 @@ const theme = ref("light")
                         lucide="FileCodeIcon"
                         tabler="IconFileCode"
                         hugeicons="CodeIcon"
+                        phosphor="FileCodeIcon"
+                        remixicon="RiFileCodeLine"
                       />
                       Project Delta
                     </DropdownMenuItem>
@@ -121,6 +137,8 @@ const theme = ref("light")
                     lucide="FolderSearchIcon"
                     tabler="IconFolderSearch"
                     hugeicons="SearchIcon"
+                    phosphor="FolderSimpleDottedIcon"
+                    remixicon="RiFolderSearchLine"
                   />
                   Browse...
                 </DropdownMenuItem>
@@ -133,6 +151,8 @@ const theme = ref("light")
               lucide="SaveIcon"
               tabler="IconDeviceFloppy"
               hugeicons="FloppyDiskIcon"
+              phosphor="FloppyDiskIcon"
+              remixicon="RiSaveLine"
             />
             Save
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
@@ -142,6 +162,8 @@ const theme = ref("light")
               lucide="DownloadIcon"
               tabler="IconDownload"
               hugeicons="DownloadIcon"
+              phosphor="DownloadSimpleIcon"
+              remixicon="RiDownloadLine"
             />
             Export
             <DropdownMenuShortcut>⇧⌘E</DropdownMenuShortcut>
@@ -157,6 +179,8 @@ const theme = ref("light")
               lucide="EyeIcon"
               tabler="IconEye"
               hugeicons="EyeIcon"
+              phosphor="EyeIcon"
+              remixicon="RiEyeLine"
             />
             Show Sidebar
           </DropdownMenuCheckboxItem>
@@ -167,6 +191,8 @@ const theme = ref("light")
               lucide="LayoutIcon"
               tabler="IconLayout"
               hugeicons="LayoutIcon"
+              phosphor="LayoutIcon"
+              remixicon="RiLayoutLine"
             />
             Show Status Bar
           </DropdownMenuCheckboxItem>
@@ -176,6 +202,8 @@ const theme = ref("light")
                 lucide="PaletteIcon"
                 tabler="IconPalette"
                 hugeicons="PaintBoardIcon"
+                phosphor="PaletteIcon"
+                remixicon="RiPaletteLine"
               />
               Theme
             </DropdownMenuSubTrigger>
@@ -188,6 +216,8 @@ const theme = ref("light")
                       lucide="SunIcon"
                       tabler="IconSun"
                       hugeicons="SunIcon"
+                      phosphor="SunIcon"
+                      remixicon="RiSunLine"
                     />
                     Light
                   </DropdownMenuRadioItem>
@@ -196,6 +226,8 @@ const theme = ref("light")
                       lucide="MoonIcon"
                       tabler="IconMoon"
                       hugeicons="MoonIcon"
+                      phosphor="MoonIcon"
+                      remixicon="RiMoonLine"
                     />
                     Dark
                   </DropdownMenuRadioItem>
@@ -204,6 +236,8 @@ const theme = ref("light")
                       lucide="MonitorIcon"
                       tabler="IconDeviceDesktop"
                       hugeicons="ComputerIcon"
+                      phosphor="DesktopIcon"
+                      remixicon="RiComputerLine"
                     />
                     System
                   </DropdownMenuRadioItem>
@@ -220,6 +254,8 @@ const theme = ref("light")
               lucide="UserIcon"
               tabler="IconUser"
               hugeicons="UserIcon"
+              phosphor="UserIcon"
+              remixicon="RiUserLine"
             />
             Profile
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
@@ -229,6 +265,8 @@ const theme = ref("light")
               lucide="CreditCardIcon"
               tabler="IconCreditCard"
               hugeicons="CreditCardIcon"
+              phosphor="CreditCardIcon"
+              remixicon="RiBankCardLine"
             />
             Billing
           </DropdownMenuItem>
@@ -238,6 +276,8 @@ const theme = ref("light")
                 lucide="SettingsIcon"
                 tabler="IconSettings"
                 hugeicons="SettingsIcon"
+                phosphor="GearIcon"
+                remixicon="RiSettings3Line"
               />
               Settings
             </DropdownMenuSubTrigger>
@@ -249,6 +289,8 @@ const theme = ref("light")
                     lucide="KeyboardIcon"
                     tabler="IconKeyboard"
                     hugeicons="KeyboardIcon"
+                    phosphor="KeyboardIcon"
+                    remixicon="RiKeyboardLine"
                   />
                   Keyboard Shortcuts
                 </DropdownMenuItem>
@@ -257,6 +299,8 @@ const theme = ref("light")
                     lucide="LanguagesIcon"
                     tabler="IconLanguage"
                     hugeicons="LanguageCircleIcon"
+                    phosphor="TranslateIcon"
+                    remixicon="RiTranslate"
                   />
                   Language
                 </DropdownMenuItem>
@@ -266,6 +310,8 @@ const theme = ref("light")
                       lucide="BellIcon"
                       tabler="IconBell"
                       hugeicons="NotificationIcon"
+                      phosphor="BellIcon"
+                      remixicon="RiNotification3Line"
                     />
                     Notifications
                   </DropdownMenuSubTrigger>
@@ -281,6 +327,8 @@ const theme = ref("light")
                           lucide="BellIcon"
                           tabler="IconBell"
                           hugeicons="NotificationIcon"
+                          phosphor="BellIcon"
+                          remixicon="RiNotification3Line"
                         />
                         Push Notifications
                       </DropdownMenuCheckboxItem>
@@ -291,6 +339,8 @@ const theme = ref("light")
                           lucide="MailIcon"
                           tabler="IconMail"
                           hugeicons="MailIcon"
+                          phosphor="EnvelopeIcon"
+                          remixicon="RiMailLine"
                         />
                         Email Notifications
                       </DropdownMenuCheckboxItem>
@@ -305,6 +355,8 @@ const theme = ref("light")
                     lucide="ShieldIcon"
                     tabler="IconShield"
                     hugeicons="ShieldIcon"
+                    phosphor="ShieldIcon"
+                    remixicon="RiShieldLine"
                   />
                   Privacy & Security
                 </DropdownMenuItem>
@@ -319,6 +371,8 @@ const theme = ref("light")
               lucide="HelpCircleIcon"
               tabler="IconHelpCircle"
               hugeicons="HelpCircleIcon"
+              phosphor="QuestionIcon"
+              remixicon="RiQuestionLine"
             />
             Help & Support
           </DropdownMenuItem>
@@ -327,6 +381,8 @@ const theme = ref("light")
               lucide="FileTextIcon"
               tabler="IconFileText"
               hugeicons="File01Icon"
+              phosphor="FileTextIcon"
+              remixicon="RiFileTextLine"
             />
             Documentation
           </DropdownMenuItem>
@@ -338,6 +394,8 @@ const theme = ref("light")
               lucide="LogOutIcon"
               tabler="IconLogout"
               hugeicons="LogoutIcon"
+              phosphor="SignOutIcon"
+              remixicon="RiLogoutBoxLine"
             />
             Sign Out
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

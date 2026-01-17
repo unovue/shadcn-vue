@@ -23,6 +23,8 @@ const tags = ref(["Vue", "React", "Angular"])
             lucide="XIcon"
             tabler="IconX"
             hugeicons="Cancel01Icon"
+            phosphor="XIcon"
+            remixicon="RiCloseLine"
           />
         </TagsInputItemDelete>
       </TagsInputItem>

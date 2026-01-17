@@ -46,6 +46,8 @@ function formatDate(date?: CalendarDate): string {
               lucide="ChevronDownIcon"
               tabler="IconChevronDown"
               hugeicons="ArrowDownIcon"
+              phosphor="CaretDownIcon"
+              remixicon="RiArrowDownSLine"
               data-icon="inline-end"
               class="ml-auto"
             />

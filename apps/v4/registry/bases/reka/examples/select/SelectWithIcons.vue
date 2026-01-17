@@ -20,6 +20,8 @@ import {
               lucide="ChartLineIcon"
               tabler="IconChartLine"
               hugeicons="Chart03Icon"
+              phosphor="ChartLineIcon"
+              remixicon="RiLineChartLine"
             />
             Chart Type
           </template>
@@ -32,6 +34,8 @@ import {
               lucide="ChartLineIcon"
               tabler="IconChartLine"
               hugeicons="Chart03Icon"
+              phosphor="ChartLineIcon"
+              remixicon="RiLineChartLine"
             />
             Line
           </SelectItem>
@@ -40,6 +44,8 @@ import {
               lucide="ChartBarIcon"
               tabler="IconChartBar"
               hugeicons="Chart03Icon"
+              phosphor="ChartBarIcon"
+              remixicon="RiBarChartLine"
             />
             Bar
           </SelectItem>
@@ -48,6 +54,8 @@ import {
               lucide="ChartPieIcon"
               tabler="IconChartPie"
               hugeicons="Chart03Icon"
+              phosphor="ChartPieIcon"
+              remixicon="RiPieChartLine"
             />
             Pie
           </SelectItem>
@@ -62,6 +70,8 @@ import {
               lucide="ChartLineIcon"
               tabler="IconChartLine"
               hugeicons="Chart03Icon"
+              phosphor="ChartLineIcon"
+              remixicon="RiLineChartLine"
             />
             Chart Type
           </template>
@@ -74,6 +84,8 @@ import {
               lucide="ChartLineIcon"
               tabler="IconChartLine"
               hugeicons="Chart03Icon"
+              phosphor="ChartLineIcon"
+              remixicon="RiLineChartLine"
             />
             Line
           </SelectItem>
@@ -82,6 +94,8 @@ import {
               lucide="ChartBarIcon"
               tabler="IconChartBar"
               hugeicons="Chart03Icon"
+              phosphor="ChartBarIcon"
+              remixicon="RiBarChartLine"
             />
             Bar
           </SelectItem>
@@ -90,6 +104,8 @@ import {
               lucide="ChartPieIcon"
               tabler="IconChartPie"
               hugeicons="Chart03Icon"
+              phosphor="ChartPieIcon"
+              remixicon="RiPieChartLine"
             />
             Pie
           </SelectItem>

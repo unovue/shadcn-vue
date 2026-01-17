@@ -20,6 +20,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="SearchIcon"
               tabler="IconSearch"
               hugeicons="Search01Icon"
+              phosphor="MagnifyingGlassIcon"
+              remixicon="RiSearchLine"
             />
           </Button>
         </InputGroupButton>
@@ -32,6 +34,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="CopyIcon"
               tabler="IconCopy"
               hugeicons="Copy01Icon"
+              phosphor="CopyIcon"
+              remixicon="RiFileCopyLine"
             />
           </Button>
         </InputGroupButton>

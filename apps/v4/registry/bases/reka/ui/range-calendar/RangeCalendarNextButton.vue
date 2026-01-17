@@ -2,9 +2,9 @@
 import type { RangeCalendarNextProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronRight } from "lucide-vue-next"
 import { RangeCalendarNext, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
+import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { buttonVariants } from "@/registry/new-york-v4/ui/button"
 
 const props = defineProps<RangeCalendarNextProps & { class?: HTMLAttributes["class"] }>()
@@ -26,7 +26,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
   >
     <slot>
-      <ChevronRight class="size-4" />
+      <IconPlaceholder lucide="ChevronRightIcon" tabler="IconChevronRight" hugeicons="ArrowRight01Icon" phosphor="CaretRightIcon" remixicon="RiArrowRightSLine" class="size-4" />
     </slot>
   </RangeCalendarNext>
 </template>

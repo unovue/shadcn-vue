@@ -27,6 +27,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                 lucide="ChevronDownIcon"
                 tabler="IconChevronDown"
                 hugeicons="ArrowDown01Icon"
+                phosphor="CaretDownIcon"
+                remixicon="RiArrowDownSLine"
               />
             </Button>
           </DropdownMenuTrigger>
@@ -49,6 +51,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                 lucide="ChevronDownIcon"
                 tabler="IconChevronDown"
                 hugeicons="ArrowDown01Icon"
+                phosphor="CaretDownIcon"
+                remixicon="RiArrowDownSLine"
               />
             </Button>
           </DropdownMenuTrigger>
@@ -59,6 +63,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="VolumeOffIcon"
                   tabler="IconVolume"
                   hugeicons="VolumeOffIcon"
+                  phosphor="SpeakerSlashIcon"
+                  remixicon="RiVolumeMuteLine"
                 />
                 Mute Conversation
               </DropdownMenuItem>
@@ -67,6 +73,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="CheckIcon"
                   tabler="IconCheck"
                   hugeicons="Tick02Icon"
+                  phosphor="CheckIcon"
+                  remixicon="RiCheckLine"
                 />
                 Mark as Read
               </DropdownMenuItem>
@@ -75,6 +83,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="AlertTriangleIcon"
                   tabler="IconAlertTriangle"
                   hugeicons="AlertCircleIcon"
+                  phosphor="WarningIcon"
+                  remixicon="RiAlertLine"
                 />
                 Report Conversation
               </DropdownMenuItem>
@@ -83,6 +93,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="UserRoundXIcon"
                   tabler="IconUserX"
                   hugeicons="UserRemove01Icon"
+                  phosphor="UserMinusIcon"
+                  remixicon="RiUserUnfollowLine"
                 />
                 Block User
               </DropdownMenuItem>
@@ -91,6 +103,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="ShareIcon"
                   tabler="IconShare"
                   hugeicons="Share03Icon"
+                  phosphor="ShareIcon"
+                  remixicon="RiShareLine"
                 />
                 Share Conversation
               </DropdownMenuItem>
@@ -99,6 +113,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="CopyIcon"
                   tabler="IconCopy"
                   hugeicons="Copy01Icon"
+                  phosphor="CopyIcon"
+                  remixicon="RiFileCopyLine"
                 />
                 Copy Conversation
               </DropdownMenuItem>
@@ -110,6 +126,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="TrashIcon"
                   tabler="IconTrash"
                   hugeicons="Delete02Icon"
+                  phosphor="TrashIcon"
+                  remixicon="RiDeleteBinLine"
                 />
                 Delete Conversation
               </DropdownMenuItem>

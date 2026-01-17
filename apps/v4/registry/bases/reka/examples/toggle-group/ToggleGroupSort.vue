@@ -15,6 +15,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="ArrowDownIcon"
         tabler="IconArrowDown"
         hugeicons="ArrowDownIcon"
+        phosphor="ArrowDownIcon"
+        remixicon="RiArrowDownLine"
       />
       Newest
     </ToggleGroupItem>
@@ -23,6 +25,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="ArrowUpIcon"
         tabler="IconArrowUp"
         hugeicons="ArrowUpIcon"
+        phosphor="ArrowUpIcon"
+        remixicon="RiArrowUpLine"
       />
       Oldest
     </ToggleGroupItem>
@@ -31,6 +35,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="TrendingUpIcon"
         tabler="IconTrendingUp"
         hugeicons="TradeUpIcon"
+        phosphor="TrendUpIcon"
+        remixicon="RiLineChartLine"
       />
       Popular
     </ToggleGroupItem>

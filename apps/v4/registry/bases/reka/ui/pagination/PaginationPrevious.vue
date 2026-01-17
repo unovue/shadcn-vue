@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { PaginationPrevProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
-import type { ButtonVariants } from "@/registry/new-york-v4/ui/button"
+import type { ButtonVariants } from "@/registry/bases/reka/ui/button"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronLeftIcon } from "lucide-vue-next"
 import { PaginationPrev, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/registry/new-york-v4/ui/button"
+import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
+import { buttonVariants } from "@/registry/bases/reka/ui/button"
 
 const props = withDefaults(defineProps<PaginationPrevProps & {
   size?: ButtonVariants["size"]
@@ -22,12 +22,19 @@ const forwarded = useForwardProps(delegatedProps)
 <template>
   <PaginationPrev
     data-slot="pagination-previous"
-    :class="cn(buttonVariants({ variant: 'ghost', size }), 'gap-1 px-2.5 sm:pr-2.5', props.class)"
+    :class="cn(buttonVariants({ variant: 'ghost', size }), 'cn-pagination-previous', props.class)"
     v-bind="forwarded"
   >
     <slot>
-      <ChevronLeftIcon />
-      <span class="hidden sm:block">Previous</span>
+      <IconPlaceholder
+        lucide="ChevronLeftIcon"
+        tabler="IconChevronLeft"
+        hugeicons="ArrowLeft01Icon"
+        phosphor="CaretLeftIcon"
+        remixicon="RiArrowLeftSLine"
+        data-icon="inline-start"
+      />
+      <span class="cn-pagination-previous-text hidden sm:block">Previous</span>
     </slot>
   </PaginationPrev>
 </template>

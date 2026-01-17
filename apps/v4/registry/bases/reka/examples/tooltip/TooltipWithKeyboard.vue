@@ -19,6 +19,8 @@ import {
             lucide="SaveIcon"
             tabler="IconDeviceFloppy"
             hugeicons="FloppyDiskIcon"
+            phosphor="FloppyDiskIcon"
+            remixicon="RiSave3Line"
           />
         </Button>
       </TooltipTrigger>

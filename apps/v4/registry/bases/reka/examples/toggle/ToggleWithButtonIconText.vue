@@ -12,6 +12,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="BoldIcon"
           tabler="IconBold"
           hugeicons="TextBoldIcon"
+          phosphor="TextBIcon"
+          remixicon="RiBold"
           data-icon="inline-start"
         />
         Button
@@ -21,6 +23,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="BoldIcon"
           tabler="IconBold"
           hugeicons="TextBoldIcon"
+          phosphor="TextBIcon"
+          remixicon="RiBold"
         />
         Toggle
       </Toggle>
@@ -31,6 +35,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="ItalicIcon"
           tabler="IconItalic"
           hugeicons="TextItalicIcon"
+          phosphor="TextItalicIcon"
+          remixicon="RiItalic"
           data-icon="inline-start"
         />
         Button
@@ -44,6 +50,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="ItalicIcon"
           tabler="IconItalic"
           hugeicons="TextItalicIcon"
+          phosphor="TextItalicIcon"
+          remixicon="RiItalic"
         />
         Toggle
       </Toggle>
@@ -54,6 +62,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="UnderlineIcon"
           tabler="IconUnderline"
           hugeicons="TextUnderlineIcon"
+          phosphor="TextUnderlineIcon"
+          remixicon="RiUnderline"
           data-icon="inline-start"
         />
         Button
@@ -63,6 +73,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
           lucide="UnderlineIcon"
           tabler="IconUnderline"
           hugeicons="TextUnderlineIcon"
+          phosphor="TextUnderlineIcon"
+          remixicon="RiUnderline"
         />
         Toggle
       </Toggle>

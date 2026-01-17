@@ -58,6 +58,8 @@ const timezones = [
             lucide="GlobeIcon"
             tabler="IconGlobe"
             hugeicons="Globe02Icon"
+            phosphor="GlobeIcon"
+            remixicon="RiGlobalLine"
           />
         </InputGroupAddon>
       </ComboboxInput>

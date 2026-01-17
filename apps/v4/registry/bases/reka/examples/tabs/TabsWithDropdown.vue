@@ -32,6 +32,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/bases/reka/
               lucide="MoreHorizontalIcon"
               tabler="IconDots"
               hugeicons="MoreHorizontalCircle01Icon"
+              phosphor="DotsThreeIcon"
+              remixicon="RiMoreLine"
             />
             <span class="sr-only">More options</span>
           </Button>

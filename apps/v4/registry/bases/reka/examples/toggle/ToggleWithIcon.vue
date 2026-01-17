@@ -10,6 +10,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="BookmarkIcon"
         tabler="IconBookmark"
         hugeicons="BookmarkIcon"
+        phosphor="BookmarkSimpleIcon"
+        remixicon="RiBookmarkLine"
         class="group-data-[state=on]/toggle:fill-accent-foreground"
       />
     </Toggle>
@@ -18,6 +20,8 @@ import { Toggle } from "@/registry/bases/reka/ui/toggle"
         lucide="BookmarkIcon"
         tabler="IconBookmark"
         hugeicons="BookmarkIcon"
+        phosphor="BookmarkSimpleIcon"
+        remixicon="RiBookmarkLine"
         class="group-data-[state=on]/toggle:fill-accent-foreground"
       />
       Bookmark

@@ -11,6 +11,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/reka/ui/tabs"
           lucide="HomeIcon"
           tabler="IconHome"
           hugeicons="HomeIcon"
+          phosphor="HouseIcon"
+          remixicon="RiHomeLine"
         />
       </TabsTrigger>
       <TabsTrigger value="search">
@@ -18,6 +20,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/reka/ui/tabs"
           lucide="SearchIcon"
           tabler="IconSearch"
           hugeicons="SearchIcon"
+          phosphor="MagnifyingGlassIcon"
+          remixicon="RiSearchLine"
         />
       </TabsTrigger>
       <TabsTrigger value="settings">
@@ -25,6 +29,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/registry/bases/reka/ui/tabs"
           lucide="SettingsIcon"
           tabler="IconSettings"
           hugeicons="SettingsIcon"
+          phosphor="GearIcon"
+          remixicon="RiSettings3Line"
         />
       </TabsTrigger>
     </TabsList>

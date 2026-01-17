@@ -39,6 +39,8 @@ const open = ref(false)
                   lucide="CalendarIcon"
                   tabler="IconCalendar"
                   hugeicons="CalendarIcon"
+                  phosphor="CalendarIcon"
+                  remixicon="RiCalendarLine"
                 />
                 <span>Calendar</span>
               </CommandItem>
@@ -47,6 +49,8 @@ const open = ref(false)
                   lucide="SmileIcon"
                   tabler="IconMoodSmile"
                   hugeicons="SmileIcon"
+                  phosphor="SmileyIcon"
+                  remixicon="RiEmotionLine"
                 />
                 <span>Search Emoji</span>
               </CommandItem>
@@ -55,6 +59,8 @@ const open = ref(false)
                   lucide="CalculatorIcon"
                   tabler="IconCalculator"
                   hugeicons="CalculatorIcon"
+                  phosphor="CalculatorIcon"
+                  remixicon="RiCalculatorLine"
                 />
                 <span>Calculator</span>
               </CommandItem>
@@ -66,6 +72,8 @@ const open = ref(false)
                   lucide="UserIcon"
                   tabler="IconUser"
                   hugeicons="UserIcon"
+                  phosphor="UserIcon"
+                  remixicon="RiUserLine"
                 />
                 <span>Profile</span>
                 <CommandShortcut>⌘P</CommandShortcut>
@@ -75,6 +83,8 @@ const open = ref(false)
                   lucide="CreditCardIcon"
                   tabler="IconCreditCard"
                   hugeicons="CreditCardIcon"
+                  phosphor="CreditCardIcon"
+                  remixicon="RiBankCardLine"
                 />
                 <span>Billing</span>
                 <CommandShortcut>⌘B</CommandShortcut>
@@ -84,6 +94,8 @@ const open = ref(false)
                   lucide="SettingsIcon"
                   tabler="IconSettings"
                   hugeicons="SettingsIcon"
+                  phosphor="GearIcon"
+                  remixicon="RiSettings3Line"
                 />
                 <span>Settings</span>
                 <CommandShortcut>⌘S</CommandShortcut>

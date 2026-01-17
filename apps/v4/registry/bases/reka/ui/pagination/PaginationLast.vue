@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { PaginationLastProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
-import type { ButtonVariants } from "@/registry/new-york-v4/ui/button"
+import type { ButtonVariants } from "@/registry/bases/reka/ui/button"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronRightIcon } from "lucide-vue-next"
 import { PaginationLast, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/registry/new-york-v4/ui/button"
+import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
+import { buttonVariants } from "@/registry/bases/reka/ui/button"
 
 const props = withDefaults(defineProps<PaginationLastProps & {
   size?: ButtonVariants["size"]
@@ -22,12 +22,19 @@ const forwarded = useForwardProps(delegatedProps)
 <template>
   <PaginationLast
     data-slot="pagination-last"
-    :class="cn(buttonVariants({ variant: 'ghost', size }), 'gap-1 px-2.5 sm:pr-2.5', props.class)"
+    :class="cn(buttonVariants({ variant: 'ghost', size }), 'cn-pagination-last', props.class)"
     v-bind="forwarded"
   >
     <slot>
-      <span class="hidden sm:block">Last</span>
-      <ChevronRightIcon />
+      <span class="cn-pagination-last-text hidden sm:block">Last</span>
+      <IconPlaceholder
+        lucide="ChevronsRightIcon"
+        tabler="IconChevronsRight"
+        hugeicons="ArrowRightDoubleIcon"
+        phosphor="CaretDoubleRightIcon"
+        remixicon="RiArrowRightDoubleLine"
+        data-icon="inline-end"
+      />
     </slot>
   </PaginationLast>
 </template>

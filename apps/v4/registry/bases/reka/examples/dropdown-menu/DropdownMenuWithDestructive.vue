@@ -27,6 +27,8 @@ import {
               lucide="PencilIcon"
               tabler="IconPencil"
               hugeicons="EditIcon"
+              phosphor="PencilIcon"
+              remixicon="RiPencilLine"
             />
             Edit
           </DropdownMenuItem>
@@ -35,6 +37,8 @@ import {
               lucide="ShareIcon"
               tabler="IconShare"
               hugeicons="ShareIcon"
+              phosphor="ShareIcon"
+              remixicon="RiShareLine"
             />
             Share
           </DropdownMenuItem>
@@ -46,6 +50,8 @@ import {
               lucide="ArchiveIcon"
               tabler="IconArchive"
               hugeicons="Archive02Icon"
+              phosphor="ArchiveIcon"
+              remixicon="RiArchiveLine"
             />
             Archive
           </DropdownMenuItem>
@@ -54,6 +60,8 @@ import {
               lucide="TrashIcon"
               tabler="IconTrash"
               hugeicons="DeleteIcon"
+              phosphor="TrashIcon"
+              remixicon="RiDeleteBinLine"
             />
             Delete
           </DropdownMenuItem>

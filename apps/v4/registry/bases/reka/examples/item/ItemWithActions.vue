@@ -22,6 +22,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="FileIcon"
             tabler="IconFile"
             hugeicons="File02Icon"
+            phosphor="FileIcon"
+            remixicon="RiFileLine"
           />
         </ItemMedia>
         <ItemContent>
@@ -34,6 +36,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="DownloadIcon"
               tabler="IconDownload"
               hugeicons="Download01Icon"
+              phosphor="DownloadSimpleIcon"
+              remixicon="RiDownloadLine"
             />
           </Button>
           <Button variant="ghost" size="sm">
@@ -41,6 +45,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="TrashIcon"
               tabler="IconTrash"
               hugeicons="Delete02Icon"
+              phosphor="TrashIcon"
+              remixicon="RiDeleteBinLine"
             />
           </Button>
         </ItemActions>
@@ -52,6 +58,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="ImageIcon"
             tabler="IconPhoto"
             hugeicons="Image01Icon"
+            phosphor="ImageIcon"
+            remixicon="RiImageLine"
           />
         </ItemMedia>
         <ItemContent>
@@ -64,6 +72,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="EyeIcon"
               tabler="IconEye"
               hugeicons="View01Icon"
+              phosphor="EyeIcon"
+              remixicon="RiEyeLine"
             />
           </Button>
           <Button variant="ghost" size="sm">
@@ -71,6 +81,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="Share2Icon"
               tabler="IconShare"
               hugeicons="Share01Icon"
+              phosphor="ShareIcon"
+              remixicon="RiShareLine"
             />
           </Button>
         </ItemActions>
@@ -82,6 +94,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="VideoIcon"
             tabler="IconVideo"
             hugeicons="Video01Icon"
+            phosphor="VideoIcon"
+            remixicon="RiVideoLine"
           />
         </ItemMedia>
         <ItemContent>
@@ -94,6 +108,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="PlayIcon"
               tabler="IconPlayerPlay"
               hugeicons="Play01Icon"
+              phosphor="PlayIcon"
+              remixicon="RiPlayLine"
             />
           </Button>
           <Button variant="ghost" size="sm">
@@ -101,6 +117,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="MoreHorizontalIcon"
               tabler="IconDots"
               hugeicons="MoreHorizontalIcon"
+              phosphor="DotsThreeIcon"
+              remixicon="RiMoreLine"
             />
           </Button>
         </ItemActions>

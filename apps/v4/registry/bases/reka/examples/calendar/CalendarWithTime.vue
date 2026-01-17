@@ -49,6 +49,8 @@ const date = ref<CalendarDate>(
                   lucide="Clock2Icon"
                   tabler="IconClockHour2"
                   hugeicons="Clock03Icon"
+                  phosphor="ClockIcon"
+                  remixicon="RiTimeLine"
                   class="text-muted-foreground"
                 />
               </InputGroupAddon>
@@ -71,6 +73,8 @@ const date = ref<CalendarDate>(
                   lucide="Clock2Icon"
                   tabler="IconClockHour2"
                   hugeicons="Clock03Icon"
+                  phosphor="ClockIcon"
+                  remixicon="RiTimeLine"
                   class="text-muted-foreground"
                 />
               </InputGroupAddon>

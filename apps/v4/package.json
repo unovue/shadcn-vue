@@ -21,6 +21,8 @@
     "@nuxt/content": "^3.9.0",
     "@nuxt/fonts": "0.12.1",
     "@nuxt/image": "2.0.0",
+    "@phosphor-icons/vue": "^2.2.1",
+    "@remixicon/vue": "^4.8.0",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/vue-form": "^1.27.2",

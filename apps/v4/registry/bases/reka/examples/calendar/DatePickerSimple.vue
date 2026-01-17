@@ -43,6 +43,8 @@ function formatDate(date?: CalendarDate): string {
               lucide="CalendarIcon"
               tabler="IconCalendar"
               hugeicons="CalendarIcon"
+              phosphor="CalendarIcon"
+              remixicon="RiCalendarLine"
               data-icon="inline-start"
             />
             <span v-if="date">{{ formatDate(date) }}</span>

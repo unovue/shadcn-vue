@@ -17,6 +17,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="MessageSquareIcon"
             tabler="IconMessageSquare"
             hugeicons="Message01Icon"
+            phosphor="ChatIcon"
+            remixicon="RiChat1Line"
           />
         </InputGroupAddon>
         <InputGroupTextarea placeholder="Type your message here..." />
@@ -29,6 +31,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="SendIcon"
             tabler="IconSend"
             hugeicons="Send01Icon"
+            phosphor="PaperPlaneRightIcon"
+            remixicon="RiSendPlaneLine"
           />
         </InputGroupAddon>
       </InputGroup>

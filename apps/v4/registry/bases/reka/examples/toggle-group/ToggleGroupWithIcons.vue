@@ -14,6 +14,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="StarIcon"
         tabler="IconStar"
         hugeicons="StarIcon"
+        phosphor="StarIcon"
+        remixicon="RiStarLine"
       />
       Star
     </ToggleGroupItem>
@@ -26,6 +28,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="HeartIcon"
         tabler="IconHeart"
         hugeicons="FavouriteIcon"
+        phosphor="HeartIcon"
+        remixicon="RiHeartLine"
       />
       Heart
     </ToggleGroupItem>
@@ -38,6 +42,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="BookmarkIcon"
         tabler="IconBookmark"
         hugeicons="BookmarkIcon"
+        phosphor="BookmarkSimpleIcon"
+        remixicon="RiBookmarkLine"
       />
       Bookmark
     </ToggleGroupItem>

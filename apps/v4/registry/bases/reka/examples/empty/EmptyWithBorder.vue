@@ -34,6 +34,8 @@ import { Kbd } from "@/registry/bases/reka/ui/kbd"
               lucide="CircleDashedIcon"
               tabler="IconCircleDashed"
               hugeicons="DashedLineCircleIcon"
+              phosphor="CircleDashedIcon"
+              remixicon="RiCheckboxBlankCircleLine"
             />
           </InputGroupAddon>
           <InputGroupAddon align="inline-end">

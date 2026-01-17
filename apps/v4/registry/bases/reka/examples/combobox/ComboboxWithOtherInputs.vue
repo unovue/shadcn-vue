@@ -76,6 +76,8 @@ const frameworks = [
         lucide="ChevronDownIcon"
         tabler="IconSelector"
         hugeicons="UnfoldMoreIcon"
+        phosphor="CaretUpDownIcon"
+        remixicon="RiExpandUpDownLine"
       />
     </Button>
     <Input placeholder="Select a framework" class="w-52" />
@@ -86,6 +88,8 @@ const frameworks = [
           lucide="ChevronDownIcon"
           tabler="IconSelector"
           hugeicons="UnfoldMoreIcon"
+          phosphor="CaretUpDownIcon"
+          remixicon="RiExpandUpDownLine"
         />
       </InputGroupAddon>
     </InputGroup>

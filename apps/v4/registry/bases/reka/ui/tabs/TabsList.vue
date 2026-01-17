@@ -5,17 +5,25 @@ import { reactiveOmit } from "@vueuse/core"
 import { TabsList } from "reka-ui"
 import { cn } from "@/lib/utils"
 
-const props = defineProps<TabsListProps & { class?: HTMLAttributes["class"] }>()
+const props = withDefaults(defineProps<TabsListProps & {
+  class?: HTMLAttributes["class"]
+  variant?: "default" | "line"
+}>(), {
+  variant: "default",
+})
 
-const delegatedProps = reactiveOmit(props, "class")
+const delegatedProps = reactiveOmit(props, "class", "variant")
 </script>
 
 <template>
   <TabsList
     data-slot="tabs-list"
+    :data-variant="variant"
     v-bind="delegatedProps"
     :class="cn(
-      'bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]',
+      'cn-tabs-list group/tabs-list text-muted-foreground inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col',
+      variant === 'default' && 'cn-tabs-list-variant-default bg-muted',
+      variant === 'line' && 'cn-tabs-list-variant-line gap-1 bg-transparent',
       props.class,
     )"
   >

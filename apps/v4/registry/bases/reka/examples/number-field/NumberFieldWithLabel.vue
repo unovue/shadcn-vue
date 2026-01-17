@@ -22,6 +22,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="MinusIcon"
               tabler="IconMinus"
               hugeicons="RemoveCircleIcon"
+              phosphor="MinusIcon"
+              remixicon="RiSubtractLine"
             />
           </NumberFieldDecrement>
           <NumberFieldInput />
@@ -30,6 +32,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="PlusIcon"
               tabler="IconPlus"
               hugeicons="AddCircleIcon"
+              phosphor="PlusIcon"
+              remixicon="RiAddLine"
             />
           </NumberFieldIncrement>
         </NumberFieldContent>

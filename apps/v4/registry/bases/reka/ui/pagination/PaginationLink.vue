@@ -19,14 +19,14 @@ const props = withDefaults(defineProps<{
   <a
     :href="href"
     data-slot="pagination-link"
+    :data-active="isActive"
     :aria-current="isActive ? 'page' : undefined"
     :class="cn(
       buttonVariants({
         variant: isActive ? 'outline' : 'ghost',
         size,
       }),
-      'size-8 p-0',
-      isActive && 'pointer-events-none',
+      'cn-pagination-link',
       props.class,
     )"
   >

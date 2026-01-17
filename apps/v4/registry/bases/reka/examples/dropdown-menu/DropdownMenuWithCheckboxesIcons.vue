@@ -37,6 +37,8 @@ const notifications = ref({
               lucide="MailIcon"
               tabler="IconMail"
               hugeicons="MailIcon"
+              phosphor="EnvelopeIcon"
+              remixicon="RiMailLine"
             />
             Email notifications
           </DropdownMenuCheckboxItem>
@@ -47,6 +49,8 @@ const notifications = ref({
               lucide="MessageSquareIcon"
               tabler="IconMessage"
               hugeicons="MessageIcon"
+              phosphor="ChatIcon"
+              remixicon="RiChat1Line"
             />
             SMS notifications
           </DropdownMenuCheckboxItem>
@@ -57,6 +61,8 @@ const notifications = ref({
               lucide="BellIcon"
               tabler="IconBell"
               hugeicons="NotificationIcon"
+              phosphor="BellIcon"
+              remixicon="RiNotification3Line"
             />
             Push notifications
           </DropdownMenuCheckboxItem>

@@ -10,10 +10,7 @@ const props = defineProps<{
 <template>
   <div
     data-slot="alert-dialog-media"
-    :class="cn(
-      'bg-muted text-muted-foreground mb-2 flex size-10 shrink-0 items-center justify-center rounded-lg [&_svg]:size-5',
-      props.class,
-    )"
+    :class="cn('cn-alert-dialog-media', props.class)"
   >
     <slot />
   </div>

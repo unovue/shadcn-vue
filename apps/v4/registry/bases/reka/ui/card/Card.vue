@@ -2,20 +2,19 @@
 import type { HTMLAttributes } from "vue"
 import { cn } from "@/lib/utils"
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   class?: HTMLAttributes["class"]
-}>()
+  size?: "default" | "sm"
+}>(), {
+  size: "default",
+})
 </script>
 
 <template>
   <div
     data-slot="card"
-    :class="
-      cn(
-        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',
-        props.class,
-      )
-    "
+    :data-size="size"
+    :class="cn('cn-card group/card flex flex-col', props.class)"
   >
     <slot />
   </div>

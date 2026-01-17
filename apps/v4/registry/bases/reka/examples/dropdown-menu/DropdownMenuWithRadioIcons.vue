@@ -33,6 +33,8 @@ const paymentMethod = ref("card")
                 lucide="CreditCardIcon"
                 tabler="IconCreditCard"
                 hugeicons="CreditCardIcon"
+                phosphor="CreditCardIcon"
+                remixicon="RiBankCardLine"
               />
               Credit Card
             </DropdownMenuRadioItem>
@@ -41,6 +43,8 @@ const paymentMethod = ref("card")
                 lucide="WalletIcon"
                 tabler="IconWallet"
                 hugeicons="WalletIcon"
+                phosphor="WalletIcon"
+                remixicon="RiWalletLine"
               />
               PayPal
             </DropdownMenuRadioItem>
@@ -49,6 +53,8 @@ const paymentMethod = ref("card")
                 lucide="Building2Icon"
                 tabler="IconBuildingBank"
                 hugeicons="BankIcon"
+                phosphor="BankIcon"
+                remixicon="RiBankLine"
               />
               Bank Transfer
             </DropdownMenuRadioItem>

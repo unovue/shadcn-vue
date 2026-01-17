@@ -17,6 +17,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="ArrowRightIcon"
             tabler="IconArrowRight"
             hugeicons="ArrowRight02Icon"
+            phosphor="ArrowRightIcon"
+            remixicon="RiArrowRightLine"
             data-icon="inline-end"
           />
         </Button>
@@ -30,7 +32,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="ArrowRightIcon"
             tabler="IconArrowRight"
             hugeicons="ArrowRight02Icon"
-            data-icon="inline-end"
+            phosphor="ArrowRightIcon"
+            remixicon="RiArrowRightLine"
           />
         </Button>
       </div>

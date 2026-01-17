@@ -108,12 +108,16 @@ function renderItem(fileItem: FileTreeItem) {
                     lucide="ChevronRightIcon"
                     tabler="IconChevronRight"
                     hugeicons="ArrowRight01Icon"
+                    phosphor="CaretRightIcon"
+                    remixicon="RiArrowRightSLine"
                     class="transition-transform group-data-[state=open]:rotate-90"
                   />
                   <IconPlaceholder
                     lucide="FolderIcon"
                     tabler="IconFolder"
                     hugeicons="Folder01Icon"
+                    phosphor="FolderIcon"
+                    remixicon="RiFolderLine"
                   />
                   {{ item.name }}
                 </Button>
@@ -132,12 +136,16 @@ function renderItem(fileItem: FileTreeItem) {
                             lucide="ChevronRightIcon"
                             tabler="IconChevronRight"
                             hugeicons="ArrowRight01Icon"
+                            phosphor="CaretRightIcon"
+                            remixicon="RiArrowRightSLine"
                             class="transition-transform group-data-[state=open]:rotate-90"
                           />
                           <IconPlaceholder
                             lucide="FolderIcon"
                             tabler="IconFolder"
                             hugeicons="Folder01Icon"
+                            phosphor="FolderIcon"
+                            remixicon="RiFolderLine"
                           />
                           {{ child.name }}
                         </Button>
@@ -155,6 +163,8 @@ function renderItem(fileItem: FileTreeItem) {
                               lucide="FileIcon"
                               tabler="IconFile"
                               hugeicons="File01Icon"
+                              phosphor="FileIcon"
+                              remixicon="RiFileLine"
                             />
                             <span>{{ file.name }}</span>
                           </Button>
@@ -171,6 +181,8 @@ function renderItem(fileItem: FileTreeItem) {
                         lucide="FileIcon"
                         tabler="IconFile"
                         hugeicons="File01Icon"
+                        phosphor="FileIcon"
+                        remixicon="RiFileLine"
                       />
                       <span>{{ child.name }}</span>
                     </Button>
@@ -188,6 +200,8 @@ function renderItem(fileItem: FileTreeItem) {
                 lucide="FileIcon"
                 tabler="IconFile"
                 hugeicons="File01Icon"
+                phosphor="FileIcon"
+                remixicon="RiFileLine"
               />
               <span>{{ item.name }}</span>
             </Button>

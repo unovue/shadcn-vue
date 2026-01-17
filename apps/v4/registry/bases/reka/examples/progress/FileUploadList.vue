@@ -54,6 +54,8 @@ const files = computed(() => [
             lucide="FileIcon"
             tabler="IconFile"
             hugeicons="FileIcon"
+            phosphor="FileIcon"
+            remixicon="RiFileLine"
             class="size-5"
           />
         </ItemMedia>

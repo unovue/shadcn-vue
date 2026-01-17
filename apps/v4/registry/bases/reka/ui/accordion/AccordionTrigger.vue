@@ -2,12 +2,12 @@
 import type { AccordionTriggerProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronDown } from "lucide-vue-next"
 import {
   AccordionHeader,
   AccordionTrigger,
 } from "reka-ui"
 import { cn } from "@/lib/utils"
+import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
 
 const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes["class"] }>()
 
@@ -21,15 +21,30 @@ const delegatedProps = reactiveOmit(props, "class")
       v-bind="delegatedProps"
       :class="
         cn(
-          'focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180',
+          'cn-accordion-trigger group/accordion-trigger relative flex flex-1 items-start justify-between border border-transparent transition-all outline-none disabled:pointer-events-none disabled:opacity-50',
           props.class,
         )
       "
     >
       <slot />
       <slot name="icon">
-        <ChevronDown
-          class="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200"
+        <IconPlaceholder
+          lucide="ChevronDownIcon"
+          tabler="IconChevronDown"
+          data-slot="accordion-trigger-icon"
+          hugeicons="ArrowDown01Icon"
+          phosphor="CaretDownIcon"
+          remixicon="RiArrowDownSLine"
+          class="cn-accordion-trigger-icon pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
+        />
+        <IconPlaceholder
+          lucide="ChevronUpIcon"
+          tabler="IconChevronUp"
+          data-slot="accordion-trigger-icon"
+          hugeicons="ArrowUp01Icon"
+          phosphor="CaretUpIcon"
+          remixicon="RiArrowUpSLine"
+          class="cn-accordion-trigger-icon pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline"
         />
       </slot>
     </AccordionTrigger>

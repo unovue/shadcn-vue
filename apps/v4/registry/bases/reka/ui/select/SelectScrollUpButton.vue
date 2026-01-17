@@ -2,9 +2,9 @@
 import type { SelectScrollUpButtonProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronUp } from "lucide-vue-next"
 import { SelectScrollUpButton, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
+import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
 
 const props = defineProps<SelectScrollUpButtonProps & { class?: HTMLAttributes["class"] }>()
 
@@ -17,10 +17,16 @@ const forwardedProps = useForwardProps(delegatedProps)
   <SelectScrollUpButton
     data-slot="select-scroll-up-button"
     v-bind="forwardedProps"
-    :class="cn('flex cursor-default items-center justify-center py-1', props.class)"
+    :class="cn('cn-select-scroll-up-button', props.class)"
   >
     <slot>
-      <ChevronUp class="size-4" />
+      <IconPlaceholder
+        lucide="ChevronUpIcon"
+        tabler="IconChevronUp"
+        hugeicons="ArrowUp01Icon"
+        phosphor="CaretUpIcon"
+        remixicon="RiArrowUpSLine"
+      />
     </slot>
   </SelectScrollUpButton>
 </template>

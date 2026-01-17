@@ -55,6 +55,8 @@ function formatDateRange(range?: DateRange): string {
               lucide="CalendarIcon"
               tabler="IconCalendar"
               hugeicons="CalendarIcon"
+              phosphor="CalendarIcon"
+              remixicon="RiCalendarLine"
               data-icon="inline-start"
             />
             <span v-if="date?.start">{{ formatDateRange(date) }}</span>

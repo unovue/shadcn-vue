@@ -12,6 +12,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-xs" variant="secondary">
@@ -19,6 +21,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-xs" variant="outline">
@@ -26,6 +30,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-xs" variant="ghost">
@@ -33,6 +39,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-xs" variant="destructive">
@@ -40,6 +48,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-xs" variant="link">
@@ -47,6 +57,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
     </div>
@@ -56,6 +68,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-sm" variant="secondary">
@@ -63,6 +77,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-sm" variant="outline">
@@ -70,6 +86,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-sm" variant="ghost">
@@ -77,6 +95,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-sm" variant="destructive">
@@ -84,6 +104,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-sm" variant="link">
@@ -91,6 +113,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
     </div>
@@ -100,6 +124,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon" variant="secondary">
@@ -107,6 +133,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon" variant="outline">
@@ -114,6 +142,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon" variant="ghost">
@@ -121,6 +151,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon" variant="destructive">
@@ -128,6 +160,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon" variant="link">
@@ -135,6 +169,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
     </div>
@@ -144,6 +180,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-lg" variant="secondary">
@@ -151,6 +189,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-lg" variant="outline">
@@ -158,6 +198,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-lg" variant="ghost">
@@ -165,6 +207,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-lg" variant="destructive">
@@ -172,6 +216,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
       <Button size="icon-lg" variant="link">
@@ -179,6 +225,8 @@ import { Example } from "~/registry/bases/reka/components/example"
           lucide="ArrowRightIcon"
           tabler="IconArrowRight"
           hugeicons="ArrowRight02Icon"
+          phosphor="ArrowRightIcon"
+          remixicon="RiArrowRightLine"
         />
       </Button>
     </div>

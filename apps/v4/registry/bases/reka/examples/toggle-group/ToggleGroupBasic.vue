@@ -10,6 +10,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="BoldIcon"
         tabler="IconBold"
         hugeicons="TextBoldIcon"
+        phosphor="TextBIcon"
+        remixicon="RiBold"
       />
     </ToggleGroupItem>
     <ToggleGroupItem value="italic" aria-label="Toggle italic">
@@ -17,6 +19,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="ItalicIcon"
         tabler="IconItalic"
         hugeicons="TextItalicIcon"
+        phosphor="TextItalicIcon"
+        remixicon="RiItalic"
       />
     </ToggleGroupItem>
     <ToggleGroupItem value="underline" aria-label="Toggle underline">
@@ -24,6 +28,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/registry/bases/reka/ui/toggle-gr
         lucide="UnderlineIcon"
         tabler="IconUnderline"
         hugeicons="TextUnderlineIcon"
+        phosphor="TextUnderlineIcon"
+        remixicon="RiUnderline"
       />
     </ToggleGroupItem>
   </ToggleGroup>

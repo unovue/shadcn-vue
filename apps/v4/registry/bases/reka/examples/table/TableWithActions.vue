@@ -43,6 +43,8 @@ import {
                   lucide="MoreHorizontalIcon"
                   tabler="IconDots"
                   hugeicons="MoreHorizontalCircle01Icon"
+                  phosphor="DotsThreeIcon"
+                  remixicon="RiMoreLine"
                 />
                 <span class="sr-only">Open menu</span>
               </Button>
@@ -71,6 +73,8 @@ import {
                   lucide="MoreHorizontalIcon"
                   tabler="IconDots"
                   hugeicons="MoreHorizontalCircle01Icon"
+                  phosphor="DotsThreeIcon"
+                  remixicon="RiMoreLine"
                 />
                 <span class="sr-only">Open menu</span>
               </Button>
@@ -99,6 +103,8 @@ import {
                   lucide="MoreHorizontalIcon"
                   tabler="IconDots"
                   hugeicons="MoreHorizontalCircle01Icon"
+                  phosphor="DotsThreeIcon"
+                  remixicon="RiMoreLine"
                 />
                 <span class="sr-only">Open menu</span>
               </Button>

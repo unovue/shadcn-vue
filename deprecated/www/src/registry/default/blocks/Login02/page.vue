@@ -13,7 +13,7 @@ import LoginForm from "@/registry/default/blocks/Login02/components/LoginForm.vu
       <div class="flex justify-center gap-2 md:justify-start">
         <a href="#" class="flex items-center gap-2 font-medium">
           <div class="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <GalleryVerticalEnd class-name="size-4" />
+            <GalleryVerticalEnd class="size-4" />
           </div>
           Acme Inc.
         </a>

@@ -42,17 +42,21 @@ import {
               lucide="ChevronsUpDownIcon"
               tabler="IconSelector"
               hugeicons="UnfoldMoreIcon"
+              phosphor="CaretUpDownIcon"
+              remixicon="RiExpandUpDownLine"
               class="ml-auto text-muted-foreground"
             />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent class="w-(--radix-dropdown-menu-trigger-width) min-w-56">
+        <DropdownMenuContent class="w-(--reka-dropdown-menu-trigger-width) min-w-56">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <IconPlaceholder
                 lucide="BadgeCheckIcon"
                 tabler="IconRosetteDiscountCheck"
                 hugeicons="CheckmarkBadgeIcon"
+                phosphor="SealCheckIcon"
+                remixicon="RiVerifiedBadgeLine"
               />
               Account
             </DropdownMenuItem>
@@ -61,6 +65,8 @@ import {
                 lucide="CreditCardIcon"
                 tabler="IconCreditCard"
                 hugeicons="CreditCardIcon"
+                phosphor="CreditCardIcon"
+                remixicon="RiBankCardLine"
               />
               Billing
             </DropdownMenuItem>
@@ -69,6 +75,8 @@ import {
                 lucide="BellIcon"
                 tabler="IconBell"
                 hugeicons="NotificationIcon"
+                phosphor="BellIcon"
+                remixicon="RiNotification3Line"
               />
               Notifications
             </DropdownMenuItem>
@@ -80,6 +88,8 @@ import {
                 lucide="LogOutIcon"
                 tabler="IconLogout"
                 hugeicons="LogoutIcon"
+                phosphor="SignOutIcon"
+                remixicon="RiLogoutBoxLine"
               />
               Sign Out
             </DropdownMenuItem>
@@ -102,6 +112,8 @@ import {
                 lucide="BadgeCheckIcon"
                 tabler="IconRosetteDiscountCheck"
                 hugeicons="CheckmarkBadgeIcon"
+                phosphor="SealCheckIcon"
+                remixicon="RiVerifiedBadgeLine"
               />
               Account
             </DropdownMenuItem>
@@ -110,6 +122,8 @@ import {
                 lucide="CreditCardIcon"
                 tabler="IconCreditCard"
                 hugeicons="CreditCardIcon"
+                phosphor="CreditCardIcon"
+                remixicon="RiBankCardLine"
               />
               Billing
             </DropdownMenuItem>
@@ -118,6 +132,8 @@ import {
                 lucide="BellIcon"
                 tabler="IconBell"
                 hugeicons="NotificationIcon"
+                phosphor="BellIcon"
+                remixicon="RiNotification3Line"
               />
               Notifications
             </DropdownMenuItem>
@@ -129,6 +145,8 @@ import {
                 lucide="LogOutIcon"
                 tabler="IconLogout"
                 hugeicons="LogoutIcon"
+                phosphor="SignOutIcon"
+                remixicon="RiLogoutBoxLine"
               />
               Sign Out
             </DropdownMenuItem>

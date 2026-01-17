@@ -2,9 +2,9 @@
 import type { TagsInputItemDeleteProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { X } from "lucide-vue-next"
 import { TagsInputItemDelete, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
+import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 
 const props = defineProps<TagsInputItemDeleteProps & { class?: HTMLAttributes["class"] }>()
 
@@ -16,7 +16,7 @@ const forwardedProps = useForwardProps(delegatedProps)
 <template>
   <TagsInputItemDelete v-bind="forwardedProps" :class="cn('flex rounded bg-transparent mr-1', props.class)">
     <slot>
-      <X class="w-4 h-4" />
+      <IconPlaceholder lucide="XIcon" tabler="IconX" hugeicons="Cancel01Icon" phosphor="XIcon" remixicon="RiCloseLine" class="w-4 h-4" />
     </slot>
   </TagsInputItemDelete>
 </template>

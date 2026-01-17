@@ -4,7 +4,7 @@ import { DEFAULT_CONFIG } from '@/registry/config'
 
 export const designSystemSearchParams = {
   base: DEFAULT_CONFIG.base as BaseName,
-  item: 'preview' as string,
+  item: 'accordion-example' as string,
   iconLibrary: DEFAULT_CONFIG.iconLibrary as IconLibraryName,
   style: DEFAULT_CONFIG.style as StyleName,
   theme: DEFAULT_CONFIG.theme as ThemeName,

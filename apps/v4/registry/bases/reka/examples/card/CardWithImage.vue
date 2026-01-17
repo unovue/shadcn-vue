@@ -33,6 +33,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="PlusIcon"
             tabler="IconPlus"
             hugeicons="Add01Icon"
+            phosphor="PlusIcon"
+            remixicon="RiAddLine"
             data-icon="inline-start"
           />
           Button

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
-import { MinusIcon } from "lucide-vue-next"
 import { useForwardProps } from "reka-ui"
+import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>()
 
@@ -15,7 +15,7 @@ const forwarded = useForwardProps(props)
     v-bind="forwarded"
   >
     <slot>
-      <MinusIcon />
+      <IconPlaceholder lucide="MinusIcon" tabler="IconMinus" hugeicons="Minus01Icon" phosphor="MinusIcon" remixicon="RiSubtractLine" />
     </slot>
   </div>
 </template>

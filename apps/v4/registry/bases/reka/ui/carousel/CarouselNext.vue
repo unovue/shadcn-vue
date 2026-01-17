@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from "./interface"
 import type { ButtonVariants } from "@/registry/new-york-v4/ui/button"
-import { ArrowRight } from "lucide-vue-next"
 import { cn } from "@/lib/utils"
+import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { useCarousel } from "./useCarousel"
 
@@ -34,7 +34,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     @click="scrollNext"
   >
     <slot>
-      <ArrowRight />
+      <IconPlaceholder lucide="ArrowRightIcon" tabler="IconArrowRight" hugeicons="ArrowRight01Icon" phosphor="ArrowRightIcon" remixicon="RiArrowRightLine" />
       <span class="sr-only">Next Slide</span>
     </slot>
   </Button>

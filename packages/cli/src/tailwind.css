@@ -5,7 +5,7 @@
     }
     to {
       height: var(
-        --radix-accordion-content-height,
+        --reka-accordion-content-height,
         var(--accordion-panel-height, auto)
       );
     }
@@ -14,7 +14,7 @@
   @keyframes accordion-up {
     from {
       height: var(
-        --radix-accordion-content-height,
+        --reka-accordion-content-height,
         var(--accordion-panel-height, auto)
       );
     }

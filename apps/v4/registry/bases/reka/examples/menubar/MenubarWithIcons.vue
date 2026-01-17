@@ -23,6 +23,8 @@ import {
               lucide="FileIcon"
               tabler="IconFile"
               hugeicons="FileIcon"
+              phosphor="FileIcon"
+              remixicon="RiFileLine"
             />
             New File <MenubarShortcut>⌘N</MenubarShortcut>
           </MenubarItem>
@@ -31,6 +33,8 @@ import {
               lucide="FolderIcon"
               tabler="IconFolder"
               hugeicons="FolderIcon"
+              phosphor="FolderIcon"
+              remixicon="RiFolderLine"
             />
             Open Folder
           </MenubarItem>
@@ -42,6 +46,8 @@ import {
               lucide="SaveIcon"
               tabler="IconDeviceFloppy"
               hugeicons="FloppyDiskIcon"
+              phosphor="FloppyDiskIcon"
+              remixicon="RiSaveLine"
             />
             Save <MenubarShortcut>⌘S</MenubarShortcut>
           </MenubarItem>
@@ -57,6 +63,8 @@ import {
               lucide="CircleDashedIcon"
               tabler="IconCircleDashed"
               hugeicons="DashedLineCircleIcon"
+              phosphor="CircleDashedIcon"
+              remixicon="RiCheckboxBlankCircleLine"
             />
             Settings
           </MenubarItem>
@@ -65,6 +73,8 @@ import {
               lucide="CircleDashedIcon"
               tabler="IconCircleDashed"
               hugeicons="DashedLineCircleIcon"
+              phosphor="CircleDashedIcon"
+              remixicon="RiCheckboxBlankCircleLine"
             />
             Help
           </MenubarItem>
@@ -74,6 +84,8 @@ import {
               lucide="CircleDashedIcon"
               tabler="IconCircleDashed"
               hugeicons="DashedLineCircleIcon"
+              phosphor="CircleDashedIcon"
+              remixicon="RiCheckboxBlankCircleLine"
             />
             Delete
           </MenubarItem>

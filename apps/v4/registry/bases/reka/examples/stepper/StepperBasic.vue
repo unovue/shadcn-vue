@@ -25,6 +25,8 @@ const currentStep = ref(1)
               lucide="UserIcon"
               tabler="IconUser"
               hugeicons="User02Icon"
+              phosphor="UserIcon"
+              remixicon="RiUserLine"
             />
           </StepperIndicator>
           <div class="flex flex-col text-left">
@@ -42,6 +44,8 @@ const currentStep = ref(1)
               lucide="SettingsIcon"
               tabler="IconSettings"
               hugeicons="Settings02Icon"
+              phosphor="GearIcon"
+              remixicon="RiSettings3Line"
             />
           </StepperIndicator>
           <div class="flex flex-col text-left">
@@ -59,6 +63,8 @@ const currentStep = ref(1)
               lucide="CheckIcon"
               tabler="IconCheck"
               hugeicons="Tick02Icon"
+              phosphor="CheckIcon"
+              remixicon="RiCheckLine"
             />
           </StepperIndicator>
           <div class="flex flex-col text-left">

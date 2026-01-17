@@ -1,8 +1,12 @@
 catalogMode: prefer
+# catalogMode: prefer
+# catalogMode: prefer
 cleanupUnusedCatalogs: true
 
 shellEmulator: true
 trustPolicy: no-downgrade
+
+# trustPolicy: no-downgrade
 
 packages:
   - apps/*

@@ -27,6 +27,8 @@ import {
               lucide="UserIcon"
               tabler="IconUser"
               hugeicons="UserIcon"
+              phosphor="UserIcon"
+              remixicon="RiUserLine"
             />
             Profile
           </DropdownMenuItem>
@@ -35,6 +37,8 @@ import {
               lucide="CreditCardIcon"
               tabler="IconCreditCard"
               hugeicons="CreditCardIcon"
+              phosphor="CreditCardIcon"
+              remixicon="RiBankCardLine"
             />
             Billing
           </DropdownMenuItem>
@@ -43,6 +47,8 @@ import {
               lucide="SettingsIcon"
               tabler="IconSettings"
               hugeicons="SettingsIcon"
+              phosphor="GearIcon"
+              remixicon="RiSettings3Line"
             />
             Settings
           </DropdownMenuItem>
@@ -54,6 +60,8 @@ import {
               lucide="LogOutIcon"
               tabler="IconLogout"
               hugeicons="LogoutIcon"
+              phosphor="SignOutIcon"
+              remixicon="RiLogoutBoxLine"
             />
             Log out
           </DropdownMenuItem>

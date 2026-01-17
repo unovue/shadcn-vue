@@ -26,6 +26,8 @@ const tags = ref(["TypeScript", "JavaScript", "Python"])
               lucide="XIcon"
               tabler="IconX"
               hugeicons="Cancel01Icon"
+              phosphor="XIcon"
+              remixicon="RiCloseLine"
             />
           </TagsInputItemDelete>
         </TagsInputItem>

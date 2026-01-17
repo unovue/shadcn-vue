@@ -51,6 +51,8 @@ import {
                   lucide="CopyIcon"
                   tabler="IconCopy"
                   hugeicons="CopyIcon"
+                  phosphor="CopyIcon"
+                  remixicon="RiFileCopyLine"
                 />
                 Copy
               </DropdownMenuItem>
@@ -59,6 +61,8 @@ import {
                   lucide="ScissorsIcon"
                   tabler="IconCut"
                   hugeicons="ScissorIcon"
+                  phosphor="ScissorsIcon"
+                  remixicon="RiScissorsCutLine"
                 />
                 Cut
               </DropdownMenuItem>
@@ -67,6 +71,8 @@ import {
                   lucide="ClipboardPasteIcon"
                   tabler="IconClipboard"
                   hugeicons="ClipboardIcon"
+                  phosphor="ClipboardIcon"
+                  remixicon="RiClipboardLine"
                 />
                 Paste
               </DropdownMenuItem>
@@ -93,6 +99,8 @@ import {
                   lucide="TrashIcon"
                   tabler="IconTrash"
                   hugeicons="DeleteIcon"
+                  phosphor="TrashIcon"
+                  remixicon="RiDeleteBinLine"
                 />
                 Delete
               </DropdownMenuItem>

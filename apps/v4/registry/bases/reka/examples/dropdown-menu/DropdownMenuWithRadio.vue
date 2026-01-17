@@ -33,6 +33,8 @@ const position = ref("bottom")
                 lucide="ArrowUpIcon"
                 tabler="IconArrowUp"
                 hugeicons="ArrowUp01Icon"
+                phosphor="ArrowUpIcon"
+                remixicon="RiArrowUpLine"
               />
               Top
             </DropdownMenuRadioItem>
@@ -41,6 +43,8 @@ const position = ref("bottom")
                 lucide="ArrowDownIcon"
                 tabler="IconArrowDown"
                 hugeicons="ArrowDown01Icon"
+                phosphor="ArrowDownIcon"
+                remixicon="RiArrowDownLine"
               />
               Bottom
             </DropdownMenuRadioItem>
@@ -49,6 +53,8 @@ const position = ref("bottom")
                 lucide="ArrowRightIcon"
                 tabler="IconArrowRight"
                 hugeicons="ArrowRight01Icon"
+                phosphor="ArrowRightIcon"
+                remixicon="RiArrowRightLine"
               />
               Right
             </DropdownMenuRadioItem>

@@ -21,6 +21,8 @@ import {
             lucide="FolderIcon"
             tabler="IconFolder"
             hugeicons="Folder01Icon"
+            phosphor="FolderIcon"
+            remixicon="RiFolderLine"
           />
         </EmptyMedia>
         <EmptyTitle>Nothing to see here</EmptyTitle>
@@ -35,6 +37,8 @@ import {
             lucide="PlusIcon"
             tabler="IconPlus"
             hugeicons="PlusSignIcon"
+            phosphor="PlusIcon"
+            remixicon="RiAddLine"
             data-icon="inline-start"
           />
           New Post

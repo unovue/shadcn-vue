@@ -30,7 +30,7 @@ const items = [
 
 <template>
   <Example title="Basic">
-    <Accordion type="single" collapsible class-name="mx-auto max-w-lg">
+    <Accordion type="single" collapsible class="mx-auto max-w-lg">
       <AccordionItem v-for="item in items" :key="item.value" :value="item.value">
         <AccordionTrigger>{{ item.trigger }}</AccordionTrigger>
         <AccordionContent>{{ item.content }}</AccordionContent>

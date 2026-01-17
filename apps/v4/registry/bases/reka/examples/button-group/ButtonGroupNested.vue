@@ -24,6 +24,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="PlusIcon"
             tabler="IconPlus"
             hugeicons="PlusSignIcon"
+            phosphor="PlusIcon"
+            remixicon="RiAddLine"
           />
         </Button>
       </ButtonGroup>
@@ -37,6 +39,8 @@ import { Example } from "~/registry/bases/reka/components/example"
                   lucide="AudioLinesIcon"
                   tabler="IconHeadphones"
                   hugeicons="AudioWave01Icon"
+                  phosphor="WaveformIcon"
+                  remixicon="RiSoundModuleLine"
                 />
               </InputGroupAddon>
             </TooltipTrigger>

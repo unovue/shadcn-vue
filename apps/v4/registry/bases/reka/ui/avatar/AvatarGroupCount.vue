@@ -8,13 +8,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <span
+  <div
     data-slot="avatar-group-count"
     :class="cn(
-      'bg-muted text-muted-foreground inline-flex size-10 items-center justify-center rounded-full text-xs font-medium ring-2 ring-background',
+      'cn-avatar-group-count ring-background relative flex shrink-0 items-center justify-center ring-2',
       props.class,
     )"
   >
     <slot />
-  </span>
+  </div>
 </template>

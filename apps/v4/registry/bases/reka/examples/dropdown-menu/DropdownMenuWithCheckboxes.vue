@@ -35,6 +35,8 @@ const showPanel = ref(false)
               lucide="LayoutIcon"
               tabler="IconLayout"
               hugeicons="LayoutIcon"
+              phosphor="LayoutIcon"
+              remixicon="RiLayoutLine"
             />
             Status Bar
           </DropdownMenuCheckboxItem>
@@ -46,6 +48,8 @@ const showPanel = ref(false)
               lucide="ActivityIcon"
               tabler="IconActivity"
               hugeicons="ActivityIcon"
+              phosphor="ActivityIcon"
+              remixicon="RiPulseLine"
             />
             Activity Bar
           </DropdownMenuCheckboxItem>
@@ -56,6 +60,8 @@ const showPanel = ref(false)
               lucide="PanelLeftIcon"
               tabler="IconLayoutSidebar"
               hugeicons="LayoutLeftIcon"
+              phosphor="SidebarIcon"
+              remixicon="RiSideBarLine"
             />
             Panel
           </DropdownMenuCheckboxItem>

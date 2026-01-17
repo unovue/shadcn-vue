@@ -17,6 +17,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="MailIcon"
             tabler="IconMail"
             hugeicons="Mail01Icon"
+            phosphor="EnvelopeIcon"
+            remixicon="RiMailLine"
           />
         </InputGroupAddon>
         <InputGroupInput type="email" placeholder="Email" />

@@ -5,7 +5,7 @@ import { DEFAULT_CONFIG } from '@/registry/config'
 export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
   const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, { mode })
 
-  const item = useRouteQuery<string>('item', 'preview', { mode })
+  const item = useRouteQuery<string>('item', 'accordion-example', { mode })
 
   const iconLibrary = useRouteQuery<IconLibraryName>(
     'iconLibrary',

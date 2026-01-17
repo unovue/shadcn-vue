@@ -20,6 +20,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="UserIcon"
             tabler="IconUser"
             hugeicons="User02Icon"
+            phosphor="UserIcon"
+            remixicon="RiUserLine"
           />
         </ItemMedia>
         <ItemContent>
@@ -34,6 +36,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="MailIcon"
             tabler="IconMail"
             hugeicons="Mail01Icon"
+            phosphor="EnvelopeIcon"
+            remixicon="RiMailLine"
           />
         </ItemMedia>
         <ItemContent>
@@ -48,6 +52,8 @@ import { Example } from "~/registry/bases/reka/components/example"
             lucide="BellIcon"
             tabler="IconBell"
             hugeicons="Notification02Icon"
+            phosphor="BellIcon"
+            remixicon="RiNotification3Line"
           />
         </ItemMedia>
         <ItemContent>

@@ -5,9 +5,10 @@ import { useEventListener } from '@vueuse/core'
 import { sendToIframe } from '@/composables/useIframeMessageListener'
 import { Badge } from '@/registry/new-york-v4/ui/badge'
 
-// import { RANDOMIZE_FORWARD_TYPE } from '@/app/(create)/components/customizer-controls'
-// import { CMD_K_FORWARD_TYPE } from '@/app/(create)/components/item-picker'
-// import { DARK_MODE_FORWARD_TYPE } from '@/components/mode-switcher'
+// Message types for keyboard shortcut forwarding from iframe
+const CMD_K_FORWARD_TYPE = 'cmd-k-forward'
+const RANDOMIZE_FORWARD_TYPE = 'randomize-forward'
+const DARK_MODE_FORWARD_TYPE = 'dark-mode-forward'
 
 const params = useDesignSystemSearchParams()
 
@@ -44,41 +45,41 @@ watch(() => params, () => {
 }, { deep: true })
 
 function handleMessage(event: MessageEvent) {
-  // if (event.data.type === CMD_K_FORWARD_TYPE) {
-  //   const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent)
-  //   const key = event.data.key || 'k'
+  if (event.data.type === CMD_K_FORWARD_TYPE) {
+    const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent)
+    const key = event.data.key || 'k'
 
-  //   const syntheticEvent = new KeyboardEvent('keydown', {
-  //     key,
-  //     metaKey: isMac,
-  //     ctrlKey: !isMac,
-  //     bubbles: true,
-  //     cancelable: true,
-  //   })
-  //   document.dispatchEvent(syntheticEvent)
-  // }
+    const syntheticEvent = new KeyboardEvent('keydown', {
+      key,
+      metaKey: isMac,
+      ctrlKey: !isMac,
+      bubbles: true,
+      cancelable: true,
+    })
+    document.dispatchEvent(syntheticEvent)
+  }
 
-  // if (event.data.type === RANDOMIZE_FORWARD_TYPE) {
-  //   const key = event.data.key || 'r'
+  if (event.data.type === RANDOMIZE_FORWARD_TYPE) {
+    const key = event.data.key || 'r'
 
-  //   const syntheticEvent = new KeyboardEvent('keydown', {
-  //     key,
-  //     bubbles: true,
-  //     cancelable: true,
-  //   })
-  //   document.dispatchEvent(syntheticEvent)
-  // }
+    const syntheticEvent = new KeyboardEvent('keydown', {
+      key,
+      bubbles: true,
+      cancelable: true,
+    })
+    document.dispatchEvent(syntheticEvent)
+  }
 
-  // if (event.data.type === DARK_MODE_FORWARD_TYPE) {
-  //   const key = event.data.key || 'd'
+  if (event.data.type === DARK_MODE_FORWARD_TYPE) {
+    const key = event.data.key || 'd'
 
-  //   const syntheticEvent = new KeyboardEvent('keydown', {
-  //     key,
-  //     bubbles: true,
-  //     cancelable: true,
-  //   })
-  //   document.dispatchEvent(syntheticEvent)
-  // }
+    const syntheticEvent = new KeyboardEvent('keydown', {
+      key,
+      bubbles: true,
+      cancelable: true,
+    })
+    document.dispatchEvent(syntheticEvent)
+  }
 }
 
 useEventListener(globalThis.window, 'message', handleMessage)

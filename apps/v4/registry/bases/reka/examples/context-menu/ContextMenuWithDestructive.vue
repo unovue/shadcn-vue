@@ -24,6 +24,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="PencilIcon"
               tabler="IconPencil"
               hugeicons="EditIcon"
+              phosphor="PencilIcon"
+              remixicon="RiPencilLine"
             />
             Edit
           </ContextMenuItem>
@@ -32,6 +34,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="ShareIcon"
               tabler="IconShare"
               hugeicons="ShareIcon"
+              phosphor="ShareIcon"
+              remixicon="RiShareLine"
             />
             Share
           </ContextMenuItem>
@@ -43,6 +47,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="ArchiveIcon"
               tabler="IconArchive"
               hugeicons="Archive02Icon"
+              phosphor="ArchiveIcon"
+              remixicon="RiArchiveLine"
             />
             Archive
           </ContextMenuItem>
@@ -51,6 +57,8 @@ import { Example } from "~/registry/bases/reka/components/example"
               lucide="TrashIcon"
               tabler="IconTrash"
               hugeicons="DeleteIcon"
+              phosphor="TrashIcon"
+              remixicon="RiDeleteBinLine"
             />
             Delete
           </ContextMenuItem>

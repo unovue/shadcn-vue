@@ -17,10 +17,10 @@ import {
 import { Example } from "~/registry/bases/reka/components/example"
 
 const menuItems = [
-  { title: "Home", icon: "HomeIcon", url: "#" },
-  { title: "Dashboard", icon: "LayoutDashboardIcon", url: "#" },
-  { title: "Settings", icon: "SettingsIcon", url: "#" },
-  { title: "Profile", icon: "UserIcon", url: "#" },
+  { title: "Home", lucide: "HomeIcon", tabler: "IconHome", hugeicons: "HomeIcon", phosphor: "HouseIcon", remixicon: "RiHomeLine", url: "#" },
+  { title: "Dashboard", lucide: "LayoutDashboardIcon", tabler: "IconLayoutDashboard", hugeicons: "LayoutLeftIcon", phosphor: "LayoutIcon", remixicon: "RiDashboardLine", url: "#" },
+  { title: "Settings", lucide: "SettingsIcon", tabler: "IconSettings", hugeicons: "SettingsIcon", phosphor: "GearIcon", remixicon: "RiSettings3Line", url: "#" },
+  { title: "Profile", lucide: "UserIcon", tabler: "IconUser", hugeicons: "UserIcon", phosphor: "UserIcon", remixicon: "RiUserLine", url: "#" },
 ]
 </script>
 
@@ -35,6 +35,8 @@ const menuItems = [
                 lucide="LayoutDashboardIcon"
                 tabler="IconLayoutDashboard"
                 hugeicons="LayoutLeftIcon"
+                phosphor="LayoutIcon"
+                remixicon="RiDashboardLine"
               />
               <span class="font-semibold">My App</span>
             </div>
@@ -48,9 +50,11 @@ const menuItems = [
                     <SidebarMenuButton :as-child="true">
                       <a :href="item.url" class="flex items-center gap-2">
                         <IconPlaceholder
-                          :lucide="item.icon"
-                          :tabler="`Icon${item.icon.replace('Icon', '')}`"
-                          :hugeicons="`${item.icon.replace('Icon', '')}Icon`"
+                          :lucide="item.lucide"
+                          :tabler="item.tabler"
+                          :hugeicons="item.hugeicons"
+                          :phosphor="item.phosphor"
+                          :remixicon="item.remixicon"
                         />
                         <span>{{ item.title }}</span>
                       </a>
