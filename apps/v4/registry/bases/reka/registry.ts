@@ -4,7 +4,7 @@ import { z } from "zod"
 
 import { fonts } from "@/registry/fonts"
 
-// import { blocks } from "./blocks/_registry"
+import { blocks } from "./blocks/_registry"
 import { components } from "./components/_registry"
 import { examples } from "./examples/_registry"
 // import { hooks } from "./hooks/_registry"
@@ -23,7 +23,7 @@ export const registry = {
       ...lib,
       ...components,
       // ...internal,
-      // ...blocks,
+      ...blocks,
       // ...hooks,
       ...fonts,
     ]),

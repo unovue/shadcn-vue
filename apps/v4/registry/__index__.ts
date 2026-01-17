@@ -669,7 +669,7 @@ export const Index: Record<string, any> = {
     name: "dialog",
     description: "",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["button"],
     files: [{
       path: "registry/new-york-v4/ui/dialog/Dialog.vue",
       type: "registry:ui",

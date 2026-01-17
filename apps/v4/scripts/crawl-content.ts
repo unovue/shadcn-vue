@@ -7,6 +7,14 @@ import { join, resolve } from 'pathe'
 import { compileScript, parse, walk } from 'vue/compiler-sfc'
 import { blockMeta } from '~/registry/new-york-v4/blocks/_meta'
 
+// Special title mappings for brand names
+const BLOCK_TITLE_MAP: Record<string, string> = {
+  chatgpt: 'ChatGPT',
+  elevenlabs: 'ElevenLabs',
+  github: 'GitHub',
+  preview: 'Home',
+}
+
 // [Dependency, [...PeerDependencies]]
 const DEPENDENCIES = new Map<string, string[]>([
   ['reka-ui', []],
@@ -153,10 +161,15 @@ export async function crawlBlock(rootPath: string) {
       continue
 
     const [name = ''] = dirent.name.split('.vue')
+    // Use special title mapping or generate from name (capitalize first letter of each word)
+    const title = BLOCK_TITLE_MAP[name] ?? name
+      .split(/[-_]/)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
 
     const filepath = join(rootPath, dirent.name)
     const source = await readFile(filepath, { encoding: 'utf8' })
-    const relativePath = join('charts', dirent.name)
+    const relativePath = join('blocks', dirent.name)
 
     const file = {
       path: relativePath,
@@ -166,11 +179,12 @@ export async function crawlBlock(rootPath: string) {
 
     registry.push({
       name,
+      title,
       type,
       files: [file],
       registryDependencies: Array.from(registryDependencies),
       dependencies: Array.from(dependencies),
-      categories: getChartCategories(name),
+      categories: ['blocks'],
     })
   }
 

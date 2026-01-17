@@ -284,6 +284,7 @@ export const ui: Registry["items"] = [
     registryDependencies: [
       "native-select",
       "button",
+      "icon-placeholder",
     ],
     files: [
       {
@@ -387,6 +388,7 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
+      "icon-placeholder",
     ],
     files: [
       {
@@ -507,6 +509,9 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/combobox/Combobox.vue",
@@ -567,6 +572,7 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "dialog",
+      "input-group",
     ],
     files: [
       {
@@ -691,6 +697,10 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+    ],
+    registryDependencies: [
+      "button",
+      "icon-placeholder",
     ],
     files: [
       {
@@ -1085,6 +1095,9 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
       "reka-ui",
     ],
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/input-otp/InputOTP.vue",
@@ -1207,6 +1220,9 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/menubar/Menubar.vue",
@@ -1281,6 +1297,9 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/native-select/NativeSelect.vue",
@@ -1306,6 +1325,9 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+    ],
+    registryDependencies: [
+      "icon-placeholder",
     ],
     files: [
       {
@@ -1353,6 +1375,9 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/number-field/NumberField.vue",
@@ -1389,6 +1414,7 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
+      "icon-placeholder",
     ],
     files: [
       {
@@ -1439,6 +1465,9 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+    ],
+    registryDependencies: [
+      "icon-placeholder",
     ],
     files: [
       {
@@ -1554,6 +1583,7 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
+      "icon-placeholder",
     ],
     files: [
       {
@@ -1741,6 +1771,9 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "@vueuse/core",
     ],
+    registryDependencies: [
+      "button",
+    ],
     files: [
       {
         path: "ui/sheet/Sheet.vue",
@@ -1797,6 +1830,7 @@ export const ui: Registry["items"] = [
       "tooltip",
       "skeleton",
       "separator",
+      "icon-placeholder",
       "button",
     ],
     files: [
@@ -1944,6 +1978,9 @@ export const ui: Registry["items"] = [
     dependencies: [
       "vue-sonner",
     ],
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/sonner/Sonner.vue",
@@ -1958,6 +1995,9 @@ export const ui: Registry["items"] = [
   {
     name: "spinner",
     type: "registry:ui",
+    registryDependencies: [
+      "icon-placeholder",
+    ],
     files: [
       {
         path: "ui/spinner/Spinner.vue",
@@ -2119,6 +2159,9 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+    ],
+    registryDependencies: [
+      "icon-placeholder",
     ],
     files: [
       {
