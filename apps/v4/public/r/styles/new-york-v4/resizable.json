@@ -14,7 +14,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/resizable/ResizablePanel.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { SplitterPanelEmits, SplitterPanelProps } from \"reka-ui\"\nimport { SplitterPanel, useForwardExpose, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<SplitterPanelProps>()\nconst emits = defineEmits<SplitterPanelEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\nuseForwardExpose()\n</script>\n\n<template>\n  <SplitterPanel\n    v-slot=\"slotProps\"\n    data-slot=\"resizable-panel\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </SplitterPanel>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { SplitterPanelEmits, SplitterPanelProps } from \"reka-ui\"\nimport { SplitterPanel, useForwardExpose, useForwardPropsEmits } from \"reka-ui\"\n\nconst props = defineProps<SplitterPanelProps>()\nconst emits = defineEmits<SplitterPanelEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\nconst { forwardRef } = useForwardExpose()\n</script>\n\n<template>\n  <SplitterPanel\n    :ref=\"forwardRef\"\n    v-slot=\"slotProps\"\n    data-slot=\"resizable-panel\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </SplitterPanel>\n</template>\n",
       "type": "registry:ui"
     },
     {
