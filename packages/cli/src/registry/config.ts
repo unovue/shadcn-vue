@@ -4,6 +4,8 @@ import { BUILTIN_REGISTRIES, FALLBACK_STYLE } from "@/src/registry/constants"
 import { configSchema } from "@/src/schema"
 import { createConfig } from "@/src/utils/get-config"
 
+const DEFAULT_BASE = "reka"
+
 function resolveStyleFromConfig(config: Partial<Config> | Config) {
   if (!config.style) {
     return FALLBACK_STYLE
@@ -18,9 +20,18 @@ function resolveStyleFromConfig(config: Partial<Config> | Config) {
   return config.style
 }
 
+function resolveBaseFromConfig(config: Partial<Config> | Config) {
+  if (!config.base) {
+    return DEFAULT_BASE
+  }
+
+  return config.base
+}
+
 export function configWithDefaults(config?: Partial<Config> | Config) {
   const baseConfig = createConfig({
     style: FALLBACK_STYLE,
+    base: DEFAULT_BASE,
     registries: BUILTIN_REGISTRIES,
   })
 
@@ -32,6 +43,7 @@ export function configWithDefaults(config?: Partial<Config> | Config) {
     deepmerge(baseConfig, {
       ...config,
       style: resolveStyleFromConfig(config),
+      base: resolveBaseFromConfig(config),
       registries: { ...BUILTIN_REGISTRIES, ...config.registries },
     }),
   )

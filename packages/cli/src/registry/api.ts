@@ -5,8 +5,13 @@ import { buildUrlAndHeadersForRegistryItem } from "@/src/registry/builder"
 import { configWithDefaults } from "@/src/registry/config"
 import {
   BASE_COLORS,
+  BASES,
   BUILTIN_REGISTRIES,
+  FONTS,
+  ICON_LIBRARIES,
+  PRESETS,
   REGISTRY_URL,
+  STYLES,
 } from "@/src/registry/constants"
 import {
   clearRegistryContext,
@@ -190,6 +195,76 @@ export async function getRegistryIcons() {
 
 export async function getRegistryBaseColors() {
   return BASE_COLORS
+}
+
+/**
+ * Get available component library bases (e.g., Reka UI).
+ */
+export function getRegistryBases() {
+  return BASES
+}
+
+/**
+ * Get available visual styles.
+ */
+export function getRegistryVisualStyles() {
+  return STYLES
+}
+
+/**
+ * Get available icon libraries.
+ */
+export function getRegistryIconLibraries() {
+  return ICON_LIBRARIES
+}
+
+/**
+ * Get available fonts.
+ */
+export function getRegistryFonts() {
+  return FONTS
+}
+
+/**
+ * Get a specific base by name.
+ */
+export function getRegistryBase(name: string) {
+  return BASES.find(base => base.name === name)
+}
+
+/**
+ * Get a specific visual style by name.
+ */
+export function getRegistryVisualStyle(name: string) {
+  return STYLES.find(style => style.name === name)
+}
+
+/**
+ * Get a specific icon library by name.
+ */
+export function getRegistryIconLibrary(name: string) {
+  return ICON_LIBRARIES.find(lib => lib.name === name)
+}
+
+/**
+ * Get a specific font by name.
+ */
+export function getRegistryFont(name: string) {
+  return FONTS.find(font => font.name === name)
+}
+
+/**
+ * Get available presets (predefined combinations of base, style, icons, and font).
+ */
+export function getRegistryPresets() {
+  return PRESETS
+}
+
+/**
+ * Get a specific preset by name.
+ */
+export function getRegistryPreset(name: string) {
+  return PRESETS.find(preset => preset.name === name)
 }
 
 export async function getRegistryBaseColor(baseColor: string) {

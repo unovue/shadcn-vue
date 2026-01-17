@@ -1,263 +1,333 @@
-// import type { initOptionsSchema } from '@/src/commands/init'
-// import os from 'node:os'
-// import fs from 'fs-extra'
-// import { detectPackageManager } from 'nypm'
-// import path from 'pathe'
-// import prompts from 'prompts'
-// import { x } from 'tinyexec'
-// import { z } from 'zod'
-// import { fetchRegistry } from '@/src/registry/fetcher'
-// import { handleError } from '@/src/utils/handle-error'
-// import { highlighter } from '@/src/utils/highlighter'
-// import { logger } from '@/src/utils/logger'
-// import { spinner } from '@/src/utils/spinner'
+import type { z } from 'zod'
+import type { initOptionsSchema } from '@/src/commands/init'
+import fs from 'fs-extra'
+import { detectPackageManager } from 'nypm'
+import path from 'pathe'
+import prompts from 'prompts'
+import { x } from 'tinyexec'
+import { handleError } from '@/src/utils/handle-error'
+import { highlighter } from '@/src/utils/highlighter'
+import { logger } from '@/src/utils/logger'
+import { spinner } from '@/src/utils/spinner'
 
-// const MONOREPO_TEMPLATE_URL
-//   = 'https://codeload.github.com/shadcn-ui/ui/tar.gz/main'
+export const TEMPLATES = {
+  nuxt: 'nuxt',
+  vite: 'vite',
+  start: 'start',
+} as const
 
-// export const TEMPLATES = {
-//   'next': 'next',
-//   'next-monorepo': 'next-monorepo',
-// } as const
+export type TemplateType = keyof typeof TEMPLATES
 
-// export async function createProject(
-//   options: Pick<
-//     z.infer<typeof initOptionsSchema>,
-//     'cwd' | 'force' | 'components' | 'template'
-//   >,
-// ) {
-//   options = {
-//     srcDir: false,
-//     ...options,
-//   }
+export async function createProject(
+  options: Pick<
+    z.infer<typeof initOptionsSchema>,
+    'cwd' | 'force' | 'components' | 'template'
+  >,
+) {
+  let template: TemplateType
+    = options.template && TEMPLATES[options.template as TemplateType]
+      ? (options.template as TemplateType)
+      : 'nuxt'
+  let projectName = 'my-vue-app'
 
-//   let template: keyof typeof TEMPLATES
-//     = options.template && TEMPLATES[options.template as keyof typeof TEMPLATES]
-//       ? (options.template as keyof typeof TEMPLATES)
-//       : 'next'
-//   let projectName: string
-//     = template === TEMPLATES.next ? 'my-app' : 'my-monorepo'
-//   let nextVersion = 'latest'
+  if (!options.force) {
+    const { type, name } = await prompts([
+      {
+        type: options.template ? null : 'select',
+        name: 'type',
+        message: `The path ${highlighter.info(
+          options.cwd,
+        )} does not contain a package.json file.\n  Would you like to start a new project?`,
+        choices: [
+          { title: 'Nuxt', value: 'nuxt' },
+          { title: 'Vite', value: 'vite' },
+          { title: 'TanStack Start', value: 'start' },
+        ],
+        initial: 0,
+      },
+      {
+        type: 'text',
+        name: 'name',
+        message: 'What is your project named?',
+        initial: projectName,
+        format: (value: string) => value.trim(),
+        validate: (value: string) =>
+          value.length > 128
+            ? `Name should be less than 128 characters.`
+            : true,
+      },
+    ])
 
-//   const isRemoteComponent
-//     = options.components?.length === 1
-//       && !!options.components[0].match(/\/chat\/b\//)
+    template = type ?? template
+    projectName = name
+  }
 
-//   if (options.components && isRemoteComponent) {
-//     try {
-//       const [result] = await fetchRegistry(options.components)
-//       const { meta } = z
-//         .object({
-//           meta: z.object({
-//             nextVersion: z.string(),
-//           }),
-//         })
-//         .parse(result)
-//       nextVersion = meta.nextVersion
+  const packageManager = await detectPackageManager(options.cwd)
 
-//       // Force template to next for remote components.
-//       template = TEMPLATES.next
-//     }
-//     catch (error) {
-//       logger.break()
-//       handleError(error)
-//     }
-//   }
+  const projectPath = `${options.cwd}/${projectName}`
 
-//   if (!options.force) {
-//     const { type, name } = await prompts([
-//       {
-//         type: options.template || isRemoteComponent ? null : 'select',
-//         name: 'type',
-//         message: `The path ${highlighter.info(
-//           options.cwd,
-//         )} does not contain a package.json file.\n  Would you like to start a new project?`,
-//         choices: [
-//           { title: 'Next.js', value: 'next' },
-//           { title: 'Next.js (Monorepo)', value: 'next-monorepo' },
-//         ],
-//         initial: 0,
-//       },
-//       {
-//         type: 'text',
-//         name: 'name',
-//         message: 'What is your project named?',
-//         initial: projectName,
-//         format: (value: string) => value.trim(),
-//         validate: (value: string) =>
-//           value.length > 128
-//             ? `Name should be less than 128 characters.`
-//             : true,
-//       },
-//     ])
+  // Check if path is writable.
+  try {
+    await fs.access(options.cwd, fs.constants.W_OK)
+  }
+  catch {
+    logger.break()
+    logger.error(`The path ${highlighter.info(options.cwd)} is not writable.`)
+    logger.error(
+      `It is likely you do not have write permissions for this folder or the path ${highlighter.info(
+        options.cwd,
+      )} does not exist.`,
+    )
+    logger.break()
+    process.exit(1)
+  }
 
-//     template = type ?? template
-//     projectName = name
-//   }
+  if (fs.existsSync(path.resolve(options.cwd, projectName, 'package.json'))) {
+    logger.break()
+    logger.error(
+      `A project with the name ${highlighter.info(projectName)} already exists.`,
+    )
+    logger.error(`Please choose a different name and try again.`)
+    logger.break()
+    process.exit(1)
+  }
 
-//   const packageManager = await detectPackageManager(options.cwd)
+  if (template === TEMPLATES.nuxt) {
+    await createNuxtProject(projectPath, {
+      cwd: options.cwd,
+      packageManager: packageManager?.name || 'npm',
+    })
+  }
 
-//   const projectPath = `${options.cwd}/${projectName}`
+  if (template === TEMPLATES.vite) {
+    await createViteProject(projectPath, {
+      cwd: options.cwd,
+      packageManager: packageManager?.name || 'npm',
+    })
+  }
 
-//   // Check if path is writable.
-//   try {
-//     await fs.access(options.cwd, fs.constants.W_OK)
-//   }
-//   catch (error) {
-//     logger.break()
-//     logger.error(`The path ${highlighter.info(options.cwd)} is not writable.`)
-//     logger.error(
-//       `It is likely you do not have write permissions for this folder or the path ${highlighter.info(
-//         options.cwd,
-//       )} does not exist.`,
-//     )
-//     logger.break()
-//     process.exit(1)
-//   }
+  if (template === TEMPLATES.start) {
+    await createTanStackStartProject(projectPath, {
+      cwd: options.cwd,
+      packageManager: packageManager?.name || 'npm',
+    })
+  }
 
-//   if (fs.existsSync(path.resolve(options.cwd, projectName, 'package.json'))) {
-//     logger.break()
-//     logger.error(
-//       `A project with the name ${highlighter.info(projectName)} already exists.`,
-//     )
-//     logger.error(`Please choose a different name and try again.`)
-//     logger.break()
-//     process.exit(1)
-//   }
+  return {
+    projectPath,
+    projectName,
+    template,
+  }
+}
 
-//   if (template === TEMPLATES.next) {
-//     await createNextProject(projectPath, {
-//       version: nextVersion,
-//       cwd: options.cwd,
-//       packageManager: packageManager?.name || 'npm',
-//       srcDir: !!options.srcDir,
-//     })
-//   }
+async function createNuxtProject(
+  projectPath: string,
+  options: {
+    cwd: string
+    packageManager: string
+  },
+) {
+  const createSpinner = spinner(
+    `Creating a new Nuxt project. This may take a few minutes.`,
+  ).start()
 
-//   if (template === TEMPLATES['next-monorepo']) {
-//     await createMonorepoProject(projectPath, {
-//       packageManager: packageManager?.name || 'npm',
-//     })
-//   }
+  try {
+    // Use nuxi to create a new Nuxt project
+    const args = [
+      'nuxi@latest',
+      'init',
+      projectPath,
+      '--packageManager',
+      options.packageManager,
+      '--no-install',
+    ]
 
-//   return {
-//     projectPath,
-//     projectName,
-//     template,
-//   }
-// }
+    await x('npx', args, {
+      nodeOptions: {
+        cwd: options.cwd,
+      },
+    })
 
-// async function createNextProject(
-//   projectPath: string,
-//   options: {
-//     version: string
-//     cwd: string
-//     packageManager: string
-//     srcDir: boolean
-//   },
-// ) {
-//   const createSpinner = spinner(
-//     `Creating a new Next.js project. This may take a few minutes.`,
-//   ).start()
+    // Install dependencies
+    await x(options.packageManager, ['install'], {
+      nodeOptions: {
+        cwd: projectPath,
+      },
+    })
 
-//   // Note: pnpm fails here. Fallback to npx with --use-PACKAGE-MANAGER.
-//   const args = [
-//     '--tailwind',
-//     '--eslint',
-//     '--typescript',
-//     '--app',
-//     options.srcDir ? '--src-dir' : '--no-src-dir',
-//     '--no-import-alias',
-//     `--use-${options.packageManager}`,
-//   ]
+    createSpinner?.succeed('Created a new Nuxt project.')
+  }
+  catch (error) {
+    createSpinner?.fail('Something went wrong creating a new Nuxt project.')
+    handleError(error)
+  }
+}
 
-//   if (
-//     options.version.startsWith('15')
-//     || options.version.startsWith('latest')
-//     || options.version.startsWith('canary')
-//   ) {
-//     args.push('--turbopack')
-//   }
+async function createViteProject(
+  projectPath: string,
+  options: {
+    cwd: string
+    packageManager: string
+  },
+) {
+  const createSpinner = spinner(
+    `Creating a new Vite + Vue project. This may take a few minutes.`,
+  ).start()
 
-//   try {
-//     await x(
-//       'npx',
-//       [`create-next-app@${options.version}`, projectPath, '--silent', ...args],
-//       {
-//         nodeOptions: {
-//           cwd: options.cwd,
-//         },
-//       },
-//     )
-//   }
-//   catch (error) {
-//     logger.break()
-//     logger.error(
-//       `Something went wrong creating a new Next.js project. Please try again.`,
-//     )
-//     process.exit(1)
-//   }
+  try {
+    // Use create-vite to create a new Vue project
+    const projectName = path.basename(projectPath)
 
-//   createSpinner?.succeed('Creating a new Next.js project.')
-// }
+    const args = [
+      'create-vite@latest',
+      projectName,
+      '--template',
+      'vue-ts',
+    ]
 
-// async function createMonorepoProject(
-//   projectPath: string,
-//   options: {
-//     packageManager: string
-//   },
-// ) {
-//   const createSpinner = spinner(
-//     `Creating a new Next.js monorepo. This may take a few minutes.`,
-//   ).start()
+    await x('npx', args, {
+      nodeOptions: {
+        cwd: options.cwd,
+      },
+    })
 
-//   try {
-//     // Get the template.
-//     const templatePath = path.join(os.tmpdir(), `shadcn-template-${Date.now()}`)
-//     await fs.ensureDir(templatePath)
-//     const response = await fetch(MONOREPO_TEMPLATE_URL)
-//     if (!response.ok) {
-//       throw new Error(`Failed to download template: ${response.statusText}`)
-//     }
+    // Install dependencies
+    await x(options.packageManager, ['install'], {
+      nodeOptions: {
+        cwd: projectPath,
+      },
+    })
 
-//     // Write the tar file
-//     const tarPath = path.resolve(templatePath, 'template.tar.gz')
-//     // eslint-disable-next-line node/prefer-global/buffer
-//     await fs.writeFile(tarPath, Buffer.from(await response.arrayBuffer()))
-//     await x('tar', [
-//       '-xzf',
-//       tarPath,
-//       '-C',
-//       templatePath,
-//       '--strip-components=2',
-//       'ui-main/templates/monorepo-next',
-//     ])
-//     const extractedPath = path.resolve(templatePath, 'monorepo-next')
-//     await fs.move(extractedPath, projectPath)
-//     await fs.remove(templatePath)
+    createSpinner?.succeed('Created a new Vite + Vue project.')
+  }
+  catch (error) {
+    createSpinner?.fail('Something went wrong creating a new Vite + Vue project.')
+    handleError(error)
+  }
+}
 
-//     // Run install.
-//     await x(options.packageManager, ['install'], {
+async function createTanStackStartProject(
+  projectPath: string,
+  options: {
+    cwd: string
+    packageManager: string
+  },
+) {
+  const createSpinner = spinner(
+    `Creating a new TanStack Start project. This may take a few minutes.`,
+  ).start()
 
-//       nodeOptions: {
-//         cwd: projectPath,
-//       },
-//     })
+  try {
+    const projectName = path.basename(projectPath)
 
-//     // Try git init.
-//     const cwd = process.cwd()
-//     await x('git', ['--version'], { nodeOptions: { cwd: projectPath } })
-//     await x('git', ['init'], { nodeOptions: { cwd: projectPath } })
-//     await x('git', ['add', '-A'], { nodeOptions: { cwd: projectPath } })
-//     await x('git', ['commit', '-m', 'Initial commit'], {
-//       nodeOptions: { cwd: projectPath },
-//     })
-//     // await execa("cd", [cwd])
+    // Create project directory
+    await fs.ensureDir(projectPath)
 
-//     createSpinner?.succeed('Creating a new Next.js monorepo.')
-//   }
-//   catch (error) {
-//     createSpinner?.fail('Something went wrong creating a new Next.js monorepo.')
-//     handleError(error)
-//   }
-// }
+    // Initialize package.json
+    const packageJson = {
+      name: projectName,
+      private: true,
+      type: 'module',
+      scripts: {
+        dev: 'vinxi dev',
+        build: 'vinxi build',
+        start: 'vinxi start',
+      },
+      dependencies: {
+        '@tanstack/react-router': 'latest',
+        '@tanstack/start': 'latest',
+        'vinxi': 'latest',
+        'vue': 'latest',
+      },
+      devDependencies: {
+        '@types/node': 'latest',
+        'typescript': 'latest',
+        'vue-tsc': 'latest',
+      },
+    }
+
+    await fs.writeJson(path.join(projectPath, 'package.json'), packageJson, { spaces: 2 })
+
+    // Create basic app.config.ts
+    const appConfig = `import { defineConfig } from '@tanstack/start/config'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  vite: {
+    plugins: [vue()],
+  },
+})
+`
+    await fs.writeFile(path.join(projectPath, 'app.config.ts'), appConfig)
+
+    // Create basic tsconfig.json
+    const tsConfig = {
+      compilerOptions: {
+        target: 'ES2022',
+        useDefineForClassFields: true,
+        module: 'ESNext',
+        lib: ['ES2022', 'DOM', 'DOM.Iterable'],
+        skipLibCheck: true,
+        moduleResolution: 'bundler',
+        allowImportingTsExtensions: true,
+        resolveJsonModule: true,
+        isolatedModules: true,
+        noEmit: true,
+        jsx: 'preserve',
+        strict: true,
+        noUnusedLocals: true,
+        noUnusedParameters: true,
+        noFallthroughCasesInSwitch: true,
+        paths: {
+          '@/*': ['./app/*'],
+        },
+      },
+      include: ['app/**/*.ts', 'app/**/*.tsx', 'app/**/*.vue'],
+    }
+
+    await fs.writeJson(path.join(projectPath, 'tsconfig.json'), tsConfig, { spaces: 2 })
+
+    // Create app directory structure
+    await fs.ensureDir(path.join(projectPath, 'app'))
+    await fs.ensureDir(path.join(projectPath, 'app/routes'))
+
+    // Create basic root route
+    const rootRoute = `<script setup lang="ts">
+// Root layout component
+</script>
+
+<template>
+  <div>
+    <slot />
+  </div>
+</template>
+`
+    await fs.writeFile(path.join(projectPath, 'app/routes/__root.vue'), rootRoute)
+
+    // Create index route
+    const indexRoute = `<script setup lang="ts">
+// Index page
+</script>
+
+<template>
+  <div class="min-h-screen flex items-center justify-center">
+    <h1 class="text-4xl font-bold">Welcome to TanStack Start + Vue</h1>
+  </div>
+</template>
+`
+    await fs.writeFile(path.join(projectPath, 'app/routes/index.vue'), indexRoute)
+
+    // Install dependencies
+    await x(options.packageManager, ['install'], {
+      nodeOptions: {
+        cwd: projectPath,
+      },
+    })
+
+    createSpinner?.succeed('Created a new TanStack Start project.')
+  }
+  catch (error) {
+    createSpinner?.fail('Something went wrong creating a new TanStack Start project.')
+    handleError(error)
+  }
+}

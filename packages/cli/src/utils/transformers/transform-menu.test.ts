@@ -23,6 +23,7 @@ const testConfig: Config = {
     ui: '/ui',
     lib: '/lib',
     hooks: '/hooks',
+    composables: '/composables',
     tailwindConfig: 'tailwind.config.ts',
     tailwindCss: 'tailwind.css',
   },
@@ -486,7 +487,7 @@ import CustomComponent from './CustomComponent.vue'
       expect(result.code).toMatchInlineSnapshot(`
         "<template>
           <div class="dark p-4">Standard class works</div>
-          <CustomComponent class="cn-menu-target p-4" />
+          <CustomComponent class="dark p-4" />
         </template>
 
         <script setup lang="ts">

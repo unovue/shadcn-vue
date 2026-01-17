@@ -29,6 +29,8 @@ export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
     style: z.string(),
+    base: z.string().optional(),
+    font: z.string().optional(),
     typescript: z.coerce.boolean().default(true),
     tailwind: z.object({
       config: z.string().optional(),
@@ -62,6 +64,7 @@ export const configSchema = rawConfigSchema.extend({
     lib: z.string(),
     hooks: z.string(),
     ui: z.string(),
+    composables: z.string(),
   }),
 })
 

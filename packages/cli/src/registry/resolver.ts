@@ -110,9 +110,11 @@ export async function fetchRegistryItems(
 }
 
 // Helper schema for items with source tracking
-const registryItemWithSourceSchema = registryItemSchema.extend({
-  _source: z.string().optional(),
-})
+// Since registryItemSchema is a discriminated union, we use intersection instead of extend
+const registryItemWithSourceSchema = z.intersection(
+  registryItemSchema,
+  z.object({ _source: z.string().optional() }),
+)
 
 // Resolves a list of registry items with all their dependencies and returns
 // a complete installation bundle with merged configuration.

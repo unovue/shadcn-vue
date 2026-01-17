@@ -13,6 +13,6 @@ export default cachedEventHandler(async (event) => {
   return Index[name]
 }, {
   shouldBypassCache: () => !!import.meta.dev,
-  maxAge: 60 * 60 * 24, // 1 day
+  // maxAge: 60 * 60 * 24, // 1 day
   getKey: (event: H3Event) => event.path,
 })
