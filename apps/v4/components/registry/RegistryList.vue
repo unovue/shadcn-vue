@@ -99,13 +99,16 @@ function toggleAddRegistryModal(registry: DirectoryRegistry | null) {
             </ItemDescription>
           </ItemContent>
           <ItemActions class="">
-            <Button variant="outline" @click.prevent="toggleAddRegistryModal(registry)">
+            <Button v-if="registry.command" variant="outline" @click.prevent="toggleAddRegistryModal(registry)">
               <PlusIcon />
               Add
             </Button>
+            <Button as="a" :href="registry.link" target="_blank" size="sm" variant="outline">
+              View <IconArrowUpRight />
+            </Button>
           </ItemActions>
           <ItemFooter class="justify-start pl-16 sm:hidden">
-            <Button size="sm" variant="outline">
+            <Button as="a" :href="registry.link" target="_blank" size="sm" variant="outline">
               View <IconArrowUpRight />
             </Button>
           </ItemFooter>
