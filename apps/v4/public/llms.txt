@@ -1,10 +1,10 @@
 # shadcn-vue
 
-> shadcn-vue is a collection of beautifully-designed, accessible components and a code distribution platform. It is built with TypeScript, Tailwind CSS, and Reka UI primitives. It supports multiple frameworks including Vite, Nuxt, Astro, and Laravel. Open Source. Open Code. AI-Ready. It also comes with a command-line tool to install and manage components and a registry system to publish and distribute code.
+> shadcn-vue is a collection of beautifully-designed, accessible components and a code distribution platform. It is built with Vue 3, TypeScript, Tailwind CSS v4, and Reka UI primitives. It supports multiple frameworks including Vite, Nuxt, Astro, and Laravel. Open Source. Open Code. AI-Ready. It also comes with a command-line tool to install and manage components and a registry system to publish and distribute code.
 
 ## Overview
 
-- [Introduction](https://shadcn-vue.com/docs): Core principles—Open Code, Composition, Distribution, Beautiful Defaults, and AI-Ready design.
+- [Introduction](https://shadcn-vue.com/docs/introduction): Core principles—Open Code, Composition, Distribution, Beautiful Defaults, and AI-Ready design.
 - [CLI](https://shadcn-vue.com/docs/cli): Command-line tool for installing and managing components.
 - [components.json](https://shadcn-vue.com/docs/components-json): Configuration file for customizing the CLI and component installation.
 - [Theming](https://shadcn-vue.com/docs/theming): Guide to customizing colors, typography, and design tokens.
@@ -18,6 +18,7 @@
 - [Astro](https://shadcn-vue.com/docs/installation/astro): Install shadcn-vue in an Astro project.
 - [Laravel](https://shadcn-vue.com/docs/installation/laravel): Install shadcn-vue in a Laravel project.
 - [Manual Installation](https://shadcn-vue.com/docs/installation/manual): Manually install shadcn-vue without the CLI.
+- [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=Selemondev.shadcn-vue): Official VSCode extension by @selemondev for easy component installation and snippets.
 
 ## Components
 
@@ -35,13 +36,19 @@
 - [Checkbox](https://shadcn-vue.com/docs/components/checkbox): Checkbox input component.
 - [Radio Group](https://shadcn-vue.com/docs/components/radio-group): Radio button group component.
 - [Select](https://shadcn-vue.com/docs/components/select): Select dropdown component.
-- [Native Select](https://shadcn-vue.com/docs/components/native-select): Native HTML select component with styling.
+- [Native Select](https://shadcn-vue.com/docs/components/native-select): Native HTML select with custom styling.
 - [Switch](https://shadcn-vue.com/docs/components/switch): Toggle switch component.
 - [Slider](https://shadcn-vue.com/docs/components/slider): Slider input component.
-- [Calendar](https://shadcn-vue.com/docs/components/calendar): Calendar component for date selection.
-- [Date Picker](https://shadcn-vue.com/docs/components/date-picker): Date picker component combining input and calendar.
+- [Number Field](https://shadcn-vue.com/docs/components/number-field): Numeric input with increment/decrement controls.
 - [Combobox](https://shadcn-vue.com/docs/components/combobox): Searchable select component with autocomplete.
 - [Label](https://shadcn-vue.com/docs/components/label): Form label component.
+
+### Date & Time
+
+- [Calendar](https://shadcn-vue.com/docs/components/calendar): Calendar component for date selection.
+- [Range Calendar](https://shadcn-vue.com/docs/components/range-calendar): Date range selection calendar.
+- [Date Picker](https://shadcn-vue.com/docs/components/date-picker): Date picker component combining popover and calendar.
+- [Tags Input](https://shadcn-vue.com/docs/components/tags-input): Multi-value tag input component.
 
 ### Layout & Navigation
 
@@ -72,7 +79,7 @@
 ### Feedback & Status
 
 - [Alert](https://shadcn-vue.com/docs/components/alert): Alert component for messages and notifications.
-- [Toast](https://shadcn-vue.com/docs/components/toast): Toast notification component.
+- [Toast](https://shadcn-vue.com/docs/components/toast): Deprecated toast component.
 - [Sonner](https://shadcn-vue.com/docs/components/sonner): Opinionated toast component using Vue Sonner.
 - [Progress](https://shadcn-vue.com/docs/components/progress): Progress bar component.
 - [Spinner](https://shadcn-vue.com/docs/components/spinner): Loading spinner component.
@@ -85,8 +92,8 @@
 - [Avatar](https://shadcn-vue.com/docs/components/avatar): Avatar component for user profiles.
 - [Card](https://shadcn-vue.com/docs/components/card): Card container component.
 - [Table](https://shadcn-vue.com/docs/components/table): Table component for displaying data.
-- [Data Table](https://shadcn-vue.com/docs/components/data-table): Advanced data table with sorting, filtering, and pagination.
-- [Chart](https://shadcn-vue.com/docs/components/chart): Chart components using Recharts.
+- [Data Table](https://shadcn-vue.com/docs/components/data-table): Advanced data table with sorting, filtering, and pagination. Built using TanStack Table.
+- [Chart](https://shadcn-vue.com/docs/components/chart): Chart components using Unovis.
 - [Carousel](https://shadcn-vue.com/docs/components/carousel): Carousel component using Embla Carousel.
 - [Aspect Ratio](https://shadcn-vue.com/docs/components/aspect-ratio): Container that maintains aspect ratio.
 - [Typography](https://shadcn-vue.com/docs/components/typography): Typography styles and components.
@@ -122,7 +129,7 @@
 
 ## MCP Server
 
-- [MCP Server](https://shadcn-vue.com/docs/mcp): Model Context Protocol server for AI integrations. Allows AI assistants to browse, search, and install components from registries using natural language. Works with Claude Code, Cursor, VS Code (GitHub Copilot), Codex and more.
+- [MCP Server](https://shadcn-vue.com/docs/mcp): Model Context Protocol server for AI integrations. Allows AI assistants to browse, search, and install components from registries using natural language. Works with Claude Code, Cursor, VS Code (GitHub Copilot), Codex, Opencode and more.
 
 ## Registry
 
@@ -151,10 +158,10 @@ shadcn-vue is a Vue/Nuxt port of shadcn/ui with the following key differences:
 - **No Server Actions**: Form handling uses Vue patterns instead of Next.js Server Actions
 
 ### Components
-- **Native Select**: Additional native HTML select component with styling
 - **Pin Input**: Dedicated pin input component (in addition to Input OTP)
 - **Stepper**: Step-by-step navigation component
-- **Vue Sonner**: Uses Vue Sonner for toast notifications
+- **Sonner**: Uses Vue Sonner for toast notifications
+- **Charts**: Uses Unovis for charts instead of Recharts
 
 ### CLI Command
 - Uses `shadcn-vue` instead of `shadcn` for CLI commands
