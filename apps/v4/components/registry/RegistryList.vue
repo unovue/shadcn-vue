@@ -34,9 +34,7 @@ const registryList = computed(() => {
   })
 })
 function toggleAddRegistryModal(registry: DirectoryRegistry | null) {
-  if (registry) {
-    selectedRegistry.value = registry
-  }
+  selectedRegistry.value = registry
   addRegistryOpen.value = !addRegistryOpen.value
 }
 </script>
