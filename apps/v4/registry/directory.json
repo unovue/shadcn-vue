@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Insipira UI",
+    "description": "Inspira UI is a collection of reusable, animated components powered by TailwindCSS , motion-v , GSAP & threejs — crafted to help you ship faster and better.",
+    "link": "https://inspira-ui.com/docs/en",
+    "logo": "https://cdn.inspira-ui.com/logo-dark.svg"
+  },
+  {
+    "name": "Stunning UI",
+    "description": "Create Stunning Websites That Stand Out",
+    "link": "https://www.stunningui.com/",
+    "logo": "https://robertshaw.id/assets/stunning-ui.svg"
+  },
+
+  {
+    "name": "Mapcn",
+    "description": "Beautiful maps,made simple.",
+    "link": "https://mapcn-vue.geoql.in/",
+    "logo": "https://raw.githubusercontent.com/geoql/v-maplibre/refs/heads/main/apps/mapcn-vue/public/favicon.svg",
+    "command": "npx shadcn-vue@latest add https://mapcn-vue.geoql.in/r/map"
+  }
+]
