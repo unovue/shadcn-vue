@@ -3,7 +3,7 @@ import type {
   ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 // import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
-import { VisArea, VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
+import { VisArea, VisAxis, VisXYContainer } from "@unovis/vue"
 
 import { TrendingUp } from "lucide-vue-next"
 import {
@@ -90,11 +90,8 @@ const svgDefs = `
             :y="[(d: Data) => d.mobile, (d: Data) => d.desktop]"
             :color="(d: Data, i: number) => ['url(#fillMobile)', 'url(#fillDesktop)'][i]"
             :opacity="0.4"
-          />
-          <VisLine
-            :x="(d: Data) => d.month"
-            :y="[(d: Data) => d.mobile, (d: Data) => d.mobile + d.desktop]"
-            :color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]"
+            :line="true"
+            :line-color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]"
             :line-width="1"
           />
           <VisAxis

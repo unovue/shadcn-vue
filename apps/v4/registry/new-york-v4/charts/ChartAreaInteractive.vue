@@ -2,7 +2,7 @@
 import type { ChartConfig } from "@/registry/new-york-v4/ui/chart"
 
 // import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
-import { VisArea, VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
+import { VisArea, VisAxis, VisXYContainer } from "@unovis/vue"
 import {
   Card,
   CardContent,
@@ -226,12 +226,9 @@ const filterRange = computed(() => {
             :y="[(d: Data) => d.mobile, (d: Data) => d.desktop]"
             :color="(d: Data, i: number) => ['url(#fillMobile)', 'url(#fillDesktop)'][i]"
             :opacity="0.6"
-          />
-          <VisLine
-            :x="(d: Data) => d.date"
-            :y="[(d: Data) => d.mobile, (d: Data) => d.mobile + d.desktop]"
-            :color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]"
+            :line="true"
             :line-width="1"
+            :line-color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]"
           />
           <VisAxis
             type="x"
