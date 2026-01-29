@@ -1,8 +1,13 @@
 import type { Component } from 'vue'
 import ChartAreaAxes from '~/registry/new-york-v4/charts/ChartAreaAxes.vue'
+import ChartAreaDefault from '~/registry/new-york-v4/charts/ChartAreaDefault.vue'
 import ChartAreaGradient from '~/registry/new-york-v4/charts/ChartAreaGradient.vue'
 import ChartAreaIcons from '~/registry/new-york-v4/charts/ChartAreaIcons.vue'
 import ChartAreaInteractive from '~/registry/new-york-v4/charts/ChartAreaInteractive.vue'
+import ChartAreaLegend from '~/registry/new-york-v4/charts/ChartAreaLegend.vue'
+import ChartAreaLinear from '~/registry/new-york-v4/charts/ChartAreaLinear.vue'
+import ChartAreaStacked from '~/registry/new-york-v4/charts/ChartAreaStacked.vue'
+import ChartAreaStep from '~/registry/new-york-v4/charts/ChartAreaStep.vue'
 import ChartBarDefault from '~/registry/new-york-v4/charts/ChartBarDefault.vue'
 import ChartBarHorizontal from '~/registry/new-york-v4/charts/ChartBarHorizontal.vue'
 import ChartBarInteractive from '~/registry/new-york-v4/charts/ChartBarInteractive.vue'
@@ -46,14 +51,13 @@ export const charts: ChartGroups = {
       component: ChartAreaInteractive,
       fullWidth: true,
     },
-    // { id: "chart-area-default", component: ChartAreaDefault },
-    // { id: "chart-area-linear", component: ChartAreaLinear },
-    // { id: "chart-area-step", component: ChartAreaStep },
-    // { id: "chart-area-legend", component: ChartAreaLegend },
-    // { id: "chart-area-stacked", component: ChartAreaStacked },
-    // { id: "chart-area-stacked-expand", component: ChartAreaStackedExpand },
+    { id: 'ChartAreaDefault', component: ChartAreaDefault },
+    { id: 'ChartAreaLinear', component: ChartAreaLinear },
+    { id: 'ChartAreaStep', component: ChartAreaStep },
+    { id: 'ChartAreaLegend', component: ChartAreaLegend },
+    { id: 'ChartAreaStacked', component: ChartAreaStacked },
+    // { id: 'ChartAreaStackedExpand', component: ChartAreaStackedExpand },
     { id: 'ChartAreaIcons', component: ChartAreaIcons },
-    // { id: "chart-area-gradient", component: ChartAreaGradient },
     { id: 'ChartAreaGradient', component: ChartAreaGradient },
     { id: 'ChartAreaAxes', component: ChartAreaAxes },
   ],
