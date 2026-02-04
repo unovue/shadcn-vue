@@ -12,6 +12,10 @@ align: start
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="data-tables-and-sonner-in-shadcn-vue" placement="top"}
+Watch a Vue School video about data tables and Sonner in shadcn-vue.
+::
+
 ## Introduction
 
 Every data table or datagrid I've created has been unique. They all behave differently, have specific sorting and filtering requirements, and work with different data sources.
@@ -180,7 +184,7 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="border rounded-md">
+  <div class="rounded-md border">
     <Table>
       <TableHeader>
         <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
@@ -324,7 +328,7 @@ function copy(id: string) {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" class="w-8 h-8 p-0">
+      <Button variant="ghost" class="p-0 w-8 h-8">
         <span class="sr-only">Open menu</span>
         <MoreHorizontal class="w-4 h-4" />
       </Button>
@@ -414,12 +418,12 @@ const table = useVueTable({
 
 <template>
   <div>
-    <div class="border rounded-md">
+    <div class="rounded-md border">
       <Table>
         { // .... }
       </Table>
     </div>
-    <div class="flex items-center justify-end py-4 space-x-2">
+    <div class="flex justify-end items-center py-4 space-x-2">
       <Button
         variant="outline"
         size="sm"
@@ -526,7 +530,7 @@ const table = useVueTable({
 
 <template>
   <div>
-    <div class="border rounded-md">
+    <div class="rounded-md border">
       <Table>{ ... }</Table>
     </div>
   </div>
@@ -636,7 +640,7 @@ const table = useVueTable({
                 :model-value="table.getColumn('email')?.getFilterValue() as string"
                 @update:model-value=" table.getColumn('email')?.setFilterValue($event)" />
         </div>
-        <div class="border rounded-md">
+        <div class="rounded-md border">
             <Table>{ ... }</Table>
         </div>
     </div>
@@ -735,7 +739,7 @@ const table = useVueTable({
                 <DropdownMenuTrigger as-child>
                     <Button variant="outline" class="ml-auto">
                         Columns
-                        <ChevronDown class="w-4 h-4 ml-2" />
+                        <ChevronDown class="ml-2 w-4 h-4" />
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -749,7 +753,7 @@ const table = useVueTable({
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>
-        <div class="border rounded-md">
+        <div class="rounded-md border">
             <Table>
                 <TableHeader>
                     <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
@@ -856,7 +860,7 @@ const table = useVueTable({
 
 <template>
   <div>
-    <div class="border rounded-md">
+    <div class="rounded-md border">
         <Table />
     </div>
   </div>
@@ -873,11 +877,11 @@ You can show the number of selected rows using the `table.getFilteredSelectedRow
 ```vue showLineNumbers {8-11}
 <template>
   <div>
-    <div class="border rounded-md">
+    <div class="rounded-md border">
         <Table />
     </div>
 
-    <div class="flex items-center justify-end space-x-2 py-4">
+    <div class="flex justify-end items-center py-4 space-x-2">
       <div class="flex-1 text-sm text-muted-foreground">
         {{ table.getFilteredSelectedRowModel().rows.length }} of
         {{ table.getFilteredRowModel().rows.length }} row(s) selected.
@@ -979,7 +983,7 @@ const table = useVueTable({
                 <DropdownMenuTrigger as-child>
                     <Button variant="outline" class="ml-auto">
                         Columns
-                        <ChevronDown class="w-4 h-4 ml-2" />
+                        <ChevronDown class="ml-2 w-4 h-4" />
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -993,7 +997,7 @@ const table = useVueTable({
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>
-        <div class="border rounded-md">
+        <div class="rounded-md border">
             <Table>
                 <TableHeader>
                     <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
@@ -1058,7 +1062,7 @@ function copy(id: string) {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" class="w-8 h-8 p-0">
+      <Button variant="ghost" class="p-0 w-8 h-8">
         <span class="sr-only">Open menu</span>
         <MoreHorizontal class="w-4 h-4" />
       </Button>
@@ -1156,23 +1160,23 @@ export default {
           class="-ml-3 h-8 data-[state=open]:bg-accent"
         >
           <span>{{ title }}</span>
-          <ArrowDownIcon v-if="column.getIsSorted() === 'desc'" class="w-4 h-4 ml-2" />
-          <ArrowUpIcon v-else-if=" column.getIsSorted() === 'asc'" class="w-4 h-4 ml-2" />
-          <CaretSortIcon v-else class="w-4 h-4 ml-2" />
+          <ArrowDownIcon v-if="column.getIsSorted() === 'desc'" class="ml-2 w-4 h-4" />
+          <ArrowUpIcon v-else-if=" column.getIsSorted() === 'asc'" class="ml-2 w-4 h-4" />
+          <CaretSortIcon v-else class="ml-2 w-4 h-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
         <DropdownMenuItem @click="column.toggleSorting(false)">
-          <ArrowUpIcon class="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+          <ArrowUpIcon class="mr-2 w-3.5 h-3.5 text-muted-foreground/70" />
           Asc
         </DropdownMenuItem>
         <DropdownMenuItem @click="column.toggleSorting(true)">
-          <ArrowDownIcon class="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+          <ArrowDownIcon class="mr-2 w-3.5 h-3.5 text-muted-foreground/70" />
           Desc
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem @click="column.toggleVisibility(false)">
-          <EyeNoneIcon class="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+          <EyeNoneIcon class="mr-2 w-3.5 h-3.5 text-muted-foreground/70" />
           Hide
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -1229,7 +1233,7 @@ defineProps<DataTablePaginationProps>()
 </script>
 
 <template>
-  <div class="flex items-center justify-between px-2">
+  <div class="flex justify-between items-center px-2">
     <div class="flex-1 text-sm text-muted-foreground">
       {{ table.getFilteredSelectedRowModel().rows.length }} of
       {{ table.getFilteredRowModel().rows.length }} row(s) selected.
@@ -1260,7 +1264,7 @@ defineProps<DataTablePaginationProps>()
       <div class="flex items-center space-x-2">
         <Button
           variant="outline"
-          class="hidden w-8 h-8 p-0 lg:flex"
+          class="hidden p-0 w-8 h-8 lg:flex"
           :disabled="!table.getCanPreviousPage()"
           @click="table.setPageIndex(0)"
         >
@@ -1269,7 +1273,7 @@ defineProps<DataTablePaginationProps>()
         </Button>
         <Button
           variant="outline"
-          class="w-8 h-8 p-0"
+          class="p-0 w-8 h-8"
           :disabled="!table.getCanPreviousPage()"
           @click="table.previousPage()"
         >
@@ -1278,7 +1282,7 @@ defineProps<DataTablePaginationProps>()
         </Button>
         <Button
           variant="outline"
-          class="w-8 h-8 p-0"
+          class="p-0 w-8 h-8"
           :disabled="!table.getCanNextPage()"
           @click="table.nextPage()"
         >
@@ -1287,7 +1291,7 @@ defineProps<DataTablePaginationProps>()
         </Button>
         <Button
           variant="outline"
-          class="hidden w-8 h-8 p-0 lg:flex"
+          class="hidden p-0 w-8 h-8 lg:flex"
           :disabled="!table.getCanNextPage()"
           @click="table.setPageIndex(table.getPageCount() - 1)"
         >
@@ -1345,9 +1349,9 @@ const columns = computed(() => props.table.getAllColumns()
       <Button
         variant="outline"
         size="sm"
-        class="hidden h-8 ml-auto lg:flex"
+        class="hidden ml-auto h-8 lg:flex"
       >
-        <MixerHorizontalIcon class="w-4 h-4 mr-2" />
+        <MixerHorizontalIcon class="mr-2 w-4 h-4" />
         View
       </Button>
     </DropdownMenuTrigger>

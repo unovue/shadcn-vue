@@ -12,6 +12,10 @@ description: A button
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="buttons-variants-and-the-as-child-prop-with-shadcn-vue" placement="top"}
+Watch a Vue School video about buttons, variants, and the as-child prop in shadcn-vue.
+::
+
 ## Installation
 
 ::code-tabs

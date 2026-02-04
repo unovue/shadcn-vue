@@ -16,6 +16,11 @@ type: block
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="sidebars-in-shadcn-vue" placement="top"}
+Watch a Vue School video about building sidebars with shadcn-vue.
+::
+
+
 Sidebars are one of the most complex components to build. They are central
 to any application and often contain a lot of moving parts.
 
@@ -115,14 +120,14 @@ A `Sidebar` component is composed of the following parts:
   width="716"
   height="420"
   alt="Sidebar Structure"
-  class="border dark:hidden rounded-lg overflow-hidden mt-6 w-full"
+  class="overflow-hidden mt-6 w-full rounded-lg border dark:hidden"
 />
 <img
   src="/images/sidebar-structure-dark.png"
   width="716"
   height="420"
   alt="Sidebar Structure"
-  class="border hidden dark:block rounded-lg overflow-hidden mt-6 w-full"
+  class="hidden overflow-hidden mt-6 w-full rounded-lg border dark:block"
 />
 
 ## Usage
@@ -154,12 +159,12 @@ import {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg">
-              <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <div class="flex justify-center items-center rounded-lg aspect-square size-8 bg-sidebar-primary text-sidebar-primary-foreground">
                 <GalleryVerticalEnd class="size-4" />
               </div>
-              <div class="grid flex-1 text-left text-sm leading-tight">
-                <span class="truncate font-semibold">Acme Inc</span>
-                <span class="truncate text-xs">Enterprise</span>
+              <div class="grid flex-1 text-sm leading-tight text-left">
+                <span class="font-semibold truncate">Acme Inc</span>
+                <span class="text-xs truncate">Enterprise</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -187,15 +192,15 @@ import {
     </Sidebar>
     <SidebarInset>
       <header class="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-        <div class="flex items-center gap-2 px-4">
+        <div class="flex gap-2 items-center px-4">
           <SidebarTrigger class="-ml-1" />
         </div>
       </header>
-      <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+      <div class="flex flex-col flex-1 gap-4 p-4 pt-0">
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-          <div class="aspect-video rounded-xl bg-muted/50" />
-          <div class="aspect-video rounded-xl bg-muted/50" />
-          <div class="aspect-video rounded-xl bg-muted/50" />
+          <div class="rounded-xl aspect-video bg-muted/50" />
+          <div class="rounded-xl aspect-video bg-muted/50" />
+          <div class="rounded-xl aspect-video bg-muted/50" />
         </div>
         <div class="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
       </div>
@@ -338,7 +343,7 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
   ---
   ::
 
-  <figcaption class="text-center text-sm text-gray-500">
+  <figcaption class="text-sm text-center text-gray-500">
     Your first sidebar
   </figcaption>
 </figure>
@@ -504,7 +509,7 @@ Used to render the sidebar header.
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton size="lg">
-          <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+          <div class="flex justify-center items-center rounded-lg aspect-square size-8 bg-sidebar-primary text-sidebar-primary-foreground">
             <GalleryVerticalEnd class="size-4" />
           </div>
           <div class="flex flex-col gap-0.5 leading-none">
