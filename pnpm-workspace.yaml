@@ -54,3 +54,9 @@ onlyBuiltDependencies:
   - unrs-resolver
   - vue-demi
   - workerd
+
+trustPolicyExclude:
+  - "chokidar@4.0.3"
+  - "koa@2.16.3"
+  - "semver@6.3.1"
+  - "tailwindcss@3.4.18"
