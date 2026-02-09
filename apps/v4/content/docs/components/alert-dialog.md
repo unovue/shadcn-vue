@@ -16,7 +16,7 @@ description: An alert dialog that asks for user confirmation
 ::
 
 ::vue-school-link{class="mt-6" lesson="dialogs-and-alerts-with-shadcn-vue" placement="top"}
-Watch a Vue School video about dialogs and alerts in shadCN Vue.
+Watch a Vue School video about dialogs and alerts in shadcn-vue.
 ::
 
 ## Installation
