@@ -34,27 +34,32 @@ const resolvedHref = computed(() => {
   if (!base)
     return ''
 
-  const url = new URL(base)
-  const params = url.searchParams
+  try {
+    const url = new URL(base)
+    const params = url.searchParams
 
-  if (props.friend && !params.has('friend')) {
-    params.set('friend', props.friend)
-  }
-  if (props.utmSource && !params.has('utm_source')) {
-    params.set('utm_source', props.utmSource)
-  }
-  if (props.utmMedium && !params.has('utm_medium')) {
-    params.set('utm_medium', props.utmMedium)
-  }
-  if (props.utmCampaign && !params.has('utm_campaign')) {
-    params.set('utm_campaign', props.utmCampaign)
-  }
-  if (props.placement && !params.has('utm_content')) {
-    params.set('utm_content', `${route.path}_${props.placement}`)
-  }
+    if (props.friend && !params.has('friend')) {
+      params.set('friend', props.friend)
+    }
+    if (props.utmSource && !params.has('utm_source')) {
+      params.set('utm_source', props.utmSource)
+    }
+    if (props.utmMedium && !params.has('utm_medium')) {
+      params.set('utm_medium', props.utmMedium)
+    }
+    if (props.utmCampaign && !params.has('utm_campaign')) {
+      params.set('utm_campaign', props.utmCampaign)
+    }
+    if (props.placement && !params.has('utm_content')) {
+      params.set('utm_content', `${route.path}_${props.placement}`)
+    }
 
-  url.search = params.toString()
-  return url.toString()
+    url.search = params.toString()
+    return url.toString()
+  }
+  catch {
+    return ''
+  }
 })
 </script>
 
