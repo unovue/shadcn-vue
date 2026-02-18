@@ -38,11 +38,11 @@ const onSubmit = form.handleSubmit((values) => {
 
 <template>
   <form class="w-full max-w-sm space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ field }" name="country">
+    <FormField v-slot="{ componentField }" name="country">
       <FormItem>
         <FormLabel>Country</FormLabel>
         <FormControl>
-          <NativeSelect v-bind="field">
+          <NativeSelect v-bind="componentField">
             <NativeSelectOption value="">
               Select a country
             </NativeSelectOption>
