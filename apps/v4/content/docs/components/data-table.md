@@ -12,6 +12,10 @@ align: start
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="data-tables-and-sonner-in-shadcn-vue" placement="top"}
+Watch a Vue School video about data tables in shadcn-vue.
+::
+
 ## Introduction
 
 Every data table or datagrid I've created has been unique. They all behave differently, have specific sorting and filtering requirements, and work with different data sources.
