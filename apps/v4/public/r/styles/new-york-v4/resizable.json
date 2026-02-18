@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "resizable",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -27,5 +26,6 @@
       "content": "export { default as ResizableHandle } from \"./ResizableHandle.vue\"\nexport { default as ResizablePanel } from \"./ResizablePanel.vue\"\nexport { default as ResizablePanelGroup } from \"./ResizablePanelGroup.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

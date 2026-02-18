@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sidebar-06",
-  "type": "registry:block",
   "description": "A sidebar with submenus as dropdowns.",
   "dependencies": [
     "@vueuse/core"
@@ -40,5 +39,6 @@
   "categories": [
     "sidebar",
     "dashboard"
-  ]
+  ],
+  "type": "registry:block"
 }

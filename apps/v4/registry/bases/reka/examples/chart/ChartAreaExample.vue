@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { VisArea, VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
 import IconPlaceholder from "@/components/IconPlaceholder.vue"
 import { Example } from "@/registry/bases/reka/components/example"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/bases/reka/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/registry/bases/reka/ui/chart"
+import { ChartContainer, ChartCrosshair, ChartTooltip, ChartTooltipContent, componentToString } from "@/registry/bases/reka/ui/chart"
 
 const areaChartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
+  { month: 1, monthLabel: "January", desktop: 186 },
+  { month: 2, monthLabel: "February", desktop: 305 },
+  { month: 3, monthLabel: "March", desktop: 237 },
+  { month: 4, monthLabel: "April", desktop: 73 },
+  { month: 5, monthLabel: "May", desktop: 209 },
+  { month: 6, monthLabel: "June", desktop: 214 },
 ]
+
+type Data = typeof areaChartData[number]
 
 const areaChartConfig = {
   desktop: {
@@ -34,35 +36,34 @@ const areaChartConfig = {
       </CardHeader>
       <CardContent>
         <ChartContainer :config="areaChartConfig">
-          <AreaChart
-            accessibility-layer
-            :data="areaChartData"
-            :margin="{
-              left: 12,
-              right: 12,
-            }"
-          >
-            <CartesianGrid :vertical="false" />
-            <XAxis
-              data-key="month"
+          <VisXYContainer :data="areaChartData" :margin="{ left: 12, right: 12 }">
+            <VisArea
+              :x="(d: Data) => d.month"
+              :y="(d: Data) => d.desktop"
+              :color="areaChartConfig.desktop.color"
+              :opacity="0.4"
+            />
+            <VisLine
+              :x="(d: Data) => d.month"
+              :y="(d: Data) => d.desktop"
+              :color="areaChartConfig.desktop.color"
+              :line-width="1"
+            />
+            <VisAxis
+              type="x"
+              :x="(d: Data) => d.month"
               :tick-line="false"
-              :axis-line="false"
-              :tick-margin="8"
-              :tick-formatter="(value: string) => value.slice(0, 3)"
+              :domain-line="false"
+              :grid-line="false"
+              :num-ticks="6"
+              :tick-format="(_d: number, index: number) => areaChartData[index]?.monthLabel.slice(0, 3) ?? ''"
             />
-            <ChartTooltip
-              :cursor="false"
-            >
-              <ChartTooltipContent indicator="line" />
-            </ChartTooltip>
-            <Area
-              data-key="desktop"
-              type="natural"
-              fill="var(--color-desktop)"
-              :fill-opacity="0.4"
-              stroke="var(--color-desktop)"
+            <ChartTooltip />
+            <ChartCrosshair
+              :template="componentToString(areaChartConfig, ChartTooltipContent, { indicator: 'line', labelKey: 'monthLabel' })"
+              :color="areaChartConfig.desktop.color"
             />
-          </AreaChart>
+          </VisXYContainer>
         </ChartContainer>
       </CardContent>
       <CardFooter>

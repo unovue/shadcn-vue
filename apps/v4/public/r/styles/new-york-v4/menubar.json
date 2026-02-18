@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "menubar",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -87,5 +86,6 @@
       "content": "export { default as Menubar } from \"./Menubar.vue\"\nexport { default as MenubarCheckboxItem } from \"./MenubarCheckboxItem.vue\"\nexport { default as MenubarContent } from \"./MenubarContent.vue\"\nexport { default as MenubarGroup } from \"./MenubarGroup.vue\"\nexport { default as MenubarItem } from \"./MenubarItem.vue\"\nexport { default as MenubarLabel } from \"./MenubarLabel.vue\"\nexport { default as MenubarMenu } from \"./MenubarMenu.vue\"\nexport { default as MenubarRadioGroup } from \"./MenubarRadioGroup.vue\"\nexport { default as MenubarRadioItem } from \"./MenubarRadioItem.vue\"\nexport { default as MenubarSeparator } from \"./MenubarSeparator.vue\"\nexport { default as MenubarShortcut } from \"./MenubarShortcut.vue\"\nexport { default as MenubarSub } from \"./MenubarSub.vue\"\nexport { default as MenubarSubContent } from \"./MenubarSubContent.vue\"\nexport { default as MenubarSubTrigger } from \"./MenubarSubTrigger.vue\"\nexport { default as MenubarTrigger } from \"./MenubarTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

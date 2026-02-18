@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sidebar-10",
-  "type": "registry:block",
   "description": "A sidebar in a popover.",
   "registryDependencies": [
     "breadcrumb",
@@ -58,5 +57,6 @@
   "categories": [
     "sidebar",
     "dashboard"
-  ]
+  ],
+  "type": "registry:block"
 }

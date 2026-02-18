@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "pagination",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -55,5 +54,6 @@
       "content": "export { default as Pagination } from \"./Pagination.vue\"\nexport { default as PaginationContent } from \"./PaginationContent.vue\"\nexport { default as PaginationEllipsis } from \"./PaginationEllipsis.vue\"\nexport { default as PaginationFirst } from \"./PaginationFirst.vue\"\nexport { default as PaginationItem } from \"./PaginationItem.vue\"\nexport { default as PaginationLast } from \"./PaginationLast.vue\"\nexport { default as PaginationNext } from \"./PaginationNext.vue\"\nexport { default as PaginationPrevious } from \"./PaginationPrevious.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

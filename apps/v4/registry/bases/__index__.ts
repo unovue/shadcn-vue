@@ -2733,7 +2733,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "GitHub",
       description: "",
       type: "registry:block",
-      registryDependencies: ["example","avatar","badge","button","card","checkbox","command","drawer","dropdown-menu","empty","field","input","input-group","item","kbd","native-select","popover","separator","spinner","tabs","textarea","tooltip"],
+      registryDependencies: ["example","avatar","button","card","command","drawer","dropdown-menu","empty","field","input-group","item","kbd","popover","separator","spinner","tabs","tooltip"],
       files: [
             {
                   "path": "registry/bases/reka/blocks/github.vue",
@@ -2749,7 +2749,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Home",
       description: "",
       type: "registry:block",
-      registryDependencies: ["example","alert-dialog","avatar","badge","button","button-group","card","checkbox","combobox","dropdown-menu","empty","field","input","input-group","item","label","popover","radio-group","select","separator","sheet","slider","spinner","switch","textarea","tooltip"],
+      registryDependencies: ["example","alert-dialog","avatar","badge","button","button-group","card","checkbox","dropdown-menu","empty","field","input","input-group","item","radio-group","select","separator","sheet","slider","switch","textarea","tooltip"],
       files: [
             {
                   "path": "registry/bases/reka/blocks/preview.vue",
@@ -2765,7 +2765,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Vercel",
       description: "",
       type: "registry:block",
-      registryDependencies: ["example","alert","badge","button","calendar","card","chart","dialog","dropdown-menu","empty","field","input-group","item","native-select","popover","textarea"],
+      registryDependencies: ["example","alert","badge","button","calendar","card","dialog","dropdown-menu","empty","field","input-group","item","native-select","popover","textarea"],
       files: [
             {
                   "path": "registry/bases/reka/blocks/vercel.vue",
@@ -3412,11 +3412,6 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/examples/chart/ChartLineExample.vue",
-                  "type": "registry:example",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/examples/chart/ChartRadarExample.vue",
                   "type": "registry:example",
                   "target": ""
             },

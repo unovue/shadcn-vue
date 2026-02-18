@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { VisAxis, VisGroupedBar, VisXYContainer } from "@unovis/vue"
 import IconPlaceholder from "@/components/IconPlaceholder.vue"
 import { Example } from "@/registry/bases/reka/components/example"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/bases/reka/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/registry/bases/reka/ui/chart"
+import { ChartContainer, ChartCrosshair, ChartTooltip, ChartTooltipContent, componentToString } from "@/registry/bases/reka/ui/chart"
 
 const barChartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: 1, monthLabel: "January", desktop: 186, mobile: 80 },
+  { month: 2, monthLabel: "February", desktop: 305, mobile: 200 },
+  { month: 3, monthLabel: "March", desktop: 237, mobile: 120 },
+  { month: 4, monthLabel: "April", desktop: 73, mobile: 190 },
+  { month: 5, monthLabel: "May", desktop: 209, mobile: 130 },
+  { month: 6, monthLabel: "June", desktop: 214, mobile: 140 },
 ]
+
+type Data = typeof barChartData[number]
 
 const barChartConfig = {
   desktop: {
@@ -36,21 +38,36 @@ const barChartConfig = {
       </CardHeader>
       <CardContent>
         <ChartContainer :config="barChartConfig">
-          <BarChart accessibility-layer :data="barChartData">
-            <CartesianGrid :vertical="false" />
-            <XAxis
-              data-key="month"
-              :tick-line="false"
-              :tick-margin="10"
-              :axis-line="false"
-              :tick-formatter="(value: string) => value.slice(0, 3)"
+          <VisXYContainer :data="barChartData">
+            <VisGroupedBar
+              :x="(d: Data) => d.month"
+              :y="[(d: Data) => d.desktop, (d: Data) => d.mobile]"
+              :color="[barChartConfig.desktop.color, barChartConfig.mobile.color]"
+              :rounded-corners="4"
+              bar-padding="0.15"
+              group-padding="0"
             />
-            <ChartTooltip :cursor="false">
-              <ChartTooltipContent indicator="dashed" />
-            </ChartTooltip>
-            <Bar data-key="desktop" fill="var(--color-desktop)" :radius="4" />
-            <Bar data-key="mobile" fill="var(--color-mobile)" :radius="4" />
-          </BarChart>
+            <VisAxis
+              type="x"
+              :x="(d: Data) => d.month"
+              :tick-line="false"
+              :domain-line="false"
+              :grid-line="false"
+              :num-ticks="6"
+              :tick-format="(_d: number, index: number) => barChartData[index]?.monthLabel.slice(0, 3) ?? ''"
+            />
+            <VisAxis
+              type="y"
+              :num-ticks="3"
+              :tick-line="false"
+              :domain-line="false"
+            />
+            <ChartTooltip />
+            <ChartCrosshair
+              :template="componentToString(barChartConfig, ChartTooltipContent, { indicator: 'dashed', hideLabel: true })"
+              color="#0000"
+            />
+          </VisXYContainer>
         </ChartContainer>
       </CardContent>
       <CardFooter class="flex-col items-start gap-2">

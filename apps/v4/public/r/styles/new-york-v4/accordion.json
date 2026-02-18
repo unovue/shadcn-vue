@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "accordion",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -32,5 +31,6 @@
       "content": "export { default as Accordion } from \"./Accordion.vue\"\nexport { default as AccordionContent } from \"./AccordionContent.vue\"\nexport { default as AccordionItem } from \"./AccordionItem.vue\"\nexport { default as AccordionTrigger } from \"./AccordionTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

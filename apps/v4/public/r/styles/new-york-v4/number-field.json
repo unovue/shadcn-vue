@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "number-field",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -37,5 +36,6 @@
       "content": "export { default as NumberField } from \"./NumberField.vue\"\nexport { default as NumberFieldContent } from \"./NumberFieldContent.vue\"\nexport { default as NumberFieldDecrement } from \"./NumberFieldDecrement.vue\"\nexport { default as NumberFieldIncrement } from \"./NumberFieldIncrement.vue\"\nexport { default as NumberFieldInput } from \"./NumberFieldInput.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

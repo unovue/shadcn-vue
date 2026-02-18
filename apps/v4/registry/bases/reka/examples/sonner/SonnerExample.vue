@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toast } from "sonner"
+import { toast } from "vue-sonner"
 import { Example, ExampleWrapper } from "@/registry/bases/reka/components/example"
 import { Button } from "@/registry/bases/reka/ui/button"
 

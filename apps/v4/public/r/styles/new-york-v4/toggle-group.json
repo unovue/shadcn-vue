@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "toggle-group",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -25,5 +24,6 @@
       "content": "export { default as ToggleGroup } from \"./ToggleGroup.vue\"\nexport { default as ToggleGroupItem } from \"./ToggleGroupItem.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

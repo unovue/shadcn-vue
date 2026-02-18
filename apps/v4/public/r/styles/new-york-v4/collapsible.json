@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "collapsible",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui"
   ],
@@ -26,5 +25,6 @@
       "content": "export { default as Collapsible } from \"./Collapsible.vue\"\nexport { default as CollapsibleContent } from \"./CollapsibleContent.vue\"\nexport { default as CollapsibleTrigger } from \"./CollapsibleTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

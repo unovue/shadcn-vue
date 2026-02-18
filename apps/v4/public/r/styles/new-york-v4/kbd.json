@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "kbd",
-  "type": "registry:ui",
   "files": [
     {
       "path": "registry/new-york-v4/ui/kbd/Kbd.vue",
@@ -18,5 +17,6 @@
       "content": "export { default as Kbd } from \"./Kbd.vue\"\nexport { default as KbdGroup } from \"./KbdGroup.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

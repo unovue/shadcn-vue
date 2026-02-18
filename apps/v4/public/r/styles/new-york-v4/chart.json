@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "chart",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -37,5 +36,6 @@
       "content": "import type { ChartConfig } from \".\"\nimport { isClient } from \"@vueuse/core\"\nimport { useId } from \"reka-ui\"\nimport { h, render } from \"vue\"\n\n// Simple cache using a Map to store serialized object keys\nconst cache = new Map<string, string>()\n\n// Convert object to a consistent string key\nfunction serializeKey(key: Record<string, any>): string {\n  return JSON.stringify(key, Object.keys(key).sort())\n}\n\ninterface Constructor<P = any> {\n  __isFragment?: never\n  __isTeleport?: never\n  __isSuspense?: never\n  new (...args: any[]): {\n    $props: P\n  }\n}\n\nexport function componentToString<P>(config: ChartConfig, component: Constructor<P>, props?: P) {\n  if (!isClient)\n    return\n\n  // This function will be called once during mount lifecycle\n  const id = useId()\n\n  // https://unovis.dev/docs/auxiliary/Crosshair#component-props\n  return (_data: any, x: number | Date) => {\n    const data = \"data\" in _data ? _data.data : _data\n    const serializedKey = `${id}-${serializeKey(data)}`\n    const cachedContent = cache.get(serializedKey)\n    if (cachedContent)\n      return cachedContent\n\n    const vnode = h<unknown>(component, { ...props, payload: data, config, x })\n    const div = document.createElement(\"div\")\n    render(vnode, div)\n    cache.set(serializedKey, div.innerHTML)\n    return div.innerHTML\n  }\n}\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

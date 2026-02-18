@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sonner",
-  "type": "registry:ui",
   "dependencies": [
     "vue-sonner"
   ],
@@ -16,5 +15,6 @@
       "content": "export { default as Toaster } from \"./Sonner.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "table",
-  "type": "registry:ui",
   "dependencies": [
     "@vueuse/core",
     "@tanstack/vue-table"
@@ -62,5 +61,6 @@
       "content": "import type { Updater } from \"@tanstack/vue-table\"\n\nimport type { Ref } from \"vue\"\nimport { isFunction } from \"@tanstack/vue-table\"\n\nexport function valueUpdater<T>(updaterOrValue: Updater<T>, ref: Ref<T>) {\n  ref.value = isFunction(updaterOrValue)\n    ? updaterOrValue(ref.value)\n    : updaterOrValue\n}\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

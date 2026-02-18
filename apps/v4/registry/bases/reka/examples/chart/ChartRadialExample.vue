@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
-import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
+import { Donut } from "@unovis/ts"
+import { VisDonut, VisSingleContainer } from "@unovis/vue"
 import IconPlaceholder from "@/components/IconPlaceholder.vue"
 import { Example } from "@/registry/bases/reka/components/example"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/bases/reka/ui/card"
-import { ChartContainer } from "@/registry/bases/reka/ui/chart"
+import { ChartContainer, ChartTooltip, ChartTooltipContent, componentToString } from "@/registry/bases/reka/ui/chart"
 
 const radialChartData = [
-  { browser: "safari", visitors: 1260, fill: "var(--color-safari)" },
+  { browser: "safari", visitors: 1260 },
 ]
+
+type Data = typeof radialChartData[number]
 
 const radialChartConfig = {
   visitors: {
@@ -32,59 +35,27 @@ const radialChartConfig = {
         <ChartContainer
           :config="radialChartConfig"
           class="mx-auto aspect-square max-h-[210px]"
+          :style="{
+            '--vis-donut-central-label-font-size': 'var(--text-3xl)',
+            '--vis-donut-central-label-font-weight': 'var(--font-weight-bold)',
+            '--vis-donut-central-label-text-color': 'var(--foreground)',
+            '--vis-donut-central-sub-label-text-color': 'var(--muted-foreground)',
+          }"
         >
-          <RadialBarChart
-            :data="radialChartData"
-            :end-angle="100"
-            :inner-radius="80"
-            :outer-radius="140"
-          >
-            <PolarGrid
-              grid-type="circle"
-              :radial-lines="false"
-              stroke="none"
-              class="first:fill-muted last:fill-background"
-              :polar-radius="[86, 74]"
+          <VisSingleContainer :data="radialChartData" :margin="{ top: 30, bottom: 30 }">
+            <VisDonut
+              :value="(d: Data) => d.visitors"
+              :color="radialChartConfig.safari.color"
+              :arc-width="30"
+              :central-label="radialChartData[0]?.visitors.toLocaleString()"
+              central-sub-label="Visitors"
             />
-            <RadialBar data-key="visitors" :background="true" />
-            <PolarRadiusAxis :tick="false" :tick-line="false" :axis-line="false">
-              <Label
-                :content="({ viewBox }: any) => {
-                  if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
-                    return {
-                      type: 'text',
-                      props: {
-                        x: viewBox.cx,
-                        y: viewBox.cy,
-                        textAnchor: 'middle',
-                        dominantBaseline: 'middle',
-                      },
-                      children: [
-                        {
-                          type: 'tspan',
-                          props: {
-                            x: viewBox.cx,
-                            y: viewBox.cy,
-                            class: 'fill-foreground text-4xl font-bold',
-                          },
-                          children: radialChartData[0].visitors.toLocaleString(),
-                        },
-                        {
-                          type: 'tspan',
-                          props: {
-                            x: viewBox.cx,
-                            y: (viewBox.cy || 0) + 24,
-                            class: 'fill-muted-foreground',
-                          },
-                          children: 'Visitors',
-                        },
-                      ],
-                    }
-                  }
-                }"
-              />
-            </PolarRadiusAxis>
-          </RadialBarChart>
+            <ChartTooltip
+              :triggers="{
+                [Donut.selectors.segment]: componentToString(radialChartConfig, ChartTooltipContent, { hideLabel: true })!,
+              }"
+            />
+          </VisSingleContainer>
         </ChartContainer>
       </CardContent>
       <CardFooter class="flex-col gap-2">

@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sidebar",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -145,5 +144,6 @@
       "content": "import type { ComputedRef, Ref } from \"vue\"\nimport { createContext } from \"reka-ui\"\n\nexport const SIDEBAR_COOKIE_NAME = \"sidebar_state\"\nexport const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7\nexport const SIDEBAR_WIDTH = \"16rem\"\nexport const SIDEBAR_WIDTH_MOBILE = \"18rem\"\nexport const SIDEBAR_WIDTH_ICON = \"3rem\"\nexport const SIDEBAR_KEYBOARD_SHORTCUT = \"b\"\n\nexport const [useSidebar, provideSidebarContext] = createContext<{\n  state: ComputedRef<\"expanded\" | \"collapsed\">\n  open: Ref<boolean>\n  setOpen: (value: boolean) => void\n  isMobile: Ref<boolean>\n  openMobile: Ref<boolean>\n  setOpenMobile: (value: boolean) => void\n  toggleSidebar: () => void\n}>(\"Sidebar\")\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

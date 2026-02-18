@@ -583,10 +583,6 @@ export const examples: Registry["items"] = [
         type: "registry:example",
       },
       {
-        path: "chart/ChartRadarExample.vue",
-        type: "registry:example",
-      },
-      {
         path: "chart/ChartRadialExample.vue",
         type: "registry:example",
       },
@@ -596,7 +592,10 @@ export const examples: Registry["items"] = [
       "example",
       "card",
     ],
-    dependencies: [],
+    dependencies: [
+      "@unovis/vue",
+      "@unovis/ts",
+    ],
   },
   {
     name: "checkbox-example",
@@ -1921,7 +1920,9 @@ export const examples: Registry["items"] = [
       "example",
       "button",
     ],
-    dependencies: [],
+    dependencies: [
+      "vue-sonner",
+    ],
   },
   {
     name: "spinner-example",

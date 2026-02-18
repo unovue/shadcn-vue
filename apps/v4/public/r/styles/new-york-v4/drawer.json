@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "drawer",
-  "type": "registry:ui",
   "dependencies": [
     "vaul-vue",
     "reka-ui",
@@ -58,5 +57,6 @@
       "content": "export { default as Drawer } from \"./Drawer.vue\"\nexport { default as DrawerClose } from \"./DrawerClose.vue\"\nexport { default as DrawerContent } from \"./DrawerContent.vue\"\nexport { default as DrawerDescription } from \"./DrawerDescription.vue\"\nexport { default as DrawerFooter } from \"./DrawerFooter.vue\"\nexport { default as DrawerHeader } from \"./DrawerHeader.vue\"\nexport { default as DrawerOverlay } from \"./DrawerOverlay.vue\"\nexport { default as DrawerTitle } from \"./DrawerTitle.vue\"\nexport { default as DrawerTrigger } from \"./DrawerTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

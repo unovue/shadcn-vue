@@ -1,19 +1,22 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { CurveType } from "@unovis/ts"
+import { VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
 import IconPlaceholder from "@/components/IconPlaceholder.vue"
 import { Example } from "@/registry/bases/reka/components/example"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/registry/bases/reka/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/registry/bases/reka/ui/chart"
+import { ChartContainer, ChartCrosshair, ChartTooltip, ChartTooltipContent, componentToString } from "@/registry/bases/reka/ui/chart"
 
 const lineChartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: 1, monthLabel: "January", desktop: 186, mobile: 80 },
+  { month: 2, monthLabel: "February", desktop: 305, mobile: 200 },
+  { month: 3, monthLabel: "March", desktop: 237, mobile: 120 },
+  { month: 4, monthLabel: "April", desktop: 73, mobile: 190 },
+  { month: 5, monthLabel: "May", desktop: 209, mobile: 130 },
+  { month: 6, monthLabel: "June", desktop: 214, mobile: 140 },
 ]
+
+type Data = typeof lineChartData[number]
 
 const lineChartConfig = {
   desktop: {
@@ -36,40 +39,29 @@ const lineChartConfig = {
       </CardHeader>
       <CardContent>
         <ChartContainer :config="lineChartConfig">
-          <LineChart
-            accessibility-layer
-            :data="lineChartData"
-            :margin="{
-              left: 12,
-              right: 12,
-            }"
-          >
-            <CartesianGrid :vertical="false" />
-            <XAxis
-              data-key="month"
+          <VisXYContainer :data="lineChartData" :margin="{ left: 12, right: 12 }">
+            <VisLine
+              :x="(d: Data) => d.month"
+              :y="[(d: Data) => d.desktop, (d: Data) => d.mobile]"
+              :color="[lineChartConfig.desktop.color, lineChartConfig.mobile.color]"
+              :curve-type="CurveType.MonotonX"
+              :line-width="2"
+            />
+            <VisAxis
+              type="x"
+              :x="(d: Data) => d.month"
               :tick-line="false"
-              :axis-line="false"
-              :tick-margin="8"
-              :tick-formatter="(value: string) => value.slice(0, 3)"
+              :domain-line="false"
+              :grid-line="false"
+              :num-ticks="6"
+              :tick-format="(_d: number, index: number) => lineChartData[index]?.monthLabel.slice(0, 3) ?? ''"
             />
-            <ChartTooltip :cursor="false">
-              <ChartTooltipContent />
-            </ChartTooltip>
-            <Line
-              data-key="desktop"
-              type="monotone"
-              stroke="var(--color-desktop)"
-              :stroke-width="2"
-              :dot="false"
+            <ChartTooltip />
+            <ChartCrosshair
+              :template="componentToString(lineChartConfig, ChartTooltipContent, { labelKey: 'monthLabel' })"
+              :color="(d: Data, i: number) => [lineChartConfig.desktop.color, lineChartConfig.mobile.color][i % 2]"
             />
-            <Line
-              data-key="mobile"
-              type="monotone"
-              stroke="var(--color-mobile)"
-              :stroke-width="2"
-              :dot="false"
-            />
-          </LineChart>
+          </VisXYContainer>
         </ChartContainer>
       </CardContent>
       <CardFooter>
