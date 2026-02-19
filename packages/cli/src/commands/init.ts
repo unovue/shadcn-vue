@@ -69,6 +69,7 @@ process.on('exit', (code) => {
 
 export const initOptionsSchema = z.object({
   cwd: z.string(),
+  name: z.string().optional(),
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),

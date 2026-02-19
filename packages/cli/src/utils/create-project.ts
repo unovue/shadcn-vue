@@ -21,14 +21,14 @@ export type TemplateType = keyof typeof TEMPLATES
 export async function createProject(
   options: Pick<
     z.infer<typeof initOptionsSchema>,
-    'cwd' | 'force' | 'components' | 'template'
+    'cwd' | 'name' | 'force' | 'components' | 'template'
   >,
 ) {
   let template: TemplateType
     = options.template && TEMPLATES[options.template as TemplateType]
       ? (options.template as TemplateType)
       : 'nuxt'
-  let projectName = 'my-vue-app'
+  let projectName = options.name ?? 'my-vue-app'
 
   if (!options.force) {
     const { type, name } = await prompts([
@@ -46,7 +46,7 @@ export async function createProject(
         initial: 0,
       },
       {
-        type: 'text',
+        type: options.name ? null : 'text',
         name: 'name',
         message: 'What is your project named?',
         initial: projectName,
@@ -59,7 +59,7 @@ export async function createProject(
     ])
 
     template = type ?? template
-    projectName = name
+    projectName = name ?? projectName
   }
 
   const packageManager = await detectPackageManager(options.cwd)

@@ -1,6 +1,11 @@
 import { Command } from 'commander'
+import fs from 'fs-extra'
+import { detectPackageManager } from 'nypm'
+import { ofetch } from 'ofetch'
+import open from 'open'
 import path from 'pathe'
 import prompts from 'prompts'
+import validateProjectName from 'validate-npm-package-name'
 import { z } from 'zod'
 import {
   BASE_COLORS,
@@ -10,15 +15,19 @@ import {
   PRESETS,
   STYLES,
 } from '@/src/registry/constants'
+import { isUrl } from '@/src/registry/utils'
 import { createProject, TEMPLATES } from '@/src/utils/create-project'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { runInit } from './init'
 
+const SHADCN_VUE_URL = 'https://shadcn-vue.com'
+
 export const createOptionsSchema = z.object({
   cwd: z.string(),
   yes: z.boolean(),
+  name: z.string().optional(),
   preset: z.string().optional(),
   template: z
     .string()
@@ -31,7 +40,7 @@ export const createOptionsSchema = z.object({
         return true
       },
       {
-        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'vite-router\'.',
+        message: `Invalid template. Please use ${Object.keys(TEMPLATES).map(t => `'${t}'`).join(', ')}.`,
       },
     ),
   base: z
@@ -106,11 +115,122 @@ export const createOptionsSchema = z.object({
         ).join('\', \'')}'`,
       },
     ),
+  srcDir: z.boolean().optional(),
+  rtl: z.boolean().optional(),
 })
+
+/**
+ * Resolve a preset by name or URL.
+ */
+async function resolvePreset(value: string) {
+  if (isUrl(value)) {
+    try {
+      const data = await ofetch(value)
+      return data as (typeof PRESETS)[number]
+    }
+    catch {
+      logger.error(`Failed to fetch preset from ${highlighter.info(value)}.`)
+      return null
+    }
+  }
+  return PRESETS.find(p => p.name === value) ?? null
+}
+
+/**
+ * Validate a project name using npm package name rules.
+ * Returns an error string, or true if valid.
+ */
+export function validateName(name: string): string | true {
+  const { validForNewPackages, errors, warnings } = validateProjectName(name)
+  if (!validForNewPackages) {
+    const issues = [...(errors ?? []), ...(warnings ?? [])]
+    return issues.length > 0 ? issues[0] : 'Invalid project name.'
+  }
+  return true
+}
+
+/**
+ * Build the shadcn-vue visual create URL for browser redirect.
+ */
+export function getShadcnCreateUrl(params?: Record<string, string>) {
+  const url = new URL(`${SHADCN_VUE_URL}/create`)
+  if (params) {
+    for (const [key, value] of Object.entries(params)) {
+      url.searchParams.set(key, value)
+    }
+  }
+  return url.toString()
+}
+
+/**
+ * Return template-specific boilerplate files to write after init,
+ * so the new project shows something useful on first run.
+ */
+export function getTemplateFiles(template: string): Array<{ target: string, content: string }> {
+  if (template === 'nuxt') {
+    return [
+      {
+        target: 'app.vue',
+        content: `<template>
+  <div class="min-h-svh flex items-center justify-center">
+    <NuxtPage />
+  </div>
+</template>
+`,
+      },
+    ]
+  }
+
+  if (template === 'vite') {
+    return [
+      {
+        target: 'src/App.vue',
+        content: `<template>
+  <div class="min-h-svh flex items-center justify-center">
+    <p class="text-muted-foreground text-sm">
+      Edit <code>src/App.vue</code> to get started.
+    </p>
+  </div>
+</template>
+`,
+      },
+    ]
+  }
+
+  if (template === 'vite-router') {
+    return [
+      {
+        target: 'src/App.vue',
+        content: `<script setup lang="ts">
+import { RouterView } from 'vue-router'
+</script>
+
+<template>
+  <RouterView />
+</template>
+`,
+      },
+      {
+        target: 'src/views/HomeView.vue',
+        content: `<template>
+  <div class="min-h-svh flex items-center justify-center">
+    <p class="text-muted-foreground text-sm">
+      Edit <code>src/views/HomeView.vue</code> to get started.
+    </p>
+  </div>
+</template>
+`,
+      },
+    ]
+  }
+
+  return []
+}
 
 export const create = new Command()
   .name('create')
   .description('create a new project with full design system customization')
+  .argument('[name]', 'the name of the project')
   .option(
     '-c, --cwd <cwd>',
     'the working directory. defaults to the current directory.',
@@ -119,11 +239,11 @@ export const create = new Command()
   .option('-y, --yes', 'skip confirmation prompt.', false)
   .option(
     '-p, --preset <preset>',
-    `use a preset configuration. (${PRESETS.map(p => p.name).join(', ')})`,
+    `use a preset configuration or URL. (${PRESETS.map(p => p.name).join(', ')})`,
   )
   .option(
     '-t, --template <template>',
-    'the framework template to use. (nuxt, vite, vite-router)',
+    `the framework template to use. (${Object.keys(TEMPLATES).join(', ')})`,
   )
   .option(
     '--base <base>',
@@ -145,10 +265,21 @@ export const create = new Command()
     '-b, --base-color <base-color>',
     'the base color to use. (neutral, gray, zinc, stone, slate)',
   )
-  .action(async (opts) => {
+  .option(
+    '--src-dir',
+    'use the src directory when creating a new project.',
+    false,
+  )
+  .option(
+    '--no-src-dir',
+    'do not use the src directory when creating a new project.',
+  )
+  .option('--rtl', 'enable right-to-left support.', false)
+  .action(async (name, opts) => {
     try {
       const options = createOptionsSchema.parse({
         cwd: path.resolve(opts.cwd),
+        name,
         ...opts,
       })
 
@@ -158,10 +289,31 @@ export const create = new Command()
       )
       logger.info('')
 
-      // If a preset is provided, use it
+      // If no name and no preset, open the browser-based visual create UI.
+      if (!options.name && !options.preset) {
+        const createUrl = getShadcnCreateUrl(
+          options.template ? { template: options.template } : undefined,
+        )
+        logger.info(`Opening ${highlighter.info(createUrl)} in your browser.`)
+        logger.info('Configure your project visually and run the generated command.')
+        logger.info('')
+        await open(createUrl)
+        return
+      }
+
+      // Validate project name.
+      if (options.name) {
+        const nameCheck = validateName(options.name)
+        if (nameCheck !== true) {
+          logger.error(`Invalid project name "${options.name}": ${nameCheck}`)
+          process.exit(1)
+        }
+      }
+
+      // Resolve preset (by name or URL).
       let preset = null
       if (options.preset) {
-        preset = PRESETS.find(p => p.name === options.preset)
+        preset = await resolvePreset(options.preset)
         if (!preset) {
           logger.error(
             `Invalid preset "${options.preset}". Available presets: ${PRESETS.map(p => p.name).join(', ')}`,
@@ -170,17 +322,37 @@ export const create = new Command()
         }
       }
 
-      // Prompt for configuration if not using preset
+      // Build the initial config from CLI flags / preset.
       let config = {
+        name: options.name,
         template: options.template,
         base: options.base ?? preset?.base,
         style: options.style ?? preset?.style,
         iconLibrary: options.iconLibrary ?? preset?.iconLibrary,
         font: options.font ?? preset?.font,
         baseColor: options.baseColor ?? preset?.baseColor,
+        srcDir: options.srcDir,
+        rtl: options.rtl,
       }
 
       if (!options.yes) {
+        // Prompt for name if not provided as argument.
+        if (!config.name) {
+          const { name: answeredName } = await prompts({
+            type: 'text',
+            name: 'name',
+            message: 'What is your project named?',
+            initial: 'my-vue-app',
+            format: (value: string) => value.trim(),
+            validate: (value: string) => {
+              if (value.length > 128)
+                return 'Name should be less than 128 characters.'
+              return validateName(value)
+            },
+          })
+          config.name = answeredName
+        }
+
         const answers = await prompts([
           {
             type: config.template ? null : 'select',
@@ -211,11 +383,11 @@ export const create = new Command()
 
         config.template = answers.template ?? config.template ?? 'nuxt'
 
-        // If user selected a preset
         if (answers.usePreset && answers.usePreset !== false) {
           const selectedPreset = PRESETS.find(p => p.name === answers.usePreset)
           if (selectedPreset) {
             config = {
+              ...config,
               template: config.template,
               base: selectedPreset.base,
               style: selectedPreset.style,
@@ -226,7 +398,6 @@ export const create = new Command()
           }
         }
         else if (!preset) {
-          // Custom configuration prompts
           const customAnswers = await prompts([
             {
               type: config.base ? null : 'select',
@@ -283,6 +454,7 @@ export const create = new Command()
           ])
 
           config = {
+            ...config,
             template: config.template,
             base: customAnswers.base ?? config.base ?? 'reka',
             style: customAnswers.style ?? config.style ?? 'vega',
@@ -293,8 +465,26 @@ export const create = new Command()
         }
       }
       else {
-        // Apply defaults if --yes flag is used
+        // Prompt for name if still missing (--yes doesn't provide a default name).
+        if (!config.name) {
+          const { name: answeredName } = await prompts({
+            type: 'text',
+            name: 'name',
+            message: 'What is your project named?',
+            initial: 'my-vue-app',
+            format: (value: string) => value.trim(),
+            validate: (value: string) => {
+              if (value.length > 128)
+                return 'Name should be less than 128 characters.'
+              return validateName(value)
+            },
+          })
+          config.name = answeredName
+        }
+
+        // Apply defaults for all other fields.
         config = {
+          ...config,
           template: config.template ?? 'nuxt',
           base: config.base ?? 'reka',
           style: config.style ?? 'vega',
@@ -304,10 +494,11 @@ export const create = new Command()
         }
       }
 
-      // Create the project
+      // Scaffold the framework project.
       const { projectPath, projectName, template } = await createProject({
         cwd: options.cwd,
         force: false,
+        name: config.name,
         template: config.template,
       })
 
@@ -320,7 +511,7 @@ export const create = new Command()
       logger.info(`Created ${highlighter.info(projectName)} with ${highlighter.info(template)} template.`)
       logger.info('')
 
-      // Initialize shadcn-vue in the new project
+      // Initialize shadcn-vue in the new project.
       await runInit({
         cwd: projectPath,
         yes: true,
@@ -336,15 +527,30 @@ export const create = new Command()
         iconLibrary: config.iconLibrary,
         font: config.font,
         baseColor: config.baseColor,
+        srcDir: config.srcDir,
         skipPreflight: true,
       })
+
+      // Write template-specific entry files (shadcn-aware starters).
+      const templateFiles = getTemplateFiles(template)
+      for (const { target, content } of templateFiles) {
+        const filePath = path.join(projectPath, target)
+        await fs.ensureDir(path.dirname(filePath))
+        await fs.writeFile(filePath, content, 'utf-8')
+      }
+
+      // Detect package manager for accurate next-steps output.
+      const packageManager = await detectPackageManager(options.cwd)
+      const pmRun = packageManager?.name === 'npm'
+        ? 'npm run'
+        : packageManager?.name ?? 'npm run'
 
       logger.break()
       logger.info(`${highlighter.success('Success!')} Project created at ${highlighter.info(projectPath)}`)
       logger.break()
       logger.info('Next steps:')
       logger.info(`  cd ${projectName}`)
-      logger.info('  npm run dev')
+      logger.info(`  ${pmRun} dev`)
       logger.break()
     }
     catch (error) {

@@ -91,6 +91,7 @@
     "magic-string": "^0.30.21",
     "nypm": "^0.6.2",
     "ofetch": "^1.5.1",
+    "open": "catalog:",
     "ora": "^9.0.0",
     "pathe": "catalog:",
     "postcss": "^8.5.6",
@@ -104,6 +105,7 @@
     "tinyglobby": "catalog:",
     "ts-morph": "^27.0.2",
     "undici": "^7.16.0",
+    "validate-npm-package-name": "catalog:",
     "vue-metamorph": "^3.3.3",
     "zod": "catalog:",
     "zod-to-json-schema": "^3.25.0"
@@ -114,6 +116,7 @@
     "@types/prompts": "^2.4.9",
     "@types/semver": "^7.7.1",
     "@types/stringify-object": "^4.0.5",
+    "@types/validate-npm-package-name": "catalog:",
     "msw": "^2.12.4",
     "tsdown": "^0.17.2",
     "type-fest": "^5.3.1",

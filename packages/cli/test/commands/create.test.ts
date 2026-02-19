@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  createOptionsSchema,
+  getShadcnCreateUrl,
+  getTemplateFiles,
+  validateName,
+} from '../../src/commands/create'
+import {
   BASE_COLORS,
   BASES,
   FONTS,
@@ -199,6 +205,165 @@ describe('create command options', () => {
       const lyra = PRESETS.find(p => p.name === 'reka-lyra')
       expect(lyra?.font).toBe('jetbrains-mono')
     })
+  })
+})
+
+describe('validateName', () => {
+  it('accepts valid npm package names', () => {
+    expect(validateName('my-app')).toBe(true)
+    expect(validateName('my-vue-app')).toBe(true)
+    expect(validateName('myapp')).toBe(true)
+    expect(validateName('@scope/my-app')).toBe(true)
+  })
+
+  it('rejects names with uppercase letters', () => {
+    const result = validateName('MyApp')
+    expect(result).not.toBe(true)
+    expect(typeof result).toBe('string')
+  })
+
+  it('rejects names with spaces', () => {
+    const result = validateName('my app')
+    expect(result).not.toBe(true)
+    expect(typeof result).toBe('string')
+  })
+
+  it('rejects names that start with a dot', () => {
+    const result = validateName('.myapp')
+    expect(result).not.toBe(true)
+  })
+
+  it('rejects names with special characters', () => {
+    const result = validateName('my@app!')
+    expect(result).not.toBe(true)
+  })
+
+  it('rejects empty string', () => {
+    const result = validateName('')
+    expect(result).not.toBe(true)
+  })
+})
+
+describe('getShadcnCreateUrl', () => {
+  it('returns base create URL without params', () => {
+    const url = getShadcnCreateUrl()
+    expect(url).toBe('https://shadcn-vue.com/create')
+  })
+
+  it('appends template param when provided', () => {
+    const url = getShadcnCreateUrl({ template: 'nuxt' })
+    expect(url).toBe('https://shadcn-vue.com/create?template=nuxt')
+  })
+
+  it('appends multiple params', () => {
+    const url = getShadcnCreateUrl({ template: 'vite', style: 'vega' })
+    const parsed = new URL(url)
+    expect(parsed.searchParams.get('template')).toBe('vite')
+    expect(parsed.searchParams.get('style')).toBe('vega')
+  })
+
+  it('returns a valid URL', () => {
+    const url = getShadcnCreateUrl({ template: 'nuxt' })
+    expect(() => new URL(url)).not.toThrow()
+  })
+})
+
+describe('getTemplateFiles', () => {
+  it('returns app.vue for nuxt template', () => {
+    const files = getTemplateFiles('nuxt')
+    expect(files).toHaveLength(1)
+    expect(files[0].target).toBe('app.vue')
+    expect(files[0].content).toContain('NuxtPage')
+  })
+
+  it('returns src/App.vue for vite template', () => {
+    const files = getTemplateFiles('vite')
+    expect(files).toHaveLength(1)
+    expect(files[0].target).toBe('src/App.vue')
+    expect(files[0].content).toContain('src/App.vue')
+  })
+
+  it('returns App.vue and HomeView.vue for vite-router template', () => {
+    const files = getTemplateFiles('vite-router')
+    expect(files).toHaveLength(2)
+    const targets = files.map(f => f.target)
+    expect(targets).toContain('src/App.vue')
+    expect(targets).toContain('src/views/HomeView.vue')
+  })
+
+  it('vite-router App.vue uses RouterView', () => {
+    const files = getTemplateFiles('vite-router')
+    const appVue = files.find(f => f.target === 'src/App.vue')
+    expect(appVue?.content).toContain('RouterView')
+  })
+
+  it('returns empty array for unknown template', () => {
+    const files = getTemplateFiles('unknown')
+    expect(files).toHaveLength(0)
+  })
+
+  it('all file contents are non-empty strings', () => {
+    for (const template of ['nuxt', 'vite', 'vite-router']) {
+      const files = getTemplateFiles(template)
+      for (const file of files) {
+        expect(typeof file.content).toBe('string')
+        expect(file.content.length).toBeGreaterThan(0)
+        expect(typeof file.target).toBe('string')
+        expect(file.target.length).toBeGreaterThan(0)
+      }
+    }
+  })
+})
+
+describe('createOptionsSchema', () => {
+  const base = {
+    cwd: '/tmp/my-app',
+    yes: false,
+  }
+
+  it('accepts minimal valid input', () => {
+    const result = createOptionsSchema.parse(base)
+    expect(result.cwd).toBe('/tmp/my-app')
+    expect(result.yes).toBe(false)
+  })
+
+  it('accepts srcDir flag', () => {
+    const result = createOptionsSchema.parse({ ...base, srcDir: true })
+    expect(result.srcDir).toBe(true)
+  })
+
+  it('accepts rtl flag', () => {
+    const result = createOptionsSchema.parse({ ...base, rtl: true })
+    expect(result.rtl).toBe(true)
+  })
+
+  it('accepts name field', () => {
+    const result = createOptionsSchema.parse({ ...base, name: 'my-project' })
+    expect(result.name).toBe('my-project')
+  })
+
+  it('accepts all three templates', () => {
+    for (const template of ['nuxt', 'vite', 'vite-router']) {
+      const result = createOptionsSchema.parse({ ...base, template })
+      expect(result.template).toBe(template)
+    }
+  })
+
+  it('rejects invalid template', () => {
+    expect(() => createOptionsSchema.parse({ ...base, template: 'next' })).toThrow()
+  })
+
+  it('rejects invalid style', () => {
+    expect(() => createOptionsSchema.parse({ ...base, style: 'unknown-style' })).toThrow()
+  })
+
+  it('rejects invalid base color', () => {
+    expect(() => createOptionsSchema.parse({ ...base, baseColor: 'pink' })).toThrow()
+  })
+
+  it('accepts preset by name', () => {
+    const result = createOptionsSchema.parse({ ...base, preset: 'reka-vega' })
+    expect(result.preset).toBe('reka-vega')
   })
 })
 
