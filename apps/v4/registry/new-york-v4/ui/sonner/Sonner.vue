@@ -15,7 +15,9 @@ import { cn } from "@/lib/utils"
 const props = defineProps<ToasterProps>()
 
 const colorMode = useColorMode()
-const theme = computed(() => (colorMode.preference as any) || "system")
+const theme = computed(
+  () => (colorMode.preference as "auto" | "light" | "dark") || "auto",
+)
 </script>
 
 <template>
@@ -28,7 +30,7 @@ const theme = computed(() => (colorMode.preference as any) || "system")
       '--border-radius': 'var(--radius)',
     }"
     v-bind="props"
-    :theme="theme"
+    :theme="theme === 'auto' ? 'system' : theme"
   >
     <template #success-icon>
       <CircleCheckIcon class="size-4" />
