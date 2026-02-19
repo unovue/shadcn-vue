@@ -24,8 +24,8 @@ overrides:
 catalog:
   '@internationalized/date': ^3.10.0
   '@types/node': ^24
-  '@unovis/ts': ^1.6.2
-  '@unovis/vue': ^1.6.2
+  '@unovis/ts': ^1.7.0-pre.2
+  '@unovis/vue': ^1.7.0-pre.2
   '@vee-validate/zod': ^4.15.1
   '@vueuse/core': ^14.1.0
   class-variance-authority: ^0.7.1

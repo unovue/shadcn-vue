@@ -4,8 +4,8 @@ import type {
 } from "@/registry/new-york-v4/ui/chart"
 // import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { VisArea, VisAxis, VisXYContainer } from "@unovis/vue"
-
 import { TrendingUp } from "lucide-vue-next"
+
 import {
   Card,
   CardContent,
@@ -17,6 +17,7 @@ import {
 import {
   ChartContainer,
   ChartCrosshair,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
@@ -36,62 +37,34 @@ const chartData = [
 type Data = typeof chartData[number]
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
-  },
   mobile: {
     label: "Mobile",
     color: "var(--chart-2)",
   },
+  desktop: {
+    label: "Desktop",
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
-
-const svgDefs = `
-  <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
-    <stop
-      offset="5%"
-      stop-color="var(--color-desktop)"
-      stop-opacity="0.8"
-    />
-    <stop
-      offset="95%"
-      stop-color="var(--color-desktop)"
-      stop-opacity="0.1"
-    />
-  </linearGradient>
-  <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
-    <stop
-      offset="5%"
-      stop-color="var(--color-mobile)"
-      stop-opacity="0.8"
-    />
-    <stop
-      offset="95%"
-      stop-color="var(--color-mobile)"
-      stop-opacity="0.1"
-    />
-  </linearGradient>
-`
 </script>
 
 <template>
   <Card>
     <CardHeader>
-      <CardTitle>Area Chart - Gradient</CardTitle>
+      <CardTitle>Area Chart - Legend</CardTitle>
       <CardDescription>
         Showing total visitors for the last 6 months
       </CardDescription>
     </CardHeader>
     <CardContent>
       <ChartContainer :config="chartConfig">
-        <VisXYContainer :data="chartData" :svg-defs="svgDefs">
+        <VisXYContainer :data="chartData" :margin="{ top: 10, bottom: 10 }">
           <VisArea
             :x="(d: Data) => d.month"
             :y="[(d: Data) => d.mobile, (d: Data) => d.desktop]"
-            :color="(d: Data, i: number) => ['url(#fillMobile)', 'url(#fillDesktop)'][i]"
+            :color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]"
             :opacity="0.4"
             :line="true"
-            :line-color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i]"
             :line-width="1"
           />
           <VisAxis
@@ -114,10 +87,12 @@ const svgDefs = `
           />
           <ChartTooltip />
           <ChartCrosshair
-            :template="componentToString(chartConfig, ChartTooltipContent, { labelKey: 'monthLabel' })"
+            :template="componentToString(chartConfig, ChartTooltipContent, { labelKey: 'monthLabel', indicator: 'line' })"
             :color="(d: Data, i: number) => [chartConfig.mobile.color, chartConfig.desktop.color][i % 2]"
           />
         </VisXYContainer>
+
+        <ChartLegendContent />
       </ChartContainer>
     </CardContent>
     <CardFooter>
