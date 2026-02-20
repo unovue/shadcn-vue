@@ -42,7 +42,7 @@ const selectedVersion = ref(props.defaultVersion)
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          class="w-[--reka-dropdown-menu-trigger-width]"
+          class="w-(--reka-dropdown-menu-trigger-width)"
           align="start"
         >
           <DropdownMenuItem
