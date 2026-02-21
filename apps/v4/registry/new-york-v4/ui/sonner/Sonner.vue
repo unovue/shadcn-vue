@@ -8,16 +8,12 @@ import {
   TriangleAlertIcon,
   XIcon,
 } from "lucide-vue-next"
-import { computed } from "vue"
 import { Toaster as Sonner } from "vue-sonner"
 import { cn } from "@/lib/utils"
 
 const props = defineProps<ToasterProps>()
 
 const colorMode = useColorMode()
-const theme = computed(
-  () => (colorMode.preference as "auto" | "light" | "dark") || "auto",
-)
 </script>
 
 <template>
@@ -30,7 +26,7 @@ const theme = computed(
       '--border-radius': 'var(--radius)',
     }"
     v-bind="props"
-    :theme="theme === 'auto' ? 'system' : theme"
+    :theme="colorMode === 'auto' ? 'system' : colorMode"
   >
     <template #success-icon>
       <CircleCheckIcon class="size-4" />
