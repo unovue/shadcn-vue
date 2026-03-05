@@ -45,6 +45,7 @@ const contentClass = computed(() => cn(
     : "[animation:marquee_var(--duration,40s)_linear_infinite] flex-row",
   props.pauseOnHover && "group-hover:[animation-play-state:paused]",
   props.reverse && "[animation-direction:reverse]",
+  "motion-reduce:[animation-play-state:paused]",
 ))
 </script>
 
@@ -57,6 +58,7 @@ const contentClass = computed(() => cn(
     <div
       v-for="i in repeat"
       :key="i"
+      :aria-hidden="i > 1 ? 'true' : undefined"
       :class="contentClass"
     >
       <slot />
