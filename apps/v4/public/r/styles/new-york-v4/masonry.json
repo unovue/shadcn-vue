@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "masonry",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/ui/masonry/index.ts",
+      "content": "export { default as Masonry } from './Masonry.vue'\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/masonry/Masonry.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface MasonryProps extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n  /** Maximum number of columns at the largest breakpoint. Scales down responsively on smaller screens. */\n  columns?: number\n  /** Gap between items using Tailwind's spacing scale. */\n  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12\n}\n\nconst props = withDefaults(defineProps<MasonryProps>(), {\n  gap: 4,\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'columns', 'gap')\n\nconst columnsMap: Record<number, string> = {\n  1: 'columns-1',\n  2: 'columns-1 md:columns-2',\n  3: 'columns-1 md:columns-2 lg:columns-3',\n  4: 'columns-1 sm:columns-2 lg:columns-3 xl:columns-4',\n  5: 'columns-1 sm:columns-2 md:columns-3 xl:columns-4 2xl:columns-5',\n  6: 'columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6',\n  7: 'columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-6 2xl:columns-7',\n  8: 'columns-1 sm:columns-2 md:columns-4 lg:columns-5 xl:columns-7 2xl:columns-8',\n  9: 'columns-1 sm:columns-2 md:columns-4 lg:columns-6 xl:columns-8 2xl:columns-9',\n  10: 'columns-1 sm:columns-2 md:columns-4 lg:columns-6 xl:columns-8 2xl:columns-10',\n  11: 'columns-1 sm:columns-3 md:columns-4 lg:columns-7 xl:columns-9 2xl:columns-11',\n  12: 'columns-1 sm:columns-3 md:columns-4 lg:columns-8 xl:columns-10 2xl:columns-12',\n}\n\nconst gapMap: Record<number, string> = {\n  0: 'gap-0 *:mb-0',\n  1: 'gap-1 *:mb-1',\n  2: 'gap-2 *:mb-2',\n  3: 'gap-3 *:mb-3',\n  4: 'gap-4 *:mb-4',\n  5: 'gap-5 *:mb-5',\n  6: 'gap-6 *:mb-6',\n  8: 'gap-8 *:mb-8',\n  10: 'gap-10 *:mb-10',\n  12: 'gap-12 *:mb-12',\n}\n\n// Default to 3-column responsive layout; use explicit map when columns prop is provided.\nconst columnClass = computed(() =>\n  props.columns !== undefined\n    ? (columnsMap[props.columns] ?? `columns-${props.columns}`)\n    : columnsMap[3],\n)\n\nconst gapClass = computed(() => gapMap[props.gap ?? 4] ?? gapMap[4])\n</script>\n\n<template>\n  <Primitive\n    v-bind=\"delegatedProps\"\n    :class=\"cn('relative *:break-inside-avoid-column *:will-change-transform', columnClass, gapClass, props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    }
+  ]
+}

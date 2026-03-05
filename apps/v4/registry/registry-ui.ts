@@ -1199,6 +1199,24 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "masonry",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+      "@vueuse/core",
+    ],
+    files: [
+      {
+        path: "ui/masonry/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/masonry/Masonry.vue",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "menubar",
     type: "registry:ui",
     dependencies: [

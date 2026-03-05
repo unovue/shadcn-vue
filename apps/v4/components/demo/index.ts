@@ -65,10 +65,15 @@ export { default as LabelDemo } from './LabelDemo.vue'
 export { default as MarqueeDemo } from './MarqueeDemo.vue'
 export { default as MarqueePauseOnHover } from './MarqueePauseOnHover.vue'
 export { default as MarqueeReverse } from './MarqueeReverse.vue'
+
 export { default as MarqueeScreenshots } from './MarqueeScreenshots.vue'
 export { default as MarqueeTestimonials } from './MarqueeTestimonials.vue'
 export { default as MarqueeVertical } from './MarqueeVertical.vue'
 export { default as MarqueeWithoutOverlay } from './MarqueeWithoutOverlay.vue'
+export { default as MasonryColumns } from './MasonryColumns.vue'
+// Masonry demos
+export { default as MasonryDemo } from './MasonryDemo.vue'
+export { default as MasonryFourColumns } from './MasonryFourColumns.vue'
 
 // Popover demos
 export { default as PopoverDemo } from './PopoverDemo.vue'
