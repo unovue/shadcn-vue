@@ -91,6 +91,8 @@ description: A 3D perspective image gallery using vertical marquees.
 
 ### Vertical
 
+Scroll content vertically — useful for sidebars or tall display sections.
+
 ::component-preview
 ---
 name: MarqueeVertical
@@ -99,6 +101,8 @@ description: A vertical marquee.
 ::
 
 ### Reverse Direction
+
+Flip the scroll direction to create contrast when used alongside a forward-scrolling row.
 
 ::component-preview
 ---
@@ -109,6 +113,8 @@ description: A marquee with reversed animation direction.
 
 ### Pause on Hover
 
+Pauses the animation when the user hovers, making individual items easier to read.
+
 ::component-preview
 ---
 name: MarqueePauseOnHover
@@ -117,6 +123,8 @@ description: A marquee that pauses when hovered.
 ::
 
 ### Without Overlay
+
+Removes the gradient fade at the edges for a clean, borderless look.
 
 ::component-preview
 ---
@@ -131,7 +139,6 @@ description: A marquee without the gradient overlay.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `as` | `string \| Component` | `'div'` | The element or component to render as. |
 | `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The scroll direction of the marquee. |
 | `pauseOnHover` | `boolean` | `false` | Pause the animation when hovering over the marquee. |
 | `reverse` | `boolean` | `false` | Reverse the animation direction. |
