@@ -108,5 +108,5 @@ class: '[&_.preview]:h-auto [&_.preview]:py-10'
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `columns` | `number` | `3` | Maximum number of columns at the largest breakpoint. Scales down responsively on smaller screens. |
+| `columns` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8 \| 9 \| 10 \| 11 \| 12` | `3` | Maximum number of columns at the largest breakpoint. Scales down responsively on smaller screens. |
 | `gap` | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 8 \| 10 \| 12` | `4` | Gap between items using Tailwind's spacing scale. |

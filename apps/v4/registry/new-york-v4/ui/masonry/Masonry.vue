@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 interface MasonryProps extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   /** Maximum number of columns at the largest breakpoint. Scales down responsively on smaller screens. */
-  columns?: number
+  columns?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
   /** Gap between items using Tailwind's spacing scale. */
   gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12
 }
@@ -48,12 +48,7 @@ const gapMap: Record<number, string> = {
   12: "gap-12 *:mb-12",
 }
 
-// Default to 3-column responsive layout; use explicit map when columns prop is provided.
-const columnClass = computed(() =>
-  props.columns !== undefined
-    ? (columnsMap[props.columns] ?? `columns-${props.columns}`)
-    : columnsMap[3],
-)
+const columnClass = computed(() => columnsMap[props.columns ?? 3])
 
 const gapClass = computed(() => gapMap[props.gap ?? 4] ?? gapMap[4])
 </script>
@@ -61,7 +56,7 @@ const gapClass = computed(() => gapMap[props.gap ?? 4] ?? gapMap[4])
 <template>
   <Primitive
     v-bind="delegatedProps"
-    :class="cn('relative *:break-inside-avoid-column *:will-change-transform', columnClass, gapClass, props.class)"
+    :class="cn('relative *:break-inside-avoid-column', columnClass, gapClass, props.class)"
   >
     <slot />
   </Primitive>
