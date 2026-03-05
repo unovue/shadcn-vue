@@ -61,6 +61,10 @@ export { default as InputWithText } from './InputWithText.vue'
 // Label demos
 export { default as LabelDemo } from './LabelDemo.vue'
 
+// Masonry demos
+export { default as MasonryColumns } from './MasonryColumns.vue'
+export { default as MasonryDemo } from './MasonryDemo.vue'
+export { default as MasonryFourColumns } from './MasonryFourColumns.vue'
 // Popover demos
 export { default as PopoverDemo } from './PopoverDemo.vue'
 
