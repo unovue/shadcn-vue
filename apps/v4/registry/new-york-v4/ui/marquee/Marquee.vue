@@ -29,6 +29,7 @@ const props = withDefaults(defineProps<MarqueeProps>(), {
 const delegatedProps = reactiveOmit(props, "class", "pauseOnHover", "reverse", "orientation", "repeat", "overlay")
 
 const isVertical = computed(() => props.orientation === "vertical")
+const normalizedRepeat = computed(() => Math.max(1, Math.floor(props.repeat ?? 1)))
 
 const rootClass = computed(() => cn(
   "group relative flex overflow-hidden [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
@@ -56,7 +57,7 @@ const contentClass = computed(() => cn(
     :class="rootClass"
   >
     <div
-      v-for="i in repeat"
+      v-for="i in normalizedRepeat"
       :key="i"
       :aria-hidden="i > 1 ? 'true' : undefined"
       :class="contentClass"

@@ -1172,11 +1172,11 @@ export const Index: Record<string, any> = {
     type: "registry:ui",
     registryDependencies: undefined,
     files: [{
-      path: "registry/new-york-v4/ui/marquee/index.ts",
+      path: "registry/new-york-v4/ui/marquee/Marquee.vue",
       type: "registry:ui",
       target: ""
     },{
-      path: "registry/new-york-v4/ui/marquee/Marquee.vue",
+      path: "registry/new-york-v4/ui/marquee/index.ts",
       type: "registry:ui",
       target: ""
     }],
