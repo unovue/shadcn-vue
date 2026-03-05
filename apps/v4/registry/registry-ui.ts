@@ -1181,6 +1181,24 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "marquee",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+      "@vueuse/core",
+    ],
+    files: [
+      {
+        path: "ui/marquee/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marquee/Marquee.vue",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "menubar",
     type: "registry:ui",
     dependencies: [

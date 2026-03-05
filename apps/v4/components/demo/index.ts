@@ -61,6 +61,15 @@ export { default as InputWithText } from './InputWithText.vue'
 // Label demos
 export { default as LabelDemo } from './LabelDemo.vue'
 
+// Marquee demos
+export { default as MarqueeDemo } from './MarqueeDemo.vue'
+export { default as MarqueePauseOnHover } from './MarqueePauseOnHover.vue'
+export { default as MarqueeReverse } from './MarqueeReverse.vue'
+export { default as MarqueeScreenshots } from './MarqueeScreenshots.vue'
+export { default as MarqueeTestimonials } from './MarqueeTestimonials.vue'
+export { default as MarqueeVertical } from './MarqueeVertical.vue'
+export { default as MarqueeWithoutOverlay } from './MarqueeWithoutOverlay.vue'
+
 // Popover demos
 export { default as PopoverDemo } from './PopoverDemo.vue'
 
