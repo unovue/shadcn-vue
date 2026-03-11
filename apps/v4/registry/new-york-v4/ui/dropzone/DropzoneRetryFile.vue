@@ -25,10 +25,11 @@ if (!context) {
     :variant="variant"
     :size="size"
     type="button"
+    :disabled="!context.canRetry.value"
     :aria-disabled="!context.canRetry.value"
     aria-label="retry"
-    :class="cn('aria-disabled:pointer-events-none aria-disabled:opacity-50', props.class)"
-    @click="context.onRetry"
+    :class="cn(props.class)"
+    @click="context.canRetry.value ? context.onRetry() : undefined"
   >
     <slot />
     <span class="sr-only">Retry</span>

@@ -28,9 +28,16 @@ const fileMessageIds = computed(() =>
     .map(file => context.getFileMessageId(file.id)),
 )
 
-const ariaDescribedBy = computed(() =>
-  context.isInvalid.value ? [context.rootMessageId, ...fileMessageIds.value].join(" ") : undefined,
-)
+const ariaDescribedBy = computed(() => {
+  const ids = []
+  if (context.rootDescriptionId) {
+    ids.push(context.rootDescriptionId)
+  }
+  if (context.isInvalid.value) {
+    ids.push(context.rootMessageId, ...fileMessageIds.value)
+  }
+  return ids.length > 0 ? ids.join(" ") : undefined
+})
 </script>
 
 <template>

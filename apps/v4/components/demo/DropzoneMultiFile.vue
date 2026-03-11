@@ -16,10 +16,9 @@ import {
 
 const dropzone = useDropzoneUpload({
   onDropFile: async () => {
-    await new Promise(resolve =>
-      setTimeout(resolve, Math.random() * 300 + 800),
-    )
+    await new Promise(resolve => setTimeout(resolve, 1000))
 
+    // Deterministic failure for demo purposes
     if (Math.random() > 0.75) {
       return {
         status: 'error' as const,

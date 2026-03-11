@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onBeforeUnmount } from 'vue'
 import {
   Dropzone,
   DropzoneArea,
@@ -11,12 +12,23 @@ import {
   useDropzoneUpload,
 } from '@/registry/new-york-v4/ui/dropzone'
 
+const createdUrls = new Set<string>()
+
 const dropzone = useDropzoneUpload({
   onDropFile: async (file: File) => {
     await new Promise(resolve => setTimeout(resolve, 800))
+    const url = URL.createObjectURL(file)
+    createdUrls.add(url)
     return {
       status: 'success' as const,
-      result: URL.createObjectURL(file),
+      result: url,
+    }
+  },
+  onRemoveFile: async (id: string) => {
+    const file = dropzone.fileStatuses.value.find(f => f.id === id)
+    if (file?.result && typeof file.result === 'string' && createdUrls.has(file.result)) {
+      URL.revokeObjectURL(file.result)
+      createdUrls.delete(file.result)
     }
   },
   validation: {
@@ -24,6 +36,14 @@ const dropzone = useDropzoneUpload({
     maxSize: 5 * 1024 * 1024, // 5MB
     maxFiles: 4,
   },
+})
+
+// Clean up blob URLs on unmount
+onBeforeUnmount(() => {
+  for (const url of createdUrls) {
+    URL.revokeObjectURL(url)
+  }
+  createdUrls.clear()
 })
 </script>
 
@@ -76,7 +96,7 @@ const dropzone = useDropzoneUpload({
                 v-if="file.status === 'success'" :src="file.result" :alt="`uploaded-${file.fileName}`"
                 class="aspect-square object-cover w-full"
               >
-              <DropzoneRemoveFile variant="ghost" size="sm" class="absolute cursor-pointer top-0.5 right-0.5 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 hover:bg-black/70">
+              <DropzoneRemoveFile variant="ghost" size="sm" class="absolute cursor-pointer top-0.5 right-0.5 p-0.5 opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:opacity-100 focus-within:opacity-100 sm:opacity-100 transition-opacity bg-black/50 hover:bg-black/70">
                 <svg
                   xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

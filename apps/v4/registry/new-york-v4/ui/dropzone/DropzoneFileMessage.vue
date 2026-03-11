@@ -17,7 +17,7 @@ if (!context) {
 <template>
   <p
     :id="context.messageId"
-    :class="cn('h-5 text-[0.8rem] font-medium text-destructive', props.class)"
+    :class="cn('h-5 text-[0.8rem] font-medium', context.fileStatus.value.status === 'error' ? 'text-destructive' : '', props.class)"
   >
     <template v-if="context.fileStatus.value.status === 'error'">
       {{ String(context.fileStatus.value.error) }}

@@ -31,15 +31,15 @@ const error = computed(() => props.status === "error")
     <div
       :class="cn(
         'h-full w-full rounded-full bg-primary',
-        done ? 'translate-x-0' : 'animate-infinite-progress',
+        done ? 'translate-x-0' : 'animate-infinite-progress-infinite',
         error && 'bg-destructive',
       )"
     />
   </div>
 </template>
 
-<style>
-@keyframes infinite-progress {
+<style scoped>
+@keyframes infinite-progress-infinite {
   0% {
     transform: translateX(-100%);
   }
@@ -48,7 +48,7 @@ const error = computed(() => props.status === "error")
   }
 }
 
-.animate-infinite-progress {
-  animation: infinite-progress 3s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+.animate-infinite-progress-infinite {
+  animation: infinite-progress-infinite 3s cubic-bezier(0.37, 0, 0.63, 1) infinite;
 }
 </style>

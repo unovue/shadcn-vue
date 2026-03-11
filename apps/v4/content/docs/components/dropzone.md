@@ -343,8 +343,8 @@ const dropzone = useDropzoneUpload({
   },
   validation: {
     accept: ['image/png', 'image/jpeg', 'image/jpg'],
-    maxSize: 10 * 1024 * 1024,
-    maxFiles: 10,
+    maxSize: 5 * 1024 * 1024,
+    maxFiles: 4,
   },
 })
 </script>
@@ -355,7 +355,7 @@ const dropzone = useDropzoneUpload({
       <div>
         <div class="flex justify-between">
           <DropzoneDescription>
-            Please select up to 10 images
+            Please select up to 4 images (max 5MB)
           </DropzoneDescription>
           <DropzoneMessage />
         </div>

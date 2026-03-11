@@ -3,6 +3,17 @@ import type { FileRejectReason, InputFile } from "vue3-dropzone"
 import { computed, ref } from "vue"
 import { useDropzone as useVue3Dropzone } from "vue3-dropzone"
 
+// Helper function for cross-environment UUID generation
+function getUniqueId(): string {
+  try {
+    return crypto.randomUUID().slice(0, 8)
+  }
+  catch {
+    // Fallback for older browsers
+    return Math.random().toString(36).substring(2, 10)
+  }
+}
+
 export type DropzoneResult<TUploadRes, TUploadError>
   = | { status: "pending" }
     | { status: "error", error: TUploadError }
@@ -63,13 +74,13 @@ function getRootError(
       case "file-too-large": {
         const maxMb = limits.maxSize
           ? (limits.maxSize / (1024 * 1024)).toFixed(2)
-          : "infinite?"
+          : "unlimited"
         return `max size is ${maxMb}MB`
       }
       case "file-too-small": {
         const roundedMinSize = limits.minSize
           ? (limits.minSize / (1024 * 1024)).toFixed(2)
-          : "negative?"
+          : "not specified"
         return `min size is ${roundedMinSize}MB`
       }
       case "too-many-files":
@@ -152,7 +163,7 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
   } = options
 
   // Generate unique IDs
-  const inputId = `dropzone-${crypto.randomUUID().slice(0, 8)}`
+  const inputId = `dropzone-${getUniqueId()}`
   const rootMessageId = `${inputId}-root-message`
   const rootDescriptionId = `${inputId}-description`
 
@@ -177,7 +188,8 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
     const result = await pOnDropFile(file)
 
     if (result.status === "error") {
-      if (autoRetry === true && tries < (maxRetryCount ?? Infinity)) {
+      const effectiveMax = maxRetryCount ?? 3
+      if (autoRetry === true && tries < effectiveMax) {
         // Update status to pending for retry
         const index = fileStatuses.value.findIndex(f => f.id === id)
         const currentFile = fileStatuses.value[index]
@@ -232,9 +244,10 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
 
   const canRetry = (id: string): boolean => {
     const fileStatus = fileStatuses.value.find(file => file.id === id)
+    const effectiveMax = maxRetryCount ?? 3
     return (
       fileStatus?.status === "error"
-      && fileStatus.tries < (maxRetryCount ?? Infinity)
+      && fileStatus.tries < effectiveMax
     )
   }
 
@@ -282,13 +295,22 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
     const slicedNewFiles
       = shiftOnMaxFiles === true ? newFiles : newFiles.slice(0, maxNewFiles)
 
-    const onDropFilePromises = slicedNewFiles.map(async (file, index) => {
-      const existingFile = fileStatuses.value[index]
-      if (fileCount + 1 > maxNewFiles && shiftOnMaxFiles && existingFile) {
-        await onRemoveFile(existingFile.id)
-      }
+    if (shiftOnMaxFiles === true && fileStatuses.value.length > 0 && validation?.maxFiles !== undefined) {
+      // Calculate how many files need to be removed
+      const removalsNeeded = Math.max(0, fileStatuses.value.length + slicedNewFiles.length - validation.maxFiles)
 
-      const id = crypto.randomUUID()
+      // Remove oldest files sequentially
+      for (let i = 0; i < removalsNeeded; i++) {
+        const oldestFile = fileStatuses.value[0]
+        if (oldestFile) {
+          await onRemoveFile(oldestFile.id)
+        }
+      }
+    }
+
+    // Process files sequentially to avoid race conditions
+    for (const file of slicedNewFiles) {
+      const id = `file-${getUniqueId()}`
       const newFileStatus: FileStatus<TUploadRes, TUploadError> = {
         id,
         fileName: file.name,
@@ -298,9 +320,7 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
       }
       fileStatuses.value = [...fileStatuses.value, newFileStatus] as FileStatus<TUploadRes, TUploadError>[]
       await uploadFile(file, id)
-    })
-
-    await Promise.all(onDropFilePromises)
+    }
     if (pOnAllUploaded !== undefined) {
       pOnAllUploaded()
     }

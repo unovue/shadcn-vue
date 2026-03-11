@@ -18,6 +18,8 @@ if (!context) {
   <p
     :id="context.rootMessageId"
     :class="cn('h-5 text-[0.8rem] font-medium text-destructive', props.class)"
+    aria-live="polite"
+    aria-atomic="true"
   >
     <template v-if="context.rootError.value">
       {{ context.rootError.value }}

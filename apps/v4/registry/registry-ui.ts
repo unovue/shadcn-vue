@@ -846,6 +846,9 @@ export const ui: Registry["items"] = [
     registryDependencies: [
       "button",
     ],
+    dependencies: [
+      "vue3-dropzone",
+    ],
     files: [
       {
         path: "ui/dropzone/Dropzone.vue",

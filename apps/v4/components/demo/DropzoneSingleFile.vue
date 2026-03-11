@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'
 import {
@@ -10,12 +10,20 @@ import {
   useDropzoneUpload,
 } from '@/registry/new-york-v4/ui/dropzone'
 
+const currentPreviewUrl = ref<string | undefined>(undefined)
+
 const dropzone = useDropzoneUpload({
   onDropFile: async (file: File) => {
     await new Promise(resolve => setTimeout(resolve, 1000))
+    // Revoke previous URL if it exists
+    if (currentPreviewUrl.value) {
+      URL.revokeObjectURL(currentPreviewUrl.value)
+    }
+    const newUrl = URL.createObjectURL(file)
+    currentPreviewUrl.value = newUrl
     return {
       status: 'success' as const,
-      result: URL.createObjectURL(file),
+      result: newUrl,
     }
   },
   validation: {
@@ -29,6 +37,13 @@ const dropzone = useDropzoneUpload({
 const avatarSrc = computed(() => dropzone.fileStatuses.value[0]?.result ?? '')
 const isPending = computed(() => dropzone.fileStatuses.value[0]?.status === 'pending')
 const hasAvatar = computed(() => !!dropzone.fileStatuses.value[0]?.result)
+
+// Clean up on unmount
+onBeforeUnmount(() => {
+  if (currentPreviewUrl.value) {
+    URL.revokeObjectURL(currentPreviewUrl.value)
+  }
+})
 </script>
 
 <template>
