@@ -434,7 +434,7 @@ The `useDropzoneUpload` composable provides the core functionality for file drop
 | `onFileUploadError` | `(error: TUploadError) => void` | Optional. Callback when file upload fails. |
 | `onAllUploaded` | `() => void` | Optional. Callback when all files are uploaded. |
 | `onRootError` | `(error: string \| undefined) => void` | Optional. Callback when validation errors occur. |
-| `maxRetryCount` | `number` | Optional. Maximum number of retry attempts. Default: `Infinity` |
+| `maxRetryCount` | `number` | Optional. Maximum number of retry attempts. Default: `3` (provided by `useDropzoneUpload`) |
 | `autoRetry` | `boolean` | Optional. Whether to automatically retry failed uploads. |
 | `shapeUploadError` | `(error: TUploadError) => string \| void` | Optional. Function to transform error messages. |
 | `shiftOnMaxFiles` | `boolean` | Optional. Whether to replace oldest file when max files reached. |

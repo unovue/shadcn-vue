@@ -185,7 +185,15 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
   })
 
   const uploadFile = async (file: File, id: string, tries = 0) => {
-    const result = await pOnDropFile(file)
+    let result: Exclude<DropzoneResult<TUploadRes, TUploadError>, { status: "pending" }>
+
+    try {
+      result = await pOnDropFile(file)
+    }
+    catch (error) {
+      // Treat thrown exceptions as errors
+      result = { status: "error" as const, error: error as TUploadError }
+    }
 
     if (result.status === "error") {
       const effectiveMax = maxRetryCount ?? 3
@@ -247,7 +255,7 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
     const effectiveMax = maxRetryCount ?? 3
     return (
       fileStatus?.status === "error"
-      && fileStatus.tries < effectiveMax
+      && fileStatus.tries <= effectiveMax
     )
   }
 
@@ -309,8 +317,10 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
     }
 
     // Process files sequentially to avoid race conditions
+    const batchIds: string[] = []
     for (const file of slicedNewFiles) {
       const id = `file-${getUniqueId()}`
+      batchIds.push(id)
       const newFileStatus: FileStatus<TUploadRes, TUploadError> = {
         id,
         fileName: file.name,
@@ -321,8 +331,15 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
       fileStatuses.value = [...fileStatuses.value, newFileStatus] as FileStatus<TUploadRes, TUploadError>[]
       await uploadFile(file, id)
     }
-    if (pOnAllUploaded !== undefined) {
-      pOnAllUploaded()
+
+    // Only call pOnAllUploaded if batch had files and all succeeded
+    if (pOnAllUploaded !== undefined && batchIds.length > 0) {
+      const allSuccessful = batchIds.every(id =>
+        fileStatuses.value.find(f => f.id === id)?.status === "success",
+      )
+      if (allSuccessful) {
+        pOnAllUploaded()
+      }
     }
   }
 
