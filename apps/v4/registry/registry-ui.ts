@@ -841,6 +841,67 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "dropzone",
+    type: "registry:ui",
+    registryDependencies: [
+      "button",
+    ],
+    files: [
+      {
+        path: "ui/dropzone/Dropzone.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneArea.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneDescription.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneFileList.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneFileListItem.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneFileMessage.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneMessage.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneRemoveFile.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneRetryFile.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/DropzoneTrigger.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/InfiniteProgress.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/dropzone/useDropzoneUpload.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "empty",
     type: "registry:ui",
     files: [

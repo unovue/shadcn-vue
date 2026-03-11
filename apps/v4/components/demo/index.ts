@@ -46,6 +46,12 @@ export { default as ComboboxDemo } from './ComboboxDemo.vue'
 export { default as DialogDemo } from './DialogDemo.vue'
 export { default as DialogResponsive } from './DialogResponsive.vue'
 
+// Dropzone demos
+export { default as DropzoneDemo } from './DropzoneDemo.vue'
+export { default as DropzoneMultiFile } from './DropzoneMultiFile.vue'
+export { default as DropzoneMultiImage } from './DropzoneMultiImage.vue'
+export { default as DropzoneSingleFile } from './DropzoneSingleFile.vue'
+
 // Hover Card demos
 export { default as HoverCardDemo } from './HoverCardDemo.vue'
 

@@ -48,6 +48,7 @@
     "vue": "catalog:",
     "vue-input-otp": "^0.3.2",
     "vue-sonner": "catalog:",
+    "vue3-dropzone": "^2.2.1",
     "zod": "catalog:"
   },
   "devDependencies": {
