@@ -122,7 +122,7 @@ description: Single file upload with avatar preview
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onUnmounted } from 'vue'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -133,12 +133,30 @@ import {
   useDropzoneUpload,
 } from '@/components/ui/dropzone'
 
+const previewUrl = ref<string | null>(null)
+
 const dropzone = useDropzoneUpload({
   onDropFile: async (file: File) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
+    
+    // Revoke previous URL if it exists
+    if (previewUrl.value) {
+      URL.revokeObjectURL(previewUrl.value)
+    }
+    
+    // Create new URL and store reference for cleanup
+    previewUrl.value = URL.createObjectURL(file)
+    
     return {
       status: 'success' as const,
-      result: URL.createObjectURL(file),
+      result: previewUrl.value,
+    }
+  },
+  onRemoveFile: async (id: string) => {
+    // Revoke blob URL when removing file
+    if (previewUrl.value) {
+      URL.revokeObjectURL(previewUrl.value)
+      previewUrl.value = null
     }
   },
   validation: {
@@ -147,6 +165,13 @@ const dropzone = useDropzoneUpload({
     maxFiles: 1,
   },
   shiftOnMaxFiles: true,
+})
+
+// Clean up on unmount
+onUnmounted(() => {
+  if (previewUrl.value) {
+    URL.revokeObjectURL(previewUrl.value)
+  }
 })
 
 const avatarSrc = computed(() => dropzone.fileStatuses.value[0]?.result ?? '')

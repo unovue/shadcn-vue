@@ -220,12 +220,13 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
           : result.error
         fileStatuses.value = [
           ...fileStatuses.value.slice(0, index),
-          { ...currentFile, status: "error" as const, error: shapedError as TUploadError },
+          { ...currentFile, status: "error" as const, error: result.error },
           ...fileStatuses.value.slice(index + 1),
         ] as FileStatus<TUploadRes, TUploadError>[]
-      }
-      if (pOnFileUploadError !== undefined) {
-        pOnFileUploadError(result.error)
+
+        if (pOnFileUploadError !== undefined) {
+          pOnFileUploadError(result.error)
+        }
       }
       return
     }
@@ -239,9 +240,10 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
         { ...currentFile, status: "success" as const, result: result.result },
         ...fileStatuses.value.slice(index + 1),
       ] as FileStatus<TUploadRes, TUploadError>[]
-    }
-    if (pOnFileUploaded !== undefined) {
-      pOnFileUploaded(result.result)
+
+      if (pOnFileUploaded !== undefined) {
+        pOnFileUploaded(result.result)
+      }
     }
   }
 
@@ -300,7 +302,7 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
       }
     }
 
-    const slicedNewFiles
+    let slicedNewFiles
       = shiftOnMaxFiles === true ? newFiles : newFiles.slice(0, maxNewFiles)
 
     if (shiftOnMaxFiles === true && fileStatuses.value.length > 0 && validation?.maxFiles !== undefined) {
@@ -314,6 +316,10 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
           await onRemoveFile(oldestFile.id)
         }
       }
+
+      // Recalculate remaining capacity after removals
+      const remainingCapacity = Math.max(0, validation.maxFiles - fileStatuses.value.length)
+      slicedNewFiles = newFiles.slice(0, remainingCapacity)
     }
 
     // Process files sequentially to avoid race conditions
