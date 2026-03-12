@@ -27,6 +27,7 @@ export interface FileStatus<TUploadRes = unknown, TUploadError = unknown> {
   status: "pending" | "error" | "success"
   result?: TUploadRes
   error?: TUploadError
+  shapedError?: string
 }
 
 export type DropZoneErrorCode
@@ -217,10 +218,10 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
       if (index !== -1 && currentFile) {
         const shapedError = pShapeUploadError !== undefined
           ? pShapeUploadError(result.error)
-          : result.error
+          : undefined
         fileStatuses.value = [
           ...fileStatuses.value.slice(0, index),
-          { ...currentFile, status: "error" as const, error: result.error },
+          { ...currentFile, status: "error" as const, error: result.error, shapedError },
           ...fileStatuses.value.slice(index + 1),
         ] as FileStatus<TUploadRes, TUploadError>[]
 
@@ -302,10 +303,13 @@ export function useDropzoneUpload<TUploadRes, TUploadError = string>(
       }
     }
 
+    // When shiftOnMaxFiles is true, clamp to maxFiles capacity upfront
     let slicedNewFiles
-      = shiftOnMaxFiles === true ? newFiles : newFiles.slice(0, maxNewFiles)
+      = shiftOnMaxFiles === true && validation?.maxFiles !== undefined
+        ? newFiles.slice(0, validation.maxFiles)
+        : (shiftOnMaxFiles === true ? newFiles : newFiles.slice(0, maxNewFiles))
 
-    if (shiftOnMaxFiles === true && fileStatuses.value.length > 0 && validation?.maxFiles !== undefined) {
+    if (shiftOnMaxFiles === true && validation?.maxFiles !== undefined) {
       // Calculate how many files need to be removed
       const removalsNeeded = Math.max(0, fileStatuses.value.length + slicedNewFiles.length - validation.maxFiles)
 

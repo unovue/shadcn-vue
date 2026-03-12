@@ -248,7 +248,8 @@ const dropzone = useDropzoneUpload({
     }
   },
   validation: {
-    maxFiles: 10,
+    maxFiles: 4,
+    maxSize: 5 * 1024 * 1024,
   },
 })
 </script>
@@ -259,7 +260,7 @@ const dropzone = useDropzoneUpload({
       <div>
         <div class="flex justify-between">
           <DropzoneDescription>
-            Please select up to 10 files
+            Select up to 4 files (max 5MB)
           </DropzoneDescription>
           <DropzoneMessage />
         </div>
@@ -346,6 +347,7 @@ description: Multiple image upload with grid preview
 
 ```vue showLineNumbers
 <script setup lang="ts">
+import { onBeforeUnmount } from 'vue'
 import {
   Dropzone,
   DropzoneArea,
@@ -358,12 +360,25 @@ import {
   useDropzoneUpload,
 } from '@/components/ui/dropzone'
 
+// Track created blob URLs for cleanup
+const createdUrls = new Set<string>()
+
 const dropzone = useDropzoneUpload({
   onDropFile: async (file: File) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
+    const url = URL.createObjectURL(file)
+    createdUrls.add(url)
     return {
       status: 'success' as const,
-      result: URL.createObjectURL(file),
+      result: url,
+    }
+  },
+  onRemoveFile: async (id: string) => {
+    // Revoke blob URL when file is removed
+    const file = dropzone.fileStatuses.value.find(f => f.id === id)
+    if (file?.result && typeof file.result === 'string' && createdUrls.has(file.result)) {
+      URL.revokeObjectURL(file.result)
+      createdUrls.delete(file.result)
     }
   },
   validation: {
@@ -371,6 +386,14 @@ const dropzone = useDropzoneUpload({
     maxSize: 5 * 1024 * 1024,
     maxFiles: 4,
   },
+})
+
+// Clean up blob URLs on unmount
+onBeforeUnmount(() => {
+  for (const url of createdUrls) {
+    URL.revokeObjectURL(url)
+  }
+  createdUrls.clear()
 })
 </script>
 
