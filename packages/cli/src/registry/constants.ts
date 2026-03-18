@@ -6,6 +6,197 @@ export const REGISTRY_URL
 
 export const FALLBACK_STYLE = "new-york-v4"
 
+// Available component library bases
+export const BASES = [
+  {
+    name: "reka",
+    label: "Reka UI",
+    description: "Optimized for fast development, easy maintenance, and accessibility.",
+    dependencies: ["reka-ui"],
+  },
+] as const
+
+// Available visual styles
+export const STYLES = [
+  {
+    name: "vega",
+    label: "Vega",
+    description: "The classic shadcn/ui look. Clean, neutral, and familiar.",
+  },
+  {
+    name: "nova",
+    label: "Nova",
+    description: "Reduced padding and margins for compact layouts.",
+  },
+  {
+    name: "maia",
+    label: "Maia",
+    description: "Soft and rounded, with generous spacing.",
+  },
+  {
+    name: "lyra",
+    label: "Lyra",
+    description: "Boxy and sharp. Pairs well with mono fonts.",
+  },
+  {
+    name: "mira",
+    label: "Mira",
+    description: "Compact. Made for dense interfaces.",
+  },
+] as const
+
+// Available fonts with Google Fonts configuration
+export const FONTS = [
+  {
+    name: "inter",
+    label: "Inter",
+    family: "Inter",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "figtree",
+    label: "Figtree",
+    family: "Figtree",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "jetbrains-mono",
+    label: "JetBrains Mono",
+    family: "JetBrains Mono",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');",
+    variable: "--font-mono",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "geist",
+    label: "Geist",
+    family: "Geist",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "geist-mono",
+    label: "Geist Mono",
+    family: "Geist Mono",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');",
+    variable: "--font-mono",
+    weight: ["400", "500", "600", "700"],
+  },
+] as const
+
+// Available icon libraries
+export const ICON_LIBRARIES = [
+  {
+    name: "lucide",
+    label: "Lucide",
+    packages: ["lucide-vue-next"],
+  },
+  {
+    name: "tabler",
+    label: "Tabler Icons",
+    packages: ["@tabler/icons-vue"],
+  },
+  {
+    name: "hugeicons",
+    label: "HugeIcons",
+    packages: ["@hugeicons/vue", "@hugeicons/core-free-icons"],
+  },
+  {
+    name: "phosphor",
+    label: "Phosphor Icons",
+    packages: ["@phosphor-icons/vue"],
+  },
+  {
+    name: "remixicon",
+    label: "Remix Icon",
+    packages: ["@remixicon/vue"],
+  },
+] as const
+
+// Presets - predefined combinations of base, style, icons, and font
+export const PRESETS = [
+  {
+    name: "reka-vega",
+    title: "Vega",
+    description: "Vega / Lucide / Inter",
+    base: "reka",
+    style: "vega",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "lucide",
+    font: "inter",
+    menuAccent: "subtle" as const,
+    menuColor: "default" as const,
+    radius: "default",
+  },
+  {
+    name: "reka-nova",
+    title: "Nova",
+    description: "Nova / Hugeicons / Inter",
+    base: "reka",
+    style: "nova",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "hugeicons",
+    font: "inter",
+    menuAccent: "subtle" as const,
+    menuColor: "default" as const,
+    radius: "default",
+  },
+  {
+    name: "reka-maia",
+    title: "Maia",
+    description: "Maia / Hugeicons / Figtree",
+    base: "reka",
+    style: "maia",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "hugeicons",
+    font: "figtree",
+    menuAccent: "subtle" as const,
+    menuColor: "default" as const,
+    radius: "default",
+  },
+  {
+    name: "reka-lyra",
+    title: "Lyra",
+    description: "Lyra / Hugeicons / JetBrains Mono",
+    base: "reka",
+    style: "lyra",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "hugeicons",
+    font: "jetbrains-mono",
+    menuAccent: "subtle" as const,
+    menuColor: "default" as const,
+    radius: "default",
+  },
+  {
+    name: "reka-mira",
+    title: "Mira",
+    description: "Mira / Hugeicons / Inter",
+    base: "reka",
+    style: "mira",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "hugeicons",
+    font: "inter",
+    menuAccent: "subtle" as const,
+    menuColor: "default" as const,
+    radius: "default",
+  },
+] as const
+
 export const BASE_COLORS = [
   {
     name: "neutral",

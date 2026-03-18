@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "ChartAreaInteractive",
-  "type": "registry:block",
   "dependencies": [
     "@unovis/vue",
     "@unovis/ts"
@@ -21,5 +20,6 @@
   "categories": [
     "chart",
     "chart-area"
-  ]
+  ],
+  "type": "registry:block"
 }

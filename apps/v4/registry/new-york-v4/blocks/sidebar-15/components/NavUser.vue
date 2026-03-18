@@ -63,7 +63,7 @@ const { isMobile } = useSidebar()
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          class="w-[--reka-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+          class="w-(--reka-dropdown-menu-trigger-width) min-w-56 rounded-lg"
           :side="isMobile ? 'bottom' : 'right'"
           align="start"
           :side-offset="4"

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { params } = toRefs(useRoute())
 const { data } = await useFetch(() => `/api/category/${params.value.categories}`)
-console.log(data.value)
 </script>
 
 <template>

@@ -670,6 +670,9 @@
       "reka-ui",
       "@vueuse/core"
     ],
+    "registryDependencies": [
+      "button"
+    ],
     "files": [
       {
         "path": "ui/dialog/Dialog.vue",

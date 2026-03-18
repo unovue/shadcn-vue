@@ -14,11 +14,18 @@ import {
 } from '@/src/registry/api'
 import { buildUrlAndHeadersForRegistryItem } from '@/src/registry/builder'
 import { configWithDefaults } from '@/src/registry/config'
-import { BASE_COLORS, BUILTIN_REGISTRIES } from '@/src/registry/constants'
+import {
+  BASE_COLORS,
+  BASES,
+  BUILTIN_REGISTRIES,
+  FONTS,
+  ICON_LIBRARIES,
+  STYLES,
+} from '@/src/registry/constants'
 import { clearRegistryContext } from '@/src/registry/context'
 import { rawConfigSchema } from '@/src/schema'
 import { addComponents } from '@/src/utils/add-components'
-// import { createProject, TEMPLATES } from '@/src/utils/create-project'
+import { createProject, TEMPLATES } from '@/src/utils/create-project'
 import { loadEnvFiles } from '@/src/utils/env-loader'
 import * as ERRORS from '@/src/utils/errors'
 import {
@@ -62,6 +69,7 @@ process.on('exit', (code) => {
 
 export const initOptionsSchema = z.object({
   cwd: z.string(),
+  name: z.string().optional(),
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),
@@ -70,20 +78,76 @@ export const initOptionsSchema = z.object({
   isNewProject: z.boolean(),
   srcDir: z.boolean().optional(),
   cssVariables: z.boolean(),
-  // template: z
-  //   .string()
-  //   .optional()
-  //   .refine(
-  //     (val) => {
-  //       if (val) {
-  //         return TEMPLATES[val as keyof typeof TEMPLATES]
-  //       }
-  //       return true
-  //     },
-  //     {
-  //       message: 'Invalid template. Please use \'next\' or \'next-monorepo\'.',
-  //     },
-  //   ),
+  template: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return TEMPLATES[val as keyof typeof TEMPLATES]
+        }
+        return true
+      },
+      {
+        message: 'Invalid template. Please use \'nuxt\', \'vite\', or \'vite-router\'.',
+      },
+    ),
+  base: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return BASES.find(base => base.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid base. Please use '${BASES.map(base => base.name).join('\', \'')}'`,
+      },
+    ),
+  style: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return STYLES.find(style => style.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid style. Please use '${STYLES.map(style => style.name).join('\', \'')}'`,
+      },
+    ),
+  iconLibrary: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return ICON_LIBRARIES.find(lib => lib.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid icon library. Please use '${ICON_LIBRARIES.map(lib => lib.name).join('\', \'')}'`,
+      },
+    ),
+  font: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return FONTS.find(font => font.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid font. Please use '${FONTS.map(font => font.name).join('\', \'')}'`,
+      },
+    ),
   baseColor: z
     .string()
     .optional()
@@ -108,10 +172,30 @@ export const init = new Command()
   .name('init')
   .description('initialize your project and install dependencies')
   .argument('[components...]', 'names, url or local path to component')
-  // .option(
-  //   '-t, --template <template>',
-  //   'the template to use. (next, next-monorepo)',
-  // )
+  .option(
+    '-t, --template <template>',
+    'the template to use. (nuxt, vite, vite-router)',
+  )
+  .option(
+    '--base <base>',
+    'the component library base to use. (reka)',
+    undefined,
+  )
+  .option(
+    '--style <style>',
+    'the visual style to use. (vega, nova, maia, lyra, mira)',
+    undefined,
+  )
+  .option(
+    '--icon-library <icon-library>',
+    'the icon library to use. (lucide, tabler, hugeicons, phosphor, remixicon)',
+    undefined,
+  )
+  .option(
+    '--font <font>',
+    'the font to use. (inter, figtree, jetbrains-mono, geist, geist-mono)',
+    undefined,
+  )
   .option(
     '-b, --base-color <base-color>',
     'the base color to use. (neutral, gray, zinc, stone, slate)',
@@ -126,15 +210,15 @@ export const init = new Command()
     process.cwd(),
   )
   .option('-s, --silent', 'mute output.', false)
-  // .option(
-  //   '--src-dir',
-  //   'use the src directory when creating a new project.',
-  //   false,
-  // )
-  // .option(
-  //   '--no-src-dir',
-  //   'do not use the src directory when creating a new project.',
-  // )
+  .option(
+    '--src-dir',
+    'use the src directory when creating a new project.',
+    false,
+  )
+  .option(
+    '--no-src-dir',
+    'do not use the src directory when creating a new project.',
+  )
   .option('--css-variables', 'use css variables for theming.', true)
   .option('--no-css-variables', 'do not use css variables for theming.')
   .option('--no-base-style', 'do not install the base shadcn style.')
@@ -142,7 +226,11 @@ export const init = new Command()
     try {
       // Apply defaults when --defaults flag is set.
       if (opts.defaults) {
-        opts.template = opts.template || 'next'
+        opts.template = opts.template || 'nuxt'
+        opts.base = opts.base || 'reka'
+        opts.style = opts.style || 'vega'
+        opts.iconLibrary = opts.iconLibrary || 'lucide'
+        opts.font = opts.font || 'inter'
         opts.baseColor = opts.baseColor || 'neutral'
       }
 
@@ -255,28 +343,21 @@ export async function runInit(
   },
 ) {
   let projectInfo
-  let newProjectTemplate
   if (!options.skipPreflight) {
     const preflight = await preFlightInit(options)
     if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
-      // const { projectPath, template } = await createProject(options)
-      // if (!projectPath) {
-      process.exit(1)
-      // }
-      // options.cwd = projectPath
-      // options.isNewProject = true
-      // newProjectTemplate = template
+      const { projectPath } = await createProject(options)
+      if (!projectPath) {
+        process.exit(1)
+      }
+      options.cwd = projectPath
+      options.isNewProject = true
     }
     projectInfo = preflight.projectInfo
   }
   else {
     projectInfo = await getProjectInfo(options.cwd)
   }
-
-  // if (newProjectTemplate === 'next-monorepo') {
-  //   options.cwd = path.resolve(options.cwd, 'apps/web')
-  //   return await getConfig(options.cwd)
-  // }
 
   const projectConfig = await getProjectConfig(options.cwd, projectInfo)
 
@@ -396,12 +477,51 @@ async function promptForConfig(defaultConfig: Config | null = null) {
     },
     {
       type: 'select',
-      name: 'style',
-      message: `Which ${highlighter.info('style')} would you like to use?`,
-      choices: styles.map(style => ({
-        title: style.label,
-        value: style.name,
+      name: 'base',
+      message: `Which ${highlighter.info('component library')} would you like to use?`,
+      choices: BASES.map(base => ({
+        title: base.label,
+        value: base.name,
+        description: base.description,
       })),
+      initial: 0,
+    },
+    {
+      type: 'select',
+      name: 'style',
+      message: `Which ${highlighter.info('visual style')} would you like to use?`,
+      choices: [
+        ...STYLES.map(style => ({
+          title: style.label,
+          value: style.name,
+          description: style.description,
+        })),
+        ...styles.filter(s => !STYLES.find(st => st.name === s.name)).map(style => ({
+          title: style.label,
+          value: style.name,
+        })),
+      ],
+      initial: 0,
+    },
+    {
+      type: 'select',
+      name: 'iconLibrary',
+      message: `Which ${highlighter.info('icon library')} would you like to use?`,
+      choices: ICON_LIBRARIES.map(lib => ({
+        title: lib.label,
+        value: lib.name,
+      })),
+      initial: 0,
+    },
+    {
+      type: 'select',
+      name: 'font',
+      message: `Which ${highlighter.info('font')} would you like to use?`,
+      choices: FONTS.map(font => ({
+        title: font.label,
+        value: font.name,
+      })),
+      initial: 0,
     },
     {
       type: 'select',
@@ -464,7 +584,10 @@ async function promptForConfig(defaultConfig: Config | null = null) {
 
   return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
+    base: options.base,
     style: options.style,
+    font: options.font,
+    iconLibrary: options.iconLibrary,
     tailwind: {
       config: options.tailwindConfig,
       css: options.tailwindCss,
@@ -487,7 +610,10 @@ async function promptForMinimalConfig(
   defaultConfig: Config,
   opts: z.infer<typeof initOptionsSchema>,
 ) {
-  let style = defaultConfig.style
+  let base = opts.base ?? defaultConfig.base ?? 'reka'
+  let style = opts.style ?? defaultConfig.style
+  let iconLibrary = opts.iconLibrary ?? defaultConfig.iconLibrary ?? 'lucide'
+  let font = opts.font ?? defaultConfig.font ?? 'inter'
   let baseColor = opts.baseColor
   let cssVariables = defaultConfig.tailwind.cssVariables
 
@@ -500,13 +626,50 @@ async function promptForMinimalConfig(
 
     const options = await prompts([
       {
-        type: tailwindVersion === 'v4' ? null : 'select',
+        type: opts.base ? null : 'select',
+        name: 'base',
+        message: `Which ${highlighter.info('component library')} would you like to use?`,
+        choices: BASES.map(b => ({
+          title: b.label,
+          value: b.name,
+          description: b.description,
+        })),
+        initial: 0,
+      },
+      {
+        type: tailwindVersion === 'v4' || opts.style ? null : 'select',
         name: 'style',
-        message: `Which ${highlighter.info('style')} would you like to use?`,
-        choices: styles.map(style => ({
-          title:
-            style.name === 'new-york' ? 'New York (Recommended)' : style.label,
-          value: style.name,
+        message: `Which ${highlighter.info('visual style')} would you like to use?`,
+        choices: [
+          ...STYLES.map(s => ({
+            title: s.name === 'vega' ? 'Vega (Recommended)' : s.label,
+            value: s.name,
+            description: s.description,
+          })),
+          ...styles.filter(s => !STYLES.find(st => st.name === s.name)).map(s => ({
+            title: s.label,
+            value: s.name,
+          })),
+        ],
+        initial: 0,
+      },
+      {
+        type: opts.iconLibrary ? null : 'select',
+        name: 'iconLibrary',
+        message: `Which ${highlighter.info('icon library')} would you like to use?`,
+        choices: ICON_LIBRARIES.map(lib => ({
+          title: lib.label,
+          value: lib.name,
+        })),
+        initial: 0,
+      },
+      {
+        type: opts.font ? null : 'select',
+        name: 'font',
+        message: `Which ${highlighter.info('font')} would you like to use?`,
+        choices: FONTS.map(f => ({
+          title: f.label,
+          value: f.name,
         })),
         initial: 0,
       },
@@ -523,14 +686,20 @@ async function promptForMinimalConfig(
       },
     ])
 
-    style = options.style ?? 'new-york'
+    base = options.base ?? base
+    style = options.style ?? style ?? 'vega'
+    iconLibrary = options.iconLibrary ?? iconLibrary
+    font = options.font ?? font
     baseColor = options.tailwindBaseColor ?? baseColor
     cssVariables = opts.cssVariables
   }
 
   return rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
+    base,
     style,
+    font,
+    iconLibrary,
     tailwind: {
       ...defaultConfig?.tailwind,
       baseColor,
@@ -538,6 +707,5 @@ async function promptForMinimalConfig(
     },
     typescript: defaultConfig.typescript,
     aliases: defaultConfig?.aliases,
-    iconLibrary: defaultConfig?.iconLibrary,
   })
 }

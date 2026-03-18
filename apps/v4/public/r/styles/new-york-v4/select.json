@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "select",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -67,5 +66,6 @@
       "content": "export { default as Select } from \"./Select.vue\"\nexport { default as SelectContent } from \"./SelectContent.vue\"\nexport { default as SelectGroup } from \"./SelectGroup.vue\"\nexport { default as SelectItem } from \"./SelectItem.vue\"\nexport { default as SelectItemText } from \"./SelectItemText.vue\"\nexport { default as SelectLabel } from \"./SelectLabel.vue\"\nexport { default as SelectScrollDownButton } from \"./SelectScrollDownButton.vue\"\nexport { default as SelectScrollUpButton } from \"./SelectScrollUpButton.vue\"\nexport { default as SelectSeparator } from \"./SelectSeparator.vue\"\nexport { default as SelectTrigger } from \"./SelectTrigger.vue\"\nexport { default as SelectValue } from \"./SelectValue.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

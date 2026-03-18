@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "scroll-area",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -22,5 +21,6 @@
       "content": "export { default as ScrollArea } from \"./ScrollArea.vue\"\nexport { default as ScrollBar } from \"./ScrollBar.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

@@ -26,12 +26,12 @@ export const siteConfig = {
       label: 'Charts',
     },
     {
-      href: '/themes',
-      label: 'Themes',
-    },
-    {
       href: '/colors',
       label: 'Colors',
+    },
+    {
+      href: '/create',
+      label: 'Create',
     },
   ],
 }

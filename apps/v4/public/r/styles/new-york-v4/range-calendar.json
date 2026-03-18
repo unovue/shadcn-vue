@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "range-calendar",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -75,5 +74,6 @@
       "content": "export { default as RangeCalendar } from \"./RangeCalendar.vue\"\nexport { default as RangeCalendarCell } from \"./RangeCalendarCell.vue\"\nexport { default as RangeCalendarCellTrigger } from \"./RangeCalendarCellTrigger.vue\"\nexport { default as RangeCalendarGrid } from \"./RangeCalendarGrid.vue\"\nexport { default as RangeCalendarGridBody } from \"./RangeCalendarGridBody.vue\"\nexport { default as RangeCalendarGridHead } from \"./RangeCalendarGridHead.vue\"\nexport { default as RangeCalendarGridRow } from \"./RangeCalendarGridRow.vue\"\nexport { default as RangeCalendarHeadCell } from \"./RangeCalendarHeadCell.vue\"\nexport { default as RangeCalendarHeader } from \"./RangeCalendarHeader.vue\"\nexport { default as RangeCalendarHeading } from \"./RangeCalendarHeading.vue\"\nexport { default as RangeCalendarNextButton } from \"./RangeCalendarNextButton.vue\"\nexport { default as RangeCalendarPrevButton } from \"./RangeCalendarPrevButton.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

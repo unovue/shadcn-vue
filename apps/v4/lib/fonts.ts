@@ -1,0 +1,81 @@
+export const FONTS = [
+  {
+    name: 'Geist Sans',
+    value: 'geist',
+    cssVar: '--font-geist',
+    fontFamily: '\'Geist Variable\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Inter',
+    value: 'inter',
+    cssVar: '--font-inter',
+    fontFamily: '\'Inter\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Noto Sans',
+    value: 'noto-sans',
+    cssVar: '--font-noto-sans',
+    fontFamily: '\'Noto Sans\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Nunito Sans',
+    value: 'nunito-sans',
+    cssVar: '--font-nunito-sans',
+    fontFamily: '\'Nunito Sans\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Figtree',
+    value: 'figtree',
+    cssVar: '--font-figtree',
+    fontFamily: '\'Figtree\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Roboto',
+    value: 'roboto',
+    cssVar: '--font-roboto',
+    fontFamily: '\'Roboto\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Raleway',
+    value: 'raleway',
+    cssVar: '--font-raleway',
+    fontFamily: '\'Raleway\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'DM Sans',
+    value: 'dm-sans',
+    cssVar: '--font-dm-sans',
+    fontFamily: '\'DM Sans\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Public Sans',
+    value: 'public-sans',
+    cssVar: '--font-public-sans',
+    fontFamily: '\'Public Sans\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Outfit',
+    value: 'outfit',
+    cssVar: '--font-outfit',
+    fontFamily: '\'Outfit\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'JetBrains Mono',
+    value: 'jetbrains-mono',
+    cssVar: '--font-jetbrains-mono',
+    fontFamily: '\'JetBrains Mono\', monospace',
+    type: 'mono',
+  },
+] as const
+
+export type Font = (typeof FONTS)[number]

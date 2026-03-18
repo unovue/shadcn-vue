@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sidebar-09",
-  "type": "registry:block",
   "description": "Collapsible nested sidebars.",
   "registryDependencies": [
     "breadcrumb",
@@ -33,5 +32,6 @@
   "categories": [
     "sidebar",
     "dashboard"
-  ]
+  ],
+  "type": "registry:block"
 }

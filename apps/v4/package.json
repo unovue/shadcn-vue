@@ -3,21 +3,26 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "NODE_OPTIONS=--max-old-space-size=8192 nuxt build",
+    "build": "NODE_OPTIONS=--max-old-space-size=16384 nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "vue-tsc -b",
-    "deploy": "pnpm build && npx wrangler --cwd .output/ deploy",
-    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts"
+    "deploy": "pnpm build && npx tsx ./scripts/seed-d1.ts && npx wrangler --cwd .output/ deploy",
+    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts",
+    "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts"
   },
   "dependencies": {
     "@dnd-kit/abstract": "^0.1.21",
+    "@hugeicons/core-free-icons": "^2.0.0",
+    "@hugeicons/vue": "^1.0.3",
     "@internationalized/date": "catalog:",
     "@nuxt/content": "^3.9.0",
     "@nuxt/fonts": "0.12.1",
     "@nuxt/image": "2.0.0",
+    "@phosphor-icons/vue": "^2.2.1",
+    "@remixicon/vue": "^4.8.0",
     "@tabler/icons-vue": "^3.35.0",
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/vue-form": "^1.27.2",
@@ -27,6 +32,7 @@
     "@unovis/vue": "catalog:",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
+    "@vueuse/router": "^14.1.0",
     "chrono-node": "^2.9.0",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
@@ -59,6 +65,7 @@
     "prettier": "^3.7.4",
     "rimraf": "^6.1.2",
     "shiki": "^3.19.0",
+    "tsx": "catalog:",
     "vue-tsc": "catalog:",
     "wrangler": "^4.53.0"
   }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "tabs",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -32,5 +31,6 @@
       "content": "export { default as Tabs } from \"./Tabs.vue\"\nexport { default as TabsContent } from \"./TabsContent.vue\"\nexport { default as TabsList } from \"./TabsList.vue\"\nexport { default as TabsTrigger } from \"./TabsTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

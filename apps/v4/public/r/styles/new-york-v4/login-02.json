@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "login-02",
-  "type": "registry:block",
   "description": "A two column login page with a cover image.",
   "registryDependencies": [
     "button",
@@ -24,5 +23,6 @@
   "categories": [
     "authentication",
     "login"
-  ]
+  ],
+  "type": "registry:block"
 }

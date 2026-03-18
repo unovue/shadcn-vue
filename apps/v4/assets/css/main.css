@@ -4,9 +4,23 @@
 @import "./themes.css";
 @import "./fonts.css";
 
-@custom-variant dark (&:is(.dark *));
 
+@import "../../registry/styles/style-vega.css" layer(base);
+@import "../../registry/styles/style-nova.css" layer(base);
+@import "../../registry/styles/style-lyra.css" layer(base);
+@import "../../registry/styles/style-maia.css" layer(base);
+@import "../../registry/styles/style-mira.css" layer(base);
+
+@custom-variant style-vega (&:where(.style-vega *));
+@custom-variant style-nova (&:where(.style-nova *));
+@custom-variant style-lyra (&:where(.style-lyra *));
+@custom-variant style-maia (&:where(.style-maia *));
+@custom-variant style-mira (&:where(.style-mira *));
+
+
+@custom-variant dark (&:is(.dark *));
 @custom-variant fixed (&:is(.layout-fixed *));
+
 
 @theme inline {
   --breakpoint-3xl: 1600px;
@@ -168,7 +182,7 @@
   }
 
   [data-slot="layout"] {
-    @apply 3xl:p-2 3xl:fixed:p-0 overscroll-none;
+    @apply overscroll-none;
   }
 
 

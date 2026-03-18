@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "tooltip",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -32,5 +31,6 @@
       "content": "export { default as Tooltip } from \"./Tooltip.vue\"\nexport { default as TooltipContent } from \"./TooltipContent.vue\"\nexport { default as TooltipProvider } from \"./TooltipProvider.vue\"\nexport { default as TooltipTrigger } from \"./TooltipTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

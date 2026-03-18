@@ -275,6 +275,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
                 size="icon-sm"
                 class="rounded-full"
                 aria-label="Attach file"
+                type="button"
               >
                 <IconPaperclip />
               </InputGroupButton>
@@ -427,6 +428,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
             class="ml-auto rounded-full"
             variant="default"
             size="icon-sm"
+            type="button"
           >
             <IconArrowUp />
           </InputGroupButton>

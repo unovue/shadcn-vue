@@ -1,5 +1,4 @@
 import tailwindcss from '@tailwindcss/vite'
-import { siteConfig } from './lib/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -23,6 +22,19 @@ export default defineNuxtConfig({
     defaults: {
       weights: [400, 500, 600, 700],
     },
+    families: [
+      // To improve and only load font when needed
+      { name: 'Inter', global: true, provider: 'google' },
+      { name: 'Noto Sans', global: true, provider: 'google' },
+      { name: 'Nunito Sans', global: true, provider: 'google' },
+      { name: 'Figtree', global: true, provider: 'google' },
+      { name: 'JetBrains Mono', global: true, provider: 'google' },
+      { name: 'Roboto', global: true, provider: 'google' },
+      { name: 'Raleway', global: true, provider: 'google' },
+      { name: 'DM Sans', global: true, provider: 'google' },
+      { name: 'Public Sans', global: true, provider: 'google' },
+      { name: 'Outfit', global: true, provider: 'google' },
+    ],
   },
   content: {
     build: {
@@ -58,12 +70,33 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ['@tabler/icons-vue'],
+    },
   },
   build: {
     transpile: ['vee-validate', 'vue-sonner'],
   },
+  routeRules: {
+    // Static assets - immutable, long cache
+    '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    // Doc pages - ISR with 6 hour revalidation
+    '/docs/**': { isr: 21600 },
+    // Block/chart/example pages - SWR with 6 hours
+    '/blocks/**': { swr: 21600 },
+    '/charts/**': { swr: 21600 },
+    '/examples/**': { swr: 21600 },
+    '/colors/**': { swr: 21600 },
+    '/themes': { swr: 21600 },
+    // API routes - cache at CDN level
+    '/api/all-items': { cache: { maxAge: 86400 } },
+    '/api/base/**': { cache: { maxAge: 86400 } },
+    '/api/block/**': { cache: { maxAge: 3600 } },
+    '/api/category/**': { cache: { maxAge: 3600 } },
+  },
   nitro: {
     preset: 'cloudflare-module',
+    compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
       routes: ['/'],
@@ -97,7 +130,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'manifest', href: `${siteConfig.url}/site.webmanifest` },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'shortcut icon', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],

@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sheet",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -57,5 +56,6 @@
       "content": "export { default as Sheet } from \"./Sheet.vue\"\nexport { default as SheetClose } from \"./SheetClose.vue\"\nexport { default as SheetContent } from \"./SheetContent.vue\"\nexport { default as SheetDescription } from \"./SheetDescription.vue\"\nexport { default as SheetFooter } from \"./SheetFooter.vue\"\nexport { default as SheetHeader } from \"./SheetHeader.vue\"\nexport { default as SheetTitle } from \"./SheetTitle.vue\"\nexport { default as SheetTrigger } from \"./SheetTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

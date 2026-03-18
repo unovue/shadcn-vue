@@ -98,6 +98,14 @@ export async function resolveConfigPaths(
             (await resolveImport(config.aliases.utils, tsConfig)) ?? cwd,
             '..',
           ),
+      hooks: config.aliases.hooks
+        ? await resolveImport(config.aliases.hooks, tsConfig)
+        : path.resolve(
+            (await resolveImport(config.aliases.components, tsConfig))
+            ?? cwd,
+            '..',
+            'hooks',
+          ),
       composables: config.aliases.composables
         ? await resolveImport(config.aliases.composables, tsConfig)
         : path.resolve(
@@ -254,9 +262,12 @@ export function createConfig(partial?: DeepPartial<Config>): Config {
       components: '',
       ui: '',
       lib: '',
+      hooks: '',
       composables: '',
     },
     style: '',
+    base: 'reka',
+    font: 'inter',
     tailwind: {
       config: '',
       css: '',

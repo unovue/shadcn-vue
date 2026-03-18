@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "input-otp",
-  "type": "registry:ui",
   "dependencies": [
     "vue-input-otp",
     "@vueuse/core",
@@ -33,5 +32,6 @@
       "content": "export { default as InputOTP } from \"./InputOTP.vue\"\nexport { default as InputOTPGroup } from \"./InputOTPGroup.vue\"\nexport { default as InputOTPSeparator } from \"./InputOTPSeparator.vue\"\nexport { default as InputOTPSlot } from \"./InputOTPSlot.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

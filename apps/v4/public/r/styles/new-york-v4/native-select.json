@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "native-select",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -27,5 +26,6 @@
       "content": "export { default as NativeSelect } from \"./NativeSelect.vue\"\nexport { default as NativeSelectOptGroup } from \"./NativeSelectOptGroup.vue\"\nexport { default as NativeSelectOption } from \"./NativeSelectOption.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

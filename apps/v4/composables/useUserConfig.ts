@@ -1,5 +1,5 @@
 import { createSharedComposable, isClient, watchImmediate } from '@vueuse/core'
-import { baseColors } from '@/registry/registry-base-colors'
+import { baseColors } from '~/registry/_legacy-base-colors'
 
 const THEMES = baseColors.filter(
   theme => !['slate', 'stone', 'gray', 'zinc'].includes(theme.name),

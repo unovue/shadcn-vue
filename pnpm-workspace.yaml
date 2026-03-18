@@ -1,8 +1,12 @@
 catalogMode: prefer
+# catalogMode: prefer
+# catalogMode: prefer
 cleanupUnusedCatalogs: true
 
 shellEmulator: true
 trustPolicy: no-downgrade
+
+# trustPolicy: no-downgrade
 
 packages:
   - apps/*
@@ -24,6 +28,7 @@ overrides:
 catalog:
   '@internationalized/date': ^3.10.0
   '@types/node': ^24
+  '@types/validate-npm-package-name': ^4.0.2
   '@unovis/ts': ^1.6.2
   '@unovis/vue': ^1.6.2
   '@vee-validate/zod': ^4.15.1
@@ -31,12 +36,14 @@ catalog:
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   date-fns: ^4.1.0
+  open: ^10.2.0
   oxc-parser: ^0.102.0
   pathe: ^2.0.3
-  reka-ui: ^2.7.0
+  reka-ui: ^2.9.2
   tinyglobby: ^0.2.15
   tsx: ^4.21.0
   typescript: ^5.9.3
+  validate-npm-package-name: ^5.0.1
   vaul-vue: ^0.4.1
   vee-validate: ^4.15.1
   vue: ^3.5.25
@@ -54,3 +61,9 @@ onlyBuiltDependencies:
   - unrs-resolver
   - vue-demi
   - workerd
+
+trustPolicyExclude:
+  - "chokidar@4.0.3"
+  - "koa@2.16.3"
+  - "semver@6.3.1"
+  - "tailwindcss@3.4.18"

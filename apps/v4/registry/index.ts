@@ -2,14 +2,12 @@ import type { Registry } from "shadcn-vue/schema"
 import { registryItemSchema } from "shadcn-vue/schema"
 import { z } from "zod"
 
-import { blocks } from "@/registry/registry-blocks"
-import { charts } from "@/registry/registry-charts"
-import { composables } from "@/registry/registry-composables"
-import { examples } from "@/registry/registry-examples"
-import { internal } from "@/registry/registry-internal"
-import { lib } from "@/registry/registry-lib"
-import { themes } from "@/registry/registry-themes"
-import { ui } from "@/registry/registry-ui"
+import { themes } from "~/registry/_legacy-themes"
+import { blocks } from "~/registry/new-york-v4/blocks/_registry"
+import { charts } from "~/registry/new-york-v4/charts/_registry"
+import { examples } from "~/registry/new-york-v4/examples/_registry"
+import { lib } from "~/registry/new-york-v4/lib/_registry"
+import { ui } from "~/registry/new-york-v4/ui/_registry"
 
 const DEPRECATED_ITEMS = [
   "toast",
@@ -47,10 +45,10 @@ export const registry = {
       ...blocks,
       ...charts,
       ...lib,
-      ...composables,
+      // ...composables,
       ...themes,
       ...examples,
-      ...internal,
+      // ...internal,
     ]
       .filter((item) => {
         return !DEPRECATED_ITEMS.includes(item.name)

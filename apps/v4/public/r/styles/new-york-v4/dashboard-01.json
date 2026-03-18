@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "dashboard-01",
-  "type": "registry:block",
   "description": "A dashboard with sidebar, charts and data table.",
   "dependencies": [
     "@unovis/vue",
@@ -89,5 +88,6 @@
   ],
   "categories": [
     "dashboard"
-  ]
+  ],
+  "type": "registry:block"
 }

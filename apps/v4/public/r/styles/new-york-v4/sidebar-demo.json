@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "sidebar-demo",
-  "type": "registry:block",
   "registryDependencies": [
     "sidebar"
   ],
@@ -12,5 +11,6 @@
       "type": "registry:page",
       "target": "pages/sidebar-demo/index.vue"
     }
-  ]
+  ],
+  "type": "registry:block"
 }
