@@ -43,6 +43,11 @@ export const STYLES = [
     label: "Mira",
     description: "Compact. Made for dense interfaces.",
   },
+  {
+    name: "luma",
+    label: "Luma",
+    description: "Fluid, luminous, and glassy.",
+  },
 ] as const
 
 // Available fonts with Google Fonts configuration
@@ -190,6 +195,20 @@ export const PRESETS = [
     baseColor: "neutral",
     theme: "neutral",
     iconLibrary: "hugeicons",
+    font: "inter",
+    menuAccent: "subtle" as const,
+    menuColor: "default" as const,
+    radius: "default",
+  },
+  {
+    name: "reka-luma",
+    title: "Luma",
+    description: "Luma / Lucide / Inter",
+    base: "reka",
+    style: "luma",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "lucide",
     font: "inter",
     menuAccent: "subtle" as const,
     menuColor: "default" as const,

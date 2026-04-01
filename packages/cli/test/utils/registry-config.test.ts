@@ -26,6 +26,10 @@ describe('resolveRegistryStyle', () => {
     expect(resolveRegistryStyle('mira')).toBe('new-york-v4')
   })
 
+  it('returns fallback style for luma', () => {
+    expect(resolveRegistryStyle('luma')).toBe('new-york-v4')
+  })
+
   it('returns new-york-v4 as-is', () => {
     expect(resolveRegistryStyle('new-york-v4')).toBe('new-york-v4')
   })
