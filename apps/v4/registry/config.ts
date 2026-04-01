@@ -205,6 +205,21 @@ export const PRESETS: Preset[] = [
     menuColor: "default",
     radius: "default",
   },
+  {
+    name: "reka-luma",
+    title: "Luma",
+    description: "Luma / Lucide / Inter",
+    base: "reka",
+    style: "luma",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "lucide",
+    font: "inter",
+    item: "Item",
+    menuAccent: "subtle",
+    menuColor: "default",
+    radius: "default",
+  },
 ]
 
 export function getThemesForBaseColor(baseColorName: string) {

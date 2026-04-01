@@ -52,7 +52,7 @@ describe('registry API', () => {
       expect(styles.length).toBeGreaterThan(0)
     })
 
-    it('includes all five styles', () => {
+    it('includes all six styles', () => {
       const styles = getRegistryVisualStyles()
       const styleNames = styles.map(s => s.name)
       expect(styleNames).toContain('vega')
@@ -60,6 +60,7 @@ describe('registry API', () => {
       expect(styleNames).toContain('maia')
       expect(styleNames).toContain('lyra')
       expect(styleNames).toContain('mira')
+      expect(styleNames).toContain('luma')
     })
   })
 
@@ -76,6 +77,13 @@ describe('registry API', () => {
       expect(nova).toBeDefined()
       expect(nova?.name).toBe('nova')
       expect(nova?.description).toContain('compact')
+    })
+
+    it('returns luma style by name', () => {
+      const luma = getRegistryVisualStyle('luma')
+      expect(luma).toBeDefined()
+      expect(luma?.name).toBe('luma')
+      expect(luma?.label).toBe('Luma')
     })
 
     it('returns undefined for unknown style', () => {
@@ -175,6 +183,7 @@ describe('registry API', () => {
       expect(presetNames).toContain('reka-maia')
       expect(presetNames).toContain('reka-lyra')
       expect(presetNames).toContain('reka-mira')
+      expect(presetNames).toContain('reka-luma')
     })
 
     it('all presets have complete configuration', () => {
@@ -226,6 +235,15 @@ describe('registry API', () => {
       expect(mira).toBeDefined()
       expect(mira?.name).toBe('reka-mira')
       expect(mira?.style).toBe('mira')
+    })
+
+    it('returns luma preset by name', () => {
+      const luma = getRegistryPreset('reka-luma')
+      expect(luma).toBeDefined()
+      expect(luma?.name).toBe('reka-luma')
+      expect(luma?.style).toBe('luma')
+      expect(luma?.iconLibrary).toBe('lucide')
+      expect(luma?.font).toBe('inter')
     })
 
     it('returns undefined for unknown preset', () => {

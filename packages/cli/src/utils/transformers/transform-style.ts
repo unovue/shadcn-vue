@@ -66,6 +66,13 @@ const STYLE_CLASS_MAPPINGS: Record<string, Record<string, string>> = {
     'w-10': 'w-8',
     'w-12': 'w-10',
   },
+  luma: {
+    // Luma style: Fluid, luminous, and glassy
+    'rounded-sm': 'rounded-xl',
+    'rounded-md': 'rounded-2xl',
+    'rounded-lg': 'rounded-3xl',
+    'rounded-xl': 'rounded-3xl',
+  },
 }
 
 /**
