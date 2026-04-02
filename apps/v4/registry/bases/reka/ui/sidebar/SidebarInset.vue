@@ -11,7 +11,7 @@ const props = defineProps<{
   <main
     data-slot="sidebar-inset"
     :class="cn(
-      'cn-sidebar-inset relative flex w-full flex-1 flex-col',
+      'cn-sidebar-inset relative flex min-w-0 w-full flex-1 flex-col',
       props.class,
     )"
   >
