@@ -9,7 +9,7 @@ const DEFAULT_BASE = "reka"
 // Visual styles that are transformations of the base style
 // These styles don't have separate registry entries - they use new-york-v4
 // and apply CSS class transformations during installation
-const VISUAL_STYLES = ["vega", "nova", "maia", "lyra", "mira"]
+const VISUAL_STYLES = ["vega", "nova", "maia", "lyra", "mira", "luma"]
 
 /**
  * Resolves the registry style to use for fetching components.
