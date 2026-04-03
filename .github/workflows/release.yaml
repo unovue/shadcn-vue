@@ -60,7 +60,6 @@ jobs:
       - name: Build Module & Publish to npm
         working-directory: packages/module
         run: |
-          pnpm prepack
           pnpm pack
           TARBALL="shadcn-nuxt-$(node -p "require('./package.json').version").tgz"
           test -f "$TARBALL" || { echo "Tarball not found"; exit 1; }
