@@ -68,7 +68,7 @@ function onSubmit(values: any) {
 <template>
   <Form
     v-slot="{ meta, values, validate }"
-    as="" keep-values :validation-schema="toTypedSchema(formSchema[stepIndex - 1])"
+    as="" keep-values :validation-schema="toTypedSchema(formSchema[stepIndex - 1]!)"
   >
     <Stepper v-slot="{ isNextDisabled, isPrevDisabled, nextStep, prevStep, modelValue }" v-model="stepIndex" class="block w-full">
       <form
@@ -90,7 +90,7 @@ function onSubmit(values: any) {
             :step="step.step"
           >
             <StepperSeparator
-              v-if="step.step !== steps[steps.length - 1].step"
+              v-if="step.step !== steps[steps.length - 1]!.step"
               class="absolute left-[calc(50%+20px)] right-[calc(-50%+10px)] top-5 block h-0.5 shrink-0 rounded-full bg-muted group-data-[state=completed]:bg-primary"
             />
 

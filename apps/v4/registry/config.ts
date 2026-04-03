@@ -43,13 +43,19 @@ export type MenuAccent = (typeof MENU_ACCENTS)[number]
 export type MenuAccentValue = MenuAccent["value"]
 
 export const MENU_COLORS = [
-  { value: "default", label: "Default" },
-  { value: "inverted", label: "Inverted" },
+  { value: "default", label: "Default / Solid" },
+  { value: "default-translucent", label: "Default / Translucent" },
+  { value: "inverted", label: "Inverted / Solid" },
+  { value: "inverted-translucent", label: "Inverted / Translucent" },
 ] as const
 
 export type MenuColor = (typeof MENU_COLORS)[number]
 
 export type MenuColorValue = MenuColor["value"]
+
+export function isTranslucentMenuColor(menuColor?: MenuColorValue | null): menuColor is "default-translucent" | "inverted-translucent" {
+  return menuColor === "default-translucent" || menuColor === "inverted-translucent"
+}
 
 export const RADII = [
   { name: "default", label: "Default", value: "" },
@@ -111,14 +117,14 @@ export type DesignSystemConfig = z.infer<typeof designSystemConfigSchema>
 
 export const DEFAULT_CONFIG: DesignSystemConfig = {
   base: "reka",
-  style: "vega",
+  style: "luma",
   baseColor: "neutral",
-  theme: "neutral",
-  iconLibrary: "lucide",
-  font: "inter",
+  theme: "blue",
+  iconLibrary: "hugeicons",
+  font: "geist",
   item: "Item",
   menuAccent: "subtle",
-  menuColor: "default",
+  menuColor: "inverted-translucent",
   radius: "default",
   template: "next",
 }
@@ -199,6 +205,21 @@ export const PRESETS: Preset[] = [
     baseColor: "neutral",
     theme: "neutral",
     iconLibrary: "hugeicons",
+    font: "inter",
+    item: "Item",
+    menuAccent: "subtle",
+    menuColor: "default",
+    radius: "default",
+  },
+  {
+    name: "reka-luma",
+    title: "Luma",
+    description: "Luma / Lucide / Inter",
+    base: "reka",
+    style: "luma",
+    baseColor: "neutral",
+    theme: "neutral",
+    iconLibrary: "lucide",
     font: "inter",
     item: "Item",
     menuAccent: "subtle",

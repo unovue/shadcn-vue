@@ -1,9 +1,9 @@
 export const FONTS = [
   {
-    name: 'Geist Sans',
+    name: 'Geist',
     value: 'geist',
     cssVar: '--font-geist',
-    fontFamily: '\'Geist Variable\', sans-serif',
+    fontFamily: '\'Geist\', sans-serif',
     type: 'sans',
   },
   {
@@ -70,12 +70,116 @@ export const FONTS = [
     type: 'sans',
   },
   {
+    name: 'Oxanium',
+    value: 'oxanium',
+    cssVar: '--font-oxanium',
+    fontFamily: '\'Oxanium\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Manrope',
+    value: 'manrope',
+    cssVar: '--font-manrope',
+    fontFamily: '\'Manrope\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Space Grotesk',
+    value: 'space-grotesk',
+    cssVar: '--font-space-grotesk',
+    fontFamily: '\'Space Grotesk\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Montserrat',
+    value: 'montserrat',
+    cssVar: '--font-montserrat',
+    fontFamily: '\'Montserrat\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'IBM Plex Sans',
+    value: 'ibm-plex-sans',
+    cssVar: '--font-ibm-plex-sans',
+    fontFamily: '\'IBM Plex Sans\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Source Sans 3',
+    value: 'source-sans-3',
+    cssVar: '--font-source-sans-3',
+    fontFamily: '\'Source Sans 3\', sans-serif',
+    type: 'sans',
+  },
+  {
+    name: 'Instrument Sans',
+    value: 'instrument-sans',
+    cssVar: '--font-instrument-sans',
+    fontFamily: '\'Instrument Sans\', sans-serif',
+    type: 'sans',
+  },
+  {
     name: 'JetBrains Mono',
     value: 'jetbrains-mono',
     cssVar: '--font-jetbrains-mono',
     fontFamily: '\'JetBrains Mono\', monospace',
     type: 'mono',
   },
+  {
+    name: 'Geist Mono',
+    value: 'geist-mono',
+    cssVar: '--font-geist-mono',
+    fontFamily: '\'Geist Mono\', monospace',
+    type: 'mono',
+  },
+  {
+    name: 'Noto Serif',
+    value: 'noto-serif',
+    cssVar: '--font-noto-serif',
+    fontFamily: '\'Noto Serif\', serif',
+    type: 'serif',
+  },
+  {
+    name: 'Roboto Slab',
+    value: 'roboto-slab',
+    cssVar: '--font-roboto-slab',
+    fontFamily: '\'Roboto Slab\', serif',
+    type: 'serif',
+  },
+  {
+    name: 'Merriweather',
+    value: 'merriweather',
+    cssVar: '--font-merriweather',
+    fontFamily: '\'Merriweather\', serif',
+    type: 'serif',
+  },
+  {
+    name: 'Lora',
+    value: 'lora',
+    cssVar: '--font-lora',
+    fontFamily: '\'Lora\', serif',
+    type: 'serif',
+  },
+  {
+    name: 'Playfair Display',
+    value: 'playfair-display',
+    cssVar: '--font-playfair-display',
+    fontFamily: '\'Playfair Display\', serif',
+    type: 'serif',
+  },
 ] as const
 
 export type Font = (typeof FONTS)[number]
+
+export const FONT_HEADING_OPTIONS = [
+  {
+    name: 'Inherit',
+    value: 'inherit',
+    cssVar: '',
+    fontFamily: 'inherit',
+    type: 'default',
+  },
+  ...FONTS,
+] as const
+
+export type FontHeadingOption = (typeof FONT_HEADING_OPTIONS)[number]

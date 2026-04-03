@@ -56,7 +56,7 @@ export const registry = {
       .map((item) => {
         // Temporary fix for dashboard-01.
         if (item.name === "dashboard-01") {
-          item.dependencies?.push("@tabler/icons-vue")
+          ;(item.dependencies as string[] | undefined)?.push("@tabler/icons-vue")
         }
 
         if (item.name === "accordion" && "tailwind" in item) {

@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<PrimitiveProps & {
     :as="as"
     :as-child="asChild"
     :data-size="size"
-    :data-active="isActive"
+    :data-active="isActive ? '' : undefined"
     :class="cn(
       'cn-sidebar-menu-sub-button flex min-w-0 -translate-x-px items-center overflow-hidden outline-hidden group-data-[collapsible=icon]:hidden disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:shrink-0',
       props.class,

@@ -78,7 +78,7 @@ const chartConfig = {
             :grid-line="false"
             :num-ticks="6"
             :tick-format="(d: number, index: number) => {
-              return chartData[index].monthLabel.slice(0, 3)
+              return chartData[index]?.monthLabel.slice(0, 3) ?? ''
             }"
           />
           <VisAxis

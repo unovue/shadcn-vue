@@ -43,6 +43,7 @@
     "lucide-vue-next": "^0.555.0",
     "nuxt": "^4.2.1",
     "nuxt-og-image": "5.1.12",
+    "qrcode": "catalog:",
     "reka-ui": "catalog:",
     "shadcn-vue": "workspace:*",
     "tailwind-merge": "^3.4.0",
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^4.0.0",
+    "@types/qrcode": "catalog:",
     "nuxt-shiki": "^0.3.1",
     "oxc-parser": "catalog:",
     "pathe": "catalog:",

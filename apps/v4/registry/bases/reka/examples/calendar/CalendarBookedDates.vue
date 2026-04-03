@@ -28,9 +28,9 @@ const bookedDates = Array.from(
     <Card class="mx-auto w-fit p-0">
       <CardContent class="p-0">
         <Calendar
-          v-model="date"
-          :disabled="bookedDates"
-          :is-date-unavailable="(date) => bookedDates.some(d => d.compare(date) === 0)"
+          v-model="(date as any)"
+          :disabled="(bookedDates as any)"
+          :is-date-unavailable="(date) => bookedDates.some(d => d.compare(date as any) === 0)"
         />
       </CardContent>
     </Card>

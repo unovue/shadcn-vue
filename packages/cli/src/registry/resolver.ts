@@ -11,6 +11,7 @@ import {
   buildUrlAndHeadersForRegistryItem,
   resolveRegistryUrl,
 } from "@/src/registry/builder"
+import { resolveRegistryStyle } from "@/src/registry/config"
 import { setRegistryHeaders } from "@/src/registry/context"
 import {
   RegistryNotConfiguredError,
@@ -95,7 +96,8 @@ export async function fetchRegistryItems(
         }
       }
 
-      const path = `styles/${config?.style ?? "new-york-v4"}/${item}.json`
+      const registryStyle = resolveRegistryStyle(config?.style)
+      const path = `styles/${registryStyle}/${item}.json`
       const [result] = await fetchRegistry([path], options)
       try {
         return registryItemSchema.parse(result)
@@ -488,7 +490,7 @@ async function resolveRegistryDependencies(
 
   const style = config.resolvedPaths?.cwd
     ? await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style)
-    : config.style
+    : resolveRegistryStyle(config.style)
 
   const urls = registryNames.map(name =>
     resolveRegistryUrl(isUrl(name) ? name : `styles/${style}/${name}.json`),

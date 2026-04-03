@@ -13,15 +13,16 @@ import {
 import { RangeCalendar } from "@/registry/bases/reka/ui/range-calendar"
 import { Example } from "~/registry/bases/reka/components/example"
 
-const date = ref<DateRange>({
+const date = ref({
   start: new CalendarDate(new Date().getFullYear(), 1, 20),
   end: new CalendarDate(new Date().getFullYear(), 2, 9),
-})
+} as DateRange)
 
-function formatDate(date?: CalendarDate): string {
+function formatDate(date?: CalendarDate | unknown): string {
   if (!date)
     return ""
-  const jsDate = new Date(date.year, date.month - 1, date.day)
+  const d = date as CalendarDate
+  const jsDate = new Date(d.year, d.month - 1, d.day)
   return jsDate.toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -59,13 +60,13 @@ function formatDateRange(range?: DateRange): string {
               remixicon="RiCalendarLine"
               data-icon="inline-start"
             />
-            <span v-if="date?.start">{{ formatDateRange(date) }}</span>
+            <span v-if="date?.start">{{ formatDateRange(date as any) }}</span>
             <span v-else>Pick a date</span>
           </Button>
         </PopoverTrigger>
         <PopoverContent class="w-auto p-0" align="start">
           <RangeCalendar
-            v-model="date"
+            v-model="(date as any)"
             :number-of-months="2"
           />
         </PopoverContent>

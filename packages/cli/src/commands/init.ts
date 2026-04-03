@@ -3,6 +3,7 @@ import { promises as fs } from 'node:fs'
 import { Command } from 'commander'
 import deepmerge from 'deepmerge'
 import fsExtra from 'fs-extra'
+import { ofetch } from 'ofetch'
 import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
@@ -20,9 +21,11 @@ import {
   BUILTIN_REGISTRIES,
   FONTS,
   ICON_LIBRARIES,
+  PRESETS,
   STYLES,
 } from '@/src/registry/constants'
 import { clearRegistryContext } from '@/src/registry/context'
+import { isUrl } from '@/src/registry/utils'
 import { rawConfigSchema } from '@/src/schema'
 import { addComponents } from '@/src/utils/add-components'
 import { createProject, TEMPLATES } from '@/src/utils/create-project'
@@ -51,6 +54,7 @@ import {
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
+import { decodePreset, isEncodedPreset } from '@/src/utils/preset-encoding'
 import { ensureRegistriesInConfig } from '@/src/utils/registries'
 import { spinner } from '@/src/utils/spinner'
 import { updateTailwindContent } from '@/src/utils/updaters/update-tailwind-content'
@@ -67,9 +71,44 @@ process.on('exit', (code) => {
   return restoreFileBackup(filePath)
 })
 
+export async function resolvePreset(value: string) {
+  if (isUrl(value)) {
+    try {
+      const data = await ofetch(value)
+      return data as (typeof PRESETS)[number]
+    }
+    catch {
+      logger.error(`Failed to fetch preset from ${highlighter.info(value)}.`)
+      return null
+    }
+  }
+  const named = PRESETS.find(p => p.name === value)
+  if (named)
+    return named
+
+  if (isEncodedPreset(value)) {
+    const decoded = decodePreset(value)
+    if (decoded) {
+      // Normalize font to one supported by the CLI registry; fall back to 'inter'.
+      const font = FONTS.find(f => f.name === decoded.font)?.name ?? 'inter'
+      return {
+        name: value,
+        title: value,
+        description: '',
+        base: 'reka',
+        ...decoded,
+        font,
+      } as (typeof PRESETS)[number]
+    }
+  }
+
+  return null
+}
+
 export const initOptionsSchema = z.object({
   cwd: z.string(),
   name: z.string().optional(),
+  preset: z.string().optional(),
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),
@@ -173,6 +212,10 @@ export const init = new Command()
   .description('initialize your project and install dependencies')
   .argument('[components...]', 'names, url or local path to component')
   .option(
+    '-p, --preset <preset>',
+    `use a preset configuration or URL. (${PRESETS.map(p => p.name).join(', ')})`,
+  )
+  .option(
     '-t, --template <template>',
     'the template to use. (nuxt, vite, vite-router)',
   )
@@ -224,6 +267,22 @@ export const init = new Command()
   .option('--no-base-style', 'do not install the base shadcn style.')
   .action(async (components, opts) => {
     try {
+      // Resolve and apply preset (CLI flags take precedence over preset values).
+      if (opts.preset) {
+        const preset = await resolvePreset(opts.preset)
+        if (!preset) {
+          logger.error(
+            `Invalid preset "${opts.preset}". Available presets: ${PRESETS.map(p => p.name).join(', ')}`,
+          )
+          process.exit(1)
+        }
+        opts.base = opts.base ?? preset.base
+        opts.style = opts.style ?? preset.style
+        opts.iconLibrary = opts.iconLibrary ?? preset.iconLibrary
+        opts.font = opts.font ?? preset.font
+        opts.baseColor = opts.baseColor ?? preset.baseColor
+      }
+
       // Apply defaults when --defaults flag is set.
       if (opts.defaults) {
         opts.template = opts.template || 'nuxt'

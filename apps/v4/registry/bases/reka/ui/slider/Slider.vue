@@ -17,6 +17,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <SliderRoot
     v-slot="{ modelValue }"
     data-slot="slider"
+    :data-vertical="props.orientation === 'vertical' ? '' : undefined"
     :class="cn(
       'cn-slider relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:w-auto data-vertical:flex-col',
       props.class,
@@ -25,10 +26,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   >
     <SliderTrack
       data-slot="slider-track"
-      class="cn-slider-track bg-muted relative grow overflow-hidden data-horizontal:w-full data-vertical:h-full"
+      :data-horizontal="props.orientation !== 'vertical' ? '' : undefined"
+      :data-vertical="props.orientation === 'vertical' ? '' : undefined"
+      class="cn-slider-track relative grow overflow-hidden"
     >
       <SliderRange
         data-slot="slider-range"
+        :data-horizontal="props.orientation !== 'vertical' ? '' : undefined"
+        :data-vertical="props.orientation === 'vertical' ? '' : undefined"
         class="cn-slider-range absolute select-none data-horizontal:h-full data-vertical:w-full"
       />
     </SliderTrack>
@@ -37,6 +42,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       v-for="(_, key) in modelValue"
       :key="key"
       data-slot="slider-thumb"
+      :data-vertical="props.orientation === 'vertical' ? '' : undefined"
       class="cn-slider-thumb block shrink-0 select-none disabled:pointer-events-none disabled:opacity-50"
     />
   </SliderRoot>

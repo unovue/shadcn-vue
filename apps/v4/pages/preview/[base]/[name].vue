@@ -26,11 +26,21 @@ function pascalCase(str: string) {
 // NOTE: factory runs lazily; we must wait for `data` to load so isBlock.value is accurate
 const Component = defineAsyncComponent(() => {
   if (isBlock.value) {
-    return import(`@/registry/bases/${base}/blocks/${name}.vue`).then((mod) => {
-      if (!mod.default)
-        throw new Error(`No default export in block: ${name}`)
-      return mod.default
-    })
+    const isPreview = name.includes('preview')
+    if (isPreview) {
+      return import(`@/registry/bases/${base}/blocks/${name}/page.vue`).then((mod) => {
+        if (!mod.default)
+          throw new Error(`No default export in block: ${name}`)
+        return mod.default
+      })
+    }
+    else {
+      return import(`@/registry/bases/${base}/blocks/${name}.vue`).then((mod) => {
+        if (!mod.default)
+          throw new Error(`No default export in block: ${name}`)
+        return mod.default
+      })
+    }
   }
   // Examples have folder structure: examples/{name}/{PascalCaseName}.vue
   const exampleName = name.replace('-example', '')

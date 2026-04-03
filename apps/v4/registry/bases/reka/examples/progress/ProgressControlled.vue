@@ -10,7 +10,7 @@ const value = ref([50])
 <template>
   <Example title="Controlled">
     <div class="flex w-full flex-col gap-4">
-      <Progress :value="value[0]" class="w-full" />
+      <Progress :model-value="value[0]" class="w-full" />
       <Slider
         v-model="value"
         :min="0"

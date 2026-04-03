@@ -2696,6 +2696,22 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "cards": {
+      name: "cards",
+      title: "Cards",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["example","alert-dialog","avatar","badge","button","button-group","card","checkbox","dropdown-menu","empty","field","input","input-group","item","radio-group","select","separator","sheet","slider","switch","textarea","tooltip"],
+      files: [
+            {
+                  "path": "registry/bases/reka/blocks/cards.vue",
+                  "type": "registry:block",
+                  "target": ""
+            }
+      ],
+      categories: ["blocks"],
+      meta: undefined,
+    },
     "chatgpt": {
       name: "chatgpt",
       title: "ChatGPT",
@@ -2746,18 +2762,374 @@ export const Index: Record<string, Record<string, any>> = {
     },
     "preview": {
       name: "preview",
-      title: "Home",
+      title: "undefined",
       description: "",
       type: "registry:block",
-      registryDependencies: ["example","alert-dialog","avatar","badge","button","button-group","card","checkbox","dropdown-menu","empty","field","input","input-group","item","radio-group","select","separator","sheet","slider","switch","textarea","tooltip"],
+      registryDependencies: ["alert","badge","button","card","item","chart","empty","avatar","tooltip","field","toggle-group","dropdown-menu","input-group","separator","spinner","tabs","checkbox","native-select","textarea","input","select","table","kbd","progress","skeleton","dialog","alert-dialog","button-group","radio-group","slider","switch"],
       files: [
             {
-                  "path": "registry/bases/reka/blocks/preview.vue",
-                  "type": "registry:block",
+                  "path": "registry/bases/reka/blocks/preview/page.vue",
+                  "type": "registry:page",
+                  "target": "pages/preview/index.vue"
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/ActivateAgentDialog.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/AnalyticsCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/AnomalyAlert.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/AssignIssue.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/BarChartCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/BarVisualizer.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/BookAppointment.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/CodespacesCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/ContributionsActivity.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/Contributors.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/EnvironmentVariables.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/FeedbackForm.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/FileUpload.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/GithubProfile.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/IconPreviewGrid.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/InviteTeam.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/Invoice.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/LiveWaveform.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/NoTeamMembers.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/NotFound.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/ObservabilityCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/PieChartCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/ReportBug.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/ShippingAddress.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/Shortcuts.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/SkeletonLoading.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/SleepReport.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/StyleOverview.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/TypographySpecimen.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/UIElements.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/UsageCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/Visitors.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview/components/WeeklyFitnessSummary.vue",
+                  "type": "registry:component",
                   "target": ""
             }
       ],
-      categories: ["blocks"],
+      categories: undefined,
+      meta: undefined,
+    },
+    "preview-02": {
+      name: "preview-02",
+      title: "undefined",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","item","badge","separator","chart","input-group","toggle-group","label","empty","accordion","tabs","slider","switch","skeleton","checkbox","breadcrumb","dropdown-menu","select","textarea","progress","radio-group","table","native-select","sidebar","combobox","spinner","calendar"],
+      files: [
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/page.vue",
+                  "type": "registry:page",
+                  "target": "pages/preview/index.vue"
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/AccountAccess.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/AlbumCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/CardOverview.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/CatalogToolbar.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/ClaimableBalance.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/ContributionHistory.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/CoverArt.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/DividendIncome.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/EmptyConnectBank.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/EmptyDistributeTrack.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/EmptyExploreCatalog.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/Faq.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/FrontDoor.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/IndexInvesting.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/KitchenIsland.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/LoadingCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/NewMilestone.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/NotificationSettings.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/Payments.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/PayoutThreshold.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/PowerUsage.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/Preferences.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/QrConnect.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/ReceivingMethod.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/RecentTransactions.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/ReleaseCatalog.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/RollerShades.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/SavingsProgress.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/SavingsTargets.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/SidebarNav.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/SocialLinks.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/StockPerformance.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/SyncingState.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/TransferFunds.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/blocks/preview-02/components/UpcomingPayments.vue",
+                  "type": "registry:component",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
       meta: undefined,
     },
     "vercel": {

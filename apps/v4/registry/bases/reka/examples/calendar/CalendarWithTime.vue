@@ -26,7 +26,7 @@ const date = ref<CalendarDate>(
     <Card size="sm" class="mx-auto w-fit">
       <CardContent>
         <Calendar
-          v-model="date"
+          v-model="(date as any)"
           class="p-0"
         />
       </CardContent>

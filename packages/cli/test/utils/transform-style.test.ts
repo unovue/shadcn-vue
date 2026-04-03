@@ -325,6 +325,35 @@ describe('transformStyle', () => {
     })
   })
 
+  describe('luma style (fluid, luminous, glassy)', () => {
+    it('increases border radius classes', () => {
+      const result = metaTransform(
+        `<template>
+  <div class="rounded-sm rounded-md rounded-lg rounded-xl">Content</div>
+</template>
+
+<script setup lang="ts">
+</script>`,
+        'test.vue',
+        [
+          transformStyle({
+            filename: 'test.vue',
+            raw: '',
+            config: createTestConfig('luma'),
+          }),
+        ],
+      )
+
+      // rounded-sm -> rounded-xl, rounded-md -> rounded-2xl,
+      // rounded-lg -> rounded-3xl, rounded-xl -> rounded-3xl
+      expect(result.code).toContain('rounded-2xl')
+      expect(result.code).toContain('rounded-3xl')
+      expect(result.code).not.toContain('"rounded-sm')
+      expect(result.code).not.toContain(' rounded-md')
+      expect(result.code).not.toContain(' rounded-lg ')
+    })
+  })
+
   describe('handles multiple classes', () => {
     it('transforms multiple classes in same element', () => {
       const result = metaTransform(

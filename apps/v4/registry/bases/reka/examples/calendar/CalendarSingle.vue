@@ -19,9 +19,9 @@ const date = ref(
     <Card class="mx-auto w-fit p-0">
       <CardContent class="p-0">
         <Calendar
-          :model-value="date"
+          :model-value="date as any"
           layout="month-and-year"
-          @update:model-value="(value) => date = value"
+          @update:model-value="(value) => date = value as typeof date"
         />
       </CardContent>
     </Card>

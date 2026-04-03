@@ -1,85 +1,90 @@
 <script setup lang="ts">
 import type { MenuColorValue } from '@/registry/config'
+import { Menu02Icon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/vue'
 import { useMounted } from '@vueuse/core'
+import { isTranslucentMenuColor } from '@/registry/config'
 
 defineProps<{
   isMobile: boolean
   anchorRef: HTMLDivElement | null
 }>()
 
+type ColorChoice = 'default' | 'inverted'
+type SurfaceChoice = 'solid' | 'translucent'
+
 const MENU_OPTIONS = [
-  {
-    value: 'default' as const,
-    label: 'Default',
-  },
-  {
-    value: 'inverted' as const,
-    label: 'Inverted',
-  },
-] as const
+  { value: 'default' as MenuColorValue, label: 'Default / Solid' },
+  { value: 'default-translucent' as MenuColorValue, label: 'Default / Translucent' },
+  { value: 'inverted' as MenuColorValue, label: 'Inverted / Solid' },
+  { value: 'inverted-translucent' as MenuColorValue, label: 'Inverted / Translucent' },
+]
+
+function getMenuColorValue(color: ColorChoice, translucent: boolean): MenuColorValue {
+  if (color === 'default') {
+    return translucent ? 'default-translucent' : 'default'
+  }
+  return translucent ? 'inverted-translucent' : 'inverted'
+}
 
 const params = useDesignSystemSearchParams()
 const colorMode = useColorMode()
 const mounted = useMounted()
 
-const currentMenu = computed(() => MENU_OPTIONS.find(m => m.value === params.menuColor.value) ?? MENU_OPTIONS[0])
-const isDisabled = computed(() => mounted.value && colorMode.value === 'dark')
+const lastSolidMenuAccent = ref(params.menuAccent.value)
+
+const currentMenu = computed(() => MENU_OPTIONS.find(m => m.value === params.menuColor.value))
+
+const colorChoice = computed<ColorChoice>(() =>
+  params.menuColor.value === 'inverted' || params.menuColor.value === 'inverted-translucent'
+    ? 'inverted'
+    : 'default',
+)
+
+const surfaceChoice = computed<SurfaceChoice>(() =>
+  params.menuColor.value === 'default-translucent' || params.menuColor.value === 'inverted-translucent'
+    ? 'translucent'
+    : 'solid',
+)
+
+const isDark = computed(() => mounted.value && colorMode.value === 'dark')
+
+watch(() => surfaceChoice.value, (s) => {
+  if (s === 'solid') {
+    lastSolidMenuAccent.value = params.menuAccent.value
+  }
+})
+
+function setColor(color: ColorChoice) {
+  const nextMenuColor = getMenuColorValue(color, surfaceChoice.value === 'translucent')
+  params.menuColor.value = nextMenuColor
+  if (isTranslucentMenuColor(nextMenuColor)) {
+    params.menuAccent.value = 'subtle'
+  }
+}
+
+function setSurface(choice: SurfaceChoice) {
+  const isTranslucent = choice === 'translucent'
+  const nextMenuColor = getMenuColorValue(colorChoice.value, isTranslucent)
+  params.menuColor.value = nextMenuColor
+  params.menuAccent.value = isTranslucent ? 'subtle' : lastSolidMenuAccent.value
+}
 </script>
 
 <template>
   <div class="group/picker relative">
     <Picker>
-      <PickerTrigger :disabled="isDisabled">
+      <PickerTrigger>
         <div class="flex flex-col justify-start text-left">
           <div class="text-muted-foreground text-xs">
-            Menu Color
+            Menu
           </div>
-          <div class="text-foreground text-sm font-medium">
+          <div class="line-clamp-1 max-w-[80%] truncate text-foreground text-sm font-medium">
             {{ currentMenu?.label }}
           </div>
         </div>
-        <div class="text-foreground pointer-events-none absolute top-1/2 right-4 flex size-4 -translate-y-1/2 items-center justify-center text-base select-none">
-          <!-- Default icon -->
-          <svg
-            v-if="currentMenu?.value === 'default'"
-            xmlns="http://www.w3.org/2000/svg"
-            width="128"
-            height="128"
-            viewBox="0 0 24 24"
-            fill="none"
-            role="img"
-            stroke="currentColor"
-            class="text-foreground"
-          >
-            <path
-              d="M2 11.5C2 7.02166 2 4.78249 3.39124 3.39124C4.78249 2 7.02166 2 11.5 2C15.9783 2 18.2175 2 19.6088 3.39124C21 4.78249 21 7.02166 21 11.5C21 15.9783 21 18.2175 19.6088 19.6088C18.2175 21 15.9783 21 11.5 21C7.02166 21 4.78249 21 3.39124 19.6088C2 18.2175 2 15.9783 2 11.5Z"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <path d="M8.5 11.5L14.5001 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M9.5 15H13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M7.5 8H15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <!-- Inverted icon -->
-          <svg
-            v-else
-            xmlns="http://www.w3.org/2000/svg"
-            width="128"
-            height="128"
-            viewBox="0 0 24 24"
-            fill="none"
-            role="img"
-            class="fill-foreground text-foreground"
-          >
-            <path
-              d="M2 11.5C2 7.02166 2 4.78249 3.39124 3.39124C4.78249 2 7.02166 2 11.5 2C15.9783 2 18.2175 2 19.6088 3.39124C21 4.78249 21 7.02166 21 11.5C21 15.9783 21 18.2175 19.6088 19.6088C18.2175 21 15.9783 21 11.5 21C7.02166 21 4.78249 21 3.39124 19.6088C2 18.2175 2 15.9783 2 11.5Z"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-            <path d="M8.5 11.5L14.5001 11.5" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M9.5 15H13.5" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M7.5 8H15.5" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+        <div class="text-foreground pointer-events-none absolute top-1/2 right-4 flex size-4 -translate-y-1/2 items-center justify-center text-base select-none md:right-2.5">
+          <HugeiconsIcon :icon="Menu02Icon" :stroke-width="2" class="size-4" />
         </div>
       </PickerTrigger>
       <PickerContent
@@ -87,63 +92,40 @@ const isDisabled = computed(() => mounted.value && colorMode.value === 'dark')
         :side="isMobile ? 'top' : 'right'"
         :align="isMobile ? 'center' : 'start'"
       >
-        <PickerRadioGroup
-          :model-value="currentMenu?.value"
-          @update:model-value="(value) => {
-            params.menuColor.value = value as MenuColorValue
-          }"
-        >
-          <PickerGroup>
-            <PickerRadioItem value="default">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="128"
-                height="128"
-                viewBox="0 0 24 24"
-                fill="none"
-                role="img"
-                stroke="currentColor"
-                class="text-foreground mr-2 size-4"
-              >
-                <path
-                  d="M2 11.5C2 7.02166 2 4.78249 3.39124 3.39124C4.78249 2 7.02166 2 11.5 2C15.9783 2 18.2175 2 19.6088 3.39124C21 4.78249 21 7.02166 21 11.5C21 15.9783 21 18.2175 19.6088 19.6088C18.2175 21 15.9783 21 11.5 21C7.02166 21 4.78249 21 3.39124 19.6088C2 18.2175 2 15.9783 2 11.5Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <path d="M8.5 11.5L14.5001 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M9.5 15H13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M7.5 8H15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+        <PickerGroup>
+          <PickerLabel>Color</PickerLabel>
+          <PickerRadioGroup
+            :model-value="colorChoice"
+            @update:model-value="(value) => setColor(value as ColorChoice)"
+          >
+            <PickerRadioItem value="default" :close-on-click="isMobile">
               Default
             </PickerRadioItem>
-            <PickerRadioItem value="inverted">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="128"
-                height="128"
-                viewBox="0 0 24 24"
-                fill="none"
-                role="img"
-                class="fill-foreground text-foreground mr-2 size-4"
-              >
-                <path
-                  d="M2 11.5C2 7.02166 2 4.78249 3.39124 3.39124C4.78249 2 7.02166 2 11.5 2C15.9783 2 18.2175 2 19.6088 3.39124C21 4.78249 21 7.02166 21 11.5C21 15.9783 21 18.2175 19.6088 19.6088C18.2175 21 15.9783 21 11.5 21C7.02166 21 4.78249 21 3.39124 19.6088C2 18.2175 2 15.9783 2 11.5Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                />
-                <path d="M8.5 11.5L14.5001 11.5" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M9.5 15H13.5" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M7.5 8H15.5" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+            <PickerRadioItem value="inverted" :close-on-click="isMobile" :disabled="isDark">
               Inverted
             </PickerRadioItem>
-          </PickerGroup>
-        </PickerRadioGroup>
+          </PickerRadioGroup>
+        </PickerGroup>
+        <PickerSeparator />
+        <PickerGroup>
+          <PickerLabel>Appearance</PickerLabel>
+          <PickerRadioGroup
+            :model-value="surfaceChoice"
+            @update:model-value="(value) => setSurface(value as SurfaceChoice)"
+          >
+            <PickerRadioItem value="solid" :close-on-click="isMobile">
+              Solid
+            </PickerRadioItem>
+            <PickerRadioItem value="translucent" :close-on-click="isMobile">
+              Translucent
+            </PickerRadioItem>
+          </PickerRadioGroup>
+        </PickerGroup>
       </PickerContent>
     </Picker>
     <LockButton
       param="menuColor"
-      class="absolute top-1/2 right-10 -translate-y-1/2"
+      class="absolute top-1/2 right-8 -translate-y-1/2"
     />
   </div>
 </template>

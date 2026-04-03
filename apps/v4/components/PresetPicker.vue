@@ -27,8 +27,8 @@ const currentPreset = computed(() => {
 
 const currentBasePresets = computed(() => props.presets.filter(preset => preset.base === params.base.value))
 
-function handlePresetChange(value: string) {
-  const preset = props.presets.find(p => p.title === value)
+function handlePresetChange(value: unknown) {
+  const preset = props.presets.find(p => p.title === String(value))
   if (!preset) {
     return
   }

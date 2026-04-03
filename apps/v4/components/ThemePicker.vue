@@ -11,7 +11,6 @@ const props = defineProps<{
 
 const params = useDesignSystemSearchParams()
 const mounted = useMounted()
-const colorMode = useColorMode()
 
 const currentTheme = computed(
   () => props.themes.find(theme => theme.name === params.theme.value),
@@ -27,27 +26,13 @@ watch(currentTheme, () => {
   }
 })
 
-const filteredBaseTheme = computed(() => props.themes
-  .filter(theme =>
-    BASE_COLORS.find(baseColor => baseColor.name === theme.name),
-  )
-  .map((theme) => {
-    const isBaseColor = BASE_COLORS.find(
-      baseColor => baseColor.name === theme.name,
-    )
-    return {
-      theme,
-      isBaseColor,
-    }
-  }))
+const filteredBaseThemes = computed(() => props.themes.filter(theme =>
+  BASE_COLORS.find(baseColor => baseColor.name === theme.name),
+))
 
-const filteredTheme = computed(() => props.themes
-  .filter(
-    theme =>
-      !BASE_COLORS.find(
-        baseColor => baseColor.name === theme.name,
-      ),
-  ))
+const filteredThemes = computed(() => props.themes.filter(theme =>
+  !BASE_COLORS.find(baseColor => baseColor.name === theme.name),
+))
 </script>
 
 <template>
@@ -64,24 +49,17 @@ const filteredTheme = computed(() => props.themes
         </div>
         <div
           v-if="mounted"
-          :style="
-            {
-              '--color':
-                currentTheme?.cssVars?.[
-                  colorMode.value as 'light' | 'dark'
-                ]?.[
-                  currentThemeIsBaseColor ? 'muted-foreground' : 'primary'
-                ],
-            }
-          "
-          class="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 rounded-full bg-(--color) select-none"
+          class="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 rounded-full bg-(--color) select-none md:right-2.5"
+          :style="{
+            '--color': currentTheme?.cssVars?.dark?.[currentThemeIsBaseColor ? 'muted-foreground' : 'primary'],
+          }"
         />
       </PickerTrigger>
       <PickerContent
         :anchor="isMobile ? anchorRef : undefined"
         :side="isMobile ? 'top' : 'right'"
         :align="isMobile ? 'center' : 'start'"
-        class="max-h-96"
+        class="max-h-92"
       >
         <PickerRadioGroup
           :model-value="currentTheme?.name"
@@ -90,47 +68,24 @@ const filteredTheme = computed(() => props.themes
           }"
         >
           <PickerGroup>
-            <PickerRadioItem v-for="({ theme, isBaseColor }) in filteredBaseTheme" :key="theme.name" :value="theme.name">
-              <div class="flex items-start gap-2">
-                <div
-                  v-if="mounted"
-                  :style="
-                    {
-                      '--color':
-                        theme.cssVars?.[
-                          colorMode.value as 'light' | 'dark'
-                        ]?.[
-                          isBaseColor ? 'muted-foreground' : 'primary'
-                        ],
-                    }"
-                  class="size-4 translate-y-1 rounded-full bg-(--color)"
-                />
-                <div class="flex flex-col justify-start pointer-coarse:gap-1">
-                  <div>{{ theme.title }}</div>
-                  <div class="text-muted-foreground text-xs pointer-coarse:text-sm">
-                    Match base color
-                  </div>
-                </div>
-              </div>
+            <PickerRadioItem
+              v-for="theme in filteredBaseThemes"
+              :key="theme.name"
+              :value="theme.name"
+              :close-on-click="isMobile"
+            >
+              {{ theme.title }}
             </PickerRadioItem>
           </PickerGroup>
           <PickerSeparator />
           <PickerGroup>
-            <PickerRadioItem v-for="theme in filteredTheme" :key="theme.name" :value="theme.name">
-              <div class="flex items-center gap-2">
-                <div
-                  v-if="mounted"
-                  :style="
-                    {
-                      '--color':
-                        theme.cssVars?.[
-                          colorMode.value as 'light' | 'dark'
-                        ]?.primary,
-                    }"
-                  class="size-4 rounded-full bg-(--color)"
-                />
-                {{ theme.title }}
-              </div>
+            <PickerRadioItem
+              v-for="theme in filteredThemes"
+              :key="theme.name"
+              :value="theme.name"
+              :close-on-click="isMobile"
+            >
+              {{ theme.title }}
             </PickerRadioItem>
           </PickerGroup>
         </PickerRadioGroup>
@@ -138,7 +93,7 @@ const filteredTheme = computed(() => props.themes
     </Picker>
     <LockButton
       param="theme"
-      class="absolute top-1/2 right-10 -translate-y-1/2"
+      class="absolute top-1/2 right-8 -translate-y-1/2"
     />
   </div>
 </template>

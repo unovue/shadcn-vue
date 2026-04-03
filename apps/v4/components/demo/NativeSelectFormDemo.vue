@@ -42,7 +42,7 @@ const onSubmit = form.handleSubmit((values) => {
       <FormItem>
         <FormLabel>Country</FormLabel>
         <FormControl>
-          <NativeSelect v-bind="componentField">
+          <NativeSelect v-bind="(componentField as any)">
             <NativeSelectOption value="">
               Select a country
             </NativeSelectOption>

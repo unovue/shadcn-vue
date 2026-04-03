@@ -16,7 +16,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     data-slot="picker-label"
     :data-inset="inset ? '' : undefined"
     v-bind="forwardedProps"
-    :class="cn('text-muted-foreground px-2 py-1.5 text-xs font-medium data-[inset]:pl-8', props.class)"
+    :class="cn('px-2 py-1.5 text-xs font-medium text-neutral-400 data-[inset]:pl-8', props.class)"
   >
     <slot />
   </DropdownMenuLabel>

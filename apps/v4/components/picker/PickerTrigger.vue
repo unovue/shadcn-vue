@@ -16,7 +16,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     data-slot="picker-trigger"
     v-bind="forwardedProps"
     :class="cn(
-      'hover:bg-muted data-[state=open]:bg-muted border-foreground/10 bg-muted/50 relative w-[160px] shrink-0 touch-manipulation rounded-xl border p-2 select-none disabled:opacity-50 md:w-full md:rounded-lg md:border-transparent md:bg-transparent',
+      'hover:bg-muted data-[state=open]:bg-muted relative w-36 shrink-0 touch-manipulation rounded-xl p-3 ring-1 ring-foreground/10 select-none focus-visible:ring-foreground/50 focus-visible:outline-none disabled:opacity-50 md:w-full md:rounded-lg md:px-2.5 md:py-2',
       props.class,
     )"
   >

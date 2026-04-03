@@ -697,7 +697,7 @@ const contributors = [
         <DropdownMenu>
           <DropdownMenuTrigger :as-child="true">
             <Button variant="ghost" size="icon" class="rounded-full">
-              <Avatar size="xs">
+              <Avatar>
                 <AvatarImage src="/avatars/01.png" alt="User" />
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>
@@ -803,7 +803,7 @@ const contributors = [
               <ItemMedia>
                 <Avatar size="sm">
                   <AvatarImage :src="contributor.image" :alt="contributor.name" />
-                  <AvatarFallback>{{ contributor.name[0].toUpperCase() }}</AvatarFallback>
+                  <AvatarFallback>{{ contributor.name[0]?.toUpperCase() }}</AvatarFallback>
                 </Avatar>
               </ItemMedia>
               <ItemContent>

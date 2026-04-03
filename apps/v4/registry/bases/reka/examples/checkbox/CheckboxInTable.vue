@@ -90,7 +90,7 @@ function handleSelectRow(id: string, checked: boolean) {
             <Checkbox
               :id="`row-${row.id}`"
               :checked="selectedRows.has(row.id)"
-              @update:checked="(checked) => handleSelectRow(row.id, checked === true)"
+              @update:checked="(checked: boolean | 'indeterminate') => handleSelectRow(row.id, checked === true)"
             />
           </TableCell>
           <TableCell class="font-medium">

@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import type { BaseColorName } from '@/registry/config'
 import { useMounted } from '@vueuse/core'
 import { BASE_COLORS } from '@/registry/config'
 
-const props = defineProps<{
+defineProps<{
   isMobile: boolean
   anchorRef: HTMLDivElement | null
 }>()
 
 const params = useDesignSystemSearchParams()
 const mounted = useMounted()
-const colorMode = useColorMode()
 
 const currentBaseColor = computed(
   () => BASE_COLORS.find(baseColor => baseColor.name === params.baseColor.value),
@@ -30,15 +30,8 @@ const currentBaseColor = computed(
         </div>
         <div
           v-if="mounted"
-          :style="
-            {
-              '--color':
-                currentBaseColor?.cssVars?.[
-                  colorMode.value as 'light' | 'dark'
-                ]?.['muted-foreground'],
-            }
-          "
-          class="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 rounded-full bg-(--color) select-none"
+          class="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 rounded-full bg-(--color) select-none md:right-2.5"
+          :style="{ '--color': currentBaseColor?.cssVars?.dark?.['muted-foreground'] }"
         />
       </PickerTrigger>
       <PickerContent
@@ -49,56 +42,25 @@ const currentBaseColor = computed(
         <PickerRadioGroup
           :model-value="currentBaseColor?.name"
           @update:model-value="(value) => {
-            if (value === 'dark') {
-              colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-              return
-            }
-
-            params.baseColor.value = value
+            params.baseColor.value = value as BaseColorName
           }"
         >
           <PickerGroup>
-            <PickerRadioItem v-for="baseColor in BASE_COLORS" :key="baseColor.name" :value="baseColor.name">
-              <div class="flex items-center gap-2">
-                <div
-                  v-if="mounted"
-                  :style="
-                    {
-                      '--color':
-                        baseColor.cssVars?.[
-                          colorMode.value as 'light' | 'dark'
-                        ]?.['muted-foreground'],
-                    }
-                  "
-                  class="size-4 rounded-full bg-(--color)"
-                />
-                {{ baseColor.title }}
-              </div>
-            </PickerRadioItem>
-          </PickerGroup>
-          <PickerSeparator />
-          <PickerGroup>
-            <PickerItem
-              @click="() => {
-                colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-              }"
+            <PickerRadioItem
+              v-for="baseColor in BASE_COLORS"
+              :key="baseColor.name"
+              :value="baseColor.name"
+              :close-on-click="isMobile"
             >
-              <div class="flex flex-col justify-start pointer-coarse:gap-1">
-                <div>
-                  Switch to {{ colorMode.value === "dark" ? "Light" : "Dark" }} Mode
-                </div>
-                <div class="text-muted-foreground text-xs pointer-coarse:text-sm">
-                  Base colors are easier to see in dark colorMode.
-                </div>
-              </div>
-            </PickerItem>
+              {{ baseColor.title }}
+            </PickerRadioItem>
           </PickerGroup>
         </PickerRadioGroup>
       </PickerContent>
     </Picker>
     <LockButton
       param="baseColor"
-      class="absolute top-1/2 right-10 -translate-y-1/2"
+      class="absolute top-1/2 right-8 -translate-y-1/2"
     />
   </div>
 </template>

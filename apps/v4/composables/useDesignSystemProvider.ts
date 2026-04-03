@@ -1,9 +1,14 @@
 import type { DesignSystemConfig } from '~/registry/config'
 import { FONTS } from '~/lib/fonts'
-import { buildRegistryTheme, DEFAULT_CONFIG } from '~/registry/config'
+import { buildRegistryTheme, DEFAULT_CONFIG, getTheme } from '~/registry/config'
 
 export function useDesignSystemProvider() {
-  const { style, theme, font, baseColor, menuAccent, menuColor, radius, iconLibrary } = useDesignSystemSearchParams('replace')
+  const { style, theme, font, baseColor, menuAccent, menuColor, radius, iconLibrary, chartColor } = useDesignSystemSearchParams('replace')
+  const colorMode = useColorMode()
+
+  useIframeMessageListener('color-mode-sync', (value) => {
+    colorMode.value = value.colorMode as any
+  })
 
   useIframeMessageListener('design-system-params', (value) => {
     // console.log(value)
@@ -14,8 +19,8 @@ export function useDesignSystemProvider() {
     menuAccent.value = value.menuAccent
     menuColor.value = value.menuColor
     radius.value = value.radius
-
     iconLibrary.value = value.iconLibrary
+    chartColor.value = value.chartColor
   })
 
   const isReady = ref(false)
@@ -91,6 +96,12 @@ export function useDesignSystemProvider() {
       theme: themeVars,
     } = registryTheme.value.cssVars
 
+    // Override chart vars only when chartColor is explicitly selected (non-empty).
+    const chartColorTheme = chartColor.value ? getTheme(chartColor.value as any) : null
+    const chartLightVars = chartColorTheme?.cssVars?.light as Record<string, string> | undefined
+    const chartDarkVars = chartColorTheme?.cssVars?.dark as Record<string, string> | undefined
+    const chartKeys = ['chart-1', 'chart-2', 'chart-3', 'chart-4', 'chart-5']
+
     let cssText = ':root {\n'
     // Add theme vars (shared across light/dark).
     if (themeVars) {
@@ -100,11 +111,12 @@ export function useDesignSystemProvider() {
         }
       })
     }
-    // Add light mode vars.
+    // Add light mode vars (chart vars overridden by chartColor selection).
     if (lightVars) {
       Object.entries(lightVars).forEach(([key, value]) => {
-        if (value) {
-          cssText += `  --${key}: ${value};\n`
+        const overrideValue = chartLightVars && chartKeys.includes(key) ? chartLightVars[key] : undefined
+        if (overrideValue || value) {
+          cssText += `  --${key}: ${overrideValue ?? value};\n`
         }
       })
     }
@@ -113,8 +125,9 @@ export function useDesignSystemProvider() {
     cssText += '.dark {\n'
     if (darkVars) {
       Object.entries(darkVars).forEach(([key, value]) => {
-        if (value) {
-          cssText += `  --${key}: ${value};\n`
+        const overrideValue = chartDarkVars && chartKeys.includes(key) ? chartDarkVars[key] : undefined
+        if (overrideValue || value) {
+          cssText += `  --${key}: ${overrideValue ?? value};\n`
         }
       })
     }

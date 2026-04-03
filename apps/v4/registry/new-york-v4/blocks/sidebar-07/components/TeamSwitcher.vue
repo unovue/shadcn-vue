@@ -29,7 +29,7 @@ const props = defineProps<{
 }>()
 
 const { isMobile } = useSidebar()
-const activeTeam = ref(props.teams[0])
+const activeTeam = ref(props.teams[0]!)
 </script>
 
 <template>
