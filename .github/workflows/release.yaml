@@ -49,7 +49,19 @@ jobs:
         run: npm install -g npm@^11
 
       - name: Build CLI & Publish to npm
-        run: pnpm --filter shadcn-vue build && npm publish ./packages/cli --access public --provenance
+        working-directory: packages/cli
+        run: |
+          pnpm build
+          pnpm pack
+          TARBALL="shadcn-vue-$(node -p "require('./package.json').version").tgz"
+          test -f "$TARBALL" || { echo "Tarball not found"; exit 1; }
+          npm publish "$TARBALL" --access public --provenance
 
       - name: Build Module & Publish to npm
-        run: pnpm --filter shadcn-nuxt prepack && npm publish ./packages/module --access public --provenance
+        working-directory: packages/module
+        run: |
+          pnpm prepack
+          pnpm pack
+          TARBALL="shadcn-nuxt-$(node -p "require('./package.json').version").tgz"
+          test -f "$TARBALL" || { echo "Tarball not found"; exit 1; }
+          npm publish "$TARBALL" --access public --provenance
