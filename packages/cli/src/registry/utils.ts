@@ -122,8 +122,10 @@ export async function recursivelyResolveFileImports(
     const moduleSpecifier = importStatement.getModuleSpecifierValue()
 
     const isRelativeImport = moduleSpecifier.startsWith(".")
-    const isAliasImport = moduleSpecifier.startsWith(
-      `${projectInfo.aliasPrefix}/`,
+    const aliasPrefixes = Object.keys(tsConfig.config.compilerOptions?.paths ?? {})
+      .map(key => key.replace(/\/\*$/, ""))
+    const isAliasImport = aliasPrefixes.some(
+      prefix => moduleSpecifier === prefix || moduleSpecifier.startsWith(`${prefix}/`),
     )
 
     // If not a local import, add to the dependencies array.
