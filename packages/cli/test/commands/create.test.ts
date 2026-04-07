@@ -342,8 +342,8 @@ describe('createOptionsSchema', () => {
     expect(result.name).toBe('my-project')
   })
 
-  it('accepts all three templates', () => {
-    for (const template of ['nuxt', 'vite', 'vite-router']) {
+  it('accepts all four templates', () => {
+    for (const template of ['nuxt', 'vite', 'astro', 'laravel']) {
       const result = createOptionsSchema.parse({ ...base, template })
       expect(result.template).toBe(template)
     }

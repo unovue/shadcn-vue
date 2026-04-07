@@ -45,12 +45,12 @@ onMounted(() => {
         '[&>svg]:text-muted-foreground flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3',
       )"
     >
-      <component :is="itemConfig.icon" v-if="itemConfig?.icon" />
+      <component :is="itemConfig?.icon" v-if="itemConfig?.icon" />
       <div
         v-else
         class="h-2 w-2 shrink-0 rounded-[2px]"
         :style="{
-          backgroundColor: itemConfig.color,
+          backgroundColor: itemConfig?.color,
         }"
       />
 

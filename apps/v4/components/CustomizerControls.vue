@@ -75,6 +75,12 @@ function randomize() {
     params.menuAccent.value = getRandomItem(MENU_ACCENTS).value
   }
 
+  // Randomize chart color if not locked
+  if (!isLocked('chartColor')) {
+    const chartColors = getThemesForBaseColor(params.baseColor.value)
+    params.chartColor.value = getRandomItem(chartColors).name
+  }
+
   // Mark as custom since we're randomizing
   params.custom.value = true
 }

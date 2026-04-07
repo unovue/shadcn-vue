@@ -146,7 +146,7 @@ const data = {
   ],
 }
 
-const activeItem = ref(data.navMain[0])
+const activeItem = ref(data.navMain[0]!)
 const mails = ref(data.mails)
 const { setOpen } = useSidebar()
 </script>

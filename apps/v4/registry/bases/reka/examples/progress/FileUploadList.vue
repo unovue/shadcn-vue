@@ -65,7 +65,7 @@ const files = computed(() => [
           </ItemTitle>
         </ItemContent>
         <ItemContent>
-          <Progress :value="file.progress" class="w-32" />
+          <Progress :model-value="file.progress" class="w-32" />
         </ItemContent>
         <ItemActions class="w-16 justify-end">
           <span class="text-sm text-muted-foreground">

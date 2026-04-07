@@ -24,16 +24,30 @@ export default defineNuxtConfig({
     },
     families: [
       // To improve and only load font when needed
+      { name: 'Geist', global: true, provider: 'google' },
+      { name: 'Geist Mono', global: true, provider: 'google' },
       { name: 'Inter', global: true, provider: 'google' },
       { name: 'Noto Sans', global: true, provider: 'google' },
+      { name: 'Noto Serif', global: true, provider: 'google' },
       { name: 'Nunito Sans', global: true, provider: 'google' },
       { name: 'Figtree', global: true, provider: 'google' },
       { name: 'JetBrains Mono', global: true, provider: 'google' },
       { name: 'Roboto', global: true, provider: 'google' },
+      { name: 'Roboto Slab', global: true, provider: 'google' },
       { name: 'Raleway', global: true, provider: 'google' },
       { name: 'DM Sans', global: true, provider: 'google' },
       { name: 'Public Sans', global: true, provider: 'google' },
       { name: 'Outfit', global: true, provider: 'google' },
+      { name: 'Oxanium', global: true, provider: 'google' },
+      { name: 'Manrope', global: true, provider: 'google' },
+      { name: 'Space Grotesk', global: true, provider: 'google' },
+      { name: 'Montserrat', global: true, provider: 'google' },
+      { name: 'IBM Plex Sans', global: true, provider: 'google' },
+      { name: 'Source Sans 3', global: true, provider: 'google' },
+      { name: 'Instrument Sans', global: true, provider: 'google' },
+      { name: 'Merriweather', global: true, provider: 'google' },
+      { name: 'Lora', global: true, provider: 'google' },
+      { name: 'Playfair Display', global: true, provider: 'google' },
     ],
   },
   content: {
@@ -69,7 +83,7 @@ export default defineNuxtConfig({
     ],
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss() as any],
     ssr: {
       noExternal: ['@tabler/icons-vue'],
     },
@@ -80,19 +94,15 @@ export default defineNuxtConfig({
   routeRules: {
     // Static assets - immutable, long cache
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-    // Doc pages - ISR with 6 hour revalidation
-    '/docs/**': { isr: 21600 },
-    // Block/chart/example pages - SWR with 6 hours
-    '/blocks/**': { swr: 21600 },
-    '/charts/**': { swr: 21600 },
-    '/examples/**': { swr: 21600 },
-    '/colors/**': { swr: 21600 },
-    '/themes': { swr: 21600 },
-    // API routes - cache at CDN level
-    '/api/all-items': { cache: { maxAge: 86400 } },
-    '/api/base/**': { cache: { maxAge: 86400 } },
-    '/api/block/**': { cache: { maxAge: 3600 } },
-    '/api/category/**': { cache: { maxAge: 3600 } },
+    // Pages - prerender as static (reset on each deploy)
+    '/docs/**': { prerender: true },
+    '/blocks/**': { prerender: true },
+    '/charts/**': { prerender: true },
+    '/examples/**': { prerender: true },
+    '/colors/**': { prerender: true },
+    '/themes': { prerender: true },
+    // API routes - cache indefinitely (reset on each deploy)
+    '/api/**': { swr: 31536000 },
   },
   nitro: {
     preset: 'cloudflare-module',

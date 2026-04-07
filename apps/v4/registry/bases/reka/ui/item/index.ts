@@ -35,14 +35,13 @@ export const itemVariants = cva(
 )
 
 export const itemMediaVariants = cva(
-  "flex shrink-0 items-center justify-center gap-2 group-has-[[data-slot=item-description]]/item:self-start [&_svg]:pointer-events-none group-has-[[data-slot=item-description]]/item:translate-y-0.5",
+  "cn-item-media flex shrink-0 items-center justify-center [&_svg]:pointer-events-none",
   {
     variants: {
       variant: {
-        default: "bg-transparent",
-        icon: "size-8 border rounded-sm bg-muted [&_svg:not([class*='size-'])]:size-4",
-        image:
-          "size-10 rounded-sm overflow-hidden [&_img]:size-full [&_img]:object-cover",
+        default: "cn-item-media-variant-default",
+        icon: "cn-item-media-variant-icon",
+        image: "cn-item-media-variant-image",
       },
     },
     defaultVariants: {

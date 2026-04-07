@@ -8,7 +8,10 @@ defineProps<{
 }>()
 
 const params = useDesignSystemSearchParams()
-const currentRadius = computed(() => RADII.find(r => r.name === params.radius.value) ?? RADII[0])
+
+const isRadiusLocked = computed(() => params.style.value === 'lyra')
+const selectedRadiusName = computed(() => isRadiusLocked.value ? 'none' : params.radius.value)
+const currentRadius = computed(() => RADII.find(r => r.name === selectedRadiusName.value))
 const defaultRadius = computed(() => RADII.find(r => r.name === 'default'))
 const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
 </script>
@@ -16,7 +19,7 @@ const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
 <template>
   <div class="group/picker relative">
     <Picker>
-      <PickerTrigger>
+      <PickerTrigger :disabled="isRadiusLocked">
         <div class="flex flex-col justify-start text-left">
           <div class="text-muted-foreground text-xs">
             Radius
@@ -25,7 +28,7 @@ const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
             {{ currentRadius?.label }}
           </div>
         </div>
-        <div class="text-foreground pointer-events-none absolute top-1/2 right-4 flex size-4 -translate-y-1/2 rotate-90 items-center justify-center text-base select-none">
+        <div class="text-foreground pointer-events-none absolute top-1/2 right-4 flex size-4 -translate-y-1/2 rotate-90 items-center justify-center text-base select-none md:right-2.5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -52,6 +55,7 @@ const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
         <PickerRadioGroup
           :model-value="currentRadius?.name"
           @update:model-value="(value) => {
+            if (isRadiusLocked) return
             params.radius.value = value as RadiusValue
           }"
         >
@@ -59,13 +63,9 @@ const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
             <PickerRadioItem
               v-if="defaultRadius"
               :value="defaultRadius.name"
+              :close-on-click="isMobile"
             >
-              <div class="flex flex-col justify-start pointer-coarse:gap-1">
-                <div>{{ defaultRadius.label }}</div>
-                <div class="text-muted-foreground text-xs pointer-coarse:text-sm">
-                  Use radius from style
-                </div>
-              </div>
+              {{ defaultRadius.label }}
             </PickerRadioItem>
           </PickerGroup>
           <PickerSeparator />
@@ -74,6 +74,7 @@ const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
               v-for="radius in otherRadii"
               :key="radius.name"
               :value="radius.name"
+              :close-on-click="isMobile"
             >
               {{ radius.label }}
             </PickerRadioItem>
@@ -83,7 +84,7 @@ const otherRadii = computed(() => RADII.filter(r => r.name !== 'default'))
     </Picker>
     <LockButton
       param="radius"
-      class="absolute top-1/2 right-10 -translate-y-1/2"
+      class="absolute top-1/2 right-8 -translate-y-1/2"
     />
   </div>
 </template>

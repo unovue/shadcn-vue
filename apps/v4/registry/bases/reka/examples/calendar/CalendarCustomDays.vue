@@ -6,10 +6,10 @@ import { Card, CardContent } from "@/registry/bases/reka/ui/card"
 import { RangeCalendar } from "@/registry/bases/reka/ui/range-calendar"
 import { Example } from "~/registry/bases/reka/components/example"
 
-const range = ref<DateRange>({
+const range = ref({
   start: new CalendarDate(new Date().getFullYear(), 12, 8),
   end: new CalendarDate(new Date().getFullYear(), 12, 18),
-})
+} as DateRange)
 
 function isWeekend(date: CalendarDate) {
   const jsDate = new Date(date.year, date.month - 1, date.day)
@@ -27,7 +27,7 @@ function getPrice(date: CalendarDate) {
     <Card class="mx-auto w-fit p-0">
       <CardContent class="p-0">
         <RangeCalendar
-          v-model="range"
+          v-model="(range as any)"
           :number-of-months="1"
           layout="month-and-year"
           class="[--rdp-cell-size:theme(spacing.10)] md:[--rdp-cell-size:theme(spacing.12)]"

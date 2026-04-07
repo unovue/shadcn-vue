@@ -61,8 +61,8 @@ const presets = [
     <Card class="mx-auto w-fit max-w-[300px]" size="sm">
       <CardContent class="px-4">
         <Calendar
-          v-model="date"
-          v-model:placeholder="currentMonth"
+          v-model="(date as any)"
+          v-model:placeholder="(currentMonth as any)"
           fixed-weeks
           class="p-0 [--rdp-cell-size:theme(spacing.9.5)]"
         />

@@ -53,6 +53,7 @@ export default antfu(
       'unused-imports/no-unused-vars': 0,
       'unicorn/no-new-array': 0,
       'import-x/consistent-type-specifier-style': 0,
+      'yaml/sort-keys': 0,
     },
   },
 )

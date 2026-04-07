@@ -44,7 +44,7 @@ const lineChartConfig = {
               :x="(d: Data) => d.month"
               :y="[(d: Data) => d.desktop, (d: Data) => d.mobile]"
               :color="[lineChartConfig.desktop.color, lineChartConfig.mobile.color]"
-              :curve-type="CurveType.MonotonX"
+              :curve-type="CurveType.MonotoneX"
               :line-width="2"
             />
             <VisAxis

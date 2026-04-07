@@ -212,7 +212,7 @@ async function buildRegistry(base: RegistryBase, tempRegistryPath: string) {
   // eslint-disable-next-line no-console
   console.log(`🏗️  Building registry with CLI for ${base.name}...`)
 
-  return new Promise((resolve) => {
+  return new Promise<{ success: boolean, skipped?: boolean, error?: string }>((resolve) => {
     // Use local shadcn copy.
     const command = `node ../../packages/cli/dist/index.js build ${tempRegistryPath} --output ${base.publicOutputDir}`
     // eslint-disable-next-line no-console
@@ -357,7 +357,7 @@ export const Index: Record<string, Record<string, any>> = {\n`
           index += `      description: "${item.description ?? ''}",\n`
           index += `      type: "${item.type}",\n`
           index += `      registryDependencies: ${JSON.stringify(item.registryDependencies)},\n`
-          index += `      files: ${JSON.stringify(item.files?.map((file) => {
+          index += `      files: ${JSON.stringify(item.files?.map((file: string | { path: string, type?: string, target?: string }) => {
             const filePath = typeof file === 'string' ? file : file.path
             // Check if path already starts with content type to avoid duplication
             const pathAlreadyIncludesType = filePath.startsWith(`${contentType.path}/`)

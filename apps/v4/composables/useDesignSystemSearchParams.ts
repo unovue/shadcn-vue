@@ -6,7 +6,7 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
   const DEFAULT_OPTIONS = { mode, route: useRoute(), router: useRouter() }
   const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, DEFAULT_OPTIONS)
 
-  const item = useRouteQuery<string>('item', 'preview', DEFAULT_OPTIONS)
+  const item = useRouteQuery<string>('item', 'preview-02', DEFAULT_OPTIONS)
 
   const iconLibrary = useRouteQuery<IconLibraryName>(
     'iconLibrary',
@@ -19,6 +19,10 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
   const theme = useRouteQuery<ThemeName>('theme', DEFAULT_CONFIG.theme, DEFAULT_OPTIONS)
 
   const font = useRouteQuery<FontValue>('font', DEFAULT_CONFIG.font, DEFAULT_OPTIONS)
+
+  const fontHeading = useRouteQuery<string>('fontHeading', 'inherit', DEFAULT_OPTIONS)
+
+  const chartColor = useRouteQuery<string>('chartColor', 'emerald', DEFAULT_OPTIONS)
 
   const baseColor = useRouteQuery<BaseColorName>(
     'baseColor',
@@ -40,7 +44,7 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
 
   const radius = useRouteQuery<RadiusValue>('radius', 'default', DEFAULT_OPTIONS)
 
-  const template = useRouteQuery<'nuxt' | 'start' | 'vite'>('template', 'nuxt', DEFAULT_OPTIONS)
+  const template = useRouteQuery<'nuxt' | 'vite' | 'laravel' | 'astro'>('template', 'nuxt', DEFAULT_OPTIONS)
 
   const size = useRouteQuery<number>('size', 100, DEFAULT_OPTIONS)
 
@@ -53,6 +57,8 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
     style,
     theme,
     font,
+    fontHeading,
+    chartColor,
     baseColor,
     menuAccent,
     menuColor,

@@ -191,7 +191,7 @@ function getStrokePercent(percentage: number) {
           </PopoverTrigger>
           <PopoverContent class="w-auto p-0" align="start">
             <Calendar
-              v-model="dateRange"
+              v-model="(dateRange as any)"
               mode="range"
               :number-of-months="2"
             />

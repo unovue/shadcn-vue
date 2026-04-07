@@ -19,7 +19,7 @@ const date = ref<CalendarDate>(
     <Card class="mx-auto w-fit p-0">
       <CardContent class="p-0">
         <Calendar
-          v-model="date"
+          v-model="(date as any)"
           :week-starts-on="1"
           show-week-number
         />

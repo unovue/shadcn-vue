@@ -4,10 +4,13 @@
   "properties": {
     "style": {
       "type": "string",
-      "enum": [
-        "default",
-        "new-york"
-      ]
+      "enum": ["default", "new-york", "vega", "nova", "maia", "lyra", "mira", "luma"]
+    },
+    "base": {
+      "type": "string"
+    },
+    "font": {
+      "type": "string"
     },
     "typescript": {
       "type": "boolean",
@@ -32,12 +35,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "config",
-        "css",
-        "baseColor",
-        "cssVariables"
-      ]
+      "required": ["config", "css", "baseColor", "cssVariables"]
     },
     "iconLibrary": {
       "type": "string"
@@ -61,10 +59,18 @@
           "type": "string"
         }
       },
-      "required": [
-        "utils",
-        "components"
-      ]
+      "required": ["utils", "components"]
+    },
+    "menuColor": {
+      "type": "string",
+      "enum": ["default", "inverted", "default-translucent", "inverted-translucent"]
+    },
+    "menuAccent": {
+      "type": "string",
+      "enum": ["subtle", "bold"]
+    },
+    "rtl": {
+      "type": "boolean"
     },
     "registries": {
       "type": "object",
@@ -95,9 +101,7 @@
                   }
                 }
               },
-              "required": [
-                "url"
-              ]
+              "required": ["url"]
             }
           ]
         }
@@ -105,9 +109,5 @@
       "additionalProperties": false
     }
   },
-  "required": [
-    "style",
-    "tailwind",
-    "aliases"
-  ]
+  "required": ["style", "tailwind", "aliases"]
 }

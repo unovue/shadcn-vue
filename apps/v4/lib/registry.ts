@@ -127,7 +127,7 @@ function fixFilePaths(files: z.infer<typeof registryItemSchema>['files']) {
   }
 
   // Resolve all paths relative to the first file's directory.
-  const firstFilePath = files[0].path
+  const firstFilePath = files[0]!.path
   const firstFilePathDir = path.dirname(firstFilePath)
 
   return files.map((file) => {
@@ -156,7 +156,7 @@ export function createFileTreeForRegistryItemFiles(
     let currentLevel = root
 
     for (let i = 0; i < parts.length; i++) {
-      const part = parts[i]
+      const part = parts[i]!
       const isFile = i === parts.length - 1
       const existingNode = currentLevel.find(node => node.name === part)
 

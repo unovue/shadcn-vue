@@ -30,7 +30,7 @@ const plans = [
   },
 ]
 
-const plan = ref(plans[0].name)
+const plan = ref(plans[0]!.name)
 
 const selectedPlan = computed(() => plans.find(p => p.name === plan.value))
 </script>

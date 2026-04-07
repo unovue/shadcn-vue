@@ -24,7 +24,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/registry/new-york-v4/ui/dialog'
-import { Kbd, KbdGroup } from '@/registry/new-york-v4/ui/kbd'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
 import CommandMenuItem from './CommandItem.vue'
 import CommandMenuKbd from './CommandMenuKbd.vue'
@@ -118,20 +117,14 @@ onMounted(() => {
   <Dialog v-model:open="open">
     <DialogTrigger as-child>
       <Button
-        variant="secondary"
+        variant="outline"
         :class="cn(
-          'bg-surface text-foreground dark:bg-card relative h-8 w-full justify-start pl-3 font-medium shadow-none sm:pr-12 md:w-48 lg:w-56 xl:w-64',
+          'relative h-8 w-full justify-start rounded-lg pl-3 font-normal text-foreground shadow-none hover:bg-muted/50 sm:pr-12 md:w-48 lg:w-40 xl:w-64 dark:bg-card',
         )"
         @click="open = true"
       >
-        <span class="hidden lg:inline-flex">Search documentation...</span>
-        <span class="inline-flex lg:hidden">Search...</span>
-        <div class="absolute top-1.5 right-1.5 hidden gap-1 sm:flex">
-          <KbdGroup>
-            <Kbd class="border">{{ isMac ? '⌘' : 'Ctrl' }}</Kbd>
-            <Kbd class="border">K</Kbd>
-          </KbdGroup>
-        </div>
+        <span class="hidden xl:inline-flex">Search documentation...</span>
+        <span class="inline-flex xl:hidden">Search...</span>
       </Button>
     </DialogTrigger>
     <DialogContent

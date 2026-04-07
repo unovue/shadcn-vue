@@ -25,7 +25,7 @@ const pinValue = ref("")
         <FieldLabel html-for="otp-basic">
           Verification Code
         </FieldLabel>
-        <InputOTP id="otp-basic" :max-length="6">
+        <InputOTP id="otp-basic" :maxlength="6">
           <InputOTPGroup>
             <InputOTPSlot :index="0" />
             <InputOTPSlot :index="1" />
@@ -43,7 +43,7 @@ const pinValue = ref("")
         <InputOTP
           id="otp-with-desc"
           v-model="value"
-          :max-length="6"
+          :maxlength="6"
         >
           <InputOTPGroup>
             <InputOTPSlot :index="0" />
@@ -62,7 +62,7 @@ const pinValue = ref("")
         <FieldLabel html-for="otp-separator">
           Two-Factor Authentication
         </FieldLabel>
-        <InputOTP id="otp-separator" :max-length="6">
+        <InputOTP id="otp-separator" :maxlength="6">
           <InputOTPGroup>
             <InputOTPSlot :index="0" />
             <InputOTPSlot :index="1" />
@@ -86,7 +86,7 @@ const pinValue = ref("")
         <InputOTP
           id="otp-pin"
           v-model="pinValue"
-          :max-length="4"
+          :maxlength="4"
           pattern="[0-9]*"
         >
           <InputOTPGroup>
@@ -104,7 +104,7 @@ const pinValue = ref("")
         <FieldLabel html-for="otp-invalid">
           Invalid OTP
         </FieldLabel>
-        <InputOTP id="otp-invalid" :max-length="6">
+        <InputOTP id="otp-invalid" :maxlength="6">
           <InputOTPGroup>
             <InputOTPSlot :index="0" :aria-invalid="true" />
             <InputOTPSlot :index="1" :aria-invalid="true" />
@@ -122,7 +122,7 @@ const pinValue = ref("")
         <FieldLabel html-for="otp-disabled-field">
           Disabled OTP
         </FieldLabel>
-        <InputOTP id="otp-disabled-field" :max-length="6" disabled>
+        <InputOTP id="otp-disabled-field" :maxlength="6" disabled>
           <InputOTPGroup>
             <InputOTPSlot :index="0" />
             <InputOTPSlot :index="1" />

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { PlusSignIcon } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/vue'
 import { siteConfig } from '@/lib/config'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
@@ -46,22 +44,7 @@ const docData = computed(() => data.value!.find(i => i.stem === 'docs')!)
           <Separator orientation="vertical" />
           <ModeSwitcher />
           <Separator orientation="vertical" class="mr-2" />
-          <Button
-            as-child
-            size="sm"
-            class="hidden h-[31px] rounded-lg sm:flex"
-          >
-            <NuxtLink to="/create">
-              <HugeiconsIcon :icon="PlusSignIcon" />
-              New Project
-            </NuxtLink>
-          </Button>
-          <Button as-child size="sm" class="h-[31px] rounded-lg sm:hidden">
-            <NuxtLink to="/create">
-              <HugeiconsIcon :icon="PlusSignIcon" />
-              New
-            </NuxtLink>
-          </Button>
+          <CreateProjectButton class="hidden h-[31px] rounded-lg sm:flex" />
         </div>
       </div>
     </div>

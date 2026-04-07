@@ -1,9 +1,14 @@
 import type { DesignSystemSearchParams } from '@/composables/useDesignSystemSearchParams'
 
-interface ParentToIframeMessage {
-  type: 'design-system-params'
-  data: DesignSystemSearchParams
-}
+type ParentToIframeMessage
+  = | {
+    type: 'design-system-params'
+    data: DesignSystemSearchParams
+  }
+  | {
+    type: 'color-mode-sync'
+    data: { colorMode: string }
+  }
 
 function isInIframe() {
   if (typeof window === 'undefined') {

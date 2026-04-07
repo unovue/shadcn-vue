@@ -6,11 +6,11 @@ import { Progress } from "@/registry/bases/reka/ui/progress"
 <template>
   <Example title="Progress Bar">
     <div class="flex w-full flex-col gap-4">
-      <Progress :value="0" />
-      <Progress :value="25" class="w-full" />
-      <Progress :value="50" />
-      <Progress :value="75" />
-      <Progress :value="100" />
+      <Progress :model-value="0" />
+      <Progress :model-value="25" class="w-full" />
+      <Progress :model-value="50" />
+      <Progress :model-value="75" />
+      <Progress :model-value="100" />
     </div>
   </Example>
 </template>

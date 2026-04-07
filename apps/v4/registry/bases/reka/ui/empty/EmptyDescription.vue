@@ -11,7 +11,7 @@ defineProps<{
   <p
     data-slot="empty-description"
     :class="cn(
-      'text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4',
+      'cn-empty-description text-muted-foreground [&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',
       $attrs.class ?? '',
     )"
   >

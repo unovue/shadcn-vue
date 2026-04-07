@@ -5,14 +5,14 @@ import { ref } from "vue"
 import { RangeCalendar } from "@/registry/bases/reka/ui/range-calendar"
 import { Example } from "~/registry/bases/reka/components/example"
 
-const range = ref<DateRange>({
+const range = ref({
   start: new CalendarDate(new Date().getFullYear(), 1, 1),
   end: new CalendarDate(new Date().getFullYear(), 1, 7),
-})
+} as DateRange)
 </script>
 
 <template>
   <Example title="Basic Range Calendar">
-    <RangeCalendar v-model="range" />
+    <RangeCalendar v-model="(range as any)" />
   </Example>
 </template>

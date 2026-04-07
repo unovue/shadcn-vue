@@ -95,7 +95,7 @@ function isActive(href: string) {
           <SidebarMenu class="gap-0.5">
             <template
               v-for="childItem in item?.children?.filter(child => !EXCLUDED_PAGES.includes(child.path))"
-              :key="childItem.url"
+              :key="String(childItem.url)"
             >
               <SidebarMenuItem>
                 <SidebarMenuButton
