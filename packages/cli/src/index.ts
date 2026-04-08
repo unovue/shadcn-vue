@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 import { add } from '@/src/commands/add'
+import { apply } from '@/src/commands/apply'
 import { build } from '@/src/commands/build'
 import { diff } from '@/src/commands/diff'
 import { docs } from '@/src/commands/docs'
@@ -29,6 +30,7 @@ async function main() {
   program
     .addCommand(init)
     .addCommand(add)
+    .addCommand(apply)
     .addCommand(diff)
     .addCommand(docs)
     .addCommand(view)

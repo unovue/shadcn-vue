@@ -807,7 +807,11 @@ async function promptForMinimalConfig(
   let style = opts.style ?? defaultConfig.style
   let iconLibrary = opts.iconLibrary ?? defaultConfig.iconLibrary ?? 'lucide'
   let font = opts.font ?? defaultConfig.font ?? 'inter'
-  let baseColor = opts.baseColor
+  let baseColor = opts.baseColor ?? defaultConfig.tailwind.baseColor
+  // Preserve the project's existing cssVariables unless the user explicitly
+  // overrode it on the command line. Since `--css-variables` defaults to
+  // `true` in Commander, pulling from `opts` unconditionally would flip an
+  // existing `tailwind.cssVariables: false` back to `true` on every run.
   let cssVariables = defaultConfig.tailwind.cssVariables
 
   if (opts.preset === undefined && !opts.defaults) {
@@ -891,6 +895,8 @@ async function promptForMinimalConfig(
     $schema: defaultConfig?.$schema,
     style: composeStyleId(base, style),
     font,
+    ...(defaultConfig.fontHeading
+      && { fontHeading: defaultConfig.fontHeading }),
     iconLibrary,
     rtl: opts.rtl ?? defaultConfig.rtl ?? false,
     tailwind: {

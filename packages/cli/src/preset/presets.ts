@@ -325,7 +325,26 @@ export async function resolveRegistryBaseConfig(
       }.`,
     )
   }
-  const registryBaseConfig = item.config
+  const registryBaseConfig = item.config as Record<string, unknown>
+
+  // Overlay URL-derived params onto the returned config. The server-side
+  // `buildRegistryBase` may not emit every preset field (older deployments
+  // don't know about `fontHeading` for example), but the CLI built the init
+  // URL locally with every field it cares about. Filling missing fields from
+  // the URL makes the preset flow work end-to-end without waiting on a
+  // server redeploy.
+  if (isUrl(initUrl)) {
+    const params = new URL(initUrl).searchParams
+    const fontHeading = params.get('fontHeading')
+    if (
+      fontHeading
+      && fontHeading !== 'inherit'
+      && fontHeading !== params.get('font')
+      && !registryBaseConfig.fontHeading
+    ) {
+      registryBaseConfig.fontHeading = fontHeading
+    }
+  }
 
   // Strip the track param so subsequent fetches don't re-trigger tracking.
   let cleanUrl = initUrl

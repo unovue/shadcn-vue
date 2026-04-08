@@ -329,6 +329,12 @@ export function buildRegistryBase(
   const baseItem = getBase(config.base)
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
 
+  // Mirrors shadcn-ui: if a user picked the same font for heading and body,
+  // collapse to "inherit" so we don't emit a redundant --font-heading var
+  // that's just an alias of --font-sans.
+  const normalizedFontHeading
+    = config.fontHeading === config.font ? "inherit" : config.fontHeading
+
   if (!baseItem || !iconLibraryItem) {
     throw new Error(
       `Base "${config.base}" or icon library "${config.iconLibrary}" not found`,
@@ -356,6 +362,10 @@ export function buildRegistryBase(
   // that actually applies the font — the CLI's addFontImportPlugin only
   // handles the Google Fonts @import url(...) line.
   const fontItem = fonts.find(f => f.name === `font-${config.font}`)
+  const fontHeadingItem
+    = normalizedFontHeading !== "inherit"
+      ? fonts.find(f => f.name === `font-${normalizedFontHeading}`)
+      : undefined
 
   const themeVars: Record<string, string> = {
     ...(registryTheme.cssVars?.theme as Record<string, string> | undefined),
@@ -377,6 +387,19 @@ export function buildRegistryBase(
     bodyRules[`@apply ${applyClass}`] = {}
   }
 
+  // Emit --font-heading so the Tailwind v4 `font-heading` utility is wired
+  // up. When fontHeading is "inherit" (default) we alias it to the body
+  // font's CSS variable; otherwise we resolve the heading font's family
+  // from the web registry and emit it literally. The heading font's Google
+  // Fonts @import is pulled in CLI-side by addFontImportPlugin (see
+  // add-components.ts) via `config.fontHeading`.
+  if (normalizedFontHeading === "inherit") {
+    themeVars["--font-heading"] = `var(${fontItem?.font.variable ?? "--font-sans"})`
+  }
+  else if (fontHeadingItem) {
+    themeVars["--font-heading"] = fontHeadingItem.font.family
+  }
+
   return {
     name: `${config.base}-${config.style}`,
     extends: "none",
@@ -385,6 +408,10 @@ export function buildRegistryBase(
       style: `${config.base}-${config.style}`,
       iconLibrary: iconLibraryItem.name,
       font: config.font,
+      // Only persist fontHeading when it's a real override, so projects
+      // with the default ("inherit") don't gain a new components.json field.
+      ...(normalizedFontHeading !== "inherit"
+        && { fontHeading: normalizedFontHeading }),
       rtl: config.rtl ?? false,
       menuColor: config.menuColor,
       menuAccent: config.menuAccent,

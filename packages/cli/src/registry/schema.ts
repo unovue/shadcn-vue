@@ -30,6 +30,7 @@ export const rawConfigSchema = z
     $schema: z.string().optional(),
     style: z.string(),
     font: z.string().optional(),
+    fontHeading: z.string().optional(),
     typescript: z.coerce.boolean().default(true),
     tailwind: z.object({
       config: z.string().optional(),
