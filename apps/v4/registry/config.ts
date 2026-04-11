@@ -345,7 +345,7 @@ export function buildRegistryBase(
 
   // Build dependencies.
   const dependencies = [
-    `shadcn@${SHADCN_VERSION}`,
+    `shadcn-vue@${SHADCN_VERSION}`,
     "class-variance-authority",
     "tw-animate-css",
     ...(baseItem.dependencies ?? []),
@@ -427,7 +427,7 @@ export function buildRegistryBase(
     },
     css: {
       "@import \"tw-animate-css\"": {},
-      "@import \"shadcn/tailwind.css\"": {},
+      "@import \"shadcn-vue/tailwind.css\"": {},
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
         "body": bodyRules,
