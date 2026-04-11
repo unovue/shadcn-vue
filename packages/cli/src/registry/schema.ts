@@ -288,7 +288,12 @@ export const presetSchema = z.object({
   iconLibrary: z.string(),
   font: z.string(),
   menuAccent: z.enum(["subtle", "bold"]),
-  menuColor: z.enum(["default", "inverted"]),
+  menuColor: z.enum([
+    "default",
+    "inverted",
+    "default-translucent",
+    "inverted-translucent",
+  ]),
   radius: z.string(),
 })
 

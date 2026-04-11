@@ -10,14 +10,28 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: result.error })
   }
 
-  const registryBase = buildRegistryBase(result.data)
+  let registryBase
+  try {
+    registryBase = buildRegistryBase(result.data)
+  }
+  catch (error) {
+    // buildRegistryBase throws on unknown base/iconLibrary lookups — surface
+    // as a 400 so clients see a meaningful message instead of a bare 500.
+    throw createError({
+      statusCode: 400,
+      statusMessage: error instanceof Error ? error.message : 'Invalid configuration',
+    })
+  }
+
   const parseResult = registryItemSchema.safeParse(registryBase)
 
   if (!parseResult.success) {
+    // Log the full Zod error server-side; clients only see a generic message
+    // so we don't leak the registry item schema shape.
+    console.error('[init] registry:base validation failed', parseResult.error.format())
     throw createError({
       statusCode: 500,
       statusMessage: 'Invalid registry base item',
-      data: parseResult.error.format(),
     })
   }
 

@@ -329,12 +329,9 @@ export async function resolveRegistryBaseConfig(
 }
 
 function isShadcnVueInitUrl(url: string) {
-  try {
-    return new URL(url).pathname === '/init' && url.startsWith(SHADCN_VUE_URL)
-  }
-  catch {
+  if (!isUrl(url))
     return false
-  }
+  return new URL(url).pathname === '/init' && url.startsWith(SHADCN_VUE_URL)
 }
 
 export { isUrl }

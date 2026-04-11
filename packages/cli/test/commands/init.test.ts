@@ -191,6 +191,8 @@ describe('default presets', () => {
       expect(preset.menuAccent).toBeDefined()
       expect(preset.menuColor).toBeDefined()
       expect(preset.radius).toBeDefined()
+      expect(preset.fontHeading).toBeDefined()
+      expect(preset.rtl).toBeDefined()
     }
   })
 })
