@@ -280,6 +280,13 @@ export async function getRegistryBaseColor(baseColor: string) {
     return registryBaseColorSchema.parse(result)
   }
   catch (error) {
+    // Degrade gracefully when a base color is not published at the registry.
+    // This happens for newer base colors (mauve/olive/mist/taupe) until the
+    // color generation pipeline publishes matching JSON. Transformers only
+    // use this mapping for non-cssVariables inline color class remapping.
+    if (error instanceof RegistryNotFoundError) {
+      return undefined
+    }
     handleError(error)
   }
 }

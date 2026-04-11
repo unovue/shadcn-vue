@@ -83,7 +83,9 @@ export const designSystemConfigSchema = z
       .default("neutral"),
     theme: z.enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]]),
     font: z.enum(fontValues).default("inter"),
-    fontHeading: z.enum(fontValues).default("inherit"),
+    fontHeading: z
+      .enum(["inherit", ...fontValues] as [string, ...string[]])
+      .default("inherit"),
     item: z.string().optional(),
     menuAccent: z
       .enum(
@@ -344,15 +346,10 @@ export function buildRegistryBase(
     ...iconLibraryItem.packages,
   ]
 
+  // Fonts are applied CLI-side via getFontImport(config.font) from the
+  // local FONTS constant — shadcn-vue's registry does not publish font-*
+  // items, so we intentionally do not add them as registryDependencies.
   const registryDependencies = ["utils"]
-
-  if (config.font) {
-    registryDependencies.push(`font-${config.font}`)
-  }
-
-  if (config.fontHeading && config.fontHeading !== "inherit") {
-    registryDependencies.push(`font-${config.fontHeading}`)
-  }
 
   return {
     name: `${config.base}-${config.style}`,
