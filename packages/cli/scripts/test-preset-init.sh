@@ -21,7 +21,7 @@
 #   packages/cli/scripts/test-preset-init.sh            # defaults to 'nova'
 #   packages/cli/scripts/test-preset-init.sh a33ViDwO   # encoded custom preset
 
-set -uo pipefail
+set -euo pipefail
 
 PRESET="${1:-nova}"
 CLI_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -63,16 +63,17 @@ fs.writeFileSync(p, JSON.stringify(c, null, 2));
 "
 
 echo "→ Running: node dist/index.js init --preset $PRESET --template vite --yes"
+INIT_STATUS=0
 (
   cd "$WORK_DIR" && \
   SHADCN_VUE_URL=http://localhost:3000 \
   REGISTRY_URL=http://localhost:3000/r \
   node "$CLI_BIN" init --preset "$PRESET" --template vite --yes
-)
+) || INIT_STATUS=$?
 
 echo
 echo "──────── components.json ────────"
-cat "$WORK_DIR/components.json"
+cat "$WORK_DIR/components.json" 2>/dev/null || echo "(not written)"
 
 CSS_FILE="$WORK_DIR/src/index.css"
 if [[ -f "$CSS_FILE" ]]; then
@@ -89,5 +90,10 @@ if [[ -f "$UTILS" ]]; then
 fi
 
 echo
+if [[ "$INIT_STATUS" -ne 0 ]]; then
+  echo "✖ Preset init failed (exit $INIT_STATUS). Artifacts above are partial."
+  echo "  Temp dir: $WORK_DIR (cleaned on exit)."
+  exit "$INIT_STATUS"
+fi
 echo "✔ Preset init completed. Temp dir: $WORK_DIR (cleaned on exit)."
 echo "  Re-run with a different preset code: $0 <code>"

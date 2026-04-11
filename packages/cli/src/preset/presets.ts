@@ -214,11 +214,16 @@ export async function promptForBase() {
   return 'reka' as const
 }
 
+export type PromptForPresetResult
+  = | { kind: 'preset', url: string, base: string }
+    | { kind: 'custom' }
+    | { kind: 'cancelled' }
+
 export async function promptForPreset(options: {
   rtl: boolean
   base: string
   template?: string
-}) {
+}): Promise<PromptForPresetResult> {
   const presets = Object.entries(DEFAULT_PRESETS)
 
   const { selectedPreset } = await prompts({
@@ -240,7 +245,7 @@ export async function promptForPreset(options: {
   })
 
   if (!selectedPreset) {
-    process.exit(1)
+    return { kind: 'cancelled' }
   }
 
   if (selectedPreset === 'custom') {
@@ -254,16 +259,16 @@ export async function promptForPreset(options: {
       createUrl,
       followUp: `Then ${highlighter.info('copy and run the command')} from shadcn-vue.com.`,
     })
-
-    process.exit(0)
+    return { kind: 'custom' }
   }
 
   const preset = DEFAULT_PRESETS[selectedPreset as keyof typeof DEFAULT_PRESETS]
   if (!preset) {
-    process.exit(1)
+    return { kind: 'cancelled' }
   }
 
   return {
+    kind: 'preset',
     url: resolveInitUrl(
       { ...preset, base: options.base, rtl: options.rtl },
       {
@@ -310,8 +315,17 @@ export async function resolveRegistryBaseConfig(
     useCache: true,
   })
 
-  const registryBaseConfig
-    = item?.type === 'registry:base' && item.config ? item.config : undefined
+  // Fail fast: if the init URL doesn't resolve to a registry:base item with a
+  // config, silently falling back to defaults would mask broken preset
+  // propagation — exactly the bug this flow was introduced to fix.
+  if (item?.type !== 'registry:base' || !item.config) {
+    throw new Error(
+      `Expected a registry:base item with a config from ${initUrl}, got ${
+        item?.type ?? 'nothing'
+      }.`,
+    )
+  }
+  const registryBaseConfig = item.config
 
   // Strip the track param so subsequent fetches don't re-trigger tracking.
   let cleanUrl = initUrl
@@ -331,7 +345,9 @@ export async function resolveRegistryBaseConfig(
 function isShadcnVueInitUrl(url: string) {
   if (!isUrl(url))
     return false
-  return new URL(url).pathname === '/init' && url.startsWith(SHADCN_VUE_URL)
+  const parsed = new URL(url)
+  const trusted = new URL(SHADCN_VUE_URL)
+  return parsed.origin === trusted.origin && parsed.pathname === '/init'
 }
 
 export { isUrl }

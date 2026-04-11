@@ -316,6 +316,18 @@ export const init = new Command()
             template: options.template,
             base: options.base ?? (await promptForBase()),
           })
+          // User cancelled the prompt (Ctrl+C or escaped) — exit cleanly so
+          // the outer finally block still runs.
+          if (result.kind === 'cancelled') {
+            logger.break()
+            process.exit(1)
+          }
+          // "Custom" means the user was redirected to the web builder;
+          // nothing more for the CLI to do this run.
+          if (result.kind === 'custom') {
+            logger.break()
+            process.exit(0)
+          }
           components = [result.url, ...components]
         }
 
