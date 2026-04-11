@@ -351,6 +351,32 @@ export function buildRegistryBase(
   // items, so we intentionally do not add them as registryDependencies.
   const registryDependencies = ["utils"]
 
+  // Resolve font metadata from the web registry so the emitted
+  // registry:base item carries both the @theme CSS variable and a body rule
+  // that actually applies the font — the CLI's addFontImportPlugin only
+  // handles the Google Fonts @import url(...) line.
+  const fontItem = fonts.find(f => f.name === `font-${config.font}`)
+
+  const themeVars: Record<string, string> = {
+    ...(registryTheme.cssVars?.theme as Record<string, string> | undefined),
+  }
+  const bodyRules: Record<string, Record<string, unknown>> = {
+    "@apply bg-background text-foreground": {},
+  }
+  if (fontItem) {
+    themeVars[fontItem.font.variable] = fontItem.font.family
+    // Map the font's target variable to a Tailwind utility class.
+    // shadcn-vue fonts all target --font-sans today (jetbrains-mono included),
+    // but we handle --font-mono / --font-serif for future-proofing.
+    const applyClass
+      = fontItem.font.variable === "--font-mono"
+        ? "font-mono"
+        : fontItem.font.variable === "--font-serif"
+          ? "font-serif"
+          : "font-sans"
+    bodyRules[`@apply ${applyClass}`] = {}
+  }
+
   return {
     name: `${config.base}-${config.style}`,
     extends: "none",
@@ -368,13 +394,16 @@ export function buildRegistryBase(
     },
     dependencies,
     registryDependencies,
-    cssVars: registryTheme.cssVars,
+    cssVars: {
+      ...registryTheme.cssVars,
+      theme: Object.keys(themeVars).length > 0 ? themeVars : undefined,
+    },
     css: {
       "@import \"tw-animate-css\"": {},
       "@import \"shadcn/tailwind.css\"": {},
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
-        "body": { "@apply bg-background text-foreground": {} },
+        "body": bodyRules,
       },
     },
   }
