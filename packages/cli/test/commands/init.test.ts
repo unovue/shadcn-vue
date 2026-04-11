@@ -3,9 +3,9 @@ import { addDependency } from 'nypm'
 import path from 'pathe'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { initOptionsSchema, resolvePreset, runInit } from '../../src/commands/init'
+import { initOptionsSchema, runInit } from '../../src/commands/init'
+import { DEFAULT_PRESETS } from '../../src/preset/presets'
 import * as registry from '../../src/registry'
-import { PRESETS } from '../../src/registry/constants'
 import { getConfig } from '../../src/utils/get-config'
 
 vi.mock('nypm')
@@ -14,9 +14,6 @@ vi.mock('fs/promises', () => ({
   mkdir: vi.fn(),
 }))
 vi.mock('ora')
-vi.mock('ofetch', () => ({
-  ofetch: vi.fn(),
-}))
 
 it.skip('init config-full', async () => {
   vi.spyOn(registry, 'getRegistryBaseColor').mockResolvedValue({
@@ -153,6 +150,26 @@ describe('initOptionsSchema', () => {
     expect(result.preset).toBeUndefined()
   })
 
+  it('accepts preset as boolean true (interactive mode)', () => {
+    const result = initOptionsSchema.parse({ ...base, preset: true })
+    expect(result.preset).toBe(true)
+  })
+
+  it('accepts preset as boolean false', () => {
+    const result = initOptionsSchema.parse({ ...base, preset: false })
+    expect(result.preset).toBe(false)
+  })
+
+  it('accepts a preset code string', () => {
+    const result = initOptionsSchema.parse({ ...base, preset: 'nova' })
+    expect(result.preset).toBe('nova')
+  })
+
+  it('accepts installStyleIndex boolean flag', () => {
+    const result = initOptionsSchema.parse({ ...base, installStyleIndex: false })
+    expect(result.installStyleIndex).toBe(false)
+  })
+
   it('accepts valid style', () => {
     const result = initOptionsSchema.parse({ ...base, style: 'vega' })
     expect(result.style).toBe('vega')
@@ -172,44 +189,29 @@ describe('initOptionsSchema', () => {
   })
 })
 
-describe('resolvePreset', () => {
-  it('resolves a built-in preset by name', async () => {
-    const preset = await resolvePreset('reka-vega')
-    expect(preset).toBeDefined()
-    expect(preset?.name).toBe('reka-vega')
-    expect(preset?.base).toBe('reka')
-    expect(preset?.style).toBe('vega')
+describe('default presets', () => {
+  it('exposes all built-in presets', () => {
+    const names = Object.keys(DEFAULT_PRESETS)
+    expect(names).toContain('vega')
+    expect(names).toContain('nova')
+    expect(names).toContain('maia')
+    expect(names).toContain('lyra')
+    expect(names).toContain('mira')
+    expect(names).toContain('luma')
   })
 
-  it('returns null for an unknown preset name', async () => {
-    const preset = await resolvePreset('not-a-preset')
-    expect(preset).toBeNull()
-  })
-
-  it('resolves all built-in presets by name', async () => {
-    for (const p of PRESETS) {
-      const resolved = await resolvePreset(p.name)
-      expect(resolved).toBeDefined()
-      expect(resolved?.name).toBe(p.name)
+  it('each preset has a complete design system config', () => {
+    for (const preset of Object.values(DEFAULT_PRESETS)) {
+      expect(preset.base).toBeDefined()
+      expect(preset.style).toBeDefined()
+      expect(preset.baseColor).toBeDefined()
+      expect(preset.theme).toBeDefined()
+      expect(preset.iconLibrary).toBeDefined()
+      expect(preset.font).toBeDefined()
+      expect(preset.menuAccent).toBeDefined()
+      expect(preset.menuColor).toBeDefined()
+      expect(preset.radius).toBeDefined()
     }
-  })
-
-  it('fetches preset from a URL', async () => {
-    const mockPreset = PRESETS[0]
-    const { ofetch } = await import('ofetch')
-    vi.mocked(ofetch).mockResolvedValue(mockPreset)
-
-    const preset = await resolvePreset('https://example.com/preset.json')
-    expect(preset).toBeDefined()
-    expect(preset?.name).toBe(mockPreset.name)
-  })
-
-  it('returns null when URL fetch fails', async () => {
-    const { ofetch } = await import('ofetch')
-    vi.mocked(ofetch).mockRejectedValue(new Error('Network error'))
-
-    const preset = await resolvePreset('https://example.com/bad-preset.json')
-    expect(preset).toBeNull()
   })
 })
 

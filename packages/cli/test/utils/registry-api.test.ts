@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   getRegistryBase,
   getRegistryBases,
+  getRegistryBaseColors,
   getRegistryFont,
   getRegistryFonts,
   getRegistryIconLibraries,
@@ -11,6 +12,7 @@ import {
   getRegistryVisualStyle,
   getRegistryVisualStyles,
 } from '../../src/registry/api'
+import { BASE_COLORS, SHADCN_VUE_URL } from '../../src/registry/constants'
 
 describe('registry API', () => {
   describe('getRegistryBases', () => {
@@ -145,6 +147,19 @@ describe('registry API', () => {
       expect(fontNames).toContain('figtree')
       expect(fontNames).toContain('jetbrains-mono')
     })
+
+    it('includes all new fonts added in this PR', () => {
+      const fonts = getRegistryFonts()
+      const fontNames = fonts.map(f => f.name)
+      expect(fontNames).toContain('geist-sans')
+      expect(fontNames).toContain('noto-sans')
+      expect(fontNames).toContain('nunito-sans')
+      expect(fontNames).toContain('roboto')
+      expect(fontNames).toContain('raleway')
+      expect(fontNames).toContain('dm-sans')
+      expect(fontNames).toContain('public-sans')
+      expect(fontNames).toContain('outfit')
+    })
   })
 
   describe('getRegistryFont', () => {
@@ -165,6 +180,25 @@ describe('registry API', () => {
       const unknown = getRegistryFont('unknown-font')
       expect(unknown).toBeUndefined()
     })
+
+    it('returns geist-sans font by name', () => {
+      const geist = getRegistryFont('geist-sans')
+      expect(geist).toBeDefined()
+      expect(geist?.name).toBe('geist-sans')
+      expect(geist?.label).toBe('Geist')
+    })
+
+    it('returns dm-sans font by name', () => {
+      const dmSans = getRegistryFont('dm-sans')
+      expect(dmSans).toBeDefined()
+      expect(dmSans?.name).toBe('dm-sans')
+    })
+
+    it('returns outfit font by name', () => {
+      const outfit = getRegistryFont('outfit')
+      expect(outfit).toBeDefined()
+      expect(outfit?.name).toBe('outfit')
+    })
   })
 
   describe('getRegistryPresets', () => {
@@ -178,12 +212,12 @@ describe('registry API', () => {
     it('includes all expected presets', () => {
       const presets = getRegistryPresets()
       const presetNames = presets.map(p => p.name)
-      expect(presetNames).toContain('reka-vega')
-      expect(presetNames).toContain('reka-nova')
-      expect(presetNames).toContain('reka-maia')
-      expect(presetNames).toContain('reka-lyra')
-      expect(presetNames).toContain('reka-mira')
-      expect(presetNames).toContain('reka-luma')
+      expect(presetNames).toContain('vega')
+      expect(presetNames).toContain('nova')
+      expect(presetNames).toContain('maia')
+      expect(presetNames).toContain('lyra')
+      expect(presetNames).toContain('mira')
+      expect(presetNames).toContain('luma')
     })
 
     it('all presets have complete configuration', () => {
@@ -205,9 +239,9 @@ describe('registry API', () => {
 
   describe('getRegistryPreset', () => {
     it('returns vega preset by name', () => {
-      const vega = getRegistryPreset('reka-vega')
+      const vega = getRegistryPreset('vega')
       expect(vega).toBeDefined()
-      expect(vega?.name).toBe('reka-vega')
+      expect(vega?.name).toBe('vega')
       expect(vega?.base).toBe('reka')
       expect(vega?.style).toBe('vega')
       expect(vega?.iconLibrary).toBe('lucide')
@@ -215,32 +249,32 @@ describe('registry API', () => {
     })
 
     it('returns nova preset by name', () => {
-      const nova = getRegistryPreset('reka-nova')
+      const nova = getRegistryPreset('nova')
       expect(nova).toBeDefined()
-      expect(nova?.name).toBe('reka-nova')
+      expect(nova?.name).toBe('nova')
       expect(nova?.style).toBe('nova')
-      expect(nova?.iconLibrary).toBe('hugeicons')
+      expect(nova?.iconLibrary).toBe('lucide')
     })
 
     it('returns lyra preset by name', () => {
-      const lyra = getRegistryPreset('reka-lyra')
+      const lyra = getRegistryPreset('lyra')
       expect(lyra).toBeDefined()
-      expect(lyra?.name).toBe('reka-lyra')
+      expect(lyra?.name).toBe('lyra')
       expect(lyra?.style).toBe('lyra')
       expect(lyra?.font).toBe('jetbrains-mono')
     })
 
     it('returns mira preset by name', () => {
-      const mira = getRegistryPreset('reka-mira')
+      const mira = getRegistryPreset('mira')
       expect(mira).toBeDefined()
-      expect(mira?.name).toBe('reka-mira')
+      expect(mira?.name).toBe('mira')
       expect(mira?.style).toBe('mira')
     })
 
     it('returns luma preset by name', () => {
-      const luma = getRegistryPreset('reka-luma')
+      const luma = getRegistryPreset('luma')
       expect(luma).toBeDefined()
-      expect(luma?.name).toBe('reka-luma')
+      expect(luma?.name).toBe('luma')
       expect(luma?.style).toBe('luma')
       expect(luma?.iconLibrary).toBe('lucide')
       expect(luma?.font).toBe('inter')
@@ -290,6 +324,60 @@ describe('registry API', () => {
 
       for (const preset of presets) {
         expect(fontNames).toContain(preset.font)
+      }
+    })
+  })
+
+  describe('getRegistryBaseColors', () => {
+    it('returns the BASE_COLORS array', async () => {
+      const colors = await getRegistryBaseColors()
+      expect(colors).toBeDefined()
+      expect(Array.isArray(colors)).toBe(true)
+      expect(colors.length).toBeGreaterThan(0)
+    })
+
+    it('contains "neutral" base color', async () => {
+      const colors = await getRegistryBaseColors()
+      const names = colors.map(c => c.name)
+      expect(names).toContain('neutral')
+    })
+
+    it('contains new base colors added in this PR', async () => {
+      const colors = await getRegistryBaseColors()
+      const names = colors.map(c => c.name)
+      expect(names).toContain('mauve')
+      expect(names).toContain('olive')
+      expect(names).toContain('mist')
+      expect(names).toContain('taupe')
+    })
+
+    it('does not contain removed legacy colors', async () => {
+      const colors = await getRegistryBaseColors()
+      const names = colors.map(c => c.name)
+      expect(names).not.toContain('gray')
+      expect(names).not.toContain('slate')
+    })
+  })
+
+  describe('constants', () => {
+    it('SHADCN_VUE_URL defaults to "https://shadcn-vue.com"', () => {
+      // If overridden by env var, skip; otherwise check default.
+      if (!process.env.SHADCN_VUE_URL) {
+        expect(SHADCN_VUE_URL).toBe('https://shadcn-vue.com')
+      }
+      else {
+        expect(SHADCN_VUE_URL).toBe(process.env.SHADCN_VUE_URL)
+      }
+    })
+
+    it('BASE_COLORS contains 7 entries', () => {
+      expect(BASE_COLORS).toHaveLength(7)
+    })
+
+    it('BASE_COLORS entries all have name and label properties', () => {
+      for (const color of BASE_COLORS) {
+        expect(color.name).toBeDefined()
+        expect(color.label).toBeDefined()
       }
     })
   })

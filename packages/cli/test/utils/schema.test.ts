@@ -112,6 +112,44 @@ describe('rawConfigSchema', () => {
     expect(() => rawConfigSchema.parse(validInverted)).not.toThrow()
   })
 
+  it('accepts "default-translucent" menuColor value', () => {
+    const config = {
+      style: 'vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+      },
+      menuColor: 'default-translucent',
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    const result = rawConfigSchema.parse(config)
+    expect(result.menuColor).toBe('default-translucent')
+  })
+
+  it('accepts "inverted-translucent" menuColor value', () => {
+    const config = {
+      style: 'vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+      },
+      menuColor: 'inverted-translucent',
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    const result = rawConfigSchema.parse(config)
+    expect(result.menuColor).toBe('inverted-translucent')
+  })
+
   it('validates menuAccent enum values', () => {
     const validSubtle = {
       style: 'vega',
