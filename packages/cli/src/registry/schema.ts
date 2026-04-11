@@ -40,7 +40,15 @@ export const rawConfigSchema = z
     }),
     iconLibrary: z.string().optional(),
     rtl: z.boolean().default(false).optional(),
-    menuColor: z.enum(["default", "inverted"]).default("default").optional(),
+    menuColor: z
+      .enum([
+        "default",
+        "inverted",
+        "default-translucent",
+        "inverted-translucent",
+      ])
+      .default("default")
+      .optional(),
     menuAccent: z.enum(["subtle", "bold"]).default("subtle").optional(),
     aliases: z.object({
       components: z.string(),

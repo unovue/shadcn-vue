@@ -3,11 +3,18 @@ import { promises as fs } from 'node:fs'
 import { Command } from 'commander'
 import deepmerge from 'deepmerge'
 import fsExtra from 'fs-extra'
-import { ofetch } from 'ofetch'
 import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
 import { preFlightInit } from '@/src/preflights/preflight-init'
+import { decodePreset, isPresetCode } from '@/src/preset/preset'
+import {
+  DEFAULT_PRESETS,
+  promptForBase,
+  promptForPreset,
+  resolveInitUrl,
+  resolveRegistryBaseConfig,
+} from '@/src/preset/presets'
 import {
   getRegistryBaseColors,
   getRegistryItems,
@@ -21,7 +28,6 @@ import {
   BUILTIN_REGISTRIES,
   FONTS,
   ICON_LIBRARIES,
-  PRESETS,
   STYLES,
 } from '@/src/registry/constants'
 import { clearRegistryContext } from '@/src/registry/context'
@@ -54,7 +60,6 @@ import {
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
-import { decodePreset, isEncodedPreset } from '@/src/utils/preset-encoding'
 import { ensureRegistriesInConfig } from '@/src/utils/registries'
 import { spinner } from '@/src/utils/spinner'
 import { updateTailwindContent } from '@/src/utils/updaters/update-tailwind-content'
@@ -71,44 +76,12 @@ process.on('exit', (code) => {
   return restoreFileBackup(filePath)
 })
 
-export async function resolvePreset(value: string) {
-  if (isUrl(value)) {
-    try {
-      const data = await ofetch(value)
-      return data as (typeof PRESETS)[number]
-    }
-    catch {
-      logger.error(`Failed to fetch preset from ${highlighter.info(value)}.`)
-      return null
-    }
-  }
-  const named = PRESETS.find(p => p.name === value)
-  if (named)
-    return named
-
-  if (isEncodedPreset(value)) {
-    const decoded = decodePreset(value)
-    if (decoded) {
-      // Normalize font to one supported by the CLI registry; fall back to 'inter'.
-      const font = FONTS.find(f => f.name === decoded.font)?.name ?? 'inter'
-      return {
-        name: value,
-        title: value,
-        description: '',
-        base: 'reka',
-        ...decoded,
-        font,
-      } as (typeof PRESETS)[number]
-    }
-  }
-
-  return null
-}
-
 export const initOptionsSchema = z.object({
   cwd: z.string(),
   name: z.string().optional(),
-  preset: z.string().optional(),
+  preset: z.union([z.boolean(), z.string()]).optional(),
+  registryBaseConfig: rawConfigSchema.deepPartial().optional(),
+  installStyleIndex: z.boolean().optional(),
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),
@@ -216,8 +189,8 @@ export const init = new Command()
   .description('initialize your project and install dependencies')
   .argument('[components...]', 'names, url or local path to component')
   .option(
-    '-p, --preset <preset>',
-    `use a preset configuration or URL. (${PRESETS.map(p => p.name).join(', ')})`,
+    '-p, --preset [preset]',
+    `use a preset configuration, preset code, or URL. (${Object.keys(DEFAULT_PRESETS).join(', ')})`,
   )
   .option(
     '-t, --template <template>',
@@ -299,31 +272,29 @@ export const init = new Command()
     }
 
     try {
-      // Resolve and apply preset (CLI flags take precedence over preset values).
-      if (opts.preset) {
-        const preset = await resolvePreset(opts.preset)
-        if (!preset) {
-          logger.error(
-            `Invalid preset "${opts.preset}". Available presets: ${PRESETS.map(p => p.name).join(', ')}`,
-          )
-          process.exit(1)
-        }
-        opts.base = opts.base ?? preset.base
-        opts.style = opts.style ?? preset.style
-        opts.iconLibrary = opts.iconLibrary ?? preset.iconLibrary
-        opts.font = opts.font ?? preset.font
-        opts.baseColor = opts.baseColor ?? preset.baseColor
-        opts.yes = true
+      // Reject obviously invalid preset strings early (before URL resolution).
+      const presetsByName = DEFAULT_PRESETS
+      if (
+        typeof opts.preset === 'string'
+        && !isUrl(opts.preset)
+        && !isPresetCode(opts.preset)
+        && !(opts.preset in presetsByName)
+      ) {
+        logger.error(
+          `Invalid preset: ${highlighter.info(opts.preset)}. Available presets: ${Object.keys(presetsByName).join(', ')}`,
+        )
+        process.exit(1)
+      }
+
+      // With --defaults (no explicit preset), use the default preset.
+      if (opts.defaults && opts.preset === undefined) {
+        opts.preset = 'nova'
       }
 
       // Apply defaults when --defaults flag is set.
       if (opts.defaults) {
         opts.template = opts.template || 'nuxt'
         opts.base = opts.base || 'reka'
-        opts.style = opts.style || 'vega'
-        opts.iconLibrary = opts.iconLibrary || 'lucide'
-        opts.font = opts.font || 'inter'
-        opts.baseColor = opts.baseColor || 'neutral'
       }
 
       const options = initOptionsSchema.parse({
@@ -334,6 +305,83 @@ export const init = new Command()
       })
 
       await loadEnvFiles(options.cwd)
+
+      // Resolve preset → inject init URL into components.
+      if (options.preset !== undefined) {
+        const presetArg = options.preset === true ? true : options.preset
+
+        if (presetArg === true) {
+          const result = await promptForPreset({
+            rtl: options.rtl ?? false,
+            template: options.template,
+            base: options.base ?? (await promptForBase()),
+          })
+          components = [result.url, ...components]
+        }
+
+        if (typeof presetArg === 'string') {
+          let initUrl: string
+
+          if (isUrl(presetArg)) {
+            const url = new URL(presetArg)
+            if (options.rtl) {
+              url.searchParams.set('rtl', 'true')
+            }
+            else if (options.rtl === false) {
+              url.searchParams.delete('rtl')
+            }
+            initUrl = url.toString()
+          }
+          else if (isPresetCode(presetArg)) {
+            const decoded = decodePreset(presetArg)
+            if (!decoded) {
+              logger.error(
+                `Invalid preset code: ${highlighter.info(presetArg)}`,
+              )
+              logger.break()
+              process.exit(1)
+            }
+            initUrl = resolveInitUrl(
+              {
+                ...decoded,
+                base: options.base ?? 'reka',
+                rtl: options.rtl ?? false,
+              },
+              { template: options.template, preset: presetArg },
+            )
+          }
+          else {
+            const preset = presetsByName[presetArg as keyof typeof presetsByName]
+            if (!preset) {
+              throw new Error(`Unknown preset: ${presetArg}`)
+            }
+            initUrl = resolveInitUrl(
+              {
+                ...preset,
+                base: options.base ?? preset.base,
+                rtl: options.rtl ?? preset.rtl,
+              },
+              { template: options.template },
+            )
+          }
+
+          components = [initUrl, ...components]
+        }
+
+        // Fetch the registry:base item, extract its config, and stash on options.
+        const { registryBaseConfig, installStyleIndex, url: cleanUrl }
+          = await resolveRegistryBaseConfig(components[0]!, path.resolve(opts.cwd))
+        components[0] = cleanUrl
+        if (registryBaseConfig) {
+          options.registryBaseConfig = registryBaseConfig
+        }
+        if (!installStyleIndex) {
+          options.installStyleIndex = false
+          options.baseStyle = false
+        }
+        // Re-sync options.components with the mutated components array.
+        options.components = components
+      }
 
       // We need to check if we're initializing with a new style.
       // This will allow us to determine if we need to install the base style.
@@ -501,13 +549,26 @@ export async function runInit(
   const targetPath = path.resolve(options.cwd, 'components.json')
   const backupPath = `${targetPath}${FILE_BACKUP_SUFFIX}`
 
+  // Merge and keep registries at the end.
+  const mergeConfig = (base: typeof config, override: object) => {
+    const { registries, ...merged } = deepmerge(base, override) as typeof config
+    return { ...merged, registries } as typeof config
+  }
+
   // Merge with backup config if it exists and not using --force
   if (!options.force && fsExtra.existsSync(backupPath)) {
     const existingConfig = await fsExtra.readJson(backupPath)
+    config = mergeConfig(existingConfig, config)
+  }
 
-    // Move registries at the end of the config.
-    const { registries, ...merged } = deepmerge(existingConfig, config)
-    config = { ...merged, registries }
+  // Merge config from registry:base item (preset).
+  if (options.registryBaseConfig) {
+    config = mergeConfig(config, options.registryBaseConfig)
+  }
+
+  // rtl from CLI takes priority over registryBaseConfig.
+  if (options.rtl !== undefined) {
+    config.rtl = options.rtl
   }
 
   // Make sure to filter out built-in registries.

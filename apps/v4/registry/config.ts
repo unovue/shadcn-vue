@@ -321,7 +321,9 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
 }
 
 // Builds a registry:base item from a design system config.
-export function buildRegistryBase(config: DesignSystemConfig) {
+export function buildRegistryBase(
+  config: DesignSystemConfig & { rtl?: boolean },
+) {
   const baseItem = getBase(config.base)
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
 
@@ -348,6 +350,10 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     registryDependencies.push(`font-${config.font}`)
   }
 
+  if (config.fontHeading && config.fontHeading !== "inherit") {
+    registryDependencies.push(`font-${config.fontHeading}`)
+  }
+
   return {
     name: `${config.base}-${config.style}`,
     extends: "none",
@@ -355,6 +361,8 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     config: {
       style: `${config.base}-${config.style}`,
       iconLibrary: iconLibraryItem.name,
+      font: config.font,
+      rtl: config.rtl ?? false,
       menuColor: config.menuColor,
       menuAccent: config.menuAccent,
       tailwind: {
