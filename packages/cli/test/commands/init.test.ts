@@ -169,7 +169,7 @@ describe('initOptionsSchema', () => {
   })
 })
 
-describe('dEFAULT_PRESETS', () => {
+describe('default presets', () => {
   it('exposes all built-in presets', () => {
     const names = Object.keys(DEFAULT_PRESETS)
     expect(names).toContain('vega')
