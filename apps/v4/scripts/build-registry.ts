@@ -174,6 +174,7 @@ async function buildRegistryJsonFile(base: RegistryBase) {
       return {
         ...item,
         files,
+        registryDependencies: (item.registryDependencies ?? []).filter(d => d !== 'icon-placeholder'),
       }
     }),
   }

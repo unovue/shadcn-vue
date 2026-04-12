@@ -68,7 +68,7 @@ async function publishStyle(styleName: string) {
       ...file,
       path: rewriteFilePath(file.path, styleDir),
     }))
-    return { ...item, files }
+    return { ...item, files, registryDependencies: (item.registryDependencies as string[] ?? []).filter(d => d !== 'icon-placeholder') }
   })
 
   const registry = {
