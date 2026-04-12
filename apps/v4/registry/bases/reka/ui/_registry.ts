@@ -284,7 +284,6 @@ export const ui: Registry["items"] = [
     registryDependencies: [
       "native-select",
       "button",
-      "icon-placeholder",
     ],
     files: [
       {
@@ -388,7 +387,6 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
-      "icon-placeholder",
     ],
     files: [
       {
@@ -510,7 +508,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
       "input-group",
     ],
     files: [
@@ -701,7 +698,6 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1097,7 +1093,6 @@ export const ui: Registry["items"] = [
       "reka-ui",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1222,7 +1217,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1299,7 +1293,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1328,7 +1321,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1377,7 +1369,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1415,7 +1406,6 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1468,7 +1458,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1584,7 +1573,6 @@ export const ui: Registry["items"] = [
     ],
     registryDependencies: [
       "button",
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1831,7 +1819,6 @@ export const ui: Registry["items"] = [
       "tooltip",
       "skeleton",
       "separator",
-      "icon-placeholder",
       "button",
     ],
     files: [
@@ -1980,7 +1967,6 @@ export const ui: Registry["items"] = [
       "vue-sonner",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -1997,7 +1983,6 @@ export const ui: Registry["items"] = [
     name: "spinner",
     type: "registry:ui",
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {
@@ -2162,7 +2147,6 @@ export const ui: Registry["items"] = [
       "@vueuse/core",
     ],
     registryDependencies: [
-      "icon-placeholder",
     ],
     files: [
       {

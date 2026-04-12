@@ -30,6 +30,7 @@ const DEPENDENCIES = new Map<string, string[]>([
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
+const INTERNAL_REGISTRY_DEPENDENCIES = new Set(['icon-placeholder'])
 
 function sanitizeString(input: string): string {
   return input
@@ -372,7 +373,7 @@ async function getFileDependencies(filename: string, sourceCode: string) {
 
     if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith('.vue')) {
       const component = source.split('/').at(-1)!
-      if (component !== 'utils')
+      if (component !== 'utils' && !INTERNAL_REGISTRY_DEPENDENCIES.has(component))
         registryDependencies.add(component)
     }
   }
