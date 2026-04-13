@@ -2,7 +2,6 @@
 title: Empty
 description: Use the Empty component to display an empty state.
 component: true
-new: true
 ---
 
 ::component-preview

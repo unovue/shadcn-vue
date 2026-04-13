@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { PlusSignIcon } from '@hugeicons/core-free-icons'
+import { HugeiconsIcon } from '@hugeicons/vue'
 import { siteConfig } from '@/lib/config'
-import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
+import { Button } from '@/styles/reka-nova/ui/button'
 import { getColors } from '~/lib/colors'
 import { Icons } from './Icons'
 
@@ -43,8 +45,23 @@ const docData = computed(() => data.value!.find(i => i.stem === 'docs')!)
           <SiteConfig class="3xl:flex hidden" />
           <Separator orientation="vertical" />
           <ModeSwitcher />
-          <Separator orientation="vertical" class="mr-2" />
-          <CreateProjectButton class="hidden h-[31px] rounded-lg sm:flex" />
+
+          <div class="hidden items-center gap-2 group-has-data-[slot=designer]/layout:md:flex">
+            <Separator orientation="vertical" />
+            <ProjectForm />
+          </div>
+          <div class="hidden items-center gap-2 group-has-data-[slot=designer]/layout:flex group-has-data-[slot=designer]/layout:md:hidden">
+            <Separator orientation="vertical" />
+          </div>
+          <div class="flex items-center gap-2 group-has-data-[slot=designer]/layout:hidden">
+            <Separator orientation="vertical" />
+            <Button as-child size="sm" class="h-[31px] rounded-lg">
+              <NuxtLink href="/create">
+                <HugeiconsIcon :icon="PlusSignIcon" />
+                New
+              </NuxtLink>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

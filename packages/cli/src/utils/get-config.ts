@@ -237,7 +237,12 @@ export function findCommonRoot(cwd: string, resolvedPath: string) {
 // TODO: Cache this call.
 export async function getTargetStyleFromConfig(cwd: string, fallback: string) {
   const projectInfo = await getProjectInfo(cwd)
-  return projectInfo?.tailwindVersion === 'v4' ? 'new-york-v4' : fallback
+  // Only upgrade "new-york" to "new-york-v4" for Tailwind v4 projects.
+  // Other styles (e.g. "reka-nova", "reka-luma") should be used as-is.
+  if (projectInfo?.tailwindVersion === 'v4' && fallback === 'new-york') {
+    return 'new-york-v4'
+  }
+  return fallback
 }
 
 type DeepPartial<T> = {
@@ -266,7 +271,6 @@ export function createConfig(partial?: DeepPartial<Config>): Config {
       composables: '',
     },
     style: '',
-    base: 'reka',
     font: 'inter',
     tailwind: {
       config: '',

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { AlertDialogActionProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
-import type { ButtonVariants } from '@/registry/bases/reka/ui/button'
+import type { ButtonVariants } from '@/styles/reka-nova/ui/button'
 import { reactiveOmit } from '@vueuse/core'
 import { AlertDialogAction } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/registry/bases/reka/ui/button'
+import { buttonVariants } from '@/styles/reka-nova/ui/button'
 
 const props = withDefaults(
   defineProps<AlertDialogActionProps & {
@@ -26,7 +26,7 @@ const delegatedProps = reactiveOmit(props, 'class', 'variant', 'size')
   <AlertDialogAction
     data-slot="alert-dialog-action"
     v-bind="delegatedProps"
-    :class="cn('cn-alert-dialog-action', buttonVariants({ variant, size }), props.class)"
+    :class="cn('', buttonVariants({ variant, size }), props.class)"
   >
     <slot />
   </AlertDialogAction>

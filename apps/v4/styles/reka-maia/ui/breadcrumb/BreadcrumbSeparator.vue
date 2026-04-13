@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue'
+
+import { ChevronRightIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
@@ -16,13 +17,7 @@ const props = defineProps<{
     :class="cn('[&>svg]:size-3.5', props.class)"
   >
     <slot>
-      <IconPlaceholder
-        lucide="ChevronRightIcon"
-        tabler="IconChevronRight"
-        hugeicons="ArrowRight01Icon"
-        phosphor="CaretRightIcon"
-        remixicon="RiArrowRightSLine"
-      />
+      <ChevronRightIcon class="cn-rtl-flip" />
     </slot>
   </li>
 </template>

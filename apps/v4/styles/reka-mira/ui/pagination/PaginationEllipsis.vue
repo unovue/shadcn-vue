@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { PaginationEllipsisProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
+import { MoreHorizontalIcon } from 'lucide-vue-next'
 import { PaginationEllipsis } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
 
 const props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes['class'] }>()
 
@@ -15,16 +16,10 @@ const delegatedProps = reactiveOmit(props, 'class')
   <PaginationEllipsis
     data-slot="pagination-ellipsis"
     v-bind="delegatedProps"
-    :class="cn(`size-7 items-center justify-center [&_svg:not([class*='size-'])]:size-3.5 flex items-center justify-center`, props.class)"
+    :class="cn('size-7 [&_svg:not([class*=size-])]:size-3.5 flex items-center justify-center', props.class)"
   >
     <slot>
-      <IconPlaceholder
-        lucide="MoreHorizontalIcon"
-        tabler="IconDots"
-        hugeicons="MoreHorizontalCircle01Icon"
-        phosphor="DotsThreeIcon"
-        remixicon="RiMoreLine"
-      />
+      <MoreHorizontalIcon />
       <span class="sr-only">More pages</span>
     </slot>
   </PaginationEllipsis>

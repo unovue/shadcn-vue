@@ -14,6 +14,18 @@ const items = computed(() => {
     type: item.type,
   }))
 })
+
+const title = 'New Project'
+const description
+  = 'Customize everything. Pick your component library, icons, base color, theme, fonts and create your own version of shadcn/ui.'
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 import type { Config } from "@/src/utils/get-config"
 import path from "pathe"
 import { z } from "zod"
+import { DEFAULT_PRESETS } from "@/src/preset/presets"
 import { buildUrlAndHeadersForRegistryItem } from "@/src/registry/builder"
 import { configWithDefaults } from "@/src/registry/config"
 import {
@@ -9,7 +10,6 @@ import {
   BUILTIN_REGISTRIES,
   FONTS,
   ICON_LIBRARIES,
-  PRESETS,
   REGISTRY_URL,
   STYLES,
 } from "@/src/registry/constants"
@@ -257,14 +257,20 @@ export function getRegistryFont(name: string) {
  * Get available presets (predefined combinations of base, style, icons, and font).
  */
 export function getRegistryPresets() {
-  return PRESETS
+  return Object.entries(DEFAULT_PRESETS).map(([name, preset]) => ({
+    name,
+    ...preset,
+  }))
 }
 
 /**
  * Get a specific preset by name.
  */
 export function getRegistryPreset(name: string) {
-  return PRESETS.find(preset => preset.name === name)
+  const preset = DEFAULT_PRESETS[name as keyof typeof DEFAULT_PRESETS]
+  if (!preset)
+    return undefined
+  return { name, ...preset }
 }
 
 export async function getRegistryBaseColor(baseColor: string) {
@@ -274,6 +280,13 @@ export async function getRegistryBaseColor(baseColor: string) {
     return registryBaseColorSchema.parse(result)
   }
   catch (error) {
+    // Degrade gracefully when a base color is not published at the registry.
+    // This happens for newer base colors (mauve/olive/mist/taupe) until the
+    // color generation pipeline publishes matching JSON. Transformers only
+    // use this mapping for non-cssVariables inline color class remapping.
+    if (error instanceof RegistryNotFoundError) {
+      return undefined
+    }
     handleError(error)
   }
 }

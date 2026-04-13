@@ -34,6 +34,7 @@ const forwarded = useForwardProps(delegatedProps)
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
         data-icon="inline-end"
+        class="cn-rtl-flip"
       />
     </slot>
   </PaginationNext>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-vue-next'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { ButtonGroup } from '@/registry/new-york-v4/ui/button-group'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'
 </script>
 
 <template>

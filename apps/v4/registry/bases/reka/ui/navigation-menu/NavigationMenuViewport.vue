@@ -22,7 +22,7 @@ const forwardedProps = useForwardProps(delegatedProps)
       v-bind="forwardedProps"
       :class="
         cn(
-          'cn-navigation-menu-viewport origin-top-center relative mt-1.5 h-[var(--reka-navigation-menu-viewport-height)] w-full overflow-hidden md:w-[var(--reka-navigation-menu-viewport-width)]',
+          'cn-navigation-menu-viewport origin-top-center relative mt-1.5 h-(--reka-navigation-menu-viewport-height) w-full overflow-hidden md:w-(--reka-navigation-menu-viewport-width)',
           props.class,
         )
       "

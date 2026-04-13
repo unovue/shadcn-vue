@@ -178,12 +178,12 @@ describe('registry API', () => {
     it('includes all expected presets', () => {
       const presets = getRegistryPresets()
       const presetNames = presets.map(p => p.name)
-      expect(presetNames).toContain('reka-vega')
-      expect(presetNames).toContain('reka-nova')
-      expect(presetNames).toContain('reka-maia')
-      expect(presetNames).toContain('reka-lyra')
-      expect(presetNames).toContain('reka-mira')
-      expect(presetNames).toContain('reka-luma')
+      expect(presetNames).toContain('vega')
+      expect(presetNames).toContain('nova')
+      expect(presetNames).toContain('maia')
+      expect(presetNames).toContain('lyra')
+      expect(presetNames).toContain('mira')
+      expect(presetNames).toContain('luma')
     })
 
     it('all presets have complete configuration', () => {
@@ -205,9 +205,9 @@ describe('registry API', () => {
 
   describe('getRegistryPreset', () => {
     it('returns vega preset by name', () => {
-      const vega = getRegistryPreset('reka-vega')
+      const vega = getRegistryPreset('vega')
       expect(vega).toBeDefined()
-      expect(vega?.name).toBe('reka-vega')
+      expect(vega?.name).toBe('vega')
       expect(vega?.base).toBe('reka')
       expect(vega?.style).toBe('vega')
       expect(vega?.iconLibrary).toBe('lucide')
@@ -215,32 +215,32 @@ describe('registry API', () => {
     })
 
     it('returns nova preset by name', () => {
-      const nova = getRegistryPreset('reka-nova')
+      const nova = getRegistryPreset('nova')
       expect(nova).toBeDefined()
-      expect(nova?.name).toBe('reka-nova')
+      expect(nova?.name).toBe('nova')
       expect(nova?.style).toBe('nova')
-      expect(nova?.iconLibrary).toBe('hugeicons')
+      expect(nova?.iconLibrary).toBe('lucide')
     })
 
     it('returns lyra preset by name', () => {
-      const lyra = getRegistryPreset('reka-lyra')
+      const lyra = getRegistryPreset('lyra')
       expect(lyra).toBeDefined()
-      expect(lyra?.name).toBe('reka-lyra')
+      expect(lyra?.name).toBe('lyra')
       expect(lyra?.style).toBe('lyra')
       expect(lyra?.font).toBe('jetbrains-mono')
     })
 
     it('returns mira preset by name', () => {
-      const mira = getRegistryPreset('reka-mira')
+      const mira = getRegistryPreset('mira')
       expect(mira).toBeDefined()
-      expect(mira?.name).toBe('reka-mira')
+      expect(mira?.name).toBe('mira')
       expect(mira?.style).toBe('mira')
     })
 
     it('returns luma preset by name', () => {
-      const luma = getRegistryPreset('reka-luma')
+      const luma = getRegistryPreset('luma')
       expect(luma).toBeDefined()
-      expect(luma?.name).toBe('reka-luma')
+      expect(luma?.name).toBe('luma')
       expect(luma?.style).toBe('luma')
       expect(luma?.iconLibrary).toBe('lucide')
       expect(luma?.font).toBe('inter')

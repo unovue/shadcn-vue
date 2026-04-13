@@ -18,7 +18,8 @@ defineOptions({
 const props = withDefaults(
   defineProps<SelectContentProps & { class?: HTMLAttributes["class"] }>(),
   {
-    position: "popper",
+    position: "item-aligned",
+    align: "center",
   },
 )
 const emits = defineEmits<SelectContentEmits>()
@@ -32,9 +33,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <SelectPortal>
     <SelectContent
       data-slot="select-content"
+      :data-align-trigger="position === 'item-aligned'"
       v-bind="{ ...$attrs, ...forwarded }"
       :class="cn(
-        'cn-select-content cn-menu-target relative z-50 max-h-(--reka-select-content-available-height) origin-(--reka-select-content-transform-origin) overflow-x-hidden overflow-y-auto',
+        'cn-select-content cn-select-content-logical cn-menu-target cn-menu-translucent relative z-50 max-h-(--reka-select-content-available-height) origin-(--reka-select-content-transform-origin) overflow-x-hidden overflow-y-auto data-[align-trigger=true]:animate-none',
         position === 'popper'
           && 'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
         props.class,

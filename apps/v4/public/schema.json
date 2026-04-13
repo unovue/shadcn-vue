@@ -4,7 +4,7 @@
   "properties": {
     "style": {
       "type": "string",
-      "enum": ["default", "new-york", "vega", "nova", "maia", "lyra", "mira", "luma"]
+      "enum": ["default", "new-york", "reka-vega", "reka-nova", "reka-maia", "reka-lyra", "reka-mira", "reka-luma"]
     },
     "base": {
       "type": "string"

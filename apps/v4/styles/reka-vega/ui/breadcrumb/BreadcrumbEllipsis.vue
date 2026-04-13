@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue'
+
+import { MoreHorizontalIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
@@ -16,13 +17,7 @@ const props = defineProps<{
     :class="cn('size-5 [&>svg]:size-4 flex items-center justify-center', props.class)"
   >
     <slot>
-      <IconPlaceholder
-        lucide="MoreHorizontalIcon"
-        tabler="IconDots"
-        hugeicons="MoreHorizontalCircle01Icon"
-        phosphor="DotsThreeIcon"
-        remixicon="RiMoreLine"
-      />
+      <MoreHorizontalIcon />
     </slot>
     <span class="sr-only">More</span>
   </span>

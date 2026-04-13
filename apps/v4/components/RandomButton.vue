@@ -50,7 +50,6 @@ function randomize() {
     const chartColors = getThemesForBaseColor(params.baseColor.value)
     params.chartColor.value = getRandomItem(chartColors).name
   }
-  params.custom.value = true
 }
 </script>
 

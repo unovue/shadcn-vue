@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import ButtonGroupInputGroupDemo from '@/components/demo/ButtonGroupInputGroupDemo.vue'
-import FieldSliderDemo from '@/components/demo/FieldSliderDemo.vue'
-import InputGroupDemo from '@/components/demo/InputGroupDemo.vue'
 import AppearanceSettings from '@/components/examples/AppearanceSettings.vue'
 import ButtonGroupDemo from '@/components/examples/ButtonGroupDemo.vue'
+import ButtonGroupInputGroupDemo from '@/components/examples/ButtonGroupInputGroupDemo.vue'
 import ButtonGroupNested from '@/components/examples/ButtonGroupNested.vue'
 import ButtonGroupPopover from '@/components/examples/ButtonGroupPopover.vue'
 import EmptyAvatarGroup from '@/components/examples/EmptyAvatarGroup.vue'
 import FieldCheckbox from '@/components/examples/FieldCheckbox.vue'
 import FieldDemo from '@/components/examples/FieldDemo.vue'
 import FieldHear from '@/components/examples/FieldHear.vue'
+import FieldSliderDemo from '@/components/examples/FieldSliderDemo.vue'
 import InputGroupButton from '@/components/examples/InputGroupButton.vue'
+import InputGroupDemo from '@/components/examples/InputGroupDemo.vue'
 import ItemDemo from '@/components/examples/ItemDemo.vue'
 import NotionPromptForm from '@/components/examples/NotionPromptForm.vue'
 import SpinnerBadge from '@/components/examples/SpinnerBadge.vue'
 import SpinnerEmpty from '@/components/examples/SpinnerEmpty.vue'
-import { FieldSeparator } from '@/registry/new-york-v4/ui/field'
+import { FieldSeparator } from '@/styles/reka-nova/ui/field'
 </script>
 
 <template>

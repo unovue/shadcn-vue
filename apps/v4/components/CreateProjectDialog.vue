@@ -2,9 +2,8 @@
 import { Copy01Icon, Tick02Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 import { useClipboard } from '@vueuse/core'
-import { encodePreset } from '@/lib/preset-encoding'
 import { PACKAGE_MANAGERS, TEMPLATES } from '@/lib/templates'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -12,7 +11,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/registry/new-york-v4/ui/dialog'
+} from '@/styles/reka-nova/ui/dialog'
 import {
   Field,
   FieldContent,
@@ -20,14 +19,14 @@ import {
   FieldLabel,
   FieldSeparator,
   FieldTitle,
-} from '@/registry/new-york-v4/ui/field'
-import { RadioGroup, RadioGroupItem } from '@/registry/new-york-v4/ui/radio-group'
+} from '@/styles/reka-nova/ui/field'
+import { RadioGroup, RadioGroupItem } from '@/styles/reka-nova/ui/radio-group'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/registry/new-york-v4/ui/tabs'
+} from '@/styles/reka-nova/ui/tabs'
 
 defineProps<{ open: boolean }>()
 defineEmits<{ 'update:open': [value: boolean] }>()
@@ -35,17 +34,7 @@ defineEmits<{ 'update:open': [value: boolean] }>()
 const params = useDesignSystemSearchParams()
 const { config } = useConfig()
 
-const presetId = computed(() => encodePreset({
-  style: params.style.value,
-  baseColor: params.baseColor.value,
-  theme: params.theme.value,
-  font: params.font.value,
-  fontHeading: params.fontHeading.value,
-  radius: params.radius.value,
-  iconLibrary: params.iconLibrary.value,
-  menuColor: params.menuColor.value,
-  menuAccent: params.menuAccent.value,
-}))
+const presetId = computed(() => params.preset.value)
 
 const commands = computed(() => {
   const flags = `--preset ${presetId.value} --template ${params.template.value ?? 'nuxt'}`

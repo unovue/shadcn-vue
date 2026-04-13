@@ -8,7 +8,7 @@ export interface RegistryContentType {
   /** The output registry file path (e.g., 'new-york-v4/ui/_registry.ts') */
   outputFile: string
   /** The crawl function type to use */
-  crawlType: 'ui' | 'block' | 'chart' | 'example' | 'composable'
+  crawlType: 'ui' | 'block' | 'chart' | 'example' | 'composable' | 'lib'
   /** Optional: custom type for registry items */
   type?: RegistryItem['type']
 }
@@ -81,7 +81,7 @@ export const registryConfig: RegistryBase[] = [
         name: 'lib',
         path: 'lib',
         outputFile: 'bases/reka/lib/_registry.ts',
-        crawlType: 'composable',
+        crawlType: 'lib',
       },
     ],
   },

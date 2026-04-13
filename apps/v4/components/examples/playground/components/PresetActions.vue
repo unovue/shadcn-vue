@@ -10,8 +10,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/registry/new-york-v4/ui/alert-dialog'
-import { Button } from '@/registry/new-york-v4/ui/button'
+} from '@/styles/reka-nova/ui/alert-dialog'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -19,18 +19,18 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/registry/new-york-v4/ui/dialog'
+} from '@/styles/reka-nova/ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
-import { Label } from '@/registry/new-york-v4/ui/label'
-import { Switch } from '@/registry/new-york-v4/ui/switch'
+} from '@/styles/reka-nova/ui/dropdown-menu'
+import { Label } from '@/styles/reka-nova/ui/label'
+import { Switch } from '@/styles/reka-nova/ui/switch'
 
-// import { toast } from "@/registry/new-york-v4/ui/use-toast"
+// import { toast } from "@/styles/reka-nova/ui/use-toast"
 
 const open = ref(false)
 const showDeleteDialog = ref(false)

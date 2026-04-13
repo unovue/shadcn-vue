@@ -4,10 +4,12 @@ import type { FieldVariants } from "."
 import { cn } from "@/lib/utils"
 import { fieldVariants } from "."
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   class?: HTMLAttributes["class"]
   orientation?: FieldVariants["orientation"]
-}>()
+}>(), {
+  orientation: "vertical",
+})
 </script>
 
 <template>

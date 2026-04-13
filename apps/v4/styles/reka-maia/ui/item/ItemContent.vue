@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <div
     data-slot="item-content"
-    :class="cn('flex flex-1 flex-col gap-1 [&+[data-slot=item-content]]:flex-none', props.class)"
+    :class="cn('gap-1 group-data-[size=xs]/item:gap-0.5 flex flex-1 flex-col [&+[data-slot=item-content]]:flex-none', props.class)"
   >
     <slot />
   </div>

@@ -4,32 +4,46 @@ import { BUILTIN_REGISTRIES, FALLBACK_STYLE } from "@/src/registry/constants"
 import { configSchema } from "@/src/schema"
 import { createConfig } from "@/src/utils/get-config"
 
-const DEFAULT_BASE = "reka"
-
-// Visual styles that are transformations of the base style
-// These styles don't have separate registry entries - they use new-york-v4
-// and apply CSS class transformations during installation
-const VISUAL_STYLES = ["vega", "nova", "maia", "lyra", "mira", "luma"]
+// Visual styles correspond to per-style published registries at
+// `public/r/styles/{base}-{style}/<comp>.json`. They're produced by the
+// design-system codegen pipeline. The CLI's init/create flow asks the user
+// for a base + visual style separately, then composes them into a single
+// identifier (e.g. `reka-luma`) which is what gets written to components.json
+// and used directly in fetch URLs — matching shadcn-ui's model.
+const VISUAL_STYLES = new Set(["vega", "nova", "maia", "lyra", "mira", "luma"])
 
 /**
- * Resolves the registry style to use for fetching components.
- * Visual styles (vega, nova, maia, lyra, mira) are mapped to new-york-v4.
- * The original style is preserved in config for applying transformations.
+ * Composes a base + visual style choice into the canonical style identifier
+ * stored in `components.json`. For visual styles, returns `${base}-${style}`
+ * (e.g. `"reka-luma"`). For non-visual styles like `"new-york-v4"`, returns
+ * the style unchanged.
  */
-export function resolveRegistryStyle(style: string | undefined): string {
+export function composeStyleId(
+  base: string | undefined,
+  style: string | undefined,
+): string {
   if (!style) {
     return FALLBACK_STYLE
   }
 
-  // Extract base style name (remove version suffix like -v4)
-  const baseStyle = style.split("-")[0]
-
-  // Visual styles map to new-york-v4 for registry fetching
-  if (VISUAL_STYLES.includes(baseStyle)) {
-    return FALLBACK_STYLE
+  // Already a full identifier — pass through.
+  if (style.includes("-") || !VISUAL_STYLES.has(style)) {
+    return style
   }
 
-  return style
+  return `${base || "reka"}-${style}`
+}
+
+/**
+ * Resolves the registry style segment used in fetch URLs like
+ * `styles/{registryStyle}/<comp>.json`.
+ *
+ * The `style` field in `components.json` is the **full** style identifier
+ * (e.g. `"reka-luma"`, `"new-york-v4"`), matching shadcn-ui's model. We just
+ * pass it through, falling back to `FALLBACK_STYLE` when unset.
+ */
+export function resolveRegistryStyle(style: string | undefined): string {
+  return style || FALLBACK_STYLE
 }
 
 function resolveStyleFromConfig(config: Partial<Config> | Config) {
@@ -46,18 +60,9 @@ function resolveStyleFromConfig(config: Partial<Config> | Config) {
   return config.style
 }
 
-function resolveBaseFromConfig(config: Partial<Config> | Config) {
-  if (!config.base) {
-    return DEFAULT_BASE
-  }
-
-  return config.base
-}
-
 export function configWithDefaults(config?: Partial<Config> | Config) {
   const baseConfig = createConfig({
     style: FALLBACK_STYLE,
-    base: DEFAULT_BASE,
     registries: BUILTIN_REGISTRIES,
   })
 
@@ -69,7 +74,6 @@ export function configWithDefaults(config?: Partial<Config> | Config) {
     deepmerge(baseConfig, {
       ...config,
       style: resolveStyleFromConfig(config),
-      base: resolveBaseFromConfig(config),
       registries: { ...BUILTIN_REGISTRIES, ...config.registries },
     }),
   )

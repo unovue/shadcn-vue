@@ -46,7 +46,8 @@ export function buildUrlFromRegistryConfig(
   registryConfig: z.infer<typeof registryConfigItemSchema>,
   config?: Config,
 ) {
-  // Resolve the registry style (visual styles like vega, nova map to new-york-v4)
+  // Style is the full identifier from components.json (e.g. "reka-luma")
+  // and pass-through. Falls back to FALLBACK_STYLE when unset.
   const registryStyle = resolveRegistryStyle(config?.style)
 
   if (typeof registryConfig === "string") {

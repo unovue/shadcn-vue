@@ -15,8 +15,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/registry/new-york-v4/ui/avatar'
-import { Badge } from '@/registry/new-york-v4/ui/badge'
+} from '@/styles/reka-nova/ui/avatar'
+import { Badge } from '@/styles/reka-nova/ui/badge'
 import {
   Command,
   CommandEmpty,
@@ -24,7 +24,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/registry/new-york-v4/ui/command'
+} from '@/styles/reka-nova/ui/command'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -37,25 +37,25 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
-import { Field, FieldLabel } from '@/registry/new-york-v4/ui/field'
+} from '@/styles/reka-nova/ui/dropdown-menu'
+import { Field, FieldLabel } from '@/styles/reka-nova/ui/field'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupTextarea,
-} from '@/registry/new-york-v4/ui/input-group'
+} from '@/styles/reka-nova/ui/input-group'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york-v4/ui/popover'
-import { Switch } from '@/registry/new-york-v4/ui/switch'
+} from '@/styles/reka-nova/ui/popover'
+import { Switch } from '@/styles/reka-nova/ui/switch'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/registry/new-york-v4/ui/tooltip'
+} from '@/styles/reka-nova/ui/tooltip'
 
 const SAMPLE_DATA = {
   mentionable: [
@@ -181,17 +181,17 @@ const hasMentions = computed(() => mentions.value.length > 0)
 </script>
 
 <template>
-  <form class="[--radius:1.2rem]">
+  <form>
     <Field>
       <FieldLabel for="notion-prompt" class="sr-only">
         Prompt
       </FieldLabel>
-      <InputGroup>
+      <InputGroup class="rounded-xl">
         <InputGroupTextarea
           id="notion-prompt"
           placeholder="Ask, search, or make anything..."
         />
-        <InputGroupAddon align="block-start">
+        <InputGroupAddon align="block-start" class="pt-3">
           <Popover v-model:open="mentionPopoverOpen">
             <Tooltip>
               <TooltipTrigger
@@ -202,7 +202,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
                   <InputGroupButton
                     variant="outline"
                     :size="!hasMentions ? 'sm' : 'icon-sm'"
-                    class="rounded-full transition-transform"
+                    class="transition-transform"
                   >
                     <IconAt /> {{ !hasMentions && "Add context" }}
                   </InputGroupButton>
@@ -210,7 +210,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
               </TooltipTrigger>
               <TooltipContent>Mention a person, page, or date</TooltipContent>
             </Tooltip>
-            <PopoverContent class="p-0 [--radius:1.2rem]" align="start">
+            <PopoverContent class="p-0" align="start">
               <Command>
                 <CommandInput placeholder="Search pages..." />
                 <CommandList>
@@ -224,6 +224,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
                       v-for="item in items"
                       :key="item.title"
                       :value="item.title"
+                      class="rounded-lg"
                       @select="(event) => {
                         mentions = [...mentions, event.detail.value as string]
                         mentionPopoverOpen = false
@@ -296,9 +297,9 @@ const hasMentions = computed(() => mentions.value.length > 0)
             <DropdownMenuContent
               side="top"
               align="start"
-              class="[--radius:1rem]"
+              class="min-w-48"
             >
-              <DropdownMenuGroup class="w-42">
+              <DropdownMenuGroup>
                 <DropdownMenuLabel class="text-muted-foreground text-xs">
                   Select Agent Mode
                 </DropdownMenuLabel>
@@ -334,7 +335,7 @@ const hasMentions = computed(() => mentions.value.length > 0)
             <DropdownMenuContent
               side="top"
               align="end"
-              class="[--radius:1rem]"
+              class="w-72"
             >
               <DropdownMenuGroup>
                 <DropdownMenuItem

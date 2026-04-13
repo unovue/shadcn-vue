@@ -27,9 +27,14 @@ const DEPENDENCIES = new Map<string, string[]>([
   // TODO: remove version tag after vee-validate v5
   ['vee-validate', ['@vee-validate/zod', 'zod@3.25.76']],
   ['vue-input-otp', []],
+  ['clsx', []],
+  ['tailwind-merge', []],
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
+const INTERNAL_REGISTRY_DEPENDENCY_SOURCES = new Set([
+  '@/registry/bases/reka/components/icon-placeholder',
+])
 
 function sanitizeString(input: string): string {
   return input
@@ -272,6 +277,41 @@ export async function crawlComposables(rootPath: string) {
   return registry
 }
 
+export async function crawlLib(rootPath: string) {
+  const type = 'registry:lib' as const
+
+  const dir = (await readdir(rootPath, { withFileTypes: true })).sort()
+
+  const registry: RegistryItem[] = []
+
+  for (const dirent of dir) {
+    if (!dirent.isFile() || dirent.name.startsWith('_'))
+      continue
+
+    const [name = ''] = dirent.name.split('.ts')
+
+    const filepath = join(rootPath, dirent.name)
+    const source = await readFile(filepath, { encoding: 'utf8' })
+    const relativePath = join('lib', dirent.name)
+
+    const file = {
+      path: relativePath,
+      type,
+    }
+    const { dependencies, registryDependencies } = await getFileDependencies(filepath, source)
+
+    registry.push({
+      name,
+      type,
+      files: [file],
+      registryDependencies: Array.from(registryDependencies),
+      dependencies: Array.from(dependencies),
+    })
+  }
+
+  return registry
+}
+
 async function buildUIRegistry(componentPath: string, componentName: string) {
   const dir = (await readdir(componentPath, {
     withFileTypes: true,
@@ -370,7 +410,11 @@ async function getFileDependencies(filename: string, sourceCode: string) {
       peerDeps.forEach(dep => dependencies.add(dep))
     }
 
-    if (source.startsWith(REGISTRY_DEPENDENCY) && !source.endsWith('.vue')) {
+    if (
+      source.startsWith(REGISTRY_DEPENDENCY)
+      && !source.endsWith('.vue')
+      && !INTERNAL_REGISTRY_DEPENDENCY_SOURCES.has(source)
+    ) {
       const component = source.split('/').at(-1)!
       if (component !== 'utils')
         registryDependencies.add(component)

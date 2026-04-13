@@ -3,7 +3,7 @@ import type { DialogRootEmits, DialogRootProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/registry/bases/reka/ui/dialog'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/styles/reka-lyra/ui/dialog'
 import Command from './Command.vue'
 
 const props = withDefaults(defineProps<DialogRootProps & {
@@ -24,7 +24,7 @@ const forwarded = useForwardPropsEmits(props, emits)
 <template>
   <Dialog v-slot="slotProps" v-bind="forwarded">
     <DialogContent
-      :class="cn('rounded-none overflow-hidden p-0', props.class)"
+      :class="cn('rounded-none top-1/3 translate-y-0 overflow-hidden p-0', props.class)"
       :show-close-button="showCloseButton"
     >
       <DialogHeader class="sr-only">

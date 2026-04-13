@@ -22,7 +22,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-bind="forwarded"
     :class="
       cn(
-        'cn-context-menu-sub-content cn-menu-target z-50 origin-(--reka-context-menu-content-transform-origin) overflow-hidden',
+        'cn-context-menu-sub-content cn-menu-target cn-menu-translucent z-50 origin-(--reka-context-menu-content-transform-origin) overflow-hidden',
         props.class,
       )
     "

@@ -101,8 +101,18 @@ export default defineNuxtConfig({
     '/examples/**': { prerender: true },
     '/colors/**': { prerender: true },
     '/themes': { prerender: true },
-    // API routes - cache indefinitely (reset on each deploy)
-    '/api/**': { swr: 31536000 },
+    // JSON API - edge-cached at CF, survives across Worker invocations
+    '/api/**': {
+      headers: {
+        'cache-control': 'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400',
+      },
+    },
+    // Raw markdown endpoint
+    '/raw/**': {
+      headers: {
+        'cache-control': 'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400',
+      },
+    },
   },
   nitro: {
     preset: 'cloudflare-module',

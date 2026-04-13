@@ -25,8 +25,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/registry/new-york-v4/ui/table'
-import { valueUpdater } from '~/registry/new-york-v4/ui/table/utils'
+} from '@/styles/reka-nova/ui/table'
+import { valueUpdater } from '~/styles/reka-nova/ui/table/utils'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
 

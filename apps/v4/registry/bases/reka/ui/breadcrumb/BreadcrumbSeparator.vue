@@ -22,6 +22,7 @@ const props = defineProps<{
         hugeicons="ArrowRight01Icon"
         phosphor="CaretRightIcon"
         remixicon="RiArrowRightSLine"
+        class="cn-rtl-flip"
       />
     </slot>
   </li>

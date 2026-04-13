@@ -25,7 +25,7 @@ export async function updateCssVars(
     silent?: boolean
     tailwindVersion?: TailwindVersion
     tailwindConfig?: z.infer<typeof registryItemTailwindSchema>['config']
-    fontImport?: string
+    fontImports?: string[]
   },
 ) {
   if (!config.resolvedPaths.tailwindCss || !Object.keys(cssVars ?? {}).length) {
@@ -58,7 +58,7 @@ export async function updateCssVars(
     tailwindConfig: options.tailwindConfig,
     overwriteCssVars: options.overwriteCssVars,
     initIndex: options.initIndex,
-    fontImport: options.fontImport,
+    fontImports: options.fontImports,
   })
   await fs.writeFile(cssFilepath, output, 'utf8')
   cssVarsSpinner.succeed()
@@ -74,7 +74,7 @@ export async function transformCssVars(
     tailwindConfig?: z.infer<typeof registryItemTailwindSchema>['config']
     overwriteCssVars?: boolean
     initIndex?: boolean
-    fontImport?: string
+    fontImports?: string[]
   } = {
     cleanupDefaultNextStyles: false,
     tailwindVersion: 'v3',
@@ -94,9 +94,10 @@ export async function transformCssVars(
 
   let plugins = [updateCssVarsPlugin(cssVars)]
 
-  // Add font import if provided
-  if (options.fontImport) {
-    plugins.unshift(addFontImportPlugin({ fontImport: options.fontImport }))
+  // Add font imports if provided
+  const fontImports = options.fontImports ?? []
+  if (fontImports.length > 0) {
+    plugins.unshift(addFontImportPlugin({ fontImports }))
   }
 
   if (options.cleanupDefaultNextStyles) {
@@ -106,9 +107,9 @@ export async function transformCssVars(
   if (options.tailwindVersion === 'v4') {
     plugins = []
 
-    // Add font import at the very beginning if provided
-    if (options.fontImport) {
-      plugins.push(addFontImportPlugin({ fontImport: options.fontImport }))
+    // Add font imports at the very beginning if provided
+    if (fontImports.length > 0) {
+      plugins.push(addFontImportPlugin({ fontImports }))
     }
 
     // Only add tw-animate-css if project does not have tailwindcss-animate
@@ -720,39 +721,95 @@ function addCustomImport({ params }: { params: string }) {
 }
 
 /**
- * Add Google Fonts import at the top of CSS file.
+ * Sync Google Fonts `@import` statements at the top of the CSS file with the
+ * active font set (body + heading). The full set of target URLs is passed in
+ * each call — any existing `fonts.googleapis.com` imports not in the set are
+ * removed, any missing ones are added. This is replace-all semantics so that
+ * swapping to a new preset actually reflects the new fonts instead of
+ * accumulating dead imports from previous runs.
  */
-export function addFontImportPlugin({ fontImport }: { fontImport: string }) {
+export function addFontImportPlugin({
+  fontImports,
+}: {
+  fontImports: string[]
+}) {
   return {
     postcssPlugin: 'add-font-import',
     Once(root: Root) {
-      if (!fontImport)
+      if (!fontImports || fontImports.length === 0) {
         return
+      }
 
-      // Check if this font import already exists
-      const hasImport = root.nodes.some(
+      // Dedup + extract raw URLs from the `@import url('...')` strings.
+      const targetUrls: string[] = []
+      for (const fontImport of fontImports) {
+        const match = fontImport.match(/url\(['"]?([^'"]+)['"]?\)/)
+        if (match && !targetUrls.includes(match[1]!)) {
+          targetUrls.push(match[1]!)
+        }
+      }
+      if (targetUrls.length === 0) {
+        return
+      }
+
+      const existingGoogleFontsImports = root.nodes.filter(
         (node): node is AtRule =>
           node.type === 'atrule'
           && node.name === 'import'
           && node.params.includes('fonts.googleapis.com'),
       )
 
-      if (!hasImport) {
-        // Create the import node - fontImport already includes @import
-        // We need to extract just the URL part
-        const urlMatch = fontImport.match(/url\(['"]?([^'"]+)['"]?\)/)
-        if (urlMatch) {
-          const importNode = postcss.atRule({
-            name: 'import',
-            params: `url('${urlMatch[1]}')`,
-            raws: { semicolon: true, before: '' },
-          })
-
-          // Insert at the very beginning of the file
-          root.prepend(importNode)
-          root.insertAfter(importNode, postcss.comment({ text: '---break---' }))
+      // Drop any existing Google Fonts imports that aren't in the target
+      // set — those are left over from a previous preset.
+      const keptByUrl = new Map<string, AtRule>()
+      for (const node of existingGoogleFontsImports) {
+        const url = targetUrls.find(u => node.params.includes(u))
+        if (url && !keptByUrl.has(url)) {
+          keptByUrl.set(url, node)
+        }
+        else {
+          node.remove()
         }
       }
+
+      // Add any missing imports. Reuse the position of the first kept
+      // import so the top-of-file section stays stable; otherwise prepend.
+      const missingUrls = targetUrls.filter(url => !keptByUrl.has(url))
+      if (missingUrls.length === 0) {
+        return
+      }
+
+      const firstKept = existingGoogleFontsImports.find(
+        node => keptByUrl.get(targetUrls.find(u => node.params.includes(u))!)
+          === node,
+      )
+
+      const newNodes = missingUrls.map(url =>
+        postcss.atRule({
+          name: 'import',
+          params: `url('${url}')`,
+          raws: { semicolon: true, before: '\n' },
+        }),
+      )
+
+      if (firstKept) {
+        // Insert the new imports right after the first kept one.
+        let anchor: AtRule = firstKept
+        for (const node of newNodes) {
+          root.insertAfter(anchor, node)
+          anchor = node
+        }
+        return
+      }
+
+      // No existing Google Fonts imports — prepend all new ones.
+      for (let i = newNodes.length - 1; i >= 0; i--) {
+        root.prepend(newNodes[i]!)
+      }
+      root.insertAfter(
+        newNodes[newNodes.length - 1]!,
+        postcss.comment({ text: '---break---' }),
+      )
     },
   }
 }

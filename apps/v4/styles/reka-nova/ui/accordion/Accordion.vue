@@ -20,7 +20,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-slot="slotProps"
     data-slot="accordion"
     v-bind="forwarded"
-    :class="cn('cn-accordion flex w-full flex-col', props.class)"
+    :class="cn('flex w-full flex-col', props.class)"
   >
     <slot v-bind="slotProps" />
   </AccordionRoot>

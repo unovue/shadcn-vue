@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { Checkbox } from '@/styles/reka-nova/ui/checkbox'
 import {
   Field,
   FieldDescription,
@@ -9,20 +9,20 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from '@/registry/new-york-v4/ui/field'
-import { Input } from '@/registry/new-york-v4/ui/input'
+} from '@/styles/reka-nova/ui/field'
+import { Input } from '@/styles/reka-nova/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york-v4/ui/select'
-import { Textarea } from '@/registry/new-york-v4/ui/textarea'
+} from '@/styles/reka-nova/ui/select'
+import { Textarea } from '@/styles/reka-nova/ui/textarea'
 </script>
 
 <template>
-  <div class="w-full max-w-md rounded-lg border p-6">
+  <div class="w-full max-w-md rounded-xl border p-6">
     <form>
       <FieldGroup>
         <FieldSet>

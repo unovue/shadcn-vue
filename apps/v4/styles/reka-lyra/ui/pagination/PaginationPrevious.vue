@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { PaginationPrevProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
-import type { ButtonVariants } from '@/registry/bases/reka/ui/button'
+import type { ButtonVariants } from '@/styles/reka-lyra/ui/button'
 import { reactiveOmit } from '@vueuse/core'
+import { ChevronLeftIcon } from 'lucide-vue-next'
 import { PaginationPrev, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
-import { buttonVariants } from '@/registry/bases/reka/ui/button'
+import { buttonVariants } from '@/styles/reka-lyra/ui/button'
 
 const props = withDefaults(defineProps<PaginationPrevProps & {
   size?: ButtonVariants['size']
@@ -26,15 +27,8 @@ const forwarded = useForwardProps(delegatedProps)
     v-bind="forwarded"
   >
     <slot>
-      <IconPlaceholder
-        lucide="ChevronLeftIcon"
-        tabler="IconChevronLeft"
-        hugeicons="ArrowLeft01Icon"
-        phosphor="CaretLeftIcon"
-        remixicon="RiArrowLeftSLine"
-        data-icon="inline-start"
-      />
-      <span class="cn-pagination-previous-text hidden sm:block">Previous</span>
+      <ChevronLeftIcon data-icon="inline-start" class="cn-rtl-flip" />
+      <span class="hidden sm:block">Previous</span>
     </slot>
   </PaginationPrev>
 </template>

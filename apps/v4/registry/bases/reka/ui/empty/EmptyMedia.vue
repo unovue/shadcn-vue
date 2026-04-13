@@ -4,10 +4,12 @@ import type { EmptyMediaVariants } from "."
 import { cn } from "@/lib/utils"
 import { emptyMediaVariants } from "."
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   class?: HTMLAttributes["class"]
   variant?: EmptyMediaVariants["variant"]
-}>()
+}>(), {
+  variant: "default",
+})
 </script>
 
 <template>

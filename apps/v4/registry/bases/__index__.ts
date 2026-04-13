@@ -340,7 +340,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["native-select","button","icon-placeholder"],
+      registryDependencies: ["native-select","button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/calendar/Calendar.vue",
@@ -467,7 +467,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button","icon-placeholder"],
+      registryDependencies: ["button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/carousel/Carousel.vue",
@@ -611,7 +611,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: ["input-group"],
       files: [
             {
                   "path": "registry/bases/reka/ui/combobox/Combobox.vue",
@@ -834,7 +834,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button","icon-placeholder"],
+      registryDependencies: ["button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/dialog/Dialog.vue",
@@ -1308,7 +1308,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/input-otp/InputOTP.vue",
@@ -1457,7 +1457,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/menubar/Menubar.vue",
@@ -1548,7 +1548,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/native-select/NativeSelect.vue",
@@ -1579,7 +1579,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/navigation-menu/NavigationMenu.vue",
@@ -1635,7 +1635,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/number-field/NumberField.vue",
@@ -1676,7 +1676,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button","icon-placeholder"],
+      registryDependencies: ["button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/pagination/Pagination.vue",
@@ -1737,7 +1737,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/pin-input/PinInput.vue",
@@ -1871,7 +1871,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button","icon-placeholder"],
+      registryDependencies: ["button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/range-calendar/RangeCalendar.vue",
@@ -2157,7 +2157,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["sheet","input","tooltip","skeleton","separator","icon-placeholder","button"],
+      registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/sidebar/Sidebar.vue",
@@ -2340,7 +2340,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/sonner/Sonner.vue",
@@ -2361,7 +2361,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/spinner/Spinner.vue",
@@ -2556,7 +2556,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["icon-placeholder"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/tags-input/TagsInput.vue",
@@ -2765,7 +2765,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:block",
-      registryDependencies: ["alert","badge","button","card","item","chart","empty","avatar","tooltip","field","toggle-group","dropdown-menu","input-group","separator","spinner","tabs","checkbox","native-select","textarea","input","select","table","kbd","progress","skeleton","dialog","alert-dialog","button-group","radio-group","slider","switch"],
+      registryDependencies: ["alert","badge","button","card","item","chart","empty","avatar","tooltip","field","toggle-group","dropdown-menu","input-group","separator","spinner","tabs","checkbox","native-select","textarea","input","select","table","kbd","progress","skeleton","useDesignSystemSearchParams","fonts","styles","dialog","alert-dialog","button-group","radio-group","slider","switch"],
       files: [
             {
                   "path": "registry/bases/reka/blocks/preview/page.vue",
@@ -5698,32 +5698,16 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
-    "_registry": {
-      name: "_registry",
-      title: "undefined",
-      description: "",
-      type: "registry:composable",
-      registryDependencies: [],
-      files: [
-            {
-                  "path": "registry/bases/reka/lib/composables/_registry.ts",
-                  "type": "registry:composable",
-                  "target": ""
-            }
-      ],
-      categories: undefined,
-      meta: undefined,
-    },
     "utils": {
       name: "utils",
       title: "undefined",
       description: "",
-      type: "registry:composable",
+      type: "registry:lib",
       registryDependencies: [],
       files: [
             {
-                  "path": "registry/bases/reka/lib/composables/utils.ts",
-                  "type": "registry:composable",
+                  "path": "registry/bases/reka/lib/utils.ts",
+                  "type": "registry:lib",
                   "target": ""
             }
       ],

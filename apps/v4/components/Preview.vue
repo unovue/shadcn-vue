@@ -15,8 +15,6 @@ const colorMode = useColorMode()
 const iframeRef = ref<HTMLIFrameElement | null>(null)
 const resizablePanelRef = ref<InstanceType<typeof SplitterPanel> | null>(null)
 
-const iframeKey = ref(0)
-
 watch(params.size, () => {
   resizablePanelRef.value?.resize(params.size.value)
 })
@@ -29,7 +27,7 @@ watch(() => colorMode.value, (mode) => {
   sendToIframe(iframe, 'color-mode-sync', { colorMode: mode })
 })
 
-watch(() => params, () => {
+watch(() => [params, iframeRef], () => {
   const iframe = iframeRef.value
   if (!iframe) {
     return
@@ -37,7 +35,7 @@ watch(() => params, () => {
 
   const sendParams = () => {
     const rawParams = Object.fromEntries(
-      Object.entries(toRaw(params)).map(([key, value]) => [key, unref(value)]),
+      Object.entries(toRaw(params)).map(([key, value]) => [key, unref(value as any)]),
     ) as DesignSystemSearchParams
     sendToIframe(iframe, 'design-system-params', rawParams)
     sendToIframe(iframe, 'color-mode-sync', { colorMode: colorMode.value })
@@ -51,7 +49,7 @@ watch(() => params, () => {
   onWatcherCleanup(() => {
     iframe.removeEventListener('load', sendParams)
   })
-}, { deep: true })
+}, { deep: true, immediate: true, flush: 'post' })
 
 function handleMessage(event: MessageEvent) {
   if (event.data.type === CMD_K_FORWARD_TYPE) {
@@ -94,10 +92,9 @@ function handleMessage(event: MessageEvent) {
 useEventListener(globalThis.window, 'message', handleMessage)
 
 const route = useRoute()
-const initialParams = `?theme=${params.theme.value ?? 'blue'}&iconLibrary=${params.iconLibrary.value ?? 'hugeicons'}&style=${params.style.value ?? 'luma'}&font=${params.font.value ?? 'geist'}&baseColor=${params.baseColor.value ?? 'neutral'}&chartColor=${params.chartColor.value ?? 'emerald'}&radius=${params.radius.value ?? 'default'}&menuAccent=${params.menuAccent.value ?? 'subtle'}&menuColor=${params.menuColor.value ?? 'inverted-translucent'}`
 const iframeSrc = computed(() => {
   const item = typeof route.query.item === 'string' ? route.query.item : params.item.value
-  return `/preview/${params.base.value}/${item}${initialParams}`
+  return `/preview/${params.base.value}/${item}`
 })
 </script>
 

@@ -24,7 +24,7 @@ export function useIframeMessageListener<
   messageType: MessageType,
   onMessage: (data: Extract<Message, { type: MessageType }>['data']) => void,
 ) {
-  watchEffect(() => {
+  onMounted(() => {
     if (!isInIframe()) {
       return
     }
@@ -39,9 +39,7 @@ export function useIframeMessageListener<
     return () => {
       window.removeEventListener('message', handleMessage)
     }
-  },
-    //  , [messageType, onMessage]
-  )
+  })
 }
 
 export function sendToIframe<

@@ -98,12 +98,13 @@ const availableThemes = computed(() => getThemesForBaseColor(baseColor.value))
     </CardContent>
     <CardFooter class="flex min-w-0 gap-2 md:flex-col md:rounded-b-none md:**:[button,a]:w-full">
       <CopyPreset class="flex-1 md:flex-none" />
+      <OpenPreset class="flex-1 md:flex-none" />
       <RandomButton class="flex-1 md:flex-none" />
       <ActionMenu :items="props.items" />
       <ResetDialog />
     </CardFooter>
     <CardFooter class="-mt-3 hidden min-w-0 gap-2 md:flex md:flex-col md:**:[button,a]:w-full">
-      <CreateProjectButton />
+      <ProjectForm />
     </CardFooter>
   </Card>
 </template>

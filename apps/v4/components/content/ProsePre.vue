@@ -65,18 +65,18 @@ const codeAttributes = computed(() => isShowingLineNumber.value
 </script>
 
 <template>
-  <pre v-if="unwrap" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0 !bg-transparent', props.class)" :data-language="lang"><code v-bind="codeAttributes" v-html="highlighted" /></pre>
+  <pre v-if="unwrap" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0 !bg-transparent', props.class)" :data-language="lang"><code v-bind="codeAttributes" v-html="highlighted" /></pre>
   <figure v-else data-pretty-code-figure>
-    <pre v-if="isNpmCommand" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CodeBlockCommand :code /></pre>
+    <pre v-if="isNpmCommand" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CodeBlockCommand :code /></pre>
 
     <template v-else-if="title">
       <figcaption data-pretty-code-title :data-language="lang" class="text-code-foreground [&_svg]:text-code-foreground flex items-center gap-2 [&_svg]:size-4 [&_svg]:opacity-70">
         <component :is="IconExtension" v-if="IconExtension" />
         {{ title }}
       </figcaption>
-      <pre :data-language="lang" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CopyButton :value="code" /><code v-bind="codeAttributes" v-html="highlighted" /></pre>
+      <pre :data-language="lang" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CopyButton :value="code" /><code v-bind="codeAttributes" v-html="highlighted" /></pre>
     </template>
 
-    <pre v-else :data-language="lang" :class="cn('no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CopyButton :value="code" /><code v-bind="codeAttributes" v-html="highlighted" /></pre>
+    <pre v-else :data-language="lang" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CopyButton :value="code" /><code v-bind="codeAttributes" v-html="highlighted" /></pre>
   </figure>
 </template>

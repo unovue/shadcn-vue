@@ -16,6 +16,7 @@ import {
 
 const isMac = ref(false)
 const { openActionMenu } = useActionMenu()
+const { openPreset } = useOpenPresetTrigger()
 const { showResetDialog } = useReset()
 const { isLocked } = useLocks()
 const colorMode = useColorMode()
@@ -54,21 +55,29 @@ function randomize() {
     params.menuColor.value = getRandomItem(MENU_COLORS).value
   if (!isLocked('menuAccent'))
     params.menuAccent.value = getRandomItem(MENU_ACCENTS).value
-  params.custom.value = true
+}
+
+function isEditableTarget(target: EventTarget | null) {
+  return (
+    (target instanceof HTMLElement && target.isContentEditable)
+    || target instanceof HTMLInputElement
+    || target instanceof HTMLTextAreaElement
+    || target instanceof HTMLSelectElement
+  )
 }
 
 function handleKeyDown(event: KeyboardEvent) {
-  if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement)
+  if (isEditableTarget(event.target))
     return
-  if (event.key === 'r' && !event.shiftKey && !event.metaKey && !event.ctrlKey) {
+  if (event.key === 'r' && !event.shiftKey && !event.metaKey && !event.ctrlKey && !event.altKey) {
     event.preventDefault()
     randomize()
   }
-  if (event.key === 'R' && event.shiftKey && !event.metaKey && !event.ctrlKey) {
+  if (event.key === 'R' && event.shiftKey && !event.metaKey && !event.ctrlKey && !event.altKey) {
     event.preventDefault()
     showResetDialog.value = true
   }
-  if (event.key === 'd' && !event.metaKey && !event.ctrlKey) {
+  if (event.key === 'd' && !event.shiftKey && !event.metaKey && !event.ctrlKey && !event.altKey) {
     event.preventDefault()
     toggleMode()
   }
@@ -91,6 +100,9 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeyDown))
         <PickerItem @click="openActionMenu">
           Navigate...
           <PickerShortcut>{{ isMac ? '⌘P' : 'Ctrl+P' }}</PickerShortcut>
+        </PickerItem>
+        <PickerItem @click="openPreset">
+          Open Preset... <PickerShortcut>O</PickerShortcut>
         </PickerItem>
         <PickerItem @click="randomize">
           Shuffle <PickerShortcut>R</PickerShortcut>

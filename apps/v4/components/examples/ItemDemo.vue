@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BadgeCheckIcon, ChevronRightIcon } from 'lucide-vue-next'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Item,
   ItemActions,
@@ -9,7 +9,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from '@/registry/new-york-v4/ui/item'
+} from '@/styles/reka-nova/ui/item'
 </script>
 
 <template>

@@ -20,7 +20,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <DropdownMenuSubContent
     data-slot="dropdown-menu-sub-content"
     v-bind="forwarded"
-    :class="cn('cn-dropdown-menu-sub-content cn-menu-target z-50 origin-(--reka-dropdown-menu-content-transform-origin) overflow-hidden', props.class)"
+    :class="cn('cn-dropdown-menu-sub-content cn-menu-target cn-menu-translucent z-50 origin-(--reka-dropdown-menu-content-transform-origin) overflow-hidden', props.class)"
   >
     <slot />
   </DropdownMenuSubContent>

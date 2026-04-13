@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import type { ButtonVariants } from '@/registry/bases/reka/ui/button'
+import type { ButtonVariants } from '@/styles/reka-lyra/ui/button'
 import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/registry/bases/reka/ui/button'
+import { buttonVariants } from '@/styles/reka-lyra/ui/button'
 
 const props = withDefaults(defineProps<{
   href?: string
@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<{
         variant: isActive ? 'outline' : 'ghost',
         size,
       }),
-      'cn-pagination-link',
+      '',
       props.class,
     )"
   >

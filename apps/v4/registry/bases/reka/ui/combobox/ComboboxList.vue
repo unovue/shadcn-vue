@@ -25,7 +25,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <ComboboxContent
       data-slot="combobox-content"
       v-bind="{ ...$attrs, ...forwarded }"
-      :class="cn('cn-combobox-content group/combobox-content z-50 w-[var(--reka-combobox-trigger-width)]', props.class)"
+      :class="cn('cn-combobox-content cn-combobox-content-logical cn-menu-target cn-menu-translucent group/combobox-content z-50 w-[var(--reka-combobox-trigger-width)]', props.class)"
     >
       <slot />
     </ComboboxContent>

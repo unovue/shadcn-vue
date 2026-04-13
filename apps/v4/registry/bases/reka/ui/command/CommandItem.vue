@@ -79,7 +79,7 @@ onUnmounted(() => {
       hugeicons="Tick02Icon"
       phosphor="CheckIcon"
       remixicon="RiCheckLine"
-      class="cn-command-item-indicator ml-auto opacity-0 group-has-[[data-slot=command-shortcut]]/command-item:hidden group-data-[checked=true]/command-item:opacity-100"
+      class="cn-command-item-indicator ml-auto opacity-0 group-has-data-[slot=command-shortcut]/command-item:hidden group-data-[checked=true]/command-item:opacity-100"
     />
   </ListboxItem>
 </template>

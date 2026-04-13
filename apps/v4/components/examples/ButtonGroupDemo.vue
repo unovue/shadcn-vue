@@ -11,8 +11,8 @@ import {
   Trash2Icon,
 } from 'lucide-vue-next'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { ButtonGroup } from '@/registry/new-york-v4/ui/button-group'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,7 +25,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-nova/ui/dropdown-menu'
 
 const label = ref('personal')
 </script>
@@ -55,7 +55,7 @@ const label = ref('personal')
             <MoreHorizontalIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="w-48 [--radius:1rem]">
+        <DropdownMenuContent align="end" class="w-48">
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <MailCheckIcon />
@@ -82,7 +82,7 @@ const label = ref('personal')
             </DropdownMenuItem>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <TagIcon class="mr-2 size-4" />
+                <TagIcon />
                 Label As...
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>

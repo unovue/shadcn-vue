@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { PaginationNextProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
-import type { ButtonVariants } from '@/registry/bases/reka/ui/button'
+import type { ButtonVariants } from '@/styles/reka-lyra/ui/button'
 import { reactiveOmit } from '@vueuse/core'
+import { ChevronRightIcon } from 'lucide-vue-next'
 import { PaginationNext, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
-import { buttonVariants } from '@/registry/bases/reka/ui/button'
+import { buttonVariants } from '@/styles/reka-lyra/ui/button'
 
 const props = withDefaults(defineProps<PaginationNextProps & {
   size?: ButtonVariants['size']
@@ -26,15 +27,8 @@ const forwarded = useForwardProps(delegatedProps)
     v-bind="forwarded"
   >
     <slot>
-      <span class="cn-pagination-next-text hidden sm:block">Next</span>
-      <IconPlaceholder
-        lucide="ChevronRightIcon"
-        tabler="IconChevronRight"
-        hugeicons="ArrowRight01Icon"
-        phosphor="CaretRightIcon"
-        remixicon="RiArrowRightSLine"
-        data-icon="inline-end"
-      />
+      <span class="hidden sm:block">Next</span>
+      <ChevronRightIcon data-icon="inline-end" class="cn-rtl-flip" />
     </slot>
   </PaginationNext>
 </template>

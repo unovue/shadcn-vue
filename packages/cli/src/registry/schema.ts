@@ -29,8 +29,8 @@ export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
     style: z.string(),
-    base: z.string().optional(),
     font: z.string().optional(),
+    fontHeading: z.string().optional(),
     typescript: z.coerce.boolean().default(true),
     tailwind: z.object({
       config: z.string().optional(),
@@ -40,7 +40,16 @@ export const rawConfigSchema = z
       prefix: z.string().default("").optional(),
     }),
     iconLibrary: z.string().optional(),
-    menuColor: z.enum(["default", "inverted"]).default("default").optional(),
+    rtl: z.boolean().default(false).optional(),
+    menuColor: z
+      .enum([
+        "default",
+        "inverted",
+        "default-translucent",
+        "inverted-translucent",
+      ])
+      .default("default")
+      .optional(),
     menuAccent: z.enum(["subtle", "bold"]).default("subtle").optional(),
     aliases: z.object({
       components: z.string(),
@@ -280,7 +289,12 @@ export const presetSchema = z.object({
   iconLibrary: z.string(),
   font: z.string(),
   menuAccent: z.enum(["subtle", "bold"]),
-  menuColor: z.enum(["default", "inverted"]),
+  menuColor: z.enum([
+    "default",
+    "inverted",
+    "default-translucent",
+    "inverted-translucent",
+  ]),
   radius: z.string(),
 })
 

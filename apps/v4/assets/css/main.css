@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "shadcn-vue/tailwind.css";
 
 @import "./themes.css";
 @import "./fonts.css";
@@ -27,10 +28,16 @@
 @theme inline {
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -46,6 +53,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -80,8 +88,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.596 0.145 163.225);
+  --primary-foreground: oklch(0.979 0.021 166.113);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -89,18 +97,19 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.97 0.01 17);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
+  --ring: oklch(0.596 0.145 163.225);
+  --chart-1: var(--color-emerald-300);
+  --chart-2: var(--color-emerald-500);
+  --chart-3: var(--color-emerald-600);
+  --chart-4: var(--color-emerald-700);
+  --chart-5: var(--color-emerald-800);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.596 0.145 163.225);
+  --sidebar-primary-foreground: oklch(0.979 0.021 166.113);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
@@ -122,8 +131,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.269 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.262 0.051 172.552);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -131,18 +140,19 @@
   --accent: oklch(0.371 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.58 0.22 27);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
+  --ring: oklch(0.696 0.17 162.48);
+  --chart-1: var(--color-emerald-300);
+  --chart-2: var(--color-emerald-500);
+  --chart-3: var(--color-emerald-600);
+  --chart-4: var(--color-emerald-700);
+  --chart-5: var(--color-emerald-800);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.696 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
@@ -165,9 +175,8 @@
     @apply bg-selection text-selection-foreground;
   }
   html {
-    @apply overscroll-y-none scroll-smooth;
+    @apply overscroll-y-none;
   }
-
   html {
     color-scheme: light dark;
   }
@@ -177,16 +186,17 @@
   html.light {
     color-scheme: light;
   }
-
   body {
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
+  }
+  .cn-font-heading {
+    @apply font-heading;
   }
 
   [data-slot="layout"] {
     @apply overscroll-none;
   }
-
 
   @supports (font: -apple-system-body) and (-webkit-appearance: none) {
     [data-wrapper] {
@@ -198,6 +208,14 @@
   button:active {
     @apply opacity-60 md:opacity-100;
   }
+
+  [data-lang="ar"] {
+    font-family: var(--font-ar);
+  }
+
+  [data-lang="he"] {
+    font-family: var(--font-he);
+  }
 }
 
 @utility border-grid {
@@ -205,7 +223,7 @@
 }
 
 @utility section-soft {
-  @apply from-background to-surface/40 dark:bg-background 3xl:fixed:bg-none bg-gradient-to-b;
+  @apply from-background to-surface/40 dark:bg-background 3xl:fixed:bg-none bg-linear-to-b;
 }
 
 @utility theme-container {
@@ -235,10 +253,9 @@
 
 @utility step {
   counter-increment: step;
-  @apply relative;
 
   &:before {
-    @apply text-muted-foreground right-0 mr-2 hidden size-7 items-center justify-center rounded-full text-center -indent-px font-mono text-sm font-medium md:absolute;
+    @apply border-background bg-muted mr-2 inline-flex size-6 items-center justify-center rounded-full text-center -indent-px font-mono text-sm font-medium md:absolute md:mt-[-4px] md:ml-[-50px] md:size-9 md:border-4;
     content: counter(step);
   }
 }
@@ -260,7 +277,7 @@
     }
 
     > h3 {
-      @apply !mt-16;
+      @apply !mt-8;
     }
 
     > h3 + p {
@@ -271,7 +288,7 @@
   [data-pretty-code-figure] {
     background-color: var(--color-code);
     color: var(--color-code-foreground);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     border-width: 0px;
     border-color: var(--border);
     margin-top: calc(var(--spacing) * 6);
@@ -334,6 +351,44 @@
     display: inline-block;
   }
 
+  /*
+   * ```text composition trees use box-drawing characters; per-line padding makes
+   * vertical connectors look broken. pretty-code sets `data-language` on
+   * `pre`/`code` (not `language-*` classes). It also sets `code { display: grid }`,
+   * which can add visible row separation — reset to a normal pre stack for text.
+   */
+  [data-pretty-code-figure] pre[data-language="text"] code,
+  [data-pretty-code-figure] pre[data-language="plaintext"] code,
+  [data-slot="docs"] pre[data-language="text"] code,
+  [data-slot="docs"] pre[data-language="plaintext"] code {
+    display: block !important;
+    white-space: pre;
+    line-height: 0.95;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace;
+    font-variant-ligatures: none;
+  }
+
+  [data-pretty-code-figure] pre[data-language="text"] [data-line],
+  [data-pretty-code-figure] pre[data-language="plaintext"] [data-line],
+  [data-pretty-code-figure] code[data-language="text"] [data-line],
+  [data-pretty-code-figure] code[data-language="plaintext"] [data-line],
+  [data-slot="docs"] pre[data-language="text"] [data-line],
+  [data-slot="docs"] pre[data-language="plaintext"] [data-line] {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: unset;
+    line-height: 0.95;
+    display: block;
+  }
+
   [data-line] span {
     color: var(--shiki-light);
 
@@ -370,5 +425,11 @@
     padding-block: 0.1rem;
     font-family: var(--font-mono);
     font-size: 0.8rem;
+  }
+}
+
+@layer components {
+  .dialog-ring {
+    @apply rounded-xl border-none bg-clip-padding shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800;
   }
 }

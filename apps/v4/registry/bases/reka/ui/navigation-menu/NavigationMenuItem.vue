@@ -14,7 +14,7 @@ const delegatedProps = reactiveOmit(props, "class")
   <NavigationMenuItem
     data-slot="navigation-menu-item"
     v-bind="delegatedProps"
-    :class="cn('relative', props.class)"
+    :class="cn('cn-navigation-menu-item relative', props.class)"
   >
     <slot />
   </NavigationMenuItem>

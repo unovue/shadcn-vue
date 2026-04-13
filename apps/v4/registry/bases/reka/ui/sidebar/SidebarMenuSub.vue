@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <ul
     data-slot="sidebar-menu-sub"
-    data-sidebar="menu-badge"
+    data-sidebar="menu-sub"
     :class="cn(
       'cn-sidebar-menu-sub flex min-w-0 flex-col',
       props.class,

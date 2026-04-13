@@ -16,6 +16,11 @@ const props = defineProps<ToasterProps>()
       '--normal-border': 'var(--border)',
       '--border-radius': 'var(--radius)',
     }"
+    :toast-options="{
+      classes: {
+        toast: 'cn-toast',
+      },
+    }"
     v-bind="props"
   >
     <template #success-icon>

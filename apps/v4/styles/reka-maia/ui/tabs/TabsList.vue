@@ -21,9 +21,9 @@ const delegatedProps = reactiveOmit(props, 'class', 'variant')
     :data-variant="variant"
     v-bind="delegatedProps"
     :class="cn(
-      'rounded-4xl p-[3px] group-data-horizontal/tabs:h-9 group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none group/tabs-list text-muted-foreground inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col',
-      variant === 'default' && 'cn-tabs-list-variant-default bg-muted',
-      variant === 'line' && 'cn-tabs-list-variant-line gap-1 bg-transparent',
+      'rounded-4xl p-[3px] group-data-horizontal/tabs:h-9 group-data-vertical/tabs:rounded-2xl data-[variant=line]:rounded-none group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col',
+      variant === 'default' && 'bg-muted',
+      variant === 'line' && 'gap-1 bg-transparent',
       props.class,
     )"
   >

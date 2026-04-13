@@ -9,7 +9,7 @@ export { default as AvatarGroupCount } from './AvatarGroupCount.vue'
 export { default as AvatarImage } from './AvatarImage.vue'
 
 export const avatarVariants = cva(
-  'size-8 rounded-full after:rounded-full data-[size=lg]:size-10 data-[size=sm]:size-6 after:border-border group/avatar relative flex shrink-0 select-none after:absolute after:inset-0 after:border after:mix-blend-darken dark:after:mix-blend-lighten',
+  'size-8 rounded-full after:rounded-full data-[size=lg]:size-10 data-[size=sm]:size-6 group/avatar relative flex shrink-0 select-none after:absolute after:inset-0 after:border after:border-border after:mix-blend-darken dark:after:mix-blend-lighten',
   {
     variants: {
       size: {

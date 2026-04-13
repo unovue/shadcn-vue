@@ -18,7 +18,7 @@ const delegatedProps = reactiveOmit(props, 'class')
   >
     <div
       :class="cn(
-        'pt-0 pb-4 [&_a]:hover:text-foreground h-(--reka-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4',
+        'pt-0 pb-4 h-(--reka-accordion-content-height) [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4',
         props.class,
       )"
     >

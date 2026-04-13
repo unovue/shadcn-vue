@@ -16,13 +16,13 @@ const forwardedProps = useForwardProps(delegatedProps)
 </script>
 
 <template>
-  <div class="cn-navigation-menu-viewport-wrapper absolute top-full left-0 isolate z-50 flex justify-center">
+  <div class="absolute top-full left-0 isolate z-50 flex justify-center">
     <NavigationMenuViewport
       data-slot="navigation-menu-viewport"
       v-bind="forwardedProps"
       :class="
         cn(
-          'bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:zoom-out-95 data-open:zoom-in-90 ring-foreground/10 rounded-lg shadow ring-1 duration-100 origin-top-center relative mt-1.5 h-[var(--reka-navigation-menu-viewport-height)] w-full overflow-hidden md:w-[var(--reka-navigation-menu-viewport-width)]',
+          'bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:zoom-out-90 data-open:zoom-in-90 ring-foreground/10 rounded-lg shadow ring-1 duration-100 origin-top-center relative mt-1.5 h-(--reka-navigation-menu-viewport-height) w-full overflow-hidden md:w-(--reka-navigation-menu-viewport-width)',
           props.class,
         )
       "

@@ -90,14 +90,14 @@ onMounted(() => {
   </DropdownMenu>
 
   <div v-else :class="cn('flex flex-col gap-2 p-4 pt-0 text-sm', props.class)">
-    <p v-if="tocLinks.length" class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">
+    <p v-if="tocLinks.length" class="sticky top-0 h-6 bg-background text-xs font-medium text-muted-foreground">
       On This Page
     </p>
     <a
       v-for="item in tocLinks"
       :key="item.id"
       :href="`${path}#${item.id}`"
-      class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
+      class="text-[0.8rem] text-muted-foreground no-underline transition-colors hover:text-foreground data-[active=true]:font-medium data-[active=true]:text-foreground data-[depth=3]:pl-4 data-[depth=4]:pl-6"
       :data-active="item.id === activeHeading"
       :data-depth="item.depth"
     >

@@ -16,6 +16,7 @@ defineOptions({
 const props = withDefaults(
   defineProps<HoverCardContentProps & { class?: HTMLAttributes["class"] }>(),
   {
+    align: "center",
     sideOffset: 4,
   },
 )

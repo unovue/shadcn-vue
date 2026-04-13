@@ -487,12 +487,25 @@ function processRule(parent: Root | AtRule, selector: string, properties: any) {
         const atRuleMatch = prop.match(/@([a-z-]+)\s*(.*)/i)
         if (atRuleMatch) {
           const [, atRuleName, atRuleParams] = atRuleMatch
-          const atRule = postcss.atRule({
-            name: atRuleName,
-            params: atRuleParams,
-            raws: { semicolon: true, before: '\n    ' },
-          })
-          rule.append(atRule)
+          // Skip if an identical at-rule (same name + params) already
+          // exists. Prevents duplicate `@apply` lines accumulating each
+          // time `apply` / `init --force=false` re-runs, which was the
+          // root cause of repeated `@apply font-sans` / `@apply
+          // bg-background text-foreground` inside `body`.
+          const existingAtRule = rule.nodes?.find(
+            (node): node is AtRule =>
+              node.type === 'atrule'
+              && node.name === atRuleName
+              && node.params === atRuleParams,
+          )
+          if (!existingAtRule) {
+            const atRule = postcss.atRule({
+              name: atRuleName,
+              params: atRuleParams,
+              raws: { semicolon: true, before: '\n    ' },
+            })
+            rule.append(atRule)
+          }
         }
       }
       else if (typeof value === 'string') {

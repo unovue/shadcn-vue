@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { ListboxFilterProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
+import { SearchIcon } from 'lucide-vue-next'
 import { ListboxFilter, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
-import { InputGroup, InputGroupAddon } from '@/registry/bases/reka/ui/input-group'
+import { InputGroup, InputGroupAddon } from '@/styles/reka-nova/ui/input-group'
 import { useCommand } from '.'
 
 defineOptions({
@@ -37,14 +38,7 @@ const { filterState } = useCommand()
         :class="cn('w-full text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50', props.class)"
       />
       <InputGroupAddon>
-        <IconPlaceholder
-          lucide="SearchIcon"
-          tabler="IconSearch"
-          hugeicons="SearchIcon"
-          phosphor="MagnifyingGlassIcon"
-          remixicon="RiSearchLine"
-          class="size-4 shrink-0 opacity-50"
-        />
+        <SearchIcon class="size-4 shrink-0 opacity-50" />
       </InputGroupAddon>
     </InputGroup>
   </div>

@@ -15,7 +15,7 @@ const delegatedProps = reactiveOmit(props, "class")
     data-slot="context-menu-label"
     :data-inset="inset ? '' : undefined"
     v-bind="delegatedProps"
-    :class="cn('cn-context-menu-label data-[inset]:pl-8', props.class)"
+    :class="cn('cn-context-menu-label', props.class)"
   >
     <slot />
   </ContextMenuLabel>

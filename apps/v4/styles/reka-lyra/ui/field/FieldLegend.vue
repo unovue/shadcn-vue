@@ -2,22 +2,19 @@
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
   variant?: 'legend' | 'label'
-}>()
+}>(), {
+  variant: 'legend',
+})
 </script>
 
 <template>
   <legend
     data-slot="field-legend"
     :data-variant="variant"
-    :class="cn(
-      'mb-3 font-medium',
-      'data-[variant=legend]:text-base',
-      'data-[variant=label]:text-sm',
-      props.class,
-    )"
+    :class="cn('mb-2.5 font-medium data-[variant=label]:text-xs data-[variant=legend]:text-sm', props.class)"
   >
     <slot />
   </legend>

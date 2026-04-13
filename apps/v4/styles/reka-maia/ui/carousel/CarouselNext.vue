@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from './interface'
-import type { ButtonVariants } from '@/registry/new-york-v4/ui/button'
+
+import type { ButtonVariants } from '@/styles/reka-maia/ui/button'
+import { ChevronRightIcon } from 'lucide-vue-next'
 import { cn } from '@/lib/utils'
-import { IconPlaceholder } from '@/registry/bases/reka/components/icon-placeholder'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-maia/ui/button'
 import { useCarousel } from './useCarousel'
 
 const props = withDefaults(defineProps<{
@@ -12,7 +13,7 @@ const props = withDefaults(defineProps<{
 }
 & WithClassAsProps>(), {
   variant: 'outline',
-  size: 'icon',
+  size: 'icon-sm',
 })
 
 const { orientation, canScrollNext, scrollNext } = useCarousel()
@@ -23,7 +24,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     data-slot="carousel-next"
     :disabled="!canScrollNext"
     :class="cn(
-      'absolute size-8 rounded-full',
+      'rounded-full absolute touch-manipulation',
       orientation === 'horizontal'
         ? 'top-1/2 -right-12 -translate-y-1/2'
         : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
@@ -34,8 +35,8 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     @click="scrollNext"
   >
     <slot>
-      <IconPlaceholder lucide="ArrowRightIcon" tabler="IconArrowRight" hugeicons="ArrowRight01Icon" phosphor="ArrowRightIcon" remixicon="RiArrowRightLine" />
-      <span class="sr-only">Next Slide</span>
+      <ChevronRightIcon class="cn-rtl-flip" />
+      <span class="sr-only">Next slide</span>
     </slot>
   </Button>
 </template>

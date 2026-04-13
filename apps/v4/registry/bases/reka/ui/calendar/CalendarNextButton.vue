@@ -5,7 +5,7 @@ import { reactiveOmit } from "@vueuse/core"
 import { CalendarNext, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
-import { buttonVariants } from "@/registry/new-york-v4/ui/button"
+import { buttonVariants } from "@/registry/bases/reka/ui/button"
 
 const props = defineProps<CalendarNextProps & { class?: HTMLAttributes["class"] }>()
 
@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
   >
     <slot>
-      <IconPlaceholder lucide="ChevronRightIcon" tabler="IconChevronRight" hugeicons="ArrowRight01Icon" phosphor="CaretRightIcon" remixicon="RiArrowRightSLine" class="size-4" />
+      <IconPlaceholder lucide="ChevronRightIcon" tabler="IconChevronRight" hugeicons="ArrowRight01Icon" phosphor="CaretRightIcon" remixicon="RiArrowRightSLine" class="cn-rtl-flip size-4" />
     </slot>
   </CalendarNext>
 </template>

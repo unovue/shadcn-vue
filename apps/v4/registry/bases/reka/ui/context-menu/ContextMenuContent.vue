@@ -27,7 +27,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       data-slot="context-menu-content"
       v-bind="{ ...$attrs, ...forwarded }"
       :class="cn(
-        'cn-context-menu-content cn-menu-target z-50 max-h-(--reka-context-menu-content-available-height) origin-(--reka-context-menu-content-transform-origin) overflow-x-hidden overflow-y-auto',
+        'cn-context-menu-content cn-menu-target cn-menu-translucent z-50 max-h-(--reka-context-menu-content-available-height) origin-(--reka-context-menu-content-transform-origin) overflow-x-hidden overflow-y-auto',
         props.class,
       )"
     >

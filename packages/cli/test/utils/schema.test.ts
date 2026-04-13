@@ -4,8 +4,7 @@ import { configSchema, presetSchema, rawConfigSchema } from '../../src/schema'
 describe('rawConfigSchema', () => {
   it('accepts valid config with all fields', () => {
     const validConfig = {
-      style: 'new-york-v4',
-      base: 'reka',
+      style: 'reka-luma',
       font: 'inter',
       typescript: true,
       tailwind: {
@@ -24,17 +23,16 @@ describe('rawConfigSchema', () => {
     }
 
     const result = rawConfigSchema.parse(validConfig)
-    expect(result.style).toBe('new-york-v4')
-    expect(result.base).toBe('reka')
+    expect(result.style).toBe('reka-luma')
     expect(result.font).toBe('inter')
     expect(result.iconLibrary).toBe('lucide')
     expect(result.menuColor).toBe('default')
     expect(result.menuAccent).toBe('subtle')
   })
 
-  it('accepts config without optional base field', () => {
-    const configWithoutBase = {
-      style: 'vega',
+  it('accepts a composed visual style identifier', () => {
+    const config = {
+      style: 'reka-vega',
       typescript: true,
       tailwind: {
         css: 'src/globals.css',
@@ -47,13 +45,13 @@ describe('rawConfigSchema', () => {
       },
     }
 
-    const result = rawConfigSchema.parse(configWithoutBase)
-    expect(result.base).toBeUndefined()
+    const result = rawConfigSchema.parse(config)
+    expect(result.style).toBe('reka-vega')
   })
 
   it('accepts config without optional font field', () => {
     const configWithoutFont = {
-      style: 'vega',
+      style: 'reka-vega',
       typescript: true,
       tailwind: {
         css: 'src/globals.css',
@@ -70,30 +68,9 @@ describe('rawConfigSchema', () => {
     expect(result.font).toBeUndefined()
   })
 
-  it('accepts config with base but without font', () => {
+  it('accepts config with font field set', () => {
     const config = {
-      style: 'vega',
-      base: 'reka',
-      typescript: true,
-      tailwind: {
-        css: 'src/globals.css',
-        baseColor: 'neutral',
-        cssVariables: true,
-      },
-      aliases: {
-        components: '@/components',
-        utils: '@/lib/utils',
-      },
-    }
-
-    const result = rawConfigSchema.parse(config)
-    expect(result.base).toBe('reka')
-    expect(result.font).toBeUndefined()
-  })
-
-  it('accepts config with font but without base', () => {
-    const config = {
-      style: 'vega',
+      style: 'reka-vega',
       font: 'figtree',
       typescript: true,
       tailwind: {
@@ -109,7 +86,6 @@ describe('rawConfigSchema', () => {
 
     const result = rawConfigSchema.parse(config)
     expect(result.font).toBe('figtree')
-    expect(result.base).toBeUndefined()
   })
 
   it('validates menuColor enum values', () => {
@@ -176,6 +152,64 @@ describe('rawConfigSchema', () => {
     }
 
     expect(() => rawConfigSchema.parse(invalidConfig)).toThrow()
+  })
+
+  it('accepts optional rtl flag', () => {
+    const config = {
+      style: 'reka-vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      rtl: true,
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    const result = rawConfigSchema.parse(config)
+    expect(result.rtl).toBe(true)
+  })
+
+  it('rtl is optional and defaults to undefined when omitted', () => {
+    const config = {
+      style: 'reka-vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    const result = rawConfigSchema.parse(config)
+    expect(result.rtl).toBeUndefined()
+  })
+
+  it('rejects non-boolean rtl values', () => {
+    const config = {
+      style: 'reka-vega',
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      rtl: 'yes',
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    expect(() => rawConfigSchema.parse(config)).toThrow()
   })
 
   it('rejects invalid menuAccent values', () => {

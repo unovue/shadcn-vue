@@ -6,7 +6,7 @@ export { default as AlertAction } from "./AlertAction.vue"
 export { default as AlertDescription } from "./AlertDescription.vue"
 export { default as AlertTitle } from "./AlertTitle.vue"
 
-export const alertVariants = cva("cn-alert w-full relative group/alert", {
+export const alertVariants = cva("cn-alert group/alert relative w-full", {
   variants: {
     variant: {
       default: "cn-alert-variant-default",

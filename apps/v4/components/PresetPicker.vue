@@ -43,7 +43,6 @@ function handlePresetChange(value: unknown) {
   params.menuAccent.value = preset.menuAccent
   params.menuColor.value = preset.menuColor
   params.radius.value = preset.radius
-  params.custom.value = false
 }
 </script>
 

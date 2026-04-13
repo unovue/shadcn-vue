@@ -1,8 +1,11 @@
 import type { z } from "zod"
 import type { registryConfigSchema } from "@/src/schema"
 
+export const SHADCN_VUE_URL
+  = process.env.SHADCN_VUE_URL ?? "https://shadcn-vue.com"
+
 export const REGISTRY_URL
-  = process.env.REGISTRY_URL ?? "https://shadcn-vue.com/r"
+  = process.env.REGISTRY_URL ?? `${SHADCN_VUE_URL}/r`
 
 export const FALLBACK_STYLE = "new-york-v4"
 
@@ -50,7 +53,9 @@ export const STYLES = [
   },
 ] as const
 
-// Available fonts with Google Fonts configuration
+// Available fonts with Google Fonts configuration.
+// Names match the shadcn-vue web registry font items
+// (apps/v4/registry/fonts.ts, stripped of the "font-" prefix).
 export const FONTS = [
   {
     name: "inter",
@@ -58,6 +63,33 @@ export const FONTS = [
     family: "Inter",
     provider: "google" as const,
     import: "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "geist-sans",
+    label: "Geist",
+    family: "Geist",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "noto-sans",
+    label: "Noto Sans",
+    family: "Noto Sans",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "nunito-sans",
+    label: "Nunito Sans",
+    family: "Nunito Sans",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&display=swap');",
     variable: "--font-sans",
     weight: ["400", "500", "600", "700"],
   },
@@ -71,29 +103,56 @@ export const FONTS = [
     weight: ["400", "500", "600", "700"],
   },
   {
+    name: "roboto",
+    label: "Roboto",
+    family: "Roboto",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "raleway",
+    label: "Raleway",
+    family: "Raleway",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "dm-sans",
+    label: "DM Sans",
+    family: "DM Sans",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "public-sans",
+    label: "Public Sans",
+    family: "Public Sans",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
+    name: "outfit",
+    label: "Outfit",
+    family: "Outfit",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');",
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700"],
+  },
+  {
     name: "jetbrains-mono",
     label: "JetBrains Mono",
     family: "JetBrains Mono",
     provider: "google" as const,
     import: "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');",
-    variable: "--font-mono",
-    weight: ["400", "500", "600", "700"],
-  },
-  {
-    name: "geist",
-    label: "Geist",
-    family: "Geist",
-    provider: "google" as const,
-    import: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');",
-    variable: "--font-sans",
-    weight: ["400", "500", "600", "700"],
-  },
-  {
-    name: "geist-mono",
-    label: "Geist Mono",
-    family: "Geist Mono",
-    provider: "google" as const,
-    import: "@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');",
     variable: "--font-mono",
     weight: ["400", "500", "600", "700"],
   },
@@ -128,115 +187,14 @@ export const ICON_LIBRARIES = [
   },
 ] as const
 
-// Presets - predefined combinations of base, style, icons, and font
-export const PRESETS = [
-  {
-    name: "reka-vega",
-    title: "Vega",
-    description: "Vega / Lucide / Inter",
-    base: "reka",
-    style: "vega",
-    baseColor: "neutral",
-    theme: "neutral",
-    iconLibrary: "lucide",
-    font: "inter",
-    menuAccent: "subtle" as const,
-    menuColor: "default" as const,
-    radius: "default",
-  },
-  {
-    name: "reka-nova",
-    title: "Nova",
-    description: "Nova / Hugeicons / Inter",
-    base: "reka",
-    style: "nova",
-    baseColor: "neutral",
-    theme: "neutral",
-    iconLibrary: "hugeicons",
-    font: "inter",
-    menuAccent: "subtle" as const,
-    menuColor: "default" as const,
-    radius: "default",
-  },
-  {
-    name: "reka-maia",
-    title: "Maia",
-    description: "Maia / Hugeicons / Figtree",
-    base: "reka",
-    style: "maia",
-    baseColor: "neutral",
-    theme: "neutral",
-    iconLibrary: "hugeicons",
-    font: "figtree",
-    menuAccent: "subtle" as const,
-    menuColor: "default" as const,
-    radius: "default",
-  },
-  {
-    name: "reka-lyra",
-    title: "Lyra",
-    description: "Lyra / Hugeicons / JetBrains Mono",
-    base: "reka",
-    style: "lyra",
-    baseColor: "neutral",
-    theme: "neutral",
-    iconLibrary: "hugeicons",
-    font: "jetbrains-mono",
-    menuAccent: "subtle" as const,
-    menuColor: "default" as const,
-    radius: "default",
-  },
-  {
-    name: "reka-mira",
-    title: "Mira",
-    description: "Mira / Hugeicons / Inter",
-    base: "reka",
-    style: "mira",
-    baseColor: "neutral",
-    theme: "neutral",
-    iconLibrary: "hugeicons",
-    font: "inter",
-    menuAccent: "subtle" as const,
-    menuColor: "default" as const,
-    radius: "default",
-  },
-  {
-    name: "reka-luma",
-    title: "Luma",
-    description: "Luma / Lucide / Inter",
-    base: "reka",
-    style: "luma",
-    baseColor: "neutral",
-    theme: "neutral",
-    iconLibrary: "lucide",
-    font: "inter",
-    menuAccent: "subtle" as const,
-    menuColor: "default" as const,
-    radius: "default",
-  },
-] as const
-
 export const BASE_COLORS = [
-  {
-    name: "neutral",
-    label: "Neutral",
-  },
-  {
-    name: "gray",
-    label: "Gray",
-  },
-  {
-    name: "zinc",
-    label: "Zinc",
-  },
-  {
-    name: "stone",
-    label: "Stone",
-  },
-  {
-    name: "slate",
-    label: "Slate",
-  },
+  { name: "neutral", label: "Neutral" },
+  { name: "stone", label: "Stone" },
+  { name: "zinc", label: "Zinc" },
+  { name: "mauve", label: "Mauve" },
+  { name: "olive", label: "Olive" },
+  { name: "mist", label: "Mist" },
+  { name: "taupe", label: "Taupe" },
 ] as const
 
 // Built-in registries that are always available and cannot be overridden

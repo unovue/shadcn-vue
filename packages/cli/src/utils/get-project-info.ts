@@ -7,6 +7,7 @@ import path from 'pathe'
 import { coerce } from 'semver'
 import { glob } from 'tinyglobby'
 import { z } from 'zod'
+import { getShadcnRegistryIndex } from '@/src/registry/api'
 import { FRAMEWORKS } from '@/src/utils/frameworks'
 import { getConfig, resolveConfigPaths } from '@/src/utils/get-config'
 import { getPackageInfo } from '@/src/utils/get-package-info'
@@ -349,4 +350,85 @@ export async function getProjectTailwindVersionFromConfig(config: {
   }
 
   return projectInfo.tailwindVersion
+}
+
+/**
+ * Returns the list of installed UI component names for a project by scanning
+ * the resolved `ui` directory in `components.json` and cross-referencing
+ * discovered names against the shadcn-vue registry index.
+ *
+ * shadcn-vue stores components as folders (`ui/button/Button.vue`), so
+ * candidates come from immediate subdirectories of `ui/` that contain at
+ * least one renderable `.vue`/`.tsx`/`.jsx` file, plus any flat `.vue`
+ * single-file components. Names are then filtered against the registry to
+ * avoid picking up helper artefacts like `utils.ts` or `lib/` — mirrors
+ * shadcn-ui's `getProjectComponents`.
+ */
+export async function getProjectComponents(cwd: string) {
+  const existingConfig = await getConfig(cwd)
+  if (!existingConfig) {
+    return []
+  }
+
+  const uiDir = existingConfig.resolvedPaths.ui
+  if (!uiDir) {
+    return []
+  }
+
+  // Atomic read — avoids the TOCTOU window of an existsSync pre-check.
+  let entries: import('node:fs').Dirent[]
+  try {
+    entries = (await fs.readdir(uiDir, {
+      withFileTypes: true,
+    })) as import('node:fs').Dirent[]
+  }
+  catch {
+    return []
+  }
+
+  const candidates = new Set<string>()
+  for (const entry of entries) {
+    if (
+      entry.name.startsWith('.')
+      || entry.name === 'index.ts'
+      || entry.name === 'index.js'
+    ) {
+      continue
+    }
+    if (entry.isDirectory()) {
+      // Only count directories that actually contain a renderable component.
+      const componentDir = path.join(uiDir, entry.name)
+      let dirEntries: import('node:fs').Dirent[]
+      try {
+        dirEntries = (await fs.readdir(componentDir, {
+          withFileTypes: true,
+        })) as import('node:fs').Dirent[]
+      }
+      catch {
+        continue
+      }
+      const hasRenderable = dirEntries.some(
+        e => e.isFile() && /\.(?:vue|tsx|jsx)$/.test(e.name),
+      )
+      if (hasRenderable) {
+        candidates.add(entry.name)
+      }
+      continue
+    }
+    if (entry.isFile() && /\.(?:vue|tsx|jsx)$/.test(entry.name)) {
+      candidates.add(path.basename(entry.name, path.extname(entry.name)))
+    }
+  }
+
+  // Cross-reference against the registry index so we only return names the
+  // CLI actually knows how to reinstall. Matches shadcn-ui's behavior —
+  // without this, helper folders slip through and break the reinstall step.
+  const registryIndex = await getShadcnRegistryIndex()
+  const registryNames = new Set(
+    registryIndex?.map(item => item.name) ?? [],
+  )
+
+  return Array.from(candidates)
+    .filter(name => registryNames.has(name))
+    .sort()
 }

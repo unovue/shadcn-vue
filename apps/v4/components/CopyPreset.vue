@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { useClipboard } from '@vueuse/core'
-import { encodePreset } from '@/lib/preset-encoding'
 import { cn } from '@/lib/utils'
 import { Button } from '@/styles/reka-nova/ui/button'
 
@@ -12,20 +11,10 @@ const props = defineProps<{
 const params = useDesignSystemSearchParams()
 const { copy, copied } = useClipboard()
 
-const presetId = computed(() => encodePreset({
-  style: params.style.value,
-  baseColor: params.baseColor.value,
-  theme: params.theme.value,
-  font: params.font.value,
-  fontHeading: params.fontHeading.value,
-  radius: params.radius.value,
-  iconLibrary: params.iconLibrary.value,
-  menuColor: params.menuColor.value,
-  menuAccent: params.menuAccent.value,
-}))
+const presetId = computed(() => params.preset.value)
 
 function handleCopy() {
-  copy(`npx shadcn-vue@latest init --preset ${presetId.value}`)
+  copy(`--preset ${presetId.value}`)
 }
 </script>
 

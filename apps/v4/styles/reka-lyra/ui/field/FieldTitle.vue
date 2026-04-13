@@ -11,7 +11,7 @@ const props = defineProps<{
   <div
     data-slot="field-label"
     :class="cn(
-      'flex w-fit items-center gap-2 text-sm leading-snug font-medium group-data-[disabled=true]/field:opacity-50',
+      'gap-2 text-xs/relaxed group-data-[disabled=true]/field:opacity-50 flex w-fit items-center leading-snug',
       props.class,
     )"
   >

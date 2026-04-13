@@ -83,6 +83,9 @@ export const designSystemConfigSchema = z
       .default("neutral"),
     theme: z.enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]]),
     font: z.enum(fontValues).default("inter"),
+    fontHeading: z
+      .enum(["inherit", ...fontValues] as [string, ...string[]])
+      .default("inherit"),
     item: z.string().optional(),
     menuAccent: z
       .enum(
@@ -100,7 +103,7 @@ export const designSystemConfigSchema = z
     radius: z
       .enum(RADII.map(r => r.name) as [RadiusValue, ...RadiusValue[]])
       .default("default"),
-    template: z.enum(["next", "start", "vite"]).default("next").optional(),
+    template: z.enum(["nuxt", "vite", "laravel", "astro"]).default("nuxt").optional(),
   })
   .refine(
     (data) => {
@@ -117,16 +120,17 @@ export type DesignSystemConfig = z.infer<typeof designSystemConfigSchema>
 
 export const DEFAULT_CONFIG: DesignSystemConfig = {
   base: "reka",
-  style: "luma",
+  style: "nova",
   baseColor: "neutral",
-  theme: "blue",
-  iconLibrary: "hugeicons",
-  font: "geist",
-  item: "Item",
+  theme: "neutral",
+  iconLibrary: "lucide",
+  font: "inter",
+  fontHeading: "inherit",
+  item: "preview02",
   menuAccent: "subtle",
-  menuColor: "inverted-translucent",
+  menuColor: "default",
   radius: "default",
-  template: "next",
+  template: "nuxt",
 }
 
 export type Preset = {
@@ -146,6 +150,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "lucide",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -161,6 +166,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -176,6 +182,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "figtree",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -191,6 +198,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "jetbrains-mono",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -206,6 +214,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -221,6 +230,7 @@ export const PRESETS: Preset[] = [
     theme: "neutral",
     iconLibrary: "lucide",
     font: "inter",
+    fontHeading: "inherit",
     item: "Item",
     menuAccent: "subtle",
     menuColor: "default",
@@ -313,9 +323,17 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
 }
 
 // Builds a registry:base item from a design system config.
-export function buildRegistryBase(config: DesignSystemConfig) {
+export function buildRegistryBase(
+  config: DesignSystemConfig & { rtl?: boolean },
+) {
   const baseItem = getBase(config.base)
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
+
+  // Mirrors shadcn-ui: if a user picked the same font for heading and body,
+  // collapse to "inherit" so we don't emit a redundant --font-heading var
+  // that's just an alias of --font-sans.
+  const normalizedFontHeading
+    = config.fontHeading === config.font ? "inherit" : config.fontHeading
 
   if (!baseItem || !iconLibraryItem) {
     throw new Error(
@@ -327,17 +345,59 @@ export function buildRegistryBase(config: DesignSystemConfig) {
 
   // Build dependencies.
   const dependencies = [
-    `shadcn@${SHADCN_VERSION}`,
+    `shadcn-vue@${SHADCN_VERSION}`,
     "class-variance-authority",
     "tw-animate-css",
     ...(baseItem.dependencies ?? []),
     ...iconLibraryItem.packages,
   ]
 
+  // Fonts are applied CLI-side via getFontImport(config.font) from the
+  // local FONTS constant — shadcn-vue's registry does not publish font-*
+  // items, so we intentionally do not add them as registryDependencies.
   const registryDependencies = ["utils"]
 
-  if (config.font) {
-    registryDependencies.push(`font-${config.font}`)
+  // Resolve font metadata from the web registry so the emitted
+  // registry:base item carries both the @theme CSS variable and a body rule
+  // that actually applies the font — the CLI's addFontImportPlugin only
+  // handles the Google Fonts @import url(...) line.
+  const fontItem = fonts.find(f => f.name === `font-${config.font}`)
+  const fontHeadingItem
+    = normalizedFontHeading !== "inherit"
+      ? fonts.find(f => f.name === `font-${normalizedFontHeading}`)
+      : undefined
+
+  const themeVars: Record<string, string> = {
+    ...(registryTheme.cssVars?.theme as Record<string, string> | undefined),
+  }
+  const bodyRules: Record<string, Record<string, unknown>> = {
+    "@apply bg-background text-foreground": {},
+  }
+  if (fontItem) {
+    themeVars[fontItem.font.variable] = fontItem.font.family
+    // Map the font's target variable to a Tailwind utility class.
+    // shadcn-vue fonts all target --font-sans today (jetbrains-mono included),
+    // but we handle --font-mono / --font-serif for future-proofing.
+    const applyClass
+      = fontItem.font.variable === "--font-mono"
+        ? "font-mono"
+        : fontItem.font.variable === "--font-serif"
+          ? "font-serif"
+          : "font-sans"
+    bodyRules[`@apply ${applyClass}`] = {}
+  }
+
+  // Emit --font-heading so the Tailwind v4 `font-heading` utility is wired
+  // up. When fontHeading is "inherit" (default) we alias it to the body
+  // font's CSS variable; otherwise we resolve the heading font's family
+  // from the web registry and emit it literally. The heading font's Google
+  // Fonts @import is pulled in CLI-side by addFontImportPlugin (see
+  // add-components.ts) via `config.fontHeading`.
+  if (normalizedFontHeading === "inherit") {
+    themeVars["--font-heading"] = `var(${fontItem?.font.variable ?? "--font-sans"})`
+  }
+  else if (fontHeadingItem) {
+    themeVars["--font-heading"] = fontHeadingItem.font.family
   }
 
   return {
@@ -347,6 +407,12 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     config: {
       style: `${config.base}-${config.style}`,
       iconLibrary: iconLibraryItem.name,
+      font: config.font,
+      // Only persist fontHeading when it's a real override, so projects
+      // with the default ("inherit") don't gain a new components.json field.
+      ...(normalizedFontHeading !== "inherit"
+        && { fontHeading: normalizedFontHeading }),
+      rtl: config.rtl ?? false,
       menuColor: config.menuColor,
       menuAccent: config.menuAccent,
       tailwind: {
@@ -355,13 +421,16 @@ export function buildRegistryBase(config: DesignSystemConfig) {
     },
     dependencies,
     registryDependencies,
-    cssVars: registryTheme.cssVars,
+    cssVars: {
+      ...registryTheme.cssVars,
+      theme: Object.keys(themeVars).length > 0 ? themeVars : undefined,
+    },
     css: {
       "@import \"tw-animate-css\"": {},
-      "@import \"shadcn/tailwind.css\"": {},
+      "@import \"shadcn-vue/tailwind.css\"": {},
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
-        "body": { "@apply bg-background text-foreground": {} },
+        "body": bodyRules,
       },
     },
   }

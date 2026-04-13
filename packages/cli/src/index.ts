@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 import { add } from '@/src/commands/add'
+import { apply } from '@/src/commands/apply'
 import { build } from '@/src/commands/build'
-import { create } from '@/src/commands/create'
 import { diff } from '@/src/commands/diff'
+import { docs } from '@/src/commands/docs'
 import { info } from '@/src/commands/info'
 import { init } from '@/src/commands/init'
 import { mcp } from '@/src/commands/mcp'
 import { migrate } from '@/src/commands/migrate'
+import { search } from '@/src/commands/search'
+import { view } from '@/src/commands/view'
 
 import packageJson from '../package.json'
 
@@ -25,10 +28,13 @@ async function main() {
     )
 
   program
-    .addCommand(create)
     .addCommand(init)
     .addCommand(add)
+    .addCommand(apply)
     .addCommand(diff)
+    .addCommand(docs)
+    .addCommand(view)
+    .addCommand(search)
     .addCommand(migrate)
     .addCommand(info)
     .addCommand(build)

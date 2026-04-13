@@ -28,7 +28,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       data-slot="slider-track"
       :data-horizontal="props.orientation !== 'vertical' ? '' : undefined"
       :data-vertical="props.orientation === 'vertical' ? '' : undefined"
-      class="cn-slider-track relative grow overflow-hidden"
+      class="cn-slider-track relative grow overflow-hidden data-horizontal:w-full data-vertical:h-full"
     >
       <SliderRange
         data-slot="slider-range"

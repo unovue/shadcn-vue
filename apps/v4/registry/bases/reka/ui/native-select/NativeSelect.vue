@@ -29,7 +29,7 @@ const delegatedProps = reactiveOmit(props, "class", "size")
 
 <template>
   <div
-    class="group/native-select relative w-fit has-[select:disabled]:opacity-50"
+    class="cn-native-select-wrapper group/native-select relative w-fit has-[select:disabled]:opacity-50"
     data-slot="native-select-wrapper"
     :data-size="props.size ?? 'default'"
   >
@@ -47,8 +47,8 @@ const delegatedProps = reactiveOmit(props, "class", "size")
     </select>
     <IconPlaceholder
       lucide="ChevronDownIcon"
-      tabler="IconChevronDown"
-      hugeicons="ArrowDown01Icon"
+      tabler="IconSelector"
+      hugeicons="UnfoldMoreIcon"
       phosphor="CaretDownIcon"
       remixicon="RiArrowDownSLine"
       class="cn-native-select-icon pointer-events-none absolute select-none"

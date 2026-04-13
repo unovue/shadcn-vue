@@ -19,8 +19,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <OTPInput
     v-slot="slotProps"
     v-bind="forwarded"
-    :container-class="cn('flex items-center gap-2 has-disabled:opacity-50', props.class)"
+    :container-class="cn('gap-2 flex items-center has-disabled:opacity-50', props.class)"
     data-slot="input-otp"
+    :spellcheck="false"
     class="disabled:cursor-not-allowed"
   >
     <slot v-bind="slotProps" />

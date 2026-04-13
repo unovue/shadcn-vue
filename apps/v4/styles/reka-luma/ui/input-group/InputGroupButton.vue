@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InputGroupButtonProps } from '.'
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-luma/ui/button'
 import { inputGroupButtonVariants } from '.'
 
 const props = withDefaults(defineProps<InputGroupButtonProps>(), {
@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<InputGroupButtonProps>(), {
 
 <template>
   <Button
+    type="button"
     :data-size="props.size"
     :variant="props.variant"
     :class="cn(inputGroupButtonVariants({ size: props.size }), props.class)"

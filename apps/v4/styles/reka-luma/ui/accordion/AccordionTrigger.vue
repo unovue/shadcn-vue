@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import type { AccordionTriggerProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-vue-next'
 import {
   AccordionHeader,
   AccordionTrigger,
 } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import IconPlaceholder from '@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue'
 
 const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes['class'] }>()
 
@@ -28,24 +29,8 @@ const delegatedProps = reactiveOmit(props, 'class')
     >
       <slot />
       <slot name="icon">
-        <IconPlaceholder
-          lucide="ChevronDownIcon"
-          tabler="IconChevronDown"
-          data-slot="accordion-trigger-icon"
-          hugeicons="ArrowDown01Icon"
-          phosphor="CaretDownIcon"
-          remixicon="RiArrowDownSLine"
-          class="cn-accordion-trigger-icon pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
-        />
-        <IconPlaceholder
-          lucide="ChevronUpIcon"
-          tabler="IconChevronUp"
-          data-slot="accordion-trigger-icon"
-          hugeicons="ArrowUp01Icon"
-          phosphor="CaretUpIcon"
-          remixicon="RiArrowUpSLine"
-          class="cn-accordion-trigger-icon pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline"
-        />
+        <ChevronDownIcon data-slot="accordion-trigger-icon" class="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
+        <ChevronUpIcon data-slot="accordion-trigger-icon" class="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
       </slot>
     </AccordionTrigger>
   </AccordionHeader>

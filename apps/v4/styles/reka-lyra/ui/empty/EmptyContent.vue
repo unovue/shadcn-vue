@@ -11,7 +11,7 @@ const props = defineProps<{
   <div
     data-slot="empty-content"
     :class="cn(
-      'flex w-full min-w-0 max-w-sm flex-col items-center gap-4 text-balance text-sm',
+      'gap-2.5 text-xs flex w-full max-w-sm min-w-0 flex-col items-center text-balance',
       props.class,
     )"
   >

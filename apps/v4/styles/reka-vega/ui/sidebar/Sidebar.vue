@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { SidebarProps } from '.'
 import { cn } from '@/lib/utils'
-import { Sheet, SheetContent } from '@/registry/new-york-v4/ui/sheet'
-import SheetDescription from '@/registry/new-york-v4/ui/sheet/SheetDescription.vue'
-import SheetHeader from '@/registry/new-york-v4/ui/sheet/SheetHeader.vue'
-import SheetTitle from '@/registry/new-york-v4/ui/sheet/SheetTitle.vue'
+import { Sheet, SheetContent } from '@/styles/reka-vega/ui/sheet'
+import SheetDescription from '@/styles/reka-vega/ui/sheet/SheetDescription.vue'
+import SheetHeader from '@/styles/reka-vega/ui/sheet/SheetHeader.vue'
+import SheetTitle from '@/styles/reka-vega/ui/sheet/SheetTitle.vue'
 import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
 
 defineOptions({
@@ -73,6 +73,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
       )"
     />
     <div
+      data-slot="sidebar-container"
+      :data-side="side"
       :class="cn(
         'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
         side === 'left'

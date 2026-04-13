@@ -49,7 +49,7 @@ const tooltipLabel = computed(() => {
 <template>
   <div
     :class="cn(
-      'border-border/50 bg-background grid min-w-[8rem] items-start gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs shadow-xl',
+      'cn-chart-tooltip grid min-w-32 items-start',
       props.class,
     )"
   >

@@ -11,12 +11,11 @@ export const useReset = createSharedComposable(() => {
     params.theme.value = DEFAULT_CONFIG.theme
     params.font.value = DEFAULT_CONFIG.font
     params.fontHeading.value = 'inherit'
-    params.chartColor.value = ''
+    params.chartColor.value = 'emerald'
     params.iconLibrary.value = DEFAULT_CONFIG.iconLibrary
     params.radius.value = 'default'
     params.menuColor.value = DEFAULT_CONFIG.menuColor
     params.menuAccent.value = DEFAULT_CONFIG.menuAccent
-    params.custom.value = false
     showResetDialog.value = false
   }
 

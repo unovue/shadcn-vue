@@ -16,7 +16,7 @@ const forwardedProps = useForwardProps(delegatedProps)
   <NavigationMenuIndicator
     data-slot="navigation-menu-indicator"
     v-bind="forwardedProps"
-    :class="cn('cn-navigation-menu-indicator top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden', props.class)"
+    :class="cn('cn-navigation-menu-indicator top-full z-1 flex h-1.5 items-end justify-center overflow-hidden', props.class)"
   >
     <div class="cn-navigation-menu-indicator-arrow relative top-[60%] h-2 w-2 rotate-45" />
   </NavigationMenuIndicator>

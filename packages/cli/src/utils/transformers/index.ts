@@ -5,6 +5,7 @@ import { transform as metaTransform } from 'vue-metamorph'
 import { getRegistryIcons } from '@/src/registry/api'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
 import { transformImport } from '@/src/utils/transformers/transform-import'
+import { transformRtl } from '@/src/utils/transformers/transform-rtl'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
 import { transformStyle } from '@/src/utils/transformers/transform-style'
 import { transformTwPrefix } from '@/src/utils/transformers/transform-tw-prefix'
@@ -35,6 +36,7 @@ export async function transform(opts: TransformOpts) {
   return metaTransform(source, opts.filename, [
     transformImport(opts),
     transformCssVars(opts),
+    transformRtl(opts),
     await transformTwPrefix(opts),
     transformIcons(opts, registryIcons),
     transformMenu(opts),

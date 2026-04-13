@@ -2,10 +2,12 @@
 import type { HTMLAttributes } from "vue"
 import { cn } from "@/lib/utils"
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   class?: HTMLAttributes["class"]
   variant?: "legend" | "label"
-}>()
+}>(), {
+  variant: "legend",
+})
 </script>
 
 <template>

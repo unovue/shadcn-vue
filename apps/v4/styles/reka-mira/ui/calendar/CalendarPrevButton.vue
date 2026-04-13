@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 import type { CalendarPrevProps } from 'reka-ui'
+
 import type { HTMLAttributes } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
+import { ChevronLeftIcon } from 'lucide-vue-next'
 import { CalendarPrev, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
-import { IconPlaceholder } from '@/registry/bases/reka/components/icon-placeholder'
-import { buttonVariants } from '@/registry/new-york-v4/ui/button'
+import { buttonVariants } from '@/styles/reka-mira/ui/button'
 
 const props = defineProps<CalendarPrevProps & { class?: HTMLAttributes['class'] }>()
 
@@ -25,7 +26,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
   >
     <slot>
-      <IconPlaceholder lucide="ChevronLeftIcon" tabler="IconChevronLeft" hugeicons="ArrowLeft01Icon" phosphor="CaretLeftIcon" remixicon="RiArrowLeftSLine" class="size-4" />
+      <ChevronLeftIcon class="cn-rtl-flip size-4" />
     </slot>
   </CalendarPrev>
 </template>
