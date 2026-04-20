@@ -67,7 +67,7 @@ export const docs = new Command()
           links = metaLinks
         }
         else {
-          const fallbackUrl = `${SHADCN_VUE_URL}/${base}/docs/components/${component}`
+          const fallbackUrl = `${SHADCN_VUE_URL}/docs/components/${component}`
           logger.debug(
             `No registry links found for ${highlighter.info(component)} (base: ${highlighter.info(base)}). Using best-effort fallback: ${fallbackUrl}`,
           )
