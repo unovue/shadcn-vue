@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "styles/reka-lyra/ui/drawer/Drawer.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue'\nimport { useForwardPropsEmits } from 'reka-ui'\nimport { DrawerRoot } from 'vaul-vue'\n\nconst props = withDefaults(defineProps<DrawerRootProps>(), {\n  shouldScaleBackground: true,\n})\n\nconst emits = defineEmits<DrawerRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <DrawerRoot\n    v-slot=\"slotProps\"\n    data-slot=\"drawer\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </DrawerRoot>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerRootEmits, DrawerRootProps } from 'vaul-vue'\nimport type { ComputedRef } from 'vue'\nimport { useForwardPropsEmits } from 'reka-ui'\nimport { DrawerRoot } from 'vaul-vue'\n\nconst props = withDefaults(defineProps<DrawerRootProps>(), {\n  shouldScaleBackground: true,\n})\n\nconst emits = defineEmits<DrawerRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits) as ComputedRef<Record<string, unknown>>\n</script>\n\n<template>\n  <DrawerRoot\n    v-slot=\"slotProps\"\n    data-slot=\"drawer\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </DrawerRoot>\n</template>\n",
       "type": "registry:ui"
     },
     {
