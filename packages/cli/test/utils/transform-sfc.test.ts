@@ -132,6 +132,36 @@ describe('transformSFC', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('returns raw content unchanged for .md files', async () => {
+    const raw = '---\nname: my-skill\ndescription: A Claude Code skill.\n---\n\n# Heading\n\nContent.\n'
+    const result = await transform({
+      filename: 'src/registry/skill/SKILL.md',
+      raw,
+      config: {},
+    })
+    expect(result).toBe(raw)
+  })
+
+  it('returns raw content unchanged for .mdx files', async () => {
+    const raw = '---\ntitle: My Doc\n---\n\n# Heading\n'
+    const result = await transform({
+      filename: 'src/registry/docs/README.mdx',
+      raw,
+      config: {},
+    })
+    expect(result).toBe(raw)
+  })
+
+  it('returns raw content unchanged for .txt files', async () => {
+    const raw = 'just some plain text\nno code here\n'
+    const result = await transform({
+      filename: 'src/registry/notes/NOTES.txt',
+      raw,
+      config: {},
+    })
+    expect(result).toBe(raw)
+  })
+
   it('defineEmits', async () => {
     const result = await transform({
       filename: 'app.vue',

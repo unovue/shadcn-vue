@@ -96,7 +96,7 @@ When adding or modifying components, please ensure that:
 
 1. You make the changes for every style.
 2. You update the documentation.
-3. You run `pnpm build:registry` to update the registry.
+3. You run `pnpm registry:build` to update the registry.
 
 ## Commit Convention
 

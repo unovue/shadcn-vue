@@ -4,7 +4,7 @@ import type { Task } from '../data/schema'
 import { Settings2 } from 'lucide-vue-next'
 import { computed } from 'vue'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -12,7 +12,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-nova/ui/dropdown-menu'
 
 interface DataTableViewOptionsProps {
   table: Table<Task>

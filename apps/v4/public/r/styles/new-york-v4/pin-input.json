@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "pin-input",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -32,5 +31,6 @@
       "content": "export { default as PinInput } from \"./PinInput.vue\"\nexport { default as PinInputGroup } from \"./PinInputGroup.vue\"\nexport { default as PinInputSeparator } from \"./PinInputSeparator.vue\"\nexport { default as PinInputSlot } from \"./PinInputSlot.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "textarea",
-  "type": "registry:ui",
   "dependencies": [
     "@vueuse/core"
   ],
@@ -16,5 +15,6 @@
       "content": "export { default as Textarea } from \"./Textarea.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

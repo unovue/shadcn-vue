@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "spinner",
-  "type": "registry:ui",
   "files": [
     {
       "path": "registry/new-york-v4/ui/spinner/Spinner.vue",
@@ -13,5 +12,6 @@
       "content": "export { default as Spinner } from \"./Spinner.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

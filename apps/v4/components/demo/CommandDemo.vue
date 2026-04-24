@@ -24,7 +24,7 @@ const open = ref(false)
 
 const { meta_j } = useMagicKeys()
 
-whenever(meta_j, () => {
+whenever(meta_j!, () => {
   open.value = true
 })
 </script>

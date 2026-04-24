@@ -24,22 +24,18 @@ useSeoMeta({
       </PageHeaderHeading>
       <PageHeaderDescription>{{ description }}</PageHeaderDescription>
       <PageActions>
-        <Button as-child size="sm">
-          <NuxtLink to="/docs/installation">
-            Get Started
+        <Button as-child size="sm" class="h-[31px] rounded-lg">
+          <NuxtLink href="/create">
+            New Project
           </NuxtLink>
         </Button>
-        <Button as-child size="sm" variant="ghost">
-          <NuxtLink to="/docs/components">
+        <Button as-child size="sm" variant="ghost" class="rounded-lg">
+          <NuxtLink href="/docs/components">
             View Components
           </NuxtLink>
         </Button>
       </PageActions>
     </PageHeader>
-    <PageNav class="hidden md:flex">
-      <ExamplesNav class="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
-      <ThemeSelector class="mr-4 hidden md:flex" />
-    </PageNav>
     <div class="container-wrapper section-soft flex-1 pb-6">
       <div class="container overflow-hidden">
         <section class="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">

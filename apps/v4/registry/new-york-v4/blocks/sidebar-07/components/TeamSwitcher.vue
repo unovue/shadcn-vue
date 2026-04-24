@@ -29,7 +29,7 @@ const props = defineProps<{
 }>()
 
 const { isMobile } = useSidebar()
-const activeTeam = ref(props.teams[0])
+const activeTeam = ref(props.teams[0]!)
 </script>
 
 <template>
@@ -54,7 +54,7 @@ const activeTeam = ref(props.teams[0])
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          class="w-[--reka-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+          class="w-(--reka-dropdown-menu-trigger-width) min-w-56 rounded-lg"
           align="start"
           :side="isMobile ? 'bottom' : 'right'"
           :side-offset="4"

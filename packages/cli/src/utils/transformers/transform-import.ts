@@ -96,6 +96,14 @@ function updateImportAliases(
     moduleSpecifier = moduleSpecifier.replace(/^@\//, `@/registry/new-york/`)
   }
 
+  // Normalize `@/styles/<style>/` paths to `@/registry/<style>/` so the
+  // matching logic below handles them. The build pipeline for per-style
+  // registries rewrites `@/registry/bases/reka/` → `@/styles/reka-<style>/`
+  // but the CLI transform only knows about `@/registry/` prefixes.
+  if (moduleSpecifier.match(/^@\/styles\//)) {
+    moduleSpecifier = moduleSpecifier.replace(/^@\/styles\//, '@/registry/')
+  }
+
   // Not a registry import.
   if (!moduleSpecifier.startsWith('@/registry/')) {
     // We fix the alias and return.

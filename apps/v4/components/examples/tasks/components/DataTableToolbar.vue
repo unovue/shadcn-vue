@@ -4,8 +4,8 @@ import type { Task } from '../data/schema'
 import { X } from 'lucide-vue-next'
 
 import { computed } from 'vue'
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Input } from '@/registry/new-york-v4/ui/input'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { Input } from '@/styles/reka-nova/ui/input'
 
 import { priorities, statuses } from '../data/data'
 import DataTableFacetedFilter from './DataTableFacetedFilter.vue'

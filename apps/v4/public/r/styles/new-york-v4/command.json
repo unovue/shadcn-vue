@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "command",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -60,5 +59,6 @@
       "content": "import type { Ref } from \"vue\"\nimport { createContext } from \"reka-ui\"\n\nexport { default as Command } from \"./Command.vue\"\nexport { default as CommandDialog } from \"./CommandDialog.vue\"\nexport { default as CommandEmpty } from \"./CommandEmpty.vue\"\nexport { default as CommandGroup } from \"./CommandGroup.vue\"\nexport { default as CommandInput } from \"./CommandInput.vue\"\nexport { default as CommandItem } from \"./CommandItem.vue\"\nexport { default as CommandList } from \"./CommandList.vue\"\nexport { default as CommandSeparator } from \"./CommandSeparator.vue\"\nexport { default as CommandShortcut } from \"./CommandShortcut.vue\"\n\nexport const [useCommand, provideCommandContext] = createContext<{\n  allItems: Ref<Map<string, string>>\n  allGroups: Ref<Map<string, Set<string>>>\n  filterState: {\n    search: string\n    filtered: { count: number, items: Map<string, number>, groups: Set<string> }\n  }\n}>(\"Command\")\n\nexport const [useCommandGroup, provideCommandGroupContext] = createContext<{\n  id?: string\n}>(\"CommandGroup\")\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

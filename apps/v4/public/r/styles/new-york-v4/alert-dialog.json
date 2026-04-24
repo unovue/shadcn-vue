@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "alert-dialog",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -60,5 +59,6 @@
       "content": "export { default as AlertDialog } from \"./AlertDialog.vue\"\nexport { default as AlertDialogAction } from \"./AlertDialogAction.vue\"\nexport { default as AlertDialogCancel } from \"./AlertDialogCancel.vue\"\nexport { default as AlertDialogContent } from \"./AlertDialogContent.vue\"\nexport { default as AlertDialogDescription } from \"./AlertDialogDescription.vue\"\nexport { default as AlertDialogFooter } from \"./AlertDialogFooter.vue\"\nexport { default as AlertDialogHeader } from \"./AlertDialogHeader.vue\"\nexport { default as AlertDialogTitle } from \"./AlertDialogTitle.vue\"\nexport { default as AlertDialogTrigger } from \"./AlertDialogTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

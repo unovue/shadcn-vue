@@ -1,7 +1,7 @@
 <script lang="ts">
 import { toast } from 'vue-sonner'
 import { z } from 'zod'
-import { Input } from '~/registry/new-york-v4/ui/input'
+import { Input } from '~/styles/reka-nova/ui/input'
 import DraggableRow from './DraggableRow.vue'
 import DragHandle from './DragHandle.vue'
 
@@ -45,10 +45,10 @@ import {
   useVueTable,
 } from '@tanstack/vue-table'
 import { DragDropProvider } from 'dnd-kit-vue'
-import { Badge } from '@/registry/new-york-v4/ui/badge'
+import { Badge } from '@/styles/reka-nova/ui/badge'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { Checkbox } from '@/styles/reka-nova/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -56,16 +56,16 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-nova/ui/dropdown-menu'
 
-import { Label } from '@/registry/new-york-v4/ui/label'
+import { Label } from '@/styles/reka-nova/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york-v4/ui/select'
+} from '@/styles/reka-nova/ui/select'
 import {
   Table,
   TableBody,
@@ -73,14 +73,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/registry/new-york-v4/ui/table'
+} from '@/styles/reka-nova/ui/table'
 
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/registry/new-york-v4/ui/tabs'
+} from '@/styles/reka-nova/ui/tabs'
 
 const props = defineProps<{
   data: TableData[]

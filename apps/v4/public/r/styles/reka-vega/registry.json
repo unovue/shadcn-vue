@@ -1,0 +1,2267 @@
+{
+  "name": "shadcn-vue",
+  "homepage": "https://shadcn-vue.com",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/accordion/Accordion.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/accordion/AccordionContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/accordion/AccordionItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/accordion/AccordionTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/accordion/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/alert/Alert.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert/AlertAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert/AlertDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert/AlertTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogCancel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/AlertDialogTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/alert-dialog/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/aspect-ratio/AspectRatio.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/aspect-ratio/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/avatar/Avatar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/avatar/AvatarBadge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/avatar/AvatarFallback.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/avatar/AvatarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/avatar/AvatarGroupCount.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/avatar/AvatarImage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/avatar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/badge/Badge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/badge/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/Breadcrumb.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/BreadcrumbEllipsis.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/BreadcrumbItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/BreadcrumbLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/BreadcrumbList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/BreadcrumbPage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/BreadcrumbSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/breadcrumb/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/button/Button.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/button/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/button-group/ButtonGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/button-group/ButtonGroupSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/button-group/ButtonGroupText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/button-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "native-select",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/calendar/Calendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarGridHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarHeadCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/CalendarPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/card/Card.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/CardAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/CardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/CardDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/CardFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/CardHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/CardTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/card/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": [
+        "embla-carousel-vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/carousel/Carousel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/CarouselContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/CarouselItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/CarouselNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/CarouselPrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/interface.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/carousel/useCarousel.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/chart/ChartContainer.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/chart/ChartLegendContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/chart/ChartStyle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/chart/ChartTooltipContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/chart/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/chart/utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/checkbox/Checkbox.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/checkbox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/collapsible/Collapsible.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/collapsible/CollapsibleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/collapsible/CollapsibleTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/collapsible/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/combobox/Combobox.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxItemIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/ComboboxViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/combobox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/command/Command.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandDialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/CommandShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/command/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuPortal.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/ContextMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/context-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/dialog/Dialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogScrollContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/DialogTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dialog/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "dependencies": [
+        "vaul-vue",
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/drawer/Drawer.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/DrawerTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/drawer/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/DropdownMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/dropdown-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/empty/Empty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/empty/EmptyContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/empty/EmptyDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/empty/EmptyHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/empty/EmptyMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/empty/EmptyTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/empty/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/field/Field.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldError.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldLegend.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldSet.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/FieldTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/field/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "vee-validate",
+        "@vee-validate/zod",
+        "zod@3.25.76"
+      ],
+      "registryDependencies": [
+        "label"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/form/FormControl.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/FormDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/FormItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/FormLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/FormMessage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/injectionKeys.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/form/useFormField.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/hover-card/HoverCard.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/hover-card/HoverCardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/hover-card/HoverCardTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/hover-card/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/input/Input.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button",
+        "input",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/input-group/InputGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-group/InputGroupAddon.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-group/InputGroupButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-group/InputGroupInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-group/InputGroupText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-group/InputGroupTextarea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "vue-input-otp",
+        "@vueuse/core",
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/input-otp/InputOTP.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-otp/InputOTPGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-otp/InputOTPSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-otp/InputOTPSlot.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/input-otp/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/item/Item.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/ItemTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/item/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/kbd/Kbd.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/kbd/KbdGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/kbd/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/label/Label.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/label/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/menubar/Menubar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/MenubarTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/menubar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/native-select/NativeSelect.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/native-select/NativeSelectOptGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/native-select/NativeSelectOption.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/native-select/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/NavigationMenuViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/navigation-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/number-field/NumberField.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/number-field/NumberFieldContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/number-field/NumberFieldDecrement.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/number-field/NumberFieldIncrement.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/number-field/NumberFieldInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/number-field/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/pagination/Pagination.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationEllipsis.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationFirst.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationLast.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/PaginationPrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pagination/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/pin-input/PinInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pin-input/PinInputGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pin-input/PinInputSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pin-input/PinInputSlot.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/pin-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/popover/Popover.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/PopoverAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/PopoverContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/PopoverDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/PopoverHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/PopoverTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/PopoverTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/popover/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/progress/Progress.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/progress/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/radio-group/RadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/radio-group/RadioGroupItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/radio-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "range-calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarGridHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarHeadCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/RangeCalendarPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/range-calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/resizable/ResizableHandle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/resizable/ResizablePanel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/resizable/ResizablePanelGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/resizable/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/scroll-area/ScrollArea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/scroll-area/ScrollBar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/scroll-area/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/select/Select.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectItemText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectScrollDownButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectScrollUpButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/SelectValue.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/select/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/separator/Separator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/separator/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/sheet/Sheet.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/SheetTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sheet/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "sheet",
+        "input",
+        "tooltip",
+        "skeleton",
+        "separator",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/sidebar/Sidebar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarGroupAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarGroupContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarGroupLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarInset.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuBadge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuButtonChild.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuSkeleton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuSubButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarMenuSubItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarRail.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/SidebarTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sidebar/utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/skeleton/Skeleton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/skeleton/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/slider/Slider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/slider/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "dependencies": [
+        "vue-sonner"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/sonner/Sonner.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/sonner/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/spinner/Spinner.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/spinner/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/stepper/Stepper.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/StepperDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/StepperIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/StepperItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/StepperSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/StepperTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/StepperTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/stepper/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/switch/Switch.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/switch/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core",
+        "@tanstack/vue-table"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/table/Table.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableCaption.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/TableRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/table/utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/tabs/Tabs.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tabs/TabsContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tabs/TabsList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tabs/TabsTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tabs/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/tags-input/TagsInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tags-input/TagsInputInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tags-input/TagsInputItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tags-input/TagsInputItemDelete.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tags-input/TagsInputItemText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tags-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/textarea/Textarea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/textarea/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/toggle/Toggle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/toggle/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/toggle-group/ToggleGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/toggle-group/ToggleGroupItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/toggle-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-vega/ui/tooltip/Tooltip.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tooltip/TooltipContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tooltip/TooltipProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tooltip/TooltipTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-vega/ui/tooltip/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "registry/bases/reka/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "registryDependencies": [],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ]
+    }
+  ]
+}

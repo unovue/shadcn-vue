@@ -7,18 +7,34 @@ import path from 'pathe'
 import prompts from 'prompts'
 import { z } from 'zod'
 import { preFlightInit } from '@/src/preflights/preflight-init'
+import { decodePreset, isPresetCode } from '@/src/preset/preset'
+import {
+  DEFAULT_PRESETS,
+  promptForBase,
+  promptForPreset,
+  resolveInitUrl,
+  resolveRegistryBaseConfig,
+} from '@/src/preset/presets'
 import {
   getRegistryBaseColors,
   getRegistryItems,
   getRegistryStyles,
 } from '@/src/registry/api'
 import { buildUrlAndHeadersForRegistryItem } from '@/src/registry/builder'
-import { configWithDefaults } from '@/src/registry/config'
-import { BASE_COLORS, BUILTIN_REGISTRIES } from '@/src/registry/constants'
+import { composeStyleId, configWithDefaults } from '@/src/registry/config'
+import {
+  BASE_COLORS,
+  BASES,
+  BUILTIN_REGISTRIES,
+  FONTS,
+  ICON_LIBRARIES,
+  STYLES,
+} from '@/src/registry/constants'
 import { clearRegistryContext } from '@/src/registry/context'
+import { isUrl } from '@/src/registry/utils'
 import { rawConfigSchema } from '@/src/schema'
 import { addComponents } from '@/src/utils/add-components'
-// import { createProject, TEMPLATES } from '@/src/utils/create-project'
+import { createProject, TEMPLATES } from '@/src/utils/create-project'
 import { loadEnvFiles } from '@/src/utils/env-loader'
 import * as ERRORS from '@/src/utils/errors'
 import {
@@ -62,6 +78,10 @@ process.on('exit', (code) => {
 
 export const initOptionsSchema = z.object({
   cwd: z.string(),
+  name: z.string().optional(),
+  preset: z.union([z.boolean(), z.string()]).optional(),
+  registryBaseConfig: rawConfigSchema.deepPartial().optional(),
+  installStyleIndex: z.boolean().optional(),
   components: z.array(z.string()).optional(),
   yes: z.boolean(),
   defaults: z.boolean(),
@@ -70,20 +90,76 @@ export const initOptionsSchema = z.object({
   isNewProject: z.boolean(),
   srcDir: z.boolean().optional(),
   cssVariables: z.boolean(),
-  // template: z
-  //   .string()
-  //   .optional()
-  //   .refine(
-  //     (val) => {
-  //       if (val) {
-  //         return TEMPLATES[val as keyof typeof TEMPLATES]
-  //       }
-  //       return true
-  //     },
-  //     {
-  //       message: 'Invalid template. Please use \'next\' or \'next-monorepo\'.',
-  //     },
-  //   ),
+  template: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return TEMPLATES[val as keyof typeof TEMPLATES]
+        }
+        return true
+      },
+      {
+        message: 'Invalid template. Please use \'nuxt\', \'vite\', \'astro\', or \'laravel\'.',
+      },
+    ),
+  base: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return BASES.find(base => base.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid base. Please use '${BASES.map(base => base.name).join('\', \'')}'`,
+      },
+    ),
+  style: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return STYLES.find(style => style.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid style. Please use '${STYLES.map(style => style.name).join('\', \'')}'`,
+      },
+    ),
+  iconLibrary: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return ICON_LIBRARIES.find(lib => lib.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid icon library. Please use '${ICON_LIBRARIES.map(lib => lib.name).join('\', \'')}'`,
+      },
+    ),
+  font: z
+    .string()
+    .optional()
+    .refine(
+      (val) => {
+        if (val) {
+          return FONTS.find(font => font.name === val)
+        }
+        return true
+      },
+      {
+        message: `Invalid font. Please use '${FONTS.map(font => font.name).join('\', \'')}'`,
+      },
+    ),
   baseColor: z
     .string()
     .optional()
@@ -102,16 +178,44 @@ export const initOptionsSchema = z.object({
       },
     ),
   baseStyle: z.boolean(),
+  monorepo: z.boolean().optional(),
+  reinstall: z.boolean().optional(),
+  rtl: z.boolean().optional(),
 })
 
 export const init = new Command()
   .name('init')
+  .alias('create')
   .description('initialize your project and install dependencies')
   .argument('[components...]', 'names, url or local path to component')
-  // .option(
-  //   '-t, --template <template>',
-  //   'the template to use. (next, next-monorepo)',
-  // )
+  .option(
+    '-p, --preset [preset]',
+    `use a preset configuration, preset code, or URL. (${Object.keys(DEFAULT_PRESETS).join(', ')})`,
+  )
+  .option(
+    '-t, --template <template>',
+    'the template to use. (nuxt, vite, astro, laravel)',
+  )
+  .option(
+    '--base <base>',
+    'the component library base to use. (reka)',
+    undefined,
+  )
+  .option(
+    '--style <style>',
+    'the visual style to use. (vega, nova, maia, lyra, mira)',
+    undefined,
+  )
+  .option(
+    '--icon-library <icon-library>',
+    'the icon library to use. (lucide, tabler, hugeicons, phosphor, remixicon)',
+    undefined,
+  )
+  .option(
+    '--font <font>',
+    'the font to use. (inter, figtree, jetbrains-mono, geist, geist-mono)',
+    undefined,
+  )
   .option(
     '-b, --base-color <base-color>',
     'the base color to use. (neutral, gray, zinc, stone, slate)',
@@ -126,24 +230,71 @@ export const init = new Command()
     process.cwd(),
   )
   .option('-s, --silent', 'mute output.', false)
-  // .option(
-  //   '--src-dir',
-  //   'use the src directory when creating a new project.',
-  //   false,
-  // )
-  // .option(
-  //   '--no-src-dir',
-  //   'do not use the src directory when creating a new project.',
-  // )
+  .option(
+    '--src-dir',
+    'use the src directory when creating a new project.',
+    false,
+  )
+  .option(
+    '--no-src-dir',
+    'do not use the src directory when creating a new project.',
+  )
   .option('--css-variables', 'use css variables for theming.', true)
   .option('--no-css-variables', 'do not use css variables for theming.')
   .option('--no-base-style', 'do not install the base shadcn style.')
+  .option('-n, --name <name>', 'the name for the new project.')
+  // .option('--monorepo', 'scaffold a monorepo project.')
+  // .option('--no-monorepo', 'skip the monorepo prompt.')
+  .option('--reinstall', 're-install existing UI components.')
+  .option('--no-reinstall', 'do not re-install existing UI components.')
+  .option('--rtl', 'enable RTL support.')
+  .option('--no-rtl', 'disable RTL support.')
   .action(async (components, opts) => {
+    // NOTE: --monorepo is not yet supported in shadcn-vue since Vue-specific
+    // monorepo templates aren't available. We keep the flag for parity so
+    // users can discover it and we fail fast with a clear message.
+    if (opts.monorepo === true) {
+      logger.break()
+      logger.warn(
+        'The --monorepo flag is not yet supported in shadcn-vue.',
+      )
+      process.exit(1)
+    }
+
+    // NOTE: --rtl is wired through to the config (`rtl: true`) but the
+    // shadcn-vue component templates don't yet ship with RTL-aware classes.
+    // Users can run `npx shadcn-vue migrate rtl` after init to transform
+    // installed components.
+    if (opts.rtl === true) {
+      logger.info(
+        'RTL support enabled in config. Run `shadcn-vue migrate rtl` to transform installed components.',
+      )
+    }
+
     try {
+      // Reject obviously invalid preset strings early (before URL resolution).
+      const presetsByName = DEFAULT_PRESETS
+      if (
+        typeof opts.preset === 'string'
+        && !isUrl(opts.preset)
+        && !isPresetCode(opts.preset)
+        && !(opts.preset in presetsByName)
+      ) {
+        logger.error(
+          `Invalid preset: ${highlighter.info(opts.preset)}. Available presets: ${Object.keys(presetsByName).join(', ')}`,
+        )
+        process.exit(1)
+      }
+
+      // With --defaults (no explicit preset), use the default preset.
+      if (opts.defaults && opts.preset === undefined) {
+        opts.preset = 'nova'
+      }
+
       // Apply defaults when --defaults flag is set.
       if (opts.defaults) {
-        opts.template = opts.template || 'next'
-        opts.baseColor = opts.baseColor || 'neutral'
+        opts.template = opts.template || 'nuxt'
+        opts.base = opts.base || 'reka'
       }
 
       const options = initOptionsSchema.parse({
@@ -154,6 +305,95 @@ export const init = new Command()
       })
 
       await loadEnvFiles(options.cwd)
+
+      // Resolve preset → inject init URL into components.
+      if (options.preset !== undefined) {
+        const presetArg = options.preset === true ? true : options.preset
+
+        if (presetArg === true) {
+          const result = await promptForPreset({
+            rtl: options.rtl ?? false,
+            template: options.template,
+            base: options.base ?? (await promptForBase()),
+          })
+          // User cancelled the prompt (Ctrl+C or escaped) — exit cleanly so
+          // the outer finally block still runs.
+          if (result.kind === 'cancelled') {
+            logger.break()
+            process.exit(1)
+          }
+          // "Custom" means the user was redirected to the web builder;
+          // nothing more for the CLI to do this run.
+          if (result.kind === 'custom') {
+            logger.break()
+            process.exit(0)
+          }
+          components = [result.url, ...components]
+        }
+
+        if (typeof presetArg === 'string') {
+          let initUrl: string
+
+          if (isUrl(presetArg)) {
+            const url = new URL(presetArg)
+            if (options.rtl) {
+              url.searchParams.set('rtl', 'true')
+            }
+            else if (options.rtl === false) {
+              url.searchParams.delete('rtl')
+            }
+            initUrl = url.toString()
+          }
+          else if (isPresetCode(presetArg)) {
+            const decoded = decodePreset(presetArg)
+            if (!decoded) {
+              logger.error(
+                `Invalid preset code: ${highlighter.info(presetArg)}`,
+              )
+              logger.break()
+              process.exit(1)
+            }
+            initUrl = resolveInitUrl(
+              {
+                ...decoded,
+                base: options.base ?? 'reka',
+                rtl: options.rtl ?? false,
+              },
+              { template: options.template, preset: presetArg },
+            )
+          }
+          else {
+            const preset = presetsByName[presetArg as keyof typeof presetsByName]
+            if (!preset) {
+              throw new Error(`Unknown preset: ${presetArg}`)
+            }
+            initUrl = resolveInitUrl(
+              {
+                ...preset,
+                base: options.base ?? preset.base,
+                rtl: options.rtl ?? preset.rtl,
+              },
+              { template: options.template },
+            )
+          }
+
+          components = [initUrl, ...components]
+        }
+
+        // Fetch the registry:base item, extract its config, and stash on options.
+        const { registryBaseConfig, installStyleIndex, url: cleanUrl }
+          = await resolveRegistryBaseConfig(components[0]!, path.resolve(opts.cwd))
+        components[0] = cleanUrl
+        if (registryBaseConfig) {
+          options.registryBaseConfig = registryBaseConfig
+        }
+        if (!installStyleIndex) {
+          options.installStyleIndex = false
+          options.baseStyle = false
+        }
+        // Re-sync options.components with the mutated components array.
+        options.components = components
+      }
 
       // We need to check if we're initializing with a new style.
       // This will allow us to determine if we need to install the base style.
@@ -255,17 +495,15 @@ export async function runInit(
   },
 ) {
   let projectInfo
-  let newProjectTemplate
   if (!options.skipPreflight) {
     const preflight = await preFlightInit(options)
     if (preflight.errors[ERRORS.MISSING_DIR_OR_EMPTY_PROJECT]) {
-      // const { projectPath, template } = await createProject(options)
-      // if (!projectPath) {
-      process.exit(1)
-      // }
-      // options.cwd = projectPath
-      // options.isNewProject = true
-      // newProjectTemplate = template
+      const { projectPath } = await createProject(options)
+      if (!projectPath) {
+        process.exit(1)
+      }
+      options.cwd = projectPath
+      options.isNewProject = true
     }
     projectInfo = preflight.projectInfo
   }
@@ -273,16 +511,11 @@ export async function runInit(
     projectInfo = await getProjectInfo(options.cwd)
   }
 
-  // if (newProjectTemplate === 'next-monorepo') {
-  //   options.cwd = path.resolve(options.cwd, 'apps/web')
-  //   return await getConfig(options.cwd)
-  // }
-
   const projectConfig = await getProjectConfig(options.cwd, projectInfo)
 
   let config = projectConfig
     ? await promptForMinimalConfig(projectConfig, options)
-    : await promptForConfig(await getConfig(options.cwd))
+    : await promptForConfig(await getConfig(options.cwd), options)
 
   if (!options.yes) {
     const { proceed } = await prompts({
@@ -328,13 +561,26 @@ export async function runInit(
   const targetPath = path.resolve(options.cwd, 'components.json')
   const backupPath = `${targetPath}${FILE_BACKUP_SUFFIX}`
 
+  // Merge and keep registries at the end.
+  const mergeConfig = (base: typeof config, override: object) => {
+    const { registries, ...merged } = deepmerge(base, override) as typeof config
+    return { ...merged, registries } as typeof config
+  }
+
   // Merge with backup config if it exists and not using --force
   if (!options.force && fsExtra.existsSync(backupPath)) {
     const existingConfig = await fsExtra.readJson(backupPath)
+    config = mergeConfig(existingConfig, config)
+  }
 
-    // Move registries at the end of the config.
-    const { registries, ...merged } = deepmerge(existingConfig, config)
-    config = { ...merged, registries }
+  // Merge config from registry:base item (preset).
+  if (options.registryBaseConfig) {
+    config = mergeConfig(config, options.registryBaseConfig)
+  }
+
+  // rtl from CLI takes priority over registryBaseConfig.
+  if (options.rtl !== undefined) {
+    config.rtl = options.rtl
   }
 
   // Make sure to filter out built-in registries.
@@ -376,109 +622,179 @@ export async function runInit(
   return fullConfig
 }
 
-async function promptForConfig(defaultConfig: Config | null = null) {
-  const [styles, baseColors] = await Promise.all([
-    getRegistryStyles(),
-    getRegistryBaseColors(),
-  ])
+async function promptForConfig(defaultConfig: Config | null = null, opts?: z.infer<typeof initOptionsSchema>) {
+  let base = opts?.base ?? 'reka'
+  let style = opts?.style ?? 'vega'
+  let font = opts?.font ?? 'inter'
+  let iconLibrary = opts?.iconLibrary ?? 'lucide'
+  let baseColor = opts?.baseColor ?? 'neutral'
+  let typescript = defaultConfig?.typescript ?? true
+  let tailwindCss = defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS
+  let tailwindCssVariables = opts?.cssVariables ?? defaultConfig?.tailwind.cssVariables ?? true
+  let tailwindPrefix = defaultConfig?.tailwind.prefix ?? ''
+  let tailwindConfig = defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG
+  let componentsAlias = defaultConfig?.aliases.components ?? DEFAULT_COMPONENTS
+  let utilsAlias = defaultConfig?.aliases.utils ?? DEFAULT_UTILS
 
-  logger.info('')
-  const options = await prompts([
-    {
-      type: 'toggle',
-      name: 'typescript',
-      message: `Would you like to use ${highlighter.info(
-        'TypeScript',
-      )} (recommended)?`,
-      initial: defaultConfig?.typescript ?? true,
-      active: 'yes',
-      inactive: 'no',
-    },
-    {
-      type: 'select',
-      name: 'style',
-      message: `Which ${highlighter.info('style')} would you like to use?`,
-      choices: styles.map(style => ({
-        title: style.label,
-        value: style.name,
-      })),
-    },
-    {
-      type: 'select',
-      name: 'tailwindBaseColor',
-      message: `Which color would you like to use as the ${highlighter.info(
-        'base color',
-      )}?`,
-      choices: baseColors.map(color => ({
-        title: color.label,
-        value: color.name,
-      })),
-    },
-    {
-      type: 'text',
-      name: 'tailwindCss',
-      message: `Where is your ${highlighter.info('global CSS')} file?`,
-      initial: defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS,
-    },
-    {
-      type: 'toggle',
-      name: 'tailwindCssVariables',
-      message: `Would you like to use ${highlighter.info(
-        'CSS variables',
-      )} for theming?`,
-      initial: defaultConfig?.tailwind.cssVariables ?? true,
-      active: 'yes',
-      inactive: 'no',
-    },
-    {
-      type: 'text',
-      name: 'tailwindPrefix',
-      message: `Are you using a custom ${highlighter.info(
-        'tailwind prefix eg. tw-',
-      )}? (Leave blank if not)`,
-      initial: '',
-    },
-    {
-      type: 'text',
-      name: 'tailwindConfig',
-      message: `Where is your ${highlighter.info(
-        'tailwind.config.js',
-      )} located?`,
-      initial: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
-    },
-    {
-      type: 'text',
-      name: 'components',
-      message: `Configure the import alias for ${highlighter.info(
-        'components',
-      )}:`,
-      initial: defaultConfig?.aliases.components ?? DEFAULT_COMPONENTS,
-    },
-    {
-      type: 'text',
-      name: 'utils',
-      message: `Configure the import alias for ${highlighter.info('utils')}:`,
-      initial: defaultConfig?.aliases.utils ?? DEFAULT_UTILS,
-    },
-  ])
+  if (opts?.preset === undefined && !opts?.defaults) {
+    const [styles, baseColors] = await Promise.all([
+      getRegistryStyles(),
+      getRegistryBaseColors(),
+    ])
+
+    logger.info('')
+    const options = await prompts([
+      {
+        type: 'toggle',
+        name: 'typescript',
+        message: `Would you like to use ${highlighter.info(
+          'TypeScript',
+        )} (recommended)?`,
+        initial: typescript,
+        active: 'yes',
+        inactive: 'no',
+      },
+      {
+        type: 'select',
+        name: 'base',
+        message: `Which ${highlighter.info('component library')} would you like to use?`,
+        choices: BASES.map(b => ({
+          title: b.label,
+          value: b.name,
+          description: b.description,
+        })),
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'style',
+        message: `Which ${highlighter.info('visual style')} would you like to use?`,
+        choices: [
+          ...STYLES.map(s => ({
+            title: s.label,
+            value: s.name,
+            description: s.description,
+          })),
+          ...styles.filter(s => !STYLES.find(st => st.name === s.name)).map(s => ({
+            title: s.label,
+            value: s.name,
+          })),
+        ],
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'iconLibrary',
+        message: `Which ${highlighter.info('icon library')} would you like to use?`,
+        choices: ICON_LIBRARIES.map(lib => ({
+          title: lib.label,
+          value: lib.name,
+        })),
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'font',
+        message: `Which ${highlighter.info('font')} would you like to use?`,
+        choices: FONTS.map(f => ({
+          title: f.label,
+          value: f.name,
+        })),
+        initial: 0,
+      },
+      {
+        type: 'select',
+        name: 'tailwindBaseColor',
+        message: `Which color would you like to use as the ${highlighter.info(
+          'base color',
+        )}?`,
+        choices: baseColors.map(color => ({
+          title: color.label,
+          value: color.name,
+        })),
+      },
+      {
+        type: 'text',
+        name: 'tailwindCss',
+        message: `Where is your ${highlighter.info('global CSS')} file?`,
+        initial: tailwindCss,
+      },
+      {
+        type: 'toggle',
+        name: 'tailwindCssVariables',
+        message: `Would you like to use ${highlighter.info(
+          'CSS variables',
+        )} for theming?`,
+        initial: tailwindCssVariables,
+        active: 'yes',
+        inactive: 'no',
+      },
+      {
+        type: 'text',
+        name: 'tailwindPrefix',
+        message: `Are you using a custom ${highlighter.info(
+          'tailwind prefix eg. tw-',
+        )}? (Leave blank if not)`,
+        initial: '',
+      },
+      {
+        type: 'text',
+        name: 'tailwindConfig',
+        message: `Where is your ${highlighter.info(
+          'tailwind.config.js',
+        )} located?`,
+        initial: tailwindConfig,
+      },
+      {
+        type: 'text',
+        name: 'components',
+        message: `Configure the import alias for ${highlighter.info(
+          'components',
+        )}:`,
+        initial: componentsAlias,
+      },
+      {
+        type: 'text',
+        name: 'utils',
+        message: `Configure the import alias for ${highlighter.info('utils')}:`,
+        initial: utilsAlias,
+      },
+    ])
+
+    base = options.base ?? base
+    style = options.style ?? style
+    font = options.font ?? font
+    iconLibrary = options.iconLibrary ?? iconLibrary
+    baseColor = options.tailwindBaseColor ?? baseColor
+    typescript = options.typescript ?? typescript
+    tailwindCss = options.tailwindCss ?? tailwindCss
+    tailwindCssVariables = options.tailwindCssVariables ?? tailwindCssVariables
+    tailwindPrefix = options.tailwindPrefix ?? tailwindPrefix
+    tailwindConfig = options.tailwindConfig ?? tailwindConfig
+    componentsAlias = options.components ?? componentsAlias
+    utilsAlias = options.utils ?? utilsAlias
+  }
 
   return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
-    style: options.style,
+    style: composeStyleId(base, style),
+    font,
+    iconLibrary,
+    rtl: opts?.rtl ?? false,
     tailwind: {
-      config: options.tailwindConfig,
-      css: options.tailwindCss,
-      baseColor: options.tailwindBaseColor,
-      cssVariables: options.tailwindCssVariables,
-      prefix: options.tailwindPrefix,
+      config: tailwindConfig,
+      css: tailwindCss,
+      baseColor,
+      cssVariables: tailwindCssVariables,
+      prefix: tailwindPrefix,
     },
-    typescript: options.typescript,
+    typescript,
     aliases: {
-      utils: options.utils,
-      components: options.components,
+      utils: utilsAlias,
+      components: componentsAlias,
       // TODO: fix this.
-      lib: options.components.replace(/\/components$/, '/lib'),
-      composables: options.components.replace(/\/components$/, '/composables'),
+      lib: componentsAlias.replace(/\/components$/, '/lib'),
+      composables: componentsAlias.replace(/\/components$/, '/composables'),
     },
   })
 }
@@ -487,11 +803,18 @@ async function promptForMinimalConfig(
   defaultConfig: Config,
   opts: z.infer<typeof initOptionsSchema>,
 ) {
-  let style = defaultConfig.style
-  let baseColor = opts.baseColor
+  let base = opts.base ?? 'reka'
+  let style = opts.style ?? defaultConfig.style
+  let iconLibrary = opts.iconLibrary ?? defaultConfig.iconLibrary ?? 'lucide'
+  let font = opts.font ?? defaultConfig.font ?? 'inter'
+  let baseColor = opts.baseColor ?? defaultConfig.tailwind.baseColor
+  // Preserve the project's existing cssVariables unless the user explicitly
+  // overrode it on the command line. Since `--css-variables` defaults to
+  // `true` in Commander, pulling from `opts` unconditionally would flip an
+  // existing `tailwind.cssVariables: false` back to `true` on every run.
   let cssVariables = defaultConfig.tailwind.cssVariables
 
-  if (!opts.defaults) {
+  if (opts.preset === undefined && !opts.defaults) {
     const [styles, baseColors, tailwindVersion] = await Promise.all([
       getRegistryStyles(),
       getRegistryBaseColors(),
@@ -500,13 +823,50 @@ async function promptForMinimalConfig(
 
     const options = await prompts([
       {
-        type: tailwindVersion === 'v4' ? null : 'select',
+        type: opts.base ? null : 'select',
+        name: 'base',
+        message: `Which ${highlighter.info('component library')} would you like to use?`,
+        choices: BASES.map(b => ({
+          title: b.label,
+          value: b.name,
+          description: b.description,
+        })),
+        initial: 0,
+      },
+      {
+        type: tailwindVersion === 'v4' || opts.style ? null : 'select',
         name: 'style',
-        message: `Which ${highlighter.info('style')} would you like to use?`,
-        choices: styles.map(style => ({
-          title:
-            style.name === 'new-york' ? 'New York (Recommended)' : style.label,
-          value: style.name,
+        message: `Which ${highlighter.info('visual style')} would you like to use?`,
+        choices: [
+          ...STYLES.map(s => ({
+            title: s.name === 'vega' ? 'Vega (Recommended)' : s.label,
+            value: s.name,
+            description: s.description,
+          })),
+          ...styles.filter(s => !STYLES.find(st => st.name === s.name)).map(s => ({
+            title: s.label,
+            value: s.name,
+          })),
+        ],
+        initial: 0,
+      },
+      {
+        type: opts.iconLibrary ? null : 'select',
+        name: 'iconLibrary',
+        message: `Which ${highlighter.info('icon library')} would you like to use?`,
+        choices: ICON_LIBRARIES.map(lib => ({
+          title: lib.label,
+          value: lib.name,
+        })),
+        initial: 0,
+      },
+      {
+        type: opts.font ? null : 'select',
+        name: 'font',
+        message: `Which ${highlighter.info('font')} would you like to use?`,
+        choices: FONTS.map(f => ({
+          title: f.label,
+          value: f.name,
         })),
         initial: 0,
       },
@@ -523,14 +883,22 @@ async function promptForMinimalConfig(
       },
     ])
 
-    style = options.style ?? 'new-york'
+    base = options.base ?? base
+    style = options.style ?? style ?? 'vega'
+    iconLibrary = options.iconLibrary ?? iconLibrary
+    font = options.font ?? font
     baseColor = options.tailwindBaseColor ?? baseColor
     cssVariables = opts.cssVariables
   }
 
   return rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
-    style,
+    style: composeStyleId(base, style),
+    font,
+    ...(defaultConfig.fontHeading
+      && { fontHeading: defaultConfig.fontHeading }),
+    iconLibrary,
+    rtl: opts.rtl ?? defaultConfig.rtl ?? false,
     tailwind: {
       ...defaultConfig?.tailwind,
       baseColor,
@@ -538,6 +906,5 @@ async function promptForMinimalConfig(
     },
     typescript: defaultConfig.typescript,
     aliases: defaultConfig?.aliases,
-    iconLibrary: defaultConfig?.iconLibrary,
   })
 }

@@ -171,7 +171,7 @@ const data = {
     <SidebarHeader>
       <VersionSwitcher
         :versions="data.versions"
-        :default-version="data.versions[0]"
+        :default-version="data.versions[0]!"
       />
       <SearchForm />
     </SidebarHeader>

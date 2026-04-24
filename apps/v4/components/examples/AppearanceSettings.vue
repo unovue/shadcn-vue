@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { IconMinus, IconPlus } from '@tabler/icons-vue'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { ButtonGroup } from '@/registry/new-york-v4/ui/button-group'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'
 import {
   Field,
   FieldContent,
@@ -13,13 +13,13 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from '@/registry/new-york-v4/ui/field'
-import { Input } from '@/registry/new-york-v4/ui/input'
+} from '@/styles/reka-nova/ui/field'
+import { Input } from '@/styles/reka-nova/ui/input'
 import {
   RadioGroup,
   RadioGroupItem,
-} from '@/registry/new-york-v4/ui/radio-group'
-import { Switch } from '@/registry/new-york-v4/ui/switch'
+} from '@/styles/reka-nova/ui/radio-group'
+import { Switch } from '@/styles/reka-nova/ui/switch'
 
 const gpuCount = ref(8)
 
@@ -92,7 +92,7 @@ function handleGpuInputChange(e: InputEvent) {
             id="number-of-gpus-f6l"
             :model-value="gpuCount"
             :size="3"
-            class="h-8 !w-14 font-mono"
+            class="h-7 !w-14 font-mono"
             :max-length="3"
             @input="handleGpuInputChange"
           />

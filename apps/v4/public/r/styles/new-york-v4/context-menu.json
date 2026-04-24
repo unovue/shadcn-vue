@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "context-menu",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -87,5 +86,6 @@
       "content": "export { default as ContextMenu } from \"./ContextMenu.vue\"\nexport { default as ContextMenuCheckboxItem } from \"./ContextMenuCheckboxItem.vue\"\nexport { default as ContextMenuContent } from \"./ContextMenuContent.vue\"\nexport { default as ContextMenuGroup } from \"./ContextMenuGroup.vue\"\nexport { default as ContextMenuItem } from \"./ContextMenuItem.vue\"\nexport { default as ContextMenuLabel } from \"./ContextMenuLabel.vue\"\nexport { default as ContextMenuRadioGroup } from \"./ContextMenuRadioGroup.vue\"\nexport { default as ContextMenuRadioItem } from \"./ContextMenuRadioItem.vue\"\nexport { default as ContextMenuSeparator } from \"./ContextMenuSeparator.vue\"\nexport { default as ContextMenuShortcut } from \"./ContextMenuShortcut.vue\"\nexport { default as ContextMenuSub } from \"./ContextMenuSub.vue\"\nexport { default as ContextMenuSubContent } from \"./ContextMenuSubContent.vue\"\nexport { default as ContextMenuSubTrigger } from \"./ContextMenuSubTrigger.vue\"\nexport { default as ContextMenuTrigger } from \"./ContextMenuTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

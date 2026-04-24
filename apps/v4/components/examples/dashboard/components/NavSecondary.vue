@@ -6,7 +6,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/registry/new-york-v4/ui/sidebar'
+} from '@/styles/reka-nova/ui/sidebar'
 
 interface NavItem {
   title: string

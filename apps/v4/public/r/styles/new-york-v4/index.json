@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "index",
-  "type": "registry:style",
   "dependencies": [
     "class-variance-authority",
     "lucide-vue-next"
@@ -13,5 +12,6 @@
     "utils"
   ],
   "files": [],
-  "cssVars": {}
+  "cssVars": {},
+  "type": "registry:style"
 }

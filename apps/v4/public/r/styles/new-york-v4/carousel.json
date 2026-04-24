@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "carousel",
-  "type": "registry:ui",
   "dependencies": [
     "embla-carousel-vue",
     "@vueuse/core"
@@ -50,5 +49,6 @@
       "content": "import type { UnwrapRefCarouselApi as CarouselApi, CarouselEmits, CarouselProps } from \"./interface\"\nimport { createInjectionState } from \"@vueuse/core\"\nimport emblaCarouselVue from \"embla-carousel-vue\"\nimport { onMounted, ref } from \"vue\"\n\nconst [useProvideCarousel, useInjectCarousel] = createInjectionState(\n  ({\n    opts,\n    orientation,\n    plugins,\n  }: CarouselProps, emits: CarouselEmits) => {\n    const [emblaNode, emblaApi] = emblaCarouselVue({\n      ...opts,\n      axis: orientation === \"horizontal\" ? \"x\" : \"y\",\n    }, plugins)\n\n    function scrollPrev() {\n      emblaApi.value?.scrollPrev()\n    }\n    function scrollNext() {\n      emblaApi.value?.scrollNext()\n    }\n\n    const canScrollNext = ref(false)\n    const canScrollPrev = ref(false)\n\n    function onSelect(api: CarouselApi) {\n      canScrollNext.value = api?.canScrollNext() || false\n      canScrollPrev.value = api?.canScrollPrev() || false\n    }\n\n    onMounted(() => {\n      if (!emblaApi.value)\n        return\n\n      emblaApi.value?.on(\"init\", onSelect)\n      emblaApi.value?.on(\"reInit\", onSelect)\n      emblaApi.value?.on(\"select\", onSelect)\n\n      emits(\"init-api\", emblaApi.value)\n    })\n\n    return { carouselRef: emblaNode, carouselApi: emblaApi, canScrollPrev, canScrollNext, scrollPrev, scrollNext, orientation }\n  },\n)\n\nfunction useCarousel() {\n  const carouselState = useInjectCarousel()\n\n  if (!carouselState)\n    throw new Error(\"useCarousel must be used within a <Carousel />\")\n\n  return carouselState\n}\n\nexport { useCarousel, useProvideCarousel }\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

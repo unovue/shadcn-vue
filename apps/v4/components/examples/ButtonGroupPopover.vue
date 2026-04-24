@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { BotIcon, ChevronDownIcon } from 'lucide-vue-next'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { ButtonGroup } from '@/registry/new-york-v4/ui/button-group'
+import { Button } from '@/styles/reka-nova/ui/button'
+import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york-v4/ui/popover'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
-import { Textarea } from '@/registry/new-york-v4/ui/textarea'
+} from '@/styles/reka-nova/ui/popover'
+import { Separator } from '@/styles/reka-nova/ui/separator'
+import { Textarea } from '@/styles/reka-nova/ui/textarea'
 </script>
 
 <template>
@@ -23,7 +23,7 @@ import { Textarea } from '@/registry/new-york-v4/ui/textarea'
           <ChevronDownIcon />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="end" class="rounded-xl p-0 text-sm">
+      <PopoverContent align="end" class="gap-0 rounded-xl p-0 text-sm">
         <div class="px-4 py-3">
           <div class="text-sm font-medium">
             Agent Tasks

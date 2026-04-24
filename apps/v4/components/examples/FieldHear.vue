@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Card, CardContent } from '@/registry/new-york-v4/ui/card'
-import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
+import { Card, CardContent } from '@/styles/reka-nova/ui/card'
+import { Checkbox } from '@/styles/reka-nova/ui/checkbox'
 import {
   Field,
   FieldDescription,
@@ -9,7 +9,7 @@ import {
   FieldLegend,
   FieldSet,
   FieldTitle,
-} from '@/registry/new-york-v4/ui/field'
+} from '@/styles/reka-nova/ui/field'
 
 const options = [
   {

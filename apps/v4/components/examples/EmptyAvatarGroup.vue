@@ -4,9 +4,10 @@ import { PlusIcon } from 'lucide-vue-next'
 import {
   Avatar,
   AvatarFallback,
+  AvatarGroup,
   AvatarImage,
-} from '@/registry/new-york-v4/ui/avatar'
-import { Button } from '@/registry/new-york-v4/ui/button'
+} from '@/styles/reka-nova/ui/avatar'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Empty,
   EmptyContent,
@@ -14,14 +15,14 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/registry/new-york-v4/ui/empty'
+} from '@/styles/reka-nova/ui/empty'
 </script>
 
 <template>
-  <Empty class="flex-none border">
+  <Empty class="flex-none border py-10">
     <EmptyHeader>
       <EmptyMedia>
-        <div class="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:size-12 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
+        <AvatarGroup class="grayscale">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
@@ -40,7 +41,7 @@ import {
             />
             <AvatarFallback>ER</AvatarFallback>
           </Avatar>
-        </div>
+        </AvatarGroup>
       </EmptyMedia>
       <EmptyTitle>No Team Members</EmptyTitle>
       <EmptyDescription>

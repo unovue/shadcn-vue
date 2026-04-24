@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "tags-input",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -29,7 +28,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/tags-input/TagsInputItemText.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { TagsInputItemTextProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { TagsInputItemText, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<TagsInputItemTextProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItemText v-bind=\"forwardedProps\" :class=\"cn('py-0.5 px-2 text-sm rounded bg-transparent', props.class)\" />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { TagsInputItemTextProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { TagsInputItemText, useForwardProps } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<TagsInputItemTextProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItemText v-bind=\"forwardedProps\" :class=\"cn('py-0.5 px-2 text-sm rounded bg-transparent', props.class)\">\n    <slot />\n  </TagsInputItemText>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -37,5 +36,6 @@
       "content": "export { default as TagsInput } from \"./TagsInput.vue\"\nexport { default as TagsInputInput } from \"./TagsInputInput.vue\"\nexport { default as TagsInputItem } from \"./TagsInputItem.vue\"\nexport { default as TagsInputItemDelete } from \"./TagsInputItemDelete.vue\"\nexport { default as TagsInputItemText } from \"./TagsInputItemText.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

@@ -48,7 +48,10 @@ export function transformIcons(opts: TransformOpts, registryIcons: Record<string
             for (const specifier of path.node.specifiers ?? []) {
               if (specifier.type === 'ImportSpecifier') {
                 const iconName = specifier.imported.name
+                // Try exact match first, then strip lucide v1.x `Icon` suffix
+                // so that e.g. `ChevronDownIcon` resolves via the `ChevronDown` entry.
                 const targetedIcon = registryIcons[iconName]?.[targetLibrary]
+                  ?? registryIcons[iconName.replace(/Icon$/, '')]?.[targetLibrary]
 
                 if (!targetedIcon || targetedIconsMap.has(iconName)) {
                   continue

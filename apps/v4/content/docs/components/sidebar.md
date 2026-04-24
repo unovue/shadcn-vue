@@ -16,6 +16,10 @@ type: block
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="sidebars-in-shadcn-vue" placement="top"}
+Watch a Vue School video about building sidebars with shadcn-vue.
+::
+
 Sidebars are one of the most complex components to build. They are central
 to any application and often contain a lot of moving parts.
 

@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "radio-group",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -22,5 +21,6 @@
       "content": "export { default as RadioGroup } from \"./RadioGroup.vue\"\nexport { default as RadioGroupItem } from \"./RadioGroupItem.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

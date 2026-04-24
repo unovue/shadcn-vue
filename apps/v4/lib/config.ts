@@ -37,6 +37,10 @@ export const siteConfig = {
       href: '/colors',
       label: 'Colors',
     },
+    {
+      href: '/create',
+      label: 'Create',
+    },
   ],
 }
 

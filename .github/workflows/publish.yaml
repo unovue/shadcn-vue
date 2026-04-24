@@ -67,6 +67,13 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/v4
 
+      - name: Purge Cloudflare edge cache
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        run: npx tsx apps/v4/scripts/purge-cache.ts
+        env:
+          CLOUDFLARE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+
       - name: Remove label
         if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
         uses: actions/github-script@v6

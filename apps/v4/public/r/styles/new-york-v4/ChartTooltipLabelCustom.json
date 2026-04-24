@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "ChartTooltipLabelCustom",
-  "type": "registry:block",
   "dependencies": [
     "@unovis/vue",
     "@unovis/ts"
@@ -20,5 +19,6 @@
   "categories": [
     "chart",
     "chart-tooltip"
-  ]
+  ],
+  "type": "registry:block"
 }

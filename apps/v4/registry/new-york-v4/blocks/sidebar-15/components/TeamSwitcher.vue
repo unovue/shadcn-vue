@@ -27,7 +27,7 @@ const props = defineProps<{
   }[]
 }>()
 
-const activeTeam = ref(props.teams[0])
+const activeTeam = ref(props.teams[0]!)
 </script>
 
 <template>

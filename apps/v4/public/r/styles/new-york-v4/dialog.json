@@ -1,10 +1,12 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "dialog",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "button"
   ],
   "files": [
     {
@@ -29,7 +31,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/dialog/DialogFooter.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{ class?: HTMLAttributes[\"class\"] }>()\n</script>\n\n<template>\n  <div\n    data-slot=\"dialog-footer\"\n    :class=\"cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { DialogClose } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes[\"class\"]\n  showCloseButton?: boolean\n}>(), {\n  showCloseButton: false,\n})\n</script>\n\n<template>\n  <div\n    data-slot=\"dialog-footer\"\n    :class=\"cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', props.class)\"\n  >\n    <slot />\n    <DialogClose v-if=\"showCloseButton\" as-child>\n      <Button variant=\"outline\">\n        Close\n      </Button>\n    </DialogClose>\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -62,5 +64,6 @@
       "content": "export { default as Dialog } from \"./Dialog.vue\"\nexport { default as DialogClose } from \"./DialogClose.vue\"\nexport { default as DialogContent } from \"./DialogContent.vue\"\nexport { default as DialogDescription } from \"./DialogDescription.vue\"\nexport { default as DialogFooter } from \"./DialogFooter.vue\"\nexport { default as DialogHeader } from \"./DialogHeader.vue\"\nexport { default as DialogOverlay } from \"./DialogOverlay.vue\"\nexport { default as DialogScrollContent } from \"./DialogScrollContent.vue\"\nexport { default as DialogTitle } from \"./DialogTitle.vue\"\nexport { default as DialogTrigger } from \"./DialogTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

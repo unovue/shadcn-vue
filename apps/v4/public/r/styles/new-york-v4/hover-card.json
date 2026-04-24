@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "hover-card",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -27,5 +26,6 @@
       "content": "export { default as HoverCard } from \"./HoverCard.vue\"\nexport { default as HoverCardContent } from \"./HoverCardContent.vue\"\nexport { default as HoverCardTrigger } from \"./HoverCardTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }
