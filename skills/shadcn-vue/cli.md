@@ -9,7 +9,7 @@ Configuration is read from `components.json`.
 ## Contents
 
 - Commands: init, apply, add (dry-run, smart merge), search, view, docs, info, build
-- Templates: nuxt, vite, astro
+- Templates: nuxt, vite, astro, laravel
 - Presets: named, code, URL formats and fields
 - Switching presets
 
@@ -27,7 +27,7 @@ Initializes shadcn-vue in an existing project or creates a new project (when `--
 
 | Flag                    | Short | Description                                         | Default |
 | ----------------------- | ----- | --------------------------------------------------- | ------- |
-| `--template <template>` | `-t`  | Template (nuxt, vite, astro)                        | —       |
+| `--template <template>` | `-t`  | Template (nuxt, vite, astro, laravel)               | —       |
 | `--preset [name]`       | `-p`  | Preset configuration (named, code, or URL)          | —       |
 | `--yes`                 | `-y`  | Skip confirmation prompt                            | `true`  |
 | `--defaults`            | `-d`  | Use defaults (`--template=nuxt --preset=nova`) | `false` |
@@ -188,7 +188,7 @@ Displays project info and `components.json` configuration. Run this first to dis
 
 | Field                | Type      | Meaning                                                 |
 | -------------------- | --------- | ------------------------------------------------------- |
-| `framework`          | `string`  | Detected framework (`nuxt`, `vite`, `astro`, etc.)      |
+| `framework`          | `string`  | Detected framework (`nuxt`, `vite`, `astro`, `laravel`) |
 | `frameworkVersion`   | `string`  | Framework version (e.g. `3.15.0`)                       |
 | `isSrcDir`           | `boolean` | Whether the project uses a `src/` directory             |
 | `isTs`               | `boolean` | Whether the project uses TypeScript                     |
