@@ -123,7 +123,7 @@ These are the most common patterns that differentiate correct shadcn-vue code. F
 | -------------------------- | --------------------------------------------------------------------------------------------------- |
 | Button/action              | `Button` with appropriate variant                                                                   |
 | Form inputs                | `Input`, `Select`, `Combobox`, `Switch`, `Checkbox`, `RadioGroup`, `Textarea`, `InputOTP`, `Slider` |
-| Toggle between 2–5 options | `ToggleGroup` + `ToggleGroupItem`                                                                   |
+| Toggle between 2–7 options | `ToggleGroup` + `ToggleGroupItem`                                                                   |
 | Data display               | `Table`, `Card`, `Badge`, `Avatar`                                                                  |
 | Navigation                 | `Sidebar`, `NavigationMenu`, `Breadcrumb`, `Tabs`, `Pagination`                                     |
 | Overlays                   | `Dialog` (modal), `Sheet` (side panel), `Drawer` (bottom sheet), `AlertDialog` (confirmation)       |

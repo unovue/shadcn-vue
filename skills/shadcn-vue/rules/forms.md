@@ -38,7 +38,7 @@ Use `Field orientation="horizontal"` for settings pages. Use `FieldLabel class="
 - Native HTML select (no JS) → `native-select`
 - Boolean toggle → `Switch` (for settings) or `Checkbox` (for forms)
 - Single choice from few options → `RadioGroup`
-- Toggle between 2–5 options → `ToggleGroup` + `ToggleGroupItem`
+- Toggle between 2–7 options → `ToggleGroup` + `ToggleGroupItem`
 - OTP/verification code → `InputOTP`
 - Multi-line text → `Textarea`
 
