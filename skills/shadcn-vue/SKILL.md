@@ -76,7 +76,7 @@ These rules are **always enforced**. Each links to a file with Incorrect/Correct
 
 ### CLI
 
-- **Never decode or fetch preset codes manually.** Pass them directly to `npx shadcn-vue@latest apply --preset <code>` for existing projects, or `npx shadcn-vue@latest init --preset <code>` when initializing.
+- **Apply preset codes directly with the CLI.** Use `npx shadcn-vue@latest apply <code>` for existing projects, or `npx shadcn-vue@latest init --preset <code>` when initializing.
 
 ## Key Patterns
 
@@ -171,9 +171,8 @@ npx shadcn-vue@latest docs button dialog select
 6. **Fix imports in third-party components** — After adding components from community registries, check the added non-UI files for hardcoded import paths like `@/components/ui/...`. These won't match the project's actual aliases. Use `npx shadcn-vue@latest info` to get the correct `ui` alias (e.g. `@workspace/ui/components`) and rewrite the imports accordingly. The CLI rewrites imports for its own UI files, but third-party registry components may use default paths that don't match the project.
 7. **Review added components** — After adding a component or block from any registry, **always read the added files and verify they are correct**. Check for missing sub-components (e.g. `SelectItem` without `SelectGroup`), missing imports, incorrect composition, or violations of the [Critical Rules](#critical-rules). Also replace any icon imports with the project's `iconLibrary` from the project context (e.g. if the registry item uses `lucide-vue-next` but the project uses `hugeicons`, swap the imports and icon names accordingly). Fix all issues before moving on.
 8. **Registry must be explicit** — When the user asks to add a block or component, **do not guess the registry**. If no registry is specified (e.g. user says "add a login block" without specifying `@shadcn`, etc.), ask which registry to use. Never default to a registry on behalf of the user.
-9. **Switching presets** — Ask the user first: **overwrite**, **partial**, **merge**, or **skip**?
-   - **Overwrite**: `npx shadcn-vue@latest apply --preset <code>`. Overwrites detected components, fonts, and CSS variables.
-   - **Partial**: `npx shadcn-vue@latest apply --preset <code> --only theme,font`. Updates only the selected preset parts without reinstalling UI components. Supported values are `theme` and `font`; comma-separated combinations are allowed. `icon` is intentionally not supported, because icon changes may require full component reinstall and transforms.
+9. **Switching presets** — Ask the user first: **overwrite**, **merge**, or **skip**?
+   - **Overwrite**: `npx shadcn-vue@latest apply <code>`. Overwrites detected components, fonts, and CSS variables.
    - **Merge**: `npx shadcn-vue@latest init --preset <code> --force --no-reinstall`, then run `npx shadcn-vue@latest info` to list installed components, then for each installed component use `--dry-run` and `--diff` to [smart merge](#updating-components) it individually.
    - **Skip**: `npx shadcn-vue@latest init --preset <code> --force --no-reinstall`. Only updates config and CSS, leaves components as-is.
    - **Important**: Always run preset commands inside the user's project directory. `apply` only works in an existing project with a `components.json` file. The CLI automatically preserves the current base (`reka`) from `components.json`. If you must use a scratch/temp directory (e.g. for `--dry-run` comparisons), pass `--base <current-base>` explicitly — preset codes do not encode the base.
@@ -202,7 +201,6 @@ npx shadcn-vue@latest init --preset nova
 npx shadcn-vue@latest init --defaults  # shortcut: --template=nuxt --preset=nova (base style implied)
 
 # Apply a preset to an existing project.
-npx shadcn-vue@latest apply --preset a2r6bw
 npx shadcn-vue@latest apply a2r6bw
 
 # Add components.
