@@ -41,6 +41,7 @@ export const rawConfigSchema = z
     }),
     iconLibrary: z.string().optional(),
     rtl: z.boolean().default(false).optional(),
+    pointer: z.boolean().default(false).optional(),
     menuColor: z
       .enum([
         "default",
