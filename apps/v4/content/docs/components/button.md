@@ -82,6 +82,8 @@ Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-th
 
 If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
 
+You can also enable this during project setup with `npx shadcn-vue@latest init --pointer`.
+
 ```css showLineNumbers title="tailwind.css"
 @layer base {
   button:not(:disabled),

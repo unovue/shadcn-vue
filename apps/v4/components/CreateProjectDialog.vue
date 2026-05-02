@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Copy01Icon, Tick02Icon } from '@hugeicons/core-free-icons'
+import { Copy01Icon, HandPointingRight04Icon, Tick02Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 import { useClipboard } from '@vueuse/core'
 import { PACKAGE_MANAGERS, TEMPLATES } from '@/lib/templates'
@@ -21,6 +21,7 @@ import {
   FieldTitle,
 } from '@/styles/reka-nova/ui/field'
 import { RadioGroup, RadioGroupItem } from '@/styles/reka-nova/ui/radio-group'
+import { Switch } from '@/styles/reka-nova/ui/switch'
 import {
   Tabs,
   TabsContent,
@@ -37,7 +38,8 @@ const { config } = useConfig()
 const presetId = computed(() => params.preset.value)
 
 const commands = computed(() => {
-  const flags = `--preset ${presetId.value} --template ${params.template.value ?? 'nuxt'}`
+  const pointerFlag = params.pointer.value ? ' --pointer' : ''
+  const flags = `--preset ${presetId.value} --template ${params.template.value ?? 'nuxt'}${pointerFlag}`
   return {
     pnpm: `pnpm dlx shadcn-vue@latest init ${flags}`,
     npm: `npx shadcn-vue@latest init ${flags}`,
@@ -102,6 +104,21 @@ function handleCopy() {
                 </Field>
               </FieldLabel>
             </RadioGroup>
+          </Field>
+          <FieldSeparator class="-mx-6" />
+          <Field orientation="horizontal">
+            <FieldLabel for="pointer" class="gap-2">
+              <HugeiconsIcon
+                :icon="HandPointingRight04Icon"
+                class="size-4 -rotate-90"
+              />
+              Use pointer on buttons
+            </FieldLabel>
+            <Switch
+              id="pointer"
+              :model-value="params.pointer.value"
+              @update:model-value="params.pointer.value = $event === true"
+            />
           </Field>
         </FieldGroup>
       </div>

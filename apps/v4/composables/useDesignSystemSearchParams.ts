@@ -45,6 +45,7 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
   const item = useRouteQuery<string>('item', 'preview-02', DEFAULT_OPTIONS)
   const template = useRouteQuery<'nuxt' | 'vite' | 'laravel' | 'astro'>('template', 'nuxt', DEFAULT_OPTIONS)
   const size = useRouteQuery<number>('size', 100, DEFAULT_OPTIONS)
+  const pointerQuery = useRouteQuery<string | undefined>('pointer', undefined, DEFAULT_OPTIONS)
 
   const preset = useRouteQuery<string>('preset', DEFAULT_PRESET, DEFAULT_OPTIONS)
 
@@ -76,6 +77,12 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
   const iconLibrary = presetField<IconLibraryName>('iconLibrary')
   const menuColor = presetField<MenuColorValue>('menuColor')
   const menuAccent = presetField<MenuAccentValue>('menuAccent')
+  const pointer = computed<boolean>({
+    get: () => pointerQuery.value === 'true',
+    set: (value) => {
+      pointerQuery.value = value ? 'true' : undefined
+    },
+  })
 
   return {
     base,
@@ -91,6 +98,7 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
     menuColor,
     radius,
     template,
+    pointer,
     size,
     preset,
   }

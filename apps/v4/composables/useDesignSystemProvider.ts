@@ -1,9 +1,15 @@
 import type { DesignSystemConfig } from '~/registry/config'
 import { FONTS } from '~/lib/fonts'
-import { buildRegistryTheme, DEFAULT_CONFIG, getTheme } from '~/registry/config'
+import { buildRegistryTheme, DEFAULT_CONFIG, getTheme, POINTER_CURSOR_SELECTOR } from '~/registry/config'
 
 const THEME_STYLE_ELEMENT_ID = 'design-system-theme-vars'
 const MANAGED_BODY_CLASS_PREFIXES = ['style-', 'base-color-'] as const
+const POINTER_CURSOR_CSS = `@layer base {
+  ${POINTER_CURSOR_SELECTOR} {
+    cursor: pointer;
+  }
+}
+`
 
 function removeManagedBodyClasses(body: Element) {
   for (const className of Array.from(body.classList)) {
@@ -38,6 +44,7 @@ export function useDesignSystemProvider() {
     radius,
     iconLibrary,
     chartColor,
+    pointer,
   } = useDesignSystemSearchParams('replace')
   const colorMode = useColorMode()
 
@@ -56,6 +63,9 @@ export function useDesignSystemProvider() {
     radius.value = value.radius
     iconLibrary.value = value.iconLibrary
     chartColor.value = value.chartColor
+    if ('pointer' in value) {
+      pointer.value = value.pointer === true
+    }
   })
 
   const isReady = ref(false)
@@ -214,7 +224,8 @@ export function useDesignSystemProvider() {
     styleElement.textContent = [
       buildCssRule(':root', mergedLight),
       buildCssRule('.dark', mergedDark),
-    ].join('\n')
+      pointer.value ? POINTER_CURSOR_CSS : '',
+    ].filter(Boolean).join('\n')
   })
 
   // Handle menu color inversion by adding/removing dark class to elements with cn-menu-target.
