@@ -3,7 +3,6 @@
 Configuration is read from `components.json`.
 
 > **IMPORTANT:** Always run commands using the project's package runner: `npx shadcn-vue@latest`, `pnpm dlx shadcn-vue@latest`, or `bunx --bun shadcn-vue@latest`. Check `packageManager` from project context to choose the right one. Examples below use `npx shadcn-vue@latest` but substitute the correct runner for the project.
-
 > **IMPORTANT:** Only use the flags documented below. Do not invent or guess flags — if a flag isn't listed here, it doesn't exist. The CLI auto-detects the package manager from the project's lockfile; there is no `--package-manager` flag.
 
 ## Contents
@@ -114,9 +113,7 @@ Outputs resolved URLs for component documentation, examples, and API references.
 
 Example output for `npx shadcn-vue@latest docs input button`:
 
-```
-base  reka
-
+```text
 input
   docs      https://shadcn-vue.com/docs/components/input
   examples  https://raw.githubusercontent.com/.../examples/InputExample.vue
