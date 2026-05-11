@@ -38,7 +38,7 @@ On every interaction, the skill runs `shadcn-vue info --json` to get your projec
 
 ### CLI Commands
 
-Full reference for all CLI commands: `init`, `add`, `search`, `view`, `docs`, `diff`, `info`, and `build`. Includes flags, dry-run mode, smart merge workflows, presets, and templates.
+Full reference for all CLI commands: `init`, `add`, `search`, `view`, `docs`, `diff`, `info`, and `build`. Includes flags, smart merge workflows, presets, and templates.
 
 ### Theming and Customization
 

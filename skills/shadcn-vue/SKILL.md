@@ -207,11 +207,6 @@ npx shadcn-vue@latest apply a2r6bw
 npx shadcn-vue@latest add button card dialog
 npx shadcn-vue@latest add --all
 
-# Preview changes before adding/updating.
-npx shadcn-vue@latest add button --dry-run
-npx shadcn-vue@latest add button --diff Button.vue
-npx shadcn-vue@latest add @acme/form --view Button.vue
-
 # Search registries.
 npx shadcn-vue@latest search @shadcn -q "sidebar"
 

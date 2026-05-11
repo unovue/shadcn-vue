@@ -8,7 +8,7 @@ Configuration is read from `components.json`.
 
 ## Contents
 
-- Commands: init, apply, add (dry-run, smart merge), search, view, docs, info, build
+- Commands: init, apply, add (smart merge), search, view, docs, info, build
 - Templates: nuxt, vite, astro, laravel
 - Presets: named, code, URL formats and fields
 - Switching presets
@@ -60,7 +60,7 @@ If no preset is provided, the CLI offers to open the custom preset builder on `s
 
 ### `add` — Add components
 
-> **IMPORTANT:** To compare local components against upstream or to preview changes, ALWAYS use `npx shadcn-vue@latest add <component> --dry-run`, `--diff`, or `--view`. NEVER fetch raw files from GitHub or other sources manually. The CLI handles registry resolution, file paths, and CSS diffing automatically.
+> **IMPORTANT:** NEVER fetch raw files from GitHub or other sources manually. The CLI handles registry resolution, file paths, and CSS diffing automatically.
 
 ```bash
 npx shadcn-vue@latest add [components...] [options]
@@ -76,46 +76,6 @@ Accepts component names, registry-prefixed names (`@magicui/shimmer-button`), UR
 | `--all`         | `-a`  | Add all available components                                                                                         | `false` |
 | `--path <path>` | `-p`  | Target path for the component                                                                                        | —       |
 | `--silent`      | `-s`  | Mute output                                                                                                          | `false` |
-| `--dry-run`     |       | Preview all changes without writing files                                                                            | `false` |
-| `--diff [path]` |       | Show diffs. Without a path, shows the first 5 files. With a path, shows that file only (implies `--dry-run`)         | —       |
-| `--view [path]` |       | Show file contents. Without a path, shows the first 5 files. With a path, shows that file only (implies `--dry-run`) | —       |
-
-#### Dry-Run Mode
-
-Use `--dry-run` to preview what `add` would do without writing any files. `--diff` and `--view` both imply `--dry-run`.
-
-```bash
-# Preview all changes.
-npx shadcn-vue@latest add button --dry-run
-
-# Show diffs for all files (top 5).
-npx shadcn-vue@latest add button --diff
-
-# Show the diff for a specific file.
-npx shadcn-vue@latest add button --diff Button.vue
-
-# Show contents for all files (top 5).
-npx shadcn-vue@latest add button --view
-
-# Show the full content of a specific file.
-npx shadcn-vue@latest add button --view Button.vue
-
-# Works with URLs too.
-npx shadcn-vue@latest add https://api.npoint.io/abc123 --dry-run
-
-# CSS diffs.
-npx shadcn-vue@latest add button --diff globals.css
-```
-
-**When to use dry-run:**
-
-- When the user asks "what files will this add?" or "what will this change?" — use `--dry-run`.
-- Before overwriting existing components — use `--diff` to preview the changes first.
-- When the user wants to inspect component source code without installing — use `--view`.
-- When checking what CSS changes would be made to `globals.css` — use `--diff globals.css`.
-- When the user asks to review or audit third-party registry code before installing — use `--view` to inspect the source.
-
-> **`npx shadcn-vue@latest add --dry-run` vs `npx shadcn-vue@latest view`:** Prefer `npx shadcn-vue@latest add --dry-run/--diff/--view` over `npx shadcn-vue@latest view` when the user wants to preview changes to their project. `npx shadcn-vue@latest view` only shows raw registry metadata. `npx shadcn-vue@latest add --dry-run` shows exactly what would happen in the user's project: resolved file paths, diffs against existing files, and CSS updates. Use `npx shadcn-vue@latest view` only when the user wants to browse registry info without a project context.
 
 #### Smart Merge from Upstream
 
