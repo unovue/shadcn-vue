@@ -202,19 +202,4 @@ const emit = defineEmits(['confirm'])
 </template>
 ```
 
----
-
-## Checking for Updates
-
-```bash
-npx shadcn-vue@latest add button --diff
-```
-
-To preview exactly what would change before updating, use `--dry-run` and `--diff`:
-
-```bash
-npx shadcn-vue@latest add button --dry-run        # see all affected files
-npx shadcn-vue@latest add button --diff Button.vue # see the diff for a specific file
-```
-
 See [Updating Components in SKILL.md](./SKILL.md#updating-components) for the full smart merge workflow.
