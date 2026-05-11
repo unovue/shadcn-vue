@@ -3,8 +3,8 @@ import { addDependency } from 'nypm'
 import path from 'pathe'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { initOptionsSchema, runInit } from '../../src/commands/init'
-import { DEFAULT_PRESETS } from '../../src/preset/presets'
+import { applyInitUrlOptions, initOptionsSchema, runInit } from '../../src/commands/init'
+import { DEFAULT_PRESETS, resolveCreateUrl, resolveInitUrl } from '../../src/preset/presets'
 import * as registry from '../../src/registry'
 import { getConfig } from '../../src/utils/get-config'
 
@@ -150,6 +150,29 @@ describe('initOptionsSchema', () => {
     expect(result.preset).toBeUndefined()
   })
 
+  it('parses pointer flags', () => {
+    const result = initOptionsSchema.parse({ ...base, pointer: true })
+    expect(result.pointer).toBe(true)
+  })
+
+  it('applies pointer to raw init urls', () => {
+    const url = applyInitUrlOptions(
+      new URL('https://shadcn-vue.com/init?preset=a0'),
+      { pointer: true },
+    )
+
+    expect(url.searchParams.get('pointer')).toBe('true')
+  })
+
+  it('removes pointer from raw init urls when disabled', () => {
+    const url = applyInitUrlOptions(
+      new URL('https://shadcn-vue.com/init?preset=a0&pointer=true'),
+      { pointer: false },
+    )
+
+    expect(url.searchParams.has('pointer')).toBe(false)
+  })
+
   it('accepts valid style', () => {
     const result = initOptionsSchema.parse({ ...base, style: 'vega' })
     expect(result.style).toBe('vega')
@@ -194,6 +217,39 @@ describe('default presets', () => {
       expect(preset.fontHeading).toBeDefined()
       expect(preset.rtl).toBeDefined()
     }
+  })
+})
+
+describe('preset urls', () => {
+  it('should append search params when provided', () => {
+    const url = resolveCreateUrl({ rtl: true, pointer: true, template: 'nuxt' })
+    const parsed = new URL(url)
+
+    expect(parsed.searchParams.get('rtl')).toBe('true')
+    expect(parsed.searchParams.get('pointer')).toBe('true')
+    expect(parsed.searchParams.get('template')).toBe('nuxt')
+  })
+
+  it('should include pointer when enabled', () => {
+    const url = resolveInitUrl(DEFAULT_PRESETS.nova, { pointer: true })
+    const parsed = new URL(url)
+
+    expect(parsed.searchParams.get('pointer')).toBe('true')
+  })
+
+  it('should not include pointer when disabled', () => {
+    const url = resolveInitUrl(DEFAULT_PRESETS.nova, { pointer: false })
+    const parsed = new URL(url)
+
+    expect(parsed.searchParams.has('pointer')).toBe(false)
+  })
+
+  it('should include pointer with preset codes', () => {
+    const url = resolveInitUrl(DEFAULT_PRESETS.nova, { preset: 'a0', pointer: true })
+    const parsed = new URL(url)
+
+    expect(parsed.searchParams.get('preset')).toBe('a0')
+    expect(parsed.searchParams.get('pointer')).toBe('true')
   })
 })
 

@@ -26,6 +26,9 @@ export type StyleName = Style["name"]
 export type ThemeName = Theme["name"]
 export type BaseColorName = BaseColor["name"]
 
+export const POINTER_CURSOR_SELECTOR
+  = "button:not(:disabled), [role=\"button\"]:not(:disabled)"
+
 // Derive font values from registry fonts (e.g., "font-inter" -> "inter").
 const fontValues = fonts.map(f => f.name.replace("font-", "")) as [
   string,
@@ -104,6 +107,7 @@ export const designSystemConfigSchema = z
       .enum(RADII.map(r => r.name) as [RadiusValue, ...RadiusValue[]])
       .default("default"),
     template: z.enum(["nuxt", "vite", "laravel", "astro"]).default("nuxt").optional(),
+    pointer: z.boolean().default(false),
   })
   .refine(
     (data) => {
@@ -131,13 +135,14 @@ export const DEFAULT_CONFIG: DesignSystemConfig = {
   menuColor: "default",
   radius: "default",
   template: "nuxt",
+  pointer: false,
 }
 
 export type Preset = {
   name: string
   title: string
   description: string
-} & DesignSystemConfig
+} & Omit<DesignSystemConfig, "pointer">
 
 export const PRESETS: Preset[] = [
   {
@@ -324,7 +329,7 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
 
 // Builds a registry:base item from a design system config.
 export function buildRegistryBase(
-  config: DesignSystemConfig & { rtl?: boolean },
+  config: DesignSystemConfig & { rtl?: boolean, pointer?: boolean },
 ) {
   const baseItem = getBase(config.base)
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
@@ -413,6 +418,7 @@ export function buildRegistryBase(
       ...(normalizedFontHeading !== "inherit"
         && { fontHeading: normalizedFontHeading }),
       rtl: config.rtl ?? false,
+      pointer: config.pointer ?? false,
       menuColor: config.menuColor,
       menuAccent: config.menuAccent,
       tailwind: {
@@ -431,6 +437,11 @@ export function buildRegistryBase(
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
         "body": bodyRules,
+        ...(config.pointer && {
+          [POINTER_CURSOR_SELECTOR]: {
+            cursor: "pointer",
+          },
+        }),
       },
     },
   }

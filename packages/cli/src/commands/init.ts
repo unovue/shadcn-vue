@@ -181,7 +181,29 @@ export const initOptionsSchema = z.object({
   monorepo: z.boolean().optional(),
   reinstall: z.boolean().optional(),
   rtl: z.boolean().optional(),
+  pointer: z.boolean().optional(),
 })
+
+export function applyInitUrlOptions(
+  url: URL,
+  options: Pick<z.infer<typeof initOptionsSchema>, 'rtl' | 'pointer'>,
+) {
+  if (options.rtl) {
+    url.searchParams.set('rtl', 'true')
+  }
+  else if (options.rtl === false) {
+    url.searchParams.delete('rtl')
+  }
+
+  if (options.pointer) {
+    url.searchParams.set('pointer', 'true')
+  }
+  else if (options.pointer === false) {
+    url.searchParams.delete('pointer')
+  }
+
+  return url
+}
 
 export const init = new Command()
   .name('init')
@@ -249,6 +271,8 @@ export const init = new Command()
   .option('--no-reinstall', 'do not re-install existing UI components.')
   .option('--rtl', 'enable RTL support.')
   .option('--no-rtl', 'disable RTL support.')
+  .option('--pointer', 'enable pointer cursor for buttons.')
+  .option('--no-pointer', 'disable pointer cursor for buttons.')
   .action(async (components, opts) => {
     // NOTE: --monorepo is not yet supported in shadcn-vue since Vue-specific
     // monorepo templates aren't available. We keep the flag for parity so
@@ -313,6 +337,7 @@ export const init = new Command()
         if (presetArg === true) {
           const result = await promptForPreset({
             rtl: options.rtl ?? false,
+            pointer: options.pointer,
             template: options.template,
             base: options.base ?? (await promptForBase()),
           })
@@ -336,12 +361,7 @@ export const init = new Command()
 
           if (isUrl(presetArg)) {
             const url = new URL(presetArg)
-            if (options.rtl) {
-              url.searchParams.set('rtl', 'true')
-            }
-            else if (options.rtl === false) {
-              url.searchParams.delete('rtl')
-            }
+            applyInitUrlOptions(url, options)
             initUrl = url.toString()
           }
           else if (isPresetCode(presetArg)) {
@@ -359,7 +379,7 @@ export const init = new Command()
                 base: options.base ?? 'reka',
                 rtl: options.rtl ?? false,
               },
-              { template: options.template, preset: presetArg },
+              { template: options.template, preset: presetArg, pointer: options.pointer },
             )
           }
           else {
@@ -373,7 +393,7 @@ export const init = new Command()
                 base: options.base ?? preset.base,
                 rtl: options.rtl ?? preset.rtl,
               },
-              { template: options.template },
+              { template: options.template, pointer: options.pointer },
             )
           }
 
@@ -583,6 +603,11 @@ export async function runInit(
     config.rtl = options.rtl
   }
 
+  // pointer from CLI takes priority over registryBaseConfig.
+  if (options.pointer !== undefined) {
+    config.pointer = options.pointer
+  }
+
   // Make sure to filter out built-in registries.
   // TODO: fix this in ensureRegistriesInConfig.
   config.registries = Object.fromEntries(
@@ -781,6 +806,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
     font,
     iconLibrary,
     rtl: opts?.rtl ?? false,
+    pointer: opts?.pointer ?? false,
     tailwind: {
       config: tailwindConfig,
       css: tailwindCss,
@@ -899,6 +925,7 @@ async function promptForMinimalConfig(
       && { fontHeading: defaultConfig.fontHeading }),
     iconLibrary,
     rtl: opts.rtl ?? defaultConfig.rtl ?? false,
+    pointer: opts.pointer ?? defaultConfig.pointer ?? false,
     tailwind: {
       ...defaultConfig?.tailwind,
       baseColor,
