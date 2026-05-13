@@ -2,7 +2,6 @@ import type { z } from 'zod'
 import type { initOptionsSchema } from '@/src/commands/init'
 import fs from 'fs-extra'
 import { downloadTemplate } from 'giget'
-import { detectPackageManager } from 'nypm'
 import path from 'pathe'
 import prompts from 'prompts'
 import { x } from 'tinyexec'
@@ -10,6 +9,7 @@ import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
+import { getPackageManager } from '@/src/utils/updaters/update-dependencies'
 
 export const TEMPLATES = {
   nuxt: 'nuxt',
@@ -67,7 +67,13 @@ export async function createProject(
     projectName = name ?? projectName
   }
 
-  const packageManager = await detectPackageManager(options.cwd)
+  // Detect once up front (from parent cwd) so we can use the same PM the user
+  // invoked us with (e.g. `pnpm dlx`) when installing template deps. With
+  // `withFallback`, falls through to `npm_config_user_agent` when no lockfile
+  // is found in the parent dir.
+  const packageManager = await getPackageManager(options.cwd, {
+    withFallback: true,
+  })
 
   const projectPath = `${options.cwd}/${projectName}`
 
@@ -127,7 +133,7 @@ export async function createProject(
     })
 
     // Install dependencies
-    await x(packageManager?.name || 'npm', ['install'], {
+    await x(packageManager, ['install'], {
       throwOnError: true,
       nodeOptions: {
         cwd: projectPath,

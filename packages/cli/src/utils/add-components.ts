@@ -257,7 +257,6 @@ async function addWorkspaceComponents(
     mainTargetConfig,
     {
       silent: true,
-
     },
   )
 
