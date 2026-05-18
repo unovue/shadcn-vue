@@ -8,10 +8,10 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
+    "@lucide/vue": "^1.16.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-vue": "8.0.0-rc19",
-    "lucide-vue-next": "^0.511.0",
     "reka-ui": "^2.2.1",
     "shadcn-nuxt": "^2.2.0",
     "tailwind-merge": "^3.3.0",

@@ -4,6 +4,7 @@ packages:
 
 catalog:
   '@internationalized/date': ^3.10.0
+  '@lucide/vue': ^1.16.0
   '@tailwindcss/vite': ^4.2.2
   '@types/node': ^24
   '@types/qrcode': ^1.5.6
