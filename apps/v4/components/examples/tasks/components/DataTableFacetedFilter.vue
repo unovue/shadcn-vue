@@ -2,7 +2,7 @@
 import type { Column } from '@tanstack/vue-table'
 import type { Component } from 'vue'
 import type { Task } from '../data/schema'
-import { Check, PlusCircle } from 'lucide-vue-next'
+import { Check, PlusCircle } from '@lucide/vue'
 import { computed } from 'vue'
 
 import { cn } from '@/lib/utils'

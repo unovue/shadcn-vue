@@ -2,8 +2,8 @@
 import type { NumberFieldDecrementProps } from 'reka-ui'
 
 import type { HTMLAttributes } from 'vue'
+import { MinusIcon } from '@lucide/vue'
 import { reactiveOmit } from '@vueuse/core'
-import { MinusIcon } from 'lucide-vue-next'
 import { NumberFieldDecrement, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
 

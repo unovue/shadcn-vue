@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { X } from '@lucide/vue'
 import { toTypedSchema } from '@vee-validate/zod'
-import { X } from 'lucide-vue-next'
 import { useFieldArray, useForm, Field as VeeField } from 'vee-validate'
 import { toast } from 'vue-sonner'
 import { z } from 'zod'

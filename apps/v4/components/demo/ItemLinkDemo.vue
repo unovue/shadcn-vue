@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRightIcon, ExternalLinkIcon } from 'lucide-vue-next'
+import { ChevronRightIcon, ExternalLinkIcon } from '@lucide/vue'
 
 import {
   Item,

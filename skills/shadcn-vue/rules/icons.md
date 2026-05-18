@@ -1,6 +1,6 @@
 # Icons
 
-**Always use the project's configured `iconLibrary` for imports.** Check the `iconLibrary` field from project context: `lucide` → `lucide-vue-next`, `tabler` → `@tabler/icons-vue`, etc. Never assume `lucide-vue-next`.
+**Always use the project's configured `iconLibrary` for imports.** Check the `iconLibrary` field from project context: `lucide` → `@lucide/vue`, `tabler` → `@tabler/icons-vue`, etc. Never assume `@lucide/vue`.
 
 ---
 
@@ -94,8 +94,8 @@ defineProps({
 
 ```js
 <script setup lang="ts">
-// Import from the project's configured iconLibrary (e.g. lucide-vue-next, @tabler/icons-vue).
-import { CheckIcon } from "lucide-vue-next"
+// Import from the project's configured iconLibrary (e.g. @lucide/vue, @tabler/icons-vue).
+import { CheckIcon } from "@lucide/vue"
 
 defineProps({
   icon: Object // Or Component

@@ -18,7 +18,7 @@ const execAsync = promisify(exec)
  *   2. Rewrite each file's `path` from `ui/<comp>/<file>` to
  *      `styles/reka-<style>/ui/<comp>/<file>` so the local shadcn-vue CLI
  *      reads from the codegen'd output (where `cn-*` tokens are already
- *      expanded and IconPlaceholder is already replaced with lucide-vue-next)
+ *      expanded and IconPlaceholder is already replaced with @lucide/vue)
  *   3. Write `apps/v4/public/r/styles/reka-<style>/registry.json`
  *   4. Write a temporary `apps/v4/registry-reka-<style>.json` at the project
  *      root (the CLI's `build` command takes a JSON file path as input)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronDownIcon, MoreHorizontal } from 'lucide-vue-next'
+import { ChevronDownIcon, MoreHorizontal } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/registry/new-york-v4/ui/dropdown-menu'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/registry/new-york-v4/ui/input-group'
 </script>

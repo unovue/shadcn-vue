@@ -52,7 +52,7 @@ describe('getIconLibrary', () => {
 describe('getIconLibraryPackages', () => {
   it('returns packages for lucide', () => {
     const packages = getIconLibraryPackages('lucide')
-    expect(packages).toContain('lucide-vue-next')
+    expect(packages).toContain('@lucide/vue')
   })
 
   it('returns packages for tabler', () => {
@@ -85,7 +85,7 @@ describe('getIconLibraryPackages', () => {
 describe('getIconImportStatement', () => {
   it('returns import for lucide icons', () => {
     const importStatement = getIconImportStatement('lucide', 'CheckIcon')
-    expect(importStatement).toContain('lucide-vue-next')
+    expect(importStatement).toContain('@lucide/vue')
     expect(importStatement).toContain('CheckIcon')
     expect(importStatement).toContain('import')
   })

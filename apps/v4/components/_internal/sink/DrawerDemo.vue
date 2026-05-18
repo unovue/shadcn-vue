@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Minus, Plus } from 'lucide-vue-next'
+import { Minus, Plus } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Drawer,

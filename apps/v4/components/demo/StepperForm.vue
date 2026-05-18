@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Check, Circle, Dot } from '@lucide/vue'
 import { toTypedSchema } from '@vee-validate/zod'
-import { Check, Circle, Dot } from 'lucide-vue-next'
 import { h, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import * as z from 'zod'

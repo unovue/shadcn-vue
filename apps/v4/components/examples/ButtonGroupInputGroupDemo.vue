@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AudioLinesIcon, PlusIcon } from 'lucide-vue-next'
+import { AudioLinesIcon, PlusIcon } from '@lucide/vue'
 import { ref } from 'vue'
 import { Button } from '@/styles/reka-nova/ui/button'
 import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'

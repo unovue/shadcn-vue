@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GalleryVerticalEnd } from "lucide-vue-next"
+import { GalleryVerticalEnd } from "@lucide/vue"
 
 import SignupForm from "@/registry/new-york-v4/blocks/signup-03/components/SignupForm.vue"
 </script>

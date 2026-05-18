@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRight, MoreHorizontal, Plus } from "lucide-vue-next"
+import { ChevronRight, MoreHorizontal, Plus } from "@lucide/vue"
 
 import {
   Collapsible,

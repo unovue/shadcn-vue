@@ -2,10 +2,10 @@ export const iconLibraries = {
   lucide: {
     name: 'lucide',
     title: 'Lucide',
-    packages: ['lucide-vue-next'],
-    import: 'import { ICON } from \'lucide-vue-next\'',
+    packages: ['@lucide/vue'],
+    import: 'import { ICON } from \'@lucide/vue\'',
     usage: '<ICON />',
-    export: 'lucide-vue-next',
+    export: '@lucide/vue',
   },
   tabler: {
     name: 'tabler',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, Circle, Dot } from 'lucide-vue-next'
+import { Check, Circle, Dot } from '@lucide/vue'
 
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/new-york-v4/ui/stepper'

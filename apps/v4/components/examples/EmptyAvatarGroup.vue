@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlusIcon } from 'lucide-vue-next'
+import { PlusIcon } from '@lucide/vue'
 
 import {
   Avatar,

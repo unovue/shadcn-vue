@@ -122,7 +122,7 @@ describe('registry API', () => {
       const lucide = getRegistryIconLibrary('lucide')
       expect(lucide).toBeDefined()
       expect(lucide?.name).toBe('lucide')
-      expect(lucide?.packages).toContain('lucide-vue-next')
+      expect(lucide?.packages).toContain('@lucide/vue')
     })
 
     it('returns tabler library by name', () => {

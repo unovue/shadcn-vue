@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HelpCircleIcon, SettingsIcon, Trash2Icon } from 'lucide-vue-next'
+import { HelpCircleIcon, SettingsIcon, Trash2Icon } from '@lucide/vue'
 
 import {
   Menubar,

@@ -13,7 +13,7 @@ import {
   SparklesIcon,
   TrashIcon,
   UserIcon,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import {
   Avatar,
   AvatarFallback,

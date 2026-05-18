@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 
-import { GalleryVerticalEnd } from "lucide-vue-next"
+import { GalleryVerticalEnd } from "@lucide/vue"
 import { cn } from "@/registry/new-york-v4/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {

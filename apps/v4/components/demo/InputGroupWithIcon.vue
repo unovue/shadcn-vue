@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, CreditCardIcon, InfoIcon, MailIcon, SearchIcon, StarIcon } from 'lucide-vue-next'
+import { CheckIcon, CreditCardIcon, InfoIcon, MailIcon, SearchIcon, StarIcon } from '@lucide/vue'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/registry/new-york-v4/ui/input-group'
 </script>
 

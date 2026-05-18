@@ -13,8 +13,8 @@ export function formatDate(date: Date | undefined) {
 
 <script setup lang="ts">
 import { fromDate, getLocalTimeZone } from '@internationalized/date'
+import { CalendarIcon } from '@lucide/vue'
 import { parseDate } from 'chrono-node'
-import { CalendarIcon } from 'lucide-vue-next'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 import { Input } from '@/registry/new-york-v4/ui/input'

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Color, ColorPalette } from '@/lib/colors'
 import type { NavigationItem } from '~/composables/useNavigation'
+import { CornerDownLeft, Square } from '@lucide/vue'
 import { IconArrowRight } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
-import { CornerDownLeft, Square } from 'lucide-vue-next'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useIsMac } from '@/composables/useIsMac'
 import { useConfig } from '@/composables/useUserConfig'

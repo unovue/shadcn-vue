@@ -45,9 +45,9 @@ export function getIconUsageExample(libraryName: string, iconName: string): stri
 // Object format for use in transformers (keyed by icon library name)
 export const ICON_LIBRARIES = {
   lucide: {
-    name: 'lucide-vue-next',
-    package: 'lucide-vue-next',
-    import: 'lucide-vue-next',
+    name: '@lucide/vue',
+    package: '@lucide/vue',
+    import: '@lucide/vue',
   },
   radix: {
     name: '@radix-icons/vue',

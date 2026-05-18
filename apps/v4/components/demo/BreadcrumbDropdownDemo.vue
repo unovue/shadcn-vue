@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronDownIcon, SlashIcon } from 'lucide-vue-next'
+import { ChevronDownIcon, SlashIcon } from '@lucide/vue'
 import {
   Breadcrumb,
   BreadcrumbItem,

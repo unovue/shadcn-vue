@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BadgeCheckIcon, ChevronRightIcon } from 'lucide-vue-next'
+import { BadgeCheckIcon, ChevronRightIcon } from '@lucide/vue'
 
 import { Button } from '@/styles/reka-nova/ui/button'
 import {

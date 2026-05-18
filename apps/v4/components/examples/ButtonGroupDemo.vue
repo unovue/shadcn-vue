@@ -9,7 +9,7 @@ import {
   MoreHorizontalIcon,
   TagIcon,
   Trash2Icon,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 
 import { Button } from '@/styles/reka-nova/ui/button'
 import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'
