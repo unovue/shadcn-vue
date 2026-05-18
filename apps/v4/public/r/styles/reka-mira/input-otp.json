@@ -19,7 +19,7 @@
     },
     {
       "path": "styles/reka-mira/ui/input-otp/InputOTPSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { reactiveOmit } from '@vueuse/core'\nimport { MinusIcon } from 'lucide-vue-next'\nimport { useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n    :class=\"cn('[&_svg:not([class*=size-])]:size-4 flex items-center', props.class)\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { MinusIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n    :class=\"cn('[&_svg:not([class*=size-])]:size-4 flex items-center', props.class)\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

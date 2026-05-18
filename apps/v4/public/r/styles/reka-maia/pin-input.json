@@ -18,7 +18,7 @@
     },
     {
       "path": "styles/reka-maia/ui/pin-input/PinInputSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\n\nimport { MinusIcon } from 'lucide-vue-next'\nimport { Primitive, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<PrimitiveProps>()\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\n\nimport { MinusIcon } from '@lucide/vue'\nimport { Primitive, useForwardProps } from 'reka-ui'\n\nconst props = defineProps<PrimitiveProps>()\nconst forwardedProps = useForwardProps(props)\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"pin-input-separator\"\n    v-bind=\"forwardedProps\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
     },
     {

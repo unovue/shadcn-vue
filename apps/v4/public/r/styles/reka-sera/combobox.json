@@ -1,0 +1,74 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "combobox",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "styles/reka-sera/ui/combobox/Combobox.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxRootEmits, ComboboxRootProps } from 'reka-ui'\nimport { ComboboxRoot, useForwardPropsEmits } from 'reka-ui'\n\nconst props = defineProps<ComboboxRootProps>()\nconst emits = defineEmits<ComboboxRootEmits>()\n\nconst forwarded = useForwardPropsEmits(props, emits)\n</script>\n\n<template>\n  <ComboboxRoot\n    v-slot=\"slotProps\"\n    data-slot=\"combobox\"\n    v-bind=\"forwarded\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </ComboboxRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxAnchor.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxAnchorProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxAnchor, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxAnchorProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ComboboxAnchor\n    data-slot=\"combobox-anchor\"\n    v-bind=\"forwarded\"\n    :class=\"cn('', props.class)\"\n  >\n    <slot />\n  </ComboboxAnchor>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxEmptyProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxEmpty } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxEmptyProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ComboboxEmpty\n    data-slot=\"combobox-empty\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('text-muted-foreground hidden w-full justify-center py-2 text-center text-sm group-data-empty/combobox-content:flex', props.class)\"\n  >\n    <slot />\n  </ComboboxEmpty>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxGroupProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxGroup, ComboboxLabel } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxGroupProps & {\n  class?: HTMLAttributes['class']\n  heading?: string\n}>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ComboboxGroup\n    data-slot=\"combobox-group\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('overflow-hidden text-foreground', props.class)\"\n  >\n    <ComboboxLabel v-if=\"heading\" class=\"px-3 py-2 text-xs uppercase tracking-wider font-semibold text-muted-foreground\">\n      {{ heading }}\n    </ComboboxLabel>\n    <slot />\n  </ComboboxGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxInputEmits, ComboboxInputProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { SearchIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxInput, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { InputGroup, InputGroupAddon } from '@/styles/reka-sera/ui/input-group'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<ComboboxInputProps & {\n  class?: HTMLAttributes['class']\n}>()\n\nconst emits = defineEmits<ComboboxInputEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <InputGroup>\n    <InputGroupAddon>\n      <SearchIcon class=\"size-3.5 shrink-0 opacity-50\" />\n    </InputGroupAddon>\n    <ComboboxInput\n      data-slot=\"combobox-input\"\n      :class=\"cn('flex-1 outline-hidden disabled:cursor-not-allowed disabled:opacity-50', props.class)\"\n      v-bind=\"{ ...$attrs, ...forwarded }\"\n    />\n  </InputGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemEmits, ComboboxItemProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxItem, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxItemProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<ComboboxItemEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <ComboboxItem\n    data-slot=\"combobox-item\"\n    v-bind=\"forwarded\"\n    :class=\"cn('data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground gap-2.5 rounded-none py-2 pr-8 pl-3 text-sm [&_svg:not([class*=size-])]:size-3.5 relative flex w-full cursor-default items-center outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0', props.class)\"\n  >\n    <slot />\n  </ComboboxItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxItemIndicator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemIndicatorProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxItemIndicator, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxItemIndicatorProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ComboboxItemIndicator\n    data-slot=\"combobox-item-indicator\"\n    v-bind=\"forwarded\"\n    :class=\"cn('pointer-events-none absolute right-2 flex size-4 items-center justify-center', props.class)\"\n  >\n    <slot />\n  </ComboboxItemIndicator>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxList.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxContentEmits, ComboboxContentProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxContent, ComboboxPortal, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<ComboboxContentProps & { class?: HTMLAttributes['class'] }>(), {\n  position: 'popper',\n  align: 'center',\n  sideOffset: 4,\n})\nconst emits = defineEmits<ComboboxContentEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <ComboboxPortal>\n    <ComboboxContent\n      data-slot=\"combobox-content\"\n      v-bind=\"{ ...$attrs, ...forwarded }\"\n      :class=\"cn('bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-transparent max-h-72 min-w-36 overflow-hidden rounded-none shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1.5 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:border-transparent *:data-[slot=input-group]:focus-within:border-transparent *:data-[slot=input-group]:px-2.5 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent group/combobox-content z-50 w-[var(--reka-combobox-trigger-width)]', props.class)\"\n    >\n      <slot />\n    </ComboboxContent>\n  </ComboboxPortal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxSeparatorProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxSeparator } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxSeparatorProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <ComboboxSeparator\n    data-slot=\"combobox-separator\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('bg-border/50 -mx-1.5 my-1.5 h-px', props.class)\"\n  >\n    <slot />\n  </ComboboxSeparator>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxTriggerProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxTrigger, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxTriggerProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ComboboxTrigger\n    data-slot=\"combobox-trigger\"\n    v-bind=\"forwarded\"\n    :class=\"cn('[&_svg:not([class*=size-])]:size-3.5', props.class)\"\n    tabindex=\"0\"\n  >\n    <slot />\n  </ComboboxTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/ComboboxViewport.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxViewportProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { ComboboxViewport, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<ComboboxViewportProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <ComboboxViewport\n    data-slot=\"combobox-viewport\"\n    v-bind=\"forwarded\"\n    :class=\"cn('no-scrollbar max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1.5 overflow-y-auto p-1.5 data-empty:p-0', props.class)\"\n  >\n    <slot />\n  </ComboboxViewport>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/combobox/index.ts",
+      "content": "export { default as Combobox } from './Combobox.vue'\nexport { default as ComboboxAnchor } from './ComboboxAnchor.vue'\nexport { default as ComboboxEmpty } from './ComboboxEmpty.vue'\nexport { default as ComboboxGroup } from './ComboboxGroup.vue'\nexport { default as ComboboxInput } from './ComboboxInput.vue'\nexport { default as ComboboxItem } from './ComboboxItem.vue'\nexport { default as ComboboxItemIndicator } from './ComboboxItemIndicator.vue'\nexport { default as ComboboxList } from './ComboboxList.vue'\nexport { default as ComboboxSeparator } from './ComboboxSeparator.vue'\nexport { default as ComboboxViewport } from './ComboboxViewport.vue'\n\nexport { ComboboxCancel, ComboboxTrigger } from 'reka-ui'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

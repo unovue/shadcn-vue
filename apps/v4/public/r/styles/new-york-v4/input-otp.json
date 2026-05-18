@@ -19,7 +19,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/input-otp/InputOTPSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { MinusIcon } from \"lucide-vue-next\"\nimport { useForwardProps } from \"reka-ui\"\n\nconst props = defineProps<{ class?: HTMLAttributes[\"class\"] }>()\n\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { MinusIcon } from \"@lucide/vue\"\nimport { useForwardProps } from \"reka-ui\"\n\nconst props = defineProps<{ class?: HTMLAttributes[\"class\"] }>()\n\nconst forwarded = useForwardProps(props)\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    v-bind=\"forwarded\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

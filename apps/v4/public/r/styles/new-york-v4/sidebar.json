@@ -131,7 +131,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/sidebar/SidebarTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { PanelLeft } from \"lucide-vue-next\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { useSidebar } from \"./utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n\nconst { toggleSidebar } = useSidebar()\n</script>\n\n<template>\n  <Button\n    data-sidebar=\"trigger\"\n    data-slot=\"sidebar-trigger\"\n    variant=\"ghost\"\n    size=\"icon\"\n    :class=\"cn('h-7 w-7', props.class)\"\n    @click=\"toggleSidebar\"\n  >\n    <PanelLeft />\n    <span class=\"sr-only\">Toggle Sidebar</span>\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { PanelLeft } from \"@lucide/vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { useSidebar } from \"./utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n\nconst { toggleSidebar } = useSidebar()\n</script>\n\n<template>\n  <Button\n    data-sidebar=\"trigger\"\n    data-slot=\"sidebar-trigger\"\n    variant=\"ghost\"\n    size=\"icon\"\n    :class=\"cn('h-7 w-7', props.class)\"\n    @click=\"toggleSidebar\"\n  >\n    <PanelLeft />\n    <span class=\"sr-only\">Toggle Sidebar</span>\n  </Button>\n</template>\n",
       "type": "registry:ui"
     },
     {

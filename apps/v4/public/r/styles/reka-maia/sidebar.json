@@ -131,7 +131,7 @@
     },
     {
       "path": "styles/reka-maia/ui/sidebar/SidebarTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { PanelLeftIcon } from 'lucide-vue-next'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/styles/reka-maia/ui/button'\nimport { useSidebar } from './utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { toggleSidebar } = useSidebar()\n</script>\n\n<template>\n  <Button\n    data-sidebar=\"trigger\"\n    data-slot=\"sidebar-trigger\"\n    variant=\"ghost\"\n    size=\"icon-sm\"\n    :class=\"cn('', props.class)\"\n    @click=\"toggleSidebar\"\n  >\n    <PanelLeftIcon class=\"cn-rtl-flip\" />\n    <span class=\"sr-only\">Toggle Sidebar</span>\n  </Button>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { PanelLeftIcon } from '@lucide/vue'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/styles/reka-maia/ui/button'\nimport { useSidebar } from './utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { toggleSidebar } = useSidebar()\n</script>\n\n<template>\n  <Button\n    data-sidebar=\"trigger\"\n    data-slot=\"sidebar-trigger\"\n    variant=\"ghost\"\n    size=\"icon-sm\"\n    :class=\"cn('', props.class)\"\n    @click=\"toggleSidebar\"\n  >\n    <PanelLeftIcon class=\"cn-rtl-flip\" />\n    <span class=\"sr-only\">Toggle Sidebar</span>\n  </Button>\n</template>\n",
       "type": "registry:ui"
     },
     {

@@ -23,7 +23,7 @@
     },
     {
       "path": "styles/reka-nova/ui/tags-input/TagsInputItemDelete.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { TagsInputItemDeleteProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { XIcon } from 'lucide-vue-next'\nimport { TagsInputItemDelete, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemDeleteProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItemDelete v-bind=\"forwardedProps\" :class=\"cn('flex rounded bg-transparent mr-1', props.class)\">\n    <slot>\n      <XIcon class=\"w-4 h-4\" />\n    </slot>\n  </TagsInputItemDelete>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { TagsInputItemDeleteProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { XIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { TagsInputItemDelete, useForwardProps } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<TagsInputItemDeleteProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwardedProps = useForwardProps(delegatedProps)\n</script>\n\n<template>\n  <TagsInputItemDelete v-bind=\"forwardedProps\" :class=\"cn('flex rounded bg-transparent mr-1', props.class)\">\n    <slot>\n      <XIcon class=\"w-4 h-4\" />\n    </slot>\n  </TagsInputItemDelete>\n</template>\n",
       "type": "registry:ui"
     },
     {
