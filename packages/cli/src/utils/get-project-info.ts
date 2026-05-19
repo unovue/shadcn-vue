@@ -11,6 +11,7 @@ import { getShadcnRegistryIndex } from '@/src/registry/api'
 import { FRAMEWORKS } from '@/src/utils/frameworks'
 import { getConfig, resolveConfigPaths } from '@/src/utils/get-config'
 import { getPackageInfo } from '@/src/utils/get-package-info'
+import { getPackageManager } from '@/src/utils/updaters/update-dependencies'
 
 export type TailwindVersion = 'v3' | 'v4' | null
 
@@ -24,6 +25,7 @@ export interface ProjectInfo {
   tailwindCssFile: string | null
   tailwindVersion: TailwindVersion
   aliasPrefix: string | null
+  packageManager: string
 }
 
 const PROJECT_SHARED_IGNORE = [
@@ -112,6 +114,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     tailwindVersion,
     aliasPrefix,
     packageJson,
+    packageManager,
   ] = await Promise.all([
     detectFrameworkConfigFiles(cwd),
     isTypeScriptProject(cwd),
@@ -121,6 +124,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     getTailwindVersion(cwd),
     getTsConfigAliasPrefix(cwd),
     getPackageInfo(cwd, false),
+    getPackageManager(cwd, { withFallback: true }),
   ])
 
   const type: ProjectInfo = {
@@ -131,6 +135,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     tailwindCssFile,
     tailwindVersion,
     aliasPrefix,
+    packageManager,
   }
 
   return type
