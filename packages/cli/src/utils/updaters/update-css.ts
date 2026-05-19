@@ -98,12 +98,30 @@ function updateCssPlugin(css: z.infer<typeof registryItemCssSchema>) {
 
           // Special handling for imports - place them at the top.
           if (name === 'import') {
+            // Normalize params for comparison (strip surrounding quotes and
+            // trim whitespace) so we dedupe regardless of quote style — a
+            // file formatted by Prettier/Stylelint may use single quotes
+            // while the registry emits double quotes, otherwise the strict
+            // string compare misses the match and re-applying the preset
+            // duplicates the import.
+            const normalizeImportParams = (p: string) => {
+              const trimmed = p.trim()
+              if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
+                return trimmed.slice(1, -1)
+              }
+              if (trimmed.startsWith('\'') && trimmed.endsWith('\'')) {
+                return trimmed.slice(1, -1)
+              }
+              return trimmed
+            }
+
             // Check if this import already exists.
             const existingImport = root.nodes?.find(
               (node): node is AtRule =>
                 node.type === 'atrule'
                 && node.name === 'import'
-                && node.params === params,
+                && normalizeImportParams(node.params)
+                === normalizeImportParams(params),
             )
 
             if (!existingImport) {
