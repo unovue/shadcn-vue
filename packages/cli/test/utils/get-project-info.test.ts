@@ -45,6 +45,22 @@ describe('get project info', async () => {
         packageManager: 'pnpm',
       },
     },
+    {
+      // Inertia + Rails-style project: @inertiajs/vue3 in deps but no
+      // ./inertia/tsconfig.json — the alias should still resolve from the
+      // root tsconfig.json. See issue #1817.
+      name: 'inertia-rails',
+      type: {
+        framework: FRAMEWORKS.inertia,
+        isSrcDir: false,
+        typescript: true,
+        tailwindConfigFile: null,
+        tailwindCssFile: 'app/frontend/entrypoint.css',
+        tailwindVersion: 'v4',
+        aliasPrefix: '@',
+        packageManager: 'pnpm',
+      },
+    },
   ])(`getProjectType($name) -> $type`, async ({ name, type }) => {
     expect(
       await getProjectInfo(
