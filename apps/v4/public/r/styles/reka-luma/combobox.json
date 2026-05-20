@@ -66,7 +66,7 @@
     },
     {
       "path": "styles/reka-luma/ui/combobox/index.ts",
-      "content": "export { default as Combobox } from './Combobox.vue'\nexport { default as ComboboxAnchor } from './ComboboxAnchor.vue'\nexport { default as ComboboxEmpty } from './ComboboxEmpty.vue'\nexport { default as ComboboxGroup } from './ComboboxGroup.vue'\nexport { default as ComboboxInput } from './ComboboxInput.vue'\nexport { default as ComboboxItem } from './ComboboxItem.vue'\nexport { default as ComboboxItemIndicator } from './ComboboxItemIndicator.vue'\nexport { default as ComboboxList } from './ComboboxList.vue'\nexport { default as ComboboxSeparator } from './ComboboxSeparator.vue'\nexport { default as ComboboxViewport } from './ComboboxViewport.vue'\n\nexport { ComboboxCancel, ComboboxTrigger } from 'reka-ui'\n",
+      "content": "export { default as Combobox } from './Combobox.vue'\nexport { default as ComboboxAnchor } from './ComboboxAnchor.vue'\nexport { default as ComboboxEmpty } from './ComboboxEmpty.vue'\nexport { default as ComboboxGroup } from './ComboboxGroup.vue'\nexport { default as ComboboxInput } from './ComboboxInput.vue'\nexport { default as ComboboxItem } from './ComboboxItem.vue'\nexport { default as ComboboxItemIndicator } from './ComboboxItemIndicator.vue'\nexport { default as ComboboxList } from './ComboboxList.vue'\nexport { default as ComboboxSeparator } from './ComboboxSeparator.vue'\nexport { default as ComboboxTrigger } from './ComboboxTrigger.vue'\nexport { default as ComboboxViewport } from './ComboboxViewport.vue'\n\nexport { ComboboxCancel } from 'reka-ui'\n",
       "type": "registry:ui"
     }
   ],
