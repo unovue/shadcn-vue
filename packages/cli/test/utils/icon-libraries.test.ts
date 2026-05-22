@@ -5,6 +5,7 @@ import {
   getIconLibraryPackages,
   getIconUsageExample,
   ICON_LIBRARIES_ARRAY,
+  replaceIconLibraryInDependencies,
 } from '../../src/utils/icon-libraries'
 
 describe('getIconLibrary', () => {
@@ -142,6 +143,71 @@ describe('getIconUsageExample', () => {
   it('returns empty string for unknown library', () => {
     const example = getIconUsageExample('unknown', 'Icon')
     expect(example).toBe('')
+  })
+})
+
+describe('replaceIconLibraryInDependencies', () => {
+  it('swaps @lucide/vue for the chosen library packages', () => {
+    expect(
+      replaceIconLibraryInDependencies(
+        ['class-variance-authority', '@lucide/vue'],
+        'phosphor',
+      ),
+    ).toEqual(['class-variance-authority', '@phosphor-icons/vue'])
+  })
+
+  it('swaps the legacy lucide-vue-next package for the chosen library', () => {
+    expect(
+      replaceIconLibraryInDependencies(
+        ['tailwindcss-animate', 'class-variance-authority', 'lucide-vue-next'],
+        'phosphor',
+      ),
+    ).toEqual([
+      'tailwindcss-animate',
+      'class-variance-authority',
+      '@phosphor-icons/vue',
+    ])
+  })
+
+  it('keeps the lucide package when the user picked lucide', () => {
+    expect(
+      replaceIconLibraryInDependencies(['@lucide/vue'], 'lucide'),
+    ).toEqual(['@lucide/vue'])
+  })
+
+  it('rewrites legacy lucide-vue-next to the current @lucide/vue when lucide is picked', () => {
+    expect(
+      replaceIconLibraryInDependencies(['lucide-vue-next'], 'lucide'),
+    ).toEqual(['@lucide/vue'])
+  })
+
+  it('adds the chosen library packages even when no icon package is present', () => {
+    expect(
+      replaceIconLibraryInDependencies(['class-variance-authority'], 'phosphor'),
+    ).toEqual(['class-variance-authority', '@phosphor-icons/vue'])
+  })
+
+  it('adds all packages for libraries that ship multiple', () => {
+    expect(
+      replaceIconLibraryInDependencies(['@lucide/vue'], 'hugeicons'),
+    ).toEqual(['@hugeicons/vue', '@hugeicons/core-free-icons'])
+  })
+
+  it('returns the original deps unchanged when iconLibrary is missing', () => {
+    expect(
+      replaceIconLibraryInDependencies(['@lucide/vue'], undefined),
+    ).toEqual(['@lucide/vue'])
+  })
+
+  it('returns the original deps unchanged when iconLibrary is unknown', () => {
+    expect(
+      replaceIconLibraryInDependencies(['@lucide/vue'], 'mystery'),
+    ).toEqual(['@lucide/vue'])
+  })
+
+  it('handles empty/undefined dependency lists', () => {
+    expect(replaceIconLibraryInDependencies(undefined, 'phosphor')).toEqual([])
+    expect(replaceIconLibraryInDependencies([], 'phosphor')).toEqual([])
   })
 })
 
