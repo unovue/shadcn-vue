@@ -41,7 +41,7 @@
     "dnd-kit-vue": "^0.0.2",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
-    "nuxt": "^4.2.1",
+    "nuxt": "^3.21.6",
     "nuxt-og-image": "5.1.12",
     "qrcode": "catalog:",
     "reka-ui": "catalog:",
