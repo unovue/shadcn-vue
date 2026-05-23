@@ -83,7 +83,21 @@ async function publishStyle(styleName: string) {
     return { ...item, files }
   })
 
-  const items = [...uiItems, ...libItems]
+  // The CLI's init flow fetches `styles/<style>/index.json` to install base
+  // dependencies, the cn() util, and the Tailwind v4 animation plugin.
+  // `@lucide/vue` is reconciled against the user's chosen icon library by
+  // packages/cli/src/utils/icon-libraries.ts, so listing it here is safe.
+  const indexItem: RegistryItem = {
+    name: 'index',
+    type: 'registry:style',
+    dependencies: ['class-variance-authority', '@lucide/vue'],
+    devDependencies: ['tw-animate-css'],
+    registryDependencies: ['utils'],
+    files: [],
+    cssVars: {},
+  }
+
+  const items = [indexItem, ...uiItems, ...libItems]
 
   const registry = {
     name: REGISTRY_NAME,
