@@ -3,10 +3,9 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { Command } from 'commander'
 import deepmerge from 'deepmerge'
 import fsExtra from 'fs-extra'
-import { detectPackageManager } from 'nypm'
+import { addDevDependency, detectPackageManager } from 'nypm'
 import path from 'pathe'
 import prompts from 'prompts'
-import { x } from 'tinyexec'
 import z from 'zod'
 import { server } from '@/src/mcp'
 import { loadEnvFiles } from '@/src/utils/env-loader'
@@ -160,20 +159,8 @@ mcp
           })
         }
         else {
-          const packageManager = await detectPackageManager(options.cwd)
-          const installCommand = packageManager?.name === 'npm' ? 'install' : 'add'
-          const devFlag = packageManager?.name === 'npm' ? '--save-dev' : '-D'
-
           const installSpinner = spinner('Installing dependencies...').start()
-          await x(
-            packageManager?.name || 'npm',
-            [installCommand, devFlag, ...DEPENDENCIES],
-            {
-              nodeOptions: {
-                cwd: options.cwd,
-              },
-            },
-          )
+          await installMcpDependencies(options.cwd)
           installSpinner.succeed('Installing dependencies.')
         }
 
@@ -206,20 +193,8 @@ args = ["shadcn-vue@${SHADCN_MCP_VERSION}", "mcp"]`)
         })
       }
       else {
-        const packageManager = await detectPackageManager(options.cwd)
-        const installCommand = packageManager?.name === 'npm' ? 'install' : 'add'
-        const devFlag = packageManager?.name === 'npm' ? '--save-dev' : '-D'
-
         const installSpinner = spinner('Installing dependencies...').start()
-        await x(
-          packageManager?.name || 'npm',
-          [installCommand, devFlag, ...DEPENDENCIES],
-          {
-            nodeOptions: {
-              cwd: options.cwd,
-            },
-          },
-        )
+        await installMcpDependencies(options.cwd)
         installSpinner.succeed('Installing dependencies.')
       }
 
@@ -270,4 +245,13 @@ async function runMcpInit(options: z.infer<typeof mcpInitOptionsSchema>) {
   )
 
   return clientInfo.configPath
+}
+
+async function installMcpDependencies(cwd: string) {
+  const packageManager = await detectPackageManager(cwd)
+  await addDevDependency(DEPENDENCIES, {
+    cwd,
+    packageManager: packageManager?.name ?? 'npm',
+    silent: true,
+  })
 }
