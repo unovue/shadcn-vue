@@ -89,6 +89,7 @@ export async function updateDependencies(
     dependencies,
     devDependencies,
     config.resolvedPaths.cwd,
+    options.silent,
   )
 
   dependenciesSpinner?.succeed()
@@ -99,11 +100,12 @@ async function installWithPackageManager(
   dependencies: string[],
   devDependencies: string[],
   cwd: string,
+  silent: boolean,
 ) {
   const options = {
     cwd,
     packageManager,
-    silent: true,
+    silent,
   }
 
   if (dependencies?.length) {

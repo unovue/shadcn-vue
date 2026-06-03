@@ -52,13 +52,13 @@ describe('updateDependencies', () => {
       {
         cwd: '/test/project',
         packageManager: 'pnpm',
-        silent: true,
+        silent: false,
       },
     )
     expect(addDevDependency).toHaveBeenCalledWith(['tailwindcss'], {
       cwd: '/test/project',
       packageManager: 'pnpm',
-      silent: true,
+      silent: false,
     })
   })
 
