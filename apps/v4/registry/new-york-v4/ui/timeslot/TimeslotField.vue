@@ -13,7 +13,7 @@ export interface TimeslotFieldEmits<T extends number> {
   (event: "change", value: T | undefined): void
 }
 
-interface TimeslotFieldItemSlotProps<T extends number> extends TimeslotFieldItemProps<T> {
+export interface TimeslotFieldItemSlotProps<T extends number> extends TimeslotFieldItemProps<T> {
   ref?: (el: object | null) => void
   onSelect: (target: HTMLElement) => void
 }

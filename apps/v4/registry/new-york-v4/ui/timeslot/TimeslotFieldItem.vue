@@ -1,7 +1,6 @@
 <script lang="ts">
 import type { PrimitiveProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
-import { reactivePick } from "@vueuse/core"
 
 export interface TimeslotFieldItemProps<T extends number> extends PrimitiveProps {
   class?: HTMLAttributes["class"]
@@ -16,6 +15,7 @@ export interface TimeslotFieldItemEmits {
 </script>
 
 <script setup lang="ts" generic="T extends number">
+import { reactivePick } from "@vueuse/core"
 import { Primitive, useForwardProps } from "reka-ui"
 import { cn } from "~/lib/utils"
 import TimeslotFieldItemText from "./TimeslotFieldItemText.vue"
