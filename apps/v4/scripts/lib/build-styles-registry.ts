@@ -18,7 +18,7 @@ const execAsync = promisify(exec)
  *   2. Rewrite each file's `path` from `ui/<comp>/<file>` to
  *      `styles/reka-<style>/ui/<comp>/<file>` so the local shadcn-vue CLI
  *      reads from the codegen'd output (where `cn-*` tokens are already
- *      expanded and IconPlaceholder is already replaced with lucide-vue-next)
+ *      expanded and IconPlaceholder is already replaced with @lucide/vue)
  *   3. Write `apps/v4/public/r/styles/reka-<style>/registry.json`
  *   4. Write a temporary `apps/v4/registry-reka-<style>.json` at the project
  *      root (the CLI's `build` command takes a JSON file path as input)
@@ -83,7 +83,21 @@ async function publishStyle(styleName: string) {
     return { ...item, files }
   })
 
-  const items = [...uiItems, ...libItems]
+  // The CLI's init flow fetches `styles/<style>/index.json` to install base
+  // dependencies, the cn() util, and the Tailwind v4 animation plugin.
+  // `@lucide/vue` is reconciled against the user's chosen icon library by
+  // packages/cli/src/utils/icon-libraries.ts, so listing it here is safe.
+  const indexItem: RegistryItem = {
+    name: 'index',
+    type: 'registry:style',
+    dependencies: ['class-variance-authority', '@lucide/vue'],
+    devDependencies: ['tw-animate-css'],
+    registryDependencies: ['utils'],
+    files: [],
+    cssVars: {},
+  }
+
+  const items = [indexItem, ...uiItems, ...libItems]
 
   const registry = {
     name: REGISTRY_NAME,

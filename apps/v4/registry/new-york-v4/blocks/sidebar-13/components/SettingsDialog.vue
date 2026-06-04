@@ -12,7 +12,7 @@ import {
   Paintbrush,
   Settings,
   Video,
-} from "lucide-vue-next"
+} from "@lucide/vue"
 
 import { ref } from "vue"
 import {

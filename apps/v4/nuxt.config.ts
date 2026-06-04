@@ -85,7 +85,14 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss() as any],
     ssr: {
-      noExternal: ['@tabler/icons-vue'],
+      noExternal: [
+        '@tabler/icons-vue',
+        '@lucide/vue',
+        '@hugeicons/vue',
+        '@hugeicons/core-free-icons',
+        '@phosphor-icons/vue',
+        '@remixicon/vue',
+      ],
     },
   },
   build: {

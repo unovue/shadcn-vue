@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import { X } from 'lucide-vue-next'
+import { X } from '@lucide/vue'
 
 import { computed } from 'vue'
 import { Button } from '@/styles/reka-nova/ui/button'

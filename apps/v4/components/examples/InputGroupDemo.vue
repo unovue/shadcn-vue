@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from 'lucide-vue-next'
+import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/styles/reka-nova/ui/dropdown-menu'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText, InputGroupTextarea } from '@/styles/reka-nova/ui/input-group'
 import { Separator } from '@/styles/reka-nova/ui/separator'

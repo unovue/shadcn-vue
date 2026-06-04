@@ -2,8 +2,8 @@
 import type { NumberFieldIncrementProps } from 'reka-ui'
 
 import type { HTMLAttributes } from 'vue'
+import { PlusIcon } from '@lucide/vue'
 import { reactiveOmit } from '@vueuse/core'
-import { PlusIcon } from 'lucide-vue-next'
 import { NumberFieldIncrement, useForwardProps } from 'reka-ui'
 import { cn } from '@/lib/utils'
 

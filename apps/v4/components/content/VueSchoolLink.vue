@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { VideoIcon } from 'lucide-vue-next'
+import { VideoIcon } from '@lucide/vue'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 import {

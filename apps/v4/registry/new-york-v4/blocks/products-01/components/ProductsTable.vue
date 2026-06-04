@@ -4,7 +4,7 @@ import {
   EllipsisVerticalIcon,
   ListFilterIcon,
   PlusIcon,
-} from "lucide-vue-next"
+} from "@lucide/vue"
 
 import { Badge } from "@/registry/new-york-v4/ui/badge"
 import { Button } from "@/registry/new-york-v4/ui/button"

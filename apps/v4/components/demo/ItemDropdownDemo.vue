@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronDownIcon } from 'lucide-vue-next'
+import { ChevronDownIcon } from '@lucide/vue'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {

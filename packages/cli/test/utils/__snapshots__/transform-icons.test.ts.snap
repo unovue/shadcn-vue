@@ -2,7 +2,7 @@
 
 exports[`transformIcons > does not transform lucide icons 1`] = `
 "<script setup>
-import { Check } from "lucide-vue-next";
+import { Check } from "@lucide/vue";
 import { Primitive } from "reka-ui";
 </script>
 
@@ -15,7 +15,7 @@ import { Primitive } from "reka-ui";
 
 exports[`transformIcons > does nothing 1`] = `
 "<script setup>
-import { Check } from "lucide-vue-next";
+import { Check } from "@lucide/vue";
 import { Primitive } from "reka-ui";
 </script>
 

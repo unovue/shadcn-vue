@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MinusIcon, PlusIcon } from 'lucide-vue-next'
+import { MinusIcon, PlusIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { ButtonGroup } from '@/registry/new-york-v4/ui/button-group'
 </script>

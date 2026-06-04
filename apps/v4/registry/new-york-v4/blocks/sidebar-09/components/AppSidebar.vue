@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
-import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "lucide-vue-next"
+import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "@lucide/vue"
 import { h, ref } from "vue"
 import NavUser from "@/registry/new-york-v4/blocks/sidebar-09/components/NavUser.vue"
 import { Label } from "@/registry/new-york-v4/ui/label"

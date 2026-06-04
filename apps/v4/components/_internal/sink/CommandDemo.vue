@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useMagicKeys, whenever } from '@vueuse/core'
 import {
   Calculator,
   Calendar,
@@ -7,7 +6,8 @@ import {
   Settings,
   Smile,
   User,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
+import { useMagicKeys, whenever } from '@vueuse/core'
 
 import {
   CommandDialog,

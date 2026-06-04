@@ -3,8 +3,7 @@ import type { RegistryItem } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import fs from 'node:fs'
 import path from 'node:path'
-import { detectPackageManager } from 'nypm'
-import { x } from 'tinyexec'
+import { addDependency, addDevDependency, detectPackageManager } from 'nypm'
 import { spinner } from '@/src/utils/spinner'
 
 export type SupportedPackageManager = PackageManagerName
@@ -90,6 +89,7 @@ export async function updateDependencies(
     dependencies,
     devDependencies,
     config.resolvedPaths.cwd,
+    options.silent,
   )
 
   dependenciesSpinner?.succeed()
@@ -100,71 +100,19 @@ async function installWithPackageManager(
   dependencies: string[],
   devDependencies: string[],
   cwd: string,
+  silent: boolean,
 ) {
-  if (packageManager === 'npm') {
-    return installWithNpm(dependencies, devDependencies, cwd)
+  const options = {
+    cwd,
+    packageManager,
+    silent,
   }
 
-  if (packageManager === 'deno') {
-    return installWithDeno(dependencies, devDependencies, cwd)
-  }
-
-  // pnpm, yarn, bun all use `add` / `add -D`.
   if (dependencies?.length) {
-    await x(packageManager, ['add', ...dependencies], {
-      throwOnError: true,
-      nodeOptions: { cwd },
-    })
+    await addDependency(dependencies, options)
   }
 
   if (devDependencies?.length) {
-    await x(packageManager, ['add', '-D', ...devDependencies], {
-      throwOnError: true,
-      nodeOptions: { cwd },
-    })
-  }
-}
-
-async function installWithNpm(
-  dependencies: string[],
-  devDependencies: string[],
-  cwd: string,
-) {
-  if (dependencies?.length) {
-    await x('npm', ['install', ...dependencies], {
-      throwOnError: true,
-      nodeOptions: { cwd },
-    })
-  }
-
-  if (devDependencies?.length) {
-    await x('npm', ['install', '-D', ...devDependencies], {
-      throwOnError: true,
-      nodeOptions: { cwd },
-    })
-  }
-}
-
-async function installWithDeno(
-  dependencies: string[],
-  devDependencies: string[],
-  cwd: string,
-) {
-  if (dependencies?.length) {
-    await x('deno', ['add', ...dependencies.map(dep => `npm:${dep}`)], {
-      throwOnError: true,
-      nodeOptions: { cwd },
-    })
-  }
-
-  if (devDependencies?.length) {
-    await x(
-      'deno',
-      ['add', '-D', ...devDependencies.map(dep => `npm:${dep}`)],
-      {
-        throwOnError: true,
-        nodeOptions: { cwd },
-      },
-    )
+    await addDevDependency(devDependencies, options)
   }
 }

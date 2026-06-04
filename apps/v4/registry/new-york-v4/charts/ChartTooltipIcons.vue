@@ -2,9 +2,9 @@
 import type {
   ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
-import { VisAxis, VisStackedBar, VisXYContainer } from "@unovis/vue"
+import { Footprints, TrendingUp, Waves } from "@lucide/vue"
 
-import { Footprints, TrendingUp, Waves } from "lucide-vue-next"
+import { VisAxis, VisStackedBar, VisXYContainer } from "@unovis/vue"
 import {
   Card,
   CardContent,

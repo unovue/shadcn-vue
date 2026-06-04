@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 
-import { PanelLeftIcon } from 'lucide-vue-next'
+import { PanelLeftIcon } from '@lucide/vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/styles/reka-vega/ui/button'
 import { useSidebar } from './utils'

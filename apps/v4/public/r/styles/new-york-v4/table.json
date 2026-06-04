@@ -23,7 +23,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/table/TableCell.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <td\n    data-slot=\"table-cell\"\n    :class=\"\n      cn(\n        'p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </td>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <td\n    data-slot=\"table-cell\"\n    :class=\"\n      cn(\n        'p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-0.5',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </td>\n</template>\n",
       "type": "registry:ui"
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/table/TableHead.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <th\n    data-slot=\"table-head\"\n    :class=\"cn('text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', props.class)\"\n  >\n    <slot />\n  </th>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <th\n    data-slot=\"table-head\"\n    :class=\"cn('text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 *:[[role=checkbox]]:translate-y-0.5', props.class)\"\n  >\n    <slot />\n  </th>\n</template>\n",
       "type": "registry:ui"
     },
     {

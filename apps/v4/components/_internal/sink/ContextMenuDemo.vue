@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Code2Icon, PlusIcon, TrashIcon } from 'lucide-vue-next'
+import { Code2Icon, PlusIcon, TrashIcon } from '@lucide/vue'
 
 import {
   ContextMenu,

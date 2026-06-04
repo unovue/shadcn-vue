@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ChartConfig } from '~/registry/new-york-v4/ui/chart'
+import { Minus, Plus } from '@lucide/vue'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
-import { Minus, Plus } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {

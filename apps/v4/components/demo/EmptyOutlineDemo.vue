@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Cloud } from 'lucide-vue-next'
+import { Cloud } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Empty,

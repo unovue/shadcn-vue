@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronsUpDown } from 'lucide-vue-next'
+import { ChevronsUpDown } from '@lucide/vue'
 import { ref } from 'vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {

@@ -310,7 +310,7 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 ```vue
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
+import { MoreHorizontal } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
@@ -479,7 +479,7 @@ import type {
   SortingState,
 } from '@tanstack/vue-table'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { h, ref } from 'vue'
 
 import {
@@ -540,7 +540,7 @@ We can now update the `email` header cell to add sorting controls.
 import type {
   ColumnDef,
 } from '@tanstack/vue-table'
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 
 export const columns: ColumnDef<Payment>[] = [
@@ -579,7 +579,7 @@ import type {
 
 import { valueUpdater } from '@/components/ui/table/utils'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -672,7 +672,7 @@ import {
 
 import { valueUpdater } from '@/components/ui/table/utils'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -918,7 +918,7 @@ import {
 
 import { valueUpdater } from '@/components/ui/table/utils'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -1034,7 +1034,7 @@ const table = useVueTable({
 
 ```vue showLineNumbers {12-14,34-36}
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
+import { MoreHorizontal } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 

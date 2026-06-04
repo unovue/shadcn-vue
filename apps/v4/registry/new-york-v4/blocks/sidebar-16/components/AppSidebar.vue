@@ -12,7 +12,7 @@ import {
   Send,
   Settings2,
   SquareTerminal,
-} from "lucide-vue-next"
+} from "@lucide/vue"
 
 import NavMain from "@/registry/new-york-v4/blocks/sidebar-16/components/NavMain.vue"
 import NavProjects from "@/registry/new-york-v4/blocks/sidebar-16/components/NavProjects.vue"

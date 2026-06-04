@@ -13,7 +13,7 @@ import {
   Settings2,
   Sparkles,
   Trash2,
-} from "lucide-vue-next"
+} from "@lucide/vue"
 
 import NavFavorites from "@/registry/new-york-v4/blocks/sidebar-10/components/NavFavorites.vue"
 import NavMain from "@/registry/new-york-v4/blocks/sidebar-10/components/NavMain.vue"

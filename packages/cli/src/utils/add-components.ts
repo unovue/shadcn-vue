@@ -21,6 +21,7 @@ import {
 } from '@/src/utils/get-config'
 import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
+import { replaceIconLibraryInDependencies } from '@/src/utils/icon-libraries'
 import { isSafeTarget } from '@/src/utils/is-safe-target'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
@@ -131,7 +132,11 @@ async function addProjectComponents(
     silent: options.silent,
   })
 
-  await updateDependencies(tree.dependencies, tree.devDependencies, config, {
+  const resolvedDependencies = replaceIconLibraryInDependencies(
+    tree.dependencies,
+    config.iconLibrary,
+  )
+  await updateDependencies(resolvedDependencies, tree.devDependencies, config, {
     silent: options.silent,
   })
   await updateFiles(tree.files, config, {
@@ -251,8 +256,12 @@ async function addWorkspaceComponents(
   }
 
   // 5. Update dependencies.
-  await updateDependencies(
+  const resolvedDependencies = replaceIconLibraryInDependencies(
     tree.dependencies,
+    mainTargetConfig.iconLibrary,
+  )
+  await updateDependencies(
+    resolvedDependencies,
     tree.devDependencies,
     mainTargetConfig,
     {

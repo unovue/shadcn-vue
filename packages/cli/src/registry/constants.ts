@@ -177,7 +177,7 @@ export const ICON_LIBRARIES = [
   {
     name: "lucide",
     label: "Lucide",
-    packages: ["lucide-vue-next"],
+    packages: ["@lucide/vue"],
   },
   {
     name: "tabler",

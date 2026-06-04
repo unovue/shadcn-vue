@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-vue-next'
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from '@lucide/vue'
 import {
   NavigationMenu,
   NavigationMenuContent,

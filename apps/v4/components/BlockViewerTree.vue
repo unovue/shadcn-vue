@@ -4,7 +4,7 @@ import {
   ChevronRight,
   File,
   Folder,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import {
   Collapsible,
   CollapsibleContent,

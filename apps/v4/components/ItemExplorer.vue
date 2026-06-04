@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { RegistryItem } from 'shadcn-vue/schema'
 import type { Base } from '~/registry/bases'
-import { ChevronRightIcon } from 'lucide-vue-next'
+import { ChevronRightIcon } from '@lucide/vue'
 import { cn } from '@/lib/utils'
 import {
   Collapsible,

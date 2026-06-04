@@ -4,12 +4,12 @@
   "files": [
     {
       "path": "styles/reka-vega/ui/skeleton/Skeleton.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ninterface SkeletonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<SkeletonProps>()\n</script>\n\n<template>\n  <div\n    data-slot=\"skeleton\"\n    :class=\"cn('bg-muted rounded-md animate-pulse', props.class)\"\n  />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\ninterface SkeletonProps {\n  class?: HTMLAttributes[\"class\"]\n}\n\nconst props = defineProps<SkeletonProps>()\n</script>\n\n<template>\n  <div\n    data-slot=\"skeleton\"\n    :class=\"cn('bg-muted rounded-md animate-pulse', props.class)\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-vega/ui/skeleton/index.ts",
-      "content": "export { default as Skeleton } from './Skeleton.vue'\n",
+      "content": "export { default as Skeleton } from \"./Skeleton.vue\"\n",
       "type": "registry:ui"
     }
   ],

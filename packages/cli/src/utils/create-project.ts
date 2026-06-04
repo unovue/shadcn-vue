@@ -2,6 +2,7 @@ import type { z } from 'zod'
 import type { initOptionsSchema } from '@/src/commands/init'
 import fs from 'fs-extra'
 import { downloadTemplate } from 'giget'
+import { installDependencies } from 'nypm'
 import path from 'pathe'
 import prompts from 'prompts'
 import { x } from 'tinyexec'
@@ -133,11 +134,10 @@ export async function createProject(
     })
 
     // Install dependencies
-    await x(packageManager, ['install'], {
-      throwOnError: true,
-      nodeOptions: {
-        cwd: projectPath,
-      },
+    await installDependencies({
+      cwd: projectPath,
+      packageManager,
+      silent: true,
     })
 
     createSpinner?.succeed(`Created a new ${template} project.`)

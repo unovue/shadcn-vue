@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SquareIcon } from "lucide-vue-next"
+import { SquareIcon } from "@lucide/vue"
 import { computed, defineAsyncComponent } from "vue"
 
 const props = defineProps<{

@@ -21,7 +21,7 @@ See installation instructions for the [Popover](/docs/components/popover#install
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next'
+import { CheckIcon, ChevronsUpDownIcon } from '@lucide/vue'
 import { ref } from 'vue'
 import { Button } from '@/components/ui/button'
 import {

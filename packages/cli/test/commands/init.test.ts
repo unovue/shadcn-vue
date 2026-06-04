@@ -31,7 +31,7 @@ it.skip('init config-full', async () => {
       'class-variance-authority',
       'clsx',
       'tailwind-merge',
-      'lucide-vue-next',
+      '@lucide/vue',
       '@radix-icons/vue',
       '@tabler/icons-vue',
       '@phosphor-icons/vue',

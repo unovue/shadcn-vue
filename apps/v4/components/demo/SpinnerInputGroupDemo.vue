@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpIcon } from 'lucide-vue-next'
+import { ArrowUpIcon } from '@lucide/vue'
 import {
   InputGroup,
   InputGroupAddon,

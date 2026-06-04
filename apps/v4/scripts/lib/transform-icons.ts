@@ -1,7 +1,7 @@
 import type { CodemodPlugin } from 'vue-metamorph'
 
 /**
- * Transforms `IconPlaceholder` components into concrete `lucide-vue-next`
+ * Transforms `IconPlaceholder` components into concrete `@lucide/vue`
  * icon components. Mirrors shadcn-ui's `applyIconTransform` step in
  * `build-registry.mts` — the codegen output should ship real icons rather
  * than the runtime-switchable `IconPlaceholder` wrapper used in the showcase.
@@ -21,7 +21,7 @@ import type { CodemodPlugin } from 'vue-metamorph'
  *
  *   <ChevronLeftIcon class="cn-rtl-flip size-4" />
  *
- * plus the matching `import { ChevronLeftIcon } from "lucide-vue-next"` added
+ * plus the matching `import { ChevronLeftIcon } from "@lucide/vue"` added
  * to the <script> block, and the `import IconPlaceholder from ...` line
  * removed. The shadcn-ui pipeline hardcodes `iconLibrary: "lucide"` for
  * generated output — per-style icon preference is handled at runtime in the
@@ -129,7 +129,7 @@ export function makeTransformIconsPlugin(): CodemodPlugin {
       }
 
       // Step 2: walk script blocks, remove the IconPlaceholder import, then
-      // add each collected icon as a named import from lucide-vue-next
+      // add each collected icon as a named import from @lucide/vue
       for (const scriptAST of scriptASTs) {
         traverseScriptAST(scriptAST, {
           visitImportDeclaration(path: any) {
@@ -144,7 +144,7 @@ export function makeTransformIconsPlugin(): CodemodPlugin {
         })
 
         for (const iconName of iconsToImport) {
-          astHelpers.createNamedImport(scriptAST, 'lucide-vue-next', iconName)
+          astHelpers.createNamedImport(scriptAST, '@lucide/vue', iconName)
         }
       }
 

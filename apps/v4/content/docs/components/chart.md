@@ -376,7 +376,7 @@ This allows you to share config and color tokens between charts. It can also wor
 ```vue showLineNumbers
 <script setup lang="ts">
 import type { ChartConfig } from '@/components/ui/chart'
-import { Monitor } from 'lucide-vue-next'
+import { Monitor } from '@lucide/vue'
 
 const chartConfig = {
   desktop: {
