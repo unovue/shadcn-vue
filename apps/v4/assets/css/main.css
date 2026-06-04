@@ -435,3 +435,138 @@
     @apply rounded-xl border-none bg-clip-padding shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800;
   }
 }
+
+@utility timeslot-field-horizontal {
+  &[data-timeslot-field] {
+    & [data-timeslot-scroll-area-viewport] {
+      @apply flex-row snap-x;
+    }
+
+    &:before {
+      @apply w-px h-full top-0 bottom-0 left-[50%] right-[50%];
+      --mask-start: bottom;
+      --mask-end: top;
+    }
+
+    & [data-timeslot-field-item] {
+      @apply flex-row;
+
+      &:first-child,
+      &:last-child {
+        @apply min-w-[calc(50%+2rem)]!;
+      }
+
+      &:first-child:last-child {
+        @apply min-w-full! min-h-auto!;
+      }
+
+      &>button {
+        @apply mx-0 my-1 min-w-14 min-h-20;
+      }
+
+      &.meridiem::before {
+        @apply my-0 ml-4;
+      }
+    }
+  }
+}
+
+@utility timeslot-horizontal {
+  &[data-timeslot-root] {
+    @apply flex-col;
+
+    & [data-timeslot-field] {
+      @apply timeslot-field-horizontal;
+    }
+  }
+}
+
+@layer components {
+  [data-timeslot-root] {
+    @apply flex-row;
+  }
+
+  [data-timeslot-field] {
+    &:before {
+      @apply content-[''] block absolute;
+
+      background-color: var(--border);
+      --mask-size: calc(var(--spacing) * 2);
+
+      mask-image: linear-gradient(
+        to var(--mask-start),
+        black var(--mask-size),
+        transparent var(--mask-size)
+      ), linear-gradient(
+        to var(--mask-end),
+        black var(--mask-size),
+        transparent var(--mask-size)
+      );
+    }
+
+    [data-timeslot-root] & {
+      [data-timeslot-scroll-area-viewport] {
+        @apply flex-col snap-y;
+      }
+
+      [data-timeslot-field-item] {
+        @apply flex-col;
+
+        &:first-child,
+        &:last-child {
+          @apply min-h-[calc(50%+2rem)]!;
+        }
+
+        &:first-child:last-child {
+          @apply min-w-auto! min-h-full!;
+        }
+
+        &>button {
+          @apply mx-1 my-0 min-w-20 min-h-14;
+        }
+
+        &.meridiem:before {
+          @apply mx-0 mt-4;
+        }
+      }
+
+      &:before {
+        @apply w-full h-px top-[50%] bottom-[50%] left-0 right-0;
+        --mask-start: left;
+        --mask-end: right;
+      }
+    }
+  }
+
+  [data-timeslot-field-item] {
+    &:first-child:last-child {
+      @apply justify-center;
+    }
+
+    &.meridiem {
+      &:before {
+        @apply inline-block snap-align-none text-xs;
+      }
+
+      &.meridiem-am {
+        &:before {
+          content: "am";
+        }
+
+        & ~ &:before {
+          @apply hidden;
+        }
+      }
+
+      &.meridiem-pm {
+        &:before {
+          content: "pm";
+        }
+
+        & ~ &:before {
+          @apply hidden;
+        }
+      }
+    }
+  }
+}
