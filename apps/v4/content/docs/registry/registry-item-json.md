@@ -114,7 +114,7 @@ Use `@version` to specify the version of your registry item.
   "dependencies": [
     "reka-ui",
     "zod",
-    "lucide-vue-next",
+    "@lucide/vue",
     "name@1.0.2"
   ]
 }

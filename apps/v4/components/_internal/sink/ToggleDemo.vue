@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BoldIcon, BookmarkIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next'
+import { BoldIcon, BookmarkIcon, ItalicIcon, UnderlineIcon } from '@lucide/vue'
 
 import { Toggle } from '@/registry/new-york-v4/ui/toggle'
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
 
-import { GalleryVerticalEnd } from "lucide-vue-next"
+import { GalleryVerticalEnd } from "@lucide/vue"
 import {
   Sidebar,
   SidebarContent,

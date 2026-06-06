@@ -52,7 +52,7 @@ describe('registry API', () => {
       expect(styles.length).toBeGreaterThan(0)
     })
 
-    it('includes all six styles', () => {
+    it('includes all seven styles', () => {
       const styles = getRegistryVisualStyles()
       const styleNames = styles.map(s => s.name)
       expect(styleNames).toContain('vega')
@@ -61,6 +61,7 @@ describe('registry API', () => {
       expect(styleNames).toContain('lyra')
       expect(styleNames).toContain('mira')
       expect(styleNames).toContain('luma')
+      expect(styleNames).toContain('sera')
     })
   })
 
@@ -84,6 +85,13 @@ describe('registry API', () => {
       expect(luma).toBeDefined()
       expect(luma?.name).toBe('luma')
       expect(luma?.label).toBe('Luma')
+    })
+
+    it('returns sera style by name', () => {
+      const sera = getRegistryVisualStyle('sera')
+      expect(sera).toBeDefined()
+      expect(sera?.name).toBe('sera')
+      expect(sera?.label).toBe('Sera')
     })
 
     it('returns undefined for unknown style', () => {
@@ -114,7 +122,7 @@ describe('registry API', () => {
       const lucide = getRegistryIconLibrary('lucide')
       expect(lucide).toBeDefined()
       expect(lucide?.name).toBe('lucide')
-      expect(lucide?.packages).toContain('lucide-vue-next')
+      expect(lucide?.packages).toContain('@lucide/vue')
     })
 
     it('returns tabler library by name', () => {
@@ -184,6 +192,7 @@ describe('registry API', () => {
       expect(presetNames).toContain('lyra')
       expect(presetNames).toContain('mira')
       expect(presetNames).toContain('luma')
+      expect(presetNames).toContain('sera')
     })
 
     it('all presets have complete configuration', () => {
@@ -244,6 +253,17 @@ describe('registry API', () => {
       expect(luma?.style).toBe('luma')
       expect(luma?.iconLibrary).toBe('lucide')
       expect(luma?.font).toBe('inter')
+    })
+
+    it('returns sera preset by name', () => {
+      const sera = getRegistryPreset('sera')
+      expect(sera).toBeDefined()
+      expect(sera?.name).toBe('sera')
+      expect(sera?.style).toBe('sera')
+      expect(sera?.iconLibrary).toBe('lucide')
+      expect(sera?.font).toBe('noto-sans')
+      expect(sera?.fontHeading).toBe('playfair-display')
+      expect(sera?.baseColor).toBe('taupe')
     })
 
     it('returns undefined for unknown preset', () => {

@@ -19,6 +19,7 @@ const currentPreset = computed(() => {
       && preset.theme === params.theme.value
       && preset.iconLibrary === params.iconLibrary.value
       && preset.font === params.font.value
+      && preset.fontHeading === params.fontHeading.value
       && preset.menuAccent === params.menuAccent.value
       && preset.menuColor === params.menuColor.value
       && preset.radius === params.radius.value,
@@ -38,8 +39,10 @@ function handlePresetChange(value: unknown) {
   params.style.value = preset.style
   params.baseColor.value = preset.baseColor
   params.theme.value = preset.theme
+  params.chartColor.value = preset.chartColor ?? preset.theme
   params.iconLibrary.value = preset.iconLibrary
   params.font.value = preset.font
+  params.fontHeading.value = preset.fontHeading
   params.menuAccent.value = preset.menuAccent
   params.menuColor.value = preset.menuColor
   params.radius.value = preset.radius

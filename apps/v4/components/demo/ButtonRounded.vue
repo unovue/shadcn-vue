@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpIcon } from 'lucide-vue-next'
+import { ArrowUpIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 </script>
 

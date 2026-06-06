@@ -51,6 +51,11 @@ export const STYLES = [
     label: "Luma",
     description: "Fluid, luminous, and glassy.",
   },
+  {
+    name: "sera",
+    label: "Sera",
+    description: "Editorial and typographic.",
+  },
 ] as const
 
 // Available fonts with Google Fonts configuration.
@@ -156,6 +161,15 @@ export const FONTS = [
     variable: "--font-mono",
     weight: ["400", "500", "600", "700"],
   },
+  {
+    name: "playfair-display",
+    label: "Playfair Display",
+    family: "Playfair Display",
+    provider: "google" as const,
+    import: "@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');",
+    variable: "--font-serif",
+    weight: ["400", "500", "600", "700", "800", "900"],
+  },
 ] as const
 
 // Available icon libraries
@@ -163,7 +177,7 @@ export const ICON_LIBRARIES = [
   {
     name: "lucide",
     label: "Lucide",
-    packages: ["lucide-vue-next"],
+    packages: ["@lucide/vue"],
   },
   {
     name: "tabler",

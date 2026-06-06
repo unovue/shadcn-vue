@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, Plus, Send } from 'lucide-vue-next'
+import { Check, Plus, Send } from '@lucide/vue'
 import { computed, ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'

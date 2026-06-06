@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GalleryVerticalEnd } from "lucide-vue-next"
+import { GalleryVerticalEnd } from "@lucide/vue"
 
 import OTPForm from "@/registry/new-york-v4/blocks/otp-03/components/OTPForm.vue"
 </script>

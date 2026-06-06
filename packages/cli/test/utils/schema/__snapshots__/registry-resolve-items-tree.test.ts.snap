@@ -13,7 +13,7 @@ exports[`registryResolveItemTree > should resolve index 1`] = `
   "dependencies": [
     "tailwindcss-animate",
     "class-variance-authority",
-    "lucide-vue-next",
+    "@lucide/vue",
     "clsx",
     "tailwind-merge",
     "reka-ui",
@@ -528,7 +528,7 @@ onUnmounted(() => {
 import type { ListboxFilterProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { Search } from "lucide-vue-next"
+import { Search } from "@lucide/vue"
 import { ListboxFilter, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
 import { useCommand } from "."
@@ -793,7 +793,7 @@ const props = defineProps<DialogCloseProps>()
 import type { DialogContentEmits, DialogContentProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { X } from "lucide-vue-next"
+import { X } from "@lucide/vue"
 import {
   DialogClose,
   DialogContent,
@@ -920,7 +920,7 @@ const props = defineProps<{
 import type { DialogContentEmits, DialogContentProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { X } from "lucide-vue-next"
+import { X } from "@lucide/vue"
 import {
   DialogClose,
   DialogContent,

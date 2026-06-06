@@ -51,7 +51,7 @@ npx shadcn-vue@latest add empty
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { FolderOpen } from 'lucide-vue-next'
+import { FolderOpen } from '@lucide/vue'
 import { Button } from '@/registry/default/ui/button'
 import {
   Empty,

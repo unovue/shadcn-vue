@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { XIcon } from '@lucide/vue'
 import { useForm } from '@tanstack/vue-form'
-import { XIcon } from 'lucide-vue-next'
 import { toast } from 'vue-sonner'
 import { z } from 'zod'
 

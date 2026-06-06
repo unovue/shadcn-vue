@@ -23,6 +23,7 @@ describe('composeStyleId', () => {
 
   it('composes visual style with base', () => {
     expect(composeStyleId('reka', 'luma')).toBe('reka-luma')
+    expect(composeStyleId('reka', 'sera')).toBe('reka-sera')
     expect(composeStyleId('reka', 'vega')).toBe('reka-vega')
     expect(composeStyleId('reka', 'nova')).toBe('reka-nova')
     expect(composeStyleId('reka', 'maia')).toBe('reka-maia')

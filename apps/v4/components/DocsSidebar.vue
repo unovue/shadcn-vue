@@ -38,10 +38,10 @@ const TOP_LEVEL_SECTIONS = [
     name: 'RTL',
     href: '/docs/rtl',
   },
-  // {
-  //   name: 'Skills',
-  //   href: '/docs/skills',
-  // },
+  {
+    name: 'Skills',
+    href: '/docs/skills',
+  },
   {
     name: 'MCP Server',
     href: '/docs/mcp',

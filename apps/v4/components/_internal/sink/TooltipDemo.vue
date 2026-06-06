@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InfoIcon } from 'lucide-vue-next'
+import { InfoIcon } from '@lucide/vue'
 
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {

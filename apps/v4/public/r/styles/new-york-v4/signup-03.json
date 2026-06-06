@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/blocks/signup-03/page.vue",
-      "content": "<script setup lang=\"ts\">\nimport { GalleryVerticalEnd } from \"lucide-vue-next\"\n\nimport SignupForm from \"@/registry/new-york-v4/blocks/signup-03/components/SignupForm.vue\"\n</script>\n\n<template>\n  <div class=\"bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10\">\n    <div class=\"flex w-full max-w-sm flex-col gap-6\">\n      <a href=\"#\" class=\"flex items-center gap-2 self-center font-medium\">\n        <div class=\"bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md\">\n          <GalleryVerticalEnd class=\"size-4\" />\n        </div>\n        Acme Inc.\n      </a>\n      <SignupForm />\n    </div>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { GalleryVerticalEnd } from \"@lucide/vue\"\n\nimport SignupForm from \"@/registry/new-york-v4/blocks/signup-03/components/SignupForm.vue\"\n</script>\n\n<template>\n  <div class=\"bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10\">\n    <div class=\"flex w-full max-w-sm flex-col gap-6\">\n      <a href=\"#\" class=\"flex items-center gap-2 self-center font-medium\">\n        <div class=\"bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md\">\n          <GalleryVerticalEnd class=\"size-4\" />\n        </div>\n        Acme Inc.\n      </a>\n      <SignupForm />\n    </div>\n  </div>\n</template>\n",
       "type": "registry:page",
       "target": "pages/signup/index.vue"
     },

@@ -239,8 +239,7 @@ export async function transformTwPrefix(opts: TransformOpts): Promise<CodemodPlu
                 && node.parent.key?.type === 'VIdentifier'
                 && ['class', 'className', 'classes', 'classNames'].includes(node.parent.key.name)) {
                 const cleanValue = node.value.replace(/"/g, '')
-                const prefixedValue = addPrefix(cleanValue)
-                node.value = `"${prefixedValue}"`
+                node.value = addPrefix(cleanValue)
               }
             }
           },

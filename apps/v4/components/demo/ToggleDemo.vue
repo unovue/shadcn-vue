@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Bold } from 'lucide-vue-next'
+import { Bold } from '@lucide/vue'
 import { Toggle } from '@/registry/new-york-v4/ui/toggle'
 </script>
 

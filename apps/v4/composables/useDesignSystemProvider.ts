@@ -1,9 +1,15 @@
 import type { DesignSystemConfig } from '~/registry/config'
 import { FONTS } from '~/lib/fonts'
-import { buildRegistryTheme, DEFAULT_CONFIG, getTheme } from '~/registry/config'
+import { buildRegistryTheme, DEFAULT_CONFIG, getTheme, POINTER_CURSOR_SELECTOR } from '~/registry/config'
 
 const THEME_STYLE_ELEMENT_ID = 'design-system-theme-vars'
 const MANAGED_BODY_CLASS_PREFIXES = ['style-', 'base-color-'] as const
+const POINTER_CURSOR_CSS = `@layer base {
+  ${POINTER_CURSOR_SELECTOR} {
+    cursor: pointer;
+  }
+}
+`
 
 function removeManagedBodyClasses(body: Element) {
   for (const className of Array.from(body.classList)) {
@@ -38,6 +44,7 @@ export function useDesignSystemProvider() {
     radius,
     iconLibrary,
     chartColor,
+    pointer,
   } = useDesignSystemSearchParams('replace')
   const colorMode = useColorMode()
 
@@ -56,12 +63,17 @@ export function useDesignSystemProvider() {
     radius.value = value.radius
     iconLibrary.value = value.iconLibrary
     chartColor.value = value.chartColor
+    if ('pointer' in value) {
+      pointer.value = value.pointer === true
+    }
   })
 
   const isReady = ref(false)
 
+  // Styles that hard-edge by design (no border-radius): mirrors shadcn-ui.
+  const RADIUS_LOCKED_STYLES = new Set(['lyra', 'sera'])
   const effectiveRadius = computed(() =>
-    style.value === 'lyra' ? 'none' : radius.value,
+    RADIUS_LOCKED_STYLES.has(style.value) ? 'none' : radius.value,
   )
 
   const selectedFont = computed(() =>
@@ -108,9 +120,9 @@ export function useDesignSystemProvider() {
     }
   })
 
-  // Force radius to "none" when style is "lyra".
+  // Force radius to "none" when the style hard-edges (lyra, sera).
   watch([style, radius], ([styleValue, radiusValue]) => {
-    if (styleValue === 'lyra' && radiusValue !== 'none') {
+    if (RADIUS_LOCKED_STYLES.has(styleValue) && radiusValue !== 'none') {
       radius.value = 'none' as typeof radius.value
     }
   })
@@ -214,7 +226,8 @@ export function useDesignSystemProvider() {
     styleElement.textContent = [
       buildCssRule(':root', mergedLight),
       buildCssRule('.dark', mergedDark),
-    ].join('\n')
+      pointer.value ? POINTER_CURSOR_CSS : '',
+    ].filter(Boolean).join('\n')
   })
 
   // Handle menu color inversion by adding/removing dark class to elements with cn-menu-target.

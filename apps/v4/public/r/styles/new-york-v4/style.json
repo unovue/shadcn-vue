@@ -3,7 +3,7 @@
   "name": "style",
   "dependencies": [
     "class-variance-authority",
-    "lucide-vue-next"
+    "@lucide/vue"
   ],
   "devDependencies": [
     "tw-animate-css"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Link2Icon } from 'lucide-vue-next'
+import { Link2Icon } from '@lucide/vue'
 import { ButtonGroup, ButtonGroupText } from '@/registry/new-york-v4/ui/button-group'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/registry/new-york-v4/ui/input-group'
 import { Label } from '@/registry/new-york-v4/ui/label'

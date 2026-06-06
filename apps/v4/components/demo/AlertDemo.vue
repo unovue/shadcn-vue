@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from 'lucide-vue-next'
+import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from '@lucide/vue'
 import {
   Alert,
   AlertDescription,

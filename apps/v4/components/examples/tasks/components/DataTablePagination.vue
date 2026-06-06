@@ -6,7 +6,7 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 
 import { Button } from '@/styles/reka-nova/ui/button'
 import {

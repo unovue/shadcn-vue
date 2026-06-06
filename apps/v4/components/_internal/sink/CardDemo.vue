@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BathIcon, BedIcon, LandPlotIcon } from 'lucide-vue-next'
+import { BathIcon, BedIcon, LandPlotIcon } from '@lucide/vue'
 import {
   Avatar,
   AvatarFallback,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BadgeCheckIcon } from 'lucide-vue-next'
+import { BadgeCheckIcon } from '@lucide/vue'
 import { Badge } from '@/registry/new-york-v4/ui/badge'
 </script>
 

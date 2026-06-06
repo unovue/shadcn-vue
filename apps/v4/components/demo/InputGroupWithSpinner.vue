@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LoaderIcon } from 'lucide-vue-next'
+import { LoaderIcon } from '@lucide/vue'
 import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@/registry/new-york-v4/ui/input-group'
 import { Spinner } from '@/registry/new-york-v4/ui/spinner'
 </script>

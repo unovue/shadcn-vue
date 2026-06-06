@@ -7,7 +7,7 @@ import {
   CircleOff,
   HelpCircle,
   Timer,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import { h } from 'vue'
 
 export const labels = [

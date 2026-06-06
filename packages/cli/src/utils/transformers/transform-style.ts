@@ -73,6 +73,16 @@ const STYLE_CLASS_MAPPINGS: Record<string, Record<string, string>> = {
     'rounded-lg': 'rounded-3xl',
     'rounded-xl': 'rounded-3xl',
   },
+  sera: {
+    // Sera style: Editorial and typographic. Hard corners, uppercase accents.
+    // `rounded-full` is intentionally preserved for circular elements (avatars).
+    'rounded-sm': 'rounded-none',
+    'rounded-md': 'rounded-none',
+    'rounded-lg': 'rounded-none',
+    'rounded-xl': 'rounded-none',
+    'rounded-2xl': 'rounded-none',
+    'rounded-3xl': 'rounded-none',
+  },
 }
 
 /**

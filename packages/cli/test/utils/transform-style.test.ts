@@ -354,6 +354,57 @@ describe('transformStyle', () => {
     })
   })
 
+  describe('sera style (editorial, typographic)', () => {
+    it('flattens border radius to rounded-none', () => {
+      const result = metaTransform(
+        `<template>
+  <div class="rounded-sm rounded-md rounded-lg rounded-xl rounded-2xl rounded-3xl">Content</div>
+</template>
+
+<script setup lang="ts">
+</script>`,
+        'test.vue',
+        [
+          transformStyle({
+            filename: 'test.vue',
+            raw: '',
+            config: createTestConfig('sera'),
+          }),
+        ],
+      )
+
+      expect(result.code).toContain('rounded-none')
+      expect(result.code).not.toContain('rounded-sm"')
+      expect(result.code).not.toContain('rounded-md"')
+      expect(result.code).not.toContain('rounded-lg"')
+      expect(result.code).not.toContain('rounded-xl"')
+      expect(result.code).not.toContain('rounded-2xl"')
+      expect(result.code).not.toContain('rounded-3xl"')
+    })
+
+    it('preserves rounded-full for circular elements', () => {
+      const result = metaTransform(
+        `<template>
+  <div class="rounded-full size-8">Content</div>
+</template>
+
+<script setup lang="ts">
+</script>`,
+        'test.vue',
+        [
+          transformStyle({
+            filename: 'test.vue',
+            raw: '',
+            config: createTestConfig('sera'),
+          }),
+        ],
+      )
+
+      expect(result.code).toContain('rounded-full')
+      expect(result.code).not.toContain('rounded-none')
+    })
+  })
+
   describe('handles multiple classes', () => {
     it('transforms multiple classes in same element', () => {
       const result = metaTransform(

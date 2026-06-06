@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Style, StyleName } from '@/registry/config'
+import { PRESETS } from '@/registry/config'
 
 const props = defineProps<{
   styles: Style[]
@@ -9,6 +10,32 @@ const props = defineProps<{
 
 const params = useDesignSystemSearchParams()
 const currentStyle = computed(() => props.styles.find(style => style.name === params.style.value))
+
+// Picking a style applies the full preset for that base+style (mirrors
+// shadcn-ui upstream). Without this, switching to a style with non-default
+// fields (e.g. Sera's taupe + Playfair Display heading) would leave the rest
+// of the design system on whatever values the user previously had.
+function handleStyleChange(value: unknown) {
+  const styleName = value as StyleName
+  params.style.value = styleName
+
+  const preset = PRESETS.find(
+    p => p.base === params.base.value && p.style === styleName,
+  )
+  if (!preset) {
+    return
+  }
+
+  params.baseColor.value = preset.baseColor
+  params.theme.value = preset.theme
+  params.chartColor.value = preset.chartColor ?? preset.theme
+  params.iconLibrary.value = preset.iconLibrary
+  params.font.value = preset.font
+  params.fontHeading.value = preset.fontHeading
+  params.menuAccent.value = preset.menuAccent
+  params.menuColor.value = preset.menuColor
+  params.radius.value = preset.radius
+}
 </script>
 
 <template>
@@ -36,9 +63,7 @@ const currentStyle = computed(() => props.styles.find(style => style.name === pa
       >
         <PickerRadioGroup
           :model-value="currentStyle?.name"
-          @update:model-value="(value) => {
-            params.style.value = value as StyleName
-          }"
+          @update:model-value="handleStyleChange"
         >
           <PickerGroup>
             <PickerRadioItem

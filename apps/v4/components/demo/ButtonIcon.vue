@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleFadingArrowUpIcon } from 'lucide-vue-next'
+import { CircleFadingArrowUpIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BookUser, CreditCard, Truck } from 'lucide-vue-next'
+import { BookUser, CreditCard, Truck } from '@lucide/vue'
 import { Stepper, StepperDescription, StepperIndicator, StepperItem, StepperSeparator, StepperTitle, StepperTrigger } from '@/registry/new-york-v4/ui/stepper'
 
 const steps = [

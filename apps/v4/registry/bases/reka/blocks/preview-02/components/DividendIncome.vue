@@ -81,6 +81,10 @@ const miniChartConfig = {
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
+
+// Hard-edged styles (lyra, sera) flatten the bar corners — mirrors shadcn-ui.
+const params = useDesignSystemSearchParams()
+const isRounded = computed(() => !["lyra", "sera"].includes(params.style.value))
 </script>
 
 <template>
@@ -118,7 +122,7 @@ const miniChartConfig = {
                 :x="(d: HoldingData) => d.index"
                 :y="[(d: HoldingData) => d.value]"
                 :color="[miniChartConfig.value.color]"
-                :rounded-corners="3"
+                :rounded-corners="isRounded ? 3 : 0"
               />
               <ChartTooltip />
               <ChartCrosshair

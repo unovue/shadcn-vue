@@ -131,6 +131,18 @@ export const fonts = [
       import: "JetBrains_Mono",
     },
   },
+  {
+    name: "font-playfair-display",
+    title: "Playfair Display",
+    type: "registry:font",
+    font: {
+      family: "'Playfair Display Variable', serif",
+      provider: "google",
+      variable: "--font-serif",
+      subsets: ["latin"],
+      import: "Playfair_Display",
+    },
+  },
   // {
   //   name: "font-geist-mono",
   //   title: "Geist Mono",

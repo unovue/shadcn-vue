@@ -3,6 +3,22 @@
   "homepage": "https://shadcn-vue.com",
   "items": [
     {
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "class-variance-authority",
+        "@lucide/vue"
+      ],
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {}
+    },
+    {
       "name": "accordion",
       "type": "registry:ui",
       "dependencies": [

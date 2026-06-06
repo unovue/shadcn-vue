@@ -264,12 +264,10 @@ export function transformRtl(opts: TransformOpts): CodemodPlugin {
               if (node.parent?.type === 'VAttribute'
                 && node.parent.key?.type === 'VIdentifier'
                 && CLASS_ATTR_NAMES.has(node.parent.key.name)) {
-                // VLiteral values may include wrapping quotes in source;
-                // strip them before mapping and re-wrap to preserve output.
                 const cleanValue = node.value.replace(/"/g, '')
                 const mapped = applyRtlMapping(cleanValue)
                 if (mapped !== cleanValue) {
-                  node.value = `"${mapped}"`
+                  node.value = mapped
                   transformCount++
                 }
               }

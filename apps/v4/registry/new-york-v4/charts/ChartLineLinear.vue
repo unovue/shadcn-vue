@@ -2,10 +2,10 @@
 import type {
   ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
-import { CurveType } from "@unovis/ts"
+import { TrendingUp } from "@lucide/vue"
 
+import { CurveType } from "@unovis/ts"
 import { VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
-import { TrendingUp } from "lucide-vue-next"
 import {
   Card,
   CardContent,

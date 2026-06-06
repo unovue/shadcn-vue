@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Copy } from 'lucide-vue-next'
+import { Copy } from '@lucide/vue'
 
 import { Button } from '@/styles/reka-nova/ui/button'
 import { Input } from '@/styles/reka-nova/ui/input'

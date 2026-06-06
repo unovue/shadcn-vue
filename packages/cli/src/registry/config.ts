@@ -10,7 +10,7 @@ import { createConfig } from "@/src/utils/get-config"
 // for a base + visual style separately, then composes them into a single
 // identifier (e.g. `reka-luma`) which is what gets written to components.json
 // and used directly in fetch URLs — matching shadcn-ui's model.
-const VISUAL_STYLES = new Set(["vega", "nova", "maia", "lyra", "mira", "luma"])
+const VISUAL_STYLES = new Set(["vega", "nova", "maia", "lyra", "mira", "luma", "sera"])
 
 /**
  * Composes a base + visual style choice into the canonical style identifier

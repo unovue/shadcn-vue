@@ -19,6 +19,10 @@ import {
   componentToString,
 } from "@/registry/bases/reka/ui/chart"
 
+// Hard-edged styles (lyra, sera) flatten the bar corners — mirrors shadcn-ui.
+const params = useDesignSystemSearchParams()
+const isRounded = computed(() => !["lyra", "sera"].includes(params.style.value))
+
 const barChartData = [
   { month: "January", desktop: 186, mobile: 80 },
   { month: "February", desktop: 305, mobile: 200 },
@@ -65,7 +69,7 @@ const desktopDeltaPrefix = desktopDelta > 0 ? "+" : ""
             :x="(_d: Data, i: number) => i"
             :y="[(d: Data) => d.desktop, (d: Data) => d.mobile]"
             :color="[barChartConfig.desktop.color, barChartConfig.mobile.color]"
-            :rounded-corners="4"
+            :rounded-corners="isRounded ? 4 : 0"
           />
           <VisAxis
             type="x"

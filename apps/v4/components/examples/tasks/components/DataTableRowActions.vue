@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Row } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import { MoreHorizontal } from 'lucide-vue-next'
+import { MoreHorizontal } from '@lucide/vue'
 import { computed } from 'vue'
 import { Button } from '@/styles/reka-nova/ui/button'
 import {

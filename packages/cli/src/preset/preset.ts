@@ -22,6 +22,7 @@ export const PRESET_STYLES = [
   'lyra',
   'mira',
   'luma',
+  'sera',
 ] as const
 
 export const PRESET_BASE_COLORS = [
@@ -81,6 +82,7 @@ export const PRESET_FONTS = [
   'public-sans',
   'outfit',
   'jetbrains-mono',
+  'playfair-display',
 ] as const
 
 export const PRESET_FONT_HEADINGS = ['inherit', ...PRESET_FONTS] as const
