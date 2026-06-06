@@ -9,9 +9,9 @@ const props = defineProps<{
   class?: HTMLAttributes["class"]
 }>()
 
-const width = computed(() => {
-  return `${Math.floor(Math.random() * 40) + 50}%`
-})
+const uid = useId()
+const index = Number.parseInt(uid.replace(/\D/g, ''), 10)
+const width = `${(((index * 2654435761) >>> 0) % 40) + 50}%`
 </script>
 
 <template>
