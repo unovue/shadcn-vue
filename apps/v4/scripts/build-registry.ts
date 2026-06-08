@@ -1,8 +1,8 @@
 import type { RegistryBase, RegistryContentType } from './registry.config'
-import { exec } from 'node:child_process'
 import { existsSync, promises as fs } from 'node:fs'
 
 import path, { resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { rimraf } from 'rimraf'
 import { getAllBlocks } from '@/lib/blocks'
 import { registry } from '@/registry/index'
@@ -10,6 +10,7 @@ import { ui } from '~/registry/new-york-v4/ui/_registry'
 import { crawlBlock, crawlChart, crawlComposables, crawlExample, crawlLib, crawlUI } from './crawl-content'
 import { buildStyles } from './lib/build-styles'
 import { buildStylesRegistry } from './lib/build-styles-registry'
+import { runEslintFix, runPrettierWrite, runShadcnVueCli } from './lib/run-formatters'
 import { registryConfig } from './registry.config'
 
 async function writeFile(path: string, payload: any) {
@@ -67,7 +68,7 @@ async function buildRegistryContentType(
 export const ${contentType.name}: Registry["items"] = ${JSON.stringify(result ?? '', null, 2)}`,
   )
 
-  exec(`eslint --fix ${outputPath}`)
+  await runEslintFix([outputPath])
 
   return result
 }
@@ -184,20 +185,11 @@ async function buildRegistryJsonFile(base: RegistryBase) {
   await fs.mkdir(outputDir, { recursive: true })
 
   const registryJsonPath = path.join(outputDir, 'registry.json')
-  await fs.writeFile(registryJsonPath, JSON.stringify(fixedRegistry, null, 2))
-  await new Promise<void>((resolve, reject) => {
-    exec(`pnpm exec prettier --write "${registryJsonPath}"`, (error) => {
-      if (error) {
-        reject(error)
-      }
-      else {
-        resolve()
-      }
-    })
-  })
+  await writeFile(registryJsonPath, JSON.stringify(fixedRegistry, null, 2))
+  await runPrettierWrite([registryJsonPath])
 
   const tempRegistryPath = path.join(process.cwd(), `registry-${base.name}.json`)
-  await fs.writeFile(tempRegistryPath, JSON.stringify(fixedRegistry, null, 2))
+  await writeFile(tempRegistryPath, JSON.stringify(fixedRegistry, null, 2))
 
   return tempRegistryPath
 }
@@ -215,57 +207,22 @@ async function buildRegistry(base: RegistryBase, tempRegistryPath: string) {
   // eslint-disable-next-line no-console
   console.log(`🏗️  Building registry with CLI for ${base.name}...`)
 
-  return new Promise<{ success: boolean, skipped?: boolean, error?: string }>((resolve) => {
-    // Use local shadcn copy.
-    const command = `node ../../packages/cli/dist/index.js build ${tempRegistryPath} --output ${base.publicOutputDir}`
-    // eslint-disable-next-line no-console
-    console.log(`   Command: ${command}`)
-
-    const process = exec(command)
-
-    // Capture stdout and stderr
-    let stdout = ''
-    let stderr = ''
-
-    if (process.stdout) {
-      process.stdout.on('data', (data) => {
-        stdout += data
-        // eslint-disable-next-line no-console
-        console.log(data.toString().trim())
-      })
+  try {
+    await runShadcnVueCli(['build', tempRegistryPath, '--output', base.publicOutputDir!])
+    return { success: true }
+  }
+  catch (err: any) {
+    console.error(`\n❌ CLI build failed:`, err)
+    if (err.stderr) {
+      console.error('Error output:', err.stderr.toString())
     }
-
-    if (process.stderr) {
-      process.stderr.on('data', (data) => {
-        stderr += data
-        console.error(data.toString().trim())
-      })
+    if (err.stdout) {
+      // eslint-disable-next-line no-console
+      console.log('Output:', err.stdout.toString())
     }
-
-    process.on('exit', (code) => {
-      if (code === 0) {
-        resolve({ success: true })
-      }
-      else {
-        console.error(`\n❌ CLI build failed with code ${code}`)
-        if (stderr) {
-          console.error('Error output:', stderr)
-        }
-        if (stdout) {
-          // eslint-disable-next-line no-console
-          console.log('Output:', stdout)
-        }
-        console.warn('⚠️  Continuing with rest of build...')
-        resolve({ success: false, error: `Process exited with code ${code}` })
-      }
-    })
-
-    process.on('error', (err) => {
-      console.error(`\n❌ Failed to execute CLI command:`, err)
-      console.warn('⚠️  Continuing with rest of build...')
-      resolve({ success: false, error: err.message })
-    })
-  })
+    console.warn('⚠️  Continuing with rest of build...')
+    return { success: false, error: err.message }
+  }
 }
 
 /**
@@ -275,10 +232,10 @@ async function buildPublicIndex() {
   rimraf.sync(path.join(process.cwd(), 'public/r/index.json'))
   await fs.writeFile(
     path.join(process.cwd(), 'public/r/index.json'),
-    JSON.stringify(ui, null, 2),
+    `${JSON.stringify(ui, null, 2)}\n`,
   )
 
-  await exec(`eslint --fix public/r/index.json`)
+  await runEslintFix(['public/r/index.json'])
 }
 
 /**
@@ -296,10 +253,10 @@ async function buildBlocksIndex() {
   rimraf.sync(path.join(process.cwd(), 'registry/__blocks__.json'))
   await fs.writeFile(
     path.join(process.cwd(), 'registry/__blocks__.json'),
-    JSON.stringify(payload, null, 2),
+    `${JSON.stringify(payload, null, 2)}\n`,
   )
 
-  await exec(`eslint --fix registry/__blocks__.json`)
+  await runEslintFix(['registry/__blocks__.json'])
 }
 
 /**
@@ -346,7 +303,7 @@ export const Index: Record<string, Record<string, any>> = {\n`
 
       try {
         // Dynamically import the registry file
-        const registryModule = await import(path.resolve(registryFilePath))
+        const registryModule = await import(pathToFileURL(path.resolve(registryFilePath)).href)
         const items = registryModule[contentType.name] || []
 
         // Add each item to the index
@@ -394,7 +351,7 @@ export const Index: Record<string, Record<string, any>> = {\n`
   rimraf.sync(outputPath)
   await fs.writeFile(outputPath, index)
 
-  exec(`eslint --fix ${outputPath}`)
+  await runEslintFix([outputPath])
 
   // eslint-disable-next-line no-console
   console.log('   ✅ Bases index generated')

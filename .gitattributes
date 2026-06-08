@@ -1,0 +1,4 @@
+# Keep registry codegen output stable across Windows and POSIX checkouts.
+apps/v4/styles/reka-*/** text eol=lf
+apps/v4/public/r/**/*.json text eol=lf
+apps/v4/registry/**/*.json text eol=lf
