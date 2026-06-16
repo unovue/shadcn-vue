@@ -34,6 +34,26 @@ it('get raw config does not throw when cwd has a sibling components/ dir and no 
   }
 })
 
+// Guards against over-broad suppression: when an explicit components.config.ts
+// *does* exist and genuinely fails to resolve a module (here, one literally
+// named 'components'), that's a real user error and must still surface as
+// ConfigParseError rather than being swallowed by the MODULE_NOT_FOUND
+// work-around above.
+it('get raw config still throws for a real MODULE_NOT_FOUND inside an explicit config file', async () => {
+  const originalCwd = process.cwd()
+  const fixtureDir = path.resolve(
+    __dirname,
+    '../fixtures/config-explicit-broken-import',
+  )
+  process.chdir(fixtureDir)
+  try {
+    await expect(getRawConfig(fixtureDir)).rejects.toThrowError()
+  }
+  finally {
+    process.chdir(originalCwd)
+  }
+})
+
 it('get raw config', async () => {
   expect(
     await getRawConfig(path.resolve(__dirname, '../fixtures/config-none')),
