@@ -1166,6 +1166,31 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "marker": {
+    name: "marker",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/marker/Marker.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/marker/MarkerContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/marker/MarkerIcon.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/marker/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
   "menubar": {
     name: "menubar",
     description: "",

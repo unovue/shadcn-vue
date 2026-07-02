@@ -1208,6 +1208,31 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "marker",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/marker/Marker.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marker/MarkerContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marker/MarkerIcon.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marker/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "menubar",
     type: "registry:ui",
     dependencies: [
