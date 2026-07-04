@@ -1452,6 +1452,37 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "marker": {
+      name: "marker",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/marker/Marker.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/marker/MarkerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/marker/MarkerIcon.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/marker/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     "menubar": {
       name: "menubar",
       title: "undefined",
