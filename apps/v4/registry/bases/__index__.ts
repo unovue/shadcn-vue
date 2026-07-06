@@ -283,6 +283,42 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "bubble": {
+      name: "bubble",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/bubble/Bubble.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/BubbleContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/BubbleGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/BubbleReactions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     "button": {
       name: "button",
       title: "undefined",
@@ -1567,6 +1603,52 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/menubar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "message": {
+      name: "message",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/message/Message.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageAvatar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }

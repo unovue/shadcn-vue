@@ -209,6 +209,35 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "bubble",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/bubble/Bubble.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/BubbleContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/BubbleGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/BubbleReactions.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "button",
     type: "registry:ui",
     dependencies: [
@@ -1283,6 +1312,43 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "message",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/message/Message.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageAvatar.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageFooter.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageHeader.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "native-select",
     type: "registry:ui",
     dependencies: [
@@ -2228,10 +2294,5 @@ export const ui: Registry["items"] = [
         type: "registry:ui",
       },
     ],
-  },
-  {
-    name: "tree",
-    type: "registry:ui",
-    files: [],
   },
 ]
