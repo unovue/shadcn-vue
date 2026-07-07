@@ -1359,6 +1359,63 @@
     @apply animate-none! relative bg-popover/70 before:pointer-events-none before:absolute before:inset-0 before:-z-1 before:rounded-[inherit] before:backdrop-blur-2xl before:backdrop-saturate-150 **:data-[slot$=-item]:focus:bg-foreground/10 **:data-[slot$=-item]:data-highlighted:bg-foreground/10 **:data-[slot$=-separator]:bg-foreground/5 **:data-[slot$=-trigger]:focus:bg-foreground/10 **:data-[slot$=-trigger]:aria-expanded:bg-foreground/10! **:data-[variant=destructive]:focus:bg-foreground/10! **:data-[variant=destructive]:text-accent-foreground! **:data-[variant=destructive]:**:text-accent-foreground!;
   }
 
+  /* MARK: Attachment */
+  .cn-attachment {
+    @apply rounded-xl w-fit focus-within:ring-1 focus-within:ring-ring/50;
+  }
+
+  .cn-attachment-orientation-horizontal {
+    @apply min-w-40;
+  }
+
+  .cn-attachment-orientation-vertical {
+    @apply w-24 has-data-[slot=attachment-content]:w-30;
+  }
+
+  .cn-attachment-size-default {
+    @apply gap-2 has-data-[slot=attachment-content]:px-2.5 has-data-[slot=attachment-content]:py-2 has-data-[slot=attachment-media]:p-2 text-sm;
+  }
+
+  .cn-attachment-size-sm {
+    @apply gap-2.5 has-data-[slot=attachment-content]:px-2 has-data-[slot=attachment-content]:py-1.5 has-data-[slot=attachment-media]:p-1.5 text-xs;
+  }
+
+  .cn-attachment-size-xs {
+    @apply gap-1.5 has-data-[slot=attachment-content]:px-1.5 has-data-[slot=attachment-content]:py-1 has-data-[slot=attachment-media]:p-1 text-xs rounded-lg;
+  }
+
+  .cn-attachment-media {
+    @apply bg-muted text-foreground w-10 rounded-lg group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-md [&_svg:not([class*='size-'])]:size-4 group-data-[size=xs]/attachment:[&_svg:not([class*='size-'])]:size-3.5 group-data-[orientation=vertical]/attachment:w-full group-data-[orientation=vertical]/attachment:[&_svg:not([class*='size-'])]:size-6 group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6!;
+  }
+
+  .cn-attachment-media-variant-image {
+    @apply opacity-60 group-data-[state=idle]/attachment:opacity-100 group-data-[state=done]/attachment:opacity-100;
+  }
+
+  .cn-attachment-content {
+    @apply leading-tight group-data-[orientation=vertical]/attachment:px-1;
+  }
+
+  .cn-attachment-title {
+    @apply font-medium;
+  }
+
+  .cn-attachment-description {
+    @apply mt-0.5 text-xs;
+  }
+
+  .cn-attachment-actions {
+    @apply group-data-[orientation=vertical]/attachment:absolute group-data-[orientation=vertical]/attachment:top-3 group-data-[orientation=vertical]/attachment:right-3 relative z-20 group-data-[orientation=vertical]/attachment:gap-1;
+  }
+
+  .cn-attachment-group {
+    @apply gap-3 scroll-px-1 py-1;
+  }
+
+  .cn-attachment-trigger {
+    @apply absolute inset-0 z-10 outline-none;
+  }
+
   /* MARK: Marker */
   .cn-marker {
     @apply gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*='size-'])]:size-4 min-h-4 text-left;

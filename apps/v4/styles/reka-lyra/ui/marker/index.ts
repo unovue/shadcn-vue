@@ -6,7 +6,7 @@ export { default as MarkerContent } from './MarkerContent.vue'
 export { default as MarkerIcon } from './MarkerIcon.vue'
 
 export const markerVariants = cva(
-  'group/marker relative flex w-full items-center',
+  'gap-2 text-xs text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*=\'size-\'])]:size-3.5 min-h-4 text-left group/marker relative flex w-full items-center',
   {
     variants: {
       variant: {
