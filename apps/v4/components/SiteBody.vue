@@ -6,7 +6,7 @@ const isScaled = computed(() => !!activeTheme.value?.endsWith('-scaled'))
 
 <template>
   <Body
-    class="group/body overscroll-none antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]"
+    class="group/body overscroll-none antialiased [--footer-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)] [--header-height:calc(var(--spacing)*14)] lg:[--header-height:calc(var(--spacing)*16)]"
     :class="[
       activeTheme ? `theme-${activeTheme === 'neutral' ? 'default' : activeTheme}` : '',
       isScaled ? 'theme-scaled' : '',

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
     { path: '~/components/demo', pathPrefix: false },
@@ -18,38 +18,6 @@ export default defineNuxtConfig({
       ignore: ['*.ts'],
     },
   ],
-  fonts: {
-    defaults: {
-      weights: [400, 500, 600, 700],
-    },
-    families: [
-      // To improve and only load font when needed
-      { name: 'Geist', global: true, provider: 'google' },
-      { name: 'Geist Mono', global: true, provider: 'google' },
-      { name: 'Inter', global: true, provider: 'google' },
-      { name: 'Noto Sans', global: true, provider: 'google' },
-      { name: 'Noto Serif', global: true, provider: 'google' },
-      { name: 'Nunito Sans', global: true, provider: 'google' },
-      { name: 'Figtree', global: true, provider: 'google' },
-      { name: 'JetBrains Mono', global: true, provider: 'google' },
-      { name: 'Roboto', global: true, provider: 'google' },
-      { name: 'Roboto Slab', global: true, provider: 'google' },
-      { name: 'Raleway', global: true, provider: 'google' },
-      { name: 'DM Sans', global: true, provider: 'google' },
-      { name: 'Public Sans', global: true, provider: 'google' },
-      { name: 'Outfit', global: true, provider: 'google' },
-      { name: 'Oxanium', global: true, provider: 'google' },
-      { name: 'Manrope', global: true, provider: 'google' },
-      { name: 'Space Grotesk', global: true, provider: 'google' },
-      { name: 'Montserrat', global: true, provider: 'google' },
-      { name: 'IBM Plex Sans', global: true, provider: 'google' },
-      { name: 'Source Sans 3', global: true, provider: 'google' },
-      { name: 'Instrument Sans', global: true, provider: 'google' },
-      { name: 'Merriweather', global: true, provider: 'google' },
-      { name: 'Lora', global: true, provider: 'google' },
-      { name: 'Playfair Display', global: true, provider: 'google' },
-    ],
-  },
   content: {
     build: {
       markdown: {
@@ -170,6 +138,13 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'shortcut icon', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        // Eager-load the default docs font (Geist) with no JS dependency.
+        // Other fonts are resolved on demand via useFontLoader() + unifont.
+        { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.bunny.net/css?family=geist:400,500,600,700|geist-mono:400,500',
+        },
       ],
       meta: [{ name: 'keywords', content: 'Nuxt,Vue,Tailwind CSS,Components,shadcn' }],
     },
