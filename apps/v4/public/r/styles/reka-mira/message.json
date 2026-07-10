@@ -1,0 +1,49 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "message",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "bubble"
+  ],
+  "files": [
+    {
+      "path": "styles/reka-mira/ui/message/Message.vue",
+      "content": "<script lang='ts' setup>\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n  align?: 'start' | 'end'\n}\nconst props = withDefaults(defineProps<Props>(), {\n  align: 'start',\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"message\"\n    :data-align=\"align\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(\n      'text-xs/relaxed gap-1.5 group/message relative flex w-full min-w-0 data-[align=end]:flex-row-reverse',\n      props.class,\n    )\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/message/MessageAvatar.vue",
+      "content": "<script lang='ts' setup>\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"message-avatar\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(\n      'min-w-8 group-has-data-[slot=message-footer]/message:-translate-y-8 flex w-fit shrink-0 items-center justify-center self-end overflow-hidden rounded-full bg-muted',\n      props.class,\n    )\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/message/MessageContent.vue",
+      "content": "<script lang='ts' setup>\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"message-content\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(\n      'gap-2 group-data-[align=end]/message:*:data-slot:self-end flex w-full min-w-0 flex-col wrap-break-word',\n      props.class,\n    )\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/message/MessageFooter.vue",
+      "content": "<script lang='ts' setup>\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"message-footer\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(\n      'text-[0.625rem] font-medium text-muted-foreground px-2.5 group-has-data-[variant=ghost]/message:px-0 flex max-w-full min-w-0 items-center group-data-[align=end]/message:justify-end',\n      props.class,\n    )\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/message/MessageGroup.vue",
+      "content": "<script lang='ts' setup>\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"message-group\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(\n      'gap-1.5 flex min-w-0 flex-col',\n      props.class,\n    )\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/message/MessageHeader.vue",
+      "content": "<script lang='ts' setup>\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"message-header\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(\n      'text-[0.625rem] font-medium text-muted-foreground px-2.5 group-has-data-[variant=ghost]/message:px-0 flex max-w-full min-w-0 items-center',\n      props.class,\n    )\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/message/index.ts",
+      "content": "export { default as Message } from './Message.vue'\nexport { default as MessageAvatar } from './MessageAvatar.vue'\nexport { default as MessageContent } from './MessageContent.vue'\nexport { default as MessageFooter } from './MessageFooter.vue'\nexport { default as MessageGroup } from './MessageGroup.vue'\nexport { default as MessageHeader } from './MessageHeader.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
