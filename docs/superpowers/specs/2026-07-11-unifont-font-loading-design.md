@@ -81,7 +81,58 @@ right before/as the CSS var is set. This single integration point covers the bod
 heading, and mono pickers (all flow through this provider). Loading is fire-and-forget
 (non-blocking); `font-display: swap` handles the visual swap when the file arrives.
 
-### 4. Remove `@nuxt/fonts`
+### 4. Tailwind v4 wiring (make the font actually apply)
+
+Fonts must render through TW4's `@theme` system, not as loose CSS vars. The chain:
+
+```
+main.css  @theme inline { --font-sans: var(--font-sans); ... }
+   → generates utilities:  .font-sans { font-family: var(--font-sans) }
+   → these reference the runtime-overridable custom property --font-sans
+
+fonts.css  @theme { --font-sans: "Geist", ...; --font-heading: ...; --font-mono: ... }
+   → emits the DEFAULT --font-sans/-heading/-mono onto :root
+```
+
+Because `main.css` uses **`@theme inline`**, Tailwind does **not** emit a
+`--font-sans` value itself — it only inlines `var(--font-sans)` into the utilities
+and expects the custom property to exist. That property is provided by the
+**non-inline `@theme`** in `fonts.css`.
+
+**Critical fix:** `@import "./fonts.css"` is currently **commented out** in
+`main.css`. While commented, `var(--font-sans)` has no default value, so every
+`font-sans` / `font-heading` / `font-mono` utility resolves to nothing until the
+customizer's JS runs. **Re-enabling the import** (Part 1) is what makes Geist apply
+correctly through TW4 by default.
+
+Requirements for correctness:
+
+- Re-enable `@import "./fonts.css"` so the default `--font-*` custom properties
+  exist on `:root`. Leave the `main.css` `@theme inline` block unchanged — its
+  `var(--font-*)` mapping is what lets both the CSS default and the runtime JS
+  override (`documentElement.style.setProperty('--font-sans', …)`) flow into the
+  `font-sans` / `font-heading` / `font-mono` utilities.
+- **Family-name match**: the `@font-face` family that `useFontLoader` injects must
+  exactly equal the primary family in the string `useDesignSystemProvider` writes
+  to `--font-sans` (e.g. `lib/fonts.ts` `fontFamily: "'Inter', sans-serif"` →
+  injected `@font-face { font-family: 'Inter' }`). Bunny returns the canonical
+  Google family name, which matches `lib/fonts.ts` names, so this holds — but the
+  builder must not rename the family.
+- The eager Bunny `<link>` (Part 1) provides the actual `@font-face` for the
+  `Geist` / `Geist Mono` families that the `--font-sans` / `--font-mono` defaults
+  reference by name, and `.theme-mono` (`--font-sans: var(--font-mono)`) inherits
+  correctly.
+
+**Flagged, related pre-existing bug (decide separately):** `themes.css` has
+font-theme presets `.theme-inter`, `.theme-noto-sans`, `.theme-nunito-sans`,
+`.theme-figtree` that set `--font-sans: var(--font-inter)` etc., but the
+`--font-inter` / `--font-noto-sans` / … custom properties are **defined nowhere**
+(they have no fallback), so these presets silently render an invalid font-family.
+This is independent of the customizer path (which writes the family string directly).
+**Not fixed in this change** unless requested; recommended follow-up is to either
+delete these dead presets or route them through `useFontLoader` + real values.
+
+### 5. Remove `@nuxt/fonts`
 
 - Delete the commented `fonts: { … }` config block in `nuxt.config.ts`.
 - Remove `"@nuxt/fonts"` from `apps/v4/package.json` dependencies.
@@ -115,6 +166,10 @@ FontPicker sets param
 
 ## Testing / verification
 
+- **TW4 default wiring**: with `fonts.css` re-imported, inspect a `font-sans`
+  element → computed `font-family` resolves to `"Geist", …` (not empty / Arial-only)
+  with **no** customizer JS run. Confirms `@theme inline` → `var(--font-sans)` →
+  `fonts.css @theme` default chain is intact.
 - **Docs baseline**: load a docs page (customizer never opened) → Network shows the
   eager Bunny Geist request; body renders in Geist; `unifont`/`css-tree` **not** in
   the loaded JS.
