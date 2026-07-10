@@ -124,6 +124,55 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "attachment",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/attachment/Attachment.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentAction.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentActions.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentDescription.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentMedia.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentTitle.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentTrigger.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "avatar",
     type: "registry:ui",
     dependencies: [
@@ -2228,10 +2277,5 @@ export const ui: Registry["items"] = [
         type: "registry:ui",
       },
     ],
-  },
-  {
-    name: "tree",
-    type: "registry:ui",
-    files: [],
   },
 ]
