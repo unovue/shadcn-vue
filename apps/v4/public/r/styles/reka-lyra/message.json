@@ -4,10 +4,6 @@
   "dependencies": [
     "reka-ui"
   ],
-  "registryDependencies": [
-    "avatar",
-    "bubble"
-  ],
   "files": [
     {
       "path": "styles/reka-lyra/ui/message/Message.vue",

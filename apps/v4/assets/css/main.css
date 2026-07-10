@@ -249,6 +249,107 @@
   }
 }
 
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@utility scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-gutter-stable {
+  scrollbar-gutter: stable;
+}
+
+/* Edge fades. Static by default, so any scroll container fades that edge. When
+   the element is managed by MessageScroller (it carries a `data-scrollable`
+   attribute), the fade turns off for an edge that has nothing left to reveal. */
+@utility scroll-fade {
+  --scroll-fade-size: 1.5rem;
+  --scroll-fade-t: var(--scroll-fade-size);
+  --scroll-fade-b: var(--scroll-fade-size);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--scroll-fade-t),
+    black calc(100% - var(--scroll-fade-b)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--scroll-fade-t),
+    black calc(100% - var(--scroll-fade-b)),
+    transparent 100%
+  );
+
+  &:where([data-scrollable]):not(:where([data-scrollable~="start"])) {
+    --scroll-fade-t: 0px;
+  }
+
+  &:where([data-scrollable]):not(:where([data-scrollable~="end"])) {
+    --scroll-fade-b: 0px;
+  }
+}
+
+@utility scroll-fade-t {
+  --scroll-fade-size: 1.5rem;
+  --scroll-fade-t: var(--scroll-fade-size);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--scroll-fade-t)
+  );
+  mask-image: linear-gradient(to bottom, transparent 0, black var(--scroll-fade-t));
+
+  &:where([data-scrollable]):not(:where([data-scrollable~="start"])) {
+    --scroll-fade-t: 0px;
+  }
+}
+
+@utility scroll-fade-b {
+  --scroll-fade-size: 1.5rem;
+  --scroll-fade-b: var(--scroll-fade-size);
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0,
+    black var(--scroll-fade-b)
+  );
+  mask-image: linear-gradient(to top, transparent 0, black var(--scroll-fade-b));
+
+  &:where([data-scrollable]):not(:where([data-scrollable~="end"])) {
+    --scroll-fade-b: 0px;
+  }
+}
+
+@utility scroll-fade-x {
+  --scroll-fade-size: 1.5rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--scroll-fade-size),
+    black calc(100% - var(--scroll-fade-size)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--scroll-fade-size),
+    black calc(100% - var(--scroll-fade-size)),
+    transparent 100%
+  );
+}
+
 @utility border-ghost {
   @apply after:border-border relative after:absolute after:inset-0 after:border after:mix-blend-darken dark:after:mix-blend-lighten;
 }

@@ -1,30 +1,23 @@
 import type { Registry } from "shadcn-vue/schema"
 import { registryItemSchema } from "shadcn-vue/schema"
 import { z } from "zod"
+import { blocks } from "@/registry/bases/reka/blocks/_registry"
 
+import { examples } from "@/registry/bases/reka/examples/_registry"
+import { lib } from "@/registry/bases/reka/lib/_registry"
+import { ui } from "@/registry/bases/reka/ui/_registry"
 import { fonts } from "@/registry/fonts"
 
-import { blocks } from "./blocks/_registry"
-import { components } from "./components/_registry"
-import { examples } from "./examples/_registry"
-// import { hooks } from "./hooks/_registry"
-// import { internal } from "./internal/_registry"
-import { lib } from "./lib/_registry"
-import { ui } from "./ui/_registry"
-
 export const registry = {
-  name: "shadcn/ui",
-  homepage: "https://ui.shadcn.com",
+  name: "reka",
+  homepage: "https://shadcn-vue.com",
   items: z
     .array(registryItemSchema)
     .parse([
       ...ui,
+      ...blocks,
       ...examples,
       ...lib,
-      ...components,
-      // ...internal,
-      ...blocks,
-      // ...hooks,
       ...fonts,
     ]),
 } satisfies Registry

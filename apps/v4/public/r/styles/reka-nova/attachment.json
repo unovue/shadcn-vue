@@ -4,6 +4,9 @@
   "dependencies": [
     "reka-ui"
   ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
       "path": "styles/reka-nova/ui/attachment/Attachment.vue",
