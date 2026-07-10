@@ -169,6 +169,23 @@
   --selection-foreground: oklch(0.205 0 0);
 }
 
+/* Accent theme used to frame the chat/documentation demos. Overrides the
+   primary accent tokens on itself so descendants inherit the green accent. */
+.theme-green {
+  --primary: oklch(0.723 0.219 149.579);
+  --primary-foreground: oklch(0.982 0.018 155.826);
+  --ring: oklch(0.723 0.219 149.579);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-ring: var(--ring);
+}
+
+.dark .theme-green {
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.393 0.095 152.535);
+  --ring: oklch(0.527 0.154 150.069);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

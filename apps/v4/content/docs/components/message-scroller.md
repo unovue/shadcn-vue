@@ -9,6 +9,7 @@ new: true
 ---
 name: MessageScrollerDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -125,6 +126,7 @@ Scroll anchors are not tied to message role. You can turn any row into an anchor
 ---
 name: MessageScrollerAnchoringDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -136,6 +138,7 @@ In a group chat, the turn boundary is often the message that asks the model to r
 ---
 name: MessageScrollerGroupChatDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -147,6 +150,7 @@ When a new turn starts, it should still feel like part of the same continuous th
 ---
 name: MessageScrollerPreviousContextDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -158,6 +162,7 @@ When the reader is at the live edge, `autoScroll` keeps streamed replies in view
 ---
 name: MessageScrollerStreamingDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -169,6 +174,7 @@ Reopening a saved thread at the absolute end often drops the reader in without e
 ---
 name: MessageScrollerOpeningPositionDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -180,6 +186,7 @@ Loading earlier messages should not move the conversation the reader is already 
 ---
 name: MessageScrollerLoadHistoryDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -191,6 +198,7 @@ A common chat pattern is to animate the user's message when it is sent, then let
 ---
 name: MessageScrollerAnimationDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -210,6 +218,7 @@ const { scrollToMessage, scrollToEnd, scrollToStart } = useMessageScroller()
 ---
 name: MessageScrollerCommandsDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -221,6 +230,7 @@ Use `useMessageScrollerVisibility` to track the reader's position — a table-of
 ---
 name: MessageScrollerVisibilityDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 
@@ -232,6 +242,7 @@ Use `useMessageScrollerScrollable` when you need scroll state in JavaScript, suc
 ---
 name: MessageScrollerScrollableDemo
 class: style-luma
+previewClass: theme-green bg-surface dark:bg-background
 ---
 ::
 

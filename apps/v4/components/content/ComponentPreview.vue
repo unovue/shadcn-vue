@@ -8,6 +8,7 @@ const props = defineProps<{
   hideCode?: boolean
   type?: 'block' | 'component' | 'example'
   class?: HTMLAttributes['class']
+  previewClass?: HTMLAttributes['class']
 }>()
 
 const Component = props.type === 'block'
@@ -55,6 +56,7 @@ const Component = props.type === 'block'
   <ComponentPreviewTabs
     v-else
     :class="props.class"
+    :preview-class="props.previewClass"
     :align
     :hide-code
     :component="Component"
