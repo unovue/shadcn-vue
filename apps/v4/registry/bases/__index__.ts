@@ -170,7 +170,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/attachment/Attachment.vue",
@@ -1676,7 +1676,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["avatar","bubble"],
+      registryDependencies: undefined,
       files: [
             {
                   "path": "registry/bases/reka/ui/message/Message.vue",
@@ -1710,6 +1710,57 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/message/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "message-scroller": {
+      name: "message-scroller",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScroller.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerProvider.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerViewport.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/useMessageScroller.ts",
                   "type": "registry:ui",
                   "target": ""
             }

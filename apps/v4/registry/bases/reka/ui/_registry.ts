@@ -1425,6 +1425,47 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "message-scroller",
+    type: "registry:ui",
+    registryDependencies: [
+      "button",
+    ],
+    files: [
+      {
+        path: "ui/message-scroller/MessageScroller.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerButton.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerItem.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerProvider.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerViewport.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/useMessageScroller.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "native-select",
     type: "registry:ui",
     dependencies: [

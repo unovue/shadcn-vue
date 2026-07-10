@@ -1346,7 +1346,7 @@ export const Index: Record<string, any> = {
     name: "message",
     description: "",
     type: "registry:ui",
-    registryDependencies: ["avatar","bubble"],
+    registryDependencies: undefined,
     files: [{
       path: "registry/new-york-v4/ui/message/Message.vue",
       type: "registry:ui",
@@ -1373,6 +1373,47 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/message/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "message-scroller": {
+    name: "message-scroller",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button"],
+    files: [{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScroller.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerButton.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerItem.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerProvider.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerViewport.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/index.ts",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/useMessageScroller.ts",
       type: "registry:ui",
       target: ""
     }],
