@@ -256,8 +256,11 @@ async function installMcpDependencies(cwd: string) {
   })
   const installCommand = packageManager === 'npm' ? 'install' : 'add'
   const devFlag = packageManager === 'npm' ? '--save-dev' : '-D'
+  const dependencies = packageManager === 'deno'
+    ? DEPENDENCIES.map(dependency => `npm:${dependency}`)
+    : DEPENDENCIES
 
-  await execa(packageManager, [installCommand, devFlag, ...DEPENDENCIES], {
+  await execa(packageManager, [installCommand, devFlag, ...dependencies], {
     cwd,
   })
 }
