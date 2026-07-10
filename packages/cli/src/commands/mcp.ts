@@ -2,8 +2,8 @@ import { promises as fs } from 'node:fs'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { Command } from 'commander'
 import deepmerge from 'deepmerge'
+import { execa } from 'execa'
 import fsExtra from 'fs-extra'
-import { addDevDependency } from 'nypm'
 import path from 'pathe'
 import prompts from 'prompts'
 import z from 'zod'
@@ -251,10 +251,13 @@ async function runMcpInit(options: z.infer<typeof mcpInitOptionsSchema>) {
 }
 
 async function installMcpDependencies(cwd: string) {
-  const packageManager = await getPackageManager(cwd, { withFallback: true })
-  await addDevDependency(DEPENDENCIES, {
+  const packageManager = await getPackageManager(cwd, {
+    withFallback: true,
+  })
+  const installCommand = packageManager === 'npm' ? 'install' : 'add'
+  const devFlag = packageManager === 'npm' ? '--save-dev' : '-D'
+
+  await execa(packageManager, [installCommand, devFlag, ...DEPENDENCIES], {
     cwd,
-    packageManager,
-    silent: true,
   })
 }

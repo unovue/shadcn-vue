@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { addDependency } from 'nypm'
+import { execa } from 'execa'
 import path from 'pathe'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -8,6 +8,7 @@ import { DEFAULT_PRESETS, resolveCreateUrl, resolveInitUrl } from '../../src/pre
 import * as registry from '../../src/registry'
 import { getConfig } from '../../src/utils/get-config'
 
+vi.mock('execa')
 vi.mock('nypm')
 vi.mock('fs/promises', () => ({
   writeFile: vi.fn(),
@@ -95,8 +96,10 @@ it.skip('init config-full', async () => {
     expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
     'utf8',
   )
-  expect(addDependency).toHaveBeenCalledWith(
+  expect(execa).toHaveBeenCalledWith(
+    'npm',
     [
+      'install',
       'tailwindcss-animate',
       'class-variance-authority',
       'clsx',
@@ -106,10 +109,7 @@ it.skip('init config-full', async () => {
       '@tabler/icons-vue',
       '@phosphor-icons/vue',
     ],
-    {
-      cwd: targetDir,
-      silent: true,
-    },
+    { cwd: targetDir },
   )
 
   mockMkdir.mockRestore()

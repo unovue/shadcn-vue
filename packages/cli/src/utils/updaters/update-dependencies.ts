@@ -3,7 +3,8 @@ import type { RegistryItem } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import fs from 'node:fs'
 import path from 'node:path'
-import { addDependency, addDevDependency, detectPackageManager } from 'nypm'
+import { execa } from 'execa'
+import { detectPackageManager } from 'nypm'
 import { spinner } from '@/src/utils/spinner'
 
 export type SupportedPackageManager = PackageManagerName
@@ -89,7 +90,6 @@ export async function updateDependencies(
     dependencies,
     devDependencies,
     config.resolvedPaths.cwd,
-    options.silent,
   )
 
   dependenciesSpinner?.succeed()
@@ -100,19 +100,54 @@ async function installWithPackageManager(
   dependencies: string[],
   devDependencies: string[],
   cwd: string,
-  silent: boolean,
 ) {
-  const options = {
-    cwd,
-    packageManager,
-    silent,
+  if (packageManager === 'npm') {
+    return installWithNpm(dependencies, devDependencies, cwd)
+  }
+
+  if (packageManager === 'deno') {
+    return installWithDeno(dependencies, devDependencies, cwd)
   }
 
   if (dependencies?.length) {
-    await addDependency(dependencies, options)
+    await execa(packageManager, ['add', ...dependencies], { cwd })
   }
 
   if (devDependencies?.length) {
-    await addDevDependency(devDependencies, options)
+    await execa(packageManager, ['add', '-D', ...devDependencies], { cwd })
+  }
+}
+
+async function installWithNpm(
+  dependencies: string[],
+  devDependencies: string[],
+  cwd: string,
+) {
+  if (dependencies?.length) {
+    await execa('npm', ['install', ...dependencies], { cwd })
+  }
+
+  if (devDependencies?.length) {
+    await execa('npm', ['install', '-D', ...devDependencies], { cwd })
+  }
+}
+
+async function installWithDeno(
+  dependencies: string[],
+  devDependencies: string[],
+  cwd: string,
+) {
+  if (dependencies?.length) {
+    await execa('deno', ['add', ...dependencies.map(dep => `npm:${dep}`)], {
+      cwd,
+    })
+  }
+
+  if (devDependencies?.length) {
+    await execa(
+      'deno',
+      ['add', '-D', ...devDependencies.map(dep => `npm:${dep}`)],
+      { cwd },
+    )
   }
 }

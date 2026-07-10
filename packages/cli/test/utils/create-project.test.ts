@@ -1,7 +1,8 @@
 import type { MockInstance } from 'vitest'
+import { execa } from 'execa'
 import fs from 'fs-extra'
 import { downloadTemplate } from 'giget'
-import { detectPackageManager, installDependencies } from 'nypm'
+import { detectPackageManager } from 'nypm'
 import prompts from 'prompts'
 import { x } from 'tinyexec'
 import {
@@ -18,12 +19,14 @@ import { spinner } from '../../src/utils/spinner'
 
 // Mock dependencies
 vi.mock('fs-extra')
+vi.mock('execa', () => ({
+  execa: vi.fn(),
+}))
 vi.mock('giget')
 vi.mock('tinyexec')
 vi.mock('prompts')
 vi.mock('nypm', () => ({
   detectPackageManager: vi.fn(),
-  installDependencies: vi.fn(),
 }))
 vi.mock('@/src/utils/spinner')
 vi.mock('@/src/utils/logger', () => ({
@@ -46,7 +49,7 @@ describe('createProject', () => {
       name: 'npm',
       command: 'npm',
     })
-    vi.mocked(installDependencies).mockResolvedValue({} as any)
+    vi.mocked(execa).mockResolvedValue({} as any)
 
     // Reset all fs mocks
     vi.mocked(fs.access).mockResolvedValue(undefined)
@@ -236,10 +239,8 @@ describe('createProject', () => {
       template: undefined,
     })
 
-    expect(installDependencies).toHaveBeenCalledWith({
+    expect(execa).toHaveBeenCalledWith('npm', ['install'], {
       cwd: '/test/my-app',
-      packageManager: 'npm',
-      silent: true,
     })
   })
 

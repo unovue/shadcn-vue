@@ -356,6 +356,9 @@ importers:
       diff:
         specifier: ^8.0.2
         version: 8.0.2
+      execa:
+        specifier: ^9.6.0
+        version: 9.6.0
       fs-extra:
         specifier: ^11.3.2
         version: 11.3.2
