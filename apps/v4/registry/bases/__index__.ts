@@ -1676,7 +1676,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["avatar", "bubble"],
+      registryDependencies: ["avatar","bubble"],
       files: [
             {
                   "path": "registry/bases/reka/ui/message/Message.vue",

@@ -137,6 +137,9 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
     ],
+    registryDependencies: [
+      "button",
+    ],
     files: [
       {
         path: "ui/attachment/Attachment.vue",
@@ -1389,10 +1392,6 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
-    ],
-    registryDependencies: [
-      "avatar",
-      "bubble",
     ],
     files: [
       {

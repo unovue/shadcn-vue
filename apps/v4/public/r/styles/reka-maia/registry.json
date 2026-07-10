@@ -149,6 +149,55 @@
       ]
     },
     {
+      "name": "attachment",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-maia/ui/attachment/Attachment.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/AttachmentTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/attachment/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": [
@@ -241,6 +290,35 @@
         },
         {
           "path": "styles/reka-maia/ui/breadcrumb/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-maia/ui/bubble/Bubble.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/bubble/BubbleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/bubble/BubbleGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/bubble/BubbleReactions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/bubble/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1225,6 +1303,31 @@
       ]
     },
     {
+      "name": "marker",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-maia/ui/marker/Marker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/marker/MarkerContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/marker/MarkerIcon.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/marker/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": [
@@ -1294,6 +1397,47 @@
         },
         {
           "path": "styles/reka-maia/ui/menubar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "bubble"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-maia/ui/message/Message.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/message/MessageAvatar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/message/MessageContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/message/MessageFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/message/MessageGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/message/MessageHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-maia/ui/message/index.ts",
           "type": "registry:ui"
         }
       ]

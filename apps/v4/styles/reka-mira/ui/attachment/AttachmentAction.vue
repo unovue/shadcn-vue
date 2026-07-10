@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '../button'
 import { cn } from '@/lib/utils'
+import { Button } from '@/styles/reka-mira/ui/button'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
