@@ -1317,6 +1317,10 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
     ],
+    registryDependencies: [
+      "avatar",
+      "bubble",
+    ],
     files: [
       {
         path: "ui/message/Message.vue",

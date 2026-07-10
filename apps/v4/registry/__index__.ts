@@ -1297,7 +1297,7 @@ export const Index: Record<string, any> = {
     name: "message",
     description: "",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["avatar", "bubble"],
     files: [{
       path: "registry/new-york-v4/ui/message/Message.vue",
       type: "registry:ui",

@@ -4,6 +4,10 @@
   "dependencies": [
     "reka-ui"
   ],
+  "registryDependencies": [
+    "avatar",
+    "bubble"
+  ],
   "files": [
     {
       "path": "styles/reka-vega/ui/message/Message.vue",

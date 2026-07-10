@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ChevronDownIcon } from '@lucide/vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/new-york-v4/ui/bubble'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Collapsible, CollapsibleTrigger } from '@/registry/new-york-v4/ui/collapsible'
@@ -31,11 +31,11 @@ const isLong = computed(() => text.length > previewLength)
           <div>{{ (open || !isLong) ? text : preview }}</div>
           <template v-if="isLong">
             <CollapsibleTrigger as-child>
-              <Button variant="link" class="gap-1 p-0 text-muted-foreground">
+              <Button variant="link" class="group/collapsible gap-1 p-0 text-muted-foreground">
                 {{ open ? "Show less" : "Show more" }}
                 <ChevronDownIcon
                   data-icon="inline-end"
-                  class="group-data-panel-open/button:rotate-180 size-4"
+                  class="group-data-[state=open]/collapsible:rotate-180 size-4"
                 />
               </Button>
             </CollapsibleTrigger>
