@@ -487,10 +487,10 @@ function createEngine(props: Required<MessageScrollerProviderProps>) {
     for (const element of [rootRef.current, viewportRef.current]) {
       if (!element)
         continue
-      // Always keep the attribute present (empty when nothing is scrollable) so
-      // the scroll-fade utilities can distinguish a managed container that has
-      // nothing to reveal from an unmanaged, statically-faded one.
-      element.setAttribute('data-scrollable', attr)
+      if (attr)
+        element.setAttribute('data-scrollable', attr)
+      else
+        element.removeAttribute('data-scrollable')
       element.toggleAttribute('data-autoscrolling', autoscrolling)
     }
   }
