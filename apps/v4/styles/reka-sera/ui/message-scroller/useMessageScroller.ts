@@ -975,8 +975,12 @@ function createEngine(props: Required<MessageScrollerProviderProps>) {
 
   function setViewportElement(element: HTMLElement | null) {
     viewportRef.current = element
-    if (element)
+    if (element) {
       reapplyAttributes()
+      // A visibility consumer may have subscribed before the viewport mounted,
+      // in which case observeVisibility() bailed out. Retry now it exists.
+      observeVisibility()
+    }
   }
 
   function setContentElement(element: HTMLElement | null) {

@@ -209,7 +209,7 @@ function onPeekChange(value: number[] | undefined) {
         </CardFooter>
       </Card>
       <div class="px-0.5 text-center text-xs text-muted-foreground">
-        Adjust the slider and send. Observe the previous message peak
+        Adjust the slider and send. Observe the previous message peek
       </div>
     </div>
   </MessageScrollerProvider>
