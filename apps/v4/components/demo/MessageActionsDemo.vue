@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { CopyIcon, RefreshCcwIcon, ThumbsDownIcon, ThumbsUpIcon } from '@lucide/vue'
-import { Bubble, BubbleContent } from '@/registry/new-york-v4/ui/bubble'
-import { Button } from '@/registry/new-york-v4/ui/button'
-import { Message, MessageContent, MessageFooter } from '@/registry/new-york-v4/ui/message'
+import { Bubble, BubbleContent } from '@/styles/reka-rhea/ui/bubble'
+import { Button } from '@/styles/reka-rhea/ui/button'
+import { Message, MessageContent, MessageFooter } from '@/styles/reka-rhea/ui/message'
 </script>
 
 <template>

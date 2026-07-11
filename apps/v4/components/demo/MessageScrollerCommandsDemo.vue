@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { DemoMessage } from '@/lib/message-scroller-demo'
 import { defineComponent, h } from 'vue'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -9,7 +9,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-rhea/ui/dropdown-menu'
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -25,7 +25,7 @@ import {
   MessageScrollerProvider,
   MessageScrollerViewport,
   useMessageScroller,
-} from '@/registry/new-york-v4/ui/message-scroller'
+} from '@/styles/reka-rhea/ui/message-scroller'
 
 const messages: DemoMessage[] = [
   {

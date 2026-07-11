@@ -6,7 +6,7 @@ import {
   RotateCwIcon,
 } from '@lucide/vue'
 import { computed, ref } from 'vue'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -15,25 +15,25 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/registry/new-york-v4/ui/empty'
+} from '@/styles/reka-rhea/ui/empty'
 import {
   MessageScroller,
   MessageScrollerButton,
   MessageScrollerContent,
   MessageScrollerProvider,
   MessageScrollerViewport,
-} from '@/registry/new-york-v4/ui/message-scroller'
+} from '@/styles/reka-rhea/ui/message-scroller'
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from '@/registry/new-york-v4/ui/toggle-group'
+} from '@/styles/reka-rhea/ui/toggle-group'
 
 const scriptedMessages: DemoMessage[] = [
   {

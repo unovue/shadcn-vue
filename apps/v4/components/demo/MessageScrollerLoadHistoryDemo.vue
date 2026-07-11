@@ -4,7 +4,7 @@ import { RotateCwIcon } from '@lucide/vue'
 import { computed, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import { createDemoChat } from '@/lib/message-scroller-demo'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -13,8 +13,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
-import { Marker, MarkerContent } from '@/registry/new-york-v4/ui/marker'
+} from '@/styles/reka-rhea/ui/card'
+import { Marker, MarkerContent } from '@/styles/reka-rhea/ui/marker'
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -22,12 +22,12 @@ import {
   MessageScrollerItem,
   MessageScrollerProvider,
   MessageScrollerViewport,
-} from '@/registry/new-york-v4/ui/message-scroller'
+} from '@/styles/reka-rhea/ui/message-scroller'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/registry/new-york-v4/ui/tooltip'
+} from '@/styles/reka-rhea/ui/tooltip'
 
 const chat = createDemoChat()
   .user('Can you summarize the incident channel?')

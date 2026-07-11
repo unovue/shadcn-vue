@@ -10,7 +10,7 @@ import {
 } from '@lucide/vue'
 import { computed, ref } from 'vue'
 import { createDemoChat, useDemoChat } from '@/lib/message-scroller-demo'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -19,32 +19,32 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-rhea/ui/dropdown-menu'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
-} from '@/registry/new-york-v4/ui/input-group'
+} from '@/styles/reka-rhea/ui/input-group'
 import {
   MessageScroller,
   MessageScrollerButton,
   MessageScrollerContent,
   MessageScrollerProvider,
   MessageScrollerViewport,
-} from '@/registry/new-york-v4/ui/message-scroller'
-import { Slider } from '@/registry/new-york-v4/ui/slider'
+} from '@/styles/reka-rhea/ui/message-scroller'
+import { Slider } from '@/styles/reka-rhea/ui/slider'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/registry/new-york-v4/ui/tooltip'
+} from '@/styles/reka-rhea/ui/tooltip'
 
 const DEFAULT_PEEK = 64
 

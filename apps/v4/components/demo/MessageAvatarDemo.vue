@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'
-import { Bubble, BubbleContent, BubbleGroup } from '@/registry/new-york-v4/ui/bubble'
-import { Message, MessageAvatar, MessageContent } from '@/registry/new-york-v4/ui/message'
+import { Avatar, AvatarFallback, AvatarImage } from '@/styles/reka-rhea/ui/avatar'
+import { Bubble, BubbleContent, BubbleGroup } from '@/styles/reka-rhea/ui/bubble'
+import { Message, MessageAvatar, MessageContent } from '@/styles/reka-rhea/ui/message'
 </script>
 
 <template>

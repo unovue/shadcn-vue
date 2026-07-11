@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Bubble, BubbleContent } from '@/registry/new-york-v4/ui/bubble'
-import { Message, MessageContent, MessageFooter, MessageHeader } from '@/registry/new-york-v4/ui/message'
+import { Bubble, BubbleContent } from '@/styles/reka-rhea/ui/bubble'
+import { Message, MessageContent, MessageFooter, MessageHeader } from '@/styles/reka-rhea/ui/message'
 </script>
 
 <template>

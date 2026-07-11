@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { DemoMessage, MessageAnimationId } from '@/lib/message-scroller-demo'
-import type { BubbleVariants } from '@/registry/new-york-v4/ui/bubble'
+import type { BubbleVariants } from '@/styles/reka-rhea/ui/bubble'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
-import { Bubble, BubbleContent } from '@/registry/new-york-v4/ui/bubble'
-import { Message, MessageContent } from '@/registry/new-york-v4/ui/message'
-import { MessageScrollerItem } from '@/registry/new-york-v4/ui/message-scroller'
+import { Bubble, BubbleContent } from '@/styles/reka-rhea/ui/bubble'
+import { Message, MessageContent } from '@/styles/reka-rhea/ui/message'
+import { MessageScrollerItem } from '@/styles/reka-rhea/ui/message-scroller'
 
 const props = withDefaults(defineProps<{
   message: DemoMessage

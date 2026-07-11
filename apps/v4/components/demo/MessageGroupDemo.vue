@@ -3,9 +3,9 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/registry/new-york-v4/ui/avatar'
-import { Bubble, BubbleContent } from '@/registry/new-york-v4/ui/bubble'
-import { Message, MessageAvatar, MessageContent, MessageGroup } from '@/registry/new-york-v4/ui/message'
+} from '@/styles/reka-rhea/ui/avatar'
+import { Bubble, BubbleContent } from '@/styles/reka-rhea/ui/bubble'
+import { Message, MessageAvatar, MessageContent, MessageGroup } from '@/styles/reka-rhea/ui/message'
 </script>
 
 <template>

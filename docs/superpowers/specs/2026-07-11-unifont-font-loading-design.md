@@ -105,6 +105,19 @@ and expects the custom property to exist. That property is provided by the
 customizer's JS runs. **Re-enabling the import** (Part 1) is what makes Geist apply
 correctly through TW4 by default.
 
+**`fonts.css` must use `:root`, NOT `@theme`.** The `@theme inline` block in
+`main.css` already registers the `font-sans` / `font-heading` / `font-mono` theme
+keys (mapping the utilities to `var(--font-*)`). If `fonts.css` also declares those
+keys via `@theme`, the two collide: the `inline` block wins and emits a
+**self-referential** `--font-sans: var(--font-sans)` into `@layer theme`, which is
+cyclic and resolves to nothing — every font var (and `--default-font-family`)
+breaks. Providing the concrete defaults as a plain **unlayered `:root { --font-sans:
+… }`** block avoids the collision and, being unlayered, wins over the layered
+theme output. This mirrors shadcn's own color pattern (`@theme inline {
+--color-background: var(--background) }` + `:root { --background: … }`). Runtime
+overrides (`documentElement.style.setProperty('--font-sans', …)`, inline style) sit
+above `:root` and still win.
+
 Requirements for correctness:
 
 - Re-enable `@import "./fonts.css"` so the default `--font-*` custom properties

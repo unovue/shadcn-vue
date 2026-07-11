@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -16,7 +16,7 @@ import {
   MessageScrollerProvider,
   MessageScrollerViewport,
   useMessageScrollerScrollable,
-} from '@/registry/new-york-v4/ui/message-scroller'
+} from '@/styles/reka-rhea/ui/message-scroller'
 
 const messages: DemoMessage[] = Array.from({ length: 12 }, (_, index) => ({
   id: `scrollable-${index + 1}`,

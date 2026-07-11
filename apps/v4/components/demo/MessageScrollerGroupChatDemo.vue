@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RotateCwIcon } from '@lucide/vue'
 import { computed, ref } from 'vue'
-import { Bubble, BubbleContent } from '@/registry/new-york-v4/ui/bubble'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Bubble, BubbleContent } from '@/styles/reka-rhea/ui/bubble'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -11,13 +11,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
-import { Marker, MarkerContent } from '@/registry/new-york-v4/ui/marker'
+} from '@/styles/reka-rhea/ui/card'
+import { Marker, MarkerContent } from '@/styles/reka-rhea/ui/marker'
 import {
   Message,
   MessageContent,
   MessageHeader,
-} from '@/registry/new-york-v4/ui/message'
+} from '@/styles/reka-rhea/ui/message'
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -25,12 +25,12 @@ import {
   MessageScrollerItem,
   MessageScrollerProvider,
   MessageScrollerViewport,
-} from '@/registry/new-york-v4/ui/message-scroller'
+} from '@/styles/reka-rhea/ui/message-scroller'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/registry/new-york-v4/ui/tooltip'
+} from '@/styles/reka-rhea/ui/tooltip'
 
 type GroupChatItem
   = | {

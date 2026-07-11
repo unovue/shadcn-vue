@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -16,8 +16,8 @@ import {
   MessageScrollerProvider,
   MessageScrollerViewport,
   useMessageScroller,
-} from '@/registry/new-york-v4/ui/message-scroller'
-import { Tabs, TabsList, TabsTrigger } from '@/registry/new-york-v4/ui/tabs'
+} from '@/styles/reka-rhea/ui/message-scroller'
+import { Tabs, TabsList, TabsTrigger } from '@/styles/reka-rhea/ui/tabs'
 
 type Position = 'start' | 'end' | 'last-anchor'
 

@@ -3,15 +3,15 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/registry/new-york-v4/ui/avatar'
+} from '@/styles/reka-rhea/ui/avatar'
 import {
   Bubble,
   BubbleContent,
   BubbleGroup,
   BubbleReactions,
-} from '@/registry/new-york-v4/ui/bubble'
-import { Marker, MarkerContent } from '@/registry/new-york-v4/ui/marker'
-import { Message, MessageAvatar, MessageContent, MessageFooter } from '@/registry/new-york-v4/ui/message'
+} from '@/styles/reka-rhea/ui/bubble'
+import { Marker, MarkerContent } from '@/styles/reka-rhea/ui/marker'
+import { Message, MessageAvatar, MessageContent, MessageFooter } from '@/styles/reka-rhea/ui/message'
 </script>
 
 <template>

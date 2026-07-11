@@ -7,12 +7,12 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/registry/new-york-v4/ui/hover-card'
+} from '@/styles/reka-rhea/ui/hover-card'
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -21,7 +21,7 @@ import {
   MessageScrollerViewport,
   useMessageScroller,
   useMessageScrollerVisibility,
-} from '@/registry/new-york-v4/ui/message-scroller'
+} from '@/styles/reka-rhea/ui/message-scroller'
 
 const messages: DemoMessage[] = [
   {
