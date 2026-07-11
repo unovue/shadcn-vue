@@ -1,6 +1,7 @@
 ---
 title: shimmer
 description: Utilities for adding a shimmer effect to text elements.
+new: true
 ---
 
 ::component-preview
