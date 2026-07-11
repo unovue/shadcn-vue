@@ -30,7 +30,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <span class="pointer-events-none absolute right-2 flex items-center justify-center">
       <DropdownMenuItemIndicator>
         <IconPlaceholder
-          lucide="Check"
+          lucide="CheckIcon"
           tabler="IconCheck"
           hugeicons="Tick02Icon"
         />

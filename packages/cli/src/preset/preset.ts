@@ -71,6 +71,10 @@ export const PRESET_ICON_LIBRARIES = [
   'remixicon',
 ] as const
 
+// NOTE: this list is index-encoded into shareable preset codes, so existing
+// entries must keep their position — only ever APPEND new fonts to the end.
+// Must stay in sync with apps/v4/lib/fonts.ts, apps/v4/registry/fonts.ts and
+// packages/cli/src/registry/constants.ts (FONTS).
 export const PRESET_FONTS = [
   'inter',
   'geist-sans',
@@ -84,6 +88,18 @@ export const PRESET_FONTS = [
   'outfit',
   'jetbrains-mono',
   'playfair-display',
+  'oxanium',
+  'manrope',
+  'space-grotesk',
+  'montserrat',
+  'ibm-plex-sans',
+  'source-sans-3',
+  'instrument-sans',
+  'geist-mono',
+  'noto-serif',
+  'roboto-slab',
+  'merriweather',
+  'lora',
 ] as const
 
 export const PRESET_FONT_HEADINGS = ['inherit', ...PRESET_FONTS] as const

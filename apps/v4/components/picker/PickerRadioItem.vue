@@ -34,7 +34,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     >
       <DropdownMenuItemIndicator>
         <IconPlaceholder
-          lucide="Check"
+          lucide="CheckIcon"
           tabler="IconCheck"
           hugeicons="Tick02Icon"
           class="size-4 pointer-coarse:size-5"
