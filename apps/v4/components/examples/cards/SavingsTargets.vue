@@ -40,7 +40,7 @@ import { Progress } from '@/styles/reka-rhea/ui/progress'
             <span class="text-3xl font-semibold tabular-nums">
               $420,000
             </span>
-            <Progress :value="65" aria-label="Retirement savings progress" />
+            <Progress :model-value="65" aria-label="Retirement savings progress" />
           </ItemContent>
           <ItemFooter>
             <span class="text-sm text-muted-foreground">
@@ -61,7 +61,7 @@ import { Progress } from '@/styles/reka-rhea/ui/progress'
             <span class="text-3xl font-semibold tabular-nums">
               $85,000
             </span>
-            <Progress :value="32" aria-label="Real estate savings progress" />
+            <Progress :model-value="32" aria-label="Real estate savings progress" />
           </ItemContent>
           <ItemFooter>
             <span class="text-sm text-muted-foreground">
