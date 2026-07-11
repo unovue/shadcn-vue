@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { IconArrowRight } from '@tabler/icons-vue'
-import { Button } from '@/styles/reka-nova/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import CardsDemo from '~/components/examples/cards/CardsDemo.vue'
 
 const title = 'The Foundation for your Design System'

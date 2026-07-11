@@ -6,7 +6,7 @@ import {
 } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 
-import { Button } from '@/styles/reka-nova/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardContent,
@@ -14,16 +14,16 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
-import { Field, FieldGroup, FieldLabel } from '@/styles/reka-nova/ui/field'
-import { Input } from '@/styles/reka-nova/ui/input'
+} from '@/styles/reka-rhea/ui/card'
+import { Field, FieldGroup, FieldLabel } from '@/styles/reka-rhea/ui/field'
+import { Input } from '@/styles/reka-rhea/ui/input'
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from '@/styles/reka-nova/ui/item'
+} from '@/styles/reka-rhea/ui/item'
 </script>
 
 <template>

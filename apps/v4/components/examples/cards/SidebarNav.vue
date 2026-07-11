@@ -24,7 +24,7 @@ import {
 import { HugeiconsIcon } from '@hugeicons/vue'
 
 import { cn } from '@/lib/utils'
-import { Card } from '@/styles/reka-nova/ui/card'
+import { Card } from '@/styles/reka-rhea/ui/card'
 import {
   Sidebar,
   SidebarContent,
@@ -35,7 +35,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from '@/styles/reka-nova/ui/sidebar'
+} from '@/styles/reka-rhea/ui/sidebar'
 
 const sections = [
   {

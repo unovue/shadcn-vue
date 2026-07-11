@@ -2,7 +2,7 @@
 import { Cancel01Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 
-import { Button } from '@/styles/reka-nova/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -10,14 +10,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemGroup,
   ItemTitle,
-} from '@/styles/reka-nova/ui/item'
+} from '@/styles/reka-rhea/ui/item'
 
 const HOLDINGS = [
   {

@@ -6,15 +6,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemFooter,
   ItemGroup,
-} from '@/styles/reka-nova/ui/item'
-import { Progress } from '@/styles/reka-nova/ui/progress'
+} from '@/styles/reka-rhea/ui/item'
+import { Progress } from '@/styles/reka-rhea/ui/progress'
 </script>
 
 <template>

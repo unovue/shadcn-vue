@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 
 const qrCells = [
   '111111100101101111111',

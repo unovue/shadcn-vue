@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Badge } from '@/styles/reka-nova/ui/badge'
+import { Badge } from '@/styles/reka-rhea/ui/badge'
 import {
   Card,
   CardContent,
@@ -7,9 +7,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
-import { Item, ItemContent } from '@/styles/reka-nova/ui/item'
-import { Separator } from '@/styles/reka-nova/ui/separator'
+} from '@/styles/reka-rhea/ui/card'
+import { Item, ItemContent } from '@/styles/reka-rhea/ui/item'
+import { Separator } from '@/styles/reka-rhea/ui/separator'
 
 const netRoyalties = 1248.75
 const processingFee = 37.46

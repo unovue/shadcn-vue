@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/styles/reka-nova/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardContent,
@@ -7,8 +7,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
-import { Item, ItemContent, ItemDescription } from '@/styles/reka-nova/ui/item'
+} from '@/styles/reka-rhea/ui/card'
+import { Item, ItemContent, ItemDescription } from '@/styles/reka-rhea/ui/item'
 
 const chartData = [
   { month: 'Dec', amount: 800 },

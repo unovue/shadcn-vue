@@ -16,12 +16,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/styles/reka-nova/ui/alert-dialog'
-import { Badge } from '@/styles/reka-nova/ui/badge'
-import { Button } from '@/styles/reka-nova/ui/button'
-import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'
-import { Card, CardContent } from '@/styles/reka-nova/ui/card'
-import { Checkbox } from '@/styles/reka-nova/ui/checkbox'
+} from '@/styles/reka-rhea/ui/alert-dialog'
+import { Badge } from '@/styles/reka-rhea/ui/badge'
+import { Button } from '@/styles/reka-rhea/ui/button'
+import { ButtonGroup } from '@/styles/reka-rhea/ui/button-group'
+import { Card, CardContent } from '@/styles/reka-rhea/ui/card'
+import { Checkbox } from '@/styles/reka-rhea/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,17 +30,17 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/styles/reka-nova/ui/dropdown-menu'
-import { Field, FieldGroup } from '@/styles/reka-nova/ui/field'
+} from '@/styles/reka-rhea/ui/dropdown-menu'
+import { Field, FieldGroup } from '@/styles/reka-rhea/ui/field'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from '@/styles/reka-nova/ui/input-group'
-import { RadioGroup, RadioGroupItem } from '@/styles/reka-nova/ui/radio-group'
-import { Switch } from '@/styles/reka-nova/ui/switch'
-import { Textarea } from '@/styles/reka-nova/ui/textarea'
+} from '@/styles/reka-rhea/ui/input-group'
+import { RadioGroup, RadioGroupItem } from '@/styles/reka-rhea/ui/radio-group'
+import { Switch } from '@/styles/reka-rhea/ui/switch'
+import { Textarea } from '@/styles/reka-rhea/ui/textarea'
 </script>
 
 <template>

@@ -15,16 +15,16 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/styles/reka-nova/ui/breadcrumb'
-import { Button } from '@/styles/reka-nova/ui/button'
-import { Card, CardContent, CardHeader } from '@/styles/reka-nova/ui/card'
+} from '@/styles/reka-rhea/ui/breadcrumb'
+import { Button } from '@/styles/reka-rhea/ui/button'
+import { Card, CardContent, CardHeader } from '@/styles/reka-rhea/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/styles/reka-nova/ui/dropdown-menu'
+} from '@/styles/reka-rhea/ui/dropdown-menu'
 import {
   Item,
   ItemContent,
@@ -32,7 +32,7 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from '@/styles/reka-nova/ui/item'
+} from '@/styles/reka-rhea/ui/item'
 </script>
 
 <template>

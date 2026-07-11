@@ -2,7 +2,7 @@
 import { Cancel01Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 
-import { Button } from '@/styles/reka-nova/ui/button'
+import { Button } from '@/styles/reka-rhea/ui/button'
 import {
   Card,
   CardAction,
@@ -11,14 +11,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
+} from '@/styles/reka-rhea/ui/card'
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from '@/styles/reka-nova/ui/field'
-import { Progress } from '@/styles/reka-nova/ui/progress'
+} from '@/styles/reka-rhea/ui/field'
+import { Progress } from '@/styles/reka-rhea/ui/progress'
 import {
   Select,
   SelectContent,
@@ -26,8 +26,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/styles/reka-nova/ui/select'
-import { Textarea } from '@/styles/reka-nova/ui/textarea'
+} from '@/styles/reka-rhea/ui/select'
+import { Textarea } from '@/styles/reka-rhea/ui/textarea'
 
 const CURRENCIES = [
   { label: 'USD — United States Dollar', value: 'usd' },

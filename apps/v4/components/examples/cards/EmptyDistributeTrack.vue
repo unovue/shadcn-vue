@@ -2,8 +2,8 @@
 import { Add01Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 
-import { Button } from '@/styles/reka-nova/ui/button'
-import { Card, CardContent } from '@/styles/reka-nova/ui/card'
+import { Button } from '@/styles/reka-rhea/ui/button'
+import { Card, CardContent } from '@/styles/reka-rhea/ui/card'
 import {
   Empty,
   EmptyContent,
@@ -11,7 +11,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/styles/reka-nova/ui/empty'
+} from '@/styles/reka-rhea/ui/empty'
 </script>
 
 <template>

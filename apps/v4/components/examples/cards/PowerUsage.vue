@@ -7,8 +7,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/styles/reka-nova/ui/card'
-import { Separator } from '@/styles/reka-nova/ui/separator'
+} from '@/styles/reka-rhea/ui/card'
+import { Separator } from '@/styles/reka-rhea/ui/separator'
 
 const chartData = [
   { hour: '6a', usage: 1.2 },
