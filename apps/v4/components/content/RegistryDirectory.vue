@@ -75,7 +75,7 @@ function toggleTag(tag: string) {
           <CardDescription>{{ registry.description }}</CardDescription>
         </CardHeader>
         <CardContent class="flex-1">
-          <CodeBlockCommand :code="`npx shadcn-vue@latest add ${registry.name}/`" />
+          <CodeBlockCommand :code="`npx shadcn-vue@latest add ${registry.name}/[item]`" />
           <p v-if="registry.author" class="mt-2 text-sm text-muted-foreground">
             by {{ registry.author }}
           </p>

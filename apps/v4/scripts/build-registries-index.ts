@@ -11,6 +11,7 @@ async function main() {
   registriesIndexSchema.parse(index)
 
   const outPath = path.resolve(process.cwd(), 'public/r/registries.json')
+  await fs.mkdir(path.dirname(outPath), { recursive: true })
   await fs.writeFile(outPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8')
 
   console.log(`Wrote ${Object.keys(index).length} registries to ${outPath}`)
