@@ -51,7 +51,10 @@ function toggleTag(tag: string) {
         <Badge
           v-for="tag in allTags"
           :key="tag"
+          as="button"
+          type="button"
           :variant="activeTag === tag ? 'default' : 'outline'"
+          :aria-pressed="activeTag === tag"
           class="cursor-pointer"
           @click="toggleTag(tag)"
         >
