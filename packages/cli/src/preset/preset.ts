@@ -154,7 +154,7 @@ export interface PresetConfig {
 
 export const DEFAULT_PRESET_CONFIG: PresetConfig = Object.fromEntries(
   PRESET_FIELDS_V1.map(f => [f.key, f.values[0]]),
-) as PresetConfig
+) as unknown as PresetConfig
 
 // Base62 alphabet.
 const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -229,7 +229,7 @@ export function decodePreset(code: string): PresetConfig | null {
     offset += field.bits
   }
 
-  return result as PresetConfig
+  return result as unknown as PresetConfig
 }
 
 // Check if a string looks like a preset code (version char + base62).
@@ -263,7 +263,7 @@ export function generateRandomConfig(): PresetConfig {
 
   return Object.fromEntries(
     PRESET_FIELDS_V1.map(f => [f.key, pick(f.values)]),
-  ) as PresetConfig
+  ) as unknown as PresetConfig
 }
 
 // Generate a random preset code.
