@@ -13,6 +13,15 @@ import {
 import { Example } from "~/registry/bases/reka/components/example"
 
 const DRAWER_SIDES = ["top", "right", "bottom", "left"] as const
+
+// The drawer sits at the edge it dismisses toward: a drawer on the
+// `top` edge swipes `up` to close, one on the `bottom` edge swipes `down`.
+const SIDE_TO_SWIPE_DIRECTION = {
+  top: "up",
+  right: "right",
+  bottom: "down",
+  left: "left",
+} as const
 </script>
 
 <template>
@@ -21,14 +30,14 @@ const DRAWER_SIDES = ["top", "right", "bottom", "left"] as const
       <Drawer
         v-for="side in DRAWER_SIDES"
         :key="side"
-        :direction="side === 'bottom' ? undefined : (side as 'top' | 'right' | 'left')"
+        :swipe-direction="SIDE_TO_SWIPE_DIRECTION[side]"
       >
         <DrawerTrigger :as-child="true">
           <Button variant="outline" class="capitalize">
             {{ side }}
           </Button>
         </DrawerTrigger>
-        <DrawerContent class="data-[vaul-drawer-direction=bottom]:max-h-[50vh] data-[vaul-drawer-direction=top]:max-h-[50vh]">
+        <DrawerContent class="data-[swipe-direction=down]:max-h-[50vh] data-[swipe-direction=up]:max-h-[50vh]">
           <DrawerHeader>
             <DrawerTitle>Move Goal</DrawerTitle>
             <DrawerDescription>

@@ -604,7 +604,7 @@ const contributors = [
     <!-- Account Menu / Navbar -->
     <Example title="Account Menu">
       <header class="flex h-14 w-full items-center gap-2">
-        <Drawer direction="left">
+        <Drawer swipe-direction="left">
           <DrawerTrigger :as-child="true">
             <Button variant="outline" size="icon">
               <IconPlaceholder

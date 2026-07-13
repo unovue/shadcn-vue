@@ -15,7 +15,7 @@ import { Example } from "~/registry/bases/reka/components/example"
 
 <template>
   <Example title="Scrollable Content">
-    <Drawer direction="right">
+    <Drawer swipe-direction="right">
       <DrawerTrigger :as-child="true">
         <Button variant="outline">
           Scrollable Content
