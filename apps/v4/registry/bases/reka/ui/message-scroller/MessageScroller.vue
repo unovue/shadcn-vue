@@ -7,13 +7,14 @@ const props = defineProps<{
   class?: HTMLAttributes["class"]
 }>()
 
-const { setRootElement } = useMessageScrollerContext()
+const { autoscrolling, scrollableAttr } = useMessageScrollerContext()
 </script>
 
 <template>
   <div
-    :ref="(el) => setRootElement(el as HTMLElement | null)"
     data-slot="message-scroller"
+    :data-scrollable="scrollableAttr"
+    :data-autoscrolling="autoscrolling ? '' : undefined"
     :class="cn(
       'group/message-scroller relative flex size-full min-h-0 flex-col overflow-hidden',
       props.class,
