@@ -7,12 +7,12 @@
   "files": [
     {
       "path": "styles/reka-sera/ui/aspect-ratio/AspectRatio.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { AspectRatioProps } from 'reka-ui'\nimport { AspectRatio } from 'reka-ui'\n\nconst props = defineProps<AspectRatioProps>()\n</script>\n\n<template>\n  <AspectRatio\n    v-slot=\"slotProps\"\n    data-slot=\"aspect-ratio\"\n    v-bind=\"props\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </AspectRatio>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { AspectRatioProps } from \"reka-ui\"\nimport { AspectRatio } from \"reka-ui\"\n\nconst props = defineProps<AspectRatioProps>()\n</script>\n\n<template>\n  <AspectRatio\n    v-slot=\"slotProps\"\n    data-slot=\"aspect-ratio\"\n    v-bind=\"props\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </AspectRatio>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-sera/ui/aspect-ratio/index.ts",
-      "content": "export { default as AspectRatio } from './AspectRatio.vue'\n",
+      "content": "export { default as AspectRatio } from \"./AspectRatio.vue\"\n",
       "type": "registry:ui"
     }
   ],

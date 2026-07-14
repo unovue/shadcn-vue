@@ -65,8 +65,8 @@ const codeAttributes = computed(() => isShowingLineNumber.value
 </script>
 
 <template>
-  <pre v-if="unwrap" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0 !bg-transparent', props.class)" :data-language="lang"><code v-bind="codeAttributes" v-html="highlighted" /></pre>
-  <figure v-else data-pretty-code-figure>
+  <pre v-if="unwrap" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0 !bg-transparent [content-visibility:auto] [contain-intrinsic-size:auto_300px]', props.class)" :data-language="lang"><code v-bind="codeAttributes" v-html="highlighted" /></pre>
+  <figure v-else data-pretty-code-figure class="[content-visibility:auto] [contain-intrinsic-size:auto_300px]">
     <pre v-if="isNpmCommand" :class="cn('no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)"><CodeBlockCommand :code /></pre>
 
     <template v-else-if="title">

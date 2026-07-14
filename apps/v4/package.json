@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "typecheck": "vue-tsc -b",
     "deploy": "pnpm build && npx tsx ./scripts/seed-d1.ts && npx wrangler --cwd .output/ deploy && npx tsx ./scripts/purge-cache.ts",
-    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts",
+    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts && pnpm registry:build:index",
+    "registry:build:index": "tsx --tsconfig ./tsconfig.json ./scripts/build-registries-index.ts",
     "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts"
   },
   "dependencies": {
@@ -20,7 +21,6 @@
     "@internationalized/date": "catalog:",
     "@lucide/vue": "catalog:",
     "@nuxt/content": "^3.9.0",
-    "@nuxt/fonts": "0.12.1",
     "@nuxt/image": "2.0.0",
     "@phosphor-icons/vue": "^2.2.1",
     "@remixicon/vue": "^4.8.0",
@@ -49,6 +49,7 @@
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
     "tw-animate-css": "catalog:",
+    "unifont": "catalog:",
     "unstorage": "^1.17.3",
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",

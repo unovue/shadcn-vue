@@ -4,17 +4,17 @@
   "files": [
     {
       "path": "styles/reka-luma/ui/kbd/Kbd.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <kbd\n    data-slot=\"kbd\"\n    :class=\"cn('bg-muted text-muted-foreground in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10 h-5.5 w-fit min-w-5.5 gap-1 rounded-lg px-1.5 font-sans text-xs font-medium [&_svg:not([class*=size-])]:size-3 in-data-[slot=input-group]:bg-input pointer-events-none inline-flex items-center justify-center select-none', props.class)\"\n  >\n    <slot />\n  </kbd>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <kbd\n    data-slot=\"kbd\"\n    :class=\"cn('bg-muted text-muted-foreground in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10 h-5.5 w-fit min-w-5.5 gap-1 rounded-lg px-1.5 font-sans text-xs font-medium [&_svg:not([class*=size-])]:size-3 in-data-[slot=input-group]:bg-input pointer-events-none inline-flex items-center justify-center select-none', props.class)\"\n  >\n    <slot />\n  </kbd>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/kbd/KbdGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <kbd\n    data-slot=\"kbd-group\"\n    :class=\"cn('gap-1 inline-flex items-center', props.class)\"\n  >\n    <slot />\n  </kbd>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <kbd\n    data-slot=\"kbd-group\"\n    :class=\"cn('gap-1 inline-flex items-center', props.class)\"\n  >\n    <slot />\n  </kbd>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/kbd/index.ts",
-      "content": "export { default as Kbd } from './Kbd.vue'\nexport { default as KbdGroup } from './KbdGroup.vue'\n",
+      "content": "export { default as Kbd } from \"./Kbd.vue\"\nexport { default as KbdGroup } from \"./KbdGroup.vue\"\n",
       "type": "registry:ui"
     }
   ],

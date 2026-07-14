@@ -4,12 +4,12 @@
   "files": [
     {
       "path": "styles/reka-lyra/ui/spinner/Spinner.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { Loader2Icon } from '@lucide/vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <Loader2Icon role=\"status\" aria-label=\"Loading\" :class=\"cn('size-4 animate-spin', props.class)\" />\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport { Loader2Icon } from '@lucide/vue';\n\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Loader2Icon role=\"status\" aria-label=\"Loading\" :class=\"cn('size-4 animate-spin', props.class)\" />\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-lyra/ui/spinner/index.ts",
-      "content": "export { default as Spinner } from './Spinner.vue'\n",
+      "content": "export { default as Spinner } from \"./Spinner.vue\"\n",
       "type": "registry:ui"
     }
   ],

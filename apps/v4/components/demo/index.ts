@@ -42,6 +42,10 @@ export { default as CheckboxDisabled } from './CheckboxDisabled.vue'
 export { default as CollapsibleDemo } from './CollapsibleDemo.vue'
 // Combobox demos
 export { default as ComboboxDemo } from './ComboboxDemo.vue'
+export { default as ComboboxMultipleDemo } from './ComboboxMultipleDemo.vue'
+export { default as ComboboxTimezoneDemo } from './ComboboxTimezoneDemo.vue'
+export { default as ComboboxUserDemo } from './ComboboxUserDemo.vue'
+export { default as ComboboxWithListboxDemo } from './ComboboxWithListboxDemo.vue'
 // Dialog demos
 export { default as DialogDemo } from './DialogDemo.vue'
 export { default as DialogResponsive } from './DialogResponsive.vue'

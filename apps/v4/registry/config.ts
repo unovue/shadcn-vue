@@ -270,6 +270,23 @@ export const PRESETS: Preset[] = [
     menuColor: "default",
     radius: "default",
   },
+  {
+    name: "reka-rhea",
+    title: "Rhea",
+    description: "Rhea / Lucide / Inter",
+    base: "reka",
+    style: "rhea",
+    baseColor: "neutral",
+    theme: "neutral",
+    chartColor: "neutral",
+    iconLibrary: "lucide",
+    font: "inter",
+    fontHeading: "inherit",
+    item: "Item",
+    menuAccent: "subtle",
+    menuColor: "default",
+    radius: "default",
+  },
 ]
 
 export function getThemesForBaseColor(baseColorName: string) {

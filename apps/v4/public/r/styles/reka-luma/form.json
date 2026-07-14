@@ -13,42 +13,42 @@
   "files": [
     {
       "path": "styles/reka-luma/ui/form/FormControl.vue",
-      "content": "<script lang=\"ts\" setup>\nimport { Slot } from 'reka-ui'\nimport { useFormField } from './useFormField'\n\nconst { error, formItemId, formDescriptionId, formMessageId } = useFormField()\n</script>\n\n<template>\n  <Slot\n    :id=\"formItemId\"\n    data-slot=\"form-control\"\n    :aria-describedby=\"!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`\"\n    :aria-invalid=\"!!error\"\n  >\n    <slot />\n  </Slot>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport { Slot } from \"reka-ui\"\nimport { useFormField } from \"./useFormField\"\n\nconst { error, formItemId, formDescriptionId, formMessageId } = useFormField()\n</script>\n\n<template>\n  <Slot\n    :id=\"formItemId\"\n    data-slot=\"form-control\"\n    :aria-describedby=\"!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`\"\n    :aria-invalid=\"!!error\"\n  >\n    <slot />\n  </Slot>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/FormDescription.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { formDescriptionId } = useFormField()\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    data-slot=\"form-description\"\n    :class=\"cn('text-muted-foreground text-sm', props.class)\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { useFormField } from \"./useFormField\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n\nconst { formDescriptionId } = useFormField()\n</script>\n\n<template>\n  <p\n    :id=\"formDescriptionId\"\n    data-slot=\"form-description\"\n    :class=\"cn('text-muted-foreground text-sm', props.class)\"\n  >\n    <slot />\n  </p>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/FormItem.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { useId } from 'reka-ui'\nimport { provide } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst id = useId()\nprovide(FORM_ITEM_INJECTION_KEY, id)\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    :class=\"cn('grid gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { useId } from \"reka-ui\"\nimport { provide } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { FORM_ITEM_INJECTION_KEY } from \"./injectionKeys\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n\nconst id = useId()\nprovide(FORM_ITEM_INJECTION_KEY, id)\n</script>\n\n<template>\n  <div\n    data-slot=\"form-item\"\n    :class=\"cn('grid gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/FormLabel.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { LabelProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Label } from '@/styles/reka-luma/ui/label'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    data-slot=\"form-label\"\n    :data-error=\"!!error\"\n    :class=\"cn(\n      'data-[error=true]:text-destructive',\n      props.class,\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { LabelProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Label } from \"@/styles/reka-luma/ui/label\"\nimport { useFormField } from \"./useFormField\"\n\nconst props = defineProps<LabelProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst { error, formItemId } = useFormField()\n</script>\n\n<template>\n  <Label\n    data-slot=\"form-label\"\n    :data-error=\"!!error\"\n    :class=\"cn(\n      'data-[error=true]:text-destructive',\n      props.class,\n    )\"\n    :for=\"formItemId\"\n  >\n    <slot />\n  </Label>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/FormMessage.vue",
-      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { ErrorMessage } from 'vee-validate'\nimport { toValue } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { useFormField } from './useFormField'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n\nconst { name, formMessageId } = useFormField()\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    data-slot=\"form-message\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    :class=\"cn('text-destructive text-sm', props.class)\"\n  />\n</template>\n",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from \"vue\"\nimport { ErrorMessage } from \"vee-validate\"\nimport { toValue } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { useFormField } from \"./useFormField\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n\nconst { name, formMessageId } = useFormField()\n</script>\n\n<template>\n  <ErrorMessage\n    :id=\"formMessageId\"\n    data-slot=\"form-message\"\n    as=\"p\"\n    :name=\"toValue(name)\"\n    :class=\"cn('text-destructive text-sm', props.class)\"\n  />\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/index.ts",
-      "content": "export { default as FormControl } from './FormControl.vue'\nexport { default as FormDescription } from './FormDescription.vue'\nexport { default as FormItem } from './FormItem.vue'\nexport { default as FormLabel } from './FormLabel.vue'\nexport { default as FormMessage } from './FormMessage.vue'\nexport { FORM_ITEM_INJECTION_KEY } from './injectionKeys'\nexport { Form, Field as FormField, FieldArray as FormFieldArray } from 'vee-validate'\n",
+      "content": "export { default as FormControl } from \"./FormControl.vue\"\nexport { default as FormDescription } from \"./FormDescription.vue\"\nexport { default as FormItem } from \"./FormItem.vue\"\nexport { default as FormLabel } from \"./FormLabel.vue\"\nexport { default as FormMessage } from \"./FormMessage.vue\"\nexport { FORM_ITEM_INJECTION_KEY } from \"./injectionKeys\"\nexport { Form, Field as FormField, FieldArray as FormFieldArray } from \"vee-validate\"\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/injectionKeys.ts",
-      "content": "import type { InjectionKey } from 'vue'\n\nexport const FORM_ITEM_INJECTION_KEY\n  = Symbol() as InjectionKey<string>\n",
+      "content": "import type { InjectionKey } from \"vue\"\n\nexport const FORM_ITEM_INJECTION_KEY\n  = Symbol() as InjectionKey<string>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-luma/ui/form/useFormField.ts",
-      "content": "import { FieldContextKey } from 'vee-validate'\nimport { computed, inject } from 'vue'\nimport { FORM_ITEM_INJECTION_KEY } from './injectionKeys'\n\nexport function useFormField() {\n  const fieldContext = inject(FieldContextKey)\n  const fieldItemContext = inject(FORM_ITEM_INJECTION_KEY)\n\n  if (!fieldContext)\n    throw new Error('useFormField should be used within <FormField>')\n\n  const { name, errorMessage: error, meta } = fieldContext\n  const id = fieldItemContext\n\n  const fieldState = {\n    valid: computed(() => meta.valid),\n    isDirty: computed(() => meta.dirty),\n    isTouched: computed(() => meta.touched),\n    error,\n  }\n\n  return {\n    id,\n    name,\n    formItemId: `${id}-form-item`,\n    formDescriptionId: `${id}-form-item-description`,\n    formMessageId: `${id}-form-item-message`,\n    ...fieldState,\n  }\n}\n",
+      "content": "import { FieldContextKey } from \"vee-validate\"\nimport { computed, inject } from \"vue\"\nimport { FORM_ITEM_INJECTION_KEY } from \"./injectionKeys\"\n\nexport function useFormField() {\n  const fieldContext = inject(FieldContextKey)\n  const fieldItemContext = inject(FORM_ITEM_INJECTION_KEY)\n\n  if (!fieldContext)\n    throw new Error(\"useFormField should be used within <FormField>\")\n\n  const { name, errorMessage: error, meta } = fieldContext\n  const id = fieldItemContext\n\n  const fieldState = {\n    valid: computed(() => meta.valid),\n    isDirty: computed(() => meta.dirty),\n    isTouched: computed(() => meta.touched),\n    error,\n  }\n\n  return {\n    id,\n    name,\n    formItemId: `${id}-form-item`,\n    formDescriptionId: `${id}-form-item-description`,\n    formMessageId: `${id}-form-item-message`,\n    ...fieldState,\n  }\n}\n",
       "type": "registry:ui"
     }
   ],
