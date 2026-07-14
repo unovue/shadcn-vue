@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { ToasterProps } from "vue-sonner"
+import { useColorMode } from "@vueuse/core"
 import {
   CircleCheckIcon,
   InfoIcon,
@@ -25,8 +26,8 @@ const colorMode = useColorMode()
       '--normal-border': 'var(--border)',
       '--border-radius': 'var(--radius)',
     }"
-    v-bind="props"
     :theme="colorMode === 'auto' ? 'system' : colorMode"
+    v-bind="props"
   >
     <template #success-icon>
       <CircleCheckIcon class="size-4" />
