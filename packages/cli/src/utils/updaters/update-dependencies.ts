@@ -100,7 +100,7 @@ async function installWithPackageManager(
   dependencies: string[],
   devDependencies: string[],
   cwd: string,
-  silent: boolean,
+  silent?: boolean,
 ) {
   const options = {
     cwd,
