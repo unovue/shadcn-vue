@@ -870,12 +870,18 @@ function createEngine(props: Required<MessageScrollerProviderProps>) {
       scrollToEnd({ behavior: 'auto' })
       return
     }
-    const previousStartScrollable = stateStore.getSnapshot().start
+    const previousSpacerHeight = spacerHeightRef.current
     if (reanchorToAnchoredMessage()) {
+      // The reply streaming below the anchor consumes the tail spacer as it
+      // grows. Once the last of it is gone the reply has filled the viewport
+      // and the reader is genuinely at the live edge, so autoScroll hands off
+      // from the anchor hold to following the bottom. Requiring the >0 → 0
+      // transition keeps a turn taller than the viewport (placed with no
+      // spacer) held instead of yanked to the end.
       if (
         autoScrollRef.current
-        && previousStartScrollable
-        && !stateStore.getSnapshot().start
+        && previousSpacerHeight > 0
+        && spacerHeightRef.current === 0
       ) {
         scrollToEnd({ behavior: 'auto' })
       }
