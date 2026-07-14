@@ -16,6 +16,7 @@ describe('get project info', async () => {
         tailwindCssFile: 'assets/css/tailwind.css',
         tailwindVersion: 'v4',
         aliasPrefix: '@',
+        packageManager: 'pnpm',
       },
     },
     {
@@ -28,6 +29,7 @@ describe('get project info', async () => {
         tailwindCssFile: 'src/index.css',
         tailwindVersion: 'v4',
         aliasPrefix: null,
+        packageManager: 'pnpm',
       },
     },
     {
@@ -40,6 +42,7 @@ describe('get project info', async () => {
         tailwindCssFile: 'src/index.css',
         tailwindVersion: 'v3',
         aliasPrefix: null,
+        packageManager: 'pnpm',
       },
     },
   ])(`getProjectType($name) -> $type`, async ({ name, type }) => {

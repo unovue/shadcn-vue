@@ -8,7 +8,7 @@ import {
   MousePointer2Icon,
   PieChartIcon,
   RadarIcon,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
 import { cn } from '~/lib/utils'
 import TooltipProvider from '~/registry/new-york-v4/ui/tooltip/TooltipProvider.vue'

@@ -8,11 +8,13 @@ import {
   OctagonXIcon,
   TriangleAlertIcon,
   XIcon,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
+import { reactiveOmit } from '@vueuse/core'
 import { Toaster as Sonner } from 'vue-sonner'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<ToasterProps>()
+const delegatedProps = reactiveOmit(props, 'class', 'toastOptions')
 </script>
 
 <template>
@@ -23,13 +25,18 @@ const props = defineProps<ToasterProps>()
       '--normal-text': 'var(--popover-foreground)',
       '--normal-border': 'var(--border)',
       '--border-radius': 'var(--radius)',
+      '--gray2': 'hsl(var(--popover) / 0.9)',
+      '--gray3': 'var(--border)',
+      '--gray4': 'var(--border)',
+      '--gray5': 'var(--border)',
+      '--gray12': 'var(--popover-foreground)',
     }"
-    :toast-options="{
+    :toast-options="props.toastOptions ?? {
       classes: {
         toast: 'rounded-2xl',
       },
     }"
-    v-bind="props"
+    v-bind="delegatedProps"
   >
     <template #success-icon>
       <CircleCheckIcon class="size-4" />

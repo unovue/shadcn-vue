@@ -18,7 +18,6 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <Primitive
     role="group"
-    data-slot="button-group"
     :data-orientation="props.orientation"
     :as="as"
     :as-child="asChild"

@@ -1,6 +1,7 @@
 import type { MockInstance } from 'vitest'
 import fs from 'fs-extra'
 import { downloadTemplate } from 'giget'
+import { detectPackageManager, installDependencies } from 'nypm'
 import prompts from 'prompts'
 import { x } from 'tinyexec'
 import {
@@ -21,7 +22,8 @@ vi.mock('giget')
 vi.mock('tinyexec')
 vi.mock('prompts')
 vi.mock('nypm', () => ({
-  detectPackageManager: vi.fn().mockResolvedValue({ name: 'npm' }),
+  detectPackageManager: vi.fn(),
+  installDependencies: vi.fn(),
 }))
 vi.mock('@/src/utils/spinner')
 vi.mock('@/src/utils/logger', () => ({
@@ -37,6 +39,14 @@ describe('createProject', () => {
 
   beforeEach(() => {
     vi.clearAllMocks()
+
+    // Stable PM detection across tests so we don't fall back to the test
+    // runner's npm_config_user_agent (which would be `pnpm/...`).
+    vi.mocked(detectPackageManager).mockResolvedValue({
+      name: 'npm',
+      command: 'npm',
+    })
+    vi.mocked(installDependencies).mockResolvedValue({} as any)
 
     // Reset all fs mocks
     vi.mocked(fs.access).mockResolvedValue(undefined)
@@ -226,11 +236,11 @@ describe('createProject', () => {
       template: undefined,
     })
 
-    expect(x).toHaveBeenCalledWith(
-      'npm',
-      ['install'],
-      { throwOnError: true, nodeOptions: { cwd: '/test/my-app' } },
-    )
+    expect(installDependencies).toHaveBeenCalledWith({
+      cwd: '/test/my-app',
+      packageManager: 'npm',
+      silent: true,
+    })
   })
 
   it('should throw error if project path already exists', async () => {

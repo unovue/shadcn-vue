@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { RegistryItem } from 'shadcn-vue/schema'
-import { ChevronDownIcon, SearchIcon } from 'lucide-vue-next'
+import { ChevronDownIcon, SearchIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Command,

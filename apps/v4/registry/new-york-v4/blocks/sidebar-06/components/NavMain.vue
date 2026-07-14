@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { LucideIcon } from "lucide-vue-next"
+import type { LucideIcon } from "@lucide/vue"
 
+import { MoreHorizontal } from "@lucide/vue"
 import { useMediaQuery } from "@vueuse/core"
-import { MoreHorizontal } from "lucide-vue-next"
 import {
   DropdownMenu,
   DropdownMenuContent,

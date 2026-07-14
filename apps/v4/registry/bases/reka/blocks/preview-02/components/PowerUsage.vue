@@ -19,6 +19,10 @@ import {
 import { Progress } from "@/registry/bases/reka/ui/progress"
 import { Separator } from "@/registry/bases/reka/ui/separator"
 
+// Hard-edged styles (lyra, sera) flatten the bar corners — mirrors shadcn-ui.
+const params = useDesignSystemSearchParams()
+const isRounded = computed(() => !["lyra", "sera"].includes(params.style.value))
+
 const chartData = [
   { hour: "6a", index: 0, usage: 1.2 },
   { hour: "8a", index: 1, usage: 2.8 },
@@ -53,7 +57,7 @@ const chartConfig = {
             :x="(d: Data) => d.index"
             :y="[(d: Data) => d.usage]"
             :color="[chartConfig.usage.color]"
-            :rounded-corners="4"
+            :rounded-corners="isRounded ? 4 : 0"
           />
           <ChartTooltip />
           <ChartCrosshair

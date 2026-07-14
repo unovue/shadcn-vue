@@ -20,6 +20,7 @@ export function parseDesignSystemConfig(
       base: searchParams.base ?? decoded.base,
       template: searchParams.template,
       rtl: searchParams.rtl === 'true',
+      pointer: searchParams.pointer === 'true',
     }
   }
   else {
@@ -36,6 +37,7 @@ export function parseDesignSystemConfig(
       radius: searchParams.radius,
       template: searchParams.template,
       rtl: searchParams.rtl === 'true',
+      pointer: searchParams.pointer === 'true',
     }
   }
 
@@ -50,6 +52,7 @@ export function parseDesignSystemConfig(
     data: {
       ...result.data,
       rtl: configInput.rtl === true,
-    } as DesignSystemConfig & { rtl: boolean },
+      pointer: configInput.pointer === true,
+    } as DesignSystemConfig & { rtl: boolean, pointer: boolean },
   }
 }

@@ -99,7 +99,10 @@ export function transformMenu(opts: TransformOpts): CodemodPlugin {
                   const processed = processClassString(cleanValue)
 
                   if (processed !== cleanValue) {
-                    node.value = `"${processed}"`
+                    // vue-eslint-parser's VLiteral.value stores the inner text
+                    // unquoted; vue-metamorph re-wraps it on serialization.
+                    // Don't add literal `"` chars here or they get double-quoted.
+                    node.value = processed
                     transformCount++
                   }
                 }

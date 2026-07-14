@@ -2,15 +2,11 @@ import { Command } from 'commander'
 import consola from 'consola'
 import path from 'pathe'
 import { getShadcnRegistryIndex } from '@/src/registry/api'
+import { SHADCN_VUE_URL } from '@/src/registry/constants'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
-
-// NOTE: shadcn-vue uses `reka` as its only base. Docs links are sourced from
-// the registry item's `meta.links[base]` object if the registry exposes them.
-// If the Vue registry does not yet include doc links, the command will warn
-// the user per-component.
 
 export const docs = new Command()
   .name('docs')
@@ -60,17 +56,19 @@ export const docs = new Command()
           process.exit(1)
         }
 
-        const links = (
+        // Use meta.links from the registry if available, otherwise generate
+        // default documentation links from the shadcn-vue website URL.
+        const metaLinks = (
           item.meta?.links as Record<string, Record<string, string>> | undefined
         )?.[base]
 
-        if (!links || Object.keys(links).length === 0) {
-          logger.warn(
-            `No documentation links available for ${highlighter.info(
-              component,
-            )}.`,
-          )
-          continue
+        let links: Record<string, string>
+        if (metaLinks && Object.keys(metaLinks).length > 0) {
+          links = metaLinks
+        }
+        else {
+          const fallbackUrl = `${SHADCN_VUE_URL}/docs/components/${component}`
+          links = { docs: fallbackUrl }
         }
 
         results.push({ component, base, links })

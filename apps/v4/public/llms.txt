@@ -9,6 +9,7 @@
 - [components.json](https://shadcn-vue.com/docs/components-json): Configuration file for customizing the CLI and component installation.
 - [Theming](https://shadcn-vue.com/docs/theming): Guide to customizing colors, typography, and design tokens.
 - [Changelog](https://shadcn-vue.com/docs/changelog): Release notes and version history.
+- [Skills](https://shadcn-vue.com/docs/skills): Deep shadcn-vue knowledge for AI assistants like Claude Code.
 - [About](https://shadcn-vue.com/docs/about): Credits and project information.
 
 ## Installation

@@ -3,7 +3,7 @@ export const description = "A two column login page with a cover image."
 </script>
 
 <script setup lang="ts">
-import { GalleryVerticalEnd } from "lucide-vue-next"
+import { GalleryVerticalEnd } from "@lucide/vue"
 import LoginForm from "@/registry/new-york-v4/blocks/login-02/components/LoginForm.vue"
 </script>
 

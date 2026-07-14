@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import type { ToasterProps } from "vue-sonner"
+import { reactiveOmit } from "@vueuse/core"
 import { Toaster as Sonner } from "vue-sonner"
 import { cn } from "@/lib/utils"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 
 const props = defineProps<ToasterProps>()
+const delegatedProps = reactiveOmit(props, "class", "toastOptions")
 </script>
 
 <template>
@@ -15,13 +17,18 @@ const props = defineProps<ToasterProps>()
       '--normal-text': 'var(--popover-foreground)',
       '--normal-border': 'var(--border)',
       '--border-radius': 'var(--radius)',
+      '--gray2': 'hsl(var(--popover) / 0.9)',
+      '--gray3': 'var(--border)',
+      '--gray4': 'var(--border)',
+      '--gray5': 'var(--border)',
+      '--gray12': 'var(--popover-foreground)',
     }"
-    :toast-options="{
+    :toast-options="props.toastOptions ?? {
       classes: {
         toast: 'cn-toast',
       },
     }"
-    v-bind="props"
+    v-bind="delegatedProps"
   >
     <template #success-icon>
       <IconPlaceholder lucide="CircleCheckIcon" tabler="IconCircleCheck" hugeicons="CheckmarkCircle01Icon" phosphor="CheckCircleIcon" remixicon="RiCheckboxCircleLine" class="size-4" />

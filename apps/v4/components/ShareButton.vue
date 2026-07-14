@@ -11,11 +11,19 @@ import {
   TooltipTrigger,
 } from '@/registry/new-york-v4/ui/tooltip'
 
-const route = useRoute()
+const params = useDesignSystemSearchParams()
 const { copy, copied } = useClipboard()
 
 function handleCopy() {
-  copy(window.location.href)
+  const url = new URL(window.location.href)
+  if (params.pointer.value) {
+    url.searchParams.set('pointer', 'true')
+  }
+  else {
+    url.searchParams.delete('pointer')
+  }
+
+  copy(url.toString())
 }
 </script>
 

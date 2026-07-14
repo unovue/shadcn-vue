@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckIcon, CopyIcon, InfoIcon, StarIcon } from '@lucide/vue'
 import { useClipboard } from '@vueuse/core'
-import { CheckIcon, CopyIcon, InfoIcon, StarIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/registry/new-york-v4/ui/input-group'
 import { Popover, PopoverContent, PopoverTrigger } from '@/registry/new-york-v4/ui/popover'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-vue-next"
+import { Check, ChevronsUpDown, GalleryVerticalEnd } from "@lucide/vue"
 
 import { ref } from "vue"
 import {

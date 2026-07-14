@@ -1158,6 +1158,84 @@ export const Index: Record<string, any> = {
   category: "",
   subcategory: ""
 },
+"marker": {
+  name: "marker",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/bases/reka/ui/marker/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/bases/reka/ui/marker/Marker.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/bases/reka/ui/marker/MarkerIcon.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/bases/reka/ui/marker/MarkerContent.vue",
+    type: "registry:ui",
+    target: ""
+  }],
+  component: () => import("@/registry/bases/reka/ui/marker/index.ts").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
+"attachment": {
+  name: "attachment",
+  description: "",
+  type: "registry:ui",
+  registryDependencies: [],
+  files: [{
+    path: "registry/new-york-v4/ui/attachment/index.ts",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/Attachment.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentAction.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentActions.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentContent.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentDescription.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentGroup.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentMedia.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentTitle.vue",
+    type: "registry:ui",
+    target: ""
+  },{
+    path: "registry/new-york-v4/ui/attachment/AttachmentTrigger.vue",
+    type: "registry:ui",
+    target: ""
+  },],
+  component: () => import("@/registry/new-york-v4/ui/attachment/index.ts").then((m) => m.default),
+  source: "",
+  category: "",
+  subcategory: ""
+},
 "menubar": {
   name: "menubar",
   description: "",
@@ -2761,4 +2839,3 @@ export const Index: Record<string, any> = {
   subcategory: ""
 },
 }
-

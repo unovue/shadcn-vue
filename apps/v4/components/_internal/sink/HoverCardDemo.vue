@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CalendarIcon } from 'lucide-vue-next'
+import { CalendarIcon } from '@lucide/vue'
 
 import {
   Avatar,

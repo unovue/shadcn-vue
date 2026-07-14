@@ -9,7 +9,9 @@ defineProps<{
 
 const params = useDesignSystemSearchParams()
 
-const isRadiusLocked = computed(() => params.style.value === 'lyra')
+// Sera and Lyra both pin radius to "none" — Sera for its editorial hard-edged
+// look, Lyra for its boxy mono aesthetic. Mirrors shadcn-ui upstream.
+const isRadiusLocked = computed(() => params.style.value === 'lyra' || params.style.value === 'sera')
 const selectedRadiusName = computed(() => isRadiusLocked.value ? 'none' : params.radius.value)
 const currentRadius = computed(() => RADII.find(r => r.name === selectedRadiusName.value))
 const defaultRadius = computed(() => RADII.find(r => r.name === 'default'))

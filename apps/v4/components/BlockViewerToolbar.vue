@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useClipboard } from '@vueuse/core'
 import {
   Check,
   Fullscreen,
@@ -8,7 +7,8 @@ import {
   Smartphone,
   Tablet,
   Terminal,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
+import { useClipboard } from '@vueuse/core'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
 import { Tabs, TabsList, TabsTrigger } from '@/registry/new-york-v4/ui/tabs'

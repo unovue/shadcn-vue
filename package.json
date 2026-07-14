@@ -1,7 +1,7 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "2.6.2",
+  "version": "2.7.4",
   "private": true,
   "packageManager": "pnpm@10.25.0",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "taze": "^19.9.2",
     "tsx": "catalog:",
     "typescript": "catalog:",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.6"
   },
   "commitlint": {
     "extends": [

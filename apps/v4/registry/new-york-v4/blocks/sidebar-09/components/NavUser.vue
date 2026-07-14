@@ -6,7 +6,7 @@ import {
   CreditCard,
   LogOut,
   Sparkles,
-} from "lucide-vue-next"
+} from "@lucide/vue"
 
 import {
   Avatar,

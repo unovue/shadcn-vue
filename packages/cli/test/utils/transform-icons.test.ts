@@ -8,7 +8,7 @@ describe('transformIcons', () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
-      import { Check } from 'lucide-vue-next'
+      import { Check } from '@lucide/vue'
       import { Primitive } from 'reka-ui'
       </script>
 
@@ -28,7 +28,7 @@ describe('transformIcons', () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
-      import { Check } from 'lucide-vue-next'
+      import { Check } from '@lucide/vue'
       import { Primitive } from 'reka-ui'
       </script>
 
@@ -48,7 +48,7 @@ describe('transformIcons', () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
-      import { Check } from 'lucide-vue-next'
+      import { Check } from '@lucide/vue'
       import { Primitive } from 'reka-ui'
       </script>
 
@@ -68,7 +68,7 @@ describe('transformIcons', () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
-      import { Check } from 'lucide-vue-next'
+      import { Check } from '@lucide/vue'
       import { Primitive } from 'reka-ui'
       </script>
 
@@ -88,7 +88,7 @@ describe('transformIcons', () => {
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
-      import { CheckIcon } from 'lucide-vue-next'
+      import { CheckIcon } from '@lucide/vue'
       import { Primitive } from 'reka-ui'
       </script>
 
@@ -103,7 +103,7 @@ describe('transformIcons', () => {
     })
     expect(result).toContain('@phosphor-icons/vue')
     expect(result).toContain('PhCheck')
-    expect(result).not.toContain('lucide-vue-next')
+    expect(result).not.toContain('@lucide/vue')
     expect(result).not.toContain('CheckIcon')
   })
 
@@ -113,7 +113,7 @@ describe('transformIcons', () => {
       ChevronDown: { remixicon: 'RiArrowDownSLine' },
     }
     const source = `<script lang="ts" setup>
-import { CheckIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { CheckIcon, ChevronDownIcon } from '@lucide/vue'
 import { Primitive } from 'reka-ui'
 </script>
 
@@ -133,7 +133,7 @@ import { Primitive } from 'reka-ui'
     expect(result).toContain('@remixicon/vue')
     expect(result).toContain('RiCheckLine')
     expect(result).toContain('RiArrowDownSLine')
-    expect(result).not.toContain('lucide-vue-next')
+    expect(result).not.toContain('@lucide/vue')
     expect(result).not.toContain('CheckIcon')
     expect(result).not.toContain('ChevronDownIcon')
   })
@@ -142,7 +142,7 @@ import { Primitive } from 'reka-ui'
     const result = await transform({
       filename: 'app.vue',
       raw: `<script lang="ts" setup>
-      import { Check } from 'lucide-vue-next'
+      import { Check } from '@lucide/vue'
       import { Primitive } from 'reka-ui'
       </script>
 

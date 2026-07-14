@@ -105,6 +105,21 @@ export const DEFAULT_PRESETS = {
     radius: 'default',
     rtl: false,
   },
+  sera: {
+    title: 'Sera',
+    description: 'Lucide / Noto Sans + Playfair Display',
+    base: 'reka',
+    style: 'sera',
+    baseColor: 'taupe',
+    theme: 'taupe',
+    iconLibrary: 'lucide',
+    font: 'noto-sans',
+    fontHeading: 'playfair-display',
+    menuAccent: 'subtle' as const,
+    menuColor: 'default' as const,
+    radius: 'default',
+    rtl: false,
+  },
 }
 
 export function resolveCreateUrl(
@@ -112,11 +127,12 @@ export function resolveCreateUrl(
     command: 'create' | 'init'
     template: string
     rtl: boolean
+    pointer: boolean
     base: string
   }>,
 ) {
   const url = new URL(`${SHADCN_VUE_URL}/create`)
-  const { rtl, ...params } = searchParams ?? {}
+  const { rtl, pointer, ...params } = searchParams ?? {}
 
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined) {
@@ -126,6 +142,10 @@ export function resolveCreateUrl(
 
   if (rtl) {
     url.searchParams.set('rtl', 'true')
+  }
+
+  if (pointer) {
+    url.searchParams.set('pointer', 'true')
   }
 
   return url.toString()
@@ -173,7 +193,7 @@ export function resolveInitUrl(
     menuColor: string
     radius: string
   },
-  options?: { template?: string, preset?: string },
+  options?: { template?: string, preset?: string, pointer?: boolean },
 ) {
   const params = new URLSearchParams({
     base: preset.base,
@@ -202,6 +222,10 @@ export function resolveInitUrl(
     params.set('template', options.template)
   }
 
+  if (options?.pointer) {
+    params.set('pointer', 'true')
+  }
+
   // Signal the server to record this init run.
   params.set('track', '1')
 
@@ -221,6 +245,7 @@ export type PromptForPresetResult
 
 export async function promptForPreset(options: {
   rtl: boolean
+  pointer?: boolean
   base: string
   template?: string
 }): Promise<PromptForPresetResult> {
@@ -252,6 +277,7 @@ export async function promptForPreset(options: {
     const createUrl = resolveCreateUrl({
       command: 'init',
       rtl: options.rtl,
+      pointer: options.pointer,
       base: options.base,
       ...(options.template && { template: options.template }),
     })
@@ -273,6 +299,7 @@ export async function promptForPreset(options: {
       { ...preset, base: options.base, rtl: options.rtl },
       {
         template: options.template,
+        pointer: options.pointer,
       },
     ),
     base: options.base,

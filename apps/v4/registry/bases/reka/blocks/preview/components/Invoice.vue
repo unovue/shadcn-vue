@@ -82,7 +82,7 @@ function formatCurrency(value: number) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell :col-span="3" class="text-right">
+            <TableCell :colspan="3" class="text-right">
               Subtotal
             </TableCell>
             <TableCell class="text-right tabular-nums">
@@ -90,7 +90,7 @@ function formatCurrency(value: number) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell :col-span="3" class="text-right">
+            <TableCell :colspan="3" class="text-right">
               Tax
             </TableCell>
             <TableCell class="text-right tabular-nums">
@@ -98,7 +98,7 @@ function formatCurrency(value: number) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell :col-span="3" class="text-right">
+            <TableCell :colspan="3" class="text-right">
               Total Due
             </TableCell>
             <TableCell class="text-right tabular-nums">

@@ -61,7 +61,7 @@ This document summarizes all the demo components that have been created to match
 All components use `<script setup>` syntax with proper TypeScript support.
 
 ### Icon Integration
-Components use `lucide-vue-next` icons:
+Components use `@lucide/vue` icons:
 - ChevronRightIcon
 - GitBranchIcon  
 - Loader2Icon

@@ -72,6 +72,9 @@
     "rtl": {
       "type": "boolean"
     },
+    "pointer": {
+      "type": "boolean"
+    },
     "registries": {
       "type": "object",
       "patternProperties": {

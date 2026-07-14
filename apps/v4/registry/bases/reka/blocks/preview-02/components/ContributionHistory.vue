@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import type { ChartConfig } from "@/registry/bases/reka/ui/chart"
 import { VisAxis, VisGroupedBar, VisXYContainer } from "@unovis/vue"
-import { Badge } from "@/registry/bases/reka/ui/badge"
 import { Button } from "@/registry/bases/reka/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -42,6 +40,10 @@ const chartConfig = {
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
+
+// Hard-edged styles (lyra, sera) flatten the bar corners — mirrors shadcn-ui.
+const params = useDesignSystemSearchParams()
+const isRounded = computed(() => !["lyra", "sera"].includes(params.style.value))
 </script>
 
 <template>
@@ -49,11 +51,6 @@ const chartConfig = {
     <CardHeader>
       <CardTitle>Contribution History</CardTitle>
       <CardDescription>Last 6 months of activity</CardDescription>
-      <CardAction>
-        <Badge variant="secondary">
-          +12% vs last month
-        </Badge>
-      </CardAction>
     </CardHeader>
     <CardContent>
       <ChartContainer :config="chartConfig" class="h-[200px] w-full">
@@ -62,7 +59,7 @@ const chartConfig = {
             :x="(d: Data) => d.index"
             :y="[(d: Data) => d.amount]"
             :color="[chartConfig.amount.color]"
-            :rounded-corners="6"
+            :rounded-corners="isRounded ? 6 : 0"
             :bar-padding="0.05"
           />
           <VisAxis

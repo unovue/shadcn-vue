@@ -101,7 +101,7 @@ name: BreadcrumbCustomSeparatorDemo
 
 ```vue showLineNumbers {2,12-14}
 <script setup lang="ts">
-import { SlashIcon } from 'lucide-vue-next'
+import { SlashIcon } from '@lucide/vue'
 // ...
 </script>
 

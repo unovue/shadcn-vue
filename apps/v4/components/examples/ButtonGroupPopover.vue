@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BotIcon, ChevronDownIcon } from 'lucide-vue-next'
+import { BotIcon, ChevronDownIcon } from '@lucide/vue'
 
 import { Button } from '@/styles/reka-nova/ui/button'
 import { ButtonGroup } from '@/styles/reka-nova/ui/button-group'

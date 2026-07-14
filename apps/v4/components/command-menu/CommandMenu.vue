@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Color, ColorPalette } from '@/lib/colors'
 import type { NavigationItem } from '~/composables/useNavigation'
+import { CornerDownLeft, Square } from '@lucide/vue'
 import { IconArrowRight } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
-import { CornerDownLeft, Square } from 'lucide-vue-next'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useIsMac } from '@/composables/useIsMac'
 import { useConfig } from '@/composables/useUserConfig'
@@ -119,7 +119,7 @@ onMounted(() => {
       <Button
         variant="outline"
         :class="cn(
-          'relative h-8 w-full justify-start rounded-lg pl-3 font-normal text-foreground shadow-none hover:bg-muted/50 sm:pr-12 md:w-48 lg:w-40 xl:w-64 dark:bg-card',
+          'relative h-8 w-full justify-start rounded-lg border-none bg-muted pl-3 text-foreground shadow-none transition-colors hover:bg-muted/50 md:w-48 lg:w-40 xl:w-64 dark:bg-card',
         )"
         @click="open = true"
       >

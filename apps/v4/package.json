@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "typecheck": "vue-tsc -b",
     "deploy": "pnpm build && npx tsx ./scripts/seed-d1.ts && npx wrangler --cwd .output/ deploy && npx tsx ./scripts/purge-cache.ts",
-    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts",
+    "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts && pnpm registry:build:index",
+    "registry:build:index": "tsx --tsconfig ./tsconfig.json ./scripts/build-registries-index.ts",
     "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts"
   },
   "dependencies": {
@@ -18,8 +19,8 @@
     "@hugeicons/core-free-icons": "^2.0.0",
     "@hugeicons/vue": "^1.0.3",
     "@internationalized/date": "catalog:",
+    "@lucide/vue": "catalog:",
     "@nuxt/content": "^3.9.0",
-    "@nuxt/fonts": "0.12.1",
     "@nuxt/image": "2.0.0",
     "@phosphor-icons/vue": "^2.2.1",
     "@remixicon/vue": "^4.8.0",
@@ -40,7 +41,6 @@
     "dnd-kit-vue": "^0.0.2",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
-    "lucide-vue-next": "^0.555.0",
     "nuxt": "^4.2.1",
     "nuxt-og-image": "5.1.12",
     "qrcode": "catalog:",
@@ -49,6 +49,7 @@
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
     "tw-animate-css": "catalog:",
+    "unifont": "catalog:",
     "unstorage": "^1.17.3",
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
@@ -67,7 +68,7 @@
     "rimraf": "^6.1.2",
     "shiki": "^3.19.0",
     "tsx": "catalog:",
-    "vue-metamorph": "^3.3.4",
+    "vue-metamorph": "3.3.4",
     "vue-tsc": "catalog:",
     "wrangler": "^4.53.0"
   }

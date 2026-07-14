@@ -26,6 +26,9 @@ export type StyleName = Style["name"]
 export type ThemeName = Theme["name"]
 export type BaseColorName = BaseColor["name"]
 
+export const POINTER_CURSOR_SELECTOR
+  = "button:not(:disabled), [role=\"button\"]:not(:disabled)"
+
 // Derive font values from registry fonts (e.g., "font-inter" -> "inter").
 const fontValues = fonts.map(f => f.name.replace("font-", "")) as [
   string,
@@ -82,6 +85,12 @@ export const designSystemConfigSchema = z
       )
       .default("neutral"),
     theme: z.enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]]),
+    // Defaults to `theme` at preset-apply time (see PRESETS). Surfacing it on
+    // the schema lets style/preset pickers carry it alongside theme so that
+    // picking e.g. Sera switches the chart palette to taupe in lockstep.
+    chartColor: z
+      .enum(THEMES.map(t => t.name) as [ThemeName, ...ThemeName[]])
+      .optional(),
     font: z.enum(fontValues).default("inter"),
     fontHeading: z
       .enum(["inherit", ...fontValues] as [string, ...string[]])
@@ -104,6 +113,7 @@ export const designSystemConfigSchema = z
       .enum(RADII.map(r => r.name) as [RadiusValue, ...RadiusValue[]])
       .default("default"),
     template: z.enum(["nuxt", "vite", "laravel", "astro"]).default("nuxt").optional(),
+    pointer: z.boolean().default(false),
   })
   .refine(
     (data) => {
@@ -131,13 +141,14 @@ export const DEFAULT_CONFIG: DesignSystemConfig = {
   menuColor: "default",
   radius: "default",
   template: "nuxt",
+  pointer: false,
 }
 
 export type Preset = {
   name: string
   title: string
   description: string
-} & DesignSystemConfig
+} & Omit<DesignSystemConfig, "pointer">
 
 export const PRESETS: Preset[] = [
   {
@@ -148,6 +159,7 @@ export const PRESETS: Preset[] = [
     style: "vega",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "lucide",
     font: "inter",
     fontHeading: "inherit",
@@ -164,6 +176,7 @@ export const PRESETS: Preset[] = [
     style: "nova",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
     fontHeading: "inherit",
@@ -180,6 +193,7 @@ export const PRESETS: Preset[] = [
     style: "maia",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "figtree",
     fontHeading: "inherit",
@@ -196,6 +210,7 @@ export const PRESETS: Preset[] = [
     style: "lyra",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "jetbrains-mono",
     fontHeading: "inherit",
@@ -212,6 +227,7 @@ export const PRESETS: Preset[] = [
     style: "mira",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "hugeicons",
     font: "inter",
     fontHeading: "inherit",
@@ -228,6 +244,41 @@ export const PRESETS: Preset[] = [
     style: "luma",
     baseColor: "neutral",
     theme: "neutral",
+    chartColor: "neutral",
+    iconLibrary: "lucide",
+    font: "inter",
+    fontHeading: "inherit",
+    item: "Item",
+    menuAccent: "subtle",
+    menuColor: "default",
+    radius: "default",
+  },
+  {
+    name: "reka-sera",
+    title: "Sera",
+    description: "Sera / Lucide / Noto Sans + Playfair Display",
+    base: "reka",
+    style: "sera",
+    baseColor: "taupe",
+    theme: "taupe",
+    chartColor: "taupe",
+    iconLibrary: "lucide",
+    font: "noto-sans",
+    fontHeading: "playfair-display",
+    item: "Item",
+    menuAccent: "subtle",
+    menuColor: "default",
+    radius: "default",
+  },
+  {
+    name: "reka-rhea",
+    title: "Rhea",
+    description: "Rhea / Lucide / Inter",
+    base: "reka",
+    style: "rhea",
+    baseColor: "neutral",
+    theme: "neutral",
+    chartColor: "neutral",
     iconLibrary: "lucide",
     font: "inter",
     fontHeading: "inherit",
@@ -324,7 +375,7 @@ export function buildRegistryTheme(config: DesignSystemConfig) {
 
 // Builds a registry:base item from a design system config.
 export function buildRegistryBase(
-  config: DesignSystemConfig & { rtl?: boolean },
+  config: DesignSystemConfig & { rtl?: boolean, pointer?: boolean },
 ) {
   const baseItem = getBase(config.base)
   const iconLibraryItem = getIconLibrary(config.iconLibrary)
@@ -413,6 +464,7 @@ export function buildRegistryBase(
       ...(normalizedFontHeading !== "inherit"
         && { fontHeading: normalizedFontHeading }),
       rtl: config.rtl ?? false,
+      pointer: config.pointer ?? false,
       menuColor: config.menuColor,
       menuAccent: config.menuAccent,
       tailwind: {
@@ -431,6 +483,11 @@ export function buildRegistryBase(
       "@layer base": {
         "*": { "@apply border-border outline-ring/50": {} },
         "body": bodyRules,
+        ...(config.pointer && {
+          [POINTER_CURSOR_SELECTOR]: {
+            cursor: "pointer",
+          },
+        }),
       },
     },
   }
