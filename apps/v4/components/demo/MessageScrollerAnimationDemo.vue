@@ -107,7 +107,7 @@ function onSend() {
         <MessageScrollerProvider v-else>
           <MessageScroller>
             <MessageScrollerViewport>
-              <MessageScrollerContent :aria-busy="isBusy" class="p-6">
+              <MessageScrollerContent :aria-busy="isBusy" class="p-(--card-spacing)">
                 <MessageAnimated
                   v-for="message in messages"
                   :key="message.id"

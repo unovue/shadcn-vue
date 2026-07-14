@@ -132,7 +132,7 @@ function send() {
         <MessageScrollerProvider v-else>
           <MessageScroller>
             <MessageScrollerViewport>
-              <MessageScrollerContent class="p-6">
+              <MessageScrollerContent class="p-(--card-spacing)">
                 <MessageAnimated
                   v-for="message in messages"
                   :key="message.id"
