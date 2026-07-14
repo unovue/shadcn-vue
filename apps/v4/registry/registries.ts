@@ -24,4 +24,13 @@ export const registries: RegistryEntry[] = [
     author: "unovue",
     tags: ["ui", "blocks", "charts"],
   },
+  {
+    name: "@inspira-ui",
+    title: "Inspira UI",
+    description: "Open-source animated components and effects for Vue and Nuxt.",
+    url: "https://registry.inspira-ui.com/{name}.json",
+    homepage: "https://inspira-ui.com",
+    author: "Rahul Vashishtha",
+    tags: ["ui", "animations", "effects"],
+  },
 ]

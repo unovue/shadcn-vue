@@ -1,3 +1,4 @@
 {
-  "@shadcn": "https://shadcn-vue.com/r/styles/{style}/{name}.json"
+  "@shadcn": "https://shadcn-vue.com/r/styles/{style}/{name}.json",
+  "@inspira-ui": "https://registry.inspira-ui.com/{name}.json"
 }
