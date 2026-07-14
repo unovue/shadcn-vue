@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "slider",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "files": [
+    {
+      "path": "styles/reka-rhea/ui/slider/Slider.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SliderRootEmits, SliderRootProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<SliderRootProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<SliderRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SliderRoot\n    v-slot=\"{ modelValue }\"\n    data-slot=\"slider\"\n    :data-vertical=\"props.orientation === 'vertical' ? '' : undefined\"\n    :class=\"cn(\n      'data-vertical:min-h-40 relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:w-auto data-vertical:flex-col',\n      props.class,\n    )\"\n    v-bind=\"forwarded\"\n  >\n    <SliderTrack\n      data-slot=\"slider-track\"\n      :data-horizontal=\"props.orientation !== 'vertical' ? '' : undefined\"\n      :data-vertical=\"props.orientation === 'vertical' ? '' : undefined\"\n      class=\"bg-input/90 rounded-2xl data-horizontal:h-1 data-vertical:w-1 relative grow overflow-hidden data-horizontal:w-full data-vertical:h-full\"\n    >\n      <SliderRange\n        data-slot=\"slider-range\"\n        :data-horizontal=\"props.orientation !== 'vertical' ? '' : undefined\"\n        :data-vertical=\"props.orientation === 'vertical' ? '' : undefined\"\n        class=\"bg-primary absolute select-none data-horizontal:h-full data-vertical:w-full\"\n      />\n    </SliderTrack>\n\n    <SliderThumb\n      v-for=\"(_, key) in modelValue\"\n      :key=\"key\"\n      data-slot=\"slider-thumb\"\n      :data-vertical=\"props.orientation === 'vertical' ? '' : undefined\"\n      class=\"ring-black/10 not-dark:bg-clip-padding ring-1 size-4 rounded-2xl bg-white shadow-md transition-[color,box-shadow] duration-200 hover:ring-4 hover:ring-ring/30 focus-visible:ring-4 focus-visible:ring-ring/30 focus-visible:outline-hidden block shrink-0 select-none disabled:pointer-events-none disabled:opacity-50\"\n    />\n  </SliderRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-rhea/ui/slider/index.ts",
+      "content": "export { default as Slider } from \"./Slider.vue\"\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

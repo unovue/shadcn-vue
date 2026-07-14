@@ -121,7 +121,7 @@ function onPeekChange(value: number[] | undefined) {
         <CardContent class="flex-1 overflow-hidden p-0">
           <MessageScroller>
             <MessageScrollerViewport>
-              <MessageScrollerContent :aria-busy="isBusy" class="p-6">
+              <MessageScrollerContent :aria-busy="isBusy" class="p-(--card-spacing)">
                 <MessageAnimated
                   v-for="message in messages"
                   :key="message.id"
