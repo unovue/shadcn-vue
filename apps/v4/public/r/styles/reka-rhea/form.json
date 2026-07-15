@@ -43,7 +43,7 @@
     },
     {
       "path": "styles/reka-rhea/ui/form/injectionKeys.ts",
-      "content": "import type { InjectionKey } from \"vue\"\n\nexport const FORM_ITEM_INJECTION_KEY\n  = Symbol() as InjectionKey<string>\n",
+      "content": "import type { InjectionKey } from \"vue\"\n\nexport const FORM_ITEM_INJECTION_KEY\n  = Symbol(\"FORM_ITEM_INJECTION_KEY\") as InjectionKey<string>\n",
       "type": "registry:ui"
     },
     {
