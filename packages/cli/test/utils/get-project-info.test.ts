@@ -61,6 +61,22 @@ describe('get project info', async () => {
         packageManager: 'pnpm',
       },
     },
+    {
+      // AdonisJS-style Inertia project: ./inertia/tsconfig.json exists and
+      // must take precedence over the root tsconfig.json (which has no
+      // paths — a regression to the root lookup would yield a null prefix).
+      name: 'inertia-adonis',
+      type: {
+        framework: FRAMEWORKS.inertia,
+        isSrcDir: false,
+        typescript: true,
+        tailwindConfigFile: null,
+        tailwindCssFile: 'inertia/css/app.css',
+        tailwindVersion: 'v4',
+        aliasPrefix: '~',
+        packageManager: 'pnpm',
+      },
+    },
   ])(`getProjectType($name) -> $type`, async ({ name, type }) => {
     expect(
       await getProjectInfo(
