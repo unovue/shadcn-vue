@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowRightIcon, Loader2Icon, SendIcon } from 'lucide-vue-next'
+import { ArrowRightIcon, Loader2Icon, SendIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 </script>
 

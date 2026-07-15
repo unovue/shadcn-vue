@@ -2,7 +2,6 @@
 title: Spinner
 description: An indicator that can be used to show a loading state.
 component: true
-new: true
 ---
 
 ::component-preview

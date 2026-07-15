@@ -2,20 +2,20 @@
 import type { Column } from '@tanstack/vue-table'
 import type { Component } from 'vue'
 import type { Task } from '../data/schema'
-import { Check, PlusCircle } from 'lucide-vue-next'
+import { Check, PlusCircle } from '@lucide/vue'
 import { computed } from 'vue'
 
 import { cn } from '@/lib/utils'
-import { Badge } from '@/registry/new-york-v4/ui/badge'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Badge } from '@/styles/reka-nova/ui/badge'
+import { Button } from '@/styles/reka-nova/ui/button'
 
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/registry/new-york-v4/ui/command'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/styles/reka-nova/ui/command'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york-v4/ui/popover'
-import { Separator } from '@/registry/new-york-v4/ui/separator'
+} from '@/styles/reka-nova/ui/popover'
+import { Separator } from '@/styles/reka-nova/ui/separator'
 
 interface DataTableFacetedFilter {
   column?: Column<Task, any>

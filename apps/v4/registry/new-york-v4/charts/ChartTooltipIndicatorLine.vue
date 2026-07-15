@@ -3,8 +3,8 @@ import type {
   ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
 
+import { TrendingUp } from "@lucide/vue"
 import { VisAxis, VisStackedBar, VisXYContainer } from "@unovis/vue"
-import { TrendingUp } from "lucide-vue-next"
 import {
   Card,
   CardContent,

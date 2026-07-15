@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from 'lucide-vue-next'
+import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/registry/new-york-v4/ui/dropdown-menu'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText, InputGroupTextarea } from '@/registry/new-york-v4/ui/input-group'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york-v4/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/registry/new-york-v4/ui/tooltip'
 </script>
 
 <template>
@@ -23,14 +23,16 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/registry/new-york-v4/
         <InputGroupText>https://</InputGroupText>
       </InputGroupAddon>
       <InputGroupAddon align="inline-end">
-        <Tooltip>
-          <TooltipTrigger as-child>
-            <InputGroupButton class="rounded-full" size="icon-xs">
-              <InfoIcon class="size-4" />
-            </InputGroupButton>
-          </TooltipTrigger>
-          <TooltipContent>This is content in a tooltip.</TooltipContent>
-        </Tooltip>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger as-child>
+              <InputGroupButton class="rounded-full" size="icon-xs">
+                <InfoIcon class="size-4" />
+              </InputGroupButton>
+            </TooltipTrigger>
+            <TooltipContent>This is content in a tooltip.</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </InputGroupAddon>
     </InputGroup>
     <InputGroup>

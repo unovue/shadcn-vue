@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRight, File, Folder } from "lucide-vue-next"
+import { ChevronRight, File, Folder } from "@lucide/vue"
 import {
   Collapsible,
   CollapsibleContent,

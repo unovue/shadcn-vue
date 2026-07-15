@@ -14,6 +14,10 @@ description: A dialog with a form.
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="dialogs-and-alerts-with-shadcn-vue" placement="top"}
+Watch a Vue School video about dialogs and alerts in shadcn-vue.
+::
+
 ## Installation
 
 ::code-tabs
@@ -108,6 +112,16 @@ To keep field value after `Dialog` unmounts
 ::component-preview
 ---
 name: DialogForm
+---
+::
+
+### Responsive Modal (Dialog & Drawer)
+
+Use a `Drawer` component for smaller viewport sizes and a `Dialog` component otherwise. This can be further made reusable by using slots for various parts of the modal.
+
+::component-preview
+---
+name: DialogResponsive
 ---
 ::
 

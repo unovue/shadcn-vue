@@ -5,6 +5,7 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import {
   FlexRender,
   getCoreRowModel,
@@ -13,7 +14,6 @@ import {
   getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table'
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
 import { h, ref } from 'vue'
 import DropdownAction from '@/components/_internal/sink/DataTableDemoColumn.vue'
 

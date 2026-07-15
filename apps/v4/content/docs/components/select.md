@@ -98,3 +98,23 @@ import {
   </Select>
 </template>
 ```
+
+## Examples
+
+### Scrollable
+
+::component-preview
+---
+name: SelectScrollable
+description: A scrollable select component with timezone options.
+---
+::
+
+### Multiple
+
+::component-preview
+---
+name: SelectMultipleDemo
+description: A multiple select component
+---
+::

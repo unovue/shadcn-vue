@@ -6,9 +6,9 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@/registry/new-york-v4/ui/hover-card'
-import { Label } from '@/registry/new-york-v4/ui/label'
-import { Slider } from '@/registry/new-york-v4/ui/slider'
+} from '@/styles/reka-nova/ui/hover-card'
+import { Label } from '@/styles/reka-nova/ui/label'
+import { Slider } from '@/styles/reka-nova/ui/slider'
 
 const props = defineProps<{
   defaultValue: SliderRootProps['defaultValue']

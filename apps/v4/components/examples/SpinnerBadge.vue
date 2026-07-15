@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Badge } from '@/registry/new-york-v4/ui/badge'
-import { Spinner } from '@/registry/new-york-v4/ui/spinner'
+import { Badge } from '@/styles/reka-nova/ui/badge'
+import { Spinner } from '@/styles/reka-nova/ui/spinner'
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type {
   BaseColor,
-} from '@/registry/registry-base-colors'
+} from '~/registry/_legacy-base-colors'
+import { CheckIcon } from '@lucide/vue'
 import { IconCopy } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
-import { CheckIcon } from 'lucide-vue-next'
 import { Icons } from '@/components/Icons'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
@@ -16,7 +16,7 @@ import {
 import {
   baseColors,
   baseColorsOKLCH,
-} from '@/registry/registry-base-colors'
+} from '~/registry/_legacy-base-colors'
 
 interface BaseColorOKLCH {
   light: Record<string, string>

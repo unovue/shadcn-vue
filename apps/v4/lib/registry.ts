@@ -7,9 +7,9 @@ import path from 'node:path'
 // import { Project, ScriptKind } from 'ts-morph'
 
 import { registryItemSchema } from 'shadcn-vue/schema'
-import { blockMeta } from '@/registry/registry-block-meta'
 import { fixImport } from '~/lib/registry-utils'
 import { Index } from '~/registry/__index__'
+import { blockMeta } from '~/registry/new-york-v4/blocks/_meta'
 
 export function getRegistryComponent(name: string) {
   return Index[name]?.component
@@ -127,7 +127,7 @@ function fixFilePaths(files: z.infer<typeof registryItemSchema>['files']) {
   }
 
   // Resolve all paths relative to the first file's directory.
-  const firstFilePath = files[0].path
+  const firstFilePath = files[0]!.path
   const firstFilePathDir = path.dirname(firstFilePath)
 
   return files.map((file) => {
@@ -156,7 +156,7 @@ export function createFileTreeForRegistryItemFiles(
     let currentLevel = root
 
     for (let i = 0; i < parts.length; i++) {
-      const part = parts[i]
+      const part = parts[i]!
       const isFile = i === parts.length - 1
       const existingNode = currentLevel.find(node => node.name === part)
 

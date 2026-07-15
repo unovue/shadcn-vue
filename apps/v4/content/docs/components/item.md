@@ -2,7 +2,6 @@
 title: Item
 description: A versatile component that you can use to display any content.
 component: true
-new: true
 ---
 
 The `Item` component is a straightforward flex container that can house nearly any type of content. Use it to display a title, description, and actions. Group it with the `ItemGroup` component to create a list of items.

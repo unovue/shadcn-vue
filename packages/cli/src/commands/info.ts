@@ -13,13 +13,31 @@ export const info = new Command()
     'the working directory. defaults to the current directory.',
     process.cwd(),
   )
+  .option('--json', 'output as JSON.', false)
   .action(async (opts) => {
     try {
+      const projectInfo = await getProjectInfo(opts.cwd)
+      const config = await getConfig(opts.cwd)
+
+      if (opts.json) {
+        consola.log(
+          JSON.stringify(
+            {
+              project: projectInfo ?? null,
+              config: config ?? null,
+            },
+            null,
+            2,
+          ),
+        )
+        return
+      }
+
       logger.info('> project info')
-      consola.log(await getProjectInfo(opts.cwd))
+      consola.log(projectInfo)
       logger.break()
       logger.info('> components.json')
-      consola.log(await getConfig(opts.cwd))
+      consola.log(config)
     }
     catch (error) {
       handleError(error)

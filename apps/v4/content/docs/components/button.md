@@ -12,6 +12,10 @@ description: A button
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="buttons-variants-and-the-as-child-prop-with-shadcn-vue" placement="top"}
+Watch a Vue School video about buttons, variants, and the as-child prop in shadcn-vue.
+::
+
 ## Installation
 
 ::code-tabs
@@ -77,6 +81,8 @@ import { Button } from '@/components/ui/button'
 Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) from `cursor: pointer` to `cursor: default` for the button component.
 
 If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
+
+You can also enable this during project setup with `npx shadcn-vue@latest init --pointer`.
 
 ```css showLineNumbers title="tailwind.css"
 @layer base {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AppWindowIcon, CodeIcon } from 'lucide-vue-next'
+import { AppWindowIcon, CodeIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Card,

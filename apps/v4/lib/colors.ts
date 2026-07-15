@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { colors } from '@/registry/registry-colors'
+import { colors } from '~/registry/_legacy-colors'
 
 const colorSchema = z.object({
   name: z.string(),
@@ -90,7 +90,7 @@ function getForegroundFromBackground(rgb: string) {
   }
 
   const luminance
-    = 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b)
+    = 0.2126 * toLinear(r!) + 0.7152 * toLinear(g!) + 0.0722 * toLinear(b!)
 
   return luminance > 0.179 ? '#000' : '#fff'
 }

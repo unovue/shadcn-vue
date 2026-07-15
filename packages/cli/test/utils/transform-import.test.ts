@@ -1,6 +1,43 @@
 import { expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
 
+it('transform @/styles/ paths to user aliases', async () => {
+  expect(
+    await transform({
+      filename: 'app.ts',
+      raw: `import { Button } from "@/styles/reka-lyra/ui/button"
+    import { Input } from "@/styles/reka-nova/ui/input"
+    import type { ButtonVariants } from "@/styles/reka-lyra/ui/button"
+    import { cn } from "@/lib/utils"
+    `,
+      config: {
+        aliases: {
+          components: '@/components',
+          utils: '@/lib/utils',
+        },
+        typescript: true,
+      },
+    }),
+  ).toMatchSnapshot()
+
+  expect(
+    await transform({
+      filename: 'app.ts',
+      raw: `import { Button } from "@/styles/reka-lyra/ui/button"
+    import { cn } from "@/lib/utils"
+    `,
+      config: {
+        aliases: {
+          components: '~/src/components',
+          utils: '~/src/utils',
+          ui: '~/src/ui',
+        },
+        typescript: true,
+      },
+    }),
+  ).toMatchSnapshot()
+})
+
 it('transform import', async () => {
   expect(
     await transform({

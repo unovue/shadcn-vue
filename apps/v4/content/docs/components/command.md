@@ -3,8 +3,8 @@ title: Command
 description: Fast, composable, unstyled command menu for Vue.
 component: true
 links:
-  doc: https://reka-ui.com/docs/components/combobox
-  api: https://reka-ui.com/docs/components/combobox#api-reference
+  doc: https://reka-ui.com/docs/components/listbox
+  api: https://reka-ui.com/docs/components/listbox#api-reference
 ---
 
 ::component-preview

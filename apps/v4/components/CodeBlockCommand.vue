@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TerminalIcon } from 'lucide-vue-next'
+import { TerminalIcon } from '@lucide/vue'
 import {
   Tabs,
   TabsContent,
@@ -34,7 +34,7 @@ const tabs = computed(() => {
   }
   else if (props.code.includes('npx')) {
     data.npm = props.code
-    data.yarn = props.code.replaceAll('npx', 'yarn')
+    data.yarn = props.code.replaceAll('npx', 'yarn dlx')
     data.pnpm = props.code.replaceAll('npx', 'pnpm dlx')
     data.bun = props.code.replaceAll('npx', 'bunx --bun')
   }

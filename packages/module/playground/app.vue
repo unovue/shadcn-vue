@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Moon, Sun } from 'lucide-vue-next'
+import { Moon, Sun } from '@lucide/vue'
 
 const isDark = ref(true)
 useHead({ htmlAttrs: { class: () => isDark.value ? 'dark' : '' } })

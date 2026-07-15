@@ -11,6 +11,7 @@ import {
   buildUrlAndHeadersForRegistryItem,
   resolveRegistryUrl,
 } from "@/src/registry/builder"
+import { resolveRegistryStyle } from "@/src/registry/config"
 import { setRegistryHeaders } from "@/src/registry/context"
 import {
   RegistryNotConfiguredError,
@@ -95,7 +96,8 @@ export async function fetchRegistryItems(
         }
       }
 
-      const path = `styles/${config?.style ?? "new-york-v4"}/${item}.json`
+      const registryStyle = resolveRegistryStyle(config?.style)
+      const path = `styles/${registryStyle}/${item}.json`
       const [result] = await fetchRegistry([path], options)
       try {
         return registryItemSchema.parse(result)
@@ -110,9 +112,11 @@ export async function fetchRegistryItems(
 }
 
 // Helper schema for items with source tracking
-const registryItemWithSourceSchema = registryItemSchema.extend({
-  _source: z.string().optional(),
-})
+// Since registryItemSchema is a discriminated union, we use intersection instead of extend
+const registryItemWithSourceSchema = z.intersection(
+  registryItemSchema,
+  z.object({ _source: z.string().optional() }),
+)
 
 // Resolves a list of registry items with all their dependencies and returns
 // a complete installation bundle with merged configuration.
@@ -485,8 +489,10 @@ async function resolveRegistryDependencies(
   )
 
   const style = config.resolvedPaths?.cwd
-    ? await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style)
-    : config.style
+    ? resolveRegistryStyle(
+        await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style),
+      )
+    : resolveRegistryStyle(config.style)
 
   const urls = registryNames.map(name =>
     resolveRegistryUrl(isUrl(name) ? name : `styles/${style}/${name}.json`),

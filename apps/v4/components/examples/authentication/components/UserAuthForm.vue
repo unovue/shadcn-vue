@@ -2,15 +2,15 @@
 import type { HTMLAttributes } from 'vue'
 import { Icons } from '@/components/Icons'
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Field,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from '@/registry/new-york-v4/ui/field'
-import { Input } from '@/registry/new-york-v4/ui/input'
-import { Spinner } from '@/registry/new-york-v4/ui/spinner'
+} from '@/styles/reka-nova/ui/field'
+import { Input } from '@/styles/reka-nova/ui/input'
+import { Spinner } from '@/styles/reka-nova/ui/spinner'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']

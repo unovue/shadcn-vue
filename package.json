@@ -1,9 +1,9 @@
 {
   "name": "shadcn-vue",
   "type": "module",
-  "version": "2.3.3",
+  "version": "2.7.4",
   "private": true,
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.25.0",
   "license": "MIT",
   "repository": "unovue/shadcn-vue",
   "workspaces": [
@@ -29,51 +29,25 @@
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",
     "test": "pnpm --filter shadcn-vue test",
-    "taze": "taze -frI"
+    "taze": "taze --ignore-paths \"deprecated/**\" -frI"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.2.0",
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
+    "@antfu/eslint-config": "^6.6.1",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
     "@vitest/ui": "^3.2.4",
-    "bumpp": "^10.3.1",
+    "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
-    "lint-staged": "^16.2.6",
+    "lint-staged": "^16.2.7",
     "simple-git-hooks": "^2.13.1",
-    "taze": "^19.9.0",
+    "taze": "^19.9.2",
     "tsx": "catalog:",
     "typescript": "catalog:",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.6"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
-    ]
-  },
-  "pnpm": {
-    "overrides": {
-      "deep-equal": "npm:@nolyfill/deep-equal@^1.0.44",
-      "hasown": "npm:@nolyfill/hasown@^1.0.44",
-      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39",
-      "is-generator-function": "npm:@nolyfill/is-generator-function@^1.0.44",
-      "isarray": "npm:@nolyfill/isarray@^1.0.44",
-      "safe-buffer": "npm:@nolyfill/safe-buffer@^1.0.44",
-      "safer-buffer": "npm:@nolyfill/safer-buffer@^1.0.44",
-      "side-channel": "npm:@nolyfill/side-channel@^1.0.44",
-      "string.prototype.codepointat": "npm:@nolyfill/string.prototype.codepointat@^1.0.44",
-      "typed-array-buffer": "npm:@nolyfill/typed-array-buffer@^1.0.44",
-      "typedarray": "npm:@nolyfill/typedarray@^1.0.44"
-    },
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "maplibre-gl",
-      "msw",
-      "sharp",
-      "simple-git-hooks",
-      "unrs-resolver",
-      "vue-demi",
-      "workerd"
     ]
   },
   "simple-git-hooks": {

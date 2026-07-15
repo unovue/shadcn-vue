@@ -6,6 +6,7 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from '@lucide/vue'
 import {
   FlexRender,
   getCoreRowModel,
@@ -16,7 +17,6 @@ import {
   useVueTable,
 } from '@tanstack/vue-table'
 import { createReusableTemplate } from '@vueuse/core'
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from 'lucide-vue-next'
 import { h, ref } from 'vue'
 
 import { valueUpdater } from '@/lib/utils'

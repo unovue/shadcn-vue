@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BracesIcon, CopyIcon, CornerDownLeftIcon, RefreshCwIcon } from 'lucide-vue-next'
+import { BracesIcon, CopyIcon, CornerDownLeftIcon, RefreshCwIcon } from '@lucide/vue'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupTextarea } from '@/registry/new-york-v4/ui/input-group'
 </script>
 

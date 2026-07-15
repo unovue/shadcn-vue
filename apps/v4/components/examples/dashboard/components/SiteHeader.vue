@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IconCirclePlusFilled } from '@tabler/icons-vue'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Color } from '@/lib/colors'
+import { Check, Clipboard } from '@lucide/vue'
 import { useClipboard } from '@vueuse/core'
-import { Check, Clipboard } from 'lucide-vue-next'
 import { toast } from 'vue-sonner'
 
 defineProps<{

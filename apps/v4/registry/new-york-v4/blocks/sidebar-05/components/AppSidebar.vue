@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
-import { GalleryVerticalEnd, Minus, Plus } from "lucide-vue-next"
+import { GalleryVerticalEnd, Minus, Plus } from "@lucide/vue"
 import SearchForm from "@/registry/new-york-v4/blocks/sidebar-05/components/SearchForm.vue"
 import {
   Collapsible,

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Checkbox } from '@/registry/new-york-v4/ui/checkbox'
-import { Field, FieldLabel } from '@/registry/new-york-v4/ui/field'
+import { Checkbox } from '@/styles/reka-nova/ui/checkbox'
+import { Field, FieldLabel } from '@/styles/reka-nova/ui/field'
 </script>
 
 <template>

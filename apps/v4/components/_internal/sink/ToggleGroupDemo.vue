@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-vue-next'
+import { BoldIcon, ItalicIcon, UnderlineIcon } from '@lucide/vue'
 
 import {
   ToggleGroup,

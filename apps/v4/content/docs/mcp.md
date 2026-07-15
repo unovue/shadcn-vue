@@ -39,9 +39,13 @@ Select your MCP client and follow the instructions to configure the shadcn MCP s
   VS Code
   ::
 
-  ::tabs-trigger{value="codex"}
+   ::tabs-trigger{value="codex"}
   Codex
   ::
+
+    ::tabs-trigger{value="opencode"}
+    Opencode
+    ::
 
 ::
 
@@ -110,7 +114,23 @@ args = ["shadcn-vue@latest", "mcp"]
 - Add the button, dialog and card components to my project
 - Create a contact form using components from the shadcn registry
 ::
+::tabs-content{value="opencode"}
 
+You need to make sure opencode is installed. 
+
+To install check [Opencode Documentation](https://opencode.ai/)
+
+**Run the following command** in your project:
+```bash
+npx shadcn-vue@latest mcp init --client opencode
+```
+**Restart opencode** and try the following prompts:
+- Show me all available components in the shadcn registry
+- Add the button, dialog and card components to my project
+- Create a contact form using components from the shadcn registry
+
+**Note:** You can use `Ctrl+x s` to see the status of the mcp servers.
+:
 ::
 
 ---
@@ -226,6 +246,24 @@ args = ["shadcn-vue@latest", "mcp"]
 ```
 
 After adding the configuration, restart Codex to load the MCP server.
+
+### Opencode
+
+To configure MCP in opencode add the shadcn server to `opencode.json`:
+
+```json title="opencode.json" showLineNumbers
+{
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+        "shadcnVue": {
+            "type": "local",
+            "enabled": true,
+            "command": ["npx", "shadcn-vue@latest", "mcp"]
+        }
+    }
+}
+```
+See the [Opencode Documentation](https://opencode.ai/docs/mcp-servers/) for more details.
 
 ---
 

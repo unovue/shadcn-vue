@@ -98,12 +98,30 @@ function updateCssPlugin(css: z.infer<typeof registryItemCssSchema>) {
 
           // Special handling for imports - place them at the top.
           if (name === 'import') {
+            // Normalize params for comparison (strip surrounding quotes and
+            // trim whitespace) so we dedupe regardless of quote style — a
+            // file formatted by Prettier/Stylelint may use single quotes
+            // while the registry emits double quotes, otherwise the strict
+            // string compare misses the match and re-applying the preset
+            // duplicates the import.
+            const normalizeImportParams = (p: string) => {
+              const trimmed = p.trim()
+              if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
+                return trimmed.slice(1, -1)
+              }
+              if (trimmed.startsWith('\'') && trimmed.endsWith('\'')) {
+                return trimmed.slice(1, -1)
+              }
+              return trimmed
+            }
+
             // Check if this import already exists.
             const existingImport = root.nodes?.find(
               (node): node is AtRule =>
                 node.type === 'atrule'
                 && node.name === 'import'
-                && node.params === params,
+                && normalizeImportParams(node.params)
+                === normalizeImportParams(params),
             )
 
             if (!existingImport) {
@@ -268,13 +286,33 @@ function updateCssPlugin(css: z.infer<typeof registryItemCssSchema>) {
               )
             }
 
-            const keyframesRule = postcss.atRule({
-              name: 'keyframes',
-              params,
-              raws: { semicolon: true, between: ' ', before: '\n  ' },
-            })
+            // Check if a keyframe with the same name already exists
+            const existingKeyframesRule = themeInline.nodes?.find(
+              (node): node is AtRule =>
+                node.type === 'atrule'
+                && node.name === 'keyframes'
+                && node.params === params,
+            )
 
-            themeInline.append(keyframesRule)
+            let keyframesRule: AtRule
+            if (existingKeyframesRule) {
+              // Replace existing keyframe
+              keyframesRule = postcss.atRule({
+                name: 'keyframes',
+                params,
+                raws: { semicolon: true, between: ' ', before: '\n  ' },
+              })
+              existingKeyframesRule.replaceWith(keyframesRule)
+            }
+            else {
+              // Create new keyframe
+              keyframesRule = postcss.atRule({
+                name: 'keyframes',
+                params,
+                raws: { semicolon: true, between: ' ', before: '\n  ' },
+              })
+              themeInline.append(keyframesRule)
+            }
 
             if (typeof properties === 'object') {
               for (const [step, stepProps] of Object.entries(properties)) {
@@ -467,12 +505,25 @@ function processRule(parent: Root | AtRule, selector: string, properties: any) {
         const atRuleMatch = prop.match(/@([a-z-]+)\s*(.*)/i)
         if (atRuleMatch) {
           const [, atRuleName, atRuleParams] = atRuleMatch
-          const atRule = postcss.atRule({
-            name: atRuleName,
-            params: atRuleParams,
-            raws: { semicolon: true, before: '\n    ' },
-          })
-          rule.append(atRule)
+          // Skip if an identical at-rule (same name + params) already
+          // exists. Prevents duplicate `@apply` lines accumulating each
+          // time `apply` / `init --force=false` re-runs, which was the
+          // root cause of repeated `@apply font-sans` / `@apply
+          // bg-background text-foreground` inside `body`.
+          const existingAtRule = rule.nodes?.find(
+            (node): node is AtRule =>
+              node.type === 'atrule'
+              && node.name === atRuleName
+              && node.params === atRuleParams,
+          )
+          if (!existingAtRule) {
+            const atRule = postcss.atRule({
+              name: atRuleName,
+              params: atRuleParams,
+              raws: { semicolon: true, before: '\n    ' },
+            })
+            rule.append(atRule)
+          }
         }
       }
       else if (typeof value === 'string') {

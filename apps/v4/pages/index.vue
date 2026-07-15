@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Button } from '@/registry/new-york-v4/ui/button'
-import ExamplesRoot from '~/components/examples/ExamplesRoot.vue'
+import { IconArrowRight } from '@tabler/icons-vue'
+import { Button } from '@/styles/reka-rhea/ui/button'
+import CardsDemo from '~/components/examples/cards/CardsDemo.vue'
 
 const title = 'The Foundation for your Design System'
 const description
@@ -17,31 +18,22 @@ useSeoMeta({
 
 <template>
   <div class="flex flex-1 flex-col">
-    <PageHeader>
+    <PageHeader class="md:**:[.container]:pb-8 lg:**:[.container]:pb-12">
       <Announcement />
       <PageHeaderHeading class="max-w-4xl">
         {{ title }}
       </PageHeaderHeading>
       <PageHeaderDescription>{{ description }}</PageHeaderDescription>
       <PageActions>
-        <Button as-child size="sm">
-          <NuxtLink to="/docs/installation">
-            Get Started
-          </NuxtLink>
-        </Button>
-        <Button as-child size="sm" variant="ghost">
-          <NuxtLink to="/docs/components">
-            View Components
+        <Button as-child size="sm" class="h-[31px] rounded-lg">
+          <NuxtLink href="/create">
+            Build Your Own <IconArrowRight data-icon="inline-end" />
           </NuxtLink>
         </Button>
       </PageActions>
     </PageHeader>
-    <PageNav class="hidden md:flex">
-      <ExamplesNav class="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
-      <ThemeSelector class="mr-4 hidden md:flex" />
-    </PageNav>
-    <div class="container-wrapper section-soft flex-1 pb-6">
-      <div class="container overflow-hidden">
+    <div class="container-wrapper flex-1 p-0">
+      <div class="container overflow-hidden md:px-0 lg:max-w-none">
         <section class="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
           <NuxtImg
             src="/r/styles/new-york-v4/dashboard-01-light.png"
@@ -59,7 +51,7 @@ useSeoMeta({
           />
         </section>
         <section class="theme-container hidden md:block">
-          <ExamplesRoot />
+          <CardsDemo />
         </section>
       </div>
     </div>

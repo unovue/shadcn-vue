@@ -305,7 +305,7 @@ export function resolveFilePath(
   config: Config,
   options: {
     // isSrcDir?: boolean
-    commonRoot?: string
+    commonRoot: string
     framework?: ProjectInfo['framework']['name']
     path?: string
     fileIndex?: number
@@ -357,7 +357,7 @@ export function resolveFilePath(
 
   const targetDir = resolveFileTargetDirectory(file, config)
 
-  const relativePath = resolveNestedFilePath(file.path, targetDir!)
+  const relativePath = resolveNestedFilePath(file.path, options.commonRoot, config)
   return path.join(targetDir!, relativePath)
 }
 
@@ -418,29 +418,40 @@ export function findCommonRoot(paths: string[], needle: string): string {
 
 export function resolveNestedFilePath(
   filePath: string,
-  targetDir: string,
+  commonRoot: string,
+  config: Config,
 ): string {
   // Normalize paths by removing leading/trailing slashes
   const normalizedFilePath = filePath.replace(/^\/|\/$/g, '')
-  const normalizedTargetDir = targetDir.replace(/^\/|\/$/g, '')
+  const normalizedCommonRoot = commonRoot.replace(/^\/|\/$/g, '')
 
-  // Split paths into segments
-  const fileSegments = normalizedFilePath.split('/')
-  const targetSegments = normalizedTargetDir.split('/')
+  // Get all aliases without @ prefix and normalize
+  const aliases = Object.values(config.aliases)
+    .map(alias => alias.replace(/^@\//, '').replace(/^\/|\/$/g, ''))
+    .sort((a, b) => b.length - a.length) // Sort by length descending to match most specific first
 
-  // Find the last matching segment from targetDir in filePath
-  const lastTargetSegment = targetSegments[targetSegments.length - 1]
-  const commonDirIndex = fileSegments.findIndex(
-    segment => segment === lastTargetSegment,
-  )
+  // Check if the common root contains any of the aliases
+  for (const alias of aliases) {
+    if (normalizedCommonRoot.includes(alias)) {
+      // Find where the alias ends in the file path
+      const aliasEndIndex = normalizedFilePath.indexOf(alias) + alias.length
 
-  if (commonDirIndex === -1) {
-    // Return just the filename if no common directory is found
-    return fileSegments[fileSegments.length - 1]
+      // Return everything after the alias (skip the leading slash if present)
+      // Example: "components/ai-elements/artifact/Artifact.vue" -> "ai-elements/artifact/Artifact.vue"
+      // Example: "lib/utils/cn.ts" -> "utils/cn.ts"
+      // Example: "composables/useCounter.ts" -> "useCounter.ts"
+      return normalizedFilePath.substring(aliasEndIndex).replace(/^\//, '')
+    }
   }
 
-  // Return everything after the common directory
-  return fileSegments.slice(commonDirIndex + 1).join('/')
+  // Fallback to original logic for non-aliased paths
+  // Example: "registry/new-york-v4/ui/button/Button.vue" -> "button/Button.vue"
+  const lastCommonRootSegment = normalizedCommonRoot.split('/').pop()
+
+  // normalizedFilePath: registry/new-york-v4/ui/button/Button.vue
+  // normalizedCommonRoot: registry/new-york-v4/ui/button
+  // return button/Button.vue
+  return lastCommonRootSegment + normalizedFilePath.replace(normalizedCommonRoot, '')
 }
 
 export function resolvePageTarget(

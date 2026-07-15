@@ -1,7 +1,7 @@
 {
   "name": "shadcn-nuxt",
   "type": "module",
-  "version": "2.3.3",
+  "version": "2.7.4",
   "description": "Add shadcn-vue module to Nuxt",
   "publishConfig": {
     "access": "public"
@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unovue/shadcn-vue.git",
+    "url": "git+https://github.com/unovue/shadcn-vue.git",
     "directory": "packages/module"
   },
   "exports": {

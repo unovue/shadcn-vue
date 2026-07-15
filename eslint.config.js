@@ -8,6 +8,7 @@ export default antfu(
       '**/__registry__/index.ts',
       '**/__registry__/index.ts',
       '**/registry/__index__.ts',
+      '**/registry/**/__index__.ts',
       '**/*.md',
       'deprecated/**/*',
     ],
@@ -42,6 +43,7 @@ export default antfu(
   {
     // Without `files`, they are general rules for all files
     rules: {
+      'pnpm/json-enforce-catalog': 0,
       'symbol-description': 0,
       'no-console': 1,
       'no-tabs': 0,
@@ -51,6 +53,7 @@ export default antfu(
       'unused-imports/no-unused-vars': 0,
       'unicorn/no-new-array': 0,
       'import-x/consistent-type-specifier-style': 0,
+      'yaml/sort-keys': 0,
     },
   },
 )
