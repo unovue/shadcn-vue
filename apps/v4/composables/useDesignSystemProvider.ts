@@ -86,6 +86,8 @@ export function useDesignSystemProvider() {
     return FONTS.find(f => f.value === fontHeading.value)
   })
 
+  const { loadFont } = useFontLoader()
+
   // Store initial font values for cleanup on unmount.
   const initialFontSans = ref<string | null>(null)
   const initialFontHeading = ref<string | null>(null)
@@ -141,6 +143,8 @@ export function useDesignSystemProvider() {
     // Always set --font-sans for the preview so the selected font is visible.
     // The font type (sans/serif/mono) is metadata for the CLI updater.
     if (selectedFont.value) {
+      // Fire-and-forget: resolve+inject the @font-face on demand (deduped).
+      loadFont(selectedFont.value.name)
       document.documentElement.style.setProperty(
         '--font-sans',
         selectedFont.value.fontFamily,
@@ -148,6 +152,7 @@ export function useDesignSystemProvider() {
     }
 
     if (selectedHeadingFont.value) {
+      loadFont(selectedHeadingFont.value.name)
       document.documentElement.style.setProperty(
         '--font-heading',
         selectedHeadingFont.value.fontFamily,

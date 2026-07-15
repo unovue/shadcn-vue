@@ -355,7 +355,7 @@ const table = useVueTable({
           <Table>
             <TableHeader class="bg-muted sticky top-0 z-10">
               <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
-                <TableHead v-for="header in headerGroup.headers" :key="header.id" :col-span="header.colSpan">
+                <TableHead v-for="header in headerGroup.headers" :key="header.id" :colspan="header.colSpan">
                   <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
                 </TableHead>
               </TableRow>
@@ -366,7 +366,7 @@ const table = useVueTable({
               </template>
               <TableRow v-else>
                 <TableCell
-                  :col-span="columns.length"
+                  :colspan="columns.length"
                   class="h-24 text-center"
                 >
                   No results.
