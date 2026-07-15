@@ -15,20 +15,41 @@ import { showMcpDocs } from '~/lib/flag'
 const props = defineProps<{
   tree: ContentNavigationItem
 }>()
+
 const TOP_LEVEL_SECTIONS = [
-  { name: 'Get Started', href: '/docs/introduction' },
+  { name: 'Introduction', href: '/docs/introduction' },
   {
     name: 'Components',
     href: '/docs/components',
   },
   {
-    name: 'Registry',
-    href: '/docs/registry',
+    name: 'Installation',
+    href: '/docs/installation',
+  },
+  {
+    name: 'Theming',
+    href: '/docs/theming',
+  },
+  {
+    name: 'CLI',
+    href: '/docs/cli',
+  },
+  {
+    name: 'RTL',
+    href: '/docs/rtl',
+  },
+  {
+    name: 'Skills',
+    href: '/docs/skills',
   },
   {
     name: 'MCP Server',
     href: '/docs/mcp',
   },
+  // {
+  //   name: 'Registry',
+  //   href: '/docs/registry',
+  // },
   {
     name: 'Forms',
     href: '/docs/forms',
@@ -58,13 +79,12 @@ function isActive(href: string) {
 
 <template>
   <Sidebar
-    class="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)-4rem)] bg-transparent lg:flex"
+    class="sticky top-[calc(var(--header-height)+0.6rem)] z-30 hidden h-[calc(100svh-10rem)] overflow-hidden overscroll-none bg-transparent [--sidebar-menu-width:--spacing(56)] lg:flex"
     collapsible="none"
   >
-    <SidebarContent class="no-scrollbar overflow-x-hidden px-2">
-      <div class="from-background via-background/80 to-background/50 sticky -top-1 z-10 h-8 shrink-0 bg-gradient-to-b blur-xs" />
-      <SidebarGroup>
-        <SidebarGroupLabel class="text-muted-foreground font-medium">
+    <SidebarContent class="w-(--sidebar-menu-width) scroll-fade scrollbar-none overflow-x-hidden pl-2.5">
+      <SidebarGroup class="pt-12">
+        <SidebarGroupLabel class="font-medium text-muted-foreground">
           Sections
         </SidebarGroupLabel>
         <SidebarGroupContent>
@@ -76,10 +96,10 @@ function isActive(href: string) {
               <SidebarMenuButton
                 as-child
                 :is-active="isActive(href)"
-                class="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
+                class="relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
               >
                 <NuxtLink :to="href">
-                  <span class="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
+                  <span class="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
                   {{ name }}
                 </NuxtLink>
               </SidebarMenuButton>
@@ -87,21 +107,22 @@ function isActive(href: string) {
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>
+
       <SidebarGroup v-for="item in tree.children?.filter(section => !EXCLUDED_SECTIONS.includes(section.title.toLocaleLowerCase()))" :key="item.title">
-        <SidebarGroupLabel class="text-muted-foreground font-medium">
+        <SidebarGroupLabel class="font-medium text-muted-foreground">
           {{ item.title }}
         </SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu class="gap-0.5">
             <template
               v-for="childItem in item?.children?.filter(child => !EXCLUDED_PAGES.includes(child.path))"
-              :key="childItem.url"
+              :key="String(childItem.url)"
             >
               <SidebarMenuItem>
                 <SidebarMenuButton
                   as-child
                   :is-active="childItem?.path === path"
-                  class="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
+                  class="relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
                 >
                   <NuxtLink :to="childItem?.path">
                     <span class="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AlertTriangleIcon, CheckIcon, ChevronDownIcon, CopyIcon, ShareIcon, TrashIcon, UserRoundXIcon, VolumeOffIcon } from 'lucide-vue-next'
+import { AlertTriangleIcon, CheckIcon, ChevronDownIcon, CopyIcon, ShareIcon, TrashIcon, UserRoundXIcon, VolumeOffIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { ButtonGroup } from '@/registry/new-york-v4/ui/button-group'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/registry/new-york-v4/ui/dropdown-menu'

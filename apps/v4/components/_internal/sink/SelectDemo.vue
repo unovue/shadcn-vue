@@ -4,7 +4,7 @@ import {
   ChartLineIcon,
   ChartPieIcon,
   CircleDashed,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 
 import {
   Select,

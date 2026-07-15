@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "stepper",
-  "type": "registry:ui",
   "dependencies": [
     "reka-ui",
     "@vueuse/core"
@@ -47,5 +46,6 @@
       "content": "export { default as Stepper } from \"./Stepper.vue\"\nexport { default as StepperDescription } from \"./StepperDescription.vue\"\nexport { default as StepperIndicator } from \"./StepperIndicator.vue\"\nexport { default as StepperItem } from \"./StepperItem.vue\"\nexport { default as StepperSeparator } from \"./StepperSeparator.vue\"\nexport { default as StepperTitle } from \"./StepperTitle.vue\"\nexport { default as StepperTrigger } from \"./StepperTrigger.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

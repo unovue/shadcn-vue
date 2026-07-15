@@ -1,5 +1,6 @@
 import type {
   configSchema,
+  registryItemCssVarsSchema,
   registryItemFileSchema,
   workspaceConfigSchema,
 } from '@/src/schema'
@@ -12,6 +13,7 @@ import { resolveRegistryTree } from '@/src/registry/resolver'
 import {
   registryItemSchema,
 } from '@/src/schema'
+import { getFont, getFontImport, getFontVariable } from '@/src/utils/fonts'
 import {
   findCommonRoot,
   findPackageRoot,
@@ -19,6 +21,7 @@ import {
 } from '@/src/utils/get-config'
 import { getProjectTailwindVersionFromConfig } from '@/src/utils/get-project-info'
 import { handleError } from '@/src/utils/handle-error'
+import { replaceIconLibraryInDependencies } from '@/src/utils/icon-libraries'
 import { isSafeTarget } from '@/src/utils/is-safe-target'
 import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
@@ -108,13 +111,16 @@ async function addProjectComponents(
   })
 
   const overwriteCssVars = await shouldOverwriteCssVars(components, config)
-  await updateCssVars(tree.cssVars, config, {
+  const fontImports = resolveFontImports(config)
+  const cssVarsWithFontHeading = overlayFontHeadingVar(tree.cssVars, config)
+  await updateCssVars(cssVarsWithFontHeading, config, {
     cleanupDefaultNextStyles: options.isNewProject,
     silent: options.silent,
     tailwindVersion,
     tailwindConfig: tree.tailwind?.config,
     overwriteCssVars,
     initIndex: options.baseStyle,
+    fontImports,
   })
 
   // Add CSS updater
@@ -126,7 +132,11 @@ async function addProjectComponents(
     silent: options.silent,
   })
 
-  await updateDependencies(tree.dependencies, tree.devDependencies, config, {
+  const resolvedDependencies = replaceIconLibraryInDependencies(
+    tree.dependencies,
+    config.iconLibrary,
+  )
+  await updateDependencies(resolvedDependencies, tree.devDependencies, config, {
     silent: options.silent,
   })
   await updateFiles(tree.files, config, {
@@ -211,11 +221,17 @@ async function addWorkspaceComponents(
   // 2. Update css vars.
   if (tree.cssVars) {
     const overwriteCssVars = await shouldOverwriteCssVars(components, config)
-    await updateCssVars(tree.cssVars, mainTargetConfig, {
+    const fontImports = resolveFontImports(mainTargetConfig)
+    const cssVarsWithFontHeading = overlayFontHeadingVar(
+      tree.cssVars,
+      mainTargetConfig,
+    )
+    await updateCssVars(cssVarsWithFontHeading, mainTargetConfig, {
       silent: true,
       tailwindVersion,
       tailwindConfig: tree.tailwind?.config,
       overwriteCssVars,
+      fontImports,
     })
     filesUpdated.push(
       path.relative(workspaceRoot, mainTargetConfig.resolvedPaths.tailwindCss),
@@ -240,13 +256,16 @@ async function addWorkspaceComponents(
   }
 
   // 5. Update dependencies.
-  await updateDependencies(
+  const resolvedDependencies = replaceIconLibraryInDependencies(
     tree.dependencies,
+    mainTargetConfig.iconLibrary,
+  )
+  await updateDependencies(
+    resolvedDependencies,
     tree.devDependencies,
     mainTargetConfig,
     {
       silent: true,
-
     },
   )
 
@@ -366,6 +385,93 @@ async function addWorkspaceComponents(
   }
 }
 
+/**
+ * Collects the Google Fonts `@import` strings that should be present in the
+ * project's CSS file for the active config. Body font + (optional) heading
+ * font, de-duplicated. Empty fonts are skipped.
+ */
+function resolveFontImports(config: Config): string[] {
+  const imports: string[] = []
+  const push = (name: string | undefined) => {
+    if (!name) {
+      return
+    }
+    const imp = getFontImport(name)
+    if (imp && !imports.includes(imp)) {
+      imports.push(imp)
+    }
+  }
+  push(config.font)
+  if (
+    config.fontHeading
+    && config.fontHeading !== 'inherit'
+    && config.fontHeading !== config.font
+  ) {
+    push(config.fontHeading)
+  }
+  return imports
+}
+
+/**
+ * Builds the CSS `@theme inline` value for `--font-heading` from the active
+ * config, mirroring the server-side `buildRegistryBase` output so older
+ * deployments of shadcn-vue.com (that don't emit `--font-heading` yet) still
+ * produce a working theme var on the CLI side. Once the registry route is
+ * redeployed this becomes redundant — the server's authoritative value will
+ * overwrite it via `updateCssVarsPluginV4` with `overwriteCssVars: true`.
+ *
+ * Returns `undefined` when there's no font configured at all.
+ */
+function resolveFontHeadingVar(config: Config): string | undefined {
+  if (!config.font) {
+    return undefined
+  }
+
+  const fontHeading = config.fontHeading
+  // `inherit` / unset / same-as-body all alias to the body font's CSS var so
+  // `font-heading` utility always resolves to something.
+  if (
+    !fontHeading
+    || fontHeading === 'inherit'
+    || fontHeading === config.font
+  ) {
+    const bodyVar = getFontVariable(config.font)
+    return `var(${bodyVar})`
+  }
+
+  const headingFont = getFont(fontHeading)
+  if (!headingFont) {
+    return undefined
+  }
+
+  const fallback
+    = headingFont.variable === '--font-mono' ? 'monospace' : 'sans-serif'
+  return `'${headingFont.family} Variable', ${fallback}`
+}
+
+/**
+ * Merges a synthesized `--font-heading` entry into the theme vars we pass to
+ * `updateCssVars`. Only runs when the server response didn't already include
+ * one, so a redeployed server stays authoritative.
+ */
+function overlayFontHeadingVar(
+  cssVars: z.infer<typeof registryItemCssVarsSchema> | undefined,
+  config: Config,
+): z.infer<typeof registryItemCssVarsSchema> | undefined {
+  const value = resolveFontHeadingVar(config)
+  if (!value) {
+    return cssVars
+  }
+  const theme = cssVars?.theme ?? {}
+  if (theme['--font-heading']) {
+    return cssVars
+  }
+  return {
+    ...(cssVars ?? {}),
+    theme: { ...theme, '--font-heading': value },
+  }
+}
+
 async function shouldOverwriteCssVars(
   components: z.infer<typeof registryItemSchema>['name'][],
   config: z.infer<typeof configSchema>,
@@ -375,7 +481,10 @@ async function shouldOverwriteCssVars(
 
   return payload.some(
     component =>
-      component.type === 'registry:theme' || component.type === 'registry:style',
+      component.type === 'registry:theme'
+      || component.type === 'registry:style'
+      || component.type === 'registry:base'
+      || component.type === 'registry:font',
   )
 }
 

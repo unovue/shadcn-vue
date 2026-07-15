@@ -32,6 +32,9 @@ export const addOptionsSchema = z.object({
   silent: z.boolean(),
   srcDir: z.boolean().optional(),
   cssVariables: z.boolean(),
+  dryRun: z.boolean().optional(),
+  diff: z.union([z.string(), z.literal(true)]).optional(),
+  view: z.union([z.string(), z.literal(true)]).optional(),
 })
 
 export const add = new Command()
@@ -59,6 +62,9 @@ export const add = new Command()
   // )
   .option('--css-variables', 'use css variables for theming.', true)
   .option('--no-css-variables', 'do not use css variables for theming.')
+  .option('--dry-run', 'preview changes without writing files.', false)
+  .option('--diff [path]', 'show diff for a file.')
+  .option('--view [path]', 'show file contents.')
   .action(async (components, opts) => {
     try {
       const options = addOptionsSchema.parse({
@@ -66,6 +72,21 @@ export const add = new Command()
         cwd: path.resolve(opts.cwd),
         ...opts,
       })
+
+      // TODO: Port shadcn-ui's dry-run / diff / view support to shadcn-vue.
+      // Requires a Vue-aware dry-run pipeline (see upstream
+      // `src/utils/dry-run.ts` and `src/utils/dry-run-formatter.ts`).
+      if (options.dryRun || options.diff || options.view) {
+        logger.break()
+        logger.warn(
+          'The --dry-run, --diff and --view options are not yet supported in shadcn-vue.',
+        )
+        logger.info(
+          'Follow https://github.com/unovue/shadcn-vue for updates.',
+        )
+        logger.break()
+        process.exit(1)
+      }
 
       await loadEnvFiles(options.cwd)
 

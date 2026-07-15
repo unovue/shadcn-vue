@@ -2,7 +2,6 @@
 title: Button Group
 description: A container that groups related buttons together with consistent styling.
 component: true
-new: true
 ---
 
 ::component-preview

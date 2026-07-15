@@ -15,7 +15,7 @@ import {
   Star,
   Trash,
   Trash2,
-} from "lucide-vue-next"
+} from "@lucide/vue"
 
 import { ref } from "vue"
 import { Button } from "@/registry/new-york-v4/ui/button"

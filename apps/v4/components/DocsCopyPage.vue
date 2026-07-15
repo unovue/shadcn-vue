@@ -144,7 +144,7 @@ const { copy, copied } = useClipboard()
 
 <template>
   <Popover>
-    <div class="bg-secondary group/buttons relative flex rounded-lg *:[[data-slot=button]]:focus-visible:relative *:[[data-slot=button]]:focus-visible:z-10">
+    <div class="group/buttons relative flex rounded-lg bg-secondary *:[[data-slot=button]]:focus-visible:relative *:[[data-slot=button]]:focus-visible:z-10">
       <PopoverAnchor />
       <Button
         variant="secondary"
@@ -165,7 +165,7 @@ const { copy, copied } = useClipboard()
             <IconChevronDown class="rotate-180 sm:rotate-0" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="shadow-none">
+        <DropdownMenuContent align="end" class="animate-none! rounded-lg shadow-none">
           <DropdownMenuItem v-for="[key, value] in Object.entries(menuItems)" :key="key" as-child>
             <component :is="value(url)" />
           </DropdownMenuItem>
@@ -173,7 +173,7 @@ const { copy, copied } = useClipboard()
       </DropdownMenu>
       <Separator
         orientation="vertical"
-        class="!bg-foreground/10 absolute top-0 right-8 z-0 !h-8 peer-focus-visible:opacity-0 sm:right-7 sm:!h-7"
+        class="absolute top-1 right-8 z-0 h-6! bg-foreground/5! peer-focus-visible:opacity-0 sm:right-7 sm:h-5!"
       />
       <PopoverTrigger as-child class="flex sm:hidden">
         <Button
@@ -185,7 +185,7 @@ const { copy, copied } = useClipboard()
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        class="bg-background/70 dark:bg-background/60 w-52 !origin-center rounded-lg p-1 shadow-sm backdrop-blur-sm"
+        class="w-52 origin-center! rounded-lg bg-background/70 p-1 shadow-none backdrop-blur-sm dark:bg-background/60"
         align="start"
       >
         <Button
@@ -194,7 +194,7 @@ const { copy, copied } = useClipboard()
           variant="ghost"
           size="lg"
           as-child
-          class="*:[svg]:text-muted-foreground w-full justify-start text-base font-normal"
+          class="w-full justify-start text-base font-normal *:[svg]:text-muted-foreground"
         >
           <component :is="value(url)" />
         </Button>

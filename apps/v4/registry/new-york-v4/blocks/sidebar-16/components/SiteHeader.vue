@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SidebarIcon } from "lucide-vue-next"
+import { SidebarIcon } from "@lucide/vue"
 
 import SearchForm from "@/registry/new-york-v4/blocks/sidebar-16/components/SearchForm.vue"
 import {

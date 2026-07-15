@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IconTrendingDown, IconTrendingUp } from '@tabler/icons-vue'
 
-import { Badge } from '@/registry/new-york-v4/ui/badge'
+import { Badge } from '@/styles/reka-nova/ui/badge'
 import {
   Card,
   CardAction,
@@ -9,7 +9,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-nova/ui/card'
 </script>
 
 <template>

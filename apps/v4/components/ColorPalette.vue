@@ -16,7 +16,7 @@ defineProps<{
         </h2>
       </div>
       <ColorFormatSelector
-        :color="colorPalette.colors[0]"
+        :color="colorPalette.colors[0]!"
         class="ml-auto"
       />
     </div>

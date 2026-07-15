@@ -2,7 +2,6 @@
 title: Native Select
 description: A styled native HTML select element with consistent design system integration.
 component: true
-new: true
 ---
 
 ::callout

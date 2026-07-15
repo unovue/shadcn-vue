@@ -38,7 +38,9 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
                 if (utilsImport === updatedImport || updatedImport === '@/lib/utils') {
                   // For static imports, check named imports
                   if (parent.type === 'ImportDeclaration') {
-                    const namedImports = parent.specifiers?.map(node => node.local?.name ?? '') ?? []
+                    const namedImports: string[] = parent.specifiers?.map(
+                      (node: { local?: { name?: string } }) => node.local?.name ?? '',
+                    ) ?? []
                     const isCnImport = namedImports.find(i => i === 'cn')
 
                     if (isCnImport && config.aliases.utils) {
@@ -57,7 +59,7 @@ export function transformImport(opts: TransformOpts): CodemodPlugin {
                     if (grandParent?.type === 'VariableDeclarator'
                       && grandParent.id?.type === 'ObjectPattern') {
                       const hasCnProperty = grandParent.id.properties?.some(
-                        prop => prop.key?.name === 'cn',
+                        (prop: { key?: { name?: string } }) => prop.key?.name === 'cn',
                       )
 
                       if (hasCnProperty && config.aliases.utils) {
@@ -94,6 +96,14 @@ function updateImportAliases(
   // This treats the remote as coming from a faux registry.
   if (isRemote && moduleSpecifier.startsWith('@/')) {
     moduleSpecifier = moduleSpecifier.replace(/^@\//, `@/registry/new-york/`)
+  }
+
+  // Normalize `@/styles/<style>/` paths to `@/registry/<style>/` so the
+  // matching logic below handles them. The build pipeline for per-style
+  // registries rewrites `@/registry/bases/reka/` → `@/styles/reka-<style>/`
+  // but the CLI transform only knows about `@/registry/` prefixes.
+  if (moduleSpecifier.match(/^@\/styles\//)) {
+    moduleSpecifier = moduleSpecifier.replace(/^@\/styles\//, '@/registry/')
   }
 
   // Not a registry import.

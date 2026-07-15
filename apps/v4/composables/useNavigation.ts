@@ -16,7 +16,7 @@ export interface NavigationItem {
   [key: string]: unknown
 }
 
-const EXCLUDED_PARENT_TITLE = ['Components', 'Registry', 'Forms', 'MCP Server']
+const EXCLUDED_PARENT_TITLE = ['Components', 'Registry', 'Forms', 'MCP Server', 'Directory']
 
 // TODO: Find a better heuristic to determine item type
 function navigationItemType(item: ContentNavigationItem, parent: ContentNavigationItem | null): 'component' | 'block' | 'group' | 'page' {
@@ -52,13 +52,16 @@ export async function useNavigation() {
       const rootDocs = doc.children?.filter(i => !EXCLUDED_PARENT_TITLE.includes(i.title ?? '')).map(i => mapWithType(i, doc)) ?? []
       const nonRootDocs = doc.children?.filter(i => i.children).map(i => mapWithType(i, doc)) ?? []
 
-      return [{ ...doc, children: [{
-        path: '/docs',
-        stem: 'docs',
-        title: 'Get Started',
-        type: navigationItemType(doc, null),
-        children: rootDocs,
-      }, ...nonRootDocs] }]
+      return [{ ...doc, children: [
+        ...nonRootDocs,
+        {
+          path: '/docs',
+          stem: 'docs',
+          title: 'Get Started',
+          type: navigationItemType(doc, null),
+          children: rootDocs,
+        },
+      ] }]
     },
   })
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Component } from "vue"
 
-import { ChevronsUpDown, Plus } from "lucide-vue-next"
+import { ChevronsUpDown, Plus } from "@lucide/vue"
 import { ref } from "vue"
 import {
   DropdownMenu,
@@ -29,7 +29,7 @@ const props = defineProps<{
 }>()
 
 const { isMobile } = useSidebar()
-const activeTeam = ref(props.teams[0])
+const activeTeam = ref(props.teams[0]!)
 </script>
 
 <template>
@@ -54,7 +54,7 @@ const activeTeam = ref(props.teams[0])
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
-          class="w-[--reka-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+          class="w-(--reka-dropdown-menu-trigger-width) min-w-56 rounded-lg"
           align="start"
           :side="isMobile ? 'bottom' : 'right'"
           :side-offset="4"

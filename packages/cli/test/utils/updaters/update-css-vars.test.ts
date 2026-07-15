@@ -106,8 +106,6 @@ describe('transformCssVars', () => {
         }
       }
 
-
-
       @layer base {
         * {
           @apply border-border;
@@ -274,13 +272,13 @@ describe('transformCssVarsV4', () => {
                 --primary: oklch(0.72 0.11 178);
               }
 
-              @theme inline {
+      @theme inline {
                 --color-background: var(--background);
                 --color-foreground: var(--foreground);
                 --color-primary: var(--primary);
       }
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
                 }
@@ -344,7 +342,7 @@ describe('transformCssVarsV4', () => {
                 --color-foreground: var(--foreground);
               }
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
                 }
@@ -411,7 +409,7 @@ describe('transformCssVarsV4', () => {
                 --color-foreground: var(--foreground);
               }
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
                 }
@@ -493,7 +491,7 @@ describe('transformCssVarsV4', () => {
                 }
               }
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
                 }
@@ -739,7 +737,7 @@ describe('transformCssVarsV4', () => {
               --radius-xl: calc(var(--radius) + 4px);
             }
 
-            @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
               }
@@ -851,9 +849,9 @@ describe('transformCssVarsV4', () => {
       @custom-variant dark (&:is(.dark *));
               @plugin "tailwindcss-animate";
 
-              @plugin "@tailwindcss/typography";
+      @plugin "@tailwindcss/typography";
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
         }
@@ -1031,7 +1029,7 @@ describe('transformCssVarsV4', () => {
                 }
               }
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
                 }
@@ -1175,7 +1173,7 @@ describe('transformCssVarsV4', () => {
                 }
               }
 
-              @layer base {
+      @layer base {
         * {
           @apply border-border outline-ring/50;
                 }

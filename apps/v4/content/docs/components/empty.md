@@ -2,7 +2,6 @@
 title: Empty
 description: Use the Empty component to display an empty state.
 component: true
-new: true
 ---
 
 ::component-preview
@@ -52,7 +51,7 @@ npx shadcn-vue@latest add empty
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { FolderOpen } from 'lucide-vue-next'
+import { FolderOpen } from '@lucide/vue'
 import { Button } from '@/registry/default/ui/button'
 import {
   Empty,

@@ -16,6 +16,10 @@ type: block
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="sidebars-in-shadcn-vue" placement="top"}
+Watch a Vue School video about building sidebars with shadcn-vue.
+::
+
 Sidebars are one of the most complex components to build. They are central
 to any application and often contain a lot of moving parts.
 
@@ -255,7 +259,7 @@ Let's start with the most basic sidebar A collapsible sidebar with a menu.
 
   ```vue showLineNumbers
   <script setup lang="ts">
-  import { Calendar, Home, Inbox, Search, Settings } from 'lucide-vue-next'
+  import { Calendar, Home, Inbox, Search, Settings } from '@lucide/vue'
   import {
     Sidebar,
     SidebarContent,

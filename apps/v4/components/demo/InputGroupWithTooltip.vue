@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HelpCircle, InfoIcon } from 'lucide-vue-next'
+import { HelpCircle, InfoIcon } from '@lucide/vue'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/registry/new-york-v4/ui/input-group'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/registry/new-york-v4/ui/tooltip'
 </script>

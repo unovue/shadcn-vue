@@ -13,6 +13,10 @@ description: A sonner toast component.
 ---
 ::
 
+::vue-school-link{class="mt-6" lesson="data-tables-and-sonner-in-shadcn-vue" placement="top"}
+Watch a Vue School video about data tables and Sonner in shadcn-vue.
+::
+
 ## Installation
 
 ::code-tabs

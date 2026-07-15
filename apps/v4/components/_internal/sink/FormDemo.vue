@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { fromDate, getLocalTimeZone } from '@internationalized/date'
+import { CalendarIcon } from '@lucide/vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { format } from 'date-fns'
-import { CalendarIcon } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
 

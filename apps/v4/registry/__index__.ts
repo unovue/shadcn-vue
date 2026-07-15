@@ -143,6 +143,55 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "attachment": {
+    name: "attachment",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/attachment/Attachment.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentAction.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentActions.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentDescription.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentMedia.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentTitle.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/AttachmentTrigger.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/attachment/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
   "avatar": {
     name: "avatar",
     description: "",
@@ -220,6 +269,35 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/breadcrumb/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "bubble": {
+    name: "bubble",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/bubble/Bubble.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/bubble/BubbleContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/bubble/BubbleGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/bubble/BubbleReactions.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/bubble/index.ts",
       type: "registry:ui",
       target: ""
     }],
@@ -669,7 +747,7 @@ export const Index: Record<string, any> = {
     name: "dialog",
     description: "",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["button"],
     files: [{
       path: "registry/new-york-v4/ui/dialog/Dialog.vue",
       type: "registry:ui",
@@ -1166,6 +1244,31 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "marker": {
+    name: "marker",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/marker/Marker.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/marker/MarkerContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/marker/MarkerIcon.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/marker/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
   "menubar": {
     name: "menubar",
     description: "",
@@ -1233,6 +1336,84 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/ui/menubar/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "message": {
+    name: "message",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "registry/new-york-v4/ui/message/Message.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message/MessageAvatar.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message/MessageContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message/MessageFooter.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message/MessageGroup.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message/MessageHeader.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message/index.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
+  "message-scroller": {
+    name: "message-scroller",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button"],
+    files: [{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScroller.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerButton.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerContent.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerItem.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerProvider.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/MessageScrollerViewport.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/index.ts",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/message-scroller/useMessageScroller.ts",
       type: "registry:ui",
       target: ""
     }],
