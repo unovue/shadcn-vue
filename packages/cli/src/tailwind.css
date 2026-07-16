@@ -93,3 +93,21 @@
     display: none;
   }
 }
+
+@utility scrollbar-thumb-transparent {
+  --tw-scrollbar-thumb: transparent;
+  scrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track, transparent);
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+@utility scrollbar-track-transparent {
+  --tw-scrollbar-track: transparent;
+  scrollbar-color: var(--tw-scrollbar-thumb, transparent) var(--tw-scrollbar-track);
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
