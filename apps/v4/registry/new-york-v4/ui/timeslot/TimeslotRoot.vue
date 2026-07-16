@@ -9,7 +9,7 @@ export type TimeslotRootFields<TFieldName extends string> = {
 }
 
 export interface TimeslotRootProps<TFieldName extends string> {
-  class: HTMLAttributes["class"]
+  class?: HTMLAttributes["class"]
   fields: TimeslotRootFields<TFieldName>
   isItemDisabled?: ItemDisabledMatcher<TFieldName>
 }
