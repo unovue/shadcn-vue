@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <span
     data-slot="command-shortcut"
-    :class="cn('text-muted-foreground group-data-selected/command-item:text-foreground ml-auto text-[0.625rem] tracking-widest', props.class)"
+    :class="cn('text-muted-foreground group-data-highlighted/command-item:text-foreground ml-auto text-[0.625rem] tracking-widest', props.class)"
   >
     <slot />
   </span>

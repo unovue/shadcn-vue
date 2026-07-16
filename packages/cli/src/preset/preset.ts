@@ -23,6 +23,7 @@ export const PRESET_STYLES = [
   'mira',
   'luma',
   'sera',
+  'rhea',
 ] as const
 
 export const PRESET_BASE_COLORS = [
@@ -70,6 +71,10 @@ export const PRESET_ICON_LIBRARIES = [
   'remixicon',
 ] as const
 
+// NOTE: this list is index-encoded into shareable preset codes, so existing
+// entries must keep their position — only ever APPEND new fonts to the end.
+// Must stay in sync with apps/v4/lib/fonts.ts, apps/v4/registry/fonts.ts and
+// packages/cli/src/registry/constants.ts (FONTS).
 export const PRESET_FONTS = [
   'inter',
   'geist-sans',
@@ -83,6 +88,18 @@ export const PRESET_FONTS = [
   'outfit',
   'jetbrains-mono',
   'playfair-display',
+  'oxanium',
+  'manrope',
+  'space-grotesk',
+  'montserrat',
+  'ibm-plex-sans',
+  'source-sans-3',
+  'instrument-sans',
+  'geist-mono',
+  'noto-serif',
+  'roboto-slab',
+  'merriweather',
+  'lora',
 ] as const
 
 export const PRESET_FONT_HEADINGS = ['inherit', ...PRESET_FONTS] as const
@@ -137,7 +154,7 @@ export interface PresetConfig {
 
 export const DEFAULT_PRESET_CONFIG: PresetConfig = Object.fromEntries(
   PRESET_FIELDS_V1.map(f => [f.key, f.values[0]]),
-) as PresetConfig
+) as unknown as PresetConfig
 
 // Base62 alphabet.
 const BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -212,7 +229,7 @@ export function decodePreset(code: string): PresetConfig | null {
     offset += field.bits
   }
 
-  return result as PresetConfig
+  return result as unknown as PresetConfig
 }
 
 // Check if a string looks like a preset code (version char + base62).
@@ -246,7 +263,7 @@ export function generateRandomConfig(): PresetConfig {
 
   return Object.fromEntries(
     PRESET_FIELDS_V1.map(f => [f.key, pick(f.values)]),
-  ) as PresetConfig
+  ) as unknown as PresetConfig
 }
 
 // Generate a random preset code.

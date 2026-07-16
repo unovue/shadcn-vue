@@ -1,8 +1,8 @@
 export const FONTS = [
   {
     name: 'Geist',
-    value: 'geist',
-    cssVar: '--font-geist',
+    value: 'geist-sans',
+    cssVar: '--font-geist-sans',
     fontFamily: '\'Geist\', sans-serif',
     type: 'sans',
   },

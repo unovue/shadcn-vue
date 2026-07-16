@@ -16,7 +16,7 @@ export interface NavigationItem {
   [key: string]: unknown
 }
 
-const EXCLUDED_PARENT_TITLE = ['Components', 'Registry', 'Forms', 'MCP Server']
+const EXCLUDED_PARENT_TITLE = ['Components', 'Registry', 'Forms', 'MCP Server', 'Directory']
 
 // TODO: Find a better heuristic to determine item type
 function navigationItemType(item: ContentNavigationItem, parent: ContentNavigationItem | null): 'component' | 'block' | 'group' | 'page' {

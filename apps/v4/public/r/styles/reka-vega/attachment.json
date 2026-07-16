@@ -1,0 +1,63 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "attachment",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "styles/reka-vega/ui/attachment/Attachment.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { AttachmentVariants } from '.'\nimport { cn } from '@/lib/utils'\nimport { attachmentVariants } from '.'\n\ninterface Props {\n  size?: AttachmentVariants['size']\n  orientation?: AttachmentVariants['orientation']\n  state?: 'idle' | 'uploading' | 'processing' | 'error' | 'done'\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  state: 'done',\n  size: 'default',\n  orientation: 'horizontal',\n})\n</script>\n\n<template>\n  <div\n    data-slot=\"attachment\"\n    :data-state=\"state\"\n    :data-size=\"size\"\n    :data-orientation=\"orientation\"\n    :class=\"cn(attachmentVariants({ size, orientation }), props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentAction.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { ButtonVariants } from '../button'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/styles/reka-vega/ui/button'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n}>(), {\n  variant: 'ghost',\n  size: 'icon-xs',\n})\n</script>\n\n<template>\n  <Button\n    data-slot=\"attachment-action\"\n    :variant=\"variant\"\n    :size=\"size\"\n    :class=\"cn('', props.class)\"\n  >\n    <slot />\n  </Button>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentActions.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"attachment-actions\"\n    :class=\"cn(\n      'group-data-[orientation=vertical]/attachment:absolute group-data-[orientation=vertical]/attachment:top-3 group-data-[orientation=vertical]/attachment:right-3 relative z-20 group-data-[orientation=vertical]/attachment:gap-1 flex shrink-0 items-center',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"attachment-content\"\n    :class=\"cn(\n      'leading-tight group-data-[orientation=vertical]/attachment:px-1 max-w-full min-w-0 flex-1',\n      props.class,\n    )\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"attachment-description\"\n    :class=\"cn(\n      'mt-0.5 text-xs block min-w-0 truncate text-muted-foreground group-data-[state=error]/attachment:text-destructive/80',\n      'max-w-full',\n      props.class,\n    )\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"attachment-group\"\n    :class=\"cn(\n      'gap-3 scroll-px-1 py-1 flex min-w-0 scroll-fade-x snap-x snap-mandatory scrollbar-none overflow-x-auto overscroll-x-contain *:data-[slot=attachment]:flex-none *:data-[slot=attachment]:snap-start',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentMedia.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { AttachmentMediaVariants } from '.'\nimport { cn } from '@/lib/utils'\nimport { attachmentMediaVariants } from '.'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: AttachmentMediaVariants['variant']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"attachment-media\"\n    :data-variant=\"variant\"\n    :class=\"cn(attachmentMediaVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"attachment-title\"\n    :class=\"cn(\n      'font-medium block max-w-full min-w-0 truncate group-data-[state=processing]/attachment:shimmer group-data-[state=uploading]/attachment:shimmer',\n      props.class,\n    )\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/AttachmentTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"attachment-trigger\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn('absolute inset-0 z-10 outline-none', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-vega/ui/attachment/index.ts",
+      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Attachment } from './Attachment.vue'\nexport { default as AttachmentAction } from './AttachmentAction.vue'\nexport { default as AttachmentActions } from './AttachmentActions.vue'\nexport { default as AttachmentContent } from './AttachmentContent.vue'\nexport { default as AttachmentDescription } from './AttachmentDescription.vue'\nexport { default as AttachmentGroup } from './AttachmentGroup.vue'\nexport { default as AttachmentMedia } from './AttachmentMedia.vue'\nexport { default as AttachmentTitle } from './AttachmentTitle.vue'\nexport { default as AttachmentTrigger } from './AttachmentTrigger.vue'\n\nexport const attachmentVariants = cva(\n  'rounded-xl w-fit focus-within:ring-1 focus-within:ring-ring/50 group/attachment relative flex max-w-full min-w-0 shrink-0 flex-wrap border bg-card text-card-foreground transition-colors has-[>a,>button]:hover:bg-muted/50 data-[state=error]:border-destructive/30 data-[state=idle]:border-dashed',\n  {\n    variants: {\n      size: {\n        default: 'gap-2 has-data-[slot=attachment-content]:px-2.5 has-data-[slot=attachment-content]:py-2 has-data-[slot=attachment-media]:p-2 text-sm',\n        sm: 'gap-2.5 has-data-[slot=attachment-content]:px-2 has-data-[slot=attachment-content]:py-1.5 has-data-[slot=attachment-media]:p-1.5 text-xs',\n        xs: 'gap-1.5 has-data-[slot=attachment-content]:px-1.5 has-data-[slot=attachment-content]:py-1 has-data-[slot=attachment-media]:p-1 text-xs rounded-lg',\n      },\n      orientation: {\n        horizontal: 'min-w-40 items-center',\n        vertical: 'w-24 has-data-[slot=attachment-content]:w-30 flex-col',\n      },\n    },\n  },\n)\n\nexport type AttachmentVariants = VariantProps<typeof attachmentVariants>\n\nexport const attachmentMediaVariants = cva(\n  'bg-muted text-foreground w-10 rounded-lg group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-md [&_svg:not([class*=\\'size-\\'])]:size-4 group-data-[size=xs]/attachment:[&_svg:not([class*=\\'size-\\'])]:size-3.5 group-data-[orientation=vertical]/attachment:w-full group-data-[orientation=vertical]/attachment:[&_svg:not([class*=\\'size-\\'])]:size-6 group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6! relative flex aspect-square shrink-0 items-center justify-center overflow-hidden group-data-[state=error]/attachment:bg-destructive/10 group-data-[state=error]/attachment:text-destructive [&_svg]:pointer-events-none',\n  {\n    variants: {\n      variant: {\n        icon: '',\n        image:\n          'opacity-60 group-data-[state=idle]/attachment:opacity-100 group-data-[state=done]/attachment:opacity-100 *:[img]:aspect-square *:[img]:w-full *:[img]:object-cover',\n      },\n    },\n    defaultVariants: {\n      variant: 'icon',\n    },\n  },\n)\n\nexport type AttachmentMediaVariants = VariantProps<typeof attachmentMediaVariants>\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

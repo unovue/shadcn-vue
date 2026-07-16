@@ -165,6 +165,67 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "attachment": {
+      name: "attachment",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/attachment/Attachment.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentActions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentMedia.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/AttachmentTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/attachment/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     "avatar": {
       name: "avatar",
       title: "undefined",
@@ -276,6 +337,42 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/breadcrumb/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "bubble": {
+      name: "bubble",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/bubble/Bubble.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/BubbleContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/BubbleGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/BubbleReactions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/bubble/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -1452,6 +1549,37 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "marker": {
+      name: "marker",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/marker/Marker.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/marker/MarkerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/marker/MarkerIcon.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/marker/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     "menubar": {
       name: "menubar",
       title: "undefined",
@@ -1536,6 +1664,103 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/menubar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "message": {
+      name: "message",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/message/Message.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageAvatar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/MessageHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "message-scroller": {
+      name: "message-scroller",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScroller.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerProvider.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/MessageScrollerViewport.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/useMessageScroller.ts",
                   "type": "registry:ui",
                   "target": ""
             }

@@ -47,7 +47,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       <SelectViewport
         :data-position="position"
         :class="cn(
-          'data-[position=popper]:h-[var(--reka-select-trigger-height)] data-[position=popper]:w-full data-[position=popper]:min-w-[var(--reka-select-trigger-width)]',
+          'data-[position=popper]:h-(--reka-select-trigger-height) data-[position=popper]:w-full data-[position=popper]:min-w-(--reka-select-trigger-width)',
         )"
       >
         <slot />

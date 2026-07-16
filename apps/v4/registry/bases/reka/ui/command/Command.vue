@@ -9,6 +9,7 @@ import { provideCommandContext } from "."
 
 const props = withDefaults(defineProps<ListboxRootProps & { class?: HTMLAttributes["class"] }>(), {
   modelValue: "",
+  highlightOnHover: true,
 })
 
 const emits = defineEmits<ListboxRootEmits>()

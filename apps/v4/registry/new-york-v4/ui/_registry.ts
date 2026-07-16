@@ -124,6 +124,55 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "attachment",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/attachment/Attachment.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentAction.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentActions.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentDescription.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentMedia.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentTitle.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/AttachmentTrigger.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/attachment/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "avatar",
     type: "registry:ui",
     dependencies: [
@@ -204,6 +253,35 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/breadcrumb/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "bubble",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/bubble/Bubble.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/BubbleContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/BubbleGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/BubbleReactions.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/bubble/index.ts",
         type: "registry:ui",
       },
     ],
@@ -1184,6 +1262,31 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "marker",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/marker/Marker.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marker/MarkerContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marker/MarkerIcon.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/marker/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "menubar",
     type: "registry:ui",
     dependencies: [
@@ -1253,6 +1356,84 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/menubar/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "message",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    files: [
+      {
+        path: "ui/message/Message.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageAvatar.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageFooter.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageGroup.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/MessageHeader.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "message-scroller",
+    type: "registry:ui",
+    registryDependencies: [
+      "button",
+    ],
+    files: [
+      {
+        path: "ui/message-scroller/MessageScroller.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerButton.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerItem.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerProvider.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/MessageScrollerViewport.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/message-scroller/useMessageScroller.ts",
         type: "registry:ui",
       },
     ],

@@ -7,4 +7,10 @@ export default defineConfig({
   shims: true,
   nodeProtocol: 'strip',
   fixedExtension: false,
+  // tsdown 0.22 delegates CSS to @tsdown/css, which names the bundled output
+  // `style.css` by default. Pin it back to `tailwind.css` so the
+  // `./tailwind.css` export (dist/tailwind.css) keeps resolving.
+  css: {
+    fileName: 'tailwind.css',
+  },
 })

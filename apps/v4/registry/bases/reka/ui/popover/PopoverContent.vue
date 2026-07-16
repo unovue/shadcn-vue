@@ -34,7 +34,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       v-bind="{ ...$attrs, ...forwarded }"
       :class="
         cn(
-          'cn-popover-content z-50 w-72 origin-(--reka-popover-content-transform-origin) outline-hidden',
+          'cn-popover-content z-50 w-72 max-w-(--reka-popover-content-available-width) origin-(--reka-popover-content-transform-origin) outline-hidden',
           props.class,
         )
       "

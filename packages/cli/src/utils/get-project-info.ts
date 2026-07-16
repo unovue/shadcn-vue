@@ -225,18 +225,36 @@ export async function getTailwindConfigFile(cwd: string) {
   return files[0]
 }
 
+export async function getFrameworkTsConfigPath(
+  cwd: string,
+  detectedFramework: Framework | null,
+  isTypeScript: boolean,
+): Promise<string> {
+  if (detectedFramework?.name === 'nuxt4') {
+    return './.nuxt/tsconfig.app.json'
+  }
+  if (detectedFramework?.name === 'nuxt3') {
+    return './.nuxt/tsconfig.json'
+  }
+  // Inertia PHP places tsconfig.json under ./inertia, but other Inertia
+  // integrations (e.g. Inertia + Rails) keep it at the project root. Use the
+  // Inertia-specific path only when it actually exists.
+  if (
+    detectedFramework?.name === 'inertia'
+    && (await fs.pathExists(path.resolve(cwd, 'inertia/tsconfig.json')))
+  ) {
+    return './inertia/tsconfig.json'
+  }
+  return isTypeScript ? './tsconfig.json' : './jsconfig.json'
+}
+
 export async function getTsConfigAliasPrefix(cwd: string) {
   const detectedFramework = await detectFrameworkConfigFiles(cwd)
   const isTypeScript = await isTypeScriptProject(cwd)
-  const tsConfig = await getTsconfig(cwd, detectedFramework?.name === 'nuxt4'
-    ? './.nuxt/tsconfig.app.json'
-    : detectedFramework?.name === 'nuxt3'
-      ? './.nuxt/tsconfig.json'
-      : detectedFramework?.name === 'inertia'
-        ? './inertia/tsconfig.json'
-        : isTypeScript
-          ? './tsconfig.json'
-          : './jsconfig.json')
+  const tsConfig = await getTsconfig(
+    cwd,
+    await getFrameworkTsConfigPath(cwd, detectedFramework, isTypeScript),
+  )
 
   if (
     tsConfig === null
