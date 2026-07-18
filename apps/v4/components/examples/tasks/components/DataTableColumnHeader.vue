@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
-import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from 'lucide-vue-next'
+import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from '@lucide/vue'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-nova/ui/dropdown-menu'
 
 interface DataTableColumnHeaderProps {
   column: Column<Task, any>

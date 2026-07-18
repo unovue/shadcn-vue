@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next'
-import { computed, ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { CheckIcon, ChevronsUpDownIcon } from '@lucide/vue'
+import { ref } from 'vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/registry/new-york-v4/ui/command'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/registry/new-york-v4/ui/popover'
+  Combobox,
+  ComboboxAnchor,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxList,
+  ComboboxTrigger,
+} from '@/registry/new-york-v4/ui/combobox'
 
 const frameworks = [
   {
@@ -40,57 +37,38 @@ const frameworks = [
   },
 ]
 
-const open = ref(false)
-const value = ref('')
-
-const selectedFramework = computed(() =>
-  frameworks.find(framework => framework.value === value.value),
-)
-
-function selectFramework(selectedValue: string) {
-  value.value = selectedValue === value.value ? '' : selectedValue
-  open.value = false
-}
+const selectedFramework = ref<(typeof frameworks)[number]>()
 </script>
 
 <template>
-  <Popover v-model:open="open">
-    <PopoverTrigger as-child>
-      <Button
-        variant="outline"
-        role="combobox"
-        :aria-expanded="open"
-        class="w-[200px] justify-between"
-      >
-        {{ selectedFramework?.label || "Select framework..." }}
-        <ChevronsUpDownIcon class="opacity-50" />
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent class="w-[200px] p-0">
-      <Command>
-        <CommandInput class="h-9" placeholder="Search framework..." />
-        <CommandList>
-          <CommandEmpty>No framework found.</CommandEmpty>
-          <CommandGroup>
-            <CommandItem
-              v-for="framework in frameworks"
-              :key="framework.value"
-              :value="framework.value"
-              @select="(ev) => {
-                selectFramework(ev.detail.value as string)
-              }"
-            >
-              {{ framework.label }}
-              <CheckIcon
-                :class="cn(
-                  'ml-auto',
-                  value === framework.value ? 'opacity-100' : 'opacity-0',
-                )"
-              />
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </Command>
-    </PopoverContent>
-  </Popover>
+  <Combobox v-model="selectedFramework" by="label">
+    <ComboboxAnchor as-child>
+      <ComboboxTrigger as-child>
+        <Button
+          variant="outline"
+          class="w-[200px] justify-between"
+        >
+          {{ selectedFramework?.label ?? 'Select framework...' }}
+          <ChevronsUpDownIcon class="opacity-50" />
+        </Button>
+      </ComboboxTrigger>
+    </ComboboxAnchor>
+
+    <ComboboxList>
+      <ComboboxInput placeholder="Search framework..." />
+      <ComboboxEmpty>No framework found.</ComboboxEmpty>
+      <ComboboxGroup>
+        <ComboboxItem
+          v-for="framework in frameworks"
+          :key="framework.value"
+          :value="framework"
+        >
+          {{ framework.label }}
+          <ComboboxItemIndicator>
+            <CheckIcon />
+          </ComboboxItemIndicator>
+        </ComboboxItem>
+      </ComboboxGroup>
+    </ComboboxList>
+  </Combobox>
 </template>

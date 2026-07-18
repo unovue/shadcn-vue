@@ -1,12 +1,17 @@
 import type { Config } from "@/src/utils/get-config"
 import path from "pathe"
 import { z } from "zod"
+import { DEFAULT_PRESETS } from "@/src/preset/presets"
 import { buildUrlAndHeadersForRegistryItem } from "@/src/registry/builder"
 import { configWithDefaults } from "@/src/registry/config"
 import {
   BASE_COLORS,
+  BASES,
   BUILTIN_REGISTRIES,
+  FONTS,
+  ICON_LIBRARIES,
   REGISTRY_URL,
+  STYLES,
 } from "@/src/registry/constants"
 import {
   clearRegistryContext,
@@ -192,6 +197,82 @@ export async function getRegistryBaseColors() {
   return BASE_COLORS
 }
 
+/**
+ * Get available component library bases (e.g., Reka UI).
+ */
+export function getRegistryBases() {
+  return BASES
+}
+
+/**
+ * Get available visual styles.
+ */
+export function getRegistryVisualStyles() {
+  return STYLES
+}
+
+/**
+ * Get available icon libraries.
+ */
+export function getRegistryIconLibraries() {
+  return ICON_LIBRARIES
+}
+
+/**
+ * Get available fonts.
+ */
+export function getRegistryFonts() {
+  return FONTS
+}
+
+/**
+ * Get a specific base by name.
+ */
+export function getRegistryBase(name: string) {
+  return BASES.find(base => base.name === name)
+}
+
+/**
+ * Get a specific visual style by name.
+ */
+export function getRegistryVisualStyle(name: string) {
+  return STYLES.find(style => style.name === name)
+}
+
+/**
+ * Get a specific icon library by name.
+ */
+export function getRegistryIconLibrary(name: string) {
+  return ICON_LIBRARIES.find(lib => lib.name === name)
+}
+
+/**
+ * Get a specific font by name.
+ */
+export function getRegistryFont(name: string) {
+  return FONTS.find(font => font.name === name)
+}
+
+/**
+ * Get available presets (predefined combinations of base, style, icons, and font).
+ */
+export function getRegistryPresets() {
+  return Object.entries(DEFAULT_PRESETS).map(([name, preset]) => ({
+    name,
+    ...preset,
+  }))
+}
+
+/**
+ * Get a specific preset by name.
+ */
+export function getRegistryPreset(name: string) {
+  const preset = DEFAULT_PRESETS[name as keyof typeof DEFAULT_PRESETS]
+  if (!preset)
+    return undefined
+  return { name, ...preset }
+}
+
 export async function getRegistryBaseColor(baseColor: string) {
   try {
     const [result] = await fetchRegistry([`colors/${baseColor}.json`])
@@ -199,6 +280,13 @@ export async function getRegistryBaseColor(baseColor: string) {
     return registryBaseColorSchema.parse(result)
   }
   catch (error) {
+    // Degrade gracefully when a base color is not published at the registry.
+    // This happens for newer base colors (mauve/olive/mist/taupe) until the
+    // color generation pipeline publishes matching JSON. Transformers only
+    // use this mapping for non-cssVariables inline color class remapping.
+    if (error instanceof RegistryNotFoundError) {
+      return undefined
+    }
     handleError(error)
   }
 }

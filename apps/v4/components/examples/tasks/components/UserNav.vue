@@ -3,8 +3,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/registry/new-york-v4/ui/avatar'
-import { Button } from '@/registry/new-york-v4/ui/button'
+} from '@/styles/reka-nova/ui/avatar'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/registry/new-york-v4/ui/dropdown-menu'
+} from '@/styles/reka-nova/ui/dropdown-menu'
 </script>
 
 <template>

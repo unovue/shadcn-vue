@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { MenubarSubTriggerProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
+import { ChevronRight } from "@lucide/vue"
 import { reactiveOmit } from "@vueuse/core"
-import { ChevronRight } from "lucide-vue-next"
 import { MenubarSubTrigger, useForwardProps } from "reka-ui"
 import { cn } from "@/lib/utils"
 

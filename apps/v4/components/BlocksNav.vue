@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ScrollArea, ScrollBar } from '@/registry/new-york-v4/ui/scroll-area'
-import { registryCategories } from '@/registry/registry-categories'
+import { registryCategories } from '~/lib/categories'
 
 const { path } = toRefs(useRoute())
 </script>

@@ -1,6 +1,7 @@
 import type { z } from "zod"
 import type { registryConfigItemSchema } from "@/src/schema"
 import type { Config } from "@/src/utils/get-config"
+import { resolveRegistryStyle } from "@/src/registry/config"
 import { REGISTRY_URL } from "@/src/registry/constants"
 import { expandEnvVars } from "@/src/registry/env"
 import { RegistryNotConfiguredError } from "@/src/registry/errors"
@@ -45,17 +46,21 @@ export function buildUrlFromRegistryConfig(
   registryConfig: z.infer<typeof registryConfigItemSchema>,
   config?: Config,
 ) {
+  // Style is the full identifier from components.json (e.g. "reka-luma")
+  // and pass-through. Falls back to FALLBACK_STYLE when unset.
+  const registryStyle = resolveRegistryStyle(config?.style)
+
   if (typeof registryConfig === "string") {
     let url = registryConfig.replace(NAME_PLACEHOLDER, item)
-    if (config?.style && url.includes(STYLE_PLACEHOLDER)) {
-      url = url.replace(STYLE_PLACEHOLDER, config.style)
+    if (registryStyle && url.includes(STYLE_PLACEHOLDER)) {
+      url = url.replace(STYLE_PLACEHOLDER, registryStyle)
     }
     return expandEnvVars(url)
   }
 
   let baseUrl = registryConfig.url.replace(NAME_PLACEHOLDER, item)
-  if (config?.style && baseUrl.includes(STYLE_PLACEHOLDER)) {
-    baseUrl = baseUrl.replace(STYLE_PLACEHOLDER, config.style)
+  if (registryStyle && baseUrl.includes(STYLE_PLACEHOLDER)) {
+    baseUrl = baseUrl.replace(STYLE_PLACEHOLDER, registryStyle)
   }
   baseUrl = expandEnvVars(baseUrl)
 

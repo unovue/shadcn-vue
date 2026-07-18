@@ -5,12 +5,10 @@ import { ICON_LIBRARIES } from '@/src/utils/icon-libraries'
 // Lucide is the default icon library in the registry.
 const SOURCE_LIBRARY = 'lucide'
 
-// Precompute the set of known icon library import sources to avoid hardcoding lists.
-const ICON_LIBRARY_IMPORTS = new Set(
-  Object.values(ICON_LIBRARIES)
-    .map(l => l.import)
-    .filter(Boolean),
-)
+// Precompute the known icon library import sources to avoid hardcoding lists.
+const ICON_LIBRARY_IMPORTS = Object.values(ICON_LIBRARIES)
+  .map(l => l.import)
+  .filter(Boolean)
 
 export function transformIcons(opts: TransformOpts, registryIcons: Record<string, Record<string, string>>): CodemodPlugin {
   return {
@@ -40,7 +38,7 @@ export function transformIcons(opts: TransformOpts, registryIcons: Record<string
         traverseScriptAST(scriptAST, {
           visitImportDeclaration(path) {
             const source = String(path.node.source.value)
-            if (![...ICON_LIBRARY_IMPORTS].some(prefix => source.startsWith(prefix)))
+            if (!ICON_LIBRARY_IMPORTS.some(prefix => source.startsWith(prefix)))
               return this.traverse(path)
 
             let hasChanges = false
@@ -48,7 +46,15 @@ export function transformIcons(opts: TransformOpts, registryIcons: Record<string
             for (const specifier of path.node.specifiers ?? []) {
               if (specifier.type === 'ImportSpecifier') {
                 const iconName = specifier.imported.name
+                // `imported.name` can be a nested identifier node in newer AST typings.
+                if (typeof iconName !== 'string') {
+                  continue
+                }
+
+                // Try exact match first, then strip lucide v1.x `Icon` suffix
+                // so that e.g. `ChevronDownIcon` resolves via the `ChevronDown` entry.
                 const targetedIcon = registryIcons[iconName]?.[targetLibrary]
+                  ?? registryIcons[iconName.replace(/Icon$/, '')]?.[targetLibrary]
 
                 if (!targetedIcon || targetedIconsMap.has(iconName)) {
                   continue

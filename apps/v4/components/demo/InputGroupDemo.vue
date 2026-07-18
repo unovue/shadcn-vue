@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from 'lucide-vue-next'
+import { ArrowUpIcon, CheckIcon, InfoIcon, PlusIcon, Search } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/registry/new-york-v4/ui/dropdown-menu'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText, InputGroupTextarea } from '@/registry/new-york-v4/ui/input-group'
 import { Separator } from '@/registry/new-york-v4/ui/separator'

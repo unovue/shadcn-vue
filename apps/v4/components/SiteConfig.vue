@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 
-import { GalleryHorizontalIcon } from 'lucide-vue-next'
+import { GalleryHorizontalIcon } from '@lucide/vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 

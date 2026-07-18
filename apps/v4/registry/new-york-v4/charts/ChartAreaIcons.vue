@@ -2,9 +2,9 @@
 import type {
   ChartConfig,
 } from "@/registry/new-york-v4/ui/chart"
+import { TrendingDown, TrendingUp } from "@lucide/vue"
 // import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { VisArea, VisAxis, VisLine, VisXYContainer } from "@unovis/vue"
-import { TrendingDown, TrendingUp } from "lucide-vue-next"
 
 import {
   Card,
@@ -81,7 +81,7 @@ const chartConfig = {
             :grid-line="false"
             :num-ticks="6"
             :tick-format="(d: number, index: number) => {
-              return chartData[index].monthLabel.slice(0, 3)
+              return chartData[index]?.monthLabel.slice(0, 3) ?? ''
             }"
           />
           <VisAxis

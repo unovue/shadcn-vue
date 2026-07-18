@@ -1,7 +1,6 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "field",
-  "type": "registry:ui",
   "registryDependencies": [
     "label",
     "separator"
@@ -62,5 +61,6 @@
       "content": "import type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport const fieldVariants = cva(\n  \"group/field flex w-full gap-3 data-[invalid=true]:text-destructive\",\n  {\n    variants: {\n      orientation: {\n        vertical: [\"flex-col [&>*]:w-full [&>.sr-only]:w-auto\"],\n        horizontal: [\n          \"flex-row items-center\",\n          \"[&>[data-slot=field-label]]:flex-auto\",\n          \"has-[>[data-slot=field-content]]:items-start has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px\",\n        ],\n        responsive: [\n          \"flex-col [&>*]:w-full [&>.sr-only]:w-auto @md/field-group:flex-row @md/field-group:items-center @md/field-group:[&>*]:w-auto\",\n          \"@md/field-group:[&>[data-slot=field-label]]:flex-auto\",\n          \"@md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px\",\n        ],\n      },\n    },\n    defaultVariants: {\n      orientation: \"vertical\",\n    },\n  },\n)\n\nexport type FieldVariants = VariantProps<typeof fieldVariants>\n\nexport { default as Field } from \"./Field.vue\"\nexport { default as FieldContent } from \"./FieldContent.vue\"\nexport { default as FieldDescription } from \"./FieldDescription.vue\"\nexport { default as FieldError } from \"./FieldError.vue\"\nexport { default as FieldGroup } from \"./FieldGroup.vue\"\nexport { default as FieldLabel } from \"./FieldLabel.vue\"\nexport { default as FieldLegend } from \"./FieldLegend.vue\"\nexport { default as FieldSeparator } from \"./FieldSeparator.vue\"\nexport { default as FieldSet } from \"./FieldSet.vue\"\nexport { default as FieldTitle } from \"./FieldTitle.vue\"\n",
       "type": "registry:ui"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

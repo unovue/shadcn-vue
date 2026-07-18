@@ -6,13 +6,13 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from '@/registry/new-york-v4/ui/input-group'
-import { Label } from '@/registry/new-york-v4/ui/label'
+} from '@/styles/reka-nova/ui/input-group'
+import { Label } from '@/styles/reka-nova/ui/label'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york-v4/ui/popover'
+} from '@/styles/reka-nova/ui/popover'
 
 const isFavorite = ref(false)
 </script>

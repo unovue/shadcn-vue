@@ -1,0 +1,31 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "native-select",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "files": [
+    {
+      "path": "styles/reka-sera/ui/native-select/NativeSelect.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AcceptableValue } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronDownIcon } from '@lucide/vue'\nimport { reactiveOmit, useVModel } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<{\n  modelValue?: AcceptableValue | AcceptableValue[]\n  class?: HTMLAttributes['class']\n  size?: 'sm' | 'default'\n}>()\n\nconst emit = defineEmits<{\n  'update:modelValue': AcceptableValue\n}>()\n\nconst modelValue = useVModel(props, 'modelValue', emit, {\n  passive: true,\n  defaultValue: '',\n})\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size')\n</script>\n\n<template>\n  <div\n    class=\"group/native-select relative w-fit has-[select:disabled]:opacity-50\"\n    data-slot=\"native-select-wrapper\"\n    :data-size=\"props.size ?? 'default'\"\n  >\n    <select\n      v-bind=\"{ ...$attrs, ...delegatedProps }\"\n      v-model=\"modelValue\"\n      data-slot=\"native-select\"\n      :data-size=\"props.size ?? 'default'\"\n      :class=\"cn(\n        'border-transparent border-b-input bg-transparent placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-b-ring aria-invalid:border-b-destructive dark:aria-invalid:border-b-destructive/50 h-10 w-full min-w-0 appearance-none rounded-none border py-2 pr-8 pl-0 text-sm transition-[color,border-color] select-none data-[size=sm]:h-9 outline-none disabled:pointer-events-none disabled:cursor-not-allowed',\n        props.class,\n      )\"\n    >\n      <slot />\n    </select>\n    <ChevronDownIcon class=\"text-muted-foreground top-1/2 right-0 size-3.5 -translate-y-1/2 pointer-events-none absolute select-none\" aria-hidden=\"true\" data-slot=\"native-select-icon\" />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/native-select/NativeSelectOptGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <optgroup data-slot=\"native-select-optgroup\" :class=\"cn('bg-[Canvas] text-[CanvasText]', props.class)\">\n    <slot />\n  </optgroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/native-select/NativeSelectOption.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <option data-slot=\"native-select-option\" :class=\"cn('bg-[Canvas] text-[CanvasText]', props.class)\">\n    <slot />\n  </option>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-sera/ui/native-select/index.ts",
+      "content": "export { default as NativeSelect } from './NativeSelect.vue'\nexport { default as NativeSelectOptGroup } from './NativeSelectOptGroup.vue'\nexport { default as NativeSelectOption } from './NativeSelectOption.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

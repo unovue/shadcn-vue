@@ -2,7 +2,6 @@
 title: Input Group
 description: Display additional information or actions to an input or textarea.
 component: true
-new: true
 ---
 
 ::component-preview

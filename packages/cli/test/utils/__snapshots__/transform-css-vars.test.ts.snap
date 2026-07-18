@@ -10,7 +10,7 @@ exports[`transform css vars 1`] = `
 exports[`transform css vars 2`] = `
 "<script setup lang="ts"></script>
 <template>
-<div class=bg-white hover:bg-stone-100 text-stone-50 sm:focus:text-stone-900 dark:bg-stone-950 dark:hover:bg-stone-800 dark:text-stone-900 dark:sm:focus:text-stone-50>foo</div>
+<div class="bg-white hover:bg-stone-100 text-stone-50 sm:focus:text-stone-900 dark:bg-stone-950 dark:hover:bg-stone-800 dark:text-stone-900 dark:sm:focus:text-stone-50">foo</div>
 </template>""
 `;
 

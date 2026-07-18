@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, ChevronDown } from 'lucide-vue-next'
+import { CheckIcon, ChevronDown } from '@lucide/vue'
 import { ListboxContent, ListboxFilter, ListboxItem, ListboxItemIndicator, ListboxRoot, useFilter } from 'reka-ui'
 import { ref } from 'vue'
 import { Button } from '@/registry/new-york-v4/ui/button'

@@ -310,7 +310,7 @@ Let's add row actions to our table. We'll use a `<Dropdown />` component for thi
 
 ```vue
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
+import { MoreHorizontal } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 
@@ -468,15 +468,7 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-
-export function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
-  ref.value = typeof updaterOrValue === 'function'
-    ? updaterOrValue(ref.value)
-    : updaterOrValue
-}
 ```
-
-The `valueUpdater` function updates a Vue `ref` object's value. It handles both direct assignments and transformations using a function. If `updaterOrValue` is a function, it's called with the current `ref` value, and the result is assigned to `ref.value`. If it's not a function, it's directly assigned to `ref.value`. This utility enhances flexibility in updating `ref` values. While Vue `ref` can manage reactive state directly, `valueUpdater` simplifies value updates, improving code readability and maintainability when the new state can be a direct value or a function generating it based on the current one.
 
 ### Update `<DataTable>`
 
@@ -487,7 +479,7 @@ import type {
   SortingState,
 } from '@tanstack/vue-table'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { h, ref } from 'vue'
 
 import {
@@ -497,7 +489,7 @@ import {
   getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table'
-import { valueUpdater } from '@/lib/utils'
+import { valueUpdater } from '@/components/ui/table/utils'
 
 import {
   Table,
@@ -537,6 +529,8 @@ const table = useVueTable({
 </template>
 ```
 
+The `valueUpdater` function updates a Vue `ref` object's value. It handles both direct assignments and transformations using a function. If `updaterOrValue` is a function, it's called with the current `ref` value, and the result is assigned to `ref.value`. If it's not a function, it's directly assigned to `ref.value`. This utility enhances flexibility in updating `ref` values. While Vue `ref` can manage reactive state directly, `valueUpdater` simplifies value updates, improving code readability and maintainability when the new state can be a direct value or a function generating it based on the current one.
+
 ### Make header cell sortable
 
 We can now update the `email` header cell to add sorting controls.
@@ -546,7 +540,7 @@ We can now update the `email` header cell to add sorting controls.
 import type {
   ColumnDef,
 } from '@tanstack/vue-table'
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 
 export const columns: ColumnDef<Payment>[] = [
@@ -583,9 +577,9 @@ import type {
   SortingState,
 } from '@tanstack/vue-table'
 
-import { valueUpdater } from '@/lib/utils'
+import { valueUpdater } from '@/components/ui/table/utils'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -676,9 +670,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { valueUpdater } from '@/lib/utils'
+import { valueUpdater } from '@/components/ui/table/utils'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -774,7 +768,7 @@ const table = useVueTable({
                     </template>
                     <template v-else>
                         <TableRow>
-                            <TableCell :colSpan="columns.length" class="h-24 text-center">
+                            <TableCell :colspan="columns.length" class="h-24 text-center">
                                 No results.
                             </TableCell>
                         </TableRow>
@@ -922,9 +916,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { valueUpdater } from '@/lib/utils'
+import { valueUpdater } from '@/components/ui/table/utils'
 
-import { ArrowUpDown, ChevronDown } from 'lucide-vue-next'
+import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { h, ref } from 'vue'
@@ -1024,7 +1018,7 @@ const table = useVueTable({
                     </template>
                     <template v-else>
                         <TableRow>
-                            <TableCell :colSpan="columns.length" class="h-24 text-center">
+                            <TableCell :colspan="columns.length" class="h-24 text-center">
                                 No results.
                             </TableCell>
                         </TableRow>
@@ -1040,7 +1034,7 @@ const table = useVueTable({
 
 ```vue showLineNumbers {12-14,34-36}
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
+import { MoreHorizontal } from '@lucide/vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 

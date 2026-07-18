@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Bold, Italic, Underline } from 'lucide-vue-next'
+import { Bold, Italic, Underline } from '@lucide/vue'
 import { ToggleGroup, ToggleGroupItem } from '@/registry/new-york-v4/ui/toggle-group'
 </script>
 

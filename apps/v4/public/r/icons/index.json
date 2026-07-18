@@ -3,222 +3,259 @@
     "lucide": "AlertCircle",
     "radix": "ExclamationTriangleIcon",
     "tabler": "IconExclamationCircle",
-    "phosphor": "PhWarningCircle"
+    "phosphor": "PhWarningCircle",
+    "remixicon": "RiAlertLine"
   },
   "ArrowLeft": {
     "lucide": "ArrowLeft",
     "radix": "ArrowLeftIcon",
     "tabler": "IconArrowLeft",
-    "phosphor": "PhArrowLeft"
+    "phosphor": "PhArrowLeft",
+    "remixicon": "RiArrowLeftLine"
   },
   "ArrowRight": {
     "lucide": "ArrowRight",
     "radix": "ArrowRightIcon",
     "tabler": "IconArrowRight",
-    "phosphor": "PhArrowRight"
+    "phosphor": "PhArrowRight",
+    "remixicon": "RiArrowRightLine"
   },
   "ArrowUpDown": {
     "lucide": "ArrowUpDown",
     "radix": "CaretSortIcon",
     "tabler": "IconArrowsSort",
-    "phosphor": "PhArrowsVertical"
+    "phosphor": "PhArrowsVertical",
+    "remixicon": "RiArrowUpDownLine"
   },
   "BellRing": {
     "lucide": "BellRing",
     "radix": "BellIcon",
     "tabler": "IconBellRinging",
-    "phosphor": "PhBellRinging"
+    "phosphor": "PhBellRinging",
+    "remixicon": "RiBellLine"
   },
   "Bold": {
     "lucide": "Bold",
     "radix": "FontBoldIcon",
     "tabler": "IconBold",
-    "phosphor": "PhTextB"
+    "phosphor": "PhTextB",
+    "remixicon": "RiBold"
   },
   "Calculator": {
     "lucide": "Calculator",
     "radix": "ComponentPlaceholderIcon",
     "tabler": "IconCalculator",
-    "phosphor": "PhCalculator"
+    "phosphor": "PhCalculator",
+    "remixicon": "RiCalculatorLine"
   },
   "Calendar": {
     "lucide": "Calendar",
     "radix": "CalendarIcon",
     "tabler": "IconCalendar",
-    "phosphor": "PhCalendarBlank"
+    "phosphor": "PhCalendarBlank",
+    "remixicon": "RiCalendarLine"
   },
   "Check": {
     "lucide": "Check",
     "radix": "CheckIcon",
     "tabler": "IconCheck",
-    "phosphor": "PhCheck"
+    "phosphor": "PhCheck",
+    "remixicon": "RiCheckLine"
   },
   "ChevronDown": {
     "lucide": "ChevronDown",
     "radix": "ChevronDownIcon",
     "tabler": "IconChevronDown",
-    "phosphor": "PhCaretDown"
+    "phosphor": "PhCaretDown",
+    "remixicon": "RiArrowDownSLine"
   },
   "ChevronLeft": {
     "lucide": "ChevronLeft",
     "radix": "ChevronLeftIcon",
     "tabler": "IconChevronLeft",
-    "phosphor": "PhCaretLeft"
+    "phosphor": "PhCaretLeft",
+    "remixicon": "RiArrowLeftSLine"
   },
   "ChevronRight": {
     "lucide": "ChevronRight",
     "radix": "ChevronRightIcon",
     "tabler": "IconChevronRight",
-    "phosphor": "PhCaretRight"
+    "phosphor": "PhCaretRight",
+    "remixicon": "RiArrowRightSLine"
   },
   "ChevronUp": {
     "lucide": "ChevronUp",
     "radix": "ChevronUpIcon",
     "tabler": "IconChevronUp",
-    "phosphor": "PhCaretUp"
+    "phosphor": "PhCaretUp",
+    "remixicon": "RiArrowUpSLine"
   },
   "ChevronsUpDown": {
     "lucide": "ChevronsUpDown",
     "radix": "CaretSortIcon",
     "tabler": "IconSelector",
-    "phosphor": "PhCaretUpDown"
+    "phosphor": "PhCaretUpDown",
+    "remixicon": "RiExpandUpDownLine"
   },
   "Circle": {
     "lucide": "Circle",
     "radix": "DotFilledIcon",
     "tabler": "IconCircle",
-    "phosphor": "PhCircle"
+    "phosphor": "PhCircle",
+    "remixicon": "RiCircleLine"
   },
   "Copy": {
     "lucide": "Copy",
     "radix": "CopyIcon",
     "tabler": "IconCopy",
-    "phosphor": "PhCopy"
+    "phosphor": "PhCopy",
+    "remixicon": "RiFileCopyLine"
   },
   "CreditCard": {
     "lucide": "CreditCard",
     "radix": "ComponentPlaceholderIcon",
     "tabler": "IconCreditCard",
-    "phosphor": "PhCreditCard"
+    "phosphor": "PhCreditCard",
+    "remixicon": "RiBankCardLine"
   },
   "GripVertical": {
     "lucide": "GripVertical",
     "radix": "DragHandleDots2Icon",
     "tabler": "IconGripVertical",
-    "phosphor": "PhDotsSixVertical"
+    "phosphor": "PhDotsSixVertical",
+    "remixicon": "RiDraggable"
   },
   "Italic": {
     "lucide": "Italic",
     "radix": "FontItalicIcon",
     "tabler": "IconItalic",
-    "phosphor": "PhTextItalic"
+    "phosphor": "PhTextItalic",
+    "remixicon": "RiItalic"
   },
   "Loader2": {
     "lucide": "Loader2",
     "radix": "ReloadIcon",
     "tabler": "IconLoader2",
-    "phosphor": "PhCircleNotch"
+    "phosphor": "PhCircleNotch",
+    "remixicon": "RiLoader4Line"
   },
   "Mail": {
     "lucide": "Mail",
     "radix": "EnvelopeClosedIcon",
     "tabler": "IconMail",
-    "phosphor": "PhEnvelopeSimple"
+    "phosphor": "PhEnvelopeSimple",
+    "remixicon": "RiMailLine"
   },
   "MailOpen": {
     "lucide": "MailOpen",
     "radix": "EnvelopeOpenIcon",
     "tabler": "IconMailOpened",
-    "phosphor": "PhEnvelopeSimpleOpen"
+    "phosphor": "PhEnvelopeSimpleOpen",
+    "remixicon": "RiMailOpenLine"
   },
   "Minus": {
     "lucide": "Minus",
     "radix": "MinusIcon",
     "tabler": "IconMinus",
-    "phosphor": "PhMinus"
+    "phosphor": "PhMinus",
+    "remixicon": "RiSubtractLine"
   },
   "Moon": {
     "lucide": "Moon",
     "radix": "MoonIcon",
     "tabler": "IconMoon",
-    "phosphor": "PhMoon"
+    "phosphor": "PhMoon",
+    "remixicon": "RiMoonLine"
   },
   "MoreHorizontal": {
     "lucide": "MoreHorizontal",
     "radix": "DotsHorizontalIcon",
     "tabler": "IconDots",
-    "phosphor": "PhDotsThree"
+    "phosphor": "PhDotsThree",
+    "remixicon": "RiMoreLine"
   },
   "PanelLeft": {
     "lucide": "PanelLeft",
     "radix": "ViewVerticalIcon",
     "tabler": "IconLayoutSidebar",
-    "phosphor": "PhSidebarSimple"
+    "phosphor": "PhSidebarSimple",
+    "remixicon": "RiSideBarLine"
   },
   "Plus": {
     "lucide": "Plus",
     "radix": "PlusIcon",
     "tabler": "IconPlus",
-    "phosphor": "PhPlus"
+    "phosphor": "PhPlus",
+    "remixicon": "RiAddLine"
   },
   "Search": {
     "lucide": "Search",
     "radix": "MagnifyingGlassIcon",
     "tabler": "IconSearch",
-    "phosphor": "PhMagnifyingGlass"
+    "phosphor": "PhMagnifyingGlass",
+    "remixicon": "RiSearchLine"
   },
   "Send": {
     "lucide": "Send",
     "radix": "PaperPlaneIcon",
     "tabler": "IconSend",
-    "phosphor": "PhPaperPlaneTilt"
+    "phosphor": "PhPaperPlaneTilt",
+    "remixicon": "RiSendPlaneLine"
   },
   "Settings": {
     "lucide": "Settings",
     "radix": "GearIcon",
     "tabler": "IconSettings",
-    "phosphor": "PhGear"
+    "phosphor": "PhGear",
+    "remixicon": "RiSettingsLine"
   },
   "Slash": {
     "lucide": "Slash",
     "radix": "SlashIcon",
     "tabler": "IconSlash",
-    "phosphor": "PhCaretRight"
+    "phosphor": "PhCaretRight",
+    "remixicon": "RiSlashCommands"
   },
   "Smile": {
     "lucide": "Smile",
     "radix": "FaceIcon",
     "tabler": "IconMoodSmile",
-    "phosphor": "PhSmiley"
+    "phosphor": "PhSmiley",
+    "remixicon": "RiEmotionLine"
   },
   "Sun": {
     "lucide": "Sun",
     "radix": "SunIcon",
     "tabler": "IconSun",
-    "phosphor": "PhSun"
+    "phosphor": "PhSun",
+    "remixicon": "RiSunLine"
   },
   "Terminal": {
     "lucide": "Terminal",
     "radix": "RocketIcon",
     "tabler": "IconTerminal",
-    "phosphor": "PhTerminal"
+    "phosphor": "PhTerminal",
+    "remixicon": "RiTerminalBoxLine"
   },
   "Underline": {
     "lucide": "Underline",
     "radix": "UnderlineIcon",
     "tabler": "IconUnderline",
-    "phosphor": "PhTextUnderline"
+    "phosphor": "PhTextUnderline",
+    "remixicon": "RiUnderline"
   },
   "User": {
     "lucide": "User",
     "radix": "PersonIcon",
     "tabler": "IconUser",
-    "phosphor": "PhUser"
+    "phosphor": "PhUser",
+    "remixicon": "RiUserLine"
   },
   "X": {
     "lucide": "X",
     "radix": "Cross2Icon",
     "tabler": "IconX",
-    "phosphor": "PhX"
+    "phosphor": "PhX",
+    "remixicon": "RiCloseLine"
   }
 }

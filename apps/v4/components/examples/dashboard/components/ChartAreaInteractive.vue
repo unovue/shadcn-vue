@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ChartConfig } from '@/registry/new-york-v4/ui/chart'
+import type { ChartConfig } from '@/styles/reka-nova/ui/chart'
 import { VisArea, VisAxis, VisLine, VisXYContainer } from '@unovis/vue'
 
 import { computed, ref } from 'vue'
@@ -10,25 +10,25 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/registry/new-york-v4/ui/card'
+} from '@/styles/reka-nova/ui/card'
 import {
   ChartContainer,
   ChartCrosshair,
   ChartTooltip,
   ChartTooltipContent,
   componentToString,
-} from '@/registry/new-york-v4/ui/chart'
+} from '@/styles/reka-nova/ui/chart'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york-v4/ui/select'
+} from '@/styles/reka-nova/ui/select'
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from '@/registry/new-york-v4/ui/toggle-group'
+} from '@/styles/reka-nova/ui/toggle-group'
 
 const description = 'An interactive area chart'
 

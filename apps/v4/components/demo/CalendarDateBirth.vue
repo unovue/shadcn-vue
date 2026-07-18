@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { DateValue } from '@internationalized/date'
 import { getLocalTimeZone, today } from '@internationalized/date'
-import { ChevronDownIcon } from 'lucide-vue-next'
+import { ChevronDownIcon } from '@lucide/vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 import { Label } from '@/registry/new-york-v4/ui/label'

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Component } from "vue"
 
-import { ChevronDown, Plus } from "lucide-vue-next"
+import { ChevronDown, Plus } from "@lucide/vue"
 import { ref } from "vue"
 import {
   DropdownMenu,
@@ -27,7 +27,7 @@ const props = defineProps<{
   }[]
 }>()
 
-const activeTeam = ref(props.teams[0])
+const activeTeam = ref(props.teams[0]!)
 </script>
 
 <template>

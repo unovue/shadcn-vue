@@ -5,7 +5,7 @@
     {
       "name": "index",
       "type": "registry:style",
-      "dependencies": ["class-variance-authority", "lucide-vue-next"],
+      "dependencies": ["class-variance-authority", "@lucide/vue"],
       "devDependencies": ["tw-animate-css"],
       "registryDependencies": ["utils"],
       "files": [],
@@ -14,7 +14,7 @@
     {
       "name": "style",
       "type": "registry:style",
-      "dependencies": ["class-variance-authority", "lucide-vue-next"],
+      "dependencies": ["class-variance-authority", "@lucide/vue"],
       "devDependencies": ["tw-animate-css"],
       "registryDependencies": ["utils"],
       "files": [],

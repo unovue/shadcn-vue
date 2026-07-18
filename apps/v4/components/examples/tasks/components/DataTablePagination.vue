@@ -6,16 +6,16 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 
-import { Button } from '@/registry/new-york-v4/ui/button'
+import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york-v4/ui/select'
+} from '@/styles/reka-nova/ui/select'
 
 interface DataTablePaginationProps {
   table: Table<Task>

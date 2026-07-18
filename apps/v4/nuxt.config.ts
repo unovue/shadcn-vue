@@ -1,5 +1,4 @@
 import tailwindcss from '@tailwindcss/vite'
-import { siteConfig } from './lib/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -7,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/fonts', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
     { path: '~/components/demo', pathPrefix: false },
@@ -19,11 +18,6 @@ export default defineNuxtConfig({
       ignore: ['*.ts'],
     },
   ],
-  fonts: {
-    defaults: {
-      weights: [400, 500, 600, 700],
-    },
-  },
   content: {
     build: {
       markdown: {
@@ -57,13 +51,57 @@ export default defineNuxtConfig({
     ],
   },
   vite: {
-    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: [
+        '@lucide/vue',
+        '@vueuse/core',
+        'class-variance-authority',
+        'clsx',
+        'reka-ui',
+        'tailwind-merge',
+      ],
+    },
+    plugins: [tailwindcss() as any],
+    ssr: {
+      noExternal: [
+        '@tabler/icons-vue',
+        '@lucide/vue',
+        '@hugeicons/vue',
+        '@hugeicons/core-free-icons',
+        '@phosphor-icons/vue',
+        '@remixicon/vue',
+      ],
+    },
   },
   build: {
     transpile: ['vee-validate', 'vue-sonner'],
   },
+  routeRules: {
+    // Static assets - immutable, long cache
+    '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    // Pages - prerender as static (reset on each deploy)
+    '/docs/**': { prerender: true },
+    '/blocks/**': { prerender: true },
+    '/charts/**': { prerender: true },
+    '/examples/**': { prerender: true },
+    '/colors/**': { prerender: true },
+    '/themes': { prerender: true },
+    // JSON API - edge-cached at CF, survives across Worker invocations
+    '/api/**': {
+      headers: {
+        'cache-control': 'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400',
+      },
+    },
+    // Raw markdown endpoint
+    '/raw/**': {
+      headers: {
+        'cache-control': 'public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400',
+      },
+    },
+  },
   nitro: {
     preset: 'cloudflare-module',
+    compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
       routes: ['/'],
@@ -97,9 +135,16 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'manifest', href: `${siteConfig.url}/site.webmanifest` },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'shortcut icon', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        // Eager-load the default docs font (Geist) with no JS dependency.
+        // Other fonts are resolved on demand via useFontLoader() + unifont.
+        { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.bunny.net/css?family=geist:400,500,600,700|geist-mono:400,500',
+        },
       ],
       meta: [{ name: 'keywords', content: 'Nuxt,Vue,Tailwind CSS,Components,shadcn' }],
     },

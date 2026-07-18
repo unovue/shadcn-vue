@@ -1,5 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`transform @/styles/ paths to user aliases 1`] = `
+"import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import type { ButtonVariants } from '@/components/ui/button'
+import { cn } from "@/lib/utils"
+"
+`;
+
+exports[`transform @/styles/ paths to user aliases 2`] = `
+"import { Button } from '~/src/ui/button'
+import { cn } from '~/src/utils'
+"
+`;
+
 exports[`transform import 1`] = `
 "import { Foo } from "bar"
 import { Button } from '@/components/ui/button'

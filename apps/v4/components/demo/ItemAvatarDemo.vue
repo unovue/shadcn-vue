@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Plus } from 'lucide-vue-next'
+import { Plus } from '@lucide/vue'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {

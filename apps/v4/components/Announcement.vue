@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { ArrowRightIcon } from 'lucide-vue-next'
+import { ArrowRightIcon } from '@lucide/vue'
 
 import { Badge } from '@/registry/new-york-v4/ui/badge'
 </script>
 
 <template>
-  <Badge as-child variant="secondary" class="bg-transparent">
-    <NuxtLink href="/docs/changelog">
-      <span class="flex size-2 rounded-full bg-green-500" title="New" />
-      New Components: Field, Input Group, Item and more <ArrowRightIcon />
+  <Badge as-child variant="secondary" class="bg-muted">
+    <NuxtLink href="/docs/components/message-scroller">
+      Introducing Chat Components <ArrowRightIcon />
     </NuxtLink>
   </Badge>
 </template>
