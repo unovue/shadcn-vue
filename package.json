@@ -28,7 +28,7 @@
     "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
     "pub:beta": "cd packages/cli && pnpm pub:beta",
     "pub:release": "cd packages/cli && pnpm pub:release",
-    "test": "pnpm --filter shadcn-vue test",
+    "test": "pnpm --filter shadcn-vue test && pnpm --filter v4 test",
     "taze": "taze --ignore-paths \"deprecated/**\" -frI"
   },
   "devDependencies": {
