@@ -35,5 +35,3 @@ const css = compiler.build(expectedCandidates)
 
 assert.match(css, /svg:not\(\[class\*='text-'\]\)/)
 assert.match(css, /svg:not\(\[class\*='size-'\]\)/)
-
-console.log('command-item-tailwind: all assertions passed')

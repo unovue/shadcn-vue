@@ -68,8 +68,6 @@ const css = compiler.build(expectedCandidates)
 
 assert.match(css, /svg:not\(\[class\*='text-'\]\)/)
 assert.match(css, /svg:not\(\[class\*='size-'\]\)/)
-
-console.log('command-item-tailwind: all assertions passed')
 ```
 
 - [ ] **Step 2: Run the test to verify RED**
@@ -113,7 +111,7 @@ to:
 
 Run: `pnpm --filter v4 exec tsx scripts/lib/command-item-tailwind.test.ts`
 
-Expected: PASS with `command-item-tailwind: all assertions passed`.
+Expected: exit code 0 with no assertion failures.
 
 - [ ] **Step 3: Run focused lint**
 
