@@ -58,3 +58,6 @@ const css = compiler.build(expectedCandidates)
 
 assert.match(css, /svg:not\(\[class\*='text-'\]\)/)
 assert.match(css, /svg:not\(\[class\*='size-'\]\)/)
+assert.match(css, /color: var\(--color-muted-foreground\)/)
+assert.match(css, /width: calc\(var\(--spacing\) \* 4\)/)
+assert.match(css, /height: calc\(var\(--spacing\) \* 4\)/)
