@@ -5,13 +5,25 @@ on:
     branches:
       - dev
     paths:
-      - 'packages/**'
+      - packages/**
+      - apps/v4/**
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - .github/actions/setup/**
+      - .github/workflows/test.yaml
 
   pull_request:
     branches:
       - dev
     paths:
-      - 'packages/**'
+      - packages/**
+      - apps/v4/**
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - .github/actions/setup/**
+      - .github/workflows/test.yaml
 
 jobs:
   test:
