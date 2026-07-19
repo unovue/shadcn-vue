@@ -1,206 +1,193 @@
-# CommandItem Tailwind Selector Implementation Plan
+# Registry Tailwind Selector Extraction Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Ensure the standalone Command registry generates correct Tailwind CSS v4 selectors for icon color and size.
+**Goal:** Ensure every new-york-v4 registry component emits deterministic Tailwind CSS v4 selectors for its declared icon color and size utilities.
 
-**Architecture:** Add a focused source-level regression test that runs the same Tailwind scanner used by `@tailwindcss/vite`, then compiles the discovered candidates with Tailwind CSS v4. Restore the working template-literal syntax in `CommandItem.vue` and regenerate only the affected checked-in registry output.
+**Architecture:** Generalize the existing Command-only regression test to scan every Vue source in the new-york-v4 UI registry with Tailwind's real scanner. Convert only broken single-quoted `cn()` strings to template literals, then rebuild the checked-in registry distribution files and update PR #1885.
 
 **Tech Stack:** Vue SFC, Tailwind CSS 4.2.2, `@tailwindcss/oxide`, Node assertions, TSX, pnpm
 
 ## Global Constraints
 
-- Limit the source change to `apps/v4/registry/new-york-v4/ui/command/CommandItem.vue`.
-- Preserve the existing class list and order; change only the JavaScript string delimiter and inner quote escaping.
-- Keep registry files formatted with double quotes.
+- Preserve every existing class token and its order; change only the enclosing JavaScript string delimiter and escaped inner quotes.
+- Apply the change only to `class*=\'text-\'` and `class*=\'size-\'` arbitrary selectors under `apps/v4/registry/new-york-v4/ui/**/*.vue`.
+- Keep registry source formatted with double quotes outside the Vue class binding.
+- Do not change the base `reka` registry or unrelated component behavior.
 - Exclude `.codex/` and `AGENTS.md` from all commits.
-- Open the pull request as ready for review, not as a draft.
+- Keep PR #1885 ready for review rather than draft.
 
 ---
 
-### Task 1: Add the Tailwind extraction regression test
+### Task 1: Generalize the regression test
 
 **Files:**
-- Create: `apps/v4/scripts/lib/command-item-tailwind.test.ts`
-- Read: `apps/v4/registry/new-york-v4/ui/command/CommandItem.vue`
+- Modify: `apps/v4/scripts/lib/command-item-tailwind.test.ts`
 
 **Interfaces:**
-- Consumes: Tailwind's `Scanner.scanFiles()` through the copy resolved beside `@tailwindcss/vite`.
-- Produces: A standalone TSX test that exits non-zero if CommandItem emits escaped selector candidates.
+- Consumes: all `.vue` files returned by recursive traversal of `apps/v4/registry/new-york-v4/ui`.
+- Produces: a test that rejects any scanner candidate containing `class*=\\'text-\\'` or `class*=\\'size-\\'`, then compiles representative correct candidates.
 
-- [ ] **Step 1: Write the failing test**
+- [ ] **Step 1: Replace the Command-only scanner with a registry-wide scanner**
+
+Use `readdir(uiRegistryPath, { recursive: true })`, filter `.vue` paths, scan each source separately, and collect entries whose candidates match `/class\*=\\\\'(?:text|size)-\\\\'/`.
 
 ```ts
-import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
-import { createRequire } from 'node:module'
-import { fileURLToPath } from 'node:url'
-import { compile } from 'tailwindcss'
+const invalidCandidates: string[] = []
 
-const require = createRequire(import.meta.url)
-const viteRequire = createRequire(require.resolve('@tailwindcss/vite'))
-const { Scanner } = viteRequire('@tailwindcss/oxide')
+for (const relativePath of vueFiles) {
+  const source = await readFile(join(uiRegistryPath, relativePath), 'utf8')
+  const candidates: string[] = new Scanner({ sources: [] }).scanFiles([
+    { content: source, extension: 'vue' },
+  ])
 
-const commandItemPath = fileURLToPath(
-  new URL('../../registry/new-york-v4/ui/command/CommandItem.vue', import.meta.url),
-)
-const source = await readFile(commandItemPath, 'utf8')
-const candidates: string[] = new Scanner({ sources: [] }).scanFiles([
-  { content: source, extension: 'vue' },
-])
-
-const expectedCandidates = [
-  "[&_svg:not([class*='text-'])]:text-muted-foreground",
-  "[&_svg:not([class*='size-'])]:size-4",
-]
-
-for (const candidate of expectedCandidates)
-  assert.ok(candidates.includes(candidate), `Tailwind did not extract ${candidate}`)
-
-const compiler = await compile(`
-  @theme {
-    --color-muted-foreground: #656565;
-    --spacing: 0.25rem;
+  for (const candidate of candidates) {
+    if (/class\*=\\\\'(?:text|size)-\\\\'/.test(candidate))
+      invalidCandidates.push(`${relativePath}: ${candidate}`)
   }
-  @tailwind utilities;
-`)
-const css = compiler.build(expectedCandidates)
+}
 
-assert.match(css, /svg:not\(\[class\*='text-'\]\)/)
-assert.match(css, /svg:not\(\[class\*='size-'\]\)/)
+assert.deepEqual(invalidCandidates, [], `Tailwind extracted escaped selectors:\n${invalidCandidates.join('\n')}`)
 ```
 
-- [ ] **Step 2: Run the test to verify RED**
+- [ ] **Step 2: Run the test and verify RED**
 
 Run: `pnpm --filter v4 exec tsx scripts/lib/command-item-tailwind.test.ts`
 
-Expected: FAIL with `Tailwind did not extract [&_svg:not([class*='text-'])]:text-muted-foreground`, because the scanner returns a candidate containing escaped quote characters.
+Expected: FAIL listing the 18 remaining Vue files with escaped candidates.
 
 - [ ] **Step 3: Commit the failing test**
 
 ```bash
-git add apps/v4/scripts/lib/command-item-tailwind.test.ts
-git commit -m "test(registry): command の Tailwind セレクタ抽出を検証"
+git add apps/v4/scripts/lib/command-item-tailwind.test.ts docs/superpowers/plans/2026-07-18-command-item-tailwind-selector.md
+git commit -m "test(registry): Tailwind セレクタ検証を全体へ拡張"
 ```
 
-### Task 2: Restore extractable CommandItem selectors
+### Task 2: Convert all remaining broken selectors
 
 **Files:**
-- Modify: `apps/v4/registry/new-york-v4/ui/command/CommandItem.vue:69`
+- Modify: the 18 Vue files enumerated in the design document under `apps/v4/registry/new-york-v4/ui`.
 - Test: `apps/v4/scripts/lib/command-item-tailwind.test.ts`
 
 **Interfaces:**
-- Consumes: The expected candidates defined by Task 1.
-- Produces: A CommandItem class binding whose arbitrary selectors contain literal inner quotes.
+- Consumes: the failing registry-wide scanner from Task 1.
+- Produces: source strings whose runtime classes are unchanged but whose static source is extractable by Tailwind.
 
-- [ ] **Step 1: Replace only the class-string delimiters**
+- [ ] **Step 1: Convert affected `cn()` strings**
 
-Change the `cn()` call from:
-
-```vue
-:class="cn('data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground [&_svg:not([class*=\'text-\'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4', props.class)"
-```
-
-to:
+For each affected binding, make only this transformation:
 
 ```vue
-:class="cn(`data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`, props.class)"
+:class="cn('... [&_svg:not([class*=\'text-\'])]:text-muted-foreground ...', props.class)"
 ```
 
-- [ ] **Step 2: Run the focused test to verify GREEN**
+```vue
+:class="cn(`... [&_svg:not([class*='text-'])]:text-muted-foreground ...`, props.class)"
+```
+
+Apply the equivalent transformation for `size-` selectors in the same string.
+
+- [ ] **Step 2: Verify no broken source form remains**
+
+Run:
+
+```bash
+rg -n -F "class*=\\'text-\\'" apps/v4/registry/new-york-v4/ui --glob '*.vue'
+rg -n -F "class*=\\'size-\\'" apps/v4/registry/new-york-v4/ui --glob '*.vue'
+```
+
+Expected: both commands produce no matches.
+
+- [ ] **Step 3: Run the test and verify GREEN**
 
 Run: `pnpm --filter v4 exec tsx scripts/lib/command-item-tailwind.test.ts`
 
-Expected: exit code 0 with no assertion failures.
+Expected: exit code 0 and no assertion failures.
 
-- [ ] **Step 3: Run focused lint**
+- [ ] **Step 4: Run focused lint**
 
-Run: `pnpm exec eslint apps/v4/scripts/lib/command-item-tailwind.test.ts apps/v4/registry/new-york-v4/ui/command/CommandItem.vue`
+Run: `pnpm exec eslint apps/v4/scripts/lib/command-item-tailwind.test.ts apps/v4/registry/new-york-v4/ui`
 
 Expected: exit code 0 with no errors.
 
-- [ ] **Step 4: Commit the source fix**
+- [ ] **Step 5: Commit the source conversion**
 
 ```bash
-git add apps/v4/registry/new-york-v4/ui/command/CommandItem.vue
-git commit -m "fix(command): icon セレクタを Tailwind で正しく抽出"
+git add apps/v4/registry/new-york-v4/ui
+git commit -m "fix(registry): icon セレクタを一貫して抽出"
 ```
 
-### Task 3: Regenerate registry distribution files
+### Task 3: Regenerate distribution files
 
 **Files:**
-- Modify: generated files reported by `pnpm registry:build` whose diff contains the CommandItem delimiter change.
+- Modify: generated JSON files reported by `pnpm registry:build` for button-group, combobox, context-menu, dropdown-menu, input-group, kbd, marker, menubar, navigation-menu, select, and tabs.
 
 **Interfaces:**
-- Consumes: The fixed `CommandItem.vue` source.
-- Produces: Published registry JSON containing the same template-literal syntax.
+- Consumes: the corrected Vue registry sources from Task 2.
+- Produces: published registry JSON containing the same extractable template literals.
 
 - [ ] **Step 1: Build the registry**
 
 Run: `pnpm registry:build`
 
-Expected: exit code 0; registry generation and lint complete successfully.
+Expected: exit code 0; registry generation and its lint phase complete successfully.
 
 - [ ] **Step 2: Audit generated changes**
 
-Run: `git status --short` and `git diff --stat`.
+Run: `git status --short`, `git diff --stat`, and inspect each generated diff.
 
-Expected: Every newly modified tracked file is generated registry output containing the CommandItem syntax change. Revert no user files; exclude unrelated generated churn from staging.
+Expected: newly changed tracked files are only distribution outputs corresponding to the source conversions. `.codex/` and `AGENTS.md` remain untracked.
 
-- [ ] **Step 3: Commit affected generated output**
+- [ ] **Step 3: Commit generated output**
 
 ```bash
-git add apps/v4/public/r/styles/new-york-v4/command.json
-git commit -m "chore(registry): command の生成物を更新"
+git add apps/v4/public/r/styles/new-york-v4
+git commit -m "chore(registry): icon セレクタの生成物を更新"
 ```
 
-### Task 4: Verify and publish the pull request
+### Task 4: Verify and update PR #1885
 
 **Files:**
 - Create temporarily: `/tmp/shadcn-vue-1884-pr.md`
 - Read: `.github/PULL_REQUEST_TEMPLATE.md`
 
 **Interfaces:**
-- Consumes: All commits from Tasks 1-3 and the committed design/plan documents.
-- Produces: A pushed branch and ready-for-review pull request targeting `unovue/shadcn-vue:dev`.
+- Consumes: all source, test, documentation, and generated-output commits.
+- Produces: an updated ready-for-review PR covering the complete Issue #1884 scope.
 
 - [ ] **Step 1: Run final verification**
 
 ```bash
 pnpm --filter v4 exec tsx scripts/lib/command-item-tailwind.test.ts
-pnpm exec eslint apps/v4/scripts/lib/command-item-tailwind.test.ts apps/v4/registry/new-york-v4/ui/command/CommandItem.vue
+pnpm exec eslint apps/v4/scripts/lib/command-item-tailwind.test.ts apps/v4/registry/new-york-v4/ui
 pnpm test
 git diff dev...HEAD --check
 ```
 
-Expected: All commands exit 0, with no test failures, lint errors, or whitespace errors.
+Expected: all commands exit 0, with no test failures, lint errors, or whitespace errors.
 
-- [ ] **Step 2: Review exact PR scope**
+- [ ] **Step 2: Audit PR scope**
 
 Run: `git status -sb`, `git log --oneline dev..HEAD`, and `git diff --stat dev...HEAD`.
 
-Expected: only Issue #1884 design, plan, regression test, CommandItem source, and directly affected registry output are present; `.codex/` and `AGENTS.md` remain untracked.
+Expected: only Issue #1884 documentation, regression test, affected registry sources, test wiring, and corresponding generated output are included.
 
-- [ ] **Step 3: Push the branch to the fork**
+- [ ] **Step 3: Push the branch**
 
-Run: `git push -u fork 'fix/#1884-command-icon-color'`
+Run: `git push fork 'fix/#1884-command-icon-color'`
 
-Expected: the remote branch is created successfully on `galoi/shadcn-vue`.
+Expected: the fork branch updates successfully.
 
-- [ ] **Step 4: Create a ready pull request**
+- [ ] **Step 4: Update PR metadata**
 
-Create `/tmp/shadcn-vue-1884-pr.md` from `.github/PULL_REQUEST_TEMPLATE.md`, with:
-
-- Linked issue: `Resolves #1884`
-- Type: Bug fix checked
-- Description: escaped quotes caused Tailwind v4 to extract invalid selectors; template literals restore deterministic Command icon color/size
-- Validation: focused Tailwind extraction test, registry build, lint, and test suite
-- Documentation checklist: explain that no user-facing documentation update is required
+Populate `/tmp/shadcn-vue-1884-pr.md` from `.github/PULL_REQUEST_TEMPLATE.md`. Describe the registry-wide escaped-selector fix, deterministic `text-muted-foreground` and default sizing, affected component groups, real Tailwind scanner/compiler regression coverage, and validation results.
 
 Run:
 
 ```bash
-gh pr create --repo unovue/shadcn-vue --base dev --head 'galoi:fix/#1884-command-icon-color' --title 'fix(command): ensure Tailwind extracts icon selectors' --body-file /tmp/shadcn-vue-1884-pr.md
+gh pr edit 1885 --repo unovue/shadcn-vue \
+  --title "fix(registry): ensure Tailwind extracts icon selectors" \
+  --body-file /tmp/shadcn-vue-1884-pr.md
 ```
 
-Expected: a non-draft pull request URL for Issue #1884.
+Expected: PR #1885 remains open and non-draft with registry-wide wording.
