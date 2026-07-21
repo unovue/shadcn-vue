@@ -1,19 +1,19 @@
 <script lang="ts">
 import type { PrimitiveProps } from "reka-ui"
-import type { TimeslotFieldItemProps } from "./TimeslotFieldItem.vue"
+import type { TimeslotSegmentItemProps } from "./TimeslotSegmentItem.vue"
 
-export interface TimeslotFieldProps<T extends number> extends PrimitiveProps {
+export interface TimeslotSegmentProps<T extends number> extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   options?: Iterable<T>
   modelValue?: T
   isItemDisabled?: (value: T) => boolean
 }
 
-export interface TimeslotFieldEmits<T extends number> {
+export interface TimeslotSegmentEmits<T extends number> {
   (event: "change", value: T | undefined): void
 }
 
-export interface TimeslotFieldItemSlotProps<T extends number> extends TimeslotFieldItemProps<T> {
+export interface TimeslotSegmentItemSlotProps<T extends number> extends TimeslotSegmentItemProps<T> {
   ref?: (el: object | null) => void
   onSelect: (target: HTMLElement) => void
 }
@@ -25,15 +25,15 @@ import type { HTMLAttributes } from "vue"
 import { useIntersectionObserver, useTemplateRefsList } from "@vueuse/core"
 import { Primitive } from "reka-ui"
 import { cn } from "~/lib/utils"
-import TimeslotFieldItem from "./TimeslotFieldItem.vue"
 import TimeslotScrollArea from "./TimeslotScrollArea.vue"
+import TimeslotSegmentItem from "./TimeslotSegmentItem.vue"
 
-const props = withDefaults(defineProps<TimeslotFieldProps<T>>(), {
+const props = withDefaults(defineProps<TimeslotSegmentProps<T>>(), {
   options: () => [],
   orientation: "vertical",
 })
 
-const emit = defineEmits<TimeslotFieldEmits<T>>()
+const emit = defineEmits<TimeslotSegmentEmits<T>>()
 
 const scrollArea = useTemplateRef("scroll-area")
 const elements = useTemplateRefsList<HTMLElement>()
@@ -44,22 +44,22 @@ watch(selectedOption, (selectedOption) => {
   model.value = selectedOption
 })
 
-const commonFieldItemOptions = computed(() => {
+const commonsegmentItemOptions = computed(() => {
   return {
     ref: elements.value?.set,
     onSelect(target) {
       return onItemClick(target)
     },
-  } satisfies Pick<TimeslotFieldItemSlotProps<T>, "ref" | "onSelect">
+  } satisfies Pick<TimeslotSegmentItemSlotProps<T>, "ref" | "onSelect">
 })
 
-const fieldItems: ComputedRef<TimeslotFieldItemSlotProps<T>[]> = computed(() => {
+const segmentItems: ComputedRef<TimeslotSegmentItemSlotProps<T>[]> = computed(() => {
   const uniqueOptions = new Set(props.options)
   const selectedValue = selectedOption.value
 
   return [...uniqueOptions].toSorted((a, b) => a - b).map((value) => {
     return {
-      ...commonFieldItemOptions.value,
+      ...commonsegmentItemOptions.value,
       value,
       disabled: isItemDisabled(value),
       selected: selectedValue === value,
@@ -106,15 +106,15 @@ function isItemDisabled(value: T) {
     : false
 }
 
-watch([selectedEntry, fieldItems], ([selectedEntry, fieldItems]) => {
+watch([selectedEntry, segmentItems], ([selectedEntry, segmentItems]) => {
   if (undefined === selectedEntry)
     return
 
-  const fieldItem = fieldItems.find(({ value }) => {
+  const segmentItem = segmentItems.find(({ value }) => {
     return `${value}` === selectedEntry
   })
 
-  selectedOption.value = fieldItem?.value
+  selectedOption.value = segmentItem?.value
 })
 
 function useIntersectedElement(elements: Ref<MaybeElement[]>) {
@@ -150,7 +150,7 @@ function useIntersectedElement(elements: Ref<MaybeElement[]>) {
 
 <template>
   <Primitive
-    data-timeslot-field
+    data-timeslot-segment
     :as="props.as"
     :as-child="props.asChild"
     :class="cn(
@@ -164,26 +164,26 @@ function useIntersectedElement(elements: Ref<MaybeElement[]>) {
       @scrolling="value => isScrolling = value"
     >
       <template
-        v-for="fieldItem in fieldItems"
-        :key="fieldItem.value"
+        v-for="segmentItem in segmentItems"
+        :key="segmentItem.value"
       >
         <slot
-          v-bind="{ fieldItem }"
+          v-bind="{ segmentItem }"
         >
-          <TimeslotFieldItem
-            v-bind="fieldItem"
+          <TimeslotSegmentItem
+            v-bind="segmentItem"
           />
         </slot>
       </template>
 
-      <TimeslotFieldItem
-        v-if="!fieldItems.length"
-        v-bind="commonFieldItemOptions"
+      <TimeslotSegmentItem
+        v-if="!segmentItems.length"
+        v-bind="commonsegmentItemOptions"
         :value="-1"
         disabled
       >
         <span class="text-secondary">--</span>
-      </TimeslotFieldItem>
+      </TimeslotSegmentItem>
     </TimeslotScrollArea>
   </Primitive>
 </template>

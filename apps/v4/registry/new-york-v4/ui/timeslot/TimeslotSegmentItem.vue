@@ -2,14 +2,14 @@
 import type { PrimitiveProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 
-export interface TimeslotFieldItemProps<T extends number> extends PrimitiveProps {
+export interface TimeslotSegmentItemProps<T extends number> extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   value: T
   disabled?: boolean
   selected?: boolean
 }
 
-export interface TimeslotFieldItemEmits {
+export interface TimeslotSegmentItemEmits {
   (type: "select", target: HTMLElement): void
 }
 </script>
@@ -18,14 +18,14 @@ export interface TimeslotFieldItemEmits {
 import { reactivePick } from "@vueuse/core"
 import { Primitive, useForwardProps } from "reka-ui"
 import { cn } from "~/lib/utils"
-import TimeslotFieldItemText from "./TimeslotFieldItemText.vue"
+import TimeslotSegmentItemText from "./TimeslotSegmentItemText.vue"
 
-const props = withDefaults(defineProps<TimeslotFieldItemProps<T>>(), {
+const props = withDefaults(defineProps<TimeslotSegmentItemProps<T>>(), {
   disabled: false,
   selected: false,
 })
 
-const emit = defineEmits<TimeslotFieldItemEmits>()
+const emit = defineEmits<TimeslotSegmentItemEmits>()
 const delegatedProps = reactivePick(props, "as", "asChild")
 const forwardProps = useForwardProps(delegatedProps)
 
@@ -42,7 +42,7 @@ function onButtonClick() {
 <template>
   <Primitive
     ref="root"
-    data-timeslot-field-item
+    data-timeslot-segment-item
     data-slot="timeslot-field-item"
     :data-value="value"
     v-bind="forwardProps"
@@ -60,7 +60,7 @@ function onButtonClick() {
       @click="onButtonClick"
     >
       <slot v-bind="{ value, disabled: props.disabled }">
-        <TimeslotFieldItemText
+        <TimeslotSegmentItemText
           :value="value"
           :disabled="props.disabled"
         />

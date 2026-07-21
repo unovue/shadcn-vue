@@ -1,13 +1,13 @@
 <script lang="ts">
 import type { SegmentPart } from "reka-ui"
-import type { TimeslotRootFields, TimeslotRootModelValue, TimeslotRootProps } from "./TimeslotRoot.vue"
+import type { TimeslotRootModelValue, TimeslotRootProps, TimeslotRootSegments } from "./TimeslotRoot.vue"
 
-export type TimeslotFieldName = Extract<SegmentPart, "hour" | "minute">
-export type TimeslotProps = TimeslotRootProps<TimeslotFieldName> & {
+export type TimeslotSegmentPart = Extract<SegmentPart, "hour" | "minute">
+export type TimeslotProps = TimeslotRootProps<TimeslotSegmentPart> & {
   format?: Intl.DateTimeFormatOptions
 }
-export type TimeslotFields = TimeslotRootFields<TimeslotFieldName>
-export type TimeslotModelValue = TimeslotRootModelValue<TimeslotFieldName>
+export type TimeslotSegments = TimeslotRootSegments<TimeslotSegmentPart>
+export type TimeslotModelValue = TimeslotRootModelValue<TimeslotSegmentPart>
 </script>
 
 <script setup lang="ts">
@@ -53,9 +53,9 @@ const meridiem = computed(() => {
     v-model="model"
     :class="cn('max-h-full max-w-full', props.class)"
   >
-    <template #hour="{ field }">
+    <template #hour="{ segment }">
       <TimeslotHours
-        v-bind="field"
+        v-bind="segment"
         :meridiem="meridiem"
       />
     </template>

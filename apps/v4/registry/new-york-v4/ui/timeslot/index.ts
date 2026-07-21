@@ -1,25 +1,10 @@
 export {
   default as Timeslot,
-  type TimeslotFieldName,
-  type TimeslotFields,
   type TimeslotModelValue,
   type TimeslotProps,
+  type TimeslotSegmentPart,
+  type TimeslotSegments,
 } from "./Timeslot.vue"
-export {
-  default as TimeslotField,
-  type TimeslotFieldEmits,
-  type TimeslotFieldItemSlotProps,
-  type TimeslotFieldProps,
-} from "./TimeslotField.vue"
-export {
-  default as TimeslotFieldItem,
-  type TimeslotFieldItemEmits,
-  type TimeslotFieldItemProps,
-} from "./TimeslotFieldItem.vue"
-export {
-  default as TimeslotFieldItemText,
-  type TimeslotFieldItemTextProps,
-} from "./TimeslotFieldItemText.vue"
 export {
   default as TimeslotHours,
   type TimeslotHoursEmits,
@@ -27,12 +12,27 @@ export {
 } from "./TimeslotHours.vue"
 export {
   default as TimeslotRoot,
-  type TimeslotRootFields,
   type TimeslotRootModelValue,
   type TimeslotRootProps,
+  type TimeslotRootSegments,
 } from "./TimeslotRoot.vue"
 export {
   default as TimeslotScrollArea,
   type TimeslotScrollAreaEmits,
   type TimeslotScrollAreaProps,
 } from "./TimeslotScrollArea.vue"
+export {
+  default as TimeslotSegment,
+  type TimeslotSegmentEmits,
+  type TimeslotSegmentItemSlotProps,
+  type TimeslotSegmentProps,
+} from "./TimeslotSegment.vue"
+export {
+  default as TimeslotSegmentItem,
+  type TimeslotSegmentItemEmits,
+  type TimeslotSegmentItemProps,
+} from "./TimeslotSegmentItem.vue"
+export {
+  default as TimeslotSegmentItemText,
+  type TimeslotSegmentItemTextProps,
+} from "./TimeslotSegmentItemText.vue"

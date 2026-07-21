@@ -1,17 +1,18 @@
 <script lang="ts">
-export interface TimeslotHoursProps<T extends number> extends TimeslotFieldProps<T> {
+import type { TimeslotSegmentEmits, TimeslotSegmentProps } from "./TimeslotSegment.vue"
+
+export interface TimeslotHoursProps<T extends number> extends TimeslotSegmentProps<T> {
   meridiem?: boolean
 }
 
-export interface TimeslotHoursEmits<T extends number> extends TimeslotFieldEmits<T> {}
+export interface TimeslotHoursEmits<T extends number> extends TimeslotSegmentEmits<T> {}
 </script>
 
 <script setup lang="ts" generic="T extends number">
-import type { TimeslotFieldEmits, TimeslotFieldProps } from "./TimeslotField.vue"
 import { useForwardPropsEmits } from "reka-ui"
-import TimeslotField from "./TimeslotField.vue"
-import TimeslotFieldItem from "./TimeslotFieldItem.vue"
-import TimeslotFieldItemText from "./TimeslotFieldItemText.vue"
+import TimeslotSegment from "./TimeslotSegment.vue"
+import TimeslotSegmentItem from "./TimeslotSegmentItem.vue"
+import TimeslotSegmentItemText from "./TimeslotSegmentItemText.vue"
 
 const props = defineProps<TimeslotHoursProps<T>>()
 
@@ -36,24 +37,24 @@ function toMeridiem(value: number) {
 </script>
 
 <template>
-  <TimeslotField
-    v-slot="{ fieldItem }"
+  <TimeslotSegment
+    v-slot="{ segmentItem }"
     v-bind="fieldPropsEmits"
   >
-    <TimeslotFieldItem
+    <TimeslotSegmentItem
       v-slot="{ value, disabled }"
-      v-bind="fieldItem"
+      v-bind="segmentItem"
       :class="{
         meridiem,
-        [`meridiem-${toMeridiem(fieldItem.value)}`]: meridiem,
+        [`meridiem-${toMeridiem(segmentItem.value)}`]: meridiem,
       }"
     >
-      <TimeslotFieldItemText
+      <TimeslotSegmentItemText
         v-bind="{
           disabled,
           value: meridiem ? toMeridiemFormat(value) : value,
         }"
       />
-    </TimeslotFieldItem>
-  </TimeslotField>
+    </TimeslotSegmentItem>
+  </TimeslotSegment>
 </template>

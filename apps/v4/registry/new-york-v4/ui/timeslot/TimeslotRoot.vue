@@ -1,58 +1,59 @@
 <script lang="ts">
-export type ItemDisabledMatcher<TFieldName extends string> = (
-  name: TFieldName,
+import type { HTMLAttributes } from "vue"
+import type { TimeslotSegmentProps } from "./TimeslotSegment.vue"
+
+export type ItemDisabledMatcher<TSegmentPart extends string> = (
+  name: TSegmentPart,
   value: number,
 ) => boolean
 
-export type TimeslotRootFields<TFieldName extends string> = {
-  [K in TFieldName]: Iterable<number>
+export type TimeslotRootSegments<TSegmentPart extends string> = {
+  [K in TSegmentPart]: Iterable<number>
 }
 
-export interface TimeslotRootProps<TFieldName extends string> {
+export interface TimeslotRootProps<TSegmentPart extends string> {
   class?: HTMLAttributes["class"]
-  fields: TimeslotRootFields<TFieldName>
-  isItemDisabled?: ItemDisabledMatcher<TFieldName>
+  segments: TimeslotRootSegments<TSegmentPart>
+  isItemDisabled?: ItemDisabledMatcher<TSegmentPart>
 }
 
-export type TimeslotRootModelValue<TFieldName extends string> = {
-  [K in TFieldName]?: number | undefined
+export type TimeslotRootModelValue<TSegmentPart extends string> = {
+  [K in TSegmentPart]?: number | undefined
 }
 
-export interface TimeslotFieldSlotProps<TFieldName extends string> extends TimeslotFieldProps<number> {
-  name: TFieldName
+export interface TimeslotSegmentSlotProps<TSegmentPart extends string> extends TimeslotSegmentProps<number> {
+  name: TSegmentPart
   onChange: (value?: number) => void
 }
 </script>
 
-<script setup lang="ts" generic="TFieldName extends string">
-import type { HTMLAttributes } from "vue"
-import type { TimeslotFieldProps } from "./TimeslotField.vue"
+<script setup lang="ts" generic="TSegmentPart extends string">
 import { Primitive } from "reka-ui"
 import { cn } from "~/lib/utils"
-import TimeslotField from "./TimeslotField.vue"
+import TimeslotSegment from "./TimeslotSegment.vue"
 
-const props = defineProps<TimeslotRootProps<TFieldName>>()
+const props = defineProps<TimeslotRootProps<TSegmentPart>>()
 
-const model = defineModel<TimeslotRootModelValue<TFieldName>>({
+const model = defineModel<TimeslotRootModelValue<TSegmentPart>>({
   default: () => ({}),
 })
-const modelState: TimeslotRootModelValue<TFieldName> = shallowReactive(model.value)
+const modelState: TimeslotRootModelValue<TSegmentPart> = shallowReactive(model.value)
 watch(modelState, (modelState) => {
   model.value = { ...toValue(modelState) }
 })
 
-function isItemDisabled(name: TFieldName, value: number) {
+function isItemDisabled(name: TSegmentPart, value: number) {
   return props.isItemDisabled
     ? props.isItemDisabled(name, value)
     : false
 }
 
-const fieldsOptions = computed(() => {
-  const fields: TimeslotFieldSlotProps<TFieldName>[] = []
+const segmentsOptions = computed(() => {
+  const segments: TimeslotSegmentSlotProps<TSegmentPart>[] = []
 
-  for (const name in props.fields) {
-    const fieldOptions = props.fields[name as TFieldName]
-    fields.push({
+  for (const name in props.segments) {
+    const fieldOptions = props.segments[name as TSegmentPart]
+    segments.push({
       name,
       options: fieldOptions,
       modelValue: modelState[name],
@@ -63,7 +64,7 @@ const fieldsOptions = computed(() => {
     })
   }
 
-  return fields
+  return segments
 })
 </script>
 
@@ -76,14 +77,14 @@ const fieldsOptions = computed(() => {
     )"
   >
     <template
-      v-for="field in fieldsOptions"
-      :key="field.name"
+      v-for="segment in segmentsOptions"
+      :key="segment.name"
     >
       <slot
-        v-bind="{ field }"
-        :name="field.name"
+        v-bind="{ segment }"
+        :name="segment.name"
       >
-        <TimeslotField v-bind="field" />
+        <TimeslotSegment v-bind="segment" />
       </slot>
     </template>
   </Primitive>

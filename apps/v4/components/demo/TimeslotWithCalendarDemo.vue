@@ -4,7 +4,7 @@ import type {
   DateValue,
 } from '@internationalized/date'
 
-import type { TimeslotFields, TimeslotModelValue } from '~/registry/new-york-v4/ui/timeslot'
+import type { TimeslotModelValue, TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
 
 import {
   getLocalTimeZone,
@@ -35,7 +35,7 @@ import {
 
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
 
-const fields: TimeslotFields = {
+const segments: TimeslotSegments = {
   hour: [10, 11, 12, 13, 14, 15, 16, 17],
   minute: [0, 20, 40],
 }
@@ -92,11 +92,11 @@ function formatDateTime(value: CalendarDateTime) {
           />
           <Timeslot
             v-model="timeslot"
-            :fields="fields"
+            :segments="segments"
             :class="cn(
               'w-0 min-w-full',
               'w-auto sm:h-0 min-w-auto sm:min-h-full',
-              '*:data-timeslot-field:rounded-md *:data-timeslot-field:border',
+              '*:data-timeslot-segment:rounded-md *:data-timeslot-segment:border',
               'max-sm:timeslot-horizontal',
             )"
           />

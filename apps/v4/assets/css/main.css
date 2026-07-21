@@ -1060,7 +1060,7 @@
 }
 
 @utility timeslot-field-horizontal {
-  &[data-timeslot-field] {
+  &[data-timeslot-segment] {
     & [data-timeslot-scroll-area-viewport] {
       @apply flex-row snap-x;
     }
@@ -1071,7 +1071,7 @@
       --mask-end: top;
     }
 
-    & [data-timeslot-field-item] {
+    & [data-timeslot-segment-item] {
       @apply flex-row;
 
       &:first-child,
@@ -1098,7 +1098,7 @@
   &[data-timeslot-root] {
     @apply flex-col;
 
-    & [data-timeslot-field] {
+    & [data-timeslot-segment] {
       @apply timeslot-field-horizontal;
     }
   }
@@ -1109,7 +1109,7 @@
     @apply flex-row;
   }
 
-  [data-timeslot-field] {
+  [data-timeslot-segment] {
     &:before {
       @apply content-[''] block absolute;
 
@@ -1132,7 +1132,7 @@
         @apply flex-col snap-y;
       }
 
-      [data-timeslot-field-item] {
+      [data-timeslot-segment-item] {
         @apply flex-col;
 
         &:first-child,
@@ -1161,7 +1161,7 @@
     }
   }
 
-  [data-timeslot-field-item] {
+  [data-timeslot-segment-item] {
     &:first-child:last-child {
       @apply justify-center;
     }
