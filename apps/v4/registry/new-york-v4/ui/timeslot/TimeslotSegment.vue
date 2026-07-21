@@ -6,7 +6,7 @@ export interface TimeslotSegmentProps<T extends number> extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   options?: readonly T[]
   modelValue?: T
-  isItemDisabled?: (value: T) => boolean
+  isReadonlyItem?: (value: T) => boolean
 }
 
 export interface TimeslotSegmentEmits<T extends number> {
@@ -61,7 +61,7 @@ const segmentItems: ComputedRef<TimeslotSegmentItemSlotProps<T>[]> = computed(()
     return {
       ...commonSegmentItemOptions.value,
       value,
-      disabled: isItemDisabled(value),
+      readonly: isReadonlyItem(value),
       selected: selectedValue === value,
     }
   })
@@ -100,9 +100,9 @@ function onItemClick(target: HTMLElement) {
   scrollArea.value?.scrollTo({ top, left })
 }
 
-function isItemDisabled(value: T) {
-  return props.isItemDisabled
-    ? props.isItemDisabled(value)
+function isReadonlyItem(value: T) {
+  return props.isReadonlyItem
+    ? props.isReadonlyItem(value)
     : false
 }
 
@@ -180,7 +180,7 @@ function useIntersectedElement(elements: Ref<MaybeElement[]>) {
         v-if="!segmentItems.length"
         v-bind="commonSegmentItemOptions"
         :value="-1"
-        disabled
+        readonly
       >
         <span class="text-secondary">--</span>
       </TimeslotSegmentItem>

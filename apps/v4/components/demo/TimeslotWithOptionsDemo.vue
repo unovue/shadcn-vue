@@ -13,7 +13,7 @@ function* allHours() {
   }
 }
 
-function isTimeslotDisabled(name: TimeslotSegmentPart, value: number) {
+function isReadonlyItem(name: TimeslotSegmentPart, value: number) {
   switch (name) {
     case 'hour':
       return value < 8 || value > 17
@@ -25,7 +25,7 @@ function isTimeslotDisabled(name: TimeslotSegmentPart, value: number) {
 const segments = computed((): TimeslotSegments => {
   return {
     hour: [...allHours()].filter((value) => {
-      return showDisabledHours.value || !isTimeslotDisabled('hour', value)
+      return showDisabledHours.value || !isReadonlyItem('hour', value)
     }),
     minute: useEmptyMinutes.value ? [] : [0, 10, 20, 30, 40, 50],
   }
@@ -45,7 +45,7 @@ const useHorizontalFields = ref(false)
         ]"
         :segments="segments"
         :hour-cycle="hourCycle"
-        :is-item-disabled="isTimeslotDisabled"
+        :is-readonly-item="isReadonlyItem"
       />
     </div>
     <div class="space-y-4">

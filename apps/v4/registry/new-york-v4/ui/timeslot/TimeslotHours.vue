@@ -50,13 +50,13 @@ function toDayPeriod(value: number): DayPeriod {
     v-bind="fieldPropsEmits"
   >
     <TimeslotSegmentItem
-      v-slot="{ value, disabled }"
+      v-slot="{ value, readonly }"
       v-bind="item"
       :data-day-period.attr="showDayPeriod ? toDayPeriod(item.value) : undefined"
     >
       <TimeslotSegmentItemText
         v-bind="{
-          disabled,
+          readonly,
           value: showDayPeriod ? formatItemValue(value) : value,
         }"
       />

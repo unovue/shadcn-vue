@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "vue"
 import type { TimeslotSegmentProps } from "./TimeslotSegment.vue"
 
-export type ItemDisabledMatcher<TSegmentPart extends string> = (
+export type ReadonlyItemMatcher<TSegmentPart extends string> = (
   name: TSegmentPart,
   value: number,
 ) => boolean
@@ -14,7 +14,7 @@ export type TimeslotRootSegments<TSegmentPart extends string> = {
 export interface TimeslotRootProps<TSegmentPart extends string> {
   class?: HTMLAttributes["class"]
   segments: TimeslotRootSegments<TSegmentPart>
-  isItemDisabled?: ItemDisabledMatcher<TSegmentPart>
+  isReadonlyItem?: ReadonlyItemMatcher<TSegmentPart>
 }
 
 export type TimeslotRootModelValue<TSegmentPart extends string> = {
@@ -42,9 +42,9 @@ watch(modelState, (modelState) => {
   model.value = { ...toValue(modelState) }
 })
 
-function isItemDisabled(name: TSegmentPart, value: number) {
-  return props.isItemDisabled
-    ? props.isItemDisabled(name, value)
+function isReadonlyItem(name: TSegmentPart, value: number) {
+  return props.isReadonlyItem
+    ? props.isReadonlyItem(name, value)
     : false
 }
 
@@ -57,7 +57,7 @@ const segmentsOptions = computed(() => {
       name,
       options: fieldOptions,
       modelValue: modelState[name],
-      isItemDisabled: (value: number) => isItemDisabled(name, value),
+      isReadonlyItem: (value: number) => isReadonlyItem(name, value),
       onChange: (value?: number) => {
         modelState[name] = value
       },

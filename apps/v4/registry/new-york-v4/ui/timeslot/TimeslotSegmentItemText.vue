@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "vue"
 export interface TimeslotSegmentItemTextProps extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   value: number
-  disabled?: boolean
+  readonly?: boolean
 }
 </script>
 
@@ -25,7 +25,7 @@ const formattedText = computed(() => {
     as="span"
     :class="cn(
       'text-xl transition-colors whitespace-nowrap',
-      props.disabled ? 'text-secondary' : '',
+      props.readonly ? 'text-secondary' : '',
       props.class,
     )"
   >

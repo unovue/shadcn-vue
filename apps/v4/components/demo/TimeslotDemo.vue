@@ -13,7 +13,7 @@ const segments: TimeslotSegments = {
 const state = ref<TimeslotModelValue>()
 
 // Disable timeslots from 12:00 to 13:30
-function isTimeslotDisabled(name: TimeslotSegmentPart, value: number) {
+function isReadonlyItem(name: TimeslotSegmentPart, value: number) {
   const hours = state.value?.hour
 
   switch (name) {
@@ -25,7 +25,7 @@ function isTimeslotDisabled(name: TimeslotSegmentPart, value: number) {
       if (!hours) {
         return true
       }
-      if (isTimeslotDisabled('hour', hours)) {
+      if (isReadonlyItem('hour', hours)) {
         return true
       }
       if (hours === 12) {
@@ -46,6 +46,6 @@ function isTimeslotDisabled(name: TimeslotSegmentPart, value: number) {
     v-model="state"
     class="h-64 *:data-timeslot-segment:rounded-md *:data-timeslot-segment:border"
     :segments="segments"
-    :is-item-disabled="isTimeslotDisabled"
+    :is-readonly-item="isReadonlyItem"
   />
 </template>

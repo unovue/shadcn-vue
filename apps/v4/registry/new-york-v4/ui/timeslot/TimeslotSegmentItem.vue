@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "vue"
 export interface TimeslotSegmentItemProps<T extends number> extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   value: T
-  disabled?: boolean
+  readonly?: boolean
   selected?: boolean
 }
 
@@ -21,7 +21,7 @@ import { cn } from "~/lib/utils"
 import TimeslotSegmentItemText from "./TimeslotSegmentItemText.vue"
 
 const props = withDefaults(defineProps<TimeslotSegmentItemProps<T>>(), {
-  disabled: false,
+  readonly: false,
   selected: false,
 })
 
@@ -59,10 +59,10 @@ function onButtonClick() {
       :data-selected="props.selected"
       @click="onButtonClick"
     >
-      <slot v-bind="{ value, disabled: props.disabled }">
+      <slot v-bind="{ value, readonly: props.readonly }">
         <TimeslotSegmentItemText
           :value="value"
-          :disabled="props.disabled"
+          :readonly="props.readonly"
         />
       </slot>
     </Primitive>
