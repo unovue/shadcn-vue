@@ -64,6 +64,12 @@ const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value, s
   return false
 }
 
+const isTimeslotAvailable = computed(() => {
+  if (!time.value)
+    return
+  return !isReadonlyItem('hour', time.value.hour) && !isReadonlyItem('minute', time.value.minute)
+})
+
 const hourCycle = computed(() => {
   return formatter.part(dateTime.value, 'dayPeriod') ? 12 : 24
 })
@@ -107,13 +113,18 @@ const hourCycle = computed(() => {
             )"
           />
         </div>
-        <p class="text-justify text-muted-foreground text-sm">
-          Meeting will start <b>{{ formatDateTime(dateTime) }}</b>.
-        </p>
+        <div class="text-justify text-muted-foreground text-sm">
+          <p v-if="isTimeslotAvailable">
+            Meeting will start <b>{{ formatDateTime(dateTime) }}</b>.
+          </p>
+          <p v-else>
+            Selected timeslot is unavailable.
+          </p>
+        </div>
       </div>
     </CardContent>
     <CardFooter class="flex gap-2">
-      <Button>
+      <Button :disabled="!isTimeslotAvailable">
         Submit
       </Button>
       <Button variant="ghost">
