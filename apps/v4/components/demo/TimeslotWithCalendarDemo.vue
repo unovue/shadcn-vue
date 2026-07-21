@@ -36,16 +36,16 @@ import {
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
 
 const fields: TimeslotFields = {
-  hours: [10, 11, 12, 13, 14, 15, 16, 17],
-  minutes: [0, 20, 40],
+  hour: [10, 11, 12, 13, 14, 15, 16, 17],
+  minute: [0, 20, 40],
 }
 
 const timeslot = ref<TimeslotModelValue>({})
 const time = computed(() => {
-  const { hours, minutes } = timeslot.value ?? {}
-  if (undefined === hours || undefined === minutes)
+  const { hour, minute } = timeslot.value ?? {}
+  if (undefined === hour || undefined === minute)
     return
-  return new Time(hours, minutes)
+  return new Time(hour, minute)
 })
 
 const dateTime = computed(() => {

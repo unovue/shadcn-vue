@@ -5,8 +5,8 @@ import { Switch } from '~/registry/new-york-v4/ui/switch'
 import { Timeslot } from '~/registry/new-york-v4/ui/timeslot'
 
 const fields: TimeslotFields = {
-  hours: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-  minutes: [0, 10, 20, 30, 40, 50],
+  hour: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+  minute: [0, 10, 20, 30, 40, 50],
 }
 
 const useHours12Format = ref(false)
