@@ -36,7 +36,7 @@ const showDayPeriod = computed(() => {
 })
 
 function formatItemValue(value: number) {
-  return value > props.hourCycle ? value - props.hourCycle : value
+  return value === 0 ? 12 : value > props.hourCycle ? value - props.hourCycle : value
 }
 
 function toDayPeriod(value: number): DayPeriod {
