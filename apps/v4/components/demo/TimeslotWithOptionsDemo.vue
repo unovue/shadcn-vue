@@ -4,10 +4,21 @@ import { Label } from '~/registry/new-york-v4/ui/label'
 import { Switch } from '~/registry/new-york-v4/ui/switch'
 import { Timeslot } from '~/registry/new-york-v4/ui/timeslot'
 
-const segments: TimeslotSegments = {
-  hour: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-  minute: [0, 10, 20, 30, 40, 50],
+const showAllHours = ref(false)
+const useEmptyMinutes = ref(false)
+
+function* allHours() {
+  for (let value = 0; value < 24; ++value) {
+    yield value
+  }
 }
+
+const segments = computed((): TimeslotSegments => {
+  return {
+    hour: showAllHours.value ? [...allHours()] : [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+    minute: useEmptyMinutes.value ? [] : [0, 10, 20, 30, 40, 50],
+  }
+})
 
 const useHours12Format = ref(false)
 
@@ -36,11 +47,19 @@ const useHorizontalFields = ref(false)
     <div class="space-y-4">
       <div class="flex items-center space-x-2">
         <Switch id="meridiem-format" v-model="useHours12Format" />
-        <Label for="meridiem-format">Meridiem Format</Label>
+        <Label for="meridiem-format">12-hour clock</Label>
       </div>
       <div class="flex items-center space-x-2">
         <Switch id="field-orientation" v-model="useHorizontalFields" />
         <Label for="field-orientation">Horizontal Fields</Label>
+      </div>
+      <div class="flex items-center space-x-2">
+        <Switch id="field-orientation" v-model="showAllHours" />
+        <Label for="field-orientation">Show all hours</Label>
+      </div>
+      <div class="flex items-center space-x-2">
+        <Switch id="field-orientation" v-model="useEmptyMinutes" />
+        <Label for="field-orientation">Empty minutes</Label>
       </div>
     </div>
   </div>
