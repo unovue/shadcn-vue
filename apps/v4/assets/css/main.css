@@ -1080,7 +1080,7 @@
       }
 
       &:first-child:last-child {
-        @apply min-w-full! min-h-auto!;
+        @apply w-full min-h-auto!;
       }
 
       &>button {

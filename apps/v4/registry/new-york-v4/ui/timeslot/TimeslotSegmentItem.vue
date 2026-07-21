@@ -47,7 +47,7 @@ function onButtonClick() {
     :data-value="value"
     v-bind="forwardProps"
     :class="cn(
-      'flex items-center justify-center first:justify-end last:justify-start',
+      'flex items-center justify-center first:justify-end last:justify-start first:last:justify-center',
       'text-muted-foreground',
       props.class,
     )"
