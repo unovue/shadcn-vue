@@ -34,7 +34,7 @@ import TimeslotField from "./TimeslotField.vue"
 const props = defineProps<TimeslotRootProps<TFieldName> & { class?: HTMLAttributes["class"] }>()
 
 const model = defineModel<TimeslotRootModelValue<TFieldName>>({
-  default: {},
+  default: () => ({}),
 })
 const modelState: TimeslotRootModelValue<TFieldName> = shallowReactive(model.value)
 watch(modelState, (modelState) => {
