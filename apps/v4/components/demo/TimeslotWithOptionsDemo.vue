@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
+import type { TimeslotSegmentPart, TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
 import { Label } from '~/registry/new-york-v4/ui/label'
 import { Switch } from '~/registry/new-york-v4/ui/switch'
 import { Timeslot } from '~/registry/new-york-v4/ui/timeslot'
 
-const showAllHours = ref(false)
+const showDisabledHours = ref(true)
 const useEmptyMinutes = ref(false)
 
 function* allHours() {
@@ -13,9 +13,20 @@ function* allHours() {
   }
 }
 
+function isTimeslotDisabled(name: TimeslotSegmentPart, value: number) {
+  switch (name) {
+    case 'hour':
+      return value < 8 || value > 17
+  }
+
+  return false
+}
+
 const segments = computed((): TimeslotSegments => {
   return {
-    hour: showAllHours.value ? [...allHours()] : [8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+    hour: [...allHours()].filter((value) => {
+      return showDisabledHours.value || !isTimeslotDisabled('hour', value)
+    }),
     minute: useEmptyMinutes.value ? [] : [0, 10, 20, 30, 40, 50],
   }
 })
@@ -34,6 +45,7 @@ const useHorizontalFields = ref(false)
         ]"
         :segments="segments"
         :hour-cycle="hourCycle"
+        :is-item-disabled="isTimeslotDisabled"
       />
     </div>
     <div class="space-y-4">
@@ -50,8 +62,8 @@ const useHorizontalFields = ref(false)
         <Label for="field-orientation">Horizontal Fields</Label>
       </div>
       <div class="flex items-center space-x-2">
-        <Switch id="show-all-hours" v-model="showAllHours" />
-        <Label for="show-all-hours">Show all hours</Label>
+        <Switch id="show-disabled-hours" v-model="showDisabledHours" />
+        <Label for="show-disabled-hours">Show disabled hours</Label>
       </div>
       <div class="flex items-center space-x-2">
         <Switch id="empty-minutes" v-model="useEmptyMinutes" />
