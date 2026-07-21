@@ -1,19 +1,14 @@
 <script setup lang="ts">
-import type {
-  CalendarDateTime,
-  DateValue,
-} from '@internationalized/date'
+import type { DateValue, TimeValue } from 'reka-ui'
 
-import type { TimeslotModelValue, TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
+import type { TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
 
 import {
   getLocalTimeZone,
-  Time,
   toCalendarDateTime,
   today,
 } from '@internationalized/date'
-
-import { useLocale } from 'reka-ui'
+import { useDateFormatter, useLocale } from 'reka-ui'
 
 import { Button } from '@/registry/new-york-v4/ui/button'
 
@@ -40,28 +35,21 @@ const segments: TimeslotSegments = {
   minute: [0, 20, 40],
 }
 
-const timeslot = ref<TimeslotModelValue>({})
-const time = computed(() => {
-  const { hour, minute } = timeslot.value ?? {}
-  if (undefined === hour || undefined === minute)
-    return
-  return new Time(hour, minute)
-})
+const time = ref<TimeValue>()
 
 const dateTime = computed(() => {
   return toCalendarDateTime(date.value, time.value)
 })
 
 const locale = useLocale()
-const dateTimeFormat = computed(() => {
-  return new Intl.DateTimeFormat(locale.value, {
+const formatter = useDateFormatter(locale.value)
+
+function formatDateTime(value: DateValue) {
+  const date = value.toDate(getLocalTimeZone())
+  return formatter.custom(date, {
     dateStyle: 'short',
     timeStyle: 'short',
   })
-})
-function formatDateTime(value: CalendarDateTime) {
-  const date = value.toDate(getLocalTimeZone())
-  return dateTimeFormat.value.format(date)
 }
 </script>
 
@@ -91,7 +79,7 @@ function formatDateTime(value: CalendarDateTime) {
             class="rounded-md border overflow-hidden **:data-[slot=calendar-cell-trigger]:size-10!"
           />
           <Timeslot
-            v-model="timeslot"
+            v-model="time"
             :segments="segments"
             :class="cn(
               'w-0 min-w-full',

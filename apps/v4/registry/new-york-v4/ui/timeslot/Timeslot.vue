@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { SegmentPart } from "reka-ui"
+import type { SegmentPart, TimeValue } from "reka-ui"
 import type { TimeslotRootModelValue, TimeslotRootProps, TimeslotRootSegments } from "./TimeslotRoot.vue"
 
 export type TimeslotSegmentPart = Extract<SegmentPart, "hour" | "minute">
@@ -7,10 +7,11 @@ export type TimeslotProps = TimeslotRootProps<TimeslotSegmentPart> & {
   format?: Intl.DateTimeFormatOptions
 }
 export type TimeslotSegments = TimeslotRootSegments<TimeslotSegmentPart>
-export type TimeslotModelValue = TimeslotRootModelValue<TimeslotSegmentPart>
+export type TimeslotModelValue = TimeValue
 </script>
 
 <script setup lang="ts">
+import { Time } from "@internationalized/date"
 import { reactiveOmit } from "@vueuse/core"
 import { useLocale } from "reka-ui"
 import { cn } from "~/lib/utils.ts"
@@ -27,6 +28,16 @@ const props = withDefaults(defineProps<TimeslotProps>(), {
 })
 
 const model = defineModel<TimeslotModelValue>()
+
+const rootModel = computed(() => {
+  if (!model.value)
+    return
+  const { hour, minute } = model.value
+  return { hour, minute }
+})
+function onRootModelUpdate(value: TimeslotRootModelValue<TimeslotSegmentPart>) {
+  model.value = new Time(value.hour, value.minute)
+}
 
 const forwardProps = reactiveOmit(props, "class", "format")
 
@@ -50,8 +61,9 @@ const hourCycle = computed(() => {
 <template>
   <TimeslotRoot
     v-bind="forwardProps"
-    v-model="model"
+    :model-value="rootModel"
     :class="cn('max-h-full max-w-full', props.class)"
+    @update:model-value="onRootModelUpdate"
   >
     <template #hour="{ segment }">
       <TimeslotHours
