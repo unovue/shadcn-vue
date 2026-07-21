@@ -31,7 +31,7 @@ import { Primitive } from "reka-ui"
 import { cn } from "~/lib/utils"
 import TimeslotField from "./TimeslotField.vue"
 
-const props = defineProps<TimeslotRootProps<TFieldName> & { class?: HTMLAttributes["class"] }>()
+const props = defineProps<TimeslotRootProps<TFieldName>>()
 
 const model = defineModel<TimeslotRootModelValue<TFieldName>>({
   default: () => ({}),
