@@ -8,7 +8,7 @@ export type ItemDisabledMatcher<TSegmentPart extends string> = (
 ) => boolean
 
 export type TimeslotRootSegments<TSegmentPart extends string> = {
-  [K in TSegmentPart]: Iterable<number>
+  [K in TSegmentPart]: readonly number[]
 }
 
 export interface TimeslotRootProps<TSegmentPart extends string> {
