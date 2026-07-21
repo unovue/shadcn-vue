@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { TimeslotModelValue, TimeslotSegmentPart, TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
+import type { TimeslotItemMatcher, TimeslotModelValue, TimeslotSegmentPart, TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
 import {
+
   Timeslot,
 
 } from '~/registry/new-york-v4/ui/timeslot'
@@ -13,25 +14,23 @@ const segments: TimeslotSegments = {
 const state = ref<TimeslotModelValue>()
 
 // Disable timeslots from 12:00 to 13:30
-function isReadonlyItem(name: TimeslotSegmentPart, value: number) {
-  const hours = state.value?.hour
-
+const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value, state) => {
   switch (name) {
     case 'hour': {
       return value === 12
     }
 
     case 'minute': {
-      if (!hours) {
+      if (!state?.hour) {
         return true
       }
-      if (isReadonlyItem('hour', hours)) {
+      if (isReadonlyItem('hour', state.hour)) {
         return true
       }
-      if (hours === 12) {
+      if (state.hour === 12) {
         return true
       }
-      if (hours === 13) {
+      if (state.hour === 13) {
         return value < 30
       }
     }

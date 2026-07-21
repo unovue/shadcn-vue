@@ -2,9 +2,10 @@
 import type { HTMLAttributes } from "vue"
 import type { TimeslotSegmentProps } from "./TimeslotSegment.vue"
 
-export type ReadonlyItemMatcher<TSegmentPart extends string> = (
+export type TimeslotItemMatcher<TSegmentPart extends string> = (
   name: TSegmentPart,
   value: number,
+  state?: TimeslotRootModelValue<TSegmentPart>,
 ) => boolean
 
 export type TimeslotRootSegments<TSegmentPart extends string> = {
@@ -14,7 +15,7 @@ export type TimeslotRootSegments<TSegmentPart extends string> = {
 export interface TimeslotRootProps<TSegmentPart extends string> {
   class?: HTMLAttributes["class"]
   segments: TimeslotRootSegments<TSegmentPart>
-  isReadonlyItem?: ReadonlyItemMatcher<TSegmentPart>
+  isReadonlyItem?: TimeslotItemMatcher<TSegmentPart>
 }
 
 export type TimeslotRootModelValue<TSegmentPart extends string> = {
@@ -44,7 +45,7 @@ watch(modelState, (modelState) => {
 
 function isReadonlyItem(name: TSegmentPart, value: number) {
   return props.isReadonlyItem
-    ? props.isReadonlyItem(name, value)
+    ? props.isReadonlyItem(name, value, toValue(modelState))
     : false
 }
 

@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import type { DateValue, TimeValue } from 'reka-ui'
 
-import type { TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
-
+import type { TimeslotItemMatcher, TimeslotSegmentPart, TimeslotSegments } from '@/registry/new-york-v4/ui/timeslot'
 import {
   getLocalTimeZone,
   toCalendarDateTime,
   today,
 } from '@internationalized/date'
+
 import { useDateFormatter, useLocale } from 'reka-ui'
 
 import { Button } from '@/registry/new-york-v4/ui/button'
-
 import {
   Calendar,
 } from '@/registry/new-york-v4/ui/calendar'
@@ -23,10 +22,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/registry/new-york-v4/ui/card'
-import { cn } from '~/lib/utils'
 import {
+
   Timeslot,
-} from '~/registry/new-york-v4/ui/timeslot'
+
+} from '@/registry/new-york-v4/ui/timeslot'
+import { cn } from '~/lib/utils'
 
 const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
 
@@ -50,6 +51,17 @@ function formatDateTime(value: DateValue) {
     dateStyle: 'short',
     timeStyle: 'short',
   })
+}
+
+const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value, state) => {
+  const disabledHours = [11, 13]
+  if (name === 'hour' && disabledHours.includes(value)) {
+    return true
+  }
+  if (name === 'minute' && state?.hour && disabledHours.includes(state.hour)) {
+    return true
+  }
+  return false
 }
 
 const hourCycle = computed(() => {
@@ -86,6 +98,7 @@ const hourCycle = computed(() => {
             v-model="time"
             :segments="segments"
             :hour-cycle="hourCycle"
+            :is-readonly-item="isReadonlyItem"
             :class="cn(
               'w-0 min-w-full',
               'w-auto sm:h-0 min-w-auto sm:min-h-full',

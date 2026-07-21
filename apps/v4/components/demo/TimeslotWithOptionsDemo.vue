@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import type { TimeslotSegmentPart, TimeslotSegments } from '~/registry/new-york-v4/ui/timeslot'
-import { Label } from '~/registry/new-york-v4/ui/label'
-import { Switch } from '~/registry/new-york-v4/ui/switch'
-import { Timeslot } from '~/registry/new-york-v4/ui/timeslot'
+import type { TimeslotItemMatcher, TimeslotSegmentPart, TimeslotSegments } from '@/registry/new-york-v4/ui/timeslot'
+import { Label } from '@/registry/new-york-v4/ui/label'
+import { Switch } from '@/registry/new-york-v4/ui/switch'
+import {
+
+  Timeslot,
+
+} from '@/registry/new-york-v4/ui/timeslot'
 
 const showDisabledHours = ref(true)
 const useEmptyMinutes = ref(false)
@@ -13,12 +17,10 @@ function* allHours() {
   }
 }
 
-function isReadonlyItem(name: TimeslotSegmentPart, value: number) {
-  switch (name) {
-    case 'hour':
-      return value < 8 || value > 17
+const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value) => {
+  if (name === 'hour') {
+    return value < 8 || value > 17
   }
-
   return false
 }
 

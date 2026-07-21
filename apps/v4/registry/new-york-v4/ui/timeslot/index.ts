@@ -11,6 +11,7 @@ export {
   type TimeslotHoursProps,
 } from "./TimeslotHours.vue"
 export {
+  type TimeslotItemMatcher,
   default as TimeslotRoot,
   type TimeslotRootModelValue,
   type TimeslotRootProps,
