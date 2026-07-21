@@ -1,10 +1,11 @@
 <script lang="ts">
 import type { SegmentPart, TimeValue } from "reka-ui"
+import type { HourCycle } from "./TimeslotHours.vue"
 import type { TimeslotRootModelValue, TimeslotRootProps, TimeslotRootSegments } from "./TimeslotRoot.vue"
 
 export type TimeslotSegmentPart = Extract<SegmentPart, "hour" | "minute">
 export type TimeslotProps = TimeslotRootProps<TimeslotSegmentPart> & {
-  format?: Intl.DateTimeFormatOptions
+  hourCycle?: HourCycle
 }
 export type TimeslotSegments = TimeslotRootSegments<TimeslotSegmentPart>
 export type TimeslotModelValue = TimeValue
@@ -13,19 +14,11 @@ export type TimeslotModelValue = TimeValue
 <script setup lang="ts">
 import { Time } from "@internationalized/date"
 import { reactiveOmit } from "@vueuse/core"
-import { useLocale } from "reka-ui"
 import { cn } from "~/lib/utils.ts"
 import TimeslotHours from "./TimeslotHours.vue"
 import TimeslotRoot from "./TimeslotRoot.vue"
 
-const props = withDefaults(defineProps<TimeslotProps>(), {
-  format(): Intl.DateTimeFormatOptions {
-    return {
-      dateStyle: "short",
-      timeStyle: "short",
-    }
-  },
-})
+const props = defineProps<TimeslotProps>()
 
 const model = defineModel<TimeslotModelValue>()
 
@@ -39,23 +32,7 @@ function onRootModelUpdate(value: TimeslotRootModelValue<TimeslotSegmentPart>) {
   model.value = new Time(value.hour, value.minute)
 }
 
-const forwardProps = reactiveOmit(props, "class", "format")
-
-const locale = useLocale()
-
-const dateTimeFormat = shallowRef<Intl.DateTimeFormat>()
-onMounted(() => {
-  watch([locale, () => props.format], ([locale, dateTimeFormatOptions]) => {
-    dateTimeFormat.value = new Intl.DateTimeFormat(locale, dateTimeFormatOptions)
-  }, {
-    immediate: true,
-  })
-})
-
-const hourCycle = computed(() => {
-  const options = dateTimeFormat.value?.resolvedOptions()
-  return options?.hour12 ? 12 : 24
-})
+const forwardProps = reactiveOmit(props, "class")
 </script>
 
 <template>

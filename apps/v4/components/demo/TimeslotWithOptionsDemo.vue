@@ -20,15 +20,7 @@ const segments = computed((): TimeslotSegments => {
   }
 })
 
-const useHours12Format = ref(false)
-
-const dateTimeFormatOptions = computed((): Intl.DateTimeFormatOptions => {
-  return {
-    dateStyle: 'short',
-    timeStyle: 'short',
-    hour12: useHours12Format.value,
-  }
-})
+const hourCycle = ref<12 | 24>(24)
 
 const useHorizontalFields = ref(false)
 </script>
@@ -41,12 +33,16 @@ const useHorizontalFields = ref(false)
           useHorizontalFields ? 'timeslot-horizontal' : '',
         ]"
         :segments="segments"
-        :format="dateTimeFormatOptions"
+        :hour-cycle="hourCycle"
       />
     </div>
     <div class="space-y-4">
       <div class="flex items-center space-x-2">
-        <Switch id="12-hours-format" v-model="useHours12Format" />
+        <Switch
+          id="12-hours-format"
+          :model-value="hourCycle === 12"
+          @update:model-value="value => { hourCycle = value ? 12 : 24 }"
+        />
         <Label for="12-hours-format">12-hour clock</Label>
       </div>
       <div class="flex items-center space-x-2">

@@ -35,7 +35,7 @@ const segments: TimeslotSegments = {
   minute: [0, 20, 40],
 }
 
-const time = ref<TimeValue>()
+const time = ref<TimeValue>() as Ref<TimeValue | undefined>
 
 const dateTime = computed(() => {
   return toCalendarDateTime(date.value, time.value)
@@ -51,6 +51,10 @@ function formatDateTime(value: DateValue) {
     timeStyle: 'short',
   })
 }
+
+const hourCycle = computed(() => {
+  return formatter.part(dateTime.value, 'dayPeriod') ? 12 : 24
+})
 </script>
 
 <template>
@@ -81,6 +85,7 @@ function formatDateTime(value: DateValue) {
           <Timeslot
             v-model="time"
             :segments="segments"
+            :hour-cycle="hourCycle"
             :class="cn(
               'w-0 min-w-full',
               'w-auto sm:h-0 min-w-auto sm:min-h-full',
