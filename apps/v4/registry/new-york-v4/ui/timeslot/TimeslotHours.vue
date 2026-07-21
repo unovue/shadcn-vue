@@ -1,8 +1,12 @@
 <script lang="ts">
 import type { TimeslotSegmentEmits, TimeslotSegmentProps } from "./TimeslotSegment.vue"
 
+// internal types from "reka-ui"
+export type HourCycle = 12 | 24 | undefined
+export type DayPeriod = "AM" | "PM" | null
+
 export interface TimeslotHoursProps<T extends number> extends TimeslotSegmentProps<T> {
-  meridiem?: boolean
+  hourCycle?: HourCycle
 }
 
 export interface TimeslotHoursEmits<T extends number> extends TimeslotSegmentEmits<T> {}
@@ -14,45 +18,46 @@ import TimeslotSegment from "./TimeslotSegment.vue"
 import TimeslotSegmentItem from "./TimeslotSegmentItem.vue"
 import TimeslotSegmentItemText from "./TimeslotSegmentItemText.vue"
 
-const props = defineProps<TimeslotHoursProps<T>>()
+const props = withDefaults(defineProps<TimeslotHoursProps<T>>(), {
+  hourCycle: 24,
+})
 
 const emits = defineEmits<TimeslotHoursEmits<T>>()
 
 const forwardedProps = computed(() => {
-  const { meridiem, ...other } = props
+  const { hourCycle, ...other } = props
   return other
 })
 
 const fieldPropsEmits = useForwardPropsEmits(forwardedProps, emits)
 
-const MERIDIEM = 12
+const showDayPeriod = computed(() => {
+  return props.hourCycle === 12
+})
 
-function toMeridiemFormat(value: number) {
-  return value > MERIDIEM ? value - MERIDIEM : value
+function formatItemValue(value: number) {
+  return value > props.hourCycle ? value - props.hourCycle : value
 }
 
-function toMeridiem(value: number) {
-  return value < MERIDIEM ? "am" : "pm"
+function toDayPeriod(value: number): DayPeriod {
+  return value < 12 ? "AM" : "PM"
 }
 </script>
 
 <template>
   <TimeslotSegment
-    v-slot="{ segmentItem }"
+    v-slot="{ item }"
     v-bind="fieldPropsEmits"
   >
     <TimeslotSegmentItem
       v-slot="{ value, disabled }"
-      v-bind="segmentItem"
-      :class="{
-        meridiem,
-        [`meridiem-${toMeridiem(segmentItem.value)}`]: meridiem,
-      }"
+      v-bind="item"
+      :data-day-period.attr="showDayPeriod ? toDayPeriod(item.value) : undefined"
     >
       <TimeslotSegmentItemText
         v-bind="{
           disabled,
-          value: meridiem ? toMeridiemFormat(value) : value,
+          value: showDayPeriod ? formatItemValue(value) : value,
         }"
       />
     </TimeslotSegmentItem>

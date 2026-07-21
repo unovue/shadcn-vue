@@ -1087,7 +1087,7 @@
         @apply mx-0 my-1 min-w-14 min-h-20;
       }
 
-      &.meridiem::before {
+      &[data-day-period]::before {
         @apply my-0 ml-4;
       }
     }
@@ -1148,7 +1148,7 @@
           @apply mx-1 my-0 min-w-20 min-h-14;
         }
 
-        &.meridiem:before {
+        &[data-day-period]:before {
           @apply mx-0 mt-4;
         }
       }
@@ -1166,29 +1166,22 @@
       @apply justify-center;
     }
 
-    &.meridiem {
+    &[data-day-period] {
       &:before {
-        @apply inline-block snap-align-none text-xs;
+        @apply inline-block snap-align-none text-xs lowercase;
+        content: attr(data-day-period);
       }
+    }
 
-      &.meridiem-am {
-        &:before {
-          content: "am";
-        }
-
-        & ~ &:before {
-          @apply hidden;
-        }
+    &[data-day-period="AM"] {
+      & ~ &:before {
+        @apply hidden;
       }
+    }
 
-      &.meridiem-pm {
-        &:before {
-          content: "pm";
-        }
-
-        & ~ &:before {
-          @apply hidden;
-        }
+    &[data-day-period="PM"] {
+      & ~ &:before {
+        @apply hidden;
       }
     }
   }

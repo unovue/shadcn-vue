@@ -41,9 +41,9 @@ onMounted(() => {
   })
 })
 
-const meridiem = computed(() => {
+const hourCycle = computed(() => {
   const options = dateTimeFormat.value?.resolvedOptions()
-  return !!options?.hour12
+  return options?.hour12 ? 12 : 24
 })
 </script>
 
@@ -56,7 +56,7 @@ const meridiem = computed(() => {
     <template #hour="{ segment }">
       <TimeslotHours
         v-bind="segment"
-        :meridiem="meridiem"
+        :hour-cycle="hourCycle"
       />
     </template>
   </TimeslotRoot>

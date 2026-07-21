@@ -44,7 +44,7 @@ watch(selectedOption, (selectedOption) => {
   model.value = selectedOption
 })
 
-const commonsegmentItemOptions = computed(() => {
+const commonSegmentItemOptions = computed(() => {
   return {
     ref: elements.value?.set,
     onSelect(target) {
@@ -59,7 +59,7 @@ const segmentItems: ComputedRef<TimeslotSegmentItemSlotProps<T>[]> = computed(()
 
   return [...uniqueOptions].toSorted((a, b) => a - b).map((value) => {
     return {
-      ...commonsegmentItemOptions.value,
+      ...commonSegmentItemOptions.value,
       value,
       disabled: isItemDisabled(value),
       selected: selectedValue === value,
@@ -164,21 +164,21 @@ function useIntersectedElement(elements: Ref<MaybeElement[]>) {
       @scrolling="value => isScrolling = value"
     >
       <template
-        v-for="segmentItem in segmentItems"
-        :key="segmentItem.value"
+        v-for="item in segmentItems"
+        :key="item.value"
       >
         <slot
-          v-bind="{ segmentItem }"
+          v-bind="{ item }"
         >
           <TimeslotSegmentItem
-            v-bind="segmentItem"
+            v-bind="item"
           />
         </slot>
       </template>
 
       <TimeslotSegmentItem
         v-if="!segmentItems.length"
-        v-bind="commonsegmentItemOptions"
+        v-bind="commonSegmentItemOptions"
         :value="-1"
         disabled
       >
