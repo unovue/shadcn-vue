@@ -2153,7 +2153,8 @@
       "name": "sonner",
       "type": "registry:ui",
       "dependencies": [
-        "vue-sonner"
+        "vue-sonner",
+        "@vueuse/core"
       ],
       "files": [
         {

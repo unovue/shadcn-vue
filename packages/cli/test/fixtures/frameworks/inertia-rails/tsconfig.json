@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["./app/frontend/*"]
+    },
+    "strict": true
+  },
+  "include": ["app/frontend/**/*", "app/frontend/**/*.vue"]
+}

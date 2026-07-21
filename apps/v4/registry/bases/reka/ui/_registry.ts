@@ -2136,6 +2136,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "vue-sonner",
+      "@vueuse/core",
     ],
     files: [
       {

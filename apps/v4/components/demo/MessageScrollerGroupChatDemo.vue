@@ -155,7 +155,7 @@ function messageVariant(item: Extract<GroupChatItem, { type: 'message' }>) {
           <MessageScrollerProvider>
             <MessageScroller :key="demoKey">
               <MessageScrollerViewport>
-                <MessageScrollerContent class="p-6">
+                <MessageScrollerContent class="p-(--card-spacing)">
                   <template v-for="item in items" :key="item.id">
                     <MessageScrollerItem
                       v-if="item.type === 'message'"

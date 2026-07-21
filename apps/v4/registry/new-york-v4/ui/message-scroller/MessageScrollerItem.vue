@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { ComponentPublicInstance, HTMLAttributes } from "vue"
+import type { HTMLAttributes } from "vue"
+import { onBeforeUnmount, onMounted, useTemplateRef, watch } from "vue"
 import { cn } from "@/lib/utils"
 import { useMessageScrollerRegister } from "./useMessageScroller"
 
@@ -13,20 +14,32 @@ const props = withDefaults(defineProps<{
 
 const register = useMessageScrollerRegister()
 
-let previous: HTMLElement | null = null
+const itemEl = useTemplateRef<HTMLElement>("item")
 
-function setItemRef(el: Element | ComponentPublicInstance | null) {
-  const element = el instanceof HTMLElement ? el : null
-  const prev = previous
-  previous = element
-  if (props.messageId)
-    register(props.messageId, element, prev)
-}
+onMounted(() => {
+  if (props.messageId && itemEl.value)
+    register(props.messageId, itemEl.value, null)
+})
+
+watch(() => props.messageId, (messageId, previousMessageId) => {
+  const element = itemEl.value
+  if (!element)
+    return
+  if (previousMessageId)
+    register(previousMessageId, null, element)
+  if (messageId)
+    register(messageId, element, null)
+})
+
+onBeforeUnmount(() => {
+  if (props.messageId && itemEl.value)
+    register(props.messageId, null, itemEl.value)
+})
 </script>
 
 <template>
   <div
-    :ref="setItemRef"
+    ref="item"
     data-slot="message-scroller-item"
     :data-message-id="messageId"
     :data-scroll-anchor="scrollAnchor ? 'true' : 'false'"

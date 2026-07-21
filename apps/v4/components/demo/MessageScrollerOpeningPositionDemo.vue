@@ -117,7 +117,7 @@ const OpeningPositionScroller = defineComponent({
           <OpeningPositionScroller :position="position" :position-key="positionKey">
             <MessageScroller>
               <MessageScrollerViewport>
-                <MessageScrollerContent class="p-6">
+                <MessageScrollerContent class="p-(--card-spacing)">
                   <MessageAnimated
                     v-for="message in messages"
                     :key="message.id"

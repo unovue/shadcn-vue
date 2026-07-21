@@ -112,7 +112,7 @@ function reset() {
         <CardContent class="flex-1 overflow-hidden p-0">
           <MessageScroller :key="demoKey">
             <MessageScrollerViewport>
-              <MessageScrollerContent class="p-6">
+              <MessageScrollerContent class="p-(--card-spacing)">
                 <MessageAnimated
                   v-for="message in messages"
                   :key="message.id"

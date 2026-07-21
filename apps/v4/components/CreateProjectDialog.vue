@@ -159,7 +159,7 @@ function handleCopy() {
             >
               <div class="relative overflow-hidden border-t bg-popover p-3">
                 <div class="no-scrollbar overflow-x-auto">
-                  <code class="whitespace-nowrap font-mono text-sm">{{ commands[pm.value] }}</code>
+                  <code class="whitespace-nowrap font-mono text-sm [font-variant-ligatures:none]">{{ commands[pm.value] }}</code>
                 </div>
               </div>
             </TabsContent>

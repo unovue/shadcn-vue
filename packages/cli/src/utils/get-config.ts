@@ -10,7 +10,7 @@ import {
   rawConfigSchema,
   workspaceConfigSchema,
 } from '@/src/schema'
-import { detectFrameworkConfigFiles, getProjectInfo, isTypeScriptProject } from '@/src/utils/get-project-info'
+import { detectFrameworkConfigFiles, getFrameworkTsConfigPath, getProjectInfo, isTypeScriptProject } from '@/src/utils/get-project-info'
 import { resolveImport } from '@/src/utils/resolve-import'
 
 export const DEFAULT_STYLE = 'default'
@@ -53,15 +53,7 @@ export async function resolveConfigPaths(
 
   const tsConfigPath = path.resolve(
     cwd,
-    detectedFramework?.name === 'nuxt4'
-      ? './.nuxt/tsconfig.app.json'
-      : detectedFramework?.name === 'nuxt3'
-        ? './.nuxt/tsconfig.json'
-        : detectedFramework?.name === 'inertia'
-          ? './inertia/tsconfig.json'
-          : isTypeScript
-            ? './tsconfig.json'
-            : './jsconfig.json',
+    await getFrameworkTsConfigPath(cwd, detectedFramework, isTypeScript),
   )
 
   // Read tsconfig.json.
