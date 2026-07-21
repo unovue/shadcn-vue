@@ -32,7 +32,7 @@ function onRootModelUpdate(value: TimeslotRootModelValue<TimeslotSegmentPart>) {
   model.value = new Time(value.hour, value.minute)
 }
 
-const forwardProps = reactiveOmit(props, "class")
+const forwardProps = reactiveOmit(props, "class", "hourCycle")
 </script>
 
 <template>
@@ -45,7 +45,7 @@ const forwardProps = reactiveOmit(props, "class")
     <template #hour="{ segment }">
       <TimeslotHours
         v-bind="segment"
-        :hour-cycle="hourCycle"
+        :hour-cycle="props.hourCycle"
       />
     </template>
   </TimeslotRoot>
