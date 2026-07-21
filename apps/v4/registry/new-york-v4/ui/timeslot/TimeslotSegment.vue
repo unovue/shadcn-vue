@@ -5,7 +5,6 @@ import type { TimeslotSegmentItemProps } from "./TimeslotSegmentItem.vue"
 export interface TimeslotSegmentProps<T extends number> extends PrimitiveProps {
   class?: HTMLAttributes["class"]
   options?: readonly T[]
-  modelValue?: T
   isReadonlyItem?: (value: T) => boolean
 }
 
