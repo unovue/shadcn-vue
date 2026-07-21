@@ -46,20 +46,20 @@ const useHorizontalFields = ref(false)
     </div>
     <div class="space-y-4">
       <div class="flex items-center space-x-2">
-        <Switch id="meridiem-format" v-model="useHours12Format" />
-        <Label for="meridiem-format">12-hour clock</Label>
+        <Switch id="12-hours-format" v-model="useHours12Format" />
+        <Label for="12-hours-format">12-hour clock</Label>
       </div>
       <div class="flex items-center space-x-2">
         <Switch id="field-orientation" v-model="useHorizontalFields" />
         <Label for="field-orientation">Horizontal Fields</Label>
       </div>
       <div class="flex items-center space-x-2">
-        <Switch id="field-orientation" v-model="showAllHours" />
-        <Label for="field-orientation">Show all hours</Label>
+        <Switch id="show-all-hours" v-model="showAllHours" />
+        <Label for="show-all-hours">Show all hours</Label>
       </div>
       <div class="flex items-center space-x-2">
-        <Switch id="field-orientation" v-model="useEmptyMinutes" />
-        <Label for="field-orientation">Empty minutes</Label>
+        <Switch id="empty-minutes" v-model="useEmptyMinutes" />
+        <Label for="empty-minutes">Empty minutes</Label>
       </div>
     </div>
   </div>
