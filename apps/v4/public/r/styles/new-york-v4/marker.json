@@ -17,7 +17,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/marker/MarkerIcon.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\ninterface Props {\n  class?: HTMLAttributes[\"class\"]\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <span\n    data-slot=\"marker-icon\"\n    aria-hidden=\"true\"\n    :class=\"cn('size-4 [&_svg:not([class*=\\'size-\\'])]:size-4 shrink-0', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\ninterface Props {\n  class?: HTMLAttributes[\"class\"]\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <span\n    data-slot=\"marker-icon\"\n    aria-hidden=\"true\"\n    :class=\"cn(`size-4 [&_svg:not([class*='size-'])]:size-4 shrink-0`, props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
       "type": "registry:ui"
     },
     {
