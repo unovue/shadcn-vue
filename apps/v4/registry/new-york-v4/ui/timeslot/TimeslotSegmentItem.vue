@@ -48,21 +48,20 @@ function onButtonClick() {
     v-bind="forwardProps"
     :class="cn(
       'flex items-center justify-center first:justify-end last:justify-start first:last:justify-center',
-      'text-muted-foreground',
       props.class,
     )"
   >
     <Primitive
       as="button"
       role="button"
-      class="snap snap-center snap-normal text-center font-normal transition-colors cursor-pointer text-muted-foreground hover:text-foreground data-selected:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-3 rounded-md outline-none"
+      class="snap snap-center snap-normal text-center font-normal cursor-pointer transition-[color,opacity] text-muted-foreground hover:text-foreground data-[selected=true]:text-foreground data-[readonly=true]:opacity-25 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-3 rounded-md outline-none"
       :data-selected="props.selected"
+      :data-readonly="props.readonly"
       @click="onButtonClick"
     >
-      <slot v-bind="{ value, readonly: props.readonly }">
+      <slot v-bind="{ value }">
         <TimeslotSegmentItemText
           :value="value"
-          :readonly="props.readonly"
         />
       </slot>
     </Primitive>

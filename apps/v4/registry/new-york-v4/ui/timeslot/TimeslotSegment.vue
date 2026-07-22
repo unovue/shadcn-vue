@@ -181,7 +181,7 @@ function useIntersectedElement(elements: Ref<MaybeElement[]>) {
         :value="-1"
         readonly
       >
-        <span class="text-secondary">--</span>
+        <span>--</span>
       </TimeslotSegmentItem>
     </TimeslotScrollArea>
   </Primitive>
