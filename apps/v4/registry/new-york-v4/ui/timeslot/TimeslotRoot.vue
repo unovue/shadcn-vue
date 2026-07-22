@@ -50,7 +50,7 @@ function isReadonlyItem(name: TSegmentPart, value: number) {
 }
 
 const segmentsOptions = computed(() => {
-  const segments: TimeslotSegmentSlotProps<TSegmentPart>[] = []
+  const segments: (TimeslotSegmentSlotProps<TSegmentPart> & { modelValue?: number })[] = []
 
   for (const name in props.segments) {
     const fieldOptions = props.segments[name as TSegmentPart]
