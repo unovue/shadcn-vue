@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { DateValue, TimeValue } from 'reka-ui'
 
+import type { ShallowRef } from 'vue'
 import type { TimeslotItemMatcher, TimeslotSegmentPart, TimeslotSegments } from '@/registry/new-york-v4/ui/timeslot'
+
 import {
   getLocalTimeZone,
   toCalendarDateTime,
@@ -9,7 +11,6 @@ import {
 } from '@internationalized/date'
 
 import { useDateFormatter, useLocale } from 'reka-ui'
-
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Calendar,
@@ -29,14 +30,14 @@ import {
 } from '@/registry/new-york-v4/ui/timeslot'
 import { cn } from '~/lib/utils'
 
-const date = ref(today(getLocalTimeZone())) as Ref<DateValue>
+const date = shallowRef(today(getLocalTimeZone())) as ShallowRef<DateValue>
 
 const segments: TimeslotSegments = {
   hour: [10, 11, 12, 13, 14, 15, 16, 17],
   minute: [0, 20, 40],
 }
 
-const time = ref<TimeValue>() as Ref<TimeValue | undefined>
+const time = shallowRef<TimeValue>() as ShallowRef<TimeValue | undefined>
 
 const dateTime = computed(() => {
   return toCalendarDateTime(date.value, time.value)
