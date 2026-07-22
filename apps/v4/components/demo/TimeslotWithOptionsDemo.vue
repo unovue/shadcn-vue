@@ -8,7 +8,7 @@ import {
 
 } from '@/registry/new-york-v4/ui/timeslot'
 
-const showDisabledHours = ref(true)
+const showDisabledHours = ref(false)
 const useEmptyMinutes = ref(false)
 
 function* allHours() {
