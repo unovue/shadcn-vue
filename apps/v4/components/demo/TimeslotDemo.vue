@@ -14,29 +14,24 @@ const segments: TimeslotSegments = {
 const state = ref<TimeslotModelValue>()
 
 // Disable timeslots from 12:00 to 13:30
-const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value, state) => {
-  switch (name) {
-    case 'hour': {
-      return value === 12
+const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = {
+  hour: value => value === 12,
+  minute: (value, state) => {
+    if (!state?.hour) {
+      return true
+    }
+    if (isReadonlyItem.hour?.(state.hour)) {
+      return true
+    }
+    if (state.hour === 12) {
+      return true
+    }
+    if (state.hour === 13) {
+      return value < 30
     }
 
-    case 'minute': {
-      if (!state?.hour) {
-        return true
-      }
-      if (isReadonlyItem('hour', state.hour)) {
-        return true
-      }
-      if (state.hour === 12) {
-        return true
-      }
-      if (state.hour === 13) {
-        return value < 30
-      }
-    }
-  }
-
-  return false
+    return false
+  },
 }
 </script>
 

@@ -17,17 +17,15 @@ function* allHours() {
   }
 }
 
-const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value) => {
-  if (name === 'hour') {
-    return value < 8 || value > 17
-  }
-  return false
+const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = {
+  hour: value => value < 8 || value > 17,
+  minute: (_, state) => !!(void 0 !== state?.hour && isReadonlyItem.hour?.(state.hour)),
 }
 
 const segments = computed((): TimeslotSegments => {
   return {
     hour: [...allHours()].filter((value) => {
-      return showDisabledHours.value || !isReadonlyItem('hour', value)
+      return showDisabledHours.value || !isReadonlyItem.hour?.(value)
     }),
     minute: useEmptyMinutes.value ? [] : [0, 10, 20, 30, 40, 50],
   }

@@ -53,21 +53,17 @@ function formatDateTime(value: DateValue) {
   })
 }
 
-const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = (name, value, state) => {
-  const disabledHours = [11, 13]
-  if (name === 'hour' && disabledHours.includes(value)) {
-    return true
-  }
-  if (name === 'minute' && state?.hour && disabledHours.includes(state.hour)) {
-    return true
-  }
-  return false
+const disabledHours = [11, 13]
+
+const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = {
+  hour: value => disabledHours.includes(value),
+  minute: (_, state) => !!(state?.hour && isReadonlyItem.hour?.(state.hour)),
 }
 
 const isTimeslotAvailable = computed(() => {
   if (!time.value)
     return
-  return !isReadonlyItem('hour', time.value.hour) && !isReadonlyItem('minute', time.value.minute)
+  return !isReadonlyItem.hour?.(time.value.hour) && !isReadonlyItem.minute?.(time.value.minute)
 })
 
 const hourCycle = computed(() => {

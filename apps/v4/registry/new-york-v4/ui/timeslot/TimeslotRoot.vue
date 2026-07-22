@@ -2,11 +2,9 @@
 import type { HTMLAttributes } from "vue"
 import type { TimeslotSegmentProps } from "./TimeslotSegment.vue"
 
-export type TimeslotItemMatcher<TSegmentPart extends string> = (
-  name: TSegmentPart,
-  value: number,
-  state?: TimeslotRootModelValue<TSegmentPart>,
-) => boolean
+export type TimeslotItemMatcher<TSegmentPart extends string> = {
+  [K in TSegmentPart]?: (value: number, state?: TimeslotRootModelValue<TSegmentPart>) => boolean
+}
 
 export type TimeslotRootSegments<TSegmentPart extends string> = {
   [K in TSegmentPart]: readonly number[]
@@ -44,9 +42,8 @@ watch(modelState, (modelState) => {
 })
 
 function isReadonlyItem(name: TSegmentPart, value: number) {
-  return props.isReadonlyItem
-    ? props.isReadonlyItem(name, value, toValue(modelState))
-    : false
+  const matcher = props.isReadonlyItem?.[name]
+  return matcher ? matcher(value, toValue(modelState)) : false
 }
 
 const segmentsOptions = computed(() => {
