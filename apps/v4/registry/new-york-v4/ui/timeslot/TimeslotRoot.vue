@@ -38,12 +38,12 @@ const model = defineModel<TimeslotRootModelValue<TSegmentPart>>({
 })
 const modelState: TimeslotRootModelValue<TSegmentPart> = shallowReactive(model.value)
 watch(modelState, (modelState) => {
-  model.value = { ...toValue(modelState) }
+  model.value = { ...modelState }
 })
 
 function isReadonlyItem(name: TSegmentPart, value: number) {
   const matcher = props.isReadonlyItem?.[name]
-  return matcher ? matcher(value, toValue(modelState)) : false
+  return matcher ? matcher(value, modelState) : false
 }
 
 const segmentsOptions = computed(() => {
