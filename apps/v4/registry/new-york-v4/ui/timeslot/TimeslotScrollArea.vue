@@ -17,7 +17,6 @@ import {
   ScrollAreaCorner,
   ScrollAreaRoot,
   ScrollAreaScrollbar,
-  ScrollAreaThumb,
   ScrollAreaViewport,
 } from "reka-ui"
 import { cn } from "~/lib/utils"
@@ -82,9 +81,7 @@ defineExpose({
     >
       <slot />
     </ScrollAreaViewport>
-    <ScrollAreaScrollbar orientation="vertical">
-      <ScrollAreaThumb />
-    </ScrollAreaScrollbar>
+    <ScrollAreaScrollbar orientation="vertical" />
     <ScrollAreaScrollbar orientation="horizontal" />
     <ScrollAreaCorner />
   </ScrollAreaRoot>
