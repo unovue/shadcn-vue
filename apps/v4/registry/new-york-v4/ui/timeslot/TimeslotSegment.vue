@@ -43,14 +43,10 @@ watch(selectedOption, (selectedOption) => {
   model.value = selectedOption
 })
 
-const commonSegmentItemOptions = computed(() => {
-  return {
-    ref: elements.value?.set,
-    onSelect(target) {
-      return onItemClick(target)
-    },
-  } satisfies Pick<TimeslotSegmentItemSlotProps<T>, "ref" | "onSelect">
-})
+const commonSegmentItemOptions = {
+  ref: el => elements.value?.set(el),
+  onSelect: target => onItemClick(target),
+} satisfies Pick<TimeslotSegmentItemSlotProps<T>, "ref" | "onSelect">
 
 const segmentItems: ComputedRef<TimeslotSegmentItemSlotProps<T>[]> = computed(() => {
   const uniqueOptions = new Set(props.options)
@@ -58,7 +54,7 @@ const segmentItems: ComputedRef<TimeslotSegmentItemSlotProps<T>[]> = computed(()
 
   return [...uniqueOptions].toSorted((a, b) => a - b).map((value) => {
     return {
-      ...commonSegmentItemOptions.value,
+      ...commonSegmentItemOptions,
       value,
       readonly: isReadonlyItem(value),
       selected: selectedValue === value,
