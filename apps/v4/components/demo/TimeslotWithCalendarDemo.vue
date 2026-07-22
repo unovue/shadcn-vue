@@ -54,10 +54,8 @@ function formatDateTime(value: DateValue) {
   })
 }
 
-const disabledHours = [11, 13]
-
 const isReadonlyItem: TimeslotItemMatcher<TimeslotSegmentPart> = {
-  hour: value => disabledHours.includes(value),
+  hour: value => [11, 13, 16].includes(value),
   minute: (_, state) => !!(state?.hour && isReadonlyItem.hour?.(state.hour)),
 }
 
@@ -115,7 +113,7 @@ const hourCycle = computed(() => {
             Meeting will start <b>{{ formatDateTime(dateTime) }}</b>.
           </p>
           <p v-else>
-            Selected timeslot is unavailable.
+            Valid timeslot is not selected.
           </p>
         </div>
       </div>
