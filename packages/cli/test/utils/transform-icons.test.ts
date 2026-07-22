@@ -179,7 +179,7 @@ import {
     expect(result).toContain('PhCircleNotch')
     expect(result).toContain('PhXCircle')
     expect(result).toContain('PhWarning')
-    expect(result).toContain('PhX')
+    expect(result).toMatch(/\bPhX\b/)
     expect(result).not.toContain('@lucide/vue')
     expect(result).not.toMatch(/\b(?:ChevronsLeft|ChevronsRight|CircleCheck|Info|Loader2|OctagonX|TriangleAlert|X)Icon\b/)
   })
