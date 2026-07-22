@@ -87,12 +87,7 @@ const selectedEntry = computed(() => {
 })
 
 function onItemClick(target: HTMLElement) {
-  const scrollContainer = scrollArea.value?.$el
-
-  const top = target.offsetTop - (scrollContainer.clientHeight - target.clientHeight) / 2
-  const left = target.offsetLeft - (scrollContainer.clientWidth - target.clientWidth) / 2
-
-  scrollArea.value?.scrollTo({ top, left })
+  scrollArea.value?.scrollToElement(target)
 }
 
 function isReadonlyItem(value: T) {

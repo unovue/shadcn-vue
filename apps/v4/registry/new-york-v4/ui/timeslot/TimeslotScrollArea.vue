@@ -47,12 +47,17 @@ function onScrollEnd() {
 
 const viewport = useTemplateRef("viewport")
 
-function scrollTo(options: ScrollToOptions) {
-  viewport.value?.viewportElement?.scrollTo(options)
+function scrollToElement(target: HTMLElement) {
+  const scrollViewport = viewport.value?.viewportElement
+  if (!scrollViewport)
+    return
+  const top = target.offsetTop - (scrollViewport.clientHeight - target.clientHeight) / 2
+  const left = target.offsetLeft - (scrollViewport.clientWidth - target.clientWidth) / 2
+  scrollViewport.scrollTo({ top, left })
 }
 
 defineExpose({
-  scrollTo,
+  scrollToElement,
 })
 </script>
 
