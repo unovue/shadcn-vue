@@ -112,30 +112,31 @@ phosphor name is validated against the installed `@phosphor-icons/vue` package**
 An optional `phosphor-overrides.json` handles any icon whose real export name breaks the
 rule; empty to start.
 
-### 3. Radix: legacy layer (no placeholder source)
+### 3. Radix: legacy-only, not generated (matches upstream)
 
-`radix` (`@radix-icons/vue`) is a selectable CLI icon library, but the showcase
-`IconPlaceholder` has **no `radix` prop** — so radix mappings have no source of truth in
-bases and cannot be generated. Dropping them would break radix users.
+**Radix is not a generatable library.** Upstream treats it as legacy-only, and we mirror
+that exactly. Verified against upstream:
 
-Resolution (mirrors upstream's own design): keep a small hand-maintained
-`apps/v4/registry/icons/legacy-mapping.json` merged into the generated map. Upstream does
-exactly this — its `generateIconMapping` reads `registry/icons/legacy-mapping.json` first
-"with their lucide/radix values untouched" as a published-CLI compatibility contract, then
-layers the scanned mapping on top.
+- Upstream's current `iconLibraries` = lucide, tabler, hugeicons, phosphor, remixicon —
+  **radix is not listed** and there is no `__radix__.ts`.
+- Radix survives upstream **solely** as back-compat data in
+  `registry/icons/legacy-mapping.json` (entries like `"AlertCircle": { "radix": "..." }`),
+  merged first as a published-CLI compatibility contract, never generated from placeholders.
 
-For shadcn-vue this legacy layer holds:
-- `radix` values for every canonical (the only library with no placeholder source), and
-- any back-compat entries we choose to pin.
+shadcn-vue currently *does* still list `radix` in the CLI's `ICON_LIBRARIES`
+(`@radix-icons/vue`) and carries radix values in the hand-maintained map, so to avoid
+breaking existing radix users we keep radix working — but **only via a legacy layer**, not
+generation:
 
-Merge order: legacy entries first (order-preserving), scanned entries layered on top for
-the five generatable libraries. Radix is never overwritten by the scan (the scan produces
-no radix values).
+- Seed `apps/v4/registry/icons/legacy-mapping.json` from the current map's radix values.
+- The generator merges legacy entries first (order-preserving), then layers the scanned
+  five-library mappings on top. The scan never produces radix values, so radix is never
+  overwritten and never required to exist in a placeholder.
+- `radix` is **not** added to `IconPlaceholder` and **not** added to the 166 base files.
 
-**Alternative considered:** add a `radix` prop to `IconPlaceholder` and to all 166 base
-files, making radix fully generated. Rejected for now — large mechanical change, the
-showcase does not render radix anyway, and the legacy layer is the upstream-faithful path.
-Revisit only if radix showcase support is added.
+**Explicitly out of scope:** removing `radix` from `ICON_LIBRARIES` entirely (fully
+matching upstream's "radix isn't a library" stance) is a separate, potentially breaking CLI
+change and is not part of this work.
 
 ### 4. Coverage assertion (shadcn-vue's extra registry)
 
@@ -145,6 +146,11 @@ generated map (applying the same `Icon`-suffix tolerance the CLI transform uses:
 `ChevronDownIcon` resolves via `ChevronDown`). A missing icon **fails the build** with a
 message naming the file and instructing the author to add the icon to the relevant base's
 `IconPlaceholder`.
+
+The assertion guarantees coverage for the **five generatable libraries** only. `radix` is
+best-effort via the legacy layer — a newly added icon gets lucide/tabler/hugeicons/phosphor/
+remixicon from the scan but no radix value unless one is pinned in `legacy-mapping.json`.
+This matches upstream, which does not guarantee radix for new icons.
 
 This reproduces upstream's structural guarantee across both registries. Fixing #1893
 becomes a *consequence*: the six icons already exist in base placeholders (verified —
@@ -214,8 +220,8 @@ new-york-v4/ui/** (raw @lucide/vue) ──asserted-covered-by──► index.jso
 
 ## Migration / rollout
 
-1. Land `legacy-mapping.json` seeded from the current `index.json` radix values (+ any
-   values we choose to pin).
+1. Land `legacy-mapping.json` seeded from the current `index.json` radix values (radix is
+   legacy-only; see §3) plus any values we choose to pin for back-compat.
 2. Add `build-icons.ts`; wire it into the registry build **before** the styles/registry
    build that consumes the map, plus an npm script for local runs.
 3. Run it; diff generated vs committed `index.json`; review and reconcile every delta.
@@ -225,12 +231,15 @@ new-york-v4/ui/** (raw @lucide/vue) ──asserted-covered-by──► index.jso
 5. Add the CI staleness + assertion + validation gates.
 6. Confirm #1893's six icons resolve correctly end-to-end for phosphor.
 
-## Open decisions for reviewer
+## Resolved decisions
 
-1. **Radix:** legacy layer (recommended, upstream-faithful) vs. adding a `radix` prop to
-   `IconPlaceholder` + all bases (full generation, larger). Design assumes legacy layer.
-2. **`__*__.ts` regeneration:** regenerate them in the same pass (recommended — removes the
-   stale "auto-generated" header, one scan) vs. leave them untouched and generate only
-   `index.json`. Design assumes regenerate.
-3. **#1894:** with generation in place the hand-patch is unnecessary. Close it, or cherry-
-   pick nothing (the icons already exist in bases). Sequencing was deferred earlier.
+1. **Radix — legacy-only, not generated.** Confirmed against upstream: radix is not a
+   generatable library there (absent from `iconLibraries`, present only in
+   `legacy-mapping.json`). shadcn-vue keeps radix working via the legacy layer, does not add
+   it to placeholders, and does not generate it. Fully removing radix as a CLI option is out
+   of scope. (§3)
+2. **Regenerate the `__*__.ts` files** in the same pass — removes the stale "auto-generated"
+   header lie and keeps a single scan as the source of truth.
+3. **#1894 — ignore for now.** With generation in place the hand-patch is unnecessary (the
+   six icons already exist in base placeholders and flow into the generated map). Its
+   disposition is deferred; not addressed by this work.
