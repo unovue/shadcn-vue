@@ -189,12 +189,15 @@ new-york-v4/ui/** (raw @lucide/vue) ──asserted-covered-by──► index.jso
 
 ## Edge cases & risks
 
-- **Drift reconciliation.** Regenerating changes some current values (e.g.
-  `Loader2 -> PhCircleNotch` becomes `PhSpinnerGap`, matching the showcase). These are
-  intentional corrections but are behavior changes for existing users. Mitigation: diff
-  generated-vs-committed map, review every delta, and document intentional changes in the
-  PR. Where a legacy value must be preserved for compatibility, pin it in
-  `legacy-mapping.json`.
+- **Drift is preserved, not silently changed.** Upstream's merge makes **legacy values win**
+  — the scan only *fills libraries a legacy entry lacks*. Seeding `legacy-mapping.json` from
+  the current `index.json` therefore preserves every currently-published value (e.g.
+  `Loader2 -> phosphor PhCircleNotch` stays, even though the base declares `SpinnerGap`), so
+  existing users see no behavior change; the scan only *adds* the missing `hugeicons` values
+  and brand-new icons. To intentionally re-derive a drifted value from the base instead,
+  omit that entry (or that library key) from `legacy-mapping.json`. Mitigation for the
+  migration: diff generated-vs-committed map and confirm the result is a superset for every
+  currently-used icon.
 - **Phosphor rule breakage.** If a phosphor icon's real export doesn't follow
   `Ph` + stripped-name, §5 validation catches it; `phosphor-overrides.json` resolves it.
 - **`.vue` parsing.** Placeholder attributes span multiple lines in some bases; use the
