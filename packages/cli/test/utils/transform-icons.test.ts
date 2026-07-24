@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { transform as metaTransform } from 'vue-metamorph'
+import registryIcons from '../../../../apps/v4/public/r/icons/index.json'
 import { transform } from '../../src/utils/transformers'
 import { transformIcons } from '../../src/utils/transformers/transform-icons'
 
@@ -136,6 +137,51 @@ import { Primitive } from 'reka-ui'
     expect(result).not.toContain('@lucide/vue')
     expect(result).not.toContain('CheckIcon')
     expect(result).not.toContain('ChevronDownIcon')
+  })
+
+  it('transforms pagination and sonner icons to phosphor', () => {
+    const source = `<script lang="ts" setup>
+import {
+  ChevronsLeftIcon,
+  ChevronsRightIcon,
+  CircleCheckIcon,
+  InfoIcon,
+  Loader2Icon,
+  OctagonXIcon,
+  TriangleAlertIcon,
+  XIcon,
+} from '@lucide/vue'
+</script>
+
+<template>
+  <ChevronsLeftIcon />
+  <ChevronsRightIcon />
+  <CircleCheckIcon />
+  <InfoIcon />
+  <Loader2Icon />
+  <OctagonXIcon />
+  <TriangleAlertIcon />
+  <XIcon />
+</template>
+`
+    const result = metaTransform(source, 'app.vue', [
+      transformIcons(
+        { filename: 'app.vue', raw: source, config: { iconLibrary: 'phosphor' } },
+        registryIcons,
+      ),
+    ]).code
+
+    expect(result).toContain('@phosphor-icons/vue')
+    expect(result).toContain('PhCaretDoubleLeft')
+    expect(result).toContain('PhCaretDoubleRight')
+    expect(result).toContain('PhCheckCircle')
+    expect(result).toContain('PhInfo')
+    expect(result).toContain('PhCircleNotch')
+    expect(result).toContain('PhXCircle')
+    expect(result).toContain('PhWarning')
+    expect(result).toMatch(/\bPhX\b/)
+    expect(result).not.toContain('@lucide/vue')
+    expect(result).not.toMatch(/\b(?:ChevronsLeft|ChevronsRight|CircleCheck|Info|Loader2|OctagonX|TriangleAlert|X)Icon\b/)
   })
 
   it('does nothing', async () => {
