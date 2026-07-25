@@ -41,3 +41,7 @@ jobs:
 
       - name: Test
         run: pnpm test
+
+      - name: Check icon map is up to date
+        working-directory: ./apps/v4
+        run: pnpm registry:check:icons
