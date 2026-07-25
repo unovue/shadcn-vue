@@ -7,6 +7,7 @@ import { rimraf } from 'rimraf'
 import { getAllBlocks } from '@/lib/blocks'
 import { registry } from '@/registry/index'
 import { ui } from '~/registry/new-york-v4/ui/_registry'
+import { buildIcons } from './build-icons'
 import { crawlBlock, crawlChart, crawlComposables, crawlExample, crawlLib, crawlUI } from './crawl-content'
 import { buildStyles } from './lib/build-styles'
 import { buildStylesRegistry } from './lib/build-styles-registry'
@@ -407,6 +408,10 @@ async function main() {
   try {
     // eslint-disable-next-line no-console
     console.log('🚀 Starting dynamic registry build...\n')
+
+    // eslint-disable-next-line no-console
+    console.log('🎨 Generating icon map from IconPlaceholder bases...')
+    await buildIcons()
 
     // Process each base in the configuration
     for (const base of registryConfig) {

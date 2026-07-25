@@ -12,6 +12,7 @@
     "typecheck": "vue-tsc -b",
     "deploy": "pnpm build && npx tsx ./scripts/seed-d1.ts && npx wrangler --cwd .output/ deploy && npx tsx ./scripts/purge-cache.ts",
     "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts && pnpm registry:build:index",
+    "registry:build:icons": "tsx --tsconfig ./tsconfig.json ./scripts/build-icons.ts",
     "registry:build:index": "tsx --tsconfig ./tsconfig.json ./scripts/build-registries-index.ts",
     "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts"
   },
