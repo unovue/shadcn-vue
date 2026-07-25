@@ -101,6 +101,22 @@
     "remixicon": "RiArrowUpSLine",
     "hugeicons": "ArrowUp01Icon"
   },
+  "ChevronsLeft": {
+    "lucide": "ChevronsLeftIcon",
+    "radix": "DoubleArrowLeftIcon",
+    "tabler": "IconChevronsLeft",
+    "hugeicons": "ArrowLeftDoubleIcon",
+    "phosphor": "PhCaretDoubleLeft",
+    "remixicon": "RiArrowLeftDoubleLine"
+  },
+  "ChevronsRight": {
+    "lucide": "ChevronsRightIcon",
+    "radix": "DoubleArrowRightIcon",
+    "tabler": "IconChevronsRight",
+    "hugeicons": "ArrowRightDoubleIcon",
+    "phosphor": "PhCaretDoubleRight",
+    "remixicon": "RiArrowRightDoubleLine"
+  },
   "ChevronsUpDown": {
     "lucide": "ChevronsUpDown",
     "radix": "CaretSortIcon",
@@ -116,6 +132,14 @@
     "phosphor": "PhCircle",
     "remixicon": "RiCircleLine",
     "hugeicons": "CircleIcon"
+  },
+  "CircleCheck": {
+    "lucide": "CircleCheckIcon",
+    "radix": "CheckCircledIcon",
+    "tabler": "IconCircleCheck",
+    "hugeicons": "CheckmarkCircle01Icon",
+    "phosphor": "PhCheckCircle",
+    "remixicon": "RiCheckboxCircleLine"
   },
   "Copy": {
     "lucide": "Copy",
@@ -139,6 +163,14 @@
     "tabler": "IconGripVertical",
     "phosphor": "PhDotsSixVertical",
     "remixicon": "RiDraggable"
+  },
+  "Info": {
+    "lucide": "InfoIcon",
+    "radix": "InfoCircledIcon",
+    "tabler": "IconInfoCircle",
+    "hugeicons": "InformationCircleIcon",
+    "phosphor": "PhInfo",
+    "remixicon": "RiInformationLine"
   },
   "Italic": {
     "lucide": "Italic",
@@ -194,6 +226,14 @@
     "phosphor": "PhDotsThree",
     "remixicon": "RiMoreLine",
     "hugeicons": "MoreHorizontalCircle01Icon"
+  },
+  "OctagonX": {
+    "lucide": "OctagonXIcon",
+    "radix": "CrossCircledIcon",
+    "tabler": "IconOctagonOff",
+    "hugeicons": "CancelCircleIcon",
+    "phosphor": "PhXCircle",
+    "remixicon": "RiCloseCircleLine"
   },
   "PanelLeft": {
     "lucide": "PanelLeft",
@@ -264,6 +304,14 @@
     "tabler": "IconTerminal",
     "phosphor": "PhTerminal",
     "remixicon": "RiTerminalBoxLine"
+  },
+  "TriangleAlert": {
+    "lucide": "TriangleAlertIcon",
+    "radix": "ExclamationTriangleIcon",
+    "tabler": "IconAlertTriangle",
+    "hugeicons": "Alert02Icon",
+    "phosphor": "PhWarning",
+    "remixicon": "RiAlertLine"
   },
   "Underline": {
     "lucide": "Underline",
@@ -446,27 +494,6 @@
   "CheckCircle2Icon": {
     "lucide": "CheckCircle2Icon",
     "tabler": "IconCircleCheckFilled",
-    "hugeicons": "CheckmarkCircle02Icon",
-    "phosphor": "PhCheckCircle",
-    "remixicon": "RiCheckboxCircleLine"
-  },
-  "ChevronsLeftIcon": {
-    "lucide": "ChevronsLeftIcon",
-    "tabler": "IconChevronsLeft",
-    "hugeicons": "ArrowLeftDoubleIcon",
-    "phosphor": "PhCaretDoubleLeft",
-    "remixicon": "RiArrowLeftDoubleLine"
-  },
-  "ChevronsRightIcon": {
-    "lucide": "ChevronsRightIcon",
-    "tabler": "IconChevronsRight",
-    "hugeicons": "ArrowRightDoubleIcon",
-    "phosphor": "PhCaretDoubleRight",
-    "remixicon": "RiArrowRightDoubleLine"
-  },
-  "CircleCheckIcon": {
-    "lucide": "CircleCheckIcon",
-    "tabler": "IconCircleCheck",
     "hugeicons": "CheckmarkCircle02Icon",
     "phosphor": "PhCheckCircle",
     "remixicon": "RiCheckboxCircleLine"
@@ -688,13 +715,6 @@
     "phosphor": "PhTray",
     "remixicon": "RiInboxLine"
   },
-  "InfoIcon": {
-    "lucide": "InfoIcon",
-    "tabler": "IconInfoCircle",
-    "hugeicons": "AlertCircleIcon",
-    "phosphor": "PhInfo",
-    "remixicon": "RiInformationLine"
-  },
   "KeyboardIcon": {
     "lucide": "KeyboardIcon",
     "tabler": "IconKeyboard",
@@ -813,13 +833,6 @@
     "hugeicons": "Cursor01Icon",
     "phosphor": "PhHandPointing",
     "remixicon": "RiHand"
-  },
-  "OctagonXIcon": {
-    "lucide": "OctagonXIcon",
-    "tabler": "IconOctagonOff",
-    "hugeicons": "CancelCircleIcon",
-    "phosphor": "PhXCircle",
-    "remixicon": "RiCloseCircleLine"
   },
   "PaletteIcon": {
     "lucide": "PaletteIcon",
@@ -995,13 +1008,6 @@
     "hugeicons": "AnalyticsUpIcon",
     "phosphor": "PhTrendUp",
     "remixicon": "RiLineChartLine"
-  },
-  "TriangleAlertIcon": {
-    "lucide": "TriangleAlertIcon",
-    "tabler": "IconAlertTriangle",
-    "hugeicons": "Alert02Icon",
-    "phosphor": "PhWarning",
-    "remixicon": "RiAlertLine"
   },
   "UploadCloudIcon": {
     "lucide": "UploadCloudIcon",

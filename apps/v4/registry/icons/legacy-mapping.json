@@ -90,6 +90,22 @@
     "phosphor": "PhCaretUp",
     "remixicon": "RiArrowUpSLine"
   },
+  "ChevronsLeft": {
+    "lucide": "ChevronsLeftIcon",
+    "radix": "DoubleArrowLeftIcon",
+    "tabler": "IconChevronsLeft",
+    "hugeicons": "ArrowLeftDoubleIcon",
+    "phosphor": "PhCaretDoubleLeft",
+    "remixicon": "RiArrowLeftDoubleLine"
+  },
+  "ChevronsRight": {
+    "lucide": "ChevronsRightIcon",
+    "radix": "DoubleArrowRightIcon",
+    "tabler": "IconChevronsRight",
+    "hugeicons": "ArrowRightDoubleIcon",
+    "phosphor": "PhCaretDoubleRight",
+    "remixicon": "RiArrowRightDoubleLine"
+  },
   "ChevronsUpDown": {
     "lucide": "ChevronsUpDown",
     "radix": "CaretSortIcon",
@@ -103,6 +119,14 @@
     "tabler": "IconCircle",
     "phosphor": "PhCircle",
     "remixicon": "RiCircleLine"
+  },
+  "CircleCheck": {
+    "lucide": "CircleCheckIcon",
+    "radix": "CheckCircledIcon",
+    "tabler": "IconCircleCheck",
+    "hugeicons": "CheckmarkCircle01Icon",
+    "phosphor": "PhCheckCircle",
+    "remixicon": "RiCheckboxCircleLine"
   },
   "Copy": {
     "lucide": "Copy",
@@ -124,6 +148,14 @@
     "tabler": "IconGripVertical",
     "phosphor": "PhDotsSixVertical",
     "remixicon": "RiDraggable"
+  },
+  "Info": {
+    "lucide": "InfoIcon",
+    "radix": "InfoCircledIcon",
+    "tabler": "IconInfoCircle",
+    "hugeicons": "InformationCircleIcon",
+    "phosphor": "PhInfo",
+    "remixicon": "RiInformationLine"
   },
   "Italic": {
     "lucide": "Italic",
@@ -173,6 +205,14 @@
     "tabler": "IconDots",
     "phosphor": "PhDotsThree",
     "remixicon": "RiMoreLine"
+  },
+  "OctagonX": {
+    "lucide": "OctagonXIcon",
+    "radix": "CrossCircledIcon",
+    "tabler": "IconOctagonOff",
+    "hugeicons": "CancelCircleIcon",
+    "phosphor": "PhXCircle",
+    "remixicon": "RiCloseCircleLine"
   },
   "PanelLeft": {
     "lucide": "PanelLeft",
@@ -236,6 +276,14 @@
     "tabler": "IconTerminal",
     "phosphor": "PhTerminal",
     "remixicon": "RiTerminalBoxLine"
+  },
+  "TriangleAlert": {
+    "lucide": "TriangleAlertIcon",
+    "radix": "ExclamationTriangleIcon",
+    "tabler": "IconAlertTriangle",
+    "hugeicons": "Alert02Icon",
+    "phosphor": "PhWarning",
+    "remixicon": "RiAlertLine"
   },
   "Underline": {
     "lucide": "Underline",
