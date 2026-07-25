@@ -74,4 +74,6 @@ it('findUncovered: bridges suffix in both directions', () => {
   assert.deepEqual(findUncovered(mapping, ['ChevronsLeftIcon']), []) // key unsuffixed, use suffixed
   assert.deepEqual(findUncovered(mapping, ['CircleCheckIcon']), []) // exact
   assert.deepEqual(findUncovered(mapping, ['GripVertical']), ['GripVertical'])
+  assert.deepEqual(findUncovered({ CircleCheckIcon: {} }, ['CircleCheck']), []) // use unsuffixed, key suffixed
+  assert.deepEqual(findUncovered({}, ['Zeta', 'Alpha', 'Alpha']), ['Alpha', 'Zeta']) // dedup and sort
 })
