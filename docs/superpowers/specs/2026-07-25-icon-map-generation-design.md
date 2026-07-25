@@ -168,11 +168,18 @@ checking membership. Validation failure fails the build.
 
 ### Outputs
 
-- `apps/v4/public/r/icons/index.json` — the CLI map (generated; git-tracked artifact).
-- `apps/v4/registry/icons/__{lucide,tabler,hugeicons,phosphor,remixicon}__.ts` —
-  regenerated, so the "Auto-generated" header stops being a lie.
+- `apps/v4/public/r/icons/index.json` — the CLI map (generated; git-tracked artifact). **This
+  is the only file the generator writes** (see amendment below).
 - Console warnings (missing-lucide, conflicts) and hard failures (uncovered icon, invalid
   package name).
+
+> **Post-implementation amendment (see Resolved decisions #2):** the generator does **not**
+> regenerate the `__{lucide,…}__.ts` re-export files. Those files feed the showcase's runtime
+> icon loader (`create-icon-loader.ts`) and must remain a *superset* that also includes icons
+> rendered via dynamic `:lucide="…"` data-array bindings — which the placeholder scan (and the
+> CLI map) deliberately excludes. Regenerating them from static-placeholder usage dropped 43
+> lucide icons the showcase renders at runtime. They stay showcase-maintained; the generator
+> touches `index.json` only.
 
 ## Data flow
 
@@ -241,8 +248,13 @@ new-york-v4/ui/** (raw @lucide/vue) ──asserted-covered-by──► index.jso
    `legacy-mapping.json`). shadcn-vue keeps radix working via the legacy layer, does not add
    it to placeholders, and does not generate it. Fully removing radix as a CLI option is out
    of scope. (§3)
-2. **Regenerate the `__*__.ts` files** in the same pass — removes the stale "auto-generated"
-   header lie and keeps a single scan as the source of truth.
+2. ~~**Regenerate the `__*__.ts` files** in the same pass~~ — **REVERSED during implementation.**
+   Regenerating them from static-placeholder usage dropped 43 lucide icons (and similar in the
+   other libraries) that the showcase renders at runtime via dynamic `:lucide` data-array
+   bindings (loaded through `create-icon-loader.ts`) — a real regression. The `__*__.ts` files
+   are a showcase-maintained *superset* that the placeholder scan cannot reproduce. Final
+   design: **the generator writes only `index.json`; the `__*__.ts` files are left untouched.**
+   (The stale "Auto-generated" header they carry is pre-existing tech debt, out of scope here.)
 3. **#1894 — ignore for now.** With generation in place the hand-patch is unnecessary (the
    six icons already exist in base placeholders and flow into the generated map). Its
    disposition is deferred; not addressed by this work.

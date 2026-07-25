@@ -6,7 +6,12 @@
 
 **Architecture:** Port upstream shadcn-ui's `scripts/build-icons.ts` (which shadcn-vue never ported), adapting the scanner from React `.tsx` to Vue `.vue` SFCs. A generator scans `registry/bases/reka/**` for `IconPlaceholder` elements, derives a `canonical -> { library: name }` mapping, merges a hand-maintained `legacy-mapping.json` layer (radix + back-compat, legacy values win), validates every generated name against its installed package, and asserts the raw-lucide `new-york-v4` registry is fully covered. Outputs are committed artifacts regenerated on every registry build.
 
-**Tech Stack:** TypeScript, `tsx` (script runner), `node:test` + `node:assert/strict` (tests), `node:fs`, regex-based SFC scanning (mirrors upstream), the five icon packages (`@lucide/vue`, `@tabler/icons-vue`, `@hugeicons/core-free-icons`, `@phosphor-icons/vue`, `@remixicon/vue`).
+**Tech Stack:** TypeScript, `tsx` (script runner), **vitest** (tests — the repo lint standard rewrites `node:test` imports to vitest; run `npx vitest run scripts/build-icons.test.ts` from `apps/v4`), `node:fs`, regex-based SFC scanning (mirrors upstream), the five icon packages (`@lucide/vue`, `@tabler/icons-vue`, `@hugeicons/core-free-icons`, `@phosphor-icons/vue`, `@remixicon/vue`).
+
+> **Implementation amendments (applied during execution — these override the task text below where they conflict):**
+> 1. **Tests run via vitest**, not `tsx --test` (repo lint auto-converts `node:test` → vitest). Every task's test command is `npx vitest run scripts/build-icons.test.ts` from `apps/v4`.
+> 2. **The generator writes ONLY `index.json`.** Task 3's `renderIconFile` and the `__*__.ts` generation in Task 8 were removed: regenerating the loader files dropped 43 lucide icons the showcase renders via dynamic `:lucide` data bindings (loaded by `create-icon-loader.ts`). The `__*__.ts` files stay showcase-maintained. Task 11's staleness gate therefore checks **only** `public/r/icons/index.json`.
+> 3. **Integration fixes folded into Task 8:** the scanner skips Vue dynamic bindings (`:lucide=`/`v-bind:lucide=`) via a negative lookbehind, and five pre-existing invalid icon names in base `blocks/`/`examples/` files were corrected to real package exports (surfaced by the validation gate).
 
 ## Global Constraints
 
