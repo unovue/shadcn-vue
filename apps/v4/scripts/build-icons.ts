@@ -9,7 +9,6 @@ import {
   GENERATABLE_LIBRARIES,
   LIBRARY_EXPORT,
   mergeLegacy,
-  renderIconFile,
 } from './build-icons.helpers'
 
 const PLACEHOLDER_RE = /<IconPlaceholder\b([^>]*?)\/?>/g
@@ -90,7 +89,7 @@ export async function buildIcons(opts: { verbose?: boolean } = {}): Promise<void
   for (const file of await listVue(BASES_DIR)) {
     records.push(...scanPlaceholders(await readFile(file, 'utf8')))
   }
-  const { mapping: scanned, usage, warnings } = buildMappingFromRecords(records)
+  const { mapping: scanned, warnings } = buildMappingFromRecords(records)
 
   // 2. merge legacy (legacy wins, scan fills gaps)
   const legacy: IconMapping = JSON.parse(await readFile(LEGACY_PATH, 'utf8'))
@@ -112,14 +111,8 @@ export async function buildIcons(opts: { verbose?: boolean } = {}): Promise<void
     )
   }
 
-  // 5. write outputs
+  // 5. write output
   await writeIfChanged(MAP_OUT, `${JSON.stringify(merged, null, 2)}\n`)
-  for (const library of GENERATABLE_LIBRARIES) {
-    const names = [...usage[library]]
-    if (names.length === 0)
-      continue
-    await writeIfChanged(join(ICONS_OUT_DIR, `__${library}__.ts`), renderIconFile(library as Library, names))
-  }
 
   console.log(`✓ Icon map: ${Object.keys(merged).length} icons (${Object.keys(legacy).length} legacy)`)
   if (warnings.length) {
