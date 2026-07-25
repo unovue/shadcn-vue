@@ -138,7 +138,7 @@ const theme = ref("light")
                     tabler="IconFolderSearch"
                     hugeicons="SearchIcon"
                     phosphor="FolderSimpleDottedIcon"
-                    remixicon="RiFolderSearchLine"
+                    remixicon="RiSearchLine"
                   />
                   Browse...
                 </DropdownMenuItem>

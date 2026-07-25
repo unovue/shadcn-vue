@@ -750,7 +750,7 @@ const contributors = [
                 <IconPlaceholder
                   lucide="StarIcon"
                   tabler="IconStar"
-                  hugeicons="Star01Icon"
+                  hugeicons="StarIcon"
                   phosphor="StarIcon"
                   remixicon="RiStarLine"
                 />

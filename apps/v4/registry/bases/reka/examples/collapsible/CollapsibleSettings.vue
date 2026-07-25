@@ -79,7 +79,7 @@ const isOpen = ref(false)
                 tabler="IconMaximize"
                 hugeicons="PlusSignIcon"
                 phosphor="ArrowsOutIcon"
-                remixicon="RiExpandLine"
+                remixicon="RiFullscreenLine"
               />
             </Button>
           </CollapsibleTrigger>

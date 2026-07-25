@@ -107,7 +107,7 @@ import { Example } from "~/registry/bases/reka/components/example"
             <IconPlaceholder
               lucide="PlayIcon"
               tabler="IconPlayerPlay"
-              hugeicons="Play01Icon"
+              hugeicons="PlayIcon"
               phosphor="PlayIcon"
               remixicon="RiPlayLine"
             />
