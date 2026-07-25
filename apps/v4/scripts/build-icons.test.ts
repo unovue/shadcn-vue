@@ -77,3 +77,31 @@ it('findUncovered: bridges suffix in both directions', () => {
   assert.deepEqual(findUncovered({ CircleCheckIcon: {} }, ['CircleCheck']), []) // use unsuffixed, key suffixed
   assert.deepEqual(findUncovered({}, ['Zeta', 'Alpha', 'Alpha']), ['Alpha', 'Zeta']) // dedup and sort
 })
+
+import { scanPlaceholders } from './build-icons'
+
+it('scanPlaceholders: extracts multi-line placeholder attributes', () => {
+  const sfc = `<template>
+  <IconPlaceholder
+    lucide="ChevronsLeftIcon"
+    tabler="IconChevronsLeft"
+    hugeicons="ArrowLeftDoubleIcon"
+    phosphor="CaretDoubleLeftIcon"
+    remixicon="RiArrowLeftDoubleLine"
+    data-icon="inline-start"
+  />
+</template>`
+  const records = scanPlaceholders(sfc)
+  assert.equal(records.length, 1)
+  assert.deepEqual(records[0], {
+    lucide: 'ChevronsLeftIcon',
+    tabler: 'IconChevronsLeft',
+    hugeicons: 'ArrowLeftDoubleIcon',
+    phosphor: 'CaretDoubleLeftIcon',
+    remixicon: 'RiArrowLeftDoubleLine',
+  })
+})
+
+it('scanPlaceholders: ignores non-IconPlaceholder elements', () => {
+  assert.deepEqual(scanPlaceholders('<template><ChevronLeftIcon /></template>'), [])
+})
