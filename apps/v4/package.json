@@ -8,12 +8,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "tsx scripts/lib/command-item-tailwind.test.ts",
+    "test": "tsx scripts/lib/command-item-tailwind.test.ts && vitest run scripts/build-icons.test.ts",
     "typecheck": "vue-tsc -b",
     "deploy": "pnpm build && npx tsx ./scripts/seed-d1.ts && npx wrangler --cwd .output/ deploy && npx tsx ./scripts/purge-cache.ts",
     "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts && pnpm registry:build:index",
+    "registry:build:icons": "tsx --tsconfig ./tsconfig.json ./scripts/build-icons.ts",
     "registry:build:index": "tsx --tsconfig ./tsconfig.json ./scripts/build-registries-index.ts",
-    "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts"
+    "registry:generate": "tsx --tsconfig ./tsconfig.json ./scripts/generate-base-registry.ts",
+    "registry:check:icons": "tsx scripts/build-icons.ts && git diff --exit-code public/r/icons/index.json"
   },
   "dependencies": {
     "@dnd-kit/abstract": "^0.1.21",

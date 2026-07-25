@@ -12,7 +12,7 @@ import { Example } from "~/registry/bases/reka/components/example"
         <IconPlaceholder
           lucide="HeartIcon"
           tabler="IconHeart"
-          hugeicons="HeartIcon"
+          hugeicons="FavouriteIcon"
           phosphor="HeartIcon"
           remixicon="RiHeartLine"
           data-icon="inline-start"

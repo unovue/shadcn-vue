@@ -200,7 +200,7 @@ function getStrokePercent(percentage: number) {
         <InputGroup class="lg:ml-auto lg:max-w-72">
           <InputGroupAddon>
             <IconPlaceholder
-              lucide="Search"
+              lucide="SearchIcon"
               tabler="IconSearch"
               hugeicons="Search01Icon"
               phosphor="MagnifyingGlassIcon"
