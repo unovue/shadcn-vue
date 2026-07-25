@@ -78,7 +78,7 @@ it('findUncovered: bridges suffix in both directions', () => {
   assert.deepEqual(findUncovered({}, ['Zeta', 'Alpha', 'Alpha']), ['Alpha', 'Zeta']) // dedup and sort
 })
 
-import { scanPlaceholders } from './build-icons'
+import { scanPlaceholders, validateNames } from './build-icons'
 
 it('scanPlaceholders: extracts multi-line placeholder attributes', () => {
   const sfc = `<template>
@@ -104,4 +104,12 @@ it('scanPlaceholders: extracts multi-line placeholder attributes', () => {
 
 it('scanPlaceholders: ignores non-IconPlaceholder elements', () => {
   assert.deepEqual(scanPlaceholders('<template><ChevronLeftIcon /></template>'), [])
+})
+
+it('validateNames: real names pass, bogus name fails', async () => {
+  const ok = await validateNames({ X: { phosphor: 'PhX', tabler: 'IconX', radix: 'Cross2Icon' } })
+  assert.deepEqual(ok, []) // radix skipped; PhX and IconX are real
+  const bad = await validateNames({ Nope: { phosphor: 'PhTotallyNotAnIcon' } })
+  assert.equal(bad.length, 1)
+  assert.ok(bad[0].includes('PhTotallyNotAnIcon'))
 })
