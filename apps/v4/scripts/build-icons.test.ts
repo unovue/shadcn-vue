@@ -106,6 +106,17 @@ it('scanPlaceholders: ignores non-IconPlaceholder elements', () => {
   assert.deepEqual(scanPlaceholders('<template><ChevronLeftIcon /></template>'), [])
 })
 
+it('scanPlaceholders: skips Vue dynamic bindings (v-bind shorthand and data- attrs)', () => {
+  assert.deepEqual(
+    scanPlaceholders('<IconPlaceholder :lucide="x.lucide" :tabler="x.tabler" />'),
+    [],
+  )
+  assert.deepEqual(
+    scanPlaceholders('<IconPlaceholder lucide="XIcon" :tabler="x.t" />'),
+    [{ lucide: 'XIcon' }],
+  )
+})
+
 it('validateNames: real names pass, bogus name fails', async () => {
   const ok = await validateNames({ X: { phosphor: 'PhX', tabler: 'IconX', radix: 'Cross2Icon' } })
   assert.deepEqual(ok, []) // radix skipped; PhX and IconX are real

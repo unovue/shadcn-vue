@@ -20,7 +20,7 @@ export function scanPlaceholders(source: string): PlaceholderRecord[] {
     const attrs = match[1]
     const record: PlaceholderRecord = {}
     for (const library of GENERATABLE_LIBRARIES) {
-      const attr = attrs.match(new RegExp(`\\b${library}=["']([^"']+)["']`))
+      const attr = attrs.match(new RegExp(`(?<![:\\w-])${library}=["']([^"']+)["']`))
       if (attr)
         record[library] = attr[1]
     }
