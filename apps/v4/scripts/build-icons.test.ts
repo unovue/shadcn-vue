@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { it } from 'vitest'
-import { buildMappingFromRecords, deriveRawPhosphor } from './build-icons.helpers'
+import { buildMappingFromRecords, deriveRawPhosphor, mergeLegacy } from './build-icons.helpers'
 
 it('deriveRawPhosphor strips Icon suffix and prefixes Ph', () => {
   assert.equal(deriveRawPhosphor('CheckCircleIcon'), 'PhCheckCircle')
@@ -37,4 +37,19 @@ it('buildMappingFromRecords keeps first on conflict and warns', () => {
   ])
   assert.equal(mapping.XIcon.tabler, 'IconX')
   assert.ok(warnings.some(w => w.includes('XIcon')))
+})
+
+it('mergeLegacy: legacy values win, scan fills only missing libraries', () => {
+  const legacy = { Loader2: { lucide: 'Loader2', radix: 'ReloadIcon', tabler: 'IconLoader2', phosphor: 'PhCircleNotch', remixicon: 'RiLoader4Line' } }
+  const scanned = { Loader2Icon: { lucide: 'Loader2Icon', tabler: 'IconLoader2', hugeicons: 'Loading03Icon', phosphor: 'PhSpinnerGap', remixicon: 'RiLoader4Line' } }
+  const out = mergeLegacy(legacy, scanned)
+  assert.equal(out.Loader2.phosphor, 'PhCircleNotch') // legacy wins, NOT PhSpinnerGap
+  assert.equal(out.Loader2.hugeicons, 'Loading03Icon') // gap filled from scan
+  assert.equal(out.Loader2.radix, 'ReloadIcon') // radix preserved
+  assert.ok(!('Loader2Icon' in out)) // scanned key consumed via +Icon bridge
+})
+
+it('mergeLegacy: scanned-only canonicals are appended', () => {
+  const out = mergeLegacy({}, { CircleCheckIcon: { lucide: 'CircleCheckIcon', phosphor: 'PhCheckCircle' } })
+  assert.deepEqual(out.CircleCheckIcon, { lucide: 'CircleCheckIcon', phosphor: 'PhCheckCircle' })
 })

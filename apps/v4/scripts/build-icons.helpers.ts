@@ -39,3 +39,36 @@ export function buildMappingFromRecords(records: PlaceholderRecord[]): {
 
   return { mapping, usage, warnings }
 }
+
+const LIBRARY_ORDER = ['lucide', 'radix', 'tabler', 'hugeicons', 'phosphor', 'remixicon'] as const
+
+export function mergeLegacy(legacy: IconMapping, scanned: IconMapping): IconMapping {
+  const output: IconMapping = {}
+  const remaining: IconMapping = { ...scanned }
+
+  for (const [canonical, legacyEntry] of Object.entries(legacy)) {
+    const entry: Record<string, string> = { ...legacyEntry }
+    const scannedKey
+      = canonical in remaining ? canonical : `${canonical}Icon` in remaining ? `${canonical}Icon` : undefined
+    if (scannedKey) {
+      for (const library of LIBRARY_ORDER) {
+        if (!entry[library] && remaining[scannedKey][library]) {
+          entry[library] = remaining[scannedKey][library]
+        }
+      }
+      delete remaining[scannedKey]
+    }
+    output[canonical] = entry
+  }
+
+  for (const canonical of Object.keys(remaining).sort()) {
+    const entry: Record<string, string> = {}
+    for (const library of LIBRARY_ORDER) {
+      if (remaining[canonical][library])
+        entry[library] = remaining[canonical][library]
+    }
+    output[canonical] = entry
+  }
+
+  return output
+}
