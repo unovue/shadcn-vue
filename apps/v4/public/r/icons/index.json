@@ -257,7 +257,7 @@
     "tabler": "IconSearch",
     "phosphor": "PhMagnifyingGlass",
     "remixicon": "RiSearchLine",
-    "hugeicons": "Search01Icon"
+    "hugeicons": "SearchIcon"
   },
   "Send": {
     "lucide": "Send",
@@ -903,13 +903,6 @@
     "hugeicons": "ScissorIcon",
     "phosphor": "PhScissors",
     "remixicon": "RiScissorsCutLine"
-  },
-  "SearchIcon": {
-    "lucide": "SearchIcon",
-    "tabler": "IconSearch",
-    "hugeicons": "SearchIcon",
-    "phosphor": "PhMagnifyingGlass",
-    "remixicon": "RiSearchLine"
   },
   "ServerIcon": {
     "lucide": "ServerIcon",

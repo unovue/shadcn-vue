@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { it } from 'vitest'
-import { buildMappingFromRecords, deriveRawPhosphor, findUncovered, mergeLegacy } from './build-icons.helpers'
+import { buildMappingFromRecords, deriveRawPhosphor, findDuplicateCanonicals, findUncovered, mergeLegacy, parseLucideImports } from './build-icons.helpers'
 
 it('deriveRawPhosphor strips Icon suffix and prefixes Ph', () => {
   assert.equal(deriveRawPhosphor('CheckCircleIcon'), 'PhCheckCircle')
@@ -108,4 +108,19 @@ it('validateNames: real names pass, bogus name fails', async () => {
   const bad = await validateNames({ Nope: { phosphor: 'PhTotallyNotAnIcon' } })
   assert.equal(bad.length, 1)
   assert.ok(bad[0].includes('PhTotallyNotAnIcon'))
+})
+
+it('parseLucideImports: resolves aliases and type modifiers to the exported name', () => {
+  assert.deepEqual(parseLucideImports(`import { CheckIcon } from '@lucide/vue'`), ['CheckIcon'])
+  assert.deepEqual(parseLucideImports(`import { ChevronDown as DownIcon } from '@lucide/vue'`), ['ChevronDown'])
+  assert.deepEqual(
+    parseLucideImports(`import { CheckIcon, type XIcon, Loader2Icon as Spinner } from "@lucide/vue"`),
+    ['CheckIcon', 'XIcon', 'Loader2Icon'],
+  )
+  assert.deepEqual(parseLucideImports(`import { Primitive } from 'reka-ui'`), [])
+})
+
+it('findDuplicateCanonicals: flags X/XIcon key pairs', () => {
+  assert.deepEqual(findDuplicateCanonicals({ Search: {}, SearchIcon: {} }), ['Search'])
+  assert.deepEqual(findDuplicateCanonicals({ Search: {}, CircleCheckIcon: {} }), [])
 })

@@ -5,14 +5,21 @@ import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import {
   buildMappingFromRecords,
+  findDuplicateCanonicals,
   findUncovered,
   GENERATABLE_LIBRARIES,
   LIBRARY_EXPORT,
   mergeLegacy,
+  parseLucideImports,
 } from './build-icons.helpers'
 
 const PLACEHOLDER_RE = /<IconPlaceholder\b([^>]*?)\/?>/g
 
+/**
+ * Extract one record per `<IconPlaceholder>` in an SFC's source, reading the
+ * static `lucide`/`tabler`/`hugeicons`/`phosphor`/`remixicon` attributes.
+ * Dynamic bindings (`:lucide=`, `v-bind:lucide=`) and `data-` attrs are ignored.
+ */
 export function scanPlaceholders(source: string): PlaceholderRecord[] {
   const records: PlaceholderRecord[] = []
   for (const match of source.matchAll(PLACEHOLDER_RE)) {
@@ -29,6 +36,11 @@ export function scanPlaceholders(source: string): PlaceholderRecord[] {
   return records
 }
 
+/**
+ * Verify every mapped icon name is a real export of its library's package
+ * (radix is skipped — it is legacy-only and not installed). Returns a list of
+ * human-readable error strings; empty means all names are valid.
+ */
 export async function validateNames(mapping: IconMapping): Promise<string[]> {
   const errors: string[] = []
   const exportsByLib = new Map<string, Set<string>>()
@@ -65,14 +77,7 @@ async function listVue(dir: string): Promise<string[]> {
 async function collectLucideImports(dir: string): Promise<string[]> {
   const names: string[] = []
   for (const file of await listVue(dir)) {
-    const src = await readFile(file, 'utf8')
-    for (const m of src.matchAll(/import\s*\{([^}]*)\}\s*from\s*['"]@lucide\/vue['"]/g)) {
-      for (const raw of m[1].split(',')) {
-        const name = raw.trim()
-        if (name)
-          names.push(name)
-      }
-    }
+    names.push(...parseLucideImports(await readFile(file, 'utf8')))
   }
   return names
 }
@@ -83,6 +88,12 @@ async function writeIfChanged(path: string, content: string): Promise<void> {
   await writeFile(path, content)
 }
 
+/**
+ * Generate the CLI icon map: scan the base placeholders, merge the legacy
+ * layer, guard against duplicate/invalid/uncovered icons, and write
+ * `public/r/icons/index.json` (only when its content changed). Throws on any
+ * validation, duplicate-key, or coverage failure.
+ */
 export async function buildIcons(opts: { verbose?: boolean } = {}): Promise<void> {
   // 1. scan bases
   const records = []
@@ -94,6 +105,16 @@ export async function buildIcons(opts: { verbose?: boolean } = {}): Promise<void
   // 2. merge legacy (legacy wins, scan fills gaps)
   const legacy: IconMapping = JSON.parse(await readFile(LEGACY_PATH, 'utf8'))
   const merged = mergeLegacy(legacy, scanned)
+
+  // 2b. guard against the same icon landing under both `X` and `XIcon` keys
+  // (caused by inconsistent `lucide=` values across base placeholders).
+  const duplicates = findDuplicateCanonicals(merged)
+  if (duplicates.length) {
+    throw new Error(
+      `Duplicate canonical icon keys (same icon under both "X" and "XIcon"): ${duplicates.join(', ')}.\n`
+      + `Make the base IconPlaceholder \`lucide=\` values consistent (prefer the "Icon"-suffixed form).`,
+    )
+  }
 
   // 3. validate names
   const validationErrors = await validateNames(merged)
