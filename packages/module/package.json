@@ -1,0 +1,53 @@
+{
+  "name": "shadcn-nuxt",
+  "type": "module",
+  "version": "2.8.0",
+  "description": "Add shadcn-vue module to Nuxt",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unovue/shadcn-vue.git",
+    "directory": "packages/module"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build prepare && nuxt-module-build build",
+    "build": "nuxt-module-build prepare && nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "release": "pnpm run prepack && pnpm publish && git push --follow-tags",
+    "pub:next": "pnpm prepack && pnpm publish  --no-git-checks --access public --tag next",
+    "pub:release": "pnpm prepack && pnpm publish  --no-git-checks --access public"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.17.4",
+    "oxc-parser": "catalog:"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^1.4.1",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^3.17.4",
+    "@nuxt/test-utils": "^3.19.1",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@types/node": "catalog:",
+    "nuxt": "^3.17.4",
+    "typescript": "catalog:"
+  }
+}

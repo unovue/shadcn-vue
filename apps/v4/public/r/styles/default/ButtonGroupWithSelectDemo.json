@@ -1,0 +1,19 @@
+{
+  "name": "ButtonGroupWithSelectDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "input",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupWithSelectDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { ArrowRightIcon } from \"lucide-vue-next\"\nimport { ref } from \"vue\"\nimport { Button } from \"@/registry/default/ui/button\"\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\"\nimport { Input } from \"@/registry/default/ui/input\"\nimport { Select, SelectContent, SelectItem, SelectTrigger } from \"@/registry/default/ui/select\"\n\nconst CURRENCIES = [\n  {\n    value: \"$\",\n    label: \"US Dollar\",\n  },\n  {\n    value: \"€\",\n    label: \"Euro\",\n  },\n  {\n    value: \"£\",\n    label: \"British Pound\",\n  },\n]\nconst currency = ref(\"$\")\n</script>\n\n<template>\n  <ButtonGroup>\n    <ButtonGroup>\n      <Select v-model=\"currency\">\n        <SelectTrigger class=\"font-mono w-14\">\n          {{ currency }}\n        </SelectTrigger>\n        <SelectContent class=\"min-w-24\">\n          <SelectItem v-for=\"item in CURRENCIES\" :key=\"item.value\" :value=\"item.value\">\n            {{ item.value }}\n            <span class=\"text-muted-foreground\">{{ item.label }}</span>\n          </SelectItem>\n        </SelectContent>\n      </Select>\n      <Input placeholder=\"10.00\" pattern=\"[0-9]*\" />\n    </ButtonGroup>\n    <ButtonGroup>\n      <Button aria-label=\"Send\" size=\"icon\" variant=\"outline\">\n        <ArrowRightIcon />\n      </Button>\n    </ButtonGroup>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

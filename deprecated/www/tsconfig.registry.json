@@ -1,0 +1,13 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "Node",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "declaration": false
+  },
+  "include": ["src/lib/**/*"],
+  "exclude": ["node_modules", "registry/**/examples/**/*"]
+}

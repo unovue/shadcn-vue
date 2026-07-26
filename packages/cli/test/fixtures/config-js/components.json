@@ -1,0 +1,15 @@
+{
+  "style": "default",
+  "tailwind": {
+    "config": "./tailwind.config.js",
+    "css": "./src/assets/css/tailwind.css",
+    "baseColor": "neutral",
+    "cssVariables": false
+  },
+  "aliases": {
+    "utils": "@/lib/utils",
+    "components": "@/components"
+  },
+  "typescript": false,
+  "iconLibrary": "radix"
+}

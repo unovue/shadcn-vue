@@ -1,0 +1,17 @@
+{
+  "name": "ButtonGroupOrientationDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupOrientationDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { MinusIcon, PlusIcon } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { ButtonGroup } from \"@/registry/new-york/ui/button-group\"\n</script>\n\n<template>\n  <ButtonGroup\n    orientation=\"vertical\"\n    aria-label=\"Media controls\"\n    class=\"h-fit\"\n  >\n    <Button variant=\"outline\" size=\"icon\">\n      <PlusIcon />\n    </Button>\n    <Button variant=\"outline\" size=\"icon\">\n      <MinusIcon />\n    </Button>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

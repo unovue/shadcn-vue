@@ -1,0 +1,19 @@
+{
+  "style": "new-york",
+  "typescript": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/app/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": "tw-"
+  },
+  "aliases": {
+    "utils": "~/lib/utils",
+    "components": "~/components",
+    "composables": "~/composables",
+    "lib": "~/lib",
+    "ui": "~/ui"
+  },
+  "iconLibrary": "lucide"
+}

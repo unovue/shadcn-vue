@@ -1,0 +1,31 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "avatar",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/ui/avatar/Avatar.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { AvatarRoot } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <AvatarRoot\n    data-slot=\"avatar\"\n    :class=\"cn('relative flex size-8 shrink-0 overflow-hidden rounded-full', props.class)\"\n  >\n    <slot />\n  </AvatarRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/avatar/AvatarFallback.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AvatarFallbackProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { AvatarFallback } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<AvatarFallbackProps & { class?: HTMLAttributes[\"class\"] }>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n</script>\n\n<template>\n  <AvatarFallback\n    data-slot=\"avatar-fallback\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn('bg-muted flex size-full items-center justify-center rounded-full', props.class)\"\n  >\n    <slot />\n  </AvatarFallback>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/avatar/AvatarImage.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AvatarImageProps } from \"reka-ui\"\nimport { AvatarImage } from \"reka-ui\"\n\nconst props = defineProps<AvatarImageProps>()\n</script>\n\n<template>\n  <AvatarImage\n    data-slot=\"avatar-image\"\n    v-bind=\"props\"\n    class=\"aspect-square size-full\"\n  >\n    <slot />\n  </AvatarImage>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/new-york-v4/ui/avatar/index.ts",
+      "content": "export { default as Avatar } from \"./Avatar.vue\"\nexport { default as AvatarFallback } from \"./AvatarFallback.vue\"\nexport { default as AvatarImage } from \"./AvatarImage.vue\"\n",
+      "type": "registry:ui"
+    }
+  ]
+}

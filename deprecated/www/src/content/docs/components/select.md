@@ -1,0 +1,56 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from—triggered by a button.
+source: apps/www/src/registry/default/ui/select
+primitive: https://www.reka-ui.com/docs/components/select.html
+---
+
+<ComponentPreview name="SelectDemo" />
+
+## Installation
+
+```bash
+npx shadcn-vue@latest add select
+```
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+</script>
+
+<template>
+  <Select>
+    <SelectTrigger>
+      <SelectValue placeholder="Select a fruit" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectGroup>
+        <SelectLabel>Fruits</SelectLabel>
+        <SelectItem value="apple">
+          Apple
+        </SelectItem>
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+</template>
+```
+
+## Examples
+
+### Scrollable
+
+<ComponentPreview name="SelectScrollable" />
+
+### Form
+
+<ComponentPreview name="SelectForm" />

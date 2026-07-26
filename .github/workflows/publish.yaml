@@ -1,0 +1,88 @@
+name: Publish website
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'apps/v4/**'
+  pull_request:
+    branches:
+      - dev
+    paths:
+      - 'apps/v4/**'
+  pull_request_target:
+    types:
+      # When a created pull request from forked repo, it will be comment 'Should deploy to add label'
+      - opened
+      # When a labeled '🚀request-deploy' pull request from forked repo, it will be deploy to Cloudflare Pages
+      - labeled
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  # default contents: read & write (in forked repos, only read)
+  contents: write
+  # default deployments: read & write (in forked repos, only read)
+  deployments: write
+  # default pull-requests: read & write (in forked repos, only read)
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish to Cloudflare Worker
+    # push event in main branch
+    # workflow_dispatch event
+    # pull_request event from not forked repo
+    # pull_request_target event with label "🚀request-deploy" from forked repo
+    if: ${{
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == false) ||
+      (github.event_name == 'pull_request_target' &&
+      github.event.action == 'labeled' &&
+      github.event.pull_request.head.repo.fork == true &&
+      contains(github.event.label.name, '🚀request-deploy'))
+      }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup (Install Node & pnpm)
+        uses: ./.github/actions/setup
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build v4
+        run: pnpm build
+
+      # Run a action to publish docs
+      - name: Publish to Cloudflare Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/v4
+
+      - name: Purge Cloudflare edge cache
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+        run: npx tsx apps/v4/scripts/purge-cache.ts
+        env:
+          CLOUDFLARE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+
+      - name: Remove label
+        if: ${{ github.event_name == 'pull_request_target' && contains(github.event.label.name, '🚀request-deploy') }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.removeLabel({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: ['🚀request-deploy']
+            })

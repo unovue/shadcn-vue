@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "style": {
+      "type": "string",
+      "enum": ["default", "new-york", "reka-vega", "reka-nova", "reka-maia", "reka-lyra", "reka-mira", "reka-luma"]
+    },
+    "base": {
+      "type": "string"
+    },
+    "font": {
+      "type": "string"
+    },
+    "typescript": {
+      "type": "boolean",
+      "default": true
+    },
+    "tailwind": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "string"
+        },
+        "css": {
+          "type": "string"
+        },
+        "baseColor": {
+          "type": "string"
+        },
+        "cssVariables": {
+          "type": "boolean"
+        },
+        "prefix": {
+          "type": "string"
+        }
+      },
+      "required": ["config", "css", "baseColor", "cssVariables"]
+    },
+    "iconLibrary": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "object",
+      "properties": {
+        "utils": {
+          "type": "string"
+        },
+        "components": {
+          "type": "string"
+        },
+        "ui": {
+          "type": "string"
+        },
+        "lib": {
+          "type": "string"
+        },
+        "composables": {
+          "type": "string"
+        }
+      },
+      "required": ["utils", "components"]
+    },
+    "menuColor": {
+      "type": "string",
+      "enum": ["default", "inverted", "default-translucent", "inverted-translucent"]
+    },
+    "menuAccent": {
+      "type": "string",
+      "enum": ["subtle", "bold"]
+    },
+    "rtl": {
+      "type": "boolean"
+    },
+    "pointer": {
+      "type": "boolean"
+    },
+    "registries": {
+      "type": "object",
+      "patternProperties": {
+        "^@": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "\\{name\\}"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "pattern": "\\{name\\}"
+                },
+                "params": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "headers": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": ["url"]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["style", "tailwind", "aliases"]
+}

@@ -1,0 +1,47 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - packages/**
+      - apps/v4/**
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - .github/actions/setup/**
+      - .github/workflows/test.yaml
+
+  pull_request:
+    branches:
+      - dev
+    paths:
+      - packages/**
+      - apps/v4/**
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - .github/actions/setup/**
+      - .github/workflows/test.yaml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup (Install Node & pnpm)
+        uses: ./.github/actions/setup
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Test
+        run: pnpm test
+
+      - name: Check icon map is up to date
+        working-directory: ./apps/v4
+        run: pnpm registry:check:icons

@@ -1,0 +1,66 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transformIcons > does not transform lucide icons 1`] = `
+"<script setup>
+import { Check } from "@lucide/vue";
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <Check />
+  <Primitive />
+</template>
+"
+`;
+
+exports[`transformIcons > does nothing 1`] = `
+"<script setup>
+import { Check } from "@lucide/vue";
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <Check />
+  <Primitive />
+</template>
+"
+`;
+
+exports[`transformIcons > transforms phosphor icons 1`] = `
+"<script setup>
+import { PhCheck } from '@phosphor-icons/vue';
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <PhCheck />
+  <Primitive />
+</template>
+"
+`;
+
+exports[`transformIcons > transforms radix icons 1`] = `
+"<script setup>
+import { CheckIcon } from '@radix-icons/vue';
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <CheckIcon />
+  <Primitive />
+</template>
+"
+`;
+
+exports[`transformIcons > transforms tabler icons 1`] = `
+"<script setup>
+import { IconCheck } from '@tabler/icons-vue';
+import { Primitive } from "reka-ui";
+</script>
+
+<template>
+  <IconCheck />
+  <Primitive />
+</template>
+"
+`;

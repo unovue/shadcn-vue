@@ -1,0 +1,457 @@
+import type { rawConfigSchema } from '@/src/schema'
+import type { Framework } from '@/src/utils/frameworks'
+import type { Config } from '@/src/utils/get-config'
+import fs from 'fs-extra'
+import { getTsconfig } from 'get-tsconfig'
+import path from 'pathe'
+import { coerce } from 'semver'
+import { glob } from 'tinyglobby'
+import { z } from 'zod'
+import { getShadcnRegistryIndex } from '@/src/registry/api'
+import { FRAMEWORKS } from '@/src/utils/frameworks'
+import { getConfig, resolveConfigPaths } from '@/src/utils/get-config'
+import { getPackageInfo } from '@/src/utils/get-package-info'
+import { getPackageManager } from '@/src/utils/updaters/update-dependencies'
+
+export type TailwindVersion = 'v3' | 'v4' | null
+
+export interface ProjectInfo {
+  framework: Framework
+  isSrcDir: boolean
+  // isRSC: boolean
+  // isTsx: boolean
+  typescript: boolean
+  tailwindConfigFile: string | null
+  tailwindCssFile: string | null
+  tailwindVersion: TailwindVersion
+  aliasPrefix: string | null
+  packageManager: string
+}
+
+const PROJECT_SHARED_IGNORE = [
+  '**/node_modules/**',
+  '.nuxt',
+  'public',
+  'dist',
+  'build',
+]
+
+const TS_CONFIG_SCHEMA = z.object({
+  compilerOptions: z.object({
+    paths: z.record(z.string().or(z.array(z.string()))),
+  }),
+})
+
+export async function detectFrameworkConfigFiles(cwd: string): Promise<Framework | null> {
+  const packageInfo = await getPackageInfo(cwd, false)
+  const configFiles = await glob('**/{nuxt,vite,astro,wxt}.config.*|composer.json', {
+    cwd,
+    deep: 3,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  // Check for Nuxt
+  if (configFiles.find(file => file.startsWith('nuxt.config.'))) {
+    const nuxtPkg = packageInfo?.dependencies?.nuxt || packageInfo?.devDependencies?.nuxt
+    const nuxtVersion = (nuxtPkg && coerce(nuxtPkg)?.version) || '4.0.0'
+
+    if (nuxtVersion.startsWith('4')) {
+      return FRAMEWORKS.nuxt4
+    }
+    else if (nuxtVersion.startsWith('3')) {
+      return FRAMEWORKS.nuxt3
+    }
+
+    return null
+  }
+
+  // Check for Astro
+  if (configFiles.find(file => file.startsWith('astro.config.'))) {
+    return FRAMEWORKS.astro
+  }
+
+  // Check for Laravel
+  if (configFiles.find(file => file.startsWith('composer.json'))) {
+    return FRAMEWORKS.laravel
+  }
+
+  if (packageInfo?.dependencies?.['@inertiajs/vue3']
+    || packageInfo?.devDependencies?.['@inertiajs/vue3'] || (await fs.pathExists(path.join(cwd, 'resources/js')))) {
+    return FRAMEWORKS.inertia
+  }
+
+  // Check for WXT
+  if (configFiles.find(file => file.startsWith('wxt.config.'))) {
+    return FRAMEWORKS.vite
+  }
+
+  // Check for Vite
+  if (configFiles.find(file => file.startsWith('vite.config.'))) {
+    return FRAMEWORKS.vite
+  }
+
+  return null
+}
+
+export async function isTypeScriptProject(cwd: string) {
+  const files = await glob('tsconfig.*', {
+    cwd,
+    deep: 1,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  return files.length > 0
+}
+
+export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
+  const [
+    detectedFramework,
+    typescript,
+    isSrcDir,
+    // isTsx,
+    tailwindConfigFile,
+    tailwindCssFile,
+    tailwindVersion,
+    aliasPrefix,
+    packageJson,
+    packageManager,
+  ] = await Promise.all([
+    detectFrameworkConfigFiles(cwd),
+    isTypeScriptProject(cwd),
+    fs.pathExists(path.resolve(cwd, 'src')),
+    getTailwindConfigFile(cwd),
+    getTailwindCssFile(cwd),
+    getTailwindVersion(cwd),
+    getTsConfigAliasPrefix(cwd),
+    getPackageInfo(cwd, false),
+    getPackageManager(cwd, { withFallback: true }),
+  ])
+
+  const type: ProjectInfo = {
+    framework: detectedFramework || FRAMEWORKS.manual,
+    typescript,
+    isSrcDir,
+    tailwindConfigFile,
+    tailwindCssFile,
+    tailwindVersion,
+    aliasPrefix,
+    packageManager,
+  }
+
+  return type
+}
+
+export async function getTailwindVersion(
+  cwd: string,
+): Promise<ProjectInfo['tailwindVersion']> {
+  const [packageInfo, config] = await Promise.all([
+    getPackageInfo(cwd, false),
+    getConfig(cwd),
+  ])
+
+  // If the config file is empty, we can assume that it's a v4 project.
+  if (config?.tailwind?.config === '') {
+    return 'v4'
+  }
+
+  const hasNuxtTailwind = !!(
+    packageInfo?.dependencies?.['@nuxtjs/tailwindcss']
+    || packageInfo?.devDependencies?.['@nuxtjs/tailwindcss']
+  )
+
+  const hasTailwindCss = !!(
+    packageInfo?.dependencies?.tailwindcss
+    || packageInfo?.devDependencies?.tailwindcss
+  )
+
+  if (!hasTailwindCss && !hasNuxtTailwind) {
+    return null
+  }
+
+  if (
+    /^(?:\^|~)?3(?:\.\d+)*(?:-.*)?$/.test(
+      packageInfo?.dependencies?.tailwindcss
+      || packageInfo?.devDependencies?.tailwindcss
+      || '',
+    )
+  ) {
+    return 'v3'
+  }
+
+  return 'v4'
+}
+
+export async function getTailwindCssFile(cwd: string) {
+  const [files, tailwindVersion] = await Promise.all([
+    glob(['**/*.css', '**/*.scss'], {
+      cwd,
+      deep: 5,
+      ignore: PROJECT_SHARED_IGNORE,
+    }),
+    getTailwindVersion(cwd),
+  ])
+
+  if (!files.length) {
+    return null
+  }
+
+  const needle
+    = tailwindVersion === 'v4' ? `@import "tailwindcss"` : '@tailwind base'
+  for (const file of files) {
+    const contents = await fs.readFile(path.resolve(cwd, file), 'utf8')
+    if (
+      contents.includes(`@import "tailwindcss"`)
+      || contents.includes(`@import 'tailwindcss'`)
+      || contents.includes(`@tailwind base`)
+    ) {
+      return file
+    }
+  }
+
+  return null
+}
+
+export async function getTailwindConfigFile(cwd: string) {
+  const files = await glob('tailwind.config.*', {
+    cwd,
+    deep: 3,
+    ignore: PROJECT_SHARED_IGNORE,
+  })
+
+  if (!files.length) {
+    return null
+  }
+
+  return files[0]
+}
+
+export async function getFrameworkTsConfigPath(
+  cwd: string,
+  detectedFramework: Framework | null,
+  isTypeScript: boolean,
+): Promise<string> {
+  if (detectedFramework?.name === 'nuxt4') {
+    return './.nuxt/tsconfig.app.json'
+  }
+  if (detectedFramework?.name === 'nuxt3') {
+    return './.nuxt/tsconfig.json'
+  }
+  // Inertia PHP places tsconfig.json under ./inertia, but other Inertia
+  // integrations (e.g. Inertia + Rails) keep it at the project root. Use the
+  // Inertia-specific path only when it actually exists.
+  if (
+    detectedFramework?.name === 'inertia'
+    && (await fs.pathExists(path.resolve(cwd, 'inertia/tsconfig.json')))
+  ) {
+    return './inertia/tsconfig.json'
+  }
+  return isTypeScript ? './tsconfig.json' : './jsconfig.json'
+}
+
+export async function getTsConfigAliasPrefix(cwd: string) {
+  const detectedFramework = await detectFrameworkConfigFiles(cwd)
+  const isTypeScript = await isTypeScriptProject(cwd)
+  const tsConfig = await getTsconfig(
+    cwd,
+    await getFrameworkTsConfigPath(cwd, detectedFramework, isTypeScript),
+  )
+
+  if (
+    tsConfig === null
+    || !Object.entries(tsConfig.config.compilerOptions?.paths ?? {}).length
+  ) {
+    return null
+  }
+
+  const aliasPaths = tsConfig.config.compilerOptions?.paths ?? {}
+
+  // This assume that the first alias is the prefix.
+  for (const [alias, paths] of Object.entries(aliasPaths)) {
+    if (
+      paths.includes('./*')
+      || paths.includes('./src/*')
+      || paths.includes('./app/*')
+      || paths.includes('./resources/js/*') // Laravel.
+    ) {
+      const cleanAlias = alias.replace(/\/\*$/, '') ?? null
+      // handle Nuxt
+      return cleanAlias === '#build' ? '@' : cleanAlias
+    }
+  }
+
+  // Use the first alias as the prefix.
+  return Object.keys(aliasPaths)?.[0]?.replace(/\/\*$/, '') ?? null
+}
+
+export async function getTsConfig(cwd: string) {
+  for (const fallback of [
+    'tsconfig.json',
+    'tsconfig.web.json',
+    'tsconfig.app.json',
+  ]) {
+    const filePath = path.resolve(cwd, fallback)
+    if (!(await fs.pathExists(filePath))) {
+      continue
+    }
+
+    // We can't use fs.readJSON because it doesn't support comments.
+    const contents = await fs.readFile(filePath, 'utf8')
+    const cleanedContents = contents.replace(/\/\*\s*\*\//g, '')
+    const result = TS_CONFIG_SCHEMA.safeParse(JSON.parse(cleanedContents))
+
+    if (result.error) {
+      continue
+    }
+
+    return result.data
+  }
+
+  return null
+}
+
+export async function getProjectConfig(
+  cwd: string,
+  defaultProjectInfo: ProjectInfo | null = null,
+): Promise<Config | null> {
+  // Check for existing component config.
+  const [existingConfig, projectInfo] = await Promise.all([
+    getConfig(cwd),
+    !defaultProjectInfo
+      ? getProjectInfo(cwd)
+      : Promise.resolve(defaultProjectInfo),
+  ])
+
+  if (existingConfig) {
+    return existingConfig
+  }
+
+  if (
+    !projectInfo
+    || !projectInfo.tailwindCssFile
+    || (projectInfo.tailwindVersion === 'v3' && !projectInfo.tailwindConfigFile)
+  ) {
+    return null
+  }
+
+  const config: z.infer<typeof rawConfigSchema> = {
+    $schema: 'https://shadcn-vue.com/schema.json',
+    // rsc: projectInfo.isRSC,
+    // tsx: projectInfo.isTsx,
+    typescript: projectInfo.typescript,
+    style: 'new-york',
+    tailwind: {
+      config: projectInfo.tailwindConfigFile ?? '',
+      baseColor: 'zinc',
+      css: projectInfo.tailwindCssFile,
+      cssVariables: true,
+      prefix: '',
+    },
+    iconLibrary: 'lucide',
+    aliases: {
+      components: `${projectInfo.aliasPrefix}/components`,
+      ui: `${projectInfo.aliasPrefix}/components/ui`,
+      composables: `${projectInfo.aliasPrefix}/composables`,
+      lib: `${projectInfo.aliasPrefix}/lib`,
+      utils: `${projectInfo.aliasPrefix}/lib/utils`,
+    },
+  }
+
+  return await resolveConfigPaths(cwd, config)
+}
+
+export async function getProjectTailwindVersionFromConfig(config: {
+  resolvedPaths: Pick<Config['resolvedPaths'], 'cwd'>
+}): Promise<TailwindVersion> {
+  if (!config.resolvedPaths?.cwd) {
+    return 'v3'
+  }
+
+  const projectInfo = await getProjectInfo(config.resolvedPaths.cwd)
+
+  if (!projectInfo?.tailwindVersion) {
+    return null
+  }
+
+  return projectInfo.tailwindVersion
+}
+
+/**
+ * Returns the list of installed UI component names for a project by scanning
+ * the resolved `ui` directory in `components.json` and cross-referencing
+ * discovered names against the shadcn-vue registry index.
+ *
+ * shadcn-vue stores components as folders (`ui/button/Button.vue`), so
+ * candidates come from immediate subdirectories of `ui/` that contain at
+ * least one renderable `.vue`/`.tsx`/`.jsx` file, plus any flat `.vue`
+ * single-file components. Names are then filtered against the registry to
+ * avoid picking up helper artefacts like `utils.ts` or `lib/` — mirrors
+ * shadcn-ui's `getProjectComponents`.
+ */
+export async function getProjectComponents(cwd: string) {
+  const existingConfig = await getConfig(cwd)
+  if (!existingConfig) {
+    return []
+  }
+
+  const uiDir = existingConfig.resolvedPaths.ui
+  if (!uiDir) {
+    return []
+  }
+
+  // Atomic read — avoids the TOCTOU window of an existsSync pre-check.
+  let entries: import('node:fs').Dirent[]
+  try {
+    entries = (await fs.readdir(uiDir, {
+      withFileTypes: true,
+    })) as import('node:fs').Dirent[]
+  }
+  catch {
+    return []
+  }
+
+  const candidates = new Set<string>()
+  for (const entry of entries) {
+    if (
+      entry.name.startsWith('.')
+      || entry.name === 'index.ts'
+      || entry.name === 'index.js'
+    ) {
+      continue
+    }
+    if (entry.isDirectory()) {
+      // Only count directories that actually contain a renderable component.
+      const componentDir = path.join(uiDir, entry.name)
+      let dirEntries: import('node:fs').Dirent[]
+      try {
+        dirEntries = (await fs.readdir(componentDir, {
+          withFileTypes: true,
+        })) as import('node:fs').Dirent[]
+      }
+      catch {
+        continue
+      }
+      const hasRenderable = dirEntries.some(
+        e => e.isFile() && /\.(?:vue|tsx|jsx)$/.test(e.name),
+      )
+      if (hasRenderable) {
+        candidates.add(entry.name)
+      }
+      continue
+    }
+    if (entry.isFile() && /\.(?:vue|tsx|jsx)$/.test(entry.name)) {
+      candidates.add(path.basename(entry.name, path.extname(entry.name)))
+    }
+  }
+
+  // Cross-reference against the registry index so we only return names the
+  // CLI actually knows how to reinstall. Matches shadcn-ui's behavior —
+  // without this, helper folders slip through and break the reinstall step.
+  const registryIndex = await getShadcnRegistryIndex()
+  const registryNames = new Set(
+    registryIndex?.map(item => item.name) ?? [],
+  )
+
+  return Array.from(candidates)
+    .filter(name => registryNames.has(name))
+    .sort()
+}

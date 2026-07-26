@@ -1,0 +1,25 @@
+{
+  "name": "test-cli-nuxt",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.16.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "reka-ui": "^2.0.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "4.0.9",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.7.3"
+  }
+}

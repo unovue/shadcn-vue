@@ -1,0 +1,7 @@
+{
+  "name": "test-cli-project-pnpm",
+  "version": "1.0.0",
+  "author": "shadcn",
+  "license": "MIT",
+  "main": "index.js"
+}

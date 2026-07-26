@@ -1,0 +1,17 @@
+{
+  "name": "ItemDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "item"
+  ],
+  "files": [
+    {
+      "path": "examples/ItemDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { BadgeCheckIcon, ChevronRightIcon } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/new-york/ui/item\"\n</script>\n\n<template>\n  <div class=\"flex w-full max-w-md flex-col gap-6\">\n    <Item variant=\"outline\">\n      <ItemContent>\n        <ItemTitle>Basic Item</ItemTitle>\n        <ItemDescription>\n          A simple item with title and description.\n        </ItemDescription>\n      </ItemContent>\n      <ItemActions>\n        <Button variant=\"outline\" size=\"sm\">\n          Action\n        </Button>\n      </ItemActions>\n    </Item>\n    <Item variant=\"outline\" size=\"sm\" as-child>\n      <a href=\"#\">\n        <ItemMedia>\n          <BadgeCheckIcon class=\"size-5\" />\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle>Your profile has been verified.</ItemTitle>\n        </ItemContent>\n        <ItemActions>\n          <ChevronRightIcon class=\"size-4\" />\n        </ItemActions>\n      </a>\n    </Item>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

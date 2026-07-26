@@ -1,0 +1,16 @@
+{
+  "name": "ToggleSmallDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "examples/ToggleSmallDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Italic } from \"lucide-vue-next\"\n\nimport { Toggle } from \"@/registry/default/ui/toggle\"\n</script>\n\n<template>\n  <Toggle size=\"sm\" aria-label=\"Toggle italic\">\n    <Italic class=\"w-4 h-4\" />\n  </Toggle>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  # - name: 📚 Documentation
+  #   url: https://www.reka-ui.com/
+  #   about: Check the documentation for usage of Radix Vue.
+  - name: 🗨️ Discord
+    url: https://chat.unovue.com/
+    about: Join the unovue Discord server.

@@ -1,0 +1,23 @@
+{
+  "name": "sonner",
+  "type": "registry:ui",
+  "dependencies": [
+    "vue-sonner",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/sonner/Sonner.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { ToasterProps } from \"vue-sonner\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon, XIcon } from \"lucide-vue-next\"\nimport { Toaster as Sonner } from \"vue-sonner\"\n\nconst props = defineProps<ToasterProps>()\nconst delegatedProps = reactiveOmit(props, \"toastOptions\")\n</script>\n\n<template>\n  <Sonner\n    class=\"toaster group\"\n    :toast-options=\"{\n      classes: {\n        toast: 'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',\n        description: 'group-[.toast]:text-muted-foreground',\n        actionButton:\n          'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',\n        cancelButton:\n          'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',\n      },\n    }\"\n    v-bind=\"delegatedProps\"\n  >\n    <template #success-icon>\n      <CircleCheckIcon class=\"size-4\" />\n    </template>\n    <template #info-icon>\n      <InfoIcon class=\"size-4\" />\n    </template>\n    <template #warning-icon>\n      <TriangleAlertIcon class=\"size-4\" />\n    </template>\n    <template #error-icon>\n      <OctagonXIcon class=\"size-4\" />\n    </template>\n    <template #loading-icon>\n      <div>\n        <Loader2Icon class=\"size-4 animate-spin\" />\n      </div>\n    </template>\n    <template #close-icon>\n      <XIcon class=\"size-4\" />\n    </template>\n  </Sonner>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/sonner/index.ts",
+      "content": "export { default as Toaster } from \"./Sonner.vue\"\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

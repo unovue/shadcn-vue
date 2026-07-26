@@ -1,0 +1,17 @@
+{
+  "name": "KbdWithButton",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "examples/KbdWithButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\nimport { Kbd } from \"@/registry/default/ui/kbd\"\n</script>\n\n<template>\n  <div class=\"flex flex-wrap items-center gap-4\">\n    <Button variant=\"outline\" size=\"sm\" class=\"pr-2\">\n      Accept <Kbd>⏎</Kbd>\n    </Button>\n    <Button variant=\"outline\" size=\"sm\" class=\"pr-2\">\n      Cancel <Kbd>Esc</Kbd>\n    </Button>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

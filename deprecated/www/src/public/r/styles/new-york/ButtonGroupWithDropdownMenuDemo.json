@@ -1,0 +1,18 @@
+{
+  "name": "ButtonGroupWithDropdownMenuDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "button-group",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "examples/ButtonGroupWithDropdownMenuDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { AlertTriangleIcon, CheckIcon, ChevronDownIcon, CopyIcon, ShareIcon, TrashIcon, UserRoundXIcon, VolumeOffIcon } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { ButtonGroup } from \"@/registry/new-york/ui/button-group\"\nimport { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from \"@/registry/new-york/ui/dropdown-menu\"\n</script>\n\n<template>\n  <ButtonGroup>\n    <Button variant=\"outline\">\n      Follow\n    </Button>\n    <DropdownMenu>\n      <DropdownMenuTrigger as-child>\n        <Button variant=\"outline\" size=\"icon\">\n          <ChevronDownIcon />\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"end\" class=\"[--radius:1rem]\">\n        <DropdownMenuGroup>\n          <DropdownMenuItem>\n            <VolumeOffIcon />\n            Mute Conversation\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <CheckIcon />\n            Mark as Read\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <AlertTriangleIcon />\n            Report Conversation\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <UserRoundXIcon />\n            Block User\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <ShareIcon />\n            Share Conversation\n          </DropdownMenuItem>\n          <DropdownMenuItem>\n            <CopyIcon />\n            Copy Conversation\n          </DropdownMenuItem>\n        </DropdownMenuGroup>\n        <DropdownMenuSeparator />\n        <DropdownMenuGroup>\n          <DropdownMenuItem variant=\"destructive\">\n            <TrashIcon />\n            Delete Conversation\n          </DropdownMenuItem>\n        </DropdownMenuGroup>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  </ButtonGroup>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

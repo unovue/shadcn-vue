@@ -1,0 +1,66 @@
+# .github/workflows/release.yml
+
+name: Release (next)
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup (Install Node & pnpm)
+        uses: ./.github/actions/setup
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - run: pnpm dlx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  npm:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup (Install Node & pnpm)
+        uses: ./.github/actions/setup
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Update npm (Trusted Publishers requires npm >= 11.5.1)
+        run: npm install -g npm@^11
+
+      - name: Build CLI & Publish to npm
+        working-directory: packages/cli
+        run: |
+          pnpm build
+          pnpm pack
+          TARBALL="shadcn-vue-$(node -p "require('./package.json').version").tgz"
+          test -f "$TARBALL" || { echo "Tarball not found"; exit 1; }
+          npm publish "$TARBALL" --access public --provenance
+
+      - name: Build Module & Publish to npm
+        working-directory: packages/module
+        run: |
+          pnpm pack
+          TARBALL="shadcn-nuxt-$(node -p "require('./package.json').version").tgz"
+          test -f "$TARBALL" || { echo "Tarball not found"; exit 1; }
+          npm publish "$TARBALL" --access public --provenance

@@ -1,0 +1,52 @@
+name: 🐞 Bug report
+description: Create a report to help us improve shadcn-vue.
+title: '[Bug]: '
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        This form is only for submitting bug reports. If you have a usage question
+        or are unsure if this is really a bug, make sure to:
+
+        - Read the [docs](https://reka-ui.com/)
+        - Ask on [Discord Chat](https://chat.unovue.com/)
+        - Ask on [GitHub Discussions](https://github.com/shadcn-vue/shadcn-vue/discussions)
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: |
+        A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is **required**, otherwise the issue might be closed without further notice. [**Why?**](https://antfu.me/posts/why-reproductions-are-required)
+
+        You can build a reproduction using these template presets
+        https://vite.new
+        https://nuxt.new
+      placeholder: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is. If you intend to submit a PR for this issue, tell us in the description. Thanks!
+      placeholder: Bug description
+    validations:
+      required: true
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: Output of `npx envinfo --system --npmPackages vue,@vueuse/core,radix-vue,reka-ui,nuxt,shadcn-vue,shadcn-nuxt,unplugin-auto-import --binaries --browsers`
+      render: bash
+      placeholder: System, Binaries, Browsers
+    validations:
+      required: true
+  - type: checkboxes
+    id: contributes
+    attributes:
+      label: Contributes
+      options:
+        - label: I am willing to submit a PR to fix this issue
+        - label: I am willing to submit a PR with failing tests

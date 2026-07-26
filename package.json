@@ -1,0 +1,60 @@
+{
+  "name": "shadcn-vue",
+  "type": "module",
+  "version": "2.8.0",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "license": "MIT",
+  "repository": "unovue/shadcn-vue",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "pnpm": ">=9.6.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter v4 dev",
+    "build": "pnpm --filter v4 build",
+    "preview": "pnpm --filter v4 preview",
+    "prepare": "pnpm simple-git-hooks && pnpm --filter shadcn-vue build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev:cli": "pnpm --filter shadcn-vue dev",
+    "dev:nuxt": "pnpm --filter shadcn-nuxt dev",
+    "start:cli": "pnpm --filter shadcn-vue start:dev",
+    "build:cli": "pnpm --filter shadcn-vue build",
+    "registry:build-only": "pnpm --filter=v4 registry:build",
+    "registry:build": "pnpm --filter=v4 registry:build && pnpm lint:fix",
+    "bumpp": "bumpp package.json packages/*/package.json apps/*/package.json",
+    "pub:beta": "cd packages/cli && pnpm pub:beta",
+    "pub:release": "cd packages/cli && pnpm pub:release",
+    "test": "pnpm --filter shadcn-vue test && pnpm --filter v4 test",
+    "taze": "taze --ignore-paths \"deprecated/**\" -frI"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^6.6.1",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@vitest/ui": "^3.2.4",
+    "bumpp": "^10.3.2",
+    "eslint": "^9.39.1",
+    "lint-staged": "^16.2.7",
+    "simple-git-hooks": "^2.13.1",
+    "taze": "^19.9.2",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "^3.2.6"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "pnpm commitlint --edit ${1}"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

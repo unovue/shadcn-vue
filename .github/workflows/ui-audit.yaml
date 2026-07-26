@@ -1,0 +1,31 @@
+name: UI Audit
+
+on:
+  pull_request:
+    branches:
+      - dev
+    paths:
+      - apps/v4/**
+      - .github/workflows/ui-audit.yaml
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: shadscan-vue
+    runs-on: ubuntu-latest
+    # Advisory only. The audit reports to the job summary and never blocks a
+    # pull request, so a regression is visible without gating contributors.
+    continue-on-error: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # shadscan-vue reads source files and never runs the app, so the audit
+      # needs no install step and adds no dependency to this repository.
+      - name: Audit apps/v4
+        uses: vinayakkulkarni/shadscan-vue@v0
+        with:
+          path: apps/v4

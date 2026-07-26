@@ -1,0 +1,16 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["unplugin-icons/types/vue", "node"],
+    "declaration": false,
+    "outDir": "dist",
+    "sourceMap": true
+  },
+  "include": ["src", "src/components.d.ts", ".vitepress/**/*.vue", "scripts/**.ts", ".vitepress/**/*.mts", ".vitepress/**/*.ts", "src/registry/**/*"],
+  "exclude": ["node_modules"]
+}

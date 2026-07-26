@@ -1,0 +1,7 @@
+{
+  "@shadcn": "https://shadcn-vue.com/r/styles/{style}/{name}.json",
+  "@inspira-ui": "https://registry.inspira-ui.com/{name}.json",
+  "@mapcn": "https://mapcn-vue.geoql.in/r/{name}.json",
+  "@ai-elements": "https://registry.ai-elements-vue.com/{name}.json",
+  "@elevenlabs-ui": "https://registry.elevenlabs-ui-vue.com/{name}.json"
+}

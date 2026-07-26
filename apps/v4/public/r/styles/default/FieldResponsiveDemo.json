@@ -1,0 +1,19 @@
+{
+  "name": "FieldResponsiveDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "field",
+    "input",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "examples/FieldResponsiveDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Button } from \"@/registry/default/ui/button\"\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldLegend,\n  FieldSeparator,\n  FieldSet,\n} from \"@/registry/default/ui/field\"\nimport { Input } from \"@/registry/default/ui/input\"\nimport { Textarea } from \"@/registry/default/ui/textarea\"\n</script>\n\n<template>\n  <div class=\"w-full max-w-4xl\">\n    <form>\n      <FieldSet>\n        <FieldLegend>Profile</FieldLegend>\n        <FieldDescription>Fill in your profile information.</FieldDescription>\n        <FieldSeparator />\n        <FieldGroup>\n          <Field orientation=\"responsive\">\n            <FieldContent>\n              <FieldLabel for=\"name\">\n                Name\n              </FieldLabel>\n              <FieldDescription>\n                Provide your full name for identification\n              </FieldDescription>\n            </FieldContent>\n            <Input id=\"name\" placeholder=\"Evil Rabbit\" required />\n          </Field>\n          <FieldSeparator />\n          <Field orientation=\"responsive\">\n            <FieldContent>\n              <FieldLabel for=\"lastName\">\n                Message\n              </FieldLabel>\n              <FieldDescription>\n                You can write your message here. Keep it short, preferably\n                under 100 characters.\n              </FieldDescription>\n            </FieldContent>\n            <Textarea\n              id=\"message\"\n              placeholder=\"Hello, world!\"\n              required\n              class=\"min-h-[100px] resize-none sm:min-w-[300px]\"\n            />\n          </Field>\n          <FieldSeparator />\n          <Field orientation=\"responsive\">\n            <Button type=\"submit\">\n              Submit\n            </Button>\n            <Button type=\"button\" variant=\"outline\">\n              Cancel\n            </Button>\n          </Field>\n        </FieldGroup>\n      </FieldSet>\n    </form>\n  </div>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

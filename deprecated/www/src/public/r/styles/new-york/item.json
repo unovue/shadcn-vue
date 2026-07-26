@@ -1,0 +1,78 @@
+{
+  "name": "item",
+  "type": "registry:ui",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "ui/item/Item.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport type { ItemVariants } from \".\"\nimport { Primitive } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\nimport { itemVariants } from \".\"\n\nconst props = withDefaults(defineProps<PrimitiveProps & {\n  class?: HTMLAttributes[\"class\"]\n  variant?: ItemVariants[\"variant\"]\n  size?: ItemVariants[\"size\"]\n}>(), {\n  as: \"div\",\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"item\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(itemVariants({ variant, size }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemActions.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"item-actions\"\n    :class=\"cn('flex items-center gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"item-content\"\n    :class=\"cn('flex flex-1 flex-col gap-1 [&+[data-slot=item-content]]:flex-none', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <p\n    data-slot=\"item-description\"\n    :class=\"cn(\n      'text-muted-foreground line-clamp-2 text-sm leading-normal font-normal text-balance',\n      '[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',\n      props.class,\n    )\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"item-footer\"\n    :class=\"cn('flex basis-full items-center justify-between gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    role=\"list\"\n    data-slot=\"item-group\"\n    :class=\"cn('group/item-group flex flex-col', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"item-header\"\n    :class=\"cn('flex basis-full items-center justify-between gap-2', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemMedia.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport type { ItemMediaVariants } from \".\"\nimport { cn } from \"@/lib/utils\"\nimport { itemMediaVariants } from \".\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n  variant?: ItemMediaVariants[\"variant\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"item-media\"\n    :data-variant=\"props.variant\"\n    :class=\"cn(itemMediaVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SeparatorProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Separator } from \"@/registry/new-york/ui/separator\"\n\nconst props = defineProps<\n  SeparatorProps & { class?: HTMLAttributes[\"class\"] }\n>()\n</script>\n\n<template>\n  <Separator\n    data-slot=\"item-separator\"\n    orientation=\"horizontal\"\n    :class=\"cn('my-0', props.class)\"\n  />\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/ItemTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"item-title\"\n    :class=\"cn('flex w-fit items-center gap-2 text-sm leading-snug font-medium', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui",
+      "target": ""
+    },
+    {
+      "path": "ui/item/index.ts",
+      "content": "import type { VariantProps } from \"class-variance-authority\"\nimport { cva } from \"class-variance-authority\"\n\nexport { default as Item } from \"./Item.vue\"\nexport { default as ItemActions } from \"./ItemActions.vue\"\nexport { default as ItemContent } from \"./ItemContent.vue\"\nexport { default as ItemDescription } from \"./ItemDescription.vue\"\nexport { default as ItemFooter } from \"./ItemFooter.vue\"\nexport { default as ItemGroup } from \"./ItemGroup.vue\"\nexport { default as ItemHeader } from \"./ItemHeader.vue\"\nexport { default as ItemMedia } from \"./ItemMedia.vue\"\nexport { default as ItemSeparator } from \"./ItemSeparator.vue\"\nexport { default as ItemTitle } from \"./ItemTitle.vue\"\n\nexport const itemVariants = cva(\n  \"group/item flex items-center border border-transparent text-sm rounded-md transition-colors [a]:hover:bg-accent/50 [a]:transition-colors duration-100 flex-wrap outline-none focus-visible:border-ring focus-visible:ring-ring focus-visible:ring-1\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-transparent\",\n        outline: \"border-border\",\n        muted: \"bg-muted/50\",\n      },\n      size: {\n        default: \"p-4 gap-4 \",\n        sm: \"py-3 px-4 gap-2.5\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  },\n)\n\nexport const itemMediaVariants = cva(\n  \"flex shrink-0 items-center justify-center gap-2 group-has-[[data-slot=item-description]]/item:self-start [&_svg]:pointer-events-none group-has-[[data-slot=item-description]]/item:translate-y-0.5\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-transparent\",\n        icon: \"size-8 border rounded-sm bg-muted [&_svg:not([class*='size-'])]:size-4\",\n        image:\n          \"size-10 rounded-sm overflow-hidden [&_img]:size-full [&_img]:object-cover\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  },\n)\n\nexport type ItemVariants = VariantProps<typeof itemVariants>\nexport type ItemMediaVariants = VariantProps<typeof itemMediaVariants>\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

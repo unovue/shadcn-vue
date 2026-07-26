@@ -1,0 +1,17 @@
+{
+  "name": "EmptyOutlineDemo",
+  "type": "registry:example",
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "examples/EmptyOutlineDemo.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Cloud } from \"lucide-vue-next\"\nimport { Button } from \"@/registry/default/ui/button\"\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\"\n</script>\n\n<template>\n  <Empty class=\"border border-dashed\">\n    <EmptyHeader>\n      <EmptyMedia variant=\"icon\">\n        <Cloud />\n      </EmptyMedia>\n      <EmptyTitle>Cloud Storage Empty</EmptyTitle>\n      <EmptyDescription>\n        Upload files to your cloud storage to access them anywhere.\n      </EmptyDescription>\n    </EmptyHeader>\n    <EmptyContent>\n      <Button variant=\"outline\" size=\"sm\">\n        Upload Files\n      </Button>\n    </EmptyContent>\n  </Empty>\n</template>\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
