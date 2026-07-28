@@ -15,6 +15,19 @@ previewClass: h-auto
 
 If your project was set up with `npx shadcn-vue@latest init`, you already have `scroll-fade`. It ships with the `shadcn-vue` package, which the CLI imports in your global CSS file.
 
+Otherwise, install the `shadcn-vue` package:
+
+```bash
+npm install shadcn-vue
+```
+
+Then import the shared utilities in your global CSS file:
+
+```css
+@import "tailwindcss";
+@import "shadcn-vue/tailwind.css";
+```
+
 ## Usage
 
 | Class                             | Styles                                                                                                              |
