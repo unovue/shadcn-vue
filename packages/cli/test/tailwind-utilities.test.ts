@@ -28,7 +28,10 @@ describe('shipped tailwind.css (shadcn-vue/tailwind.css)', () => {
 
   for (const { name } of documentedUtilities) {
     it(`defines the "${name}" utility promised by its docs page`, () => {
-      expect(shippedCss).toContain(`@utility ${name}`)
+      // Anchor to the opening brace so the exact base utility must exist — a
+      // hyphenated variant (e.g. `scroll-fade-y`) must not satisfy the check.
+      const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      expect(shippedCss).toMatch(new RegExp(`@utility ${escaped}\\s*\\{`))
     })
   }
 })
