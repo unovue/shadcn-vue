@@ -101,6 +101,26 @@ import {
 
 ## Example
 
+### Scrollable Content
+
+Keep actions visible while the content scrolls.
+
+::component-preview
+---
+name: DrawerScrollableContent
+---
+::
+
+### Sides
+
+Use the `swipe-direction` prop to set the side of the drawer. Available options are `up`, `right`, `down`, and `left`.
+
+::component-preview
+---
+name: DrawerSides
+---
+::
+
 ### Responsive Modal (Dialog & Drawer)
 
 Use a `Drawer` component for smaller viewport sizes and a `Dialog` component otherwise. This can be further made reusable by using slots for various parts of the modal.

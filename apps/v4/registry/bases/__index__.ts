@@ -1341,12 +1341,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/input/Input.vue",
+                  "path": "registry/bases/reka/ui/input/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/input/index.ts",
+                  "path": "registry/bases/reka/ui/input/Input.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -1361,6 +1361,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["button","input","textarea"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/input-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/input-group/InputGroup.vue",
                   "type": "registry:ui",
@@ -1390,11 +1395,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/input-group/InputGroupTextarea.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/input-group/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1407,6 +1407,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/input-otp/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/input-otp/InputOTP.vue",
                   "type": "registry:ui",
@@ -1426,11 +1431,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/input-otp/InputOTPSlot.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/input-otp/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1443,6 +1443,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["separator"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/item/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/item/Item.vue",
                   "type": "registry:ui",
@@ -1492,11 +1497,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/item/ItemTitle.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/item/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1510,17 +1510,17 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
+                  "path": "registry/bases/reka/ui/kbd/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/kbd/Kbd.vue",
                   "type": "registry:ui",
                   "target": ""
             },
             {
                   "path": "registry/bases/reka/ui/kbd/KbdGroup.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/kbd/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -1536,12 +1536,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/label/Label.vue",
+                  "path": "registry/bases/reka/ui/label/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/label/index.ts",
+                  "path": "registry/bases/reka/ui/label/Label.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -1557,6 +1557,11 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
+                  "path": "registry/bases/reka/ui/marker/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/marker/Marker.vue",
                   "type": "registry:ui",
                   "target": ""
@@ -1568,11 +1573,6 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/marker/MarkerIcon.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/marker/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -1587,6 +1587,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/menubar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/menubar/Menubar.vue",
                   "type": "registry:ui",
@@ -1661,11 +1666,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/menubar/MenubarTrigger.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/menubar/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1678,6 +1678,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/message/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/message/Message.vue",
                   "type": "registry:ui",
@@ -1707,11 +1712,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/message/MessageHeader.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/message/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1724,6 +1724,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/message-scroller/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/message-scroller/MessageScroller.vue",
                   "type": "registry:ui",
@@ -1755,11 +1760,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/message-scroller/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
                   "path": "registry/bases/reka/ui/message-scroller/useMessageScroller.ts",
                   "type": "registry:ui",
                   "target": ""
@@ -1776,6 +1776,11 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
+                  "path": "registry/bases/reka/ui/native-select/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/native-select/NativeSelect.vue",
                   "type": "registry:ui",
                   "target": ""
@@ -1787,11 +1792,6 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/native-select/NativeSelectOption.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/native-select/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -1806,6 +1806,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/navigation-menu/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/navigation-menu/NavigationMenu.vue",
                   "type": "registry:ui",
@@ -1845,11 +1850,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/navigation-menu/NavigationMenuViewport.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/navigation-menu/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1862,6 +1862,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/number-field/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/number-field/NumberField.vue",
                   "type": "registry:ui",
@@ -1886,11 +1891,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/number-field/NumberFieldInput.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/number-field/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1903,6 +1903,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/pagination/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/pagination/Pagination.vue",
                   "type": "registry:ui",
@@ -1947,11 +1952,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/pagination/PaginationPrevious.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/pagination/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -1964,6 +1964,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/pin-input/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/pin-input/PinInput.vue",
                   "type": "registry:ui",
@@ -1983,11 +1988,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/pin-input/PinInputSlot.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/pin-input/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2000,6 +2000,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/popover/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/popover/Popover.vue",
                   "type": "registry:ui",
@@ -2034,11 +2039,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/popover/PopoverTrigger.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/popover/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2052,12 +2052,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/progress/Progress.vue",
+                  "path": "registry/bases/reka/ui/progress/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/progress/index.ts",
+                  "path": "registry/bases/reka/ui/progress/Progress.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2169,17 +2169,17 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
+                  "path": "registry/bases/reka/ui/radio-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/radio-group/RadioGroup.vue",
                   "type": "registry:ui",
                   "target": ""
             },
             {
                   "path": "registry/bases/reka/ui/radio-group/RadioGroupItem.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/radio-group/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2194,6 +2194,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/range-calendar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/range-calendar/RangeCalendar.vue",
                   "type": "registry:ui",
@@ -2253,11 +2258,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/range-calendar/RangeCalendarPrevButton.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/range-calendar/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2271,6 +2271,11 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
+                  "path": "registry/bases/reka/ui/resizable/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/resizable/ResizableHandle.vue",
                   "type": "registry:ui",
                   "target": ""
@@ -2282,11 +2287,6 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/resizable/ResizablePanelGroup.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/resizable/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2302,17 +2302,17 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
+                  "path": "registry/bases/reka/ui/scroll-area/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/scroll-area/ScrollArea.vue",
                   "type": "registry:ui",
                   "target": ""
             },
             {
                   "path": "registry/bases/reka/ui/scroll-area/ScrollBar.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/scroll-area/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2327,6 +2327,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/select/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/select/Select.vue",
                   "type": "registry:ui",
@@ -2381,11 +2386,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/select/SelectValue.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/select/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2399,12 +2399,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/separator/Separator.vue",
+                  "path": "registry/bases/reka/ui/separator/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/separator/index.ts",
+                  "path": "registry/bases/reka/ui/separator/Separator.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2419,6 +2419,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["button"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/sheet/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/sheet/Sheet.vue",
                   "type": "registry:ui",
@@ -2463,11 +2468,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/sheet/SheetTrigger.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/sheet/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2480,6 +2480,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
       files: [
+            {
+                  "path": "registry/bases/reka/ui/sidebar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/sidebar/Sidebar.vue",
                   "type": "registry:ui",
@@ -2601,11 +2606,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/sidebar/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
                   "path": "registry/bases/reka/ui/sidebar/utils.ts",
                   "type": "registry:ui",
                   "target": ""
@@ -2622,12 +2622,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/skeleton/Skeleton.vue",
+                  "path": "registry/bases/reka/ui/skeleton/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/skeleton/index.ts",
+                  "path": "registry/bases/reka/ui/skeleton/Skeleton.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2643,12 +2643,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/slider/Slider.vue",
+                  "path": "registry/bases/reka/ui/slider/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/slider/index.ts",
+                  "path": "registry/bases/reka/ui/slider/Slider.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2664,12 +2664,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/sonner/Sonner.vue",
+                  "path": "registry/bases/reka/ui/sonner/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/sonner/index.ts",
+                  "path": "registry/bases/reka/ui/sonner/Sonner.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2685,12 +2685,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/spinner/Spinner.vue",
+                  "path": "registry/bases/reka/ui/spinner/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/spinner/index.ts",
+                  "path": "registry/bases/reka/ui/spinner/Spinner.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2705,6 +2705,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/stepper/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/stepper/Stepper.vue",
                   "type": "registry:ui",
@@ -2739,11 +2744,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/stepper/StepperTrigger.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/stepper/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2757,12 +2757,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/switch/Switch.vue",
+                  "path": "registry/bases/reka/ui/switch/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/switch/index.ts",
+                  "path": "registry/bases/reka/ui/switch/Switch.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2777,6 +2777,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/table/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/table/Table.vue",
                   "type": "registry:ui",
@@ -2823,11 +2828,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/table/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
                   "path": "registry/bases/reka/ui/table/utils.ts",
                   "type": "registry:ui",
                   "target": ""
@@ -2843,6 +2843,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/tabs/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/tabs/Tabs.vue",
                   "type": "registry:ui",
@@ -2862,11 +2867,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/tabs/TabsTrigger.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/tabs/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2879,6 +2879,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/tags-input/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/tags-input/TagsInput.vue",
                   "type": "registry:ui",
@@ -2903,11 +2908,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/tags-input/TagsInputItemText.vue",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/tags-input/index.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
@@ -2921,12 +2921,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/textarea/Textarea.vue",
+                  "path": "registry/bases/reka/ui/textarea/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/textarea/index.ts",
+                  "path": "registry/bases/reka/ui/textarea/Textarea.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2942,12 +2942,12 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: undefined,
       files: [
             {
-                  "path": "registry/bases/reka/ui/toggle/Toggle.vue",
+                  "path": "registry/bases/reka/ui/toggle/index.ts",
                   "type": "registry:ui",
                   "target": ""
             },
             {
-                  "path": "registry/bases/reka/ui/toggle/index.ts",
+                  "path": "registry/bases/reka/ui/toggle/Toggle.vue",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2963,17 +2963,17 @@ export const Index: Record<string, Record<string, any>> = {
       registryDependencies: ["toggle"],
       files: [
             {
+                  "path": "registry/bases/reka/ui/toggle-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
                   "path": "registry/bases/reka/ui/toggle-group/ToggleGroup.vue",
                   "type": "registry:ui",
                   "target": ""
             },
             {
                   "path": "registry/bases/reka/ui/toggle-group/ToggleGroupItem.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/toggle-group/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }
@@ -2988,6 +2988,11 @@ export const Index: Record<string, Record<string, any>> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [
+            {
+                  "path": "registry/bases/reka/ui/tooltip/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
             {
                   "path": "registry/bases/reka/ui/tooltip/Tooltip.vue",
                   "type": "registry:ui",
@@ -3005,11 +3010,6 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/ui/tooltip/TooltipTrigger.vue",
-                  "type": "registry:ui",
-                  "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/tooltip/index.ts",
                   "type": "registry:ui",
                   "target": ""
             }

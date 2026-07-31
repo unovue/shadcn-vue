@@ -848,7 +848,6 @@
       "name": "drawer",
       "type": "registry:ui",
       "dependencies": [
-        "vaul-vue",
         "reka-ui",
         "@vueuse/core"
       ],
@@ -1134,11 +1133,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/input/Input.vue",
+          "path": "styles/reka-luma/ui/input/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/input/index.ts",
+          "path": "styles/reka-luma/ui/input/Input.vue",
           "type": "registry:ui"
         }
       ]
@@ -1152,6 +1151,10 @@
         "textarea"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/input-group/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/input-group/InputGroup.vue",
           "type": "registry:ui"
@@ -1175,10 +1178,6 @@
         {
           "path": "styles/reka-luma/ui/input-group/InputGroupTextarea.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/input-group/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1191,6 +1190,10 @@
         "reka-ui"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/input-otp/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/input-otp/InputOTP.vue",
           "type": "registry:ui"
@@ -1206,10 +1209,6 @@
         {
           "path": "styles/reka-luma/ui/input-otp/InputOTPSlot.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/input-otp/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1223,6 +1222,10 @@
         "separator"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/item/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/item/Item.vue",
           "type": "registry:ui"
@@ -1262,10 +1265,6 @@
         {
           "path": "styles/reka-luma/ui/item/ItemTitle.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/item/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1274,15 +1273,15 @@
       "type": "registry:ui",
       "files": [
         {
+          "path": "styles/reka-luma/ui/kbd/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/kbd/Kbd.vue",
           "type": "registry:ui"
         },
         {
           "path": "styles/reka-luma/ui/kbd/KbdGroup.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/kbd/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1296,11 +1295,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/label/Label.vue",
+          "path": "styles/reka-luma/ui/label/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/label/index.ts",
+          "path": "styles/reka-luma/ui/label/Label.vue",
           "type": "registry:ui"
         }
       ]
@@ -1313,6 +1312,10 @@
       ],
       "files": [
         {
+          "path": "styles/reka-luma/ui/marker/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/marker/Marker.vue",
           "type": "registry:ui"
         },
@@ -1322,10 +1325,6 @@
         },
         {
           "path": "styles/reka-luma/ui/marker/MarkerIcon.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/marker/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1338,6 +1337,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/menubar/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/menubar/Menubar.vue",
           "type": "registry:ui"
@@ -1397,10 +1400,6 @@
         {
           "path": "styles/reka-luma/ui/menubar/MenubarTrigger.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/menubar/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1411,6 +1410,10 @@
         "reka-ui"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/message/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/message/Message.vue",
           "type": "registry:ui"
@@ -1434,10 +1437,6 @@
         {
           "path": "styles/reka-luma/ui/message/MessageHeader.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/message/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1448,6 +1447,10 @@
         "button"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/message-scroller/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/message-scroller/MessageScroller.vue",
           "type": "registry:ui"
@@ -1473,10 +1476,6 @@
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/message-scroller/index.ts",
-          "type": "registry:ui"
-        },
-        {
           "path": "styles/reka-luma/ui/message-scroller/useMessageScroller.ts",
           "type": "registry:ui"
         }
@@ -1491,6 +1490,10 @@
       ],
       "files": [
         {
+          "path": "styles/reka-luma/ui/native-select/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/native-select/NativeSelect.vue",
           "type": "registry:ui"
         },
@@ -1500,10 +1503,6 @@
         },
         {
           "path": "styles/reka-luma/ui/native-select/NativeSelectOption.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/native-select/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1516,6 +1515,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/navigation-menu/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/navigation-menu/NavigationMenu.vue",
           "type": "registry:ui"
@@ -1547,10 +1550,6 @@
         {
           "path": "styles/reka-luma/ui/navigation-menu/NavigationMenuViewport.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/navigation-menu/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1562,6 +1561,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/number-field/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/number-field/NumberField.vue",
           "type": "registry:ui"
@@ -1581,10 +1584,6 @@
         {
           "path": "styles/reka-luma/ui/number-field/NumberFieldInput.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/number-field/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1599,6 +1598,10 @@
         "button"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/pagination/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/pagination/Pagination.vue",
           "type": "registry:ui"
@@ -1634,10 +1637,6 @@
         {
           "path": "styles/reka-luma/ui/pagination/PaginationPrevious.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/pagination/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1649,6 +1648,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/pin-input/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/pin-input/PinInput.vue",
           "type": "registry:ui"
@@ -1664,10 +1667,6 @@
         {
           "path": "styles/reka-luma/ui/pin-input/PinInputSlot.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/pin-input/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1679,6 +1678,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/popover/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/popover/Popover.vue",
           "type": "registry:ui"
@@ -1706,10 +1709,6 @@
         {
           "path": "styles/reka-luma/ui/popover/PopoverTrigger.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/popover/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1722,11 +1721,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/progress/Progress.vue",
+          "path": "styles/reka-luma/ui/progress/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/progress/index.ts",
+          "path": "styles/reka-luma/ui/progress/Progress.vue",
           "type": "registry:ui"
         }
       ]
@@ -1820,15 +1819,15 @@
       ],
       "files": [
         {
+          "path": "styles/reka-luma/ui/radio-group/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/radio-group/RadioGroup.vue",
           "type": "registry:ui"
         },
         {
           "path": "styles/reka-luma/ui/radio-group/RadioGroupItem.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/radio-group/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1844,6 +1843,10 @@
         "button"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/range-calendar/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/range-calendar/RangeCalendar.vue",
           "type": "registry:ui"
@@ -1891,10 +1894,6 @@
         {
           "path": "styles/reka-luma/ui/range-calendar/RangeCalendarPrevButton.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/range-calendar/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -1907,6 +1906,10 @@
       ],
       "files": [
         {
+          "path": "styles/reka-luma/ui/resizable/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/resizable/ResizableHandle.vue",
           "type": "registry:ui"
         },
@@ -1916,10 +1919,6 @@
         },
         {
           "path": "styles/reka-luma/ui/resizable/ResizablePanelGroup.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/resizable/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1933,15 +1932,15 @@
       ],
       "files": [
         {
+          "path": "styles/reka-luma/ui/scroll-area/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/scroll-area/ScrollArea.vue",
           "type": "registry:ui"
         },
         {
           "path": "styles/reka-luma/ui/scroll-area/ScrollBar.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/scroll-area/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -1954,6 +1953,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/select/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/select/Select.vue",
           "type": "registry:ui"
@@ -1997,10 +2000,6 @@
         {
           "path": "styles/reka-luma/ui/select/SelectValue.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/select/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -2013,11 +2012,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/separator/Separator.vue",
+          "path": "styles/reka-luma/ui/separator/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/separator/index.ts",
+          "path": "styles/reka-luma/ui/separator/Separator.vue",
           "type": "registry:ui"
         }
       ]
@@ -2033,6 +2032,10 @@
         "button"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/sheet/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/sheet/Sheet.vue",
           "type": "registry:ui"
@@ -2068,10 +2071,6 @@
         {
           "path": "styles/reka-luma/ui/sheet/SheetTrigger.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/sheet/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -2091,6 +2090,10 @@
         "button"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/sidebar/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/sidebar/Sidebar.vue",
           "type": "registry:ui"
@@ -2188,10 +2191,6 @@
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/sidebar/index.ts",
-          "type": "registry:ui"
-        },
-        {
           "path": "styles/reka-luma/ui/sidebar/utils.ts",
           "type": "registry:ui"
         }
@@ -2202,11 +2201,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "styles/reka-luma/ui/skeleton/Skeleton.vue",
+          "path": "styles/reka-luma/ui/skeleton/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/skeleton/index.ts",
+          "path": "styles/reka-luma/ui/skeleton/Skeleton.vue",
           "type": "registry:ui"
         }
       ]
@@ -2220,11 +2219,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/slider/Slider.vue",
+          "path": "styles/reka-luma/ui/slider/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/slider/index.ts",
+          "path": "styles/reka-luma/ui/slider/Slider.vue",
           "type": "registry:ui"
         }
       ]
@@ -2238,11 +2237,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/sonner/Sonner.vue",
+          "path": "styles/reka-luma/ui/sonner/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/sonner/index.ts",
+          "path": "styles/reka-luma/ui/sonner/Sonner.vue",
           "type": "registry:ui"
         }
       ]
@@ -2252,11 +2251,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "styles/reka-luma/ui/spinner/Spinner.vue",
+          "path": "styles/reka-luma/ui/spinner/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/spinner/index.ts",
+          "path": "styles/reka-luma/ui/spinner/Spinner.vue",
           "type": "registry:ui"
         }
       ]
@@ -2269,6 +2268,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/stepper/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/stepper/Stepper.vue",
           "type": "registry:ui"
@@ -2296,10 +2299,6 @@
         {
           "path": "styles/reka-luma/ui/stepper/StepperTrigger.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/stepper/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -2312,11 +2311,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/switch/Switch.vue",
+          "path": "styles/reka-luma/ui/switch/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/switch/index.ts",
+          "path": "styles/reka-luma/ui/switch/Switch.vue",
           "type": "registry:ui"
         }
       ]
@@ -2329,6 +2328,10 @@
         "@tanstack/vue-table"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/table/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/table/Table.vue",
           "type": "registry:ui"
@@ -2366,10 +2369,6 @@
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/table/index.ts",
-          "type": "registry:ui"
-        },
-        {
           "path": "styles/reka-luma/ui/table/utils.ts",
           "type": "registry:ui"
         }
@@ -2383,6 +2382,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/tabs/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/tabs/Tabs.vue",
           "type": "registry:ui"
@@ -2398,10 +2401,6 @@
         {
           "path": "styles/reka-luma/ui/tabs/TabsTrigger.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/tabs/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -2413,6 +2412,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/tags-input/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/tags-input/TagsInput.vue",
           "type": "registry:ui"
@@ -2432,10 +2435,6 @@
         {
           "path": "styles/reka-luma/ui/tags-input/TagsInputItemText.vue",
           "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/tags-input/index.ts",
-          "type": "registry:ui"
         }
       ]
     },
@@ -2447,11 +2446,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/textarea/Textarea.vue",
+          "path": "styles/reka-luma/ui/textarea/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/textarea/index.ts",
+          "path": "styles/reka-luma/ui/textarea/Textarea.vue",
           "type": "registry:ui"
         }
       ]
@@ -2465,11 +2464,11 @@
       ],
       "files": [
         {
-          "path": "styles/reka-luma/ui/toggle/Toggle.vue",
+          "path": "styles/reka-luma/ui/toggle/index.ts",
           "type": "registry:ui"
         },
         {
-          "path": "styles/reka-luma/ui/toggle/index.ts",
+          "path": "styles/reka-luma/ui/toggle/Toggle.vue",
           "type": "registry:ui"
         }
       ]
@@ -2486,15 +2485,15 @@
       ],
       "files": [
         {
+          "path": "styles/reka-luma/ui/toggle-group/index.ts",
+          "type": "registry:ui"
+        },
+        {
           "path": "styles/reka-luma/ui/toggle-group/ToggleGroup.vue",
           "type": "registry:ui"
         },
         {
           "path": "styles/reka-luma/ui/toggle-group/ToggleGroupItem.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/toggle-group/index.ts",
           "type": "registry:ui"
         }
       ]
@@ -2507,6 +2506,10 @@
         "@vueuse/core"
       ],
       "files": [
+        {
+          "path": "styles/reka-luma/ui/tooltip/index.ts",
+          "type": "registry:ui"
+        },
         {
           "path": "styles/reka-luma/ui/tooltip/Tooltip.vue",
           "type": "registry:ui"
@@ -2521,10 +2524,6 @@
         },
         {
           "path": "styles/reka-luma/ui/tooltip/TooltipTrigger.vue",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-luma/ui/tooltip/index.ts",
           "type": "registry:ui"
         }
       ]
