@@ -61,7 +61,7 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-switch" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="twoFactor" type="checkbox">
+          <VeeField v-slot="{ componentField, errors }" name="twoFactor" type="checkbox">
             <Field
               orientation="horizontal"
               :data-invalid="!!errors.length"
@@ -77,10 +77,8 @@ const onSubmit = handleSubmit((data) => {
               </FieldContent>
               <Switch
                 id="form-vee-switch-twoFactor"
-                :name="field.name"
-                :model-value="field.value"
+                v-bind="componentField"
                 :aria-invalid="!!errors.length"
-                @update:model-value="field.onChange"
               />
             </Field>
           </VeeField>

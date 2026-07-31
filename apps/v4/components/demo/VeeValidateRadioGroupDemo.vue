@@ -83,17 +83,15 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-radiogroup" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="plan">
+          <VeeField v-slot="{ componentField, errors }" name="plan">
             <FieldSet :data-invalid="!!errors.length">
               <FieldLegend>Plan</FieldLegend>
               <FieldDescription>
                 You can upgrade or downgrade your plan at any time.
               </FieldDescription>
               <RadioGroup
-                :name="field.name"
-                :model-value="field.value"
+                v-bind="componentField"
                 :aria-invalid="!!errors.length"
-                @update:model-value="field.onChange"
               >
                 <FieldLabel
                   v-for="plan in plans"

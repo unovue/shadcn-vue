@@ -130,7 +130,7 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-password" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="password">
+          <VeeField v-slot="{ componentField, errors }" name="password">
             <Field :data-invalid="!!errors.length">
               <FieldLabel for="form-vee-password-input">
                 Password
@@ -138,7 +138,7 @@ const onSubmit = handleSubmit((data) => {
               <InputGroup>
                 <InputGroupInput
                   id="form-vee-password-input"
-                  v-bind="field"
+                  v-bind="componentField"
                   type="password"
                   placeholder="Enter your password"
                   :aria-invalid="!!errors.length"

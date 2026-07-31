@@ -119,7 +119,7 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-complex" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="plan">
+          <VeeField v-slot="{ componentField, errors }" name="plan">
             <FieldSet :data-invalid="!!errors.length">
               <FieldLegend variant="label">
                 Subscription Plan
@@ -128,10 +128,8 @@ const onSubmit = handleSubmit((data) => {
                 Choose your subscription plan.
               </FieldDescription>
               <RadioGroup
-                :name="field.name"
-                :model-value="field.value"
+                v-bind="componentField"
                 :aria-invalid="!!errors.length"
-                @update:model-value="field.onChange"
               >
                 <FieldLabel for="form-vee-complex-basic">
                   <Field orientation="horizontal">
@@ -166,16 +164,12 @@ const onSubmit = handleSubmit((data) => {
             </FieldSet>
           </VeeField>
           <FieldSeparator />
-          <VeeField v-slot="{ field, errors }" name="billingPeriod">
+          <VeeField v-slot="{ componentField, errors }" name="billingPeriod">
             <Field :data-invalid="!!errors.length">
               <FieldLabel for="form-vee-complex-billingPeriod">
                 Billing Period
               </FieldLabel>
-              <Select
-                :name="field.name"
-                :model-value="field.value"
-                @update:model-value="field.onChange"
-              >
+              <Select v-bind="componentField">
                 <SelectTrigger
                   id="form-vee-complex-billingPeriod"
                   :aria-invalid="!!errors.length"
@@ -198,7 +192,7 @@ const onSubmit = handleSubmit((data) => {
             </Field>
           </VeeField>
           <FieldSeparator />
-          <VeeField v-slot="{ field, errors }" name="addons">
+          <VeeField v-slot="{ value, handleChange, errors }" name="addons">
             <FieldSet>
               <FieldLegend>Add-ons</FieldLegend>
               <FieldDescription>
@@ -213,14 +207,12 @@ const onSubmit = handleSubmit((data) => {
                 >
                   <Checkbox
                     :id="`form-vee-complex-${addon.id}`"
-                    :name="field.name"
                     :aria-invalid="!!errors.length"
-                    :model-value="field.value?.includes(addon.id)"
+                    :model-value="value?.includes(addon.id)"
                     @update:model-value="(checked: boolean | 'indeterminate') => {
-                      const newValue = checked
-                        ? [...(field.value || []), addon.id]
-                        : (field.value || []).filter((value: string) => value !== addon.id)
-                      field.onChange(newValue)
+                      handleChange(checked
+                        ? [...(value || []), addon.id]
+                        : (value || []).filter((id: string) => id !== addon.id))
                     }"
                   />
                   <FieldContent>
@@ -238,7 +230,7 @@ const onSubmit = handleSubmit((data) => {
           </VeeField>
           <FieldSeparator />
           <VeeField
-            v-slot="{ field, errors }"
+            v-slot="{ componentField, errors }"
             name="emailNotifications"
             type="checkbox"
           >
@@ -256,10 +248,8 @@ const onSubmit = handleSubmit((data) => {
               </FieldContent>
               <Switch
                 id="form-vee-complex-emailNotifications"
-                :name="field.name"
-                :model-value="field.value"
+                v-bind="componentField"
                 :aria-invalid="!!errors.length"
-                @update:model-value="field.onChange"
               />
               <FieldError v-if="errors.length" :errors="errors" />
             </Field>
