@@ -13,9 +13,9 @@ class: '[&_.preview]:p-0'
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -25,7 +25,7 @@ class: '[&_.preview]:p-0'
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -35,8 +35,8 @@ npx shadcn-vue@latest add empty
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/empty) into your project.
     ::
@@ -44,8 +44,10 @@ npx shadcn-vue@latest add empty
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
+
+:::::
 
 ## Usage
 

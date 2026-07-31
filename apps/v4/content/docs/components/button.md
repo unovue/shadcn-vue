@@ -18,9 +18,9 @@ Watch a Vue School video about buttons, variants, and the as-child prop in shadc
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -30,7 +30,7 @@ Watch a Vue School video about buttons, variants, and the as-child prop in shadc
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -40,8 +40,8 @@ npx shadcn-vue@latest add button
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -57,10 +57,10 @@ npx shadcn-vue@latest add button
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 

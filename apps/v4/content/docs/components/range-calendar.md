@@ -20,9 +20,9 @@ The `<RangeCalendar />` component is built on top of the [Reka UI Range Calendar
 If you're looking for a normal calendar, check out the [Calendar](./calendar.md) component.
 
 ## Installation
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -32,7 +32,7 @@ If you're looking for a normal calendar, check out the [Calendar](./calendar.md)
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -42,8 +42,8 @@ npx shadcn-vue@latest add range-calendar
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -59,10 +59,10 @@ npx shadcn-vue@latest add range-calendar
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 ```vue

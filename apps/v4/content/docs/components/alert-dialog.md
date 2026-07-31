@@ -21,9 +21,9 @@ Watch a Vue School video about dialogs and alerts in shadcn-vue.
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -33,7 +33,7 @@ Watch a Vue School video about dialogs and alerts in shadcn-vue.
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -43,8 +43,8 @@ npx shadcn-vue@latest add alert-dialog
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -60,10 +60,10 @@ npx shadcn-vue@latest add alert-dialog
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 

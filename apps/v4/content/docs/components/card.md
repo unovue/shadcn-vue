@@ -13,9 +13,9 @@ description: A card with a form
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -25,7 +25,7 @@ description: A card with a form
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -35,8 +35,8 @@ npx shadcn-vue@latest add card
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/card) into your project.
     ::
@@ -44,10 +44,10 @@ npx shadcn-vue@latest add card
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 

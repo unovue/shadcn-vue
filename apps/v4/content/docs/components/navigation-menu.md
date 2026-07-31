@@ -17,9 +17,9 @@ class: '[&_.preview]:!items-start [&_.preview]:p-4 [&_.preview]:pt-8 md:[&_.prev
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -29,7 +29,7 @@ class: '[&_.preview]:!items-start [&_.preview]:p-4 [&_.preview]:pt-8 md:[&_.prev
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -39,8 +39,8 @@ npx shadcn-vue@latest add navigation-menu
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -56,10 +56,10 @@ npx shadcn-vue@latest add navigation-menu
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 

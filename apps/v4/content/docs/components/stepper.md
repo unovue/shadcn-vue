@@ -16,9 +16,9 @@ description: A stepper component.
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -28,7 +28,7 @@ description: A stepper component.
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -38,8 +38,8 @@ npx shadcn-vue@latest add stepper
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -55,10 +55,10 @@ npx shadcn-vue@latest add stepper
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 

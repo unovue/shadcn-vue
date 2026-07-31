@@ -21,9 +21,9 @@ It does **not** own your messages, AI state, transport, or model — it is a hea
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -33,7 +33,7 @@ It does **not** own your messages, AI state, transport, or model — it is a hea
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -43,8 +43,8 @@ npx shadcn-vue@latest add message-scroller
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/bases/reka/ui/message-scroller) into your project.
     ::
@@ -52,10 +52,10 @@ npx shadcn-vue@latest add message-scroller
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 

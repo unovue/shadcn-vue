@@ -23,9 +23,9 @@ A combobox can be built in two ways:
 
 ### Combobox
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -35,7 +35,7 @@ A combobox can be built in two ways:
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -45,8 +45,8 @@ npx shadcn-vue@latest add combobox
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -62,8 +62,10 @@ npx shadcn-vue@latest add combobox
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
+
+:::::
 
 
 ### Popover and Command

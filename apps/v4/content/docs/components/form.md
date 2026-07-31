@@ -60,9 +60,9 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
 ## Example
 
-::tabs{default-value="component"}
+::::tabs{default-value="component"}
 
-  ::tabs-list
+  :::tabs-list
 
     ::tabs-trigger{value="component"}
     Component
@@ -72,7 +72,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
     Native
     ::
 
-  ::
+  :::
 
   ::tabs-content{value="component"}
 
@@ -115,13 +115,13 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
   ```
 
   ::
-::
+::::
 
 ## Installation
 
-::tabs{default-value="cli"}
+:::::tabs{default-value="cli"}
 
-  ::tabs-list
+  :::tabs-list
 
     ::tabs-trigger{value="cli"}
     CLI
@@ -131,7 +131,7 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
     Manual
     ::
 
-  ::
+  :::
 
   ::tabs-content{value="cli"}
 
@@ -141,9 +141,9 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
 
   ::
 
-  ::tabs-content{value="manual"}
+  ::::tabs-content{value="manual"}
 
-    ::steps
+    :::steps
       ::step
       Install the following dependency:
       ::
@@ -159,11 +159,11 @@ The `<Form />` component is a wrapper around the `vee-validate` library. It prov
       ::step
       Update the import paths to match your project setup.
       ::
-    ::
+    :::
 
-  ::
+  ::::
 
-::
+:::::
 
 ## Usage
 
@@ -218,9 +218,9 @@ import {
 
   Use the `useForm` composable from `vee-validate` or use `<Form />` component to create a form.
 
-  ::tabs{default-value="composition"}
+  ::::tabs{default-value="composition"}
 
-    ::tabs-list
+    :::tabs-list
 
       ::tabs-trigger{value="composition"}
       Composition
@@ -230,7 +230,7 @@ import {
       Component
       ::
 
-    ::
+    :::
 
     ::tabs-content{value="composition"}
 
@@ -372,7 +372,7 @@ import {
   ---
   ::
 
-::
+::::
 
 <!-- ## Extras
 

@@ -18,9 +18,9 @@ For AI apps, you can render reasoning steps, tool calls and assistant messages u
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -30,7 +30,7 @@ For AI apps, you can render reasoning steps, tool calls and assistant messages u
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -40,8 +40,8 @@ npx shadcn-vue@latest add message
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/registry/new-york-v4/ui/message) into your project.
     ::
@@ -49,10 +49,10 @@ npx shadcn-vue@latest add message
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 
