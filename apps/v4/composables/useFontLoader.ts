@@ -1,6 +1,6 @@
 import type { FontFaceData, LocalFontSource, RemoteFontSource, Unifont } from 'unifont'
 
-// Families already provided eagerly via the Bunny <link> in nuxt.config.ts.
+// Families already emitted globally by @nuxt/fonts (see `fonts.families` in nuxt.config.ts).
 // Loading them again through unifont would be wasteful and could duplicate faces.
 const EAGER_FAMILIES = new Set(['Geist', 'Geist Mono'])
 
