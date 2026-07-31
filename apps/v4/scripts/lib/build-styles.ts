@@ -1,15 +1,12 @@
-import { exec } from 'node:child_process'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { promisify } from 'node:util'
 import { rimraf } from 'rimraf'
 import { transform } from 'vue-metamorph'
 import { STYLES } from '@/registry/styles'
 import { createStyleMap } from './create-style-map'
 import { makeExpandCnPlugin } from './expand-cn-classes'
+import { runEslintFix } from './run-formatters'
 import { makeTransformIconsPlugin } from './transform-icons'
-
-const execAsync = promisify(exec)
 
 /**
  * Codegen pipeline that mirrors shadcn-ui's build-registry.mts step 6
@@ -52,6 +49,17 @@ async function walkFiles(dir: string): Promise<string[]> {
     }
   }
   return out
+}
+
+async function normalizeLineEndings(files: string[]) {
+  await Promise.all(files.map(async (file) => {
+    const content = await fs.readFile(file, 'utf8')
+    const normalized = content.replace(/\r\n/g, '\n')
+
+    if (normalized !== content) {
+      await fs.writeFile(file, normalized, 'utf8')
+    }
+  }))
 }
 
 export async function buildStyles() {
@@ -140,10 +148,7 @@ export async function buildStyles() {
   // eslint-disable-next-line no-console
   console.log('   🧹 Running eslint --fix on generated output...')
   try {
-    await execAsync(`eslint --fix "${OUTPUT_BASE_DIR}/${SOURCE_BASE}-*/ui/**/*.{ts,vue}"`, {
-      cwd,
-      maxBuffer: 64 * 1024 * 1024,
-    })
+    await runEslintFix([`${OUTPUT_BASE_DIR}/${SOURCE_BASE}-*/ui/**/*.{ts,vue}`], cwd)
   }
   catch (err: any) {
     // eslint --fix exits non-zero when there are unfixable warnings — that's
@@ -152,6 +157,8 @@ export async function buildStyles() {
       console.warn('   ⚠️  eslint --fix had errors:', err.stderr?.toString().slice(0, 500))
     }
   }
+
+  await normalizeLineEndings(await walkFiles(path.resolve(cwd, OUTPUT_BASE_DIR)))
 
   // eslint-disable-next-line no-console
   console.log('🎨 Per-style build complete.\n')

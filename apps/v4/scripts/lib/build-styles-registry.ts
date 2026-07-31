@@ -1,13 +1,10 @@
-import { exec } from 'node:child_process'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { promisify } from 'node:util'
 import { rimraf } from 'rimraf'
 import { lib as rekaLibItems } from '@/registry/bases/reka/lib/_registry'
 import { ui as rekaUiItems } from '@/registry/bases/reka/ui/_registry'
 import { STYLES } from '@/registry/styles'
-
-const execAsync = promisify(exec)
+import { runShadcnVueCli } from './run-formatters'
 
 /**
  * Mirrors shadcn-ui's `buildRegistryJsonFile` + `buildRegistry` flow for the
@@ -37,7 +34,6 @@ const SOURCE_BASE = 'reka'
 const REGISTRY_NAME = 'shadcn-vue'
 const REGISTRY_HOMEPAGE = 'https://shadcn-vue.com'
 const PUBLIC_OUTPUT_BASE = 'public/r/styles'
-const CLI_RELATIVE_PATH = '../../packages/cli/dist/index.js'
 
 interface RegistryFile {
   path: string
@@ -120,14 +116,18 @@ async function publishStyle(styleName: string) {
   const tempRegistryPath = path.join(cwd, `registry-${styleDir}.json`)
   await fs.writeFile(
     tempRegistryPath,
-    JSON.stringify(registry, null, 2),
+    `${JSON.stringify(registry, null, 2)}\n`,
     'utf8',
   )
 
   // 3. Spawn the local shadcn-vue CLI to emit per-component JSONs.
   try {
-    const command = `node ${CLI_RELATIVE_PATH} build ${tempRegistryPath} --output ${PUBLIC_OUTPUT_BASE}/${styleDir}`
-    const { stderr } = await execAsync(command, { cwd, maxBuffer: 64 * 1024 * 1024 })
+    const { stderr } = await runShadcnVueCli([
+      'build',
+      tempRegistryPath,
+      '--output',
+      `${PUBLIC_OUTPUT_BASE}/${styleDir}`,
+    ], cwd)
     if (stderr && !stderr.includes('warning') && stderr.trim() !== '') {
       // CLI sometimes writes progress to stderr — only flag real errors
       const looksLikeError = /error|fail|cannot|enoent/i.test(stderr)

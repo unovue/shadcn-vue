@@ -154,7 +154,7 @@ async function buildRegistry(opts: z.infer<typeof buildOptionsSchema>) {
       // Write the registry item to the output directory.
       await fs.writeFile(
         path.resolve(resolvePaths.outputDir, `${result.data.name}.json`),
-        JSON.stringify(result.data, null, 2),
+        `${JSON.stringify(result.data, null, 2)}\n`,
       )
     }
 
