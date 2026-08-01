@@ -3,7 +3,6 @@ import { promises as fs } from "node:fs"
 import { homedir } from "node:os"
 import { ofetch } from "ofetch"
 import path from "pathe"
-import { ProxyAgent } from "undici"
 import { z } from "zod"
 import { resolveRegistryUrl } from "@/src/registry/builder"
 import { getRegistryHeadersFromContext } from "@/src/registry/context"
@@ -15,11 +14,8 @@ import {
   RegistryParseError,
   RegistryUnauthorizedError,
 } from "@/src/registry/errors"
+import { agent } from "@/src/registry/proxy"
 import { registryItemSchema } from "@/src/schema"
-
-const agent = process.env.https_proxy
-  ? new ProxyAgent(process.env.https_proxy)
-  : undefined
 
 const registryCache = new Map<string, Promise<any>>()
 

@@ -17,6 +17,7 @@ export const RegistryErrorCode = {
 
   // File system errors
   LOCAL_FILE_ERROR: "LOCAL_FILE_ERROR",
+  SOURCE_FILE_ERROR: "SOURCE_FILE_ERROR",
 
   // Parsing errors
   PARSE_ERROR: "PARSE_ERROR",
@@ -194,6 +195,81 @@ export class RegistryLocalFileError extends RegistryError {
       suggestion: "Check if the file exists and you have read permissions.",
     })
     this.name = "RegistryLocalFileError"
+  }
+}
+
+// Raised when an item name cannot be found inside a resolved registry.
+// Unlike RegistryNotFoundError this is not an HTTP 404 - the registry was
+// fetched and parsed, it just does not declare an item with this name.
+export class RegistryItemNotFoundError extends RegistryError {
+  constructor(
+    public readonly itemName: string,
+    options: {
+      source?: string
+      context?: Record<string, unknown>
+      suggestion?: string
+    } = {},
+  ) {
+    const message = options.source
+      ? `The item "${itemName}" was not found in ${options.source}.`
+      : `The item "${itemName}" was not found in the registry.`
+
+    super(message, {
+      code: RegistryErrorCode.NOT_FOUND,
+      context: { itemName, source: options.source, ...options.context },
+      suggestion:
+        options.suggestion
+        ?? "Check the item name against the items declared in the registry.json file.",
+    })
+    this.name = "RegistryItemNotFoundError"
+  }
+}
+
+// Raised when a registry is structurally invalid: a malformed ref, a file path
+// that escapes the registry root, a duplicate item name, and so on.
+export class RegistryValidationError extends RegistryError {
+  constructor(
+    message: string,
+    options: {
+      registryFile?: string
+      cause?: unknown
+      context?: Record<string, unknown>
+      suggestion?: string
+    } = {},
+  ) {
+    super(message, {
+      code: RegistryErrorCode.VALIDATION_ERROR,
+      cause: options.cause,
+      context: { registryFile: options.registryFile, ...options.context },
+      suggestion:
+        options.suggestion
+        ?? "Update the registry so it matches the registry schema. See https://shadcn-vue.com/schema/registry.json.",
+    })
+    this.name = "RegistryValidationError"
+  }
+}
+
+// Raised when a file backing a registry item cannot be read from its source,
+// e.g. raw.githubusercontent.com returned a non-200 for a declared file path.
+export class RegistrySourceFileError extends RegistryError {
+  constructor(
+    public readonly filePath: string,
+    cause?: unknown,
+    options: {
+      message?: string
+      context?: Record<string, unknown>
+      suggestion?: string
+    } = {},
+  ) {
+    super(options.message ?? `Failed to read source file: ${filePath}`, {
+      code: RegistryErrorCode.SOURCE_FILE_ERROR,
+      cause,
+      context: { filePath, ...options.context },
+      suggestion:
+        options.suggestion
+        ?? "Check that the file exists at the path declared in the registry.json file.",
+    })
+    this.name = "RegistrySourceFileError"
   }
 }
 

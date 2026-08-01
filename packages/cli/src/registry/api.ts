@@ -2,6 +2,7 @@ import type { Config } from "@/src/utils/get-config"
 import path from "pathe"
 import { z } from "zod"
 import { DEFAULT_PRESETS } from "@/src/preset/presets"
+import { resolveGitHubRegistrySource } from "@/src/registry/address"
 import { buildUrlAndHeadersForRegistryItem } from "@/src/registry/builder"
 import { configWithDefaults } from "@/src/registry/config"
 import {
@@ -25,6 +26,7 @@ import {
   RegistryParseError,
 } from "@/src/registry/errors"
 import { fetchRegistry } from "@/src/registry/fetcher"
+import { fetchGitHubRegistryCatalog } from "@/src/registry/github"
 import {
   fetchRegistryItems,
   resolveRegistryTree,
@@ -57,6 +59,20 @@ export async function getRegistry(
     const [result] = await fetchRegistry([name], { useCache })
     try {
       return registrySchema.parse(result)
+    }
+    catch (error) {
+      throw new RegistryParseError(name, error)
+    }
+  }
+
+  // A bare `owner/repo` (optionally `owner/repo#ref`) reads registry.json
+  // from the root of a public GitHub repository.
+  const githubSource = resolveGitHubRegistrySource(name)
+  if (githubSource) {
+    const registry = await fetchGitHubRegistryCatalog(githubSource, { useCache })
+
+    try {
+      return registrySchema.parse(registry)
     }
     catch (error) {
       throw new RegistryParseError(name, error)
