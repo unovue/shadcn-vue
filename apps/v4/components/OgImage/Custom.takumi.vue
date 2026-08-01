@@ -10,10 +10,10 @@ const props = defineProps({
     class="flex h-full w-full bg-black text-white"
     :style="{ fontFamily: 'Geist' }"
   >
-    <div class="flex border absolute border-stone-700 border-dashed inset-y-0 left-16 w-[1px]" />
-    <div class="flex border absolute border-stone-700 border-dashed inset-y-0 right-16 w-[1px]" />
-    <div class="flex border absolute border-stone-700 inset-x-0 h-[1px] top-16" />
-    <div class="flex border absolute border-stone-700 inset-x-0 h-[1px] bottom-16" />
+    <div class="flex border absolute border-stone-700 border-dashed inset-y-0 left-16 w-px" />
+    <div class="flex border absolute border-stone-700 border-dashed inset-y-0 right-16 w-px" />
+    <div class="flex border absolute border-stone-700 inset-x-0 h-px top-16" />
+    <div class="flex border absolute border-stone-700 inset-x-0 h-px bottom-16" />
     <div class="flex absolute flex-row bottom-24 right-24 text-white">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -47,9 +47,9 @@ const props = defineProps({
         />
       </svg>
     </div>
-    <div class="flex flex-col absolute w-[896px] justify-center top-32 bottom-32 left-32 right-32">
+    <div class="flex flex-col absolute w-4xl justify-center top-32 bottom-32 left-32 right-32">
       <div
-        class="tracking-tight flex-grow-1 flex flex-col justify-center leading-[1.1]"
+        class="tracking-tight grow flex flex-col justify-center leading-[1.1]"
         :style="{
           textWrap: 'balance',
           fontWeight: 600,
@@ -60,7 +60,7 @@ const props = defineProps({
         {{ title }}
       </div>
       <div
-        class="text-[40px] leading-[1.5] flex-grow-1 text-stone-400"
+        class="text-[40px] leading-normal grow text-stone-400"
         :style="{
           fontWeight: 400,
           textWrap: 'balance',

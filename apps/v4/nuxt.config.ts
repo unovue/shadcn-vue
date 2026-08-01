@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: '.',
   css: ['~/assets/css/main.css', 'vue-sonner/style.css'],
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image', '@nuxt/fonts'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
     { path: '~/components/demo', pathPrefix: false },
@@ -138,22 +138,25 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'shortcut icon', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        // Eager-load the default docs font (Geist) with no JS dependency.
-        // Other fonts are resolved on demand via useFontLoader() + unifont.
+        // Geist/Geist Mono are emitted eagerly by @nuxt/fonts (see `fonts.families`).
+        // Other fonts are resolved on demand via useFontLoader() + unifont, which
+        // still hits Bunny at runtime — hence the preconnect.
         { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.bunny.net/css?family=geist:400,500,600,700|geist-mono:400,500',
-        },
       ],
       meta: [{ name: 'keywords', content: 'Nuxt,Vue,Tailwind CSS,Components,shadcn' }],
     },
   },
-  ogImage: {
-    fonts: [
-      'Geist:400',
-      'Geist:500',
-      'Geist:600',
+  fonts: {
+    defaults: {
+      subsets: ['latin'],
+      styles: ['normal'],
+    },
+    // `global: true` emits the @font-face into nuxt-fonts-global.css, which is both
+    // how the docs get Geist without a render-blocking external stylesheet and how
+    // nuxt-og-image discovers the family at build time.
+    families: [
+      { name: 'Geist', weights: [400, 500, 600, 700], global: true },
+      { name: 'Geist Mono', weights: [400, 500], global: true },
     ],
   },
 })

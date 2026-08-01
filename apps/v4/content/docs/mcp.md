@@ -23,9 +23,9 @@ Registries are configured in your project's `components.json` file.
 
 Select your MCP client and follow the instructions to configure the shadcn MCP server. If you'd like to do it manually, see the [Configuration](#configuration) section.
 
-::tabs{default-value="claude" class="mt-4"}
+::::tabs{default-value="claude" class="mt-4"}
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="claude"}
   Claude Code
@@ -47,7 +47,7 @@ Select your MCP client and follow the instructions to configure the shadcn MCP s
     Opencode
     ::
 
-::
+:::
 
 ::tabs-content{value="claude"}
 **Run the following command** in your project:
@@ -90,7 +90,7 @@ Open `.vscode/mcp.json` and click **Start** next to the shadcn server. Then try 
 - Create a contact form using components from the shadcn registry
 ::
 
-::tabs-content{value="codex"}
+:::tabs-content{value="codex"}
   ::callout{type="warning"}
   **Note:** The `shadcn-vue` CLI cannot automatically update `~/.codex/config.toml`. You'll need to add the configuration manually for Codex.
   ::
@@ -113,7 +113,7 @@ args = ["shadcn-vue@latest", "mcp"]
 - Show me all available components in the shadcn registry
 - Add the button, dialog and card components to my project
 - Create a contact form using components from the shadcn registry
-::
+:::
 ::tabs-content{value="opencode"}
 
 You need to make sure opencode is installed. 
@@ -130,8 +130,9 @@ npx shadcn-vue@latest mcp init --client opencode
 - Create a contact form using components from the shadcn registry
 
 **Note:** You can use `Ctrl+x s` to see the status of the mcp servers.
-:
 ::
+
+::::
 
 ---
 

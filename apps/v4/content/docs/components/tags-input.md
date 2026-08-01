@@ -15,9 +15,9 @@ name: TagsInputDemo
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -27,7 +27,7 @@ name: TagsInputDemo
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -37,8 +37,8 @@ npx shadcn-vue@latest add tags-input
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -54,10 +54,10 @@ npx shadcn-vue@latest add tags-input
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Examples
 

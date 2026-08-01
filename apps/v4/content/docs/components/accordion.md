@@ -18,9 +18,9 @@ align: start
 
 ## Installation
 
-::code-tabs
+:::::code-tabs
 
-::tabs-list
+:::tabs-list
 
   ::tabs-trigger{value="cli"}
   CLI
@@ -30,7 +30,7 @@ align: start
   Manual
   ::
 
-::
+:::
 
 ::tabs-content{value="cli"}
 
@@ -40,8 +40,8 @@ npx shadcn-vue@latest add accordion
 
 ::
 
-::tabs-content{value="manual"}
-  ::steps
+::::tabs-content{value="manual"}
+  :::steps
     ::step
     Install the following dependencies:
     ::
@@ -57,10 +57,10 @@ npx shadcn-vue@latest add accordion
     ::step
     Update the import paths to match your project setup.
     ::
-  ::
-::
+  :::
+::::
 
-::
+:::::
 
 ## Usage
 
