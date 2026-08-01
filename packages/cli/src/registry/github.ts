@@ -15,6 +15,8 @@ import {
 } from "@/src/registry/source"
 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com"
+// Nothing else bounds this request, so a stalled read would hang the install.
+const GITHUB_FILE_FETCH_TIMEOUT = 15_000
 
 export interface GitHubSourceOptions {
   useCache?: boolean
@@ -71,16 +73,25 @@ function createGitHubRegistrySourceReader(
       const sha = await shaPromise
       const url = buildGitHubRawUrl(address, sha, filePath)
 
+      if (options.useCache === false) {
+        return fetchGitHubSourceFile(url, filePath, address)
+      }
+
       const cached = fileCache.get(url)
-      if (options.useCache !== false && cached) {
+      if (cached) {
         return cached
       }
 
-      const promise = fetchGitHubSourceFile(url, filePath, address)
-
-      if (options.useCache !== false) {
-        fileCache.set(url, promise)
-      }
+      const promise = fetchGitHubSourceFile(url, filePath, address).catch(
+        (error) => {
+          // Do not cache a failure - a later attempt may succeed. Without this
+          // a single transient network error would be replayed for the rest of
+          // the run, the same way resolveGitHubRef evicts its own failures.
+          fileCache.delete(url)
+          throw error
+        },
+      )
+      fileCache.set(url, promise)
 
       return promise
     },
@@ -97,6 +108,7 @@ async function fetchGitHubSourceFile(
       agent,
       dispatcher: agent,
       responseType: "text",
+      timeout: GITHUB_FILE_FETCH_TIMEOUT,
       headers: {
         "Accept-Encoding": "identity",
         "User-Agent": "shadcn-vue",

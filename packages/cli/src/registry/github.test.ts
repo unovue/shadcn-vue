@@ -304,6 +304,38 @@ describe("fetchGitHubRegistryItem", () => {
     ).rejects.toThrow("Duplicate registry item name \"button\"")
   })
 
+  it("does not cache a failed file read", async () => {
+    let attempt = 0
+    server.use(
+      http.get(rawUrl("registry.json"), () =>
+        HttpResponse.text(registryJson([BUTTON_ITEM]))),
+      http.get(rawUrl("registry/ui/Button.vue"), () => {
+        attempt++
+        // 404 rather than 5xx: ofetch retries retryStatusCodes on GET, which
+        // would paper over the first failure before the cache ever saw it.
+        return attempt === 1
+          ? HttpResponse.text("404: Not Found", { status: 404 })
+          : HttpResponse.text("<template><button /></template>")
+      }),
+    )
+
+    const address = {
+      scheme: "github",
+      owner: "acme",
+      repo: "ui",
+      item: "button",
+    } as const
+
+    // A transient failure must not be replayed for the rest of the run.
+    await expect(fetchGitHubRegistryItem(address)).rejects.toThrow(
+      RegistrySourceFileError,
+    )
+
+    const item = await fetchGitHubRegistryItem(address)
+    expect(item.files?.[0].content).toBe("<template><button /></template>")
+    expect(attempt).toBe(2)
+  })
+
   it("resolves the ref once per repository across items", async () => {
     mockFiles({
       "registry.json": registryJson([

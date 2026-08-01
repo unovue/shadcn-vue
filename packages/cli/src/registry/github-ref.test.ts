@@ -160,6 +160,35 @@ describe("gitHub ref resolution", () => {
     })
   })
 
+  it("aborts and reports a timeout when git ls-remote stalls", async () => {
+    vi.useFakeTimers()
+    try {
+      let signal: AbortSignal | undefined
+      vi.mocked(x).mockImplementationOnce(
+        (_command, _args, options: any) =>
+          new Promise((_resolve, reject) => {
+            signal = options?.signal
+            signal?.addEventListener("abort", () =>
+              reject(new Error("aborted")))
+          }) as any,
+      )
+
+      const promise = resolveGitHubRef({ owner: "acme", repo: "ui" })
+      const assertion = expect(promise).rejects.toMatchObject({
+        suggestion:
+          "GitHub ref resolution timed out. Check your network connection and try again.",
+      })
+
+      await vi.advanceTimersByTimeAsync(15_000)
+      await assertion
+
+      expect(signal?.aborted).toBe(true)
+    }
+    finally {
+      vi.useRealTimers()
+    }
+  })
+
   it("points at the public-repository requirement when git fails", async () => {
     vi.mocked(x).mockRejectedValueOnce(new Error("exited with code 128"))
 

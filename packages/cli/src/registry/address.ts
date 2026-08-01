@@ -87,6 +87,10 @@ export function resolveItemAddress(address: string) {
   } satisfies ResolvedItemAddress
 }
 
+// Throws RegistryValidationError when the address is a GitHub address carrying
+// a malformed ref. That is deliberate: swallowing it would send something like
+// `owner/repo/button#my tag` on to the default registry, where it would fail as
+// an unknown item name and hide the real mistake.
 export function isGitHubItemAddress(address: string) {
   return resolveItemAddress(address).scheme === "github"
 }
@@ -129,6 +133,7 @@ export function resolveGitHubRegistrySource(source: string) {
   } satisfies ResolvedGitHubRegistrySource
 }
 
+// Throws on a malformed ref, for the same reason as isGitHubItemAddress.
 export function isGitHubRegistrySource(source: string) {
   return resolveGitHubRegistrySource(source) !== null
 }

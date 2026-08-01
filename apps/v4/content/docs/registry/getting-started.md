@@ -256,7 +256,9 @@ npx shadcn-vue@latest search owner/repo
   that is absolute or uses `..` to escape.
 
 If you would rather not type the repository on every command, register a
-namespace in `components.json` and install by that instead:
+namespace in `components.json` and install by that instead. A namespace maps to
+a hosted registry URL template — not to a GitHub repository — so this is an
+alternative to the GitHub form above rather than a shorthand for it:
 
 ```json title="components.json"
 {

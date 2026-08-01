@@ -121,6 +121,46 @@ describe("resolveItemAddress", () => {
     },
   )
 
+  it("accepts an owner at the 39 character limit", () => {
+    const owner = `a${"b".repeat(37)}c`
+
+    expect(owner).toHaveLength(39)
+    expect(resolveItemAddress(`${owner}/repo/button`)).toEqual({
+      scheme: "github",
+      owner,
+      repo: "repo",
+      item: "button",
+    })
+  })
+
+  it("rejects an owner over the 39 character limit", () => {
+    const owner = `a${"b".repeat(38)}c`
+
+    expect(owner).toHaveLength(40)
+    expect(resolveItemAddress(`${owner}/repo/button`)).toEqual({
+      scheme: "shadcn",
+      item: `${owner}/repo/button`,
+    })
+  })
+
+  it("does not classify an address with an empty item name as GitHub", () => {
+    expect(resolveItemAddress("owner/repo/")).toEqual({
+      scheme: "shadcn",
+      item: "owner/repo/",
+    })
+  })
+
+  it("keeps an empty path segment in the item name", () => {
+    // The item name is only ever matched against registry.json, never joined
+    // into a path, so this resolves and then fails as an unknown item.
+    expect(resolveItemAddress("owner/repo//button")).toEqual({
+      scheme: "github",
+      owner: "owner",
+      repo: "repo",
+      item: "/button",
+    })
+  })
+
   it("keeps .json addresses classified as file paths", () => {
     expect(resolveItemAddress("owner/repo/data/schema.json")).toEqual({
       scheme: "file",
