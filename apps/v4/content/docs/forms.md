@@ -25,6 +25,24 @@ Start by selecting your framework. Then follow the instructions to learn how to 
     </svg>
     <p class="mt-2 font-medium">TanStack Form</p>
   </linked-card>
+  <linked-card href="/docs/forms/formisch">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      class="size-10"
+      fill="currentColor"
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        d="M90.9 291.7 49 299.4v125.5l193.3 63.8 221-63.8V304.7l-62-13.7m-352.2 8.6 193.2 53.6V488m221-183.2-221.1 48.4m-171-67.7 147.5 47 212.7-48.3L437 76 271.9 25 72.1 66.3Zm1-219.3L220.5 118l-1.8 214m1.8-214.3 216.2-41.6m-84.4 159.6-.9 1.9c-5.2 11.3-16.2 34.8-33.5 35.5h-1a22 22 0 0 1-9.7-2.2 26 26 0 0 1-7.4-5.5c-4.3-4.4-7.4-10-10-14.5q-1.2-2.4-2.7-4.7a54 54 0 0 0 21.7 4.1 74 74 0 0 0 23.6-4 70 70 0 0 0 11.4-5 64 64 0 0 0 8.5-5.6M247.6 168c19.5-20.8 34.8-12.3 36-18.4 1.5-7-12.2-7.7-22.2-2.6s-18 17.7-13.8 21m101.2-33.2c1.6 2.6 8.7-1.6 19.5-1.2s15.8 5.7 18 4.1-4.6-14.7-17.1-15.2-22 9.7-20.4 12.3m21.2 16.3c9.4.6 17.1 12.8 16.1 27.6s-10.4 25.9-19.8 25.2-17.1-12.9-16.1-27.7 10.4-25.8 19.8-25.1m-97.4 19c11 1.2 19 15.1 17.4 30.5s-12.3 27.4-23.4 26.2-19-15-17.4-30.5 12.3-27.3 23.4-26.2"
+      />
+    </svg>
+    <p class="mt-2 font-medium">Formisch</p>
+  </linked-card>
   <linked-card href="#" class="border border-dashed bg-transparent">
   <svg xmlns="http://www.w3.org/2000/svg" class="size-10" viewBox="0 0 24 24"><!-- Icon from Akar Icons by Arturo Wibawa - https://github.com/artcoholic/akar-icons/blob/master/LICENSE --><path fill="currentColor" d="M19.114 2H15l-3 4.9L9.429 2H0l12 21L24 2zM3 3.75h2.914L12 14.6l6.086-10.85H21L12 19.5z"/></svg>
     <p class="mt-2 font-medium">Composable</p>

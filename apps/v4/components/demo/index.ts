@@ -50,6 +50,17 @@ export { default as ComboboxWithListboxDemo } from './ComboboxWithListboxDemo.vu
 export { default as DialogDemo } from './DialogDemo.vue'
 export { default as DialogResponsive } from './DialogResponsive.vue'
 
+// Formisch demos
+export { default as FormischArray } from './FormischArray.vue'
+export { default as FormischCheckbox } from './FormischCheckbox.vue'
+export { default as FormischComplex } from './FormischComplex.vue'
+export { default as FormischDemo } from './FormischDemo.vue'
+export { default as FormischInput } from './FormischInput.vue'
+export { default as FormischRadioGroup } from './FormischRadioGroup.vue'
+export { default as FormischSelect } from './FormischSelect.vue'
+export { default as FormischSwitch } from './FormischSwitch.vue'
+export { default as FormischTextarea } from './FormischTextarea.vue'
+
 // Hover Card demos
 export { default as HoverCardDemo } from './HoverCardDemo.vue'
 

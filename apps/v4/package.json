@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@dnd-kit/abstract": "^0.5.0",
+    "@formisch/vue": "^1.0.0-rc.0",
     "@hugeicons/core-free-icons": "^4.2.3",
     "@hugeicons/vue": "^1.0.7",
     "@internationalized/date": "catalog:",
@@ -57,6 +58,7 @@
     "tw-animate-css": "catalog:",
     "unifont": "catalog:",
     "unstorage": "^1.17.5",
+    "valibot": "^1.4.1",
     "vaul-vue": "catalog:",
     "vee-validate": "catalog:",
     "vue": "catalog:",

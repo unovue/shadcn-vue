@@ -175,6 +175,9 @@ importers:
       '@dnd-kit/abstract':
         specifier: ^0.5.0
         version: 0.5.0
+      '@formisch/vue':
+        specifier: ^1.0.0-rc.0
+        version: 1.0.0-rc.0(typescript@5.9.3)(valibot@1.4.2(typescript@5.9.3))(vue@3.5.40(typescript@5.9.3))
       '@hugeicons/core-free-icons':
         specifier: ^4.2.3
         version: 4.2.3
@@ -289,6 +292,9 @@ importers:
       unstorage:
         specifier: ^1.17.5
         version: 1.17.5(db0@0.3.4)(ioredis@5.10.1)
+      valibot:
+        specifier: ^1.4.1
+        version: 1.4.2(typescript@5.9.3)
       vaul-vue:
         specifier: 'catalog:'
         version: 0.4.1(reka-ui@2.10.1(vue@3.5.40(typescript@5.9.3)))(vue@3.5.40(typescript@5.9.3))
@@ -1772,6 +1778,16 @@ packages:
 
   '@floating-ui/vue@1.1.9':
     resolution: {integrity: sha512-BfNqNW6KA83Nexspgb9DZuz578R7HT8MZw1CfK9I6Ah4QReNWEJsXWHN+SdmOVLNGmTPDi+fDT535Df5PzMLbQ==}
+
+  '@formisch/vue@1.0.0-rc.0':
+    resolution: {integrity: sha512-tRObIdotqHTCCXxqn/sG7s7pWfjyx1wWbY6L5VgcomGzfhZEFNHWXfvjXaZLMq6x+Yv1qJHCkmK9sj+sZGs0cQ==}
+    peerDependencies:
+      typescript: '>=5'
+      valibot: ^1.4.1
+      vue: ^3.3.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@hono/node-server@1.19.14':
     resolution: {integrity: sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw==}
@@ -13435,6 +13451,13 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@formisch/vue@1.0.0-rc.0(typescript@5.9.3)(valibot@1.4.2(typescript@5.9.3))(vue@3.5.40(typescript@5.9.3))':
+    dependencies:
+      valibot: 1.4.2(typescript@5.9.3)
+      vue: 3.5.40(typescript@5.9.3)
+    optionalDependencies:
+      typescript: 5.9.3
 
   '@hono/node-server@1.19.14(hono@4.12.30)':
     dependencies:
