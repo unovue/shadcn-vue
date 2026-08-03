@@ -109,7 +109,7 @@
     "tinyexec": "^1.2.4",
     "tinyglobby": "catalog:",
     "ts-morph": "^28.0.0",
-    "undici": "^8.7.0",
+    "undici": "^8.9.0",
     "validate-npm-package-name": "catalog:",
     "vue-metamorph": "3.3.4",
     "zod": "catalog:",
