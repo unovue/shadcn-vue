@@ -6,7 +6,7 @@ const props = defineProps<DrawerRootProps>()
 
 const emits = defineEmits<DrawerRootEmits>()
 
-const forwarded = useForwardPropsEmits(props, emits) as ComputedRef<Record<string, unknown>>
+const forwarded = useForwardPropsEmits(props, emits)
 </script>
 
 <template>
