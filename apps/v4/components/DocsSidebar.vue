@@ -55,6 +55,10 @@ const TOP_LEVEL_SECTIONS = [
     href: '/docs/forms',
   },
   {
+    name: 'Typeset',
+    href: '/docs/typeset',
+  },
+  {
     name: 'Changelog',
     href: '/docs/changelog',
   },
