@@ -3,10 +3,7 @@ import { createHash } from "node:crypto"
 import deepmerge from "deepmerge"
 import path from "pathe"
 import { z } from "zod"
-import {
-  isGitHubItemAddress,
-  resolveItemAddress,
-} from "@/src/registry/address"
+import { resolveItemAddress } from "@/src/registry/address"
 import {
   getRegistryBaseColor,
   getShadcnRegistryIndex,
@@ -53,7 +50,7 @@ export function resolveRegistryItemsFromRegistries(
   for (let i = 0; i < resolvedItems.length; i++) {
     // GitHub addresses carry their own location. They are never looked up in
     // the configured registries.
-    if (isGitHubItemAddress(resolvedItems[i])) {
+    if (resolveItemAddress(resolvedItems[i]).scheme === "github") {
       continue
     }
 
@@ -395,7 +392,11 @@ async function resolveDependenciesRecursively(
     visited.add(dep)
 
     // Handle GitHub addresses, URLs and local files directly.
-    if (isGitHubItemAddress(dep) || isUrl(dep) || isLocalFile(dep)) {
+    if (
+      resolveItemAddress(dep).scheme === "github"
+      || isUrl(dep)
+      || isLocalFile(dep)
+    ) {
       const [item] = await fetchRegistryItems([dep], config, options)
       if (item) {
         items.push(item)

@@ -5,8 +5,6 @@ export type {
 } from "./address"
 
 export {
-  isGitHubItemAddress,
-  isGitHubRegistrySource,
   resolveGitHubRegistrySource,
   resolveItemAddress,
 } from "./address"

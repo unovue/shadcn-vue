@@ -52,6 +52,18 @@ export type ResolvedGitHubItemAddress = Extract<
 // Classifies an `add` argument into the scheme that should resolve it.
 // The order matters: urls and local files win over the bare `owner/repo/item`
 // form, and a configured `@namespace/item` wins over everything else.
+//
+// Throws RegistryValidationError when the address looks like a GitHub address
+// but carries a malformed ref. That is deliberate: swallowing it would send
+// something like `owner/repo/button#my tag` on to the default registry, where
+// it would fail as an unknown item name and hide the real mistake. Callers on
+// the dependency-resolution path get the same treatment, so a bad ref inside
+// somebody's `registryDependencies` reports itself instead of 404ing later.
+//
+// Tradeoff worth knowing about: a bare name with two or more slashes is read
+// as `owner/repo/item`, so the default registry can never publish an item
+// literally named e.g. "charts/area/stacked". No item name in the shadcn-vue
+// registry contains a slash today, so nothing currently collides.
 export function resolveItemAddress(address: string) {
   if (isUrl(address)) {
     return {
@@ -85,14 +97,6 @@ export function resolveItemAddress(address: string) {
     scheme: "shadcn",
     item: address,
   } satisfies ResolvedItemAddress
-}
-
-// Throws RegistryValidationError when the address is a GitHub address carrying
-// a malformed ref. That is deliberate: swallowing it would send something like
-// `owner/repo/button#my tag` on to the default registry, where it would fail as
-// an unknown item name and hide the real mistake.
-export function isGitHubItemAddress(address: string) {
-  return resolveItemAddress(address).scheme === "github"
 }
 
 // Parses a registry source i.e `owner/repo` or `owner/repo#ref`.
@@ -131,11 +135,6 @@ export function resolveGitHubRegistrySource(source: string) {
     repo,
     ref,
   } satisfies ResolvedGitHubRegistrySource
-}
-
-// Throws on a malformed ref, for the same reason as isGitHubItemAddress.
-export function isGitHubRegistrySource(source: string) {
-  return resolveGitHubRegistrySource(source) !== null
 }
 
 function resolveGitHubItemAddress(address: string) {

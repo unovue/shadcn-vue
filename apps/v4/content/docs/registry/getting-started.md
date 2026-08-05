@@ -239,6 +239,24 @@ the commit it points at.
 npx shadcn-vue@latest search owner/repo
 ```
 
+### Only install from repositories you trust
+
+Adding a registry item runs third-party code on your machine. This is true of
+every registry — hosted, local or GitHub — but the GitHub form is worth calling
+out because it needs no configuration, so a single command from a README is
+enough to install from a repository you have never looked at.
+
+A registry item can list npm `dependencies`, which the CLI installs with your
+package manager, which in turn runs that package's install scripts. It can also
+write files into your project. Treat `npx shadcn-vue@latest add owner/repo/item`
+with the same care as `npm install owner-repo` — read the registry first if you
+do not know who owns it.
+
+The CLI does reject `path` and `target` values that are absolute or use `..` to
+escape the project, both for the item you asked for and at the point files are
+written. That is a guard against mistakes and a hostile item's easiest trick; it
+is not a sandbox.
+
 ### Notes
 
 - **Item names may contain slashes.** `owner/repo/forms/login` installs the item
@@ -250,10 +268,9 @@ npx shadcn-vue@latest search owner/repo
   which is what lets it find the default branch instead of guessing `main`.
 - **`registryDependencies` are resolved the usual way.** A full URL is fetched
   as-is; a bare name such as `button` resolves against the default `shadcn-vue`
-  registry, exactly as it does for any other registry item.
-- **File paths and targets must stay inside the project.** Because this form
-  takes no configuration from the user, the CLI rejects any `path` or `target`
-  that is absolute or uses `..` to escape.
+  registry, exactly as it does for any other registry item. Note that a
+  dependency can point anywhere, so trusting a repository means trusting what it
+  depends on too.
 
 If you would rather not type the repository on every command, register a
 namespace in `components.json` and install by that instead. A namespace maps to

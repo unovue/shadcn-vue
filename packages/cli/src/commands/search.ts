@@ -86,9 +86,16 @@ export const search = new Command()
         // Use shadow config if getConfig fails (partial components.json).
       }
 
+      // Only `@namespace` registries need to be discovered in components.json.
+      // A url or a `owner/repo` GitHub source carries its own location, and
+      // appending "/registry" to one just sends us off to look for an item
+      // literally named "registry" - a wasted round trip whose failure is then
+      // swallowed.
       const { config: updatedConfig, newRegistries }
         = await ensureRegistriesInConfig(
-          registries.map(registry => `${registry}/registry`),
+          registries
+            .filter(registry => registry.startsWith('@'))
+            .map(registry => `${registry}/registry`),
           config,
           {
             silent: true,

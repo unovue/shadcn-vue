@@ -19,6 +19,9 @@ const GITHUB_RAW_URL = "https://raw.githubusercontent.com"
 const GITHUB_FILE_FETCH_TIMEOUT = 15_000
 
 export interface GitHubSourceOptions {
+  // Accepted so callers can pass their usual fetch options through, but
+  // ignored: everything this reader fetches is addressed by commit SHA and
+  // therefore immutable. See githubFileCache below.
   useCache?: boolean
   sourceCache?: Map<string, Promise<string>>
 }
@@ -29,7 +32,12 @@ export interface GitHubSourceOptions {
 // different commits.
 const githubRefCache = new Map<string, Promise<string>>()
 
-// File bodies, keyed by their fully resolved raw URL.
+// File bodies, keyed by their fully resolved raw URL. Kept for the lifetime of
+// the process regardless of `useCache` for the same reason as the ref cache:
+// the URL contains a resolved commit SHA, so its content is immutable by
+// construction and there is no such thing as a stale entry. This matters more
+// than it looks - namespace discovery loads every item once before the install
+// does, so without it every file of every item is fetched twice.
 const githubFileCache = new Map<string, Promise<string>>()
 
 export function clearGitHubSourceCache() {
@@ -72,10 +80,6 @@ function createGitHubRegistrySourceReader(
     async readText(filePath: string) {
       const sha = await shaPromise
       const url = buildGitHubRawUrl(address, sha, filePath)
-
-      if (options.useCache === false) {
-        return fetchGitHubSourceFile(url, filePath, address)
-      }
 
       const cached = fileCache.get(url)
       if (cached) {

@@ -6,6 +6,9 @@ import { x } from "tinyexec"
 import { RegistrySourceFileError } from "@/src/registry/errors"
 
 const GITHUB_URL = "https://github.com"
+// SHA-1 object ids only. GitHub does not serve SHA-256 repositories yet; if it
+// ever does, parseGitLsRemote will silently drop the 64-character ids and a ref
+// will look missing rather than unsupported.
 const GITHUB_SHA_PATTERN = /^[a-f0-9]{40}$/i
 const GITHUB_REF_RESOLUTION_TIMEOUT = 15_000
 
@@ -48,7 +51,7 @@ export async function resolveGitHubRef(
 
 async function resolveGitHubRefUncached(address: GitHubSource, ref: string) {
   const repoUrl = `${GITHUB_URL}/${address.owner}/${address.repo}.git`
-  const candidates = getGitHubRefCandidates(ref)
+  const candidates = getPreferredGitHubRefNames(ref)
 
   let stdout: string
   let timedOut = false
@@ -107,12 +110,9 @@ async function resolveGitHubRefUncached(address: GitHubSource, ref: string) {
   })
 }
 
-export function getGitHubRefCandidates(ref: string) {
-  return Array.from(new Set(getPreferredGitHubRefNames(ref)))
-}
-
 // Branches win over tags, and an annotated tag resolves to the commit it
-// points at (`^{}`) rather than to the tag object.
+// points at (`^{}`) rather than to the tag object. Every branch returns
+// distinct names, so this doubles as the `ls-remote` argument list.
 export function getPreferredGitHubRefNames(ref: string) {
   if (ref === "HEAD") {
     return ["HEAD"]
@@ -176,7 +176,7 @@ function getGitHubRefResolutionSuggestion(error: unknown, timedOut: boolean) {
     return "GitHub ref resolution timed out. Check your network connection and try again."
   }
 
-  return "Check that the public GitHub repository exists and the ref is accessible. Private repositories are not supported."
+  return "Check that the public GitHub repository exists and the ref is accessible. Private repositories are not supported. If you meant a registry configured in components.json, prefix it with \"@\" instead."
 }
 
 function isGitNotFoundError(error: unknown) {

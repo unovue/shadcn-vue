@@ -2,7 +2,6 @@ import { x } from "tinyexec"
 import { beforeEach, describe, expect, it, vi } from "vitest"
 
 import {
-  getGitHubRefCandidates,
   getPreferredGitHubRefNames,
   parseGitLsRemote,
   resolveGitHubRef,
@@ -195,8 +194,19 @@ describe("gitHub ref resolution", () => {
     await expect(
       resolveGitHubRef({ owner: "acme", repo: "private" }),
     ).rejects.toMatchObject({
-      suggestion:
+      suggestion: expect.stringContaining(
         "Check that the public GitHub repository exists and the ref is accessible. Private repositories are not supported.",
+      ),
+    })
+  })
+
+  it("points at the @namespace form when a repository lookup fails", async () => {
+    vi.mocked(x).mockRejectedValueOnce(new Error("exited with code 128"))
+
+    await expect(
+      resolveGitHubRef({ owner: "acme", repo: "registry" }),
+    ).rejects.toMatchObject({
+      suggestion: expect.stringContaining("prefix it with \"@\""),
     })
   })
 })
@@ -217,9 +227,16 @@ describe("gitHub ls-remote parsing", () => {
     })
   })
 
-  it("deduplicates ref candidates", () => {
-    expect(getGitHubRefCandidates("refs/heads/main")).toEqual([
+  it("asks for a fully qualified ref exactly as given", () => {
+    expect(getPreferredGitHubRefNames("refs/heads/main")).toEqual([
       "refs/heads/main",
     ])
+  })
+
+  it("never produces duplicate candidates", () => {
+    for (const ref of ["HEAD", "main", "refs/heads/main", "refs/tags/v1"]) {
+      const candidates = getPreferredGitHubRefNames(ref)
+      expect(new Set(candidates).size).toBe(candidates.length)
+    }
   })
 })

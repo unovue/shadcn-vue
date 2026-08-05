@@ -46,9 +46,9 @@ export async function loadRegistryItemFromSource(
   } = {},
 ) {
   const result = await readSourceRegistry(reader, options)
-  const item = result.registry.items.find(item => item.name === itemName)
+  const matches = result.registry.items.filter(item => item.name === itemName)
 
-  if (!item) {
+  if (matches.length === 0) {
     throw new RegistryItemNotFoundError(itemName, {
       source: options.source,
       suggestion: `Available items: ${
@@ -56,6 +56,34 @@ export async function loadRegistryItemFromSource(
       }.`,
     })
   }
+
+  // Only the name we were actually asked for has to be unambiguous. A
+  // duplicate elsewhere in the file is the registry author's problem, not a
+  // reason to refuse the item in front of us.
+  if (matches.length > 1) {
+    throw new RegistryValidationError(
+      `Duplicate registry item name "${itemName}". Registry item names must be unique.\n${matches
+        .map(item => `  - ${formatItemSource(result.itemSources.get(item))}`)
+        .join("\n")}`,
+      {
+        context: { itemName },
+        suggestion:
+          "Rename one of these items so each name is unique across the registry.",
+      },
+    )
+  }
+
+  const [item] = matches
+  const source = result.itemSources.get(item)
+
+  // Validate only the item we are about to read and write. Walking every item
+  // in the file would let one malformed entry make the whole repository
+  // uninstallable.
+  validateRegistryItemFiles(
+    item,
+    source?.registryFile ?? "registry.json",
+    source?.registryDir ?? ".",
+  )
 
   return createRegistryItemFromSource(item, result, reader)
 }
@@ -97,12 +125,12 @@ async function readSourceRegistry(
   const itemSources = new Map<RegistryItem, RegistryItemSource>()
 
   registry.items.forEach((item, itemIndex) => {
-    validateRegistryItemFiles(item, registryFile, registryDir)
     itemSources.set(item, { registryFile, registryDir, itemIndex })
   })
 
-  validateDuplicateItems(registry.items, itemSources)
-
+  // File paths and duplicate names are validated per item, at the point an
+  // item is actually loaded. Listing a catalog reads nothing and writes
+  // nothing, so it does not need either check.
   return { registry, itemSources }
 }
 
@@ -355,43 +383,26 @@ function validateRegistryItemFileTarget(
   }
 }
 
-function validateDuplicateItems(
-  items: RegistryItem[],
-  itemSources: Map<RegistryItem, RegistryItemSource>,
-) {
-  const seen = new Map<string, RegistryItem>()
-
-  for (const item of items) {
-    const existing = seen.get(item.name)
-    if (!existing) {
-      seen.set(item.name, item)
-      continue
-    }
-
-    throw new RegistryValidationError(
-      `Duplicate registry item name "${item.name}". Registry item names must be unique.\n`
-      + `  - ${formatItemSource(itemSources.get(existing))}\n`
-      + `  - ${formatItemSource(itemSources.get(item))}`,
-      {
-        context: { itemName: item.name },
-        suggestion:
-          "Rename one of these items so each name is unique across the registry.",
-      },
-    )
-  }
-}
-
 async function mapWithConcurrency<T>(
   items: T[],
   concurrency: number,
   mapper: (item: T, index: number) => Promise<void>,
 ) {
   let nextIndex = 0
+  // The first failure fails the whole item, so stop handing out work instead
+  // of letting the other workers finish fetching files nobody will use.
+  let failed = false
   const workerCount = Math.min(concurrency, items.length)
   const workers = Array.from({ length: workerCount }, async () => {
-    while (nextIndex < items.length) {
+    while (nextIndex < items.length && !failed) {
       const itemIndex = nextIndex++
-      await mapper(items[itemIndex]!, itemIndex)
+      try {
+        await mapper(items[itemIndex]!, itemIndex)
+      }
+      catch (error) {
+        failed = true
+        throw error
+      }
     }
   })
 

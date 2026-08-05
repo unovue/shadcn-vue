@@ -289,7 +289,7 @@ describe("fetchGitHubRegistryItem", () => {
     expect(item.files?.[0].target).toBe("~/components/ui/Button.vue")
   })
 
-  it("rejects duplicate item names", async () => {
+  it("rejects a duplicate of the item that was asked for", async () => {
     mockFiles({
       "registry.json": registryJson([BUTTON_ITEM, BUTTON_ITEM]),
     })
@@ -302,6 +302,78 @@ describe("fetchGitHubRegistryItem", () => {
         item: "button",
       }),
     ).rejects.toThrow("Duplicate registry item name \"button\"")
+  })
+
+  it("ignores a duplicate of some other item", async () => {
+    mockFiles({
+      "registry.json": registryJson([
+        BUTTON_ITEM,
+        { ...BUTTON_ITEM, name: "card" },
+        { ...BUTTON_ITEM, name: "card" },
+      ]),
+      "registry/ui/Button.vue": "<template><button /></template>",
+    })
+
+    const item = await fetchGitHubRegistryItem({
+      scheme: "github",
+      owner: "acme",
+      repo: "ui",
+      item: "button",
+    })
+
+    expect(item.name).toBe("button")
+  })
+
+  it("ignores a malformed file path on some other item", async () => {
+    mockFiles({
+      "registry.json": registryJson([
+        BUTTON_ITEM,
+        {
+          ...BUTTON_ITEM,
+          name: "evil",
+          files: [{ path: "../../../etc/passwd", type: "registry:ui" }],
+        },
+      ]),
+      "registry/ui/Button.vue": "<template><button /></template>",
+    })
+
+    // One bad item must not make the whole repository uninstallable.
+    const item = await fetchGitHubRegistryItem({
+      scheme: "github",
+      owner: "acme",
+      repo: "ui",
+      item: "button",
+    })
+
+    expect(item.name).toBe("button")
+  })
+
+  it("reuses a fetched file even when useCache is false", async () => {
+    let attempt = 0
+    server.use(
+      http.get(rawUrl("registry.json"), () =>
+        HttpResponse.text(registryJson([BUTTON_ITEM]))),
+      http.get(rawUrl("registry/ui/Button.vue"), () => {
+        attempt++
+        return HttpResponse.text("<template><button /></template>")
+      }),
+    )
+
+    const address = {
+      scheme: "github",
+      owner: "acme",
+      repo: "ui",
+      item: "button",
+    } as const
+
+    // The raw url is pinned to a resolved commit sha, so its body cannot go
+    // stale and `useCache: false` has nothing to invalidate. Namespace
+    // discovery loads every item once before the install does, so refetching
+    // here would double the request count against raw.githubusercontent.com.
+    await fetchGitHubRegistryItem(address, { useCache: false })
+    await fetchGitHubRegistryItem(address, { useCache: false })
+
+    expect(attempt).toBe(1)
   })
 
   it("does not cache a failed file read", async () => {
