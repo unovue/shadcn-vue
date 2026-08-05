@@ -204,3 +204,87 @@ To install a registry item using the `shadcn-vue` CLI, use the `add` command fol
 ```bash
 npx shadcn-vue@latest add http://localhost:3000/r/hello-world.json
 ```
+
+## Install from GitHub
+
+If your registry lives in a **public** GitHub repository with a `registry.json`
+at its root, you do not have to build, host or configure anything. The CLI can
+read it directly:
+
+```bash
+npx shadcn-vue@latest add owner/repo/hello-world
+```
+
+The CLI resolves the repository's default branch, reads `registry.json` from the
+root, finds the item by name, and fetches each of its `files[].path` from the
+same commit. Every file of an item comes from one commit, so a branch that moves
+mid-install cannot give you a half-updated component.
+
+### Pinning a branch, tag or commit
+
+Append `#ref` to install from somewhere other than the default branch:
+
+```bash
+npx shadcn-vue@latest add owner/repo/hello-world#main
+npx shadcn-vue@latest add owner/repo/hello-world#v1.2.0
+npx shadcn-vue@latest add owner/repo/hello-world#1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+```
+
+Branches win over tags when a name is ambiguous, and an annotated tag resolves to
+the commit it points at.
+
+### Listing what a repository publishes
+
+```bash
+npx shadcn-vue@latest search owner/repo
+```
+
+### Only install from repositories you trust
+
+Adding a registry item runs third-party code on your machine. This is true of
+every registry — hosted, local or GitHub — but the GitHub form is worth calling
+out because it needs no configuration, so a single command from a README is
+enough to install from a repository you have never looked at.
+
+A registry item can list npm `dependencies`, which the CLI installs with your
+package manager, which in turn runs that package's install scripts. It can also
+write files into your project. Treat `npx shadcn-vue@latest add owner/repo/item`
+with the same care as `npm install owner-repo` — read the registry first if you
+do not know who owns it.
+
+The CLI does reject `path` and `target` values that are absolute or use `..` to
+escape the project, both for the item you asked for and at the point files are
+written. That is a guard against mistakes and a hostile item's easiest trick; it
+is not a sandbox.
+
+### Notes
+
+- **Item names may contain slashes.** `owner/repo/forms/login` installs the item
+  *named* `forms/login` from the root `registry.json`. It is not a path to a
+  nested `registry.json`.
+- **The repository must be public.** `raw.githubusercontent.com` does not serve
+  private repositories. Use a hosted registry with [auth](#adding-auth) instead.
+- **Git is required.** The CLI shells out to `git ls-remote` to resolve the ref,
+  which is what lets it find the default branch instead of guessing `main`.
+- **`registryDependencies` are resolved the usual way.** A full URL is fetched
+  as-is; a bare name such as `button` resolves against the default `shadcn-vue`
+  registry, exactly as it does for any other registry item. Note that a
+  dependency can point anywhere, so trusting a repository means trusting what it
+  depends on too.
+
+If you would rather not type the repository on every command, register a
+namespace in `components.json` and install by that instead. A namespace maps to
+a hosted registry URL template — not to a GitHub repository — so this is an
+alternative to the GitHub form above rather than a shorthand for it:
+
+```json title="components.json"
+{
+  "registries": {
+    "@acme": "https://acme.com/r/{name}.json"
+  }
+}
+```
+
+```bash
+npx shadcn-vue@latest add @acme/hello-world
+```

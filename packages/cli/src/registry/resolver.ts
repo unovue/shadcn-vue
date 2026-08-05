@@ -3,6 +3,7 @@ import { createHash } from "node:crypto"
 import deepmerge from "deepmerge"
 import path from "pathe"
 import { z } from "zod"
+import { resolveItemAddress } from "@/src/registry/address"
 import {
   getRegistryBaseColor,
   getShadcnRegistryIndex,
@@ -18,6 +19,7 @@ import {
   RegistryParseError,
 } from "@/src/registry/errors"
 import { fetchRegistry, fetchRegistryLocal } from "@/src/registry/fetcher"
+import { fetchGitHubRegistryItem } from "@/src/registry/github"
 import { parseRegistryAndItemFromString } from "@/src/registry/parser"
 import {
   deduplicateFilesByTarget,
@@ -46,6 +48,12 @@ export function resolveRegistryItemsFromRegistries(
   }
 
   for (let i = 0; i < resolvedItems.length; i++) {
+    // GitHub addresses carry their own location. They are never looked up in
+    // the configured registries.
+    if (resolveItemAddress(resolvedItems[i]).scheme === "github") {
+      continue
+    }
+
     const resolved = buildUrlAndHeadersForRegistryItem(resolvedItems[i], config)
 
     if (resolved) {
@@ -71,6 +79,12 @@ export async function fetchRegistryItems(
 ) {
   const results = await Promise.all(
     items.map(async (item) => {
+      const address = resolveItemAddress(item)
+
+      if (address.scheme === "github") {
+        return fetchGitHubRegistryItem(address, options)
+      }
+
       if (isLocalFile(item)) {
         return fetchRegistryLocal(item)
       }
@@ -377,8 +391,12 @@ async function resolveDependenciesRecursively(
     }
     visited.add(dep)
 
-    // Handle URLs and local files directly.
-    if (isUrl(dep) || isLocalFile(dep)) {
+    // Handle GitHub addresses, URLs and local files directly.
+    if (
+      resolveItemAddress(dep).scheme === "github"
+      || isUrl(dep)
+      || isLocalFile(dep)
+    ) {
       const [item] = await fetchRegistryItems([dep], config, options)
       if (item) {
         items.push(item)
@@ -592,6 +610,15 @@ function computeItemHash(
 }
 
 function extractItemIdentifierFromDependency(dependency: string) {
+  const address = resolveItemAddress(dependency)
+
+  if (address.scheme === "github") {
+    return {
+      name: address.item,
+      hash: computeItemHash({ name: address.item }, dependency),
+    }
+  }
+
   if (isUrl(dependency)) {
     const url = new URL(dependency)
     const pathname = url.pathname

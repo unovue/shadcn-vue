@@ -9,6 +9,7 @@ import path, { basename } from 'pathe'
 import prompts from 'prompts'
 import { transform as metaTransform } from 'vue-metamorph'
 import { getRegistryBaseColor } from '@/src/registry/api'
+import { RegistryValidationError } from '@/src/registry/errors'
 import { isContentSame } from '@/src/utils/compare'
 import {
   findExistingEnvFile,
@@ -336,7 +337,11 @@ export function resolveFilePath(
 
   if (file.target) {
     if (file.target.startsWith('~/')) {
-      return path.join(config.resolvedPaths.cwd, file.target.replace('~/', ''))
+      return assertPathWithin(
+        path.join(config.resolvedPaths.cwd, file.target.replace('~/', '')),
+        config.resolvedPaths.cwd,
+        file,
+      )
     }
 
     let target = file.target
@@ -352,13 +357,53 @@ export function resolveFilePath(
     //   ? path.join(config.resolvedPaths.cwd, 'src', target.replace('src/', ''))
     //   : path.join(config.resolvedPaths.cwd, target.replace('src/', ''))
 
-    return path.join(config.resolvedPaths.cwd, target.replace('src/', ''))
+    return assertPathWithin(
+      path.join(config.resolvedPaths.cwd, target.replace('src/', '')),
+      config.resolvedPaths.cwd,
+      file,
+    )
   }
 
   const targetDir = resolveFileTargetDirectory(file, config)
 
   const relativePath = resolveNestedFilePath(file.path, options.commonRoot, config)
-  return path.join(targetDir!, relativePath)
+  return assertPathWithin(path.join(targetDir!, relativePath), targetDir!, file)
+}
+
+// `path` and `target` come from whatever registry the user installed from, and
+// the CLI joins them onto a directory it trusts. A `..` in either one would let
+// a registry write outside the project, so refuse before we ever open a file
+// handle. The `--path` branch above is deliberately exempt: an absolute path
+// there is the user's own instruction, not the registry's.
+function assertPathWithin(
+  resolvedPath: string,
+  root: string,
+  file: z.infer<typeof registryItemFileSchema>,
+) {
+  const relative = path.relative(root, resolvedPath)
+  const escapes
+    = !relative
+      || relative === '..'
+      || relative.startsWith('../')
+      || path.isAbsolute(relative)
+
+  if (escapes) {
+    throw new RegistryValidationError(
+      `Invalid file target for "${file.path}": resolves to "${resolvedPath}", outside "${root}".`,
+      {
+        context: {
+          filePath: file.path,
+          target: file.target,
+          resolvedPath,
+          root,
+        },
+        suggestion:
+          'A registry item can only write files inside the project. Report this to the author of the registry you installed from.',
+      },
+    )
+  }
+
+  return resolvedPath
 }
 
 function resolveFileTargetDirectory(
