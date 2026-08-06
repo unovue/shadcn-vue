@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   getRegistryBase,
+  getRegistryBaseColors,
   getRegistryBases,
   getRegistryFont,
   getRegistryFonts,
@@ -13,6 +14,28 @@ import {
 } from '../../src/registry/api'
 
 describe('registry API', () => {
+  describe('getRegistryBaseColors', () => {
+    it('only exposes v4-only colors to Tailwind v4 projects', async () => {
+      const v3Colors = await getRegistryBaseColors('v3')
+      const v4Colors = await getRegistryBaseColors('v4')
+
+      expect(v3Colors.map(color => color.name)).toEqual([
+        'neutral',
+        'stone',
+        'zinc',
+      ])
+      expect(v4Colors.map(color => color.name)).toEqual([
+        'neutral',
+        'stone',
+        'zinc',
+        'mauve',
+        'olive',
+        'mist',
+        'taupe',
+      ])
+    })
+  })
+
   describe('getRegistryBases', () => {
     it('returns all bases', () => {
       const bases = getRegistryBases()

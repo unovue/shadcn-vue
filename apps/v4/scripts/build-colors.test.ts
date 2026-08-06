@@ -1,24 +1,40 @@
-import { readFile } from 'node:fs/promises'
+import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises'
+import os from 'node:os'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { THEMES } from '../registry/themes'
+import { baseColors } from '../registry/_legacy-base-colors'
+import { BASE_COLORS } from '../registry/base-colors'
+import { buildColors } from './build-colors'
 
-const BASE_COLORS = THEMES.filter(theme =>
-  ['neutral', 'stone', 'zinc', 'mauve', 'olive', 'mist', 'taupe'].includes(
-    theme.name,
-  ),
+const legacyBaseColorNames = new Set(baseColors.map(color => color.name))
+const v4OnlyBaseColors = BASE_COLORS.filter(
+  color => !legacyBaseColorNames.has(color.name),
 )
 
 describe('base color registry artifacts', () => {
-  it.each(BASE_COLORS)('$name has a generated artifact', async ({ name }) => {
-    const artifact = JSON.parse(
-      await readFile(
-        path.join(process.cwd(), 'public/r/colors', `${name}.json`),
-        'utf8',
-      ),
-    )
+  it('generates committed v4-only artifacts', async () => {
+    const targetPath = await mkdtemp(path.join(os.tmpdir(), 'shadcn-vue-colors-'))
 
-    expect(artifact.cssVarsV4?.light?.background).toBeTypeOf('string')
-    expect(artifact.cssVarsV4?.dark?.background).toBeTypeOf('string')
+    try {
+      await buildColors(targetPath)
+
+      expect((await readdir(targetPath)).sort()).toEqual(
+        v4OnlyBaseColors.map(color => `${color.name}.json`).sort(),
+      )
+
+      for (const color of v4OnlyBaseColors) {
+        const fileName = `${color.name}.json`
+        const [generated, committed] = await Promise.all([
+          readFile(path.join(targetPath, fileName), 'utf8'),
+          readFile(path.join(process.cwd(), 'public/r/colors', fileName), 'utf8'),
+        ])
+
+        expect(generated).toBe(committed)
+        expect(JSON.parse(generated)).toEqual({ cssVarsV4: color.cssVars })
+      }
+    }
+    finally {
+      await rm(targetPath, { recursive: true, force: true })
+    }
   })
 })
