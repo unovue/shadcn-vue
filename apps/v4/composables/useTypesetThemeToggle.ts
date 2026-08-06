@@ -15,7 +15,7 @@ export function useTypesetThemeToggle({ shortcut = true } = {}) {
   }
 
   if (shortcut) {
-    useEventListener(document, 'keydown', (event: KeyboardEvent) => {
+    useEventListener(globalThis.document, 'keydown', (event: KeyboardEvent) => {
       if (event.key !== 'd' && event.key !== 'D') {
         return
       }

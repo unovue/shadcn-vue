@@ -90,7 +90,7 @@ export function useTypesetHistory({ record = false } = {}) {
       maxIndex.value = index.value
     }, { immediate: true })
 
-    useEventListener(document, 'keydown', (event: KeyboardEvent) => {
+    useEventListener(globalThis.document, 'keydown', (event: KeyboardEvent) => {
       if (!event.metaKey && !event.ctrlKey) {
         return
       }

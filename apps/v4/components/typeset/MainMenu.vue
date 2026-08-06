@@ -17,7 +17,7 @@ const { shuffle, reset } = useTypesetShuffle()
 
 // R shuffles, ⇧R resets. Undo/Redo (⌘Z) and Light/Dark (D) are bound in their
 // own composables.
-useEventListener(document, 'keydown', (event: KeyboardEvent) => {
+useEventListener(globalThis.document, 'keydown', (event: KeyboardEvent) => {
   if (event.metaKey || event.ctrlKey || event.altKey) {
     return
   }

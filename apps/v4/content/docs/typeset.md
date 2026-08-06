@@ -175,17 +175,19 @@ Dark mode already follows your theme colors. If the text feels a little tight on
 
 ## Responsive Table
 
-Tables stay real tables and wrap to fit. To scroll a wide one horizontally instead, wrap it in `typeset-scroll`:
+Tables stay real tables and wrap to fit. To scroll a wide one horizontally instead, wrap it in `typeset-scroll`. The wrapper is styled as part of the content, so it only works *inside* a `typeset` container:
 
 ```vue
 <template>
-  <div class="typeset-scroll">
-    <table>...</table>
-  </div>
+  <article class="typeset typeset-docs">
+    <div class="typeset-scroll">
+      <table>...</table>
+    </div>
+  </article>
 </template>
 ```
 
-Do this in your renderer's table component or a small rehype plugin. It works for any wide block, not just tables.
+Do this in your renderer's table component or a small rehype plugin, where the output already sits inside the container. It works for any wide block, not just tables.
 
 ---
 

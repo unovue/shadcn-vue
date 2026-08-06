@@ -33,10 +33,12 @@ const mergedParams = computed<TypesetSearchParams>(() => ({
 // `item` is the exception: it picks a different specimen route, so it needs a
 // real navigation. The watch re-seeds the URL and the matching `key` remounts
 // the iframe onto it.
+// Seeded from the committed params, never the merged ones: a hover preview is
+// uncommitted by definition and must not be baked into a real navigation.
 function buildPreviewUrl() {
   return serializeTypesetSearchParams(
     `/preview/typeset/${params.item.value}`,
-    mergedParams.value,
+    params.toValues(),
   )
 }
 

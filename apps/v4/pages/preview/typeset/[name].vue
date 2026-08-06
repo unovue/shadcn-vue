@@ -10,7 +10,18 @@ import {
   TYPESET_MEASURES,
 } from '@/lib/typeset/params'
 
-definePageMeta({ layout: 'blank' })
+definePageMeta({
+  layout: 'blank',
+  // Nuxt re-runs `validate` on every param change. Checking in setup instead
+  // would only cover the first render: Vue Router reuses this component when
+  // just `[name]` changes, so navigating on to an unknown specimen would render
+  // `undefined` rather than 404.
+  validate(route) {
+    return AVAILABLE_CONTENT_OPTIONS.some(
+      option => option.value === route.params.name,
+    )
+  },
+})
 
 const route = useRoute()
 // Seeded from the URL, then driven by the designer over postMessage — see the
@@ -19,10 +30,6 @@ const params = useTypesetPreviewParams()
 const { loadFont } = useFontLoader()
 
 const name = computed(() => route.params.name as FixtureName)
-
-if (!AVAILABLE_CONTENT_OPTIONS.some(option => option.value === name.value)) {
-  throw createError({ statusCode: 404, statusMessage: 'Specimen not found', fatal: true })
-}
 
 const bodyFont = computed(() => findTypesetFont(params.body))
 const headingFont = computed(() =>
