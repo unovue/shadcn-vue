@@ -715,8 +715,7 @@ The table tracks selection internally by default. To show how a slice can live o
 import type { RowSelectionState } from '@tanstack/vue-table'
 import { ref } from 'vue'
 
-// Manage one state slice externally: a ref, a state getter,
-// and an updater-resolving handler.
+// Keep row selection outside the table so the rest of the app can read or update it.
 const rowSelection = ref<RowSelectionState>({})
 
 const table = useTable({

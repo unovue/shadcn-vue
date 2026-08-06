@@ -2535,10 +2535,6 @@
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york-v4/blocks/dashboard-01/components/features.ts",
-          "type": "registry:component"
-        },
-        {
           "path": "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
           "type": "registry:component"
         },
