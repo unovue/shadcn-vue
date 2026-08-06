@@ -1,6 +1,7 @@
-import type { ColumnDef } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 
+import { createColumnHelper } from '@tanstack/vue-table'
 import { h } from 'vue'
 import { Badge } from '@/styles/reka-nova/ui/badge'
 import { Checkbox } from '@/styles/reka-nova/ui/checkbox'
@@ -8,8 +9,10 @@ import { labels, priorities, statuses } from '../data/data'
 import DataTableColumnHeader from './DataTableColumnHeader.vue'
 import DataTableRowActions from './DataTableRowActions.vue'
 
-export const columns: ColumnDef<Task>[] = [
-  {
+const columnHelper = createColumnHelper<TasksTableFeatures, Task>()
+
+export const columns = columnHelper.columns([
+  columnHelper.display({
     id: 'select',
     header: ({ table }) => h(Checkbox, {
       'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
@@ -20,16 +23,14 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => h(Checkbox, { 'modelValue': row.getIsSelected(), 'onUpdate:modelValue': value => row.toggleSelected(!!value), 'ariaLabel': 'Select row', 'class': 'translate-y-0.5' }),
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'id',
+  }),
+  columnHelper.accessor('id', {
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Task' }),
     cell: ({ row }) => h('div', { class: 'w-20' }, row.getValue('id')),
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'title',
+  }),
+  columnHelper.accessor('title', {
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Title' }),
 
     cell: ({ row }) => {
@@ -40,9 +41,8 @@ export const columns: ColumnDef<Task>[] = [
         h('span', { class: 'max-w-[500px] truncate font-medium' }, row.getValue('title')),
       ])
     },
-  },
-  {
-    accessorKey: 'status',
+  }),
+  columnHelper.accessor('status', {
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Status' }),
 
     cell: ({ row }) => {
@@ -61,9 +61,8 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
     },
-  },
-  {
-    accessorKey: 'priority',
+  }),
+  columnHelper.accessor('priority', {
     header: ({ column }) => h(DataTableColumnHeader, { column, title: 'Priority' }),
     cell: ({ row }) => {
       const priority = priorities.find(
@@ -81,9 +80,9 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
     },
-  },
-  {
+  }),
+  columnHelper.display({
     id: 'actions',
     cell: ({ row }) => h(DataTableRowActions, { row }),
-  },
-]
+  }),
+])

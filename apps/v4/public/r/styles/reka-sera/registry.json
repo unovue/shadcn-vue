@@ -2324,8 +2324,7 @@
       "name": "table",
       "type": "registry:ui",
       "dependencies": [
-        "@vueuse/core",
-        "@tanstack/vue-table"
+        "@vueuse/core"
       ],
       "files": [
         {
@@ -2366,10 +2365,6 @@
         },
         {
           "path": "styles/reka-sera/ui/table/index.ts",
-          "type": "registry:ui"
-        },
-        {
-          "path": "styles/reka-sera/ui/table/utils.ts",
           "type": "registry:ui"
         }
       ]

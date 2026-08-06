@@ -2292,8 +2292,7 @@
     {
       "name": "table",
       "dependencies": [
-        "@vueuse/core",
-        "@tanstack/vue-table"
+        "@vueuse/core"
       ],
       "files": [
         {
@@ -2334,10 +2333,6 @@
         },
         {
           "path": "registry/new-york-v4/ui/table/index.ts",
-          "type": "registry:ui"
-        },
-        {
-          "path": "registry/new-york-v4/ui/table/utils.ts",
           "type": "registry:ui"
         }
       ],
@@ -2540,6 +2535,10 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/features.ts",
+          "type": "registry:component"
+        },
+        {
           "path": "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
           "type": "registry:component"
         },
@@ -2569,6 +2568,10 @@
         },
         {
           "path": "registry/new-york-v4/blocks/dashboard-01/components/SiteHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york-v4/blocks/dashboard-01/components/features.ts",
           "type": "registry:component"
         }
       ],

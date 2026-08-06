@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-} from '@tanstack/vue-table'
+import type { RowSelectionState } from '@tanstack/vue-table'
 import { ArrowUpDown, ChevronDown } from '@lucide/vue'
 import {
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  createColumnHelper,
+  createFilteredRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  filterFn_includesString,
   FlexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFn_alphanumeric,
+  sortFn_text,
+  tableFeatures,
+  useTable,
 } from '@tanstack/vue-table'
 import { h, ref } from 'vue'
 import DropdownAction from '@/components/_internal/sink/DataTableDemoColumn.vue'
@@ -28,7 +32,6 @@ import {
 } from '@/registry/new-york-v4/ui/dropdown-menu'
 import { Input } from '@/registry/new-york-v4/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/registry/new-york-v4/ui/table'
-import { valueUpdater } from '@/registry/new-york-v4/ui/table/utils'
 
 export interface Payment {
   id: string
@@ -70,8 +73,25 @@ const data: Payment[] = [
   },
 ]
 
-const columns: ColumnDef<Payment>[] = [
-  {
+// New in v9: declare the features this table uses — anything you don't
+// register is tree-shaken out of the bundle.
+const features = tableFeatures({
+  columnFilteringFeature,
+  columnVisibilityFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  filteredRowModel: createFilteredRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  sortedRowModel: createSortedRowModel(),
+  filterFns: { includesString: filterFn_includesString },
+  sortFns: { alphanumeric: sortFn_alphanumeric, text: sortFn_text },
+})
+
+const columnHelper = createColumnHelper<typeof features, Payment>()
+
+const columns = columnHelper.columns([
+  columnHelper.display({
     id: 'select',
     header: ({ table }) => h(Checkbox, {
       'modelValue': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
@@ -85,14 +105,12 @@ const columns: ColumnDef<Payment>[] = [
     }),
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'status',
+  }),
+  columnHelper.accessor('status', {
     header: 'Status',
     cell: ({ row }) => h('div', { class: 'capitalize' }, row.getValue('status')),
-  },
-  {
-    accessorKey: 'email',
+  }),
+  columnHelper.accessor('email', {
     header: ({ column }) => {
       return h(Button, {
         variant: 'ghost',
@@ -100,9 +118,8 @@ const columns: ColumnDef<Payment>[] = [
       }, () => ['Email', h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
     },
     cell: ({ row }) => h('div', { class: 'lowercase' }, row.getValue('email')),
-  },
-  {
-    accessorKey: 'amount',
+  }),
+  columnHelper.accessor('amount', {
     header: () => h('div', { class: 'text-right' }, 'Amount'),
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue('amount'))
@@ -115,8 +132,8 @@ const columns: ColumnDef<Payment>[] = [
 
       return h('div', { class: 'text-right font-medium' }, formatted)
     },
-  },
-  {
+  }),
+  columnHelper.display({
     id: 'actions',
     enableHiding: false,
     cell: ({ row }) => {
@@ -126,30 +143,21 @@ const columns: ColumnDef<Payment>[] = [
         payment,
       })
     },
-  },
-]
+  }),
+])
 
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-const rowSelection = ref({})
+// Manage one state slice externally: a ref, a state getter, and an updater-resolving handler.
+const rowSelection = ref<RowSelectionState>({})
 
-const table = useVueTable({
+const table = useTable({
+  features,
   data,
   columns,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
   state: {
-    get sorting() { return sorting.value },
-    get columnFilters() { return columnFilters.value },
-    get columnVisibility() { return columnVisibility.value },
     get rowSelection() { return rowSelection.value },
+  },
+  onRowSelectionChange: (updater) => {
+    rowSelection.value = typeof updater === 'function' ? updater(rowSelection.value) : updater
   },
 })
 </script>
@@ -195,7 +203,7 @@ const table = useVueTable({
             <TableHeader>
               <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
                 <TableHead v-for="header in headerGroup.headers" :key="header.id" class="[&:has([role=checkbox])]:pl-3">
-                  <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
+                  <FlexRender v-if="!header.isPlaceholder" :header="header" />
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -207,7 +215,7 @@ const table = useVueTable({
                   :data-state="row.getIsSelected() && 'selected'"
                 >
                   <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id" class="[&:has([role=checkbox])]:pl-3">
-                    <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                    <FlexRender :cell="cell" />
                   </TableCell>
                 </TableRow>
               </template>

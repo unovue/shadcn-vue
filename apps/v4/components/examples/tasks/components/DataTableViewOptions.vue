@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { Table } from '@tanstack/vue-table'
+import type { VueTable } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 import { Settings2 } from '@lucide/vue'
 import { computed } from 'vue'
 
@@ -15,7 +16,7 @@ import {
 } from '@/styles/reka-nova/ui/dropdown-menu'
 
 interface DataTableViewOptionsProps {
-  table: Table<Task>
+  table: VueTable<TasksTableFeatures, Task>
 }
 
 const props = defineProps<DataTableViewOptionsProps>()

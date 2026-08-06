@@ -2308,7 +2308,6 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "@vueuse/core",
-      "@tanstack/vue-table",
     ],
     files: [
       {
@@ -2349,10 +2348,6 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/table/index.ts",
-        type: "registry:ui",
-      },
-      {
-        path: "ui/table/utils.ts",
         type: "registry:ui",
       },
     ],

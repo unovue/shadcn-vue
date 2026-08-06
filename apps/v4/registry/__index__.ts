@@ -2255,10 +2255,6 @@ export const Index: Record<string, any> = {
       path: "registry/new-york-v4/ui/table/index.ts",
       type: "registry:ui",
       target: ""
-    },{
-      path: "registry/new-york-v4/ui/table/utils.ts",
-      type: "registry:ui",
-      target: ""
     }],
     categories: undefined,
     meta: undefined,
@@ -2431,6 +2427,10 @@ export const Index: Record<string, any> = {
       type: "registry:component",
       target: ""
     },{
+      path: "registry/new-york-v4/blocks/dashboard-01/components/features.ts",
+      type: "registry:component",
+      target: ""
+    },{
       path: "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
       type: "registry:component",
       target: ""
@@ -2460,6 +2460,10 @@ export const Index: Record<string, any> = {
       target: ""
     },{
       path: "registry/new-york-v4/blocks/dashboard-01/components/SiteHeader.vue",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "registry/new-york-v4/blocks/dashboard-01/components/features.ts",
       type: "registry:component",
       target: ""
     }],
