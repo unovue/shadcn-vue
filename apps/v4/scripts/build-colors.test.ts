@@ -12,6 +12,16 @@ const v4OnlyBaseColors = BASE_COLORS.filter(
 )
 
 describe('base color registry artifacts', () => {
+  it('has a committed artifact for every supported base color', async () => {
+    const files = await readdir(path.join(process.cwd(), 'public/r/colors'))
+
+    expect(files).toEqual(
+      expect.arrayContaining(
+        BASE_COLORS.map(color => `${color.name}.json`),
+      ),
+    )
+  })
+
   it('generates committed v4-only artifacts', async () => {
     const targetPath = await mkdtemp(path.join(os.tmpdir(), 'shadcn-vue-colors-'))
 
