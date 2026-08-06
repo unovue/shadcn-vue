@@ -1643,6 +1643,83 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "questionnaire": {
+    name: "questionnaire",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button"],
+    files: [{
+      path: "registry/new-york-v4/ui/questionnaire/Questionnaire.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireActions.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireChoice.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireChoiceDescription.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireChoices.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireDescription.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireError.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireInput.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireItem.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireNext.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnairePrevious.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireProgress.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireSkip.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireSubmit.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/QuestionnaireTitle.vue",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/index.ts",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "registry/new-york-v4/ui/questionnaire/useQuestionnaire.ts",
+      type: "registry:ui",
+      target: ""
+    }],
+    categories: undefined,
+    meta: undefined,
+  },
   "radio-group": {
     name: "radio-group",
     description: "",
