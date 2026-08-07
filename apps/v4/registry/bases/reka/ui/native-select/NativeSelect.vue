@@ -29,7 +29,7 @@ const delegatedProps = reactiveOmit(props, "class", "size")
 
 <template>
   <div
-    class="cn-native-select-wrapper group/native-select relative w-fit has-[select:disabled]:opacity-50"
+    :class="cn('cn-native-select-wrapper group/native-select relative w-fit has-[select:disabled]:opacity-50', props.class)"
     data-slot="native-select-wrapper"
     :data-size="props.size ?? 'default'"
   >
@@ -37,11 +37,8 @@ const delegatedProps = reactiveOmit(props, "class", "size")
       v-bind="{ ...$attrs, ...delegatedProps }"
       v-model="modelValue"
       data-slot="native-select"
+      class="cn-native-select outline-none disabled:pointer-events-none disabled:cursor-not-allowed"
       :data-size="props.size ?? 'default'"
-      :class="cn(
-        'cn-native-select outline-none disabled:pointer-events-none disabled:cursor-not-allowed',
-        props.class,
-      )"
     >
       <slot />
     </select>

@@ -1715,6 +1715,86 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "questionnaire",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+    ],
+    registryDependencies: [
+      "button",
+    ],
+    files: [
+      {
+        path: "ui/questionnaire/Questionnaire.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireActions.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireChoice.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireChoiceDescription.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireChoices.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireDescription.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireError.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireInput.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireItem.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireNext.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnairePrevious.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireProgress.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireSkip.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireSubmit.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/QuestionnaireTitle.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/questionnaire/useQuestionnaire.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "radio-group",
     type: "registry:ui",
     dependencies: [

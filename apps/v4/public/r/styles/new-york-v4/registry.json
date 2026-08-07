@@ -1705,6 +1705,86 @@
       "type": "registry:ui"
     },
     {
+      "name": "questionnaire",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/Questionnaire.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireChoice.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireChoiceDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireChoices.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireError.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnairePrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireProgress.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireSkip.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireSubmit.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/QuestionnaireTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/new-york-v4/ui/questionnaire/useQuestionnaire.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "radio-group",
       "dependencies": [
         "reka-ui",

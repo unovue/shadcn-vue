@@ -2,7 +2,6 @@
 title: Attachment
 description: Displays a file or image attachment with media, metadata, upload state, and actions.
 component: true
-new: true
 ---
 
 ::component-preview

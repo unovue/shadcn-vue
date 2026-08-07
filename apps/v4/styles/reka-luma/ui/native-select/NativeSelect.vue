@@ -30,7 +30,7 @@ const delegatedProps = reactiveOmit(props, 'class', 'size')
 
 <template>
   <div
-    class="group/native-select relative w-fit has-[select:disabled]:opacity-50"
+    :class="cn('group/native-select relative w-fit has-[select:disabled]:opacity-50', props.class)"
     data-slot="native-select-wrapper"
     :data-size="props.size ?? 'default'"
   >
@@ -38,11 +38,8 @@ const delegatedProps = reactiveOmit(props, 'class', 'size')
       v-bind="{ ...$attrs, ...delegatedProps }"
       v-model="modelValue"
       data-slot="native-select"
+      class="bg-input/50 border-transparent placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/30 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-9 w-full min-w-0 appearance-none rounded-3xl border py-1 pr-8 pl-3 text-sm transition-[color,box-shadow,background-color] select-none focus-visible:ring-3 aria-invalid:ring-3 data-[size=sm]:h-8 outline-none disabled:pointer-events-none disabled:cursor-not-allowed"
       :data-size="props.size ?? 'default'"
-      :class="cn(
-        'bg-input/50 border-transparent placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/30 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-9 w-full min-w-0 appearance-none rounded-3xl border py-1 pr-8 pl-3 text-sm transition-[color,box-shadow,background-color] select-none focus-visible:ring-3 aria-invalid:ring-3 data-[size=sm]:h-8 outline-none disabled:pointer-events-none disabled:cursor-not-allowed',
-        props.class,
-      )"
     >
       <slot />
     </select>

@@ -2,7 +2,6 @@
 title: Bubble
 description: Displays conversational content in a message bubble. Supports variants, alignment, grouping, reactions, and collapsible content.
 component: true
-new: true
 ---
 
 ::component-preview
