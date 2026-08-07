@@ -282,6 +282,25 @@ class: style-nova
 ---
 ::
 
+### Dialog composition
+
+Use `as-child` to render a questionnaire part as another component. Here `QuestionnaireTitle` and `QuestionnaireDescription` become the `DialogTitle` and `DialogDescription`, so the dialog keeps its accessible name while the questionnaire owns the content.
+
+::component-preview
+---
+name: QuestionnaireDialogDemo
+class: style-nova
+---
+::
+
+```vue showLineNumbers
+<QuestionnaireTitle as-child>
+  <DialogTitle>Which files are in scope?</DialogTitle>
+</QuestionnaireTitle>
+```
+
+`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, and the four navigation buttons all accept `as` and `as-child`. Note that `as-child` on `QuestionnaireTitle` replaces the `legend`, so give the item an `aria-labelledby` pointing at the new title when you do.
+
 ## Keyboard navigation
 
 | Key                    | Description                                                      |
@@ -330,6 +349,8 @@ A `progressbar` announcing the active question. Exposes `current`, `total`, `fir
 | Prop    | Type                      | Default | Description                                      |
 | ------- | ------------------------- | ------- | ------------------------------------------------ |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the progress bar. |
+| `as`      | `AsTag \| Component`      | `"div"`   | The element or component to render as.      |
+| `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 
 ### QuestionnaireItem
 
@@ -355,6 +376,8 @@ The question, rendered as a `legend`.
 | Prop    | Type                      | Default | Description                                 |
 | ------- | ------------------------- | ------- | ------------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the title.   |
+| `as`      | `AsTag \| Component`      | `"legend"`   | The element or component to render as.      |
+| `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 
 ### QuestionnaireDescription
 
@@ -363,6 +386,8 @@ Help text associated with the item through `aria-describedby`.
 | Prop    | Type                      | Default | Description                                     |
 | ------- | ------------------------- | ------- | ----------------------------------------------- |
 | `id`    | `string`                  | -       | Overrides the generated id.                     |
+| `as`      | `AsTag \| Component`      | `"p"`   | The element or component to render as.      |
+| `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the description. |
 
 ### QuestionnaireChoices
@@ -372,6 +397,8 @@ The answer list. Wraps choices and an optional freeform input.
 | Prop    | Type                      | Default | Description                                 |
 | ------- | ------------------------- | ------- | ------------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the list.    |
+| `as`      | `AsTag \| Component`      | `"div"`   | The element or component to render as.      |
+| `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 
 ### QuestionnaireChoice
 
@@ -417,6 +444,8 @@ The item error. Hidden until the item is invalid, and falls back to a built-in m
 | Prop    | Type                      | Default | Description                               |
 | ------- | ------------------------- | ------- | ----------------------------------------- |
 | `id`    | `string`                  | -       | Overrides the generated id.               |
+| `as`      | `AsTag \| Component`      | `"p"`   | The element or component to render as.      |
+| `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the error. |
 
 ### QuestionnaireActions
@@ -426,6 +455,8 @@ The navigation row.
 | Prop    | Type                      | Default | Description                                 |
 | ------- | ------------------------- | ------- | ------------------------------------------- |
 | `class` | `HTMLAttributes["class"]` | -       | Additional classes to apply to the row.     |
+| `as`      | `AsTag \| Component`      | `"div"`   | The element or component to render as.      |
+| `asChild` | `boolean`                 | `false` | Render the child element instead.           |
 
 ### QuestionnairePrevious, QuestionnaireSkip, QuestionnaireNext, and QuestionnaireSubmit
 
@@ -436,4 +467,6 @@ Navigation buttons. Each one hides itself when it does not apply: `Questionnaire
 | `variant`  | `ButtonVariants["variant"]`     | `"outline"` / `"default"`          | The button variant.                        |
 | `size`     | `ButtonVariants["size"]`        | `"default"`                        | The button size.                            |
 | `disabled` | `boolean`                       | `false`                            | Disables the button.                        |
+| `as`       | `AsTag \| Component`            | `"button"`                         | The element or component to render as.      |
+| `asChild`  | `boolean`                       | `false`                            | Render the child element instead.           |
 | `class`    | `HTMLAttributes["class"]`       | -                                  | Additional classes to apply to the button.  |

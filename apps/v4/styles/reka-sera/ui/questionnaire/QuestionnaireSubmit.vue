@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/styles/reka-sera/ui/button'
+import { Primitive } from 'reka-ui'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/styles/reka-sera/ui/button'
 import { injectQuestionnaireRootContext } from './useQuestionnaire'
 
-const props = withDefaults(defineProps<{
+const props = withDefaults(defineProps<PrimitiveProps & {
   class?: HTMLAttributes['class']
   disabled?: boolean
   size?: ButtonVariants['size']
   variant?: ButtonVariants['variant']
 }>(), {
+  as: 'button',
   disabled: false,
   size: 'default',
   variant: 'default',
@@ -24,11 +27,13 @@ const shortcut = computed(() => (visible.value && !props.disabled ? 'Enter' : nu
 </script>
 
 <template>
-  <button
+  <Primitive
     data-slot="questionnaire-submit"
     type="submit"
     :aria-hidden="!visible || undefined"
     :aria-keyshortcuts="shortcut ?? undefined"
+    :as="props.as"
+    :as-child="props.asChild"
     :data-disabled="props.disabled ? '' : undefined"
     :data-hidden="visible ? undefined : ''"
     :data-shortcut="shortcut ?? undefined"
@@ -47,5 +52,5 @@ const shortcut = computed(() => (visible.value && !props.disabled ? 'Enter' : nu
     )"
   >
     <slot>Submit</slot>
-  </button>
+  </Primitive>
 </template>

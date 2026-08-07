@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import type { ButtonVariants } from "@/registry/new-york-v4/ui/button"
+import { Primitive } from "reka-ui"
 import { computed } from "vue"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/registry/new-york-v4/ui/button"
 import { injectQuestionnaireRootContext } from "./useQuestionnaire"
 
-const props = withDefaults(defineProps<{
+const props = withDefaults(defineProps<PrimitiveProps & {
   class?: HTMLAttributes["class"]
   disabled?: boolean
   size?: ButtonVariants["size"]
   variant?: ButtonVariants["variant"]
 }>(), {
+  as: "button",
   disabled: false,
   size: "default",
   variant: "default",
@@ -36,11 +39,13 @@ function handleClick(event: MouseEvent) {
 </script>
 
 <template>
-  <button
+  <Primitive
     data-slot="questionnaire-next"
     type="button"
     :aria-hidden="!visible || undefined"
     :aria-keyshortcuts="shortcut ?? undefined"
+    :as="props.as"
+    :as-child="props.asChild"
     :data-disabled="props.disabled ? '' : undefined"
     :data-hidden="visible ? undefined : ''"
     :data-shortcut="shortcut ?? undefined"
@@ -60,5 +65,5 @@ function handleClick(event: MouseEvent) {
     @click="handleClick"
   >
     <slot>Next</slot>
-  </button>
+  </Primitive>
 </template>

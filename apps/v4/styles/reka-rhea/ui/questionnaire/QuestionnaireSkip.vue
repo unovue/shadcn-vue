@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/styles/reka-rhea/ui/button'
+import { Primitive } from 'reka-ui'
 import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/styles/reka-rhea/ui/button'
 import { injectQuestionnaireRootContext } from './useQuestionnaire'
 
-const props = withDefaults(defineProps<{
+const props = withDefaults(defineProps<PrimitiveProps & {
   class?: HTMLAttributes['class']
   disabled?: boolean
   size?: ButtonVariants['size']
   variant?: ButtonVariants['variant']
 }>(), {
+  as: 'button',
   disabled: false,
   size: 'default',
   variant: 'outline',
@@ -35,10 +38,12 @@ function handleClick(event: MouseEvent) {
 </script>
 
 <template>
-  <button
+  <Primitive
     data-slot="questionnaire-skip"
     type="button"
     :aria-hidden="!visible || undefined"
+    :as="props.as"
+    :as-child="props.asChild"
     :data-disabled="props.disabled ? '' : undefined"
     :data-hidden="visible ? undefined : ''"
     :data-size="props.size"
@@ -57,5 +62,5 @@ function handleClick(event: MouseEvent) {
     @click="handleClick"
   >
     <slot>Skip</slot>
-  </button>
+  </Primitive>
 </template>

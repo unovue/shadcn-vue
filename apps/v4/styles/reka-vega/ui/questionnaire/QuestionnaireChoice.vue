@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'vue'
 
 import { CheckIcon } from '@lucide/vue'
-import { computed, nextTick, onBeforeUnmount, ref, useId, watch } from 'vue'
+import { computed, onBeforeUnmount, ref, useId, watch } from 'vue'
 import { cn } from '@/lib/utils'
 import { getAnswerKeyShortcuts, injectQuestionnaireItemContext } from './useQuestionnaire'
 
@@ -79,7 +79,9 @@ function handleChange(event: Event) {
     item.setAnswerSelectionFromInteraction(answerId, props.checked)
   }
 
-  nextTick(syncCheckedElement)
+  // Checking a radio clears its siblings, so the whole group has to re-sync in
+  // case the host keeps the previous answer.
+  item.requestControlSync()
 }
 
 const unregisterSelection = item.registerAnswerSelection(answerId, initialDefaultChecked)
@@ -113,6 +115,8 @@ watch([() => props.checked, item.resetVersion], () => {
     item.syncControlledAnswerSelection(answerId, props.checked!)
   }
 }, { immediate: true })
+
+watch(item.controlSyncVersion, syncCheckedElement, { flush: 'post' })
 
 watch([checked, inputElement, () => props.defaultChecked, item.resetVersion], () => {
   if (!inputElement.value) {

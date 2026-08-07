@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
+import { Primitive } from 'reka-ui'
 import { computed, onBeforeUnmount, useId } from 'vue'
 import { cn } from '@/lib/utils'
 import { injectQuestionnaireItemContext } from './useQuestionnaire'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<PrimitiveProps & {
   class?: HTMLAttributes['class']
   id?: string
-}>()
+}>(), {
+  as: 'p',
+})
 
 const item = injectQuestionnaireItemContext()
 
@@ -23,9 +27,11 @@ onBeforeUnmount(unregisterError)
 </script>
 
 <template>
-  <p
+  <Primitive
     :id="errorId"
     data-slot="questionnaire-error"
+    :as="props.as"
+    :as-child="props.asChild"
     :data-invalid="item.invalid.value ? '' : undefined"
     :hidden="!item.invalid.value"
     :role="item.invalid.value ? 'alert' : undefined"
@@ -34,5 +40,5 @@ onBeforeUnmount(unregisterError)
     <slot :invalid="item.invalid.value">
       {{ fallback }}
     </slot>
-  </p>
+  </Primitive>
 </template>

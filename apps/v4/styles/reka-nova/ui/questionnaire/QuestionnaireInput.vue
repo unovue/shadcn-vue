@@ -68,7 +68,7 @@ const unregisterSelection = item.registerAnswerSelection(answerId, initialDefaul
 
 let unregisterControl: (() => void) | null = null
 
-watch([inputElement, disabled], ([element]) => {
+watch([inputElement, disabled, () => props.disabled], ([element]) => {
   unregisterControl?.()
   unregisterControl = null
 
@@ -90,7 +90,9 @@ watch(defaultFilled, (nextDefaultFilled) => {
   item.setAnswerDefault(answerId, nextDefaultFilled)
 })
 
-watch(filled, () => {
+// Watching the value as well as `filled` lets a host update clear the skipped
+// state even when the answer stays filled.
+watch([value, filled], () => {
   if (controlled.value) {
     item.syncControlledAnswerSelection(answerId, filled.value)
   }

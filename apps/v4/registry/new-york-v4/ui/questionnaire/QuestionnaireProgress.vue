@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import type { PrimitiveProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
+import { Primitive } from "reka-ui"
 import { computed } from "vue"
 import { cn } from "@/lib/utils"
 import { injectQuestionnaireRootContext } from "./useQuestionnaire"
 
-const props = defineProps<{
+const props = withDefaults(defineProps<PrimitiveProps & {
   class?: HTMLAttributes["class"]
-}>()
+}>(), {
+  as: "div",
+})
 
 const root = injectQuestionnaireRootContext()
 
@@ -15,7 +19,7 @@ const label = computed(() =>
 </script>
 
 <template>
-  <div
+  <Primitive
     aria-label="Questionnaire progress"
     aria-live="polite"
     data-slot="questionnaire-progress"
@@ -24,6 +28,8 @@ const label = computed(() =>
     :aria-valuemin="root.total.value ? 1 : undefined"
     :aria-valuenow="root.total.value ? root.current.value : undefined"
     :aria-valuetext="label"
+    :as="props.as"
+    :as-child="props.asChild"
     :data-current="root.current.value"
     :data-first="root.first.value ? '' : undefined"
     :data-last="root.last.value ? '' : undefined"
@@ -41,5 +47,5 @@ const label = computed(() =>
     >
       {{ label }}
     </slot>
-  </div>
+  </Primitive>
 </template>

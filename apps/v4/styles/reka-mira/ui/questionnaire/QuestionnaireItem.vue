@@ -51,6 +51,7 @@ const selectedAnswerIds = ref<string[]>([])
 const validationAttempted = ref(false)
 const skipped = ref(false)
 const resetVersion = ref(0)
+const controlSyncVersion = ref(0)
 const descriptionIds = ref<string[]>([])
 const errorIds = ref<string[]>([])
 
@@ -181,6 +182,15 @@ function setAnswerDefault(answerId: string, defaultSelected: boolean) {
   }
 
   defaultSelectedAnswerIds = defaultSelectedAnswerIds.filter(current => current !== answerId)
+}
+
+/**
+ * Selecting a controlled choice clears the native checked state of the other
+ * choices in the group, so every control re-syncs after an interaction the host
+ * may have rejected.
+ */
+function requestControlSync() {
+  controlSyncVersion.value += 1
 }
 
 function registerAnswerControl(registration: AnswerControlRegistration) {
@@ -391,6 +401,7 @@ onBeforeUnmount(() => {
 
 provideQuestionnaireItemContext({
   active,
+  controlSyncVersion,
   disabled: computed(() => props.disabled),
   hasInputAnswer,
   invalid,
@@ -400,6 +411,7 @@ provideQuestionnaireItemContext({
   registerAnswerSelection,
   registerDescription,
   registerError,
+  requestControlSync,
   required: computed(() => props.required),
   resetVersion,
   selectedAnswerIds,

@@ -82,6 +82,8 @@ export interface QuestionnaireRootContext {
 
 export interface QuestionnaireItemContext {
   active: ComputedRef<boolean>
+  /** Bumped after a controlled answer interaction so every control re-syncs. */
+  controlSyncVersion: Ref<number>
   disabled: ComputedRef<boolean>
   hasInputAnswer: ComputedRef<boolean>
   invalid: ComputedRef<boolean>
@@ -91,6 +93,7 @@ export interface QuestionnaireItemContext {
   registerAnswerSelection: (answerId: string, defaultSelected: boolean) => () => void
   registerDescription: (descriptionId: string) => () => void
   registerError: (errorId: string) => () => void
+  requestControlSync: () => void
   required: ComputedRef<boolean>
   resetVersion: Ref<number>
   selectedAnswerIds: Ref<string[]>
