@@ -5,6 +5,22 @@
 @import "./themes.css";
 @import "./fonts.css";
 
+/*
+ * shadcn/typeset. Imported here, after Tailwind, for the same reason the docs
+ * tell users to do it: CSS orders @layer by first appearance, so typeset's
+ * `components` rules must be registered after Tailwind's layer list or
+ * preflight wins and every typeset rule is dead. Loading it as a standalone
+ * <link> or a route-level chunk gets this wrong — the order then depends on
+ * which stylesheet the browser parses first, which differs between dev and
+ * the production build.
+ *
+ * Same file that is served verbatim at /typeset.css for users to download,
+ * so the preview always shows exactly what they get. Its rules only match
+ * inside a `.typeset` container, so importing it globally styles nothing on
+ * its own.
+ */
+@import "../../public/typeset.css";
+
 @import "../../registry/styles/style-vega.css" layer(base);
 @import "../../registry/styles/style-nova.css" layer(base);
 @import "../../registry/styles/style-lyra.css" layer(base);
