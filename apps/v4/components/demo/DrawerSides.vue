@@ -11,12 +11,21 @@ import {
   DrawerTrigger,
 } from '@/registry/new-york-v4/ui/drawer'
 
-const DRAWER_SIDES = ['down', 'left', 'right', 'up'] as const
+const DRAWER_SIDES = ['top', 'right', 'bottom', 'left'] as const
+
+// The drawer sits at the edge it dismisses toward: a drawer on the
+// `top` edge swipes `up` to close, one on the `bottom` edge swipes `down`.
+const SIDE_TO_SWIPE_DIRECTION = {
+  top: 'up',
+  right: 'right',
+  bottom: 'down',
+  left: 'left',
+} as const
 </script>
 
 <template>
   <div class="flex flex-wrap gap-2">
-    <Drawer v-for="side in DRAWER_SIDES" :key="side" :swipe-direction="side">
+    <Drawer v-for="side in DRAWER_SIDES" :key="side" :swipe-direction="SIDE_TO_SWIPE_DIRECTION[side]">
       <DrawerTrigger as-child>
         <Button variant="outline" class="capitalize">
           {{ side }}
