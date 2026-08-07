@@ -20,7 +20,6 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['reka-ui', []],
   ['@vueuse/core', []],
   ['vue-sonner', []],
-  ['vaul-vue', []],
   ['@tanstack/vue-table', []],
   ['@unovis/vue', ['@unovis/ts']],
   ['embla-carousel-vue', []],

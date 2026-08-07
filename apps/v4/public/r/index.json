@@ -802,7 +802,6 @@
     "name": "drawer",
     "type": "registry:ui",
     "dependencies": [
-      "vaul-vue",
       "reka-ui",
       "@vueuse/core"
     ],

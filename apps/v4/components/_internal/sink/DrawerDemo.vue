@@ -30,7 +30,16 @@ const data = [
 
 const goal = ref(350)
 
-const directions = ['top', 'right', 'bottom', 'left'] as const
+const sides = ['top', 'right', 'bottom', 'left'] as const
+
+// The drawer sits at the edge it dismisses toward: a drawer on the
+// `top` edge swipes `up` to close, one on the `bottom` edge swipes `down`.
+const SIDE_TO_SWIPE_DIRECTION = {
+  top: 'up',
+  right: 'right',
+  bottom: 'down',
+  left: 'left',
+} as const
 </script>
 
 <template>
@@ -106,7 +115,7 @@ const directions = ['top', 'right', 'bottom', 'left'] as const
       </DrawerContent>
     </Drawer>
 
-    <Drawer direction="right">
+    <Drawer swipe-direction="right">
       <DrawerTrigger as-child>
         <Button variant="outline">
           Scrollable Content
@@ -142,10 +151,10 @@ const directions = ['top', 'right', 'bottom', 'left'] as const
       </DrawerContent>
     </Drawer>
 
-    <Drawer v-for="direction in directions" :key="direction" :direction>
+    <Drawer v-for="side in sides" :key="side" :swipe-direction="SIDE_TO_SWIPE_DIRECTION[side]">
       <DrawerTrigger as-child>
         <Button variant="outline" class="capitalize">
-          {{ direction }}
+          {{ side }}
         </Button>
       </DrawerTrigger>
       <DrawerContent>

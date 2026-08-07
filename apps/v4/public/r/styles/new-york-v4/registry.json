@@ -836,7 +836,6 @@
     {
       "name": "drawer",
       "dependencies": [
-        "vaul-vue",
         "reka-ui",
         "@vueuse/core"
       ],

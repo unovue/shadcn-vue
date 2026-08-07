@@ -3,8 +3,8 @@ title: Drawer
 description: A drawer component for mobile devices.
 component: true
 links:
-  doc: https://reka-ui.com/docs/components/dialog
-  api: https://reka-ui.com/docs/components/dialog#api-reference
+  doc: https://reka-ui.com/docs/components/drawer
+  api: https://reka-ui.com/docs/components/drawer#api-reference
 ---
 
 ::component-preview
@@ -100,6 +100,26 @@ import {
 ```
 
 ## Example
+
+### Scrollable Content
+
+Keep actions visible while the content scrolls.
+
+::component-preview
+---
+name: DrawerScrollableContent
+---
+::
+
+### Sides
+
+Use the `swipe-direction` prop to set the direction the drawer swipes toward to dismiss. The drawer is anchored to the edge it dismisses toward, so `up` opens a drawer along the top edge and `down` opens one along the bottom edge. Available options are `up`, `right`, `down`, and `left`.
+
+::component-preview
+---
+name: DrawerSides
+---
+::
 
 ### Responsive Modal (Dialog & Drawer)
 

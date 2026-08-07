@@ -831,7 +831,6 @@ export const ui: Registry["items"] = [
     name: "drawer",
     type: "registry:ui",
     dependencies: [
-      "vaul-vue",
       "reka-ui",
       "@vueuse/core",
     ],
