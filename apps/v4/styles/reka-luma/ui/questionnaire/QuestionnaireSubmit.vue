@@ -31,6 +31,7 @@ const shortcut = computed(() => (visible.value && !props.disabled ? 'Enter' : nu
     data-slot="questionnaire-submit"
     type="submit"
     :aria-hidden="!visible || undefined"
+    :aria-disabled="props.disabled || undefined"
     :aria-keyshortcuts="shortcut ?? undefined"
     :as="props.as"
     :as-child="props.asChild"

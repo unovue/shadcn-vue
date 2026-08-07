@@ -31,6 +31,13 @@ const visible = computed(() => root.total.value > 1 && !root.first.value)
 function handleClick(event: MouseEvent) {
   emits('click', event)
 
+  // `disabled` does not block clicks once `as` or `as-child` renders something
+  // other than a button.
+  if (props.disabled) {
+    event.preventDefault()
+    return
+  }
+
   if (!event.defaultPrevented) {
     root.goPrevious()
   }
@@ -42,6 +49,7 @@ function handleClick(event: MouseEvent) {
     data-slot="questionnaire-previous"
     type="button"
     :aria-hidden="!visible || undefined"
+    :aria-disabled="props.disabled || undefined"
     :as="props.as"
     :as-child="props.asChild"
     :data-disabled="props.disabled ? '' : undefined"

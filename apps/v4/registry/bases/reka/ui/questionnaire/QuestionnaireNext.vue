@@ -32,6 +32,13 @@ const shortcut = computed(() => (visible.value && !props.disabled ? "Enter" : nu
 function handleClick(event: MouseEvent) {
   emits("click", event)
 
+  // `disabled` does not block clicks once `as` or `as-child` renders something
+  // other than a button.
+  if (props.disabled) {
+    event.preventDefault()
+    return
+  }
+
   if (!event.defaultPrevented) {
     root.goNext()
   }
@@ -43,6 +50,7 @@ function handleClick(event: MouseEvent) {
     data-slot="questionnaire-next"
     type="button"
     :aria-hidden="!visible || undefined"
+    :aria-disabled="props.disabled || undefined"
     :aria-keyshortcuts="shortcut ?? undefined"
     :as="props.as"
     :as-child="props.asChild"

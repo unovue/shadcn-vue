@@ -273,7 +273,7 @@ class: style-nova
 
 ### Card composition
 
-Wrap the items in a `Card` to present the questionnaire as a single surface.
+Use `as-child` to render a questionnaire part as another component. Here each `QuestionnaireTitle` and `QuestionnaireDescription` becomes the `CardTitle` and `CardDescription`, so the card owns the styling and the questionnaire owns the semantics.
 
 ::component-preview
 ---
@@ -282,9 +282,19 @@ class: style-nova
 ---
 ::
 
+```vue showLineNumbers
+<QuestionnaireTitle as-child>
+  <CardTitle>What should the agent work on?</CardTitle>
+</QuestionnaireTitle>
+```
+
+`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, and the four navigation buttons all accept `as` and `as-child`.
+
+`as-child` on the title replaces the `legend` that names the item, so the item labels itself with the rendered title instead. Both the title and the description keep the id of the child they render, so a component that manages its own id keeps working.
+
 ### Dialog composition
 
-Use `as-child` to render a questionnaire part as another component. Here `QuestionnaireTitle` and `QuestionnaireDescription` become the `DialogTitle` and `DialogDescription`, so the dialog keeps its accessible name while the questionnaire owns the content.
+Put the questionnaire inside a `Dialog` and let the host own dismissal. Give the dialog one title and description of its own: each question keeps its own `legend`, so per-item `DialogTitle` elements would collide on the id the dialog assigns them.
 
 ::component-preview
 ---
@@ -292,14 +302,6 @@ name: QuestionnaireDialogDemo
 class: style-nova
 ---
 ::
-
-```vue showLineNumbers
-<QuestionnaireTitle as-child>
-  <DialogTitle>Which files are in scope?</DialogTitle>
-</QuestionnaireTitle>
-```
-
-`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, and the four navigation buttons all accept `as` and `as-child`. Note that `as-child` on `QuestionnaireTitle` replaces the `legend`, so give the item an `aria-labelledby` pointing at the new title when you do.
 
 ## Keyboard navigation
 

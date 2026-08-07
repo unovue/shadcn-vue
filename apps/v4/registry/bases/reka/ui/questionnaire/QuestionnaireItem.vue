@@ -54,6 +54,7 @@ const resetVersion = ref(0)
 const controlSyncVersion = ref(0)
 const descriptionIds = ref<string[]>([])
 const errorIds = ref<string[]>([])
+const titleIds = ref<string[]>([])
 
 let defaultSelectedAnswerIds: string[] = []
 
@@ -105,6 +106,10 @@ const shortcutByAnswerId = computed(() => {
       .flatMap((answer, index) => (keys[index] ? [[answer.id, keys[index]!] as const] : [])),
   )
 })
+// Only set when the title does not render as the legend, which already names
+// the fieldset on its own.
+const labelledBy = computed(() =>
+  [...titleIds.value, attrs["aria-labelledby"]].filter(Boolean).join(" ") || undefined)
 const describedBy = computed(() =>
   [...descriptionIds.value, ...(invalid.value ? errorIds.value : []), attrs["aria-describedby"]]
     .filter(Boolean)
@@ -213,6 +218,16 @@ function registerDescription(descriptionId: string) {
 
   return () => {
     descriptionIds.value = descriptionIds.value.filter(current => current !== descriptionId)
+  }
+}
+
+function registerTitle(titleId: string) {
+  if (!titleIds.value.includes(titleId)) {
+    titleIds.value = [...titleIds.value, titleId]
+  }
+
+  return () => {
+    titleIds.value = titleIds.value.filter(current => current !== titleId)
   }
 }
 
@@ -411,6 +426,7 @@ provideQuestionnaireItemContext({
   registerAnswerSelection,
   registerDescription,
   registerError,
+  registerTitle,
   requestControlSync,
   required: computed(() => props.required),
   resetVersion,
@@ -433,6 +449,7 @@ provideQuestionnaireItemContext({
     :aria-describedby="describedBy"
     :aria-invalid="invalid || undefined"
     :aria-keyshortcuts="keyShortcuts"
+    :aria-labelledby="labelledBy"
     :data-active="active ? '' : undefined"
     :data-disabled="props.disabled ? '' : undefined"
     :data-invalid="invalid ? '' : undefined"

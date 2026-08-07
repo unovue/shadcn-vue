@@ -93,6 +93,8 @@ export interface QuestionnaireItemContext {
   registerAnswerSelection: (answerId: string, defaultSelected: boolean) => () => void
   registerDescription: (descriptionId: string) => () => void
   registerError: (errorId: string) => () => void
+  /** Only used when the title does not render as the fieldset legend. */
+  registerTitle: (titleId: string) => () => void
   requestControlSync: () => void
   required: ComputedRef<boolean>
   resetVersion: Ref<number>

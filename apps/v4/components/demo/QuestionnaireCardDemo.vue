@@ -4,8 +4,10 @@ import {
   Card,
   CardAction,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from '@/styles/reka-nova/ui/card'
 import {
   Questionnaire,
@@ -57,11 +59,13 @@ function handleSubmit(event: Event) {
     <Card>
       <QuestionnaireItem name="task" required>
         <CardHeader>
-          <QuestionnaireTitle>
-            What should the agent work on?
+          <QuestionnaireTitle as-child>
+            <CardTitle>What should the agent work on?</CardTitle>
           </QuestionnaireTitle>
-          <QuestionnaireDescription>
-            Choose the task that should be handled next.
+          <QuestionnaireDescription as-child>
+            <CardDescription>
+              Choose the task that should be handled next.
+            </CardDescription>
           </QuestionnaireDescription>
           <CardAction>
             <QuestionnaireProgress />
@@ -85,11 +89,13 @@ function handleSubmit(event: Event) {
 
       <QuestionnaireItem name="output" required>
         <CardHeader>
-          <QuestionnaireTitle>
-            What should the final handoff include?
+          <QuestionnaireTitle as-child>
+            <CardTitle>What should the final handoff include?</CardTitle>
           </QuestionnaireTitle>
-          <QuestionnaireDescription>
-            Pick the level of detail needed for review.
+          <QuestionnaireDescription as-child>
+            <CardDescription>
+              Pick the level of detail needed for review.
+            </CardDescription>
           </QuestionnaireDescription>
           <CardAction>
             <QuestionnaireProgress />
