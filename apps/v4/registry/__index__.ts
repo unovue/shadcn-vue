@@ -2427,10 +2427,6 @@ export const Index: Record<string, any> = {
       type: "registry:component",
       target: ""
     },{
-      path: "registry/new-york-v4/blocks/dashboard-01/components/features.ts",
-      type: "registry:component",
-      target: ""
-    },{
       path: "registry/new-york-v4/blocks/dashboard-01/components/DragHandle.vue",
       type: "registry:component",
       target: ""

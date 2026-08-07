@@ -2826,11 +2826,6 @@ export const Index: Record<string, Record<string, any>> = {
                   "path": "registry/bases/reka/ui/table/index.ts",
                   "type": "registry:ui",
                   "target": ""
-            },
-            {
-                  "path": "registry/bases/reka/ui/table/utils.ts",
-                  "type": "registry:ui",
-                  "target": ""
             }
       ],
       categories: undefined,
