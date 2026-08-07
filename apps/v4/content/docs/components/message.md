@@ -2,7 +2,6 @@
 title: Message
 description: Displays a message in a conversation, with optional avatar, header, footer, and alignment.
 component: true
-new: true
 ---
 
 ::component-preview

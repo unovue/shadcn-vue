@@ -1,7 +1,6 @@
 ---
 title: scroll-fade
 description: Utilities for adding a fade effect to the edges of a scroll container.
-new: true
 ---
 
 ::component-preview
