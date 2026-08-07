@@ -7,6 +7,7 @@ component: true
 ::component-preview
 ---
 name: AttachmentDemo
+previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
@@ -127,6 +128,7 @@ Set `variant="image"` on `AttachmentMedia` and render an `<img>` inside it. Use 
 ::component-preview
 ---
 name: AttachmentImageDemo
+previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
@@ -137,6 +139,7 @@ Set `state` to reflect the upload lifecycle. `uploading` and `processing` shimme
 ::component-preview
 ---
 name: AttachmentStatesDemo
+previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
@@ -147,6 +150,7 @@ Use `size` to switch between `default`, `sm`, and `xs`.
 ::component-preview
 ---
 name: AttachmentSizesDemo
+previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
@@ -158,6 +162,7 @@ Wrap attachments in `AttachmentGroup` to lay them out in a horizontally scrollab
 ::component-preview
 ---
 name: AttachmentGroupDemo
+previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 
@@ -168,6 +173,7 @@ Add an `AttachmentTrigger` to make the whole card open a link or dialog. It fill
 ::component-preview
 ---
 name: AttachmentTriggerDemo
+previewClass: h-auto theme-blue bg-surface dark:bg-background
 ---
 ::
 

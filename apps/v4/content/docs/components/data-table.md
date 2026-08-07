@@ -9,6 +9,7 @@ component: true
 name: DataTableDemo
 description: A data table with sorting, filtering, and pagination.
 align: start
+previewClass: items-start h-auto px-4 md:px-8
 ---
 ::
 

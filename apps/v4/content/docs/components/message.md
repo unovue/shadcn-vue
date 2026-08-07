@@ -7,7 +7,7 @@ component: true
 ::component-preview
 ---
 name: MessageDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -124,7 +124,7 @@ Use `MessageAvatar` to render an avatar next to the message. Set `align="end"` o
 ::component-preview
 ---
 name: MessageAvatarDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -140,7 +140,7 @@ Use `MessageGroup` to stack consecutive messages from the same sender. Render an
 ::component-preview
 ---
 name: MessageGroupDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -151,7 +151,7 @@ Use `MessageHeader` for a sender name and `MessageFooter` for metadata such as a
 ::component-preview
 ---
 name: MessageHeaderAndFooterDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -162,7 +162,7 @@ Place message-level actions in `MessageFooter`, such as copy, retry, or feedback
 ::component-preview
 ---
 name: MessageActionsDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 

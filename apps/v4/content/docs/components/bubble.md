@@ -7,7 +7,7 @@ component: true
 ::component-preview
 ---
 name: BubbleDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -111,7 +111,7 @@ Use `variant` to change the visual treatment of the bubble.
 ::component-preview
 ---
 name: BubbleVariantsDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -134,7 +134,7 @@ Use `align` on `Bubble` to align the bubble to the start or end of the conversat
 ::component-preview
 ---
 name: BubbleAlignmentDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -160,7 +160,7 @@ BubbleGroup
 ::component-preview
 ---
 name: BubbleGroupDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -171,7 +171,7 @@ Use `as-child` to merge `BubbleContent` styling and attributes onto a link or bu
 ::component-preview
 ---
 name: BubbleLinksAndButtonsDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -196,7 +196,7 @@ Use `BubbleReactions` for bubble reactions. You can use it to display reactions 
 ::component-preview
 ---
 name: BubbleReactionsDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -207,7 +207,7 @@ Long bubble content can be composed with [`Collapsible`](/docs/components/collap
 ::component-preview
 ---
 name: BubbleCollapsibleDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -218,7 +218,7 @@ Wrap a bubble in a [`Tooltip`](/docs/components/tooltip) to reveal metadata on h
 ::component-preview
 ---
 name: BubbleTooltipDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
@@ -229,7 +229,7 @@ Pair a bubble with a [`Popover`](/docs/components/popover) to surface more infor
 ::component-preview
 ---
 name: BubblePopoverDemo
-class: theme-blue
+previewClass: h-auto theme-blue
 ---
 ::
 
