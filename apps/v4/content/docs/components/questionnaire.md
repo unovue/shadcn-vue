@@ -227,7 +227,7 @@ previewClass: min-h-[520px] p-4 sm:p-8
 ```vue showLineNumbers
 <QuestionnaireError>
   <template v-if="errors.detail">
-    { errors.detail }
+    {{ errors.detail }}
   </template>
 </QuestionnaireError>
 ```
