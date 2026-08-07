@@ -2498,11 +2498,6 @@
       "type": "registry:ui"
     },
     {
-      "name": "tree",
-      "files": [],
-      "type": "registry:ui"
-    },
-    {
       "name": "dashboard-01",
       "description": "A dashboard with sidebar, charts and data table.",
       "dependencies": [

@@ -7,11 +7,6 @@
   ],
   "files": [
     {
-      "path": "styles/reka-nova/ui/number-field/index.ts",
-      "content": "export { default as NumberField } from './NumberField.vue'\nexport { default as NumberFieldContent } from './NumberFieldContent.vue'\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue'\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue'\nexport { default as NumberFieldInput } from './NumberFieldInput.vue'\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "styles/reka-nova/ui/number-field/NumberField.vue",
       "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { NumberFieldRoot, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<NumberFieldRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<NumberFieldRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <NumberFieldRoot v-slot=\"slotProps\" v-bind=\"forwarded\" :class=\"cn('grid gap-1.5', props.class)\">\n    <slot v-bind=\"slotProps\" />\n  </NumberFieldRoot>\n</template>\n",
       "type": "registry:ui"
@@ -34,6 +29,11 @@
     {
       "path": "styles/reka-nova/ui/number-field/NumberFieldInput.vue",
       "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { NumberFieldInput } from 'reka-ui'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <NumberFieldInput\n    data-slot=\"input\"\n    :class=\"cn(\n      'dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 disabled:bg-input/50 dark:disabled:bg-input/80 h-8 rounded-lg border bg-transparent px-2.5 py-1 text-base transition-colors file:h-6 file:text-sm file:font-medium focus-visible:ring-3 aria-invalid:ring-3 md:text-sm w-full min-w-0 text-center outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',\n      props.class,\n    )\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-nova/ui/number-field/index.ts",
+      "content": "export { default as NumberField } from './NumberField.vue'\nexport { default as NumberFieldContent } from './NumberFieldContent.vue'\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue'\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue'\nexport { default as NumberFieldInput } from './NumberFieldInput.vue'\n",
       "type": "registry:ui"
     }
   ],

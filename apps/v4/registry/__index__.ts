@@ -2409,15 +2409,6 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "tree": {
-    name: "tree",
-    description: "",
-    type: "registry:ui",
-    registryDependencies: undefined,
-    files: [],
-    categories: undefined,
-    meta: undefined,
-  },
   "dashboard-01": {
     name: "dashboard-01",
     description: "A dashboard with sidebar, charts and data table.",

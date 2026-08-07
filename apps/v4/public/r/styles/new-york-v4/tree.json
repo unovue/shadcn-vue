@@ -1,0 +1,6 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "tree",
+  "files": [],
+  "type": "registry:ui"
+}

@@ -2464,9 +2464,4 @@ export const ui: Registry["items"] = [
       },
     ],
   },
-  {
-    name: "tree",
-    type: "registry:ui",
-    files: [],
-  },
 ]

@@ -6,11 +6,6 @@
   ],
   "files": [
     {
-      "path": "styles/reka-nova/ui/marker/index.ts",
-      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Marker } from './Marker.vue'\nexport { default as MarkerContent } from './MarkerContent.vue'\nexport { default as MarkerIcon } from './MarkerIcon.vue'\n\nexport const markerVariants = cva(\n  'gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*=\\'size-\\'])]:size-4 min-h-4 text-left group/marker relative flex w-full items-center',\n  {\n    variants: {\n      variant: {\n        default: '',\n        separator: 'before:h-px before:min-w-0 before:flex-1 before:bg-border after:h-px after:min-w-0 after:flex-1 after:bg-border before:mr-1 after:ml-1',\n        border: 'border-b border-border pb-2',\n      },\n    },\n  },\n)\nexport type MarkerVariants = VariantProps<typeof markerVariants>\n",
-      "type": "registry:ui"
-    },
-    {
       "path": "styles/reka-nova/ui/marker/Marker.vue",
       "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { MarkerVariants } from '.'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { markerVariants } from '.'\n\ninterface Props extends PrimitiveProps {\n  variant?: MarkerVariants['variant']\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"marker\"\n    :data-variant=\"variant\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(markerVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
@@ -23,6 +18,11 @@
     {
       "path": "styles/reka-nova/ui/marker/MarkerIcon.vue",
       "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ninterface Props {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <span\n    data-slot=\"marker-icon\"\n    aria-hidden=\"true\"\n    :class=\"cn('size-4 [&_svg:not([class*=\\'size-\\'])]:size-4 shrink-0', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-nova/ui/marker/index.ts",
+      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Marker } from './Marker.vue'\nexport { default as MarkerContent } from './MarkerContent.vue'\nexport { default as MarkerIcon } from './MarkerIcon.vue'\n\nexport const markerVariants = cva(\n  'gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*=\\'size-\\'])]:size-4 min-h-4 text-left group/marker relative flex w-full items-center',\n  {\n    variants: {\n      variant: {\n        default: '',\n        separator: 'before:h-px before:min-w-0 before:flex-1 before:bg-border after:h-px after:min-w-0 after:flex-1 after:bg-border before:mr-1 after:ml-1',\n        border: 'border-b border-border pb-2',\n      },\n    },\n  },\n)\nexport type MarkerVariants = VariantProps<typeof markerVariants>\n",
       "type": "registry:ui"
     }
   ],
