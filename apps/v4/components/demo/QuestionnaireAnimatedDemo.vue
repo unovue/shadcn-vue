@@ -58,7 +58,7 @@ function handleSubmit(event: Event) {
           Debug the current behavior
         </QuestionnaireChoice>
         <QuestionnaireChoice value="review">
-          Review the open pull request
+          Review the implementation
         </QuestionnaireChoice>
       </QuestionnaireChoices>
       <QuestionnaireError />
@@ -66,17 +66,20 @@ function handleSubmit(event: Event) {
 
     <QuestionnaireItem :class="itemClass" name="review" required>
       <QuestionnaireTitle>
-        How closely should the work be reviewed?
+        How should the work be reviewed?
       </QuestionnaireTitle>
+      <QuestionnaireDescription>
+        Select the verification depth.
+      </QuestionnaireDescription>
       <QuestionnaireChoices>
-        <QuestionnaireChoice value="self">
-          Self review only
+        <QuestionnaireChoice value="targeted">
+          Targeted checks
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="pair">
-          Pair review before merge
+        <QuestionnaireChoice value="complete">
+          Complete test suite
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="team">
-          Team review before merge
+        <QuestionnaireChoice value="manual">
+          Tests and manual QA
         </QuestionnaireChoice>
       </QuestionnaireChoices>
       <QuestionnaireError />
@@ -86,15 +89,18 @@ function handleSubmit(event: Event) {
       <QuestionnaireTitle>
         How should the result be delivered?
       </QuestionnaireTitle>
+      <QuestionnaireDescription>
+        Choose the final handoff format.
+      </QuestionnaireDescription>
       <QuestionnaireChoices>
-        <QuestionnaireChoice value="branch">
-          Push to a branch
+        <QuestionnaireChoice value="summary">
+          Concise summary
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="pull-request">
-          Open a pull request
+        <QuestionnaireChoice value="diff">
+          Summary and changed files
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="patch">
-          Share a patch file
+        <QuestionnaireChoice value="handoff">
+          Detailed review handoff
         </QuestionnaireChoice>
       </QuestionnaireChoices>
       <QuestionnaireError />

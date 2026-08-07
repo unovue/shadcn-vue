@@ -71,35 +71,33 @@ function handleSubmit(event: Event) {
 
     <QuestionnaireItem name="strategy" required>
       <QuestionnaireTitle>
-        How should the commits be organized?
+        How should commits be organized?
       </QuestionnaireTitle>
       <QuestionnaireChoices>
         <QuestionnaireChoice value="single">
-          A single commit
+          Single commit
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="grouped">
-          Grouped by concern
+        <QuestionnaireChoice value="logical">
+          Logical commits
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="stacked">
-          Stacked pull requests
+        <QuestionnaireChoice value="squash">
+          Squash before review
         </QuestionnaireChoice>
       </QuestionnaireChoices>
       <QuestionnaireError />
     </QuestionnaireItem>
 
     <QuestionnaireItem name="tests" required>
-      <QuestionnaireTitle>
-        Which tests should run before review?
-      </QuestionnaireTitle>
+      <QuestionnaireTitle>Which tests should run?</QuestionnaireTitle>
       <QuestionnaireChoices>
         <QuestionnaireChoice value="targeted">
           Targeted tests
         </QuestionnaireChoice>
         <QuestionnaireChoice value="package">
-          Package test suite
+          Package suite
         </QuestionnaireChoice>
         <QuestionnaireChoice value="workspace">
-          Full workspace suite
+          Full workspace
         </QuestionnaireChoice>
       </QuestionnaireChoices>
       <QuestionnaireError />
@@ -107,17 +105,17 @@ function handleSubmit(event: Event) {
 
     <QuestionnaireItem name="delivery" required>
       <QuestionnaireTitle>
-        When should the pull request open?
+        How should the work be delivered?
       </QuestionnaireTitle>
       <QuestionnaireChoices>
-        <QuestionnaireChoice value="draft">
-          Open as a draft now
+        <QuestionnaireChoice value="patch">
+          Patch only
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="ready">
-          Open when checks pass
+        <QuestionnaireChoice value="commit">
+          Committed locally
         </QuestionnaireChoice>
-        <QuestionnaireChoice value="manual">
-          Wait for a manual review
+        <QuestionnaireChoice value="branch">
+          Push a review branch
         </QuestionnaireChoice>
       </QuestionnaireChoices>
       <QuestionnaireError />
@@ -129,7 +127,7 @@ function handleSubmit(event: Event) {
         Next
       </QuestionnaireNext>
       <QuestionnaireSubmit>
-        Create plan
+        Finish plan
       </QuestionnaireSubmit>
     </QuestionnaireActions>
   </Questionnaire>
