@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Column } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from '@lucide/vue'
 
 import { cn } from '@/lib/utils'
@@ -14,7 +15,7 @@ import {
 } from '@/styles/reka-nova/ui/dropdown-menu'
 
 interface DataTableColumnHeaderProps {
-  column: Column<Task, any>
+  column: Column<TasksTableFeatures, Task, any>
   title: string
 }
 

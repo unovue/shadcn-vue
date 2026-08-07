@@ -2,6 +2,7 @@
 import type { Column } from '@tanstack/vue-table'
 import type { Component } from 'vue'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 import { Check, PlusCircle } from '@lucide/vue'
 import { computed } from 'vue'
 
@@ -18,7 +19,7 @@ import {
 import { Separator } from '@/styles/reka-nova/ui/separator'
 
 interface DataTableFacetedFilter {
-  column?: Column<Task, any>
+  column?: Column<TasksTableFeatures, Task, any>
   title?: string
   options: {
     label: string

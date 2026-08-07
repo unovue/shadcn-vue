@@ -15,12 +15,7 @@ export const schema = z.object({
 </script>
 
 <script setup lang="ts">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-} from "@tanstack/vue-table"
+import type { RowSelectionState } from "@tanstack/vue-table"
 import { RestrictToVerticalAxis } from "@dnd-kit/abstract/modifiers"
 import {
   IconChevronDown,
@@ -35,12 +30,9 @@ import {
   IconPlus,
 } from "@tabler/icons-vue"
 import {
+  createColumnHelper,
   FlexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
+  useTable,
 } from "@tanstack/vue-table"
 import { DragDropProvider } from "dnd-kit-vue"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
@@ -79,6 +71,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/registry/new-york-v4/ui/tabs"
+import { features } from "./features"
 
 const props = defineProps<{
   data: TableData[]
@@ -94,18 +87,15 @@ interface TableData {
   reviewer: string
 }
 
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-const rowSelection = ref({})
+const columnHelper = createColumnHelper<typeof features, TableData>()
 
-const columns: ColumnDef<TableData>[] = [
-  {
+const columns = columnHelper.columns([
+  columnHelper.display({
     id: "drag",
     header: () => null,
     cell: ({ row }) => h(DragHandle),
-  },
-  {
+  }),
+  columnHelper.display({
     id: "select",
     header: ({ table }) => h(Checkbox, {
       "modelValue": table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate"),
@@ -119,22 +109,19 @@ const columns: ColumnDef<TableData>[] = [
     }),
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: "header",
+  }),
+  columnHelper.accessor("header", {
     header: "Header",
     cell: ({ row }) => h("div", String(row.getValue("header"))),
     enableHiding: false,
-  },
-  {
-    accessorKey: "type",
+  }),
+  columnHelper.accessor("type", {
     header: "Section Type",
     cell: ({ row }) => h(Badge, {
       variant: "outline",
     }, () => String(row.getValue("type"))),
-  },
-  {
-    accessorKey: "status",
+  }),
+  columnHelper.accessor("status", {
     header: "Status",
     cell: ({ row }) => {
       const status = row.getValue("status") as string
@@ -145,9 +132,8 @@ const columns: ColumnDef<TableData>[] = [
         h("span", {}, status),
       ])
     },
-  },
-  {
-    accessorKey: "target",
+  }),
+  columnHelper.accessor("target", {
     header: () => h("div", { class: "flex items-center gap-1" }, [
       "Target",
     ]),
@@ -158,9 +144,8 @@ const columns: ColumnDef<TableData>[] = [
     }, () => [
       h("span", { class: "ml-1 font-semibold" }, String(row.getValue("target"))),
     ]),
-  },
-  {
-    accessorKey: "limit",
+  }),
+  columnHelper.accessor("limit", {
     header: () => h("div", { class: "flex items-center gap-1" }, [
       "Limit",
     ]),
@@ -171,9 +156,8 @@ const columns: ColumnDef<TableData>[] = [
     }, () => [
       h("span", { class: "ml-1 font-semibold" }, String(row.getValue("limit"))),
     ]),
-  },
-  {
-    accessorKey: "reviewer",
+  }),
+  columnHelper.accessor("reviewer", {
     header: "Reviewer",
     cell: ({ row }) => {
       const reviewer = row.getValue("reviewer") as string
@@ -197,8 +181,8 @@ const columns: ColumnDef<TableData>[] = [
         ],
       })
     },
-  },
-  {
+  }),
+  columnHelper.display({
     id: "actions",
     cell: () => h(DropdownMenu, {}, {
       default: () => [
@@ -224,43 +208,23 @@ const columns: ColumnDef<TableData>[] = [
         }),
       ],
     }),
-  },
-]
+  }),
+])
 
-const table = useVueTable({
+// Keep row selection outside the table so the rest of the app can read or update it.
+const rowSelection = ref<RowSelectionState>({})
+
+const table = useTable({
+  features,
   get data() {
     return props.data
   },
   columns,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  onSortingChange: (updaterOrValue) => {
-    sorting.value = typeof updaterOrValue === "function"
-      ? updaterOrValue(sorting.value)
-      : updaterOrValue
-  },
-  onColumnFiltersChange: (updaterOrValue) => {
-    columnFilters.value = typeof updaterOrValue === "function"
-      ? updaterOrValue(columnFilters.value)
-      : updaterOrValue
-  },
-  onColumnVisibilityChange: (updaterOrValue) => {
-    columnVisibility.value = typeof updaterOrValue === "function"
-      ? updaterOrValue(columnVisibility.value)
-      : updaterOrValue
-  },
-  onRowSelectionChange: (updaterOrValue) => {
-    rowSelection.value = typeof updaterOrValue === "function"
-      ? updaterOrValue(rowSelection.value)
-      : updaterOrValue
-  },
   state: {
-    get sorting() { return sorting.value },
-    get columnFilters() { return columnFilters.value },
-    get columnVisibility() { return columnVisibility.value },
     get rowSelection() { return rowSelection.value },
+  },
+  onRowSelectionChange: (updater) => {
+    rowSelection.value = typeof updater === "function" ? updater(rowSelection.value) : updater
   },
 })
 </script>
@@ -356,7 +320,7 @@ const table = useVueTable({
             <TableHeader class="bg-muted sticky top-0 z-10">
               <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
                 <TableHead v-for="header in headerGroup.headers" :key="header.id" :colspan="header.colSpan">
-                  <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
+                  <FlexRender v-if="!header.isPlaceholder" :header="header" />
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -395,13 +359,13 @@ const table = useVueTable({
               Rows per page
             </Label>
             <Select
-              :model-value="table.getState().pagination.pageSize"
+              :model-value="table.atoms.pagination.get().pageSize"
               @update:model-value="(value) => {
                 table.setPageSize(Number(value))
               }"
             >
               <SelectTrigger id="rows-per-page" size="sm" class="w-20">
-                <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
+                <SelectValue :placeholder="`${table.atoms.pagination.get().pageSize}`" />
               </SelectTrigger>
               <SelectContent side="top">
                 <SelectItem v-for="pageSize in [10, 20, 30, 40, 50]" :key="pageSize" :value="`${pageSize}`">
@@ -411,7 +375,7 @@ const table = useVueTable({
             </Select>
           </div>
           <div class="flex w-fit items-center justify-center text-sm font-medium">
-            Page {{ table.getState().pagination.pageIndex + 1 }} of
+            Page {{ table.atoms.pagination.get().pageIndex + 1 }} of
             {{ table.getPageCount() }}
           </div>
           <div class="ml-auto flex items-center gap-2 lg:ml-0">

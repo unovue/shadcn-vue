@@ -34,7 +34,7 @@
     "@takumi-rs/core": "catalog:",
     "@takumi-rs/wasm": "catalog:",
     "@tanstack/vue-form": "^1.33.2",
-    "@tanstack/vue-table": "^8.21.3",
+    "@tanstack/vue-table": "^9.0.0",
     "@unhead/vue": "^3.2.3",
     "@unovis/ts": "catalog:",
     "@unovis/vue": "catalog:",

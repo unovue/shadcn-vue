@@ -1,22 +1,9 @@
 <script setup lang="ts">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-} from '@tanstack/vue-table'
+import type { ColumnDef, RowSelectionState } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 
-import {
-  FlexRender,
-  getCoreRowModel,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useVueTable,
-} from '@tanstack/vue-table'
+import { FlexRender, useTable } from '@tanstack/vue-table'
 import { ref } from 'vue'
 import {
   Table,
@@ -26,41 +13,30 @@ import {
   TableHeader,
   TableRow,
 } from '@/styles/reka-nova/ui/table'
-import { valueUpdater } from '~/styles/reka-nova/ui/table/utils'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableToolbar from './DataTableToolbar.vue'
+import { features } from './features'
 
 interface DataTableProps {
-  columns: ColumnDef<Task, any>[]
+  columns: ColumnDef<TasksTableFeatures, Task, any>[]
   data: Task[]
 }
 const props = defineProps<DataTableProps>()
 
-const sorting = ref<SortingState>([])
-const columnFilters = ref<ColumnFiltersState>([])
-const columnVisibility = ref<VisibilityState>({})
-const rowSelection = ref({})
+// Keep row selection outside the table so the rest of the app can read or update it.
+const rowSelection = ref<RowSelectionState>({})
 
-const table = useVueTable({
+const table = useTable({
+  features,
   get data() { return props.data },
   get columns() { return props.columns },
   state: {
-    get sorting() { return sorting.value },
-    get columnFilters() { return columnFilters.value },
-    get columnVisibility() { return columnVisibility.value },
     get rowSelection() { return rowSelection.value },
   },
   enableRowSelection: true,
-  onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelection),
-  getCoreRowModel: getCoreRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFacetedRowModel: getFacetedRowModel(),
-  getFacetedUniqueValues: getFacetedUniqueValues(),
+  onRowSelectionChange: (updater) => {
+    rowSelection.value = typeof updater === 'function' ? updater(rowSelection.value) : updater
+  },
 })
 </script>
 
@@ -72,7 +48,7 @@ const table = useVueTable({
         <TableHeader>
           <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
             <TableHead v-for="header in headerGroup.headers" :key="header.id">
-              <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
+              <FlexRender v-if="!header.isPlaceholder" :header="header" />
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -84,7 +60,7 @@ const table = useVueTable({
               :data-state="row.getIsSelected() && 'selected'"
             >
               <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                <FlexRender :cell="cell" />
               </TableCell>
             </TableRow>
           </template>

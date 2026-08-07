@@ -2,8 +2,7 @@
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "table",
   "dependencies": [
-    "@vueuse/core",
-    "@tanstack/vue-table"
+    "@vueuse/core"
   ],
   "files": [
     {
@@ -54,11 +53,6 @@
     {
       "path": "styles/reka-maia/ui/table/index.ts",
       "content": "export { default as Table } from './Table.vue'\nexport { default as TableBody } from './TableBody.vue'\nexport { default as TableCaption } from './TableCaption.vue'\nexport { default as TableCell } from './TableCell.vue'\nexport { default as TableEmpty } from './TableEmpty.vue'\nexport { default as TableFooter } from './TableFooter.vue'\nexport { default as TableHead } from './TableHead.vue'\nexport { default as TableHeader } from './TableHeader.vue'\nexport { default as TableRow } from './TableRow.vue'\n",
-      "type": "registry:ui"
-    },
-    {
-      "path": "styles/reka-maia/ui/table/utils.ts",
-      "content": "import type { Updater } from '@tanstack/vue-table'\n\nimport type { Ref } from 'vue'\nimport { isFunction } from '@tanstack/vue-table'\n\nexport function valueUpdater<T>(updaterOrValue: Updater<T>, ref: Ref<T>) {\n  ref.value = isFunction(updaterOrValue)\n    ? updaterOrValue(ref.value)\n    : updaterOrValue\n}\n",
       "type": "registry:ui"
     }
   ],

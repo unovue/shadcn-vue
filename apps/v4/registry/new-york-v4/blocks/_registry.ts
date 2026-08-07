@@ -75,6 +75,10 @@ export const blocks: Registry["items"] = [
         path: "blocks/dashboard-01/components/SiteHeader.vue",
         type: "registry:component",
       },
+      {
+        path: "blocks/dashboard-01/components/features.ts",
+        type: "registry:component",
+      },
     ],
     categories: [
       "dashboard",

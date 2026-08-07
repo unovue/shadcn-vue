@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { Table } from '@tanstack/vue-table'
+import type { VueTable } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 import { X } from '@lucide/vue'
 
 import { computed } from 'vue'
@@ -12,12 +13,12 @@ import DataTableFacetedFilter from './DataTableFacetedFilter.vue'
 import DataTableViewOptions from './DataTableViewOptions.vue'
 
 interface DataTableToolbarProps {
-  table: Table<Task>
+  table: VueTable<TasksTableFeatures, Task>
 }
 
 const props = defineProps<DataTableToolbarProps>()
 
-const isFiltered = computed(() => props.table.getState().columnFilters.length > 0)
+const isFiltered = computed(() => props.table.atoms.columnFilters.get().length > 0)
 </script>
 
 <template>

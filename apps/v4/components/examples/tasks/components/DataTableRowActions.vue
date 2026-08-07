@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Row } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
+import type { TasksTableFeatures } from './features'
 import { MoreHorizontal } from '@lucide/vue'
 import { computed } from 'vue'
 import { Button } from '@/styles/reka-nova/ui/button'
@@ -22,7 +23,7 @@ import { labels } from '../data/data'
 import { taskSchema } from '../data/schema'
 
 interface DataTableRowActionsProps {
-  row: Row<Task>
+  row: Row<TasksTableFeatures, Task>
 }
 const props = defineProps<DataTableRowActionsProps>()
 
