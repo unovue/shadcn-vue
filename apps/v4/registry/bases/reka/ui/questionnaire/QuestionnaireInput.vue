@@ -9,6 +9,11 @@ import {
   injectQuestionnaireItemContext,
 } from "./useQuestionnaire"
 
+defineOptions({
+  // The wrapper is the root element, so attributes have to reach the input.
+  inheritAttrs: false,
+})
+
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes["class"]
   /** Fills the answer on mount and after a native form reset. */
@@ -129,6 +134,7 @@ onBeforeUnmount(() => {
     class="cn-questionnaire-input-wrapper group/questionnaire-input relative min-w-0"
   >
     <input
+      v-bind="$attrs"
       :id="answerId"
       ref="inputElement"
       data-slot="questionnaire-input"

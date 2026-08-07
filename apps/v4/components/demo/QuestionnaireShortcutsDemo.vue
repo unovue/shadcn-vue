@@ -41,21 +41,19 @@ function handleSubmit(event: Event) {
 
 <template>
   <div class="relative mx-auto flex h-full w-full max-w-md flex-col">
-    <NativeSelect
-      v-model="mode"
-      aria-label="Shortcut style"
-      class="absolute end-0 top-0"
-    >
-      <NativeSelectOption value="none">
-        No shortcuts
-      </NativeSelectOption>
-      <NativeSelectOption value="letters">
-        Letters
-      </NativeSelectOption>
-      <NativeSelectOption value="numbers">
-        Numbers
-      </NativeSelectOption>
-    </NativeSelect>
+    <div class="absolute end-0 top-0">
+      <NativeSelect v-model="mode" aria-label="Shortcut style">
+        <NativeSelectOption value="none">
+          No shortcuts
+        </NativeSelectOption>
+        <NativeSelectOption value="letters">
+          Letters
+        </NativeSelectOption>
+        <NativeSelectOption value="numbers">
+          Numbers
+        </NativeSelectOption>
+      </NativeSelect>
+    </div>
 
     <Questionnaire
       class="mt-auto"
