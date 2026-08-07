@@ -61,14 +61,14 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-textarea" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="about">
+          <VeeField v-slot="{ componentField, errors }" name="about">
             <Field :data-invalid="!!errors.length">
               <FieldLabel for="form-vee-textarea-about">
                 More about you
               </FieldLabel>
               <Textarea
                 id="form-vee-textarea-about"
-                v-bind="field"
+                v-bind="componentField"
                 :aria-invalid="!!errors.length"
                 placeholder="I'm a software engineer..."
                 class="min-h-[120px]"

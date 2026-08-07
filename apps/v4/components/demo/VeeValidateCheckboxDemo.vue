@@ -80,7 +80,7 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-checkbox" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="responses" type="checkbox">
+          <VeeField v-slot="{ componentField, errors }" name="responses" type="checkbox">
             <FieldSet :data-invalid="!!errors.length">
               <FieldLegend variant="label">
                 Responses
@@ -93,10 +93,8 @@ const onSubmit = handleSubmit((data) => {
                 <Field orientation="horizontal">
                   <Checkbox
                     id="form-vee-checkbox-responses"
-                    :name="field.name"
-                    :model-value="field.value"
+                    v-bind="componentField"
                     disabled
-                    @update:model-value="field.onChange"
                   />
                   <FieldLabel
                     for="form-vee-checkbox-responses"
@@ -110,7 +108,7 @@ const onSubmit = handleSubmit((data) => {
             </FieldSet>
           </VeeField>
           <FieldSeparator />
-          <VeeField v-slot="{ field, errors }" name="tasks">
+          <VeeField v-slot="{ value, handleChange, errors }" name="tasks">
             <FieldSet :data-invalid="!!errors.length">
               <FieldLegend variant="label">
                 Tasks
@@ -127,17 +125,15 @@ const onSubmit = handleSubmit((data) => {
                 >
                   <Checkbox
                     :id="`form-vee-checkbox-${task.id}`"
-                    :name="field.name"
                     :aria-invalid="!!errors.length"
-                    :model-value="field.value?.includes(task.id)"
+                    :model-value="value?.includes(task.id)"
                     @update:model-value="
                       (checked: boolean | 'indeterminate') => {
-                        const newValue = checked
-                          ? [...(field.value || []), task.id]
-                          : (field.value || []).filter(
-                            (value: string) => value !== task.id,
-                          );
-                        field.onChange(newValue);
+                        handleChange(
+                          checked
+                            ? [...(value || []), task.id]
+                            : (value || []).filter((id: string) => id !== task.id),
+                        );
                       }
                     "
                   />

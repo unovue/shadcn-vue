@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
+import { useForm, Field as VeeField } from 'vee-validate'
 import { toast } from 'vue-sonner'
 
 import { z } from 'zod'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/registry/new-york-v4/ui/form'
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from '@/registry/new-york-v4/ui/field'
 import {
   NativeSelect,
   NativeSelectOption,
@@ -37,12 +36,18 @@ const onSubmit = form.handleSubmit((values) => {
 </script>
 
 <template>
-  <form class="w-full max-w-sm space-y-6" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="country">
-      <FormItem>
-        <FormLabel>Country</FormLabel>
-        <FormControl>
-          <NativeSelect v-bind="(componentField as any)">
+  <form class="w-full max-w-sm" @submit="onSubmit">
+    <FieldGroup>
+      <VeeField v-slot="{ componentField, errors }" name="country">
+        <Field :data-invalid="!!errors.length">
+          <FieldLabel for="form-native-select-country">
+            Country
+          </FieldLabel>
+          <NativeSelect
+            id="form-native-select-country"
+            v-bind="(componentField as any)"
+            :aria-invalid="!!errors.length"
+          >
             <NativeSelectOption value="">
               Select a country
             </NativeSelectOption>
@@ -56,16 +61,18 @@ const onSubmit = form.handleSubmit((values) => {
               Canada
             </NativeSelectOption>
           </NativeSelect>
-        </FormControl>
-        <FormDescription>
-          Select a country
-        </FormDescription>
-        <FormMessage />
-      </FormItem>
-    </FormField>
+          <FieldDescription>
+            Select a country
+          </FieldDescription>
+          <FieldError v-if="errors.length" :errors="errors" />
+        </Field>
+      </VeeField>
 
-    <Button type="submit" class="w-full">
-      Submit
-    </Button>
+      <Field>
+        <Button type="submit" class="w-full">
+          Submit
+        </Button>
+      </Field>
+    </FieldGroup>
   </form>
 </template>

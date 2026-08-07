@@ -82,7 +82,7 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-select" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="language">
+          <VeeField v-slot="{ componentField, errors }" name="language">
             <Field
               orientation="responsive"
               :data-invalid="!!errors.length"
@@ -96,11 +96,7 @@ const onSubmit = handleSubmit((data) => {
                 </FieldDescription>
                 <FieldError v-if="errors.length" :errors="errors" />
               </FieldContent>
-              <Select
-                :name="field.name"
-                :model-value="field.value"
-                @update:model-value="field.onChange"
-              >
+              <Select v-bind="componentField">
                 <SelectTrigger
                   id="form-vee-select-language"
                   :aria-invalid="!!errors.length"

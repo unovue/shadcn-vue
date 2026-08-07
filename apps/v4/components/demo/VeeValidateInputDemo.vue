@@ -65,14 +65,14 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-input" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="username">
+          <VeeField v-slot="{ componentField, errors }" name="username">
             <Field :data-invalid="!!errors.length">
               <FieldLabel for="form-vee-input-username">
                 Username
               </FieldLabel>
               <Input
                 id="form-vee-input-username"
-                v-bind="field"
+                v-bind="componentField"
                 :aria-invalid="!!errors.length"
                 placeholder="shadcn"
                 autocomplete="username"

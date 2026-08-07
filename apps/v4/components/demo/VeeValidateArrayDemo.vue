@@ -87,7 +87,7 @@ const onSubmit = handleSubmit((data) => {
             <VeeField
               v-for="(field, index) in fields"
               :key="field.key"
-              v-slot="{ field: fieldProps, errors: fieldErrors }"
+              v-slot="{ componentField: fieldProps, errors: fieldErrors }"
               :name="`emails[${index}].address`"
             >
               <Field

@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { Check, Circle, Dot } from '@lucide/vue'
 import { toTypedSchema } from '@vee-validate/zod'
+import { Field as VeeField, Form as VeeForm } from 'vee-validate'
 import { h, ref } from 'vue'
 import { toast } from 'vue-sonner'
 import * as z from 'zod'
 import { Button } from '@/registry/new-york-v4/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/registry/new-york-v4/ui/form'
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from '@/registry/new-york-v4/ui/field'
 import { Input } from '@/registry/new-york-v4/ui/input'
 import {
   Select,
@@ -66,7 +72,7 @@ function onSubmit(values: any) {
 </script>
 
 <template>
-  <Form
+  <VeeForm
     v-slot="{ meta, values, validate }"
     as="" keep-values :validation-schema="toTypedSchema(formSchema[stepIndex - 1]!)"
   >
@@ -125,62 +131,85 @@ function onSubmit(values: any) {
           </StepperItem>
         </div>
 
-        <div class="flex flex-col gap-4 mt-4">
+        <FieldGroup class="mt-4">
           <template v-if="stepIndex === 1">
-            <FormField v-slot="{ componentField }" name="fullName">
-              <FormItem>
-                <FormLabel>Full Name</FormLabel>
-                <FormControl>
-                  <Input type="text" v-bind="componentField" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+            <VeeField v-slot="{ componentField, errors }" name="fullName">
+              <Field :data-invalid="!!errors.length">
+                <FieldLabel for="form-stepper-fullName">
+                  Full Name
+                </FieldLabel>
+                <Input
+                  id="form-stepper-fullName"
+                  v-bind="componentField"
+                  type="text"
+                  :aria-invalid="!!errors.length"
+                />
+                <FieldError v-if="errors.length" :errors="errors" />
+              </Field>
+            </VeeField>
 
-            <FormField v-slot="{ componentField }" name="email">
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input type="email " v-bind="componentField" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+            <VeeField v-slot="{ componentField, errors }" name="email">
+              <Field :data-invalid="!!errors.length">
+                <FieldLabel for="form-stepper-email">
+                  Email
+                </FieldLabel>
+                <Input
+                  id="form-stepper-email"
+                  v-bind="componentField"
+                  type="email"
+                  :aria-invalid="!!errors.length"
+                />
+                <FieldError v-if="errors.length" :errors="errors" />
+              </Field>
+            </VeeField>
           </template>
 
           <template v-if="stepIndex === 2">
-            <FormField v-slot="{ componentField }" name="password">
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input type="password" v-bind="componentField" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+            <VeeField v-slot="{ componentField, errors }" name="password">
+              <Field :data-invalid="!!errors.length">
+                <FieldLabel for="form-stepper-password">
+                  Password
+                </FieldLabel>
+                <Input
+                  id="form-stepper-password"
+                  v-bind="componentField"
+                  type="password"
+                  :aria-invalid="!!errors.length"
+                />
+                <FieldError v-if="errors.length" :errors="errors" />
+              </Field>
+            </VeeField>
 
-            <FormField v-slot="{ componentField }" name="confirmPassword">
-              <FormItem>
-                <FormLabel>Confirm Password</FormLabel>
-                <FormControl>
-                  <Input type="password" v-bind="componentField" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+            <VeeField v-slot="{ componentField, errors }" name="confirmPassword">
+              <Field :data-invalid="!!errors.length">
+                <FieldLabel for="form-stepper-confirmPassword">
+                  Confirm Password
+                </FieldLabel>
+                <Input
+                  id="form-stepper-confirmPassword"
+                  v-bind="componentField"
+                  type="password"
+                  :aria-invalid="!!errors.length"
+                />
+                <FieldError v-if="errors.length" :errors="errors" />
+              </Field>
+            </VeeField>
           </template>
 
           <template v-if="stepIndex === 3">
-            <FormField v-slot="{ componentField }" name="favoriteDrink">
-              <FormItem>
-                <FormLabel>Drink</FormLabel>
-
+            <VeeField v-slot="{ componentField, errors }" name="favoriteDrink">
+              <Field :data-invalid="!!errors.length">
+                <FieldLabel for="form-stepper-favoriteDrink">
+                  Drink
+                </FieldLabel>
                 <Select v-bind="componentField">
-                  <FormControl>
-                    <SelectTrigger class="w-full!">
-                      <SelectValue placeholder="Select a drink" />
-                    </SelectTrigger>
-                  </FormControl>
+                  <SelectTrigger
+                    id="form-stepper-favoriteDrink"
+                    class="w-full!"
+                    :aria-invalid="!!errors.length"
+                  >
+                    <SelectValue placeholder="Select a drink" />
+                  </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="coffee">
@@ -195,11 +224,11 @@ function onSubmit(values: any) {
                     </SelectGroup>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+                <FieldError v-if="errors.length" :errors="errors" />
+              </Field>
+            </VeeField>
           </template>
-        </div>
+        </FieldGroup>
 
         <div class="flex items-center justify-between mt-4">
           <Button :disabled="isPrevDisabled" variant="outline" size="sm" @click="prevStep()">
@@ -218,5 +247,5 @@ function onSubmit(values: any) {
         </div>
       </form>
     </Stepper>
-  </Form>
+  </VeeForm>
 </template>

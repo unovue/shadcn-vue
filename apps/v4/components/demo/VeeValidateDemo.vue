@@ -72,14 +72,14 @@ const onSubmit = handleSubmit((data) => {
     <CardContent>
       <form id="form-vee-demo" @submit="onSubmit">
         <FieldGroup>
-          <VeeField v-slot="{ field, errors }" name="title">
+          <VeeField v-slot="{ componentField, errors }" name="title">
             <Field :data-invalid="!!errors.length">
               <FieldLabel for="form-vee-demo-title">
                 Bug Title
               </FieldLabel>
               <Input
                 id="form-vee-demo-title"
-                v-bind="field"
+                v-bind="componentField"
                 placeholder="Login button not working on mobile"
                 autocomplete="off"
                 :aria-invalid="!!errors.length"
@@ -88,7 +88,7 @@ const onSubmit = handleSubmit((data) => {
             </Field>
           </VeeField>
 
-          <VeeField v-slot="{ field, errors }" name="description">
+          <VeeField v-slot="{ componentField, value, errors }" name="description">
             <Field :data-invalid="!!errors.length">
               <FieldLabel for="form-vee-demo-description">
                 Description
@@ -96,7 +96,7 @@ const onSubmit = handleSubmit((data) => {
               <InputGroup>
                 <InputGroupTextarea
                   id="form-vee-demo-description"
-                  v-bind="field"
+                  v-bind="componentField"
                   placeholder="I'm having an issue with the login button on mobile."
                   :rows="6"
                   class="min-h-24 resize-none"
@@ -104,7 +104,7 @@ const onSubmit = handleSubmit((data) => {
                 />
                 <InputGroupAddon align="block-end">
                   <InputGroupText class="tabular-nums">
-                    {{ field.value?.length || 0 }}/100 characters
+                    {{ value?.length || 0 }}/100 characters
                   </InputGroupText>
                 </InputGroupAddon>
               </InputGroup>
