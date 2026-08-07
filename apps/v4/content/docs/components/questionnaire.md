@@ -9,6 +9,8 @@ new: true
 ---
 name: QuestionnaireDemo
 class: style-nova
+align: end
+previewClass: min-h-[560px] p-4 sm:p-8
 ---
 ::
 
@@ -140,6 +142,10 @@ Questionnaire
 
 `Questionnaire` renders a real `<form>` and every item renders a `<fieldset>` with a `<legend>`, so answers submit with `FormData` and no extra state is needed.
 
+## Server Rendering
+
+Pass `items` to server-render the active item, progress, actions, and answer shortcuts. Without it the questionnaire only learns its order once the items have mounted on the client.
+
 ## Features
 
 - One question at a time, with progress, navigation, and validation handled for you
@@ -151,58 +157,68 @@ Questionnaire
 
 ## Examples
 
-### Multiple selection
+### Multiple Selection
 
-Add `multiple` to an item to render checkboxes and keep every selected answer. The item submits one entry per selected choice, so read it with `formData.getAll(name)`.
+Use `multiple` for an item that accepts more than one fixed answer.
 
 ::component-preview
 ---
 name: QuestionnaireMultipleDemo
 class: style-nova
+align: end
+previewClass: min-h-[420px] p-4 sm:p-8
 ---
 ::
 
-### Freeform answers
+### Freeform Answer
 
-Add a `QuestionnaireInput` inside `QuestionnaireChoices` to accept an answer that is not in the list. Filling the input answers the item, and selecting a choice clears it.
+Compose `QuestionnaireInput` with fixed choices when the user can provide another answer.
 
 ::component-preview
 ---
 name: QuestionnaireFreeformDemo
 class: style-nova
+align: end
+previewClass: min-h-[420px] p-4 sm:p-8
 ---
 ::
 
-### Explicit skip
+### Explicit Skip
 
-`QuestionnaireSkip` is only visible while the active item is optional. Skipping clears the answer, marks the item as `skipped`, and moves on. Listen to `@update:status` to tell a skipped item from an unanswered one.
+Add `QuestionnaireSkip` when an optional item may be intentionally left unanswered.
 
 ::component-preview
 ---
 name: QuestionnaireSkipDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Answer shortcuts
+### Shortcuts
 
-Set `shortcuts` to `letters` or `numbers` to assign a key to every choice. Declare `choices` on `items` so shortcuts stay stable regardless of the render order.
+Assign a letter or number key to each answer with `shortcuts`. Declare `choices` on `items` so the keys stay stable regardless of the render order.
 
 ::component-preview
 ---
 name: QuestionnaireShortcutsDemo
 class: style-nova
+align: end
+previewClass: min-h-[480px] p-4 sm:p-8
 ---
 ::
 
-### Validation
+### Custom Validation
 
-Use `v-model:item` together with the `invalid` prop to surface errors from your own schema after submit. Pass the message to `QuestionnaireError` and clear it when the answer changes.
+Combine controlled navigation with an external schema such as Zod to return to an invalid item and present its error.
 
 ::component-preview
 ---
 name: QuestionnaireValidationDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
@@ -211,76 +227,92 @@ class: style-nova
 ```vue showLineNumbers
 <QuestionnaireError>
   <template v-if="errors.detail">
-    {{ errors.detail }}
+    { errors.detail }
   </template>
 </QuestionnaireError>
 ```
 
-### Controlled navigation
+### Controlled
 
-Use `v-model:item` to store the active item yourself. `Questionnaire` still validates and moves focus, so you can drive navigation from outside the form.
+Control the active item from host state, such as returning to an invalid step. Use `v-model:item`.
 
 ::component-preview
 ---
 name: QuestionnaireControlledDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Resume with defaults
+### Resume
 
-Use `default-checked` on choices and `default-value` on inputs to restore saved answers. A native form reset returns to those answers.
+Restore a saved active item and default answers, then reset changes back to that saved state.
 
 ::component-preview
 ---
 name: QuestionnaireResumeDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Conditional items
+### Conditional Items
 
-Mark an item `disabled` in both `items` and `QuestionnaireItem` to remove it from the flow. Progress, navigation, and submission skip disabled items.
+Disable items that do not apply to the user's earlier answers.
 
 ::component-preview
 ---
 name: QuestionnaireConditionalDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Custom progress
+### Navigation State
 
-`QuestionnaireProgress` exposes `current`, `total`, `first`, and `last` to its default slot, so you can render your own indicator while keeping the `progressbar` semantics.
+Read item status to opt into disabled navigation and custom action styling. Listen to `@update:status` on the items you want to track.
+
+::component-preview
+---
+name: QuestionnaireNavigationStateDemo
+class: style-nova
+align: end
+previewClass: min-h-[480px] p-4 sm:p-8
+---
+::
+
+### Custom Progress
+
+Use the progress slot state to build a custom progress indicator. `QuestionnaireProgress` exposes `current`, `total`, `first`, and `last`.
 
 ::component-preview
 ---
 name: QuestionnaireProgressDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Animated items
+### Animated Items
 
-The active item is marked with `data-active`, so you can animate each question as it becomes visible.
+Animate the active item while keeping progress and navigation stationary. The active item is marked with `data-active`.
 
 ::component-preview
 ---
 name: QuestionnaireAnimatedDemo
 class: style-nova
+align: end
+previewClass: min-h-[520px] p-4 sm:p-8
 ---
 ::
 
-### Card composition
+### Card
 
-Use `as-child` to render a questionnaire part as another component. Here each `QuestionnaireTitle` and `QuestionnaireDescription` becomes the `CardTitle` and `CardDescription`, so the card owns the styling and the questionnaire owns the semantics.
-
-::component-preview
----
-name: QuestionnaireCardDemo
-class: style-nova
----
-::
+Compose Questionnaire with Card slots while keeping the question title and description semantic. Use `as-child` to render a part as another component:
 
 ```vue showLineNumbers
 <QuestionnaireTitle as-child>
@@ -288,18 +320,27 @@ class: style-nova
 </QuestionnaireTitle>
 ```
 
-`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, and the four navigation buttons all accept `as` and `as-child`.
+::component-preview
+---
+name: QuestionnaireCardDemo
+class: style-nova
+align: end
+previewClass: min-h-[560px] p-4 sm:p-8
+---
+::
 
-`as-child` on the title replaces the `legend` that names the item, so the item labels itself with the rendered title instead. Both the title and the description keep the id of the child they render, so a component that manages its own id keeps working.
+`QuestionnaireProgress`, `QuestionnaireTitle`, `QuestionnaireDescription`, `QuestionnaireChoices`, `QuestionnaireError`, `QuestionnaireActions`, and the four navigation buttons all accept `as` and `as-child`. `as-child` on the title replaces the `legend` that names the item, so the item labels itself with the rendered title instead. The title and description keep the id of the child they render.
 
-### Dialog composition
+### Dialog
 
-Put the questionnaire inside a `Dialog` and let the host own dismissal. Give the dialog one title and description of its own: each question keeps its own `legend`, so per-item `DialogTitle` elements would collide on the id the dialog assigns them.
+Compose Questionnaire inside a Dialog while keeping cancellation and dismissal host-owned.
 
 ::component-preview
 ---
 name: QuestionnaireDialogDemo
 class: style-nova
+align: end
+previewClass: min-h-[320px] p-4 sm:p-8
 ---
 ::
 

@@ -55,19 +55,18 @@ function handleSubmit(event: Event) {
     </DialogTrigger>
     <DialogContent>
       <Questionnaire default-item="scope" :items="items" @submit="handleSubmit">
-        <DialogHeader>
-          <QuestionnaireProgress />
-          <DialogTitle>Clarify the task</DialogTitle>
-          <DialogDescription>
-            The agent needs two answers before it starts.
-          </DialogDescription>
-        </DialogHeader>
-
         <QuestionnaireItem name="scope" required>
-          <QuestionnaireTitle>Which files are in scope?</QuestionnaireTitle>
-          <QuestionnaireDescription>
-            Choose how broadly the agent can update the workspace.
-          </QuestionnaireDescription>
+          <DialogHeader>
+            <QuestionnaireProgress />
+            <QuestionnaireTitle as-child>
+              <DialogTitle>Which files are in scope?</DialogTitle>
+            </QuestionnaireTitle>
+            <QuestionnaireDescription as-child>
+              <DialogDescription>
+                Choose how broadly the agent can update the workspace.
+              </DialogDescription>
+            </QuestionnaireDescription>
+          </DialogHeader>
           <QuestionnaireChoices>
             <QuestionnaireChoice value="component">
               Component only
@@ -83,10 +82,17 @@ function handleSubmit(event: Event) {
         </QuestionnaireItem>
 
         <QuestionnaireItem name="tests" required>
-          <QuestionnaireTitle>How much verification is needed?</QuestionnaireTitle>
-          <QuestionnaireDescription>
-            Choose the checks the agent should run before handoff.
-          </QuestionnaireDescription>
+          <DialogHeader>
+            <QuestionnaireProgress />
+            <QuestionnaireTitle as-child>
+              <DialogTitle>How much verification is needed?</DialogTitle>
+            </QuestionnaireTitle>
+            <QuestionnaireDescription as-child>
+              <DialogDescription>
+                Choose the checks the agent should run before handoff.
+              </DialogDescription>
+            </QuestionnaireDescription>
+          </DialogHeader>
           <QuestionnaireChoices>
             <QuestionnaireChoice value="targeted">
               Targeted tests

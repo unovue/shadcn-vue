@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { toast } from 'vue-sonner'
+import { z } from 'zod'
 import {
   Card,
   CardAction,
@@ -30,6 +31,21 @@ const items = [
   { name: 'audience', required: true },
 ] as const
 
+const questionnaireSchema = z
+  .object({
+    detail: z.enum(['summary', 'complete']),
+    audience: z.enum(['team', 'public']),
+  })
+  .superRefine((answers, context) => {
+    if (answers.audience === 'public' && answers.detail === 'summary') {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Public answers need enough context. Choose a complete answer.',
+        path: ['detail'],
+      })
+    }
+  })
+
 const item = ref<string>('detail')
 const errors = ref<Partial<Record<ItemName, string>>>({})
 
@@ -43,22 +59,33 @@ function handleSubmit(event: Event) {
   event.preventDefault()
 
   const formData = new FormData(event.target as HTMLFormElement)
-  const detail = formData.get('detail')
-  const audience = formData.get('audience')
+  const result = questionnaireSchema.safeParse(Object.fromEntries(formData))
 
-  // Public answers need enough context to stand on their own.
-  if (audience === 'public' && detail === 'summary') {
-    errors.value = {
-      detail: 'Public answers need enough context. Choose a complete answer.',
-    }
-    item.value = 'detail'
+  if (result.success) {
+    errors.value = {}
+    toast('Agent response configured', {
+      description: `Detail: ${result.data.detail} · Audience: ${result.data.audience}`,
+    })
     return
   }
 
-  errors.value = {}
-  toast('Agent response configured', {
-    description: `Detail: ${detail} · Audience: ${audience}`,
-  })
+  const nextErrors: Partial<Record<ItemName, string>> = {}
+
+  for (const issue of result.error.issues) {
+    const name = issue.path[0]
+
+    if ((name === 'detail' || name === 'audience') && !nextErrors[name]) {
+      nextErrors[name] = issue.message
+    }
+  }
+
+  const firstInvalidItem = result.error.issues[0]?.path[0]
+
+  errors.value = nextErrors
+
+  if (firstInvalidItem === 'detail' || firstInvalidItem === 'audience') {
+    item.value = firstInvalidItem
+  }
 }
 </script>
 
