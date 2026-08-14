@@ -11,6 +11,7 @@ links:
 ---
 name: TabsDemo
 description: A tabs component with account and password tabs.
+previewClass: h-[32rem] sm:h-[30rem]
 ---
 ::
 

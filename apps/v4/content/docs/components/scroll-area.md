@@ -11,6 +11,7 @@ links:
 ---
 name: ScrollAreaDemo
 description: A scroll area component.
+previewClass: h-96
 ---
 ::
 

@@ -138,6 +138,7 @@ You can place a spinner inside an empty state.
 ::component-preview
 ---
 name: SpinnerEmptyDemo
+previewClass: h-96
 ---
 ::
 

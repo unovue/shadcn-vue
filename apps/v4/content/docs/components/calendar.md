@@ -11,6 +11,7 @@ links:
 ---
 name: CalendarDemo
 description: A calendar component.
+previewClass: h-[26rem]
 ---
 ::
 
@@ -166,6 +167,7 @@ const placeholder = ref(toCalendar(today(getLocalTimeZone()), new PersianCalenda
 ---
 name: CalendarPersianDemo
 description: A Persian calendar.
+previewClass: h-[30rem]
 ---
 ::
 
@@ -197,7 +199,8 @@ function createCalendar(identifier) {
 name: CalendarSystems
 title: Calendar systems
 description: A calendar with multiple calendar systems
-class: '**:[.preview]:h-[560px] mt-8'
+class: 'mt-8'
+previewClass: h-[600px]
 ---
 ::
 
@@ -210,6 +213,7 @@ Make sure to pass either the `placeholder` or `defaultPlaceholder` prop when usi
 name: CalendarYearAndMonthSelector
 title: Month and Year Selector
 description: A calendar with month and year dropdowns.
+previewClass: h-[32rem]
 ---
 ::
 

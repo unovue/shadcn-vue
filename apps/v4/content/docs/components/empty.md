@@ -7,7 +7,7 @@ component: true
 ::component-preview
 ---
 name: EmptyDemo
-class: '[&_.preview]:p-0'
+previewClass: h-96 p-0
 ---
 ::
 
@@ -91,6 +91,7 @@ Use the `border` utility class to create an outline empty state.
 ---
 name: EmptyOutlineDemo
 class: '[&_.preview]:p-6 md:[&_.preview]:p-10'
+previewClass: h-96
 ---
 ::
 
@@ -113,6 +114,7 @@ Use the `EmptyMedia` component to display an avatar in the empty state.
 ---
 name: EmptyAvatarDemo
 class: '[&_.preview]:p-0'
+previewClass: h-80
 ---
 ::
 

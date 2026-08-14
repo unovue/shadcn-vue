@@ -11,6 +11,7 @@ links:
 ---
 name: AspectRatioDemo
 description: A component that displays an image with a 16:9 aspect ratio.
+previewClass: h-[26rem]
 ---
 ::
 

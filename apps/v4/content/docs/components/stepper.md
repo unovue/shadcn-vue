@@ -113,6 +113,7 @@ description: A horizental stepper component.
 ---
 name: StepperVertical
 description: A vertical stepper component.
+previewClass: h-96
 ---
 ::
 
@@ -122,5 +123,6 @@ description: A vertical stepper component.
 ---
 name: StepperForm
 description: A form stepper component.
+previewClass: h-[28rem]
 ---
 ::

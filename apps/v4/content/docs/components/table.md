@@ -9,6 +9,7 @@ component: true
 name: TableDemo
 description: A simple table with invoices.
 align: start
+previewClass: h-[30rem]
 ---
 ::
 

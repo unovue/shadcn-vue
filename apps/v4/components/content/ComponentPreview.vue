@@ -6,6 +6,7 @@ const props = defineProps<{
   align?: 'center' | 'start' | 'end'
   description?: string
   hideCode?: boolean
+  chromeLessOnMobile?: boolean
   type?: 'block' | 'component' | 'example'
   class?: HTMLAttributes['class']
   previewClass?: HTMLAttributes['class']
@@ -59,6 +60,7 @@ const Component = props.type === 'block'
     :preview-class="props.previewClass"
     :align
     :hide-code
+    :chrome-less-on-mobile="chromeLessOnMobile"
     :component="Component"
   >
     <ComponentSource v-if="!hideCode" :name :collapsible="false" />

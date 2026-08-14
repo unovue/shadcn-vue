@@ -11,6 +11,7 @@ links:
 ---
 name: HoverCardDemo
 description: A hover card component.
+previewClass: h-80
 ---
 ::
 

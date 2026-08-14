@@ -8,6 +8,7 @@ component: true
 ---
 name: InputGroupDemo
 class: '[&_.preview]:p-4'
+previewClass: h-[26rem]
 ---
 ::
 
@@ -103,6 +104,7 @@ Display additional text information alongside inputs.
 ---
 name: InputGroupWithText
 class: '[&_.preview]:p-4'
+previewClass: h-80
 ---
 ::
 
@@ -136,6 +138,7 @@ Input groups also work with textarea components. Use `block-start` or `block-end
 ---
 name: InputGroupWithTextarea
 class: '[&_.preview]:p-4'
+previewClass: h-88
 ---
 ::
 

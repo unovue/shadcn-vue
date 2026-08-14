@@ -8,6 +8,7 @@ component: true
 ---
 name: CardDemo
 description: A card with a form
+previewClass: h-[32rem] sm:h-[30rem]
 ---
 ::
 

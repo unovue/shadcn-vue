@@ -12,6 +12,7 @@ links:
 name: CommandDemo
 description: A command component.
 class: "[&_.preview>div]:max-w-[450px]"
+previewClass: h-[24.5rem]
 ---
 ::
 

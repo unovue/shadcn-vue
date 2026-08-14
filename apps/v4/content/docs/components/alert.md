@@ -9,6 +9,7 @@ component: true
 name: AlertDemo
 title: An alert with an icon, title and description.
 description: An alert with an icon, title and description.
+previewClass: h-auto sm:h-[22rem] p-6
 ---
 ::
 

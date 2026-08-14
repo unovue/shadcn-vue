@@ -11,6 +11,7 @@ links:
 ---
 name: CheckboxDemo
 description: A checkbox
+previewClass: h-88 sm:h-80
 ---
 ::
 

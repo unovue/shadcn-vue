@@ -88,6 +88,7 @@ import {
 ::component-preview
 ---
 name: ItemVariantDemo
+previewClass: h-[27rem] sm:h-96
 ---
 ::
 
@@ -114,6 +115,7 @@ name: ItemIconDemo
 ::component-preview
 ---
 name: ItemAvatarDemo
+previewClass: h-88 sm:h-72
 ---
 ::
 
@@ -122,6 +124,7 @@ name: ItemAvatarDemo
 ::component-preview
 ---
 name: ItemImageDemo
+previewClass: h-[26rem]
 ---
 ::
 
@@ -130,6 +133,7 @@ name: ItemImageDemo
 ::component-preview
 ---
 name: ItemGroupDemo
+previewClass: h-[30rem] sm:h-80
 ---
 ::
 
@@ -138,6 +142,7 @@ name: ItemGroupDemo
 ::component-preview
 ---
 name: ItemHeaderDemo
+previewClass: h-88
 ---
 ::
 
@@ -148,6 +153,7 @@ To render an item as a link, use the `as-child` prop. The hover and focus states
 ::component-preview
 ---
 name: ItemLinkDemo
+previewClass: h-80 sm:h-72
 ---
 ::
 
@@ -156,6 +162,7 @@ name: ItemLinkDemo
 ::component-preview
 ---
 name: ItemDropdownDemo
+previewClass: h-88
 ---
 ::
 

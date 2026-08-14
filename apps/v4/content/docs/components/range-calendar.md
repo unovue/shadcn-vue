@@ -10,6 +10,7 @@ links:
 ::component-preview
 ---
 name: CalendarRangeDemo
+previewClass: h-[42rem] sm:h-[26rem]
 ---
 ::
 

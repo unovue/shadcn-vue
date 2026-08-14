@@ -9,6 +9,7 @@ component: true
 name: CarouselDemo
 title: Carousel
 description: A carousel component.
+previewClass: h-[25rem] sm:h-[32rem]
 ---
 ::
 
@@ -95,6 +96,7 @@ To set the size of the items, you can use the `basis` utility class on the `<Car
 name: CarouselSize
 title: Carousel
 description: A carousel with 3 active items of equal size.
+previewClass: h-[25rem] sm:h-72
 ---
 ::
 
@@ -155,6 +157,7 @@ You can always adjust this in your own project if you need to.
 name: CarouselSpacing
 title: Carousel
 description: A carousel with 3 items with a spacing of 1rem.
+previewClass: h-[25rem] sm:h-72
 ---
 ::
 
@@ -203,6 +206,7 @@ Use the `orientation` prop to set the orientation of the carousel.
 name: CarouselOrientation
 title: Carousel
 description: A vertical carousel.
+previewClass: h-[32rem]
 ---
 ::
 
@@ -244,6 +248,7 @@ Use the `@init-api` emit method on `<Carousel />` component to set the instance 
 name: CarouselApi
 title: Carousel
 description: A carousel with a slide counter.
+previewClass: h-[27rem] sm:h-[32rem]
 ---
 ::
 
@@ -348,6 +353,7 @@ import Autoplay from 'embla-carousel-autoplay'
 name: CarouselPlugin
 title: Carousel
 description: A carousel with the autoplay plugin.
+previewClass: h-[25rem] sm:h-[32rem]
 ---
 ::
 

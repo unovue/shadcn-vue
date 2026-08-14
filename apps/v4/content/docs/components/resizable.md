@@ -11,6 +11,7 @@ links:
 ---
 name: ResizableDemo
 description: A resizable component.
+previewClass: h-80
 ---
 ::
 
