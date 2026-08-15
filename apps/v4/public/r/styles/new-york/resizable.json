@@ -15,7 +15,7 @@
     },
     {
       "path": "ui/resizable/ResizablePanelGroup.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { SplitterGroupEmits, SplitterGroupProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { SplitterGroup, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<SplitterGroupProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<SplitterGroupEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SplitterGroup v-bind=\"forwarded\" :class=\"cn('flex h-full w-full data-[panel-group-direction=vertical]:flex-col', props.class)\">\n    <slot />\n  </SplitterGroup>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { SplitterGroupEmits, SplitterGroupProps } from \"reka-ui\"\nimport type { HTMLAttributes } from \"vue\"\nimport { reactiveOmit } from \"@vueuse/core\"\nimport { SplitterGroup, useForwardPropsEmits } from \"reka-ui\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<SplitterGroupProps & { class?: HTMLAttributes[\"class\"] }>()\nconst emits = defineEmits<SplitterGroupEmits>()\n\nconst delegatedProps = reactiveOmit(props, \"class\")\n\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <SplitterGroup v-bind=\"forwarded\" :class=\"cn('flex h-full w-full data-[orientation=vertical]:flex-col', props.class)\">\n    <slot />\n  </SplitterGroup>\n</template>\n",
       "type": "registry:ui",
       "target": ""
     },
