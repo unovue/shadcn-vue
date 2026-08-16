@@ -930,7 +930,10 @@ async function promptForMinimalConfig(
     $schema: defaultConfig?.$schema,
     style: composeStyleId(base, style),
     font,
-    ...(defaultConfig.fontHeading
+    // Opting out of fonts drops the heading font with it, so a leftover
+    // `fontHeading` doesn't keep the CLI managing fonts for the project.
+    ...(font !== FONT_NONE
+      && defaultConfig.fontHeading
       && { fontHeading: defaultConfig.fontHeading }),
     iconLibrary,
     rtl: opts.rtl ?? defaultConfig.rtl ?? false,

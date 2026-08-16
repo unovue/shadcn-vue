@@ -29,9 +29,21 @@ export async function updateCssVars(
     fontImports?: string[]
     pruneFontImports?: boolean
   },
-) {
-  if (!config.resolvedPaths.tailwindCss || !Object.keys(cssVars ?? {}).length) {
-    return
+): Promise<boolean> {
+  if (!config.resolvedPaths.tailwindCss) {
+    return false
+  }
+
+  const hasCssVars = !!Object.keys(cssVars ?? {}).length
+  const fontImports = options.fontImports ?? []
+  const pruneFontImports = options.pruneFontImports ?? false
+  // Font imports are synced from `components.json`, not from the registry
+  // item, so they still need a pass over the CSS file when the item being
+  // added carries no CSS variables of its own.
+  const hasFontImports = fontImports.length > 0 || pruneFontImports
+
+  if (!hasCssVars && !hasFontImports) {
+    return false
   }
 
   options = {
@@ -54,17 +66,47 @@ export async function updateCssVars(
     },
   ).start()
   const raw = await fs.readFile(cssFilepath, 'utf8')
-  const output = await transformCssVars(raw, cssVars ?? {}, config, {
-    cleanupDefaultNextStyles: options.cleanupDefaultNextStyles,
-    tailwindVersion: options.tailwindVersion,
-    tailwindConfig: options.tailwindConfig,
-    overwriteCssVars: options.overwriteCssVars,
-    initIndex: options.initIndex,
-    fontImports: options.fontImports,
-    pruneFontImports: options.pruneFontImports,
-  })
+  // Without CSS variables to write, only touch the font imports — running the
+  // full pipeline would let the other plugins edit a file we were never asked
+  // to change.
+  const output = hasCssVars
+    ? await transformCssVars(raw, cssVars ?? {}, config, {
+        cleanupDefaultNextStyles: options.cleanupDefaultNextStyles,
+        tailwindVersion: options.tailwindVersion,
+        tailwindConfig: options.tailwindConfig,
+        overwriteCssVars: options.overwriteCssVars,
+        initIndex: options.initIndex,
+        fontImports: options.fontImports,
+        pruneFontImports: options.pruneFontImports,
+      })
+    : await transformFontImports(raw, { fontImports, pruneFontImports })
+
+  if (output === raw) {
+    cssVarsSpinner.succeed()
+    return false
+  }
+
   await fs.writeFile(cssFilepath, output, 'utf8')
   cssVarsSpinner.succeed()
+  return true
+}
+
+/**
+ * Sync only the Google Fonts `@import` statements of a CSS file, leaving the
+ * rest of it untouched.
+ */
+export async function transformFontImports(
+  input: string,
+  options: { fontImports?: string[], pruneFontImports?: boolean } = {},
+) {
+  const result = await postcss([
+    addFontImportPlugin({
+      fontImports: options.fontImports ?? [],
+      pruneFontImports: options.pruneFontImports ?? false,
+    }),
+  ]).process(input, { from: undefined })
+
+  return result.css.replace(/\/\* ---break--- \*\//g, '')
 }
 
 export async function transformCssVars(

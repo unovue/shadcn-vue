@@ -34,35 +34,29 @@ export function getFontImport(name: string): string {
 }
 
 /**
- * Extract the `family=` values of a Google Fonts URL, normalized back to the
- * family name (`Noto+Sans:wght@400` -> `Noto Sans`). One URL can request
- * several families.
+ * Extract the raw URL out of an `@import url('...')` statement.
  */
-function getFontImportFamilies(value: string): string[] {
-  const families: string[] = []
-  const regex = /[?&]family=([^&:'")]+)/g
-  let match = regex.exec(value)
-  while (match) {
-    families.push(decodeURIComponent(match[1]!.replace(/\+/g, ' ')))
-    match = regex.exec(value)
-  }
-  return families
+export function getFontImportUrl(value: string): string | undefined {
+  return value.match(/url\(['"]?([^'"()]+)['"]?\)/)?.[1]
 }
 
+// Every URL the CLI is able to write, i.e. the exact `@import` targets of the
+// font registry. An import in a project's CSS file that isn't one of these was
+// written by someone else.
+const MANAGED_FONT_IMPORT_URLS = FONTS.map(font =>
+  getFontImportUrl(font.import),
+).filter((url): url is string => !!url)
+
 /**
- * Whether a Google Fonts `@import` (or its raw URL) refers only to fonts the
- * CLI itself knows how to write. Used to tell an import the CLI added on a
- * previous run — safe to replace when the font config changes — apart from one
- * the user hand-wrote, which must be left alone.
+ * Whether a Google Fonts `@import` (or its raw URL) is one the CLI writes
+ * verbatim. Used to tell an import the CLI added on a previous run — safe to
+ * replace when the font config changes — apart from one the user wrote, which
+ * must be left alone even when it requests the same family. Anything the user
+ * tweaked (different weights, axes, subsets, ...) no longer matches.
  */
 export function isManagedFontImport(value: string): boolean {
-  const families = getFontImportFamilies(value)
-  if (families.length === 0) {
-    return false
-  }
-  return families.every(family =>
-    FONTS.some(font => font.family === family),
-  )
+  const url = getFontImportUrl(value) ?? value
+  return MANAGED_FONT_IMPORT_URLS.includes(url)
 }
 
 /**

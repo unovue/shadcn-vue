@@ -224,25 +224,35 @@ async function addWorkspaceComponents(
     )
   }
 
-  // 2. Update css vars.
-  if (tree.cssVars) {
+  // 2. Update css vars. This also runs without `tree.cssVars` so the font
+  // imports stay in sync with `components.json` on every install.
+  {
     const overwriteCssVars = await shouldOverwriteCssVars(components, config)
     const fontImports = resolveFontImports(mainTargetConfig)
     const cssVarsWithFontHeading = overlayFontHeadingVar(
       tree.cssVars,
       mainTargetConfig,
     )
-    await updateCssVars(cssVarsWithFontHeading, mainTargetConfig, {
-      silent: true,
-      tailwindVersion,
-      tailwindConfig: tree.tailwind?.config,
-      overwriteCssVars,
-      fontImports,
-      pruneFontImports: true,
-    })
-    filesUpdated.push(
-      path.relative(workspaceRoot, mainTargetConfig.resolvedPaths.tailwindCss),
+    const cssVarsUpdated = await updateCssVars(
+      cssVarsWithFontHeading,
+      mainTargetConfig,
+      {
+        silent: true,
+        tailwindVersion,
+        tailwindConfig: tree.tailwind?.config,
+        overwriteCssVars,
+        fontImports,
+        pruneFontImports: true,
+      },
     )
+    if (cssVarsUpdated) {
+      filesUpdated.push(
+        path.relative(
+          workspaceRoot,
+          mainTargetConfig.resolvedPaths.tailwindCss,
+        ),
+      )
+    }
   }
 
   // 3. Update CSS
@@ -395,9 +405,16 @@ async function addWorkspaceComponents(
 /**
  * Collects the Google Fonts `@import` strings that should be present in the
  * project's CSS file for the active config. Body font + (optional) heading
- * font, de-duplicated. Empty and disabled (`none`) fonts are skipped.
+ * font, de-duplicated. A disabled (`none`) or missing body font turns off font
+ * management for the project as a whole, heading font included — otherwise a
+ * `fontHeading` left over in `components.json` would keep the CLI writing
+ * imports after the project opted out.
  */
-function resolveFontImports(config: Config): string[] {
+export function resolveFontImports(config: Config): string[] {
+  if (isFontDisabled(config.font)) {
+    return []
+  }
+
   const imports: string[] = []
   const push = (name: string | undefined) => {
     if (isFontDisabled(name)) {
@@ -429,8 +446,13 @@ function resolveFontImports(config: Config): string[] {
  *
  * Returns `undefined` when there's no font configured at all, or when font
  * management is disabled (`none`) — the project owns its own font stack then.
+ * As with the imports, a disabled body font disables the heading too.
  */
-function resolveFontHeadingVar(config: Config): string | undefined {
+export function resolveFontHeadingVar(config: Config): string | undefined {
+  if (isFontDisabled(config.font)) {
+    return undefined
+  }
+
   const fontHeading = config.fontHeading
   // `inherit` / unset / same-as-body all alias to the body font's CSS var so
   // `font-heading` utility always resolves to something.
@@ -439,9 +461,6 @@ function resolveFontHeadingVar(config: Config): string | undefined {
     || fontHeading === 'inherit'
     || fontHeading === config.font
   ) {
-    if (isFontDisabled(config.font)) {
-      return undefined
-    }
     const bodyVar = getFontVariable(config.font!)
     return `var(${bodyVar})`
   }
