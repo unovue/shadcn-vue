@@ -683,10 +683,13 @@ describe('transformCssVarsV4', () => {
       }
 
       @theme inline {
-        --radius-sm: calc(var(--radius) - 4px);
-        --radius-md: calc(var(--radius) - 2px);
+        --radius-sm: calc(var(--radius) * 0.6);
+        --radius-md: calc(var(--radius) * 0.8);
         --radius-lg: var(--radius);
-        --radius-xl: calc(var(--radius) + 4px);
+        --radius-xl: calc(var(--radius) * 1.4);
+        --radius-2xl: calc(var(--radius) * 1.8);
+        --radius-3xl: calc(var(--radius) * 2.2);
+        --radius-4xl: calc(var(--radius) * 2.6);
       }
 
       @layer base {
@@ -710,10 +713,13 @@ describe('transformCssVarsV4', () => {
         --radius: 0.125rem;
       }
       @theme inline {
-        --radius-sm: calc(var(--radius) - 4px);
-        --radius-md: calc(var(--radius) - 2px);
+        --radius-sm: calc(var(--radius) * 0.6);
+        --radius-md: calc(var(--radius) * 0.8);
         --radius-lg: var(--radius);
-        --radius-xl: calc(var(--radius) + 4px);
+        --radius-xl: calc(var(--radius) * 1.4);
+        --radius-2xl: calc(var(--radius) * 1.8);
+        --radius-3xl: calc(var(--radius) * 2.2);
+        --radius-4xl: calc(var(--radius) * 2.6);
       }
         `,
         {
@@ -731,10 +737,67 @@ describe('transformCssVarsV4', () => {
               --radius: 0.125rem;
             }
             @theme inline {
+              --radius-sm: calc(var(--radius) * 0.6);
+              --radius-md: calc(var(--radius) * 0.8);
+              --radius-lg: var(--radius);
+              --radius-xl: calc(var(--radius) * 1.4);
+              --radius-2xl: calc(var(--radius) * 1.8);
+              --radius-3xl: calc(var(--radius) * 2.2);
+              --radius-4xl: calc(var(--radius) * 2.6);
+            }
+
+      @layer base {
+        * {
+          @apply border-border outline-ring/50;
+              }
+        body {
+          @apply bg-background text-foreground;
+              }
+      }
+              "
+    `)
+  })
+
+  // Styles use rounded-2xl/3xl/4xl heavily. A project scaffolded before the
+  // extended scale existed only has sm–xl, so those steps must be appended
+  // instead of falling back to Tailwind's hardcoded defaults.
+  it('should add the extended --radius-* steps to a legacy theme', async () => {
+    expect(
+      await transformCssVars(
+        `@import "tailwindcss";
+      @custom-variant dark (&:is(.dark *));
+      :root {
+        --radius: 0;
+      }
+      @theme inline {
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --radius-xl: calc(var(--radius) + 4px);
+      }
+        `,
+        {
+          light: {
+            radius: '0',
+          },
+        },
+        { tailwind: { cssVariables: true } },
+        { tailwindVersion: 'v4' },
+      ),
+    ).toMatchInlineSnapshot(`
+      "@import "tailwindcss";
+            @custom-variant dark (&:is(.dark *));
+            :root {
+              --radius: 0;
+            }
+            @theme inline {
               --radius-sm: calc(var(--radius) - 4px);
               --radius-md: calc(var(--radius) - 2px);
               --radius-lg: var(--radius);
               --radius-xl: calc(var(--radius) + 4px);
+              --radius-2xl: calc(var(--radius) * 1.8);
+              --radius-3xl: calc(var(--radius) * 2.2);
+              --radius-4xl: calc(var(--radius) * 2.6);
             }
 
       @layer base {

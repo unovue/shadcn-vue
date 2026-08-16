@@ -547,11 +547,16 @@ function updateThemePlugin(cssVars: z.infer<typeof registryItemCssVarsSchema>) {
         }
 
         if (variable === 'radius') {
+          // Derived multiplicatively so `--radius: 0` collapses the whole
+          // scale to square and every other value scales proportionally.
           const radiusVariables = {
-            sm: 'calc(var(--radius) - 4px)',
-            md: 'calc(var(--radius) - 2px)',
-            lg: 'var(--radius)',
-            xl: 'calc(var(--radius) + 4px)',
+            'sm': 'calc(var(--radius) * 0.6)',
+            'md': 'calc(var(--radius) * 0.8)',
+            'lg': 'var(--radius)',
+            'xl': 'calc(var(--radius) * 1.4)',
+            '2xl': 'calc(var(--radius) * 1.8)',
+            '3xl': 'calc(var(--radius) * 2.2)',
+            '4xl': 'calc(var(--radius) * 2.6)',
           }
           for (const [key, value] of Object.entries(radiusVariables)) {
             const cssVarNode = postcss.decl({
