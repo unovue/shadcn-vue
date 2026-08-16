@@ -350,6 +350,19 @@ export async function resolveRegistryTree(
       config,
     )
 
+    // Collect font items. These carry no files — the updater turns them into
+    // a font package dependency, a CSS import and a theme variable.
+    const fonts = payload
+      .filter(item => item.type === "registry:font")
+      .map(item => ({
+        ...item,
+        type: "registry:font" as const,
+        font: (item as Extract<
+          z.infer<typeof registryItemSchema>,
+          { type: "registry:font" }
+        >).font,
+      }))
+
     const parsed = registryResolvedItemsTreeSchema.parse({
       dependencies: deepmerge.all(
         payload.map(item => item.dependencies ?? []),
@@ -362,6 +375,7 @@ export async function resolveRegistryTree(
       cssVars,
       css,
       docs,
+      fonts: fonts.length > 0 ? fonts : undefined,
     })
 
     if (Object.keys(envVars).length > 0) {

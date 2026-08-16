@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest'
+import { PRESET_FONTS } from '../../src/preset'
 import {
   getRegistryBase,
   getRegistryBases,
-  getRegistryFont,
-  getRegistryFonts,
   getRegistryIconLibraries,
   getRegistryIconLibrary,
   getRegistryPreset,
@@ -138,43 +137,6 @@ describe('registry API', () => {
     })
   })
 
-  describe('getRegistryFonts', () => {
-    it('returns all fonts', () => {
-      const fonts = getRegistryFonts()
-      expect(fonts).toBeDefined()
-      expect(Array.isArray(fonts)).toBe(true)
-      expect(fonts.length).toBeGreaterThan(0)
-    })
-
-    it('includes expected fonts', () => {
-      const fonts = getRegistryFonts()
-      const fontNames = fonts.map(f => f.name)
-      expect(fontNames).toContain('inter')
-      expect(fontNames).toContain('figtree')
-      expect(fontNames).toContain('jetbrains-mono')
-    })
-  })
-
-  describe('getRegistryFont', () => {
-    it('returns inter font by name', () => {
-      const inter = getRegistryFont('inter')
-      expect(inter).toBeDefined()
-      expect(inter?.name).toBe('inter')
-      expect(inter?.label).toBe('Inter')
-    })
-
-    it('returns jetbrains-mono font by name', () => {
-      const jbMono = getRegistryFont('jetbrains-mono')
-      expect(jbMono).toBeDefined()
-      expect(jbMono?.name).toBe('jetbrains-mono')
-    })
-
-    it('returns undefined for unknown font', () => {
-      const unknown = getRegistryFont('unknown-font')
-      expect(unknown).toBeUndefined()
-    })
-  })
-
   describe('getRegistryPresets', () => {
     it('returns all presets', () => {
       const presets = getRegistryPresets()
@@ -305,11 +267,9 @@ describe('registry API', () => {
 
     it('all presets reference valid fonts', () => {
       const presets = getRegistryPresets()
-      const fonts = getRegistryFonts()
-      const fontNames = fonts.map(f => f.name)
 
       for (const preset of presets) {
-        expect(fontNames).toContain(preset.font)
+        expect(PRESET_FONTS).toContain(preset.font)
       }
     })
   })
