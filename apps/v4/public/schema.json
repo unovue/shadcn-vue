@@ -10,7 +10,8 @@
       "type": "string"
     },
     "font": {
-      "type": "string"
+      "type": "string",
+      "description": "The font to use. Set to \"none\" to opt out of CLI-managed font imports."
     },
     "typescript": {
       "type": "boolean",

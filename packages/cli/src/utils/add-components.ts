@@ -13,7 +13,12 @@ import { resolveRegistryTree } from '@/src/registry/resolver'
 import {
   registryItemSchema,
 } from '@/src/schema'
-import { getFont, getFontImport, getFontVariable } from '@/src/utils/fonts'
+import {
+  getFont,
+  getFontImport,
+  getFontVariable,
+  isFontDisabled,
+} from '@/src/utils/fonts'
 import {
   findCommonRoot,
   findPackageRoot,
@@ -121,6 +126,7 @@ async function addProjectComponents(
     overwriteCssVars,
     initIndex: options.baseStyle,
     fontImports,
+    pruneFontImports: true,
   })
 
   // Add CSS updater
@@ -232,6 +238,7 @@ async function addWorkspaceComponents(
       tailwindConfig: tree.tailwind?.config,
       overwriteCssVars,
       fontImports,
+      pruneFontImports: true,
     })
     filesUpdated.push(
       path.relative(workspaceRoot, mainTargetConfig.resolvedPaths.tailwindCss),
@@ -388,15 +395,15 @@ async function addWorkspaceComponents(
 /**
  * Collects the Google Fonts `@import` strings that should be present in the
  * project's CSS file for the active config. Body font + (optional) heading
- * font, de-duplicated. Empty fonts are skipped.
+ * font, de-duplicated. Empty and disabled (`none`) fonts are skipped.
  */
 function resolveFontImports(config: Config): string[] {
   const imports: string[] = []
   const push = (name: string | undefined) => {
-    if (!name) {
+    if (isFontDisabled(name)) {
       return
     }
-    const imp = getFontImport(name)
+    const imp = getFontImport(name!)
     if (imp && !imports.includes(imp)) {
       imports.push(imp)
     }
@@ -420,13 +427,10 @@ function resolveFontImports(config: Config): string[] {
  * redeployed this becomes redundant — the server's authoritative value will
  * overwrite it via `updateCssVarsPluginV4` with `overwriteCssVars: true`.
  *
- * Returns `undefined` when there's no font configured at all.
+ * Returns `undefined` when there's no font configured at all, or when font
+ * management is disabled (`none`) — the project owns its own font stack then.
  */
 function resolveFontHeadingVar(config: Config): string | undefined {
-  if (!config.font) {
-    return undefined
-  }
-
   const fontHeading = config.fontHeading
   // `inherit` / unset / same-as-body all alias to the body font's CSS var so
   // `font-heading` utility always resolves to something.
@@ -435,8 +439,15 @@ function resolveFontHeadingVar(config: Config): string | undefined {
     || fontHeading === 'inherit'
     || fontHeading === config.font
   ) {
-    const bodyVar = getFontVariable(config.font)
+    if (isFontDisabled(config.font)) {
+      return undefined
+    }
+    const bodyVar = getFontVariable(config.font!)
     return `var(${bodyVar})`
+  }
+
+  if (isFontDisabled(fontHeading)) {
+    return undefined
   }
 
   const headingFont = getFont(fontHeading)

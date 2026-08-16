@@ -43,6 +43,7 @@ import {
   FILE_BACKUP_SUFFIX,
   restoreFileBackup,
 } from '@/src/utils/file-helper'
+import { FONT_NONE } from '@/src/utils/fonts'
 import {
   createConfig,
   DEFAULT_COMPONENTS,
@@ -75,6 +76,20 @@ process.on('exit', (code) => {
   // Restore backup if error.
   return restoreFileBackup(filePath)
 })
+
+// Font prompt choices. `none` opts out of CLI-managed fonts for projects that
+// load fonts themselves (`@nuxt/fonts`, `unplugin-fonts`, self-hosted, ...).
+const FONT_CHOICES = [
+  ...FONTS.map(font => ({
+    title: font.label,
+    value: font.name,
+  })),
+  {
+    title: 'None',
+    value: FONT_NONE,
+    description: 'Do not add font imports to your CSS file.',
+  },
+]
 
 export const initOptionsSchema = z.object({
   cwd: z.string(),
@@ -152,12 +167,12 @@ export const initOptionsSchema = z.object({
     .refine(
       (val) => {
         if (val) {
-          return FONTS.find(font => font.name === val)
+          return val === FONT_NONE || FONTS.find(font => font.name === val)
         }
         return true
       },
       {
-        message: `Invalid font. Please use '${FONTS.map(font => font.name).join('\', \'')}'`,
+        message: `Invalid font. Please use '${[...FONTS.map(font => font.name), FONT_NONE].join('\', \'')}'`,
       },
     ),
   baseColor: z
@@ -235,7 +250,7 @@ export const init = new Command()
   )
   .option(
     '--font <font>',
-    'the font to use. (inter, figtree, jetbrains-mono, geist, geist-mono)',
+    'the font to use, or "none" to manage fonts yourself. (inter, figtree, jetbrains-mono, geist, geist-mono, none)',
     undefined,
   )
   .option(
@@ -721,10 +736,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
         type: 'select',
         name: 'font',
         message: `Which ${highlighter.info('font')} would you like to use?`,
-        choices: FONTS.map(f => ({
-          title: f.label,
-          value: f.name,
-        })),
+        choices: FONT_CHOICES,
         initial: 0,
       },
       {
@@ -890,10 +902,7 @@ async function promptForMinimalConfig(
         type: opts.font ? null : 'select',
         name: 'font',
         message: `Which ${highlighter.info('font')} would you like to use?`,
-        choices: FONTS.map(f => ({
-          title: f.label,
-          value: f.name,
-        })),
+        choices: FONT_CHOICES,
         initial: 0,
       },
       {

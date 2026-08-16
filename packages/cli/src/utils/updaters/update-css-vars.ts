@@ -11,6 +11,7 @@ import path from 'pathe'
 import postcss from 'postcss'
 import AtRule from 'postcss/lib/at-rule'
 import { z } from 'zod'
+import { isManagedFontImport } from '@/src/utils/fonts'
 import { getPackageInfo } from '@/src/utils/get-package-info'
 import { highlighter } from '@/src/utils/highlighter'
 import { spinner } from '@/src/utils/spinner'
@@ -26,6 +27,7 @@ export async function updateCssVars(
     tailwindVersion?: TailwindVersion
     tailwindConfig?: z.infer<typeof registryItemTailwindSchema>['config']
     fontImports?: string[]
+    pruneFontImports?: boolean
   },
 ) {
   if (!config.resolvedPaths.tailwindCss || !Object.keys(cssVars ?? {}).length) {
@@ -59,6 +61,7 @@ export async function updateCssVars(
     overwriteCssVars: options.overwriteCssVars,
     initIndex: options.initIndex,
     fontImports: options.fontImports,
+    pruneFontImports: options.pruneFontImports,
   })
   await fs.writeFile(cssFilepath, output, 'utf8')
   cssVarsSpinner.succeed()
@@ -75,6 +78,7 @@ export async function transformCssVars(
     overwriteCssVars?: boolean
     initIndex?: boolean
     fontImports?: string[]
+    pruneFontImports?: boolean
   } = {
     cleanupDefaultNextStyles: false,
     tailwindVersion: 'v3',
@@ -94,10 +98,14 @@ export async function transformCssVars(
 
   let plugins = [updateCssVarsPlugin(cssVars)]
 
-  // Add font imports if provided
+  // Sync font imports. With no fonts configured the plugin still runs when
+  // pruning is on, so switching a project to `font: "none"` cleans up the
+  // imports the CLI wrote on previous runs.
   const fontImports = options.fontImports ?? []
-  if (fontImports.length > 0) {
-    plugins.unshift(addFontImportPlugin({ fontImports }))
+  const pruneFontImports = options.pruneFontImports ?? false
+  const syncFontImports = fontImports.length > 0 || pruneFontImports
+  if (syncFontImports) {
+    plugins.unshift(addFontImportPlugin({ fontImports, pruneFontImports }))
   }
 
   if (options.cleanupDefaultNextStyles) {
@@ -108,8 +116,8 @@ export async function transformCssVars(
     plugins = []
 
     // Add font imports at the very beginning if provided
-    if (fontImports.length > 0) {
-      plugins.push(addFontImportPlugin({ fontImports }))
+    if (syncFontImports) {
+      plugins.push(addFontImportPlugin({ fontImports, pruneFontImports }))
     }
 
     // Only add tw-animate-css if project does not have tailwindcss-animate
@@ -723,32 +731,37 @@ function addCustomImport({ params }: { params: string }) {
 /**
  * Sync Google Fonts `@import` statements at the top of the CSS file with the
  * active font set (body + heading). The full set of target URLs is passed in
- * each call — any existing `fonts.googleapis.com` imports not in the set are
- * removed, any missing ones are added. This is replace-all semantics so that
- * swapping to a new preset actually reflects the new fonts instead of
- * accumulating dead imports from previous runs.
+ * each call — existing `fonts.googleapis.com` imports the CLI manages but that
+ * aren't in the set are removed, any missing ones are added. This is
+ * replace-all semantics so that swapping to a new preset actually reflects the
+ * new fonts instead of accumulating dead imports from previous runs.
+ *
+ * "Manages" means the import only requests families the CLI itself can write
+ * (see `isManagedFontImport`). Imports for any other family were hand-written
+ * by the user and are left untouched.
+ *
+ * With `pruneFontImports` the plugin also runs for an empty target set, which
+ * is how `font: "none"` clears out imports written by earlier runs.
  */
 export function addFontImportPlugin({
   fontImports,
+  pruneFontImports = false,
 }: {
   fontImports: string[]
+  pruneFontImports?: boolean
 }) {
   return {
     postcssPlugin: 'add-font-import',
     Once(root: Root) {
-      if (!fontImports || fontImports.length === 0) {
-        return
-      }
-
       // Dedup + extract raw URLs from the `@import url('...')` strings.
       const targetUrls: string[] = []
-      for (const fontImport of fontImports) {
+      for (const fontImport of fontImports ?? []) {
         const match = fontImport.match(/url\(['"]?([^'"]+)['"]?\)/)
         if (match && !targetUrls.includes(match[1]!)) {
           targetUrls.push(match[1]!)
         }
       }
-      if (targetUrls.length === 0) {
+      if (targetUrls.length === 0 && !pruneFontImports) {
         return
       }
 
@@ -759,15 +772,17 @@ export function addFontImportPlugin({
           && node.params.includes('fonts.googleapis.com'),
       )
 
-      // Drop any existing Google Fonts imports that aren't in the target
-      // set — those are left over from a previous preset.
+      // Drop existing Google Fonts imports that aren't in the target set, but
+      // only the ones the CLI could have written itself — those are left over
+      // from a previous font config. Anything else is the user's own import.
       const keptByUrl = new Map<string, AtRule>()
       for (const node of existingGoogleFontsImports) {
         const url = targetUrls.find(u => node.params.includes(u))
         if (url && !keptByUrl.has(url)) {
           keptByUrl.set(url, node)
+          continue
         }
-        else {
+        if (url || isManagedFontImport(node.params)) {
           node.remove()
         }
       }
