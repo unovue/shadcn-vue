@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "tsx scripts/lib/command-item-tailwind.test.ts && vitest run scripts/build-icons.test.ts",
+    "test": "tsx scripts/lib/command-item-tailwind.test.ts && vitest run scripts/build-icons.test.ts scripts/lib/component-playground.test.ts",
     "typecheck": "vue-tsc -b",
     "deploy": "pnpm build && npx tsx ./scripts/seed-d1.ts && npx wrangler --cwd .output/ deploy && npx tsx ./scripts/purge-cache.ts",
     "registry:build": "tsx --tsconfig ./tsconfig.json ./scripts/build-registry.ts && pnpm registry:build:index",

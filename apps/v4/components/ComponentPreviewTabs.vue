@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<{
   previewClass?: HTMLAttributes['class']
   hideCode?: boolean
   chromeLessOnMobile?: boolean
+  playgroundUrl?: string
   align?: 'center' | 'start' | 'end'
 }>(), {
   align: 'center',
@@ -39,6 +40,23 @@ const isMobileCodeVisible = ref(false)
             props.previewClass,
           )"
         >
+          <Button
+            v-if="playgroundUrl"
+            as-child
+            size="sm"
+            variant="outline"
+            class="absolute top-3 right-3 z-10 gap-1.5 bg-background/95 shadow-sm backdrop-blur"
+          >
+            <a
+              :href="playgroundUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <UiIcon name="lucide:external-link" class="size-4" />
+              <span class="hidden sm:inline">Open in StackBlitz</span>
+              <span class="sr-only sm:hidden">Open in StackBlitz</span>
+            </a>
+          </Button>
           <component :is="component" />
         </div>
       </div>

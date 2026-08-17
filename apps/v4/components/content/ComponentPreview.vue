@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { getComponentPlaygroundUrl } from '~/lib/component-playground'
 
 const props = defineProps<{
   name: string
@@ -12,17 +13,26 @@ const props = defineProps<{
   previewClass?: HTMLAttributes['class']
 }>()
 
+const isChart = props.name.toLowerCase().includes('chart')
+  && !props.name.toLocaleLowerCase().includes('demo')
+
+const sourcePath = isChart
+  ? `apps/v4/registry/new-york-v4/charts/${props.name}.vue`
+  : `apps/v4/components/demo/${props.name}.vue`
+
 const Component = props.type === 'block'
   ? defineAsyncComponent({
       loader: () => import(`@/registry/new-york-v4/blocks/${props.name}/page.vue`),
     })
-  : props.name.toLowerCase().includes('chart') && !props.name.toLocaleLowerCase().includes('demo')
+  : isChart
     ? defineAsyncComponent({
         loader: () => import(`@/registry/new-york-v4/charts/${props.name}.vue`),
       })
     : defineAsyncComponent({
         loader: () => import(`@/components/demo/${props.name}.vue`),
       })
+
+const playgroundUrl = computed(() => getComponentPlaygroundUrl(sourcePath))
 </script>
 
 <template>
@@ -62,6 +72,7 @@ const Component = props.type === 'block'
     :hide-code
     :chrome-less-on-mobile="chromeLessOnMobile"
     :component="Component"
+    :playground-url="playgroundUrl"
   >
     <ComponentSource v-if="!hideCode" :name :collapsible="false" />
   </ComponentPreviewTabs>
