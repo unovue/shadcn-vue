@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { PRESET_FONTS } from '../../src/preset'
+import { PRESET_FONT_HEADINGS, PRESET_FONTS } from '../../src/preset'
 import {
   getRegistryBase,
   getRegistryBases,
@@ -269,7 +269,12 @@ describe('registry API', () => {
       const presets = getRegistryPresets()
 
       for (const preset of presets) {
+        // A font the registry doesn't know has no `font-<name>` item behind
+        // it, so the base would depend on something that can't be resolved.
         expect(PRESET_FONTS).toContain(preset.font)
+        if (preset.fontHeading) {
+          expect(PRESET_FONT_HEADINGS).toContain(preset.fontHeading)
+        }
       }
     })
   })
