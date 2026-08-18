@@ -353,9 +353,6 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.29.0
         version: 1.29.0(zod@3.25.76)
-      '@unovue/detypes':
-        specifier: ^0.8.5
-        version: 0.8.5
       '@vue/compiler-sfc':
         specifier: ^3.5
         version: 3.5.39
@@ -377,6 +374,9 @@ importers:
       diff:
         specifier: ^9.0.0
         version: 9.0.0
+      esbuild:
+        specifier: 0.28.1
+        version: 0.28.1
       fs-extra:
         specifier: ^11.3.6
         version: 11.3.6
@@ -413,6 +413,9 @@ importers:
       postcss-selector-parser:
         specifier: ^7.1.4
         version: 7.1.4
+      prettier:
+        specifier: ^3.9.6
+        version: 3.9.6
       prompts:
         specifier: ^2.4.2
         version: 2.4.2
@@ -446,6 +449,9 @@ importers:
       vue-metamorph:
         specifier: 3.3.4
         version: 3.3.4(eslint@9.39.5(jiti@2.7.0))
+      vue-sfc-transformer:
+        specifier: ^0.1.17
+        version: 0.1.17(@vue/compiler-core@3.5.41)(esbuild@0.28.1)(vue@3.5.40(typescript@5.9.3))
       zod:
         specifier: 'catalog:'
         version: 3.25.76
@@ -5310,11 +5316,6 @@ packages:
     peerDependencies:
       '@unovis/ts': 1.6.7
       vue: ^3
-
-  '@unovue/detypes@0.8.5':
-    resolution: {integrity: sha512-Yz4JeWOHGa+w/3YudVdng8hgN/VGW9cvp8xmFkmPPFzalGblLPPSpIRiwVo853yLstMZO2LLwe0vOoLAQsUQXw==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   '@unrs/resolver-binding-android-arm-eabi@1.11.1':
     resolution: {integrity: sha512-ppLRUgHVaGRWUx0R0Ut06Mjo9gBaBkg3v/8AxusGLhsIotbBLuRk51rAzqLC8gq6NyyAojEXglNjzf6R948DNw==}
@@ -17449,19 +17450,6 @@ snapshots:
     dependencies:
       '@unovis/ts': 1.6.7
       vue: 3.5.40(typescript@5.9.3)
-
-  '@unovue/detypes@0.8.5':
-    dependencies:
-      '@babel/core': 7.28.5
-      '@babel/preset-typescript': 7.28.5(@babel/core@7.28.5)
-      '@vue/compiler-dom': 3.5.22
-      '@vue/compiler-sfc': 3.5.39
-      '@vuedx/template-ast-types': 0.7.1
-      fast-glob: 3.3.3
-      prettier: 3.9.6
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
 
   '@unrs/resolver-binding-android-arm-eabi@1.11.1':
     optional: true

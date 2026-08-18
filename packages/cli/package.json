@@ -81,7 +81,6 @@
   "dependencies": {
     "@dotenvx/dotenvx": "^2.6.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@unovue/detypes": "^0.8.5",
     "@vue/compiler-sfc": "^3.5",
     "c12": "^3.3.4",
     "commander": "^15.0.0",
@@ -89,6 +88,7 @@
     "dedent": "^1.7.2",
     "deepmerge": "^4.3.1",
     "diff": "^9.0.0",
+    "esbuild": "0.28.1",
     "fs-extra": "^11.3.6",
     "fuzzysort": "^3.1.0",
     "get-tsconfig": "^4.14.0",
@@ -101,6 +101,7 @@
     "pathe": "catalog:",
     "postcss": "^8.5.19",
     "postcss-selector-parser": "^7.1.4",
+    "prettier": "^3.9.6",
     "prompts": "^2.4.2",
     "reka-ui": "catalog:",
     "semver": "^7.8.5",
@@ -112,6 +113,7 @@
     "undici": "^8.9.0",
     "validate-npm-package-name": "catalog:",
     "vue-metamorph": "3.3.4",
+    "vue-sfc-transformer": "^0.1.17",
     "zod": "catalog:",
     "zod-to-json-schema": "^3.25.2"
   },

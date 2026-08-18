@@ -1,6 +1,7 @@
 import { resolve } from 'pathe'
 import { describe, expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
+import { transformVueSFC } from '../../src/utils/transformers/transform-sfc'
 
 describe('transformSFC', () => {
   it('basic', async () => {
@@ -85,6 +86,22 @@ describe('transformSFC', () => {
       config: {},
     })
     expect(result).toMatchSnapshot()
+  })
+
+  it('resolves props declared in a normal script block', async () => {
+    const result = await transformVueSFC(`<script lang="ts">
+      export interface Props {
+        foo: string
+      }
+      </script>
+
+      <script lang="ts" setup>
+      const props = defineProps<Props>()
+      </script>
+      `, 'app.vue')
+
+    expect(result).toContain('foo: { type: String, required: true }')
+    expect(result).not.toContain('lang="ts"')
   })
 
   it('defineProps with withDefaults', async () => {
