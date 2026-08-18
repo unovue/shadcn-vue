@@ -39,7 +39,10 @@ export async function transformVueSFC(content: string, filename: string) {
     replaceBlockContent(output, content, descriptor.template, template)
   }
 
-  if (descriptor.script?.lang === 'ts' || descriptor.script?.lang === 'tsx') {
+  if (
+    !descriptor.script?.src
+    && (descriptor.script?.lang === 'ts' || descriptor.script?.lang === 'tsx')
+  ) {
     const script = await stripTypeScript(descriptor.script.content, descriptor.script.lang)
     replaceBlockContent(output, content, descriptor.script, script, true)
   }
@@ -108,7 +111,7 @@ function replaceBlockContent(
 
   const blockStart = source.lastIndexOf(`<${block.type}`, block.loc.start.offset)
   const openTag = source.slice(blockStart, block.loc.start.offset)
-  const transformedOpenTag = openTag.replace(/\s+lang=(?:"tsx?"|'tsx?'|tsx?)(?=\s|>)/, '')
+  const transformedOpenTag = openTag.replace(/\s+lang\s*=\s*(?:"tsx?"|'tsx?'|tsx?)(?=\s|\/?>)/, '')
 
   output.overwrite(blockStart, block.loc.start.offset, transformedOpenTag)
 }

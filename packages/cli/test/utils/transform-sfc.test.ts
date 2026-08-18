@@ -104,6 +104,26 @@ describe('transformSFC', () => {
     expect(result).not.toContain('lang="ts"')
   })
 
+  it('preserves external TypeScript script blocks', async () => {
+    const result = await transformVueSFC(
+      '<script src="./component.ts" lang="ts"></script>',
+      'app.vue',
+    )
+
+    expect(result).toContain('src="./component.ts"')
+    expect(result).toContain('lang="ts"')
+  })
+
+  it('removes TypeScript lang attributes with surrounding whitespace', async () => {
+    const result = await transformVueSFC(
+      '<script lang = "ts">const value: string = "test"</script>',
+      'app.vue',
+    )
+
+    expect(result).not.toContain('lang')
+    expect(result).toContain('const value = "test"')
+  })
+
   it('defineProps with withDefaults', async () => {
     const result = await transform({
       filename: 'app.vue',
