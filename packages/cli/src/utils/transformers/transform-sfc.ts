@@ -21,8 +21,12 @@ export async function transformVueSFC(content: string, filename: string) {
     ignoreEmpty: true,
   })
 
-  if (errors.length) {
-    throw new Error(errors.map(error => typeof error === 'string' ? error : error.message).join('\n'))
+  const fatalErrors = errors.filter(error =>
+    typeof error === 'string' || !('code' in error) || error.code !== 2,
+  )
+
+  if (fatalErrors.length) {
+    throw new Error(fatalErrors.map(error => typeof error === 'string' ? error : error.message).join('\n'))
   }
 
   const output = new MagicString(content)
@@ -92,6 +96,11 @@ async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 't
     loader,
     target: 'esnext',
     legalComments: 'none',
+    tsconfigRaw: {
+      compilerOptions: {
+        verbatimModuleSyntax: true,
+      },
+    },
   })
 
   return result.code.trimEnd()

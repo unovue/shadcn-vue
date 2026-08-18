@@ -124,6 +124,30 @@ describe('transformSFC', () => {
     expect(result).toContain('const value = "test"')
   })
 
+  it('preserves imports referenced only in the template', async () => {
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import { Check } from '@lucide/vue'
+      </script>
+
+      <template>
+        <Check />
+      </template>
+      `, 'app.vue')
+
+    expect(result).toContain('import { Check } from "@lucide/vue"')
+    expect(result).toContain('<Check />')
+  })
+
+  it('tolerates duplicate template attributes', async () => {
+    const result = await transformVueSFC(`<template>
+      <div :class="first" :class="second" />
+      </template>
+      `, 'app.vue')
+
+    expect(result).toContain(':class="first"')
+    expect(result).toContain(':class="second"')
+  })
+
   it('defineProps with withDefaults', async () => {
     const result = await transform({
       filename: 'app.vue',
