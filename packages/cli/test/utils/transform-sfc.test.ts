@@ -138,6 +138,17 @@ describe('transformSFC', () => {
     expect(result).toContain('<Check />')
   })
 
+  it('preserves legal comments while stripping TypeScript', async () => {
+    const result = await transformVueSFC(`<script lang="ts">
+      /*! @license MIT */
+      const value: number = 1
+      </script>
+      `, 'app.vue')
+
+    expect(result).toContain('/*! @license MIT */')
+    expect(result).toContain('const value = 1')
+  })
+
   it('tolerates duplicate template attributes', async () => {
     const result = await transformVueSFC(`<template>
       <div :class="first" :class="second" />

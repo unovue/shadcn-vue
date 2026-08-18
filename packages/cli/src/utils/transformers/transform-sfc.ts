@@ -6,6 +6,10 @@ import MagicString from 'magic-string'
 import { format } from 'prettier'
 import { preTranspileScriptSetup, transpileVueTemplate } from 'vue-sfc-transformer'
 
+// @vue/compiler-sfc does not export compiler-core's ErrorCodes enum.
+// Code 2 is X_DUPLICATE_ATTRIBUTE, which still yields a usable SFC descriptor.
+const DUPLICATE_ATTRIBUTE_ERROR_CODE = 2
+
 export async function transformSFC(opts: TransformOpts) {
   if (opts.config?.typescript)
     return opts.raw
@@ -22,7 +26,9 @@ export async function transformVueSFC(content: string, filename: string) {
   })
 
   const fatalErrors = errors.filter(error =>
-    typeof error === 'string' || !('code' in error) || error.code !== 2,
+    typeof error === 'string'
+    || !('code' in error)
+    || error.code !== DUPLICATE_ATTRIBUTE_ERROR_CODE,
   )
 
   if (fatalErrors.length) {
@@ -95,7 +101,7 @@ async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 't
   const result = await transform(content, {
     loader,
     target: 'esnext',
-    legalComments: 'none',
+    legalComments: 'inline',
     tsconfigRaw: {
       compilerOptions: {
         verbatimModuleSyntax: true,
