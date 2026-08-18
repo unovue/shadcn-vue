@@ -159,6 +159,29 @@ describe('transformSFC', () => {
     expect(result).toContain(':class="second"')
   })
 
+  it.each([
+    ['empty', '<template></template>'],
+    ['whitespace-only', '<template>\n  \n</template>'],
+  ])('handles %s templates in TypeScript SFCs', async (_, template) => {
+    const result = await transformVueSFC(`<script lang="ts">
+      const value: string = 'ok'
+      </script>
+      ${template}
+      `, 'app.vue')
+
+    expect(result).not.toContain('lang="ts"')
+    expect(result).toContain('const value = "ok"')
+  })
+
+  it('handles empty TypeScript script blocks', async () => {
+    const result = await transformVueSFC(`<script lang="ts"></script>
+      <template><div /></template>
+      `, 'app.vue')
+
+    expect(result).toContain('<script lang="ts"></script>')
+    expect(result).toContain('<template><div /></template>')
+  })
+
   it('defineProps with withDefaults', async () => {
     const result = await transform({
       filename: 'app.vue',

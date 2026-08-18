@@ -119,7 +119,8 @@ function replaceBlockContent(
   content: string,
   removeTypeScriptLang = false,
 ) {
-  output.overwrite(block.loc.start.offset, block.loc.end.offset, content)
+  if (block.loc.start.offset !== block.loc.end.offset)
+    output.overwrite(block.loc.start.offset, block.loc.end.offset, content)
 
   if (!removeTypeScriptLang)
     return
