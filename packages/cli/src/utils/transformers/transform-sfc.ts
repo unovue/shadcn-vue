@@ -101,10 +101,11 @@ async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 't
   const result = await transform(content, {
     loader,
     target: 'esnext',
+    jsx: 'preserve',
     legalComments: 'inline',
     tsconfigRaw: {
       compilerOptions: {
-        verbatimModuleSyntax: true,
+        preserveValueImports: true,
       },
     },
   })

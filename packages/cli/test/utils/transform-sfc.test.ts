@@ -1,7 +1,7 @@
 import { resolve } from 'pathe'
 import { describe, expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
-import { transformVueSFC } from '../../src/utils/transformers/transform-sfc'
+import { transformSFC, transformVueSFC } from '../../src/utils/transformers/transform-sfc'
 
 describe('transformSFC', () => {
   it('basic', async () => {
@@ -136,6 +136,61 @@ describe('transformSFC', () => {
 
     expect(result).toContain('import { Check } from "@lucide/vue"')
     expect(result).toContain('<Check />')
+  })
+
+  it('keeps value imports and removes type-only specifiers', async () => {
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import { Check, type CheckProps } from '@lucide/vue'
+      const iconProps: CheckProps | undefined = undefined
+      </script>
+
+      <template>
+        <Check v-bind="iconProps" />
+      </template>
+      `, 'app.vue')
+
+    expect(result).toContain('import { Check } from "@lucide/vue"')
+    expect(result).not.toContain('CheckProps')
+    expect(result).toContain('<Check v-bind="iconProps" />')
+  })
+
+  it('removes type-only imports after resolving script setup macros', async () => {
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import { type Props } from './__fixtures__/props'
+      const props = defineProps<Props>()
+      </script>
+      `, resolve(__dirname, './test.vue'))
+
+    expect(result).not.toContain('import')
+    expect(result).toContain('a: { type: String, required: true }')
+    expect(result).toContain('b: { type: Number, required: true }')
+  })
+
+  it('preserves JSX syntax while stripping TypeScript', async () => {
+    const result = await transformSFC({
+      filename: 'component.tsx',
+      raw: `interface Props { label: string }
+      export const Component = (props: Props) => <button>{props.label}</button>
+      `,
+      config: {},
+    })
+
+    expect(result).not.toContain('interface Props')
+    expect(result).toContain('<button>{props.label}</button>')
+    expect(result).not.toContain('React.createElement')
+  })
+
+  it('preserves JSX syntax in TSX script blocks', async () => {
+    const result = await transformVueSFC(`<script lang="tsx" setup>
+      interface Props { label: string }
+      const render = (props: Props) => <button>{props.label}</button>
+      </script>
+      `, 'component.vue')
+
+    expect(result).not.toContain('lang="tsx"')
+    expect(result).not.toContain('interface Props')
+    expect(result).toContain('<button>{props.label}</button>')
+    expect(result).not.toContain('React.createElement')
   })
 
   it('preserves legal comments while stripping TypeScript', async () => {
