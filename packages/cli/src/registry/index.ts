@@ -29,6 +29,7 @@ export {
   RegistryNotFoundError,
   RegistryParseError,
   RegistrySourceFileError,
+  RegistryStyleNotFoundError,
   RegistryUnauthorizedError,
   RegistryValidationError,
 } from "./errors"

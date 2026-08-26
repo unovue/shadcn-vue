@@ -6,6 +6,7 @@ export const RegistryErrorCode = {
   // Network errors
   NETWORK_ERROR: "NETWORK_ERROR",
   NOT_FOUND: "NOT_FOUND",
+  STYLE_NOT_FOUND: "STYLE_NOT_FOUND",
   UNAUTHORIZED: "UNAUTHORIZED",
   FORBIDDEN: "FORBIDDEN",
   FETCH_ERROR: "FETCH_ERROR",
@@ -90,6 +91,27 @@ export class RegistryNotFoundError extends RegistryError {
         "Check if the item name is correct and the registry URL is accessible.",
     })
     this.name = "RegistryNotFoundError"
+  }
+}
+
+export class RegistryStyleNotFoundError extends RegistryError {
+  constructor(
+    public readonly url: string,
+    public readonly availableUrl: string,
+    public readonly style: string,
+    cause?: unknown,
+  ) {
+    const message = `The item at ${url} was not found, but it does exist for the ${highlighter.info(style)} style at ${availableUrl}. This usually means the item requires Tailwind v4 and your components.json is still configured for Tailwind v3.`
+
+    super(message, {
+      code: RegistryErrorCode.STYLE_NOT_FOUND,
+      statusCode: 404,
+      cause,
+      context: { url, availableUrl, style },
+      suggestion:
+        "If your project is on Tailwind v4, set \"tailwind.config\" to an empty string in components.json. If it is still on Tailwind v3, upgrade to Tailwind v4 first - the item uses v4-only utilities and will render unstyled otherwise.",
+    })
+    this.name = "RegistryStyleNotFoundError"
   }
 }
 
