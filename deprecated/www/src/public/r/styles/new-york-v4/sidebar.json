@@ -128,7 +128,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/sidebar/SidebarSeparator.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Separator } from \"@/registry/new-york-v4/ui/separator\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Separator\n    data-slot=\"sidebar-separator\"\n    data-sidebar=\"separator\"\n    :class=\"cn('bg-sidebar-border mx-2 w-auto', props.class)\"\n  >\n    <slot />\n  </Separator>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\nimport { Separator } from \"@/registry/new-york-v4/ui/separator\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <Separator\n    data-slot=\"sidebar-separator\"\n    data-sidebar=\"separator\"\n    :class=\"cn('bg-sidebar-border mx-2 data-[orientation=horizontal]:w-auto', props.class)\"\n  >\n    <slot />\n  </Separator>\n</template>\n",
       "type": "registry:ui"
     },
     {
