@@ -5,7 +5,7 @@ import { ofetch } from "ofetch"
 import path from "pathe"
 import { z } from "zod"
 import { resolveRegistryUrl } from "@/src/registry/builder"
-import { FALLBACK_STYLE } from "@/src/registry/constants"
+import { FALLBACK_STYLE, REGISTRY_URL } from "@/src/registry/constants"
 import { getRegistryHeadersFromContext } from "@/src/registry/context"
 import {
   RegistryFetchError,
@@ -22,22 +22,29 @@ import { registryItemSchema } from "@/src/schema"
 const registryCache = new Map<string, Promise<any>>()
 
 // Tailwind v4-only items are absent from the legacy `new-york` registry.
+const LEGACY_STYLE_SEGMENT = /\/styles\/new-york\/(?=[^/]+\.json$)/
+
 async function resolveStyleFallbackUrl(url: string) {
-  if (!/\/styles\/new-york\/[^/]+\.json$/.test(url)) {
+  // Only the shadcn-vue registry publishes the new-york/new-york-v4 pair, so
+  // never probe a third-party registry that happens to share the path shape.
+  if (!url.startsWith(REGISTRY_URL) || !LEGACY_STYLE_SEGMENT.test(url)) {
     return null
   }
 
   const fallbackUrl = url.replace(
-    /\/styles\/new-york\/(?=[^/]+\.json$)/,
+    LEGACY_STYLE_SEGMENT,
     `/styles/${FALLBACK_STYLE}/`,
   )
 
   try {
     await ofetch(fallbackUrl, {
       method: "HEAD",
+      retry: 0,
       agent,
       dispatcher: agent,
-      headers: getRegistryHeadersFromContext(fallbackUrl),
+      // Headers are keyed by the requested item url, so reuse the ones that
+      // were resolved for `url` - `fallbackUrl` is never registered.
+      headers: getRegistryHeadersFromContext(url),
     })
     return fallbackUrl
   }

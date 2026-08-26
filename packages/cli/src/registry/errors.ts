@@ -101,7 +101,7 @@ export class RegistryStyleNotFoundError extends RegistryError {
     public readonly style: string,
     cause?: unknown,
   ) {
-    const message = `The item at ${url} was not found, but it does exist for the ${highlighter.info(style)} style. This usually means the item requires Tailwind v4 and your project is still configured for Tailwind v3.`
+    const message = `The item at ${url} was not found, but it does exist for the ${highlighter.info(style)} style at ${availableUrl}. This usually means the item requires Tailwind v4 and your components.json is still configured for Tailwind v3.`
 
     super(message, {
       code: RegistryErrorCode.STYLE_NOT_FOUND,
