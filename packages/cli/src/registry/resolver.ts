@@ -70,6 +70,19 @@ export function resolveRegistryItemsFromRegistries(
   return resolvedItems
 }
 
+// Resolves the style segment used for bare item names i.e `styles/{style}/x.json`.
+// Tailwind v4 projects are upgraded from "new-york" to "new-york-v4" even when
+// components.json still points at a tailwind.config - see getTargetStyleFromConfig.
+async function resolveTargetRegistryStyle(config: Config) {
+  if (!config?.resolvedPaths?.cwd) {
+    return resolveRegistryStyle(config?.style)
+  }
+
+  return resolveRegistryStyle(
+    await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style),
+  )
+}
+
 // Internal function that fetches registry items without clearing context.
 // This is used for recursive dependency resolution.
 export async function fetchRegistryItems(
@@ -77,6 +90,14 @@ export async function fetchRegistryItems(
   config: Config,
   options: { useCache?: boolean } = {},
 ) {
+  // Shared by every bare item and resolved lazily, so that url, local and
+  // namespaced items don't pay for project detection.
+  let registryStylePromise: Promise<string> | null = null
+  const getRegistryStyle = () => {
+    registryStylePromise ??= resolveTargetRegistryStyle(config)
+    return registryStylePromise
+  }
+
   const results = await Promise.all(
     items.map(async (item) => {
       const address = resolveItemAddress(item)
@@ -110,7 +131,7 @@ export async function fetchRegistryItems(
         }
       }
 
-      const registryStyle = resolveRegistryStyle(config?.style)
+      const registryStyle = await getRegistryStyle()
       const path = `styles/${registryStyle}/${item}.json`
       const [result] = await fetchRegistry([path], options)
       try {
@@ -506,11 +527,7 @@ async function resolveRegistryDependencies(
     new Set(),
   )
 
-  const style = config.resolvedPaths?.cwd
-    ? resolveRegistryStyle(
-        await getTargetStyleFromConfig(config.resolvedPaths.cwd, config.style),
-      )
-    : resolveRegistryStyle(config.style)
+  const style = await resolveTargetRegistryStyle(config)
 
   const urls = registryNames.map(name =>
     resolveRegistryUrl(isUrl(name) ? name : `styles/${style}/${name}.json`),

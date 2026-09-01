@@ -5,6 +5,7 @@ import { ofetch } from "ofetch"
 import path from "pathe"
 import { z } from "zod"
 import { resolveRegistryUrl } from "@/src/registry/builder"
+import { FALLBACK_STYLE, REGISTRY_URL } from "@/src/registry/constants"
 import { getRegistryHeadersFromContext } from "@/src/registry/context"
 import {
   RegistryFetchError,
@@ -12,12 +13,45 @@ import {
   RegistryLocalFileError,
   RegistryNotFoundError,
   RegistryParseError,
+  RegistryStyleNotFoundError,
   RegistryUnauthorizedError,
 } from "@/src/registry/errors"
 import { agent } from "@/src/registry/proxy"
 import { registryItemSchema } from "@/src/schema"
 
 const registryCache = new Map<string, Promise<any>>()
+
+// Tailwind v4-only items are absent from the legacy `new-york` registry.
+const LEGACY_STYLE_SEGMENT = /\/styles\/new-york\/(?=[^/]+\.json$)/
+
+async function resolveStyleFallbackUrl(url: string) {
+  // Only the shadcn-vue registry publishes the new-york/new-york-v4 pair, so
+  // never probe a third-party registry that happens to share the path shape.
+  if (!url.startsWith(REGISTRY_URL) || !LEGACY_STYLE_SEGMENT.test(url)) {
+    return null
+  }
+
+  const fallbackUrl = url.replace(
+    LEGACY_STYLE_SEGMENT,
+    `/styles/${FALLBACK_STYLE}/`,
+  )
+
+  try {
+    await ofetch(fallbackUrl, {
+      method: "HEAD",
+      retry: 0,
+      agent,
+      dispatcher: agent,
+      // Headers are keyed by the requested item url, so reuse the ones that
+      // were resolved for `url` - `fallbackUrl` is never registered.
+      headers: getRegistryHeadersFromContext(url),
+    })
+    return fallbackUrl
+  }
+  catch {
+    return null
+  }
+}
 
 export function clearRegistryCache() {
   registryCache.clear()
@@ -93,6 +127,17 @@ export async function fetchRegistry(
             }
 
             if (response.status === 404) {
+              const fallbackUrl = await resolveStyleFallbackUrl(url)
+
+              if (fallbackUrl) {
+                throw new RegistryStyleNotFoundError(
+                  url,
+                  fallbackUrl,
+                  FALLBACK_STYLE,
+                  messageFromServer,
+                )
+              }
+
               throw new RegistryNotFoundError(url, messageFromServer)
             }
 
