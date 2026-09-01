@@ -106,6 +106,7 @@ async function installWithPackageManager(
     cwd,
     packageManager,
     silent,
+    corepack: false,
   }
 
   if (dependencies?.length) {
