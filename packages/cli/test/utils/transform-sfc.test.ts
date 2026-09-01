@@ -1,3 +1,6 @@
+import { existsSync } from 'node:fs'
+import { readdir } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { resolve } from 'pathe'
 import { describe, expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
@@ -170,6 +173,115 @@ describe('transformSFC', () => {
     expect(result).not.toContain('import')
     expect(collapse(result)).toContain('a: { type: String, required: true }')
     expect(collapse(result)).toContain('b: { type: Number, required: true }')
+  })
+
+  it('resolves types imported from sibling registry files', async () => {
+    const sourceFiles = [
+      { path: 'ui/carousel/Carousel.vue', content: '' },
+      {
+        path: 'ui/carousel/interface.ts',
+        content: `export interface CarouselProps {
+          orientation?: 'horizontal' | 'vertical'
+          count: number
+        }`,
+      },
+    ]
+
+    // A registry path, so nothing is on disk for @vue/compiler-sfc to read.
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { CarouselProps } from './interface'
+      const props = defineProps<CarouselProps>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+
+    expect(collapse(result)).toContain('orientation: { type: String, required: false }')
+    expect(collapse(result)).toContain('count: { type: Number, required: true }')
+    expect(result).not.toContain('lang="ts"')
+  })
+
+  it('still resolves package types while staging siblings', async () => {
+    const sourceFiles = [
+      { path: 'ui/carousel/interface.ts', content: 'export interface Local { a: string }' },
+    ]
+
+    // Staging happens inside the project, so the walk up to node_modules that
+    // package type resolution depends on keeps working.
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { LabelProps } from 'reka-ui'
+      import type { Local } from './interface'
+      const props = defineProps<Local & LabelProps>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles, cwd: resolve(__dirname, '../..') })
+
+    expect(collapse(result)).toContain('a: { type: String, required: true }')
+    expect(collapse(result)).toContain('for: { type: String, required: false }')
+  })
+
+  it('still resolves package types when no cwd is given', async () => {
+    const sourceFiles = [
+      { path: 'ui/carousel/interface.ts', content: 'export interface Local { a: string }' },
+    ]
+
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { LabelProps } from 'reka-ui'
+      import type { Local } from './interface'
+      const props = defineProps<Local & LabelProps>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+
+    expect(collapse(result)).toContain('a: { type: String, required: true }')
+    expect(collapse(result)).toContain('for: { type: String, required: false }')
+  })
+
+  it('resolves types imported from the index of a sibling directory', async () => {
+    const sourceFiles = [
+      {
+        path: 'ui/carousel/index.ts',
+        content: 'export interface Local { a: string }',
+      },
+    ]
+
+    // The bare `from "."` form, which 32 registry SFCs use.
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { Local } from '.'
+      const props = defineProps<Local>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+
+    expect(collapse(result)).toContain('a: { type: String, required: true }')
+  })
+
+  it('leaves no staging directory behind', async () => {
+    const sourceFiles = [
+      { path: 'ui/carousel/interface.ts', content: 'export interface Props { a: string }' },
+    ]
+    const before = await readdir(tmpdir())
+
+    await transformVueSFC(`<script lang="ts" setup>
+      import type { Props } from './interface'
+      const props = defineProps<Props>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+
+    const after = await readdir(tmpdir())
+    expect(after.filter(entry => entry.startsWith('shadcn-vue-sfc-')))
+      .toEqual(before.filter(entry => entry.startsWith('shadcn-vue-sfc-')))
+  })
+
+  it('ignores sibling paths that escape the staging directory', async () => {
+    const sourceFiles = [
+      { path: '../../../escaped.ts', content: 'export interface Props { a: string }' },
+      { path: 'ui/carousel/interface.ts', content: 'export interface Props { a: string }' },
+    ]
+
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { Props } from './interface'
+      const props = defineProps<Props>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+
+    expect(collapse(result)).toContain('a: { type: String, required: true }')
+    expect(existsSync(resolve(tmpdir(), '../../../escaped.ts'))).toBe(false)
   })
 
   it('preserves JSX syntax while stripping TypeScript', async () => {

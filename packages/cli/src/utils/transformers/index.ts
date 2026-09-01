@@ -12,12 +12,20 @@ import { transformTwPrefix } from '@/src/utils/transformers/transform-tw-prefix'
 import { transformIcons } from './transform-icons'
 import { transformMenu } from './transform-menu'
 
+export interface SourceFile {
+  path: string
+  content?: string
+}
+
 export interface TransformOpts {
   filename: string
   raw: string
   config: Config
   baseColor?: z.infer<typeof registryBaseColorSchema>
   isRemote?: boolean
+  // The other files of the registry item `filename` belongs to, so that an SFC
+  // can resolve types it imports from its siblings.
+  sourceFiles?: SourceFile[]
 }
 
 export async function transform(opts: TransformOpts) {
