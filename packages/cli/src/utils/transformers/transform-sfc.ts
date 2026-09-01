@@ -1,14 +1,16 @@
 import type { SFCBlock } from '@vue/compiler-sfc'
 import type { TransformOpts } from '.'
 import { parse } from '@vue/compiler-sfc'
-import { transform } from 'esbuild'
 import MagicString from 'magic-string'
 import { format } from 'prettier'
+import { transform } from 'rolldown/utils'
 import { preTranspileScriptSetup, transpileVueTemplate } from 'vue-sfc-transformer'
 
 // @vue/compiler-sfc does not export compiler-core's ErrorCodes enum.
 // Code 2 is X_DUPLICATE_ATTRIBUTE, which still yields a usable SFC descriptor.
 const DUPLICATE_ATTRIBUTE_ERROR_CODE = 2
+
+const SIDE_EFFECT_IMPORT_RE = /^[ \t]*import[ \t]+(['"])([^'"]+)\1[ \t]*(?:;[ \t]*)?(?:\r?\n|$)/gm
 
 export async function transformSFC(opts: TransformOpts) {
   if (opts.config?.typescript)
@@ -98,19 +100,34 @@ function getScriptLoader(filename: string) {
 }
 
 async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 'tsx') {
-  const result = await transform(content, {
-    loader,
+  const result = await transform('__sfc.ts', content, {
+    lang: loader,
     target: 'esnext',
     jsx: 'preserve',
-    legalComments: 'inline',
-    tsconfigRaw: {
+    typescript: { onlyRemoveTypeImports: true },
+    tsconfig: {
       compilerOptions: {
-        preserveValueImports: true,
+        verbatimModuleSyntax: true,
       },
     },
   })
 
-  return result.code.trimEnd()
+  return removeTypeOnlyImportLeftovers(content, result.code).trimEnd()
+}
+
+// `verbatimModuleSyntax` turns `import { type Props } from './props'` into a bare
+// `import './props'` once the type specifiers are gone. Those modules were only
+// imported for their types, so drop the leftovers while keeping the side effect
+// imports that were written as such.
+function removeTypeOnlyImportLeftovers(source: string, output: string) {
+  const sideEffectImports = new Set(
+    Array.from(source.matchAll(SIDE_EFFECT_IMPORT_RE), match => match[2]),
+  )
+
+  return output.replace(
+    SIDE_EFFECT_IMPORT_RE,
+    (statement, _quote, specifier) => sideEffectImports.has(specifier) ? statement : '',
+  )
 }
 
 function replaceBlockContent(

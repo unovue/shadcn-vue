@@ -3,6 +3,12 @@ import { describe, expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
 import { transformSFC, transformVueSFC } from '../../src/utils/transformers/transform-sfc'
 
+// The transpiler decides where object literals wrap, so compare declarations
+// without depending on its line breaks or trailing commas.
+function collapse(code: string) {
+  return code.replace(/,(\s*[}\]])/g, '$1').replace(/\s+/g, ' ')
+}
+
 describe('transformSFC', () => {
   it('basic', async () => {
     const result = await transform({
@@ -100,7 +106,7 @@ describe('transformSFC', () => {
       </script>
       `, 'app.vue')
 
-    expect(result).toContain('foo: { type: String, required: true }')
+    expect(collapse(result)).toContain('foo: { type: String, required: true }')
     expect(result).not.toContain('lang="ts"')
   })
 
@@ -162,8 +168,8 @@ describe('transformSFC', () => {
       `, resolve(__dirname, './test.vue'))
 
     expect(result).not.toContain('import')
-    expect(result).toContain('a: { type: String, required: true }')
-    expect(result).toContain('b: { type: Number, required: true }')
+    expect(collapse(result)).toContain('a: { type: String, required: true }')
+    expect(collapse(result)).toContain('b: { type: Number, required: true }')
   })
 
   it('preserves JSX syntax while stripping TypeScript', async () => {
