@@ -43,7 +43,7 @@
     "taze": "^19.9.2",
     "tsx": "catalog:",
     "typescript": "catalog:",
-    "vitest": "^3.2.6"
+    "vitest": "^4.1.11"
   },
   "commitlint": {
     "extends": [
