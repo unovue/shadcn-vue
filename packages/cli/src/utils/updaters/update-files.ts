@@ -126,6 +126,7 @@ export async function updateFiles(
             baseColor,
             // transformJsx: !config.tsx,
             isRemote: options.isRemote,
+            sourceFiles: files,
           },
         )
 

@@ -138,6 +138,7 @@ export async function createProject(
       cwd: projectPath,
       packageManager,
       silent: true,
+      corepack: false,
     })
 
     createSpinner?.succeed(`Created a new ${template} project.`)

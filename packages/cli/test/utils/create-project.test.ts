@@ -240,6 +240,7 @@ describe('createProject', () => {
       cwd: '/test/my-app',
       packageManager: 'npm',
       silent: true,
+      corepack: false,
     })
   })
 

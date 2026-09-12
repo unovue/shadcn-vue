@@ -53,12 +53,14 @@ describe('updateDependencies', () => {
         cwd: '/test/project',
         packageManager: 'pnpm',
         silent: false,
+        corepack: false,
       },
     )
     expect(addDevDependency).toHaveBeenCalledWith(['tailwindcss'], {
       cwd: '/test/project',
       packageManager: 'pnpm',
       silent: false,
+      corepack: false,
     })
   })
 
@@ -74,6 +76,7 @@ describe('updateDependencies', () => {
       cwd: '/test/project',
       packageManager: 'pnpm',
       silent: true,
+      corepack: false,
     })
   })
 

@@ -188,6 +188,7 @@ async function diffComponent(
         raw: file.content,
         config,
         baseColor,
+        sourceFiles: item.files?.filter(entry => typeof entry !== 'string'),
       })
 
       const patch = diffLines(registryContent as string, fileContent)
