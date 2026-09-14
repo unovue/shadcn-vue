@@ -1,7 +1,6 @@
 import type { FetchError } from "ofetch"
 import { promises as fs } from "node:fs"
 import { homedir } from "node:os"
-import { ofetch } from "ofetch"
 import path from "pathe"
 import { z } from "zod"
 import { resolveRegistryUrl } from "@/src/registry/builder"
@@ -16,7 +15,7 @@ import {
   RegistryStyleNotFoundError,
   RegistryUnauthorizedError,
 } from "@/src/registry/errors"
-import { agent } from "@/src/registry/proxy"
+import { registryFetch } from "@/src/registry/proxy"
 import { registryItemSchema } from "@/src/schema"
 
 const registryCache = new Map<string, Promise<any>>()
@@ -37,11 +36,9 @@ async function resolveStyleFallbackUrl(url: string) {
   )
 
   try {
-    await ofetch(fallbackUrl, {
+    await registryFetch(fallbackUrl, {
       method: "HEAD",
       retry: 0,
-      agent,
-      dispatcher: agent,
       // Headers are keyed by the requested item url, so reuse the ones that
       // were resolved for `url` - `fallbackUrl` is never registered.
       headers: getRegistryHeadersFromContext(url),
@@ -82,9 +79,7 @@ export async function fetchRegistry(
           // Get headers from context for this URL.
           const headers = getRegistryHeadersFromContext(url)
 
-          const response = await ofetch.raw(url, {
-            agent,
-            dispatcher: agent,
+          const response = await registryFetch.raw(url, {
             parseResponse: JSON.parse,
             headers: {
               ...headers,
