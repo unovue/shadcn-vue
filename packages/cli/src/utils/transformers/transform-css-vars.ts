@@ -11,8 +11,9 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
     transform({ scriptASTs, sfcAST, utils: { traverseScriptAST, traverseTemplateAST } }) {
       let transformCount = 0
       const { baseColor, config } = opts
+      const inlineColors = baseColor?.inlineColors
 
-      if (config.tailwind?.cssVariables || !baseColor?.inlineColors)
+      if (config.tailwind?.cssVariables || !inlineColors)
         return transformCount
 
       for (const scriptAST of scriptASTs) {
@@ -21,7 +22,7 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
             if (path.parent.value.type !== 'ImportDeclaration' && typeof path.node.value === 'string') {
               // mutate the node
               const raw = path.node.value
-              const mapped = applyColorMapping(raw, baseColor.inlineColors).trim()
+              const mapped = applyColorMapping(raw, inlineColors).trim()
               if (mapped !== raw) {
                 path.node.value = mapped
                 transformCount++
@@ -39,7 +40,7 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
             if (node.type === 'Literal' && typeof node.value === 'string') {
               if (!['BinaryExpression', 'Property'].includes(node.parent?.type ?? '')) {
                 const raw = node.value
-                const mapped = applyColorMapping(raw, baseColor.inlineColors).trim()
+                const mapped = applyColorMapping(raw, inlineColors).trim()
                 if (mapped !== raw) {
                   node.value = mapped
                   transformCount++
@@ -50,7 +51,7 @@ export function transformCssVars(opts: TransformOpts): CodemodPlugin {
             else if (node.type === 'VLiteral' && typeof node.value === 'string') {
               if (node.parent.key.name === 'class') {
                 const raw = node.value
-                const mapped = applyColorMapping(raw, baseColor.inlineColors).trim()
+                const mapped = applyColorMapping(raw, inlineColors).trim()
                 if (mapped !== raw) {
                   node.value = mapped
                   transformCount++
@@ -102,7 +103,7 @@ const PREFIXES = ['bg-', 'text-', 'border-', 'ring-offset-', 'ring-']
 
 export function applyColorMapping(
   input: string,
-  mapping: z.infer<typeof registryBaseColorSchema>['inlineColors'],
+  mapping: NonNullable<z.infer<typeof registryBaseColorSchema>['inlineColors']>,
 ) {
   // Handle border classes.
   if (input.includes(' border '))

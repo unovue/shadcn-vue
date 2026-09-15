@@ -662,9 +662,12 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
   let utilsAlias = defaultConfig?.aliases.utils ?? DEFAULT_UTILS
 
   if (opts?.preset === undefined && !opts?.defaults) {
+    const tailwindVersion = defaultConfig
+      ? await getProjectTailwindVersionFromConfig(defaultConfig)
+      : null
     const [styles, baseColors] = await Promise.all([
       getRegistryStyles(),
-      getRegistryBaseColors(),
+      getRegistryBaseColors(tailwindVersion),
     ])
 
     logger.info('')
@@ -841,11 +844,11 @@ async function promptForMinimalConfig(
   let cssVariables = defaultConfig.tailwind.cssVariables
 
   if (opts.preset === undefined && !opts.defaults) {
-    const [styles, baseColors, tailwindVersion] = await Promise.all([
+    const [styles, tailwindVersion] = await Promise.all([
       getRegistryStyles(),
-      getRegistryBaseColors(),
       getProjectTailwindVersionFromConfig(defaultConfig),
     ])
+    const baseColors = await getRegistryBaseColors(tailwindVersion)
 
     const options = await prompts([
       {
