@@ -1,11 +1,15 @@
 import { describe, expect, it } from 'vitest'
-import { configSchema, presetSchema, rawConfigSchema } from '../../src/schema'
+import {
+  configSchema,
+  presetSchema,
+  rawConfigSchema,
+  stripDeprecatedConfigKeys,
+} from '../../src/schema'
 
 describe('rawConfigSchema', () => {
   it('accepts valid config with all fields', () => {
     const validConfig = {
       style: 'reka-luma',
-      font: 'inter',
       typescript: true,
       tailwind: {
         config: 'tailwind.config.ts',
@@ -24,7 +28,6 @@ describe('rawConfigSchema', () => {
 
     const result = rawConfigSchema.parse(validConfig)
     expect(result.style).toBe('reka-luma')
-    expect(result.font).toBe('inter')
     expect(result.iconLibrary).toBe('lucide')
     expect(result.menuColor).toBe('default')
     expect(result.menuAccent).toBe('subtle')
@@ -49,29 +52,11 @@ describe('rawConfigSchema', () => {
     expect(result.style).toBe('reka-vega')
   })
 
-  it('accepts config without optional font field', () => {
-    const configWithoutFont = {
-      style: 'reka-vega',
-      typescript: true,
-      tailwind: {
-        css: 'src/globals.css',
-        baseColor: 'neutral',
-        cssVariables: true,
-      },
-      aliases: {
-        components: '@/components',
-        utils: '@/lib/utils',
-      },
-    }
-
-    const result = rawConfigSchema.parse(configWithoutFont)
-    expect(result.font).toBeUndefined()
-  })
-
-  it('accepts config with font field set', () => {
-    const config = {
+  it('ignores the deprecated font fields of an existing config', () => {
+    const legacyConfig = {
       style: 'reka-vega',
       font: 'figtree',
+      fontHeading: 'lora',
       typescript: true,
       tailwind: {
         css: 'src/globals.css',
@@ -84,8 +69,33 @@ describe('rawConfigSchema', () => {
       },
     }
 
-    const result = rawConfigSchema.parse(config)
-    expect(result.font).toBe('figtree')
+    const result = rawConfigSchema.parse(
+      stripDeprecatedConfigKeys(legacyConfig),
+    )
+    expect(result).not.toHaveProperty('font')
+    expect(result).not.toHaveProperty('fontHeading')
+    expect(result.style).toBe('reka-vega')
+  })
+
+  it('still rejects unknown fields', () => {
+    const config = {
+      style: 'reka-vega',
+      nope: true,
+      typescript: true,
+      tailwind: {
+        css: 'src/globals.css',
+        baseColor: 'neutral',
+        cssVariables: true,
+      },
+      aliases: {
+        components: '@/components',
+        utils: '@/lib/utils',
+      },
+    }
+
+    expect(() =>
+      rawConfigSchema.parse(stripDeprecatedConfigKeys(config)),
+    ).toThrow()
   })
 
   it('validates menuColor enum values', () => {
