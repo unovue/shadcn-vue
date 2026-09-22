@@ -26,7 +26,6 @@ import {
   BASE_COLORS,
   BASES,
   BUILTIN_REGISTRIES,
-  FONTS,
   ICON_LIBRARIES,
   STYLES,
 } from '@/src/registry/constants'
@@ -146,20 +145,6 @@ export const initOptionsSchema = z.object({
         message: `Invalid icon library. Please use '${ICON_LIBRARIES.map(lib => lib.name).join('\', \'')}'`,
       },
     ),
-  font: z
-    .string()
-    .optional()
-    .refine(
-      (val) => {
-        if (val) {
-          return FONTS.find(font => font.name === val)
-        }
-        return true
-      },
-      {
-        message: `Invalid font. Please use '${FONTS.map(font => font.name).join('\', \'')}'`,
-      },
-    ),
   baseColor: z
     .string()
     .optional()
@@ -231,11 +216,6 @@ export const init = new Command()
   .option(
     '--icon-library <icon-library>',
     'the icon library to use. (lucide, tabler, hugeicons, phosphor, remixicon)',
-    undefined,
-  )
-  .option(
-    '--font <font>',
-    'the font to use. (inter, figtree, jetbrains-mono, geist, geist-mono)',
     undefined,
   )
   .option(
@@ -650,7 +630,6 @@ export async function runInit(
 async function promptForConfig(defaultConfig: Config | null = null, opts?: z.infer<typeof initOptionsSchema>) {
   let base = opts?.base ?? 'reka'
   let style = opts?.style ?? 'vega'
-  let font = opts?.font ?? 'inter'
   let iconLibrary = opts?.iconLibrary ?? 'lucide'
   let baseColor = opts?.baseColor ?? 'neutral'
   let typescript = defaultConfig?.typescript ?? true
@@ -719,16 +698,6 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
       },
       {
         type: 'select',
-        name: 'font',
-        message: `Which ${highlighter.info('font')} would you like to use?`,
-        choices: FONTS.map(f => ({
-          title: f.label,
-          value: f.name,
-        })),
-        initial: 0,
-      },
-      {
-        type: 'select',
         name: 'tailwindBaseColor',
         message: `Which color would you like to use as the ${highlighter.info(
           'base color',
@@ -788,7 +757,6 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
 
     base = options.base ?? base
     style = options.style ?? style
-    font = options.font ?? font
     iconLibrary = options.iconLibrary ?? iconLibrary
     baseColor = options.tailwindBaseColor ?? baseColor
     typescript = options.typescript ?? typescript
@@ -803,7 +771,6 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
   return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
     style: composeStyleId(base, style),
-    font,
     iconLibrary,
     rtl: opts?.rtl ?? false,
     pointer: opts?.pointer ?? false,
@@ -832,7 +799,6 @@ async function promptForMinimalConfig(
   let base = opts.base ?? 'reka'
   let style = opts.style ?? defaultConfig.style
   let iconLibrary = opts.iconLibrary ?? defaultConfig.iconLibrary ?? 'lucide'
-  let font = opts.font ?? defaultConfig.font ?? 'inter'
   let baseColor = opts.baseColor ?? defaultConfig.tailwind.baseColor
   // Preserve the project's existing cssVariables unless the user explicitly
   // overrode it on the command line. Since `--css-variables` defaults to
@@ -887,16 +853,6 @@ async function promptForMinimalConfig(
         initial: 0,
       },
       {
-        type: opts.font ? null : 'select',
-        name: 'font',
-        message: `Which ${highlighter.info('font')} would you like to use?`,
-        choices: FONTS.map(f => ({
-          title: f.label,
-          value: f.name,
-        })),
-        initial: 0,
-      },
-      {
         type: opts.baseColor ? null : 'select',
         name: 'tailwindBaseColor',
         message: `Which color would you like to use as the ${highlighter.info(
@@ -912,7 +868,6 @@ async function promptForMinimalConfig(
     base = options.base ?? base
     style = options.style ?? style ?? 'vega'
     iconLibrary = options.iconLibrary ?? iconLibrary
-    font = options.font ?? font
     baseColor = options.tailwindBaseColor ?? baseColor
     cssVariables = opts.cssVariables
   }
@@ -920,9 +875,6 @@ async function promptForMinimalConfig(
   return rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
     style: composeStyleId(base, style),
-    font,
-    ...(defaultConfig.fontHeading
-      && { fontHeading: defaultConfig.fontHeading }),
     iconLibrary,
     rtl: opts.rtl ?? defaultConfig.rtl ?? false,
     pointer: opts.pointer ?? defaultConfig.pointer ?? false,
