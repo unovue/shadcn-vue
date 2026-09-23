@@ -256,5 +256,6 @@ async function installMcpDependencies(cwd: string) {
     cwd,
     packageManager,
     silent: true,
+    corepack: false,
   })
 }
