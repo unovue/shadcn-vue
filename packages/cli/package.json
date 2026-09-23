@@ -82,7 +82,7 @@
     "@dotenvx/dotenvx": "^2.24.1",
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@vue/compiler-sfc": "^3.5",
-    "c12": "^4.0.0-rc.1",
+    "c12": "^3.3.4",
     "commander": "^15.0.0",
     "consola": "^3.4.2",
     "dedent": "^1.7.2",

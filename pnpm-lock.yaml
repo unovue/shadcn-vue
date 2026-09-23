@@ -357,8 +357,8 @@ importers:
         specifier: ^3.5
         version: 3.5.39
       c12:
-        specifier: ^4.0.0-rc.1
-        version: 4.0.0-rc.1(chokidar@3.6.0)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(magicast@0.5.4)
+        specifier: ^3.3.4
+        version: 3.3.4(magicast@0.5.4)
       commander:
         specifier: ^15.0.0
         version: 15.0.0
