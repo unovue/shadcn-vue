@@ -71,7 +71,7 @@ These rules are **always enforced**. Each links to a file with Incorrect/Correct
 
 ### Icons → [icons.md](./rules/icons.md)
 
-- **Icons in `Button` use `data-icon`.** `data-icon="inline-start"` or `data-icon="inline-end"` on the icon. (Styled by the `reka-*` styles; the classic `new-york-v4` style ignores it and spaces icons with `gap-2`.)
+- **Icons in `Button` use `data-icon`.** `data-icon="inline-start"` or `data-icon="inline-end"` on the icon. (Styled only by the `reka-*` styles; the classic `new-york` and `new-york-v4` styles ignore it, space icons with `gap-2`, and size them automatically.)
 - **No sizing classes on icons inside components.** Components handle icon sizing via CSS. No `size-4` or `w-4 h-4`.
 - **Pass icons as objects, not string keys.** `:icon="CheckIcon"`, not a string lookup.
 

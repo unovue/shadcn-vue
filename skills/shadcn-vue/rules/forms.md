@@ -236,6 +236,6 @@ The pattern is the same for every library: the library owns state and validation
 
 **TanStack Form** (`useForm` from `@tanstack/vue-form`): render `<form.Field>` and read `field.state.meta` — invalid when `isTouched && !isValid`, errors in `field.state.meta.errors`.
 
-**Formisch** (`useForm` from `@formisch/vue` + Valibot): Formisch ships its own `Field`, so import it as `FormischField`. Errors are strings in `field.errors` (or `null`) — pass `:errors="field.errors.map(message => ({ message }))"` to `FieldError`.
+**Formisch** (`useForm` from `@formisch/vue` + Valibot): Formisch ships its own `Field`, so import it as `FormischField`. Errors are strings in `field.errors` (or `null`) — guard before mapping: `<FieldError v-if="field.errors" :errors="field.errors.map(message => ({ message }))" />`.
 
 See `https://shadcn-vue.com/docs/forms` for complete examples.
