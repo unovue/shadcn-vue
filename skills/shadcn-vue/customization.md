@@ -25,25 +25,28 @@ Components reference semantic CSS variable tokens. Change the variables to chang
 
 ## Color Variables
 
-Every color follows the `name` / `name-foreground` convention. The base variable is for backgrounds, `-foreground` is for text/icons on that background.
+Most colors follow the `name` / `name-foreground` convention. The base variable is for backgrounds, `-foreground` is for text/icons on that background.
 
-| Variable                                     | Purpose                          |
-| -------------------------------------------- | -------------------------------- |
-| `--background` / `--foreground`              | Page background and default text |
-| `--card` / `--card-foreground`               | Card surfaces                    |
-| `--primary` / `--primary-foreground`         | Primary buttons and actions      |
-| `--secondary` / `--secondary-foreground`     | Secondary actions                |
-| `--muted` / `--muted-foreground`             | Muted/disabled states            |
-| `--accent` / `--accent-foreground`           | Hover and accent states          |
-| `--destructive` / `--destructive-foreground` | Error and destructive actions    |
-| `--border`                                   | Default border color             |
-| `--input`                                    | Form input borders               |
-| `--ring`                                     | Focus ring color                 |
-| `--chart-1` through `--chart-5`              | Chart/data visualization         |
-| `--sidebar-*`                                | Sidebar-specific colors          |
-| `--surface` / `--surface-foreground`         | Secondary surface                |
+| Variable                                 | Purpose                                          |
+| ---------------------------------------- | ------------------------------------------------ |
+| `--background` / `--foreground`          | Page background and default text                 |
+| `--card` / `--card-foreground`           | Card surfaces                                    |
+| `--popover` / `--popover-foreground`     | Popover, DropdownMenu and other floating surfaces |
+| `--primary` / `--primary-foreground`     | Primary buttons and actions                      |
+| `--secondary` / `--secondary-foreground` | Secondary actions                                |
+| `--muted` / `--muted-foreground`         | Muted/disabled states                            |
+| `--accent` / `--accent-foreground`       | Hover and accent states                          |
+| `--destructive`                          | Error and destructive actions (no foreground pair in Tailwind v4 themes) |
+| `--border`                               | Default border color                             |
+| `--input`                                | Form input borders                               |
+| `--ring`                                 | Focus ring color                                 |
+| `--chart-1` through `--chart-5`          | Chart/data visualization                         |
+| `--sidebar-*`                            | Sidebar-specific colors                          |
+| `--radius`                               | Base radius (see [Border Radius](#border-radius)) |
 
-Colors use OKLCH: `--primary: oklch(0.205 0 0)` where values are lightness (0–1), chroma (0 = gray), and hue (0–360).
+Don't reference tokens that aren't in the project's CSS file (e.g. `--surface`, `--warning`) — add them first (see below).
+
+In Tailwind v4 themes, colors use OKLCH: `--primary: oklch(0.205 0 0)` where values are lightness (0–1), chroma (0 = gray), and hue (0–360). Tailwind v3 themes use bare HSL channels instead: `--primary: 0 0% 9%`.
 
 ---
 
@@ -76,7 +79,7 @@ npx shadcn-vue@latest apply a2r6bw
 npx shadcn-vue@latest apply --preset nova
 
 # Preserve existing components instead.
-npx shadcn-vue@latest init --preset nova --force --no-reinstall
+npx shadcn-vue@latest init --preset nova --force
 
 # Use a custom theme URL.
 npx shadcn-vue@latest apply --preset "https://shadcn-vue.com/init?base=reka&style=nova&..."
@@ -110,7 +113,19 @@ Add variables to the file at `tailwindCssFile` from `npx shadcn-vue@latest info`
 }
 ```
 
-When `tailwindVersion` is `"v3"` (check via `npx shadcn-vue@latest info`), register in `tailwind.config.js` instead:
+When `tailwindVersion` is `"v3"` (check via `npx shadcn-vue@latest info`), define the variables as bare HSL channels (matching the rest of the v3 theme) and register them in `tailwind.config.js`:
+
+```css
+/* 1b. Tailwind v3: HSL channels, no color function. */
+:root {
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 89%;
+}
+.dark {
+  --warning: 48 96% 89%;
+  --warning-foreground: 38 92% 50%;
+}
+```
 
 ```js
 // 2b. Register with Tailwind v3 (tailwind.config.js).
@@ -118,9 +133,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        warning: "oklch(var(--warning) / <alpha-value>)",
-        "warning-foreground":
-          "oklch(var(--warning-foreground) / <alpha-value>)",
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
       },
     },
   },
@@ -136,7 +152,19 @@ module.exports = {
 
 ## Border Radius
 
-`--radius` controls border radius globally. Components derive values from it (`rounded-lg` = `var(--radius)`, `rounded-md` = `calc(var(--radius) - 2px)`).
+`--radius` controls border radius globally. The radius scale is derived from it by multiplication, so changing `--radius` updates every step:
+
+```css
+@theme inline {
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+```
 
 ---
 
@@ -165,7 +193,7 @@ Prefer these approaches in order:
 Edit the component source to add a variant via `cva`:
 
 ```js
-// components/ui/Button.vue (or similar)
+// components/ui/button/index.ts — inside buttonVariants' `variant` map
 warning: "bg-warning text-warning-foreground hover:bg-warning/90",
 ```
 

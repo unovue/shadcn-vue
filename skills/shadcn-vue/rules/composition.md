@@ -96,6 +96,22 @@ toast("File deleted.", {
 </script>
 ```
 
+Toasts only render if `<Toaster />` is mounted once in the root layout, together with the library CSS:
+
+```vue
+<script setup lang="ts">
+import 'vue-sonner/style.css'
+import { Toaster } from '@/components/ui/sonner'
+</script>
+
+<template>
+  <main><!-- app --></main>
+  <Toaster />
+</template>
+```
+
+The legacy `Toast` component is deprecated — use Sonner.
+
 ---
 
 ## Choosing between overlay components
@@ -105,9 +121,11 @@ toast("File deleted.", {
 | Focused task that requires input | `Dialog` |
 | Destructive action confirmation | `AlertDialog` |
 | Side panel with details or filters | `Sheet` |
-| Mobile-first bottom panel | `Drawer` |
+| Mobile-first swipe-to-dismiss panel | `Drawer` |
 | Quick info on hover | `HoverCard` |
 | Small contextual content on click | `Popover` |
+
+`Drawer` is built on Reka UI's `Drawer` primitive (not `vaul-vue`). Set its edge with `swipe-direction` (`up`, `right`, `down`, `left`; default `down`) — the direction it dismisses toward. There is no `direction` or `should-scale-background` prop.
 
 ---
 
@@ -177,7 +195,7 @@ Never render `TabsTrigger` directly inside `Tabs` — always wrap in `TabsList`:
 
 ## Avatar always needs AvatarFallback
 
-Always include `AvatarFallback` for when the image fails to load:
+Always include `AvatarFallback` for when the image fails to load. In the `reka-*` styles, size avatars with the `size` prop (`sm`, `default`, `lg`) and use `AvatarGroup` / `AvatarGroupCount` / `AvatarBadge` instead of custom markup:
 
 ```html
 <Avatar>
