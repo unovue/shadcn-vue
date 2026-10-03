@@ -21,7 +21,7 @@ import {
           <MenubarCheckboxItem>
             Always Show Bookmarks Bar
           </MenubarCheckboxItem>
-          <MenubarCheckboxItem :model-value="true">
+          <MenubarCheckboxItem :default-value="true">
             Always Show Full URLs
           </MenubarCheckboxItem>
         </MenubarGroup>
@@ -39,7 +39,7 @@ import {
     <MenubarMenu>
       <MenubarTrigger>Format</MenubarTrigger>
       <MenubarContent>
-        <MenubarCheckboxItem :model-value="true">
+        <MenubarCheckboxItem :default-value="true">
           Strikethrough
         </MenubarCheckboxItem>
         <MenubarCheckboxItem>Code</MenubarCheckboxItem>
