@@ -25,8 +25,8 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     :class="cn(
       'absolute size-8 rounded-full',
       orientation === 'horizontal'
-        ? 'top-1/2 -right-12 -translate-y-1/2'
-        : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
+        ? 'inset-y-0 -right-12 my-auto'
+        : 'inset-x-0 -bottom-12 mx-auto rotate-90',
       props.class,
     )"
     :variant="variant"
