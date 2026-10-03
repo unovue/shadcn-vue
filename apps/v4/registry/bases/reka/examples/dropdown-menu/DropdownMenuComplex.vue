@@ -20,9 +20,10 @@ import {
   DropdownMenuTrigger,
 } from "@/registry/bases/reka/ui/dropdown-menu"
 
+const showSidebar = ref(true)
+const showStatusBar = ref(false)
 const notifications = ref({
   email: true,
-  sms: false,
   push: true,
 })
 const theme = ref("light")
@@ -173,7 +174,7 @@ const theme = ref("light")
         <DropdownMenuGroup>
           <DropdownMenuLabel>View</DropdownMenuLabel>
           <DropdownMenuCheckboxItem
-            v-model="notifications.email"
+            v-model="showSidebar"
           >
             <IconPlaceholder
               lucide="EyeIcon"
@@ -185,7 +186,7 @@ const theme = ref("light")
             Show Sidebar
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            v-model="notifications.sms"
+            v-model="showStatusBar"
           >
             <IconPlaceholder
               lucide="LayoutIcon"
