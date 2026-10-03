@@ -207,8 +207,8 @@ function isInvalid(field: any) {
                     :id="addon.id"
                     :name="field.name"
                     :aria-invalid="isInvalid(field)"
-                    :checked="field.state.value.includes(addon.id)"
-                    @update:checked="(checked: boolean | 'indeterminate') => {
+                    :model-value="field.state.value.includes(addon.id)"
+                    @update:model-value="(checked: boolean | 'indeterminate') => {
                       if (checked) {
                         field.pushValue(addon.id)
                       }
@@ -247,9 +247,9 @@ function isInvalid(field: any) {
               <Switch
                 :id="field.name"
                 :name="field.name"
-                :checked="field.state.value"
+                :model-value="field.state.value"
                 :aria-invalid="isInvalid(field)"
-                @update:checked="field.handleChange"
+                @update:model-value="field.handleChange"
               />
               <FieldError v-if="isInvalid(field)" :errors="field.state.meta.errors" />
             </Field>

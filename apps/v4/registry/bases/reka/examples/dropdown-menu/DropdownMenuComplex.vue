@@ -173,7 +173,7 @@ const theme = ref("light")
         <DropdownMenuGroup>
           <DropdownMenuLabel>View</DropdownMenuLabel>
           <DropdownMenuCheckboxItem
-            v-model:checked="notifications.email"
+            v-model="notifications.email"
           >
             <IconPlaceholder
               lucide="EyeIcon"
@@ -185,7 +185,7 @@ const theme = ref("light")
             Show Sidebar
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            v-model:checked="notifications.sms"
+            v-model="notifications.sms"
           >
             <IconPlaceholder
               lucide="LayoutIcon"
@@ -321,7 +321,7 @@ const theme = ref("light")
                         Notification Types
                       </DropdownMenuLabel>
                       <DropdownMenuCheckboxItem
-                        v-model:checked="notifications.push"
+                        v-model="notifications.push"
                       >
                         <IconPlaceholder
                           lucide="BellIcon"
@@ -333,7 +333,7 @@ const theme = ref("light")
                         Push Notifications
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
-                        v-model:checked="notifications.email"
+                        v-model="notifications.email"
                       >
                         <IconPlaceholder
                           lucide="MailIcon"
