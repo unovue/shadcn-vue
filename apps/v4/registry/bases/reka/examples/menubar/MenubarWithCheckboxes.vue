@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue"
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -10,6 +11,12 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@/registry/bases/reka/ui/menubar"
+
+const showBookmarksBar = ref(false)
+const showFullUrls = ref(true)
+const strikethrough = ref(true)
+const code = ref(false)
+const superscript = ref(false)
 </script>
 
 <template>
@@ -18,10 +25,10 @@ import {
       <MenubarTrigger>View</MenubarTrigger>
       <MenubarContent class="w-64">
         <MenubarGroup>
-          <MenubarCheckboxItem>
+          <MenubarCheckboxItem v-model="showBookmarksBar">
             Always Show Bookmarks Bar
           </MenubarCheckboxItem>
-          <MenubarCheckboxItem :default-value="true">
+          <MenubarCheckboxItem v-model="showFullUrls">
             Always Show Full URLs
           </MenubarCheckboxItem>
         </MenubarGroup>
@@ -39,11 +46,15 @@ import {
     <MenubarMenu>
       <MenubarTrigger>Format</MenubarTrigger>
       <MenubarContent>
-        <MenubarCheckboxItem :default-value="true">
+        <MenubarCheckboxItem v-model="strikethrough">
           Strikethrough
         </MenubarCheckboxItem>
-        <MenubarCheckboxItem>Code</MenubarCheckboxItem>
-        <MenubarCheckboxItem>Superscript</MenubarCheckboxItem>
+        <MenubarCheckboxItem v-model="code">
+          Code
+        </MenubarCheckboxItem>
+        <MenubarCheckboxItem v-model="superscript">
+          Superscript
+        </MenubarCheckboxItem>
       </MenubarContent>
     </MenubarMenu>
   </Menubar>
