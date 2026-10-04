@@ -7,6 +7,53 @@ import {
   getRawConfig,
 } from '../../src/utils/get-config'
 
+// Regression test for a c12/jiti resolution quirk: when no components.json
+// (or components.config.*) exists, c12's fallback chain for an
+// extensionless `configFile` (the literal string "components") ends up
+// calling `existsSync("components")` relative to the actual process cwd
+// (not the `cwd` argument passed to getRawConfig). Since virtually every
+// Vue/Nuxt project is run from a directory that has a sibling `components/`
+// folder, this accidentally resolves to that directory and gets passed —
+// as a bare, unresolved specifier — into `jiti.import()`, which throws a
+// raw `MODULE_NOT_FOUND` for `'components'` instead of c12 reporting "no
+// config found". We reproduce this here by actually chdir-ing into a
+// fixture with a `components/` directory and no components.json, since the
+// bug is tied to `process.cwd()`, not the function argument.
+it('get raw config does not throw when cwd has a sibling components/ dir and no components.json', async () => {
+  const originalCwd = process.cwd()
+  const fixtureDir = path.resolve(
+    __dirname,
+    '../fixtures/config-none-with-components-dir',
+  )
+  process.chdir(fixtureDir)
+  try {
+    expect(await getRawConfig(fixtureDir)).toEqual(null)
+  }
+  finally {
+    process.chdir(originalCwd)
+  }
+})
+
+// Guards against over-broad suppression: when an explicit components.config.ts
+// *does* exist and genuinely fails to resolve a module (here, one literally
+// named 'components'), that's a real user error and must still surface as
+// ConfigParseError rather than being swallowed by the MODULE_NOT_FOUND
+// work-around above.
+it('get raw config still throws for a real MODULE_NOT_FOUND inside an explicit config file', async () => {
+  const originalCwd = process.cwd()
+  const fixtureDir = path.resolve(
+    __dirname,
+    '../fixtures/config-explicit-broken-import',
+  )
+  process.chdir(fixtureDir)
+  try {
+    await expect(getRawConfig(fixtureDir)).rejects.toThrowError()
+  }
+  finally {
+    process.chdir(originalCwd)
+  }
+})
+
 it('get raw config', async () => {
   expect(
     await getRawConfig(path.resolve(__dirname, '../fixtures/config-none')),
