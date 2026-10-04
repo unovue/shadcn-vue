@@ -1530,7 +1530,7 @@
     {
       "name": "sonner",
       "type": "registry:ui",
-      "dependencies": ["vue-sonner"],
+      "dependencies": ["vue-sonner", "@vueuse/core"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/sonner/Sonner.vue",
