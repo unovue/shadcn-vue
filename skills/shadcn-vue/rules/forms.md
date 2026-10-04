@@ -8,6 +8,7 @@
 - Option sets (2–7 choices) use ToggleGroup
 - FieldSet + FieldLegend for grouping related fields
 - Field validation and disabled states
+- Form libraries: vee-validate, TanStack Form, Formisch
 
 ---
 
@@ -91,20 +92,22 @@ Never place a `Button` directly inside or adjacent to an `Input` with custom pos
 
 ```js
 <script setup lang="ts">
-import { InputGroup, InputGroupInput, InputGroupAddon } from "@/components/ui/input-group"
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group"
 </script>
 
 <template>
   <InputGroup>
     <InputGroupInput placeholder="Search..." />
-    <InputGroupAddon>
-      <Button size="icon">
-        <SearchIcon data-icon="inline-start" />
-      </Button>
+    <InputGroupAddon align="inline-end">
+      <InputGroupButton size="icon-xs" aria-label="Search">
+        <SearchIcon />
+      </InputGroupButton>
     </InputGroupAddon>
   </InputGroup>
 </template>
 ```
+
+Use `InputGroupButton` (sizes `xs`, `sm`, `icon-xs`, `icon-sm`), not a plain `Button`. `InputGroupAddon` defaults to `align="inline-start"`, which renders it **before** the input — set `align="inline-end"` for trailing buttons (or `block-start` / `block-end` for rows above/below a textarea).
 
 ---
 
@@ -138,11 +141,14 @@ const options = ["daily", "weekly", "monthly"]
 
 ```js
 <script setup lang="ts">
+import { ref } from "vue"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+
+const selected = ref("daily")
 </script>
 
 <template>
-  <ToggleGroup spacing="2">
+  <ToggleGroup v-model="selected" type="single" :spacing="2">
     <ToggleGroupItem value="daily">Daily</ToggleGroupItem>
     <ToggleGroupItem value="weekly">Weekly</ToggleGroupItem>
     <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
@@ -155,7 +161,7 @@ Combine with `Field` for labelled toggle groups:
 ```html
 <Field orientation="horizontal">
   <FieldTitle id="theme-label">Theme</FieldTitle>
-  <ToggleGroup aria-labelledby="theme-label" spacing="2">
+  <ToggleGroup aria-labelledby="theme-label" type="single" :spacing="2">
     <ToggleGroupItem value="light">Light</ToggleGroupItem>
     <ToggleGroupItem value="dark">Dark</ToggleGroupItem>
     <ToggleGroupItem value="system">System</ToggleGroupItem>
@@ -187,14 +193,14 @@ Use `FieldSet` + `FieldLegend` for related checkboxes, radios, or switches — n
 
 ## Field validation and disabled states
 
-Both attributes are needed — `data-invalid`/`data-disabled` styles the field (label, description), while `aria-invalid`/`disabled` styles the control.
+Both attributes are needed — `data-invalid`/`data-disabled` styles the field (label, description), while `aria-invalid`/`disabled` styles the control. Show the message with `FieldError` (not `FieldDescription`), right after the control.
 
 ```html
 <!-- Invalid. -->
 <Field data-invalid>
   <FieldLabel for="email">Email</FieldLabel>
   <Input id="email" aria-invalid />
-  <FieldDescription>Invalid email address.</FieldDescription>
+  <FieldError>Invalid email address.</FieldError>
 </Field>
 
 <!-- Disabled. -->
@@ -205,3 +211,31 @@ Both attributes are needed — `data-invalid`/`data-disabled` styles the field (
 ```
 
 Works for all controls: `Input`, `Textarea`, `Select`, `Checkbox`, `RadioGroupItem`, `Switch`, `Slider`, `NativeSelect`, `InputOTP`.
+
+`FieldError` also accepts an `errors` prop — an array of strings or `{ message }` objects (e.g. from a schema validator). It dedupes them and renders a list when there is more than one.
+
+---
+
+## Form libraries: vee-validate, TanStack Form, Formisch
+
+Build forms with the `Field` components plus a form library. The old `Form` / `FormField` / `FormItem` components are **no longer actively developed** — don't use them for new forms.
+
+The pattern is the same for every library: the library owns state and validation, shadcn-vue `Field` owns layout, and errors flow into `data-invalid`, `aria-invalid` and `FieldError`.
+
+**vee-validate** (`useForm` + `toTypedSchema` from `@vee-validate/zod`). Alias its `Field` as `VeeField`. Bind `componentField` (not `field`) to `v-model` components like `Input` — `field` binds `value`, which they ignore, so `initialValues` never render:
+
+```vue
+<VeeField v-slot="{ componentField, errors }" name="title">
+  <Field :data-invalid="!!errors.length">
+    <FieldLabel for="title">Title</FieldLabel>
+    <Input id="title" v-bind="componentField" :aria-invalid="!!errors.length" />
+    <FieldError v-if="errors.length" :errors="errors" />
+  </Field>
+</VeeField>
+```
+
+**TanStack Form** (`useForm` from `@tanstack/vue-form`): render `<form.Field>` and read `field.state.meta` — invalid when `isTouched && !isValid`, errors in `field.state.meta.errors`.
+
+**Formisch** (`useForm` from `@formisch/vue` + Valibot): Formisch ships its own `Field`, so import it as `FormischField`. Errors are strings in `field.errors` (or `null`) — guard before mapping: `<FieldError v-if="field.errors" :errors="field.errors.map(message => ({ message }))" />`.
+
+See `https://shadcn-vue.com/docs/forms` for complete examples.
