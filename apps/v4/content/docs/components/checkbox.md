@@ -72,3 +72,20 @@ import { Checkbox } from '@/components/ui/checkbox'
   <Checkbox />
 </template>
 ```
+
+## Checked State
+
+Use `default-value` for uncontrolled checkboxes, or `v-model` to control the state.
+
+```vue showLineNumbers
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Checkbox } from '@/components/ui/checkbox'
+
+const checked = ref<boolean | 'indeterminate'>(false)
+</script>
+
+<template>
+  <Checkbox v-model="checked" />
+</template>
+```

@@ -58,7 +58,7 @@ function handleSceneChange(value: unknown) {
       <CardTitle>Kitchen Island</CardTitle>
       <CardDescription>Hue Color Ambient</CardDescription>
       <CardAction>
-        <Switch v-model:checked="enabled" />
+        <Switch v-model="enabled" />
       </CardAction>
     </CardHeader>
     <CardContent class="flex flex-col gap-4">

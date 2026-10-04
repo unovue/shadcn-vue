@@ -72,6 +72,25 @@ import { Toggle } from '@/components/ui/toggle'
 </template>
 ```
 
+## Pressed State
+
+Use `default-value` for uncontrolled toggles, or `v-model` to control the state.
+
+```vue showLineNumbers
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Toggle } from '@/components/ui/toggle'
+
+const pressed = ref<boolean>(false)
+</script>
+
+<template>
+  <Toggle v-model="pressed">
+    Toggle
+  </Toggle>
+</template>
+```
+
 ## Examples
 
 ### Default
