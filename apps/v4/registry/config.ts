@@ -8,7 +8,7 @@ import { iconLibraries } from "shadcn-vue/icons"
 import { z } from "zod"
 import { BASE_COLORS } from "@/registry/base-colors"
 import { BASES } from "@/registry/bases"
-import { fonts } from "@/registry/fonts"
+import { bodyFonts, fonts, headingFonts } from "@/registry/fonts"
 import { STYLES } from "@/registry/styles"
 import { THEMES } from "@/registry/themes"
 
@@ -18,7 +18,7 @@ export { type Base, BASES }
 export { type Style, STYLES }
 export { type Theme, THEMES }
 export { BASE_COLORS, type BaseColor }
-export { fonts }
+export { bodyFonts, fonts, headingFonts }
 export { iconLibraries, type IconLibrary, type IconLibraryName }
 
 export type BaseName = Base["name"]
@@ -30,7 +30,7 @@ export const POINTER_CURSOR_SELECTOR
   = "button:not(:disabled), [role=\"button\"]:not(:disabled)"
 
 // Derive font values from registry fonts (e.g., "font-inter" -> "inter").
-const fontValues = fonts.map(f => f.name.replace("font-", "")) as [
+const fontValues = bodyFonts.map(f => f.name.replace("font-", "")) as [
   string,
   ...string[],
 ]
@@ -403,20 +403,20 @@ export function buildRegistryBase(
     ...iconLibraryItem.packages,
   ]
 
-  // Fonts are applied CLI-side via getFontImport(config.font) from the
-  // local FONTS constant — shadcn-vue's registry does not publish font-*
-  // items, so we intentionally do not add them as registryDependencies.
-  const registryDependencies = ["utils"]
-
-  // Resolve font metadata from the web registry so the emitted
-  // registry:base item carries both the @theme CSS variable and a body rule
-  // that actually applies the font — the CLI's addFontImportPlugin only
-  // handles the Google Fonts @import url(...) line.
-  const fontItem = fonts.find(f => f.name === `font-${config.font}`)
+  const fontItem = bodyFonts.find(f => f.name === `font-${config.font}`)
   const fontHeadingItem
     = normalizedFontHeading !== "inherit"
-      ? fonts.find(f => f.name === `font-${normalizedFontHeading}`)
+      ? headingFonts.find(f => f.name === `font-heading-${normalizedFontHeading}`)
       : undefined
+
+  // Fonts are registry items: the CLI installs the fontsource package each one
+  // names and imports it from the project's CSS file. Nothing is fetched from
+  // a font CDN, and no font URL is written into the project.
+  const registryDependencies = [
+    "utils",
+    ...(fontItem ? [fontItem.name] : []),
+    ...(fontHeadingItem ? [fontHeadingItem.name] : []),
+  ]
 
   const themeVars: Record<string, string> = {
     ...(registryTheme.cssVars?.theme as Record<string, string> | undefined),
@@ -424,8 +424,21 @@ export function buildRegistryBase(
   const bodyRules: Record<string, Record<string, unknown>> = {
     "@apply bg-background text-foreground": {},
   }
+
+  // The font item carries this same value, but CLI versions before font items
+  // existed only read the base — without it they'd fall back to the default
+  // sans stack. Both sides emit the identical family, so keeping it costs a
+  // duplicate declaration and nothing else.
   if (fontItem) {
     themeVars[fontItem.font.variable] = fontItem.font.family
+  }
+  if (fontHeadingItem) {
+    themeVars["--font-heading"] = fontHeadingItem.font.family
+  }
+
+  // The base emits the body rule that applies the font, since that's a
+  // property of the base rather than of the font.
+  if (fontItem) {
     // Map the font's target variable to a Tailwind utility class.
     // shadcn-vue fonts all target --font-sans today (jetbrains-mono included),
     // but we handle --font-mono / --font-serif for future-proofing.
@@ -438,17 +451,11 @@ export function buildRegistryBase(
     bodyRules[`@apply ${applyClass}`] = {}
   }
 
-  // Emit --font-heading so the Tailwind v4 `font-heading` utility is wired
-  // up. When fontHeading is "inherit" (default) we alias it to the body
-  // font's CSS variable; otherwise we resolve the heading font's family
-  // from the web registry and emit it literally. The heading font's Google
-  // Fonts @import is pulled in CLI-side by addFontImportPlugin (see
-  // add-components.ts) via `config.fontHeading`.
+  // Emit --font-heading so the Tailwind v4 `font-heading` utility is wired up.
+  // When fontHeading is "inherit" (default) we alias it to the body font's CSS
+  // variable; a real heading font brings its own value through its item.
   if (normalizedFontHeading === "inherit") {
     themeVars["--font-heading"] = `var(${fontItem?.font.variable ?? "--font-sans"})`
-  }
-  else if (fontHeadingItem) {
-    themeVars["--font-heading"] = fontHeadingItem.font.family
   }
 
   return {
@@ -458,9 +465,10 @@ export function buildRegistryBase(
     config: {
       style: `${config.base}-${config.style}`,
       iconLibrary: iconLibraryItem.name,
+      // Deprecated: current CLIs drop these on parse — fonts travel as
+      // registry:font items now. Kept because CLI versions that still write
+      // the font's @import themselves read them to know which font to write.
       font: config.font,
-      // Only persist fontHeading when it's a real override, so projects
-      // with the default ("inherit") don't gain a new components.json field.
       ...(normalizedFontHeading !== "inherit"
         && { fontHeading: normalizedFontHeading }),
       rtl: config.rtl ?? false,
