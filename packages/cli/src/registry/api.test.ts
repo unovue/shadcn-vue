@@ -28,8 +28,14 @@ import {
   RegistryParseError,
   RegistryUnauthorizedError,
 } from "@/src/registry/errors"
+import { handleError } from "@/src/utils/handle-error"
 
-import { getRegistriesConfig, getRegistry, getRegistryItems } from "./api"
+import {
+  getRegistriesConfig,
+  getRegistry,
+  getRegistryItems,
+  resolveRegistryItems,
+} from "./api"
 
 vi.mock("@/src/utils/handle-error", () => ({
   handleError: vi.fn(),
@@ -265,6 +271,92 @@ describe("getRegistryItem", () => {
       name: "button",
       type: "registry:ui",
     })
+  })
+
+  it.each([true, false])(
+    "should reject v4-only base colors in Tailwind v3 projects with cssVariables=%s",
+    async (cssVariables) => {
+      vi.mocked(handleError).mockClear()
+      server.use(
+        http.get(`${REGISTRY_URL}/styles/new-york/index.json`, () => {
+          return HttpResponse.json({
+            name: "index",
+            type: "registry:style",
+          })
+        }),
+        http.get(`${REGISTRY_URL}/colors/olive.json`, () => {
+          return HttpResponse.json({
+            cssVarsV4: {
+              light: { background: "oklch(1 0 0)" },
+              dark: { background: "oklch(0.153 0.006 107.1)" },
+            },
+          })
+        }),
+      )
+
+      const result = await resolveRegistryItems(["index"], {
+        config: {
+          style: "new-york",
+          tailwind: {
+            config: "tailwind.config.js",
+            css: "src/index.css",
+            baseColor: "olive",
+            cssVariables,
+          },
+          resolvedPaths: {
+            cwd: path.resolve("test/fixtures/frameworks/vite-tw3"),
+          },
+        },
+      })
+
+      expect(result).toBeNull()
+      expect(handleError).toHaveBeenCalledWith(
+        expect.objectContaining({
+          message: "Base color \"olive\" is only available for Tailwind CSS v4 projects.",
+        }),
+      )
+    },
+  )
+
+  it("should resolve v4-only base colors in Tailwind v4 projects", async () => {
+    vi.mocked(handleError).mockClear()
+    server.use(
+      http.get(`${REGISTRY_URL}/styles/new-york-v4/index.json`, () => {
+        return HttpResponse.json({
+          name: "index",
+          type: "registry:style",
+        })
+      }),
+      http.get(`${REGISTRY_URL}/colors/olive.json`, () => {
+        return HttpResponse.json({
+          cssVarsV4: {
+            light: { background: "oklch(1 0 0)", radius: "0.625rem" },
+            dark: { background: "oklch(0.153 0.006 107.1)" },
+          },
+        })
+      }),
+    )
+
+    const result = await resolveRegistryItems(["index"], {
+      config: {
+        style: "new-york",
+        tailwind: {
+          config: "",
+          css: "src/index.css",
+          baseColor: "olive",
+          cssVariables: true,
+        },
+        resolvedPaths: {
+          cwd: path.resolve("test/fixtures/frameworks/vite"),
+        },
+      },
+    })
+
+    expect(result?.cssVars).toMatchObject({
+      light: { background: "oklch(1 0 0)", radius: "0.625rem" },
+      dark: { background: "oklch(0.153 0.006 107.1)" },
+    })
+    expect(handleError).not.toHaveBeenCalled()
   })
 
   it("should fetch items from direct URLs", async () => {

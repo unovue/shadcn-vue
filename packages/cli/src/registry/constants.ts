@@ -313,10 +313,10 @@ export const BASE_COLORS = [
   { name: "neutral", label: "Neutral" },
   { name: "stone", label: "Stone" },
   { name: "zinc", label: "Zinc" },
-  { name: "mauve", label: "Mauve" },
-  { name: "olive", label: "Olive" },
-  { name: "mist", label: "Mist" },
-  { name: "taupe", label: "Taupe" },
+  { name: "mauve", label: "Mauve", tailwindVersion: "v4" },
+  { name: "olive", label: "Olive", tailwindVersion: "v4" },
+  { name: "mist", label: "Mist", tailwindVersion: "v4" },
+  { name: "taupe", label: "Taupe", tailwindVersion: "v4" },
 ] as const
 
 // Built-in registries that are always available and cannot be overridden

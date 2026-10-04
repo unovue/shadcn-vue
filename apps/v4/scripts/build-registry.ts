@@ -7,6 +7,7 @@ import { rimraf } from 'rimraf'
 import { getAllBlocks } from '@/lib/blocks'
 import { registry } from '@/registry/index'
 import { ui } from '~/registry/new-york-v4/ui/_registry'
+import { buildColors } from './build-colors'
 import { buildIcons } from './build-icons'
 import { crawlBlock, crawlChart, crawlComposables, crawlExample, crawlLib, crawlUI } from './crawl-content'
 import { buildStyles } from './lib/build-styles'
@@ -404,6 +405,10 @@ async function main() {
         await buildPublicIndex()
       }
     }
+
+    // eslint-disable-next-line no-console
+    console.log('\n🎨 Building public/r/colors...')
+    await buildColors()
 
     // Build the bases index file that exports all bases
     await buildBasesIndex()
