@@ -26,7 +26,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
       'cn-carousel-previous absolute touch-manipulation',
       orientation === 'horizontal'
         ? 'inset-y-0 -left-12 my-auto'
-        : 'inset-x-0 -top-12 mx-auto rotate-90',
+        : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
       props.class,
     )"
     :variant="variant"
