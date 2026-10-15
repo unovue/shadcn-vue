@@ -2,12 +2,12 @@
 import type { ContextMenuContentEmits, ContextMenuContentProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import {
   ContextMenuContent,
   ContextMenuPortal,
   useForwardPropsEmits,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
 
 defineOptions({
   inheritAttrs: false,

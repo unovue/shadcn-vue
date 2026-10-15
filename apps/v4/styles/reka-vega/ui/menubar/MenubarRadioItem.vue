@@ -4,12 +4,12 @@ import type { MenubarRadioItemEmits, MenubarRadioItemProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { CheckIcon } from '@lucide/vue'
 import { reactiveOmit } from '@vueuse/core'
+import { cn } from 'cn'
 import {
   MenubarItemIndicator,
   MenubarRadioItem,
   useForwardPropsEmits,
 } from 'reka-ui'
-import { cn } from '@/lib/utils'
 
 const props = defineProps<MenubarRadioItemProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<MenubarRadioItemEmits>()

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { VideoIcon } from '@lucide/vue'
+import { cn } from 'cn'
 import { computed } from 'vue'
-import { cn } from '@/lib/utils'
 import {
   Alert,
   AlertTitle,

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { FunctionalComponent, HTMLAttributes } from 'vue'
 import { Markdown as Comark } from '@comark/vue'
+import { cn } from 'cn'
 import { computed, h, provide } from 'vue'
-import { cn } from '@/lib/utils'
 import MarkdownCodeBlock from './MarkdownCodeBlock.vue'
 
 const props = withDefaults(defineProps<{

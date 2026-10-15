@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "vue"
 import type { ButtonVariants } from "@/registry/new-york-v4/ui/button"
 import { CheckIcon, CopyIcon } from "@lucide/vue"
 import { useClipboard } from "@vueuse/core"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { Button } from "@/registry/new-york-v4/ui/button"
 
 defineOptions({ inheritAttrs: false })

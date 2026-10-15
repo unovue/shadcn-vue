@@ -7,6 +7,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -34,6 +35,9 @@ export const ui: Registry["items"] = [
   {
     name: "alert",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     files: [
       {
         path: "ui/alert/Alert.vue",
@@ -63,6 +67,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "button",
@@ -135,6 +140,7 @@ export const ui: Registry["items"] = [
     name: "attachment",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
     ],
     registryDependencies: [
@@ -187,6 +193,7 @@ export const ui: Registry["items"] = [
     name: "avatar",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
       "@vueuse/core",
     ],
@@ -227,6 +234,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -243,6 +251,7 @@ export const ui: Registry["items"] = [
     name: "breadcrumb",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
     ],
     files: [
@@ -285,6 +294,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "cn",
     ],
     files: [
       {
@@ -314,6 +324,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "cn",
     ],
     files: [
       {
@@ -330,6 +341,7 @@ export const ui: Registry["items"] = [
     name: "button-group",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
       "@vueuse/core",
     ],
@@ -361,6 +373,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "native-select",
@@ -424,6 +437,9 @@ export const ui: Registry["items"] = [
   {
     name: "card",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     files: [
       {
         path: "ui/card/Card.vue",
@@ -463,6 +479,7 @@ export const ui: Registry["items"] = [
     name: "carousel",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "embla-carousel-vue",
       "@vueuse/core",
     ],
@@ -508,6 +525,7 @@ export const ui: Registry["items"] = [
     name: "chart",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
       "@vueuse/core",
     ],
@@ -544,6 +562,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -560,6 +579,7 @@ export const ui: Registry["items"] = [
     name: "code-block",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
       "@vueuse/core",
       "shiki",
@@ -649,6 +669,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "input-group",
@@ -710,6 +731,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "dialog",
@@ -764,6 +786,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -838,6 +861,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "button",
@@ -895,6 +919,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -945,6 +970,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1012,6 +1038,9 @@ export const ui: Registry["items"] = [
   {
     name: "empty",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     files: [
       {
         path: "ui/empty/Empty.vue",
@@ -1046,6 +1075,9 @@ export const ui: Registry["items"] = [
   {
     name: "field",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "label",
       "separator",
@@ -1102,6 +1134,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "cn",
       "vee-validate",
       "@vee-validate/zod",
       "zod@3.25.76",
@@ -1150,6 +1183,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1175,6 +1209,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1190,6 +1225,9 @@ export const ui: Registry["items"] = [
   {
     name: "input-group",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "input",
@@ -1232,6 +1270,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "vue-input-otp",
       "@vueuse/core",
+      "cn",
       "reka-ui",
     ],
     files: [
@@ -1262,6 +1301,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "cn",
     ],
     registryDependencies: [
       "separator",
@@ -1316,6 +1356,9 @@ export const ui: Registry["items"] = [
   {
     name: "kbd",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     files: [
       {
         path: "ui/kbd/Kbd.vue",
@@ -1337,6 +1380,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1354,6 +1398,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "cn",
     ],
     files: [
       {
@@ -1380,6 +1425,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1453,6 +1499,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "cn",
     ],
     files: [
       {
@@ -1488,6 +1535,9 @@ export const ui: Registry["items"] = [
   {
     name: "message-scroller",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
     ],
@@ -1532,6 +1582,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1558,6 +1609,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1604,6 +1656,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1638,6 +1691,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "button",
@@ -1691,6 +1745,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1721,6 +1776,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1763,6 +1819,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1779,6 +1836,7 @@ export const ui: Registry["items"] = [
     name: "questionnaire",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
     ],
     registryDependencies: [
@@ -1861,6 +1919,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1883,6 +1942,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "button",
@@ -1948,6 +2008,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1974,6 +2035,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -1996,6 +2058,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2054,6 +2117,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2072,6 +2136,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "button",
@@ -2123,6 +2188,7 @@ export const ui: Registry["items"] = [
     name: "sidebar",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
       "@vueuse/core",
     ],
@@ -2244,6 +2310,9 @@ export const ui: Registry["items"] = [
   {
     name: "skeleton",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     files: [
       {
         path: "ui/skeleton/Skeleton.vue",
@@ -2261,6 +2330,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2279,6 +2349,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "vue-sonner",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2294,6 +2365,9 @@ export const ui: Registry["items"] = [
   {
     name: "spinner",
     type: "registry:ui",
+    dependencies: [
+      "cn",
+    ],
     files: [
       {
         path: "ui/spinner/Spinner.vue",
@@ -2311,6 +2385,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2353,6 +2428,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2369,6 +2445,7 @@ export const ui: Registry["items"] = [
     name: "table",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "@vueuse/core",
     ],
     files: [
@@ -2420,6 +2497,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2450,6 +2528,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2483,6 +2562,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2501,6 +2581,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2519,6 +2600,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     registryDependencies: [
       "toggle",
@@ -2544,6 +2626,7 @@ export const ui: Registry["items"] = [
     dependencies: [
       "reka-ui",
       "@vueuse/core",
+      "cn",
     ],
     files: [
       {
@@ -2572,6 +2655,7 @@ export const ui: Registry["items"] = [
     name: "trace",
     type: "registry:ui",
     dependencies: [
+      "cn",
       "reka-ui",
       "@vueuse/core",
     ],

@@ -3,8 +3,8 @@ import type { RegistryEntry } from '@/registry/registries'
 import { SearchIcon, XIcon } from '@lucide/vue'
 import { IconArrowUpRight, IconChevronLeft, IconChevronRight, IconPlus } from '@tabler/icons-vue'
 import { watchDebounced } from '@vueuse/core'
+import { cn } from 'cn'
 import { computed, ref, watch } from 'vue'
-import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/registry/new-york-v4/ui/button'
 import {
   Dialog,

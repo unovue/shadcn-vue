@@ -2,11 +2,11 @@
 import type { ContextMenuItemEmits, ContextMenuItemProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import {
   ContextMenuItem,
   useForwardPropsEmits,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
 
 const props = withDefaults(defineProps<ContextMenuItemProps & {
   class?: HTMLAttributes["class"]

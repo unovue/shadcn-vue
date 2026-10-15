@@ -3,8 +3,8 @@ import type { MenubarSubTriggerProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { ChevronRight } from "@lucide/vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import { MenubarSubTrigger, useForwardProps } from "reka-ui"
-import { cn } from "@/lib/utils"
 
 const props = defineProps<MenubarSubTriggerProps & { class?: HTMLAttributes["class"], inset?: boolean }>()
 

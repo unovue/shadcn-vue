@@ -26,8 +26,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   // TODO: remove version tag after vee-validate v5
   ['vee-validate', ['@vee-validate/zod', 'zod@3.25.76']],
   ['vue-input-otp', []],
-  ['clsx', []],
-  ['tailwind-merge', []],
+  ['cn', []],
   ['shiki', []],
   ['@comark/vue', []],
 ])
@@ -456,7 +455,10 @@ async function getFileDependencies(filename: string, sourceCode: string) {
       sourceType: 'module',
     })
 
-    const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
+    // Re-exports count too, e.g. `export { cn } from 'cn'` in lib/utils.ts.
+    const sources = ast.program.body
+      .filter((i: any) => i.type === 'ImportDeclaration' || ((i.type === 'ExportNamedDeclaration' || i.type === 'ExportAllDeclaration') && i.source))
+      .map((i: any) => i.source)
     sources.forEach((source: any) => {
       populateDeps(source.value)
     })

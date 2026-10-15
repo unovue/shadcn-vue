@@ -2,9 +2,9 @@
 import type { HTMLAttributes } from 'vue'
 import { ShuffleIcon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
+import { cn } from 'cn'
 import { useLocks } from '@/composables/useLocks'
 import { FONTS } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import {
   BASE_COLORS,
   getThemesForBaseColor,

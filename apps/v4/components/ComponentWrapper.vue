@@ -5,7 +5,7 @@ const props = defineProps<{
 }>()
 
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 
 const hasError = ref(false)
 onErrorCaptured(() => {

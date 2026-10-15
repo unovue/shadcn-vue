@@ -85,7 +85,9 @@ export const blocks: Registry["items"] = [
       "button",
       "card",
     ],
-    dependencies: [],
+    dependencies: [
+      "cn",
+    ],
     categories: [
       "blocks",
     ],
@@ -130,6 +132,7 @@ export const blocks: Registry["items"] = [
     dependencies: [
       "@unovis/vue",
       "@unovis/ts",
+      "cn",
     ],
     registryDependencies: [
       "alert",

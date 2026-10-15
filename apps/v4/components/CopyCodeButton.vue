@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/registry/new-york-v4/ui/button'
 import { IconCopy } from '@tabler/icons-vue'
+import { cn } from 'cn'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Dialog,
@@ -19,7 +20,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/registry/new-york-v4/ui/drawer'
-import { cn } from '~/lib/utils'
 
 defineOptions({
   inheritAttrs: false,

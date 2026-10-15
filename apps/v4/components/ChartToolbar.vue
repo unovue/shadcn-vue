@@ -9,8 +9,8 @@ import {
   PieChartIcon,
   RadarIcon,
 } from '@lucide/vue'
+import { cn } from 'cn'
 import { Separator } from '@/registry/new-york-v4/ui/separator'
-import { cn } from '~/lib/utils'
 import TooltipProvider from '~/registry/new-york-v4/ui/tooltip/TooltipProvider.vue'
 
 const props = defineProps<{

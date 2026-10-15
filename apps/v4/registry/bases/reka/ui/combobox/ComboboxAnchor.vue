@@ -2,8 +2,8 @@
 import type { ComboboxAnchorProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import { ComboboxAnchor, useForwardProps } from "reka-ui"
-import { cn } from "@/lib/utils"
 
 const props = defineProps<ComboboxAnchorProps & { class?: HTMLAttributes["class"] }>()
 

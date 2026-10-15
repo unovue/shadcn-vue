@@ -2,8 +2,8 @@
 import type { PinInputRootEmits, PinInputRootProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import { PinInputRoot, useForwardPropsEmits } from "reka-ui"
-import { cn } from "@/lib/utils"
 
 const props = withDefaults(defineProps<PinInputRootProps<Type> & { class?: HTMLAttributes["class"] }>(), {
   otp: true,
