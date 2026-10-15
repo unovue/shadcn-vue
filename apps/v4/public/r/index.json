@@ -4,7 +4,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -32,6 +33,9 @@
   {
     "name": "alert",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "files": [
       {
         "path": "ui/alert/Alert.vue",
@@ -56,7 +60,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "button"
@@ -125,6 +130,7 @@
     "name": "attachment",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui"
     ],
     "files": [
@@ -174,6 +180,7 @@
     "name": "avatar",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui",
       "@vueuse/core"
     ],
@@ -201,7 +208,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -218,6 +226,7 @@
     "name": "breadcrumb",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui"
     ],
     "files": [
@@ -259,7 +268,8 @@
     "name": "bubble",
     "type": "registry:ui",
     "dependencies": [
-      "reka-ui"
+      "reka-ui",
+      "cn"
     ],
     "files": [
       {
@@ -288,7 +298,8 @@
     "name": "button",
     "type": "registry:ui",
     "dependencies": [
-      "reka-ui"
+      "reka-ui",
+      "cn"
     ],
     "files": [
       {
@@ -305,6 +316,7 @@
     "name": "button-group",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui",
       "@vueuse/core"
     ],
@@ -335,7 +347,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "native-select",
@@ -399,6 +412,9 @@
   {
     "name": "card",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "files": [
       {
         "path": "ui/card/Card.vue",
@@ -438,6 +454,7 @@
     "name": "carousel",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "embla-carousel-vue",
       "@vueuse/core"
     ],
@@ -483,6 +500,7 @@
     "name": "chart",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui",
       "@vueuse/core"
     ],
@@ -518,7 +536,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -535,7 +554,9 @@
     "name": "code-block",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui",
+      "@vueuse/core",
       "shiki"
     ],
     "registryDependencies": [
@@ -622,7 +643,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -680,7 +702,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "dialog"
@@ -733,7 +756,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -807,7 +831,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "button"
@@ -864,7 +889,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -914,7 +940,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -982,6 +1009,9 @@
   {
     "name": "empty",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "files": [
       {
         "path": "ui/empty/Empty.vue",
@@ -1016,6 +1046,9 @@
   {
     "name": "field",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "registryDependencies": [
       "label",
       "separator"
@@ -1072,6 +1105,7 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
+      "cn",
       "vee-validate",
       "@vee-validate/zod",
       "zod@3.25.76"
@@ -1119,7 +1153,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1144,7 +1179,8 @@
     "name": "input",
     "type": "registry:ui",
     "dependencies": [
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1160,6 +1196,9 @@
   {
     "name": "input-group",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "registryDependencies": [
       "button",
       "input",
@@ -1202,6 +1241,7 @@
     "dependencies": [
       "vue-input-otp",
       "@vueuse/core",
+      "cn",
       "reka-ui"
     ],
     "files": [
@@ -1231,7 +1271,8 @@
     "name": "item",
     "type": "registry:ui",
     "dependencies": [
-      "reka-ui"
+      "reka-ui",
+      "cn"
     ],
     "registryDependencies": [
       "separator"
@@ -1286,6 +1327,9 @@
   {
     "name": "kbd",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "files": [
       {
         "path": "ui/kbd/Kbd.vue",
@@ -1306,7 +1350,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1323,7 +1368,8 @@
     "name": "marker",
     "type": "registry:ui",
     "dependencies": [
-      "reka-ui"
+      "reka-ui",
+      "cn"
     ],
     "files": [
       {
@@ -1349,7 +1395,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1422,7 +1469,8 @@
     "name": "message",
     "type": "registry:ui",
     "dependencies": [
-      "reka-ui"
+      "reka-ui",
+      "cn"
     ],
     "files": [
       {
@@ -1458,6 +1506,9 @@
   {
     "name": "message-scroller",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "registryDependencies": [
       "button"
     ],
@@ -1501,7 +1552,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1527,7 +1579,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1573,7 +1626,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1607,7 +1661,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "button"
@@ -1656,7 +1711,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1686,7 +1742,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1716,7 +1773,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1733,6 +1791,7 @@
     "name": "questionnaire",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui"
     ],
     "registryDependencies": [
@@ -1814,7 +1873,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1836,7 +1896,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "button"
@@ -1901,7 +1962,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1927,7 +1989,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -1949,7 +2012,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2007,7 +2071,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2025,7 +2090,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2074,6 +2140,7 @@
     "name": "sidebar",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui",
       "@vueuse/core"
     ],
@@ -2195,6 +2262,9 @@
   {
     "name": "skeleton",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "files": [
       {
         "path": "ui/skeleton/Skeleton.vue",
@@ -2211,7 +2281,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2228,7 +2299,8 @@
     "name": "sonner",
     "type": "registry:ui",
     "dependencies": [
-      "vue-sonner"
+      "vue-sonner",
+      "cn"
     ],
     "files": [
       {
@@ -2244,6 +2316,9 @@
   {
     "name": "spinner",
     "type": "registry:ui",
+    "dependencies": [
+      "cn"
+    ],
     "files": [
       {
         "path": "ui/spinner/Spinner.vue",
@@ -2260,7 +2335,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2302,7 +2378,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2319,6 +2396,7 @@
     "name": "table",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "@vueuse/core"
     ],
     "files": [
@@ -2369,7 +2447,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2399,7 +2478,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2432,7 +2512,8 @@
     "name": "textarea",
     "type": "registry:ui",
     "dependencies": [
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2450,7 +2531,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2468,7 +2550,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "registryDependencies": [
       "toggle"
@@ -2493,7 +2576,8 @@
     "type": "registry:ui",
     "dependencies": [
       "reka-ui",
-      "@vueuse/core"
+      "@vueuse/core",
+      "cn"
     ],
     "files": [
       {
@@ -2522,6 +2606,7 @@
     "name": "trace",
     "type": "registry:ui",
     "dependencies": [
+      "cn",
       "reka-ui",
       "@vueuse/core"
     ],

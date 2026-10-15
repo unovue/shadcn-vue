@@ -1,8 +1,8 @@
 <script lang="ts">
 import type { registryItemSchema } from 'shadcn-vue/schema'
 import type { z } from 'zod'
+import { cn } from 'cn'
 import { fixImport } from '~/lib/registry-utils'
-import { cn } from '~/lib/utils'
 
 export type Chart = z.infer<typeof registryItemSchema> & {
   // highlightedCode: string

@@ -3,7 +3,8 @@ import type { RegistryItem } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import fs from 'node:fs'
 import path from 'node:path'
-import { addDependency, addDevDependency, detectPackageManager } from 'nypm'
+import { addDependency, addDevDependency, detectPackageManager, removeDependency } from 'nypm'
+import { getPackageInfo } from '@/src/utils/get-package-info'
 import { spinner } from '@/src/utils/spinner'
 
 export type SupportedPackageManager = PackageManagerName
@@ -93,6 +94,49 @@ export async function updateDependencies(
   )
 
   dependenciesSpinner?.succeed()
+}
+
+export async function installDependencies(
+  cwd: string,
+  dependencies: string[],
+  devDependencies: string[] = [],
+) {
+  dependencies = Array.from(new Set(dependencies))
+  devDependencies = Array.from(new Set(devDependencies))
+
+  if (!dependencies.length && !devDependencies.length) {
+    return
+  }
+
+  await installWithPackageManager(
+    await getPackageManager(cwd, { withFallback: true }),
+    dependencies,
+    devDependencies,
+    cwd,
+    true,
+  )
+}
+
+export async function removeDependencies(cwd: string, dependencies: string[]) {
+  const packageInfo = getPackageInfo(cwd, false)
+  dependencies = dependencies.filter(dependency =>
+    Boolean(
+      packageInfo?.dependencies?.[dependency]
+      ?? packageInfo?.devDependencies?.[dependency]
+      ?? packageInfo?.optionalDependencies?.[dependency]
+      ?? packageInfo?.peerDependencies?.[dependency],
+    ),
+  )
+
+  if (!dependencies.length) {
+    return
+  }
+
+  await removeDependency(dependencies, {
+    cwd,
+    packageManager: await getPackageManager(cwd, { withFallback: true }),
+    silent: true,
+  })
 }
 
 async function installWithPackageManager(

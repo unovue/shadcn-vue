@@ -2,7 +2,7 @@
 import type { CollapsibleTriggerProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
 import { CollapsibleTrigger } from "@/registry/bases/reka/ui/collapsible"
 import TraceIcon from "./TraceIcon.vue"

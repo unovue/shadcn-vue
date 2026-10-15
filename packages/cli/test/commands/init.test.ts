@@ -29,8 +29,7 @@ it.skip('init config-full', async () => {
     dependencies: [
       'tailwindcss-animate',
       'class-variance-authority',
-      'clsx',
-      'tailwind-merge',
+      'cn',
       '@lucide/vue',
       '@radix-icons/vue',
       '@tabler/icons-vue',
@@ -92,15 +91,14 @@ it.skip('init config-full', async () => {
   expect(mockWriteFile).toHaveBeenNthCalledWith(
     3,
     expect.stringMatching(/src\/lib\/utils.ts$/),
-    expect.stringContaining('import { type ClassValue, clsx } from \'clsx\''),
+    expect.stringContaining('export { cn } from \'cn\''),
     'utf8',
   )
   expect(addDependency).toHaveBeenCalledWith(
     [
       'tailwindcss-animate',
       'class-variance-authority',
-      'clsx',
-      'tailwind-merge',
+      'cn',
       'reka-ui',
       '@radix-icons/vue',
       '@tabler/icons-vue',

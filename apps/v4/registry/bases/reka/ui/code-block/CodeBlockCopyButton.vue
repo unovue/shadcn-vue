@@ -3,7 +3,7 @@ import type { PrimitiveProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import type { ButtonVariants } from "@/registry/bases/reka/ui/button"
 import { useClipboard } from "@vueuse/core"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
 import { Button } from "@/registry/bases/reka/ui/button"
 

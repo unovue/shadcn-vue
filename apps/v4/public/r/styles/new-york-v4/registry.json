@@ -6,6 +6,7 @@
       "name": "index",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "@lucide/vue"
       ],
       "devDependencies": [
@@ -22,6 +23,7 @@
       "name": "style",
       "dependencies": [
         "class-variance-authority",
+        "cn",
         "@lucide/vue"
       ],
       "devDependencies": [
@@ -38,7 +40,8 @@
       "name": "accordion",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -66,6 +69,9 @@
     },
     {
       "name": "alert",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "registry/new-york-v4/ui/alert/Alert.vue",
@@ -90,7 +96,8 @@
       "name": "alert-dialog",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "button"
@@ -159,6 +166,7 @@
     {
       "name": "attachment",
       "dependencies": [
+        "cn",
         "reka-ui"
       ],
       "files": [
@@ -208,6 +216,7 @@
     {
       "name": "avatar",
       "dependencies": [
+        "cn",
         "reka-ui",
         "@vueuse/core"
       ],
@@ -235,7 +244,8 @@
       "name": "badge",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -252,6 +262,7 @@
     {
       "name": "breadcrumb",
       "dependencies": [
+        "cn",
         "reka-ui"
       ],
       "files": [
@@ -293,7 +304,8 @@
     {
       "name": "bubble",
       "dependencies": [
-        "reka-ui"
+        "reka-ui",
+        "cn"
       ],
       "files": [
         {
@@ -322,7 +334,8 @@
     {
       "name": "button",
       "dependencies": [
-        "reka-ui"
+        "reka-ui",
+        "cn"
       ],
       "files": [
         {
@@ -339,6 +352,7 @@
     {
       "name": "button-group",
       "dependencies": [
+        "cn",
         "reka-ui",
         "@vueuse/core"
       ],
@@ -369,7 +383,8 @@
       "name": "calendar",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "native-select",
@@ -433,6 +448,9 @@
     },
     {
       "name": "card",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "registry/new-york-v4/ui/card/Card.vue",
@@ -472,6 +490,7 @@
     {
       "name": "carousel",
       "dependencies": [
+        "cn",
         "embla-carousel-vue",
         "@vueuse/core"
       ],
@@ -517,6 +536,7 @@
     {
       "name": "chart",
       "dependencies": [
+        "cn",
         "reka-ui",
         "@vueuse/core"
       ],
@@ -552,7 +572,8 @@
       "name": "checkbox",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -569,7 +590,9 @@
     {
       "name": "code-block",
       "dependencies": [
+        "cn",
         "reka-ui",
+        "@vueuse/core",
         "shiki"
       ],
       "registryDependencies": [
@@ -656,7 +679,8 @@
       "name": "combobox",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -714,7 +738,8 @@
       "name": "command",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "dialog"
@@ -767,7 +792,8 @@
       "name": "context-menu",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -841,7 +867,8 @@
       "name": "dialog",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "button"
@@ -898,7 +925,8 @@
       "name": "drawer",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -948,7 +976,8 @@
       "name": "dropdown-menu",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1016,6 +1045,9 @@
     },
     {
       "name": "empty",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "registry/new-york-v4/ui/empty/Empty.vue",
@@ -1050,6 +1082,9 @@
     },
     {
       "name": "field",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "label",
         "separator"
@@ -1106,6 +1141,7 @@
       "name": "form",
       "dependencies": [
         "reka-ui",
+        "cn",
         "vee-validate",
         "@vee-validate/zod",
         "zod@3.25.76"
@@ -1153,7 +1189,8 @@
       "name": "hover-card",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1178,7 +1215,8 @@
     {
       "name": "input",
       "dependencies": [
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1194,6 +1232,9 @@
     },
     {
       "name": "input-group",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "input",
@@ -1236,6 +1277,7 @@
       "dependencies": [
         "vue-input-otp",
         "@vueuse/core",
+        "cn",
         "reka-ui"
       ],
       "files": [
@@ -1265,7 +1307,8 @@
     {
       "name": "item",
       "dependencies": [
-        "reka-ui"
+        "reka-ui",
+        "cn"
       ],
       "registryDependencies": [
         "separator"
@@ -1320,6 +1363,9 @@
     },
     {
       "name": "kbd",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "registry/new-york-v4/ui/kbd/Kbd.vue",
@@ -1340,7 +1386,8 @@
       "name": "label",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1357,7 +1404,8 @@
     {
       "name": "marker",
       "dependencies": [
-        "reka-ui"
+        "reka-ui",
+        "cn"
       ],
       "files": [
         {
@@ -1383,7 +1431,8 @@
       "name": "menubar",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1456,7 +1505,8 @@
     {
       "name": "message",
       "dependencies": [
-        "reka-ui"
+        "reka-ui",
+        "cn"
       ],
       "files": [
         {
@@ -1492,6 +1542,9 @@
     },
     {
       "name": "message-scroller",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button"
       ],
@@ -1535,7 +1588,8 @@
       "name": "native-select",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1561,7 +1615,8 @@
       "name": "navigation-menu",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1607,7 +1662,8 @@
       "name": "number-field",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1641,7 +1697,8 @@
       "name": "pagination",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "button"
@@ -1690,7 +1747,8 @@
       "name": "pin-input",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1720,7 +1778,8 @@
       "name": "popover",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1750,7 +1809,8 @@
       "name": "progress",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1767,6 +1827,7 @@
     {
       "name": "questionnaire",
       "dependencies": [
+        "cn",
         "reka-ui"
       ],
       "registryDependencies": [
@@ -1848,7 +1909,8 @@
       "name": "radio-group",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1870,7 +1932,8 @@
       "name": "range-calendar",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "button"
@@ -1935,7 +1998,8 @@
       "name": "resizable",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1961,7 +2025,8 @@
       "name": "scroll-area",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -1983,7 +2048,8 @@
       "name": "select",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2041,7 +2107,8 @@
       "name": "separator",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2059,7 +2126,8 @@
       "name": "sheet",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2108,6 +2176,7 @@
     {
       "name": "sidebar",
       "dependencies": [
+        "cn",
         "reka-ui",
         "@vueuse/core"
       ],
@@ -2229,6 +2298,9 @@
     },
     {
       "name": "skeleton",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "registry/new-york-v4/ui/skeleton/Skeleton.vue",
@@ -2245,7 +2317,8 @@
       "name": "slider",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2262,7 +2335,8 @@
     {
       "name": "sonner",
       "dependencies": [
-        "vue-sonner"
+        "vue-sonner",
+        "cn"
       ],
       "files": [
         {
@@ -2278,6 +2352,9 @@
     },
     {
       "name": "spinner",
+      "dependencies": [
+        "cn"
+      ],
       "files": [
         {
           "path": "registry/new-york-v4/ui/spinner/Spinner.vue",
@@ -2294,7 +2371,8 @@
       "name": "stepper",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2336,7 +2414,8 @@
       "name": "switch",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2353,6 +2432,7 @@
     {
       "name": "table",
       "dependencies": [
+        "cn",
         "@vueuse/core"
       ],
       "files": [
@@ -2403,7 +2483,8 @@
       "name": "tabs",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2433,7 +2514,8 @@
       "name": "tags-input",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2466,7 +2548,8 @@
     {
       "name": "textarea",
       "dependencies": [
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2484,7 +2567,8 @@
       "name": "toggle",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2502,7 +2586,8 @@
       "name": "toggle-group",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "registryDependencies": [
         "toggle"
@@ -2527,7 +2612,8 @@
       "name": "tooltip",
       "dependencies": [
         "reka-ui",
-        "@vueuse/core"
+        "@vueuse/core",
+        "cn"
       ],
       "files": [
         {
@@ -2556,6 +2642,7 @@
     {
       "name": "trace",
       "dependencies": [
+        "cn",
         "reka-ui",
         "@vueuse/core"
       ],
@@ -2689,6 +2776,9 @@
     {
       "name": "login-01",
       "description": "A simple login form.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "card",
@@ -2715,6 +2805,9 @@
     {
       "name": "login-02",
       "description": "A two column login page with a cover image.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "field",
@@ -2740,6 +2833,9 @@
     {
       "name": "login-03",
       "description": "A login page with a muted background color.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "card",
@@ -2766,6 +2862,9 @@
     {
       "name": "login-04",
       "description": "A login page with form and image.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "card",
@@ -2792,6 +2891,9 @@
     {
       "name": "login-05",
       "description": "A simple email-only login page.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "field",
@@ -2843,6 +2945,9 @@
     {
       "name": "otp-02",
       "description": "A two column OTP page with a cover image.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "field",
@@ -2894,6 +2999,9 @@
     {
       "name": "otp-04",
       "description": "An OTP page with form and image.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "card",
@@ -2920,6 +3028,9 @@
     {
       "name": "otp-05",
       "description": "A simple OTP form with social providers.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "field",
@@ -3619,6 +3730,9 @@
     {
       "name": "signup-02",
       "description": "A two column signup page with a cover image.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "field",
@@ -3644,6 +3758,9 @@
     {
       "name": "signup-03",
       "description": "A signup page with a muted background color.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "card",
@@ -3670,6 +3787,9 @@
     {
       "name": "signup-04",
       "description": "A signup page with form and image.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "card",
@@ -3696,6 +3816,9 @@
     {
       "name": "signup-05",
       "description": "A simple signup form with social providers.",
+      "dependencies": [
+        "cn"
+      ],
       "registryDependencies": [
         "button",
         "field",
@@ -4228,8 +4351,7 @@
     {
       "name": "utils",
       "dependencies": [
-        "clsx",
-        "tailwind-merge"
+        "cn"
       ],
       "files": [
         {

@@ -12,8 +12,7 @@ export const lib: Registry["items"] = [
     ],
     registryDependencies: [],
     dependencies: [
-      "clsx",
-      "tailwind-merge",
+      "cn",
     ],
   },
 ]

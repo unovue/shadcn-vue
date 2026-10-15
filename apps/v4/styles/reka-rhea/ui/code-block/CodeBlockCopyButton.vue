@@ -5,7 +5,7 @@ import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/styles/reka-rhea/ui/button'
 import { CheckIcon, CopyIcon } from '@lucide/vue'
 import { useClipboard } from '@vueuse/core'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/styles/reka-rhea/ui/button'
 
 defineOptions({ inheritAttrs: false })

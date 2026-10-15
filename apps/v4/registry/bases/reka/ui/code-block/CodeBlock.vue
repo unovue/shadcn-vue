@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import type { CodeBlockVariants } from "."
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { codeBlockVariants } from "."
 
 const props = withDefaults(defineProps<{

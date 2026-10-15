@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Textarea } from '@/styles/reka-vega/ui/textarea'
 
 const props = defineProps<{

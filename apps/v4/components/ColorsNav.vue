@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
 import { ScrollArea, ScrollBar } from '@/registry/new-york-v4/ui/scroll-area'
 import { getColors } from '~/lib/colors'
-import { cn } from '~/lib/utils'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']
