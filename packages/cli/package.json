@@ -104,7 +104,7 @@
     "ora": "^9.4.1",
     "pathe": "catalog:",
     "postcss": "^8.5.19",
-    "postcss-selector-parser": "^7.1.4",
+    "postcss-selector-parser": "^7.1.6",
     "prompts": "^2.4.2",
     "reka-ui": "catalog:",
     "semver": "^7.8.5",
