@@ -574,6 +574,68 @@
       ]
     },
     {
+      "name": "code-block",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core",
+        "shiki"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlock.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockCopyButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockLine.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/CodeBlockToken.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/highlighter.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/code-block/useHighlightedCode.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "collapsible",
       "type": "registry:ui",
       "dependencies": [
@@ -2519,6 +2581,55 @@
         },
         {
           "path": "styles/reka-rhea/ui/tooltip/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "trace",
+      "type": "registry:ui",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "styles/reka-rhea/ui/trace/Trace.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceCollapsible.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceCollapsibleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceCollapsibleTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceIcon.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceLine.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/TraceTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/reka-rhea/ui/trace/index.ts",
           "type": "registry:ui"
         }
       ]

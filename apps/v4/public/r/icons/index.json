@@ -303,7 +303,8 @@
     "radix": "RocketIcon",
     "tabler": "IconTerminal",
     "phosphor": "PhTerminal",
-    "remixicon": "RiTerminalBoxLine"
+    "remixicon": "RiTerminalBoxLine",
+    "hugeicons": "ComputerTerminal01Icon"
   },
   "TriangleAlert": {
     "lucide": "TriangleAlertIcon",
@@ -441,6 +442,13 @@
     "hugeicons": "BookmarkIcon",
     "phosphor": "PhBookmarkSimple",
     "remixicon": "RiBookmarkLine"
+  },
+  "BrainIcon": {
+    "lucide": "BrainIcon",
+    "tabler": "IconBrain",
+    "hugeicons": "AiBrainIcon",
+    "phosphor": "PhBrain",
+    "remixicon": "RiBrainLine"
   },
   "Building2Icon": {
     "lucide": "Building2Icon",
@@ -610,6 +618,13 @@
     "phosphor": "PhFile",
     "remixicon": "RiFileLine"
   },
+  "FileSearchIcon": {
+    "lucide": "FileSearchIcon",
+    "tabler": "IconFileSearch",
+    "hugeicons": "FileSearchIcon",
+    "phosphor": "PhFileSearch",
+    "remixicon": "RiFileSearchLine"
+  },
   "FileTextIcon": {
     "lucide": "FileTextIcon",
     "tabler": "IconFileText",
@@ -756,6 +771,13 @@
     "hugeicons": "BulbIcon",
     "phosphor": "PhLightbulb",
     "remixicon": "RiLightbulbLine"
+  },
+  "LinkIcon": {
+    "lucide": "LinkIcon",
+    "tabler": "IconLink",
+    "hugeicons": "LinkIcon",
+    "phosphor": "PhLink",
+    "remixicon": "RiLinksLine"
   },
   "ListIcon": {
     "lucide": "ListIcon",
@@ -1057,6 +1079,13 @@
     "hugeicons": "MagicWand05Icon",
     "phosphor": "PhMagicWand",
     "remixicon": "RiMagicLine"
+  },
+  "WrapTextIcon": {
+    "lucide": "WrapTextIcon",
+    "tabler": "IconTextWrap",
+    "hugeicons": "TextWrapIcon",
+    "phosphor": "PhArrowUDownLeft",
+    "remixicon": "RiTextWrap"
   },
   "ZapIcon": {
     "lucide": "ZapIcon",
