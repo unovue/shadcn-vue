@@ -84,7 +84,7 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^2.6.0",
-    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@modelcontextprotocol/sdk": "^1.31.0",
     "@unovue/detypes": "^0.8.5",
     "@vue/compiler-sfc": "^3.5",
     "c12": "^3.3.4",
