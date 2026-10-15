@@ -25,6 +25,10 @@ const TOP_LEVEL_SECTIONS = [
     href: '/docs/components',
   },
   {
+    name: 'AI Elements',
+    href: '/docs/ai-elements',
+  },
+  {
     name: 'Registry',
     href: '/docs/registry',
   },

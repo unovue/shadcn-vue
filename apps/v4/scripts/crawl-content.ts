@@ -28,6 +28,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['vue-input-otp', []],
   ['clsx', []],
   ['tailwind-merge', []],
+  ['shiki', []],
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
@@ -424,13 +425,17 @@ async function getFileDependencies(filename: string, sourceCode: string) {
   const dependencies = new Set<string>()
 
   const populateDeps = (source: string) => {
-    const peerDeps = DEPENDENCIES.get(source)
+    // Subpath imports like `shiki/core` resolve to their package.
+    const packageName = DEPENDENCIES.has(source)
+      ? source
+      : source.split('/').slice(0, source.startsWith('@') ? 2 : 1).join('/')
+    const peerDeps = DEPENDENCIES.get(packageName)
     // const taggedDeps = DEPENDENCIES_WITH_TAGS.get(source)
     if (peerDeps !== undefined) {
       // if (taggedDeps !== undefined)
       //   dependencies.add(taggedDeps)
       // else
-      dependencies.add(source)
+      dependencies.add(packageName)
       peerDeps.forEach(dep => dependencies.add(dep))
     }
 

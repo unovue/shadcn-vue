@@ -1,0 +1,71 @@
+<script setup lang="ts">
+import type { PrimitiveProps } from "reka-ui"
+import type { HTMLAttributes } from "vue"
+import type { ButtonVariants } from "@/registry/bases/reka/ui/button"
+import { onBeforeUnmount, ref } from "vue"
+import { cn } from "@/lib/utils"
+import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
+import { Button } from "@/registry/bases/reka/ui/button"
+
+defineOptions({ inheritAttrs: false })
+
+const props = withDefaults(defineProps<PrimitiveProps & {
+  value: string
+  variant?: ButtonVariants["variant"]
+  size?: ButtonVariants["size"]
+  class?: HTMLAttributes["class"]
+}>(), {
+  as: "button",
+  variant: "ghost",
+  size: "icon-xs",
+})
+
+const copied = ref(false)
+let timeout: ReturnType<typeof setTimeout> | undefined
+
+function copy() {
+  navigator.clipboard
+    .writeText(props.value)
+    .then(() => {
+      copied.value = true
+      clearTimeout(timeout)
+      timeout = setTimeout(() => (copied.value = false), 2000)
+    })
+    .catch(() => {})
+}
+
+onBeforeUnmount(() => clearTimeout(timeout))
+</script>
+
+<template>
+  <Button
+    v-bind="$attrs"
+    data-slot="code-block-copy-button"
+    :data-copied="copied || undefined"
+    :as="as"
+    :as-child="asChild"
+    :variant="variant"
+    :size="size"
+    :aria-label="copied ? 'Copied' : 'Copy'"
+    :class="cn('cn-code-block-copy-button', props.class)"
+    @click="copy"
+  >
+    <IconPlaceholder
+      v-if="copied"
+      lucide="CheckIcon"
+      tabler="IconCheck"
+      hugeicons="Tick02Icon"
+      phosphor="CheckIcon"
+      remixicon="RiCheckLine"
+    />
+    <IconPlaceholder
+      v-else
+      lucide="CopyIcon"
+      tabler="IconCopy"
+      hugeicons="Copy01Icon"
+      phosphor="CopyIcon"
+      remixicon="RiFileCopyLine"
+    />
+  </Button>
+  <span aria-live="polite" class="sr-only">{{ copied ? "Copied" : "" }}</span>
+</template>

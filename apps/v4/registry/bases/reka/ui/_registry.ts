@@ -557,6 +557,67 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "code-block",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+      "shiki",
+    ],
+    registryDependencies: [
+      "button",
+    ],
+    files: [
+      {
+        path: "ui/code-block/CodeBlock.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockActions.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockCopyButton.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockFooter.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockHeader.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockLine.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockTitle.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/CodeBlockToken.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/highlighter.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/index.ts",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/code-block/useHighlightedCode.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "collapsible",
     type: "registry:ui",
     dependencies: [
@@ -2502,6 +2563,55 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/tooltip/index.ts",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "trace",
+    type: "registry:ui",
+    dependencies: [
+      "reka-ui",
+      "@vueuse/core",
+    ],
+    registryDependencies: [
+      "collapsible",
+    ],
+    files: [
+      {
+        path: "ui/trace/Trace.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceCollapsible.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceCollapsibleContent.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceCollapsibleTrigger.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceDescription.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceIcon.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceLine.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/TraceTitle.vue",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/trace/index.ts",
         type: "registry:ui",
       },
     ],
