@@ -329,7 +329,7 @@ export async function deduplicateFilesByTarget(
 
   allFiles.forEach((file) => {
     const resolvedPath = resolveFilePath(file, config, {
-      // isSrcDir: projectInfo?.isSrcDir,
+      isSrcDir: projectInfo?.isSrcDir,
       framework: projectInfo?.framework.name,
       commonRoot: findCommonRoot(
         allFiles.map(f => f.path),
