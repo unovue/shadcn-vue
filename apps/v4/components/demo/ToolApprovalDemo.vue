@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CircleCheckIcon, LoaderCircleIcon, TerminalIcon } from '@lucide/vue'
-import { computed, onBeforeUnmount, reactive, ref } from 'vue'
+import { promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, reactive, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import {
@@ -57,17 +58,23 @@ const busy = computed(() => status.value !== 'ready')
 // The open state of each reasoning line, once the person opens or closes it.
 const openState = ref<Record<string, boolean | undefined>>({})
 
-let timers: ReturnType<typeof setTimeout>[] = []
+// Unmounting bumps `run`, so a running script stops at its next wait.
+let run = 0
+tryOnScopeDispose(() => run++)
 
-function sleep(ms: number) {
-  return new Promise<void>(resolve => timers.push(setTimeout(resolve, ms)))
+async function sleep(ms: number) {
+  const id = run
+  await promiseTimeout(ms)
+  return id === run
 }
 
 async function streamInto(target: { text: string }, text: string, delayMs: number) {
   for (const chunk of text.match(/\S+\s*/g) ?? []) {
     target.text += chunk
-    await sleep(delayMs)
+    if (!(await sleep(delayMs)))
+      return false
   }
+  return true
 }
 
 function getText(message: ChatMessage) {
@@ -86,7 +93,8 @@ async function send() {
   messages.value = [{ id: 'user', role: 'user', parts: [{ type: 'text', text: QUESTION }] }]
   openState.value = {}
   status.value = 'submitted'
-  await sleep(600)
+  if (!(await sleep(600)))
+    return
 
   const message = reactive<ChatMessage>({ id: 'assistant', role: 'assistant', parts: [] })
   messages.value.push(message)
@@ -94,9 +102,11 @@ async function send() {
 
   const reasoning = reactive<ReasoningPart>({ type: 'reasoning', text: '', state: 'streaming' })
   message.parts.push(reasoning)
-  await streamInto(reasoning, REASONING, 20)
+  if (!(await streamInto(reasoning, REASONING, 20)))
+    return
   reasoning.state = 'done'
-  await sleep(400)
+  if (!(await sleep(400)))
+    return
 
   message.parts.push({
     type: 'tool-runCommand',
@@ -115,29 +125,23 @@ async function respond(part: ToolPart, approved: boolean) {
   part.state = 'approval-responded'
   part.approval.approved = approved
   status.value = 'submitted'
-  await sleep(600)
+  if (!(await sleep(600)))
+    return
 
   status.value = 'streaming'
   part.state = approved ? 'output-available' : 'output-denied'
 
+  const reply = approved ? 'Removed the dist folder.' : 'Okay, I left the dist folder in place.'
   const text = reactive<TextPart>({ type: 'text', text: '' })
   message.parts.push(text)
-  await streamInto(
-    text,
-    approved ? 'Removed the dist folder.' : 'Okay, I left the dist folder in place.',
-    20,
-  )
+  if (!(await streamInto(text, reply, 20)))
+    return
   status.value = 'ready'
 }
 
 function reset() {
   messages.value = []
 }
-
-onBeforeUnmount(() => {
-  timers.forEach(clearTimeout)
-  timers = []
-})
 </script>
 
 <template>

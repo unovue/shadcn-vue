@@ -6,8 +6,8 @@ import {
   GlobeIcon,
   LoaderCircleIcon,
 } from '@lucide/vue'
-import { createReusableTemplate } from '@vueuse/core'
-import { computed, onBeforeUnmount, reactive, ref } from 'vue'
+import { createReusableTemplate, promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, reactive, ref } from 'vue'
 import { Badge } from '@/registry/bases/reka/ui/badge'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
@@ -109,18 +109,23 @@ const busy = computed(() => status.value !== 'ready')
 // The open state of each summary, once the person opens or closes it.
 const openState = ref<Record<string, boolean | undefined>>({})
 
-let timers: ReturnType<typeof setTimeout>[] = []
+// Unmounting bumps `run`, so a running script stops at its next wait.
 let run = 0
+tryOnScopeDispose(() => run++)
 
-function sleep(ms: number) {
-  return new Promise<void>(resolve => timers.push(setTimeout(resolve, ms)))
+async function sleep(ms: number) {
+  const id = run
+  await promiseTimeout(ms)
+  return id === run
 }
 
 async function streamInto(target: { text: string }, text: string, delayMs: number) {
   for (const chunk of text.match(/\S+\s*/g) ?? []) {
     target.text += chunk
-    await sleep(delayMs)
+    if (!(await sleep(delayMs)))
+      return false
   }
+  return true
 }
 
 function getText(message: ChatMessage) {
@@ -173,7 +178,8 @@ async function replay() {
   messages.value = [{ id: `user-${id}`, role: 'user', parts: [{ type: 'text', text: QUESTION }] }]
   openState.value = {}
   status.value = 'submitted'
-  await sleep(300)
+  if (!(await sleep(300)))
+    return
 
   const message = reactive<ChatMessage>({ id: `assistant-${id}`, role: 'assistant', parts: [] })
   messages.value.push(message)
@@ -187,21 +193,18 @@ async function replay() {
       state: 'input-available',
     } as StepPart)
     message.parts.push(part)
-    await sleep(900)
+    if (!(await sleep(900)))
+      return
     part.output = output as never
     part.state = 'output-available'
   }
 
   const text = reactive<TextPart>({ type: 'text', text: '' })
   message.parts.push(text)
-  await streamInto(text, ANSWER, 20)
+  if (!(await streamInto(text, ANSWER, 20)))
+    return
   status.value = 'ready'
 }
-
-onBeforeUnmount(() => {
-  timers.forEach(clearTimeout)
-  timers = []
-})
 
 const [DefineLine, ReuseLine] = createReusableTemplate<{
   title: string

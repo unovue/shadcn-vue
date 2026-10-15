@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DownloadIcon, TerminalIcon, WrapTextIcon } from '@lucide/vue'
-import { ref } from 'vue'
+import { useToggle } from '@vueuse/core'
 import { Button } from '@/registry/bases/reka/ui/button'
 import {
   CodeBlock,
@@ -18,7 +18,7 @@ app/components/MessageList.vue
 
 ✖ 2 problems (1 error, 1 warning)`
 
-const wrap = ref(true)
+const [wrap, toggleWrap] = useToggle(true)
 
 function download(value: string, filename: string) {
   const url = URL.createObjectURL(new Blob([value], { type: 'text/plain' }))
@@ -45,7 +45,7 @@ function download(value: string, filename: string) {
             aria-label="Wrap lines"
             :aria-pressed="wrap"
             class="aria-pressed:text-foreground"
-            @click="wrap = !wrap"
+            @click="toggleWrap()"
           >
             <WrapTextIcon />
           </Button>

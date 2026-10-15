@@ -11,20 +11,12 @@ import {
   TelescopeIcon,
   TerminalIcon,
 } from '@lucide/vue'
-import { computed, defineComponent, h, onBeforeUnmount, reactive, ref } from 'vue'
+import { createReusableTemplate, promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, reactive, ref } from 'vue'
+import Markdown from '@/components/Markdown.vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
-import {
-  CodeBlock,
-  CodeBlockActions,
-  CodeBlockContent,
-  CodeBlockCopyButton,
-  CodeBlockHeader,
-  CodeBlockLine,
-  CodeBlockTitle,
-  CodeBlockToken,
-  useHighlightedCode,
-} from '@/registry/bases/reka/ui/code-block'
+import { CodeBlock, CodeBlockContent } from '@/registry/bases/reka/ui/code-block'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -198,43 +190,30 @@ const text = computed({
 })
 const canSend = computed(() => text.value.trim().length > 0 && !busy.value)
 
-// Simulated streaming. Every timer belongs to a run, so reset can cancel it.
+// Simulated streaming. Reset and unmount bump `run`, so a running script
+// stops at its next wait.
 let run = 0
-const timers = new Set<ReturnType<typeof setTimeout>>()
+tryOnScopeDispose(() => run++)
 
-function wait(ms: number) {
-  return new Promise<void>((resolve) => {
-    const timer = setTimeout(() => {
-      timers.delete(timer)
-      resolve()
-    }, ms)
-    timers.add(timer)
-  })
+async function sleep(ms: number, id: number) {
+  await promiseTimeout(ms)
+  return id === run
 }
-
-function cancel() {
-  run++
-  timers.forEach(timer => clearTimeout(timer))
-  timers.clear()
-}
-
-onBeforeUnmount(cancel)
 
 async function stream(value: string, write: (text: string) => void, id: number) {
   for (let cursor = 0; cursor < value.length;) {
     cursor = Math.min(value.length, cursor + 3)
     write(value.slice(0, cursor))
-    await wait(16)
-    if (id !== run)
-      return
+    if (!(await sleep(16, id)))
+      return false
   }
+  return true
 }
 
 async function respond(steps: Step[]) {
   const id = run
   status.value = 'submitted'
-  await wait(600)
-  if (id !== run)
+  if (!(await sleep(600, id)))
     return
 
   messages.value.push({ id: `assistant-${Date.now()}`, role: 'assistant', parts: [] })
@@ -243,14 +222,17 @@ async function respond(steps: Step[]) {
 
   for (const step of steps) {
     if (step.type === 'sleep') {
-      await wait(step.ms)
+      if (!(await sleep(step.ms, id)))
+        return
     }
     else if (step.type === 'reasoning') {
       message.parts.push({ type: 'reasoning', text: '', state: 'streaming' })
       const part = message.parts.at(-1) as Extract<ChatPart, { type: 'reasoning' }>
-      await stream(step.text, (value) => {
+      if (!(await stream(step.text, (value) => {
         part.text = value
-      }, id)
+      }, id))) {
+        return
+      }
       part.state = 'done'
     }
     else if (step.type === 'tool') {
@@ -260,8 +242,7 @@ async function respond(steps: Step[]) {
         input: { command: step.command },
       })
       const part = message.parts.at(-1) as Extract<ChatPart, { type: 'tool-runCommand' }>
-      await wait(step.ms)
-      if (id !== run)
+      if (!(await sleep(step.ms, id)))
         return
       part.output = { stdout: step.stdout }
       part.state = 'output-available'
@@ -269,13 +250,12 @@ async function respond(steps: Step[]) {
     else {
       message.parts.push({ type: 'text', text: '' })
       const part = message.parts.at(-1) as Extract<ChatPart, { type: 'text' }>
-      await stream(step.text, (value) => {
+      if (!(await stream(step.text, (value) => {
         part.text = value
-      }, id)
+      }, id))) {
+        return
+      }
     }
-
-    if (id !== run)
-      return
   }
 
   status.value = 'ready'
@@ -303,7 +283,7 @@ function onKeydown(event: KeyboardEvent) {
 }
 
 function reset() {
-  cancel()
+  run++
   messages.value = []
   draft.value = null
   status.value = 'ready'
@@ -317,101 +297,78 @@ function getMessageText(message: ChatMessage) {
     .join('')
 }
 
+type ToolPart = Extract<ChatPart, { type: 'tool-runCommand' }>
+
+const [DefineReasoningRow, ReasoningRow] = createReusableTemplate<{
+  id: string
+  text: string
+  running: boolean
+}>()
+const [DefineToolRow, ToolRow] = createReusableTemplate<{
+  part: ToolPart
+  streaming: boolean
+}>()
+
 function getSteps(message: ChatMessage) {
   return message.parts.filter(
     part => part.type === 'reasoning' || part.type === 'tool-runCommand',
   ) as Exclude<ChatPart, { type: 'text' }>[]
 }
-
-// A minimal markdown renderer for the scripted replies: paragraphs, lists,
-// bold, inline code and fenced code blocks. Use a markdown renderer in your app.
-interface Inline { type: 'text' | 'code' | 'strong', value: string }
-type Block
-  = | { type: 'paragraph', inlines: Inline[] }
-    | { type: 'list', items: Inline[][] }
-    | { type: 'code', language: string, code: string }
-
-function parseInline(value: string): Inline[] {
-  return value
-    .split(/(`[^`]+`|\*\*[^*]+\*\*)/)
-    .filter(Boolean)
-    .map((part): Inline => {
-      if (part.length > 2 && part.startsWith('`') && part.endsWith('`'))
-        return { type: 'code', value: part.slice(1, -1) }
-      if (part.length > 4 && part.startsWith('**') && part.endsWith('**'))
-        return { type: 'strong', value: part.slice(2, -2) }
-      return { type: 'text', value: part }
-    })
-}
-
-function parseMarkdown(markdown: string): Block[] {
-  const lines = markdown.split('\n')
-  const blocks: Block[] = []
-  let index = 0
-
-  while (index < lines.length) {
-    const line = lines[index]!
-
-    if (line.startsWith('```')) {
-      const code: string[] = []
-      index++
-      while (index < lines.length && !lines[index]!.startsWith('```'))
-        code.push(lines[index++]!)
-      index++
-      blocks.push({ type: 'code', language: line.slice(3).trim(), code: code.join('\n') })
-    }
-    else if (line.startsWith('- ')) {
-      const items: Inline[][] = []
-      while (index < lines.length && lines[index]!.startsWith('- '))
-        items.push(parseInline(lines[index++]!.slice(2)))
-      blocks.push({ type: 'list', items })
-    }
-    else if (line.trim()) {
-      const paragraph: string[] = []
-      while (
-        index < lines.length
-        && lines[index]!.trim()
-        && !lines[index]!.startsWith('```')
-        && !lines[index]!.startsWith('- ')
-      ) {
-        paragraph.push(lines[index++]!)
-      }
-      blocks.push({ type: 'paragraph', inlines: parseInline(paragraph.join(' ')) })
-    }
-    else {
-      index++
-    }
-  }
-
-  return blocks
-}
-
-// Fenced code in the reply renders as a Code Block with line numbers.
-const MarkdownCodeBlock = defineComponent({
-  props: {
-    code: { type: String, required: true },
-    language: { type: String, default: '' },
-  },
-  setup(props) {
-    const lines = useHighlightedCode(() => props.code, () => props.language)
-
-    return () =>
-      h(CodeBlock, null, () => [
-        h(CodeBlockHeader, null, () => [
-          h(CodeBlockTitle, null, () => props.language || 'text'),
-          h(CodeBlockActions, null, () => h(CodeBlockCopyButton, { value: props.code })),
-        ]),
-        h(CodeBlockContent, { lineNumbers: true }, () =>
-          lines.value.map((line, index) =>
-            h(CodeBlockLine, { key: index }, () =>
-              line.map((token, i) => h(CodeBlockToken, { key: i, token }))),
-          )),
-      ])
-  },
-})
 </script>
 
 <template>
+  <DefineReasoningRow v-slot="{ id, text: reasoning, running }">
+    <TraceCollapsible
+      :open="reasoningOpen[id] ?? running"
+      @update:open="reasoningOpen[id] = $event"
+    >
+      <TraceCollapsibleTrigger>
+        <TraceLine :status="running ? 'running' : undefined">
+          <TraceIcon>
+            <LoaderCircleIcon v-if="running" class="animate-spin" />
+            <CircleCheckIcon v-else />
+          </TraceIcon>
+          <TraceTitle>{{ running ? 'Thinking' : 'Thought' }}</TraceTitle>
+        </TraceLine>
+      </TraceCollapsibleTrigger>
+      <TraceCollapsibleContent class="whitespace-pre-wrap">
+        {{ reasoning }}
+      </TraceCollapsibleContent>
+    </TraceCollapsible>
+  </DefineReasoningRow>
+
+  <DefineToolRow v-slot="{ part, streaming }">
+    <TraceCollapsible
+      v-if="part.state === 'output-available' || part.state === 'output-error'"
+    >
+      <TraceCollapsibleTrigger>
+        <TraceLine :status="part.state === 'output-error' ? 'error' : undefined">
+          <TraceIcon>
+            <TerminalIcon />
+          </TraceIcon>
+          <TraceTitle>
+            {{ part.state === 'output-error' ? 'Failed to run' : 'Ran' }} {{ part.input.command }}
+          </TraceTitle>
+        </TraceLine>
+      </TraceCollapsibleTrigger>
+      <TraceCollapsibleContent>
+        <CodeBlock size="sm">
+          <CodeBlockContent wrap class="max-h-64">
+            {{ part.state === 'output-error' ? part.errorText : part.output?.stdout }}
+          </CodeBlockContent>
+        </CodeBlock>
+      </TraceCollapsibleContent>
+    </TraceCollapsible>
+    <TraceLine v-else :status="streaming ? 'running' : 'error'">
+      <TraceIcon>
+        <TerminalIcon />
+      </TraceIcon>
+      <TraceTitle>
+        {{ streaming ? 'Running' : 'Failed to run' }} {{ part.input.command }}
+      </TraceTitle>
+    </TraceLine>
+  </DefineToolRow>
+
   <MessageScrollerProvider>
     <div class="relative flex w-full flex-col gap-4 [[data-slot=preview]:has(&)]:bg-background [[data-slot=preview]:has(&)>div]:p-0!">
       <div class="flex h-200 w-full flex-col gap-4">
@@ -480,96 +437,24 @@ const MarkdownCodeBlock = defineComponent({
                             v-for="(part, index) in getSteps(message)"
                             :key="index"
                           >
-                            <TraceCollapsible
+                            <ReasoningRow
                               v-if="part.type === 'reasoning'"
-                              :open="reasoningOpen[`${message.id}-${index}`] ?? part.state === 'streaming'"
-                              @update:open="reasoningOpen[`${message.id}-${index}`] = $event"
-                            >
-                              <TraceCollapsibleTrigger>
-                                <TraceLine :status="part.state === 'streaming' ? 'running' : undefined">
-                                  <TraceIcon>
-                                    <LoaderCircleIcon v-if="part.state === 'streaming'" class="animate-spin" />
-                                    <CircleCheckIcon v-else />
-                                  </TraceIcon>
-                                  <TraceTitle>{{ part.state === 'streaming' ? 'Thinking' : 'Thought' }}</TraceTitle>
-                                </TraceLine>
-                              </TraceCollapsibleTrigger>
-                              <TraceCollapsibleContent class="whitespace-pre-wrap">
-                                {{ part.text }}
-                              </TraceCollapsibleContent>
-                            </TraceCollapsible>
-                            <TraceCollapsible
-                              v-else-if="part.state === 'output-available' || part.state === 'output-error'"
-                            >
-                              <TraceCollapsibleTrigger>
-                                <TraceLine :status="part.state === 'output-error' ? 'error' : undefined">
-                                  <TraceIcon>
-                                    <TerminalIcon />
-                                  </TraceIcon>
-                                  <TraceTitle>
-                                    {{ part.state === 'output-error' ? 'Failed to run' : 'Ran' }} {{ part.input.command }}
-                                  </TraceTitle>
-                                </TraceLine>
-                              </TraceCollapsibleTrigger>
-                              <TraceCollapsibleContent>
-                                <CodeBlock size="sm">
-                                  <CodeBlockContent wrap class="max-h-64">
-                                    {{ part.state === 'output-error' ? part.errorText : part.output?.stdout }}
-                                  </CodeBlockContent>
-                                </CodeBlock>
-                              </TraceCollapsibleContent>
-                            </TraceCollapsible>
-                            <TraceLine
+                              :id="`${message.id}-${index}`"
+                              :text="part.text"
+                              :running="part.state === 'streaming'"
+                            />
+                            <ToolRow
                               v-else
-                              :status="busy && message === messages.at(-1) ? 'running' : 'error'"
-                            >
-                              <TraceIcon>
-                                <TerminalIcon />
-                              </TraceIcon>
-                              <TraceTitle>
-                                {{ busy && message === messages.at(-1) ? 'Running' : 'Failed to run' }} {{ part.input.command }}
-                              </TraceTitle>
-                            </TraceLine>
-                          </template>
-                        </Trace>
-                        <div v-if="getMessageText(message)" class="flex flex-col gap-3">
-                          <template
-                            v-for="(block, index) in parseMarkdown(getMessageText(message))"
-                            :key="index"
-                          >
-                            <p v-if="block.type === 'paragraph'">
-                              <template v-for="(inline, i) in block.inlines" :key="i">
-                                <code
-                                  v-if="inline.type === 'code'"
-                                  class="rounded-sm bg-muted px-1 py-0.5 font-mono text-[0.9em]"
-                                >{{ inline.value }}</code>
-                                <strong v-else-if="inline.type === 'strong'" class="font-semibold">{{ inline.value }}</strong>
-                                <template v-else>
-                                  {{ inline.value }}
-                                </template>
-                              </template>
-                            </p>
-                            <ul v-else-if="block.type === 'list'" class="flex list-disc flex-col gap-1 pl-5">
-                              <li v-for="(item, i) in block.items" :key="i">
-                                <template v-for="(inline, j) in item" :key="j">
-                                  <code
-                                    v-if="inline.type === 'code'"
-                                    class="rounded-sm bg-muted px-1 py-0.5 font-mono text-[0.9em]"
-                                  >{{ inline.value }}</code>
-                                  <strong v-else-if="inline.type === 'strong'" class="font-semibold">{{ inline.value }}</strong>
-                                  <template v-else>
-                                    {{ inline.value }}
-                                  </template>
-                                </template>
-                              </li>
-                            </ul>
-                            <MarkdownCodeBlock
-                              v-else
-                              :code="block.code"
-                              :language="block.language"
+                              :part="part"
+                              :streaming="busy && message === messages.at(-1)"
                             />
                           </template>
-                        </div>
+                        </Trace>
+                        <Markdown
+                          v-if="getMessageText(message)"
+                          :value="getMessageText(message)"
+                          :streaming="busy && message === messages.at(-1)"
+                        />
                       </MessageContent>
                     </Message>
                   </MessageScrollerItem>

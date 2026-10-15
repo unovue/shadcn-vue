@@ -3,6 +3,7 @@
   "name": "code-block",
   "dependencies": [
     "reka-ui",
+    "@vueuse/core",
     "shiki"
   ],
   "registryDependencies": [
@@ -26,7 +27,7 @@
     },
     {
       "path": "styles/reka-sera/ui/code-block/CodeBlockCopyButton.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport type { ButtonVariants } from '@/styles/reka-sera/ui/button'\nimport { CheckIcon, CopyIcon } from '@lucide/vue'\nimport { onBeforeUnmount, ref } from 'vue'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/styles/reka-sera/ui/button'\n\ndefineOptions({ inheritAttrs: false })\n\nconst props = withDefaults(defineProps<PrimitiveProps & {\n  value: string\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  as: 'button',\n  variant: 'ghost',\n  size: 'icon-xs',\n})\n\nconst copied = ref(false)\nlet timeout: ReturnType<typeof setTimeout> | undefined\n\nfunction copy() {\n  navigator.clipboard\n    .writeText(props.value)\n    .then(() => {\n      copied.value = true\n      clearTimeout(timeout)\n      timeout = setTimeout(() => (copied.value = false), 2000)\n    })\n    .catch(() => {})\n}\n\nonBeforeUnmount(() => clearTimeout(timeout))\n</script>\n\n<template>\n  <Button\n    v-bind=\"$attrs\"\n    data-slot=\"code-block-copy-button\"\n    :data-copied=\"copied || undefined\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :variant=\"variant\"\n    :size=\"size\"\n    :aria-label=\"copied ? 'Copied' : 'Copy'\"\n    :class=\"cn('', props.class)\"\n    @click=\"copy\"\n  >\n    <CheckIcon v-if=\"copied\" />\n    <CopyIcon v-else />\n  </Button>\n  <span aria-live=\"polite\" class=\"sr-only\">{{ copied ? \"Copied\" : \"\" }}</span>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport type { ButtonVariants } from '@/styles/reka-sera/ui/button'\nimport { CheckIcon, CopyIcon } from '@lucide/vue'\nimport { useClipboard } from '@vueuse/core'\nimport { cn } from '@/lib/utils'\nimport { Button } from '@/styles/reka-sera/ui/button'\n\ndefineOptions({ inheritAttrs: false })\n\nconst props = withDefaults(defineProps<PrimitiveProps & {\n  value: string\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  as: 'button',\n  variant: 'ghost',\n  size: 'icon-xs',\n})\n\nconst { copy, copied } = useClipboard({ copiedDuring: 2000, legacy: true })\n</script>\n\n<template>\n  <Button\n    v-bind=\"$attrs\"\n    data-slot=\"code-block-copy-button\"\n    :data-copied=\"copied || undefined\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :variant=\"variant\"\n    :size=\"size\"\n    :aria-label=\"copied ? 'Copied' : 'Copy'\"\n    :class=\"cn('', props.class)\"\n    @click=\"copy(props.value)\"\n  >\n    <CheckIcon v-if=\"copied\" />\n    <CopyIcon v-else />\n  </Button>\n  <span aria-live=\"polite\" class=\"sr-only\">{{ copied ? \"Copied\" : \"\" }}</span>\n</template>\n",
       "type": "registry:ui"
     },
     {

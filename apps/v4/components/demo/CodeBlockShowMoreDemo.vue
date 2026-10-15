@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ChevronDownIcon } from '@lucide/vue'
-import { ref, useId } from 'vue'
+import { useToggle } from '@vueuse/core'
+import { useId } from 'vue'
 import { Button } from '@/registry/bases/reka/ui/button'
 import {
   CodeBlock,
@@ -49,7 +50,7 @@ function onSubmit() {
   </div>
 </template>`
 
-const expanded = ref(false)
+const [expanded, toggleExpanded] = useToggle(false)
 const lines = useHighlightedCode(code, 'vue')
 const id = useId()
 </script>
@@ -78,7 +79,7 @@ const id = useId()
           size="xs"
           :aria-expanded="expanded"
           :aria-controls="id"
-          @click="expanded = !expanded"
+          @click="toggleExpanded()"
         >
           <ChevronDownIcon class="transition-transform in-aria-expanded:rotate-180" />
           {{ expanded ? 'Show less' : 'Show more' }}

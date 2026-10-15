@@ -182,9 +182,9 @@ previewClass: h-auto
 ```vue showLineNumbers
 <script setup lang="ts">
 import { WrapTextIcon } from '@lucide/vue'
-import { ref } from 'vue'
+import { useToggle } from '@vueuse/core'
 
-const wrap = ref(false)
+const [wrap, toggleWrap] = useToggle(false)
 </script>
 
 <template>
@@ -194,7 +194,7 @@ const wrap = ref(false)
       size="icon-xs"
       aria-label="Wrap lines"
       :aria-pressed="wrap"
-      @click="wrap = !wrap"
+      @click="toggleWrap()"
     >
       <WrapTextIcon />
     </Button>
@@ -306,9 +306,10 @@ previewClass: h-auto
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ref, useId } from 'vue'
+import { useToggle } from '@vueuse/core'
+import { useId } from 'vue'
 
-const expanded = ref(false)
+const [expanded, toggleExpanded] = useToggle(false)
 const id = useId()
 </script>
 
@@ -325,7 +326,7 @@ const id = useId()
       size="xs"
       :aria-expanded="expanded"
       :aria-controls="id"
-      @click="expanded = !expanded"
+      @click="toggleExpanded()"
     >
       {{ expanded ? 'Show less' : 'Show more' }}
     </Button>
@@ -560,7 +561,7 @@ previewClass: h-auto
 
 ### Markdown
 
-To render fenced code in a streamed Markdown message, split the message into paragraphs and fenced code blocks, and render each fence with a `CodeBlock`. A fence that has no closing line yet is still streaming. Use that to disable the copy button while the code is incomplete.
+Render the message with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a `CodeBlock` with a custom `pre` component. Comark does not run components inside `pre`, so a `code` component only matches inline code, and inline code stays inline.
 
 ::component-preview
 ---
@@ -570,7 +571,78 @@ previewClass: h-auto
 ---
 ::
 
-If you render Markdown with a library, route its fenced code elements to a component that calls `useHighlightedCode` the same way, and keep inline code inline.
+The `pre` component gets the fence's `language` as a prop. Declare a `__node` prop to receive the raw node, and read the code from it. Pass `streaming` while the message streams, so Comark closes unfinished syntax.
+
+Comark closes an unfinished fence while streaming, but does not say so. The trailing fence is still open when the text has an odd number of lines that start with ` ``` `. Provide its code, and disable the copy button in the block that matches it.
+
+```vue showLineNumbers
+<script setup lang="ts">
+import { Markdown } from '@comark/vue'
+import { computed, provide } from 'vue'
+import MarkdownCodeBlock from './MarkdownCodeBlock.vue'
+
+const props = defineProps<{ text: string, streaming?: boolean }>()
+
+// The code of the trailing fence while it is still open.
+const openFence = computed(() => {
+  const lines = props.text.trim().split('\n')
+  const fences = lines.flatMap((line, i) => (line.startsWith('```') ? [i] : []))
+  return props.streaming && fences.length % 2
+    ? lines.slice(fences.at(-1)! + 1).join('\n')
+    : null
+})
+
+provide('markdown-open-fence', openFence)
+</script>
+
+<template>
+  <Markdown
+    :value="text"
+    :components="{ pre: MarkdownCodeBlock }"
+    :streaming="streaming"
+  />
+</template>
+```
+
+```vue showLineNumbers title="MarkdownCodeBlock.vue"
+<script setup lang="ts">
+import type { ElementNode } from '@comark/vue'
+import type { Ref } from 'vue'
+import { computed, inject } from 'vue'
+
+const props = defineProps<{
+  language?: string
+  __node?: ElementNode // ['pre', attrs, ['code', attrs, text]]
+}>()
+
+const code = computed(() => {
+  const child = props.__node?.[2]
+  return Array.isArray(child) && typeof child[2] === 'string' ? child[2] : ''
+})
+
+// True while the closing fence has not arrived yet.
+const openFence = inject<Ref<string | null>>('markdown-open-fence')
+const incomplete = computed(() => openFence?.value?.trimEnd() === code.value.trimEnd())
+
+const lines = useHighlightedCode(code, () => props.language ?? '')
+</script>
+
+<template>
+  <CodeBlock>
+    <CodeBlockHeader>
+      <CodeBlockTitle>{{ language || 'text' }}</CodeBlockTitle>
+      <CodeBlockActions>
+        <CodeBlockCopyButton :value="code" :disabled="incomplete" />
+      </CodeBlockActions>
+    </CodeBlockHeader>
+    <CodeBlockContent>
+      <CodeBlockLine v-for="(line, index) in lines" :key="index">
+        <CodeBlockToken v-for="(token, i) in line" :key="i" :token="token" />
+      </CodeBlockLine>
+    </CodeBlockContent>
+  </CodeBlock>
+</template>
+```
 
 ## Accessibility
 

@@ -644,6 +644,164 @@ export const examples: Registry["items"] = [
     dependencies: [],
   },
   {
+    name: "code-block-example",
+    title: "Code Block",
+    type: "registry:example",
+    files: [
+      {
+        path: "code-block/CodeBlockDestructive.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockDiff.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockDiffWrap.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockEmpty.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockExample.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockHeaderEdges.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockHeight.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockHighlighted.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockHighlightedLines.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockInCard.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockInMessage.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockLanguages.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockLineNumbers.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockMarkdown.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockPlain.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockRtl.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockShowMore.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockShowMoreScroll.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockSmall.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockSmallCombinations.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockSmallDestructive.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockSmallest.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockStartLine.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockStreamed.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockTabs.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockTrace.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockTypeset.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockWithActions.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockWithHeader.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockWrap.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/CodeBlockWrapLineNumbers.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/Highlighted.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/MarkdownCode.vue",
+        type: "registry:example",
+      },
+      {
+        path: "code-block/StreamedBlock.vue",
+        type: "registry:example",
+      },
+    ],
+    registryDependencies: [
+      "example",
+      "code-block",
+      "button",
+      "card",
+      "dialog",
+      "bubble",
+      "message",
+      "tabs",
+      "trace",
+    ],
+    dependencies: [
+      "@comark/vue",
+      "@vueuse/core",
+    ],
+  },
+  {
     name: "collapsible-example",
     title: "Collapsible",
     type: "registry:example",
@@ -2374,5 +2532,63 @@ export const examples: Registry["items"] = [
       "kbd",
     ],
     dependencies: [],
+  },
+  {
+    name: "trace-example",
+    title: "Trace",
+    type: "registry:example",
+    files: [
+      {
+        path: "trace/TraceChainOfThought.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceChat.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceExample.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceReasoning.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceRows.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceSources.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceTask.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceToolCalls.vue",
+        type: "registry:example",
+      },
+      {
+        path: "trace/TraceTurn.vue",
+        type: "registry:example",
+      },
+    ],
+    registryDependencies: [
+      "example",
+      "badge",
+      "code-block",
+      "trace",
+      "bubble",
+      "button",
+      "item",
+      "message",
+      "sheet",
+      "dialog",
+    ],
+    dependencies: [
+      "@vueuse/core",
+    ],
   },
 ]

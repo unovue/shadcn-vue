@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { Marker, MarkerContent } from '@/registry/bases/reka/ui/marker'
@@ -38,8 +39,22 @@ const transcript: ChatMessage[] = [
 ]
 
 const messages = ref<ChatMessage[]>(transcript.map(message => ({ ...message })))
-const busy = ref(false)
-let timer: ReturnType<typeof setInterval> | undefined
+
+// Stream the scripted reply a few characters at a time.
+let reply: ChatMessage | undefined
+let cursor = 0
+const { isActive: busy, pause, resume } = useIntervalFn(() => {
+  if (!reply)
+    return
+
+  cursor = Math.min(reply.text.length, cursor + 3)
+  const last = messages.value.at(-1)
+  if (last?.id === reply.id)
+    last.text = reply.text.slice(0, cursor)
+
+  if (cursor >= reply.text.length)
+    pause()
+}, 20, { immediate: false })
 
 // The next scripted message the person can send.
 const nextMessage = computed(() => {
@@ -57,32 +72,17 @@ function restore(messageId: string) {
 }
 
 function sendMessage(message: ChatMessage) {
-  const reply = transcript[messages.value.length + 1]
+  const next = transcript[messages.value.length + 1]
   messages.value = [...messages.value, { ...message }]
 
-  if (!reply || reply.role !== 'assistant')
+  if (!next || next.role !== 'assistant')
     return
 
-  // Stream the scripted reply a few characters at a time.
-  messages.value = [...messages.value, { ...reply, text: '' }]
-  busy.value = true
-  let cursor = 0
-
-  clearInterval(timer)
-  timer = setInterval(() => {
-    cursor = Math.min(reply.text.length, cursor + 3)
-    const last = messages.value.at(-1)
-    if (last?.id === reply.id)
-      last.text = reply.text.slice(0, cursor)
-
-    if (cursor >= reply.text.length) {
-      clearInterval(timer)
-      busy.value = false
-    }
-  }, 20)
+  messages.value = [...messages.value, { ...next, text: '' }]
+  reply = next
+  cursor = 0
+  resume()
 }
-
-onBeforeUnmount(() => clearInterval(timer))
 </script>
 
 <template>

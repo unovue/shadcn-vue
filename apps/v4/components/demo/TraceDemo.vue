@@ -6,7 +6,8 @@ import {
   GlobeIcon,
   LoaderCircleIcon,
 } from '@lucide/vue'
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { createReusableTemplate, promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { CodeBlock, CodeBlockContent } from '@/registry/bases/reka/ui/code-block'
@@ -108,25 +109,21 @@ const messages = ref<ChatMessage[]>(transcript)
 const status = ref<'ready' | 'streaming'>('ready')
 const open = ref<Record<string, boolean | undefined>>({})
 
+const [DefineThinkingLine, ThinkingLine] = createReusableTemplate<{ running: boolean }>()
+
 const busy = computed(() => status.value === 'streaming')
 
 // Simulated streaming. Swap for `new Chat()` from `@ai-sdk/vue` in your app.
-const timers = new Set<ReturnType<typeof setTimeout>>()
 let runId = 0
 
-function wait(ms: number) {
-  return new Promise<void>((resolve) => {
-    const timer = setTimeout(() => {
-      timers.delete(timer)
-      resolve()
-    }, ms)
-    timers.add(timer)
-  })
-}
+// Invalidate the running script on unmount so pending steps bail out.
+tryOnScopeDispose(() => {
+  runId++
+})
 
 async function stream(part: TextPart | ReasoningPart, text: string, delayMs: number, id: number) {
   for (const chunk of text.split(/(?<= )/)) {
-    await wait(delayMs)
+    await promiseTimeout(delayMs)
     if (id !== runId)
       return false
     part.text += chunk
@@ -158,7 +155,7 @@ async function replay() {
       state: 'input-available',
     })
     const part = message.parts.at(-1) as ToolPart
-    await wait(tool.delayMs)
+    await promiseTimeout(tool.delayMs)
     if (id !== runId)
       return
     if (tool.error) {
@@ -174,7 +171,7 @@ async function replay() {
   for (const source of sources)
     message.parts.push({ type: 'source-url', ...source })
 
-  await wait(1000)
+  await promiseTimeout(1000)
   if (id !== runId)
     return
 
@@ -184,12 +181,6 @@ async function replay() {
 
   status.value = 'ready'
 }
-
-onBeforeUnmount(() => {
-  runId++
-  timers.forEach(clearTimeout)
-  timers.clear()
-})
 
 function getMessageText(message: ChatMessage) {
   return message.parts
@@ -220,6 +211,17 @@ function isStreaming(message: ChatMessage) {
 </script>
 
 <template>
+  <DefineThinkingLine v-slot="{ running }">
+    <TraceLine :status="running ? 'running' : undefined">
+      <TraceIcon>
+        <LoaderCircleIcon v-if="running" class="animate-spin" />
+        <CircleCheckIcon v-else />
+      </TraceIcon>
+      <TraceTitle>
+        {{ running ? 'Thinking' : 'Thought for 5s' }}
+      </TraceTitle>
+    </TraceLine>
+  </DefineThinkingLine>
   <div class="flex min-h-72 w-full max-w-sm flex-col gap-4 py-6 text-sm">
     <template v-for="message in messages" :key="message.id">
       <Message v-if="message.role === 'user'" align="end">
@@ -238,33 +240,17 @@ function isStreaming(message: ChatMessage) {
             >
               <!-- Thinking row -->
               <template v-if="part.type === 'reasoning'">
-                <TraceLine
+                <ThinkingLine
                   v-if="part.text.length === 0"
-                  :status="isStreaming(message) && part.state === 'streaming' ? 'running' : undefined"
-                >
-                  <TraceIcon>
-                    <LoaderCircleIcon v-if="isStreaming(message) && part.state === 'streaming'" class="animate-spin" />
-                    <CircleCheckIcon v-else />
-                  </TraceIcon>
-                  <TraceTitle>
-                    {{ isStreaming(message) && part.state === 'streaming' ? 'Thinking' : 'Thought for 5s' }}
-                  </TraceTitle>
-                </TraceLine>
+                  :running="isStreaming(message) && part.state === 'streaming'"
+                />
                 <TraceCollapsible
                   v-else
                   :open="open[`${message.id}-${index}`] ?? (isStreaming(message) && part.state === 'streaming')"
                   @update:open="open[`${message.id}-${index}`] = $event"
                 >
                   <TraceCollapsibleTrigger>
-                    <TraceLine :status="isStreaming(message) && part.state === 'streaming' ? 'running' : undefined">
-                      <TraceIcon>
-                        <LoaderCircleIcon v-if="isStreaming(message) && part.state === 'streaming'" class="animate-spin" />
-                        <CircleCheckIcon v-else />
-                      </TraceIcon>
-                      <TraceTitle>
-                        {{ isStreaming(message) && part.state === 'streaming' ? 'Thinking' : 'Thought for 5s' }}
-                      </TraceTitle>
-                    </TraceLine>
+                    <ThinkingLine :running="isStreaming(message) && part.state === 'streaming'" />
                   </TraceCollapsibleTrigger>
                   <TraceCollapsibleContent class="whitespace-pre-wrap">
                     {{ part.text }}

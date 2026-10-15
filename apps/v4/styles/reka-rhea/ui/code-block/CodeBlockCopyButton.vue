@@ -4,7 +4,7 @@ import type { PrimitiveProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/styles/reka-rhea/ui/button'
 import { CheckIcon, CopyIcon } from '@lucide/vue'
-import { onBeforeUnmount, ref } from 'vue'
+import { useClipboard } from '@vueuse/core'
 import { cn } from '@/lib/utils'
 import { Button } from '@/styles/reka-rhea/ui/button'
 
@@ -21,21 +21,7 @@ const props = withDefaults(defineProps<PrimitiveProps & {
   size: 'icon-xs',
 })
 
-const copied = ref(false)
-let timeout: ReturnType<typeof setTimeout> | undefined
-
-function copy() {
-  navigator.clipboard
-    .writeText(props.value)
-    .then(() => {
-      copied.value = true
-      clearTimeout(timeout)
-      timeout = setTimeout(() => (copied.value = false), 2000)
-    })
-    .catch(() => {})
-}
-
-onBeforeUnmount(() => clearTimeout(timeout))
+const { copy, copied } = useClipboard({ copiedDuring: 2000, legacy: true })
 </script>
 
 <template>
@@ -49,7 +35,7 @@ onBeforeUnmount(() => clearTimeout(timeout))
     :size="size"
     :aria-label="copied ? 'Copied' : 'Copy'"
     :class="cn('hover:bg-foreground/5 dark:hover:bg-foreground/10', props.class)"
-    @click="copy"
+    @click="copy(props.value)"
   >
     <CheckIcon v-if="copied" />
     <CopyIcon v-else />

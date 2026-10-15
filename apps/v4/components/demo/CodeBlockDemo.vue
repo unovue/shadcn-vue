@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DownloadIcon, FileCodeIcon, WrapTextIcon } from '@lucide/vue'
-import { ref } from 'vue'
+import { useToggle } from '@vueuse/core'
 import { Button } from '@/registry/bases/reka/ui/button'
 import {
   CodeBlock,
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   return result.toUIMessageStreamResponse()
 })`
 
-const wrap = ref(false)
+const [wrap, toggleWrap] = useToggle(false)
 const lines = useHighlightedCode(code, 'ts')
 
 function download(value: string, filename: string) {
@@ -56,7 +56,7 @@ function download(value: string, filename: string) {
             aria-label="Wrap lines"
             :aria-pressed="wrap"
             class="aria-pressed:text-foreground"
-            @click="wrap = !wrap"
+            @click="toggleWrap()"
           >
             <WrapTextIcon />
           </Button>

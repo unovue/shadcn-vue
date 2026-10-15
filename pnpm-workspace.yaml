@@ -3,6 +3,7 @@ packages:
   - packages/*
 
 catalog:
+  '@comark/vue': ^0.7.0
   '@internationalized/date': ^3.12.2
   '@lucide/vue': ^1.28.0
   '@nuxt/fonts': 0.14.0

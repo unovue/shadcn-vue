@@ -6,7 +6,8 @@ import {
   FlaskConicalIcon,
   XIcon,
 } from '@lucide/vue'
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { CodeBlock, CodeBlockContent } from '@/registry/bases/reka/ui/code-block'
@@ -101,17 +102,13 @@ const summary = computed(() =>
   countTests(suites.value.flatMap(suite => suite.tests)),
 )
 
+// Unmounting bumps `run`, so a running script stops at its next wait.
 let run = 0
-const timers = new Set<ReturnType<typeof setTimeout>>()
+tryOnScopeDispose(() => run++)
 
-function wait(ms: number, id: number) {
-  return new Promise<boolean>((resolve) => {
-    const timer = setTimeout(() => {
-      timers.delete(timer)
-      resolve(id === run)
-    }, ms)
-    timers.add(timer)
-  })
+async function wait(ms: number, id: number) {
+  await promiseTimeout(ms)
+  return id === run
 }
 
 async function replay() {
@@ -136,11 +133,6 @@ async function replay() {
 
   busy.value = false
 }
-
-onBeforeUnmount(() => {
-  run++
-  timers.forEach(clearTimeout)
-})
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RotateCcwIcon } from '@lucide/vue'
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { Button } from '@/registry/bases/reka/ui/button'
 import {
   CodeBlock,
@@ -115,25 +116,16 @@ function getVariant(item: (typeof streamed)[number], index: number) {
   return item.block.highlight?.includes(index) ? 'highlighted' : 'default'
 }
 
-let timeout: ReturnType<typeof setTimeout> | undefined
-
-function tick() {
+const { pause, resume } = useIntervalFn(() => {
+  length.value += 3
   if (length.value >= total)
-    return
-
-  timeout = setTimeout(() => {
-    length.value += 3
-    tick()
-  }, 16)
-}
+    pause()
+}, 16, { immediate: false })
 
 function replay() {
-  clearTimeout(timeout)
   length.value = 0
-  tick()
+  resume()
 }
-
-onBeforeUnmount(() => clearTimeout(timeout))
 </script>
 
 <template>

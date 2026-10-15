@@ -107,7 +107,23 @@ Put actions in `MessageFooter`. It follows the message alignment, so on the pers
 
 ## Markdown
 
-The reply streams as markdown. Render it with a markdown renderer and route fenced code to a [Code Block](/docs/components/code-block#markdown), so code in the reply gets line numbers and a copy button.
+The reply streams as markdown. Render it with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a [Code Block](/docs/components/code-block#markdown) with a custom `pre` component, so code in the reply gets line numbers and a copy button. Pass `streaming` while the reply streams, so unfinished syntax is closed as it renders.
+
+```vue showLineNumbers
+<script setup lang="ts">
+import { Markdown } from '@comark/vue'
+import MarkdownCodeBlock from './MarkdownCodeBlock.vue'
+</script>
+
+<template>
+  <Markdown
+    class="typeset"
+    :value="text"
+    :components="{ pre: MarkdownCodeBlock }"
+    :streaming="isStreaming"
+  />
+</template>
+```
 
 ## AI SDK
 
@@ -117,7 +133,9 @@ Branch on the message role. The person's turn is the bubble. The agent's turn is
 <script setup lang="ts">
 import type { UIMessage } from 'ai'
 import { Chat } from '@ai-sdk/vue'
+import { Markdown } from '@comark/vue'
 import { RefreshCcwIcon } from '@lucide/vue'
+import MarkdownCodeBlock from './MarkdownCodeBlock.vue'
 
 const chat = new Chat({})
 
@@ -137,7 +155,12 @@ function getText(message: UIMessage) {
     </Message>
     <Message v-else>
       <MessageContent class="gap-2">
-        <Markdown :content="getText(message)" />
+        <Markdown
+          class="typeset"
+          :value="getText(message)"
+          :components="{ pre: MarkdownCodeBlock }"
+          :streaming="chat.status === 'streaming' && message === chat.messages.at(-1)"
+        />
         <MessageFooter>
           <Button
             variant="ghost"

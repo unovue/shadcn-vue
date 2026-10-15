@@ -6,6 +6,7 @@ import {
   PlusIcon,
   XIcon,
 } from '@lucide/vue'
+import { useFileDialog } from '@vueuse/core'
 import { computed, ref } from 'vue'
 import {
   Attachment,
@@ -67,7 +68,6 @@ const files = ref<AttachmentFile[]>([])
 const model = ref(models[0]!.id)
 const effort = ref(efforts[1]!.id)
 const formRef = ref<HTMLFormElement | null>(null)
-const inputRef = ref<HTMLInputElement | null>(null)
 const currentModel = computed(() => models.find(item => item.id === model.value) ?? models[0]!)
 const currentEffort = computed(() => efforts.find(item => item.id === effort.value) ?? efforts[1]!)
 const canSend = computed(() => text.value.trim().length > 0)
@@ -80,9 +80,10 @@ function onSubmit() {
   files.value = []
 }
 
-function onAttach(event: Event) {
-  const target = event.target as HTMLInputElement
-  const selected = target.files
+// `reset` clears the dialog's input on open, so the same file can be picked again.
+const fileDialog = useFileDialog({ multiple: true, reset: true })
+
+fileDialog.onChange((selected) => {
   if (!selected)
     return
 
@@ -93,8 +94,7 @@ function onAttach(event: Event) {
       name: file.name,
     })),
   ]
-  target.value = ''
-}
+})
 
 function removeFile(id: string) {
   files.value = files.value.filter(item => item.id !== id)
@@ -111,14 +111,6 @@ function onKeydown(event: KeyboardEvent) {
 <template>
   <div class="mx-auto w-full max-w-lg py-6">
     <form ref="formRef" @submit.prevent="onSubmit">
-      <input
-        ref="inputRef"
-        type="file"
-        multiple
-        class="sr-only"
-        tabindex="-1"
-        @change="onAttach"
-      >
       <InputGroup>
         <InputGroupAddon v-if="files.length > 0" align="block-start" class="flex-wrap">
           <Attachment v-for="file in files" :key="file.id" size="sm">
@@ -150,7 +142,7 @@ function onKeydown(event: KeyboardEvent) {
             variant="outline"
             class="rounded-full"
             aria-label="Attach files"
-            @click="inputRef?.click()"
+            @click="fileDialog.open()"
           >
             <PlusIcon />
           </InputGroupButton>

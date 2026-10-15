@@ -68,6 +68,7 @@ npx shadcn-vue@latest add input-group attachment dropdown-menu
 ```vue showLineNumbers
 <script setup lang="ts">
 import { ArrowUpIcon, PlusIcon } from '@lucide/vue'
+import { useFileDialog } from '@vueuse/core'
 import { computed, ref } from 'vue'
 import {
   InputGroup,
@@ -78,7 +79,7 @@ import {
 
 const text = ref('')
 const formRef = ref<HTMLFormElement | null>(null)
-const inputRef = ref<HTMLInputElement | null>(null)
+const fileDialog = useFileDialog({ multiple: true, reset: true })
 const canSend = computed(() => text.value.trim().length > 0)
 </script>
 
@@ -96,7 +97,7 @@ const canSend = computed(() => text.value.trim().length > 0)
           variant="outline"
           class="rounded-full"
           aria-label="Attach files"
-          @click="inputRef?.click()"
+          @click="fileDialog.open()"
         >
           <PlusIcon />
         </InputGroupButton>
@@ -118,7 +119,7 @@ const canSend = computed(() => text.value.trim().length > 0)
 
 ## Attachments
 
-The attach button opens a hidden file input. Show each file as an [Attachment](/docs/components/attachment) in an addon with `align="block-start"`, with a button to remove it.
+The attach button opens a file dialog with [`useFileDialog`](https://vueuse.org/core/useFileDialog/). Show each file as an [Attachment](/docs/components/attachment) in an addon with `align="block-start"`, with a button to remove it.
 
 ## Model and Effort
 
@@ -145,7 +146,7 @@ function onKeydown(event: KeyboardEvent) {
 
 ## AI SDK
 
-Send the text and the `FileList` from the file input.
+Send the text and the `FileList` from the file dialog.
 
 ```ts showLineNumbers
 chat.sendMessage({ text, files })

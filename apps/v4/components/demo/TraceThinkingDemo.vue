@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { BrainIcon } from '@lucide/vue'
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { createReusableTemplate, promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { Message, MessageContent } from '@/registry/bases/reka/ui/message'
@@ -34,26 +35,22 @@ const messages = ref<ChatMessage[]>([])
 const status = ref<'ready' | 'streaming'>('ready')
 const open = ref<Record<string, boolean | undefined>>({})
 
+const [DefineThinkingLine, ThinkingLine] = createReusableTemplate<{ running: boolean }>()
+
 const busy = computed(() => status.value === 'streaming')
 const nextMessage = computed(() => messages.value.length === 0 ? question : undefined)
 
 // Simulated streaming. Swap for `new Chat()` from `@ai-sdk/vue` in your app.
-const timers = new Set<ReturnType<typeof setTimeout>>()
 let runId = 0
 
-function wait(ms: number) {
-  return new Promise<void>((resolve) => {
-    const timer = setTimeout(() => {
-      timers.delete(timer)
-      resolve()
-    }, ms)
-    timers.add(timer)
-  })
-}
+// Invalidate the running script on unmount so pending steps bail out.
+tryOnScopeDispose(() => {
+  runId++
+})
 
 async function stream(part: Part, text: string, delayMs: number, id: number) {
   for (const chunk of text.split(/(?<= )/)) {
-    await wait(delayMs)
+    await promiseTimeout(delayMs)
     if (id !== runId)
       return false
     part.text += chunk
@@ -76,7 +73,7 @@ async function sendMessage(text: string) {
   message.parts.push({ type: 'reasoning', text: '', state: 'streaming' })
   if (!await stream(message.parts.at(-1)!, reasoning, 60, id))
     return
-  await wait(400)
+  await promiseTimeout(400)
   if (id !== runId)
     return
   message.parts.push({ type: 'text', text: '', state: 'streaming' })
@@ -92,12 +89,6 @@ function reset() {
   open.value = {}
   status.value = 'ready'
 }
-
-onBeforeUnmount(() => {
-  runId++
-  timers.forEach(clearTimeout)
-  timers.clear()
-})
 
 function getMessageText(message: ChatMessage) {
   return message.parts
@@ -132,6 +123,16 @@ function isLive(message: ChatMessage) {
 </script>
 
 <template>
+  <DefineThinkingLine v-slot="{ running }">
+    <TraceLine :status="running ? 'running' : undefined">
+      <TraceIcon>
+        <BrainIcon />
+      </TraceIcon>
+      <TraceTitle>
+        {{ running ? 'Thinking' : 'Thought' }}
+      </TraceTitle>
+    </TraceLine>
+  </DefineThinkingLine>
   <div class="flex min-h-72 w-full max-w-sm flex-col gap-4 py-6 text-sm">
     <template v-for="message in messages" :key="message.id">
       <Message v-if="message.role === 'user'" align="end">
@@ -147,31 +148,17 @@ function isLive(message: ChatMessage) {
             <Trace v-if="run.trace">
               <template v-for="(part, index) in run.parts" :key="index">
                 <template v-if="part.type === 'reasoning'">
-                  <TraceLine
+                  <ThinkingLine
                     v-if="part.text.length === 0"
-                    :status="isLive(message) && part.state === 'streaming' ? 'running' : undefined"
-                  >
-                    <TraceIcon>
-                      <BrainIcon />
-                    </TraceIcon>
-                    <TraceTitle>
-                      {{ isLive(message) && part.state === 'streaming' ? 'Thinking' : 'Thought' }}
-                    </TraceTitle>
-                  </TraceLine>
+                    :running="isLive(message) && part.state === 'streaming'"
+                  />
                   <TraceCollapsible
                     v-else
                     :open="open[`${message.id}-${runIndex}-${index}`] ?? (isLive(message) && part.state === 'streaming')"
                     @update:open="open[`${message.id}-${runIndex}-${index}`] = $event"
                   >
                     <TraceCollapsibleTrigger>
-                      <TraceLine :status="isLive(message) && part.state === 'streaming' ? 'running' : undefined">
-                        <TraceIcon>
-                          <BrainIcon />
-                        </TraceIcon>
-                        <TraceTitle>
-                          {{ isLive(message) && part.state === 'streaming' ? 'Thinking' : 'Thought' }}
-                        </TraceTitle>
-                      </TraceLine>
+                      <ThinkingLine :running="isLive(message) && part.state === 'streaming'" />
                     </TraceCollapsibleTrigger>
                     <TraceCollapsibleContent class="whitespace-pre-wrap">
                       {{ part.text }}

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { TerminalIcon } from '@lucide/vue'
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { CodeBlock, CodeBlockContent } from '@/registry/bases/reka/ui/code-block'
@@ -52,18 +53,12 @@ const busy = computed(() => status.value === 'streaming')
 const nextMessage = computed(() => messages.value.length === 0 ? question : undefined)
 
 // Simulated streaming. Swap for `new Chat()` from `@ai-sdk/vue` in your app.
-const timers = new Set<ReturnType<typeof setTimeout>>()
 let runId = 0
 
-function wait(ms: number) {
-  return new Promise<void>((resolve) => {
-    const timer = setTimeout(() => {
-      timers.delete(timer)
-      resolve()
-    }, ms)
-    timers.add(timer)
-  })
-}
+// Invalidate the running script on unmount so pending steps bail out.
+tryOnScopeDispose(() => {
+  runId++
+})
 
 async function sendMessage(text: string) {
   const id = ++runId
@@ -84,7 +79,7 @@ async function sendMessage(text: string) {
       state: 'input-available',
     })
     const part = message.parts.at(-1) as ToolPart
-    await wait(900)
+    await promiseTimeout(900)
     if (id !== runId)
       return
     if (tool.error) {
@@ -100,7 +95,7 @@ async function sendMessage(text: string) {
   message.parts.push({ type: 'text', text: '' })
   const part = message.parts.at(-1) as TextPart
   for (const chunk of answer.split(/(?<= )/)) {
-    await wait(20)
+    await promiseTimeout(20)
     if (id !== runId)
       return
     part.text += chunk
@@ -114,12 +109,6 @@ function reset() {
   messages.value = []
   status.value = 'ready'
 }
-
-onBeforeUnmount(() => {
-  runId++
-  timers.forEach(clearTimeout)
-  timers.clear()
-})
 
 function getMessageText(message: ChatMessage) {
   return message.parts

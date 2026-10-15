@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TerminalIcon } from '@lucide/vue'
-import { ref } from 'vue'
+import { useToggle } from '@vueuse/core'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { CodeBlock, CodeBlockContent } from '@/registry/bases/reka/ui/code-block'
 import {
@@ -12,7 +12,7 @@ import {
   TraceTitle,
 } from '@/registry/bases/reka/ui/trace'
 
-const open = ref(false)
+const [open, toggleOpen] = useToggle(false)
 </script>
 
 <template>
@@ -51,7 +51,7 @@ const open = ref(false)
         </CodeBlock>
       </TraceCollapsibleContent>
     </TraceCollapsible>
-    <Button variant="outline" size="sm" @click="open = !open">
+    <Button variant="outline" size="sm" @click="toggleOpen()">
       {{ open ? 'Hide' : 'Show' }} the pnpm output
     </Button>
   </div>

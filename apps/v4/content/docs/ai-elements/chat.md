@@ -124,6 +124,30 @@ const chat = new Chat({})
 </template>
 ```
 
+## Markdown
+
+The agent's reply streams as markdown. Render it with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a [Code Block](/docs/components/code-block#markdown) with a custom `pre` component, the same way as in [Message](/docs/ai-elements/message#markdown). Pass `streaming` only to the reply that is still streaming.
+
+```vue showLineNumbers
+<script setup lang="ts">
+import { Markdown } from '@comark/vue'
+import MarkdownCodeBlock from './MarkdownCodeBlock.vue'
+</script>
+
+<template>
+  <Message>
+    <MessageContent>
+      <Markdown
+        class="typeset"
+        :value="getText(message)"
+        :components="{ pre: MarkdownCodeBlock }"
+        :streaming="chat.status === 'streaming' && message === chat.messages.at(-1)"
+      />
+    </MessageContent>
+  </Message>
+</template>
+```
+
 ## Migrating from AI Elements Vue
 
 If you added Conversation from [AI Elements Vue](https://www.ai-elements-vue.com), your project has a `components/ai-elements/conversation/` folder. Paste this prompt into your coding agent to rebuild it on Message Scroller. Every export keeps its name and props, so the code that uses it keeps working.

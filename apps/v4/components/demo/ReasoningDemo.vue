@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, reactive, ref } from 'vue'
+import { promiseTimeout, tryOnScopeDispose } from '@vueuse/core'
+import { computed, reactive, ref } from 'vue'
 import { Bubble, BubbleContent } from '@/registry/bases/reka/ui/bubble'
 import { Button } from '@/registry/bases/reka/ui/button'
 import { Message, MessageContent } from '@/registry/bases/reka/ui/message'
@@ -55,18 +56,23 @@ const busy = computed(() => status.value !== 'ready')
 // follows `running`. The finished transcript starts with its lines open.
 const openState = ref<Record<string, boolean | undefined>>({ 'assistant-0-0': true })
 
-let timers: ReturnType<typeof setTimeout>[] = []
+// Unmounting bumps `run`, so a running script stops at its next wait.
 let run = 0
+tryOnScopeDispose(() => run++)
 
-function sleep(ms: number) {
-  return new Promise<void>(resolve => timers.push(setTimeout(resolve, ms)))
+async function sleep(ms: number) {
+  const id = run
+  await promiseTimeout(ms)
+  return id === run
 }
 
 async function streamInto(target: { text: string }, text: string, delayMs: number) {
   for (const chunk of text.match(/\S+\s*/g) ?? []) {
     target.text += chunk
-    await sleep(delayMs)
+    if (!(await sleep(delayMs)))
+      return false
   }
+  return true
 }
 
 function getText(message: ChatMessage) {
@@ -89,7 +95,8 @@ async function replay() {
   messages.value = [{ id: `user-${id}`, role: 'user', parts: [{ type: 'text', text: QUESTION }] }]
   openState.value = {}
   status.value = 'submitted'
-  await sleep(300)
+  if (!(await sleep(300)))
+    return
 
   const message = reactive<ChatMessage>({ id: `assistant-${id}`, role: 'assistant', parts: [] })
   messages.value.push(message)
@@ -97,20 +104,18 @@ async function replay() {
 
   const reasoning = reactive<ReasoningPart>({ type: 'reasoning', text: '', state: 'streaming' })
   message.parts.push(reasoning)
-  await streamInto(reasoning, REASONING, 40)
+  if (!(await streamInto(reasoning, REASONING, 40)))
+    return
   reasoning.state = 'done'
-  await sleep(400)
+  if (!(await sleep(400)))
+    return
 
   const text = reactive<TextPart>({ type: 'text', text: '' })
   message.parts.push(text)
-  await streamInto(text, ANSWER, 20)
+  if (!(await streamInto(text, ANSWER, 20)))
+    return
   status.value = 'ready'
 }
-
-onBeforeUnmount(() => {
-  timers.forEach(clearTimeout)
-  timers = []
-})
 </script>
 
 <template>

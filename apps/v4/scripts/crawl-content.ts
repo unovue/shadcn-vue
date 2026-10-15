@@ -29,6 +29,7 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['clsx', []],
   ['tailwind-merge', []],
   ['shiki', []],
+  ['@comark/vue', []],
 ])
 
 const REGISTRY_DEPENDENCY = '@/'

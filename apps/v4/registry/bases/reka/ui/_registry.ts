@@ -561,6 +561,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     dependencies: [
       "reka-ui",
+      "@vueuse/core",
       "shiki",
     ],
     registryDependencies: [
