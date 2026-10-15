@@ -572,41 +572,52 @@ async function registryGetTheme(name: string, config: Config) {
     },
   } satisfies z.infer<typeof registryItemSchema>
 
+  const isV4Only = !baseColor.cssVars && !!baseColor.cssVarsV4
+  if (isV4Only && tailwindVersion !== "v4") {
+    throw new Error(
+      `Base color "${name}" is only available for Tailwind CSS v4 projects.`,
+    )
+  }
+
   if (config.tailwind.cssVariables) {
+    const cssVars
+      = tailwindVersion === "v4" && baseColor.cssVarsV4
+        ? baseColor.cssVarsV4
+        : baseColor.cssVars
+
+    if (!cssVars)
+      throw new Error(`Base color "${name}" does not provide CSS variables.`)
+
     theme.tailwind.config.theme.extend.colors = {
       ...theme.tailwind.config.theme.extend.colors,
-      ...buildTailwindThemeColorsFromCssVars(baseColor.cssVars.dark ?? {}),
+      ...buildTailwindThemeColorsFromCssVars(cssVars.dark ?? {}),
     }
     theme.cssVars = {
       theme: {
-        ...baseColor.cssVars.theme,
+        ...cssVars.theme,
         ...theme.cssVars.theme,
       },
       light: {
-        ...baseColor.cssVars.light,
+        ...cssVars.light,
         ...theme.cssVars.light,
       },
       dark: {
-        ...baseColor.cssVars.dark,
+        ...cssVars.dark,
         ...theme.cssVars.dark,
       },
     }
 
-    if (tailwindVersion === "v4" && baseColor.cssVarsV4) {
-      theme.cssVars = {
-        theme: {
-          ...baseColor.cssVarsV4.theme,
-          ...theme.cssVars.theme,
-        },
-        light: {
-          radius: "0.625rem",
-          ...baseColor.cssVarsV4.light,
-        },
-        dark: {
-          ...baseColor.cssVarsV4.dark,
-        },
+    if (tailwindVersion === "v4") {
+      theme.cssVars.light = {
+        ...theme.cssVars.light,
+        radius: "0.625rem",
       }
     }
+  }
+  else if (!baseColor.inlineColors) {
+    throw new Error(
+      `Base color "${name}" is only available with CSS variables enabled.`,
+    )
   }
 
   return theme
