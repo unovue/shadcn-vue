@@ -143,7 +143,7 @@ const selectedFramework = ref<(typeof frameworks)[number]>()
 <script setup lang="ts">
 import { CheckIcon, ChevronsUpDownIcon } from '@lucide/vue'
 import { ref } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/components/ui/button'
 import {
   Command,

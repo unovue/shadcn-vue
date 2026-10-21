@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'vue'
 import type { AlertVariants } from '@/registry/new-york-v4/ui/alert'
 import { InfoIcon } from '@lucide/vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import {
   Alert,
   AlertDescription,

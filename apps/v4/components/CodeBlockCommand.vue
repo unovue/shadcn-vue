@@ -28,9 +28,11 @@ const tabs = computed(() => {
   }
   else if (props.code.includes('npm create')) {
     data.npm = props.code
-    data.yarn = props.code.replaceAll('npm create', 'yarn create')
-    data.pnpm = props.code.replaceAll('npm create', 'pnpm create')
-    data.bun = props.code.replaceAll('npm create', 'bun create')
+    // npm 7+ needs `--` to forward flags to the initializer; other package managers don't
+    const code = props.code.replaceAll(' -- ', ' ')
+    data.yarn = code.replaceAll('npm create', 'yarn create')
+    data.pnpm = code.replaceAll('npm create', 'pnpm create')
+    data.bun = code.replaceAll('npm create', 'bun create')
   }
   else if (props.code.includes('npx')) {
     data.npm = props.code

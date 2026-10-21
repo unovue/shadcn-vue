@@ -7,6 +7,10 @@
     "access": "public"
   },
   "license": "MIT",
+  "funding": [
+    "https://opencollective.com/unovue",
+    "https://github.com/sponsors/zernonia"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unovue/shadcn-vue.git",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
+import { cn } from "cn"
 import { computed, onBeforeUnmount, ref, useId, watch } from "vue"
-import { cn } from "@/lib/utils"
 import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
 import { getAnswerKeyShortcuts, injectQuestionnaireItemContext } from "./useQuestionnaire"
 

@@ -10,8 +10,8 @@ import {
   XIcon,
 } from '@lucide/vue'
 import { reactiveOmit } from '@vueuse/core'
+import { cn } from 'cn'
 import { Toaster as Sonner } from 'vue-sonner'
-import { cn } from '@/lib/utils'
 
 const props = defineProps<ToasterProps>()
 const delegatedProps = reactiveOmit(props, 'class', 'toastOptions')

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SidebarProps } from '.'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Sheet, SheetContent } from '@/styles/reka-nova/ui/sheet'
 import SheetDescription from '@/styles/reka-nova/ui/sheet/SheetDescription.vue'
 import SheetHeader from '@/styles/reka-nova/ui/sheet/SheetHeader.vue'

@@ -3,8 +3,8 @@ import type { HTMLAttributes } from 'vue'
 import type { TypesetIcon } from '@/lib/typeset/icons'
 import type { TypesetLockableParam, TypesetParamKey } from '@/lib/typeset/params'
 import { HugeiconsIcon } from '@hugeicons/vue'
+import { cn } from 'cn'
 import { coerceTypesetValue } from '@/lib/typeset/params'
-import { cn } from '@/lib/utils'
 
 const props = defineProps<{
   label: string

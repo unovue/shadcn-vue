@@ -76,9 +76,9 @@ function handleToggle(id: string, value: boolean) {
         <Field orientation="horizontal">
           <Checkbox
             id="notify-all"
-            :checked="allChecked"
+            :model-value="allChecked"
             :indeterminate="someChecked"
-            @update:checked="(v: boolean | 'indeterminate') => handleSelectAll(!!v)"
+            @update:model-value="(v: boolean | 'indeterminate') => handleSelectAll(!!v)"
           />
           <FieldContent>
             <FieldLabel for="notify-all">
@@ -93,8 +93,8 @@ function handleToggle(id: string, value: boolean) {
         >
           <Checkbox
             :id="`notify-${n.id}`"
-            :checked="checked[n.id]"
-            @update:checked="(v: boolean | 'indeterminate') => handleToggle(n.id, !!v)"
+            :model-value="checked[n.id]"
+            @update:model-value="(v: boolean | 'indeterminate') => handleToggle(n.id, !!v)"
           />
           <FieldContent>
             <FieldLabel :for="`notify-${n.id}`">
