@@ -3,7 +3,7 @@ import { setupServer } from "msw/node"
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest"
 import { REGISTRY_URL } from "@/src/registry/constants"
 import { clearRegistryCache } from "@/src/registry/fetcher"
-import { fetchRegistryItems } from "@/src/registry/resolver"
+import { fetchRegistryItems, resolveRegistryTree } from "@/src/registry/resolver"
 import { createConfig } from "@/src/utils/get-config"
 import { getProjectInfo } from "@/src/utils/get-project-info"
 
@@ -133,5 +133,28 @@ describe("fetchRegistryItems - style resolution", () => {
     })
 
     expect(vi.mocked(getProjectInfo)).not.toHaveBeenCalled()
+  })
+})
+
+describe("resolveRegistryTree - shared dependencies", () => {
+  it("should not warn about a circular dependency for namespaced items sharing a dependency", async () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {})
+    const item = (name: string, registryDependencies: string[]) =>
+      http.get(`https://example.com/r/${name}.json`, () =>
+        HttpResponse.json({ name, type: "registry:ui", registryDependencies, files: [] }))
+    server.use(item("a", ["@acme/c"]), item("b", ["@acme/c"]), item("c", []))
+
+    const tree = await resolveRegistryTree(
+      ["@acme/a", "@acme/b"],
+      createConfig({
+        registries: { "@acme": "https://example.com/r/{name}.json" },
+        resolvedPaths: { cwd: "/project" },
+      }),
+      { useCache: false },
+    )
+
+    expect(tree?.registryDependencies).toBeUndefined()
+    expect(warn).not.toHaveBeenCalled()
+    warn.mockRestore()
   })
 })
