@@ -17,7 +17,7 @@
     },
     {
       "path": "registry/new-york-v4/ui/empty/EmptyDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"cn\"\n\ndefineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <p\n    data-slot=\"empty-description\"\n    :class=\"cn(\n      'text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"cn\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <p\n    data-slot=\"empty-description\"\n    :class=\"cn(\n      'text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4',\n      props.class,\n    )\"\n  >\n    <slot />\n  </p>\n</template>\n",
       "type": "registry:ui"
     },
     {
