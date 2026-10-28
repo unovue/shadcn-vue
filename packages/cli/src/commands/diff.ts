@@ -8,7 +8,6 @@ import path from 'pathe'
 import { z } from 'zod'
 import {
   fetchTree,
-  getItemTargetPath,
   getRegistryBaseColor,
   getShadcnRegistryIndex,
 } from '@/src/registry/api'
@@ -17,6 +16,7 @@ import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
 import { transform } from '@/src/utils/transformers'
+import { findCommonRoot, resolveFilePath } from '@/src/utils/updaters/update-files'
 
 const updateOptionsSchema = z.object({
   component: z.string().optional(),
@@ -161,27 +161,27 @@ async function diffComponent(
   const changes = []
 
   for (const item of payload) {
-    const targetDir = await getItemTargetPath(config, item)
+    const files = item.files ?? []
 
-    if (!targetDir) {
-      continue
-    }
+    for (const file of files) {
+      if (!file.content) {
+        continue
+      }
 
-    for (const file of item.files ?? []) {
-      const filePath = path.resolve(
-        targetDir,
-        typeof file === 'string' ? file : file.path,
-      )
+      // Resolve the local path the same way `add` writes it. Registry paths
+      // are prefixed (e.g. `styles/reka-nova/ui/button/Button.vue`).
+      const filePath = resolveFilePath(file, config, {
+        commonRoot: findCommonRoot(
+          files.map(f => f.path),
+          file.path,
+        ),
+      })
 
-      if (!existsSync(filePath)) {
+      if (!filePath || !existsSync(filePath)) {
         continue
       }
 
       const fileContent = await fs.readFile(filePath, 'utf8')
-
-      if (typeof file === 'string' || !file.content) {
-        continue
-      }
 
       const registryContent = await transform({
         filename: file.path,
