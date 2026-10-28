@@ -1,6 +1,7 @@
 import type { z } from 'zod'
 import type { registryBaseColorSchema } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
+import path from 'pathe'
 import { transform as metaTransform } from 'vue-metamorph'
 import { getRegistryIcons } from '@/src/registry/api'
 import { transformCssVars } from '@/src/utils/transformers/transform-css-vars'
@@ -28,13 +29,24 @@ export interface TransformOpts {
   sourceFiles?: SourceFile[]
 }
 
+const TRANSFORMABLE_EXTENSIONS = new Set([
+  '.vue',
+  '.ts',
+  '.tsx',
+  '.cts',
+  '.mts',
+  '.js',
+  '.jsx',
+  '.cjs',
+  '.mjs',
+  '.css',
+])
+
 export async function transform(opts: TransformOpts) {
-  // Skip the transform pipeline for non-code files.
-  // @babel/parser cannot parse formats like Markdown, and none of the
-  // codemods (import rewriting, CSS vars, Tailwind prefix, icons) are
-  // applicable to these files anyway.
-  const nonCodeExtensions = ['.md', '.mdx', '.txt']
-  if (nonCodeExtensions.some(ext => opts.filename.endsWith(ext)))
+  // Only run the pipeline on file types it is built for. Anything else
+  // (Markdown, SVG, JSON, YAML, .env, ...) is returned untouched, since
+  // @babel/parser cannot parse them and the codemods don't apply.
+  if (!TRANSFORMABLE_EXTENSIONS.has(path.extname(opts.filename).toLowerCase()))
     return opts.raw
 
   const source = await transformSFC(opts)

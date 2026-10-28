@@ -581,6 +581,33 @@ export const variants = cva('base')
     expect(result).toBe(raw)
   })
 
+  it.each([
+    ['icon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4"/></svg>\n'],
+    ['page.html', '<!doctype html>\n<p>hello</p>\n'],
+    ['config.yaml', 'key: value\nlist:\n  - a\n'],
+    ['config.yml', 'key: value\n'],
+    ['data.json', '{"a":1}\n'],
+    ['feed.xml', '<?xml version="1.0"?>\n<a/>\n'],
+    ['Logo.SVG', '<svg xmlns="http://www.w3.org/2000/svg"/>\n'],
+  ])('returns raw content unchanged for %s', async (name, raw) => {
+    const result = await transform({
+      filename: `src/registry/assets/${name}`,
+      raw,
+      config: {},
+    })
+    expect(result).toBe(raw)
+  })
+
+  it('still transforms files on the allow-list', async () => {
+    const result = await transform({
+      filename: 'src/registry/lib/util.ts',
+      raw: 'const a: number = 1\n',
+      config: {},
+    })
+    // Type annotations are stripped when the pipeline runs.
+    expect(result).not.toContain(': number')
+  })
+
   it('defineEmits', async () => {
     const result = await transform({
       filename: 'app.vue',
