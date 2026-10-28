@@ -194,12 +194,18 @@ export async function getRegistryIcons() {
   }
 }
 
+// An unknown Tailwind version (undefined or null) shows every base color.
 export async function getRegistryBaseColors(tailwindVersion?: TailwindVersion) {
   return BASE_COLORS.filter(color =>
     !("tailwindVersion" in color)
-    || tailwindVersion === undefined
+    || !tailwindVersion
     || color.tailwindVersion === tailwindVersion,
   )
+}
+
+export function isV4OnlyBaseColor(name: string) {
+  const color = BASE_COLORS.find(color => color.name === name)
+  return !!color && "tailwindVersion" in color && color.tailwindVersion === "v4"
 }
 
 /**

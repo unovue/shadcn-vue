@@ -31,6 +31,7 @@ import {
 import { getTargetStyleFromConfig } from "@/src/utils/get-config"
 import { getProjectTailwindVersionFromConfig } from "@/src/utils/get-project-info"
 import { handleError } from "@/src/utils/handle-error"
+import { logger } from "@/src/utils/logger"
 import { buildTailwindThemeColorsFromCssVars } from "@/src/utils/updaters/update-tailwind-config"
 
 export function resolveRegistryItemsFromRegistries(
@@ -507,6 +508,9 @@ async function registryGetTheme(name: string, config: Config) {
     getProjectTailwindVersionFromConfig(config),
   ])
   if (!baseColor) {
+    logger.warn(
+      `Base color "${name}" was not found in the registry. Skipping theme CSS variables.`,
+    )
     return null
   }
 
@@ -538,17 +542,18 @@ async function registryGetTheme(name: string, config: Config) {
   } satisfies z.infer<typeof registryItemSchema>
 
   const isV4Only = !baseColor.cssVars && !!baseColor.cssVarsV4
-  if (isV4Only && tailwindVersion !== "v4") {
+  // Only reject known v3 projects. When detection fails (null), fall back to
+  // the v4 variables for v4-only colors instead of failing a v4 project.
+  if (isV4Only && tailwindVersion === "v3") {
     throw new Error(
       `Base color "${name}" is only available for Tailwind CSS v4 projects.`,
     )
   }
 
   if (config.tailwind.cssVariables) {
-    const cssVars
-      = tailwindVersion === "v4" && baseColor.cssVarsV4
-        ? baseColor.cssVarsV4
-        : baseColor.cssVars
+    const useCssVarsV4
+      = (tailwindVersion === "v4" || isV4Only) && !!baseColor.cssVarsV4
+    const cssVars = useCssVarsV4 ? baseColor.cssVarsV4 : baseColor.cssVars
 
     if (!cssVars)
       throw new Error(`Base color "${name}" does not provide CSS variables.`)
@@ -572,10 +577,11 @@ async function registryGetTheme(name: string, config: Config) {
       },
     }
 
-    if (tailwindVersion === "v4") {
+    if (useCssVarsV4) {
+      // Default to 0.625rem, but let the base color's own radius win.
       theme.cssVars.light = {
         ...theme.cssVars.light,
-        radius: "0.625rem",
+        radius: cssVars.light?.radius ?? "0.625rem",
       }
     }
   }

@@ -359,6 +359,43 @@ describe("getRegistryItem", () => {
     expect(handleError).not.toHaveBeenCalled()
   })
 
+  it("should keep the base color radius in Tailwind v4 projects", async () => {
+    vi.mocked(handleError).mockClear()
+    server.use(
+      http.get(`${REGISTRY_URL}/styles/new-york-v4/index.json`, () => {
+        return HttpResponse.json({
+          name: "index",
+          type: "registry:style",
+        })
+      }),
+      http.get(`${REGISTRY_URL}/colors/taupe.json`, () => {
+        return HttpResponse.json({
+          cssVarsV4: {
+            light: { background: "oklch(1 0 0)", radius: "0rem" },
+            dark: { background: "oklch(0.153 0.006 107.1)" },
+          },
+        })
+      }),
+    )
+
+    const result = await resolveRegistryItems(["index"], {
+      config: {
+        style: "new-york",
+        tailwind: {
+          config: "",
+          css: "src/index.css",
+          baseColor: "taupe",
+          cssVariables: true,
+        },
+        resolvedPaths: {
+          cwd: path.resolve("test/fixtures/frameworks/vite"),
+        },
+      },
+    })
+
+    expect(result?.cssVars?.light?.radius).toBe("0rem")
+  })
+
   it("should fetch items from direct URLs", async () => {
     const itemUrl = "https://example.com/custom-button.json"
 

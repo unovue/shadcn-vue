@@ -34,6 +34,12 @@ describe('registry API', () => {
         'taupe',
       ])
     })
+
+    it('exposes every color when the Tailwind version is unknown', async () => {
+      const colors = await getRegistryBaseColors(null)
+
+      expect(colors.map(color => color.name)).toContain('olive')
+    })
   })
 
   describe('getRegistryBases', () => {

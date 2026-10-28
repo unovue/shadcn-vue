@@ -1,4 +1,5 @@
 import type { Config } from '@/src/utils/get-config'
+import type { TailwindVersion } from '@/src/utils/get-project-info'
 import { promises as fs } from 'node:fs'
 import { Command } from 'commander'
 import deepmerge from 'deepmerge'
@@ -19,6 +20,7 @@ import {
   getRegistryBaseColors,
   getRegistryItems,
   getRegistryStyles,
+  isV4OnlyBaseColor,
 } from '@/src/registry/api'
 import { buildUrlAndHeadersForRegistryItem } from '@/src/registry/builder'
 import { composeStyleId, configWithDefaults } from '@/src/registry/config'
@@ -535,7 +537,19 @@ export async function runInit(
 
   let config = projectConfig
     ? await promptForMinimalConfig(projectConfig, options)
-    : await promptForConfig(await getConfig(options.cwd), options)
+    : await promptForConfig(
+        await getConfig(options.cwd),
+        options,
+        projectInfo?.tailwindVersion,
+      )
+
+  // Fail before writing components.json rather than leaving a config that
+  // every later `add` rejects.
+  assertBaseColorSupported(
+    config.tailwind.baseColor,
+    projectInfo?.tailwindVersion,
+    config.tailwind.cssVariables,
+  )
 
   if (!options.yes) {
     const { proceed } = await prompts({
@@ -647,7 +661,32 @@ export async function runInit(
   return fullConfig
 }
 
-async function promptForConfig(defaultConfig: Config | null = null, opts?: z.infer<typeof initOptionsSchema>) {
+function assertBaseColorSupported(
+  baseColor: string | undefined,
+  tailwindVersion: TailwindVersion | undefined,
+  cssVariables: boolean,
+) {
+  if (!baseColor || !isV4OnlyBaseColor(baseColor))
+    return
+
+  if (tailwindVersion === 'v3') {
+    throw new Error(
+      `Base color "${baseColor}" is only available for Tailwind CSS v4 projects.`,
+    )
+  }
+
+  if (!cssVariables) {
+    throw new Error(
+      `Base color "${baseColor}" is only available with CSS variables enabled.`,
+    )
+  }
+}
+
+async function promptForConfig(
+  defaultConfig: Config | null = null,
+  opts?: z.infer<typeof initOptionsSchema>,
+  tailwindVersion?: TailwindVersion,
+) {
   let base = opts?.base ?? 'reka'
   let style = opts?.style ?? 'vega'
   let font = opts?.font ?? 'inter'
@@ -662,9 +701,6 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
   let utilsAlias = defaultConfig?.aliases.utils ?? DEFAULT_UTILS
 
   if (opts?.preset === undefined && !opts?.defaults) {
-    const tailwindVersion = defaultConfig
-      ? await getProjectTailwindVersionFromConfig(defaultConfig)
-      : null
     const [styles, baseColors] = await Promise.all([
       getRegistryStyles(),
       getRegistryBaseColors(tailwindVersion),
@@ -748,7 +784,11 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
         initial: tailwindCss,
       },
       {
-        type: 'toggle',
+        // v4-only base colors ship CSS variables only.
+        type: (_: unknown, values: { tailwindBaseColor?: string }) =>
+          values.tailwindBaseColor && isV4OnlyBaseColor(values.tailwindBaseColor)
+            ? null
+            : 'toggle',
         name: 'tailwindCssVariables',
         message: `Would you like to use ${highlighter.info(
           'CSS variables',
@@ -796,7 +836,9 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
     baseColor = options.tailwindBaseColor ?? baseColor
     typescript = options.typescript ?? typescript
     tailwindCss = options.tailwindCss ?? tailwindCss
-    tailwindCssVariables = options.tailwindCssVariables ?? tailwindCssVariables
+    tailwindCssVariables = isV4OnlyBaseColor(baseColor)
+      ? true
+      : options.tailwindCssVariables ?? tailwindCssVariables
     tailwindPrefix = options.tailwindPrefix ?? tailwindPrefix
     tailwindConfig = options.tailwindConfig ?? tailwindConfig
     componentsAlias = options.components ?? componentsAlias
