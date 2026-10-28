@@ -134,10 +134,11 @@ npx shadcn-vue@latest docs <components...> [options]
 
 Outputs the documentation URL for each component. Accepts one or more component names from the default registry. Fetch the URL to get the actual content (usage, examples, API reference).
 
-| Flag          | Short | Description       | Default |
-| ------------- | ----- | ----------------- | ------- |
-| `--json`      |       | Output as JSON    | `false` |
-| `--cwd <cwd>` | `-c`  | Working directory | current |
+| Flag            | Short | Description                                      | Default        |
+| --------------- | ----- | ------------------------------------------------ | -------------- |
+| `--base <base>` | `-b`  | Base to resolve links for (`reka`)               | project's base |
+| `--json`        |       | Output as JSON                                   | `false`        |
+| `--cwd <cwd>`   | `-c`  | Working directory                                | current        |
 
 Example output for `npx shadcn-vue@latest docs input button`:
 
@@ -157,9 +158,10 @@ npx shadcn-vue@latest diff [component] [options]
 
 Compares installed components with the default registry (for the project's current `style`). Without a component, lists every installed component that has updates and the files affected. With a component, prints a line diff per file. Use this for [smart merge](./SKILL.md#updating-components).
 
-| Flag          | Short | Description       | Default |
-| ------------- | ----- | ----------------- | ------- |
-| `--cwd <cwd>` | `-c`  | Working directory | current |
+| Flag          | Short | Description              | Default |
+| ------------- | ----- | ------------------------ | ------- |
+| `--yes`       | `-y`  | Skip confirmation prompt | `false` |
+| `--cwd <cwd>` | `-c`  | Working directory        | current |
 
 > `add --dry-run`, `add --diff` and `add --view` are not supported in shadcn-vue; they exit with an error.
 
@@ -225,6 +227,7 @@ npx shadcn-vue@latest migrate [migration] [path] [options]
 
 | Migration | Description                                                   |
 | --------- | ------------------------------------------------------------- |
+| `cn`      | Replace `clsx` + `tailwind-merge` imports with the `cn` package |
 | `icons`   | Migrate UI components to a different icon library             |
 | `rtl`     | Migrate components to RTL-safe (logical) classes              |
 
