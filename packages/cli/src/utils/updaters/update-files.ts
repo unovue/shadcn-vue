@@ -354,8 +354,15 @@ export function resolveFilePath(
       }
     }
 
+    // Only nest under `src/` when the configured components path lives there,
+    // so a project with an unrelated `src/` folder keeps targets at the root.
+    const componentsInSrc = !!config.resolvedPaths.components
+      && !path
+        .relative(path.join(config.resolvedPaths.cwd, 'src'), config.resolvedPaths.components)
+        .startsWith('..')
+
     return assertPathWithin(
-      options.isSrcDir
+      options.isSrcDir && componentsInSrc
         ? path.join(config.resolvedPaths.cwd, 'src', target.replace('src/', ''))
         : path.join(config.resolvedPaths.cwd, target.replace('src/', '')),
       config.resolvedPaths.cwd,

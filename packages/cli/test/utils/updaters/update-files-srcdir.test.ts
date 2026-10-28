@@ -87,6 +87,31 @@ describe('resolveFilePath with a target in a srcDir project', () => {
     ).toBe('/project/components/ui/foo/Foo.vue')
   })
 
+  it('keeps placing a target at the project root when aliases point outside src/', () => {
+    const rootAliasConfig = {
+      ...srcDirConfig,
+      resolvedPaths: {
+        cwd: '/project',
+        ui: '/project/components/ui',
+        lib: '/project/lib',
+        components: '/project/components',
+        composables: '/project/composables',
+      },
+    } as unknown as Config
+
+    expect(
+      resolveFilePath(
+        {
+          path: 'ui/foo/Foo.vue',
+          type: 'registry:file',
+          target: 'components/ui/foo/Foo.vue',
+        },
+        rootAliasConfig,
+        { commonRoot: '', isSrcDir: true },
+      ),
+    ).toBe('/project/components/ui/foo/Foo.vue')
+  })
+
   it('keeps a home-relative target anchored to the project root', () => {
     expect(
       resolveFilePath(
