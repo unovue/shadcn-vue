@@ -121,14 +121,15 @@ useSeoMeta({
         </div>
       </div>
 
-      <div class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
+      <div class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 no-scrollbar overflow-y-auto overscroll-contain pb-8 xl:flex">
         <div class="h-(--top-spacing) shrink-0" />
-        <div v-if="page.body.toc?.links.length" class="no-scrollbar overflow-y-auto px-8">
-          <DocsTableOfContents :toc="page.body.toc" />
-          <div class="h-12" />
-        </div>
-        <div class="flex flex-1 flex-col gap-6 px-6">
+        <div class="flex shrink-0 flex-col gap-6 px-6">
           <DocsSponsors />
+        </div>
+        <div v-if="page.body.toc?.links.length" class="shrink-0 px-8">
+          <DocsTableOfContents :toc="page.body.toc" />
+        </div>
+        <div class="flex shrink-0 flex-col gap-6 px-6">
           <CarbonAds />
         </div>
       </div>
