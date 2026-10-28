@@ -84,7 +84,7 @@
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^2.24.1",
-    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@modelcontextprotocol/sdk": "^1.32.0",
     "@vue/compiler-core": "^3.5",
     "c12": "^3.3.4",
     "commander": "^15.0.0",
@@ -115,7 +115,7 @@
     "tinyglobby": "catalog:",
     "ts-morph": "^28.0.0",
     "typescript": "catalog:",
-    "undici": "^8.10.2",
+    "undici": "^8.12.2",
     "validate-npm-package-name": "catalog:",
     "vue": "catalog:",
     "vue-metamorph": "3.3.4",

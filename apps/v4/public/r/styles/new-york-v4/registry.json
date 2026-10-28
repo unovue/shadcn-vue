@@ -3233,9 +3233,6 @@
     {
       "name": "sidebar-06",
       "description": "A sidebar with submenus as dropdowns.",
-      "dependencies": [
-        "@vueuse/core"
-      ],
       "registryDependencies": [
         "breadcrumb",
         "separator",
