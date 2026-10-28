@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os'
 import MagicString from 'magic-string'
 import path from 'pathe'
 import { format } from 'prettier'
-import { transform } from 'rolldown/utils'
+import { parseSync, transform } from 'rolldown/utils'
 import { preTranspileScriptSetup, transpileVueTemplate } from 'vue-sfc-transformer'
 import { parse, registerTS } from 'vue/compiler-sfc'
 
@@ -34,7 +34,18 @@ const RESOLVABLE_EXTENSIONS = ['', '.ts', '.d.ts', '.tsx', '.vue', '/index.ts', 
 
 const TS_DIRECTIVE_COMMENT_RE = /^[ \t]*\/\/[ \t]*@ts-(?:ignore|expect-error|nocheck)\b.*(?:\r?\n|$)/gm
 
+// oxc's codegen drops blank lines but keeps comments, so blank lines between
+// statements travel through the transform as this marker.
+const BLANK_LINE_MARKER = '/*__shadcn_vue_blank_line__*/'
+
+const BLANK_LINE_MARKER_RE = /^[ \t]*\/\*__shadcn_vue_blank_line__\*\/[ \t]*$|\/\*__shadcn_vue_blank_line__\*\/[ \t]*/gm
+
+const EMPTY_EXPORT_RE = /^[ \t]*export[ \t]*\{[ \t]*\};?[ \t]*(?:\r?\n|$)/gm
+
 const EMPTY_SCRIPT_RE = /<script\b([^>]*)>(\s*)<\/script>/g
+
+// `<script setup generic="T extends ...">` only means something to TypeScript.
+const GENERIC_ATTRIBUTE_RE = /\s+generic\s*=\s*(?:"[^"]*"|'[^']*')/
 
 const TS_LANG_ATTRIBUTE_RE = /\s+lang\s*=\s*(?:"tsx?"|'tsx?'|tsx?)(?=\s|\/?>|$)/
 
@@ -237,7 +248,10 @@ async function transpileVueSFC(content: string, filename: string) {
     !descriptor.script?.src
     && (descriptor.script?.lang === 'ts' || descriptor.script?.lang === 'tsx')
   ) {
-    const script = await stripTypeScript(descriptor.script.content, descriptor.script.lang)
+    const script = removeEmptyExport(
+      descriptor.script.content,
+      await stripTypeScript(descriptor.script.content, descriptor.script.lang, true),
+    )
     replaceBlockContent(output, content, descriptor.script, script, true)
   }
 
@@ -246,7 +260,10 @@ async function transpileVueSFC(content: string, filename: string) {
       descriptor as Parameters<typeof preTranspileScriptSetup>[0],
       filename,
     )
-    const scriptSetup = await stripTypeScript(preTranspiled.content, descriptor.scriptSetup.lang)
+    const scriptSetup = removeEmptyExport(
+      preTranspiled.content,
+      await stripTypeScript(preTranspiled.content, descriptor.scriptSetup.lang, true),
+    )
     replaceBlockContent(output, content, descriptor.scriptSetup, scriptSetup, true)
   }
 
@@ -261,6 +278,8 @@ async function transpileVueSFC(content: string, filename: string) {
   return await format(transformed, {
     parser: 'vue',
     proseWrap: 'never',
+    // Runtime props come out of the transform one key per line.
+    objectWrap: 'collapse',
   })
 }
 
@@ -270,11 +289,12 @@ async function transformScript(content: string, filename: string) {
   if (!loader)
     return content
 
-  const output = await stripTypeScript(content, loader)
+  const output = await stripTypeScript(content, loader, true)
 
   return await format(output, {
     parser: loader === 'ts' || loader === 'tsx' ? 'typescript' : 'babel',
     proseWrap: 'never',
+    objectWrap: 'collapse',
   })
 }
 
@@ -289,8 +309,15 @@ function getScriptLoader(filename: string) {
     return 'ts' as const
 }
 
-async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 'tsx') {
-  const result = await transform('__sfc.ts', content, {
+type ScriptLoader = 'js' | 'jsx' | 'ts' | 'tsx'
+
+async function stripTypeScript(
+  content: string,
+  loader: ScriptLoader,
+  preserveBlankLines = false,
+) {
+  const source = preserveBlankLines ? markBlankLines(content, loader) : content
+  const result = await transform('__sfc.ts', source, {
     lang: loader,
     target: 'esnext',
     jsx: 'preserve',
@@ -307,7 +334,87 @@ async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 't
 
   return removeTypeOnlyImportLeftovers(content, result.code)
     .replace(TS_DIRECTIVE_COMMENT_RE, '')
+    .replace(BLANK_LINE_MARKER_RE, '')
     .trimEnd()
+}
+
+// Put a marker in front of each statement or comment that starts its own line
+// right after a blank line. Statements and comments come from the parser, so a
+// blank line inside a string or template literal is never touched.
+function markBlankLines(content: string, loader: ScriptLoader) {
+  const { program, comments, errors } = parseSync('__sfc.ts', content, { lang: loader })
+
+  if (errors.length)
+    return content
+
+  const statements: Statement[] = []
+  collectStatements(program, statements)
+
+  const anchors = [...comments, ...statements]
+  const lineStarts = new Set<number>()
+
+  for (const anchor of anchors) {
+    const lineStart = content.lastIndexOf('\n', anchor.start - 1) + 1
+
+    if (lineStart === 0 || content.slice(lineStart, anchor.start).trim())
+      continue
+
+    const previousLineStart = content.lastIndexOf('\n', lineStart - 2) + 1
+
+    if (content.slice(previousLineStart, lineStart - 1).trim())
+      continue
+
+    lineStarts.add(lineStart)
+
+    // A type-only statement disappears along with its marker, so hand the
+    // blank line on to whatever follows it.
+    if ('typeOnly' in anchor && anchor.typeOnly) {
+      const nextLineStart = content.indexOf('\n', anchor.end) + 1
+
+      if (nextLineStart > 0 && nextLineStart < content.length)
+        lineStarts.add(nextLineStart)
+    }
+  }
+
+  const output = new MagicString(content)
+
+  for (const lineStart of Array.from(lineStarts))
+    output.appendLeft(lineStart, `${BLANK_LINE_MARKER}\n`)
+
+  return output.toString()
+}
+
+interface Statement {
+  start: number
+  end: number
+  typeOnly: boolean
+}
+
+function collectStatements(node: unknown, statements: Statement[]) {
+  if (!node || typeof node !== 'object')
+    return
+
+  if (Array.isArray(node)) {
+    for (const child of node)
+      collectStatements(child, statements)
+    return
+  }
+
+  const { type, start, end, importKind, exportKind, declaration } = node as Record<string, any>
+
+  if (typeof type === 'string' && typeof start === 'number' && /(?:Statement|Declaration)$/.test(type)) {
+    statements.push({
+      start,
+      end,
+      typeOnly: type.startsWith('TS')
+        || importKind === 'type'
+        || exportKind === 'type'
+        || (typeof declaration?.type === 'string' && declaration.type.startsWith('TS')),
+    })
+  }
+
+  for (const value of Object.values(node))
+    collectStatements(value, statements)
 }
 
 // `verbatimModuleSyntax` turns `import { type Props } from './props'` into a bare
@@ -325,6 +432,12 @@ function removeTypeOnlyImportLeftovers(source: string, output: string) {
   )
 }
 
+// Once its only imports are type imports, a module gets an `export {}` to stay a
+// module. An SFC block is always one, and `<script setup>` rejects any export.
+function removeEmptyExport(source: string, output: string) {
+  return source.search(EMPTY_EXPORT_RE) !== -1 ? output : output.replace(EMPTY_EXPORT_RE, '').trimEnd()
+}
+
 function replaceBlockContent(
   output: MagicString,
   source: string,
@@ -340,7 +453,9 @@ function replaceBlockContent(
 
   const blockStart = source.lastIndexOf(`<${block.type}`, block.loc.start.offset)
   const openTag = source.slice(blockStart, block.loc.start.offset)
-  const transformedOpenTag = openTag.replace(TS_LANG_ATTRIBUTE_RE, '')
+  const transformedOpenTag = openTag
+    .replace(TS_LANG_ATTRIBUTE_RE, '')
+    .replace(GENERIC_ATTRIBUTE_RE, '')
 
   output.overwrite(blockStart, block.loc.start.offset, transformedOpenTag)
 }

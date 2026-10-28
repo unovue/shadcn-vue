@@ -404,6 +404,68 @@ describe('transformSFC', () => {
     expect(result).toContain('<template><div /></template>')
   })
 
+  it('removes the generic attribute from script setup', async () => {
+    const result = await transformVueSFC(`<script setup lang="ts" generic="T extends 'text' | Record<string, number> = 'text'">
+      const props = defineProps<{ type?: T }>()
+      </script>
+      `, 'app.vue')
+
+    expect(result).toContain('<script setup>')
+    expect(result).not.toContain('generic')
+    expect(collapse(result)).toContain('type: { type: null, required: false }')
+  })
+
+  it('does not leave an export behind when only type imports remain', async () => {
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { HTMLAttributes } from 'vue'
+      const props = defineProps<{ class?: HTMLAttributes['class'] }>()
+      </script>
+      `, 'app.vue')
+
+    expect(result).not.toContain('export')
+    expect(result).not.toContain('import')
+    expect(collapse(result)).toContain('const props = defineProps({')
+  })
+
+  it('keeps blank lines between statements', async () => {
+    const result = await transformVueSFC(`<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
+
+interface Props {
+  class?: HTMLAttributes['class']
+}
+const props = defineProps<Props>()
+
+// computed classes
+const classes = cn('a', props.class)
+const text = \`line one
+
+line two\`
+</script>
+`, 'app.vue')
+
+    expect(result).toContain('import { cn } from "cn";\n\nconst props')
+    expect(result).toContain('});\n\n// computed classes\nconst classes')
+    expect(result).toContain('line one\n\nline two')
+    expect(result).not.toContain('__shadcn_vue_blank_line__')
+  })
+
+  it('keeps blank lines in plain script files', async () => {
+    const result = await transformSFC({
+      filename: 'utils.ts',
+      raw: `import { cva } from 'class-variance-authority'
+
+export type Variant = 'a' | 'b'
+
+export const variants = cva('base')
+`,
+      config: {},
+    })
+
+    expect(result).toBe(`import { cva } from "class-variance-authority";\n\nexport const variants = cva("base");\n`)
+  })
+
   it('reports TypeScript that fails to parse', async () => {
     await expect(transformVueSFC(`<script lang="ts" setup>
       const value: = 1

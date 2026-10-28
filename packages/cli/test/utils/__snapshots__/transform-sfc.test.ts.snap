@@ -22,12 +22,7 @@ const emit = defineEmits(["foo"]);
 
 exports[`transformSFC > defineProps 1`] = `
 "<script setup>
-const props = defineProps({
-  foo: {
-    type: String,
-    required: true,
-  },
-});
+const props = defineProps({ foo: { type: String, required: true } });
 </script>
 "
 `;
@@ -35,19 +30,9 @@ const props = defineProps({
 exports[`transformSFC > defineProps with external props 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: {
-    type: String,
-    required: false,
-    default: "bar",
-  },
-  a: {
-    type: String,
-    required: true,
-  },
-  b: {
-    type: Number,
-    required: true,
-  },
+  foo: { type: String, required: false, default: "bar" },
+  a: { type: String, required: true },
+  b: { type: Number, required: true },
 });
 </script>
 "
@@ -56,23 +41,10 @@ const props = defineProps({
 exports[`transformSFC > defineProps with package props 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: {
-    type: String,
-    required: false,
-    default: "bar",
-  },
-  for: {
-    type: String,
-    required: false,
-  },
-  asChild: {
-    type: Boolean,
-    required: false,
-  },
-  as: {
-    type: null,
-    required: false,
-  },
+  foo: { type: String, required: false, default: "bar" },
+  for: { type: String, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: null, required: false },
 });
 </script>
 "
@@ -81,11 +53,7 @@ const props = defineProps({
 exports[`transformSFC > defineProps with withDefaults 1`] = `
 "<script setup>
 const props = defineProps({
-  foo: {
-    type: String,
-    required: true,
-    default: "bar",
-  },
+  foo: { type: String, required: true, default: "bar" },
 });
 </script>
 "
