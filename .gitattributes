@@ -1,4 +1,20 @@
-# Keep registry codegen output stable across Windows and POSIX checkouts.
-apps/v4/styles/reka-*/** text eol=lf
-apps/v4/public/r/**/*.json text eol=lf
-apps/v4/registry/**/*.json text eol=lf
+# Normalize text files to LF in the repo and in every checkout,
+# regardless of each contributor's core.autocrlf setting.
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+*.lockb binary
