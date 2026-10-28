@@ -71,3 +71,20 @@ import { Switch } from '@/components/ui/switch'
   <Switch />
 </template>
 ```
+
+## Checked State
+
+Use `default-value` for uncontrolled switches, or `v-model` to control the state.
+
+```vue showLineNumbers
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Switch } from '@/components/ui/switch'
+
+const checked = ref<boolean>(false)
+</script>
+
+<template>
+  <Switch v-model="checked" />
+</template>
+```

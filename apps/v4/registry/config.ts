@@ -398,6 +398,7 @@ export function buildRegistryBase(
   const dependencies = [
     `shadcn-vue@${SHADCN_VERSION}`,
     "class-variance-authority",
+    "cn",
     "tw-animate-css",
     ...(baseItem.dependencies ?? []),
     ...iconLibraryItem.packages,

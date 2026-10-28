@@ -18,6 +18,7 @@
     "registry:check:icons": "tsx scripts/build-icons.ts && git diff --exit-code public/r/icons/index.json"
   },
   "dependencies": {
+    "@comark/vue": "catalog:",
     "@dnd-kit/abstract": "^0.5.0",
     "@formisch/vue": "^1.0.0",
     "@hugeicons/core-free-icons": "^4.3.0",
@@ -43,7 +44,7 @@
     "@vueuse/router": "^14.4.0",
     "chrono-node": "^2.10.1",
     "class-variance-authority": "catalog:",
-    "clsx": "catalog:",
+    "cn": "catalog:",
     "date-fns": "catalog:",
     "dnd-kit-vue": "^0.0.2",
     "embla-carousel-autoplay": "^8.6.0",
@@ -53,7 +54,6 @@
     "qrcode": "catalog:",
     "reka-ui": "catalog:",
     "shadcn-vue": "workspace:*",
-    "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
     "tw-animate-css": "catalog:",
     "unifont": "catalog:",

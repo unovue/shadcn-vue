@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import type { ButtonVariants } from '@/styles/reka-vega/ui/button'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { buttonVariants } from '@/styles/reka-vega/ui/button'
 
 const props = withDefaults(defineProps<{

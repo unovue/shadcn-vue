@@ -2,12 +2,13 @@
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "button",
   "dependencies": [
-    "reka-ui"
+    "reka-ui",
+    "cn"
   ],
   "files": [
     {
       "path": "styles/reka-nova/ui/button/Button.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { ButtonVariants } from '.'\nimport { Primitive } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { buttonVariants } from '.'\n\ninterface Props extends PrimitiveProps {\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"button\"\n    :data-variant=\"variant\"\n    :data-size=\"size\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { ButtonVariants } from '.'\nimport { cn } from 'cn'\nimport { Primitive } from 'reka-ui'\nimport { buttonVariants } from '.'\n\ninterface Props extends PrimitiveProps {\n  variant?: ButtonVariants['variant']\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"button\"\n    :data-variant=\"variant\"\n    :data-size=\"size\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn(buttonVariants({ variant, size }), props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
     },
     {

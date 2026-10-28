@@ -1,0 +1,49 @@
+import type { VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
+
+export { default as CodeBlock } from "./CodeBlock.vue"
+export { default as CodeBlockActions } from "./CodeBlockActions.vue"
+export { default as CodeBlockContent } from "./CodeBlockContent.vue"
+export { default as CodeBlockCopyButton } from "./CodeBlockCopyButton.vue"
+export { default as CodeBlockFooter } from "./CodeBlockFooter.vue"
+export { default as CodeBlockHeader } from "./CodeBlockHeader.vue"
+export { default as CodeBlockLine } from "./CodeBlockLine.vue"
+export { default as CodeBlockTitle } from "./CodeBlockTitle.vue"
+export { default as CodeBlockToken } from "./CodeBlockToken.vue"
+export { highlightCode, loadHighlighter } from "./highlighter"
+export type { HighlightedToken } from "./highlighter"
+export { useHighlightedCode } from "./useHighlightedCode"
+
+export const codeBlockVariants = cva(
+  "cn-code-block group/code-block relative flex w-full min-w-0 flex-col overflow-hidden",
+  {
+    variants: {
+      variant: {
+        default: "cn-code-block-variant-default",
+        destructive: "cn-code-block-variant-destructive",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+)
+export type CodeBlockVariants = VariantProps<typeof codeBlockVariants>
+
+export const codeBlockLineVariants = cva(
+  "cn-code-block-line relative block min-h-lh after:absolute after:top-0 after:select-none in-data-numbered:col-span-2 in-data-numbered:grid in-data-numbered:grid-cols-subgrid in-data-numbered:[counter-increment:line] in-data-numbered:before:content-[counter(line)] in-data-numbered:before:select-none in-data-numbered:supports-[content:counter(line)_/_'']:before:content-[counter(line)_/_'']",
+  {
+    variants: {
+      variant: {
+        default: "cn-code-block-line-variant-default",
+        added: "cn-code-block-line-variant-added",
+        removed: "cn-code-block-line-variant-removed",
+        highlighted: "cn-code-block-line-variant-highlighted",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+)
+export type CodeBlockLineVariants = VariantProps<typeof codeBlockLineVariants>

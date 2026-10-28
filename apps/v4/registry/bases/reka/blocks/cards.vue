@@ -270,7 +270,7 @@ const avatars = [
                 />
               </Field>
               <Field orientation="horizontal">
-                <Checkbox id="terms" v-model:checked="agreeToTerms" />
+                <Checkbox id="terms" v-model="agreeToTerms" />
                 <FieldLabel for="terms">
                   I agree to the terms and conditions
                 </FieldLabel>

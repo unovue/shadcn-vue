@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from "./interface"
 import type { ButtonVariants } from "@/registry/bases/reka/ui/button"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { Button } from "@/registry/bases/reka/ui/button"
 import { useCarousel } from "./useCarousel"

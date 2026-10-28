@@ -88,6 +88,9 @@ export const blocks: Registry["items"] = [
     name: "login-01",
     type: "registry:block",
     description: "A simple login form.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "card",
@@ -114,6 +117,9 @@ export const blocks: Registry["items"] = [
     name: "login-02",
     type: "registry:block",
     description: "A two column login page with a cover image.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "field",
@@ -139,6 +145,9 @@ export const blocks: Registry["items"] = [
     name: "login-03",
     type: "registry:block",
     description: "A login page with a muted background color.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "card",
@@ -165,6 +174,9 @@ export const blocks: Registry["items"] = [
     name: "login-04",
     type: "registry:block",
     description: "A login page with form and image.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "card",
@@ -191,6 +203,9 @@ export const blocks: Registry["items"] = [
     name: "login-05",
     type: "registry:block",
     description: "A simple email-only login page.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "field",
@@ -242,6 +257,9 @@ export const blocks: Registry["items"] = [
     name: "otp-02",
     type: "registry:block",
     description: "A two column OTP page with a cover image.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "field",
@@ -293,6 +311,9 @@ export const blocks: Registry["items"] = [
     name: "otp-04",
     type: "registry:block",
     description: "An OTP page with form and image.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "card",
@@ -319,6 +340,9 @@ export const blocks: Registry["items"] = [
     name: "otp-05",
     type: "registry:block",
     description: "A simple OTP form with social providers.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "field",
@@ -1018,6 +1042,9 @@ export const blocks: Registry["items"] = [
     name: "signup-02",
     type: "registry:block",
     description: "A two column signup page with a cover image.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "field",
@@ -1043,6 +1070,9 @@ export const blocks: Registry["items"] = [
     name: "signup-03",
     type: "registry:block",
     description: "A signup page with a muted background color.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "card",
@@ -1069,6 +1099,9 @@ export const blocks: Registry["items"] = [
     name: "signup-04",
     type: "registry:block",
     description: "A signup page with form and image.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "card",
@@ -1095,6 +1128,9 @@ export const blocks: Registry["items"] = [
     name: "signup-05",
     type: "registry:block",
     description: "A simple signup form with social providers.",
+    dependencies: [
+      "cn",
+    ],
     registryDependencies: [
       "button",
       "field",

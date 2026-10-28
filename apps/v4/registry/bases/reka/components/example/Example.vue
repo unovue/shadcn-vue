@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
-import { cn } from "@/registry/bases/reka/lib/utils"
+import { cn } from "cn"
 
 const props = defineProps<{
   title: string

@@ -3,7 +3,7 @@ import type { WithClassAsProps } from './interface'
 
 import type { ButtonVariants } from '@/styles/reka-mira/ui/button'
 import { ChevronRightIcon } from '@lucide/vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/styles/reka-mira/ui/button'
 import { useCarousel } from './useCarousel'
 

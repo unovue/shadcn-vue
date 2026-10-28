@@ -5,8 +5,8 @@ import type {
   QuestionnaireItemDefinition,
   QuestionnaireShortcutMode,
 } from './useQuestionnaire'
+import { cn } from 'cn'
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
-import { cn } from '@/lib/utils'
 import {
   compareDocumentOrder,
   createQuestionnaireCollection,

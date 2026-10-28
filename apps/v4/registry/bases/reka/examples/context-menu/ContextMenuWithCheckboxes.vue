@@ -23,20 +23,20 @@ const showDeveloperTools = ref(false)
       <ContextMenuContent>
         <ContextMenuGroup>
           <ContextMenuCheckboxItem
-            :checked="showBookmarksBar"
-            @update:checked="showBookmarksBar = $event"
+            :model-value="showBookmarksBar"
+            @update:model-value="showBookmarksBar = $event"
           >
             Show Bookmarks Bar
           </ContextMenuCheckboxItem>
           <ContextMenuCheckboxItem
-            :checked="showFullUrls"
-            @update:checked="showFullUrls = $event"
+            :model-value="showFullUrls"
+            @update:model-value="showFullUrls = $event"
           >
             Show Full URLs
           </ContextMenuCheckboxItem>
           <ContextMenuCheckboxItem
-            :checked="showDeveloperTools"
-            @update:checked="showDeveloperTools = $event"
+            :model-value="showDeveloperTools"
+            @update:model-value="showDeveloperTools = $event"
           >
             Show Developer Tools
           </ContextMenuCheckboxItem>

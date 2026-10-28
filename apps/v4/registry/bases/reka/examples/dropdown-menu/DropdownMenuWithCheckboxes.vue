@@ -29,7 +29,7 @@ const showPanel = ref(false)
         <DropdownMenuGroup>
           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
           <DropdownMenuCheckboxItem
-            v-model:checked="showStatusBar"
+            v-model="showStatusBar"
           >
             <IconPlaceholder
               lucide="LayoutIcon"
@@ -41,7 +41,7 @@ const showPanel = ref(false)
             Status Bar
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            v-model:checked="showActivityBar"
+            v-model="showActivityBar"
             :disabled="true"
           >
             <IconPlaceholder
@@ -54,7 +54,7 @@ const showPanel = ref(false)
             Activity Bar
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            v-model:checked="showPanel"
+            v-model="showPanel"
           >
             <IconPlaceholder
               lucide="PanelLeftIcon"
