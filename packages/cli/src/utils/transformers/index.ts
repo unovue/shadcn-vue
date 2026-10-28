@@ -33,7 +33,7 @@ export async function transform(opts: TransformOpts) {
   // @babel/parser cannot parse formats like Markdown, and none of the
   // codemods (import rewriting, CSS vars, Tailwind prefix, icons) are
   // applicable to these files anyway.
-  const nonCodeExtensions = ['.md', '.mdx', '.txt']
+  const nonCodeExtensions = ['.md', '.mdx', '.txt', '.svg', '.html', '.htm', '.yaml', '.yml']
   if (nonCodeExtensions.some(ext => opts.filename.endsWith(ext)))
     return opts.raw
 

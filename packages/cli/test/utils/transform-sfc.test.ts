@@ -581,6 +581,20 @@ export const variants = cva('base')
     expect(result).toBe(raw)
   })
 
+  it.each([
+    ['icon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4"/></svg>\n'],
+    ['page.html', '<!doctype html>\n<p>hello</p>\n'],
+    ['config.yaml', 'key: value\nlist:\n  - a\n'],
+    ['config.yml', 'key: value\n'],
+  ])('returns raw content unchanged for %s', async (name, raw) => {
+    const result = await transform({
+      filename: `src/registry/assets/${name}`,
+      raw,
+      config: {},
+    })
+    expect(result).toBe(raw)
+  })
+
   it('defineEmits', async () => {
     const result = await transform({
       filename: 'app.vue',
