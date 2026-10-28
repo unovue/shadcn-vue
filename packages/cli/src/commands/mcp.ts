@@ -16,6 +16,7 @@ import { logger } from '@/src/utils/logger'
 import { spinner } from '@/src/utils/spinner'
 import {
   getPackageManager,
+  shouldUseCorepack,
   updateDependencies,
 } from '@/src/utils/updaters/update-dependencies'
 
@@ -256,6 +257,6 @@ async function installMcpDependencies(cwd: string) {
     cwd,
     packageManager,
     silent: true,
-    corepack: false,
+    corepack: shouldUseCorepack(cwd),
   })
 }
