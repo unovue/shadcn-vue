@@ -1,5 +1,5 @@
 import type { Change } from 'diff'
-import type { registryIndexSchema } from '@/src/schema'
+import type { registryIndexSchema, registryItemFileSchema } from '@/src/schema'
 import type { Config } from '@/src/utils/get-config'
 import { existsSync, promises as fs } from 'node:fs'
 import { Command } from 'commander'
@@ -67,16 +67,12 @@ export const diff = new Command()
       }
 
       if (!options.component) {
-        const targetDir = config.resolvedPaths.components
-
         // Find all components that exist in the project.
         const projectComponents = registryIndex.filter((item) => {
-          for (const file of item.files ?? []) {
-            const filePath = path.resolve(
-              targetDir,
-              typeof file === 'string' ? file : file.path,
-            )
-            if (existsSync(filePath)) {
+          const files = item.files ?? []
+          for (const file of files) {
+            const filePath = resolveLocalFilePath(file, files, config)
+            if (filePath && existsSync(filePath)) {
               return true
             }
           }
@@ -147,6 +143,28 @@ export const diff = new Command()
     }
   })
 
+// Resolve the local path the same way `add` writes it. Registry paths are
+// prefixed (e.g. `styles/reka-nova/ui/button/Button.vue`), and `.ts` files
+// are written as `.js` in JavaScript projects.
+function resolveLocalFilePath(
+  file: z.infer<typeof registryItemFileSchema>,
+  files: z.infer<typeof registryItemFileSchema>[],
+  config: Config,
+) {
+  const filePath = resolveFilePath(file, config, {
+    commonRoot: findCommonRoot(
+      files.map(f => f.path),
+      file.path,
+    ),
+  })
+
+  if (filePath && !config.typescript) {
+    return filePath.replace(/\.ts?$/, '.js')
+  }
+
+  return filePath
+}
+
 async function diffComponent(
   component: z.infer<typeof registryIndexSchema>[number],
   config: Config,
@@ -168,14 +186,7 @@ async function diffComponent(
         continue
       }
 
-      // Resolve the local path the same way `add` writes it. Registry paths
-      // are prefixed (e.g. `styles/reka-nova/ui/button/Button.vue`).
-      const filePath = resolveFilePath(file, config, {
-        commonRoot: findCommonRoot(
-          files.map(f => f.path),
-          file.path,
-        ),
-      })
+      const filePath = resolveLocalFilePath(file, files, config)
 
       if (!filePath || !existsSync(filePath)) {
         continue
