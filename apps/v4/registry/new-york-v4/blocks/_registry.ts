@@ -545,9 +545,6 @@ export const blocks: Registry["items"] = [
     name: "sidebar-06",
     type: "registry:block",
     description: "A sidebar with submenus as dropdowns.",
-    dependencies: [
-      "@vueuse/core",
-    ],
     registryDependencies: [
       "breadcrumb",
       "separator",
