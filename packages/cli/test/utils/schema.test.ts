@@ -1,5 +1,24 @@
 import { describe, expect, it } from 'vitest'
-import { configSchema, presetSchema, rawConfigSchema } from '../../src/schema'
+import { configSchema, presetSchema, rawConfigSchema, registryBaseColorSchema } from '../../src/schema'
+
+describe('registryBaseColorSchema', () => {
+  it('accepts v4-only base colors', () => {
+    const result = registryBaseColorSchema.parse({
+      cssVarsV4: {
+        light: { background: 'oklch(1 0 0)' },
+        dark: { background: 'oklch(0.145 0 0)' },
+      },
+    })
+
+    expect(result.cssVarsV4?.light?.background).toBe('oklch(1 0 0)')
+    expect(result.inlineColors).toBeUndefined()
+    expect(result.cssVars).toBeUndefined()
+  })
+
+  it('rejects base colors without a mapping', () => {
+    expect(() => registryBaseColorSchema.parse({})).toThrow()
+  })
+})
 
 describe('rawConfigSchema', () => {
   it('accepts valid config with all fields', () => {

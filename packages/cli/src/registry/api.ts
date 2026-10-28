@@ -1,4 +1,5 @@
 import type { Config } from "@/src/utils/get-config"
+import type { TailwindVersion } from "@/src/utils/get-project-info"
 import path from "pathe"
 import { z } from "zod"
 import { DEFAULT_PRESETS } from "@/src/preset/presets"
@@ -209,8 +210,18 @@ export async function getRegistryIcons() {
   }
 }
 
-export async function getRegistryBaseColors() {
-  return BASE_COLORS
+// An unknown Tailwind version (undefined or null) shows every base color.
+export async function getRegistryBaseColors(tailwindVersion?: TailwindVersion) {
+  return BASE_COLORS.filter(color =>
+    !("tailwindVersion" in color)
+    || !tailwindVersion
+    || color.tailwindVersion === tailwindVersion,
+  )
+}
+
+export function isV4OnlyBaseColor(name: string) {
+  const color = BASE_COLORS.find(color => color.name === name)
+  return !!color && "tailwindVersion" in color && color.tailwindVersion === "v4"
 }
 
 /**
@@ -296,10 +307,7 @@ export async function getRegistryBaseColor(baseColor: string) {
     return registryBaseColorSchema.parse(result)
   }
   catch (error) {
-    // Degrade gracefully when a base color is not published at the registry.
-    // This happens for newer base colors (mauve/olive/mist/taupe) until the
-    // color generation pipeline publishes matching JSON. Transformers only
-    // use this mapping for non-cssVariables inline color class remapping.
+    // Keep missing base-color artifacts non-fatal for backward compatibility.
     if (error instanceof RegistryNotFoundError) {
       return undefined
     }
