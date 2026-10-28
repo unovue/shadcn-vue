@@ -1,11 +1,7 @@
-# Normalize text files to LF in the repo and in every checkout,
-# regardless of each contributor's core.autocrlf setting.
-# `text` (not `text=auto`) also normalizes files already stored with CRLF
-# the next time they are committed.
+# Force LF for all text files, normalizing CRLF ones on their next commit
 * text eol=lf
 
-# Binary assets: every binary file type must be listed here, since `text`
-# disables git's binary detection.
+# `text` disables binary detection, so list every binary type here
 *.png binary
 *.jpg binary
 *.jpeg binary
