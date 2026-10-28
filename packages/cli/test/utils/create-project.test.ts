@@ -240,7 +240,25 @@ describe('createProject', () => {
       cwd: '/test/my-app',
       packageManager: 'npm',
       silent: true,
+      corepack: false,
     })
+  })
+
+  it('should install with corepack when the template pins a package manager', async () => {
+    vi.mocked(prompts).mockResolvedValue({ type: 'nuxt', name: 'my-app' })
+    vi.mocked(fs.readJson).mockResolvedValue({ name: 'my-vue-app', packageManager: 'pnpm@10.25.0' })
+
+    await createProject({
+      cwd: '/test',
+      force: false,
+      name: undefined,
+      components: undefined,
+      template: undefined,
+    })
+
+    expect(installDependencies).toHaveBeenCalledWith(expect.objectContaining({
+      corepack: true,
+    }))
   })
 
   it('should throw error if project path already exists', async () => {

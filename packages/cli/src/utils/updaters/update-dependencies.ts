@@ -139,6 +139,14 @@ export async function removeDependencies(cwd: string, dependencies: string[]) {
   })
 }
 
+// nypm runs pnpm and yarn through corepack by default. Without a
+// `packageManager` field corepack resolves its own pinned default instead of
+// the package manager the user already has, so only use it when the project
+// pins one.
+export function shouldUseCorepack(cwd: string) {
+  return Boolean(getPackageInfo(cwd, false)?.packageManager)
+}
+
 async function installWithPackageManager(
   packageManager: SupportedPackageManager,
   dependencies: string[],
@@ -150,6 +158,7 @@ async function installWithPackageManager(
     cwd,
     packageManager,
     silent,
+    corepack: shouldUseCorepack(cwd),
   }
 
   if (dependencies?.length) {

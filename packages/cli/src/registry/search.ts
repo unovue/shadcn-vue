@@ -1,3 +1,4 @@
+import type { KeysOptions } from "fuzzysort"
 import type { searchResultItemSchema } from "@/src/schema"
 import type { Config } from "@/src/utils/get-config"
 import fuzzysort from "fuzzysort"
@@ -86,11 +87,12 @@ function searchItems<
   items: T[],
   options: {
     query: string
-  } & Pick<Parameters<typeof fuzzysort.go>[2], "keys" | "threshold" | "limit">,
+  } & Pick<KeysOptions<T>, "keys" | "threshold" | "limit">,
 ) {
   options = {
     limit: 100,
-    threshold: -10000,
+    // Scores run from 0 (no match) to 1 (exact); 0 keeps every match.
+    threshold: 0,
     ...options,
   }
 

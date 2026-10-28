@@ -138,6 +138,8 @@ export async function createProject(
       cwd: projectPath,
       packageManager,
       silent: true,
+      // Only templates that pin a package manager need corepack to honour it.
+      corepack: Boolean(pkg.packageManager),
     })
 
     createSpinner?.succeed(`Created a new ${template} project.`)
