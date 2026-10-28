@@ -81,12 +81,6 @@ import {
 </template>
 ```
 
-Pass a `class` to `EmptyDescription` to customize its text styling:
-
-```vue
-<EmptyDescription class="text-red-500">No data found</EmptyDescription>
-```
-
 ## Examples
 
 ### Outline
