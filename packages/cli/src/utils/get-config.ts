@@ -1,4 +1,5 @@
 import type { z } from 'zod'
+import { existsSync } from 'node:fs'
 import { loadConfig } from 'c12'
 import { getTsconfig } from 'get-tsconfig'
 import path from 'pathe'
@@ -147,6 +148,39 @@ export async function getRawConfig(
     return config
   }
   catch (error) {
+    // Work around a c12/jiti resolution bug: when no `components.json` (or
+    // `components.config.*`) file exists, c12's internal fallback chain for
+    // an extensionless `configFile` (here, the literal string "components")
+    // can end up calling `existsSync("components")` relative to the actual
+    // process cwd instead of the resolved project cwd. Since virtually every
+    // Vue/Nuxt project has a sibling `components/` directory, this
+    // accidentally resolves to that directory and gets passed — as a bare,
+    // unresolved specifier — into `jiti.import()`, which then throws a raw
+    // `MODULE_NOT_FOUND` for `'components'` instead of c12 reporting "no
+    // config found". This is indistinguishable from "no config file present"
+    // from our side, so treat it the same way (return null) rather than
+    // surfacing it as a config parse error. Only do this when there's no
+    // explicit config file present — if one of these exists, a
+    // MODULE_NOT_FOUND for 'components' is a real failure (e.g. the user's
+    // own components.config.ts importing a missing module) and must still
+    // surface as ConfigParseError instead of being silently swallowed.
+    // See: https://github.com/unjs/c12 (upstream issue pending).
+    const hasExplicitConfigFile
+      = existsSync(path.resolve(cwd, 'components.json'))
+        || existsSync(path.resolve(cwd, 'components.config.ts'))
+        || existsSync(path.resolve(cwd, 'components.config.js'))
+        || existsSync(path.resolve(cwd, 'components.config.mjs'))
+        || existsSync(path.resolve(cwd, 'components.config.cjs'))
+
+    if (
+      error instanceof Error
+      && (error as NodeJS.ErrnoException).code === 'MODULE_NOT_FOUND'
+      && error.message.includes('\'components\'')
+      && !hasExplicitConfigFile
+    ) {
+      return null
+    }
+
     throw new ConfigParseError(cwd, error)
   }
 }
