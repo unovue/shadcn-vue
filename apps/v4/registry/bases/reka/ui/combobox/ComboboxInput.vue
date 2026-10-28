@@ -23,13 +23,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
-  <InputGroup>
+  <InputGroup class="cn-combobox-input w-auto">
     <InputGroupAddon>
       <IconPlaceholder lucide="SearchIcon" tabler="IconSearch" hugeicons="Search01Icon" phosphor="MagnifyingGlassIcon" remixicon="RiSearchLine" class="cn-command-input-icon" />
     </InputGroupAddon>
     <ComboboxInput
       data-slot="combobox-input"
-      :class="cn('cn-combobox-input flex-1 outline-hidden disabled:cursor-not-allowed disabled:opacity-50', props.class)"
+      :class="cn('flex-1 outline-hidden disabled:cursor-not-allowed disabled:opacity-50', props.class)"
       v-bind="{ ...$attrs, ...forwarded }"
     />
   </InputGroup>
