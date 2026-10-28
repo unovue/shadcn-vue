@@ -1,6 +1,5 @@
 import { existsSync } from 'node:fs'
-import { readdir } from 'node:fs/promises'
-import { tmpdir } from 'node:os'
+import { mkdir, mkdtemp, readdir, rm } from 'node:fs/promises'
 import { resolve } from 'pathe'
 import { describe, expect, it } from 'vitest'
 import { transform } from '../../src/utils/transformers'
@@ -10,6 +9,14 @@ import { transformSFC, transformVueSFC } from '../../src/utils/transformers/tran
 // without depending on its line breaks or trailing commas.
 function collapse(code: string) {
   return code.replace(/,(\s*[}\]])/g, '$1').replace(/\s+/g, ' ')
+}
+
+const cliRoot = resolve(__dirname, '../..')
+const stagingCache = resolve(cliRoot, 'node_modules/.cache')
+
+async function listStagingDirectories() {
+  const entries = await readdir(stagingCache).catch(() => [])
+  return entries.filter(entry => entry.startsWith('shadcn-vue-sfc-'))
 }
 
 describe('transformSFC', () => {
@@ -255,17 +262,55 @@ describe('transformSFC', () => {
     const sourceFiles = [
       { path: 'ui/carousel/interface.ts', content: 'export interface Props { a: string }' },
     ]
-    const before = await readdir(tmpdir())
+    const before = await listStagingDirectories()
 
     await transformVueSFC(`<script lang="ts" setup>
       import type { Props } from './interface'
       const props = defineProps<Props>()
       </script>
-      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+      `, 'ui/carousel/Carousel.vue', { sourceFiles, cwd: cliRoot })
 
-    const after = await readdir(tmpdir())
-    expect(after.filter(entry => entry.startsWith('shadcn-vue-sfc-')))
-      .toEqual(before.filter(entry => entry.startsWith('shadcn-vue-sfc-')))
+    expect(await listStagingDirectories()).toEqual(before)
+  })
+
+  it('stages under a node_modules hoisted above cwd', async () => {
+    const workspace = await mkdtemp(resolve(cliRoot, 'node_modules/.sfc-workspace-'))
+    const cwd = resolve(workspace, 'packages/app')
+    await mkdir(resolve(workspace, 'node_modules'), { recursive: true })
+    await mkdir(cwd, { recursive: true })
+
+    try {
+      const sourceFiles = [
+        { path: 'ui/carousel/interface.ts', content: 'export interface Props { a: string }' },
+      ]
+
+      const result = await transformVueSFC(`<script lang="ts" setup>
+        import type { Props } from './interface'
+        const props = defineProps<Props>()
+        </script>
+        `, 'ui/carousel/Carousel.vue', { sourceFiles, cwd })
+
+      expect(collapse(result)).toContain('a: { type: String, required: true }')
+      expect(existsSync(resolve(cwd, 'node_modules'))).toBe(false)
+    }
+    finally {
+      await rm(workspace, { recursive: true, force: true })
+    }
+  })
+
+  it('follows relative imports between staged files', async () => {
+    const sourceFiles = [
+      { path: 'ui/carousel/interface.ts', content: `export type { Props } from './types'` },
+      { path: 'ui/carousel/types.ts', content: 'export interface Props { a: string }' },
+    ]
+
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      import type { Props } from './interface'
+      const props = defineProps<Props>()
+      </script>
+      `, 'ui/carousel/Carousel.vue', { sourceFiles, cwd: cliRoot })
+
+    expect(collapse(result)).toContain('a: { type: String, required: true }')
   })
 
   it('ignores sibling paths that escape the staging directory', async () => {
@@ -274,14 +319,18 @@ describe('transformSFC', () => {
       { path: 'ui/carousel/interface.ts', content: 'export interface Props { a: string }' },
     ]
 
+    // `../../../escaped` resolves to the `../escaped.ts` registry path, which
+    // would land outside the staging directory.
     const result = await transformVueSFC(`<script lang="ts" setup>
       import type { Props } from './interface'
+      import type { Unused } from '../../../escaped'
       const props = defineProps<Props>()
       </script>
-      `, 'ui/carousel/Carousel.vue', { sourceFiles })
+      `, 'ui/carousel/Carousel.vue', { sourceFiles, cwd: cliRoot })
 
     expect(collapse(result)).toContain('a: { type: String, required: true }')
-    expect(existsSync(resolve(tmpdir(), '../../../escaped.ts'))).toBe(false)
+    expect(existsSync(resolve(stagingCache, 'escaped.ts'))).toBe(false)
+    expect(existsSync(resolve(stagingCache, '../escaped.ts'))).toBe(false)
   })
 
   it('preserves JSX syntax while stripping TypeScript', async () => {
@@ -351,8 +400,48 @@ describe('transformSFC', () => {
       <template><div /></template>
       `, 'app.vue')
 
-    expect(result).toContain('<script lang="ts"></script>')
+    expect(result).toContain('<script></script>')
     expect(result).toContain('<template><div /></template>')
+  })
+
+  it('reports TypeScript that fails to parse', async () => {
+    await expect(transformVueSFC(`<script lang="ts" setup>
+      const value: = 1
+      </script>
+      `, 'app.vue')).rejects.toThrow()
+
+    await expect(transformSFC({
+      filename: 'utils.ts',
+      raw: 'export const value: = 1',
+      config: {},
+    })).rejects.toThrow()
+  })
+
+  it('removes TypeScript directive comments', async () => {
+    const result = await transformVueSFC(`<script lang="ts" setup>
+      // @ts-expect-error untyped global
+      const value: number = window.untyped
+      // keep this comment
+      </script>
+      `, 'app.vue')
+
+    expect(result).not.toContain('@ts-expect-error')
+    expect(result).toContain('// keep this comment')
+    expect(result).toContain('const value = window.untyped')
+  })
+
+  it('keeps side effect imports followed by a comment', async () => {
+    const result = await transformSFC({
+      filename: 'utils.ts',
+      raw: `import './polyfill' // needed for older browsers
+      import { type Props } from './props'
+      export const value: number = 1
+      `,
+      config: {},
+    })
+
+    expect(result).toContain('import "./polyfill"')
+    expect(result).not.toContain('./props')
   })
 
   it('defineProps with withDefaults', async () => {

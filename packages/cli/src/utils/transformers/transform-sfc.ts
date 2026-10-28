@@ -1,13 +1,22 @@
-import type { SFCBlock } from '@vue/compiler-sfc'
+import type { SFCBlock } from 'vue/compiler-sfc'
 import type { SourceFile, TransformOpts } from '.'
 import { existsSync } from 'node:fs'
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
-import { parse } from '@vue/compiler-sfc'
+import { mkdir, mkdtemp, rm, rmdir, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
+import { tmpdir } from 'node:os'
 import MagicString from 'magic-string'
 import path from 'pathe'
 import { format } from 'prettier'
 import { transform } from 'rolldown/utils'
 import { preTranspileScriptSetup, transpileVueTemplate } from 'vue-sfc-transformer'
+import { parse, registerTS } from 'vue/compiler-sfc'
+
+// @vue/compiler-sfc needs TypeScript to resolve `defineProps<T>()` types that are
+// imported from other modules. Register it lazily so commands that never
+// transform an SFC don't pay for loading it. vue-sfc-transformer imports
+// `vue/compiler-sfc` too, so this registers on the instance it uses.
+const nodeRequire = createRequire(import.meta.url)
+registerTS(() => nodeRequire('typescript'))
 
 // @vue/compiler-sfc does not export compiler-core's ErrorCodes enum.
 // Code 2 is X_DUPLICATE_ATTRIBUTE, which still yields a usable SFC descriptor.
@@ -15,7 +24,19 @@ const DUPLICATE_ATTRIBUTE_ERROR_CODE = 2
 
 const SIDE_EFFECT_IMPORT_RE = /^[ \t]*import[ \t]+(['"])([^'"]+)\1[ \t]*(?:;[ \t]*)?(?:\r?\n|$)/gm
 
-const RELATIVE_IMPORT_RE = /\bfrom\s*(['"])\.\.?(?:\/|\1)/
+// Looser than SIDE_EFFECT_IMPORT_RE: a side effect import in the source may be
+// followed by a comment, and it must still be recognised as intentional.
+const SOURCE_SIDE_EFFECT_IMPORT_RE = /^[ \t]*import[ \t]*(['"])([^'"]+)\1/gm
+
+const RELATIVE_IMPORT_RE = /\bfrom\s*(['"])(\.\.?(?:\/[^'"]*)?)\1/g
+
+const RESOLVABLE_EXTENSIONS = ['', '.ts', '.d.ts', '.tsx', '.vue', '/index.ts', '/index.d.ts', '/index.tsx']
+
+const TS_DIRECTIVE_COMMENT_RE = /^[ \t]*\/\/[ \t]*@ts-(?:ignore|expect-error|nocheck)\b.*(?:\r?\n|$)/gm
+
+const EMPTY_SCRIPT_RE = /<script\b([^>]*)>(\s*)<\/script>/g
+
+const TS_LANG_ATTRIBUTE_RE = /\s+lang\s*=\s*(?:"tsx?"|'tsx?'|tsx?)(?=\s|\/?>|$)/
 
 export async function transformSFC(opts: TransformOpts) {
   if (opts.config?.typescript)
@@ -63,28 +84,29 @@ async function stageSourceFiles(
 ) {
   const unstaged = { filename, cleanup: async () => {} }
 
-  if (
-    !sourceFiles?.length
-    || path.isAbsolute(filename)
-    || !RELATIVE_IMPORT_RE.test(content)
-  ) {
-    return unstaged
-  }
-
-  const root = await createStagingDirectory(cwd ?? process.cwd())
-
-  if (!root)
+  if (!sourceFiles?.length || path.isAbsolute(filename))
     return unstaged
 
+  const imported = collectImportedFiles(content, filename, sourceFiles)
+
+  if (!imported.length)
+    return unstaged
+
+  const staging = await createStagingDirectory(cwd ?? process.cwd())
+
+  if (!staging)
+    return unstaged
+
+  const { root } = staging
   const cleanup = async () => {
     await rm(root, { recursive: true, force: true }).catch(() => {})
+    // Only succeeds once the cache directory is empty again.
+    if (staging.cache)
+      await rmdir(staging.cache).catch(() => {})
   }
 
   try {
-    for (const file of sourceFiles) {
-      if (!file.content)
-        continue
-
+    for (const file of imported) {
       const target = path.join(root, file.path)
 
       // A registry is free to name its files, so refuse any path that would
@@ -93,7 +115,7 @@ async function stageSourceFiles(
         continue
 
       await mkdir(path.dirname(target), { recursive: true })
-      await writeFile(target, file.content, 'utf8')
+      await writeFile(target, file.content!, 'utf8')
     }
 
     return { filename: path.join(root, filename), cleanup }
@@ -104,23 +126,80 @@ async function stageSourceFiles(
   }
 }
 
-// Staged inside the project so that types imported from packages keep resolving
-// by walking up to the project's own node_modules. A system temp directory has
-// no such tree above it, which turns resolvable package imports into errors, so
-// skip staging altogether rather than stage somewhere that breaks resolution.
-async function createStagingDirectory(cwd: string) {
-  const modules = path.join(cwd, 'node_modules')
+// Only the files reachable through relative imports need to be on disk, so
+// follow them from the SFC instead of writing every file of the add tree.
+function collectImportedFiles(
+  content: string,
+  filename: string,
+  sourceFiles: SourceFile[],
+) {
+  const byPath = new Map(
+    sourceFiles
+      .filter(file => file.content)
+      .map(file => [path.normalize(file.path), file]),
+  )
+  const found = new Map<string, SourceFile>()
+  const queue = [{ content, filename }]
 
-  if (!existsSync(modules))
-    return
+  while (queue.length) {
+    const current = queue.shift()!
+
+    for (const match of Array.from(current.content.matchAll(RELATIVE_IMPORT_RE))) {
+      const base = path.join(path.dirname(current.filename), match[2])
+      const file = RESOLVABLE_EXTENSIONS
+        .map(extension => byPath.get(`${base}${extension}`))
+        .find(Boolean)
+
+      if (!file || found.has(file.path))
+        continue
+
+      found.set(file.path, file)
+      queue.push({ content: file.content!, filename: file.path })
+    }
+  }
+
+  return Array.from(found.values())
+}
+
+// Staged inside the project so that types imported from packages keep resolving
+// by walking up to the project's node_modules. The nearest one may be above cwd
+// when dependencies are hoisted in a workspace. Without any node_modules (Yarn
+// PnP), fall back to a system temp directory so relative imports still resolve.
+async function createStagingDirectory(cwd: string) {
+  const modules = findNodeModules(cwd)
 
   try {
+    if (!modules)
+      return { root: await mkdtemp(path.join(tmpdir(), 'shadcn-vue-sfc-')) }
+
     const cache = path.join(modules, '.cache')
+    const cacheExisted = existsSync(cache)
     await mkdir(cache, { recursive: true })
-    return await mkdtemp(path.join(cache, 'shadcn-vue-sfc-'))
+    return {
+      root: await mkdtemp(path.join(cache, 'shadcn-vue-sfc-')),
+      cache: cacheExisted ? undefined : cache,
+    }
   }
   catch {
     return undefined
+  }
+}
+
+function findNodeModules(cwd: string) {
+  let directory = path.resolve(cwd)
+
+  while (true) {
+    const modules = path.join(directory, 'node_modules')
+
+    if (existsSync(modules))
+      return modules
+
+    const parent = path.dirname(directory)
+
+    if (parent === directory)
+      return
+
+    directory = parent
   }
 }
 
@@ -171,7 +250,15 @@ async function transpileVueSFC(content: string, filename: string) {
     replaceBlockContent(output, content, descriptor.scriptSetup, scriptSetup, true)
   }
 
-  return await format(output.toString(), {
+  // Empty blocks are dropped from the descriptor, so their `lang` is left over.
+  const transformed = output.toString().replace(
+    EMPTY_SCRIPT_RE,
+    (tag, attributes: string, whitespace: string) => /\ssrc\s*=/.test(attributes)
+      ? tag
+      : `<script${attributes.replace(TS_LANG_ATTRIBUTE_RE, '')}>${whitespace}</script>`,
+  )
+
+  return await format(transformed, {
     parser: 'vue',
     proseWrap: 'never',
   })
@@ -215,7 +302,12 @@ async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 't
     },
   })
 
-  return removeTypeOnlyImportLeftovers(content, result.code).trimEnd()
+  if (result.errors.length)
+    throw new Error(result.errors.map(error => error.message).join('\n'))
+
+  return removeTypeOnlyImportLeftovers(content, result.code)
+    .replace(TS_DIRECTIVE_COMMENT_RE, '')
+    .trimEnd()
 }
 
 // `verbatimModuleSyntax` turns `import { type Props } from './props'` into a bare
@@ -224,7 +316,7 @@ async function stripTypeScript(content: string, loader: 'js' | 'jsx' | 'ts' | 't
 // imports that were written as such.
 function removeTypeOnlyImportLeftovers(source: string, output: string) {
   const sideEffectImports = new Set(
-    Array.from(source.matchAll(SIDE_EFFECT_IMPORT_RE), match => match[2]),
+    Array.from(source.matchAll(SOURCE_SIDE_EFFECT_IMPORT_RE), match => match[2]),
   )
 
   return output.replace(
@@ -248,7 +340,7 @@ function replaceBlockContent(
 
   const blockStart = source.lastIndexOf(`<${block.type}`, block.loc.start.offset)
   const openTag = source.slice(blockStart, block.loc.start.offset)
-  const transformedOpenTag = openTag.replace(/\s+lang\s*=\s*(?:"tsx?"|'tsx?'|tsx?)(?=\s|\/?>)/, '')
+  const transformedOpenTag = openTag.replace(TS_LANG_ATTRIBUTE_RE, '')
 
   output.overwrite(blockStart, block.loc.start.offset, transformedOpenTag)
 }
