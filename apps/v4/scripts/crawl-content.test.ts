@@ -9,7 +9,8 @@ const root = await mkdtemp(path.join(tmpdir(), 'form-registry-'))
 const appRoot = fileURLToPath(new URL('../', import.meta.url))
 
 try {
-  await symlink(path.join(appRoot, 'node_modules'), path.join(root, 'node_modules'), 'dir')
+  // Windows junctions do not require symbolic-link privileges.
+  await symlink(path.join(appRoot, 'node_modules'), path.join(root, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir')
   for (const [name, source] of [
     ['rules', '<script setup>import { useForm } from "vee-validate"; useForm()</script>'],
     ['schema', '<script setup>import { toTypedSchema } from "@vee-validate/zod"; import * as z from "zod"; toTypedSchema(z.object({}))</script>'],
