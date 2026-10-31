@@ -1268,9 +1268,9 @@ export const examples: Registry["items"] = [
       "checkbox",
     ],
     dependencies: [
-      "vee-validate",
       "@vee-validate/zod",
       "zod@3.25.76",
+      "vee-validate",
     ],
   },
   {
