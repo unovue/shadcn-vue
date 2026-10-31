@@ -1136,8 +1136,6 @@ export const ui: Registry["items"] = [
       "reka-ui",
       "cn",
       "vee-validate",
-      "@vee-validate/zod",
-      "zod@3.25.76",
     ],
     registryDependencies: [
       "label",
