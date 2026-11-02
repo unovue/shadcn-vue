@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import type { InputGroupVariants } from "."
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { inputGroupAddonVariants } from "."
 
 const props = withDefaults(defineProps<{

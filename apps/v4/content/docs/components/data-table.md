@@ -886,7 +886,7 @@ import ArrowUpIcon from '~icons/radix-icons/arrow-up'
 import CaretSortIcon from '~icons/radix-icons/caret-sort'
 import EyeNoneIcon from '~icons/radix-icons/eye-none'
 
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,

@@ -2,7 +2,7 @@
 import type { RegistryItem } from 'shadcn-vue/schema'
 import type { Base } from '~/registry/bases'
 import { ChevronRightIcon } from '@lucide/vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import {
   Collapsible,
   CollapsibleContent,

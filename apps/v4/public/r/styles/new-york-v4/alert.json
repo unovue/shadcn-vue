@@ -1,20 +1,23 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "alert",
+  "dependencies": [
+    "cn"
+  ],
   "files": [
     {
       "path": "registry/new-york-v4/ui/alert/Alert.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport type { AlertVariants } from \".\"\nimport { cn } from \"@/lib/utils\"\nimport { alertVariants } from \".\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n  variant?: AlertVariants[\"variant\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    :class=\"cn(alertVariants({ variant }), props.class)\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport type { AlertVariants } from \".\"\nimport { cn } from \"cn\"\nimport { alertVariants } from \".\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n  variant?: AlertVariants[\"variant\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    :class=\"cn(alertVariants({ variant }), props.class)\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "registry/new-york-v4/ui/alert/AlertDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    :class=\"cn('text-muted-foreground col-start-2 text-sm [&_p]:leading-relaxed', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"cn\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    :class=\"cn('text-muted-foreground col-start-2 text-sm [&_p]:leading-relaxed', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "registry/new-york-v4/ui/alert/AlertTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"@/lib/utils\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-title\"\n    :class=\"cn('col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\"\nimport { cn } from \"cn\"\n\nconst props = defineProps<{\n  class?: HTMLAttributes[\"class\"]\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-title\"\n    :class=\"cn('col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

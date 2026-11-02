@@ -3,12 +3,12 @@ import type { DropdownMenuRadioItemEmits, DropdownMenuRadioItemProps } from "rek
 import type { HTMLAttributes } from "vue"
 import { Circle } from "@lucide/vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import {
   DropdownMenuItemIndicator,
   DropdownMenuRadioItem,
   useForwardPropsEmits,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
 
 const props = defineProps<DropdownMenuRadioItemProps & { class?: HTMLAttributes["class"] }>()
 

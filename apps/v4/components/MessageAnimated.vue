@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { DemoMessage, MessageAnimationId } from '@/lib/message-scroller-demo'
 import type { BubbleVariants } from '@/styles/reka-rhea/ui/bubble'
+import { cn } from 'cn'
 import { computed } from 'vue'
-import { cn } from '@/lib/utils'
 import { Bubble, BubbleContent } from '@/styles/reka-rhea/ui/bubble'
 import { Message, MessageContent } from '@/styles/reka-rhea/ui/message'
 import { MessageScrollerItem } from '@/styles/reka-rhea/ui/message-scroller'

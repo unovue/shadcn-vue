@@ -4,10 +4,10 @@ import type { NavigationItem } from '~/composables/useNavigation'
 import { CornerDownLeft, Square } from '@lucide/vue'
 import { IconArrowRight } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
+import { cn } from 'cn'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useIsMac } from '@/composables/useIsMac'
 import { useConfig } from '@/composables/useUserConfig'
-import { cn } from '@/lib/utils'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Command,

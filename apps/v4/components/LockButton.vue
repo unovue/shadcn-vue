@@ -6,8 +6,8 @@ import {
 } from '@hugeicons/core-free-icons'
 
 import { HugeiconsIcon } from '@hugeicons/vue'
+import { cn } from 'cn'
 import { useLocks } from '@/composables/useLocks'
-import { cn } from '@/lib/utils'
 import {
   Tooltip,
   TooltipContent,

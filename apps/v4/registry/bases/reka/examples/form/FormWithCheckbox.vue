@@ -50,7 +50,7 @@ const onSubmit = form.handleSubmit((values) => {
       <FormField v-slot="{ value, handleChange }" type="checkbox" name="mobile">
         <FormItem class="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
           <FormControl>
-            <Checkbox :checked="value" @update:checked="handleChange" />
+            <Checkbox :model-value="value" @update:model-value="handleChange" />
           </FormControl>
           <div class="space-y-1 leading-none">
             <FormLabel>
@@ -66,7 +66,7 @@ const onSubmit = form.handleSubmit((values) => {
       <FormField v-slot="{ value, handleChange }" type="checkbox" name="marketing">
         <FormItem class="flex flex-row items-start space-x-3 space-y-0">
           <FormControl>
-            <Checkbox :checked="value" @update:checked="handleChange" />
+            <Checkbox :model-value="value" @update:model-value="handleChange" />
           </FormControl>
           <div class="space-y-1 leading-none">
             <FormLabel>

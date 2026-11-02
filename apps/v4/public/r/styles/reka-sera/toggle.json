@@ -3,12 +3,13 @@
   "name": "toggle",
   "dependencies": [
     "reka-ui",
-    "@vueuse/core"
+    "@vueuse/core",
+    "cn"
   ],
   "files": [
     {
       "path": "styles/reka-sera/ui/toggle/Toggle.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { ToggleEmits, ToggleProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { ToggleVariants } from '.'\nimport { reactiveOmit } from '@vueuse/core'\nimport { Toggle, useForwardPropsEmits } from 'reka-ui'\nimport { cn } from '@/lib/utils'\nimport { toggleVariants } from '.'\n\nconst props = withDefaults(defineProps<ToggleProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleVariants['variant']\n  size?: ToggleVariants['size']\n}>(), {\n  variant: 'default',\n  size: 'default',\n  disabled: false,\n})\n\nconst emits = defineEmits<ToggleEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size', 'variant')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <Toggle\n    v-slot=\"slotProps\"\n    data-slot=\"toggle\"\n    v-bind=\"forwarded\"\n    :class=\"cn(toggleVariants({ variant, size }), props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </Toggle>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { ToggleEmits, ToggleProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport type { ToggleVariants } from '.'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from 'cn'\nimport { Toggle, useForwardPropsEmits } from 'reka-ui'\nimport { toggleVariants } from '.'\n\nconst props = withDefaults(defineProps<ToggleProps & {\n  class?: HTMLAttributes['class']\n  variant?: ToggleVariants['variant']\n  size?: ToggleVariants['size']\n}>(), {\n  variant: 'default',\n  size: 'default',\n  disabled: false,\n})\n\nconst emits = defineEmits<ToggleEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class', 'size', 'variant')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <Toggle\n    v-slot=\"slotProps\"\n    data-slot=\"toggle\"\n    v-bind=\"forwarded\"\n    :class=\"cn(toggleVariants({ variant, size }), props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </Toggle>\n</template>\n",
       "type": "registry:ui"
     },
     {

@@ -1,25 +1,28 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "alert",
+  "dependencies": [
+    "cn"
+  ],
   "files": [
     {
       "path": "styles/reka-lyra/ui/alert/Alert.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { AlertVariants } from '.'\nimport { cn } from '@/lib/utils'\nimport { alertVariants } from '.'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: AlertVariants['variant']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    :class=\"cn(alertVariants({ variant }), props.class)\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { AlertVariants } from '.'\nimport { cn } from 'cn'\nimport { alertVariants } from '.'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: AlertVariants['variant']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert\"\n    :class=\"cn(alertVariants({ variant }), props.class)\"\n    role=\"alert\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-lyra/ui/alert/AlertAction.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-action\"\n    :class=\"cn('absolute top-[calc(--spacing(1.25))] right-[calc(--spacing(1.25))]', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-action\"\n    :class=\"cn('absolute top-[calc(--spacing(1.25))] right-[calc(--spacing(1.25))]', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-lyra/ui/alert/AlertDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    :class=\"cn('text-muted-foreground text-xs/relaxed text-balance md:text-pretty [&_p:not(:last-child)]:mb-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-description\"\n    :class=\"cn('text-muted-foreground text-xs/relaxed text-balance md:text-pretty [&_p:not(:last-child)]:mb-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-lyra/ui/alert/AlertTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-title\"\n    :class=\"cn('font-medium group-has-[>svg]/alert:col-start-2 cn-font-heading [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"alert-title\"\n    :class=\"cn('font-medium group-has-[>svg]/alert:col-start-2 cn-font-heading [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

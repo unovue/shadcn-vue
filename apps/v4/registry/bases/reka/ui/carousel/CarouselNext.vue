@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from "./interface"
 import type { ButtonVariants } from "@/registry/bases/reka/ui/button"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { Button } from "@/registry/bases/reka/ui/button"
 import { useCarousel } from "./useCarousel"
@@ -25,7 +25,7 @@ const { orientation, canScrollNext, scrollNext } = useCarousel()
     :class="cn(
       'cn-carousel-next absolute touch-manipulation',
       orientation === 'horizontal'
-        ? 'top-1/2 -right-12 -translate-y-1/2'
+        ? 'inset-y-0 -right-12 my-auto'
         : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
       props.class,
     )"

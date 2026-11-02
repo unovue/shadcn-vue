@@ -26,8 +26,9 @@ const DEPENDENCIES = new Map<string, string[]>([
   // TODO: remove version tag after vee-validate v5
   ['vee-validate', ['@vee-validate/zod', 'zod@3.25.76']],
   ['vue-input-otp', []],
-  ['clsx', []],
-  ['tailwind-merge', []],
+  ['cn', []],
+  ['shiki', []],
+  ['@comark/vue', []],
 ])
 
 const REGISTRY_DEPENDENCY = '@/'
@@ -424,13 +425,17 @@ async function getFileDependencies(filename: string, sourceCode: string) {
   const dependencies = new Set<string>()
 
   const populateDeps = (source: string) => {
-    const peerDeps = DEPENDENCIES.get(source)
+    // Subpath imports like `shiki/core` resolve to their package.
+    const packageName = DEPENDENCIES.has(source)
+      ? source
+      : source.split('/').slice(0, source.startsWith('@') ? 2 : 1).join('/')
+    const peerDeps = DEPENDENCIES.get(packageName)
     // const taggedDeps = DEPENDENCIES_WITH_TAGS.get(source)
     if (peerDeps !== undefined) {
       // if (taggedDeps !== undefined)
       //   dependencies.add(taggedDeps)
       // else
-      dependencies.add(source)
+      dependencies.add(packageName)
       peerDeps.forEach(dep => dependencies.add(dep))
     }
 
@@ -450,7 +455,10 @@ async function getFileDependencies(filename: string, sourceCode: string) {
       sourceType: 'module',
     })
 
-    const sources = ast.program.body.filter((i: any) => i.type === 'ImportDeclaration').map((i: any) => i.source)
+    // Re-exports count too, e.g. `export { cn } from 'cn'` in lib/utils.ts.
+    const sources = ast.program.body
+      .filter((i: any) => i.type === 'ImportDeclaration' || ((i.type === 'ExportNamedDeclaration' || i.type === 'ExportAllDeclaration') && i.source))
+      .map((i: any) => i.source)
     sources.forEach((source: any) => {
       populateDeps(source.value)
     })

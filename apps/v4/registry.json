@@ -5,7 +5,7 @@
     {
       "name": "index",
       "type": "registry:style",
-      "dependencies": ["class-variance-authority", "@lucide/vue"],
+      "dependencies": ["class-variance-authority", "cn", "@lucide/vue"],
       "devDependencies": ["tw-animate-css"],
       "registryDependencies": ["utils"],
       "files": [],
@@ -14,7 +14,7 @@
     {
       "name": "style",
       "type": "registry:style",
-      "dependencies": ["class-variance-authority", "@lucide/vue"],
+      "dependencies": ["class-variance-authority", "cn", "@lucide/vue"],
       "devDependencies": ["tw-animate-css"],
       "registryDependencies": ["utils"],
       "files": [],
@@ -2533,7 +2533,7 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": ["clsx", "tailwind-merge"],
+      "dependencies": ["cn"],
       "files": [
         {
           "path": "registry/new-york-v4/lib/utils.ts",

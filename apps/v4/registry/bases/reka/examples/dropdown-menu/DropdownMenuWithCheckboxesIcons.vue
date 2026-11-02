@@ -31,7 +31,7 @@ const notifications = ref({
         <DropdownMenuGroup>
           <DropdownMenuLabel>Notification Preferences</DropdownMenuLabel>
           <DropdownMenuCheckboxItem
-            v-model:checked="notifications.email"
+            v-model="notifications.email"
           >
             <IconPlaceholder
               lucide="MailIcon"
@@ -43,7 +43,7 @@ const notifications = ref({
             Email notifications
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            v-model:checked="notifications.sms"
+            v-model="notifications.sms"
           >
             <IconPlaceholder
               lucide="MessageSquareIcon"
@@ -55,7 +55,7 @@ const notifications = ref({
             SMS notifications
           </DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem
-            v-model:checked="notifications.push"
+            v-model="notifications.push"
           >
             <IconPlaceholder
               lucide="BellIcon"

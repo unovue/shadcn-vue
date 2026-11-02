@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { InputGroupButtonProps } from '.'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/styles/reka-rhea/ui/button'
 import { inputGroupButtonVariants } from '.'
 

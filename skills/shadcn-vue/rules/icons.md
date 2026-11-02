@@ -8,6 +8,8 @@
 
 Add `data-icon="inline-start"` (prefix) or `data-icon="inline-end"` (suffix) to the icon. No sizing classes on the icon.
 
+`data-icon` is styled by the `reka-*` styles (`reka-nova`, `reka-vega`, …). The classic `new-york` and `new-york-v4` styles ignore it — it spaces icons with `gap-2` and sizes them automatically — so the attribute is harmless there but has no effect.
+
 **Incorrect:**
 
 ```html

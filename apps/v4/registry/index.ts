@@ -21,7 +21,7 @@ const DEPRECATED_ITEMS = [
 // Shared between index and style for backward compatibility.
 const NEW_YORK_V4_STYLE = {
   type: "registry:style",
-  dependencies: ["class-variance-authority", "@lucide/vue"],
+  dependencies: ["class-variance-authority", "cn", "@lucide/vue"],
   devDependencies: ["tw-animate-css"],
   registryDependencies: ["utils"],
   cssVars: {},

@@ -8,7 +8,7 @@ import { Badge } from '@/registry/new-york-v4/ui/badge'
   <Badge as-child variant="secondary" class="bg-muted">
     <NuxtLink href="/docs/changelog">
       <span class="flex size-2 rounded-full bg-green-500" title="New" />
-      New: Typeset, Questionnaire and more <ArrowRightIcon />
+      New: Trace, Code Block and AI Elements <ArrowRightIcon />
     </NuxtLink>
   </Badge>
 </template>

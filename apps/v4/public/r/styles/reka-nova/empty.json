@@ -1,35 +1,38 @@
 {
   "$schema": "https://shadcn-vue.com/schema/registry-item.json",
   "name": "empty",
+  "dependencies": [
+    "cn"
+  ],
   "files": [
     {
       "path": "styles/reka-nova/ui/empty/Empty.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty\"\n    :class=\"cn(\n      'gap-4 rounded-xl border-dashed p-6 flex w-full min-w-0 flex-1 flex-col items-center justify-center text-center text-balance',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty\"\n    :class=\"cn(\n      'gap-4 rounded-xl border-dashed p-6 flex w-full min-w-0 flex-1 flex-col items-center justify-center text-center text-balance',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-nova/ui/empty/EmptyContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-content\"\n    :class=\"cn(\n      'gap-2.5 text-sm flex w-full max-w-sm min-w-0 flex-col items-center text-balance',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-content\"\n    :class=\"cn(\n      'gap-2.5 text-sm flex w-full max-w-sm min-w-0 flex-col items-center text-balance',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-nova/ui/empty/EmptyDescription.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\ndefineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <p\n    data-slot=\"empty-description\"\n    :class=\"cn(\n      'text-sm/relaxed text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',\n      $attrs.class ?? '',\n    )\"\n  >\n    <slot />\n  </p>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <p\n    data-slot=\"empty-description\"\n    :class=\"cn(\n      'text-sm/relaxed text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-primary',\n      props.class,\n    )\"\n  >\n    <slot />\n  </p>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-nova/ui/empty/EmptyHeader.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-header\"\n    :class=\"cn(\n      'gap-2 flex max-w-sm flex-col items-center',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-header\"\n    :class=\"cn(\n      'gap-2 flex max-w-sm flex-col items-center',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-nova/ui/empty/EmptyMedia.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { EmptyMediaVariants } from '.'\nimport { cn } from '@/lib/utils'\nimport { emptyMediaVariants } from '.'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: EmptyMediaVariants['variant']\n}>(), {\n  variant: 'default',\n})\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-icon\"\n    :data-variant=\"variant\"\n    :class=\"cn(emptyMediaVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { EmptyMediaVariants } from '.'\nimport { cn } from 'cn'\nimport { emptyMediaVariants } from '.'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  variant?: EmptyMediaVariants['variant']\n}>(), {\n  variant: 'default',\n})\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-icon\"\n    :data-variant=\"variant\"\n    :class=\"cn(emptyMediaVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
       "path": "styles/reka-nova/ui/empty/EmptyTitle.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from '@/lib/utils'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-title\"\n    :class=\"cn('text-sm font-medium tracking-tight cn-font-heading', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"empty-title\"\n    :class=\"cn('text-sm font-medium tracking-tight cn-font-heading', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {

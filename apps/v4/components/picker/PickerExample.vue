@@ -65,13 +65,13 @@ const position = ref('bottom')
       <PickerContent class="w-56">
         <PickerGroup>
           <PickerLabel>Appearance</PickerLabel>
-          <PickerCheckboxItem v-model:checked="showStatusBar">
+          <PickerCheckboxItem v-model="showStatusBar">
             Status Bar
           </PickerCheckboxItem>
-          <PickerCheckboxItem v-model:checked="showActivityBar" :disabled="true">
+          <PickerCheckboxItem v-model="showActivityBar" :disabled="true">
             Activity Bar
           </PickerCheckboxItem>
-          <PickerCheckboxItem v-model:checked="showPanel">
+          <PickerCheckboxItem v-model="showPanel">
             Panel
           </PickerCheckboxItem>
         </PickerGroup>

@@ -2,7 +2,7 @@
 import type { AcceptableValue } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit, useVModel } from "@vueuse/core"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 
 defineOptions({

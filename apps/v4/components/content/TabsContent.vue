@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
 import { TabsContent } from '@/registry/new-york-v4/ui/tabs'
-import { cn } from '~/lib/utils'
 
 const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 // Ignore Vue tsc warning as the props will be passed as fallback attribute

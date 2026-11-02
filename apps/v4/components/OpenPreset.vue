@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
 import { computed, ref } from 'vue'
 import { parsePresetInput } from '@/lib/parse-preset-input'
-import { cn } from '@/lib/utils'
 import { Button } from '@/styles/reka-nova/ui/button'
 import {
   Dialog,

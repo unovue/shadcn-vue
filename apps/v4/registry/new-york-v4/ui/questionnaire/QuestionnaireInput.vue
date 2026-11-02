@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import type { QuestionnaireInputType } from "./useQuestionnaire"
+import { cn } from "cn"
 import { computed, nextTick, onBeforeUnmount, ref, useId, watch } from "vue"
-import { cn } from "@/lib/utils"
 import {
   getAnswerKeyShortcuts,
   hasInputValue,

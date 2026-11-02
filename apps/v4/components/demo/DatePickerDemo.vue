@@ -3,7 +3,7 @@ import type { DateValue } from '@internationalized/date'
 import { DateFormatter, getLocalTimeZone, today } from '@internationalized/date'
 
 import { CalendarIcon } from '@lucide/vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import { Calendar } from '@/registry/new-york-v4/ui/calendar'
 import {

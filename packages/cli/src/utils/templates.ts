@@ -1,9 +1,4 @@
-export const UTILS = `import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+export const UTILS = `export { cn } from 'cn'
 `
 
 export const TAILWIND_CONFIG = `const animate = require("tailwindcss-animate")

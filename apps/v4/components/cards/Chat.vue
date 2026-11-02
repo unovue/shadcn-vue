@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Check, Plus, Send } from '@lucide/vue'
+import { cn } from 'cn'
 import { computed, ref } from 'vue'
-import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar'
 import { Button } from '@/registry/new-york-v4/ui/button'
 

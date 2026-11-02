@@ -3,8 +3,8 @@ import type { HTMLAttributes } from 'vue'
 import { Menu09Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 import { useEventListener } from '@vueuse/core'
+import { cn } from 'cn'
 import { isEditableTarget } from '@/lib/typeset/keyboard'
-import { cn } from '@/lib/utils'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']

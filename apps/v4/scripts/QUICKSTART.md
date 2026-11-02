@@ -39,7 +39,7 @@ touch ui/button/index.ts
 **ui/button/Button.vue:**
 ```vue
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 
 interface Props {
   variant?: 'default' | 'outline'
@@ -457,7 +457,7 @@ registry/bases/my-base/ui/
 ```vue
 <script setup lang="ts">
 import type { ButtonVariant } from './types'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { computed } from 'vue'
 
 interface Props {

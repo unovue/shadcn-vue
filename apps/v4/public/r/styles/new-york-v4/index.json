@@ -3,6 +3,7 @@
   "name": "index",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "@lucide/vue"
   ],
   "devDependencies": [

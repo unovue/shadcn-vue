@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
 import { useLocks } from '@/composables/useLocks'
 import { FONTS } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import {
   BASE_COLORS,
   getThemesForBaseColor,

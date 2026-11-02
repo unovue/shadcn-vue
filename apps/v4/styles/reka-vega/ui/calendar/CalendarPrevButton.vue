@@ -4,8 +4,8 @@ import type { CalendarPrevProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { ChevronLeftIcon } from '@lucide/vue'
 import { reactiveOmit } from '@vueuse/core'
+import { cn } from 'cn'
 import { CalendarPrev, useForwardProps } from 'reka-ui'
-import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/styles/reka-vega/ui/button'
 
 const props = defineProps<CalendarPrevProps & { class?: HTMLAttributes['class'] }>()
@@ -20,7 +20,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     data-slot="calendar-prev-button"
     :class="cn(
       buttonVariants({ variant: 'outline' }),
-      'size-7 bg-transparent p-0 opacity-50 hover:opacity-100',
+      'pointer-events-auto size-7 bg-transparent p-0 opacity-50 hover:opacity-100',
       props.class,
     )"
     v-bind="forwardedProps"

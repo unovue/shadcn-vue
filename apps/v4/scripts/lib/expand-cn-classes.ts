@@ -1,6 +1,6 @@
 import type { CodemodPlugin } from 'vue-metamorph'
 import type { StyleMap } from './create-style-map'
-import { twMerge } from 'tailwind-merge'
+import { twMerge } from 'cn'
 
 /**
  * Classes that should never be expanded or removed during transformation.

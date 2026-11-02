@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { cn } from 'cn'
 import { charts } from '@/constants/charts'
-import { cn } from '~/lib/utils'
 
 const chartTypes = [
   'area',

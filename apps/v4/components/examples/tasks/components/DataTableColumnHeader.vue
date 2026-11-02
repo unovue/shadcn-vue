@@ -4,7 +4,7 @@ import type { Task } from '../data/schema'
 import type { TasksTableFeatures } from './features'
 import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from '@lucide/vue'
 
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/styles/reka-nova/ui/button'
 import {
   DropdownMenu,

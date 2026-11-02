@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "vue"
 import type { InputGroupButtonVariants } from "."
 import type { ButtonVariants } from "@/registry/new-york-v4/ui/button"
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { inputGroupButtonVariants } from "."
 

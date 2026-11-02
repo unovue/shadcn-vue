@@ -2,8 +2,8 @@
 import type { PrimitiveProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import type { MarkerVariants } from "."
+import { cn } from "cn"
 import { Primitive } from "reka-ui"
-import { cn } from "@/lib/utils"
 import { markerVariants } from "."
 
 interface Props extends PrimitiveProps {

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "trace",
+  "dependencies": [
+    "cn",
+    "reka-ui",
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "styles/reka-mira/ui/trace/Trace.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"trace\"\n    :class=\"cn(\n      'gap-1.5 *:has-[>[data-slot=trace-line]]:rounded-sm *:has-[>[data-slot=trace-line]]:focus-visible:ring-2 *:has-[>[data-slot=trace-line]]:focus-visible:ring-ring/30 flex w-full min-w-0 flex-col *:has-[>[data-slot=trace-line]]:flex *:has-[>[data-slot=trace-line]]:w-fit *:has-[>[data-slot=trace-line]]:max-w-full *:has-[>[data-slot=trace-line]]:min-w-0 *:has-[>[data-slot=trace-line]]:text-left *:has-[>[data-slot=trace-line]]:outline-none',\n      props.class,\n    )\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceCollapsible.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from 'cn'\nimport { useForwardPropsEmits } from 'reka-ui'\nimport { Collapsible } from '@/styles/reka-mira/ui/collapsible'\n\nconst props = defineProps<CollapsibleRootProps & { class?: HTMLAttributes['class'] }>()\nconst emits = defineEmits<CollapsibleRootEmits>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\nconst forwarded = useForwardPropsEmits(delegatedProps, emits)\n</script>\n\n<template>\n  <Collapsible\n    v-slot=\"slotProps\"\n    data-slot=\"trace-collapsible\"\n    v-bind=\"forwarded\"\n    :class=\"cn('flex w-full min-w-0 flex-col', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </Collapsible>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceCollapsibleContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleContentProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from 'cn'\nimport { CollapsibleContent } from '@/styles/reka-mira/ui/collapsible'\n\nconst props = defineProps<CollapsibleContentProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <CollapsibleContent\n    data-slot=\"trace-collapsible-content\"\n    v-bind=\"delegatedProps\"\n    class=\"duration-200 min-w-0 overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down\"\n  >\n    <div\n      data-slot=\"trace-collapsible-content-inner\"\n      :class=\"cn('mt-1.5 mb-1 ml-[calc(--spacing(1.75)-1px)] border-l pr-1 pl-3.75 min-w-0 wrap-break-word text-muted-foreground', props.class)\"\n    >\n      <slot />\n    </div>\n  </CollapsibleContent>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceCollapsibleTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleTriggerProps } from 'reka-ui'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRightIcon } from '@lucide/vue'\nimport { reactiveOmit } from '@vueuse/core'\nimport { cn } from 'cn'\nimport { CollapsibleTrigger } from '@/styles/reka-mira/ui/collapsible'\nimport TraceIcon from './TraceIcon.vue'\n\nconst props = defineProps<CollapsibleTriggerProps & { class?: HTMLAttributes['class'] }>()\n\nconst delegatedProps = reactiveOmit(props, 'class')\n</script>\n\n<template>\n  <CollapsibleTrigger\n    data-slot=\"trace-collapsible-trigger\"\n    v-bind=\"delegatedProps\"\n    :class=\"cn(\n      'gap-1 rounded-sm focus-visible:ring-2 focus-visible:ring-ring/30 group/trace-collapsible-trigger flex w-fit max-w-full min-w-0 cursor-pointer items-center text-left text-muted-foreground transition-colors outline-none hover:text-foreground has-[[data-status=error]]:text-destructive',\n      props.class,\n    )\"\n  >\n    <slot />\n    <TraceIcon class=\"transition-transform group-aria-expanded/trace-collapsible-trigger:rotate-90\">\n      <ChevronRightIcon />\n    </TraceIcon>\n  </CollapsibleTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"trace-description\"\n    :class=\"cn('shrink-0 text-muted-foreground/70 tabular-nums', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceIcon.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"trace-icon\"\n    aria-hidden=\"true\"\n    :class=\"cn('size-3.5 [&_svg:not([class*=\\'size-\\'])]:size-3.5 [[data-slot=trace-title]~&]:-ml-1 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceLine.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  status?: 'running' | 'error' | 'pending'\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"trace-line\"\n    :data-status=\"status\"\n    :class=\"cn(\n      'gap-2 text-xs/relaxed flex w-fit max-w-full min-w-0 items-center text-muted-foreground transition-colors in-[a,button]:cursor-pointer in-[a:hover,button:hover]:text-foreground data-[status=error]:text-destructive data-[status=error]:in-[a:hover,button:hover]:text-destructive data-[status=pending]:opacity-60 data-[status=running]:*:data-[slot=trace-title]:shimmer',\n      props.class,\n    )\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/TraceTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"trace-title\"\n    :class=\"cn('min-w-0 truncate motion-reduce:shimmer-none', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/reka-mira/ui/trace/index.ts",
+      "content": "export { default as Trace } from './Trace.vue'\nexport { default as TraceCollapsible } from './TraceCollapsible.vue'\nexport { default as TraceCollapsibleContent } from './TraceCollapsibleContent.vue'\nexport { default as TraceCollapsibleTrigger } from './TraceCollapsibleTrigger.vue'\nexport { default as TraceDescription } from './TraceDescription.vue'\nexport { default as TraceIcon } from './TraceIcon.vue'\nexport { default as TraceLine } from './TraceLine.vue'\nexport { default as TraceTitle } from './TraceTitle.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

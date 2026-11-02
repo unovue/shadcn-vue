@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { ToasterProps } from "vue-sonner"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import { Toaster as Sonner } from "vue-sonner"
-import { cn } from "@/lib/utils"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 
 const props = defineProps<ToasterProps>()

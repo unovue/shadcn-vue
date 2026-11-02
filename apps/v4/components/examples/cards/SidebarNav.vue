@@ -23,7 +23,7 @@ import {
 } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
 
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Card } from '@/styles/reka-rhea/ui/card'
 import {
   Sidebar,

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component, HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/registry/new-york-v4/ui/button'
 
 const props = withDefaults(defineProps<{

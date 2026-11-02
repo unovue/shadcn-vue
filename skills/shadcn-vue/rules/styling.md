@@ -151,7 +151,7 @@ Use the `cn()` utility from the project for conditional or merged class names. D
 
 ```js
 <script setup lang="ts">
-import { cn } from "@/lib/utils"
+import { cn } from "cn"
 </script>
 
 <template>

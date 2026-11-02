@@ -5,10 +5,9 @@ import type {
 } from "@/src/registry/address"
 import type { GitHubSource } from "@/src/registry/github-ref"
 import type { RegistrySourceReader } from "@/src/registry/source"
-import { ofetch } from "ofetch"
 import { RegistrySourceFileError } from "@/src/registry/errors"
 import { resolveGitHubRef } from "@/src/registry/github-ref"
-import { agent } from "@/src/registry/proxy"
+import { registryFetch } from "@/src/registry/proxy"
 import {
   loadRegistryCatalogFromSource,
   loadRegistryItemFromSource,
@@ -108,9 +107,7 @@ async function fetchGitHubSourceFile(
   address: GitHubSource,
 ) {
   try {
-    return await ofetch<string, "text">(url, {
-      agent,
-      dispatcher: agent,
+    return await registryFetch<string, "text">(url, {
       responseType: "text",
       timeout: GITHUB_FILE_FETCH_TIMEOUT,
       headers: {

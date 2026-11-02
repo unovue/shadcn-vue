@@ -4,10 +4,10 @@ import type { HTMLAttributes, Ref } from 'vue'
 import type { LayoutTypes } from '.'
 import { getLocalTimeZone, today } from '@internationalized/date'
 import { createReusableTemplate, reactiveOmit, useVModel } from '@vueuse/core'
+import { cn } from 'cn'
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
 import { createYear, createYearRange, toDate } from 'reka-ui/date'
 import { computed, toRaw } from 'vue'
-import { cn } from '@/lib/utils'
 import { NativeSelect, NativeSelectOption } from '@/styles/reka-luma/ui/native-select'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.'
 
@@ -95,15 +95,6 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     :class="cn('p-3 [--cell-radius:var(--radius-4xl)] [--cell-size:--spacing(8)] group/calendar bg-background in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent', props.class)"
   >
     <CalendarHeader class="pt-0">
-      <nav class="flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
-        <CalendarPrevButton>
-          <slot name="calendar-prev-icon" />
-        </CalendarPrevButton>
-        <CalendarNextButton>
-          <slot name="calendar-next-icon" />
-        </CalendarNextButton>
-      </nav>
-
       <slot name="calendar-heading" :date="date" :month="ReuseMonthTemplate" :year="ReuseYearTemplate">
         <template v-if="layout === 'month-and-year'">
           <div class="flex items-center justify-center gap-1">
@@ -127,6 +118,15 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
           <CalendarHeading />
         </template>
       </slot>
+
+      <nav class="pointer-events-none flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
+        <CalendarPrevButton>
+          <slot name="calendar-prev-icon" />
+        </CalendarPrevButton>
+        <CalendarNextButton>
+          <slot name="calendar-next-icon" />
+        </CalendarNextButton>
+      </nav>
     </CalendarHeader>
 
     <div class="flex flex-col gap-y-4 mt-4 sm:flex-row sm:gap-x-4 sm:gap-y-0">

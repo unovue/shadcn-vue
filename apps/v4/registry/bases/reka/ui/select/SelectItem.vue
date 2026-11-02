@@ -2,13 +2,13 @@
 import type { SelectItemProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import {
   SelectItem,
   SelectItemIndicator,
   SelectItemText,
   useForwardProps,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
 import IconPlaceholder from "@/registry/bases/reka/components/icon-placeholder/IconPlaceholder.vue"
 
 const props = defineProps<SelectItemProps & { class?: HTMLAttributes["class"] }>()

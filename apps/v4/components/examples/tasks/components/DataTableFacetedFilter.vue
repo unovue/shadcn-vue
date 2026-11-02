@@ -4,9 +4,9 @@ import type { Component } from 'vue'
 import type { Task } from '../data/schema'
 import type { TasksTableFeatures } from './features'
 import { Check, PlusCircle } from '@lucide/vue'
-import { computed } from 'vue'
+import { cn } from 'cn'
 
-import { cn } from '@/lib/utils'
+import { computed } from 'vue'
 import { Badge } from '@/styles/reka-nova/ui/badge'
 import { Button } from '@/styles/reka-nova/ui/button'
 

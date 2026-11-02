@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { cn } from "cn"
 import { computed, onMounted, onUnmounted, ref, watch } from "vue"
-import { cn } from "@/lib/utils"
 import { Button } from "@/registry/bases/reka/ui/button"
 import {
   Card,

@@ -7,6 +7,7 @@ export const siteConfig = {
   links: {
     twitter: 'https://twitter.com/unovue',
     github: 'https://github.com/unovue/shadcn-vue',
+    sponsor: 'https://opencollective.com/unovue',
   },
   navItems: [
     {

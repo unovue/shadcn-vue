@@ -77,7 +77,7 @@ export async function updateFiles(
     }
 
     let filePath = resolveFilePath(file, config, {
-      // isSrcDir: projectInfo?.isSrcDir,
+      isSrcDir: projectInfo?.isSrcDir,
       framework: projectInfo?.framework.name,
       commonRoot: findCommonRoot(
         files.map(f => f.path),
@@ -126,6 +126,7 @@ export async function updateFiles(
             baseColor,
             // transformJsx: !config.tsx,
             isRemote: options.isRemote,
+            sourceFiles: files,
           },
         )
 
@@ -305,7 +306,7 @@ export function resolveFilePath(
   file: z.infer<typeof registryItemFileSchema>,
   config: Config,
   options: {
-    // isSrcDir?: boolean
+    isSrcDir?: boolean
     commonRoot: string
     framework?: ProjectInfo['framework']['name']
     path?: string
@@ -353,12 +354,17 @@ export function resolveFilePath(
       }
     }
 
-    // return options.isSrcDir
-    //   ? path.join(config.resolvedPaths.cwd, 'src', target.replace('src/', ''))
-    //   : path.join(config.resolvedPaths.cwd, target.replace('src/', ''))
+    // Only nest under `src/` when the configured components path lives there,
+    // so a project with an unrelated `src/` folder keeps targets at the root.
+    const componentsInSrc = !!config.resolvedPaths.components
+      && !path
+        .relative(path.join(config.resolvedPaths.cwd, 'src'), config.resolvedPaths.components)
+        .startsWith('..')
 
     return assertPathWithin(
-      path.join(config.resolvedPaths.cwd, target.replace('src/', '')),
+      options.isSrcDir && componentsInSrc
+        ? path.join(config.resolvedPaths.cwd, 'src', target.replace('src/', ''))
+        : path.join(config.resolvedPaths.cwd, target.replace('src/', '')),
       config.resolvedPaths.cwd,
       file,
     )

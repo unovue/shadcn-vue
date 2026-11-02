@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { cn } from "cn"
 import { computed, onMounted, onUnmounted, ref } from "vue"
-import { cn } from "@/lib/utils"
 import {
   Example,
   ExampleWrapper,

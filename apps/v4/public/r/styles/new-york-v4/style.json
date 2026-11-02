@@ -3,6 +3,7 @@
   "name": "style",
   "dependencies": [
     "class-variance-authority",
+    "cn",
     "@lucide/vue"
   ],
   "devDependencies": [

@@ -3,7 +3,7 @@ import type { WithClassAsProps } from './interface'
 
 import type { ButtonVariants } from '@/styles/reka-maia/ui/button'
 import { ChevronLeftIcon } from '@lucide/vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/styles/reka-maia/ui/button'
 import { useCarousel } from './useCarousel'
 
@@ -26,7 +26,7 @@ const { orientation, canScrollPrev, scrollPrev } = useCarousel()
     :class="cn(
       'rounded-full absolute touch-manipulation',
       orientation === 'horizontal'
-        ? 'top-1/2 -left-12 -translate-y-1/2'
+        ? 'inset-y-0 -left-12 my-auto'
         : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
       props.class,
     )"

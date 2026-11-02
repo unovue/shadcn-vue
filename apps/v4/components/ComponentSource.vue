@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
 import { fixImport } from '~/lib/registry-utils'
-import { cn } from '~/lib/utils'
 import { getIconForLanguageExtension } from './Icons'
 
 const props = withDefaults(defineProps<{

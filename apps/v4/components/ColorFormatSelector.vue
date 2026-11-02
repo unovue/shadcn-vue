@@ -2,8 +2,8 @@
 import type { HTMLAttributes } from 'vue'
 
 import type { Color, ColorFormat } from '@/lib/colors'
+import { cn } from 'cn'
 import { getColorFormat } from '@/lib/colors'
-import { cn } from '@/lib/utils'
 import {
   Select,
   SelectContent,

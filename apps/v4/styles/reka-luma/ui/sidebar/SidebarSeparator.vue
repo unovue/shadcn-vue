@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Separator } from '@/styles/reka-luma/ui/separator'
 
 const props = defineProps<{

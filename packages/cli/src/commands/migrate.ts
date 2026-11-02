@@ -1,6 +1,7 @@
 import { Command } from 'commander'
 import path from 'pathe'
 import { z } from 'zod'
+import { migrateCn } from '@/src/migrations/migrate-cn'
 import { migrateIcons } from '@/src/migrations/migrate-icons'
 // import { migrateRadix } from '@/src/migrations/migrate-radix'
 import { migrateRtl } from '@/src/migrations/migrate-rtl'
@@ -10,6 +11,10 @@ import { handleError } from '@/src/utils/handle-error'
 import { logger } from '@/src/utils/logger'
 
 export const migrations = [
+  {
+    name: 'cn',
+    description: 'migrate clsx and tailwind-merge to cn.',
+  },
   {
     name: 'icons',
     description: 'migrate your ui components to a different icon library.',
@@ -72,10 +77,15 @@ export const migrate = new Command()
         return
       }
 
-      if (!options.migration) {
-        throw new Error(
-          'You must specify a migration. Run `shadcn migrate --list` to see available migrations.',
-        )
+      // The cn migration doesn't need components.json, so it runs before the
+      // preflight checks.
+      if (options.migration === 'cn') {
+        await migrateCn({
+          cwd: options.cwd,
+          path: options.path,
+          yes: options.yes,
+        })
+        return
       }
 
       const { errors, config } = await preFlightMigrate(options)

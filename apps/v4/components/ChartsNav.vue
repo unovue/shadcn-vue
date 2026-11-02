@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { ScrollArea, ScrollBar } from '@/registry/new-york-v4/ui/scroll-area'
 
 const props = defineProps<{

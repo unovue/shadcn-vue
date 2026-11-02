@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
+import { cn } from "cn"
 import { onBeforeUnmount, onMounted, useTemplateRef } from "vue"
-import { cn } from "@/lib/utils"
 import { useMessageScrollerContext } from "./useMessageScroller"
 
 const props = defineProps<{

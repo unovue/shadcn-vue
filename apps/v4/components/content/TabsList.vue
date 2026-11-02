@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
 import { TabsList } from '@/registry/new-york-v4/ui/tabs'
-import { cn } from '~/lib/utils'
 
 const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </script>

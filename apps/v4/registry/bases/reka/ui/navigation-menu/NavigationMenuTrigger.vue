@@ -2,11 +2,11 @@
 import type { NavigationMenuTriggerProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import {
   NavigationMenuTrigger,
   useForwardProps,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { navigationMenuTriggerStyle } from "."
 

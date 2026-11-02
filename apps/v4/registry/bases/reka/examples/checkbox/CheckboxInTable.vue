@@ -42,8 +42,8 @@ const selectedRows = ref<Set<string>>(new Set(["1"]))
 
 const selectAll = computed(() => selectedRows.value.size === tableData.length)
 
-function handleSelectAll(checked: boolean) {
-  if (checked) {
+function handleSelectAll(checked: boolean | "indeterminate") {
+  if (checked === true) {
     selectedRows.value = new Set(tableData.map(row => row.id))
   }
   else {
@@ -71,8 +71,8 @@ function handleSelectRow(id: string, checked: boolean) {
           <TableHead class="w-8">
             <Checkbox
               id="select-all"
-              :checked="selectAll"
-              @update:checked="handleSelectAll"
+              :model-value="selectAll"
+              @update:model-value="handleSelectAll"
             />
           </TableHead>
           <TableHead>Name</TableHead>
@@ -89,8 +89,8 @@ function handleSelectRow(id: string, checked: boolean) {
           <TableCell>
             <Checkbox
               :id="`row-${row.id}`"
-              :checked="selectedRows.has(row.id)"
-              @update:checked="(checked: boolean | 'indeterminate') => handleSelectRow(row.id, checked === true)"
+              :model-value="selectedRows.has(row.id)"
+              @update:model-value="(checked: boolean | 'indeterminate') => handleSelectRow(row.id, checked === true)"
             />
           </TableCell>
           <TableCell class="font-medium">

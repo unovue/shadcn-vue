@@ -672,6 +672,77 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "code-block": {
+      name: "code-block",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlock.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockActions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockCopyButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockLine.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/CodeBlockToken.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/highlighter.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/code-block/useHighlightedCode.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     "collapsible": {
       name: "collapsible",
       title: "undefined",
@@ -3012,6 +3083,62 @@ export const Index: Record<string, Record<string, any>> = {
       categories: undefined,
       meta: undefined,
     },
+    "trace": {
+      name: "trace",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["collapsible"],
+      files: [
+            {
+                  "path": "registry/bases/reka/ui/trace/Trace.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceCollapsible.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceCollapsibleContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceCollapsibleTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceIcon.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceLine.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/TraceTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/ui/trace/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
     "cards": {
       name: "cards",
       title: "Cards",
@@ -4156,6 +4283,187 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/examples/checkbox/CheckboxWithTitle.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "code-block-example": {
+      name: "code-block-example",
+      title: "Code Block",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","code-block","button","card","dialog","bubble","message","tabs","trace"],
+      files: [
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockDiff.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockDiffWrap.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockEmpty.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockHeaderEdges.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockHeight.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockHighlighted.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockHighlightedLines.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockInCard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockInMessage.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockLanguages.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockLineNumbers.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockMarkdown.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockPlain.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockRtl.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockShowMore.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockShowMoreScroll.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockSmallCombinations.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockSmallDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockSmallest.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockStartLine.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockStreamed.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockTabs.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockTrace.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockTypeset.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockWithActions.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockWithHeader.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockWrap.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/CodeBlockWrapLineNumbers.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/Highlighted.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/MarkdownCode.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/code-block/StreamedBlock.vue",
                   "type": "registry:example",
                   "target": ""
             }
@@ -6007,6 +6315,62 @@ export const Index: Record<string, Record<string, any>> = {
             },
             {
                   "path": "registry/bases/reka/examples/tooltip/TooltipWithKeyboard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "trace-example": {
+      name: "trace-example",
+      title: "Trace",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","badge","code-block","trace","bubble","button","item","message","sheet","dialog"],
+      files: [
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceChainOfThought.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceChat.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceReasoning.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceRows.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceSources.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceTask.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceToolCalls.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/reka/examples/trace/TraceTurn.vue",
                   "type": "registry:example",
                   "target": ""
             }

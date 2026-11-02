@@ -3,7 +3,7 @@ import type { Toc } from '@nuxt/content'
 import type { HTMLAttributes } from 'vue'
 import { IconMenu3 } from '@tabler/icons-vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   DropdownMenu,

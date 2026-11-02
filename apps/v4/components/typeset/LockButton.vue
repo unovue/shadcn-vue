@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'vue'
 import type { TypesetLockableParam } from '@/lib/typeset/params'
 import { SquareLock01Icon, SquareUnlock01Icon } from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'cn'
 
 const props = defineProps<{
   param: TypesetLockableParam

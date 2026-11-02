@@ -223,3 +223,50 @@ it('transform import', async () => {
     }),
   ).toMatchSnapshot()
 })
+
+it.each([
+  {
+    name: 'default aliases',
+    isRemote: false,
+    aliases: {
+      components: '@/components',
+      utils: '@/lib/utils',
+      ui: '@/components/ui',
+    },
+  },
+  {
+    name: 'custom aliases',
+    isRemote: false,
+    aliases: {
+      components: '~/src/components',
+      utils: '~/src/utils',
+      ui: '~/src/ui',
+    },
+  },
+  {
+    name: 'remote registry',
+    isRemote: true,
+    aliases: {
+      components: '@/components',
+      utils: '@/lib/utils',
+      ui: '@/components/ui',
+    },
+  },
+])('leaves the cn package import untouched: $name', async ({ aliases, isRemote }) => {
+  const result = await transform({
+    filename: 'Button.vue',
+    raw: `<script setup lang="ts">
+import { cn } from "cn"
+import { buttonVariants } from "@/registry/new-york-v4/ui/button"
+</script>
+`,
+    config: {
+      aliases,
+      typescript: true,
+    },
+    isRemote,
+  })
+
+  expect(result).toContain(`import { cn } from "cn"`)
+  expect(result).not.toContain('utils')
+})

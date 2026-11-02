@@ -4,13 +4,13 @@ import type { DialogContentEmits, DialogContentProps } from 'reka-ui'
 import type { HTMLAttributes } from 'vue'
 import { XIcon } from '@lucide/vue'
 import { reactiveOmit } from '@vueuse/core'
+import { cn } from 'cn'
 import {
   DialogClose,
   DialogContent,
   DialogPortal,
   useForwardPropsEmits,
 } from 'reka-ui'
-import { cn } from '@/lib/utils'
 import { Button } from '@/styles/reka-nova/ui/button'
 import DialogOverlay from './DialogOverlay.vue'
 

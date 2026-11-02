@@ -761,7 +761,7 @@ function topologicalSortRegistryItems(
     })
   }
 
-  if (sorted.length !== items.length) {
+  if (sorted.length !== itemMap.size) {
     console.warn("Circular dependency detected in registry items")
     // Return all items even if there are circular dependencies
     // Items not in sorted are part of circular dependencies

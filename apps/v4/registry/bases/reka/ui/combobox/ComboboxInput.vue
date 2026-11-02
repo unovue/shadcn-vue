@@ -2,8 +2,8 @@
 import type { ComboboxInputEmits, ComboboxInputProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
+import { cn } from "cn"
 import { ComboboxInput, useForwardPropsEmits } from "reka-ui"
-import { cn } from "@/lib/utils"
 import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { InputGroup, InputGroupAddon } from "@/registry/bases/reka/ui/input-group"
 

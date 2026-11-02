@@ -4,9 +4,9 @@ import type { ButtonVariants } from '@/registry/new-york-v4/ui/button'
 import { IconCheck, IconCopy } from '@tabler/icons-vue'
 import { useClipboard } from '@vueuse/core'
 
-import { toRefs } from 'vue'
+import { cn } from 'cn'
 
-import { cn } from '@/lib/utils'
+import { toRefs } from 'vue'
 import { Button } from '@/registry/new-york-v4/ui/button'
 import {
   Tooltip,

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import type { AnswerControlRegistration, QuestionnaireItemStatus } from "./useQuestionnaire"
+import { cn } from "cn"
 import { computed, onBeforeUnmount, ref, shallowRef, useAttrs, watch } from "vue"
-import { cn } from "@/lib/utils"
 import {
   compareDocumentOrder,
   getShortcutByChoiceValue,

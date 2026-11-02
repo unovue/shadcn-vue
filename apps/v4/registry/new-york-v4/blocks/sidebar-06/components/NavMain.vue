@@ -2,7 +2,6 @@
 import type { LucideIcon } from "@lucide/vue"
 
 import { MoreHorizontal } from "@lucide/vue"
-import { useMediaQuery } from "@vueuse/core"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +13,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/registry/new-york-v4/ui/sidebar"
 
 defineProps<{
@@ -29,7 +29,7 @@ defineProps<{
   }[]
 }>()
 
-const isMobile = useMediaQuery("(max-width: 768px)")
+const { isMobile } = useSidebar()
 </script>
 
 <template>
