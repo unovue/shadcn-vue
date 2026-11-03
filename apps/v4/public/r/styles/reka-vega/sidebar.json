@@ -62,7 +62,7 @@
     },
     {
       "path": "styles/reka-vega/ui/sidebar/SidebarInset.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <main\n    data-slot=\"sidebar-inset\"\n    :class=\"cn(\n      'bg-background md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 relative flex w-full flex-1 flex-col',\n      props.class,\n    )\"\n  >\n    <slot />\n  </main>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <main\n    data-slot=\"sidebar-inset\"\n    :class=\"cn(\n      'bg-background md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 relative flex min-w-0 w-full flex-1 flex-col',\n      props.class,\n    )\"\n  >\n    <slot />\n  </main>\n</template>\n",
       "type": "registry:ui"
     },
     {
