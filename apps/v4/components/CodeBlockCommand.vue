@@ -22,8 +22,8 @@ const tabs = computed(() => {
   }
   else if (props.code.includes('npx create-')) {
     data.npm = props.code
-    data.yarn = props.code.replaceAll('npx create-', 'yarn create')
-    data.pnpm = props.code.replaceAll('npx create-', 'pnpm create')
+    data.yarn = props.code.replaceAll('npx create-', 'yarn create ')
+    data.pnpm = props.code.replaceAll('npx create-', 'pnpm create ')
     data.bun = props.code.replaceAll('npx', 'bunx --bun')
   }
   else if (props.code.includes('npm create')) {
