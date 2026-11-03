@@ -42,7 +42,10 @@ export function componentToString<P>(config: ChartConfig, component: Constructor
     vnode.appContext = appContext
     const div = document.createElement("div")
     render(vnode, div)
-    cache.set(serializedKey, div.innerHTML)
-    return div.innerHTML
+    const html = div.innerHTML
+    // Unmount so the tooltip's effects don't outlive the cached HTML
+    render(null, div)
+    cache.set(serializedKey, html)
+    return html
   }
 }
