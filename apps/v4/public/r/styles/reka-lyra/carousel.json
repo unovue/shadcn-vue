@@ -17,7 +17,7 @@
     },
     {
       "path": "styles/reka-lyra/ui/carousel/CarouselContent.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { WithClassAsProps } from './interface'\nimport { cn } from 'cn'\nimport { useCarousel } from './useCarousel'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<WithClassAsProps>()\n\nconst { carouselRef, orientation } = useCarousel()\n</script>\n\n<template>\n  <div\n    ref=\"carouselRef\"\n    data-slot=\"carousel-content\"\n    class=\"overflow-hidden\"\n  >\n    <div\n      :class=\"\n        cn(\n          'flex',\n          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',\n          props.class,\n        )\"\n      v-bind=\"$attrs\"\n    >\n      <slot />\n    </div>\n  </div>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { WithClassAsProps } from './interface'\nimport { cn } from 'cn'\nimport { useCarousel } from './useCarousel'\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<WithClassAsProps>()\n\nconst carousel = useCarousel()\n</script>\n\n<template>\n  <div\n    :ref=\"carousel.carouselRef\"\n    data-slot=\"carousel-content\"\n    class=\"overflow-hidden\"\n  >\n    <div\n      :class=\"\n        cn(\n          'flex',\n          carousel.orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',\n          props.class,\n        )\"\n      v-bind=\"$attrs\"\n    >\n      <slot />\n    </div>\n  </div>\n</template>\n",
       "type": "registry:ui"
     },
     {
