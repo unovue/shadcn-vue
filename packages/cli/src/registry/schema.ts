@@ -227,12 +227,15 @@ export const registryBaseColorSchema = z.object({
   inlineColors: z.object({
     light: z.record(z.string(), z.string()),
     dark: z.record(z.string(), z.string()),
-  }),
-  cssVars: registryItemCssVarsSchema,
+  }).optional(),
+  cssVars: registryItemCssVarsSchema.optional(),
   cssVarsV4: registryItemCssVarsSchema.optional(),
-  inlineColorsTemplate: z.string(),
-  cssVarsTemplate: z.string(),
-})
+  inlineColorsTemplate: z.string().optional(),
+  cssVarsTemplate: z.string().optional(),
+}).refine(
+  color => color.inlineColors || color.cssVars || color.cssVarsV4,
+  { message: "Base color must include a color mapping." },
+)
 
 export const registryResolvedItemsTreeSchema = registryItemCommonSchema
   .pick({
