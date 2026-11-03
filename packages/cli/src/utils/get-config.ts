@@ -8,6 +8,7 @@ import { ConfigParseError } from '@/src/registry/errors'
 import {
   configSchema,
   rawConfigSchema,
+  stripDeprecatedConfigKeys,
   workspaceConfigSchema,
 } from '@/src/schema'
 import { detectFrameworkConfigFiles, getFrameworkTsConfigPath, getProjectInfo, isTypeScriptProject } from '@/src/utils/get-project-info'
@@ -131,7 +132,9 @@ export async function getRawConfig(
       return null
     }
 
-    const config = rawConfigSchema.parse(configResult.config)
+    const config = rawConfigSchema.parse(
+      stripDeprecatedConfigKeys(configResult.config),
+    )
 
     // Check if user is trying to override built-in registries
     if (config.registries) {
@@ -263,7 +266,6 @@ export function createConfig(partial?: DeepPartial<Config>): Config {
       composables: '',
     },
     style: '',
-    font: 'inter',
     tailwind: {
       config: '',
       css: '',

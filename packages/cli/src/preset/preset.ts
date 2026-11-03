@@ -73,8 +73,8 @@ export const PRESET_ICON_LIBRARIES = [
 
 // NOTE: this list is index-encoded into shareable preset codes, so existing
 // entries must keep their position — only ever APPEND new fonts to the end.
-// Must stay in sync with apps/v4/lib/fonts.ts, apps/v4/registry/fonts.ts and
-// packages/cli/src/registry/constants.ts (FONTS).
+// Must stay in sync with apps/v4/lib/fonts.ts and the font definitions in
+// apps/v4/registry/fonts.ts.
 export const PRESET_FONTS = [
   'inter',
   'geist-sans',
