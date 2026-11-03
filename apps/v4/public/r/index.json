@@ -1106,9 +1106,7 @@
     "dependencies": [
       "reka-ui",
       "cn",
-      "vee-validate",
-      "@vee-validate/zod",
-      "zod@3.25.76"
+      "vee-validate"
     ],
     "registryDependencies": [
       "label"

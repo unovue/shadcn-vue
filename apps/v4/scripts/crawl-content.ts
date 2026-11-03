@@ -23,8 +23,9 @@ const DEPENDENCIES = new Map<string, string[]>([
   ['@tanstack/vue-table', []],
   ['@unovis/vue', ['@unovis/ts']],
   ['embla-carousel-vue', []],
-  // TODO: remove version tag after vee-validate v5
-  ['vee-validate', ['@vee-validate/zod', 'zod@3.25.76']],
+  ['vee-validate', []],
+  // Only Zod adapter users need its Zod 3 peer dependency.
+  ['@vee-validate/zod', ['zod@3.25.76']],
   ['vue-input-otp', []],
   ['cn', []],
   ['shiki', []],
