@@ -24,7 +24,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
-  <InputGroup>
+  <InputGroup class="w-auto">
     <InputGroupAddon>
       <SearchIcon class="size-3.5 shrink-0 opacity-50" />
     </InputGroupAddon>
