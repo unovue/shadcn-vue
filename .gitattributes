@@ -1,7 +1,7 @@
-# Force LF for all text files, normalizing CRLF ones on their next commit
-* text eol=lf
+# Store and check out text files with LF; git still auto-detects binaries
+* text=auto eol=lf
 
-# `text` disables binary detection, so list every binary type here
+# Explicit binary types, as a fallback to auto-detection
 *.png binary
 *.jpg binary
 *.jpeg binary
