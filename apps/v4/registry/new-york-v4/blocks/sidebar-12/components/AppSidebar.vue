@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { SidebarProps } from "@/registry/new-york-v4/ui/sidebar"
 
+import { Plus } from "@lucide/vue"
 import Calendars from "@/registry/new-york-v4/blocks/sidebar-12/components/Calendars.vue"
 import DatePicker from "@/registry/new-york-v4/blocks/sidebar-12/components/DatePicker.vue"
 import NavUser from "@/registry/new-york-v4/blocks/sidebar-12/components/NavUser.vue"
