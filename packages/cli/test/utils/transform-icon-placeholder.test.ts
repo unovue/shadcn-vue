@@ -144,6 +144,59 @@ import { IconPlaceholder, Other } from '@/components/icon-placeholder'
   })
 })
 
+describe('transformIconPlaceholder: the bindings already in the script (review)', () => {
+  it('several declarations from the same package: the icon is imported once, never declared twice', async () => {
+    const raw = SFC('<IconPlaceholder lucide="CheckIcon" /><XIcon />', `import { XIcon } from '@lucide/vue'\nimport { CheckIcon } from '@lucide/vue'\n`)
+    const result = await run(raw, 'lucide')
+    expect(result.match(/\bCheckIcon\b/g)).toHaveLength(2) // the one import, the one element
+    expect(result).toContain(flat('<CheckIcon />'))
+  })
+
+  it('a TYPE-only import of the name does not count as the component: a value import is added, under a free name', async () => {
+    const raw = SFC('<IconPlaceholder lucide="CheckIcon" />', `import { type CheckIcon, XIcon } from '@lucide/vue'\n`)
+    const result = await run(raw, 'lucide')
+    // CheckIcon is taken by the type import, so the component gets its own local name.
+    expect(result).toContain(flat(`import { type CheckIcon, XIcon, CheckIcon as CheckIcon1 } from '@lucide/vue'`))
+    expect(result).toContain(flat('<CheckIcon1 />'))
+  })
+
+  it('a whole type-only declaration from the package is left alone; the value import goes beside it', async () => {
+    const raw = SFC('<IconPlaceholder lucide="CheckIcon" />', `import type { XIcon } from '@lucide/vue'\n`)
+    const result = await run(raw, 'lucide')
+    expect(result).toContain(flat(`import type { XIcon } from '@lucide/vue'`))
+    expect(result).toContain(flat(`import { CheckIcon } from '@lucide/vue'`))
+  })
+
+  it('an alias holding the local name (XIcon as CheckIcon) is not reused: the real CheckIcon gets a free name', async () => {
+    const raw = SFC('<IconPlaceholder lucide="CheckIcon" /><CheckIcon />', `import { XIcon as CheckIcon } from '@lucide/vue'\n`)
+    const result = await run(raw, 'lucide')
+    expect(result).toContain(flat(`import { XIcon as CheckIcon, CheckIcon as CheckIcon1 } from '@lucide/vue'`))
+    expect(result).toContain(flat('<CheckIcon1 /><CheckIcon />'))
+  })
+
+  it('the real export already imported under an alias is reused, under that alias', async () => {
+    const raw = SFC('<IconPlaceholder lucide="CheckIcon" class="a" /><Tick />', `import { CheckIcon as Tick } from '@lucide/vue'\n`)
+    const result = await run(raw, 'lucide')
+    expect(result).toContain(flat('<Tick class="a" /><Tick />'))
+    expect(result.match(/from "@lucide\/vue"/g)).toHaveLength(1)
+    // The only CheckIcon left is the exported name inside the existing import.
+    expect(result.match(/\bCheckIcon\b/g)).toHaveLength(1)
+  })
+
+  it('a local variable of the same name is not shadowed either', async () => {
+    const raw = SFC('<IconPlaceholder hugeicons="Tick02Icon" />', `const HugeiconsIcon = 'mine'\n`)
+    const result = await run(raw, 'hugeicons')
+    expect(result).toContain(flat(`import { HugeiconsIcon as HugeiconsIcon1 } from '@hugeicons/vue'`))
+    expect(result).toContain(flat('<HugeiconsIcon1 :icon="Tick02Icon" :stroke-width="2" />'))
+  })
+
+  it('camelCase :strokeWidth counts as the stroke width: no second one is added', async () => {
+    const result = await run(SFC('<IconPlaceholder hugeicons="Tick02Icon" :strokeWidth="1.5" />'), 'hugeicons')
+    expect(result).toContain(flat('<HugeiconsIcon :icon="Tick02Icon" :strokeWidth="1.5" />'))
+    expect(result).not.toContain('stroke-width')
+  })
+})
+
 describe('transformIconPlaceholder: the app\'s library is not named on a placeholder', () => {
   // A deliberate difference from React, which leaves such an element as it
   // is but still removes the placeholder import, so the file no longer

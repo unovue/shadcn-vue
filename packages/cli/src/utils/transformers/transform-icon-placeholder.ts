@@ -32,13 +32,17 @@ const PLACEHOLDER_NAME = 'IconPlaceholder'
 const LIBRARY_NAMES = new Set(Object.keys(ICON_PLACEHOLDER_LIBRARIES))
 const STRUCTURAL = new Set(['if', 'else-if', 'else', 'for', 'show'])
 
-/** A static attribute's name (`class`), or a bound one's argument (`:class` → `class`). */
+/**
+ * The name an attribute is written with: `class` for `class`, `strokeWidth`
+ * for `:strokeWidth`. Read from rawName: the parser lowercases `name`
+ * (`:strokeWidth` → `strokewidth`).
+ */
 function attributeName(attribute: AST.VAttribute | AST.VDirective): string | undefined {
   if (!attribute.directive)
-    return attribute.key.name
+    return attribute.key.rawName
   if (attribute.key.name.name !== 'bind' || attribute.key.argument?.type !== 'VIdentifier')
     return undefined
-  return attribute.key.argument.name
+  return attribute.key.argument.rawName
 }
 
 /** `stroke-width` and `strokeWidth` are the same prop to Vue. */
@@ -58,6 +62,58 @@ function bound(name: string, expression: string): AST.VDirective {
   )
 }
 
+/** An import specifier as the script has it. */
+interface ExistingImport {
+  source: string
+  /** The exported name, or 'default' / '*'. */
+  imported: string
+  local: string
+  /** `import type { … }` or `import { type X }`: no runtime binding. */
+  typeOnly: boolean
+}
+
+/**
+ * Every name the scripts already bind at the top level (imports of any
+ * kind, variables, functions, classes, TS types), and every import. Both
+ * <script> blocks of an SFC share the template's scope, so all are read.
+ */
+function scriptBindings(programs: { body: any[] }[]) {
+  const occupied = new Set<string>()
+  const imports: ExistingImport[] = []
+  for (const program of programs) {
+    for (const statement of program.body) {
+      if (statement.type === 'ImportDeclaration') {
+        for (const specifier of statement.specifiers ?? []) {
+          const local = specifier.local?.name
+          if (!local)
+            continue
+          occupied.add(local)
+          imports.push({
+            source: String(statement.source.value),
+            imported: specifier.type === 'ImportSpecifier'
+              ? (specifier.imported.name ?? specifier.imported.value)
+              : specifier.type === 'ImportDefaultSpecifier' ? 'default' : '*',
+            local,
+            typeOnly: statement.importKind === 'type' || specifier.importKind === 'type',
+          })
+        }
+      }
+      const declared = statement.type === 'ExportNamedDeclaration' ? statement.declaration : statement
+      if (declared?.type === 'VariableDeclaration') {
+        for (const declarator of declared.declarations ?? []) {
+          if (declarator.id?.type === 'Identifier')
+            occupied.add(declarator.id.name)
+        }
+      }
+      else if (declared?.id?.type === 'Identifier') {
+        // functions, classes, TS type aliases, interfaces and enums
+        occupied.add(declared.id.name)
+      }
+    }
+  }
+  return { occupied, imports }
+}
+
 export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
   return {
     type: 'codemod',
@@ -70,41 +126,19 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
         return transformCount
       const config = ICON_PLACEHOLDER_LIBRARIES[library]!
 
-      // ——— the template ———
-      const icons: string[] = []
+      // ——— find the placeholders (nothing changes yet) ———
+      const found: { node: AST.VElement, icon: string }[] = []
       let unresolved = 0
       traverseTemplateAST(sfcAST, {
         enterNode(node) {
           if (node.type !== 'VElement' || !PLACEHOLDER_TAGS.has(node.rawName))
             return
-          const attributes = node.startTag.attributes
-          const own = attributes.find(attribute => !attribute.directive && attribute.key.name === library) as AST.VAttribute | undefined
+          const own = node.startTag.attributes.find(attribute => !attribute.directive && attribute.key.name === library) as AST.VAttribute | undefined
           const icon = own?.value?.value.trim()
-          if (!icon) {
+          if (icon)
+            found.push({ node, icon })
+          else
             unresolved++
-            return
-          }
-          if (!icons.includes(icon))
-            icons.push(icon)
-
-          // Every library attribute goes; everything else stays as written.
-          const kept = attributes.filter(attribute => attribute.directive || !LIBRARY_NAMES.has(attribute.key.name))
-          const added = config.props
-            .filter(prop => !kept.some(attribute => sameProp(attributeName(attribute) ?? '', prop.name)))
-            .map(prop => bound(prop.name, prop.value.replace('ICON', icon)))
-          // Structural directives (v-if, v-else-if, v-else, v-for, v-show)
-          // stay first, where Vue code puts them; then the library's props;
-          // then the placeholder's own attributes, as written.
-          const structural = kept.filter(attribute => attribute.directive && STRUCTURAL.has(attribute.key.name.name))
-          const rest = kept.filter(attribute => !structural.includes(attribute))
-          node.startTag.attributes = [...structural, ...added, ...rest]
-          for (const attribute of node.startTag.attributes)
-            attribute.parent = node.startTag
-
-          const component = config.component === 'ICON' ? icon : config.component
-          node.rawName = component
-          node.name = component.toLowerCase()
-          transformCount++
         },
       })
 
@@ -115,24 +149,75 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
           + `${unresolved === 1 ? 'it is' : 'they are'}. Add a ${library}="…" attribute to the placeholder, or replace it by hand.`,
         )
       }
-      if (icons.length === 0)
+      if (found.length === 0)
         return transformCount
 
-      // ——— the script ———
       // The imports go in the script that imports IconPlaceholder, else the
       // last script (<script setup> follows a plain <script> by convention).
-      const needed = config.imports.map(({ from, names }) => ({
-        from,
-        names: names.flatMap(name => (name === 'ICON' ? icons : [name])),
-      }))
       const holder = scriptASTs.find(ast => ast.body.some(statement =>
         statement.type === 'ImportDeclaration'
         && statement.specifiers?.some(specifier => specifier.local?.name === PLACEHOLDER_NAME))) ?? scriptASTs[scriptASTs.length - 1]
       if (!holder) {
-        logger.warn(`${filename}: <IconPlaceholder> was replaced, but the file has no <script> to import the icons into.`)
+        logger.warn(`${filename}: <IconPlaceholder> left as it is: the file has no <script> to import the icons into.`)
         return transformCount
       }
 
+      // ——— the local name of every export the icons need ———
+      // An export already imported as a value is used under its local name
+      // (an alias included). Otherwise it is imported under its own name, or,
+      // when that name is taken (a type import, an alias of something else,
+      // a variable), under the first free `<name>1`, `<name>2`, ….
+      const { occupied, imports } = scriptBindings(scriptASTs as never)
+      const additions: { from: string, imported: string, local: string }[] = []
+      const localFor = new Map<string, string>()
+      const resolve = (from: string, imported: string): string => {
+        const key = `${from}\u0000${imported}`
+        const known = localFor.get(key)
+        if (known)
+          return known
+        const existing = imports.find(entry => !entry.typeOnly && entry.source === from && entry.imported === imported)
+        let local = existing?.local
+        if (!local) {
+          local = imported
+          for (let n = 1; occupied.has(local); n++)
+            local = `${imported}${n}`
+          occupied.add(local)
+          additions.push({ from, imported, local })
+        }
+        localFor.set(key, local)
+        return local
+      }
+
+      // ——— the template ———
+      for (const { node, icon } of found) {
+        const names = new Map<string, string>()
+        for (const { from, names: imported } of config.imports) {
+          for (const name of imported) {
+            const real = name === 'ICON' ? icon : name
+            names.set(name, resolve(from, real))
+          }
+        }
+        // Every library attribute goes; everything else stays as written.
+        const kept = node.startTag.attributes.filter(attribute => attribute.directive || !LIBRARY_NAMES.has(attribute.key.name))
+        const added = config.props
+          .filter(prop => !kept.some(attribute => sameProp(attributeName(attribute) ?? '', prop.name)))
+          .map(prop => bound(prop.name, prop.value === 'ICON' ? names.get('ICON')! : prop.value))
+        // Structural directives (v-if, v-else-if, v-else, v-for, v-show)
+        // stay first, where Vue code puts them; then the library's props;
+        // then the placeholder's own attributes, as written.
+        const structural = kept.filter(attribute => attribute.directive && STRUCTURAL.has(attribute.key.name.name))
+        const rest = kept.filter(attribute => !structural.includes(attribute))
+        node.startTag.attributes = [...structural, ...added, ...rest]
+        for (const attribute of node.startTag.attributes)
+          attribute.parent = node.startTag
+
+        const component = names.get(config.component)!
+        node.rawName = component
+        node.name = component.toLowerCase()
+        transformCount++
+      }
+
+      // ——— the script ———
       traverseScriptAST(holder, {
         visitImportDeclaration(path) {
           const declaration = path.node
@@ -146,16 +231,17 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
               return false
             }
           }
-          // An existing value import from a package we need: add the missing names to it.
-          const wanted = needed.find(({ from }) => from === declaration.source.value)
-          if (wanted && declaration.importKind !== 'type' && !declaration.specifiers?.some(specifier => specifier.type !== 'ImportSpecifier')) {
-            const have = new Set(declaration.specifiers?.map(specifier => specifier.local?.name))
-            for (const name of wanted.names) {
-              if (!have.has(name))
-                declaration.specifiers!.push(builders.importSpecifier(builders.identifier(name)))
+          // A value declaration of named imports from a package we need:
+          // the new names join it.
+          const source = String(declaration.source.value)
+          if (declaration.importKind !== 'type' && declaration.specifiers?.every(specifier => specifier.type === 'ImportSpecifier')) {
+            for (const addition of additions.filter(entry => entry.from === source)) {
+              declaration.specifiers!.push(addition.local === addition.imported
+                ? builders.importSpecifier(builders.identifier(addition.imported))
+                : builders.importSpecifier(builders.identifier(addition.imported), builders.identifier(addition.local)))
+              additions.splice(additions.indexOf(addition), 1)
+              transformCount++
             }
-            wanted.names = []
-            transformCount++
           }
           return false
         },
@@ -167,12 +253,13 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
         if (statement.type === 'ImportDeclaration')
           lastImport = index
       })
-      const declarations = needed
-        .filter(({ names }) => names.length > 0)
-        .map(({ from, names }) => builders.importDeclaration(
-          names.map(name => builders.importSpecifier(builders.identifier(name))),
-          builders.literal(from),
-        ))
+      const sources = additions.map(entry => entry.from).filter((from, index, all) => all.indexOf(from) === index)
+      const declarations = sources.map(from => builders.importDeclaration(
+        additions.filter(entry => entry.from === from).map(entry => entry.local === entry.imported
+          ? builders.importSpecifier(builders.identifier(entry.imported))
+          : builders.importSpecifier(builders.identifier(entry.imported), builders.identifier(entry.local))),
+        builders.literal(from),
+      ))
       body.splice(lastImport + 1, 0, ...(declarations as never[]))
       return transformCount + declarations.length
     },
