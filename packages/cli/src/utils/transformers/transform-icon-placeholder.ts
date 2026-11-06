@@ -62,56 +62,26 @@ function bound(name: string, expression: string): AST.VDirective {
   )
 }
 
-/** An import specifier as the script has it. */
-interface ExistingImport {
-  source: string
-  /** The exported name, or 'default' / '*'. */
-  imported: string
-  local: string
-  /** `import type { … }` or `import { type X }`: no runtime binding. */
-  typeOnly: boolean
-}
-
 /**
- * Every name the scripts already bind at the top level (imports of any
- * kind, variables, functions, classes, TS types), and every import. Both
- * <script> blocks of an SFC share the template's scope, so all are read.
+ * A name for `imported` that appears NOWHERE in the file: `<imported>_`,
+ * else `<imported>_2`, `<imported>_3`, …. `taken` is checked as whole
+ * words in the file's text, plus the names already handed out.
+ *
+ * Why always a fresh name, never the bare one and never an existing
+ * import (review): a name the file already has can be captured by
+ * something in scope at the placeholder: a type-only import, an alias of
+ * another icon, a destructured variable, a binding in the other <script>,
+ * a v-for or slot variable. Tracking every scope is fragile; a name the
+ * file never mentions cannot be captured by any of them.
+ *
+ * The underscore goes at the END: a template tag must start with a
+ * letter (`<__X>` is not read as an element).
  */
-function scriptBindings(programs: { body: any[] }[]) {
-  const occupied = new Set<string>()
-  const imports: ExistingImport[] = []
-  for (const program of programs) {
-    for (const statement of program.body) {
-      if (statement.type === 'ImportDeclaration') {
-        for (const specifier of statement.specifiers ?? []) {
-          const local = specifier.local?.name
-          if (!local)
-            continue
-          occupied.add(local)
-          imports.push({
-            source: String(statement.source.value),
-            imported: specifier.type === 'ImportSpecifier'
-              ? (specifier.imported.name ?? specifier.imported.value)
-              : specifier.type === 'ImportDefaultSpecifier' ? 'default' : '*',
-            local,
-            typeOnly: statement.importKind === 'type' || specifier.importKind === 'type',
-          })
-        }
-      }
-      const declared = statement.type === 'ExportNamedDeclaration' ? statement.declaration : statement
-      if (declared?.type === 'VariableDeclaration') {
-        for (const declarator of declared.declarations ?? []) {
-          if (declarator.id?.type === 'Identifier')
-            occupied.add(declarator.id.name)
-        }
-      }
-      else if (declared?.id?.type === 'Identifier') {
-        // functions, classes, TS type aliases, interfaces and enums
-        occupied.add(declared.id.name)
-      }
-    }
-  }
-  return { occupied, imports }
+function freshName(imported: string, taken: (name: string) => boolean): string {
+  let name = `${imported}_`
+  for (let n = 2; taken(name); n++)
+    name = `${imported}_${n}`
+  return name
 }
 
 export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
@@ -163,11 +133,10 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
       }
 
       // ——— the local name of every export the icons need ———
-      // An export already imported as a value is used under its local name
-      // (an alias included). Otherwise it is imported under its own name, or,
-      // when that name is taken (a type import, an alias of something else,
-      // a variable), under the first free `<name>1`, `<name>2`, ….
-      const { occupied, imports } = scriptBindings(scriptASTs as never)
+      // Always a fresh name (see freshName), one per export per file.
+      const text = opts.raw
+      const handedOut = new Set<string>()
+      const taken = (name: string) => handedOut.has(name) || new RegExp(`(?<![\\w$])${name.replace(/\$/g, '\\$')}(?![\\w$])`).test(text)
       const additions: { from: string, imported: string, local: string }[] = []
       const localFor = new Map<string, string>()
       const resolve = (from: string, imported: string): string => {
@@ -175,15 +144,9 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
         const known = localFor.get(key)
         if (known)
           return known
-        const existing = imports.find(entry => !entry.typeOnly && entry.source === from && entry.imported === imported)
-        let local = existing?.local
-        if (!local) {
-          local = imported
-          for (let n = 1; occupied.has(local); n++)
-            local = `${imported}${n}`
-          occupied.add(local)
-          additions.push({ from, imported, local })
-        }
+        const local = freshName(imported, taken)
+        handedOut.add(local)
+        additions.push({ from, imported, local })
         localFor.set(key, local)
         return local
       }
@@ -231,8 +194,8 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
               return false
             }
           }
-          // A value declaration of named imports from a package we need:
-          // the new names join it.
+          // Cosmetic only: the new (aliased) names join an existing value
+          // declaration of named imports from the same package.
           const source = String(declaration.source.value)
           if (declaration.importKind !== 'type' && declaration.specifiers?.every(specifier => specifier.type === 'ImportSpecifier')) {
             for (const addition of additions.filter(entry => entry.from === source)) {
