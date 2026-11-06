@@ -63,26 +63,33 @@ function bound(name: string, expression: string): AST.VDirective {
 }
 
 /**
- * A name for `imported` that appears NOWHERE in the file: `<imported>_`,
- * else `<imported>_2`, `<imported>_3`, …. `taken` is checked as whole
- * words in the file's text, plus the names already handed out.
+ * The local name for `imported`: the bare name when the file mentions it
+ * nowhere else, otherwise `<imported>_`, `<imported>_2`, …, the first one
+ * the file never mentions. `taken` checks whole words in the file's text
+ * (see the transform) plus the names already handed out.
  *
- * Why always a fresh name, never the bare one and never an existing
- * import (review): a name the file already has can be captured by
- * something in scope at the placeholder: a type-only import, an alias of
- * another icon, a destructured variable, a binding in the other <script>,
- * a v-for or slot variable. Tracking every scope is fragile; a name the
- * file never mentions cannot be captured by any of them.
+ * Why decide by TEXT (review): any binding that could capture the name at
+ * the placeholder (a type-only import, an alias of another icon, a
+ * destructured variable, a binding in the other <script>, a v-for or slot
+ * variable) has to be written in the file. A name the file never
+ * mentions cannot be captured, whatever the scopes; tracking the scopes
+ * themselves proved fragile. Existing imports are never reused, for the
+ * same reason. In the usual file the icon simply gets its own name.
  *
  * The underscore goes at the END: a template tag must start with a
  * letter (`<__X>` is not read as an element).
  */
-function freshName(imported: string, taken: (name: string) => boolean): string {
+function localName(imported: string, taken: (name: string) => boolean): string {
+  if (!taken(imported))
+    return imported
   let name = `${imported}_`
   for (let n = 2; taken(name); n++)
     name = `${imported}_${n}`
   return name
 }
+
+/** The placeholder tags of a file, with their library attributes taken out. */
+const PLACEHOLDER_TAG_RE = /<(?:IconPlaceholder|icon-placeholder)\b[^>]*>/g
 
 export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
   return {
@@ -133,10 +140,32 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
       }
 
       // ——— the local name of every export the icons need ———
-      // Always a fresh name (see freshName), one per export per file.
-      const text = opts.raw
+      // See localName. The text scanned is the file as written, without
+      // the library attributes of the placeholders (lucide="CheckIcon"
+      // names an icon, it binds nothing), plus every name the scripts
+      // import now (transformIcons, which ran first, may have added some).
+      const libraryAttribute = new RegExp(`\\s(?:${Object.keys(ICON_PLACEHOLDER_LIBRARIES).join('|')})\\s*=\\s*(?:"[^"]*"|'[^']*')`, 'g')
+      const text = opts.raw.replace(PLACEHOLDER_TAG_RE, tag => tag.replace(libraryAttribute, ''))
+      const importedNow = new Set<string>()
+      for (const program of scriptASTs) {
+        for (const statement of program.body) {
+          if (statement.type === 'ImportDeclaration') {
+            // Both names: transformIcons renames `imported` only, and a
+            // shorthand specifier (`{ Check }`) prints as that new name.
+            for (const specifier of statement.specifiers ?? []) {
+              const local = specifier.local?.name
+              if (typeof local === 'string')
+                importedNow.add(local)
+              const exported = specifier.type === 'ImportSpecifier' ? specifier.imported.name : undefined
+              if (typeof exported === 'string')
+                importedNow.add(exported)
+            }
+          }
+        }
+      }
       const handedOut = new Set<string>()
-      const taken = (name: string) => handedOut.has(name) || new RegExp(`(?<![\\w$])${name.replace(/\$/g, '\\$')}(?![\\w$])`).test(text)
+      const taken = (name: string) => handedOut.has(name) || importedNow.has(name)
+        || new RegExp(`(?<![\\w$])${name.replace(/\$/g, '\\$')}(?![\\w$])`).test(text)
       const additions: { from: string, imported: string, local: string }[] = []
       const localFor = new Map<string, string>()
       const resolve = (from: string, imported: string): string => {
@@ -144,7 +173,7 @@ export function transformIconPlaceholder(opts: TransformOpts): CodemodPlugin {
         const known = localFor.get(key)
         if (known)
           return known
-        const local = freshName(imported, taken)
+        const local = localName(imported, taken)
         handedOut.add(local)
         additions.push({ from, imported, local })
         localFor.set(key, local)
