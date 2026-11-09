@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<ToggleGroupRootProps & {
   spacing?: number
 }>(), {
   spacing: 0,
+  orientation: 'horizontal',
 })
 
 const emits = defineEmits<ToggleGroupRootEmits>()
@@ -38,6 +39,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     :data-size="size"
     :data-variant="variant"
     :data-spacing="spacing"
+    :data-orientation="orientation"
     :style="{
       '--gap': spacing,
     }"
