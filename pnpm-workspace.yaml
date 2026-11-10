@@ -21,6 +21,7 @@ catalog:
   cn: ^0.4.0
   date-fns: ^4.4.0
   giget: ^3.3.1
+  notform: ^4.0.0
   open: ^11.0.4
   oxc-parser: ^0.102.0
   pathe: ^2.0.3
