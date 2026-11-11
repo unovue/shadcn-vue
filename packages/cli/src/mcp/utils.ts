@@ -19,6 +19,14 @@ export async function getMcpConfig(cwd = process.cwd()) {
   }
 }
 
+/**
+ * Formats registry search or list results with resolved add commands and pagination.
+ * Awaits command generation while preserving item order and metadata.
+ *
+ * @param results - Registry items and their pagination information.
+ * @param options - Optional query and registry names to include in the heading.
+ * @returns Formatted MCP response text, including a next-page hint when available.
+ */
 export async function formatSearchResultsWithPagination(
   results: z.infer<typeof searchResultsSchema>,
   options?: {
