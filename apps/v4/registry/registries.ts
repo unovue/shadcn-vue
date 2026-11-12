@@ -87,4 +87,14 @@ export const registries: RegistryEntry[] = [
     logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect x=\"6\" y=\"8\" width=\"12\" height=\"4\" rx=\"2\" fill=\"currentColor\"/><rect x=\"11\" y=\"14\" width=\"15\" height=\"4\" rx=\"2\" fill=\"currentColor\"/><rect x=\"8\" y=\"20\" width=\"9\" height=\"4\" rx=\"2\" fill=\"currentColor\"/></svg>",
     tags: ["gantt", "timeline", "scheduling"],
   },
+  {
+    name: "@newtui",
+    title: "newt/ui",
+    description: "Discord-inspired components built on a shared --newt-* token system. Copy-paste Vue components, with React and plain HTML/CSS versions. Run `npx newtui init` first: it adds the `--newt-*` tokens the components use.",
+    url: "https://newtui.dev/vue/r/{name}.json",
+    homepage: "https://newtui.dev",
+    author: "wolfstar-project",
+    logo: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><g stroke='currentColor' stroke-width='2.2' stroke-linecap='round'><line x1='4' y1='7' x2='4' y2='20'/><line x1='9.3' y1='11' x2='9.3' y2='20'/><line x1='14.7' y1='4' x2='14.7' y2='20'/><line x1='20' y1='9' x2='20' y2='20'/><line x1='2.4' y1='15.4' x2='21.6' y2='15.4'/></g></svg>",
+    tags: ["ui", "blocks", "chat"],
+  },
 ]
