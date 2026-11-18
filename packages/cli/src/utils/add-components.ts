@@ -29,7 +29,7 @@ import { updateCss } from '@/src/utils/updaters/update-css'
 import { updateCssVars } from '@/src/utils/updaters/update-css-vars'
 import { updateDependencies } from '@/src/utils/updaters/update-dependencies'
 import { updateEnvVars } from '@/src/utils/updaters/update-env-vars'
-import { updateFiles } from '@/src/utils/updaters/update-files'
+import { getTargetAliasKey, updateFiles } from '@/src/utils/updaters/update-files'
 import { updateTailwindConfig } from '@/src/utils/updaters/update-tailwind-config'
 
 export async function addComponents(
@@ -269,24 +269,8 @@ async function addWorkspaceComponents(
     },
   )
 
-  // 6. Group files by their type to determine target config and update files.
-  const filesByType = new Map<string, typeof tree.files>()
-
-  for (const file of tree.files ?? []) {
-    const type = file.type || 'registry:ui'
-    if (!filesByType.has(type)) {
-      filesByType.set(type, [])
-    }
-    filesByType.get(type)!.push(file)
-  }
-
-  // Process each type of component with its appropriate target config.
-  for (const type of Array.from(filesByType.keys())) {
-    const typeFiles = filesByType.get(type)!
-
-    // eslint-disable-next-line prefer-const
-    let targetConfig = type === 'registry:ui' ? workspaceConfig.ui : config
-
+  // 6. Group files by the workspace config they install into and update files.
+  for (const { config: targetConfig, files: typeFiles } of groupWorkspaceFiles(tree.files ?? [], config, workspaceConfig)) {
     const typeWorkspaceRoot = findCommonRoot(
       config.resolvedPaths.cwd,
       targetConfig.resolvedPaths.ui || targetConfig.resolvedPaths.cwd,
@@ -390,6 +374,29 @@ async function addWorkspaceComponents(
  * project's CSS file for the active config. Body font + (optional) heading
  * font, de-duplicated. Empty fonts are skipped.
  */
+// Files are grouped by type, and `registry:ui` installs into the ui workspace.
+// A target placeholder picks the workspace config for its alias instead.
+// `@ui/` joins the `registry:ui` group so the files of one ui item stay together.
+export function groupWorkspaceFiles(
+  files: z.infer<typeof registryItemFileSchema>[],
+  config: Config,
+  workspaceConfig: z.infer<typeof workspaceConfigSchema>,
+) {
+  const groups = new Map<string, { config: Config, files: typeof files }>()
+
+  for (const file of files) {
+    const aliasKey = getTargetAliasKey(file.target, config)
+    const type = aliasKey === 'ui' ? 'registry:ui' : aliasKey ? `@${aliasKey}` : file.type || 'registry:ui'
+    if (!groups.has(type)) {
+      const configKey = type === 'registry:ui' ? 'ui' : aliasKey
+      groups.set(type, { config: (configKey && workspaceConfig[configKey]) || config, files: [] })
+    }
+    groups.get(type)!.files.push(file)
+  }
+
+  return Array.from(groups.values())
+}
+
 function resolveFontImports(config: Config): string[] {
   const imports: string[] = []
   const push = (name: string | undefined) => {
