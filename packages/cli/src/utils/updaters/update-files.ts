@@ -345,6 +345,11 @@ export function resolveFilePath(
       )
     }
 
+    const aliasTarget = resolveAliasTarget(file.target, config)
+    if (aliasTarget) {
+      return assertPathWithin(aliasTarget.resolvedPath, aliasTarget.root, file)
+    }
+
     let target = file.target
 
     if (file.type === 'registry:page') {
@@ -410,6 +415,41 @@ function assertPathWithin(
   }
 
   return resolvedPath
+}
+
+const TARGET_ALIAS_KEYS = ['components', 'ui', 'lib', 'hooks', 'composables'] as const
+type TargetAliasKey = (typeof TARGET_ALIAS_KEYS)[number]
+
+// Returns the `resolvedPaths` key a target placeholder installs into, or null.
+function getTargetAliasKey(target: string | undefined, config: Config): TargetAliasKey | null {
+  const key = target?.match(/^@([^/]+)\//)?.[1]
+  if (!key || !(TARGET_ALIAS_KEYS as readonly string[]).includes(key)) {
+    return null
+  }
+  // `registry:hook` files install into `composables`, so `@hooks/` does too unless `aliases.hooks` is set.
+  return key === 'hooks' && !config.aliases.hooks ? 'composables' : key as TargetAliasKey
+}
+
+function resolveAliasTarget(target: string, config: Config) {
+  const key = getTargetAliasKey(target, config)
+  if (!key) {
+    return null
+  }
+  const rest = target.slice(target.indexOf('/') + 1)
+  if (/^(?:[\\/]|[a-z]:)/i.test(rest)) {
+    throw new RegistryValidationError(
+      `Invalid target "${target}": the path after the placeholder must be relative.`,
+      { context: { target, aliasKey: key }, suggestion: 'Report this to the author of the registry you installed from.' },
+    )
+  }
+  if (!config.resolvedPaths[key]) {
+    throw new RegistryValidationError(
+      `Cannot resolve target "${target}": the "${key}" alias does not resolve to a directory in this project.`,
+      { context: { target, aliasKey: key }, suggestion: `Check aliases.${key} in components.json and the matching tsconfig paths.` },
+    )
+  }
+  const root = path.resolve(config.resolvedPaths[key])
+  return { root, resolvedPath: path.resolve(root, rest) }
 }
 
 function resolveFileTargetDirectory(
