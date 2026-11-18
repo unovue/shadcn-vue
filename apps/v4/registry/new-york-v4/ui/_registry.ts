@@ -353,7 +353,6 @@ export const ui: Registry["items"] = [
       "cn",
     ],
     registryDependencies: [
-      "native-select",
       "button",
     ],
     files: [

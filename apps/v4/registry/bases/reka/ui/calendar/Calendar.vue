@@ -8,7 +8,7 @@ import { cn } from "cn"
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from "reka-ui"
 import { createYear, createYearRange, toDate } from "reka-ui/date"
 import { computed, toRaw } from "vue"
-import { NativeSelect, NativeSelectOption } from "@/registry/bases/reka/ui/native-select"
+import { IconPlaceholder } from "@/registry/bases/reka/components/icon-placeholder"
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from "."
 
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes["class"], layout?: LayoutTypes, yearRange?: DateValue[] }>(), {
@@ -44,46 +44,46 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <DefineMonthTemplate v-slot="{ date }">
-    <div class="**:data-[slot=native-select-icon]:right-1">
-      <div class="relative">
-        <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
-          {{ formatter.custom(toDate(date), { month: 'short' }) }}
-        </div>
-        <NativeSelect
-          class="text-xs h-8 pr-6 pl-2 text-transparent relative"
-          @change="(e: Event) => {
-            placeholder = placeholder.set({
-              month: Number((e?.target as any)?.value),
-            })
-          }"
-        >
-          <NativeSelectOption v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month" :selected="date.month === month.month">
-            {{ formatter.custom(toDate(month), { month: 'short' }) }}
-          </NativeSelectOption>
-        </NativeSelect>
-      </div>
+    <div class="cn-calendar-dropdown-root relative rounded-(--cell-radius)">
+      <select
+        class="absolute inset-0 bg-popover opacity-0"
+        :value="date.month"
+        @change="(e: Event) => {
+          placeholder = placeholder.set({
+            month: Number((e?.target as any)?.value),
+          })
+        }"
+      >
+        <option v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month">
+          {{ formatter.custom(toDate(month), { month: 'short' }) }}
+        </option>
+      </select>
+      <span class="cn-calendar-caption-label flex items-center gap-1 rounded-(--cell-radius) text-sm font-medium select-none [&>svg]:size-3.5 [&>svg]:text-muted-foreground" aria-hidden="true">
+        {{ formatter.custom(toDate(date), { month: 'short' }) }}
+        <IconPlaceholder lucide="ChevronDownIcon" tabler="IconChevronDown" hugeicons="ArrowDown01Icon" phosphor="CaretDownIcon" remixicon="RiArrowDownSLine" class="size-4" />
+      </span>
     </div>
   </DefineMonthTemplate>
 
   <DefineYearTemplate v-slot="{ date }">
-    <div class="**:data-[slot=native-select-icon]:right-1">
-      <div class="relative">
-        <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
-          {{ formatter.custom(toDate(date), { year: 'numeric' }) }}
-        </div>
-        <NativeSelect
-          class="text-xs h-8 pr-6 pl-2 text-transparent relative"
-          @change="(e: Event) => {
-            placeholder = placeholder.set({
-              year: Number((e?.target as any)?.value),
-            })
-          }"
-        >
-          <NativeSelectOption v-for="(year) in yearRange" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
-            {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
-          </NativeSelectOption>
-        </NativeSelect>
-      </div>
+    <div class="cn-calendar-dropdown-root relative rounded-(--cell-radius)">
+      <select
+        class="absolute inset-0 bg-popover opacity-0"
+        :value="date.year"
+        @change="(e: Event) => {
+          placeholder = placeholder.set({
+            year: Number((e?.target as any)?.value),
+          })
+        }"
+      >
+        <option v-for="(year) in yearRange" :key="year.toString()" :value="year.year">
+          {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
+        </option>
+      </select>
+      <span class="cn-calendar-caption-label flex items-center gap-1 rounded-(--cell-radius) text-sm font-medium select-none [&>svg]:size-3.5 [&>svg]:text-muted-foreground" aria-hidden="true">
+        {{ formatter.custom(toDate(date), { year: 'numeric' }) }}
+        <IconPlaceholder lucide="ChevronDownIcon" tabler="IconChevronDown" hugeicons="ArrowDown01Icon" phosphor="CaretDownIcon" remixicon="RiArrowDownSLine" class="size-4" />
+      </span>
     </div>
   </DefineYearTemplate>
 
@@ -94,7 +94,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     data-slot="calendar"
     :class="cn('cn-calendar group/calendar bg-background in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent', props.class)"
   >
-    <CalendarHeader class="pt-0">
+    <CalendarHeader class="h-(--cell-size) px-(--cell-size) pt-0">
       <slot name="calendar-heading" :date="date" :month="ReuseMonthTemplate" :year="ReuseYearTemplate">
         <template v-if="layout === 'month-and-year'">
           <div class="flex items-center justify-center gap-1">
@@ -120,10 +120,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       </slot>
 
       <nav class="pointer-events-none flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
-        <CalendarPrevButton>
+        <CalendarPrevButton class="size-(--cell-size)">
           <slot name="calendar-prev-icon" />
         </CalendarPrevButton>
-        <CalendarNextButton>
+        <CalendarNextButton class="size-(--cell-size)">
           <slot name="calendar-next-icon" />
         </CalendarNextButton>
       </nav>
