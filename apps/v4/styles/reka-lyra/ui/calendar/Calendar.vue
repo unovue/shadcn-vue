@@ -5,9 +5,9 @@ import type { LayoutTypes } from '.'
 import { getLocalTimeZone, today } from '@internationalized/date'
 import { createReusableTemplate, reactiveOmit, useVModel } from '@vueuse/core'
 import { cn } from 'cn'
-import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
+import { CalendarRoot, useDateFormatter, useForwardPropsEmits, useLocale } from 'reka-ui'
 import { createYear, createYearRange, toDate } from 'reka-ui/date'
-import { computed, toRaw } from 'vue'
+import { computed, toRaw, toRef, watch } from 'vue'
 import { NativeSelect, NativeSelectOption } from '@/styles/reka-lyra/ui/native-select'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.'
 
@@ -24,7 +24,9 @@ const placeholder = useVModel(props, 'placeholder', emits, {
   defaultValue: props.defaultPlaceholder ?? today(getLocalTimeZone()),
 }) as Ref<DateValue>
 
-const formatter = useDateFormatter(props.locale ?? 'en')
+const locale = useLocale(toRef(() => props.locale))
+const formatter = useDateFormatter(locale.value)
+watch(locale, value => formatter.setLocale(value))
 
 const yearRange = computed(() => {
   return props.yearRange ?? createYearRange({
