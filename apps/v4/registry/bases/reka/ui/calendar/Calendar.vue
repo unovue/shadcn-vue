@@ -92,7 +92,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     data-slot="calendar"
     :class="cn('cn-calendar group/calendar bg-background in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent', props.class)"
   >
-    <CalendarHeader class="pt-0">
+    <CalendarHeader class="h-(--cell-size) px-(--cell-size) pt-0">
       <slot name="calendar-heading" :date="date" :month="ReuseMonthTemplate" :year="ReuseYearTemplate">
         <template v-if="layout === 'month-and-year'">
           <div class="flex items-center justify-center gap-1">
@@ -118,10 +118,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       </slot>
 
       <nav class="pointer-events-none flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
-        <CalendarPrevButton>
+        <CalendarPrevButton class="size-(--cell-size)">
           <slot name="calendar-prev-icon" />
         </CalendarPrevButton>
-        <CalendarNextButton>
+        <CalendarNextButton class="size-(--cell-size)">
           <slot name="calendar-next-icon" />
         </CalendarNextButton>
       </nav>

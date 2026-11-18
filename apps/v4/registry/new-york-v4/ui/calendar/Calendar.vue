@@ -90,9 +90,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-bind="forwarded"
     v-model:placeholder="placeholder"
     data-slot="calendar"
-    :class="cn('p-3', props.class)"
+    :class="cn('p-3 [--cell-size:--spacing(8)]', props.class)"
   >
-    <CalendarHeader class="pt-0">
+    <CalendarHeader class="h-(--cell-size) px-(--cell-size) pt-0">
       <slot name="calendar-heading" :date="date" :month="ReuseMonthTemplate" :year="ReuseYearTemplate">
         <template v-if="layout === 'month-and-year'">
           <div class="flex items-center justify-center gap-1">
@@ -118,10 +118,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       </slot>
 
       <nav class="pointer-events-none flex items-center gap-1 absolute top-0 inset-x-0 justify-between">
-        <CalendarPrevButton>
+        <CalendarPrevButton class="size-(--cell-size)">
           <slot name="calendar-prev-icon" />
         </CalendarPrevButton>
-        <CalendarNextButton>
+        <CalendarNextButton class="size-(--cell-size)">
           <slot name="calendar-next-icon" />
         </CalendarNextButton>
       </nav>
