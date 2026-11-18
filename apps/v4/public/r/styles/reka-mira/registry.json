@@ -393,7 +393,6 @@
         "cn"
       ],
       "registryDependencies": [
-        "native-select",
         "button"
       ],
       "files": [

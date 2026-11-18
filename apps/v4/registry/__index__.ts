@@ -350,7 +350,7 @@ export const Index: Record<string, any> = {
     name: "calendar",
     description: "",
     type: "registry:ui",
-    registryDependencies: ["native-select","button"],
+    registryDependencies: ["button"],
     files: [{
       path: "registry/new-york-v4/ui/calendar/Calendar.vue",
       type: "registry:ui",

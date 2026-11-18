@@ -1,14 +1,15 @@
 <script lang="ts" setup>
 import type { CalendarRootEmits, CalendarRootProps, DateValue } from 'reka-ui'
+
 import type { HTMLAttributes, Ref } from 'vue'
 import type { LayoutTypes } from '.'
 import { getLocalTimeZone, today } from '@internationalized/date'
+import { ChevronDownIcon } from '@lucide/vue'
 import { createReusableTemplate, reactiveOmit, useVModel } from '@vueuse/core'
 import { cn } from 'cn'
 import { CalendarRoot, useDateFormatter, useForwardPropsEmits } from 'reka-ui'
 import { createYear, createYearRange, toDate } from 'reka-ui/date'
 import { computed, toRaw } from 'vue'
-import { NativeSelect, NativeSelectOption } from '@/styles/reka-lyra/ui/native-select'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.'
 
 const props = withDefaults(defineProps<CalendarRootProps & { class?: HTMLAttributes['class'], layout?: LayoutTypes, yearRange?: DateValue[] }>(), {
@@ -44,46 +45,44 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <DefineMonthTemplate v-slot="{ date }">
-    <div class="**:data-[slot=native-select-icon]:right-1">
-      <div class="relative">
-        <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
-          {{ formatter.custom(toDate(date), { month: 'short' }) }}
-        </div>
-        <NativeSelect
-          class="text-xs h-8 pr-6 pl-2 text-transparent relative"
-          @change="(e: Event) => {
-            placeholder = placeholder.set({
-              month: Number((e?.target as any)?.value),
-            })
-          }"
-        >
-          <NativeSelectOption v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month" :selected="date.month === month.month">
-            {{ formatter.custom(toDate(month), { month: 'short' }) }}
-          </NativeSelectOption>
-        </NativeSelect>
-      </div>
+    <div class="has-focus:border-ring border-input has-focus:ring-ring/50 border has-focus:ring-1 relative rounded-(--cell-radius)">
+      <select
+        class="absolute inset-0 bg-popover opacity-0"
+        @change="(e: Event) => {
+          placeholder = placeholder.set({
+            month: Number((e?.target as any)?.value),
+          })
+        }"
+      >
+        <option v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month" :selected="date.month === month.month">
+          {{ formatter.custom(toDate(month), { month: 'short' }) }}
+        </option>
+      </select>
+      <span class="h-6 pr-1 pl-1.5 flex items-center gap-1 rounded-(--cell-radius) text-sm font-medium select-none [&>svg]:size-3.5 [&>svg]:text-muted-foreground" aria-hidden="true">
+        {{ formatter.custom(toDate(date), { month: 'short' }) }}
+        <ChevronDownIcon class="size-4" />
+      </span>
     </div>
   </DefineMonthTemplate>
 
   <DefineYearTemplate v-slot="{ date }">
-    <div class="**:data-[slot=native-select-icon]:right-1">
-      <div class="relative">
-        <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
-          {{ formatter.custom(toDate(date), { year: 'numeric' }) }}
-        </div>
-        <NativeSelect
-          class="text-xs h-8 pr-6 pl-2 text-transparent relative"
-          @change="(e: Event) => {
-            placeholder = placeholder.set({
-              year: Number((e?.target as any)?.value),
-            })
-          }"
-        >
-          <NativeSelectOption v-for="(year) in yearRange" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
-            {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
-          </NativeSelectOption>
-        </NativeSelect>
-      </div>
+    <div class="has-focus:border-ring border-input has-focus:ring-ring/50 border has-focus:ring-1 relative rounded-(--cell-radius)">
+      <select
+        class="absolute inset-0 bg-popover opacity-0"
+        @change="(e: Event) => {
+          placeholder = placeholder.set({
+            year: Number((e?.target as any)?.value),
+          })
+        }"
+      >
+        <option v-for="(year) in yearRange" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
+          {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
+        </option>
+      </select>
+      <span class="h-6 pr-1 pl-1.5 flex items-center gap-1 rounded-(--cell-radius) text-sm font-medium select-none [&>svg]:size-3.5 [&>svg]:text-muted-foreground" aria-hidden="true">
+        {{ formatter.custom(toDate(date), { year: 'numeric' }) }}
+        <ChevronDownIcon class="size-4" />
+      </span>
     </div>
   </DefineYearTemplate>
 

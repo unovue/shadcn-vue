@@ -437,7 +437,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["native-select","button"],
+      registryDependencies: ["button"],
       files: [
             {
                   "path": "registry/bases/reka/ui/calendar/Calendar.vue",
