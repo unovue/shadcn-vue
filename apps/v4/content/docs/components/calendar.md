@@ -121,7 +121,7 @@ If none of these props are provided, the emitted dates will use the `gregorian` 
 
 The emitted value from the Calendar component will vary depending on the specified calendar system identifier. <br />
 
-You can also change the locale using the `locale` prop to match the calendar system interface.
+You can also change the locale using the `locale` prop to match the calendar system interface. Without the `locale` prop, the calendar uses the locale of the nearest reka-ui [`ConfigProvider`](https://reka-ui.com/docs/utilities/config-provider), falling back to `en`.
 
 ::code-collapsible-wrapper
 
