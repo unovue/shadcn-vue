@@ -48,13 +48,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <div class="has-focus:border-ring border-transparent has-focus:ring-ring/30 border has-focus:ring-3 relative rounded-(--cell-radius)">
       <select
         class="absolute inset-0 bg-popover opacity-0"
+        :value="date.month"
         @change="(e: Event) => {
           placeholder = placeholder.set({
             month: Number((e?.target as any)?.value),
           })
         }"
       >
-        <option v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month" :selected="date.month === month.month">
+        <option v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month">
           {{ formatter.custom(toDate(month), { month: 'short' }) }}
         </option>
       </select>
@@ -69,13 +70,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <div class="has-focus:border-ring border-transparent has-focus:ring-ring/30 border has-focus:ring-3 relative rounded-(--cell-radius)">
       <select
         class="absolute inset-0 bg-popover opacity-0"
+        :value="date.year"
         @change="(e: Event) => {
           placeholder = placeholder.set({
             year: Number((e?.target as any)?.value),
           })
         }"
       >
-        <option v-for="(year) in yearRange" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
+        <option v-for="(year) in yearRange" :key="year.toString()" :value="year.year">
           {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
         </option>
       </select>
