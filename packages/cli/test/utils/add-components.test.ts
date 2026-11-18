@@ -1,6 +1,6 @@
 import type { Config } from '../../src/utils/get-config'
 import { describe, expect, it } from 'vitest'
-import { groupWorkspaceFiles } from '../../src/utils/add-components'
+import { getWorkspacePathOption, groupWorkspaceFiles } from '../../src/utils/add-components'
 
 function makeConfig(cwd: string, hooks?: string) {
   return {
@@ -60,5 +60,16 @@ describe('groupWorkspaceFiles', () => {
     const withHooks = makeConfig('/mono/apps/web', '@workspace/ui/hooks')
     const result = groupWorkspaceFiles(files as any, withHooks, { ...workspace, hooks: ui })
     expect(result.map(g => g.config.resolvedPaths.cwd)).toEqual(['/mono/packages/ui'])
+  })
+})
+
+describe('getWorkspacePathOption', () => {
+  it('gives a file --path to the first group only', () => {
+    expect([0, 1].map(i => getWorkspacePathOption('/tmp/Selected.vue', i))).toEqual(['/tmp/Selected.vue', undefined])
+  })
+
+  it('gives a directory --path to every group', () => {
+    expect([0, 1].map(i => getWorkspacePathOption('src/custom', i))).toEqual(['src/custom', 'src/custom'])
+    expect(getWorkspacePathOption(undefined, 1)).toBeUndefined()
   })
 })

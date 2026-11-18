@@ -302,6 +302,11 @@ export async function updateFiles(
   }
 }
 
+// A `--path` ending in a file name sets the path of the first file only.
+export function isFilePathOption(customPath: string) {
+  return /\.[^/\\]+$/.test(customPath)
+}
+
 export function resolveFilePath(
   file: z.infer<typeof registryItemFileSchema>,
   config: Config,
@@ -319,9 +324,7 @@ export function resolveFilePath(
       ? options.path
       : path.join(config.resolvedPaths.cwd, options.path)
 
-    const isFilePath = /\.[^/\\]+$/.test(resolvedPath)
-
-    if (isFilePath) {
+    if (isFilePathOption(resolvedPath)) {
       // We'll only use the custom path for the first file.
       // This is for registry items with multiple files.
       if (options.fileIndex === 0) {

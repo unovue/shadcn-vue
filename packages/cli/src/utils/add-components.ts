@@ -29,7 +29,7 @@ import { updateCss } from '@/src/utils/updaters/update-css'
 import { updateCssVars } from '@/src/utils/updaters/update-css-vars'
 import { updateDependencies } from '@/src/utils/updaters/update-dependencies'
 import { updateEnvVars } from '@/src/utils/updaters/update-env-vars'
-import { getTargetAliasKey, updateFiles } from '@/src/utils/updaters/update-files'
+import { getTargetAliasKey, isFilePathOption, updateFiles } from '@/src/utils/updaters/update-files'
 import { updateTailwindConfig } from '@/src/utils/updaters/update-tailwind-config'
 
 export async function addComponents(
@@ -270,7 +270,9 @@ async function addWorkspaceComponents(
   )
 
   // 6. Group files by the workspace config they install into and update files.
-  for (const { config: targetConfig, files: typeFiles } of groupWorkspaceFiles(tree.files ?? [], config, workspaceConfig)) {
+  const groups = groupWorkspaceFiles(tree.files ?? [], config, workspaceConfig)
+  for (let groupIndex = 0; groupIndex < groups.length; groupIndex++) {
+    const { config: targetConfig, files: typeFiles } = groups[groupIndex]
     const typeWorkspaceRoot = findCommonRoot(
       config.resolvedPaths.cwd,
       targetConfig.resolvedPaths.ui || targetConfig.resolvedPaths.cwd,
@@ -288,7 +290,7 @@ async function addWorkspaceComponents(
       rootSpinner,
       isRemote: options.isRemote,
       isWorkspace: true,
-      path: options.path,
+      path: getWorkspacePathOption(options.path, groupIndex),
     })
 
     filesCreated.push(
@@ -395,6 +397,12 @@ export function groupWorkspaceFiles(
   }
 
   return Array.from(groups.values())
+}
+
+// The first group starts with the first file of the item, so a file `--path`
+// goes to that group only, as in a single-project install.
+export function getWorkspacePathOption(customPath: string | undefined, groupIndex: number) {
+  return groupIndex > 0 && customPath && isFilePathOption(customPath) ? undefined : customPath
 }
 
 function resolveFontImports(config: Config): string[] {

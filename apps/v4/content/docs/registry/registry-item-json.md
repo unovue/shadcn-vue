@@ -187,7 +187,7 @@ By default, the `shadcn-vue` cli will read a project's `components.json` file to
 
 Use `~` to refer to the root of the project e.g `~/foo.config.js`.
 
-You can also use target placeholders to place files under the directories configured in the user's `components.json`. A placeholder is only recognized at the start of `target`. It resolves to the directory the alias points to through the project's `tsconfig.json` paths, so `@components/` installs into `src/components` in a Vite project and into `app/components` in a Nuxt 4 project.
+You can also use target placeholders to place files under the directories configured in the user's `components.json`. A placeholder is only recognized at the start of `target`. It resolves to the directory the alias points to through the project's `tsconfig.json` paths. For example, when `aliases.components` is `@/components`, `@components/` installs into `src/components` in a Vite project and into `app/components` in a Nuxt 4 project.
 
 | Placeholder     | Resolves to           | When the alias is not set                     |
 | --------------- | --------------------- | --------------------------------------------- |
