@@ -230,6 +230,8 @@ Anything after the placeholder is kept, so `@components/acme/card/Card.vue` inst
 
 The placeholder decides where the file is written, even when it points to a different directory than the file `type`. The path after the placeholder must be relative and must stay inside that directory, so targets such as `@lib/../nuxt.config.ts` and `@lib//etc/hosts` are rejected. The `add` command also rejects targets with `..` segments.
 
+In a monorepo, a placeholder resolves against the `components.json` of the workspace the file's type installs into. `registry:ui` files use the UI package, and other types use the app.
+
 Other targets that start with `@`, such as `@acme/foo.ts`, are treated as regular target paths. Placeholders are matched case-sensitively, so `@Lib/` is a regular target path too.
 
 <Callout class="mt-6">

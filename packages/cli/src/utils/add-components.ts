@@ -29,7 +29,7 @@ import { updateCss } from '@/src/utils/updaters/update-css'
 import { updateCssVars } from '@/src/utils/updaters/update-css-vars'
 import { updateDependencies } from '@/src/utils/updaters/update-dependencies'
 import { updateEnvVars } from '@/src/utils/updaters/update-env-vars'
-import { getTargetAliasKey, isFilePathOption, updateFiles } from '@/src/utils/updaters/update-files'
+import { updateFiles } from '@/src/utils/updaters/update-files'
 import { updateTailwindConfig } from '@/src/utils/updaters/update-tailwind-config'
 
 export async function addComponents(
@@ -269,10 +269,24 @@ async function addWorkspaceComponents(
     },
   )
 
-  // 6. Group files by the workspace config they install into and update files.
-  const groups = groupWorkspaceFiles(tree.files ?? [], config, workspaceConfig)
-  for (let groupIndex = 0; groupIndex < groups.length; groupIndex++) {
-    const { config: targetConfig, files: typeFiles } = groups[groupIndex]
+  // 6. Group files by their type to determine target config and update files.
+  const filesByType = new Map<string, typeof tree.files>()
+
+  for (const file of tree.files ?? []) {
+    const type = file.type || 'registry:ui'
+    if (!filesByType.has(type)) {
+      filesByType.set(type, [])
+    }
+    filesByType.get(type)!.push(file)
+  }
+
+  // Process each type of component with its appropriate target config.
+  for (const type of Array.from(filesByType.keys())) {
+    const typeFiles = filesByType.get(type)!
+
+    // eslint-disable-next-line prefer-const
+    let targetConfig = type === 'registry:ui' ? workspaceConfig.ui : config
+
     const typeWorkspaceRoot = findCommonRoot(
       config.resolvedPaths.cwd,
       targetConfig.resolvedPaths.ui || targetConfig.resolvedPaths.cwd,
@@ -290,7 +304,7 @@ async function addWorkspaceComponents(
       rootSpinner,
       isRemote: options.isRemote,
       isWorkspace: true,
-      path: getWorkspacePathOption(options.path, groupIndex),
+      path: options.path,
     })
 
     filesCreated.push(
@@ -376,35 +390,6 @@ async function addWorkspaceComponents(
  * project's CSS file for the active config. Body font + (optional) heading
  * font, de-duplicated. Empty fonts are skipped.
  */
-// Files are grouped by type, and `registry:ui` installs into the ui workspace.
-// A target placeholder picks the workspace config for its alias instead.
-// `@ui/` joins the `registry:ui` group so the files of one ui item stay together.
-export function groupWorkspaceFiles(
-  files: z.infer<typeof registryItemFileSchema>[],
-  config: Config,
-  workspaceConfig: z.infer<typeof workspaceConfigSchema>,
-) {
-  const groups = new Map<string, { config: Config, files: typeof files }>()
-
-  for (const file of files) {
-    const aliasKey = getTargetAliasKey(file.target, config)
-    const type = aliasKey === 'ui' ? 'registry:ui' : aliasKey ? `@${aliasKey}` : file.type || 'registry:ui'
-    if (!groups.has(type)) {
-      const configKey = type === 'registry:ui' ? 'ui' : aliasKey
-      groups.set(type, { config: (configKey && workspaceConfig[configKey]) || config, files: [] })
-    }
-    groups.get(type)!.files.push(file)
-  }
-
-  return Array.from(groups.values())
-}
-
-// The first group starts with the first file of the item, so a file `--path`
-// goes to that group only, as in a single-project install.
-export function getWorkspacePathOption(customPath: string | undefined, groupIndex: number) {
-  return groupIndex > 0 && customPath && isFilePathOption(customPath) ? undefined : customPath
-}
-
 function resolveFontImports(config: Config): string[] {
   const imports: string[] = []
   const push = (name: string | undefined) => {
