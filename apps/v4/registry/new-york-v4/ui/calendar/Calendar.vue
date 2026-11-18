@@ -49,7 +49,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <div class="**:data-[slot=native-select-icon]:right-1">
       <div class="relative">
         <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
-          {{ formatter.custom(toDate(date), { month: 'short' }) }}
+          {{ formatter.custom(toDate(date), { month: 'short', calendar: date.calendar.identifier }) }}
         </div>
         <NativeSelect
           class="text-xs h-8 pr-6 pl-2 text-transparent relative"
@@ -61,7 +61,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
           }"
         >
           <NativeSelectOption v-for="(month) in createYear({ dateObj: date })" :key="month.toString()" :value="month.month" :selected="date.month === month.month">
-            {{ formatter.custom(toDate(month), { month: 'short' }) }}
+            {{ formatter.custom(toDate(month), { month: 'short', calendar: month.calendar.identifier }) }}
           </NativeSelectOption>
         </NativeSelect>
       </div>
@@ -72,7 +72,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <div class="**:data-[slot=native-select-icon]:right-1">
       <div class="relative">
         <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
-          {{ formatter.custom(toDate(date), { year: 'numeric' }) }}
+          {{ formatter.custom(toDate(date), { year: 'numeric', calendar: date.calendar.identifier }) }}
         </div>
         <NativeSelect
           class="text-xs h-8 pr-6 pl-2 text-transparent relative"
@@ -84,7 +84,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
           }"
         >
           <NativeSelectOption v-for="(year) in yearRange" :key="year.toString()" :value="year.year" :selected="date.year === year.year">
-            {{ formatter.custom(toDate(year), { year: 'numeric' }) }}
+            {{ formatter.custom(toDate(year), { year: 'numeric', calendar: year.calendar.identifier }) }}
           </NativeSelectOption>
         </NativeSelect>
       </div>
@@ -109,12 +109,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
         <template v-else-if="layout === 'month-only'">
           <div class="flex items-center justify-center gap-1">
             <ReuseMonthTemplate :date="date" />
-            {{ formatter.custom(toDate(date), { year: 'numeric' }) }}
+            {{ formatter.custom(toDate(date), { year: 'numeric', calendar: date.calendar.identifier }) }}
           </div>
         </template>
         <template v-else-if="layout === 'year-only'">
           <div class="flex items-center justify-center gap-1">
-            {{ formatter.custom(toDate(date), { month: 'short' }) }}
+            {{ formatter.custom(toDate(date), { month: 'short', calendar: date.calendar.identifier }) }}
             <ReuseYearTemplate :date="date" />
           </div>
         </template>
