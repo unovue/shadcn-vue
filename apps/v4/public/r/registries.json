@@ -5,5 +5,6 @@
   "@ai-elements": "https://registry.ai-elements-vue.com/{name}.json",
   "@elevenlabs-ui": "https://registry.elevenlabs-ui-vue.com/{name}.json",
   "@wick-charts": "https://wick-charts.eeff.io/r/vue/{name}.json",
-  "@ganttkit": "https://ktimur91.github.io/ganttkit/r/{name}.json"
+  "@ganttkit": "https://ktimur91.github.io/ganttkit/r/{name}.json",
+  "@beui-vue": "https://beui.stickerwu.net/r/{name}.json"
 }
