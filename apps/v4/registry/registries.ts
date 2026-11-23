@@ -44,7 +44,7 @@ export const registries: RegistryEntry[] = [
     url: "https://mapcn-vue.geoql.in/r/{name}.json",
     homepage: "https://mapcn-vue.geoql.in",
     author: "GeoQL",
-    logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21\" fill=\"none\"/><line x1=\"9\" x2=\"9\" y1=\"3\" y2=\"18\" fill=\"none\"/><line x1=\"15\" x2=\"15\" y1=\"6\" y2=\"21\" fill=\"none\"/></svg>",
+    logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21\" fill=\"none\"/><line x1=\"9\" x2=\"9\" y1=\"3\" y2=\"18\" fill=\"none\"/><line x1=\"15\" x2=\"15\" y1=\"6\" y2=\"21\" fill=\"none\"/></svg>",
     tags: ["ui", "maps"],
   },
   {
