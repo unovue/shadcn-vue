@@ -87,4 +87,14 @@ export const registries: RegistryEntry[] = [
     logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect x=\"6\" y=\"8\" width=\"12\" height=\"4\" rx=\"2\" fill=\"currentColor\"/><rect x=\"11\" y=\"14\" width=\"15\" height=\"4\" rx=\"2\" fill=\"currentColor\"/><rect x=\"8\" y=\"20\" width=\"9\" height=\"4\" rx=\"2\" fill=\"currentColor\"/></svg>",
     tags: ["gantt", "timeline", "scheduling"],
   },
+  {
+    name: "@beui-vue",
+    title: "beui-vue",
+    description: "Vue 3 port of beUI: animated components, blocks, charts and AI agent UI built with motion-v, with Nuxt SSR support.",
+    url: "https://beui.stickerwu.net/r/{name}.json",
+    homepage: "https://beui.stickerwu.net",
+    author: "stickerwu",
+    logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path fill=\"none\" d=\"M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9s-9-1.8-9-9s1.8-9 9-9\"/><path fill=\"none\" d=\"M7 8.5h2.7L12 12.4l2.3-3.9H17l-5 8.4z\"/></svg>",
+    tags: ["ui", "animations", "blocks"],
+  },
 ]
