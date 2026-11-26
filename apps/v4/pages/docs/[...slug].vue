@@ -4,6 +4,7 @@ import {
   IconArrowRight,
   IconArrowUpRight,
 } from '@tabler/icons-vue'
+import { parseDocsPage } from '@/lib/docs-base'
 import { Badge } from '@/registry/new-york-v4/ui/badge'
 import { Button } from '@/registry/new-york-v4/ui/button'
 
@@ -17,9 +18,14 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found' })
 }
 
-const { data: neighbours } = await useAsyncData(`surround-${route.path}`, () => {
-  return queryCollectionItemSurroundings('content', route.path)
+const { pages } = await useNavigation()
+
+const neighbours = computed(() => {
+  const index = pages.value.findIndex(item => item.path === page.value!.path)
+  return index === -1 ? [] : [pages.value[index - 1], pages.value[index + 1]]
 })
+
+const docsPage = parseDocsPage(page.value.path)
 
 useSeoMeta({
   title: page.value.title,
@@ -92,6 +98,8 @@ useSeoMeta({
               </Badge>
             </div>
           </div>
+
+          <DocsBaseSwitcher v-if="docsPage" v-bind="docsPage" />
 
           <ContentRenderer :value="page" class="w-full flex-1 *:data-[slot=alert]:first:mt-0" />
         </div>
