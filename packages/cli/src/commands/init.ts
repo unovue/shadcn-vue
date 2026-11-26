@@ -205,6 +205,54 @@ export function applyInitUrlOptions(
   return url
 }
 
+/**
+ * Resolves a named preset, a preset code, or a preset URL to the `/init` URL
+ * that returns the registry:base item. The `--base` option wins over the base
+ * of a named preset or a preset code.
+ */
+export function resolveInitPresetUrl(
+  presetArg: string,
+  options: Pick<z.infer<typeof initOptionsSchema>, 'base' | 'rtl' | 'pointer' | 'template'>,
+) {
+  if (isUrl(presetArg)) {
+    const url = new URL(presetArg)
+    applyInitUrlOptions(url, options)
+    return url.toString()
+  }
+
+  if (isPresetCode(presetArg)) {
+    const decoded = decodePreset(presetArg)
+    if (!decoded) {
+      logger.error(
+        `Invalid preset code: ${highlighter.info(presetArg)}`,
+      )
+      logger.break()
+      process.exit(1)
+    }
+    return resolveInitUrl(
+      {
+        ...decoded,
+        base: options.base ?? decoded.base,
+        rtl: options.rtl ?? false,
+      },
+      { template: options.template, preset: presetArg, pointer: options.pointer },
+    )
+  }
+
+  const preset = DEFAULT_PRESETS[presetArg as keyof typeof DEFAULT_PRESETS]
+  if (!preset) {
+    throw new Error(`Unknown preset: ${presetArg}`)
+  }
+  return resolveInitUrl(
+    {
+      ...preset,
+      base: options.base ?? preset.base,
+      rtl: options.rtl ?? preset.rtl,
+    },
+    { template: options.template, pointer: options.pointer },
+  )
+}
+
 export const init = new Command()
   .name('init')
   .alias('create')
@@ -318,7 +366,9 @@ export const init = new Command()
       // Apply defaults when --defaults flag is set.
       if (opts.defaults) {
         opts.template = opts.template || 'nuxt'
-        opts.base = opts.base || 'reka'
+        if (typeof opts.preset !== 'string' || !isPresetCode(opts.preset)) {
+          opts.base = opts.base || 'reka'
+        }
       }
 
       const options = initOptionsSchema.parse({
@@ -357,47 +407,7 @@ export const init = new Command()
         }
 
         if (typeof presetArg === 'string') {
-          let initUrl: string
-
-          if (isUrl(presetArg)) {
-            const url = new URL(presetArg)
-            applyInitUrlOptions(url, options)
-            initUrl = url.toString()
-          }
-          else if (isPresetCode(presetArg)) {
-            const decoded = decodePreset(presetArg)
-            if (!decoded) {
-              logger.error(
-                `Invalid preset code: ${highlighter.info(presetArg)}`,
-              )
-              logger.break()
-              process.exit(1)
-            }
-            initUrl = resolveInitUrl(
-              {
-                ...decoded,
-                base: options.base ?? 'reka',
-                rtl: options.rtl ?? false,
-              },
-              { template: options.template, preset: presetArg, pointer: options.pointer },
-            )
-          }
-          else {
-            const preset = presetsByName[presetArg as keyof typeof presetsByName]
-            if (!preset) {
-              throw new Error(`Unknown preset: ${presetArg}`)
-            }
-            initUrl = resolveInitUrl(
-              {
-                ...preset,
-                base: options.base ?? preset.base,
-                rtl: options.rtl ?? preset.rtl,
-              },
-              { template: options.template, pointer: options.pointer },
-            )
-          }
-
-          components = [initUrl, ...components]
+          components = [resolveInitPresetUrl(presetArg, options), ...components]
         }
 
         // Fetch the registry:base item, extract its config, and stash on options.
@@ -647,7 +657,20 @@ export async function runInit(
   return fullConfig
 }
 
-async function promptForConfig(defaultConfig: Config | null = null, opts?: z.infer<typeof initOptionsSchema>) {
+function shouldPromptForBase(base: string | undefined) {
+  return !base && BASES.length > 1
+}
+
+// A style id without a base prefix (`new-york-v4`) belongs to the first base,
+// reka. Any other base starts from `vega` instead of a style of another base.
+function composeStyleIdForBase(base: string, style: string | undefined) {
+  const styleId = composeStyleId(base, style)
+  const styleBase = BASES.find(b => styleId.startsWith(`${b.name}-`))?.name ?? BASES[0].name
+
+  return styleBase === base ? styleId : composeStyleId(base, 'vega')
+}
+
+export async function promptForConfig(defaultConfig: Config | null = null, opts?: z.infer<typeof initOptionsSchema>) {
   let base = opts?.base ?? 'reka'
   let style = opts?.style ?? 'vega'
   let font = opts?.font ?? 'inter'
@@ -680,7 +703,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
         inactive: 'no',
       },
       {
-        type: 'select',
+        type: shouldPromptForBase(opts?.base) ? 'select' : null,
         name: 'base',
         message: `Which ${highlighter.info('component library')} would you like to use?`,
         choices: BASES.map(b => ({
@@ -802,7 +825,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
 
   return rawConfigSchema.parse({
     $schema: 'https://shadcn-vue.com/schema.json',
-    style: composeStyleId(base, style),
+    style: composeStyleIdForBase(base, style),
     font,
     iconLibrary,
     rtl: opts?.rtl ?? false,
@@ -825,7 +848,7 @@ async function promptForConfig(defaultConfig: Config | null = null, opts?: z.inf
   })
 }
 
-async function promptForMinimalConfig(
+export async function promptForMinimalConfig(
   defaultConfig: Config,
   opts: z.infer<typeof initOptionsSchema>,
 ) {
@@ -849,7 +872,7 @@ async function promptForMinimalConfig(
 
     const options = await prompts([
       {
-        type: opts.base ? null : 'select',
+        type: shouldPromptForBase(opts.base) ? 'select' : null,
         name: 'base',
         message: `Which ${highlighter.info('component library')} would you like to use?`,
         choices: BASES.map(b => ({
@@ -919,7 +942,7 @@ async function promptForMinimalConfig(
 
   return rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
-    style: composeStyleId(base, style),
+    style: composeStyleIdForBase(base, style),
     font,
     ...(defaultConfig.fontHeading
       && { fontHeading: defaultConfig.fontHeading }),
