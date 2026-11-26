@@ -97,4 +97,14 @@ export const registries: RegistryEntry[] = [
     logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path fill=\"none\" d=\"M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9s-9-1.8-9-9s1.8-9 9-9\"/><path fill=\"none\" d=\"M7 8.5h2.7L12 12.4l2.3-3.9H17l-5 8.4z\"/></svg>",
     tags: ["ui", "animations", "blocks"],
   },
+  {
+    name: "@keyframery",
+    title: "Keyframery",
+    description: "Animated components for UI SDK: 95 components with five motion styles, Agent view and Nuxt SSR support.",
+    url: "https://keyframery.com/r/vue/{name}.json",
+    homepage: "https://keyframery.com/docs/installation/vue",
+    author: "Briyan Hingrajiya",
+    logo: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><polygon points=\"9.3,11.7 20.3,22.7 14.8,28.2 3.8,17.2\" fill=\"currentColor\"/><polygon points=\"17.2,3.8 28.2,14.8 22.7,20.3 11.7,9.3\" fill=\"currentColor\"/></svg>",
+    tags: ["ui", "animations", "ai"],
+  },
 ]
