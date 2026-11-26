@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/color-mode', '@nuxt/content', 'nuxt-shiki', 'nuxt-og-image', '@nuxt/image', '@nuxt/fonts'],
   components: [
     { path: '~/components', ignore: ['_internal/*', '_internal/**/*', 'examples/*', 'examples/**/*'] },
-    { path: '~/components/demo', pathPrefix: false },
+    // The demos of a base (demo/<base>) replace the shared demos of the same name by path, so they are not global components.
+    { path: '~/components/demo', pathPrefix: false, ignore: ['*/**'] },
     { path: '~/components/content', global: true, pathPrefix: false },
     {
       path: '~/registry/new-york-v4/ui/accordion',

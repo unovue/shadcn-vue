@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
+import { parseDocsPage } from '@/lib/docs-base'
+import { loadDemo } from '@/lib/docs-demos'
 
 const props = defineProps<{
   name: string
@@ -12,6 +14,8 @@ const props = defineProps<{
   previewClass?: HTMLAttributes['class']
 }>()
 
+const base = parseDocsPage(useRoute().path)?.base
+
 const Component = props.type === 'block'
   ? defineAsyncComponent({
       loader: () => import(`@/registry/new-york-v4/blocks/${props.name}/page.vue`),
@@ -21,7 +25,7 @@ const Component = props.type === 'block'
         loader: () => import(`@/registry/new-york-v4/charts/${props.name}.vue`),
       })
     : defineAsyncComponent({
-        loader: () => import(`@/components/demo/${props.name}.vue`),
+        loader: () => loadDemo(props.name, base),
       })
 </script>
 

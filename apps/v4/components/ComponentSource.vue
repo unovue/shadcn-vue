@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from 'cn'
+import { parseDocsPage } from '@/lib/docs-base'
+import { loadDemoSource } from '@/lib/docs-demos'
 import { fixImport } from '~/lib/registry-utils'
 import { getIconForLanguageExtension } from './Icons'
 
@@ -17,7 +19,8 @@ const props = withDefaults(defineProps<{
   collapsible: true,
 })
 
-const code = fixImport((await import(`@/components/demo/${props.name}.${props.language}?raw`)).default)
+const base = parseDocsPage(useRoute().path)?.base
+const code = fixImport(await loadDemoSource(props.name!, base))
 </script>
 
 <template>
