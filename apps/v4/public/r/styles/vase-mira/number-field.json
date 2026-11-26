@@ -1,0 +1,41 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "number-field",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-mira/ui/number-field/NumberField.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldRootEmits, NumberFieldRootProps } from '@vase-ui/vue/number-field'\nimport type { HTMLAttributes } from 'vue'\nimport { NumberField } from '@vase-ui/vue/number-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ NumberFieldRootProps {\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ NumberFieldRootEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <NumberField.Root v-slot=\"slotProps\" :class=\"cn('grid gap-1.5', props.class)\">\n    <slot v-bind=\"slotProps\" />\n  </NumberField.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/number-field/NumberFieldContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldGroupProps } from '@vase-ui/vue/number-field'\nimport type { HTMLAttributes } from 'vue'\nimport { NumberField } from '@vase-ui/vue/number-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ NumberFieldGroupProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <NumberField.Group :class=\"cn('relative [&>[data-slot=input]]:has-[[data-slot=increment]]:pr-5 [&>[data-slot=input]]:has-[[data-slot=decrement]]:pl-5', props.class)\">\n    <slot />\n  </NumberField.Group>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/number-field/NumberFieldDecrement.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldDecrementProps } from '@vase-ui/vue/number-field'\n\nimport type { HTMLAttributes } from 'vue'\nimport { MinusIcon } from '@lucide/vue'\nimport { NumberField } from '@vase-ui/vue/number-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ NumberFieldDecrementProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <NumberField.Decrement data-slot=\"decrement\" :class=\"cn('absolute top-1/2 -translate-y-1/2 left-0 p-3 disabled:cursor-not-allowed disabled:opacity-20', props.class)\">\n    <slot>\n      <MinusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberField.Decrement>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/number-field/NumberFieldIncrement.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldIncrementProps } from '@vase-ui/vue/number-field'\n\nimport type { HTMLAttributes } from 'vue'\nimport { PlusIcon } from '@lucide/vue'\nimport { NumberField } from '@vase-ui/vue/number-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ NumberFieldIncrementProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <NumberField.Increment data-slot=\"increment\" :class=\"cn('absolute top-1/2 -translate-y-1/2 right-0 disabled:cursor-not-allowed disabled:opacity-20 p-3', props.class)\">\n    <slot>\n      <PlusIcon class=\"h-4 w-4\" />\n    </slot>\n  </NumberField.Increment>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/number-field/NumberFieldInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { NumberFieldInputProps } from '@vase-ui/vue/number-field'\nimport type { HTMLAttributes } from 'vue'\nimport { NumberField } from '@vase-ui/vue/number-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ NumberFieldInputProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <NumberField.Input\n    data-slot=\"input\"\n    :class=\"cn(\n      'bg-input/20 dark:bg-input/30 border-input focus-visible:border-ring focus-visible:ring-ring/30 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 h-7 rounded-md border px-2 py-0.5 text-sm transition-colors file:h-6 file:text-xs/relaxed file:font-medium focus-visible:ring-2 aria-invalid:ring-2 md:text-xs/relaxed w-full min-w-0 text-center outline-none placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',\n      props.class,\n    )\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/number-field/index.ts",
+      "content": "export { default as NumberField } from './NumberField.vue'\nexport { default as NumberFieldContent } from './NumberFieldContent.vue'\nexport { default as NumberFieldDecrement } from './NumberFieldDecrement.vue'\nexport { default as NumberFieldIncrement } from './NumberFieldIncrement.vue'\nexport { default as NumberFieldInput } from './NumberFieldInput.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

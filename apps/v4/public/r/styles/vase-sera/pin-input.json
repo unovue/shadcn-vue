@@ -1,0 +1,36 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "pin-input",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-sera/ui/pin-input/PinInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { OTPFieldRootEmits, OTPFieldRootProps } from '@vase-ui/vue/otp-field'\nimport type { HTMLAttributes } from 'vue'\nimport { OTPField } from '@vase-ui/vue/otp-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ OTPFieldRootProps {\n  length: OTPFieldRootProps['length']\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ OTPFieldRootEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <OTPField.Root\n    v-slot=\"slotProps\"\n    :length=\"length\"\n    data-slot=\"pin-input\"\n    :class=\"cn('flex items-center gap-2 has-disabled:opacity-50', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </OTPField.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pin-input/PinInputGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { Component, HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = withDefaults(defineProps<{\n  as?: keyof HTMLElementTagNameMap | Component\n  class?: HTMLAttributes['class']\n}>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    data-slot=\"pin-input-group\"\n    :class=\"cn('flex items-center', props.class)\"\n  >\n    <slot />\n  </component>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pin-input/PinInputSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { Component } from 'vue'\n\nimport { MinusIcon } from '@lucide/vue'\n\nwithDefaults(defineProps<{\n  as?: keyof HTMLElementTagNameMap | Component\n}>(), {\n  as: 'div',\n})\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    data-slot=\"pin-input-separator\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </component>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pin-input/PinInputSlot.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { OTPField } from '@vase-ui/vue/otp-field'\nimport { cn } from 'cn'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <OTPField.Input>\n    <template #element=\"{ props: inputProps, elementRef }\">\n      <input\n        v-bind=\"inputProps\"\n        :ref=\"elementRef\"\n        data-slot=\"pin-input-slot\"\n        :class=\"cn('border-input focus:border-ring focus:ring-ring/50 focus:aria-invalid:ring-destructive/20 dark:bg-input/30 dark:focus:aria-invalid:ring-destructive/40 aria-invalid:border-destructive focus:aria-invalid:border-destructive relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all outline-none text-center first:rounded-l-md first:border-l last:rounded-r-md focus:z-10 focus:ring-3 disabled:cursor-not-allowed', props.class)\"\n      >\n    </template>\n  </OTPField.Input>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pin-input/index.ts",
+      "content": "export { default as PinInput } from './PinInput.vue'\nexport { default as PinInputGroup } from './PinInputGroup.vue'\nexport { default as PinInputSeparator } from './PinInputSeparator.vue'\nexport { default as PinInputSlot } from './PinInputSlot.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

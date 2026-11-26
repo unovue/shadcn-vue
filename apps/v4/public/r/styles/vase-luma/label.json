@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "label",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-luma/ui/label/Label.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes, LabelHTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ LabelHTMLAttributes {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <label\n    data-slot=\"label\"\n    :class=\"\n      cn(\n        'gap-2 text-sm leading-none font-medium group-data-[disabled=true]:opacity-50 peer-disabled:opacity-50 flex items-center select-none group-data-[disabled=true]:pointer-events-none peer-disabled:cursor-not-allowed peer-has-disabled:cursor-not-allowed peer-has-disabled:opacity-50',\n        props.class,\n      )\n    \"\n  >\n    <slot />\n  </label>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-luma/ui/label/index.ts",
+      "content": "export { default as Label } from './Label.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

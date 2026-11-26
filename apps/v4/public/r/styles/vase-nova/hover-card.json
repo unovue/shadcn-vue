@@ -1,0 +1,31 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "hover-card",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-nova/ui/hover-card/HoverCard.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PreviewCardRootEmits, PreviewCardRootProps } from '@vase-ui/vue/preview-card'\nimport { PreviewCard } from '@vase-ui/vue/preview-card'\n\ninterface Props extends /* @vue-ignore */ PreviewCardRootProps {}\ninterface Emits extends /* @vue-ignore */ PreviewCardRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <PreviewCard.Root v-slot=\"slotProps\">\n    <slot v-bind=\"slotProps\" />\n  </PreviewCard.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/hover-card/HoverCardContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PreviewCardPopupProps, PreviewCardPositionerProps } from '@vase-ui/vue/preview-card'\nimport type { HTMLAttributes } from 'vue'\nimport { PreviewCard } from '@vase-ui/vue/preview-card'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ PreviewCardPopupProps {\n  class?: HTMLAttributes['class']\n  side?: PreviewCardPositionerProps['side']\n  sideOffset?: PreviewCardPositionerProps['sideOffset']\n  align?: PreviewCardPositionerProps['align']\n  alignOffset?: PreviewCardPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  side: 'bottom',\n  sideOffset: 4,\n  align: 'center',\n  alignOffset: 0,\n})\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <PreviewCard.Portal>\n    <PreviewCard.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      class=\"isolate z-50\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <PreviewCard.Popup\n          data-slot=\"hover-card-content\"\n          v-bind=\"$attrs\"\n          :class=\"cn('data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground w-64 rounded-lg p-2.5 text-sm shadow-md ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 z-50 origin-(--transform-origin) outline-hidden', props.class)\"\n        >\n          <slot />\n        </PreviewCard.Popup>\n      </Transition>\n    </PreviewCard.Positioner>\n  </PreviewCard.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/hover-card/HoverCardTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PreviewCardTriggerProps } from '@vase-ui/vue/preview-card'\nimport { PreviewCard } from '@vase-ui/vue/preview-card'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ PreviewCardTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <PreviewCard.Trigger ref=\"part\" data-slot=\"hover-card-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </PreviewCard.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/hover-card/index.ts",
+      "content": "export { default as HoverCard } from './HoverCard.vue'\nexport { default as HoverCardContent } from './HoverCardContent.vue'\nexport { default as HoverCardTrigger } from './HoverCardTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "pagination",
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-sera/ui/pagination/Pagination.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <nav\n    role=\"navigation\"\n    aria-label=\"pagination\"\n    data-slot=\"pagination\"\n    :class=\"cn('mx-auto flex w-full justify-center', props.class)\"\n  >\n    <slot />\n  </nav>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <ul\n    data-slot=\"pagination-content\"\n    :class=\"cn('gap-1 flex items-center', props.class)\"\n  >\n    <slot />\n  </ul>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationEllipsis.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { MoreHorizontalIcon } from '@lucide/vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"pagination-ellipsis\"\n    :class=\"cn('size-9 [&_svg:not([class*=size-])]:size-4 flex items-center justify-center', props.class)\"\n  >\n    <slot>\n      <MoreHorizontalIcon />\n      <span class=\"sr-only\">More pages</span>\n    </slot>\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationFirst.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport type { ButtonVariants } from '@/styles/vase-sera/ui/button'\nimport { ChevronsLeftIcon } from '@lucide/vue'\nimport { cn } from 'cn'\nimport PaginationLink from './PaginationLink.vue'\n\nconst props = withDefaults(defineProps<{\n  href?: string\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n</script>\n\n<template>\n  <PaginationLink\n    aria-label=\"Go to first page\"\n    data-slot=\"pagination-first\"\n    :href=\"href\"\n    :size=\"size\"\n    :class=\"cn('', props.class)\"\n  >\n    <slot>\n      <ChevronsLeftIcon data-icon=\"inline-start\" />\n      <span class=\"hidden sm:block\">First</span>\n    </slot>\n  </PaginationLink>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <li data-slot=\"pagination-item\" :class=\"props.class\">\n    <slot />\n  </li>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationLast.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport type { ButtonVariants } from '@/styles/vase-sera/ui/button'\nimport { ChevronsRightIcon } from '@lucide/vue'\nimport { cn } from 'cn'\nimport PaginationLink from './PaginationLink.vue'\n\nconst props = withDefaults(defineProps<{\n  href?: string\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n</script>\n\n<template>\n  <PaginationLink\n    aria-label=\"Go to last page\"\n    data-slot=\"pagination-last\"\n    :href=\"href\"\n    :size=\"size\"\n    :class=\"cn('', props.class)\"\n  >\n    <slot>\n      <span class=\"hidden sm:block\">Last</span>\n      <ChevronsRightIcon data-icon=\"inline-end\" />\n    </slot>\n  </PaginationLink>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationLink.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport type { ButtonVariants } from '@/styles/vase-sera/ui/button'\nimport { cn } from 'cn'\nimport { buttonVariants } from '@/styles/vase-sera/ui/button'\n\nconst props = withDefaults(defineProps<{\n  href?: string\n  size?: ButtonVariants['size']\n  isActive?: boolean\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'icon',\n  isActive: false,\n})\n</script>\n\n<template>\n  <a\n    :href=\"href\"\n    data-slot=\"pagination-link\"\n    :data-active=\"isActive ? '' : undefined\"\n    :aria-current=\"isActive ? 'page' : undefined\"\n    :class=\"cn(\n      buttonVariants({\n        variant: isActive ? 'outline' : 'ghost',\n        size,\n      }),\n      '',\n      props.class,\n    )\"\n  >\n    <slot />\n  </a>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationNext.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport type { ButtonVariants } from '@/styles/vase-sera/ui/button'\nimport { ChevronRightIcon } from '@lucide/vue'\nimport { cn } from 'cn'\nimport PaginationLink from './PaginationLink.vue'\n\nconst props = withDefaults(defineProps<{\n  href?: string\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n</script>\n\n<template>\n  <PaginationLink\n    aria-label=\"Go to next page\"\n    data-slot=\"pagination-next\"\n    :href=\"href\"\n    :size=\"size\"\n    :class=\"cn('pr-2!', props.class)\"\n  >\n    <slot>\n      <span class=\"hidden sm:block\">Next</span>\n      <ChevronRightIcon data-icon=\"inline-end\" class=\"cn-rtl-flip\" />\n    </slot>\n  </PaginationLink>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/PaginationPrevious.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport type { ButtonVariants } from '@/styles/vase-sera/ui/button'\nimport { ChevronLeftIcon } from '@lucide/vue'\nimport { cn } from 'cn'\nimport PaginationLink from './PaginationLink.vue'\n\nconst props = withDefaults(defineProps<{\n  href?: string\n  size?: ButtonVariants['size']\n  class?: HTMLAttributes['class']\n}>(), {\n  size: 'default',\n})\n</script>\n\n<template>\n  <PaginationLink\n    aria-label=\"Go to previous page\"\n    data-slot=\"pagination-previous\"\n    :href=\"href\"\n    :size=\"size\"\n    :class=\"cn('pl-2!', props.class)\"\n  >\n    <slot>\n      <ChevronLeftIcon data-icon=\"inline-start\" class=\"cn-rtl-flip\" />\n      <span class=\"hidden sm:block\">Previous</span>\n    </slot>\n  </PaginationLink>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/pagination/index.ts",
+      "content": "export { default as Pagination } from './Pagination.vue'\nexport { default as PaginationContent } from './PaginationContent.vue'\nexport { default as PaginationEllipsis } from './PaginationEllipsis.vue'\nexport { default as PaginationFirst } from './PaginationFirst.vue'\nexport { default as PaginationItem } from './PaginationItem.vue'\nexport { default as PaginationLast } from './PaginationLast.vue'\nexport { default as PaginationLink } from './PaginationLink.vue'\nexport { default as PaginationNext } from './PaginationNext.vue'\nexport { default as PaginationPrevious } from './PaginationPrevious.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

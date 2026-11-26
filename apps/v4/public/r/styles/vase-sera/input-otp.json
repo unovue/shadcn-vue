@@ -1,0 +1,36 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "input-otp",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-sera/ui/input-otp/InputOTP.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { OTPFieldRootEmits, OTPFieldRootProps } from '@vase-ui/vue/otp-field'\nimport type { HTMLAttributes } from 'vue'\nimport { OTPField } from '@vase-ui/vue/otp-field'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ OTPFieldRootProps {\n  length: OTPFieldRootProps['length']\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ OTPFieldRootEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <OTPField.Root\n    v-slot=\"slotProps\"\n    :length=\"length\"\n    data-slot=\"input-otp\"\n    :class=\"cn('gap-2 flex items-center has-disabled:opacity-50', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </OTPField.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/input-otp/InputOTPGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-group\"\n    :class=\"cn('has-aria-invalid:border-b-destructive dark:has-aria-invalid:border-b-destructive/50 rounded-none gap-1 flex items-center', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/input-otp/InputOTPSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\n\nimport { MinusIcon } from '@lucide/vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div\n    data-slot=\"input-otp-separator\"\n    role=\"separator\"\n    :class=\"cn('[&_svg:not([class*=size-])]:size-3.5 flex items-center', props.class)\"\n  >\n    <slot>\n      <MinusIcon />\n    </slot>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/input-otp/InputOTPSlot.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { OTPField } from '@vase-ui/vue/otp-field'\nimport { cn } from 'cn'\nimport { ref } from 'vue'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n\nconst active = ref(false)\n</script>\n\n<template>\n  <OTPField.Input>\n    <template #element=\"{ props: inputProps, elementRef }\">\n      <input\n        v-bind=\"inputProps\"\n        :ref=\"elementRef\"\n        data-slot=\"input-otp-slot\"\n        :data-active=\"active\"\n        :class=\"cn('border-transparent border-b-input bg-transparent data-[active=true]:border-b-ring aria-invalid:border-b-destructive dark:aria-invalid:border-b-destructive/50 size-10 border text-sm transition-[color,border-color] outline-none first:rounded-none last:rounded-none relative text-center disabled:cursor-not-allowed data-[active=true]:z-10', props.class)\"\n        @focus=\"active = true\"\n        @blur=\"active = false\"\n      >\n    </template>\n  </OTPField.Input>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/input-otp/index.ts",
+      "content": "export { default as InputOTP } from './InputOTP.vue'\nexport { default as InputOTPGroup } from './InputOTPGroup.vue'\nexport { default as InputOTPSeparator } from './InputOTPSeparator.vue'\nexport { default as InputOTPSlot } from './InputOTPSlot.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

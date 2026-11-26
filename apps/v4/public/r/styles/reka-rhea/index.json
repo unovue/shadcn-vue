@@ -3,7 +3,9 @@
   "name": "index",
   "dependencies": [
     "class-variance-authority",
-    "@lucide/vue"
+    "@lucide/vue",
+    "reka-ui",
+    "shadcn-vue@latest"
   ],
   "devDependencies": [
     "tw-animate-css"
@@ -13,5 +15,8 @@
   ],
   "files": [],
   "cssVars": {},
+  "css": {
+    "@import \"shadcn-vue/tailwind.css\"": {}
+  },
   "type": "registry:style"
 }

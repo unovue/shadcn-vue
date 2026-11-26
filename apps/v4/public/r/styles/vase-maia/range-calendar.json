@@ -1,0 +1,80 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "range-calendar",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn",
+    "temporal-polyfill"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendar.vue",
+      "content": "<script lang=\"ts\" setup generic=\"Value extends NonNullable<RangeCalendarRootProps['min']> = NonNullable<RangeCalendarRootValue[number]>\">\nimport type { RangeCalendarRootEmits, RangeCalendarRootProps, RangeCalendarRootValue } from '@vase-ui/vue/range-calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { RangeCalendar } from '@vase-ui/vue/range-calendar'\nimport { cn } from 'cn'\nimport { RangeCalendarCell, RangeCalendarCellTrigger, RangeCalendarGrid, RangeCalendarGridBody, RangeCalendarGridHead, RangeCalendarGridRow, RangeCalendarHeadCell, RangeCalendarHeader, RangeCalendarHeading, RangeCalendarNextButton, RangeCalendarPrevButton } from '.'\nimport 'temporal-polyfill/global'\n\ninterface Props extends /* @vue-ignore */ RangeCalendarRootProps<Value> {\n  class?: HTMLAttributes['class']\n  showOutsideDays?: boolean\n}\ninterface Emits extends /* @vue-ignore */ RangeCalendarRootEmits<Value> {}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  showOutsideDays: true,\n})\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <RangeCalendar.Root\n    v-bind=\"$attrs\"\n    :show-outside-days=\"showOutsideDays\"\n    data-slot=\"range-calendar\"\n    :class=\"cn('relative p-3', props.class)\"\n  >\n    <RangeCalendarHeader class=\"pt-0\">\n      <RangeCalendarPrevButton class=\"top-0\" />\n      <RangeCalendarNextButton class=\"top-0\" />\n    </RangeCalendarHeader>\n\n    <Calendar.Months class=\"flex flex-col gap-y-4 sm:flex-row sm:gap-x-4 sm:gap-y-0\">\n      <template #month=\"{ month }\">\n        <Calendar.Month :month=\"month\" class=\"flex flex-col gap-4\">\n          <RangeCalendarHeading class=\"flex h-7 items-center justify-center\" />\n          <RangeCalendarGrid>\n            <RangeCalendarGridHead>\n              <RangeCalendarGridRow>\n                <template #weekday=\"{ weekday }\">\n                  <RangeCalendarHeadCell :weekday=\"weekday\" />\n                </template>\n              </RangeCalendarGridRow>\n            </RangeCalendarGridHead>\n            <RangeCalendarGridBody>\n              <template #week=\"{ week }\">\n                <RangeCalendarGridRow :week=\"week\" class=\"mt-2 w-full\">\n                  <template #day=\"{ day }\">\n                    <RangeCalendarCell :day=\"day\">\n                      <RangeCalendarCellTrigger />\n                    </RangeCalendarCell>\n                  </template>\n                </RangeCalendarGridRow>\n              </template>\n            </RangeCalendarGridBody>\n          </RangeCalendarGrid>\n        </Calendar.Month>\n      </template>\n    </Calendar.Months>\n  </RangeCalendar.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarCell.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarDayProps } from '@vase-ui/vue/calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ CalendarDayProps {\n  class?: HTMLAttributes['class']\n  day: CalendarDayProps['day']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.Day\n    :day=\"day\"\n    data-slot=\"range-calendar-cell\"\n    :class=\"cn('relative p-0 text-center text-sm focus-within:relative focus-within:z-20 data-[range-start]:bg-accent data-[range-middle]:bg-accent data-[range-end]:bg-accent data-[range-start]:rounded-l-md data-[range-end]:rounded-r-md first:data-[range-middle]:rounded-l-md last:data-[range-middle]:rounded-r-md', props.class)\"\n  >\n    <slot />\n  </Calendar.Day>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarCellTrigger.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarDayButtonProps } from '@vase-ui/vue/calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\nimport { buttonVariants } from '@/styles/vase-maia/ui/button'\n\ninterface Props extends /* @vue-ignore */ CalendarDayButtonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.DayButton\n    data-slot=\"range-calendar-trigger\"\n    :class=\"cn(\n      buttonVariants({ variant: 'ghost' }),\n      'h-8 w-8 p-0 font-normal data-[selected]:opacity-100',\n      '[&[aria-current=date]:not([data-selected])]:bg-accent [&[aria-current=date]:not([data-selected])]:text-accent-foreground',\n      'data-[range-start]:bg-primary data-[range-start]:text-primary-foreground data-[range-start]:hover:bg-primary data-[range-start]:hover:text-primary-foreground data-[range-start]:focus:bg-primary data-[range-start]:focus:text-primary-foreground',\n      'data-[range-end]:bg-primary data-[range-end]:text-primary-foreground data-[range-end]:hover:bg-primary data-[range-end]:hover:text-primary-foreground data-[range-end]:focus:bg-primary data-[range-end]:focus:text-primary-foreground',\n      'data-[outside-month]:text-muted-foreground',\n      'disabled:text-muted-foreground disabled:opacity-50',\n      'data-[unavailable]:text-destructive-foreground data-[unavailable]:line-through',\n      props.class,\n    )\"\n  >\n    <template v-if=\"$slots.default\" #default>\n      <slot />\n    </template>\n  </Calendar.DayButton>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarGrid.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridProps } from '@vase-ui/vue/calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ CalendarGridProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.Grid\n    data-slot=\"range-calendar-grid\"\n    :class=\"cn('w-full border-collapse space-x-1', props.class)\"\n  >\n    <slot />\n  </Calendar.Grid>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarGridBody.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridBodyProps } from '@vase-ui/vue/calendar'\nimport { Calendar } from '@vase-ui/vue/calendar'\n\ninterface Props extends /* @vue-ignore */ CalendarGridBodyProps {}\n\ndefineProps<Props>()\n</script>\n\n<template>\n  <Calendar.GridBody data-slot=\"range-calendar-grid-body\">\n    <slot />\n    <template v-if=\"$slots.week\" #week=\"slotProps\">\n      <slot name=\"week\" v-bind=\"slotProps\" />\n    </template>\n  </Calendar.GridBody>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarGridHead.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridHeaderProps } from '@vase-ui/vue/calendar'\nimport { Calendar } from '@vase-ui/vue/calendar'\n\ninterface Props extends /* @vue-ignore */ CalendarGridHeaderProps {}\n\ndefineProps<Props>()\n</script>\n\n<template>\n  <Calendar.GridHeader data-slot=\"range-calendar-grid-head\">\n    <slot />\n  </Calendar.GridHeader>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarGridRow.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarGridHeaderRowProps, CalendarWeekProps } from '@vase-ui/vue/calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ CalendarGridHeaderRowProps {\n  class?: HTMLAttributes['class']\n  week?: CalendarWeekProps['week']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.Week\n    v-if=\"week\"\n    :week=\"week\"\n    data-slot=\"range-calendar-grid-row\"\n    :class=\"cn('flex', props.class)\"\n  >\n    <slot />\n    <template v-if=\"$slots.day\" #day=\"slotProps\">\n      <slot name=\"day\" v-bind=\"slotProps\" />\n    </template>\n  </Calendar.Week>\n  <Calendar.GridHeaderRow\n    v-else\n    data-slot=\"range-calendar-grid-row\"\n    :class=\"cn('flex', props.class)\"\n  >\n    <slot />\n    <template v-if=\"$slots.weekday\" #weekday=\"slotProps\">\n      <slot name=\"weekday\" v-bind=\"slotProps\" />\n    </template>\n  </Calendar.GridHeaderRow>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarHeadCell.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarWeekdayProps } from '@vase-ui/vue/calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ CalendarWeekdayProps {\n  class?: HTMLAttributes['class']\n  weekday: CalendarWeekdayProps['weekday']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.Weekday\n    :weekday=\"weekday\"\n    format=\"narrow\"\n    data-slot=\"range-calendar-head-cell\"\n    :class=\"cn('w-8 rounded-md text-[0.8rem] font-normal text-muted-foreground', props.class)\"\n  >\n    <template v-if=\"$slots.default\" #default>\n      <slot />\n    </template>\n  </Calendar.Weekday>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarHeader.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"range-calendar-header\"\n    :class=\"cn('flex justify-center pt-1 relative items-center w-full', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarHeading.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarCaptionProps } from '@vase-ui/vue/calendar'\nimport type { HTMLAttributes } from 'vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ CalendarCaptionProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n\ndefineSlots<{\n  default: (props: { headingValue: string }) => any\n}>()\n</script>\n\n<template>\n  <Calendar.Caption\n    data-slot=\"range-calendar-heading\"\n    :class=\"cn('text-sm font-medium', props.class)\"\n  >\n    <template #default=\"{ text }\">\n      <slot :heading-value=\"text\">\n        {{ text }}\n      </slot>\n    </template>\n  </Calendar.Caption>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarNextButton.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarNextButtonProps } from '@vase-ui/vue/calendar'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRightIcon } from '@lucide/vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\nimport { buttonVariants } from '@/styles/vase-maia/ui/button'\n\ninterface Props extends /* @vue-ignore */ CalendarNextButtonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.NextButton\n    data-slot=\"range-calendar-next-button\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'absolute right-1',\n      'size-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      props.class,\n    )\"\n  >\n    <slot>\n      <ChevronRightIcon class=\"size-4\" />\n    </slot>\n  </Calendar.NextButton>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/RangeCalendarPrevButton.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { CalendarPreviousButtonProps } from '@vase-ui/vue/calendar'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronLeftIcon } from '@lucide/vue'\nimport { Calendar } from '@vase-ui/vue/calendar'\nimport { cn } from 'cn'\nimport { buttonVariants } from '@/styles/vase-maia/ui/button'\n\ninterface Props extends /* @vue-ignore */ CalendarPreviousButtonProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Calendar.PreviousButton\n    data-slot=\"range-calendar-prev-button\"\n    :class=\"cn(\n      buttonVariants({ variant: 'outline' }),\n      'absolute left-1',\n      'size-7 bg-transparent p-0 opacity-50 hover:opacity-100',\n      props.class,\n    )\"\n  >\n    <slot>\n      <ChevronLeftIcon class=\"size-4\" />\n    </slot>\n  </Calendar.PreviousButton>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/range-calendar/index.ts",
+      "content": "export { default as RangeCalendar } from './RangeCalendar.vue'\nexport { default as RangeCalendarCell } from './RangeCalendarCell.vue'\nexport { default as RangeCalendarCellTrigger } from './RangeCalendarCellTrigger.vue'\nexport { default as RangeCalendarGrid } from './RangeCalendarGrid.vue'\nexport { default as RangeCalendarGridBody } from './RangeCalendarGridBody.vue'\nexport { default as RangeCalendarGridHead } from './RangeCalendarGridHead.vue'\nexport { default as RangeCalendarGridRow } from './RangeCalendarGridRow.vue'\nexport { default as RangeCalendarHeadCell } from './RangeCalendarHeadCell.vue'\nexport { default as RangeCalendarHeader } from './RangeCalendarHeader.vue'\nexport { default as RangeCalendarHeading } from './RangeCalendarHeading.vue'\nexport { default as RangeCalendarNextButton } from './RangeCalendarNextButton.vue'\nexport { default as RangeCalendarPrevButton } from './RangeCalendarPrevButton.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

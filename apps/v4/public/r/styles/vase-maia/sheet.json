@@ -1,0 +1,64 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "sheet",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-maia/ui/sheet/Sheet.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogRootEmits, DialogRootProps } from '@vase-ui/vue/dialog'\nimport { Dialog } from '@vase-ui/vue/dialog'\n\ninterface Props extends /* @vue-ignore */ DialogRootProps {}\ninterface Emits extends /* @vue-ignore */ DialogRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Dialog.Root v-slot=\"slotProps\">\n    <slot v-bind=\"slotProps\" />\n  </Dialog.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetClose.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogCloseProps } from '@vase-ui/vue/dialog'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ DialogCloseProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Dialog.Close ref=\"part\" data-slot=\"sheet-close\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Dialog.Close>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogPopupProps } from '@vase-ui/vue/dialog'\n\nimport type { HTMLAttributes } from 'vue'\nimport { XIcon } from '@lucide/vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\nimport { Button } from '@/styles/vase-maia/ui/button'\nimport SheetOverlay from './SheetOverlay.vue'\n\ninterface Props extends /* @vue-ignore */ DialogPopupProps {\n  class?: HTMLAttributes['class']\n  side?: 'top' | 'right' | 'bottom' | 'left'\n  showCloseButton?: boolean\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  side: 'right',\n  showCloseButton: true,\n})\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Dialog.Portal>\n    <SheetOverlay />\n    <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n      <Dialog.Popup\n        data-slot=\"sheet-content\"\n        :data-side=\"side\"\n        v-bind=\"$attrs\"\n        :class=\"cn('bg-popover text-popover-foreground fixed z-50 flex flex-col bg-clip-padding text-sm shadow-lg transition duration-200 ease-in-out data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:border-t data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:border-b data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-[side=bottom]:data-open:slide-in-from-bottom-10 data-[side=left]:data-open:slide-in-from-left-10 data-[side=right]:data-open:slide-in-from-right-10 data-[side=top]:data-open:slide-in-from-top-10 data-closed:animate-out data-closed:fade-out-0 data-[side=bottom]:data-closed:slide-out-to-bottom-10 data-[side=left]:data-closed:slide-out-to-left-10 data-[side=right]:data-closed:slide-out-to-right-10 data-[side=top]:data-closed:slide-out-to-top-10', props.class)\"\n      >\n        <slot />\n\n        <Dialog.Close v-if=\"showCloseButton\" data-slot=\"sheet-close\">\n          <template #element=\"{ props: closeProps, elementRef }\">\n            <Button v-bind=\"closeProps\" :ref=\"elementRef\" variant=\"ghost\" class=\"absolute top-4 right-4\" size=\"icon-sm\">\n              <XIcon />\n              <span class=\"sr-only\">Close</span>\n            </Button>\n          </template>\n        </Dialog.Close>\n      </Dialog.Popup>\n    </Transition>\n  </Dialog.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogDescriptionProps } from '@vase-ui/vue/dialog'\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DialogDescriptionProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Dialog.Description\n    data-slot=\"sheet-description\"\n    :class=\"cn('text-muted-foreground text-sm', props.class)\"\n  >\n    <slot />\n  </Dialog.Description>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div\n    data-slot=\"sheet-footer\"\n    :class=\"cn('gap-2 p-6 mt-auto flex flex-col', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{ class?: HTMLAttributes['class'] }>()\n</script>\n\n<template>\n  <div\n    data-slot=\"sheet-header\"\n    :class=\"cn('gap-1.5 p-6 flex flex-col', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetOverlay.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogBackdropProps } from '@vase-ui/vue/dialog'\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DialogBackdropProps {\n  class?: HTMLAttributes['class']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n    <Dialog.Backdrop\n      data-slot=\"sheet-overlay\"\n      v-bind=\"$attrs\"\n      :class=\"cn('bg-black/80 supports-backdrop-filter:backdrop-blur-xs fixed inset-0 z-50 duration-100 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0', props.class)\"\n    >\n      <slot />\n    </Dialog.Backdrop>\n  </Transition>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogTitleProps } from '@vase-ui/vue/dialog'\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DialogTitleProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Dialog.Title\n    data-slot=\"sheet-title\"\n    :class=\"cn('text-foreground text-base font-medium cn-font-heading', props.class)\"\n  >\n    <slot />\n  </Dialog.Title>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/SheetTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogTriggerProps } from '@vase-ui/vue/dialog'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ DialogTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Dialog.Trigger ref=\"part\" data-slot=\"sheet-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Dialog.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/sheet/index.ts",
+      "content": "export { default as Sheet } from './Sheet.vue'\nexport { default as SheetClose } from './SheetClose.vue'\nexport { default as SheetContent } from './SheetContent.vue'\nexport { default as SheetDescription } from './SheetDescription.vue'\nexport { default as SheetFooter } from './SheetFooter.vue'\nexport { default as SheetHeader } from './SheetHeader.vue'\nexport { default as SheetTitle } from './SheetTitle.vue'\nexport { default as SheetTrigger } from './SheetTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

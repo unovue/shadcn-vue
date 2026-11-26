@@ -1,0 +1,16 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "utils",
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/bases/vase/lib/utils.ts",
+      "content": "export { cn } from \"cn\"\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

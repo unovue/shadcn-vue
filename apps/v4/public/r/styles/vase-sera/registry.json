@@ -1,0 +1,2686 @@
+{
+  "name": "shadcn-vue",
+  "homepage": "https://shadcn-vue.com",
+  "items": [
+    {
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "class-variance-authority",
+        "@lucide/vue",
+        "@vase-ui/vue",
+        "shadcn-vue@latest"
+      ],
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {},
+      "css": {
+        "@import \"shadcn-vue/tailwind.css\"": {}
+      }
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/accordion/Accordion.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/accordion/AccordionContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/accordion/AccordionItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/accordion/AccordionTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/accordion/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/alert/Alert.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert/AlertAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert/AlertDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert/AlertTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogCancel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/AlertDialogTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/alert-dialog/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/aspect-ratio/AspectRatio.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/aspect-ratio/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/attachment/Attachment.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/AttachmentTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/attachment/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/avatar/Avatar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/avatar/AvatarBadge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/avatar/AvatarFallback.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/avatar/AvatarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/avatar/AvatarGroupCount.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/avatar/AvatarImage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/avatar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/badge/Badge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/badge/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/Breadcrumb.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/BreadcrumbEllipsis.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/BreadcrumbItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/BreadcrumbLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/BreadcrumbList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/BreadcrumbPage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/BreadcrumbSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/breadcrumb/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/bubble/Bubble.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/bubble/BubbleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/bubble/BubbleGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/bubble/BubbleReactions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/bubble/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/button/Button.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/button/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vase-ui/vue"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/button-group/ButtonGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/button-group/ButtonGroupSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/button-group/ButtonGroupText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/button-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "@vueuse/core",
+        "cn",
+        "temporal-polyfill"
+      ],
+      "registryDependencies": [
+        "native-select",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/calendar/Calendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarGridHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarHeadCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/CalendarPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/card/Card.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/CardAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/CardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/CardDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/CardFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/CardHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/CardTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/card/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "embla-carousel-vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/carousel/Carousel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/CarouselContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/CarouselItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/CarouselNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/CarouselPrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/interface.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/carousel/useCarousel.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/chart/ChartContainer.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/chart/ChartLegendContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/chart/ChartStyle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/chart/ChartTooltipContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/chart/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/chart/utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/checkbox/Checkbox.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/checkbox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vueuse/core",
+        "shiki"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlock.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockCopyButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockLine.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/CodeBlockToken.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/highlighter.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/code-block/useHighlightedCode.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/collapsible/Collapsible.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/collapsible/CollapsibleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/collapsible/CollapsibleTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/collapsible/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/combobox/Combobox.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxItemIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/ComboboxViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/combobox/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/command/Command.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandDialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/CommandShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/command/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuPortal.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/ContextMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/context-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/dialog/Dialog.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogScrollContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/DialogTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dialog/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/drawer/Drawer.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/DrawerTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/drawer/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/DropdownMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/dropdown-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/empty/Empty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/empty/EmptyContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/empty/EmptyDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/empty/EmptyHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/empty/EmptyMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/empty/EmptyTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/empty/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/field/Field.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldError.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldLegend.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldSet.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/FieldTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/field/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "vee-validate"
+      ],
+      "registryDependencies": [
+        "label"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/form/FormControl.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/FormDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/FormItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/FormLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/FormMessage.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/injectionKeys.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/form/useFormField.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/hover-card/HoverCard.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/hover-card/HoverCardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/hover-card/HoverCardTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/hover-card/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/input/Input.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/input-group/InputGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-group/InputGroupAddon.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-group/InputGroupButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-group/InputGroupInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-group/InputGroupText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-group/InputGroupTextarea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/input-otp/InputOTP.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-otp/InputOTPGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-otp/InputOTPSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-otp/InputOTPSlot.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/input-otp/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vase-ui/vue"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/item/Item.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemMedia.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/ItemTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/item/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/kbd/Kbd.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/kbd/KbdGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/kbd/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/label/Label.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/label/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/marker/Marker.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/marker/MarkerContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/marker/MarkerIcon.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/marker/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/menubar/Menubar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarCheckboxItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarRadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarRadioItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarShortcut.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarSubContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarSubTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/MenubarTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/menubar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/message/Message.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message/MessageAvatar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message/MessageContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message/MessageFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message/MessageGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message/MessageHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/message-scroller/MessageScroller.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/MessageScrollerButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/MessageScrollerContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/MessageScrollerItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/MessageScrollerProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/MessageScrollerViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/message-scroller/useMessageScroller.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/native-select/NativeSelect.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/native-select/NativeSelectOptGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/native-select/NativeSelectOption.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/native-select/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/NavigationMenuViewport.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/navigation-menu/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/number-field/NumberField.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/number-field/NumberFieldContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/number-field/NumberFieldDecrement.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/number-field/NumberFieldIncrement.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/number-field/NumberFieldInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/number-field/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/pagination/Pagination.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationEllipsis.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationFirst.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationLast.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationLink.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/PaginationPrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pagination/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/pin-input/PinInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pin-input/PinInputGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pin-input/PinInputSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pin-input/PinInputSlot.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/pin-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/popover/Popover.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/PopoverAnchor.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/PopoverContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/PopoverDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/PopoverHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/PopoverTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/PopoverTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/popover/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/progress/Progress.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/progress/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/questionnaire/Questionnaire.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireActions.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireChoice.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireChoiceDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireChoices.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireError.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireNext.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnairePrevious.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireProgress.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireSkip.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireSubmit.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/QuestionnaireTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/questionnaire/useQuestionnaire.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/radio-group/RadioGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/radio-group/RadioGroupItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/radio-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "range-calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn",
+        "temporal-polyfill"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarCellTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarGrid.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarGridBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarGridHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarGridRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarHeadCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarHeading.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarNextButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/RangeCalendarPrevButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/range-calendar/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/resizable/ResizableHandle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/resizable/ResizablePanel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/resizable/ResizablePanelGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/resizable/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/scroll-area/ScrollArea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/scroll-area/ScrollBar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/scroll-area/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/select/Select.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectItemText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectScrollDownButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectScrollUpButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/SelectValue.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/select/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/separator/Separator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/separator/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/sheet/Sheet.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetClose.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetOverlay.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/SheetTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sheet/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "sheet",
+        "input",
+        "tooltip",
+        "skeleton",
+        "separator",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/sidebar/Sidebar.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarGroupAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarGroupContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarGroupLabel.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarInset.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuAction.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuBadge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuButtonChild.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuSkeleton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuSub.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuSubButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarMenuSubItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarRail.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/SidebarTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sidebar/utils.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/skeleton/Skeleton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/skeleton/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/slider/Slider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/slider/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "dependencies": [
+        "vue-sonner",
+        "@vueuse/core",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/sonner/Sonner.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/sonner/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/spinner/Spinner.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/spinner/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/stepper/Stepper.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/StepperDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/StepperIndicator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/StepperItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/StepperSeparator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/StepperTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/StepperTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/stepper/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/switch/Switch.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/switch/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vueuse/core"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/table/Table.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableBody.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableCaption.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableCell.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableEmpty.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableHead.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/TableRow.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/table/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/tabs/Tabs.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tabs/TabsContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tabs/TabsList.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tabs/TabsTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tabs/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/tags-input/TagsInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tags-input/TagsInputInput.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tags-input/TagsInputItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tags-input/TagsInputItemDelete.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tags-input/TagsInputItemText.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tags-input/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vueuse/core",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/textarea/Textarea.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/textarea/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/toggle/Toggle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/toggle/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/toggle-group/ToggleGroup.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/toggle-group/ToggleGroupItem.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/toggle-group/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": [
+        "@vase-ui/vue",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/tooltip/Tooltip.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tooltip/TooltipContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tooltip/TooltipProvider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tooltip/TooltipTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/tooltip/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "trace",
+      "type": "registry:ui",
+      "dependencies": [
+        "cn",
+        "@vase-ui/vue"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "styles/vase-sera/ui/trace/Trace.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceCollapsible.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceCollapsibleContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceCollapsibleTrigger.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceIcon.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceLine.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/TraceTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/vase-sera/ui/trace/index.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "registry/bases/vase/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "registryDependencies": [],
+      "dependencies": [
+        "cn"
+      ]
+    }
+  ]
+}

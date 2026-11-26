@@ -1,0 +1,31 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "resizable",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-sera/ui/resizable/ResizableHandle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ResizableHandleProps } from '@vase-ui/vue/resizable'\nimport type { HTMLAttributes } from 'vue'\nimport { Resizable } from '@vase-ui/vue/resizable'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ResizableHandleProps {\n  class?: HTMLAttributes['class']\n  withHandle?: boolean\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Resizable.Handle\n    data-slot=\"resizable-handle\"\n    :class=\"cn('relative flex w-px items-center justify-center bg-border ring-offset-background after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-hidden aria-[orientation=horizontal]:h-px aria-[orientation=horizontal]:w-full aria-[orientation=horizontal]:after:left-0 aria-[orientation=horizontal]:after:h-1 aria-[orientation=horizontal]:after:w-full aria-[orientation=horizontal]:after:translate-x-0 aria-[orientation=horizontal]:after:-translate-y-1/2 [&[aria-orientation=horizontal]>div]:rotate-90', props.class)\"\n  >\n    <template v-if=\"props.withHandle\">\n      <div class=\"bg-border h-6 w-1 rounded-none z-10 flex shrink-0\">\n        <slot />\n      </div>\n    </template>\n  </Resizable.Handle>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/resizable/ResizablePanel.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ResizablePanelEmits, ResizablePanelProps } from '@vase-ui/vue/resizable'\nimport { Resizable } from '@vase-ui/vue/resizable'\nimport { useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ ResizablePanelProps {}\ninterface Emits extends /* @vue-ignore */ ResizablePanelEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n\nconst panel = useTemplateRef<InstanceType<typeof Resizable.Panel>>('panel')\n\ndefineExpose({\n  collapse: () => panel.value?.collapse(),\n  expand: () => panel.value?.expand(),\n  resize: (size: number | string) => panel.value?.resize(size),\n  isCollapsed: () => panel.value?.isCollapsed(),\n})\n</script>\n\n<template>\n  <Resizable.Panel\n    ref=\"panel\"\n    data-slot=\"resizable-panel\"\n  >\n    <slot />\n  </Resizable.Panel>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/resizable/ResizablePanelGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ResizableRootEmits, ResizableRootProps } from '@vase-ui/vue/resizable'\nimport type { HTMLAttributes } from 'vue'\nimport { Resizable } from '@vase-ui/vue/resizable'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ResizableRootProps {\n  class?: HTMLAttributes['class']\n  direction?: ResizableRootProps['orientation']\n}\ninterface Emits extends /* @vue-ignore */ ResizableRootEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Resizable.Root\n    data-slot=\"resizable-panel-group\"\n    v-bind=\"direction !== undefined ? { orientation: direction } : undefined\"\n    :class=\"cn('flex h-full w-full data-[orientation=vertical]:flex-col', props.class)\"\n  >\n    <slot />\n  </Resizable.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/resizable/index.ts",
+      "content": "export { default as ResizableHandle } from './ResizableHandle.vue'\nexport { default as ResizablePanel } from './ResizablePanel.vue'\nexport { default as ResizablePanelGroup } from './ResizablePanelGroup.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

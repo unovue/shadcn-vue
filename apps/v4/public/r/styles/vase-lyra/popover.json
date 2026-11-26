@@ -1,0 +1,51 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "popover",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-lyra/ui/popover/Popover.vue",
+      "content": "<script lang=\"ts\">\nimport type { InjectionKey, ShallowRef } from 'vue'\n\nexport const popoverAnchorKey: InjectionKey<ShallowRef<Element | null>> = Symbol('popoverAnchor')\n</script>\n\n<script setup lang=\"ts\">\nimport type { PopoverRootEmits, PopoverRootProps } from '@vase-ui/vue/popover'\nimport { Popover } from '@vase-ui/vue/popover'\nimport { provide, shallowRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ PopoverRootProps {}\ninterface Emits extends /* @vue-ignore */ PopoverRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n\nprovide(popoverAnchorKey, shallowRef<Element | null>(null))\n</script>\n\n<template>\n  <Popover.Root v-slot=\"slotProps\">\n    <slot v-bind=\"slotProps\" />\n  </Popover.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/PopoverAnchor.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { Component } from 'vue'\nimport { inject } from 'vue'\nimport { popoverAnchorKey } from './Popover.vue'\n\nwithDefaults(defineProps<{\n  as?: keyof HTMLElementTagNameMap | Component\n}>(), {\n  as: 'div',\n})\n\nconst anchor = inject(popoverAnchorKey, null)\n\nfunction setAnchor(target: unknown) {\n  if (!anchor)\n    return\n  anchor.value = target instanceof Element ? target : ((target as { $el?: Element } | null)?.$el ?? null)\n}\n</script>\n\n<template>\n  <component :is=\"as\" :ref=\"setAnchor\" data-slot=\"popover-anchor\">\n    <slot />\n  </component>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/PopoverContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverPopupProps, PopoverPositionerProps } from '@vase-ui/vue/popover'\nimport type { HTMLAttributes } from 'vue'\nimport { Popover } from '@vase-ui/vue/popover'\nimport { cn } from 'cn'\nimport { inject } from 'vue'\nimport { popoverAnchorKey } from './Popover.vue'\n\ninterface Props extends /* @vue-ignore */ PopoverPopupProps {\n  class?: HTMLAttributes['class']\n  side?: PopoverPositionerProps['side']\n  sideOffset?: PopoverPositionerProps['sideOffset']\n  align?: PopoverPositionerProps['align']\n  alignOffset?: PopoverPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  side: 'bottom',\n  sideOffset: 4,\n  align: 'center',\n  alignOffset: 0,\n})\n\nconst anchor = inject(popoverAnchorKey, null)\n\nfunction anchorElement() {\n  return anchor?.value ?? undefined\n}\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Popover.Portal>\n    <Popover.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      :anchor=\"anchorElement\"\n      class=\"isolate z-50\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <Popover.Popup\n          data-slot=\"popover-content\"\n          v-bind=\"$attrs\"\n          :class=\"\n            cn(\n              'bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 flex flex-col gap-2.5 rounded-none p-2.5 text-xs shadow-md ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 w-72 max-w-(--available-width) origin-(--transform-origin) outline-hidden',\n              props.class,\n            )\n          \"\n        >\n          <slot />\n        </Popover.Popup>\n      </Transition>\n    </Popover.Positioner>\n  </Popover.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/PopoverDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverDescriptionProps } from '@vase-ui/vue/popover'\nimport type { HTMLAttributes } from 'vue'\nimport { Popover } from '@vase-ui/vue/popover'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ PopoverDescriptionProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Popover.Description\n    data-slot=\"popover-description\"\n    :class=\"cn('text-muted-foreground text-xs/relaxed', props.class)\"\n  >\n    <slot />\n  </Popover.Description>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/PopoverHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"popover-header\"\n    :class=\"cn('flex flex-col gap-1 text-xs', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/PopoverTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverTitleProps } from '@vase-ui/vue/popover'\nimport type { HTMLAttributes } from 'vue'\nimport { Popover } from '@vase-ui/vue/popover'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ PopoverTitleProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Popover.Title\n    data-slot=\"popover-title\"\n    :class=\"cn('text-sm font-medium cn-font-heading', props.class)\"\n  >\n    <slot />\n  </Popover.Title>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/PopoverTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { PopoverTriggerProps } from '@vase-ui/vue/popover'\nimport { Popover } from '@vase-ui/vue/popover'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ PopoverTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Popover.Trigger ref=\"part\" data-slot=\"popover-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Popover.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/popover/index.ts",
+      "content": "export { default as Popover } from './Popover.vue'\nexport { default as PopoverAnchor } from './PopoverAnchor.vue'\nexport { default as PopoverContent } from './PopoverContent.vue'\nexport { default as PopoverDescription } from './PopoverDescription.vue'\nexport { default as PopoverHeader } from './PopoverHeader.vue'\nexport { default as PopoverTitle } from './PopoverTitle.vue'\nexport { default as PopoverTrigger } from './PopoverTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -6395,4 +6395,6394 @@ export const Index: Record<string, Record<string, any>> = {
       meta: undefined,
     },
   },
+  vase: {
+    "accordion": {
+      name: "accordion",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/accordion/Accordion.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/accordion/AccordionContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/accordion/AccordionItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/accordion/AccordionTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/accordion/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "alert": {
+      name: "alert",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/alert/Alert.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert/AlertAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert/AlertDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert/AlertTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "alert-dialog": {
+      name: "alert-dialog",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialog.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogCancel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogMedia.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/AlertDialogTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/alert-dialog/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "aspect-ratio": {
+      name: "aspect-ratio",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/aspect-ratio/AspectRatio.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/aspect-ratio/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "attachment": {
+      name: "attachment",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/attachment/Attachment.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentActions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentMedia.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/AttachmentTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/attachment/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "avatar": {
+      name: "avatar",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/avatar/Avatar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/avatar/AvatarBadge.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/avatar/AvatarFallback.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/avatar/AvatarGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/avatar/AvatarGroupCount.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/avatar/AvatarImage.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/avatar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "badge": {
+      name: "badge",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/badge/Badge.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/badge/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "breadcrumb": {
+      name: "breadcrumb",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/Breadcrumb.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/BreadcrumbEllipsis.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/BreadcrumbItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/BreadcrumbLink.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/BreadcrumbList.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/BreadcrumbPage.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/BreadcrumbSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/breadcrumb/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "bubble": {
+      name: "bubble",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/bubble/Bubble.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/bubble/BubbleContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/bubble/BubbleGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/bubble/BubbleReactions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/bubble/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "button": {
+      name: "button",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/button/Button.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/button/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "button-group": {
+      name: "button-group",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["separator"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/button-group/ButtonGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/button-group/ButtonGroupSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/button-group/ButtonGroupText.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/button-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "calendar": {
+      name: "calendar",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["native-select","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/calendar/Calendar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarCell.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarCellTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarGrid.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarGridBody.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarGridHead.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarGridRow.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarHeadCell.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarHeading.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarNextButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/CalendarPrevButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/calendar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "card": {
+      name: "card",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/card/Card.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/CardAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/CardContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/CardDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/CardFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/CardHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/CardTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/card/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "carousel": {
+      name: "carousel",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/carousel/Carousel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/CarouselContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/CarouselItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/CarouselNext.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/CarouselPrevious.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/interface.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/carousel/useCarousel.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "chart": {
+      name: "chart",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/chart/ChartContainer.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/chart/ChartLegendContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/chart/ChartStyle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/chart/ChartTooltipContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/chart/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/chart/utils.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "checkbox": {
+      name: "checkbox",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/checkbox/Checkbox.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/checkbox/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "code-block": {
+      name: "code-block",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlock.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockActions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockCopyButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockLine.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/CodeBlockToken.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/highlighter.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/code-block/useHighlightedCode.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "collapsible": {
+      name: "collapsible",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/collapsible/Collapsible.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/collapsible/CollapsibleContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/collapsible/CollapsibleTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/collapsible/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "combobox": {
+      name: "combobox",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["input-group"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/combobox/Combobox.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxAnchor.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxEmpty.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxItemIndicator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxList.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/ComboboxViewport.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/combobox/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "command": {
+      name: "command",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["dialog","input-group"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/command/Command.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandDialog.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandEmpty.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandList.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/CommandShortcut.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/command/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "context-menu": {
+      name: "context-menu",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenu.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuCheckboxItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuPortal.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuRadioGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuRadioItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuShortcut.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuSub.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuSubContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuSubTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/ContextMenuTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/context-menu/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "dialog": {
+      name: "dialog",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/dialog/Dialog.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogClose.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogOverlay.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogScrollContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/DialogTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dialog/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "drawer": {
+      name: "drawer",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/drawer/Drawer.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerClose.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerOverlay.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/DrawerTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/drawer/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "dropdown-menu": {
+      name: "dropdown-menu",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenu.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuCheckboxItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuRadioGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuRadioItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuShortcut.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuSub.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuSubContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuSubTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/DropdownMenuTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/dropdown-menu/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "empty": {
+      name: "empty",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/empty/Empty.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/empty/EmptyContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/empty/EmptyDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/empty/EmptyHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/empty/EmptyMedia.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/empty/EmptyTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/empty/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "field": {
+      name: "field",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["label","separator"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/field/Field.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldError.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldLegend.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldSet.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/FieldTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/field/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "form": {
+      name: "form",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["label"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/form/FormControl.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/FormDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/FormItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/FormLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/FormMessage.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/injectionKeys.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/form/useFormField.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "hover-card": {
+      name: "hover-card",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/hover-card/HoverCard.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/hover-card/HoverCardContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/hover-card/HoverCardTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/hover-card/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "input": {
+      name: "input",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/input/Input.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "input-group": {
+      name: "input-group",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button","input","textarea"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/input-group/InputGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-group/InputGroupAddon.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-group/InputGroupButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-group/InputGroupInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-group/InputGroupText.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-group/InputGroupTextarea.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "input-otp": {
+      name: "input-otp",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/input-otp/InputOTP.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-otp/InputOTPGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-otp/InputOTPSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-otp/InputOTPSlot.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/input-otp/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "item": {
+      name: "item",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["separator"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/item/Item.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemActions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemMedia.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/ItemTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/item/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "kbd": {
+      name: "kbd",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/kbd/Kbd.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/kbd/KbdGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/kbd/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "label": {
+      name: "label",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/label/Label.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/label/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "marker": {
+      name: "marker",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/marker/Marker.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/marker/MarkerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/marker/MarkerIcon.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/marker/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "menubar": {
+      name: "menubar",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/menubar/Menubar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarCheckboxItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarMenu.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarRadioGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarRadioItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarShortcut.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarSub.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarSubContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarSubTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/MenubarTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/menubar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "message": {
+      name: "message",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/message/Message.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message/MessageAvatar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message/MessageContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message/MessageFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message/MessageGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message/MessageHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "message-scroller": {
+      name: "message-scroller",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/MessageScroller.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/MessageScrollerButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/MessageScrollerContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/MessageScrollerItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/MessageScrollerProvider.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/MessageScrollerViewport.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/message-scroller/useMessageScroller.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "native-select": {
+      name: "native-select",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/native-select/NativeSelect.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/native-select/NativeSelectOptGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/native-select/NativeSelectOption.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/native-select/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "navigation-menu": {
+      name: "navigation-menu",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenu.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuIndicator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuLink.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuList.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/NavigationMenuViewport.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/navigation-menu/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "number-field": {
+      name: "number-field",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/number-field/NumberField.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/number-field/NumberFieldContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/number-field/NumberFieldDecrement.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/number-field/NumberFieldIncrement.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/number-field/NumberFieldInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/number-field/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "pagination": {
+      name: "pagination",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/pagination/Pagination.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationEllipsis.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationFirst.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationLast.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationLink.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationNext.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/PaginationPrevious.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pagination/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "pin-input": {
+      name: "pin-input",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/pin-input/PinInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pin-input/PinInputGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pin-input/PinInputSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pin-input/PinInputSlot.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/pin-input/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "popover": {
+      name: "popover",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/popover/Popover.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/PopoverAnchor.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/PopoverContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/PopoverDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/PopoverHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/PopoverTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/PopoverTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/popover/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "progress": {
+      name: "progress",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/progress/Progress.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/progress/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "questionnaire": {
+      name: "questionnaire",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/Questionnaire.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireActions.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireChoice.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireChoiceDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireChoices.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireError.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireNext.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnairePrevious.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireProgress.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireSkip.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireSubmit.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/QuestionnaireTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/questionnaire/useQuestionnaire.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "radio-group": {
+      name: "radio-group",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/radio-group/RadioGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/radio-group/RadioGroupItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/radio-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "range-calendar": {
+      name: "range-calendar",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarCell.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarCellTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarGrid.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarGridBody.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarGridHead.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarGridRow.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarHeadCell.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarHeading.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarNextButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/RangeCalendarPrevButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/range-calendar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "resizable": {
+      name: "resizable",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/resizable/ResizableHandle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/resizable/ResizablePanel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/resizable/ResizablePanelGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/resizable/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "scroll-area": {
+      name: "scroll-area",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/scroll-area/ScrollArea.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/scroll-area/ScrollBar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/scroll-area/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "select": {
+      name: "select",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/select/Select.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectItemText.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectScrollDownButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectScrollUpButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/SelectValue.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/select/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "separator": {
+      name: "separator",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/separator/Separator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/separator/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "sheet": {
+      name: "sheet",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/sheet/Sheet.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetClose.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetOverlay.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/SheetTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sheet/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "sidebar": {
+      name: "sidebar",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["sheet","input","tooltip","skeleton","separator","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/sidebar/Sidebar.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarGroupAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarGroupContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarGroupLabel.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarInset.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenu.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuAction.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuBadge.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuButtonChild.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuSkeleton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuSub.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuSubButton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarMenuSubItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarProvider.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarRail.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/SidebarTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sidebar/utils.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "skeleton": {
+      name: "skeleton",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/skeleton/Skeleton.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/skeleton/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "slider": {
+      name: "slider",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/slider/Slider.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/slider/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "sonner": {
+      name: "sonner",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/sonner/Sonner.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/sonner/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "spinner": {
+      name: "spinner",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/spinner/Spinner.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/spinner/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "stepper": {
+      name: "stepper",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/stepper/Stepper.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/StepperDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/StepperIndicator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/StepperItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/StepperSeparator.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/StepperTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/StepperTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/stepper/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "switch": {
+      name: "switch",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/switch/Switch.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/switch/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "table": {
+      name: "table",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/table/Table.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableBody.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableCaption.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableCell.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableEmpty.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableFooter.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableHead.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableHeader.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/TableRow.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/table/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "tabs": {
+      name: "tabs",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/tabs/Tabs.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tabs/TabsContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tabs/TabsList.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tabs/TabsTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tabs/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "tags-input": {
+      name: "tags-input",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/tags-input/TagsInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tags-input/TagsInputInput.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tags-input/TagsInputItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tags-input/TagsInputItemDelete.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tags-input/TagsInputItemText.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tags-input/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "textarea": {
+      name: "textarea",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/textarea/Textarea.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/textarea/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "toggle": {
+      name: "toggle",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/toggle/Toggle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/toggle/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "toggle-group": {
+      name: "toggle-group",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["toggle"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/toggle-group/ToggleGroup.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/toggle-group/ToggleGroupItem.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/toggle-group/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "tooltip": {
+      name: "tooltip",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/tooltip/Tooltip.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tooltip/TooltipContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tooltip/TooltipProvider.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tooltip/TooltipTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/tooltip/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "trace": {
+      name: "trace",
+      title: "undefined",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["collapsible"],
+      files: [
+            {
+                  "path": "registry/bases/vase/ui/trace/Trace.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceCollapsible.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceCollapsibleContent.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceCollapsibleTrigger.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceDescription.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceIcon.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceLine.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/TraceTitle.vue",
+                  "type": "registry:ui",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/ui/trace/index.ts",
+                  "type": "registry:ui",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "cards": {
+      name: "cards",
+      title: "Cards",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["example","alert-dialog","avatar","badge","button","button-group","card","checkbox","dropdown-menu","empty","field","input","input-group","item","radio-group","select","separator","sheet","slider","switch","textarea","tooltip"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/cards.vue",
+                  "type": "registry:block",
+                  "target": ""
+            }
+      ],
+      categories: ["blocks"],
+      meta: undefined,
+    },
+    "chatgpt": {
+      name: "chatgpt",
+      title: "ChatGPT",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["example","alert","alert-dialog","badge","button","card","dropdown-menu","field","input-group","item","kbd","popover","tooltip"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/chatgpt.vue",
+                  "type": "registry:block",
+                  "target": ""
+            }
+      ],
+      categories: ["blocks"],
+      meta: undefined,
+    },
+    "elevenlabs": {
+      name: "elevenlabs",
+      title: "ElevenLabs",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["example","button","card"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/elevenlabs.vue",
+                  "type": "registry:block",
+                  "target": ""
+            }
+      ],
+      categories: ["blocks"],
+      meta: undefined,
+    },
+    "github": {
+      name: "github",
+      title: "GitHub",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["example","avatar","button","card","command","drawer","dropdown-menu","empty","field","input-group","item","kbd","popover","separator","spinner","tabs","tooltip"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/github.vue",
+                  "type": "registry:block",
+                  "target": ""
+            }
+      ],
+      categories: ["blocks"],
+      meta: undefined,
+    },
+    "preview": {
+      name: "preview",
+      title: "undefined",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["alert","badge","button","card","item","chart","empty","avatar","tooltip","field","toggle-group","dropdown-menu","input-group","separator","spinner","tabs","checkbox","native-select","textarea","input","select","table","kbd","progress","skeleton","useDesignSystemSearchParams","fonts","styles","dialog","alert-dialog","button-group","radio-group","slider","switch"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/preview/page.vue",
+                  "type": "registry:page",
+                  "target": "pages/preview/index.vue"
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/ActivateAgentDialog.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/AnalyticsCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/AnomalyAlert.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/AssignIssue.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/BarChartCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/BarVisualizer.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/BookAppointment.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/CodespacesCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/ContributionsActivity.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/Contributors.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/EnvironmentVariables.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/FeedbackForm.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/FileUpload.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/GithubProfile.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/IconPreviewGrid.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/InviteTeam.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/Invoice.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/LiveWaveform.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/NoTeamMembers.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/NotFound.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/ObservabilityCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/PieChartCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/ReportBug.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/ShippingAddress.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/Shortcuts.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/SkeletonLoading.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/SleepReport.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/StyleOverview.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/TypographySpecimen.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/UIElements.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/UsageCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/Visitors.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview/components/WeeklyFitnessSummary.vue",
+                  "type": "registry:component",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "preview-02": {
+      name: "preview-02",
+      title: "undefined",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["button","card","field","input","item","badge","separator","chart","input-group","toggle-group","label","empty","accordion","tabs","slider","switch","skeleton","checkbox","breadcrumb","dropdown-menu","select","textarea","progress","radio-group","table","native-select","sidebar","combobox","spinner","calendar"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/page.vue",
+                  "type": "registry:page",
+                  "target": "pages/preview/index.vue"
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/AccountAccess.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/AlbumCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/CardOverview.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/CatalogToolbar.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/ClaimableBalance.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/ContributionHistory.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/CoverArt.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/DividendIncome.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/EmptyConnectBank.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/EmptyDistributeTrack.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/EmptyExploreCatalog.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/Faq.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/FrontDoor.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/IndexInvesting.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/KitchenIsland.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/LoadingCard.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/NewMilestone.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/NotificationSettings.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/Payments.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/PayoutThreshold.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/PowerUsage.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/Preferences.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/QrConnect.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/ReceivingMethod.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/RecentTransactions.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/ReleaseCatalog.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/RollerShades.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/SavingsProgress.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/SavingsTargets.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/SidebarNav.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/SocialLinks.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/StockPerformance.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/SyncingState.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/TransferFunds.vue",
+                  "type": "registry:component",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/blocks/preview-02/components/UpcomingPayments.vue",
+                  "type": "registry:component",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "vercel": {
+      name: "vercel",
+      title: "Vercel",
+      description: "",
+      type: "registry:block",
+      registryDependencies: ["example","alert","badge","button","card","dialog","dropdown-menu","empty","field","input-group","item","native-select","popover","range-calendar","textarea"],
+      files: [
+            {
+                  "path": "registry/bases/vase/blocks/vercel.vue",
+                  "type": "registry:block",
+                  "target": ""
+            }
+      ],
+      categories: ["blocks"],
+      meta: undefined,
+    },
+    "accordion-example": {
+      name: "accordion-example",
+      title: "Accordion",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["accordion","example","button","card"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/accordion/AccordionBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/accordion/AccordionExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/accordion/AccordionInCard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/accordion/AccordionMultiple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/accordion/AccordionWithBorders.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/accordion/AccordionWithDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "alert-example": {
+      name: "alert-example",
+      title: "Alert",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["alert","example","badge","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/alert/AlertBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert/AlertDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert/AlertExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert/AlertWithActions.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert/AlertWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "alert-dialog-example": {
+      name: "alert-dialog-example",
+      title: "Alert Dialog",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["alert-dialog","button","example","dialog"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogSmallWithMedia.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/alert-dialog/AlertDialogWithMedia.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "aspect-ratio-example": {
+      name: "aspect-ratio-example",
+      title: "Aspect Ratio",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["aspect-ratio","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/aspect-ratio/AspectRatio16x9.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/aspect-ratio/AspectRatio1x1.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/aspect-ratio/AspectRatio21x9.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/aspect-ratio/AspectRatio9x16.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/aspect-ratio/AspectRatioExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "avatar-example": {
+      name: "avatar-example",
+      title: "Avatar",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","avatar","button","empty"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarGroupExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarGroupWithCount.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarGroupWithIconCount.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarInEmpty.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarSizes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarWithBadge.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/avatar/AvatarWithBadgeIcon.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "badge-example": {
+      name: "badge-example",
+      title: "Badge",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["badge","example","spinner"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeAsLink.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeCustomColors.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeLongText.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeVariants.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeWithIconLeft.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeWithIconRight.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/badge/BadgeWithSpinner.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "breadcrumb-example": {
+      name: "breadcrumb-example",
+      title: "Breadcrumb",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["breadcrumb","example","button","dropdown-menu"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/breadcrumb/BreadcrumbBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/breadcrumb/BreadcrumbExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/breadcrumb/BreadcrumbWithDropdown.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/breadcrumb/BreadcrumbWithLink.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "button-example": {
+      name: "button-example",
+      title: "Button",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonExamples.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonIconLeft.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonIconOnly.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonIconRight.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonInvalidStates.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button/ButtonVariantsAndSizes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "button-group-example": {
+      name: "button-group-example",
+      title: "Button Group",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","button-group","example","input-group","tooltip","field","label","dropdown-menu","input","select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupNavigation.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupNested.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupPagination.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupPaginationSplit.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupTextAlignment.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupVerticalNested.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithDropdown.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithInput.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithInputGroup.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithLike.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithSelect.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithSelectAndInput.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/button-group/ButtonGroupWithText.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "calendar-example": {
+      name: "calendar-example",
+      title: "Calendar",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["calendar","card","range-calendar","example","button","field","input-group","popover"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarBookedDates.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarCustomDays.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarMultiple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarRange.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarRangeMultipleMonths.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarSingle.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarWeekNumbers.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarWithPresets.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/CalendarWithTime.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/DatePickerSimple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/DatePickerWithDropdowns.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/calendar/DatePickerWithRange.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "card-example": {
+      name: "card-example",
+      title: "Card",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","card","example","field","input","avatar"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/card/CardDefault.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardFooterWithBorder.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardFooterWithBorderSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardHeaderWithBorder.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardHeaderWithBorderSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardLogin.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardMeetingNotes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardWithImage.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/card/CardWithImageSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "carousel-example": {
+      name: "carousel-example",
+      title: "Carousel",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["card","carousel","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/carousel/CarouselBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/carousel/CarouselExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/carousel/CarouselMultiple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/carousel/CarouselWithGap.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "chart-example": {
+      name: "chart-example",
+      title: "Chart",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["chart","example","card"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/chart/ChartAreaExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/chart/ChartBarExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/chart/ChartExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/chart/ChartLineExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/chart/ChartRadialExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "checkbox-example": {
+      name: "checkbox-example",
+      title: "Checkbox",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["checkbox","field","example","table"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxGroup.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxInTable.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxInvalid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxWithDescription.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/checkbox/CheckboxWithTitle.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "code-block-example": {
+      name: "code-block-example",
+      title: "Code Block",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","code-block","button","card","dialog","bubble","message","tabs","trace"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockDiff.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockDiffWrap.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockEmpty.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockHeaderEdges.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockHeight.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockHighlighted.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockHighlightedLines.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockInCard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockInMessage.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockLanguages.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockLineNumbers.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockMarkdown.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockPlain.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockRtl.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockShowMore.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockShowMoreScroll.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockSmall.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockSmallCombinations.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockSmallDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockSmallest.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockStartLine.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockStreamed.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockTabs.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockTrace.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockTypeset.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockWithActions.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockWithHeader.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockWrap.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/CodeBlockWrapLineNumbers.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/Highlighted.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/MarkdownCode.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/code-block/StreamedBlock.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "collapsible-example": {
+      name: "collapsible-example",
+      title: "Collapsible",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","card","collapsible","tabs","field","input"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/collapsible/CollapsibleExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/collapsible/CollapsibleFileTree.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/collapsible/CollapsibleSettings.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "combobox-example": {
+      name: "combobox-example",
+      title: "Combobox",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","combobox","button","dialog","field","input-group","card","input","select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxAutoHighlight.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxInPopup.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxInputAddon.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxInvalid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxLargeList.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxWithClear.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxWithForm.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxWithGroups.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxWithGroupsAndSeparator.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/combobox/ComboboxWithOtherInputs.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "command-example": {
+      name: "command-example",
+      title: "Command",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","command"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/command/CommandBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/command/CommandExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/command/CommandManyItems.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/command/CommandWithGroups.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/command/CommandWithShortcuts.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "context-menu-example": {
+      name: "context-menu-example",
+      title: "Context Menu",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["context-menu","example","button","dialog"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithCheckboxes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithGroups.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithRadio.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithShortcuts.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithSides.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/context-menu/ContextMenuWithSubmenu.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "dialog-example": {
+      name: "dialog-example",
+      title: "Dialog",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","checkbox","dialog","field","input-group","kbd","native-select","select","switch","tabs","textarea","tooltip","example","input"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/dialog/DialogChatSettings.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dialog/DialogExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dialog/DialogNoCloseButton.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dialog/DialogScrollableContent.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dialog/DialogWithForm.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dialog/DialogWithStickyFooter.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "drawer-example": {
+      name: "drawer-example",
+      title: "Drawer",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","drawer"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/drawer/DrawerExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/drawer/DrawerScrollableContent.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/drawer/DrawerWithSides.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "dropdown-menu-example": {
+      name: "dropdown-menu-example",
+      title: "Dropdown Menu",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","dropdown-menu","dialog","avatar"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuComplex.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithAvatar.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithCheckboxes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithCheckboxesIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithDestructive.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithRadio.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithRadioIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithShortcuts.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/dropdown-menu/DropdownMenuWithSubmenu.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "empty-example": {
+      name: "empty-example",
+      title: "Empty",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","empty","input-group","kbd"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyInCard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyWithBorder.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyWithIcon.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyWithMutedBackground.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/empty/EmptyWithMutedBackgroundAlt.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "field-example": {
+      name: "field-example",
+      title: "Field",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","checkbox","field","badge","input","input-otp","native-select","radio-group","select","slider","switch","textarea"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/field/CheckboxFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/FieldExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/InputFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/InputOTPFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/NativeSelectFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/RadioFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/SelectFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/SliderFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/SwitchFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/field/TextareaFields.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "form-example": {
+      name: "form-example",
+      title: "Form",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","form","input","checkbox"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/form/FormBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/form/FormExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/form/FormWithCheckbox.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "hover-card-example": {
+      name: "hover-card-example",
+      title: "Hover Card",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","dialog","hover-card"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/hover-card/HoverCardExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/hover-card/HoverCardInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/hover-card/HoverCardSides.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "input-example": {
+      name: "input-example",
+      title: "Input",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input","field","example","button","select","native-select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/input/InputBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputForm.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputInvalid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputTypes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputWithButton.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputWithDescription.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputWithLabel.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputWithNativeSelect.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input/InputWithSelect.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "input-group-example": {
+      name: "input-group-example",
+      title: "Input Group",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input-group","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/input-group/InputGroupBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input-group/InputGroupExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input-group/InputGroupWithButton.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/input-group/InputGroupWithTextarea.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "input-otp-example": {
+      name: "input-otp-example",
+      title: "Input Otp",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","card","field","input-otp"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/input-otp/InputOTPExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "item-example": {
+      name: "item-example",
+      title: "Item",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["item","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/item/ItemBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/item/ItemExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/item/ItemWithActions.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "kbd-example": {
+      name: "kbd-example",
+      title: "Kbd",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["kbd"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/kbd/KbdBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/kbd/KbdExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/kbd/KbdWithGroup.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "label-example": {
+      name: "label-example",
+      title: "Label",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","field","input","label","checkbox","textarea"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/label/LabelDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/label/LabelExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/label/LabelWithCheckbox.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/label/LabelWithInput.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/label/LabelWithTextarea.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "menubar-example": {
+      name: "menubar-example",
+      title: "Menubar",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["menubar","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/menubar/MenubarBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/menubar/MenubarExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/menubar/MenubarWithCheckboxes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/menubar/MenubarWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/menubar/MenubarWithRadio.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/menubar/MenubarWithSubmenu.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "native-select-example": {
+      name: "native-select-example",
+      title: "Native Select",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["native-select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/native-select/NativeSelectBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/native-select/NativeSelectExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/native-select/NativeSelectWithOptGroup.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "navigation-menu-example": {
+      name: "navigation-menu-example",
+      title: "Navigation Menu",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["navigation-menu"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/navigation-menu/NavigationMenuBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/navigation-menu/NavigationMenuExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "number-field-example": {
+      name: "number-field-example",
+      title: "Number Field",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["number-field","label"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/number-field/NumberFieldBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/number-field/NumberFieldDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/number-field/NumberFieldExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/number-field/NumberFieldWithLabel.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "pagination-example": {
+      name: "pagination-example",
+      title: "Pagination",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["pagination","example","field","select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/pagination/PaginationBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/pagination/PaginationExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/pagination/PaginationSimple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/pagination/PaginationWithSelect.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "pin-input-example": {
+      name: "pin-input-example",
+      title: "Pin Input",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["pin-input"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/pin-input/PinInputBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/pin-input/PinInputExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/pin-input/PinInputMasked.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/pin-input/PinInputWithSeparator.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "popover-example": {
+      name: "popover-example",
+      title: "Popover",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button","popover","example","dialog","field","input"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/popover/PopoverAlignments.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/popover/PopoverBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/popover/PopoverExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/popover/PopoverInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/popover/PopoverWithForm.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "progress-example": {
+      name: "progress-example",
+      title: "Progress",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","item","progress","slider","field"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/progress/FileUploadList.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/progress/ProgressControlled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/progress/ProgressExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/progress/ProgressValues.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/progress/ProgressWithLabel.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "radio-group-example": {
+      name: "radio-group-example",
+      title: "Radio Group",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","radio-group","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupGrid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupInvalid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupWithDescriptions.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/radio-group/RadioGroupWithFieldSet.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "range-calendar-example": {
+      name: "range-calendar-example",
+      title: "Range Calendar",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["range-calendar"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/range-calendar/RangeCalendarBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/range-calendar/RangeCalendarExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/range-calendar/RangeCalendarMultipleMonths.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "resizable-example": {
+      name: "resizable-example",
+      title: "Resizable",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","resizable"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/resizable/ResizableExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "scroll-area-example": {
+      name: "scroll-area-example",
+      title: "Scroll Area",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","scroll-area","separator"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/scroll-area/ScrollAreaExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/scroll-area/ScrollAreaHorizontal.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/scroll-area/ScrollAreaVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "select-example": {
+      name: "select-example",
+      title: "Select",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["select","example","button","dialog","input","native-select","field","item"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/select/SelectBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectInDialog.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectInline.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectInvalid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectLargeList.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectPlan.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectPopper.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectSizes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectWithButton.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectWithField.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectWithGroups.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/select/SelectWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "separator-example": {
+      name: "separator-example",
+      title: "Separator",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","separator"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/separator/SeparatorExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/separator/SeparatorHorizontal.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/separator/SeparatorInList.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/separator/SeparatorVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/separator/SeparatorVerticalMenu.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "sheet-example": {
+      name: "sheet-example",
+      title: "Sheet",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","field","input","sheet"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/sheet/SheetExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/sheet/SheetWithForm.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/sheet/SheetWithSides.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "sidebar-example": {
+      name: "sidebar-example",
+      title: "Sidebar",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["sidebar"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/sidebar/SidebarBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/sidebar/SidebarCollapsible.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/sidebar/SidebarExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "skeleton-example": {
+      name: "skeleton-example",
+      title: "Skeleton",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","skeleton","card"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/skeleton/SkeletonAvatar.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/skeleton/SkeletonCard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/skeleton/SkeletonExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/skeleton/SkeletonForm.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/skeleton/SkeletonTable.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/skeleton/SkeletonText.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "slider-example": {
+      name: "slider-example",
+      title: "Slider",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["slider","label","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderControlled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderMultiple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderRange.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/slider/SliderVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "sonner-example": {
+      name: "sonner-example",
+      title: "Sonner",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/sonner/SonnerExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "spinner-example": {
+      name: "spinner-example",
+      title: "Spinner",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","spinner","badge","button","empty","field","input-group"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/spinner/SpinnerBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/spinner/SpinnerExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/spinner/SpinnerInBadges.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/spinner/SpinnerInButtons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/spinner/SpinnerInEmpty.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/spinner/SpinnerInInputGroup.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "stepper-example": {
+      name: "stepper-example",
+      title: "Stepper",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stepper"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/stepper/StepperBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/stepper/StepperExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/stepper/StepperVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "switch-example": {
+      name: "switch-example",
+      title: "Switch",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["field","switch","label","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/switch/SwitchBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/switch/SwitchDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/switch/SwitchExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/switch/SwitchSizes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/switch/SwitchWithDescription.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "table-example": {
+      name: "table-example",
+      title: "Table",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["table","example","button","dropdown-menu","input","select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/table/TableBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableSimple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableWithActions.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableWithBadges.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableWithFooter.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableWithInput.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/table/TableWithSelect.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "tabs-example": {
+      name: "tabs-example",
+      title: "Tabs",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["tabs","example","button","dropdown-menu","input"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsIconOnly.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsLine.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsLineDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsLineWithContent.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsMultiple.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsVariantsComparison.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsWithContent.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsWithDropdown.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tabs/TabsWithInputAndButton.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "tags-input-example": {
+      name: "tags-input-example",
+      title: "Tags Input",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["tags-input","label"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/tags-input/TagsInputBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tags-input/TagsInputExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tags-input/TagsInputWithLabel.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "textarea-example": {
+      name: "textarea-example",
+      title: "Textarea",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["textarea","field","example"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/textarea/TextareaBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/textarea/TextareaDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/textarea/TextareaExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/textarea/TextareaInvalid.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/textarea/TextareaWithDescription.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/textarea/TextareaWithLabel.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "toggle-example": {
+      name: "toggle-example",
+      title: "Toggle",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toggle","example","button"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleOutline.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleSizes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleWithButtonIcon.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleWithButtonIconText.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleWithButtonText.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle/ToggleWithIcon.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "toggle-group-example": {
+      name: "toggle-group-example",
+      title: "Toggle Group",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toggle-group","example","input","select"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupDateRange.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupFilter.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupOutline.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupOutlineWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupSizes.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupSort.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupSpacing.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupVertical.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupVerticalOutline.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupVerticalOutlineWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupVerticalWithSpacing.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupWithIcons.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/toggle-group/ToggleGroupWithInputAndSelect.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "tooltip-example": {
+      name: "tooltip-example",
+      title: "Tooltip",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","button","tooltip","kbd"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipBasic.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipDisabled.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipFormatted.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipLongContent.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipOnLink.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipSides.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipWithIcon.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/tooltip/TooltipWithKeyboard.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "trace-example": {
+      name: "trace-example",
+      title: "Trace",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["example","badge","code-block","trace","bubble","button","item","message","sheet","dialog"],
+      files: [
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceChainOfThought.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceChat.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceExample.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceReasoning.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceRows.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceSources.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceTask.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceToolCalls.vue",
+                  "type": "registry:example",
+                  "target": ""
+            },
+            {
+                  "path": "registry/bases/vase/examples/trace/TraceTurn.vue",
+                  "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "utils": {
+      name: "utils",
+      title: "undefined",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: [],
+      files: [
+            {
+                  "path": "registry/bases/vase/lib/utils.ts",
+                  "type": "registry:lib",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+  },
 }
