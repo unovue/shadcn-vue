@@ -39,6 +39,7 @@
     "@unhead/vue": "^3.4.0",
     "@unovis/ts": "catalog:",
     "@unovis/vue": "catalog:",
+    "@vase-ui/vue": "catalog:",
     "@vee-validate/zod": "catalog:",
     "@vueuse/core": "catalog:",
     "@vueuse/router": "^14.4.0",
