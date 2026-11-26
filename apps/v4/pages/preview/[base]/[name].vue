@@ -18,10 +18,6 @@ const registryItem = computed(() => {
 
 const isBlock = computed(() => registryItem.value?.type === 'registry:block')
 
-function pascalCase(str: string) {
-  return `-${str}`.replace(/-\w/g, c => c[1]?.toUpperCase() ?? '')
-}
-
 // Load component from blocks or examples based on type
 // NOTE: factory runs lazily; we must wait for `data` to load so isBlock.value is accurate
 const Component = defineAsyncComponent(() => {
@@ -42,9 +38,13 @@ const Component = defineAsyncComponent(() => {
       })
     }
   }
-  // Examples have folder structure: examples/{name}/{PascalCaseName}.vue
+  // Examples have folder structure: examples/{name}/{File}.vue. The registry item lists the files of the folder,
+  // and the file name keeps the capitals of an acronym (input-otp-example is InputOTPExample.vue).
   const exampleName = name.replace('-example', '')
-  return import(`@/registry/bases/${base}/examples/${exampleName}/${pascalCase(name)}.vue`).then((mod) => {
+  const exampleFile = registryItem.value?.files
+    ?.map(file => file.path.split('/').pop()?.replace('.vue', ''))
+    .find(file => file?.toLowerCase() === name.replaceAll('-', ''))
+  return import(`@/registry/bases/${base}/examples/${exampleName}/${exampleFile}.vue`).then((mod) => {
     if (!mod.default)
       throw new Error(`No default export in example: ${name}`)
     return mod.default

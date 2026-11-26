@@ -4,7 +4,7 @@
   "properties": {
     "style": {
       "type": "string",
-      "enum": ["default", "new-york", "reka-vega", "reka-nova", "reka-maia", "reka-lyra", "reka-mira", "reka-luma", "vase-vega", "vase-nova", "vase-maia", "vase-lyra", "vase-mira", "vase-luma", "vase-sera", "vase-rhea"]
+      "enum": ["default", "new-york", "reka-vega", "reka-nova", "reka-maia", "reka-lyra", "reka-mira", "reka-luma", "reka-sera", "reka-rhea", "vase-vega", "vase-nova", "vase-maia", "vase-lyra", "vase-mira", "vase-luma", "vase-sera", "vase-rhea"]
     },
     "base": {
       "type": "string"
