@@ -205,11 +205,6 @@ export function applyInitUrlOptions(
   return url
 }
 
-/**
- * Resolves a named preset, a preset code, or a preset URL to the `/init` URL
- * that returns the registry:base item. The `--base` option wins over the base
- * of a named preset or a preset code.
- */
 export function resolveInitPresetUrl(
   presetArg: string,
   options: Pick<z.infer<typeof initOptionsSchema>, 'base' | 'rtl' | 'pointer' | 'template'>,

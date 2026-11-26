@@ -22,8 +22,6 @@ import { makeTransformIconsPlugin } from './transform-icons'
  * and .ts file in `bases/<base>/ui` via vue-metamorph, replacing tokens with
  * their expansions. Output goes to `apps/v4/styles/<base>-{name}/ui/**` which
  * is treated as a build artifact and is fully overwritten on each run.
- *
- * Only the bases listed in `registry.config.ts` are built.
  */
 
 const STYLES_CSS_DIR = path.join('registry', 'styles')
@@ -66,10 +64,6 @@ interface StyleStats {
   totalReplacements: number
 }
 
-/**
- * Writes `styles/<base>-<style>/ui/**` for every style of one base and
- * returns transformation stats.
- */
 export async function buildBaseStyles(base: RegistryBase, cwd = process.cwd()) {
   const sourceUiDir = path.join('registry', base.path, 'ui')
   const sourceUiAbs = path.resolve(cwd, sourceUiDir)

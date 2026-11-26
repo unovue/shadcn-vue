@@ -61,10 +61,6 @@ function rewriteFilePath(originalPath: string, styleDir: string): string {
   return `styles/${styleDir}/${originalPath}`
 }
 
-/**
- * Builds the `registry.json` content of one `<base>-<style>` combination from
- * the authored `ui` and `lib` items of its base.
- */
 export function buildStyleRegistry(
   base: RegistryBase,
   styleName: string,
