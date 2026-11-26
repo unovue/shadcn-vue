@@ -43,13 +43,17 @@ function mapWithType(item: ContentNavigationItem, parent: ContentNavigationItem 
   }
 }
 
-export async function useNavigation() {
-  const base = useDocsBase()
-  const nav = useAsyncData('navigation', () => {
+export function useNavigationTree() {
+  return useAsyncData('navigation', () => {
     return queryCollectionNavigation('content', ['new'])
   }, {
     default: () => ([]),
   })
+}
+
+export async function useNavigation() {
+  const base = useDocsBase()
+  const nav = useNavigationTree()
   const content = computed(() => forBase(nav.data.value, base.value))
 
   const data = computed(() => {

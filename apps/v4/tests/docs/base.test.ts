@@ -1,6 +1,6 @@
 import type { ContentNavigationItem } from '@nuxt/content'
 import { describe, expect, it } from 'vitest'
-import { DEFAULT_BASE, flattenPages, forBase, parseDocsPage, resolveBase } from '@/lib/docs-base'
+import { DEFAULT_BASE, flattenPages, forBase, legacyDocsPages, legacyDocsRedirect, parseDocsPage, resolveBase } from '@/lib/docs-base'
 
 function page(path: string, children?: ContentNavigationItem[]): ContentNavigationItem {
   return { title: path.split('/').pop()!, path, children }
@@ -113,5 +113,70 @@ describe('flattenPages', () => {
   it('lists a page once when its folder has an index page', () => {
     const index = page('/docs/guides', [page('/docs/guides'), page('/docs/guides/start')])
     expect(paths(flattenPages([index]))).toEqual(['/docs/guides', '/docs/guides/start'])
+  })
+})
+
+describe('legacyDocsRedirect', () => {
+  it.each([
+    ['/docs/components/button', 'reka', '/docs/components/reka/button'],
+    ['/docs/components/button', 'vase', '/docs/components/vase/button'],
+    ['/docs/components/button/', 'vase', '/docs/components/vase/button'],
+    ['/docs/ai-elements/chat', 'vase', '/docs/ai-elements/vase/chat'],
+    ['/raw/docs/components/button.md', 'vase', '/raw/docs/components/vase/button.md'],
+    ['/raw/docs/ai-elements/chat.md', 'reka', '/raw/docs/ai-elements/reka/chat.md'],
+  ])('sends %s to the %s base', (path, base, target) => {
+    expect(legacyDocsRedirect(path, base)).toBe(target)
+  })
+
+  it.each([
+    ['/docs/components/button', ['/docs/components/reka/button', '/docs/components/vase/button']],
+    ['/docs/ai-elements/chat/', ['/docs/ai-elements/reka/chat', '/docs/ai-elements/vase/chat']],
+    ['/raw/docs/components/button.md', ['/docs/components/reka/button', '/docs/components/vase/button']],
+  ])('lists the pages that %s can name', (path, pages) => {
+    expect(legacyDocsPages(path)).toEqual(pages)
+  })
+
+  describe('with the pages that exist', () => {
+    const pages = ['/docs/components/reka/toast', '/docs/components/reka/button', '/docs/components/vase/button', '/docs/ai-elements/reka/chat']
+
+    it.each([
+      ['/docs/components/button', 'vase', '/docs/components/vase/button'],
+      ['/docs/components/button', 'reka', '/docs/components/reka/button'],
+      ['/docs/components/toast', 'reka', '/docs/components/reka/toast'],
+      ['/docs/ai-elements/chat', 'reka', '/docs/ai-elements/reka/chat'],
+    ])('sends %s to the page of the %s base', (path, base, target) => {
+      expect(legacyDocsRedirect(path, base, pages)).toBe(target)
+    })
+
+    it.each([
+      ['/docs/components/toast', '/docs/components/reka/toast'],
+      ['/docs/ai-elements/chat', '/docs/ai-elements/reka/chat'],
+      ['/raw/docs/components/toast.md', '/raw/docs/components/reka/toast.md'],
+    ])('sends %s to the first base that has the page when the chosen base has none', (path, target) => {
+      expect(legacyDocsRedirect(path, 'vase', pages)).toBe(target)
+    })
+
+    it('keeps the chosen base when no base has the page', () => {
+      expect(legacyDocsRedirect('/docs/components/nope', 'vase', pages)).toBe('/docs/components/vase/nope')
+    })
+  })
+
+  it.each([
+    '/docs/components',
+    '/docs/ai-elements',
+    '/docs/components/reka',
+    '/docs/components/vase',
+    '/docs/ai-elements/reka',
+    '/docs/components/typography',
+    '/raw/docs/components/typography.md',
+    '/raw/docs/components/reka.md',
+    '/docs/components/reka/button',
+    '/raw/docs/components/reka/button.md',
+    '/docs/components/button.md',
+    '/docs/components-json',
+    '/docs/installation/vite',
+  ])('leaves %s alone', (path) => {
+    expect(legacyDocsRedirect(path, 'vase')).toBeNull()
+    expect(legacyDocsPages(path)).toEqual([])
   })
 })

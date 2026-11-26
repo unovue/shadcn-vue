@@ -9,6 +9,10 @@ export type DocsSection = typeof DOCS_SECTIONS[number]
 export const DOCS_BASES = BASES.map(base => base.name)
 export const DEFAULT_BASE = DOCS_BASES[0]!
 
+export const USER_CONFIG_COOKIE = 'user_config'
+
+const SHARED_PAGES = ['typography']
+
 export interface DocsPage {
   section: DocsSection
   base: string
@@ -16,6 +20,8 @@ export interface DocsPage {
 }
 
 const DOCS_PAGE_PATH = new RegExp(`^/docs/(${DOCS_SECTIONS.join('|')})/([^/]+)/([^/]+)/?$`)
+const LEGACY_PAGE_PATH = new RegExp(`^/docs/(${DOCS_SECTIONS.join('|')})/([^/.]+)/?$`)
+const LEGACY_RAW_PATH = new RegExp(`^/raw/docs/(${DOCS_SECTIONS.join('|')})/([^/.]+)\\.md$`)
 
 export function isBase(value: unknown): value is string {
   return typeof value === 'string' && DOCS_BASES.includes(value)
@@ -31,6 +37,40 @@ export function parseDocsPage(path: string): DocsPage | null {
     return null
   }
   return { section: match[1] as DocsSection, base: match[2], name: match[3]! }
+}
+
+interface LegacyDocsPage {
+  section: string
+  name: string
+  raw: boolean
+}
+
+function parseLegacyDocsPage(path: string): LegacyDocsPage | null {
+  const raw = LEGACY_RAW_PATH.exec(path)
+  const match = raw ?? LEGACY_PAGE_PATH.exec(path)
+  if (!match || isBase(match[2]) || SHARED_PAGES.includes(match[2]!)) {
+    return null
+  }
+  return { section: match[1]!, name: match[2]!, raw: raw !== null }
+}
+
+export function legacyDocsPages(path: string) {
+  const page = parseLegacyDocsPage(path)
+  return page ? DOCS_BASES.map(base => `/docs/${page.section}/${base}/${page.name}`) : []
+}
+
+// When `pages` is given and `base` has no page of that name, fall back to the first base that does.
+export function legacyDocsRedirect(path: string, base: string, pages?: Iterable<string>) {
+  const page = parseLegacyDocsPage(path)
+  if (!page) {
+    return null
+  }
+
+  const existing = pages && new Set(pages)
+  const target = existing
+    ? [base, ...DOCS_BASES].find(item => existing.has(`/docs/${page.section}/${item}/${page.name}`)) ?? base
+    : base
+  return page.raw ? `/raw/docs/${page.section}/${target}/${page.name}.md` : `/docs/${page.section}/${target}/${page.name}`
 }
 
 // A section lists the pages of one base. Its base folders collapse into the section,

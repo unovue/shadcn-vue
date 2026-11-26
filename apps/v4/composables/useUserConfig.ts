@@ -1,5 +1,5 @@
 import { createSharedComposable, isClient, useMounted, watchImmediate } from '@vueuse/core'
-import { DEFAULT_BASE, parseDocsPage, resolveBase } from '@/lib/docs-base'
+import { DEFAULT_BASE, parseDocsPage, resolveBase, USER_CONFIG_COOKIE } from '@/lib/docs-base'
 import { baseColors } from '~/registry/_legacy-base-colors'
 
 const THEMES = baseColors.filter(
@@ -18,7 +18,7 @@ export const useConfig = createSharedComposable(() => {
     activeTheme: typeof THEMES[number]
     base?: string
   }>(
-    'user_config',
+    USER_CONFIG_COOKIE,
     {
       default: () => ({ layout: 'full', packageManager: 'pnpm', installationType: 'cli', activeTheme: 'neutral' }),
       path: '/',
