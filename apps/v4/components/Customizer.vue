@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { RegistryItem } from 'shadcn-vue/schema'
 import { FONT_HEADING_OPTIONS, FONTS } from '@/lib/fonts'
-import { getThemesForBaseColor, STYLES } from '@/registry/config'
+import { BASES, getThemesForBaseColor, STYLES } from '@/registry/config'
 
 import {
   Card,
@@ -90,7 +90,7 @@ const availableThemes = computed(() => getThemesForBaseColor(baseColor.value))
           :anchor-ref="anchorRef"
         />
         <BasePicker
-          v-if="isMobile"
+          v-if="isMobile || BASES.length > 1"
           :is-mobile="isMobile"
           :anchor-ref="anchorRef"
         />
