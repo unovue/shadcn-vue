@@ -10,6 +10,7 @@ import { transformRtl } from '@/src/utils/transformers/transform-rtl'
 import { transformSFC } from '@/src/utils/transformers/transform-sfc'
 import { transformStyle } from '@/src/utils/transformers/transform-style'
 import { transformTwPrefix } from '@/src/utils/transformers/transform-tw-prefix'
+import { transformIconPlaceholder } from './transform-icon-placeholder'
 import { transformIcons } from './transform-icons'
 import { transformMenu } from './transform-menu'
 
@@ -59,6 +60,10 @@ export async function transform(opts: TransformOpts) {
     transformRtl(opts),
     await transformTwPrefix(opts),
     transformIcons(opts, registryIcons),
+    // After transformIcons, which renames icons imported from ANY icon
+    // library by its lucide-keyed map: run before it, it would rename the
+    // icons this one adds whenever a name matches a lucide name.
+    transformIconPlaceholder(opts),
     transformMenu(opts),
     transformStyle(opts),
   ]).code

@@ -134,3 +134,45 @@ export const ICON_LIBRARIES = {
     import: '@remixicon/vue',
   },
 }
+
+/**
+ * How each icon library draws one icon, for `<IconPlaceholder>`
+ * (see transformers/transform-icon-placeholder.ts). The Vue counterpart of
+ * the `import` and `usage` templates in shadcn's React library table.
+ *
+ * - `imports`: the named imports an icon needs. `ICON` stands for the icon
+ *   named on the placeholder for this library.
+ * - `component`: the element the placeholder becomes. `ICON` means the icon
+ *   is itself the component (`<CheckIcon />`).
+ * - `props`: bound props added in front of the placeholder's own
+ *   attributes, unless the placeholder already sets that prop. `ICON` in a
+ *   value stands for the icon name.
+ *
+ * Hugeicons ships its icons as data drawn by one component, so its
+ * placeholder becomes `<HugeiconsIcon :icon="Tick02Icon" />`. Its default
+ * line is thinner than Lucide's, so it gets `:stroke-width="2"`, as React
+ * gives it `strokeWidth={2}`. Phosphor's Vue components take no stroke
+ * width, so unlike React's table it gets none.
+ */
+export const ICON_PLACEHOLDER_LIBRARIES: Record<string, {
+  imports: { from: string, names: string[] }[]
+  component: string
+  props: { name: string, value: string }[]
+}> = {
+  lucide: { imports: [{ from: '@lucide/vue', names: ['ICON'] }], component: 'ICON', props: [] },
+  radix: { imports: [{ from: '@radix-icons/vue', names: ['ICON'] }], component: 'ICON', props: [] },
+  tabler: { imports: [{ from: '@tabler/icons-vue', names: ['ICON'] }], component: 'ICON', props: [] },
+  phosphor: { imports: [{ from: '@phosphor-icons/vue', names: ['ICON'] }], component: 'ICON', props: [] },
+  remixicon: { imports: [{ from: '@remixicon/vue', names: ['ICON'] }], component: 'ICON', props: [] },
+  hugeicons: {
+    imports: [
+      { from: '@hugeicons/vue', names: ['HugeiconsIcon'] },
+      { from: '@hugeicons/core-free-icons', names: ['ICON'] },
+    ],
+    component: 'HugeiconsIcon',
+    props: [
+      { name: 'icon', value: 'ICON' },
+      { name: 'stroke-width', value: '2' },
+    ],
+  },
+}
