@@ -9,9 +9,6 @@
     "base": {
       "type": "string"
     },
-    "font": {
-      "type": "string"
-    },
     "typescript": {
       "type": "boolean",
       "default": true

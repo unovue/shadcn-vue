@@ -25,12 +25,29 @@ export const registryConfigSchema = z.record(
   registryConfigItemSchema,
 )
 
+// Fields earlier versions wrote into components.json (and the registry sent
+// back on registry:base items) that nothing reads anymore. Fonts now travel as
+// registry:font items instead. They are dropped before parsing so existing
+// projects — and responses from registry deployments that still send them —
+// keep working against a strict schema.
+const DEPRECATED_CONFIG_KEYS = ["font", "fontHeading"]
+
+export function stripDeprecatedConfigKeys(value: unknown) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return value
+  }
+
+  const config = { ...(value as Record<string, unknown>) }
+  for (const key of DEPRECATED_CONFIG_KEYS) {
+    delete config[key]
+  }
+  return config
+}
+
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
     style: z.string(),
-    font: z.string().optional(),
-    fontHeading: z.string().optional(),
     typescript: z.coerce.boolean().default(true),
     tailwind: z.object({
       config: z.string().optional(),
@@ -153,6 +170,9 @@ export const registryItemFontSchema = z.object({
   provider: z.literal("google"),
   import: z.string(),
   variable: z.string(),
+  // The package that ships the font files. Defaults to
+  // `@fontsource-variable/<name>` when omitted.
+  dependency: z.string().optional(),
   weight: z.array(z.string()).optional(),
   subsets: z.array(z.string()).optional(),
 })
@@ -182,7 +202,9 @@ export const registryItemCommonSchema = z.object({
 export const registryItemSchema = z.discriminatedUnion("type", [
   registryItemCommonSchema.extend({
     type: z.literal("registry:base"),
-    config: rawConfigSchema.deepPartial().optional(),
+    config: z
+      .preprocess(stripDeprecatedConfigKeys, rawConfigSchema.deepPartial())
+      .optional(),
   }),
   registryItemCommonSchema.extend({
     type: z.literal("registry:font"),

@@ -9,7 +9,6 @@ import {
   BASE_COLORS,
   BASES,
   BUILTIN_REGISTRIES,
-  FONTS,
   ICON_LIBRARIES,
   REGISTRY_URL,
   STYLES,
@@ -235,13 +234,6 @@ export function getRegistryIconLibraries() {
 }
 
 /**
- * Get available fonts.
- */
-export function getRegistryFonts() {
-  return FONTS
-}
-
-/**
  * Get a specific base by name.
  */
 export function getRegistryBase(name: string) {
@@ -260,13 +252,6 @@ export function getRegistryVisualStyle(name: string) {
  */
 export function getRegistryIconLibrary(name: string) {
   return ICON_LIBRARIES.find(lib => lib.name === name)
-}
-
-/**
- * Get a specific font by name.
- */
-export function getRegistryFont(name: string) {
-  return FONTS.find(font => font.name === name)
 }
 
 /**
