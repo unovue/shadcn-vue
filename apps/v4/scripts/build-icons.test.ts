@@ -1,4 +1,7 @@
 import assert from 'node:assert/strict'
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { it } from 'vitest'
 import { buildMappingFromRecords, deriveRawPhosphor, findDuplicateCanonicals, findUncovered, mergeLegacy, parseLucideImports } from './build-icons.helpers'
 
@@ -63,7 +66,7 @@ it('findUncovered: bridges suffix in both directions', () => {
   assert.deepEqual(findUncovered({}, ['Zeta', 'Alpha', 'Alpha']), ['Alpha', 'Zeta']) // dedup and sort
 })
 
-import { scanPlaceholders, validateNames } from './build-icons'
+import { scanBases, scanPlaceholders, validateNames } from './build-icons'
 
 it('scanPlaceholders: extracts multi-line placeholder attributes', () => {
   const sfc = `<template>
@@ -100,6 +103,25 @@ it('scanPlaceholders: skips Vue dynamic bindings (v-bind shorthand and data- att
     scanPlaceholders('<IconPlaceholder lucide="XIcon" :tabler="x.t" />'),
     [{ lucide: 'XIcon' }],
   )
+})
+
+it('scanBases: scans Vue files across every base folder and ignores non-Vue files', async () => {
+  const basesDir = await mkdtemp(join(tmpdir(), 'icon-bases-'))
+  try {
+    await mkdir(join(basesDir, 'alpha/ui/button'), { recursive: true })
+    await mkdir(join(basesDir, 'beta/components'), { recursive: true })
+    await writeFile(join(basesDir, 'alpha/ui/button/Button.vue'), '<template><IconPlaceholder lucide="CheckIcon" tabler="IconCheck" /></template>')
+    await writeFile(join(basesDir, 'beta/components/Icon.vue'), '<template><IconPlaceholder lucide="XIcon" /></template>')
+    await writeFile(join(basesDir, '__index__.ts'), '<IconPlaceholder lucide="ZIcon" />')
+
+    assert.deepEqual(await scanBases(basesDir), [
+      { lucide: 'CheckIcon', tabler: 'IconCheck' },
+      { lucide: 'XIcon' },
+    ])
+  }
+  finally {
+    await rm(basesDir, { recursive: true, force: true })
+  }
 })
 
 it('validateNames: real names pass, bogus name fails', async () => {
