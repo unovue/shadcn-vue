@@ -1,8 +1,10 @@
+import type { z } from 'zod'
 import consola from 'consola'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { getShadcnRegistryIndex } from '@/src/registry/api'
 import { SHADCN_VUE_URL } from '@/src/registry/constants'
 import { getConfig } from '@/src/utils/get-config'
+import { handleError } from '@/src/utils/handle-error'
 import { docs } from './docs'
 
 const bases = vi.hoisted(() => [
@@ -41,7 +43,7 @@ vi.mock('@/src/utils/logger', () => ({
   },
 }))
 
-const docsUrl = `${SHADCN_VUE_URL}/docs/components/button`
+const docsUrl = (base: string) => `${SHADCN_VUE_URL}/docs/components/${base}/button`
 
 describe('docs command', () => {
   async function runDocs(...args: string[]) {
@@ -52,20 +54,21 @@ describe('docs command', () => {
 
   beforeEach(() => {
     vi.clearAllMocks()
+    docs.setOptionValue('base', undefined)
     vi.mocked(getShadcnRegistryIndex).mockResolvedValue([{ name: 'button' }] as never)
   })
 
-  it('uses the base of the project style and appends ?base= for non-default bases', async () => {
+  it('links the docs page of the base of the project style', async () => {
     vi.mocked(getConfig).mockResolvedValue({ style: 'reka-nova' } as never)
     expect(await runDocs('button')).toEqual({
       base: 'reka',
-      results: [{ component: 'button', base: 'reka', links: { docs: docsUrl } }],
+      results: [{ component: 'button', base: 'reka', links: { docs: docsUrl('reka') } }],
     })
 
     vi.mocked(getConfig).mockResolvedValue({ style: 'vase-nova' } as never)
     expect(await runDocs('button')).toEqual({
       base: 'vase',
-      results: [{ component: 'button', base: 'vase', links: { docs: `${docsUrl}?base=vase` } }],
+      results: [{ component: 'button', base: 'vase', links: { docs: docsUrl('vase') } }],
     })
   })
 
@@ -83,7 +86,7 @@ describe('docs command', () => {
     vi.mocked(getConfig).mockResolvedValue({ style: 'reka-nova' } as never)
     expect(await runDocs('button')).toEqual({
       base: 'reka',
-      results: [{ component: 'button', base: 'reka', links: { docs: docsUrl } }],
+      results: [{ component: 'button', base: 'reka', links: { docs: docsUrl('reka') } }],
     })
   })
 
@@ -95,9 +98,25 @@ describe('docs command', () => {
     expect((await runDocs('button')).base).toBe('reka')
   })
 
+  it('fails with the message of init when --base is not a base', async () => {
+    await docs.parseAsync(['button', '--base', 'nope', '--json'], { from: 'user' })
+
+    expect(handleError).toHaveBeenCalledOnce()
+    const error = vi.mocked(handleError).mock.calls[0]![0] as z.ZodError
+    expect(error.flatten().fieldErrors).toEqual({ base: ['Invalid base. Please use \'reka\', \'vase\''] })
+    expect(getShadcnRegistryIndex).not.toHaveBeenCalled()
+    expect(consola.log).not.toHaveBeenCalled()
+  })
+
   it('lets --base override the project style', async () => {
     vi.mocked(getConfig).mockResolvedValue({ style: 'reka-nova' } as never)
 
     expect((await runDocs('button', '--base', 'vase')).base).toBe('vase')
+  })
+
+  it('does not retain --base across runs', async () => {
+    vi.mocked(getConfig).mockResolvedValue({ style: 'reka-nova' } as never)
+
+    expect((await runDocs('button')).base).toBe('reka')
   })
 })

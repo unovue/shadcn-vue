@@ -76,6 +76,21 @@ process.on('exit', (code) => {
   return restoreFileBackup(filePath)
 })
 
+export const baseSchema = z
+  .string()
+  .optional()
+  .refine(
+    (val) => {
+      if (val) {
+        return BASES.find(base => base.name === val)
+      }
+      return true
+    },
+    {
+      message: `Invalid base. Please use '${BASES.map(base => base.name).join('\', \'')}'`,
+    },
+  )
+
 export const initOptionsSchema = z.object({
   cwd: z.string(),
   name: z.string().optional(),
@@ -104,20 +119,7 @@ export const initOptionsSchema = z.object({
         message: 'Invalid template. Please use \'nuxt\', \'vite\', \'astro\', or \'laravel\'.',
       },
     ),
-  base: z
-    .string()
-    .optional()
-    .refine(
-      (val) => {
-        if (val) {
-          return BASES.find(base => base.name === val)
-        }
-        return true
-      },
-      {
-        message: `Invalid base. Please use '${BASES.map(base => base.name).join('\', \'')}'`,
-      },
-    ),
+  base: baseSchema,
   style: z
     .string()
     .optional()
