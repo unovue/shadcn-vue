@@ -35,6 +35,7 @@ import {
   useTable,
 } from "@tanstack/vue-table"
 import { DragDropProvider } from "dnd-kit-vue"
+import { h, ref } from "vue"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
 
 import { Button } from "@/registry/new-york-v4/ui/button"

@@ -51,7 +51,7 @@
     },
     {
       "path": "styles/reka-sera/ui/attachment/AttachmentTrigger.vue",
-      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"attachment-trigger\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn('absolute inset-0 z-10 outline-none', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
+      "content": "<script setup lang=\"ts\">\nimport type { PrimitiveProps } from 'reka-ui'\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\nimport { Primitive } from 'reka-ui'\n\ninterface Props extends PrimitiveProps {\n  class?: HTMLAttributes['class']\n}\nconst props = withDefaults(defineProps<Props>(), {\n  as: 'button',\n})\n</script>\n\n<template>\n  <Primitive\n    data-slot=\"attachment-trigger\"\n    :as=\"as\"\n    :as-child=\"asChild\"\n    :class=\"cn('absolute inset-0 z-10 outline-none', props.class)\"\n  >\n    <slot />\n  </Primitive>\n</template>\n",
       "type": "registry:ui"
     },
     {

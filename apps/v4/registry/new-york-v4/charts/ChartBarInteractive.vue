@@ -4,6 +4,7 @@ import type {
 } from "@/registry/new-york-v4/ui/chart"
 
 import { VisAxis, VisGroupedBar, VisXYContainer } from "@unovis/vue"
+import { computed, ref } from "vue"
 import {
   Card,
   CardContent,
