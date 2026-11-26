@@ -162,7 +162,7 @@ See [cli.md — `info` command](./cli.md) for the full field reference.
 
 ## Component Docs, Examples, and Usage
 
-Run `npx shadcn-vue@latest docs <component>` to get the documentation URL for each component (`https://shadcn-vue.com/docs/components/<name>`). Fetch the URL to get the actual content, including examples and the API reference.
+Run `npx shadcn-vue@latest docs <component>` to get the documentation URL for each component (`https://shadcn-vue.com/docs/components/<base>/<name>`). Fetch the URL to get the actual content, including examples and the API reference.
 
 ```bash
 npx shadcn-vue@latest docs button dialog select

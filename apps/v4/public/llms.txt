@@ -25,88 +25,88 @@
 
 ### Form & Input
 
-- [Form](https://shadcn-vue.com/docs/components/form): Building forms with VeeValidate and Zod validation.
-- [Field](https://shadcn-vue.com/docs/components/field): Field component for form inputs with labels and error messages.
-- [Button](https://shadcn-vue.com/docs/components/button): Button component with multiple variants.
-- [Button Group](https://shadcn-vue.com/docs/components/button-group): Group multiple buttons together.
-- [Input](https://shadcn-vue.com/docs/components/input): Text input component.
-- [Input Group](https://shadcn-vue.com/docs/components/input-group): Input component with prefix and suffix addons.
-- [Input OTP](https://shadcn-vue.com/docs/components/input-otp): One-time password input component.
-- [Pin Input](https://shadcn-vue.com/docs/components/pin-input): Pin code input component.
-- [Textarea](https://shadcn-vue.com/docs/components/textarea): Multi-line text input component.
-- [Checkbox](https://shadcn-vue.com/docs/components/checkbox): Checkbox input component.
-- [Radio Group](https://shadcn-vue.com/docs/components/radio-group): Radio button group component.
-- [Select](https://shadcn-vue.com/docs/components/select): Select dropdown component.
-- [Native Select](https://shadcn-vue.com/docs/components/native-select): Native HTML select with custom styling.
-- [Switch](https://shadcn-vue.com/docs/components/switch): Toggle switch component.
-- [Slider](https://shadcn-vue.com/docs/components/slider): Slider input component.
-- [Number Field](https://shadcn-vue.com/docs/components/number-field): Numeric input with increment/decrement controls.
-- [Combobox](https://shadcn-vue.com/docs/components/combobox): Searchable select component with autocomplete.
-- [Label](https://shadcn-vue.com/docs/components/label): Form label component.
+- [Form](https://shadcn-vue.com/docs/components/reka/form): Building forms with VeeValidate and Zod validation.
+- [Field](https://shadcn-vue.com/docs/components/reka/field): Field component for form inputs with labels and error messages.
+- [Button](https://shadcn-vue.com/docs/components/reka/button): Button component with multiple variants.
+- [Button Group](https://shadcn-vue.com/docs/components/reka/button-group): Group multiple buttons together.
+- [Input](https://shadcn-vue.com/docs/components/reka/input): Text input component.
+- [Input Group](https://shadcn-vue.com/docs/components/reka/input-group): Input component with prefix and suffix addons.
+- [Input OTP](https://shadcn-vue.com/docs/components/reka/input-otp): One-time password input component.
+- [Pin Input](https://shadcn-vue.com/docs/components/reka/pin-input): Pin code input component.
+- [Textarea](https://shadcn-vue.com/docs/components/reka/textarea): Multi-line text input component.
+- [Checkbox](https://shadcn-vue.com/docs/components/reka/checkbox): Checkbox input component.
+- [Radio Group](https://shadcn-vue.com/docs/components/reka/radio-group): Radio button group component.
+- [Select](https://shadcn-vue.com/docs/components/reka/select): Select dropdown component.
+- [Native Select](https://shadcn-vue.com/docs/components/reka/native-select): Native HTML select with custom styling.
+- [Switch](https://shadcn-vue.com/docs/components/reka/switch): Toggle switch component.
+- [Slider](https://shadcn-vue.com/docs/components/reka/slider): Slider input component.
+- [Number Field](https://shadcn-vue.com/docs/components/reka/number-field): Numeric input with increment/decrement controls.
+- [Combobox](https://shadcn-vue.com/docs/components/reka/combobox): Searchable select component with autocomplete.
+- [Label](https://shadcn-vue.com/docs/components/reka/label): Form label component.
 
 ### Date & Time
 
-- [Calendar](https://shadcn-vue.com/docs/components/calendar): Calendar component for date selection.
-- [Range Calendar](https://shadcn-vue.com/docs/components/range-calendar): Date range selection calendar.
-- [Date Picker](https://shadcn-vue.com/docs/components/date-picker): Date picker component combining popover and calendar.
-- [Tags Input](https://shadcn-vue.com/docs/components/tags-input): Multi-value tag input component.
+- [Calendar](https://shadcn-vue.com/docs/components/reka/calendar): Calendar component for date selection.
+- [Range Calendar](https://shadcn-vue.com/docs/components/reka/range-calendar): Date range selection calendar.
+- [Date Picker](https://shadcn-vue.com/docs/components/reka/date-picker): Date picker component combining popover and calendar.
+- [Tags Input](https://shadcn-vue.com/docs/components/reka/tags-input): Multi-value tag input component.
 
 ### Layout & Navigation
 
-- [Accordion](https://shadcn-vue.com/docs/components/accordion): Collapsible accordion component.
-- [Breadcrumb](https://shadcn-vue.com/docs/components/breadcrumb): Breadcrumb navigation component.
-- [Navigation Menu](https://shadcn-vue.com/docs/components/navigation-menu): Accessible navigation menu with dropdowns.
-- [Sidebar](https://shadcn-vue.com/docs/components/sidebar): Collapsible sidebar component for app layouts.
-- [Tabs](https://shadcn-vue.com/docs/components/tabs): Tabbed interface component.
-- [Stepper](https://shadcn-vue.com/docs/components/stepper): Step-by-step navigation component.
-- [Separator](https://shadcn-vue.com/docs/components/separator): Visual divider between content sections.
-- [Scroll Area](https://shadcn-vue.com/docs/components/scroll-area): Custom scrollable area with styled scrollbars.
-- [Resizable](https://shadcn-vue.com/docs/components/resizable): Resizable panel layout component.
+- [Accordion](https://shadcn-vue.com/docs/components/reka/accordion): Collapsible accordion component.
+- [Breadcrumb](https://shadcn-vue.com/docs/components/reka/breadcrumb): Breadcrumb navigation component.
+- [Navigation Menu](https://shadcn-vue.com/docs/components/reka/navigation-menu): Accessible navigation menu with dropdowns.
+- [Sidebar](https://shadcn-vue.com/docs/components/reka/sidebar): Collapsible sidebar component for app layouts.
+- [Tabs](https://shadcn-vue.com/docs/components/reka/tabs): Tabbed interface component.
+- [Stepper](https://shadcn-vue.com/docs/components/reka/stepper): Step-by-step navigation component.
+- [Separator](https://shadcn-vue.com/docs/components/reka/separator): Visual divider between content sections.
+- [Scroll Area](https://shadcn-vue.com/docs/components/reka/scroll-area): Custom scrollable area with styled scrollbars.
+- [Resizable](https://shadcn-vue.com/docs/components/reka/resizable): Resizable panel layout component.
 
 ### Overlays & Dialogs
 
-- [Dialog](https://shadcn-vue.com/docs/components/dialog): Modal dialog component.
-- [Alert Dialog](https://shadcn-vue.com/docs/components/alert-dialog): Alert dialog for confirmation prompts.
-- [Sheet](https://shadcn-vue.com/docs/components/sheet): Slide-out panel component (drawer).
-- [Drawer](https://shadcn-vue.com/docs/components/drawer): Mobile-friendly drawer component using Vaul Vue.
-- [Popover](https://shadcn-vue.com/docs/components/popover): Floating popover component.
-- [Tooltip](https://shadcn-vue.com/docs/components/tooltip): Tooltip component for additional context.
-- [Hover Card](https://shadcn-vue.com/docs/components/hover-card): Card that appears on hover.
-- [Context Menu](https://shadcn-vue.com/docs/components/context-menu): Right-click context menu.
-- [Dropdown Menu](https://shadcn-vue.com/docs/components/dropdown-menu): Dropdown menu component.
-- [Menubar](https://shadcn-vue.com/docs/components/menubar): Horizontal menubar component.
-- [Command](https://shadcn-vue.com/docs/components/command): Command palette component (cmdk).
+- [Dialog](https://shadcn-vue.com/docs/components/reka/dialog): Modal dialog component.
+- [Alert Dialog](https://shadcn-vue.com/docs/components/reka/alert-dialog): Alert dialog for confirmation prompts.
+- [Sheet](https://shadcn-vue.com/docs/components/reka/sheet): Slide-out panel component (drawer).
+- [Drawer](https://shadcn-vue.com/docs/components/reka/drawer): Mobile-friendly drawer component using Vaul Vue.
+- [Popover](https://shadcn-vue.com/docs/components/reka/popover): Floating popover component.
+- [Tooltip](https://shadcn-vue.com/docs/components/reka/tooltip): Tooltip component for additional context.
+- [Hover Card](https://shadcn-vue.com/docs/components/reka/hover-card): Card that appears on hover.
+- [Context Menu](https://shadcn-vue.com/docs/components/reka/context-menu): Right-click context menu.
+- [Dropdown Menu](https://shadcn-vue.com/docs/components/reka/dropdown-menu): Dropdown menu component.
+- [Menubar](https://shadcn-vue.com/docs/components/reka/menubar): Horizontal menubar component.
+- [Command](https://shadcn-vue.com/docs/components/reka/command): Command palette component (cmdk).
 
 ### Feedback & Status
 
-- [Alert](https://shadcn-vue.com/docs/components/alert): Alert component for messages and notifications.
-- [Toast](https://shadcn-vue.com/docs/components/toast): Deprecated toast component.
-- [Sonner](https://shadcn-vue.com/docs/components/sonner): Opinionated toast component using Vue Sonner.
-- [Progress](https://shadcn-vue.com/docs/components/progress): Progress bar component.
-- [Spinner](https://shadcn-vue.com/docs/components/spinner): Loading spinner component.
-- [Skeleton](https://shadcn-vue.com/docs/components/skeleton): Skeleton loading placeholder.
-- [Badge](https://shadcn-vue.com/docs/components/badge): Badge component for labels and status indicators.
-- [Empty](https://shadcn-vue.com/docs/components/empty): Empty state component for no data scenarios.
+- [Alert](https://shadcn-vue.com/docs/components/reka/alert): Alert component for messages and notifications.
+- [Toast](https://shadcn-vue.com/docs/components/reka/toast): Deprecated toast component.
+- [Sonner](https://shadcn-vue.com/docs/components/reka/sonner): Opinionated toast component using Vue Sonner.
+- [Progress](https://shadcn-vue.com/docs/components/reka/progress): Progress bar component.
+- [Spinner](https://shadcn-vue.com/docs/components/reka/spinner): Loading spinner component.
+- [Skeleton](https://shadcn-vue.com/docs/components/reka/skeleton): Skeleton loading placeholder.
+- [Badge](https://shadcn-vue.com/docs/components/reka/badge): Badge component for labels and status indicators.
+- [Empty](https://shadcn-vue.com/docs/components/reka/empty): Empty state component for no data scenarios.
 
 ### Display & Media
 
-- [Avatar](https://shadcn-vue.com/docs/components/avatar): Avatar component for user profiles.
-- [Card](https://shadcn-vue.com/docs/components/card): Card container component.
-- [Table](https://shadcn-vue.com/docs/components/table): Table component for displaying data.
-- [Data Table](https://shadcn-vue.com/docs/components/data-table): Advanced data table with sorting, filtering, and pagination. Built using TanStack Table.
-- [Chart](https://shadcn-vue.com/docs/components/chart): Chart components using Unovis.
-- [Carousel](https://shadcn-vue.com/docs/components/carousel): Carousel component using Embla Carousel.
-- [Aspect Ratio](https://shadcn-vue.com/docs/components/aspect-ratio): Container that maintains aspect ratio.
+- [Avatar](https://shadcn-vue.com/docs/components/reka/avatar): Avatar component for user profiles.
+- [Card](https://shadcn-vue.com/docs/components/reka/card): Card container component.
+- [Table](https://shadcn-vue.com/docs/components/reka/table): Table component for displaying data.
+- [Data Table](https://shadcn-vue.com/docs/components/reka/data-table): Advanced data table with sorting, filtering, and pagination. Built using TanStack Table.
+- [Chart](https://shadcn-vue.com/docs/components/reka/chart): Chart components using Unovis.
+- [Carousel](https://shadcn-vue.com/docs/components/reka/carousel): Carousel component using Embla Carousel.
+- [Aspect Ratio](https://shadcn-vue.com/docs/components/reka/aspect-ratio): Container that maintains aspect ratio.
 - [Typography](https://shadcn-vue.com/docs/components/typography): Typography styles and components.
-- [Item](https://shadcn-vue.com/docs/components/item): Generic item component for lists and menus.
-- [Kbd](https://shadcn-vue.com/docs/components/kbd): Keyboard shortcut display component.
+- [Item](https://shadcn-vue.com/docs/components/reka/item): Generic item component for lists and menus.
+- [Kbd](https://shadcn-vue.com/docs/components/reka/kbd): Keyboard shortcut display component.
 
 ### Misc
 
-- [Collapsible](https://shadcn-vue.com/docs/components/collapsible): Collapsible container component.
-- [Toggle](https://shadcn-vue.com/docs/components/toggle): Toggle button component.
-- [Toggle Group](https://shadcn-vue.com/docs/components/toggle-group): Group of toggle buttons.
-- [Pagination](https://shadcn-vue.com/docs/components/pagination): Pagination component for lists and tables.
+- [Collapsible](https://shadcn-vue.com/docs/components/reka/collapsible): Collapsible container component.
+- [Toggle](https://shadcn-vue.com/docs/components/reka/toggle): Toggle button component.
+- [Toggle Group](https://shadcn-vue.com/docs/components/reka/toggle-group): Group of toggle buttons.
+- [Pagination](https://shadcn-vue.com/docs/components/reka/pagination): Pagination component for lists and tables.
 
 ## Dark Mode
 

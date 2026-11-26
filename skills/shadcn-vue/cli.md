@@ -144,10 +144,10 @@ Example output for `npx shadcn-vue@latest docs input button`:
 
 ```text
 input
-  - docs  https://shadcn-vue.com/docs/components/input
+  - docs  https://shadcn-vue.com/docs/components/reka/input
 
 button
-  - docs  https://shadcn-vue.com/docs/components/button
+  - docs  https://shadcn-vue.com/docs/components/reka/button
 ```
 
 ### `diff` — Check for updates
