@@ -3,6 +3,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { rimraf } from 'rimraf'
+import { BASES } from '@/registry/bases'
 import { STYLES } from '@/registry/styles'
 import { configuredBases } from '../registry.config'
 import { runShadcnVueCli } from './run-formatters'
@@ -89,17 +90,21 @@ export function buildStyleRegistry(
   })
 
   // The CLI's init flow fetches `styles/<style>/index.json` to install base
-  // dependencies, the cn() util, and the Tailwind v4 animation plugin.
+  // dependencies, the cn() util, the Tailwind v4 animation plugin, and the
+  // shared variants of `shadcn-vue/tailwind.css`, as the `/init` route does
+  // for a preset.
   // `@lucide/vue` is reconciled against the user's chosen icon library by
   // packages/cli/src/utils/icon-libraries.ts, so listing it here is safe.
+  const baseDependencies = BASES.find(item => item.name === base.name)?.dependencies ?? []
   const indexItem: RegistryItem = {
     name: 'index',
     type: 'registry:style',
-    dependencies: ['class-variance-authority', '@lucide/vue'],
+    dependencies: ['class-variance-authority', '@lucide/vue', ...baseDependencies, 'shadcn-vue@latest'],
     devDependencies: ['tw-animate-css'],
     registryDependencies: ['utils'],
     files: [],
     cssVars: {},
+    css: { '@import "shadcn-vue/tailwind.css"': {} },
   }
 
   return {

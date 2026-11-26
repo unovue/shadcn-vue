@@ -263,7 +263,7 @@ export const init = new Command()
   )
   .option(
     '--base <base>',
-    'the component library base to use. (reka)',
+    `the component library base to use. (${BASES.map(base => base.name).join(', ')})`,
     undefined,
   )
   .option(

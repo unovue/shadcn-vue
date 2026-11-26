@@ -20,7 +20,7 @@ export const docs = new Command()
   )
   .option(
     '-b, --base <base>',
-    'the base to use (reka). defaults to project base.',
+    `the base to use (${BASES.map(base => base.name).join(', ')}). defaults to project base.`,
   )
   .option('--json', 'output as JSON.', false)
   .action(async (components: string[], opts) => {

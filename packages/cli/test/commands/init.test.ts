@@ -14,7 +14,6 @@ import {
   resolveInitPresetUrl,
   runInit,
 } from '../../src/commands/init'
-import { decodePreset } from '../../src/preset/preset'
 import {
   DEFAULT_PRESETS,
   resolveCreateUrl,
@@ -34,11 +33,6 @@ vi.mock('../../src/registry/constants', async importOriginal => ({
   ...(await importOriginal<typeof import('../../src/registry/constants')>()),
   BASES: bases,
 }))
-
-vi.mock('../../src/preset/preset', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('../../src/preset/preset')>()
-  return { ...actual, decodePreset: vi.fn(actual.decodePreset) }
-})
 
 vi.mock('../../src/preset/presets', async (importOriginal) => {
   const actual = await importOriginal<typeof import('../../src/preset/presets')>()
@@ -317,6 +311,8 @@ describe('preset urls', () => {
 
 const vase = { name: 'vase', label: 'Vase UI', description: 'Vase', dependencies: ['@vase-ui/vue'] }
 
+const VASE_PRESET_CODE = 'a4gfFC4'
+
 function parseInitOptions(overrides: Record<string, unknown> = {}) {
   return initOptionsSchema.parse({
     cwd: '/tmp/app',
@@ -351,27 +347,15 @@ function baseQuestionType() {
 describe('resolveInitPresetUrl', () => {
   const baseOf = (url: string) => new URL(url).searchParams.get('base')
 
-  beforeEach(async () => {
-    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
-    vi.mocked(decodePreset).mockImplementation(decodeActual)
-  })
-
-  it('uses the base of the preset code', async () => {
-    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
-    // Preset codes only encode bases in PRESET_BASES, so mock decodePreset for a second base.
-    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
-
-    const url = resolveInitPresetUrl('a0', {})
+  it('uses the base of the preset code', () => {
+    const url = resolveInitPresetUrl(VASE_PRESET_CODE, {})
 
     expect(baseOf(url)).toBe('vase')
-    expect(new URL(url).searchParams.get('preset')).toBe('a0')
+    expect(new URL(url).searchParams.get('preset')).toBe(VASE_PRESET_CODE)
   })
 
-  it('lets --base win over the base of the preset code', async () => {
-    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
-    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
-
-    expect(baseOf(resolveInitPresetUrl('a0', { base: 'reka' }))).toBe('reka')
+  it('lets --base win over the base of the preset code', () => {
+    expect(baseOf(resolveInitPresetUrl(VASE_PRESET_CODE, { base: 'reka' }))).toBe('reka')
   })
 
   it('uses the base of a named preset unless --base is set', () => {
@@ -401,22 +385,18 @@ describe('init --defaults with a preset code', () => {
   })
 
   it('preserves the base from a preset code when --defaults is set', async () => {
-    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
-    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
     vi.mocked(resolveRegistryBaseConfig).mockRejectedValueOnce(new Error('stop'))
 
-    await init.parseAsync(['--preset', 'a0', '--defaults', '--cwd', '/tmp/app'], { from: 'user' })
+    await init.parseAsync(['--preset', VASE_PRESET_CODE, '--defaults', '--cwd', '/tmp/app'], { from: 'user' })
 
     const [initUrl] = vi.mocked(resolveRegistryBaseConfig).mock.calls[0]!
     expect(new URL(initUrl).searchParams.get('base')).toBe('vase')
   })
 
   it('lets --base override a preset code when --defaults is set', async () => {
-    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
-    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
     vi.mocked(resolveRegistryBaseConfig).mockRejectedValueOnce(new Error('stop'))
 
-    await init.parseAsync(['--preset', 'a0', '--defaults', '--base', 'reka', '--cwd', '/tmp/app'], { from: 'user' })
+    await init.parseAsync(['--preset', VASE_PRESET_CODE, '--defaults', '--base', 'reka', '--cwd', '/tmp/app'], { from: 'user' })
 
     const [initUrl] = vi.mocked(resolveRegistryBaseConfig).mock.calls[0]!
     expect(new URL(initUrl).searchParams.get('base')).toBe('reka')

@@ -46,6 +46,20 @@ export const BASES: z.infer<typeof registryItemSchema>[] = [
 </svg>`,
     },
   },
+  {
+    name: "vase",
+    type: "registry:style",
+    title: "Vase UI",
+    description:
+      "Components for building accessible web apps and design systems.",
+    dependencies: ["@vase-ui/vue"],
+    meta: {
+      logo: `<svg xmlns="http://www.w3.org/2000/svg" width="31.05" height="28" viewBox="134 146 244 220" fill="currentColor">
+<path d="M134 146C200 165.8 250 190 250 249.4V366C184 366 134 325.3 134 258.2Z"/>
+<path d="M378 146C312 165.8 262 190 262 249.4V366C328 366 378 325.3 378 258.2Z"/>
+</svg>`,
+    },
+  },
 ]
 
 export type Base = (typeof BASES)[number]

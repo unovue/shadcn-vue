@@ -8,6 +8,7 @@ import { buildBaseStyles } from './build-styles'
 import { buildStyleRegistry } from './build-styles-registry'
 
 assert.ok(configuredBases.some(base => base.name === 'reka'), 'reka is a configured base')
+assert.ok(configuredBases.some(base => base.name === 'vase'), 'vase is a configured base')
 assert.ok(configuredBases.every(base => !base.buildMainRegistry), 'the main registry is not a configured base')
 
 const root = await mkdtemp(path.join(tmpdir(), 'build-styles-'))
@@ -73,6 +74,16 @@ try {
     assert.deepEqual(registry.items.map(item => item.name), ['index', 'button', 'utils'])
     assert.equal(registry.items[1]!.files![0]!.path, `styles/${base.name}-nova/ui/button/Button.vue`)
     assert.equal(registry.items[2]!.files![0]!.path, `registry/bases/${base.name}/lib/utils.ts`)
+  }
+
+  for (const [name, dependency, other] of [['reka', 'reka-ui', '@vase-ui/vue'], ['vase', '@vase-ui/vue', 'reka-ui']] as const) {
+    const base = configuredBases.find(item => item.name === name)!
+    const index = buildStyleRegistry(base, 'nova', baseItems).items[0] as unknown as { dependencies: string[], css: Record<string, unknown> }
+
+    assert.ok(index.dependencies.includes(dependency), `${name} index installs ${dependency}`)
+    assert.ok(!index.dependencies.includes(other), `${name} index does not install ${other}`)
+    assert.ok(index.dependencies.includes('shadcn-vue@latest'), `${name} index installs shadcn-vue`)
+    assert.ok('@import "shadcn-vue/tailwind.css"' in index.css, `${name} index imports shadcn-vue/tailwind.css`)
   }
 
   // eslint-disable-next-line no-console

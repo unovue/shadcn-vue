@@ -14,6 +14,14 @@ describe('preset codes', () => {
     expect(encodePreset({ base: 'reka', ...config })).toBe(code)
   })
 
+  it.each([
+    ['a4gfFC4', { style: 'vega' }],
+    ['a5GztuS', { style: 'nova', font: 'geist-sans' }],
+  ] as const)('encodes vase as the second base in %s', (code, config) => {
+    expect(decodePreset(code)).toMatchObject({ ...config, base: 'vase' })
+    expect(encodePreset({ base: 'vase', ...config })).toBe(code)
+  })
+
   it('decodes a base that this version does not know as the first base', () => {
     const nova = encodePreset({ style: 'nova' })
     // The two bits of `base` start at bit 32.

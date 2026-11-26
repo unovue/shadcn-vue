@@ -13,7 +13,7 @@
 // value arrays matching shadcn-vue's registry (see apps/v4/registry/*).
 
 // Value arrays — order matters for backward compat. Never reorder, only append.
-export const PRESET_BASES = ['reka'] as const
+export const PRESET_BASES = ['reka', 'vase'] as const
 
 export const PRESET_STYLES = [
   'vega',

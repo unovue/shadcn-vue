@@ -23,7 +23,7 @@ The `create` command will:
 |--------|-------------|
 | `-t, --template <template>` | Framework template: `nuxt`, `vite`, or `vite-router` |
 | `-p, --preset <preset>` | Use a preset: `reka-vega`, `reka-nova`, `reka-maia`, `reka-lyra`, `reka-mira` |
-| `--base <base>` | Component library: `reka` |
+| `--base <base>` | Component library: `reka` or `vase` |
 | `--style <style>` | Visual style: `vega`, `nova`, `maia`, `lyra`, `mira` |
 | `--icon-library <lib>` | Icon library: `lucide`, `tabler`, `hugeicons`, `phosphor`, `remixicon` |
 | `--font <font>` | Font: `inter`, `figtree`, `jetbrains-mono`, `geist`, `geist-mono` |
@@ -57,7 +57,7 @@ npx shadcn-vue init
 
 | Option | Description |
 |--------|-------------|
-| `--base <base>` | Component library: `reka` |
+| `--base <base>` | Component library: `reka` or `vase` |
 | `--style <style>` | Visual style: `vega`, `nova`, `maia`, `lyra`, `mira` |
 | `--icon-library <lib>` | Icon library: `lucide`, `tabler`, `hugeicons`, `phosphor`, `remixicon` |
 | `--font <font>` | Font: `inter`, `figtree`, `jetbrains-mono`, `geist`, `geist-mono` |
