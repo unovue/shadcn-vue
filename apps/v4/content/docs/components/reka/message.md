@@ -82,7 +82,7 @@ import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 
 **Note:** `Message` owns the row layout—avatar, alignment, header, and footer.
 Render the visible message surface inside it with
-[`Bubble`](/docs/components/bubble).
+[`Bubble`](/docs/components/reka/bubble).
 
 ## Composition
 
@@ -184,7 +184,7 @@ Action buttons in `MessageFooter` are usually icon-only, so give each one an `ar
 
 ### Status updates
 
-For in-progress messages, use a [`Marker`](/docs/components/marker) with `role="status"` so assistive tech announces the update as it appears.
+For in-progress messages, use a [`Marker`](/docs/components/reka/marker) with `role="status"` so assistive tech announces the update as it appears.
 
 ```vue showLineNumbers
 <Message>

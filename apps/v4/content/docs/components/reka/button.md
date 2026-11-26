@@ -215,7 +215,7 @@ class: mb-4
 ---
 ::
 
-To create a button group, use the `ButtonGroup` component. See the [Button Group](/docs/components/button-group) documentation for more details.
+To create a button group, use the `ButtonGroup` component. See the [Button Group](/docs/components/reka/button-group) documentation for more details.
 
 ### Link (asChild)
 

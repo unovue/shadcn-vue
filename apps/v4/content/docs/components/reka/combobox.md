@@ -72,7 +72,7 @@ npx shadcn-vue@latest add combobox
 
 The listbox variant is built using a composition of the `Popover` and the `Command` components.
 
-See installation instructions for the [Popover](/docs/components/popover#installation) and the [Command](/docs/components/command#installation) components.
+See installation instructions for the [Popover](/docs/components/reka/popover#installation) and the [Command](/docs/components/reka/command#installation) components.
 
 ## Usage
 

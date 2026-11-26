@@ -17,7 +17,7 @@ previewClass: h-auto
 
 Every line has the same shape, so reasoning, tool calls, sources and plans built from `Trace` look and behave the same.
 
-Use `Trace` for the steps an agent takes, like calling a tool, running a subagent or editing a file. Use [Message](/docs/components/message) for its reply, and [Marker](/docs/components/marker) for notes and dividers between turns.
+Use `Trace` for the steps an agent takes, like calling a tool, running a subagent or editing a file. Use [Message](/docs/components/reka/message) for its reply, and [Marker](/docs/components/reka/marker) for notes and dividers between turns.
 
 ## Built with Trace
 
@@ -25,17 +25,17 @@ Every pattern below is a composition of `Trace` parts. See [AI Elements](/docs/a
 
 | Pattern                                                | Shows                                                            |
 | ------------------------------------------------------ | ---------------------------------------------------------------- |
-| [Chain of Thought](/docs/ai-elements/chain-of-thought) | A summary that expands into the steps behind it.                 |
-| [Plan](/docs/ai-elements/plan)                         | The steps the agent plans to take, and how far it has got.       |
-| [Queue](/docs/ai-elements/queue)                       | The agent's todo list, split into what is left and what is done. |
-| [Reasoning](/docs/ai-elements/reasoning)               | The agent's thinking as it streams.                              |
-| [Sources](/docs/ai-elements/sources)                   | The links the agent used for a reply.                            |
-| [Stack Trace](/docs/ai-elements/stack-trace)           | A failed tool call and its stack frames.                         |
-| [Subagent](/docs/ai-elements/subagent)                 | A subagent run, with its tool calls and result.                  |
-| [Task](/docs/ai-elements/task)                         | The steps the agent takes, as it takes them.                     |
-| [Terminal](/docs/ai-elements/terminal)                 | A command the agent runs, with its output as it streams.         |
-| [Test Results](/docs/ai-elements/test-results)         | A test run by the agent, with its suites and failures.           |
-| [Tool](/docs/ai-elements/tool)                         | A tool call the agent makes, from input to output.               |
+| [Chain of Thought](/docs/ai-elements/reka/chain-of-thought) | A summary that expands into the steps behind it.                 |
+| [Plan](/docs/ai-elements/reka/plan)                         | The steps the agent plans to take, and how far it has got.       |
+| [Queue](/docs/ai-elements/reka/queue)                       | The agent's todo list, split into what is left and what is done. |
+| [Reasoning](/docs/ai-elements/reka/reasoning)               | The agent's thinking as it streams.                              |
+| [Sources](/docs/ai-elements/reka/sources)                   | The links the agent used for a reply.                            |
+| [Stack Trace](/docs/ai-elements/reka/stack-trace)           | A failed tool call and its stack frames.                         |
+| [Subagent](/docs/ai-elements/reka/subagent)                 | A subagent run, with its tool calls and result.                  |
+| [Task](/docs/ai-elements/reka/task)                         | The steps the agent takes, as it takes them.                     |
+| [Terminal](/docs/ai-elements/reka/terminal)                 | A command the agent runs, with its output as it streams.         |
+| [Test Results](/docs/ai-elements/reka/test-results)         | A test run by the agent, with its suites and failures.           |
+| [Tool](/docs/ai-elements/reka/tool)                         | A tool call the agent makes, from input to output.               |
 
 ## Installation
 
@@ -360,7 +360,7 @@ previewClass: h-auto
 ---
 ::
 
-See [Sources](/docs/ai-elements/sources) for more examples.
+See [Sources](/docs/ai-elements/reka/sources) for more examples.
 
 ## Chain of Thought
 
@@ -374,7 +374,7 @@ previewClass: h-auto
 ---
 ::
 
-See [Chain of Thought](/docs/ai-elements/chain-of-thought) and [Task](/docs/ai-elements/task) for more examples.
+See [Chain of Thought](/docs/ai-elements/reka/chain-of-thought) and [Task](/docs/ai-elements/reka/task) for more examples.
 
 ## Commit
 
@@ -412,11 +412,11 @@ previewClass: h-auto
 ---
 ::
 
-See [Reasoning](/docs/ai-elements/reasoning) for more examples.
+See [Reasoning](/docs/ai-elements/reka/reasoning) for more examples.
 
 ## Tool
 
-Render tool parts from the AI SDK. Map the tool part as in [Tool](/docs/ai-elements/tool#states).
+Render tool parts from the AI SDK. Map the tool part as in [Tool](/docs/ai-elements/reka/tool#states).
 
 ::component-preview
 ---
@@ -426,7 +426,7 @@ previewClass: h-auto
 ---
 ::
 
-See [Tool](/docs/ai-elements/tool) for more examples.
+See [Tool](/docs/ai-elements/reka/tool) for more examples.
 
 ## Accessibility
 
@@ -438,7 +438,7 @@ See [Tool](/docs/ai-elements/tool) for more examples.
 - When a link opens a new tab, add "(opens in a new tab)" to the title with `sr-only`.
 - Status is shown with color and motion, so put it in the title too. Write "Running pnpm build" while it runs and "Failed to run pnpm build" when it errors.
 - The shimmer on a running title stops when the reader prefers reduced motion. The title still says what is happening.
-- Inside a [Message Scroller](/docs/components/message-scroller), each line is announced once when it is added.
+- Inside a [Message Scroller](/docs/components/reka/message-scroller), each line is announced once when it is added.
 - `TraceCollapsibleContent` mutes its text. If you put a block with a muted background inside it, give the block `text-foreground` so it keeps its contrast. `CodeBlock` sets its own text color.
 
 ## API Reference
@@ -486,7 +486,7 @@ Secondary text after the title, such as a count or a duration. It does not trunc
 
 ### TraceCollapsible
 
-A row that expands. It accepts the props of [`Collapsible`](/docs/components/collapsible).
+A row that expands. It accepts the props of [`Collapsible`](/docs/components/reka/collapsible).
 
 | Prop / Event      | Type                      | Default | Description                                                                                    |
 | ----------------- | ------------------------- | ------- | ---------------------------------------------------------------------------------------------- |

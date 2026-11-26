@@ -13,11 +13,11 @@ previewClass: h-auto theme-blue p-4 min-[480px]:p-8 min-[560px]:p-10 sm:px-10 sm
 ---
 ::
 
-Chat is the thread of a conversation with the agent. Each turn is a [Message](/docs/ai-elements/message) inside [Message Scroller](/docs/components/message-scroller). The person's message is the scroll anchor, so a new question settles near the top and the reply streams in under it. The field is a [Prompt Input](/docs/ai-elements/prompt-input).
+Chat is the thread of a conversation with the agent. Each turn is a [Message](/docs/ai-elements/reka/message) inside [Message Scroller](/docs/components/reka/message-scroller). The person's message is the scroll anchor, so a new question settles near the top and the reply streams in under it. The field is a [Prompt Input](/docs/ai-elements/reka/prompt-input).
 
 ## Installation
 
-Chat is built with the [Message Scroller](/docs/components/message-scroller), [Message](/docs/components/message), [Bubble](/docs/components/bubble), and [Input Group](/docs/components/input-group) components.
+Chat is built with the [Message Scroller](/docs/components/reka/message-scroller), [Message](/docs/components/reka/message), [Bubble](/docs/components/reka/bubble), and [Input Group](/docs/components/reka/input-group) components.
 
 :::::code-tabs
 
@@ -90,7 +90,7 @@ npx shadcn-vue@latest add message-scroller message bubble input-group
 
 `scroll-anchor` goes on the person's turn. `auto-scroll` follows the reply while the person stays at the live edge.
 
-See [Message Scroller](/docs/components/message-scroller).
+See [Message Scroller](/docs/components/reka/message-scroller).
 
 ## AI SDK
 
@@ -126,7 +126,7 @@ const chat = new Chat({})
 
 ## Markdown
 
-The agent's reply streams as markdown. Render it with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a [Code Block](/docs/components/code-block#markdown) with a custom `pre` component, the same way as in [Message](/docs/ai-elements/message#markdown). Pass `streaming` only to the reply that is still streaming.
+The agent's reply streams as markdown. Render it with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a [Code Block](/docs/components/reka/code-block#markdown) with a custom `pre` component, the same way as in [Message](/docs/ai-elements/reka/message#markdown). Pass `streaming` only to the reply that is still streaming.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -158,7 +158,7 @@ Migrate components/ai-elements/conversation/ from AI Elements Vue to the shadcn-
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Message Scroller: npx shadcn-vue@latest add message-scroller
-2. Read https://www.shadcn-vue.com/docs/ai-elements/chat and build Chat the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/chat and build Chat the same way.
 3. Rebuild each part:
    - Conversation renders a MessageScrollerProvider with auto-scroll and a MessageScroller, instead of StickToBottom.
    - ConversationContent renders a MessageScrollerViewport and a MessageScrollerContent.

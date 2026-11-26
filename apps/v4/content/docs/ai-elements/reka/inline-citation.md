@@ -13,13 +13,13 @@ previewClass: h-auto
 ---
 ::
 
-Inline Citation is a source that sits in the sentence it supports. It is a [Hover Card](/docs/components/hover-card) on a [Button](/docs/components/button).
+Inline Citation is a source that sits in the sentence it supports. It is a [Hover Card](/docs/components/reka/hover-card) on a [Button](/docs/components/reka/button).
 
-To show a list of sources after the reply, use [Sources](/docs/ai-elements/sources).
+To show a list of sources after the reply, use [Sources](/docs/ai-elements/reka/sources).
 
 ## Installation
 
-Inline Citation is built with the [Hover Card](/docs/components/hover-card) and [Button](/docs/components/button) components.
+Inline Citation is built with the [Hover Card](/docs/components/reka/hover-card) and [Button](/docs/components/reka/button) components.
 
 :::::code-tabs
 
@@ -128,7 +128,7 @@ Migrate components/ai-elements/inline-citation/ from AI Elements Vue to the shad
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add hover-card button
-2. Read https://www.shadcn-vue.com/docs/ai-elements/inline-citation and build Inline Citation the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/inline-citation and build Inline Citation the same way.
 3. Rebuild each part:
    - InlineCitationCard.vue renders a HoverCard. Set open-delay and close-delay on it.
    - InlineCitationCardTrigger.vue renders a HoverCardTrigger with as-child and a Button with variant="secondary" and size="xs" inside, instead of a Badge, so it can take keyboard focus.

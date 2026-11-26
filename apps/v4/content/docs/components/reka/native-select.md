@@ -8,7 +8,7 @@ component: true
 ---
 icon: true
 ---
-For a styled select component, see the [Select](/docs/components/select) component.
+For a styled select component, see the [Select](/docs/components/reka/select) component.
 ::
 
 ::component-preview

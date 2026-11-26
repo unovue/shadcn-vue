@@ -361,9 +361,9 @@ We'll do the same for the legend. We'll use the `ChartLegend` and `ChartLegendCo
 
 Done. You've built your first chart! What's next?
 
-- [Themes and Colors](/docs/components/chart#theming)
-- [Tooltip](/docs/components/chart#tooltip)
-- [Legend](/docs/components/chart#legend)
+- [Themes and Colors](/docs/components/reka/chart#theming)
+- [Tooltip](/docs/components/reka/chart#tooltip)
+- [Legend](/docs/components/reka/chart#legend)
 
 ## Chart Config
 

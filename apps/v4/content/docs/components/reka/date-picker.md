@@ -18,7 +18,7 @@ description: A date picker component.
 
 The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
 
-See installation instructions for the [Popover](/docs/components/popover) and the [Calendar](/docs/components/calendar) components.
+See installation instructions for the [Popover](/docs/components/reka/popover) and the [Calendar](/docs/components/reka/calendar) components.
 
 ## Usage
 

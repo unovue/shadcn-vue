@@ -19,7 +19,7 @@ Chain of Thought is built with `Trace` with a `TraceCollapsible` for the summary
 
 ## Installation
 
-Chain of Thought is built with the [Trace](/docs/components/trace), [Code Block](/docs/components/code-block) and [Badge](/docs/components/badge) components.
+Chain of Thought is built with the [Trace](/docs/components/reka/trace), [Code Block](/docs/components/reka/code-block) and [Badge](/docs/components/reka/badge) components.
 
 :::::code-tabs
 
@@ -154,7 +154,7 @@ function getHostname(url: string) {
 
 ## AI SDK
 
-Render each tool part as a step. `running` is true while tool parts stream and before the reply starts. Set the summary's status and title from the steps. The summary opens while the steps run, as in [Trace](/docs/components/trace#open-state).
+Render each tool part as a step. `running` is true while tool parts stream and before the reply starts. Set the summary's status and title from the steps. The summary opens while the steps run, as in [Trace](/docs/components/reka/trace#open-state).
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -200,7 +200,7 @@ const failed = computed(
 </template>
 ```
 
-`StepLine` renders one tool part as a `TraceLine`, as in [Tool](/docs/ai-elements/tool#states).
+`StepLine` renders one tool part as a `TraceLine`, as in [Tool](/docs/ai-elements/reka/tool#states).
 
 ## Migrating from AI Elements Vue
 
@@ -212,7 +212,7 @@ Migrate components/ai-elements/chain-of-thought/ from AI Elements Vue to the sha
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add trace badge
-2. Read https://www.shadcn-vue.com/docs/ai-elements/chain-of-thought and build Chain of Thought the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/chain-of-thought and build Chain of Thought the same way.
 3. Rebuild each part:
    - ChainOfThought.vue renders a Trace with a TraceCollapsible. Pass open, defaultOpen and the update:open emit to the TraceCollapsible.
    - ChainOfThoughtHeader.vue renders a TraceCollapsibleTrigger with a TraceLine, a TraceIcon and a TraceTitle, like "Researched in 3 steps".
@@ -226,4 +226,4 @@ Keep every export, with the same name, props and emits, so the code that imports
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

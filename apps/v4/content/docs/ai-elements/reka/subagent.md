@@ -19,7 +19,7 @@ Subagent is built with `Trace` with a `TraceCollapsible` for the run and a neste
 
 ## Installation
 
-Subagent is built with the [Trace](/docs/components/trace), [Code Block](/docs/components/code-block) and [Badge](/docs/components/badge) components.
+Subagent is built with the [Trace](/docs/components/reka/trace), [Code Block](/docs/components/reka/code-block) and [Badge](/docs/components/reka/badge) components.
 
 :::::code-tabs
 
@@ -122,7 +122,7 @@ previewClass: h-auto
 
 ## Details
 
-Put the task the subagent was given at the top of the content, with its model and tools as [Badge](/docs/components/badge) items. Show how long it ran in a `TraceDescription` after the title.
+Put the task the subagent was given at the top of the content, with its model and tools as [Badge](/docs/components/reka/badge) items. Show how long it ran in a `TraceDescription` after the title.
 
 ::component-preview
 ---
@@ -134,7 +134,7 @@ previewClass: h-auto
 
 ## AI SDK
 
-With the AI SDK, a subagent is a tool whose `execute` yields the subagent's `UIMessage` as it streams. Render the tool part as the line and `part.output.parts` as the nested `Trace`. Map each nested tool part as in [Tool](/docs/ai-elements/tool#states).
+With the AI SDK, a subagent is a tool whose `execute` yields the subagent's `UIMessage` as it streams. Render the tool part as the line and `part.output.parts` as the nested `Trace`. Map each nested tool part as in [Tool](/docs/ai-elements/reka/tool#states).
 
 Each yield is a preliminary output: the part is `output-available` with `preliminary: true`. The final output replaces it, so check `preliminary` before you show "Ran".
 
@@ -155,7 +155,7 @@ Migrate components/ai-elements/agent/ from AI Elements Vue to the shadcn-vue Tra
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add trace code-block badge
-2. Read https://www.shadcn-vue.com/docs/ai-elements/subagent and build Subagent the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/subagent and build Subagent the same way.
 3. Rebuild each part:
    - Import CodeBlock and CodeBlockContent from @/components/ui/code-block, not from ../code-block.
    - Agent renders a Trace with a TraceCollapsible.
@@ -169,4 +169,4 @@ Keep every export, with the same name and props, so the code that imports it kee
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

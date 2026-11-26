@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-Prompt Input is the field the person types into to message the agent. It is an [Input Group](/docs/components/input-group) with a textarea, an attach button, the [Model Selector](/docs/ai-elements/model-selector) menus and a send button. Attached files show as [Attachment](/docs/components/attachment) chips above the text.
+Prompt Input is the field the person types into to message the agent. It is an [Input Group](/docs/components/reka/input-group) with a textarea, an attach button, the [Model Selector](/docs/ai-elements/reka/model-selector) menus and a send button. Attached files show as [Attachment](/docs/components/reka/attachment) chips above the text.
 
 ## Installation
 
-Prompt Input is built with the [Input Group](/docs/components/input-group), [Attachment](/docs/components/attachment) and [Dropdown Menu](/docs/components/dropdown-menu) components.
+Prompt Input is built with the [Input Group](/docs/components/reka/input-group), [Attachment](/docs/components/reka/attachment) and [Dropdown Menu](/docs/components/reka/dropdown-menu) components.
 
 :::::code-tabs
 
@@ -119,11 +119,11 @@ const canSend = computed(() => text.value.trim().length > 0)
 
 ## Attachments
 
-The attach button opens a file dialog with [`useFileDialog`](https://vueuse.org/core/useFileDialog/). Show each file as an [Attachment](/docs/components/attachment) in an addon with `align="block-start"`, with a button to remove it.
+The attach button opens a file dialog with [`useFileDialog`](https://vueuse.org/core/useFileDialog/). Show each file as an [Attachment](/docs/components/reka/attachment) in an addon with `align="block-start"`, with a button to remove it.
 
 ## Model and Effort
 
-Put the two [Model Selector](/docs/ai-elements/model-selector) menus in the `block-end` addon, between the attach and send buttons. Move `ml-auto` from the send button to the first menu trigger, so both menus sit next to the send button.
+Put the two [Model Selector](/docs/ai-elements/reka/model-selector) menus in the `block-end` addon, between the attach and send buttons. Move `ml-auto` from the send button to the first menu trigger, so both menus sit next to the send button.
 
 ## Keyboard
 
@@ -164,7 +164,7 @@ Migrate components/ai-elements/prompt-input/ from AI Elements Vue to the shadcn-
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add input-group attachment
-2. Read https://www.shadcn-vue.com/docs/ai-elements/prompt-input and build Prompt Input the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/prompt-input and build Prompt Input the same way.
 3. Rebuild each part:
    - PromptInput already renders an Input Group. Keep the form, the provider, the attachment state and the command parts as they are.
    - PromptInputTextarea renders an InputGroupTextarea with class="p-3".

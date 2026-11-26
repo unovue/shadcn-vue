@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-Context shows how much of the model's context window the conversation has used. It is a [Hover Card](/docs/components/hover-card) with a [Progress](/docs/components/progress) bar.
+Context shows how much of the model's context window the conversation has used. It is a [Hover Card](/docs/components/reka/hover-card) with a [Progress](/docs/components/reka/progress) bar.
 
 ## Installation
 
-Context is built with the [Hover Card](/docs/components/hover-card) and [Progress](/docs/components/progress) components.
+Context is built with the [Hover Card](/docs/components/reka/hover-card) and [Progress](/docs/components/reka/progress) components.
 
 :::::code-tabs
 
@@ -118,7 +118,7 @@ Migrate components/ai-elements/context/ from AI Elements Vue to the shadcn-vue H
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add hover-card progress button
-2. Read https://www.shadcn-vue.com/docs/ai-elements/context and build Context the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/context and build Context the same way.
 3. Rebuild each part:
    - Context renders a HoverCard with :open-delay and :close-delay. Keep usedTokens, maxTokens, usage and modelId in its provide/inject context.
    - ContextTrigger renders a HoverCardTrigger with as-child and a Button with variant="outline" and size="sm", showing the percent used.

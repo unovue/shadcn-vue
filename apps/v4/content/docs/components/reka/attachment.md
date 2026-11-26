@@ -292,7 +292,7 @@ A container for one or more actions, aligned to the end of the attachment.
 
 ### AttachmentAction
 
-An action button. Renders a [`Button`](/docs/components/button) and accepts Vue fallthrough attributes such as `aria-label`.
+An action button. Renders a [`Button`](/docs/components/reka/button) and accepts Vue fallthrough attributes such as `aria-label`.
 
 | Prop       | Type                       | Default     | Description                                  |
 | ---------- | -------------------------- | ----------- | -------------------------------------------- |

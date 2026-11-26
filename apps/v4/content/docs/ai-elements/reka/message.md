@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-Use Message for one turn in a thread. The person's text is a [Bubble](/docs/components/bubble) on a [Message](/docs/components/message) with `align="end"`. The agent's reply is markdown on a Message, with actions under it. A thread of these turns is [Chat](/docs/ai-elements/chat).
+Use Message for one turn in a thread. The person's text is a [Bubble](/docs/components/reka/bubble) on a [Message](/docs/components/reka/message) with `align="end"`. The agent's reply is markdown on a Message, with actions under it. A thread of these turns is [Chat](/docs/ai-elements/reka/chat).
 
 ## Installation
 
-Message is built with the [Message](/docs/components/message), [Bubble](/docs/components/bubble), and [Tooltip](/docs/components/tooltip) components.
+Message is built with the [Message](/docs/components/reka/message), [Bubble](/docs/components/reka/bubble), and [Tooltip](/docs/components/reka/tooltip) components.
 
 :::::code-tabs
 
@@ -94,7 +94,7 @@ import { Message, MessageContent, MessageFooter } from '@/components/ui/message'
 </template>
 ```
 
-See [Message](/docs/components/message).
+See [Message](/docs/components/reka/message).
 
 ## Actions
 
@@ -107,7 +107,7 @@ Put actions in `MessageFooter`. It follows the message alignment, so on the pers
 
 ## Markdown
 
-The reply streams as markdown. Render it with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a [Code Block](/docs/components/code-block#markdown) with a custom `pre` component, so code in the reply gets line numbers and a copy button. Pass `streaming` while the reply streams, so unfinished syntax is closed as it renders.
+The reply streams as markdown. Render it with [Comark](https://comark.dev) (`@comark/vue`) and route fenced code to a [Code Block](/docs/components/reka/code-block#markdown) with a custom `pre` component, so code in the reply gets line numbers and a copy button. Pass `streaming` while the reply streams, so unfinished syntax is closed as it renders.
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -187,7 +187,7 @@ Migrate components/ai-elements/message/ from AI Elements Vue to the shadcn-vue M
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add message bubble tooltip
-2. Read https://www.shadcn-vue.com/docs/ai-elements/message and build Message the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/message and build Message the same way.
 3. Rebuild each part:
    - This folder exports Message and MessageContent too, so import the shadcn-vue parts under other names, like MessageRoot and MessageBody.
    - Message renders the shadcn-vue Message, with align="end" when from is "user". Pass from down with provide/inject.

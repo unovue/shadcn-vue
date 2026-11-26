@@ -13,7 +13,7 @@ previewClass: h-auto
 ---
 ::
 
-`CodeBlock` displays code, terminal output, logs and diffs. It has a header with a title and actions, line numbers, wrapping, diff and highlighted lines, and a small size for tool output in a [Trace](/docs/components/trace).
+`CodeBlock` displays code, terminal output, logs and diffs. It has a header with a title and actions, line numbers, wrapping, diff and highlighted lines, and a small size for tool output in a [Trace](/docs/components/reka/trace).
 
 Syntax highlighting is optional and lives in a separate composable, so a block that only shows plain output stays small.
 
@@ -384,7 +384,7 @@ previewClass: h-auto
 
 ## Tabs
 
-Show several files with [Tabs](/docs/components/tabs), one `CodeBlock` in each `TabsContent`.
+Show several files with [Tabs](/docs/components/reka/tabs), one `CodeBlock` in each `TabsContent`.
 
 ::component-preview
 ---
@@ -396,7 +396,7 @@ previewClass: h-auto
 
 ## Message
 
-Put a `CodeBlock` between paragraphs inside a [Message](/docs/components/message).
+Put a `CodeBlock` between paragraphs inside a [Message](/docs/components/reka/message).
 
 ::component-preview
 ---
@@ -693,7 +693,7 @@ Holds buttons at the end of the header. As a direct child of `CodeBlock`, it flo
 
 ### CodeBlockCopyButton
 
-A ghost icon button that copies `value` to the clipboard. It accepts the props of [`Button`](/docs/components/button).
+A ghost icon button that copies `value` to the clipboard. It accepts the props of [`Button`](/docs/components/reka/button).
 
 | Prop       | Type      | Default     | Description                                |
 | ---------- | --------- | ----------- | ------------------------------------------ |

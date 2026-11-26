@@ -15,7 +15,7 @@ previewClass: h-auto
 
 ## Installation
 
-Model Selector is built with the [Dropdown Menu](/docs/components/dropdown-menu) and [Input Group](/docs/components/input-group) components.
+Model Selector is built with the [Dropdown Menu](/docs/components/reka/dropdown-menu) and [Input Group](/docs/components/reka/input-group) components.
 
 :::::code-tabs
 
@@ -194,7 +194,7 @@ Migrate components/ai-elements/model-selector/ from AI Elements Vue to the shadc
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Dropdown Menu: npx shadcn-vue@latest add dropdown-menu
-2. Read https://www.shadcn-vue.com/docs/ai-elements/model-selector and build Model Selector the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/model-selector and build Model Selector the same way.
 3. Rebuild each part:
    - ModelSelector renders a DropdownMenu, instead of a Dialog. ModelSelectorTrigger renders a DropdownMenuTrigger.
    - ModelSelectorContent renders a DropdownMenuContent, and ModelSelectorList a DropdownMenuRadioGroup with the selected model as its v-model.

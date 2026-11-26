@@ -19,7 +19,7 @@ Terminal is built with `Trace` with a `TraceCollapsible` for each command.
 
 ## Installation
 
-Terminal is built with the [Trace](/docs/components/trace) and [Code Block](/docs/components/code-block) components.
+Terminal is built with the [Trace](/docs/components/reka/trace) and [Code Block](/docs/components/reka/code-block) components.
 
 :::::code-tabs
 
@@ -125,11 +125,11 @@ previewClass: h-auto
 | Exited with `0`          | none        | Ran pnpm build               |
 | Exited with another code | `"error"`   | pnpm lint exited with code 1 |
 
-The command is a tool call, so its states map the same way as in [Tool](/docs/ai-elements/tool#states).
+The command is a tool call, so its states map the same way as in [Tool](/docs/ai-elements/reka/tool#states).
 
 ## Open While Running
 
-Open the line once the first output arrives, so the output is visible while the command runs. Leave it open or closed after that, as in [Trace](/docs/components/trace#open-state).
+Open the line once the first output arrives, so the output is visible while the command runs. Leave it open or closed after that, as in [Trace](/docs/components/reka/trace#open-state).
 
 ## AI SDK
 
@@ -167,7 +167,7 @@ Migrate components/ai-elements/terminal/ from AI Elements Vue to the shadcn-vue 
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add trace code-block
-2. Read https://www.shadcn-vue.com/docs/ai-elements/terminal and build Terminal the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/terminal and build Terminal the same way.
 3. Rebuild each part:
    - Import CodeBlock and CodeBlockContent from @/components/ui/code-block, not from ../code-block.
    - Terminal renders a Trace with a TraceCollapsible. Keep output, isStreaming, autoScroll and the clear event.
@@ -183,4 +183,4 @@ Keep every export, with the same name and props, so the code that imports it kee
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

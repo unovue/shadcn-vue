@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-Checkpoint is a point in the conversation you can return to. It is a [Marker](/docs/components/marker) after a turn, with a Restore button. Restore keeps that turn and drops every message after it.
+Checkpoint is a point in the conversation you can return to. It is a [Marker](/docs/components/reka/marker) after a turn, with a Restore button. Restore keeps that turn and drops every message after it.
 
 ## Installation
 
-Checkpoint is built with the [Marker](/docs/components/marker) and [Button](/docs/components/button) components.
+Checkpoint is built with the [Marker](/docs/components/reka/marker) and [Button](/docs/components/reka/button) components.
 
 :::::code-tabs
 
@@ -80,7 +80,7 @@ Render a marker after the turn, with a button that restores it.
 </template>
 ```
 
-See [Marker](/docs/components/marker#separator).
+See [Marker](/docs/components/reka/marker#separator).
 
 ## AI SDK
 
@@ -119,7 +119,7 @@ Migrate components/ai-elements/checkpoint/ from AI Elements Vue to the shadcn-vu
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add marker button
-2. Read https://www.shadcn-vue.com/docs/ai-elements/checkpoint and build Checkpoint the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/checkpoint and build Checkpoint the same way.
 3. Rebuild each part:
    - Checkpoint renders a Marker with variant="separator" and a MarkerContent, instead of a Separator.
    - CheckpointIcon renders a MarkerIcon.

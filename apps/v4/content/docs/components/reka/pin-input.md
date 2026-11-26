@@ -9,7 +9,7 @@ links:
 
 <Callout title="The pin input component has been deprecated." class="mt-0">
 
-  See the [input otp](/docs/components/input-otp) documentation for more information.
+  See the [input otp](/docs/components/reka/input-otp) documentation for more information.
 
 </Callout>
 

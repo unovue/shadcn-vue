@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-File Tree is the files the agent changed, shown as folders you can open. A folder is a [Collapsible](/docs/components/collapsible). A file is a [Button](/docs/components/button). For a single file the agent read or edited, use a [Tool](/docs/ai-elements/tool) line instead.
+File Tree is the files the agent changed, shown as folders you can open. A folder is a [Collapsible](/docs/components/reka/collapsible). A file is a [Button](/docs/components/reka/button). For a single file the agent read or edited, use a [Tool](/docs/ai-elements/reka/tool) line instead.
 
 ## Installation
 
-File Tree is built with the [Collapsible](/docs/components/collapsible) and [Button](/docs/components/button) components.
+File Tree is built with the [Collapsible](/docs/components/reka/collapsible) and [Button](/docs/components/reka/button) components.
 
 :::::code-tabs
 
@@ -118,7 +118,7 @@ const emit = defineEmits<{ select: [path: string] }>()
 </template>
 ```
 
-See [Collapsible](/docs/components/collapsible).
+See [Collapsible](/docs/components/reka/collapsible).
 
 ## Migrating from AI Elements Vue
 
@@ -130,7 +130,7 @@ Migrate components/ai-elements/file-tree/ from AI Elements Vue to the shadcn-vue
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add collapsible button
-2. Read https://www.shadcn-vue.com/docs/ai-elements/file-tree and build File Tree the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/file-tree and build File Tree the same way.
 3. Rebuild each part:
    - FileTreeFolder renders a Collapsible. Its trigger is a CollapsibleTrigger with as-child around a Button with variant="ghost", size="sm" and class="w-full justify-start", and its children go in a CollapsibleContent.
    - FileTreeFile renders a Button with variant="ghost" and size="sm" that emits select with its path. If a file has FileTreeActions, render them next to the Button, not inside it.

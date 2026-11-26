@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-Suggestion is a prompt you send without typing. Each one is a [Button](/docs/components/button) with the prompt as its label. Put a row of them above the [Prompt Input](/docs/ai-elements/prompt-input).
+Suggestion is a prompt you send without typing. Each one is a [Button](/docs/components/reka/button) with the prompt as its label. Put a row of them above the [Prompt Input](/docs/ai-elements/reka/prompt-input).
 
 ## Installation
 
-Suggestion is built with the [Button](/docs/components/button) component.
+Suggestion is built with the [Button](/docs/components/reka/button) component.
 
 :::::code-tabs
 
@@ -100,7 +100,7 @@ Migrate components/ai-elements/suggestion/ from AI Elements Vue to the shadcn-vu
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Button: npx shadcn-vue@latest add button
-2. Read https://www.shadcn-vue.com/docs/ai-elements/suggestion and build Suggestion the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/suggestion and build Suggestion the same way.
 3. Rebuild each part:
    - Suggestions renders a div with class="flex scroll-fade-x scrollbar-none gap-2 overflow-x-auto overscroll-x-contain", instead of a ScrollArea. Change its props to a class prop and pass the slot through.
    - Suggestion renders a Button with variant="outline", size="sm" and class="shrink-0". Keep the click emit, called with the suggestion.

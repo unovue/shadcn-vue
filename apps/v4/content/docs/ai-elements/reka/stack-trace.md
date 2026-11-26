@@ -19,7 +19,7 @@ Stack Trace is built with `Trace` with a `TraceCollapsible` for the frames.
 
 ## Installation
 
-Stack Trace is built with the [Trace](/docs/components/trace) and [Code Block](/docs/components/code-block) components.
+Stack Trace is built with the [Trace](/docs/components/reka/trace) and [Code Block](/docs/components/reka/code-block) components.
 
 :::::code-tabs
 
@@ -161,7 +161,7 @@ const [error, ...frames] = part.errorText
 </template>
 ```
 
-Map the other tool states as in [Tool](/docs/ai-elements/tool#states).
+Map the other tool states as in [Tool](/docs/ai-elements/reka/tool#states).
 
 ## Migrating from AI Elements Vue
 
@@ -173,7 +173,7 @@ Migrate components/ai-elements/stack-trace/ from AI Elements Vue to the shadcn-v
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Trace: npx shadcn-vue@latest add trace
-2. Read https://www.shadcn-vue.com/docs/ai-elements/stack-trace and build Stack Trace the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/stack-trace and build Stack Trace the same way.
 3. Rebuild each part:
    - StackTrace renders a Trace with a TraceCollapsible. Keep trace, open, defaultOpen, the update:open and filePathClick events, and the parsing.
    - StackTraceHeader renders a TraceCollapsibleTrigger with a TraceLine with status="error" and a TraceIcon.
@@ -188,4 +188,4 @@ Keep every export, with the same name and props, so the code that imports it kee
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

@@ -19,7 +19,7 @@ Sources is built with `Trace` with a `TraceCollapsible` for the list.
 
 ## Installation
 
-Sources is built with the [Trace](/docs/components/trace) component.
+Sources is built with the [Trace](/docs/components/reka/trace) component.
 
 :::::code-tabs
 
@@ -160,7 +160,7 @@ Migrate components/ai-elements/sources/ from AI Elements Vue to the shadcn-vue T
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Trace: npx shadcn-vue@latest add trace
-2. Read https://www.shadcn-vue.com/docs/ai-elements/sources and build Sources the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/sources and build Sources the same way.
 3. Rebuild each part:
    - Sources.vue renders a Trace with a TraceCollapsible.
    - SourcesTrigger.vue renders a TraceCollapsibleTrigger with a TraceLine, a TraceIcon and a TraceTitle that uses count, like "Used 3 sources".
@@ -172,4 +172,4 @@ Keep every export, with the same name, props and emits, so the code that imports
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

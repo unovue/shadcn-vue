@@ -13,7 +13,7 @@ previewClass: h-auto theme-blue
 
 The `Bubble` component displays framed conversational content. Use it for chat text, short structured output, quoted replies, suggestions, and reactions.
 
-For full-featured chat interfaces, use the [`Message`](/docs/components/message) component. `Bubble` is intentionally scoped to the bubble surface. Place avatars, names, timestamps, metadata, and message-level actions in [`Message`](/docs/components/message).
+For full-featured chat interfaces, use the [`Message`](/docs/components/reka/message) component. `Bubble` is intentionally scoped to the bubble surface. Place avatars, names, timestamps, metadata, and message-level actions in [`Message`](/docs/components/reka/message).
 
 
 ## Installation
@@ -202,7 +202,7 @@ previewClass: h-auto theme-blue
 
 ### Show More / Collapsible
 
-Long bubble content can be composed with [`Collapsible`](/docs/components/collapsible) to allow for a show more or show less interaction. Use the `CollapsibleTrigger` component to trigger the collapsible content.
+Long bubble content can be composed with [`Collapsible`](/docs/components/reka/collapsible) to allow for a show more or show less interaction. Use the `CollapsibleTrigger` component to trigger the collapsible content.
 
 ::component-preview
 ---
@@ -213,7 +213,7 @@ previewClass: h-auto theme-blue
 
 ### Tooltip
 
-Wrap a bubble in a [`Tooltip`](/docs/components/tooltip) to reveal metadata on hover, such as when a message was read.
+Wrap a bubble in a [`Tooltip`](/docs/components/reka/tooltip) to reveal metadata on hover, such as when a message was read.
 
 ::component-preview
 ---
@@ -224,7 +224,7 @@ previewClass: h-auto theme-blue
 
 ### Popover
 
-Pair a bubble with a [`Popover`](/docs/components/popover) to surface more information on demand, such as the full error message for a failed action.
+Pair a bubble with a [`Popover`](/docs/components/reka/popover) to surface more information on demand, such as the full error message for a failed action.
 
 ::component-preview
 ---

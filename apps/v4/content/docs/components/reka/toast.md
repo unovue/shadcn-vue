@@ -9,7 +9,7 @@ links:
 
 <Callout title="The toast component has been deprecated." class="mt-0">
 
-  See the [sonner](/docs/components/sonner) documentation for more information.
+  See the [sonner](/docs/components/reka/sonner) documentation for more information.
 
 </Callout>
 

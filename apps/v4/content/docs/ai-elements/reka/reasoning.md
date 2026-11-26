@@ -19,7 +19,7 @@ Reasoning is built with `Trace` with a `TraceCollapsible` for the thinking.
 
 ## Installation
 
-Reasoning is built with the [Trace](/docs/components/trace) component.
+Reasoning is built with the [Trace](/docs/components/reka/trace) component.
 
 :::::code-tabs
 
@@ -126,7 +126,7 @@ previewClass: h-auto
 
 ## AI SDK
 
-Render each `reasoning` part as a line. It starts as a plain `TraceLine` and becomes a `TraceCollapsible` once text arrives, so there is nothing to open before the model has written anything. It opens while the model thinks and closes when it finishes. If the person opens or closes it, their choice wins. See [Open State](/docs/components/trace#open-state).
+Render each `reasoning` part as a line. It starts as a plain `TraceLine` and becomes a `TraceCollapsible` once text arrives, so there is nothing to open before the model has written anything. It opens while the model thinks and closes when it finishes. If the person opens or closes it, their choice wins. See [Open State](/docs/components/reka/trace#open-state).
 
 ```vue showLineNumbers title="components/ReasoningLine.vue"
 <script setup lang="ts">
@@ -199,7 +199,7 @@ Migrate components/ai-elements/reasoning/ from AI Elements Vue to the shadcn-vue
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Trace: npx shadcn-vue@latest add trace
-2. Read https://www.shadcn-vue.com/docs/ai-elements/reasoning and build Reasoning the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/reasoning and build Reasoning the same way.
 3. Rebuild each part:
    - Reasoning.vue renders a Trace with a TraceCollapsible. Keep isStreaming, open, defaultOpen, the update:open emit and duration, and the reasoning context it provides.
    - ReasoningTrigger.vue renders a TraceCollapsibleTrigger with a TraceLine, a TraceIcon and a TraceTitle. Set status="running" while isStreaming is true, instead of the Shimmer. The title reads "Thinking" while it streams, then the duration, like "Thought for 5s".
@@ -211,4 +211,4 @@ Keep every export, with the same name, props and emits, so the code that imports
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

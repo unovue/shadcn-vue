@@ -21,7 +21,7 @@ Task is built with `Trace` with a `TraceCollapsible` for each task.
 
 Both are a list of steps under a collapsible line. The difference is when the steps are known.
 
-Use [Plan](/docs/ai-elements/plan) when the agent decides the steps before it starts. Use Task when the steps come from the work itself, and the agent only knows the next one once it has taken the last.
+Use [Plan](/docs/ai-elements/reka/plan) when the agent decides the steps before it starts. Use Task when the steps come from the work itself, and the agent only knows the next one once it has taken the last.
 
 |               | Plan                                   | Task                                            |
 | ------------- | -------------------------------------- | ----------------------------------------------- |
@@ -32,7 +32,7 @@ Use [Plan](/docs/ai-elements/plan) when the agent decides the steps before it st
 
 ## Installation
 
-Task is built with the [Trace](/docs/components/trace) component.
+Task is built with the [Trace](/docs/components/reka/trace) component.
 
 :::::code-tabs
 
@@ -163,7 +163,7 @@ Migrate components/ai-elements/task/ from AI Elements Vue to the shadcn-vue Trac
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Trace: npx shadcn-vue@latest add trace
-2. Read https://www.shadcn-vue.com/docs/ai-elements/task and build Task the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/task and build Task the same way.
 3. Rebuild each part:
    - Task renders a Trace with a TraceCollapsible.
    - TaskTrigger renders a TraceCollapsibleTrigger with a TraceLine and a TraceTitle with title.
@@ -176,4 +176,4 @@ Keep every export, with the same name and props, so the code that imports it kee
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

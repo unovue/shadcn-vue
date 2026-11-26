@@ -19,7 +19,7 @@ Test Results is built with `Trace` with a `TraceCollapsible` for the run and for
 
 ## Installation
 
-Test Results is built with the [Trace](/docs/components/trace) and [Code Block](/docs/components/code-block) components.
+Test Results is built with the [Trace](/docs/components/reka/trace) and [Code Block](/docs/components/reka/code-block) components.
 
 :::::code-tabs
 
@@ -157,7 +157,7 @@ previewClass: h-auto
 
 ## AI SDK
 
-Run the tests as a tool and render its output. The tool states map the same way as in [Tool](/docs/ai-elements/tool#states).
+Run the tests as a tool and render its output. The tool states map the same way as in [Tool](/docs/ai-elements/reka/tool#states).
 
 ```vue showLineNumbers
 <script setup lang="ts">
@@ -192,7 +192,7 @@ Migrate components/ai-elements/test-results/ from AI Elements Vue to the shadcn-
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add trace code-block
-2. Read https://www.shadcn-vue.com/docs/ai-elements/test-results and build Test Results the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/test-results and build Test Results the same way.
 3. Rebuild each part:
    - Import CodeBlock and CodeBlockContent from @/components/ui/code-block, not from ../code-block.
    - TestResults renders a Trace with a TraceCollapsible. Keep summary.
@@ -208,4 +208,4 @@ Keep every export, with the same name and props, so the code that imports it kee
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

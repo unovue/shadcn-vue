@@ -19,7 +19,7 @@ Queue is built with `Trace` with a `TraceCollapsible` for each section.
 
 ## Installation
 
-Queue is built with the [Trace](/docs/components/trace) component.
+Queue is built with the [Trace](/docs/components/reka/trace) component.
 
 :::::code-tabs
 
@@ -194,7 +194,7 @@ Migrate components/ai-elements/queue/ from AI Elements Vue to the shadcn-vue Tra
 Keep every export, with the same name and props, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Trace: npx shadcn-vue@latest add trace
-2. Read https://www.shadcn-vue.com/docs/ai-elements/queue and build Queue the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/queue and build Queue the same way.
 3. Rebuild each part:
    - Queue renders a Trace.
    - QueueSection, QueueSectionTrigger and QueueSectionContent render TraceCollapsible, TraceCollapsibleTrigger and TraceCollapsibleContent.
@@ -208,4 +208,4 @@ Keep every export, with the same name and props, so the code that imports it kee
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

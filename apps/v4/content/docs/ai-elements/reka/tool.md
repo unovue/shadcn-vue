@@ -19,7 +19,7 @@ Tool is built with `Trace` with a `TraceCollapsible` for each call that has outp
 
 ## Installation
 
-Tool is built with the [Trace](/docs/components/trace) and [Code Block](/docs/components/code-block) components.
+Tool is built with the [Trace](/docs/components/reka/trace) and [Code Block](/docs/components/reka/code-block) components.
 
 :::::code-tabs
 
@@ -219,11 +219,11 @@ previewClass: h-auto
 ---
 ::
 
-See [Trace](/docs/components/trace#dialog).
+See [Trace](/docs/components/reka/trace#dialog).
 
 ## Approval
 
-A pending approval is a question for the person, not a step the agent took, so it sits outside `Trace` as an `Item`. Once the person answers, the tool goes back to being a line. See [Confirmation](/docs/ai-elements/confirmation).
+A pending approval is a question for the person, not a step the agent took, so it sits outside `Trace` as an `Item`. Once the person answers, the tool goes back to being a line. See [Confirmation](/docs/ai-elements/reka/confirmation).
 
 ::component-preview
 ---
@@ -273,7 +273,7 @@ Migrate components/ai-elements/tool/ from AI Elements Vue to the shadcn-vue Trac
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add trace code-block
-2. Read https://www.shadcn-vue.com/docs/ai-elements/tool and build Tool the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/tool and build Tool the same way.
 3. Rebuild each part:
    - Import CodeBlock and CodeBlockContent from @/components/ui/code-block, not from ../code-block.
    - Tool.vue renders a Trace with a TraceCollapsible.
@@ -287,4 +287,4 @@ Keep every export, with the same name, props and emits, so the code that imports
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

@@ -17,11 +17,11 @@ Plan is the list of steps the agent decides on before it starts, such as the ste
 
 Plan is built with `Trace` with a `TraceCollapsible` for the plan.
 
-When the steps are not known up front, use [Task](/docs/ai-elements/task#task-or-plan) instead.
+When the steps are not known up front, use [Task](/docs/ai-elements/reka/task#task-or-plan) instead.
 
 ## Installation
 
-Plan is built with the [Trace](/docs/components/trace) component.
+Plan is built with the [Trace](/docs/components/reka/trace) component.
 
 :::::code-tabs
 
@@ -168,7 +168,7 @@ Migrate components/ai-elements/plan/ from AI Elements Vue to the shadcn-vue Trac
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install Trace: npx shadcn-vue@latest add trace
-2. Read https://www.shadcn-vue.com/docs/ai-elements/plan and build Plan the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/plan and build Plan the same way.
 3. Rebuild each part:
    - Plan.vue renders a Trace with a TraceCollapsible, instead of a Card. Provide isStreaming to the other parts.
    - PlanHeader.vue renders a TraceCollapsibleTrigger with a TraceLine. Set status="running" on the TraceLine while isStreaming is true, instead of the Shimmer.
@@ -183,4 +183,4 @@ Keep every export, with the same name, props and emits, so the code that imports
 
 ## API Reference
 
-See [Trace](/docs/components/trace#api-reference).
+See [Trace](/docs/components/reka/trace#api-reference).

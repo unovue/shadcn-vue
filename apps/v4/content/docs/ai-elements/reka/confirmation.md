@@ -13,11 +13,11 @@ previewClass: h-auto
 ---
 ::
 
-Confirmation asks the person for a yes or no before a tool runs. The question is an [Item](/docs/components/item) with Deny and Approve buttons. Once the person answers, the call becomes a [Tool](/docs/ai-elements/tool) line.
+Confirmation asks the person for a yes or no before a tool runs. The question is an [Item](/docs/components/reka/item) with Deny and Approve buttons. Once the person answers, the call becomes a [Tool](/docs/ai-elements/reka/tool) line.
 
 ## Installation
 
-Confirmation is built with the [Item](/docs/components/item) and [Button](/docs/components/button) components.
+Confirmation is built with the [Item](/docs/components/reka/item) and [Button](/docs/components/reka/button) components.
 
 :::::code-tabs
 
@@ -122,7 +122,7 @@ const chat = new Chat({
 
 Approve streams the tool output. Deny streams `output-denied`. Either way, the part becomes a Tool line.
 
-See [Tool](/docs/ai-elements/tool#approval).
+See [Tool](/docs/ai-elements/reka/tool#approval).
 
 ## Migrating from AI Elements Vue
 
@@ -134,7 +134,7 @@ Migrate components/ai-elements/confirmation/ from AI Elements Vue to the shadcn-
 Keep every export, with the same name, props and emits, so the code that imports it keeps working. Only change how each part renders.
 
 1. Install the components: npx shadcn-vue@latest add item button
-2. Read https://www.shadcn-vue.com/docs/ai-elements/confirmation and build Confirmation the same way.
+2. Read https://www.shadcn-vue.com/docs/ai-elements/reka/confirmation and build Confirmation the same way.
 3. Rebuild each part:
    - Confirmation.vue renders an Item with variant="outline" and size="sm", instead of an Alert. Keep the approval and state props and the context they provide.
    - ConfirmationTitle.vue renders an ItemContent with an ItemTitle.

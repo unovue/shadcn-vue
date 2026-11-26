@@ -108,7 +108,7 @@ previewClass: h-auto theme-blue
 
 ### Status
 
-Set `role="status"` and include a [`Spinner`](/docs/components/spinner) for streaming or in-progress markers so updates are announced.
+Set `role="status"` and include a [`Spinner`](/docs/components/reka/spinner) for streaming or in-progress markers so updates are announced.
 
 ::component-preview
 ---
@@ -135,7 +135,7 @@ previewClass: h-auto theme-blue
 
 ### Separator
 
-Use the `separator` variant for labeled dividers, such as dates or section breaks, in a conversation. A [Checkpoint](/docs/ai-elements/checkpoint) is a separator with a button that restores the thread to that point.
+Use the `separator` variant for labeled dividers, such as dates or section breaks, in a conversation. A [Checkpoint](/docs/ai-elements/reka/checkpoint) is a separator with a button that restores the thread to that point.
 
 ::component-preview
 ---

@@ -7,7 +7,7 @@ component: true
 
 ::callout{title="We are not actively developing this component anymore."}
 
-The Form component is an abstraction over the `vee-validate` library. Going forward, we recommend using the [`<Field />`](/docs/components/field) component to build forms. See the [Form](/docs/forms) documentation for more information.
+The Form component is an abstraction over the `vee-validate` library. Going forward, we recommend using the [`<Field />`](/docs/components/reka/field) component to build forms. See the [Form](/docs/forms) documentation for more information.
 
 ::
 
@@ -173,7 +173,7 @@ The Form components do not require a schema library. If you follow the Zod examp
 npm install @vee-validate/zod@4.15.1 zod@^3.24.0
 ```
 
-`@vee-validate/zod@4.15.1` requires Zod 3 and does not support Zod 4. If your project already uses Zod 4, do not run this command: choose another supported validation approach or follow the newer [form guides](/docs/forms) using [Field](/docs/components/field).
+`@vee-validate/zod@4.15.1` requires Zod 3 and does not support Zod 4. If your project already uses Zod 4, do not run this command: choose another supported validation approach or follow the newer [form guides](/docs/forms) using [Field](/docs/components/reka/field).
 
 Zod 3 is covered by [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5). The version range above preserves compatibility with these examples; it does not fix that advisory. Removing the optional dependencies from the Form registry prevents their automatic installation, but does not remove or update dependencies already installed in your project.
 
