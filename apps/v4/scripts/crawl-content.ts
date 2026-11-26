@@ -18,6 +18,8 @@ const BLOCK_TITLE_MAP: Record<string, string> = {
 // [Dependency, [...PeerDependencies]]
 const DEPENDENCIES = new Map<string, string[]>([
   ['reka-ui', []],
+  ['@vase-ui/vue', []],
+  ['temporal-polyfill', []],
   ['@vueuse/core', []],
   ['vue-sonner', []],
   ['@tanstack/vue-table', []],
@@ -35,6 +37,7 @@ const DEPENDENCIES = new Map<string, string[]>([
 const REGISTRY_DEPENDENCY = '@/'
 const INTERNAL_REGISTRY_DEPENDENCY_SOURCES = new Set([
   '@/registry/bases/reka/components/icon-placeholder',
+  '@/registry/bases/vase/components/icon-placeholder',
 ])
 
 function sanitizeString(input: string): string {
@@ -469,9 +472,16 @@ async function getFileDependencies(filename: string, sourceCode: string) {
     if (parsed.descriptor.script?.content || parsed.descriptor.scriptSetup?.content) {
       const compiled = compileScript(parsed.descriptor, { id: 'id' })
 
-      Object.values(compiled.imports!).forEach((value) => {
+      Object.values(compiled.imports ?? {}).forEach((value) => {
         populateDeps(value.source)
       })
+
+      // A bare import such as `import 'temporal-polyfill/global'` binds no
+      // name, so `compiled.imports` leaves it out.
+      for (const node of [...(compiled.scriptAst ?? []), ...(compiled.scriptSetupAst ?? [])]) {
+        if (node.type === 'ImportDeclaration' && node.specifiers.length === 0)
+          populateDeps(node.source.value)
+      }
     }
   }
 
