@@ -13,6 +13,10 @@ function findDemo<T>(files: Record<string, T>, name: string, base?: string) {
   return file
 }
 
+export function hasBaseDemo(name: string, base?: string) {
+  return Boolean(base && demos[`/components/demo/${base}/${name}.vue`])
+}
+
 export function loadDemo(name: string, base?: string) {
   return findDemo(demos, name, base)()
 }

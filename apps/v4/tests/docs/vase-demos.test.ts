@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { loadDemoSource } from '@/lib/docs-demos'
+import { hasBaseDemo, loadDemoSource } from '@/lib/docs-demos'
 
 const SECTIONS = ['components', 'ai-elements']
 
@@ -29,6 +29,12 @@ const pages = SECTIONS.flatMap((section) => {
 describe('the demos of the vase pages', () => {
   it('has pages to check', () => {
     expect(pages.length).toBeGreaterThan(0)
+  })
+
+  it('finds the demo that a base has of its own', () => {
+    expect(hasBaseDemo('AccordionDemo', 'vase')).toBe(true)
+    expect(hasBaseDemo('AccordionDemo', 'reka')).toBe(false)
+    expect(hasBaseDemo('AccordionDemo')).toBe(false)
   })
 
   it.each(pages)('$page names demos that import no reka module', async ({ path }) => {

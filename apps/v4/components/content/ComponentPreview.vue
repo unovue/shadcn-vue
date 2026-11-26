@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { parseDocsPage } from '@/lib/docs-base'
-import { loadDemo } from '@/lib/docs-demos'
+import { hasBaseDemo, loadDemo } from '@/lib/docs-demos'
 
 const props = defineProps<{
   name: string
@@ -20,7 +20,7 @@ const Component = props.type === 'block'
   ? defineAsyncComponent({
       loader: () => import(`@/registry/new-york-v4/blocks/${props.name}/page.vue`),
     })
-  : props.name.toLowerCase().includes('chart') && !props.name.toLocaleLowerCase().includes('demo')
+  : props.name.toLowerCase().includes('chart') && !props.name.toLocaleLowerCase().includes('demo') && !hasBaseDemo(props.name, base)
     ? defineAsyncComponent({
         loader: () => import(`@/registry/new-york-v4/charts/${props.name}.vue`),
       })
