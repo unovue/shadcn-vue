@@ -79,6 +79,8 @@ pnpm dev
 
 Documentation is written using [md](https://content.nuxt.com/). You can find the documentation files in the `apps/v4/content` directory.
 
+The component and AI Elements pages live in one folder for each base: `apps/v4/content/docs/components/<base>/` and `apps/v4/content/docs/ai-elements/<base>/`, where `<base>` is `reka` or `vase`. A page of a base links to the pages of the same base, like `/docs/components/reka/button`. The demos are shared by the bases and live in `apps/v4/components/demo`. A demo that differs for a base is the file with the same name in `apps/v4/components/demo/<base>`.
+
 ## Components
 
 We use a registry system for developing components. You can find the source code for the components under `apps/v4/registry`. The components are organized by styles.
