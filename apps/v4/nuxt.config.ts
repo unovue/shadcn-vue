@@ -92,7 +92,7 @@ export default defineNuxtConfig({
         'class-variance-authority',
         'cn',
         'reka-ui',
-        'temporal-polyfill/global',
+        'temporal-polyfill/full/global',
         'temporal-polyfill/shim',
       ],
     },

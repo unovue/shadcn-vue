@@ -1,3 +1,3 @@
-import 'temporal-polyfill/global'
+import 'temporal-polyfill/full/global'
 
 export default defineNuxtPlugin(() => {})
