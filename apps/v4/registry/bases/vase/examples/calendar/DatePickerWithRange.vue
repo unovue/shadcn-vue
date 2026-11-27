@@ -2,6 +2,7 @@
 import type { RangeCalendarRootValue } from "@vase-ui/vue/range-calendar"
 import { ref } from "vue"
 import IconPlaceholder from "@/components/IconPlaceholder.vue"
+import { installTemporal } from "@/registry/bases/vase/lib/temporal"
 import { Button } from "@/registry/bases/vase/ui/button"
 import { Field, FieldLabel } from "@/registry/bases/vase/ui/field"
 import {
@@ -11,6 +12,8 @@ import {
 } from "@/registry/bases/vase/ui/popover"
 import { RangeCalendar } from "@/registry/bases/vase/ui/range-calendar"
 import { Example } from "~/registry/bases/vase/components/example"
+
+installTemporal()
 
 const date = ref<RangeCalendarRootValue>([
   new Temporal.PlainDate(new Date().getFullYear(), 1, 20),

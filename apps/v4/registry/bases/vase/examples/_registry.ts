@@ -461,6 +461,7 @@ export const examples: Registry["items"] = [
       },
     ],
     registryDependencies: [
+      "temporal",
       "calendar",
       "card",
       "range-calendar",
@@ -1787,6 +1788,7 @@ export const examples: Registry["items"] = [
       },
     ],
     registryDependencies: [
+      "temporal",
       "range-calendar",
     ],
     dependencies: [

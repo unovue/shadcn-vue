@@ -365,9 +365,9 @@ export const ui: Registry["items"] = [
       "@vase-ui/vue",
       "@vueuse/core",
       "cn",
-      "temporal-polyfill",
     ],
     registryDependencies: [
+      "temporal",
       "native-select",
       "button",
     ],
@@ -1904,9 +1904,9 @@ export const ui: Registry["items"] = [
     dependencies: [
       "@vase-ui/vue",
       "cn",
-      "temporal-polyfill",
     ],
     registryDependencies: [
+      "temporal",
       "button",
     ],
     files: [

@@ -92,6 +92,7 @@ export default defineNuxtConfig({
         'cn',
         'reka-ui',
         'temporal-polyfill/global',
+        'temporal-polyfill/shim',
       ],
     },
     plugins: [tailwindcss() as any],

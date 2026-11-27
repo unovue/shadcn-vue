@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref } from "vue"
+import { installTemporal } from "@/registry/bases/vase/lib/temporal"
 import { Calendar } from "@/registry/bases/vase/ui/calendar"
 import { Card, CardContent } from "@/registry/bases/vase/ui/card"
 import { Example } from "~/registry/bases/vase/components/example"
+
+installTemporal()
 
 const date = ref(
   new Temporal.PlainDate(

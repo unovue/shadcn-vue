@@ -348,6 +348,7 @@ export const blocks: Registry["items"] = [
       "sidebar",
       "combobox",
       "spinner",
+      "temporal",
       "calendar",
     ],
     files: [

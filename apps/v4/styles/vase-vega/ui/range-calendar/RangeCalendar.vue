@@ -4,8 +4,8 @@ import type { HTMLAttributes } from 'vue'
 import { Calendar } from '@vase-ui/vue/calendar'
 import { RangeCalendar } from '@vase-ui/vue/range-calendar'
 import { cn } from 'cn'
+import { installTemporal } from '@/registry/bases/vase/lib/temporal'
 import { RangeCalendarCell, RangeCalendarCellTrigger, RangeCalendarGrid, RangeCalendarGridBody, RangeCalendarGridHead, RangeCalendarGridRow, RangeCalendarHeadCell, RangeCalendarHeader, RangeCalendarHeading, RangeCalendarNextButton, RangeCalendarPrevButton } from '.'
-import 'temporal-polyfill/global'
 
 interface Props extends /* @vue-ignore */ RangeCalendarRootProps<Value> {
   class?: HTMLAttributes['class']
@@ -21,6 +21,8 @@ const props = withDefaults(defineProps<Props>(), {
   showOutsideDays: true,
 })
 defineEmits<Emits>()
+
+installTemporal()
 </script>
 
 <template>

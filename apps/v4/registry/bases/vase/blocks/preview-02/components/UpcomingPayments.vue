@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
+import { installTemporal } from "@/registry/bases/vase/lib/temporal"
 import { Badge } from "@/registry/bases/vase/ui/badge"
 import { Calendar } from "@/registry/bases/vase/ui/calendar"
 import {
@@ -16,6 +17,8 @@ import {
   ItemGroup,
   ItemTitle,
 } from "@/registry/bases/vase/ui/item"
+
+installTemporal()
 
 const today = new Date()
 const date = ref(new Temporal.PlainDate(today.getFullYear(), today.getMonth() + 1, today.getDate()))

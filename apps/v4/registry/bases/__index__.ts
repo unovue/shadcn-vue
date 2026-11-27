@@ -6827,7 +6827,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["native-select","button"],
+      registryDependencies: ["temporal","native-select","button"],
       files: [
             {
                   "path": "registry/bases/vase/ui/calendar/Calendar.vue",
@@ -8653,7 +8653,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["button"],
+      registryDependencies: ["temporal","button"],
       files: [
             {
                   "path": "registry/bases/vase/ui/range-calendar/RangeCalendar.vue",
@@ -9779,7 +9779,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "undefined",
       description: "",
       type: "registry:block",
-      registryDependencies: ["button","card","field","input","item","badge","separator","chart","input-group","toggle-group","label","empty","accordion","tabs","slider","switch","skeleton","checkbox","breadcrumb","dropdown-menu","select","textarea","progress","radio-group","table","native-select","sidebar","combobox","spinner","calendar"],
+      registryDependencies: ["button","card","field","input","item","badge","separator","chart","input-group","toggle-group","label","empty","accordion","tabs","slider","switch","skeleton","checkbox","breadcrumb","dropdown-menu","select","textarea","progress","radio-group","table","native-select","sidebar","combobox","spinner","temporal","calendar"],
       files: [
             {
                   "path": "registry/bases/vase/blocks/preview-02/page.vue",
@@ -10425,7 +10425,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Calendar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["calendar","card","range-calendar","example","button","field","input-group","popover"],
+      registryDependencies: ["temporal","calendar","card","range-calendar","example","button","field","input-group","popover"],
       files: [
             {
                   "path": "registry/bases/vase/examples/calendar/CalendarBookedDates.vue",
@@ -11877,7 +11877,7 @@ export const Index: Record<string, Record<string, any>> = {
       title: "Range Calendar",
       description: "",
       type: "registry:example",
-      registryDependencies: ["range-calendar"],
+      registryDependencies: ["temporal","range-calendar"],
       files: [
             {
                   "path": "registry/bases/vase/examples/range-calendar/RangeCalendarBasic.vue",
@@ -12762,6 +12762,22 @@ export const Index: Record<string, Record<string, any>> = {
             {
                   "path": "registry/bases/vase/examples/trace/TraceTurn.vue",
                   "type": "registry:example",
+                  "target": ""
+            }
+      ],
+      categories: undefined,
+      meta: undefined,
+    },
+    "temporal": {
+      name: "temporal",
+      title: "undefined",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: [],
+      files: [
+            {
+                  "path": "registry/bases/vase/lib/temporal.ts",
+                  "type": "registry:lib",
                   "target": ""
             }
       ],

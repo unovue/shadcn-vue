@@ -68,10 +68,10 @@ export async function buildBaseStyles(base: RegistryBase, cwd = process.cwd()) {
   const sourceUiDir = path.join('registry', base.path, 'ui')
   const sourceUiAbs = path.resolve(cwd, sourceUiDir)
 
-  // Internal import prefix that points at the source-of-truth components.
-  // Per-style outputs must reference their own sibling files instead of the
-  // shared base, so we rewrite this prefix to `@/styles/<base>-{style}/` below.
-  const sourceImportPrefix = `@/registry/${base.path}/`
+  // Internal import prefix for UI components copied into each style.
+  // Other shared base folders (such as `lib/`) are not copied, so they keep
+  // their shared path.
+  const sourceImportPrefix = `@/registry/${base.path}/ui/`
 
   const sourceFiles = await walkFiles(sourceUiAbs)
 
@@ -93,7 +93,7 @@ export async function buildBaseStyles(base: RegistryBase, cwd = process.cwd()) {
     await rimraf(outDir)
     await fs.mkdir(outDir, { recursive: true })
 
-    const targetImportPrefix = `@/${OUTPUT_BASE_DIR}/${base.name}-${style.name}/`
+    const targetImportPrefix = `@/${OUTPUT_BASE_DIR}/${base.name}-${style.name}/ui/`
 
     let transformedFiles = 0
     let totalReplacements = 0
@@ -128,7 +128,7 @@ export async function buildBaseStyles(base: RegistryBase, cwd = process.cwd()) {
         outContent = source
       }
 
-      // Rewrite internal references from the shared base to this style's
+      // Rewrite internal UI references from the shared base to this style's
       // own directory so generated files are self-contained.
       if (outContent.includes(sourceImportPrefix)) {
         outContent = outContent.split(sourceImportPrefix).join(targetImportPrefix)

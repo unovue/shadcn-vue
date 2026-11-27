@@ -386,10 +386,10 @@
       "dependencies": [
         "@vase-ui/vue",
         "@vueuse/core",
-        "cn",
-        "temporal-polyfill"
+        "cn"
       ],
       "registryDependencies": [
+        "temporal",
         "native-select",
         "button"
       ],
@@ -1925,10 +1925,10 @@
       "type": "registry:ui",
       "dependencies": [
         "@vase-ui/vue",
-        "cn",
-        "temporal-polyfill"
+        "cn"
       ],
       "registryDependencies": [
+        "temporal",
         "button"
       ],
       "files": [
@@ -2666,6 +2666,20 @@
           "path": "styles/vase-rhea/ui/trace/index.ts",
           "type": "registry:ui"
         }
+      ]
+    },
+    {
+      "name": "temporal",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "registry/bases/vase/lib/temporal.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "registryDependencies": [],
+      "dependencies": [
+        "temporal-polyfill"
       ]
     },
     {

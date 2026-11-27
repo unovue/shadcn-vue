@@ -29,6 +29,7 @@ try {
     await writeFile(path.join(uiDir, 'button/Button.vue'), [
       '<script setup lang="ts">',
       `import { Spinner } from "@/registry/bases/${name}/ui/spinner"`,
+      `import { helper } from "@/registry/bases/${name}/lib/helper"`,
       '</script>',
       '',
       '<template>',
@@ -56,7 +57,8 @@ try {
       assert.ok(output.includes(`${style.name}-box`), `${name}-${style.name} expands cn-button`)
       assert.ok(!output.includes('cn-button'), `${name}-${style.name} drops the cn-button token`)
       assert.ok(output.includes(`@/styles/${name}-${style.name}/ui/spinner`), `${name}-${style.name} imports its own files`)
-      assert.ok(!output.includes('@/registry/bases/'), `${name}-${style.name} keeps no import from the shared base`)
+      assert.ok(!output.includes(`@/registry/bases/${name}/ui`), `${name}-${style.name} keeps no import of the shared ui`)
+      assert.ok(output.includes(`@/registry/bases/${name}/lib/helper`), `${name}-${style.name} keeps the import of the shared lib`)
       assert.deepEqual(await readdir(outDir), ['button'], `${name}-${style.name} skips _registry.ts`)
     }
   }

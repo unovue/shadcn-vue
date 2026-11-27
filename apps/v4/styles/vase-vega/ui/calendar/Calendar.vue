@@ -6,9 +6,9 @@ import { Calendar } from '@vase-ui/vue/calendar'
 import { createReusableTemplate } from '@vueuse/core'
 import { cn } from 'cn'
 import { computed, useSlots } from 'vue'
+import { installTemporal } from '@/registry/bases/vase/lib/temporal'
 import { NativeSelect, NativeSelectOption } from '@/styles/vase-vega/ui/native-select'
 import { CalendarCell, CalendarCellTrigger, CalendarGrid, CalendarGridBody, CalendarGridHead, CalendarGridRow, CalendarHeadCell, CalendarHeader, CalendarHeading, CalendarNextButton, CalendarPrevButton } from '.'
-import 'temporal-polyfill/global'
 
 interface Props extends /* @vue-ignore */ CalendarRootProps<Value, Multiple> {
   class?: HTMLAttributes['class']
@@ -28,6 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
   showWeekNumber: false,
 })
 defineEmits<Emits>()
+
+installTemporal()
 
 const slots = useSlots()
 const hasHeading = computed(() => !!props.layout || !!slots['calendar-heading'])
