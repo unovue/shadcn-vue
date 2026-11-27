@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <div
     data-slot="code-block-title"
-    :class="cn('font-sans text-xs font-medium text-foreground group-data-[variant=destructive]/code-block:text-destructive *:[svg]:me-1.5 [&_svg:not([class*=\'size-\'])]:size-3.5 min-w-0 truncate [&_svg]:pointer-events-none [&_svg]:inline-block [&_svg]:align-middle', props.class)"
+    :class="cn('font-sans text-xs font-medium text-foreground group-data-[variant=destructive]/code-block:text-destructive *:[svg]:me-1.5 [&_svg:not([class*=size-])]:size-3.5 min-w-0 truncate [&_svg]:pointer-events-none [&_svg]:inline-block [&_svg]:align-middle', props.class)"
   >
     <slot />
   </div>

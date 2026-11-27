@@ -31,7 +31,7 @@ export const attachmentVariants = cva(
 export type AttachmentVariants = VariantProps<typeof attachmentVariants>
 
 export const attachmentMediaVariants = cva(
-  'bg-muted text-foreground w-10 rounded-2xl group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-xl [&_svg:not([class*=\'size-\'])]:size-4 group-data-[size=xs]/attachment:[&_svg:not([class*=\'size-\'])]:size-3.5 group-data-[orientation=vertical]/attachment:w-full group-data-[orientation=vertical]/attachment:[&_svg:not([class*=\'size-\'])]:size-6 group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6! relative flex aspect-square shrink-0 items-center justify-center overflow-hidden group-data-[state=error]/attachment:bg-destructive/10 group-data-[state=error]/attachment:text-destructive [&_svg]:pointer-events-none',
+  'bg-muted text-foreground w-10 rounded-2xl group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-xl [&_svg:not([class*=size-])]:size-4 group-data-[size=xs]/attachment:[&_svg:not([class*=size-])]:size-3.5 group-data-[orientation=vertical]/attachment:w-full group-data-[orientation=vertical]/attachment:[&_svg:not([class*=size-])]:size-6 group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6! relative flex aspect-square shrink-0 items-center justify-center overflow-hidden group-data-[state=error]/attachment:bg-destructive/10 group-data-[state=error]/attachment:text-destructive [&_svg]:pointer-events-none',
   {
     variants: {
       variant: {

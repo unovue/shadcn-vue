@@ -30,7 +30,7 @@ import {
       <BreadcrumbItem>
         <DropdownMenu>
           <DropdownMenuTrigger
-            class="flex items-center gap-1 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-3.5"
+            class="flex items-center gap-1 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5"
           >
             Components
             <ChevronDownIcon />
