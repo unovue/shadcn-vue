@@ -58,12 +58,13 @@ import { Label } from '@/registry/new-york-v4/ui/label'
         <Input
           id="email-create-account"
           type="email"
+          autocomplete="email"
           placeholder="m@example.com"
         />
       </div>
       <div class="flex flex-col gap-3">
         <Label for="password-create-account">Password</Label>
-        <Input id="password-create-account" type="password" />
+        <Input id="password-create-account" type="password" autocomplete="new-password" />
       </div>
     </CardContent>
     <CardFooter>

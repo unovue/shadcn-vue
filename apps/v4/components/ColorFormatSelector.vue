@@ -30,6 +30,7 @@ const formats = computed(() => getColorFormat(props.color))
   <Select v-else :model-value="format" @update:model-value="setFormat($event as ColorFormat)">
     <SelectTrigger
       size="sm"
+      aria-label="Color format"
       :class="cn(
         'bg-secondary text-secondary-foreground border-secondary shadow-none',
         props.class,

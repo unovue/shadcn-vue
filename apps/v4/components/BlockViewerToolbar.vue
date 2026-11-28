@@ -76,7 +76,7 @@ const { copy, copied } = useClipboard()
           >
             <NuxtLink :to="`/view/${item.name}`" target="_blank">
               <span class="sr-only">Open in New Tab</span>
-              <Fullscreen />
+              <Fullscreen aria-hidden="true" />
             </NuxtLink>
           </Button>
           <Separator orientation="vertical" class="!h-4" />
@@ -91,7 +91,7 @@ const { copy, copied } = useClipboard()
                 iframeKey += 1
             }"
           >
-            <RotateCw />
+            <RotateCw aria-hidden="true" />
             <span class="sr-only">Refresh Preview</span>
           </Button>
         </ToggleGroup>
@@ -106,8 +106,8 @@ const { copy, copied } = useClipboard()
 
         }"
       >
-        <Check v-if="copied" />
-        <Terminal v-else />
+        <Check v-if="copied" aria-hidden="true" />
+        <Terminal v-else aria-hidden="true" />
         <span>npx shadcn-vue add {{ item.name }}</span>
       </Button>
     </div>

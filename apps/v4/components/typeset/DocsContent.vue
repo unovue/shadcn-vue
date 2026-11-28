@@ -182,8 +182,8 @@ const { copy: copyPrompt, copied: copiedPrompt } = useClipboard({ copiedDuring: 
             :disabled="!rawCss"
             @click="rawCss && copyCss(rawCss)"
           >
-            <CheckIcon v-if="copiedCss" data-icon="inline-start" />
-            <CopyIcon v-else data-icon="inline-start" />
+            <CheckIcon v-if="copiedCss" data-icon="inline-start" aria-hidden="true" />
+            <CopyIcon v-else data-icon="inline-start" aria-hidden="true" />
             Copy typeset.css
           </Button>
           <TypesetDocsCode :code="importSnippet" />
@@ -243,8 +243,8 @@ const { copy: copyPrompt, copied: copiedPrompt } = useClipboard({ copiedDuring: 
         </p>
         <TypesetDocsCode :code="prompt" class="max-h-102 scroll-fade overflow-y-auto whitespace-pre-wrap" />
         <Button variant="outline" size="sm" class="w-fit" @click="copyPrompt(prompt)">
-          <CheckIcon v-if="copiedPrompt" data-icon="inline-start" />
-          <CopyIcon v-else data-icon="inline-start" />
+          <CheckIcon v-if="copiedPrompt" data-icon="inline-start" aria-hidden="true" />
+          <CopyIcon v-else data-icon="inline-start" aria-hidden="true" />
           Copy Prompt
         </Button>
       </TabsContent>

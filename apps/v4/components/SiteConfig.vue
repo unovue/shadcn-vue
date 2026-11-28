@@ -27,6 +27,6 @@ function setLayout() {
     @click="setLayout()"
   >
     <span class="sr-only">Toggle layout</span>
-    <GalleryHorizontalIcon />
+    <GalleryHorizontalIcon aria-hidden="true" />
   </Button>
 </template>

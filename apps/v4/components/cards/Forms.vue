@@ -113,11 +113,11 @@ const themeStyles = computed(() => {
         <div class="flex flex-col gap-3 md:flex-row">
           <div class="flex flex-1 flex-col gap-2">
             <Label for="name">Name</Label>
-            <Input id="name" placeholder="Evil Rabbit" />
+            <Input id="name" placeholder="Evil Rabbit" autocomplete="name" />
           </div>
           <div class="flex flex-1 flex-col gap-2">
             <Label for="email">Email</Label>
-            <Input id="email" placeholder="example@acme.com" />
+            <Input id="email" placeholder="example@acme.com" autocomplete="email" />
           </div>
         </div>
         <div class="flex flex-col gap-2">
@@ -126,10 +126,11 @@ const themeStyles = computed(() => {
             <Input
               id="card-number"
               placeholder="1234 1234 1234 1234"
+              autocomplete="cc-number"
               class="col-span-2 md:col-span-1"
             />
-            <Input id="card-number-expiry" placeholder="MM/YY" />
-            <Input id="card-number-cvc" placeholder="CVC" />
+            <Input id="card-number-expiry" placeholder="MM/YY" autocomplete="cc-exp" />
+            <Input id="card-number-cvc" placeholder="CVC" autocomplete="cc-csc" />
           </div>
         </div>
         <fieldset class="flex flex-col gap-3">
