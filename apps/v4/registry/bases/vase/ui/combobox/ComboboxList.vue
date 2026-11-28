@@ -47,7 +47,7 @@ function onBeforeLeave(el: Element) {
         <Combobox.Popup
           data-slot="combobox-content"
           v-bind="$attrs"
-          :class="cn('cn-combobox-content cn-combobox-content-logical cn-menu-target cn-menu-translucent group/combobox-content relative z-50 max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] origin-(--transform-origin)', props.class)"
+          :class="cn('cn-combobox-content cn-combobox-content-logical cn-menu-target cn-menu-translucent group/combobox-content relative z-50 max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-(--anchor-width) origin-(--transform-origin)', props.class)"
         >
           <slot />
         </Combobox.Popup>
