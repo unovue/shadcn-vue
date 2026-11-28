@@ -6,7 +6,7 @@ export { default as ButtonGroupSeparator } from "./ButtonGroupSeparator.vue"
 export { default as ButtonGroupText } from "./ButtonGroupText.vue"
 
 export const buttonGroupVariants = cva(
-  "cn-button-group flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
+  "cn-button-group flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 [&>[data-slot=select-trigger]:not([class*=w-])]:w-fit [&>input]:flex-1",
   {
     variants: {
       orientation: {

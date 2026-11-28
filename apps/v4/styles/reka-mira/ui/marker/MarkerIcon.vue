@@ -13,7 +13,7 @@ const props = defineProps<Props>()
   <span
     data-slot="marker-icon"
     aria-hidden="true"
-    :class="cn('size-3.5 [&_svg:not([class*=\'size-\'])]:size-3.5 shrink-0', props.class)"
+    :class="cn('size-3.5 [&_svg:not([class*=size-])]:size-3.5 shrink-0', props.class)"
   >
     <slot />
   </span>

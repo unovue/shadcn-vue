@@ -1450,7 +1450,7 @@
   }
 
   .cn-attachment-media {
-    @apply bg-muted text-foreground w-10 rounded-2xl group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-xl [&_svg:not([class*='size-'])]:size-4 group-data-[size=xs]/attachment:[&_svg:not([class*='size-'])]:size-3.5 group-data-[orientation=vertical]/attachment:w-full group-data-[orientation=vertical]/attachment:[&_svg:not([class*='size-'])]:size-6 group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6!;
+    @apply bg-muted text-foreground w-10 rounded-2xl group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-xl [&_svg:not([class*=size-])]:size-4 group-data-[size=xs]/attachment:[&_svg:not([class*=size-])]:size-3.5 group-data-[orientation=vertical]/attachment:w-full group-data-[orientation=vertical]/attachment:[&_svg:not([class*=size-])]:size-6 group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6!;
   }
 
   .cn-attachment-media-variant-image {
@@ -1483,7 +1483,7 @@
 
    /* MARK: Marker */
   .cn-marker {
-    @apply gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*='size-'])]:size-4 min-h-4 text-left;
+    @apply gap-2 text-sm text-muted-foreground [a]:hover:text-foreground [a]:underline-offset-3 [a]:underline [&_svg:not([class*=size-])]:size-4 min-h-4 text-left;
   }
 
   .cn-marker-variant-separator {
@@ -1495,7 +1495,7 @@
   }
 
   .cn-marker-icon {
-    @apply size-4 [&_svg:not([class*='size-'])]:size-4;
+    @apply size-4 [&_svg:not([class*=size-])]:size-4;
   }
 
   .cn-marker-content {
@@ -1516,7 +1516,7 @@
   }
 
   .cn-trace-icon {
-    @apply size-4 [&_svg:not([class*='size-'])]:size-4 [[data-slot=trace-title]~&]:-ml-1;
+    @apply size-4 [&_svg:not([class*=size-])]:size-4 [[data-slot=trace-title]~&]:-ml-1;
   }
 
   .cn-trace-collapsible-content {
@@ -1549,7 +1549,7 @@
   }
 
   .cn-code-block-title {
-    @apply font-sans text-sm font-medium text-foreground group-data-[variant=destructive]/code-block:text-destructive *:[svg]:me-1.5 [&_svg:not([class*='size-'])]:size-4 group-data-[size=sm]/code-block:text-xs group-data-[size=sm]/code-block:[&_svg:not([class*='size-'])]:size-3.5;
+    @apply font-sans text-sm font-medium text-foreground group-data-[variant=destructive]/code-block:text-destructive *:[svg]:me-1.5 [&_svg:not([class*=size-])]:size-4 group-data-[size=sm]/code-block:text-xs group-data-[size=sm]/code-block:[&_svg:not([class*=size-])]:size-3.5;
   }
 
   .cn-code-block-actions {

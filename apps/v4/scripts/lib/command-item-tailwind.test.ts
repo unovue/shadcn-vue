@@ -9,27 +9,40 @@ const require = createRequire(import.meta.url)
 const viteRequire = createRequire(require.resolve('@tailwindcss/vite'))
 const { Scanner } = viteRequire('@tailwindcss/oxide')
 
-const uiRegistryPath = fileURLToPath(
-  new URL('../../registry/new-york-v4/ui/', import.meta.url),
-)
-const vueFiles = (await readdir(uiRegistryPath, { recursive: true }))
-  .filter(relativePath => relativePath.endsWith('.vue'))
-  .sort()
+const appRoot = fileURLToPath(new URL('../../', import.meta.url))
+const generatedStyles = (await readdir(join(appRoot, 'styles'), { withFileTypes: true }))
+  .filter(entry => entry.isDirectory())
+  .map(entry => `styles/${entry.name}/ui`)
+
+// Hand-written registry sources plus the per-style output of `registry:build`,
+// which is what the CLI installs into user projects.
+const uiDirectories = [
+  'registry/new-york-v4/ui',
+  'registry/bases/reka/ui',
+  ...generatedStyles,
+]
 
 const invalidCandidates: string[] = []
 const extractedCandidates = new Set<string>()
 
-for (const relativePath of vueFiles) {
-  const source = await readFile(join(uiRegistryPath, relativePath), 'utf8')
-  const candidates: string[] = new Scanner({ sources: [] }).scanFiles([
-    { content: source, extension: 'vue' },
-  ])
+for (const uiDirectory of uiDirectories) {
+  const uiPath = join(appRoot, uiDirectory)
+  const files = (await readdir(uiPath, { recursive: true }))
+    .filter(relativePath => /\.(?:vue|ts)$/.test(relativePath))
+    .sort()
 
-  for (const candidate of candidates) {
-    extractedCandidates.add(candidate)
+  for (const relativePath of files) {
+    const source = await readFile(join(uiPath, relativePath), 'utf8')
+    const candidates: string[] = new Scanner({ sources: [] }).scanFiles([
+      { content: source, extension: relativePath.endsWith('.vue') ? 'vue' : 'ts' },
+    ])
 
-    if (/class\*=\\'(?:text|size)-\\'/.test(candidate))
-      invalidCandidates.push(`${relativePath}: ${candidate}`)
+    for (const candidate of candidates) {
+      extractedCandidates.add(candidate)
+
+      if (/class\*=\\'/.test(candidate))
+        invalidCandidates.push(`${uiDirectory}/${relativePath}: ${candidate}`)
+    }
   }
 }
 
