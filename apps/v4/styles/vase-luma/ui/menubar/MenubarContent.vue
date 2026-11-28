@@ -47,7 +47,12 @@ function onBeforeLeave(el: Element) {
         <Menu.Popup
           data-slot="menubar-content"
           v-bind="$attrs"
-          :class="cn('bg-popover text-popover-foreground data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/5 dark:ring-foreground/10 min-w-48 rounded-3xl p-1.5 shadow-lg ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent z-50 origin-(--transform-origin) overflow-hidden', props.class)"
+          :class="cn(
+            'bg-popover text-popover-foreground data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/5 dark:ring-foreground/10 min-w-48 rounded-3xl p-1.5 shadow-lg ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent z-50 origin-(--transform-origin) overflow-hidden',
+            // Vase UI sets data-instant at a move between menus. Vue keeps a leaving popup until its transition ends. Hide that popup at once, and give the popups a duration of 0.
+            'data-instant:duration-0 data-instant:data-closed:hidden',
+            props.class,
+          )"
         >
           <slot />
         </Menu.Popup>
