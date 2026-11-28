@@ -1,7 +1,7 @@
 import type { ChartConfig } from "."
 import { isClient } from "@vueuse/core"
 import { useId } from "reka-ui"
-import { h, render } from "vue"
+import { getCurrentInstance, h, render } from "vue"
 
 // Simple cache using a Map to store serialized object keys
 const cache = new Map<string, string>()
@@ -26,6 +26,9 @@ export function componentToString<P>(config: ChartConfig, component: Constructor
 
   // This function will be called once during mount lifecycle
   const id = useId()
+  // Render tooltips with the app's context so globally registered components,
+  // plugins and Nuxt composables keep working
+  const appContext = getCurrentInstance()?.appContext ?? null
 
   // https://unovis.dev/docs/auxiliary/Crosshair#component-props
   return (_data: any, x: number | Date) => {
@@ -36,9 +39,13 @@ export function componentToString<P>(config: ChartConfig, component: Constructor
       return cachedContent
 
     const vnode = h<unknown>(component, { ...props, payload: data, config, x })
+    vnode.appContext = appContext
     const div = document.createElement("div")
     render(vnode, div)
-    cache.set(serializedKey, div.innerHTML)
-    return div.innerHTML
+    const html = div.innerHTML
+    // Unmount so the tooltip's effects don't outlive the cached HTML
+    render(null, div)
+    cache.set(serializedKey, html)
+    return html
   }
 }
