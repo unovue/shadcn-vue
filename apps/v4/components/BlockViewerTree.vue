@@ -39,8 +39,8 @@ const { activeFile } = useBlockViewer()
           activeFile = item.path
       }"
     >
-      <ChevronRight class="invisible" />
-      <File class="h-4 w-4" />
+      <ChevronRight class="invisible" aria-hidden="true" />
+      <File class="h-4 w-4" aria-hidden="true" />
       {{ item.name }}
     </SidebarMenuButton>
   </SidebarMenuItem>
@@ -55,8 +55,8 @@ const { activeFile } = useBlockViewer()
           class="hover:bg-muted-foreground/15 focus:bg-muted-foreground/15 focus-visible:bg-muted-foreground/15 active:bg-muted-foreground/15 data-[active=true]:bg-muted-foreground/15 rounded-none pl-(--index) whitespace-nowrap"
           :style="{ '--index': `${index * (index === 1 ? 1 : 1.2)}rem` } "
         >
-          <ChevronRight class="transition-transform" />
-          <Folder />
+          <ChevronRight class="transition-transform" aria-hidden="true" />
+          <Folder aria-hidden="true" />
           {{ item.name }}
         </SidebarMenuButton>
       </CollapsibleTrigger>

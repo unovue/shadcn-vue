@@ -56,7 +56,7 @@ const isabellaRole = ref('Member')
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
               {{ sofiaRole }}
-              <ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
+              <ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">
@@ -114,7 +114,7 @@ const isabellaRole = ref('Member')
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
               {{ jacksonRole }}
-              <ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
+              <ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">
@@ -172,7 +172,7 @@ const isabellaRole = ref('Member')
           <PopoverTrigger as-child>
             <Button variant="outline" class="ml-auto">
               {{ isabellaRole }}
-              <ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" />
+              <ChevronDown class="ml-2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-0" align="end">

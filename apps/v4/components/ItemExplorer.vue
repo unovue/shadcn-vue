@@ -49,7 +49,7 @@ const currentItem = computed(() => {
       >
         <SidebarGroup class="px-1 py-0">
           <CollapsibleTrigger class="flex w-full items-center gap-1 py-1.5 text-[0.8rem] font-medium [&[data-state=open]>svg]:rotate-90">
-            <ChevronRightIcon class="text-muted-foreground size-3.5 transition-transform" />
+            <ChevronRightIcon class="text-muted-foreground size-3.5 transition-transform" aria-hidden="true" />
             <span>{{ group.title }}</span>
           </CollapsibleTrigger>
           <CollapsibleContent>

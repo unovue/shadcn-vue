@@ -203,7 +203,7 @@ function getThemeCode(theme: BaseColor | undefined, radius: number) {
             }"
           >
           <span class="sr-only">Copy</span>
-          <CheckIcon v-if="copied" />  <IconCopy v-else />
+          <CheckIcon v-if="copied" aria-hidden="true" />  <IconCopy v-else aria-hidden="true" />
         </Button></pre>
       </figure>
     </TabsContent>
@@ -241,7 +241,7 @@ function getThemeCode(theme: BaseColor | undefined, radius: number) {
             }"
           >
           <span class="sr-only">Copy</span>
-          <CheckIcon v-if="copied" />  <IconCopy v-else />
+          <CheckIcon v-if="copied" aria-hidden="true" />  <IconCopy v-else aria-hidden="true" />
         </Button></pre>
       </figure>
     </TabsContent>
@@ -309,7 +309,7 @@ copy(tailwindVersion === 'v3'
               }"
             >
               <span class="sr-only">Copy</span>
-              <CheckIcon v-if="copied" />  <IconCopy v-else />
+              <CheckIcon v-if="copied" aria-hidden="true" />  <IconCopy v-else aria-hidden="true" />
             </Button></pre>
       </figure>
     </TabsContent>

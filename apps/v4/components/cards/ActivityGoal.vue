@@ -56,7 +56,7 @@ const chartConfig = {
           :disabled="goal <= 200"
           @click="goal -= 10"
         >
-          <Minus />
+          <Minus aria-hidden="true" />
           <span class="sr-only">Decrease</span>
         </Button>
         <div class="text-center">
@@ -74,7 +74,7 @@ const chartConfig = {
           :disabled="goal >= 400"
           @click="goal += 10 "
         >
-          <Plus />
+          <Plus aria-hidden="true" />
           <span class="sr-only">Increase</span>
         </Button>
       </div>

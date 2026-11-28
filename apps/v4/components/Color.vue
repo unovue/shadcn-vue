@@ -23,8 +23,8 @@ const { copied, copy } = useClipboard()
       toast.success(`Copied ${color[format]} to clipboard.`)
     }"
   >
-    <Check v-if="copied" class="group-hover:opacity-100 group-data-[last-copied=true]:opacity-100" />
-    <Clipboard v-else class="group-hover:opacity-100" />
+    <Check v-if="copied" class="group-hover:opacity-100 group-data-[last-copied=true]:opacity-100" aria-hidden="true" />
+    <Clipboard v-else class="group-hover:opacity-100" aria-hidden="true" />
     <div class="border-ghost after:border-input w-full flex-1 rounded-md bg-(--bg) after:rounded-lg md:rounded-lg" />
     <div class="flex w-full flex-col items-center justify-center gap-1">
       <span class="text-muted-foreground group-hover:text-foreground group-data-[last-copied=true]:text-primary font-mono text-xs tabular-nums transition-colors sm:hidden xl:flex">

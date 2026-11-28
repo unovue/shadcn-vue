@@ -180,7 +180,7 @@ const commands = computed<Record<string, string> | null>(() => {
           size="icon-xs"
           @click="query = ''"
         >
-          <XIcon />
+          <XIcon aria-hidden="true" />
         </InputGroupButton>
       </InputGroupAddon>
     </InputGroup>

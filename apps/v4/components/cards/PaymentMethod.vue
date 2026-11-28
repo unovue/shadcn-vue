@@ -89,11 +89,11 @@ import {
       </RadioGroup>
       <div class="grid gap-2">
         <Label for="name">Name</Label>
-        <Input id="name" placeholder="First Last" />
+        <Input id="name" placeholder="First Last" autocomplete="cc-name" />
       </div>
       <div class="grid gap-2">
         <Label for="number">Card number</Label>
-        <Input id="number" placeholder="" />
+        <Input id="number" placeholder="" autocomplete="cc-number" />
       </div>
       <div class="grid grid-cols-3 gap-4">
         <div class="grid gap-2">
@@ -157,7 +157,7 @@ import {
         </div>
         <div class="grid gap-2">
           <Label for="cvc">CVC</Label>
-          <Input id="cvc" placeholder="CVC" />
+          <Input id="cvc" placeholder="CVC" autocomplete="cc-csc" />
         </div>
       </div>
     </CardContent>

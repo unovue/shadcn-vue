@@ -126,7 +126,7 @@ const selectedUsers = ref<User[]>([])
       >
         <Input v-model="input" placeholder="Type a message..." class="flex-1" />
         <Button class="p-2.5 flex items-center justify-center" :disabled="inputLength === 0">
-          <Send class="w-4 h-4" />
+          <Send class="w-4 h-4" aria-hidden="true" />
           <span class="sr-only">Send</span>
         </Button>
       </form>
@@ -174,7 +174,7 @@ const selectedUsers = ref<User[]>([])
                   {{ user.email }}
                 </p>
               </div>
-              <Check v-if="selectedUsers.includes(user)" class="ml-auto flex h-5 w-5 text-primary" />
+              <Check v-if="selectedUsers.includes(user)" class="ml-auto flex h-5 w-5 text-primary" aria-hidden="true" />
             </CommandItem>
           </CommandGroup>
         </CommandList>

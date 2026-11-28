@@ -46,7 +46,7 @@ function selectItem(itemName: string) {
         class="w-[200px] justify-between xl:hidden"
       >
         <span class="truncate">{{ currentItem?.title ?? 'Select item...' }}</span>
-        <ChevronDownIcon class="ml-2 size-4 shrink-0 opacity-50" />
+        <ChevronDownIcon class="ml-2 size-4 shrink-0 opacity-50" aria-hidden="true" />
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-[250px] p-0" align="start">
@@ -70,6 +70,7 @@ function selectItem(itemName: string) {
                 :class="[
                   currentItem?.name === item.name ? 'opacity-100' : 'opacity-0',
                 ]"
+                aria-hidden="true"
               />
               {{ item.title }}
             </CommandItem>

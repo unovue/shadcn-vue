@@ -228,7 +228,7 @@ onMounted(() => {
               @highlight="() => handleBlockHighlight(block)"
               @select="() => runCommand(() => router.push(`/blocks/${block.categories[0]}#${block.name}`))"
             >
-              <Square />
+              <Square aria-hidden="true" />
               {{ block.description }}
               <span class="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
                 {{ block.name }}

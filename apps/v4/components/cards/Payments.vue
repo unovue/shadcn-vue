@@ -180,7 +180,7 @@ const table = useTable({
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
               <Button variant="outline" class="ml-auto">
-                Columns <ChevronDown class="ml-2 h-4 w-4" />
+                Columns <ChevronDown class="ml-2 h-4 w-4" aria-hidden="true" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
