@@ -43,6 +43,79 @@ Start by selecting your framework. Then follow the instructions to learn how to 
     </svg>
     <p class="mt-2 font-medium">Formisch</p>
   </linked-card>
+  <linked-card href="/docs/forms/notform">
+    <svg
+      width="8em"
+      height="8em"
+      class="size-10"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="0.5"
+        y="0.5"
+        width="23"
+        height="3"
+        rx="0.3"
+        stroke="currentColor"
+        stroke-opacity="0.5"
+        stroke-width="0.3"
+      />
+      <rect
+        x="0.5"
+        y="4.3"
+        width="23"
+        height="3"
+        rx="0.3"
+        fill="currentColor"
+        fill-opacity="0.12"
+        stroke="currentColor"
+        stroke-opacity="0.75"
+        stroke-width="0.3"
+      />
+      <rect
+        x="1"
+        y="5.7"
+        width="8"
+        height="0.3"
+        rx="0.2"
+        fill="currentColor"
+        fill-opacity="0.5"
+      />
+      <rect
+        x="0.5"
+        y="8.6"
+        width="23"
+        height="3"
+        rx="0.3"
+        stroke="currentColor"
+        stroke-opacity="0.5"
+        stroke-width="0.3"
+      />
+      <rect
+        x="0.5"
+        y="12.9"
+        width="9.9"
+        height="3"
+        rx="0.3"
+        fill="currentColor"
+        fill-opacity="0.2"
+        stroke="currentColor"
+        stroke-width="0.2"
+      />
+      <rect
+        x="2.2"
+        y="14.3"
+        width="5.5"
+        height="0.4"
+        rx="0.2"
+        fill="currentColor"
+        fill-opacity="0.85"
+      />
+    </svg>
+    <p class="mt-2 font-medium">NotForm</p>
+  </linked-card>
   <linked-card href="#" class="border border-dashed bg-transparent">
   <svg xmlns="http://www.w3.org/2000/svg" class="size-10" viewBox="0 0 24 24"><!-- Icon from Akar Icons by Arturo Wibawa - https://github.com/artcoholic/akar-icons/blob/master/LICENSE --><path fill="currentColor" d="M19.114 2H15l-3 4.9L9.429 2H0l12 21L24 2zM3 3.75h2.914L12 14.6l6.086-10.85H21L12 19.5z"/></svg>
     <p class="mt-2 font-medium">Composable</p>
