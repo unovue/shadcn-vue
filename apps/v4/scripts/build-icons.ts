@@ -63,7 +63,7 @@ export async function validateNames(mapping: IconMapping): Promise<string[]> {
   return errors
 }
 
-const BASES_DIR = join(process.cwd(), 'registry/bases/reka')
+const BASES_DIR = join(process.cwd(), 'registry/bases')
 const NY_UI_DIR = join(process.cwd(), 'registry/new-york-v4/ui')
 const ICONS_OUT_DIR = join(process.cwd(), 'registry/icons')
 const MAP_OUT = join(process.cwd(), 'public/r/icons/index.json')
@@ -82,6 +82,14 @@ async function collectLucideImports(dir: string): Promise<string[]> {
   return names
 }
 
+export async function scanBases(basesDir: string): Promise<PlaceholderRecord[]> {
+  const records: PlaceholderRecord[] = []
+  for (const file of await listVue(basesDir)) {
+    records.push(...scanPlaceholders(await readFile(file, 'utf8')))
+  }
+  return records
+}
+
 async function writeIfChanged(path: string, content: string): Promise<void> {
   if (existsSync(path) && (await readFile(path, 'utf8')) === content)
     return
@@ -96,11 +104,7 @@ async function writeIfChanged(path: string, content: string): Promise<void> {
  */
 export async function buildIcons(opts: { verbose?: boolean } = {}): Promise<void> {
   // 1. scan bases
-  const records = []
-  for (const file of await listVue(BASES_DIR)) {
-    records.push(...scanPlaceholders(await readFile(file, 'utf8')))
-  }
-  const { mapping: scanned, warnings } = buildMappingFromRecords(records)
+  const { mapping: scanned, warnings } = buildMappingFromRecords(await scanBases(BASES_DIR))
 
   // 2. merge legacy (legacy wins, scan fills gaps)
   const legacy: IconMapping = JSON.parse(await readFile(LEGACY_PATH, 'utf8'))
@@ -128,7 +132,7 @@ export async function buildIcons(opts: { verbose?: boolean } = {}): Promise<void
     throw new Error(
       `The following @lucide/vue icons used in registry/new-york-v4/ui have no mapping:\n${
         uncovered.map(n => `  - ${n}`).join('\n')
-      }\nAdd each to a base IconPlaceholder (registry/bases/reka/**) or pin it in registry/icons/legacy-mapping.json.`,
+      }\nAdd each to a base IconPlaceholder (registry/bases/**) or pin it in registry/icons/legacy-mapping.json.`,
     )
   }
 

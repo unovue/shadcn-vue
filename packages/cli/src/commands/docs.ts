@@ -1,8 +1,9 @@
 import { Command } from 'commander'
 import consola from 'consola'
 import path from 'pathe'
+import { getBase } from '@/src/commands/apply'
 import { getShadcnRegistryIndex } from '@/src/registry/api'
-import { SHADCN_VUE_URL } from '@/src/registry/constants'
+import { BASES, SHADCN_VUE_URL } from '@/src/registry/constants'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
@@ -26,10 +27,7 @@ export const docs = new Command()
     try {
       const cwd = path.resolve(opts.cwd)
       const config = await getConfig(cwd)
-      // shadcn-vue only ships the `reka` base today; derive from config.style
-      // when provided (styles are namespaced as e.g. `reka/vega`).
-      const baseFromStyle = config?.style?.split('/')?.[0]
-      const base = opts.base ?? baseFromStyle ?? 'reka'
+      const base = opts.base ?? getBase(config?.style)
 
       const index = await getShadcnRegistryIndex()
 
@@ -68,7 +66,9 @@ export const docs = new Command()
         }
         else {
           const fallbackUrl = `${SHADCN_VUE_URL}/docs/components/${component}`
-          links = { docs: fallbackUrl }
+          links = {
+            docs: base === BASES[0].name ? fallbackUrl : `${fallbackUrl}?base=${encodeURIComponent(base)}`,
+          }
         }
 
         results.push({ component, base, links })

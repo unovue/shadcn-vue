@@ -92,10 +92,8 @@ function handleMessage(event: MessageEvent) {
 useEventListener(globalThis.window, 'message', handleMessage)
 
 const route = useRoute()
-const iframeSrc = computed(() => {
-  const item = typeof route.query.item === 'string' ? route.query.item : params.item.value
-  return `/preview/${params.base.value}/${item}`
-})
+const item = computed(() => typeof route.query.item === 'string' ? route.query.item : params.item.value)
+const iframeSrc = computed(() => `/preview/${params.base.value}/${item.value}`)
 </script>
 
 <template>
@@ -104,7 +102,7 @@ const iframeSrc = computed(() => {
       <div class="absolute inset-0 bg-muted dark:bg-muted/30" />
       <iframe
         ref="iframeRef"
-        :key="typeof route.query.item === 'string' ? route.query.item : params.item.value"
+        :key="iframeSrc"
         :src="iframeSrc"
         class="z-10 size-full flex-1"
         title="Preview"

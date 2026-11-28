@@ -1,13 +1,76 @@
+import type { Config } from '../../src/utils/get-config'
 import fs from 'node:fs'
 import { addDependency } from 'nypm'
 import path from 'pathe'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import prompts from 'prompts'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { applyInitUrlOptions, initOptionsSchema, runInit } from '../../src/commands/init'
-import { DEFAULT_PRESETS, resolveCreateUrl, resolveInitUrl } from '../../src/preset/presets'
+import {
+  applyInitUrlOptions,
+  init,
+  initOptionsSchema,
+  promptForConfig,
+  promptForMinimalConfig,
+  resolveInitPresetUrl,
+  runInit,
+} from '../../src/commands/init'
+import { decodePreset } from '../../src/preset/preset'
+import {
+  DEFAULT_PRESETS,
+  resolveCreateUrl,
+  resolveInitUrl,
+  resolveRegistryBaseConfig,
+} from '../../src/preset/presets'
 import * as registry from '../../src/registry'
+import { getRegistryBaseColors, getRegistryStyles } from '../../src/registry/api'
 import { getConfig } from '../../src/utils/get-config'
+import { getProjectTailwindVersionFromConfig } from '../../src/utils/get-project-info'
 
+const bases = vi.hoisted(() => [
+  { name: 'reka', label: 'Reka UI', description: 'Reka', dependencies: ['reka-ui'] },
+])
+
+vi.mock('../../src/registry/constants', async importOriginal => ({
+  ...(await importOriginal<typeof import('../../src/registry/constants')>()),
+  BASES: bases,
+}))
+
+vi.mock('../../src/preset/preset', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../../src/preset/preset')>()
+  return { ...actual, decodePreset: vi.fn(actual.decodePreset) }
+})
+
+vi.mock('../../src/preset/presets', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../../src/preset/presets')>()
+  return { ...actual, resolveRegistryBaseConfig: vi.fn(actual.resolveRegistryBaseConfig) }
+})
+
+vi.mock('../../src/registry/api', async importOriginal => ({
+  ...(await importOriginal<typeof import('../../src/registry/api')>()),
+  getRegistryStyles: vi.fn(),
+  getRegistryBaseColors: vi.fn(),
+}))
+
+vi.mock('../../src/utils/get-project-info', async importOriginal => ({
+  ...(await importOriginal<typeof import('../../src/utils/get-project-info')>()),
+  getProjectTailwindVersionFromConfig: vi.fn(),
+}))
+
+vi.mock('../../src/utils/handle-error', () => ({
+  handleError: vi.fn(),
+}))
+
+vi.mock('../../src/utils/logger', () => ({
+  logger: {
+    error: vi.fn(),
+    warn: vi.fn(),
+    log: vi.fn(),
+    info: vi.fn(),
+    break: vi.fn(),
+  },
+}))
+
+vi.mock('prompts', () => ({ default: vi.fn() }))
 vi.mock('nypm')
 vi.mock('fs/promises', () => ({
   writeFile: vi.fn(),
@@ -249,6 +312,190 @@ describe('preset urls', () => {
 
     expect(parsed.searchParams.get('preset')).toBe('a0')
     expect(parsed.searchParams.get('pointer')).toBe('true')
+  })
+})
+
+const vase = { name: 'vase', label: 'Vase UI', description: 'Vase', dependencies: ['@vase-ui/vue'] }
+
+function parseInitOptions(overrides: Record<string, unknown> = {}) {
+  return initOptionsSchema.parse({
+    cwd: '/tmp/app',
+    yes: true,
+    defaults: false,
+    force: false,
+    silent: true,
+    isNewProject: false,
+    cssVariables: true,
+    baseStyle: true,
+    ...overrides,
+  })
+}
+
+function projectConfig(style: string) {
+  return {
+    $schema: 'https://shadcn-vue.com/schema.json',
+    style,
+    typescript: true,
+    tailwind: { config: '', css: 'src/style.css', baseColor: 'neutral', cssVariables: true, prefix: '' },
+    aliases: { components: '@/components', utils: '@/lib/utils' },
+    resolvedPaths: { cwd: '/tmp/app' },
+  } as Config
+}
+
+function baseQuestionType() {
+  const questions = vi.mocked(prompts).mock.calls.at(-1)![0] as unknown as { name: string, type: unknown }[]
+
+  return questions.find(question => question.name === 'base')!.type
+}
+
+describe('resolveInitPresetUrl', () => {
+  const baseOf = (url: string) => new URL(url).searchParams.get('base')
+
+  beforeEach(async () => {
+    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
+    vi.mocked(decodePreset).mockImplementation(decodeActual)
+  })
+
+  it('uses the base of the preset code', async () => {
+    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
+    // Preset codes only encode bases in PRESET_BASES, so mock decodePreset for a second base.
+    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
+
+    const url = resolveInitPresetUrl('a0', {})
+
+    expect(baseOf(url)).toBe('vase')
+    expect(new URL(url).searchParams.get('preset')).toBe('a0')
+  })
+
+  it('lets --base win over the base of the preset code', async () => {
+    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
+    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
+
+    expect(baseOf(resolveInitPresetUrl('a0', { base: 'reka' }))).toBe('reka')
+  })
+
+  it('uses the base of a named preset unless --base is set', () => {
+    expect(baseOf(resolveInitPresetUrl('nova', {}))).toBe('reka')
+    expect(baseOf(resolveInitPresetUrl('nova', { base: 'vase' }))).toBe('vase')
+  })
+
+  it('keeps the base of a preset URL and applies the options', () => {
+    const url = resolveInitPresetUrl('https://shadcn-vue.com/init?base=vase&style=nova', { pointer: true })
+
+    expect(baseOf(url)).toBe('vase')
+    expect(new URL(url).searchParams.get('pointer')).toBe('true')
+  })
+
+  it('throws for an unknown preset', () => {
+    expect(() => resolveInitPresetUrl('unknown-preset', {})).toThrow('Unknown preset: unknown-preset')
+  })
+})
+
+describe('init --defaults with a preset code', () => {
+  beforeEach(() => {
+    bases.push(vase)
+  })
+
+  afterEach(() => {
+    bases.length = 1
+  })
+
+  it('preserves the base from a preset code when --defaults is set', async () => {
+    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
+    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
+    vi.mocked(resolveRegistryBaseConfig).mockRejectedValueOnce(new Error('stop'))
+
+    await init.parseAsync(['--preset', 'a0', '--defaults', '--cwd', '/tmp/app'], { from: 'user' })
+
+    const [initUrl] = vi.mocked(resolveRegistryBaseConfig).mock.calls[0]!
+    expect(new URL(initUrl).searchParams.get('base')).toBe('vase')
+  })
+
+  it('lets --base override a preset code when --defaults is set', async () => {
+    const { decodePreset: decodeActual } = await vi.importActual<typeof import('../../src/preset/preset')>('../../src/preset/preset')
+    vi.mocked(decodePreset).mockReturnValueOnce({ ...decodeActual('a0')!, base: 'vase' as never })
+    vi.mocked(resolveRegistryBaseConfig).mockRejectedValueOnce(new Error('stop'))
+
+    await init.parseAsync(['--preset', 'a0', '--defaults', '--base', 'reka', '--cwd', '/tmp/app'], { from: 'user' })
+
+    const [initUrl] = vi.mocked(resolveRegistryBaseConfig).mock.calls[0]!
+    expect(new URL(initUrl).searchParams.get('base')).toBe('reka')
+  })
+})
+
+describe('the base prompt of init', () => {
+  beforeEach(() => {
+    vi.mocked(prompts).mockResolvedValue({})
+    vi.mocked(getRegistryStyles).mockResolvedValue([])
+    vi.mocked(getRegistryBaseColors).mockResolvedValue([])
+    vi.mocked(getProjectTailwindVersionFromConfig).mockResolvedValue('v4')
+  })
+
+  it('is skipped when reka is the only base', async () => {
+    await promptForMinimalConfig(projectConfig('reka-nova'), parseInitOptions())
+    expect(baseQuestionType()).toBeNull()
+
+    await promptForConfig(projectConfig('reka-nova'), parseInitOptions())
+    expect(baseQuestionType()).toBeNull()
+  })
+
+  describe('with several bases', () => {
+    beforeEach(() => {
+      bases.push(vase)
+    })
+
+    afterEach(() => {
+      bases.length = 1
+    })
+
+    it('is asked when --base is not set', async () => {
+      await promptForMinimalConfig(projectConfig('reka-nova'), parseInitOptions())
+      expect(baseQuestionType()).toBe('select')
+
+      await promptForConfig(projectConfig('reka-nova'), parseInitOptions())
+      expect(baseQuestionType()).toBe('select')
+    })
+
+    it('is skipped when --base is set', async () => {
+      await promptForMinimalConfig(projectConfig('reka-nova'), parseInitOptions({ base: 'vase' }))
+      expect(baseQuestionType()).toBeNull()
+
+      await promptForConfig(projectConfig('reka-nova'), parseInitOptions({ base: 'vase' }))
+      expect(baseQuestionType()).toBeNull()
+    })
+  })
+})
+
+describe('the style of init', () => {
+  beforeEach(() => {
+    bases.push(vase)
+    vi.mocked(prompts).mockResolvedValue({})
+    vi.mocked(getRegistryStyles).mockResolvedValue([])
+    vi.mocked(getRegistryBaseColors).mockResolvedValue([])
+    vi.mocked(getProjectTailwindVersionFromConfig).mockResolvedValue('v4')
+  })
+
+  afterEach(() => {
+    bases.length = 1
+  })
+
+  const styleOf = async (style: string, base: string) =>
+    (await promptForMinimalConfig(projectConfig(style), parseInitOptions({ base }))).style
+
+  it('keeps the style of the project for reka', async () => {
+    expect(await styleOf('new-york-v4', 'reka')).toBe('new-york-v4')
+    expect(await styleOf('reka-nova', 'reka')).toBe('reka-nova')
+  })
+
+  it('falls back to vega when the project style belongs to another base', async () => {
+    expect(await styleOf('new-york-v4', 'vase')).toBe('vase-vega')
+    expect(await styleOf('new-york', 'vase')).toBe('vase-vega')
+    expect(await styleOf('reka-nova', 'vase')).toBe('vase-vega')
+    expect(await styleOf('vase-nova', 'reka')).toBe('reka-vega')
+  })
+
+  it('keeps the style of the project for its own base', async () => {
+    expect(await styleOf('vase-nova', 'vase')).toBe('vase-nova')
   })
 })
 

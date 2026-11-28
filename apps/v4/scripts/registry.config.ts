@@ -86,3 +86,5 @@ export const registryConfig: RegistryBase[] = [
     ],
   },
 ]
+
+export const configuredBases = registryConfig.filter(base => !base.buildMainRegistry)
