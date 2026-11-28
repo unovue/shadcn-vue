@@ -1,0 +1,16 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "temporal",
+  "dependencies": [
+    "temporal-polyfill"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/bases/vase/lib/temporal.ts",
+      "content": "import { installImplementation } from \"temporal-polyfill/shim\"\n\nexport function installTemporal() {\n  if (!(\"Temporal\" in globalThis)) {\n    installImplementation()\n  }\n}\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

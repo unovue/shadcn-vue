@@ -12,7 +12,7 @@ import { crawlBlock, crawlChart, crawlComposables, crawlExample, crawlLib, crawl
 import { buildStyles } from './lib/build-styles'
 import { buildStylesRegistry } from './lib/build-styles-registry'
 import { runEslintFix, runPrettierWrite, runShadcnVueCli } from './lib/run-formatters'
-import { registryConfig } from './registry.config'
+import { configuredBases, registryConfig } from './registry.config'
 
 async function writeFile(path: string, payload: any) {
   return fs.writeFile(
@@ -275,13 +275,7 @@ async function buildBasesIndex() {
 
 export const Index: Record<string, Record<string, any>> = {\n`
 
-  // Process each base in the configuration
-  for (const base of registryConfig) {
-    // Skip main registry bases (only include bases from bases/ directory)
-    if (base.buildMainRegistry) {
-      continue
-    }
-
+  for (const base of configuredBases) {
     const basePath = path.join(process.cwd(), 'registry', base.path)
     if (!existsSync(basePath)) {
       console.warn(`⚠️  Skipping base ${base.name} - path does not exist`)
@@ -408,11 +402,11 @@ async function main() {
     // Build the bases index file that exports all bases
     await buildBasesIndex()
 
-    // Generate per-style component outputs from registry/bases/reka/ui
+    // Generate per-style component outputs from registry/bases/<base>/ui
     // (expands cn-* placeholder classes against registry/styles/style-*.css).
     await buildStyles()
 
-    // Publish per-style registries to public/r/styles/reka-{style}/<comp>.json
+    // Publish per-style registries to public/r/styles/<base>-{style}/<comp>.json
     // so end users can install via `npx shadcn-vue add @reka-luma/<comp>` etc.
     await buildStylesRegistry()
 

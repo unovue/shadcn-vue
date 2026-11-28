@@ -1,0 +1,29 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "toggle-group",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-mira/ui/toggle-group/ToggleGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ToggleGroupEmits, ToggleGroupProps } from '@vase-ui/vue/toggle-group'\nimport type { VariantProps } from 'class-variance-authority'\nimport type { HTMLAttributes } from 'vue'\nimport type { toggleVariants } from '@/styles/vase-mira/ui/toggle'\nimport { ToggleGroup } from '@vase-ui/vue/toggle-group'\nimport { cn } from 'cn'\nimport { provide, reactive, toRef } from 'vue'\n\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants>\n\ninterface Props extends /* @vue-ignore */ ToggleGroupProps {\n  class?: HTMLAttributes['class']\n  variant?: ToggleGroupVariants['variant']\n  size?: ToggleGroupVariants['size']\n  spacing?: number\n}\ninterface Emits extends /* @vue-ignore */ ToggleGroupEmits {}\n\nconst props = withDefaults(defineProps<Props>(), {\n  spacing: 0,\n})\ndefineEmits<Emits>()\n\nprovide('toggleGroup', reactive({\n  variant: toRef(props, 'variant'),\n  size: toRef(props, 'size'),\n  spacing: toRef(props, 'spacing'),\n}))\n</script>\n\n<template>\n  <ToggleGroup\n    v-slot=\"slotProps\"\n    data-slot=\"toggle-group\"\n    :data-size=\"size\"\n    :data-variant=\"variant\"\n    :data-spacing=\"spacing\"\n    :style=\"{\n      '--gap': spacing,\n    }\"\n    :class=\"cn('rounded-md data-[size=sm]:rounded-[min(var(--radius-md),8px)] group/toggle-group flex w-fit flex-row items-center gap-[--spacing(var(--gap))] data-vertical:flex-col data-vertical:items-stretch', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </ToggleGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/toggle-group/ToggleGroupItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ToggleEmits, ToggleProps } from '@vase-ui/vue/toggle'\nimport type { VariantProps } from 'class-variance-authority'\nimport type { HTMLAttributes } from 'vue'\nimport { Toggle } from '@vase-ui/vue/toggle'\nimport { cn } from 'cn'\nimport { inject } from 'vue'\nimport { toggleVariants } from '@/styles/vase-mira/ui/toggle'\n\ntype ToggleGroupVariants = VariantProps<typeof toggleVariants> & {\n  spacing?: number\n}\n\ninterface Props extends /* @vue-ignore */ ToggleProps {\n  class?: HTMLAttributes['class']\n  variant?: ToggleGroupVariants['variant']\n  size?: ToggleGroupVariants['size']\n}\ninterface Emits extends /* @vue-ignore */ ToggleEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n\nconst context = inject<ToggleGroupVariants>('toggleGroup')\n</script>\n\n<template>\n  <Toggle\n    v-slot=\"slotProps\"\n    data-slot=\"toggle-group-item\"\n    :data-variant=\"context?.variant || variant\"\n    :data-size=\"context?.size || size\"\n    :data-spacing=\"context?.spacing\"\n    :class=\"cn(\n      'group-data-[spacing=0]/toggle-group:rounded-none group-data-[spacing=0]/toggle-group:px-2 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-end]:pr-1.5 group-data-[spacing=0]/toggle-group:has-data-[icon=inline-start]:pl-1.5 group-data-horizontal/toggle-group:data-[spacing=0]:first:rounded-l-md group-data-vertical/toggle-group:data-[spacing=0]:first:rounded-t-md group-data-horizontal/toggle-group:data-[spacing=0]:last:rounded-r-md group-data-vertical/toggle-group:data-[spacing=0]:last:rounded-b-md shrink-0 focus:z-10 focus-visible:z-10 group-data-horizontal/toggle-group:data-[spacing=0]:data-[variant=outline]:border-l-0 group-data-vertical/toggle-group:data-[spacing=0]:data-[variant=outline]:border-t-0 group-data-horizontal/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-l group-data-vertical/toggle-group:data-[spacing=0]:data-[variant=outline]:first:border-t',\n      toggleVariants({\n        variant: context?.variant || variant,\n        size: context?.size || size,\n      }),\n      props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </Toggle>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-mira/ui/toggle-group/index.ts",
+      "content": "export { default as ToggleGroup } from './ToggleGroup.vue'\nexport { default as ToggleGroupItem } from './ToggleGroupItem.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

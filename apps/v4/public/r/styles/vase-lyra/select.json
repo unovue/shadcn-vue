@@ -1,0 +1,71 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "select",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-lyra/ui/select/Select.vue",
+      "content": "<script setup lang=\"ts\" generic=\"Value, Multiple extends boolean | undefined = false\">\nimport type { SelectRootEmits, SelectRootProps } from '@vase-ui/vue/select'\nimport { Select } from '@vase-ui/vue/select'\n\ninterface Props extends /* @vue-ignore */ SelectRootProps<Value, Multiple> {}\ninterface Emits extends /* @vue-ignore */ SelectRootEmits<Value, Multiple> {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Select.Root data-slot=\"select\" class=\"contents\">\n    <slot />\n  </Select.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectPopupProps, SelectPositionerProps } from '@vase-ui/vue/select'\nimport type { HTMLAttributes } from 'vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\nimport { SelectScrollDownButton, SelectScrollUpButton } from '.'\n\ninterface Props extends /* @vue-ignore */ SelectPopupProps {\n  class?: HTMLAttributes['class']\n  position?: 'item-aligned' | 'popper'\n  side?: SelectPositionerProps['side']\n  sideOffset?: SelectPositionerProps['sideOffset']\n  align?: SelectPositionerProps['align']\n  alignOffset?: SelectPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  position: 'item-aligned',\n  side: 'bottom',\n  sideOffset: 4,\n  align: 'center',\n  alignOffset: 0,\n})\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Select.Portal>\n    <Select.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      :align-item-with-trigger=\"position === 'item-aligned'\"\n      class=\"isolate z-50\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <Select.Popup\n          data-slot=\"select-content\"\n          :data-align-trigger=\"position === 'item-aligned'\"\n          v-bind=\"$attrs\"\n          :class=\"cn(\n            'bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 rounded-none shadow-md ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent relative z-50 max-h-(--available-height) min-w-(--anchor-width) origin-(--transform-origin) overflow-x-hidden overflow-y-auto data-[align-trigger=true]:animate-none',\n            props.class,\n          )\"\n        >\n          <SelectScrollUpButton />\n          <Select.List class=\"max-h-(--available-height) overflow-y-auto\">\n            <slot />\n          </Select.List>\n          <SelectScrollDownButton />\n        </Select.Popup>\n      </Transition>\n    </Select.Positioner>\n  </Select.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectGroup.vue",
+      "content": "<script lang=\"ts\">\nimport type { HTMLAttributes, InjectionKey } from 'vue'\n\nexport const selectGroupKey: InjectionKey<boolean> = Symbol('selectGroup')\n</script>\n\n<script setup lang=\"ts\">\nimport type { SelectGroupProps } from '@vase-ui/vue/select'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\nimport { provide } from 'vue'\n\ninterface Props extends /* @vue-ignore */ SelectGroupProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n\nprovide(selectGroupKey, true)\n</script>\n\n<template>\n  <Select.Group\n    data-slot=\"select-group\"\n    :class=\"cn('scroll-my-1', props.class)\"\n  >\n    <slot />\n  </Select.Group>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectItemProps } from '@vase-ui/vue/select'\n\nimport type { HTMLAttributes } from 'vue'\nimport { CheckIcon } from '@lucide/vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SelectItemProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Select.Item\n    v-slot=\"{ state }\"\n    data-slot=\"select-item\"\n    :class=\"\n      cn(\n        'focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-none py-2 pr-8 pl-2 text-xs [&_svg:not([class*=size-])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 relative flex w-full cursor-default items-center outline-hidden select-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',\n        props.class,\n      )\n    \"\n  >\n    <span class=\"pointer-events-none absolute right-2 flex size-4 items-center justify-center\">\n      <template v-if=\"state.selected\">\n        <slot name=\"indicator-icon\">\n          <CheckIcon class=\"pointer-events-none\" />\n        </slot>\n      </template>\n    </span>\n\n    <Select.ItemText>\n      <slot />\n    </Select.ItemText>\n  </Select.Item>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectItemText.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectItemTextProps } from '@vase-ui/vue/select'\nimport { Select } from '@vase-ui/vue/select'\n\ninterface Props extends /* @vue-ignore */ SelectItemTextProps {}\n\ndefineProps<Props>()\n</script>\n\n<template>\n  <Select.ItemText data-slot=\"select-item-text\">\n    <slot />\n  </Select.ItemText>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectLabel.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectGroupLabelProps } from '@vase-ui/vue/select'\nimport type { HTMLAttributes } from 'vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\nimport { inject } from 'vue'\nimport { selectGroupKey } from './SelectGroup.vue'\n\ninterface Props extends /* @vue-ignore */ SelectGroupLabelProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n\nconst inGroup = inject(selectGroupKey, false)\n</script>\n\n<template>\n  <Select.GroupLabel\n    v-if=\"inGroup\"\n    data-slot=\"select-label\"\n    :class=\"cn('text-muted-foreground px-2 py-2 text-xs', props.class)\"\n  >\n    <slot />\n  </Select.GroupLabel>\n  <div\n    v-else\n    data-slot=\"select-label\"\n    :class=\"cn('text-muted-foreground px-2 py-2 text-xs', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectScrollDownButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectScrollDownArrowProps } from '@vase-ui/vue/select'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronDownIcon } from '@lucide/vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SelectScrollDownArrowProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Select.ScrollDownArrow\n    data-slot=\"select-scroll-down-button\"\n    :class=\"cn('bg-popover z-10 flex cursor-default items-center justify-center py-1 [&_svg:not([class*=size-])]:size-4 bottom-0 w-full', props.class)\"\n  >\n    <slot>\n      <ChevronDownIcon />\n    </slot>\n  </Select.ScrollDownArrow>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectScrollUpButton.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectScrollUpArrowProps } from '@vase-ui/vue/select'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronUpIcon } from '@lucide/vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SelectScrollUpArrowProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Select.ScrollUpArrow\n    data-slot=\"select-scroll-up-button\"\n    :class=\"cn('bg-popover z-10 flex cursor-default items-center justify-center py-1 [&_svg:not([class*=size-])]:size-4 top-0 w-full', props.class)\"\n  >\n    <slot>\n      <ChevronUpIcon />\n    </slot>\n  </Select.ScrollUpArrow>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectSeparatorProps } from '@vase-ui/vue/select'\nimport type { HTMLAttributes } from 'vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SelectSeparatorProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Select.Separator\n    data-slot=\"select-separator\"\n    :class=\"cn('bg-border -mx-1 h-px pointer-events-none', props.class)\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectTriggerProps } from '@vase-ui/vue/select'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronDownIcon } from '@lucide/vue'\nimport { Select } from '@vase-ui/vue/select'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SelectTriggerProps {\n  class?: HTMLAttributes['class']\n  size?: 'sm' | 'default'\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  size: 'default',\n})\n</script>\n\n<template>\n  <Select.Trigger\n    data-slot=\"select-trigger\"\n    :data-size=\"size\"\n    :class=\"cn(\n      'border-input data-placeholder:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 gap-1.5 rounded-none border bg-transparent py-2 pr-2 pl-2.5 text-xs transition-colors select-none focus-visible:ring-1 aria-invalid:ring-1 data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-none *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*=size-])]:size-4 flex w-fit items-center justify-between whitespace-nowrap outline-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center [&_svg]:pointer-events-none [&_svg]:shrink-0',\n      props.class,\n    )\"\n  >\n    <slot />\n    <Select.Icon class=\"flex\">\n      <ChevronDownIcon class=\"text-muted-foreground size-4 pointer-events-none\" />\n    </Select.Icon>\n  </Select.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/SelectValue.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SelectValueProps } from '@vase-ui/vue/select'\nimport { Select } from '@vase-ui/vue/select'\n\ninterface Props extends /* @vue-ignore */ SelectValueProps {}\n\ndefineProps<Props>()\n</script>\n\n<template>\n  <Select.Value data-slot=\"select-value\">\n    <template v-if=\"$slots.default\" #default=\"slotProps\">\n      <slot v-bind=\"slotProps\" />\n    </template>\n  </Select.Value>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/select/index.ts",
+      "content": "export { default as Select } from './Select.vue'\nexport { default as SelectContent } from './SelectContent.vue'\nexport { default as SelectGroup } from './SelectGroup.vue'\nexport { default as SelectItem } from './SelectItem.vue'\nexport { default as SelectItemText } from './SelectItemText.vue'\nexport { default as SelectLabel } from './SelectLabel.vue'\nexport { default as SelectScrollDownButton } from './SelectScrollDownButton.vue'\nexport { default as SelectScrollUpButton } from './SelectScrollUpButton.vue'\nexport { default as SelectSeparator } from './SelectSeparator.vue'\nexport { default as SelectTrigger } from './SelectTrigger.vue'\nexport { default as SelectValue } from './SelectValue.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

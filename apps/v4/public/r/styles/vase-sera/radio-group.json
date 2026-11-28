@@ -1,0 +1,26 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "radio-group",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-sera/ui/radio-group/RadioGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { RadioGroupEmits, RadioGroupProps } from '@vase-ui/vue/radio-group'\nimport type { HTMLAttributes } from 'vue'\nimport { RadioGroup } from '@vase-ui/vue/radio-group'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ RadioGroupProps {\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ RadioGroupEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <RadioGroup\n    v-slot=\"slotProps\"\n    data-slot=\"radio-group\"\n    :class=\"cn('grid gap-3 w-full', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </RadioGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/radio-group/RadioGroupItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { RadioProps } from '@vase-ui/vue/radio'\nimport type { HTMLAttributes } from 'vue'\nimport { Radio } from '@vase-ui/vue/radio'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ RadioProps {\n  class?: HTMLAttributes['class']\n  value: RadioProps['value']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Radio :value=\"value\">\n    <template #element=\"{ props: inputProps, elementRef, state }\">\n      <span\n        data-slot=\"radio-group-item\"\n        :class=\"cn('peer group/radio-group-item relative inline-flex shrink-0', props.class)\"\n      >\n        <input\n          v-bind=\"inputProps\"\n          :ref=\"elementRef\"\n          data-slot=\"radio-group-input\"\n          :data-checked=\"state.checked ? '' : undefined\"\n          :data-unchecked=\"state.checked ? undefined : ''\"\n          class=\"border-input bg-transparent data-checked:border-foreground aria-invalid:aria-checked:border-foreground aria-invalid:border-destructive focus-visible:border-ring focus-visible:ring-ring/30 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:aria-invalid:border-destructive/50 flex size-4.5 rounded-full focus-visible:ring-2 aria-invalid:ring-2 relative aspect-square shrink-0 appearance-none border outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:data-checked:border-primary\"\n        >\n        <span\n          v-if=\"state.checked\"\n          data-slot=\"radio-group-indicator\"\n          class=\"flex size-4.5 items-center justify-center pointer-events-none absolute inset-0\"\n        >\n          <slot :state=\"state\">\n            <span class=\"bg-foreground absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full\" />\n          </slot>\n        </span>\n      </span>\n    </template>\n  </Radio>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-sera/ui/radio-group/index.ts",
+      "content": "export { default as RadioGroup } from './RadioGroup.vue'\nexport { default as RadioGroupItem } from './RadioGroupItem.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

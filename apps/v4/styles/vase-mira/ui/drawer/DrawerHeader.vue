@@ -1,0 +1,17 @@
+<script lang="ts" setup>
+import type { HTMLAttributes } from 'vue'
+import { cn } from 'cn'
+
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+}>()
+</script>
+
+<template>
+  <div
+    data-slot="drawer-header"
+    :class="cn('gap-1 p-4 group-data-[swipe-direction=down]/drawer-content:text-center group-data-[swipe-direction=up]/drawer-content:text-center md:text-left flex flex-col', props.class)"
+  >
+    <slot />
+  </div>
+</template>

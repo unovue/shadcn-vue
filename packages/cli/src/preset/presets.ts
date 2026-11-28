@@ -5,7 +5,7 @@ import prompts from 'prompts'
 import { getRegistryItems } from '@/src/registry/api'
 import { buildUrlAndHeadersForRegistryItem } from '@/src/registry/builder'
 import { configWithDefaults } from '@/src/registry/config'
-import { SHADCN_VUE_URL } from '@/src/registry/constants'
+import { BASES, SHADCN_VUE_URL } from '@/src/registry/constants'
 import { isUrl } from '@/src/registry/utils'
 import { createConfig } from '@/src/utils/get-config'
 import { highlighter } from '@/src/utils/highlighter'
@@ -232,10 +232,29 @@ export function resolveInitUrl(
   return `${SHADCN_VUE_URL}/init?${params.toString()}`
 }
 
-export async function promptForBase() {
-  // shadcn-vue currently has a single base ("reka"). This is a no-op prompt
-  // kept for parity with shadcn-ui so the call site code mirrors directly.
-  return 'reka' as const
+export async function promptForBase(): Promise<string> {
+  if (BASES.length <= 1) {
+    return BASES[0].name
+  }
+
+  const { base } = await prompts({
+    type: 'select',
+    name: 'base',
+    message: `Which ${highlighter.info('component library')} would you like to use?`,
+    choices: BASES.map(b => ({
+      title: b.label,
+      value: b.name,
+      description: b.description,
+    })),
+    initial: 0,
+  })
+
+  if (!base) {
+    logger.break()
+    process.exit(1)
+  }
+
+  return base
 }
 
 export type PromptForPresetResult

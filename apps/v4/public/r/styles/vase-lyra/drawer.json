@@ -1,0 +1,61 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "drawer",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-lyra/ui/drawer/Drawer.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerRootEmits, DrawerRootProps } from '@vase-ui/vue/drawer'\nimport { Drawer } from '@vase-ui/vue/drawer'\n\ninterface Props extends /* @vue-ignore */ DrawerRootProps {}\ninterface Emits extends /* @vue-ignore */ DrawerRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Drawer.Root v-slot=\"slotProps\">\n    <slot v-bind=\"slotProps\" />\n  </Drawer.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerClose.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerCloseProps } from '@vase-ui/vue/drawer'\nimport { Drawer } from '@vase-ui/vue/drawer'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ DrawerCloseProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Drawer.Close ref=\"part\" data-slot=\"drawer-close\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Drawer.Close>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerContent.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerPopupProps } from '@vase-ui/vue/drawer'\nimport type { HTMLAttributes } from 'vue'\nimport { Drawer } from '@vase-ui/vue/drawer'\nimport { cn } from 'cn'\nimport DrawerOverlay from './DrawerOverlay.vue'\n\ninterface Props extends /* @vue-ignore */ DrawerPopupProps {\n  class?: HTMLAttributes['class']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Drawer.Portal>\n    <DrawerOverlay />\n    <Drawer.Viewport class=\"fixed inset-0 z-50\">\n      <Transition appear @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <Drawer.Popup\n          data-slot=\"drawer-content\"\n          v-bind=\"$attrs\"\n          :class=\"cn(\n            'bg-popover text-popover-foreground flex h-auto flex-col text-xs/relaxed data-[swipe-direction=down]:inset-x-0 data-[swipe-direction=down]:bottom-0 data-[swipe-direction=down]:mt-24 data-[swipe-direction=down]:max-h-[80vh] data-[swipe-direction=down]:rounded-none data-[swipe-direction=down]:border-t data-[swipe-direction=left]:inset-y-0 data-[swipe-direction=left]:left-0 data-[swipe-direction=left]:w-3/4 data-[swipe-direction=left]:rounded-none data-[swipe-direction=left]:border-r data-[swipe-direction=right]:inset-y-0 data-[swipe-direction=right]:right-0 data-[swipe-direction=right]:w-3/4 data-[swipe-direction=right]:rounded-none data-[swipe-direction=right]:border-l data-[swipe-direction=up]:inset-x-0 data-[swipe-direction=up]:top-0 data-[swipe-direction=up]:mb-24 data-[swipe-direction=up]:max-h-[80vh] data-[swipe-direction=up]:rounded-none data-[swipe-direction=up]:border-b data-[swipe-direction=left]:sm:max-w-sm data-[swipe-direction=right]:sm:max-w-sm group/drawer-content fixed z-50',\n            'will-change-transform transform-[translate3d(var(--drawer-swipe-movement-x,0px),var(--drawer-swipe-movement-y,0px),0)]',\n            'transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] data-swiping:duration-0 data-swiping:select-none',\n            'data-open:animate-in data-closed:animate-out',\n            'data-[swipe-direction=down]:data-open:slide-in-from-bottom data-[swipe-direction=down]:data-closed:slide-out-to-bottom',\n            'data-[swipe-direction=up]:data-open:slide-in-from-top data-[swipe-direction=up]:data-closed:slide-out-to-top',\n            'data-[swipe-direction=left]:data-open:slide-in-from-left data-[swipe-direction=left]:data-closed:slide-out-to-left',\n            'data-[swipe-direction=right]:data-open:slide-in-from-right data-[swipe-direction=right]:data-closed:slide-out-to-right',\n            props.class,\n          )\"\n        >\n          <div data-slot=\"drawer-handle\" class=\"bg-muted mt-4 h-1 w-[100px] rounded-none mx-auto hidden shrink-0 group-data-[swipe-direction=down]/drawer-content:block\" />\n          <Drawer.Content class=\"flex min-h-0 flex-1 flex-col\">\n            <slot />\n          </Drawer.Content>\n        </Drawer.Popup>\n      </Transition>\n    </Drawer.Viewport>\n  </Drawer.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerDescription.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerDescriptionProps } from '@vase-ui/vue/drawer'\nimport type { HTMLAttributes } from 'vue'\nimport { Drawer } from '@vase-ui/vue/drawer'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DrawerDescriptionProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Drawer.Description\n    data-slot=\"drawer-description\"\n    :class=\"cn('text-muted-foreground text-xs/relaxed', props.class)\"\n  >\n    <slot />\n  </Drawer.Description>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerFooter.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"drawer-footer\"\n    :class=\"cn('gap-2 p-4 mt-auto flex flex-col', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerHeader.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"drawer-header\"\n    :class=\"cn('gap-0.5 p-4 group-data-[swipe-direction=down]/drawer-content:text-center group-data-[swipe-direction=up]/drawer-content:text-center md:gap-0.5 md:text-left flex flex-col', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerOverlay.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerBackdropProps } from '@vase-ui/vue/drawer'\nimport type { HTMLAttributes } from 'vue'\nimport { Drawer } from '@vase-ui/vue/drawer'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DrawerBackdropProps {\n  class?: HTMLAttributes['class']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Transition appear @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n    <Drawer.Backdrop\n      data-slot=\"drawer-overlay\"\n      v-bind=\"$attrs\"\n      :class=\"cn('data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/10 supports-backdrop-filter:backdrop-blur-xs fixed inset-0 z-50', props.class)\"\n    />\n  </Transition>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerTitle.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTitleProps } from '@vase-ui/vue/drawer'\nimport type { HTMLAttributes } from 'vue'\nimport { Drawer } from '@vase-ui/vue/drawer'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DrawerTitleProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Drawer.Title\n    data-slot=\"drawer-title\"\n    :class=\"cn('text-foreground text-sm font-medium cn-font-heading', props.class)\"\n  >\n    <slot />\n  </Drawer.Title>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/DrawerTrigger.vue",
+      "content": "<script lang=\"ts\" setup>\nimport type { DrawerTriggerProps } from '@vase-ui/vue/drawer'\nimport { Drawer } from '@vase-ui/vue/drawer'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ DrawerTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Drawer.Trigger ref=\"part\" data-slot=\"drawer-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Drawer.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/drawer/index.ts",
+      "content": "export { default as Drawer } from './Drawer.vue'\nexport { default as DrawerClose } from './DrawerClose.vue'\nexport { default as DrawerContent } from './DrawerContent.vue'\nexport { default as DrawerDescription } from './DrawerDescription.vue'\nexport { default as DrawerFooter } from './DrawerFooter.vue'\nexport { default as DrawerHeader } from './DrawerHeader.vue'\nexport { default as DrawerOverlay } from './DrawerOverlay.vue'\nexport { default as DrawerTitle } from './DrawerTitle.vue'\nexport { default as DrawerTrigger } from './DrawerTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

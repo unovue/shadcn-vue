@@ -1,0 +1,28 @@
+<script setup lang="ts">
+import type { AlertDialogCloseProps } from '@vase-ui/vue/alert-dialog'
+import type { HTMLAttributes } from 'vue'
+import type { ButtonVariants } from '@/styles/vase-sera/ui/button'
+import { AlertDialog } from '@vase-ui/vue/alert-dialog'
+import { cn } from 'cn'
+import { buttonVariants } from '@/styles/vase-sera/ui/button'
+
+interface Props extends /* @vue-ignore */ AlertDialogCloseProps {
+  class?: HTMLAttributes['class']
+  variant?: ButtonVariants['variant']
+  size?: ButtonVariants['size']
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'default',
+  size: 'default',
+})
+</script>
+
+<template>
+  <AlertDialog.Close
+    data-slot="alert-dialog-action"
+    :class="cn('', buttonVariants({ variant, size }), props.class)"
+  >
+    <slot />
+  </AlertDialog.Close>
+</template>

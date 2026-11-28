@@ -1,0 +1,91 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "context-menu",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenu.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuRootEmits, ContextMenuRootProps } from '@vase-ui/vue/context-menu'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\n\ninterface Props extends /* @vue-ignore */ ContextMenuRootProps {}\ninterface Emits extends /* @vue-ignore */ ContextMenuRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <ContextMenu.Root>\n    <slot />\n  </ContextMenu.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuCheckboxItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuCheckboxItemEmits, ContextMenuCheckboxItemProps } from '@vase-ui/vue/context-menu'\n\nimport type { HTMLAttributes } from 'vue'\nimport { CheckIcon } from '@lucide/vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuCheckboxItemProps {\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ ContextMenuCheckboxItemEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <ContextMenu.CheckboxItem\n    v-slot=\"{ state }\"\n    data-slot=\"context-menu-checkbox-item\"\n    :class=\"cn(\n      'focus:bg-accent focus:text-accent-foreground gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm data-inset:pl-8 [&_svg:not([class*=size-])]:size-4 relative flex cursor-default items-center outline-hidden select-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',\n      props.class,\n    )\"\n  >\n    <span\n      class=\"absolute right-2 pointer-events-none\"\n    >\n      <template v-if=\"state.checked\">\n        <slot name=\"indicator-icon\">\n          <CheckIcon />\n        </slot>\n      </template>\n    </span>\n    <slot />\n  </ContextMenu.CheckboxItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuPopupProps, ContextMenuPositionerProps } from '@vase-ui/vue/context-menu'\nimport type { HTMLAttributes } from 'vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuPopupProps {\n  class?: HTMLAttributes['class']\n  side?: ContextMenuPositionerProps['side']\n  sideOffset?: ContextMenuPositionerProps['sideOffset']\n  align?: ContextMenuPositionerProps['align']\n  alignOffset?: ContextMenuPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <ContextMenu.Portal>\n    <ContextMenu.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      class=\"isolate z-50 outline-none\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <ContextMenu.Popup\n          data-slot=\"context-menu-content\"\n          v-bind=\"$attrs\"\n          :class=\"cn('data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-36 rounded-md p-1 shadow-md ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent z-50 max-h-(--available-height) origin-(--transform-origin) overflow-x-hidden overflow-y-auto', props.class)\"\n        >\n          <slot />\n        </ContextMenu.Popup>\n      </Transition>\n    </ContextMenu.Positioner>\n  </ContextMenu.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuGroup.vue",
+      "content": "<script lang=\"ts\">\nimport type { InjectionKey } from 'vue'\n\nexport const contextMenuGroupKey: InjectionKey<boolean> = Symbol('contextMenuGroup')\n</script>\n\n<script setup lang=\"ts\">\nimport type { ContextMenuGroupProps } from '@vase-ui/vue/context-menu'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { provide } from 'vue'\n\ninterface Props extends /* @vue-ignore */ ContextMenuGroupProps {}\n\ndefineProps<Props>()\n\nprovide(contextMenuGroupKey, true)\n</script>\n\n<template>\n  <ContextMenu.Group data-slot=\"context-menu-group\">\n    <slot />\n  </ContextMenu.Group>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuItemProps } from '@vase-ui/vue/context-menu'\nimport type { HTMLAttributes } from 'vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuItemProps {\n  class?: HTMLAttributes['class']\n  inset?: boolean\n  variant?: 'default' | 'destructive'\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  variant: 'default',\n})\n</script>\n\n<template>\n  <ContextMenu.Item\n    data-slot=\"context-menu-item\"\n    :data-inset=\"inset ? '' : undefined\"\n    :data-variant=\"variant\"\n    :class=\"cn(\n      'focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:text-destructive focus:*:[svg]:text-accent-foreground gap-2 rounded-sm px-2 py-1.5 text-sm data-inset:pl-8 [&_svg:not([class*=size-])]:size-4 group/context-menu-item relative flex cursor-default items-center outline-hidden select-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',\n      props.class,\n    )\"\n  >\n    <slot />\n  </ContextMenu.Item>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuLabel.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuGroupLabelProps } from '@vase-ui/vue/context-menu'\nimport type { HTMLAttributes } from 'vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\nimport { inject } from 'vue'\nimport { contextMenuGroupKey } from './ContextMenuGroup.vue'\n\ninterface Props extends /* @vue-ignore */ ContextMenuGroupLabelProps {\n  class?: HTMLAttributes['class']\n  inset?: boolean\n}\n\nconst props = defineProps<Props>()\n\nconst inGroup = inject(contextMenuGroupKey, false)\n</script>\n\n<template>\n  <ContextMenu.GroupLabel\n    v-if=\"inGroup\"\n    data-slot=\"context-menu-label\"\n    :data-inset=\"inset ? '' : undefined\"\n    :class=\"cn('text-muted-foreground px-2 py-1.5 text-xs font-medium data-inset:pl-8', props.class)\"\n  >\n    <slot />\n  </ContextMenu.GroupLabel>\n  <div\n    v-else\n    data-slot=\"context-menu-label\"\n    :data-inset=\"inset ? '' : undefined\"\n    :class=\"cn('text-muted-foreground px-2 py-1.5 text-xs font-medium data-inset:pl-8', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuPortal.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuPortalProps } from '@vase-ui/vue/context-menu'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\n\ninterface Props extends /* @vue-ignore */ ContextMenuPortalProps {}\n\ndefineProps<Props>()\n</script>\n\n<template>\n  <ContextMenu.Portal>\n    <slot />\n  </ContextMenu.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuRadioGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuRadioGroupEmits, ContextMenuRadioGroupProps } from '@vase-ui/vue/context-menu'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\n\ninterface Props extends /* @vue-ignore */ ContextMenuRadioGroupProps {}\ninterface Emits extends /* @vue-ignore */ ContextMenuRadioGroupEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <ContextMenu.RadioGroup data-slot=\"context-menu-radio-group\">\n    <slot />\n  </ContextMenu.RadioGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuRadioItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuRadioItemProps } from '@vase-ui/vue/context-menu'\n\nimport type { HTMLAttributes } from 'vue'\nimport { CheckIcon } from '@lucide/vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuRadioItemProps {\n  class?: HTMLAttributes['class']\n  value: ContextMenuRadioItemProps['value']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <ContextMenu.RadioItem\n    v-slot=\"{ state }\"\n    :value=\"value\"\n    data-slot=\"context-menu-radio-item\"\n    :class=\"cn(\n      'focus:bg-accent focus:text-accent-foreground gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm data-inset:pl-8 [&_svg:not([class*=size-])]:size-4 relative flex cursor-default items-center outline-hidden select-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',\n      props.class,\n    )\"\n  >\n    <span\n      class=\"absolute right-2 pointer-events-none\"\n    >\n      <template v-if=\"state.checked\">\n        <slot name=\"indicator-icon\">\n          <CheckIcon />\n        </slot>\n      </template>\n    </span>\n    <slot />\n  </ContextMenu.RadioItem>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuSeparatorProps } from '@vase-ui/vue/context-menu'\nimport type { HTMLAttributes } from 'vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuSeparatorProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <ContextMenu.Separator\n    data-slot=\"context-menu-separator\"\n    :class=\"cn('bg-border -mx-1 my-1 h-px', props.class)\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuShortcut.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"context-menu-shortcut\"\n    :class=\"cn('text-muted-foreground group-focus/context-menu-item:text-accent-foreground ml-auto text-xs tracking-widest', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuSub.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuSubmenuRootEmits, ContextMenuSubmenuRootProps } from '@vase-ui/vue/context-menu'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\n\ninterface Props extends /* @vue-ignore */ ContextMenuSubmenuRootProps {}\ninterface Emits extends /* @vue-ignore */ ContextMenuSubmenuRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <ContextMenu.SubmenuRoot>\n    <slot />\n  </ContextMenu.SubmenuRoot>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuSubContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuPopupProps, ContextMenuPositionerProps } from '@vase-ui/vue/context-menu'\nimport type { HTMLAttributes } from 'vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuPopupProps {\n  class?: HTMLAttributes['class']\n  side?: ContextMenuPositionerProps['side']\n  sideOffset?: ContextMenuPositionerProps['sideOffset']\n  align?: ContextMenuPositionerProps['align']\n  alignOffset?: ContextMenuPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <ContextMenu.Portal>\n    <ContextMenu.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      class=\"isolate z-50 outline-none\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <ContextMenu.Popup\n          data-slot=\"context-menu-sub-content\"\n          v-bind=\"$attrs\"\n          :class=\"cn('data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 bg-popover text-popover-foreground min-w-32 rounded-md border p-1 shadow-lg duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent z-50 origin-(--transform-origin) overflow-hidden', props.class)\"\n        >\n          <slot />\n        </ContextMenu.Popup>\n      </Transition>\n    </ContextMenu.Positioner>\n  </ContextMenu.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuSubTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuSubmenuTriggerProps } from '@vase-ui/vue/context-menu'\n\nimport type { HTMLAttributes } from 'vue'\nimport { ChevronRightIcon } from '@lucide/vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuSubmenuTriggerProps {\n  class?: HTMLAttributes['class']\n  inset?: boolean\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <ContextMenu.SubmenuTrigger\n    data-slot=\"context-menu-sub-trigger\"\n    :data-inset=\"inset ? '' : undefined\"\n    :class=\"cn(\n      'focus:bg-accent focus:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground rounded-sm px-2 py-1.5 text-sm data-inset:pl-8 [&_svg:not([class*=size-])]:size-4 flex cursor-default items-center outline-hidden select-none data-popup-open:bg-accent data-popup-open:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0',\n      props.class,\n    )\"\n  >\n    <slot />\n    <ChevronRightIcon class=\"cn-rtl-flip ml-auto\" />\n  </ContextMenu.SubmenuTrigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/ContextMenuTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ContextMenuTriggerProps } from '@vase-ui/vue/context-menu'\nimport type { HTMLAttributes } from 'vue'\nimport { ContextMenu } from '@vase-ui/vue/context-menu'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ContextMenuTriggerProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <ContextMenu.Trigger\n    data-slot=\"context-menu-trigger\"\n    :class=\"cn('select-none', props.class)\"\n  >\n    <slot />\n  </ContextMenu.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/context-menu/index.ts",
+      "content": "export { default as ContextMenu } from './ContextMenu.vue'\nexport { default as ContextMenuCheckboxItem } from './ContextMenuCheckboxItem.vue'\nexport { default as ContextMenuContent } from './ContextMenuContent.vue'\nexport { default as ContextMenuGroup } from './ContextMenuGroup.vue'\nexport { default as ContextMenuItem } from './ContextMenuItem.vue'\nexport { default as ContextMenuLabel } from './ContextMenuLabel.vue'\nexport { default as ContextMenuRadioGroup } from './ContextMenuRadioGroup.vue'\nexport { default as ContextMenuRadioItem } from './ContextMenuRadioItem.vue'\nexport { default as ContextMenuSeparator } from './ContextMenuSeparator.vue'\nexport { default as ContextMenuShortcut } from './ContextMenuShortcut.vue'\nexport { default as ContextMenuSub } from './ContextMenuSub.vue'\nexport { default as ContextMenuSubContent } from './ContextMenuSubContent.vue'\nexport { default as ContextMenuSubTrigger } from './ContextMenuSubTrigger.vue'\nexport { default as ContextMenuTrigger } from './ContextMenuTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

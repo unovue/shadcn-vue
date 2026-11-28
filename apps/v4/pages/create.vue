@@ -4,7 +4,7 @@ import { ALLOWED_ITEM_TYPES } from '~/lib/constants'
 
 const params = useDesignSystemSearchParams()
 
-const { data } = await useFetch<Record<string, RegistryItem>>(`/api/base/${params.base.value}`)
+const { data } = await useFetch<Record<string, RegistryItem>>(() => `/api/base/${params.base.value}`)
 const items = computed(() => {
   return Object.values(data.value ?? {}).filter(item =>
     ALLOWED_ITEM_TYPES.includes(item.type),

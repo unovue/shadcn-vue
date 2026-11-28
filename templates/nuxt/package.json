@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "nuxt": "^4.0.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.46"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",

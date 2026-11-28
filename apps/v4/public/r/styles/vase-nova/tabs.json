@@ -1,0 +1,36 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "tabs",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-nova/ui/tabs/Tabs.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsRootEmits, TabsRootProps } from '@vase-ui/vue/tabs'\nimport type { HTMLAttributes } from 'vue'\nimport { Tabs } from '@vase-ui/vue/tabs'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ TabsRootProps {\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ TabsRootEmits {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Tabs.Root\n    v-slot=\"slotProps\"\n    data-slot=\"tabs\"\n    :class=\"cn('gap-2 group/tabs flex data-horizontal:flex-col', props.class)\"\n  >\n    <slot v-bind=\"slotProps\" />\n  </Tabs.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/tabs/TabsContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsPanelProps } from '@vase-ui/vue/tabs'\nimport type { HTMLAttributes } from 'vue'\nimport { Tabs } from '@vase-ui/vue/tabs'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ TabsPanelProps {\n  class?: HTMLAttributes['class']\n  value: TabsPanelProps['value']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Tabs.Panel\n    :value=\"value\"\n    data-slot=\"tabs-content\"\n    :class=\"cn('text-sm flex-1 outline-none', props.class)\"\n  >\n    <slot />\n  </Tabs.Panel>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/tabs/TabsList.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsListProps as VaseTabsListProps } from '@vase-ui/vue/tabs'\nimport type { HTMLAttributes } from 'vue'\nimport type { TabsListVariants } from '.'\nimport { Tabs } from '@vase-ui/vue/tabs'\nimport { cn } from 'cn'\nimport { tabsListVariants } from '.'\n\ninterface Props extends /* @vue-ignore */ VaseTabsListProps {\n  class?: HTMLAttributes['class']\n  variant?: TabsListVariants['variant']\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  variant: 'default',\n})\n</script>\n\n<template>\n  <Tabs.List\n    data-slot=\"tabs-list\"\n    :data-variant=\"variant\"\n    :class=\"cn(tabsListVariants({ variant }), props.class)\"\n  >\n    <slot />\n  </Tabs.List>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/tabs/TabsTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsTabProps } from '@vase-ui/vue/tabs'\nimport type { HTMLAttributes } from 'vue'\nimport { Tabs } from '@vase-ui/vue/tabs'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ TabsTabProps {\n  class?: HTMLAttributes['class']\n  value: TabsTabProps['value']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Tabs.Tab :value=\"value\">\n    <template #element=\"{ props: tabProps, elementRef, state }\">\n      <button\n        v-bind=\"tabProps\"\n        :ref=\"elementRef\"\n        data-slot=\"tabs-trigger\"\n        :data-active=\"state.active ? '' : undefined\"\n        :class=\"cn(\n          'gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none [&_svg:not([class*=size-])]:size-4 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center whitespace-nowrap text-foreground/60 transition-all group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring aria-disabled:pointer-events-none aria-disabled:opacity-50 dark:text-muted-foreground dark:hover:text-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0',\n          'group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent',\n          'data-active:bg-background data-active:text-foreground dark:data-active:border-input dark:data-active:bg-input/30 dark:data-active:text-foreground',\n          'after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100',\n          props.class,\n        )\"\n      >\n        <slot />\n      </button>\n    </template>\n  </Tabs.Tab>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/tabs/index.ts",
+      "content": "import type { VariantProps } from 'class-variance-authority'\nimport { cva } from 'class-variance-authority'\n\nexport { default as Tabs } from './Tabs.vue'\nexport { default as TabsContent } from './TabsContent.vue'\nexport { default as TabsList } from './TabsList.vue'\nexport { default as TabsTrigger } from './TabsTrigger.vue'\n\nexport const tabsListVariants = cva(\n  'rounded-lg p-0.75 group-data-horizontal/tabs:h-8 data-[variant=line]:rounded-none group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col',\n  {\n    variants: {\n      variant: {\n        default: 'bg-muted',\n        line: 'gap-1 bg-transparent',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n)\n\nexport type TabsListVariants = VariantProps<typeof tabsListVariants>\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

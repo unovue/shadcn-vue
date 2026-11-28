@@ -71,7 +71,7 @@ These rules are **always enforced**. Each links to a file with Incorrect/Correct
 
 ### Icons → [icons.md](./rules/icons.md)
 
-- **Icons in `Button` use `data-icon`.** `data-icon="inline-start"` or `data-icon="inline-end"` on the icon. (Styled only by the `reka-*` styles; the classic `new-york` and `new-york-v4` styles ignore it, space icons with `gap-2`, and size them automatically.)
+- **Icons in `Button` use `data-icon`.** `data-icon="inline-start"` or `data-icon="inline-end"` on the icon. (Styled only by the `reka-*` and `vase-*` styles; the classic `new-york` and `new-york-v4` styles ignore it, space icons with `gap-2`, and size them automatically.)
 - **No sizing classes on icons inside components.** Components handle icon sizing via CSS. No `size-4` or `w-4 h-4`.
 - **Pass icons as objects, not string keys.** `:icon="CheckIcon"`, not a string lookup.
 
@@ -113,7 +113,7 @@ These are the most common patterns that differentiate correct shadcn-vue code. F
 <div class="size-10">   <!-- correct -->
 <div class="w-10 h-10"> <!-- wrong -->
 
-<!-- Component sizes: use the size prop when it exists (reka-* styles). -->
+<!-- Component sizes: use the size prop when it exists (reka-* and vase-* styles). -->
 <Avatar size="lg">       <!-- correct -->
 <Avatar class="size-10"> <!-- only when the style has no size prop -->
 
@@ -152,7 +152,7 @@ The injected project context contains these key fields:
 - **`config.aliases`** → use the actual alias prefix for imports (e.g. `@/`, `~/`), never hardcode.
 - **`project.tailwindVersion`** → `"v4"` uses `@theme inline` blocks; `"v3"` uses `tailwind.config.js`.
 - **`project.tailwindCssFile`** → the global CSS file where custom CSS variables are defined. Always edit this file, never create a new one.
-- **`config.style`** → registry style, written as `<base>-<style>` (e.g. `reka-nova`, `reka-vega`), or `new-york-v4` / `new-york` for the classic styles. The only base is `reka` (Reka UI primitives).
+- **`config.style`** → registry style, written as `<base>-<style>` (e.g. `reka-nova`, `vase-vega`), or `new-york-v4` / `new-york` for the classic styles. The bases are `reka` (Reka UI primitives) and `vase` (Vase UI primitives).
 - **`config.iconLibrary`** → determines icon imports. Use `@lucide/vue` for `lucide`, `@tabler/icons-vue` for `tabler`, etc. Never assume `@lucide/vue`.
 - **`config.resolvedPaths`** → exact file-system destinations for components, ui, utils, lib, composables, etc.
 - **`project.framework.name`** → routing and file conventions (`vite`, `nuxt3`, `nuxt4`, `astro`, `laravel`, `inertia`, `manual`).

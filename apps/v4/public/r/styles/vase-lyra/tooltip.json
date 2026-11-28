@@ -1,0 +1,36 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "tooltip",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-lyra/ui/tooltip/Tooltip.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TooltipRootEmits, TooltipRootProps } from '@vase-ui/vue/tooltip'\nimport { Tooltip } from '@vase-ui/vue/tooltip'\n\ninterface Props extends /* @vue-ignore */ TooltipRootProps {}\ninterface Emits extends /* @vue-ignore */ TooltipRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Tooltip.Root v-slot=\"slotProps\">\n    <slot v-bind=\"slotProps\" />\n  </Tooltip.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/tooltip/TooltipContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TooltipPopupProps, TooltipPositionerProps } from '@vase-ui/vue/tooltip'\nimport type { HTMLAttributes } from 'vue'\nimport { Tooltip } from '@vase-ui/vue/tooltip'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ TooltipPopupProps {\n  class?: HTMLAttributes['class']\n  side?: TooltipPositionerProps['side']\n  sideOffset?: TooltipPositionerProps['sideOffset']\n  align?: TooltipPositionerProps['align']\n  alignOffset?: TooltipPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  side: 'top',\n  sideOffset: 4,\n  align: 'center',\n  alignOffset: 0,\n})\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Tooltip.Portal>\n    <Tooltip.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      class=\"isolate z-50\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <Tooltip.Popup\n          data-slot=\"tooltip-content\"\n          v-bind=\"$attrs\"\n          :class=\"cn('data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 inline-flex items-center gap-1.5 rounded-none px-3 py-1.5 text-xs has-data-[slot=kbd]:pr-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-none data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 w-fit max-w-xs origin-(--transform-origin) bg-foreground text-background', props.class)\"\n        >\n          <slot />\n\n          <Tooltip.Arrow class=\"size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-none data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 z-50 bg-foreground fill-foreground data-[side=bottom]:top-1 data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2 data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2 data-[side=top]:-bottom-2.5\" />\n        </Tooltip.Popup>\n      </Transition>\n    </Tooltip.Positioner>\n  </Tooltip.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/tooltip/TooltipProvider.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TooltipProviderProps } from '@vase-ui/vue/tooltip'\nimport { Tooltip } from '@vase-ui/vue/tooltip'\n\ninterface Props extends /* @vue-ignore */ TooltipProviderProps {\n  delay?: number\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  delay: 0,\n})\n</script>\n\n<template>\n  <Tooltip.Provider :delay=\"props.delay\">\n    <slot />\n  </Tooltip.Provider>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/tooltip/TooltipTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TooltipTriggerProps } from '@vase-ui/vue/tooltip'\nimport { Tooltip } from '@vase-ui/vue/tooltip'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ TooltipTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Tooltip.Trigger ref=\"part\" data-slot=\"tooltip-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Tooltip.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/tooltip/index.ts",
+      "content": "export { default as Tooltip } from './Tooltip.vue'\nexport { default as TooltipContent } from './TooltipContent.vue'\nexport { default as TooltipProvider } from './TooltipProvider.vue'\nexport { default as TooltipTrigger } from './TooltipTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
