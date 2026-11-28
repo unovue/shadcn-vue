@@ -59,7 +59,7 @@ const components: { title: string, href: string, description: string }[] = [
         <NavigationMenuContent>
           <ul class="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
             <li class="row-span-3">
-              <NavigationMenuLink class="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md" href="/">
+              <NavigationMenuLink class="from-muted/50 to-muted flex h-full w-full flex-col items-start justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md" href="/">
                 <div class="mt-4 mb-2 text-lg font-medium">
                   shadcn/ui
                 </div>
@@ -106,27 +106,33 @@ const components: { title: string, href: string, description: string }[] = [
           <ul class="grid w-[300px] gap-4">
             <li>
               <NavigationMenuLink href="#">
-                <div class="font-medium">
-                  Components
-                </div>
-                <div class="text-muted-foreground">
-                  Browse all components in the library.
-                </div>
-              </NavigationMenuLink>
-              <NavigationMenuLink href="#">
-                <div class="font-medium">
-                  Documentation
-                </div>
-                <div class="text-muted-foreground">
-                  Learn how to use the library.
+                <div class="flex flex-col gap-1">
+                  <div class="font-medium">
+                    Components
+                  </div>
+                  <div class="text-muted-foreground">
+                    Browse all components in the library.
+                  </div>
                 </div>
               </NavigationMenuLink>
               <NavigationMenuLink href="#">
-                <div class="font-medium">
-                  Blog
+                <div class="flex flex-col gap-1">
+                  <div class="font-medium">
+                    Documentation
+                  </div>
+                  <div class="text-muted-foreground">
+                    Learn how to use the library.
+                  </div>
                 </div>
-                <div class="text-muted-foreground">
-                  Read our latest blog posts.
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <div class="flex flex-col gap-1">
+                  <div class="font-medium">
+                    Blog
+                  </div>
+                  <div class="text-muted-foreground">
+                    Read our latest blog posts.
+                  </div>
                 </div>
               </NavigationMenuLink>
             </li>

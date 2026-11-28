@@ -11,12 +11,14 @@ defineProps<{
 <template>
   <li>
     <NavigationMenuLink :as="NuxtLink" :to="to">
-      <div class="text-sm leading-none font-medium">
-        {{ title }}
+      <div class="flex flex-col gap-1 text-sm">
+        <div class="leading-none font-medium">
+          {{ title }}
+        </div>
+        <p class="text-muted-foreground line-clamp-2 leading-snug">
+          <slot />
+        </p>
       </div>
-      <p class="text-muted-foreground line-clamp-2 text-sm leading-snug">
-        <slot />
-      </p>
     </NavigationMenuLink>
   </li>
 </template>
