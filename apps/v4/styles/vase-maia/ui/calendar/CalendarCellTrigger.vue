@@ -17,7 +17,8 @@ const props = defineProps<Props>()
     data-slot="calendar-cell-trigger"
     :class="cn(
       buttonVariants({ variant: 'ghost' }),
-      'size-8 p-0 font-normal cursor-default',
+      // The button style has a transparent border and a clipped background. The accent of the cell then shows around a selected day.
+      'size-8 border-0 p-0 font-normal cursor-default',
       '[&[aria-current=date]:not([data-selected])]:bg-accent [&[aria-current=date]:not([data-selected])]:text-accent-foreground',
       'data-[selected]:bg-primary data-[selected]:text-primary-foreground data-[selected]:opacity-100 data-[selected]:hover:bg-primary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-primary data-[selected]:focus:text-primary-foreground',
       'disabled:text-muted-foreground disabled:opacity-50',

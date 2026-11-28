@@ -36,6 +36,9 @@ const hasHeading = computed(() => !!props.layout || !!slots['calendar-heading'])
 
 const [DefineMonthTemplate, ReuseMonthTemplate] = createReusableTemplate<{ text?: boolean }>()
 const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ text?: boolean }>()
+
+// NativeSelect puts `class` on its wrapper, so the classes of the select itself use a descendant selector.
+const selectClass = '**:data-[slot=native-select]:h-8 **:data-[slot=native-select]:pr-6 **:data-[slot=native-select]:pl-2 **:data-[slot=native-select]:text-xs **:data-[slot=native-select]:text-transparent'
 </script>
 
 <template>
@@ -45,7 +48,7 @@ const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ text?: 
         <template v-if="text">
           {{ options.find(option => option.value === value)?.text }}
         </template>
-        <div v-else class="**:data-[slot=native-select-icon]:right-1">
+        <div v-else class="**:data-[slot=native-select-icon]:right-1 **:data-[slot=native-select-icon]:opacity-50">
           <div class="relative">
             <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
               {{ options.find(option => option.value === value)?.text }}
@@ -54,7 +57,7 @@ const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ text?: 
               v-bind="selectProps"
               :ref="elementRef"
               :model-value="value"
-              class="text-xs h-8 pr-6 pl-2 text-transparent relative"
+              :class="selectClass"
             >
               <NativeSelectOption
                 v-for="option in options"
@@ -77,7 +80,7 @@ const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ text?: 
         <template v-if="text">
           {{ options.find(option => option.value === value)?.text }}
         </template>
-        <div v-else class="**:data-[slot=native-select-icon]:right-1">
+        <div v-else class="**:data-[slot=native-select-icon]:right-1 **:data-[slot=native-select-icon]:opacity-50">
           <div class="relative">
             <div class="absolute inset-0 flex h-full items-center text-sm pl-2 pointer-events-none">
               {{ options.find(option => option.value === value)?.text }}
@@ -86,7 +89,7 @@ const [DefineYearTemplate, ReuseYearTemplate] = createReusableTemplate<{ text?: 
               v-bind="selectProps"
               :ref="elementRef"
               :model-value="value"
-              class="text-xs h-8 pr-6 pl-2 text-transparent relative"
+              :class="selectClass"
             >
               <NativeSelectOption
                 v-for="option in options"
