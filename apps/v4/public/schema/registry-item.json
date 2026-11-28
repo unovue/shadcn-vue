@@ -90,7 +90,7 @@
           },
           "target": {
             "type": "string",
-            "description": "The target path of the file. This is the path to the file in the project."
+            "description": "The target path of the file. This is the path to the file in the project. Supports the target placeholders @components/, @ui/, @lib/, @hooks/ and @composables/, which resolve to the directories of the corresponding aliases in components.json. @hooks/ falls back to the composables directory when aliases.hooks is not set."
           }
         },
         "if": {

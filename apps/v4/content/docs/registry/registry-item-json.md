@@ -187,6 +187,59 @@ By default, the `shadcn-vue` cli will read a project's `components.json` file to
 
 Use `~` to refer to the root of the project e.g `~/foo.config.js`.
 
+You can also use target placeholders to place files under the directories configured in the user's `components.json`. A placeholder is only recognized at the start of `target`. It resolves to the directory the alias points to through the project's `tsconfig.json` paths. For example, when `aliases.components` is `@/components`, `@components/` installs into `src/components` in a Vite project and into `app/components` in a Nuxt 4 project.
+
+| Placeholder     | Resolves to           | When the alias is not set                     |
+| --------------- | --------------------- | --------------------------------------------- |
+| `@components/`  | `aliases.components`  | Required                                      |
+| `@ui/`          | `aliases.ui`          | `ui` under the components directory           |
+| `@lib/`         | `aliases.lib`         | The directory that contains `aliases.utils`   |
+| `@hooks/`       | `aliases.hooks`       | Same as `@composables/`                       |
+| `@composables/` | `aliases.composables` | `composables` next to the components directory |
+
+`@hooks/` exists so items written for shadcn/ui install as expected. Without `aliases.hooks` it installs into the composables directory, where `registry:hook` files go.
+
+Anything after the placeholder is kept, so `@components/acme/card/Card.vue` installs into the `acme/card` folder under the user's components directory.
+
+```json showLineNumbers title="registry-item.json"
+{
+  "files": [
+    {
+      "path": "registry/new-york/example/card/Card.vue",
+      "type": "registry:component",
+      "target": "@components/acme/card/Card.vue"
+    },
+    {
+      "path": "registry/new-york/example/button/Button.vue",
+      "type": "registry:ui",
+      "target": "@ui/acme-button/Button.vue"
+    },
+    {
+      "path": "registry/new-york/example/lib/format-date.ts",
+      "type": "registry:lib",
+      "target": "@lib/format-date.ts"
+    },
+    {
+      "path": "registry/new-york/example/composables/useDemo.ts",
+      "type": "registry:composable",
+      "target": "@composables/useDemo.ts"
+    }
+  ]
+}
+```
+
+The placeholder decides where the file is written, even when it points to a different directory than the file `type`. The path after the placeholder must be relative and must stay inside that directory, so targets such as `@lib/../nuxt.config.ts` and `@lib//etc/hosts` are rejected. The `add` command also rejects targets with `..` segments.
+
+In a monorepo, a placeholder resolves against the `components.json` of the workspace the file's type installs into. `registry:ui` files use the UI package, and other types use the app.
+
+Other targets that start with `@`, such as `@acme/foo.ts`, are treated as regular target paths. Placeholders are matched case-sensitively, so `@Lib/` is a regular target path too.
+
+<Callout class="mt-6">
+
+  **Note:** `@utils/` is not supported because `aliases.utils` points to a file, not a directory.
+
+</Callout>
+
 ### tailwind
 
 **DEPRECATED:** Use `cssVars.theme` instead for Tailwind v4 projects.
