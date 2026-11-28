@@ -303,7 +303,7 @@ REGISTRY_TOKEN=your_token_here
 API_KEY=your_api_key_here
 ```
 
-For more details on registry authentication, see the [Authentication documentation](/docs/registry/authentication).
+For more details on registry authentication, see the [Adding Auth](/docs/registry/getting-started#adding-auth) section of the registry guide.
 
 ---
 
@@ -372,6 +372,5 @@ If you see the `No tools or prompts` message, try the following:
 ## Learn More
 
 - [Registry Documentation](/docs/registry) - Complete guide to shadcn registries
-- [Namespaces](/docs/registry/namespace) - Configure multiple registry sources
-- [Authentication](/docs/registry/authentication) - Secure your private registries
+- [Authentication](/docs/registry/getting-started#adding-auth) - Secure your private registries
 - [MCP Specification](https://modelcontextprotocol.io) - Learn about Model Context Protocol
