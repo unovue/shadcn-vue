@@ -15,7 +15,7 @@ catalog:
   '@types/validate-npm-package-name': ^4.0.2
   '@unovis/ts': ^1.6.7
   '@unovis/vue': ^1.6.7
-  '@vase-ui/vue': ^2026.11.10
+  '@vase-ui/vue': ^2026.11.14
   '@vee-validate/zod': ^4.15.1
   '@vitejs/plugin-vue': ^6.0.8
   '@vueuse/core': ^14.4.0

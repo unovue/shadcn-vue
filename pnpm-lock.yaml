@@ -43,8 +43,8 @@ catalogs:
       specifier: ^1.6.7
       version: 1.6.7
     '@vase-ui/vue':
-      specifier: ^2026.11.10
-      version: 2026.11.10
+      specifier: ^2026.11.14
+      version: 2026.11.14
     '@vee-validate/zod':
       specifier: ^4.15.1
       version: 4.15.1
@@ -246,7 +246,7 @@ importers:
         version: 1.6.7(@unovis/ts@1.6.7)(vue@3.5.46(typescript@5.9.3))
       '@vase-ui/vue':
         specifier: 'catalog:'
-        version: 2026.11.10(nuxt@4.5.2(05e7a31de3d0f7e5136d9e65c90fe3e6))(vue@3.5.46(typescript@5.9.3))
+        version: 2026.11.14(nuxt@4.5.2(05e7a31de3d0f7e5136d9e65c90fe3e6))(vue@3.5.46(typescript@5.9.3))
       '@vee-validate/zod':
         specifier: 'catalog:'
         version: 4.15.1(vue@3.5.46(typescript@5.9.3))(zod@3.25.76)
@@ -5420,8 +5420,8 @@ packages:
     peerDependencies:
       valibot: ^1.4.0
 
-  '@vase-ui/vue@2026.11.10':
-    resolution: {integrity: sha512-vB4h9vFtws+2WDxGaDF3n2oljDs/vbSCWjlGk4vn/pxidvpCdBXYcBlXTA57HCDRTBSyutED0UnSONsrXGii9w==}
+  '@vase-ui/vue@2026.11.14':
+    resolution: {integrity: sha512-a/9cgtTCzcDpEqPKVaIG/vIoFhfWQkmbKip9i0ctmvZXW/NmRSZkpDzZuMzjG9kAkWHiiIx6CkHXsvkdfCSfxQ==}
     peerDependencies:
       nuxt: '>=3.0.0'
       vue: ^3.5.46 || ^3.6.0-0
@@ -17558,7 +17558,7 @@ snapshots:
       valibot: 1.4.2(typescript@5.9.3)
     optional: true
 
-  '@vase-ui/vue@2026.11.10(nuxt@4.5.2(05e7a31de3d0f7e5136d9e65c90fe3e6))(vue@3.5.46(typescript@5.9.3))':
+  '@vase-ui/vue@2026.11.14(nuxt@4.5.2(05e7a31de3d0f7e5136d9e65c90fe3e6))(vue@3.5.46(typescript@5.9.3))':
     dependencies:
       '@floating-ui/utils': 0.2.12
       '@floating-ui/vue': 2.0.1(vue@3.5.46(typescript@5.9.3))
