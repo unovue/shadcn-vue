@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "separator",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-maia/ui/separator/Separator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SeparatorProps } from '@vase-ui/vue/separator'\nimport type { HTMLAttributes } from 'vue'\nimport { Separator } from '@vase-ui/vue/separator'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SeparatorProps {\n  class?: HTMLAttributes['class']\n  orientation?: 'horizontal' | 'vertical'\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  orientation: 'horizontal',\n})\n</script>\n\n<template>\n  <Separator\n    data-slot=\"separator\"\n    :orientation=\"orientation\"\n    :data-orientation=\"orientation\"\n    :class=\"\n      cn(\n        'shrink-0 bg-border data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch',\n        props.class,\n      )\n    \"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/separator/index.ts",
+      "content": "export { default as Separator } from './Separator.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

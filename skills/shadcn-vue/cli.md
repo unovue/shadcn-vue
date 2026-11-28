@@ -30,7 +30,7 @@ Whether a new project is scaffolded depends only on the directory: `--cwd` (or t
 | -------------------------------- | ----- | --------------------------------------------------------------------------- | --------- |
 | `--template <template>`          | `-t`  | Template for a new project (nuxt, vite, astro, laravel)                     | —         |
 | `--preset [name]`                | `-p`  | Preset configuration (named, code, or URL)                                  | —         |
-| `--base <base>`                  |       | Component library base (`reka` is the only one)                             | `reka`    |
+| `--base <base>`                  |       | Component library base (`reka`, `vase`)                                     | `reka`    |
 | `--style <style>`                |       | Visual style (vega, nova, maia, lyra, mira, luma, sera)                     | —         |
 | `--icon-library <library>`       |       | Icon library (lucide, tabler, hugeicons, phosphor, remixicon)               | `lucide`  |
 | `--font <font>`                  |       | Font (e.g. inter, geist-sans, figtree, jetbrains-mono)                      | —         |
@@ -136,7 +136,7 @@ Outputs the documentation URL for each component. Accepts one or more component 
 
 | Flag            | Short | Description                                      | Default        |
 | --------------- | ----- | ------------------------------------------------ | -------------- |
-| `--base <base>` | `-b`  | Base to resolve links for (`reka`)               | project's base |
+| `--base <base>` | `-b`  | Base to resolve links for (`reka`, `vase`)       | project's base |
 | `--json`        |       | Output as JSON                                   | `false`        |
 | `--cwd <cwd>`   | `-c`  | Working directory                                | current        |
 
@@ -144,10 +144,10 @@ Example output for `npx shadcn-vue@latest docs input button`:
 
 ```text
 input
-  - docs  https://shadcn-vue.com/docs/components/input
+  - docs  https://shadcn-vue.com/docs/components/reka/input
 
 button
-  - docs  https://shadcn-vue.com/docs/components/button
+  - docs  https://shadcn-vue.com/docs/components/reka/button
 ```
 
 ### `diff` — Check for updates
@@ -197,7 +197,7 @@ Displays project info and `components.json` configuration. Run this first to dis
 
 | Field                   | Type      | Meaning                                                                                     |
 | ----------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `style`                 | `string`  | Registry style: `reka-<style>` (e.g. `reka-nova`, `reka-vega`), or `new-york-v4` / `new-york` |
+| `style`                 | `string`  | Registry style: `<base>-<style>` (e.g. `reka-nova`, `vase-vega`), or `new-york-v4` / `new-york` |
 | `font` / `fontHeading`  | `string`  | Body and heading font set by the preset                                                     |
 | `typescript`            | `boolean` | TypeScript flag                                                                             |
 | `tailwind.config`       | `string`  | Tailwind config path (empty for Tailwind v4)                                                |
@@ -217,7 +217,7 @@ Displays project info and `components.json` configuration. Run this first to dis
 | `resolvedPaths`         | `object`  | Absolute file-system paths for each alias                                                   |
 | `registries`            | `object`  | Configured custom registries                                                                |
 
-There is no `base` field; the base (`reka`) is the prefix of `style`.
+There is no `base` field; the base (`reka` or `vase`) is the prefix of `style`.
 
 ### `migrate` — Run a migration
 

@@ -2,6 +2,7 @@
 // https://github.com/nuxt/content/issues/3119
 
 import type { ContentNavigationItem } from '@nuxt/content'
+import { flattenPages, forBase } from '@/lib/docs-base'
 
 export type NavigationItemType = 'page' | 'component' | 'block' | 'group'
 
@@ -42,30 +43,47 @@ function mapWithType(item: ContentNavigationItem, parent: ContentNavigationItem 
   }
 }
 
-export async function useNavigation() {
-  const { data } = useAsyncData('navigation', () => {
+export function useNavigationTree() {
+  return useAsyncData('navigation', () => {
     return queryCollectionNavigation('content', ['new'])
   }, {
     default: () => ([]),
-    transform: (data) => {
-      const doc = data.find(i => i.stem === 'docs')!
-      const rootDocs = doc.children?.filter(i => !EXCLUDED_PARENT_TITLE.includes(i.title ?? '')).map(i => mapWithType(i, doc)) ?? []
-      const nonRootDocs = doc.children?.filter(i => i.children).map(i => mapWithType(i, doc)) ?? []
-
-      return [{ ...doc, children: [
-        ...nonRootDocs,
-        {
-          path: '/docs',
-          stem: 'docs',
-          title: 'Get Started',
-          type: navigationItemType(doc, null),
-          children: rootDocs,
-        },
-      ] }]
-    },
   })
+}
+
+export async function useNavigation() {
+  const base = useDocsBase()
+  const nav = useNavigationTree()
+  const content = computed(() => forBase(nav.data.value, base.value))
+
+  const data = computed(() => {
+    const doc = content.value.find(i => i.stem === 'docs')
+    if (!doc) {
+      return []
+    }
+    const rootDocs = doc.children?.filter(i => !EXCLUDED_PARENT_TITLE.includes(i.title ?? '')).map(i => mapWithType(i, doc)) ?? []
+    const nonRootDocs = doc.children?.filter(i => i.children).map(i => mapWithType(i, doc)) ?? []
+
+    return [{ ...doc, children: [
+      ...nonRootDocs,
+      {
+        path: '/docs',
+        stem: 'docs',
+        title: 'Get Started',
+        type: navigationItemType(doc, null),
+        children: rootDocs,
+      },
+    ] }]
+  })
+
+  const pages = computed(() => flattenPages(content.value))
+  const paths = computed(() => new Set(flattenPages(nav.data.value).map(page => page.path)))
+
+  await nav
 
   return {
     data,
+    pages,
+    paths,
   }
 }

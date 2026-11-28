@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { encodePreset } from '@/src/preset/preset'
 import {
   getBase,
@@ -6,6 +6,15 @@ import {
   resolveApplyInitUrl,
   resolveApplyPreset,
 } from './apply'
+
+const bases = vi.hoisted(() => [
+  { name: 'reka', label: 'Reka UI', description: 'Reka', dependencies: ['reka-ui'] },
+])
+
+vi.mock('@/src/registry/constants', async importOriginal => ({
+  ...(await importOriginal<typeof import('@/src/registry/constants')>()),
+  BASES: bases,
+}))
 
 vi.mock('@/src/utils/handle-error', () => ({
   handleError: vi.fn(),
@@ -95,6 +104,32 @@ describe('getBase', () => {
     expect(getBase(undefined)).toBe('reka')
     expect(getBase('')).toBe('reka')
     expect(getBase('mystery-style')).toBe('reka')
+  })
+})
+
+describe('with several bases', () => {
+  beforeEach(() => {
+    bases.push({ name: 'vase', label: 'Vase UI', description: 'Vase', dependencies: ['@vase-ui/vue'] })
+  })
+
+  afterEach(() => {
+    bases.length = 1
+  })
+
+  it('getBase extracts the base of each composed style id', () => {
+    expect(getBase('vase-nova')).toBe('vase')
+    expect(getBase('reka-nova')).toBe('reka')
+  })
+
+  it('getBase falls back to the first base for a style without a base', () => {
+    expect(getBase('new-york-v4')).toBe('reka')
+    expect(getBase('other-nova')).toBe('reka')
+  })
+
+  it('resolveApplyInitUrl forces the base of the project on a preset code', () => {
+    const url = resolveApplyInitUrl(encodePreset({ style: 'nova' }), { base: 'vase', rtl: false })
+
+    expect(new URL(url!).searchParams.get('base')).toBe('vase')
   })
 })
 

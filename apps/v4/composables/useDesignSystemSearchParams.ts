@@ -4,7 +4,7 @@ import type { BaseColorName, BaseName, FontValue, IconLibraryName, MenuAccentVal
 import { useRouteQuery } from '@vueuse/router'
 import { decodePreset, encodePreset } from 'shadcn-vue/preset'
 import { computed } from 'vue'
-import { DEFAULT_CONFIG } from '@/registry/config'
+import { BASES, DEFAULT_CONFIG } from '@/registry/config'
 
 type PresetFieldKey = keyof PresetConfig
 
@@ -39,15 +39,38 @@ const PRESET_DEFAULTS: PresetConfig = {
 const DEFAULT_PRESET = encodePreset(PRESET_DEFAULTS)
 
 export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
-  const DEFAULT_OPTIONS = { mode, route: useRoute(), router: useRouter() }
+  const route = useRoute()
+  const DEFAULT_OPTIONS = { mode, route, router: useRouter() }
 
-  const base = useRouteQuery<BaseName>('base', DEFAULT_CONFIG.base, DEFAULT_OPTIONS)
   const item = useRouteQuery<string>('item', 'preview-02', DEFAULT_OPTIONS)
   const template = useRouteQuery<'nuxt' | 'vite' | 'laravel' | 'astro'>('template', 'nuxt', DEFAULT_OPTIONS)
   const size = useRouteQuery<number>('size', 100, DEFAULT_OPTIONS)
   const pointerQuery = useRouteQuery<string | undefined>('pointer', undefined, DEFAULT_OPTIONS)
 
-  const preset = useRouteQuery<string>('preset', DEFAULT_PRESET, DEFAULT_OPTIONS)
+  const presetQuery = useRouteQuery<string>('preset', DEFAULT_PRESET, DEFAULT_OPTIONS)
+  const baseQuery = useRouteQuery<string | undefined>('base', undefined, DEFAULT_OPTIONS)
+
+  // Support `/create?base=<name>` links (such as from the CLI) when no preset code is set.
+  const linkedBase = computed(() =>
+    route.query.preset === undefined ? BASES.find(b => b.name === baseQuery.value)?.name : undefined,
+  )
+
+  const presetConfig = computed<PresetConfig>(() => {
+    const decoded = decodePreset(presetQuery.value) ?? PRESET_DEFAULTS
+
+    return linkedBase.value
+      ? { ...decoded, base: linkedBase.value as PresetConfig['base'] }
+      : decoded
+  })
+
+  const preset = computed<string>({
+    get: () => linkedBase.value ? encodePreset(presetConfig.value) : presetQuery.value,
+    set: (value) => {
+      presetQuery.value = value
+      // Clear `?base=` because the preset code encodes the base.
+      baseQuery.value = undefined
+    },
+  })
 
   /**
    * Build a writable computed for one preset field.
@@ -58,15 +81,14 @@ export function useDesignSystemSearchParams(mode: 'push' | 'replace' = 'push') {
    */
   function presetField<T extends string>(key: PresetFieldKey): WritableComputedRef<T> {
     return computed<T>({
-      get: () => (decodePreset(preset.value) ?? PRESET_DEFAULTS)[key] as T,
+      get: () => presetConfig.value[key] as T,
       set: (value) => {
-        const decoded = decodePreset(preset.value) ?? PRESET_DEFAULTS
-        const next = { ...decoded, [key]: value } as PresetConfig
-        preset.value = encodePreset(next)
+        preset.value = encodePreset({ ...presetConfig.value, [key]: value } as PresetConfig)
       },
     })
   }
 
+  const base = presetField<BaseName>('base')
   const style = presetField<StyleName>('style')
   const baseColor = presetField<BaseColorName>('baseColor')
   const theme = presetField<ThemeName>('theme')

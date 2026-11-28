@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "progress",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-maia/ui/progress/Progress.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ProgressRootProps } from '@vase-ui/vue/progress'\nimport type { HTMLAttributes } from 'vue'\nimport { Progress } from '@vase-ui/vue/progress'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ProgressRootProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Progress.Root\n    data-slot=\"progress\"\n    :class=\"\n      cn(\n        'bg-muted h-3 rounded-4xl relative flex w-full items-center overflow-x-hidden',\n        props.class,\n      )\n    \"\n  >\n    <Progress.Indicator\n      data-slot=\"progress-indicator\"\n      class=\"bg-primary h-full transition-all\"\n    />\n  </Progress.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-maia/ui/progress/index.ts",
+      "content": "export { default as Progress } from './Progress.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

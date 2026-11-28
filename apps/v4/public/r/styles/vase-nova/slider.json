@@ -1,0 +1,21 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "slider",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-nova/ui/slider/Slider.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { SliderRootEmits, SliderRootProps } from '@vase-ui/vue/slider'\nimport type { HTMLAttributes } from 'vue'\nimport { Slider } from '@vase-ui/vue/slider'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ SliderRootProps<number | readonly number[]> {\n  class?: HTMLAttributes['class']\n}\ninterface Emits extends /* @vue-ignore */ SliderRootEmits<number | readonly number[]> {}\n\nconst props = defineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Slider.Root\n    v-slot=\"{ state }\"\n    data-slot=\"slider\"\n    thumb-alignment=\"edge\"\n    :class=\"cn('data-horizontal:w-full data-vertical:h-full', props.class)\"\n  >\n    <Slider.Control\n      class=\"data-vertical:min-h-40 relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:w-auto data-vertical:flex-col\"\n    >\n      <Slider.Track\n        data-slot=\"slider-track\"\n        class=\"bg-muted rounded-full data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1 relative grow overflow-hidden select-none\"\n      >\n        <Slider.Indicator\n          data-slot=\"slider-range\"\n          class=\"bg-primary select-none data-horizontal:h-full data-vertical:w-full\"\n        />\n      </Slider.Track>\n      <Slider.Thumb\n        v-for=\"(_, index) in state.values\"\n        :key=\"index\"\n        data-slot=\"slider-thumb\"\n        class=\"border-ring ring-ring/50 relative size-3 rounded-full border bg-white transition-[color,box-shadow] after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 block shrink-0 select-none has-[:focus-visible]:ring-3 disabled:pointer-events-none disabled:opacity-50\"\n      />\n    </Slider.Control>\n  </Slider.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-nova/ui/slider/index.ts",
+      "content": "export { default as Slider } from './Slider.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

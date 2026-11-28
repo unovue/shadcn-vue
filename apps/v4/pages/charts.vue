@@ -24,7 +24,7 @@ useSeoMeta({
         <a href="#charts">Browse Charts</a>
       </Button>
       <Button as-child variant="ghost" size="sm">
-        <NuxtLink to="/docs/components/chart">
+        <NuxtLink to="/docs/components/reka/chart">
           Documentation
         </NuxtLink>
       </Button>

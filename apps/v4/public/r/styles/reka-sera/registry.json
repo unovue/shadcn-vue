@@ -7,7 +7,9 @@
       "type": "registry:style",
       "dependencies": [
         "class-variance-authority",
-        "@lucide/vue"
+        "@lucide/vue",
+        "reka-ui",
+        "shadcn-vue@latest"
       ],
       "devDependencies": [
         "tw-animate-css"
@@ -16,7 +18,10 @@
         "utils"
       ],
       "files": [],
-      "cssVars": {}
+      "cssVars": {},
+      "css": {
+        "@import \"shadcn-vue/tailwind.css\"": {}
+      }
     },
     {
       "name": "accordion",

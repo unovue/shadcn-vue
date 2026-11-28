@@ -85,4 +85,38 @@ export const registryConfig: RegistryBase[] = [
       },
     ],
   },
+  {
+    name: 'vase',
+    path: 'bases/vase',
+    buildMainRegistry: false,
+    publicOutputDir: 'public/r/styles/vase',
+    contentTypes: [
+      {
+        name: 'ui',
+        path: 'ui',
+        outputFile: 'bases/vase/ui/_registry.ts',
+        crawlType: 'ui',
+      },
+      {
+        name: 'blocks',
+        path: 'blocks',
+        outputFile: 'bases/vase/blocks/_registry.ts',
+        crawlType: 'block',
+      },
+      {
+        name: 'examples',
+        path: 'examples',
+        outputFile: 'bases/vase/examples/_registry.ts',
+        crawlType: 'example',
+      },
+      {
+        name: 'lib',
+        path: 'lib',
+        outputFile: 'bases/vase/lib/_registry.ts',
+        crawlType: 'lib',
+      },
+    ],
+  },
 ]
+
+export const configuredBases = registryConfig.filter(base => !base.buildMainRegistry)

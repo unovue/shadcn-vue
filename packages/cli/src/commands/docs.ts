@@ -1,12 +1,21 @@
 import { Command } from 'commander'
 import consola from 'consola'
 import path from 'pathe'
+import { z } from 'zod'
+import { getBase } from '@/src/commands/apply'
+import { baseSchema } from '@/src/commands/init'
 import { getShadcnRegistryIndex } from '@/src/registry/api'
-import { SHADCN_VUE_URL } from '@/src/registry/constants'
+import { BASES, SHADCN_VUE_URL } from '@/src/registry/constants'
 import { getConfig } from '@/src/utils/get-config'
 import { handleError } from '@/src/utils/handle-error'
 import { highlighter } from '@/src/utils/highlighter'
 import { logger } from '@/src/utils/logger'
+
+const docsOptionsSchema = z.object({
+  cwd: z.string(),
+  base: baseSchema,
+  json: z.boolean(),
+})
 
 export const docs = new Command()
   .name('docs')
@@ -19,17 +28,15 @@ export const docs = new Command()
   )
   .option(
     '-b, --base <base>',
-    'the base to use (reka). defaults to project base.',
+    `the base to use (${BASES.map(base => base.name).join(', ')}). defaults to project base.`,
   )
   .option('--json', 'output as JSON.', false)
   .action(async (components: string[], opts) => {
     try {
-      const cwd = path.resolve(opts.cwd)
+      const options = docsOptionsSchema.parse(opts)
+      const cwd = path.resolve(options.cwd)
       const config = await getConfig(cwd)
-      // shadcn-vue only ships the `reka` base today; derive from config.style
-      // when provided (styles are namespaced as e.g. `reka/vega`).
-      const baseFromStyle = config?.style?.split('/')?.[0]
-      const base = opts.base ?? baseFromStyle ?? 'reka'
+      const base = options.base ?? getBase(config?.style)
 
       const index = await getShadcnRegistryIndex()
 
@@ -67,14 +74,15 @@ export const docs = new Command()
           links = metaLinks
         }
         else {
-          const fallbackUrl = `${SHADCN_VUE_URL}/docs/components/${component}`
-          links = { docs: fallbackUrl }
+          links = {
+            docs: `${SHADCN_VUE_URL}/docs/components/${base}/${component}`,
+          }
         }
 
         results.push({ component, base, links })
       }
 
-      if (opts.json) {
+      if (options.json) {
         consola.log(JSON.stringify({ base, results }, null, 2))
         return
       }

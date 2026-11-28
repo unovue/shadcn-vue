@@ -64,7 +64,7 @@ The fade is scroll-aware and tracks the scroll position:
 
 The fade is applied with `mask-image`, so it dissolves the content itself rather than overlaying a color. The mask uses a linear fade from transparent to black, so it adapts to any background without configuration. If your scroll area sits inside a card, put the background and border on a wrapper and `scroll-fade` on the inner scroller, so the fade dissolves the content and not the card.
 
-The [`ScrollArea`](/docs/components/scroll-area) and [`MessageScroller`](/docs/components/message-scroller) components can use `scroll-fade` on their scrollable viewport.
+The [`ScrollArea`](/docs/components/reka/scroll-area) and [`MessageScroller`](/docs/components/reka/message-scroller) components can use `scroll-fade` on their scrollable viewport.
 
 ## No Overflow, No Fade
 

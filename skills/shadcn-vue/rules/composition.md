@@ -195,7 +195,7 @@ Never render `TabsTrigger` directly inside `Tabs` — always wrap in `TabsList`:
 
 ## Avatar always needs AvatarFallback
 
-Always include `AvatarFallback` for when the image fails to load. In the `reka-*` styles, size avatars with the `size` prop (`sm`, `default`, `lg`) and use `AvatarGroup` / `AvatarGroupCount` / `AvatarBadge` instead of custom markup:
+Always include `AvatarFallback` for when the image fails to load. In the `reka-*` and `vase-*` styles, size avatars with the `size` prop (`sm`, `default`, `lg`) and use `AvatarGroup` / `AvatarGroupCount` / `AvatarBadge` instead of custom markup:
 
 ```html
 <Avatar>

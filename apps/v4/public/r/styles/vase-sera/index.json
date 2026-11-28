@@ -1,0 +1,22 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "index",
+  "dependencies": [
+    "class-variance-authority",
+    "@lucide/vue",
+    "@vase-ui/vue",
+    "shadcn-vue@latest"
+  ],
+  "devDependencies": [
+    "tw-animate-css"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [],
+  "cssVars": {},
+  "css": {
+    "@import \"shadcn-vue/tailwind.css\"": {}
+  },
+  "type": "registry:style"
+}

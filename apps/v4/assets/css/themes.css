@@ -1,5 +1,6 @@
 .theme-default .theme-container,
-.theme-default [data-reka-popper-content-wrapper] {
+.theme-default [data-reka-popper-content-wrapper],
+.theme-default [data-side][data-align] {
   --chart-1: var(--color-blue-300);
   --chart-2: var(--color-blue-500);
   --chart-3: var(--color-blue-600);
@@ -8,7 +9,8 @@
 }
 
 .theme-mono .theme-container,
-.theme-mono [data-reka-popper-content-wrapper] {
+.theme-mono [data-reka-popper-content-wrapper],
+.theme-mono [data-side][data-align] {
   --font-sans: var(--font-mono);
   --primary: var(--color-stone-600);
   --primary-foreground: var(--color-stone-50);
@@ -65,15 +67,18 @@
   [data-slot="toggle-group"],
   [data-slot="toggle-group-item"],
   [data-slot="checkbox"],
+  [data-slot="checkbox-input"],
   [data-slot="radio"],
   [data-slot="switch"],
+  [data-slot="switch-input"],
   [data-slot="switch-thumb"] {
     @apply !rounded-none !shadow-none;
   }
 }
 
 .theme-scaled .theme-container,
-.theme-scaled [data-reka-popper-content-wrapper] {
+.theme-scaled [data-reka-popper-content-wrapper],
+.theme-scaled [data-side][data-align] {
   --chart-1: var(--color-blue-300);
   --chart-2: var(--color-blue-500);
   --chart-3: var(--color-blue-600);
@@ -113,52 +118,62 @@
 }
 
 .theme-rounded-none .theme-container,
-.theme-rounded-none [data-reka-popper-content-wrapper] {
+.theme-rounded-none [data-reka-popper-content-wrapper],
+.theme-rounded-none [data-side][data-align] {
   --radius: 0;
 }
 
 .theme-rounded-small .theme-container,
-.theme-rounded-small [data-reka-popper-content-wrapper] {
+.theme-rounded-small [data-reka-popper-content-wrapper],
+.theme-rounded-small [data-side][data-align] {
   --radius: 0.4rem;
 }
 
 .theme-rounded-medium .theme-container,
-.theme-rounded-medium [data-reka-popper-content-wrapper] {
+.theme-rounded-medium [data-reka-popper-content-wrapper],
+.theme-rounded-medium [data-side][data-align] {
   --radius: 0.65rem;
 }
 
 .theme-rounded-large .theme-container,
-.theme-rounded-large [data-reka-popper-content-wrapper] {
+.theme-rounded-large [data-reka-popper-content-wrapper],
+.theme-rounded-large [data-side][data-align] {
   --radius: 1rem;
 }
 
 .theme-rounded-full .theme-container,
-.theme-rounded-full [data-reka-popper-content-wrapper] {
+.theme-rounded-full [data-reka-popper-content-wrapper],
+.theme-rounded-full [data-side][data-align] {
   --radius: 1.2rem;
 }
 
 .theme-inter .theme-container,
-.theme-inter [data-reka-popper-content-wrapper] {
+.theme-inter [data-reka-popper-content-wrapper],
+.theme-inter [data-side][data-align] {
   --font-sans: var(--font-inter);
 }
 
 .theme-noto-sans .theme-container,
-.theme-noto-sans [data-reka-popper-content-wrapper] {
+.theme-noto-sans [data-reka-popper-content-wrapper],
+.theme-noto-sans [data-side][data-align] {
   --font-sans: var(--font-noto-sans);
 }
 
 .theme-nunito-sans .theme-container,
-.theme-nunito-sans [data-reka-popper-content-wrapper] {
+.theme-nunito-sans [data-reka-popper-content-wrapper],
+.theme-nunito-sans [data-side][data-align] {
   --font-sans: var(--font-nunito-sans);
 }
 
 .theme-figtree .theme-container,
-.theme-figtree [data-reka-popper-content-wrapper] {
+.theme-figtree [data-reka-popper-content-wrapper],
+.theme-figtree [data-side][data-align] {
   --font-sans: var(--font-figtree);
 }
 
 .theme-blue .theme-container,
-.theme-blue [data-reka-popper-content-wrapper] {
+.theme-blue [data-reka-popper-content-wrapper],
+.theme-blue [data-side][data-align] {
   --primary: var(--color-blue-700);
   --primary-foreground: var(--color-blue-50);
   /* --ring: var(--color-blue-100); */
@@ -182,7 +197,8 @@
 }
 
 .theme-green .theme-container,
-.theme-green [data-reka-popper-content-wrapper] {
+.theme-green [data-reka-popper-content-wrapper],
+.theme-green [data-side][data-align] {
   --primary: var(--color-lime-600);
   --primary-foreground: var(--color-lime-50);
   --ring: var(--color-lime-400);
@@ -206,7 +222,8 @@
 }
 
 .theme-amber .theme-container,
-.theme-amber [data-reka-popper-content-wrapper] {
+.theme-amber [data-reka-popper-content-wrapper],
+.theme-amber [data-side][data-align] {
   --primary: var(--color-amber-600);
   --primary-foreground: var(--color-amber-50);
   --ring: var(--color-amber-400);
@@ -230,7 +247,8 @@
 }
 
 .theme-rose .theme-container,
-.theme-rose [data-reka-popper-content-wrapper] {
+.theme-rose [data-reka-popper-content-wrapper],
+.theme-rose [data-side][data-align] {
   --primary: var(--color-rose-600);
   --primary-foreground: var(--color-rose-50);
   --ring: var(--color-rose-400);
@@ -254,7 +272,8 @@
 }
 
 .theme-purple .theme-container,
-.theme-purple [data-reka-popper-content-wrapper] {
+.theme-purple [data-reka-popper-content-wrapper],
+.theme-purple [data-side][data-align] {
   --primary: var(--color-purple-600);
   --primary-foreground: var(--color-purple-50);
   --ring: var(--color-purple-400);
@@ -278,7 +297,8 @@
 }
 
 .theme-orange .theme-container,
-.theme-orange [data-reka-popper-content-wrapper] {
+.theme-orange [data-reka-popper-content-wrapper],
+.theme-orange [data-side][data-align] {
   --primary: var(--color-orange-600);
   --primary-foreground: var(--color-orange-50);
   --ring: var(--color-orange-400);
@@ -302,7 +322,8 @@
 }
 
 .theme-teal .theme-container,
-.theme-teal [data-reka-popper-content-wrapper] {
+.theme-teal [data-reka-popper-content-wrapper],
+.theme-teal [data-side][data-align] {
   --primary: var(--color-teal-600);
   --primary-foreground: var(--color-teal-50);
   --chart-1: var(--color-teal-300);
@@ -324,7 +345,8 @@
 }
 
 .theme-red .theme-container,
-.theme-red [data-reka-popper-content-wrapper] {
+.theme-red [data-reka-popper-content-wrapper],
+.theme-red [data-side][data-align] {
   --primary: var(--color-red-600);
   --primary-foreground: var(--color-red-50);
   --ring: var(--color-red-400);
@@ -348,7 +370,8 @@
 }
 
 .theme-yellow .theme-container,
-.theme-yellow [data-reka-popper-content-wrapper] {
+.theme-yellow [data-reka-popper-content-wrapper],
+.theme-yellow [data-side][data-align] {
   --primary: var(--color-yellow-400);
   --primary-foreground: var(--color-yellow-900);
   --ring: var(--color-yellow-400);
@@ -372,7 +395,8 @@
 }
 
 .theme-violet .theme-container,
-.theme-violet [data-reka-popper-content-wrapper] {
+.theme-violet [data-reka-popper-content-wrapper],
+.theme-violet [data-side][data-align] {
   --primary: var(--color-violet-600);
   --primary-foreground: var(--color-violet-50);
   --ring: var(--color-violet-400);

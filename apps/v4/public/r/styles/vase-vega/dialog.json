@@ -1,0 +1,69 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "dialog",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-vega/ui/dialog/Dialog.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogRootEmits, DialogRootProps } from '@vase-ui/vue/dialog'\nimport { Dialog } from '@vase-ui/vue/dialog'\n\ninterface Props extends /* @vue-ignore */ DialogRootProps {}\ninterface Emits extends /* @vue-ignore */ DialogRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Dialog.Root v-slot=\"slotProps\">\n    <slot v-bind=\"slotProps\" />\n  </Dialog.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogClose.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogCloseProps } from '@vase-ui/vue/dialog'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ DialogCloseProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Dialog.Close ref=\"part\" data-slot=\"dialog-close\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Dialog.Close>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogPopupProps } from '@vase-ui/vue/dialog'\n\nimport type { HTMLAttributes } from 'vue'\nimport { XIcon } from '@lucide/vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\nimport { Button } from '@/styles/vase-vega/ui/button'\nimport DialogOverlay from './DialogOverlay.vue'\n\ninterface Props extends /* @vue-ignore */ DialogPopupProps {\n  class?: HTMLAttributes['class']\n  showCloseButton?: boolean\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  showCloseButton: true,\n})\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Dialog.Portal>\n    <DialogOverlay />\n    <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n      <Dialog.Popup\n        data-slot=\"dialog-content\"\n        v-bind=\"$attrs\"\n        :class=\"cn('bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-foreground/10 grid max-w-[calc(100%-2rem)] gap-6 rounded-xl p-6 text-sm ring-1 duration-100 sm:max-w-md fixed top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 outline-none', props.class)\"\n      >\n        <slot />\n\n        <Dialog.Close v-if=\"showCloseButton\" data-slot=\"dialog-close\">\n          <template #element=\"{ props: closeProps, elementRef }\">\n            <Button v-bind=\"closeProps\" :ref=\"elementRef\" variant=\"ghost\" class=\"absolute top-4 right-4\" size=\"icon-sm\">\n              <XIcon />\n              <span class=\"sr-only\">Close</span>\n            </Button>\n          </template>\n        </Dialog.Close>\n      </Dialog.Popup>\n    </Transition>\n  </Dialog.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogDescription.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogDescriptionProps } from '@vase-ui/vue/dialog'\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DialogDescriptionProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Dialog.Description\n    data-slot=\"dialog-description\"\n    :class=\"cn('text-muted-foreground *:[a]:hover:text-foreground text-sm *:[a]:underline *:[a]:underline-offset-3', props.class)\"\n  >\n    <slot />\n  </Dialog.Description>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogFooter.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\nimport { Button } from '@/styles/vase-vega/ui/button'\n\nconst props = withDefaults(defineProps<{\n  class?: HTMLAttributes['class']\n  showCloseButton?: boolean\n}>(), {\n  showCloseButton: false,\n})\n</script>\n\n<template>\n  <div\n    data-slot=\"dialog-footer\"\n    :class=\"cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', props.class)\"\n  >\n    <slot />\n    <Dialog.Close v-if=\"showCloseButton\">\n      <template #element=\"{ props: closeProps, elementRef }\">\n        <Button v-bind=\"closeProps\" :ref=\"elementRef\" variant=\"outline\">\n          Close\n        </Button>\n      </template>\n    </Dialog.Close>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogHeader.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <div\n    data-slot=\"dialog-header\"\n    :class=\"cn('gap-2 flex flex-col', props.class)\"\n  >\n    <slot />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogOverlay.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogBackdropProps } from '@vase-ui/vue/dialog'\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DialogBackdropProps {\n  class?: HTMLAttributes['class']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n    <Dialog.Backdrop\n      data-slot=\"dialog-overlay\"\n      v-bind=\"$attrs\"\n      :class=\"cn('data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs fixed inset-0 isolate z-50', props.class)\"\n    >\n      <slot />\n    </Dialog.Backdrop>\n  </Transition>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogScrollContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogPopupProps } from '@vase-ui/vue/dialog'\n\nimport type { HTMLAttributes } from 'vue'\nimport { XIcon } from '@lucide/vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\nimport DialogOverlay from './DialogOverlay.vue'\n\ninterface Props extends /* @vue-ignore */ DialogPopupProps {\n  class?: HTMLAttributes['class']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Dialog.Portal>\n    <DialogOverlay class=\"bg-black/80\" />\n    <Dialog.Viewport class=\"fixed inset-0 z-50 grid place-items-center overflow-y-auto\">\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <Dialog.Popup\n          v-bind=\"$attrs\"\n          :class=\"\n            cn(\n              'relative z-50 grid w-full max-w-lg my-8 gap-4 border border-border bg-background p-6 shadow-lg duration-200 data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 sm:rounded-lg md:w-full',\n              props.class,\n            )\n          \"\n        >\n          <slot />\n\n          <Dialog.Close\n            class=\"absolute top-4 right-4 p-0.5 transition-colors rounded-md hover:bg-secondary\"\n          >\n            <XIcon class=\"w-4 h-4\" />\n            <span class=\"sr-only\">Close</span>\n          </Dialog.Close>\n        </Dialog.Popup>\n      </Transition>\n    </Dialog.Viewport>\n  </Dialog.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogTitle.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogTitleProps } from '@vase-ui/vue/dialog'\nimport type { HTMLAttributes } from 'vue'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ DialogTitleProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Dialog.Title\n    data-slot=\"dialog-title\"\n    :class=\"cn('leading-none font-medium cn-font-heading', props.class)\"\n  >\n    <slot />\n  </Dialog.Title>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/DialogTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { DialogTriggerProps } from '@vase-ui/vue/dialog'\nimport { Dialog } from '@vase-ui/vue/dialog'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ DialogTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Dialog.Trigger ref=\"part\" data-slot=\"dialog-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Dialog.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-vega/ui/dialog/index.ts",
+      "content": "export { default as Dialog } from './Dialog.vue'\nexport { default as DialogClose } from './DialogClose.vue'\nexport { default as DialogContent } from './DialogContent.vue'\nexport { default as DialogDescription } from './DialogDescription.vue'\nexport { default as DialogFooter } from './DialogFooter.vue'\nexport { default as DialogHeader } from './DialogHeader.vue'\nexport { default as DialogOverlay } from './DialogOverlay.vue'\nexport { default as DialogScrollContent } from './DialogScrollContent.vue'\nexport { default as DialogTitle } from './DialogTitle.vue'\nexport { default as DialogTrigger } from './DialogTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

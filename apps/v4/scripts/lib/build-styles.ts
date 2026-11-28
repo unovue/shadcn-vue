@@ -1,8 +1,10 @@
+import type { RegistryBase } from '../registry.config'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { rimraf } from 'rimraf'
 import { transform } from 'vue-metamorph'
 import { STYLES } from '@/registry/styles'
+import { configuredBases } from '../registry.config'
 import { createStyleMap } from './create-style-map'
 import { makeExpandCnPlugin } from './expand-cn-classes'
 import { runEslintFix } from './run-formatters'
@@ -12,25 +14,18 @@ import { makeTransformIconsPlugin } from './transform-icons'
  * Codegen pipeline that mirrors shadcn-ui's build-registry.mts step 6
  * ("Copy compiled ui/* from the temporary registries into styles/<style>/ui").
  *
- * Source of truth: `apps/v4/registry/bases/reka/ui/**` — components authored
+ * Source of truth: `apps/v4/registry/bases/<base>/ui/**` — components authored
  * with `cn-*` placeholder classes (e.g. `cn-button-variant-default`).
  *
- * Per style, we read `apps/v4/registry/styles/style-{name}.css` to get the
- * tailwind expansion for each `cn-*` token, then transform every .vue and .ts
- * file in `bases/reka/ui` via vue-metamorph, replacing tokens with their
- * expansions. Output goes to `apps/v4/styles/reka-{name}/ui/**` which is
- * treated as a build artifact and is fully overwritten on each run.
+ * Per base and per style, we read `apps/v4/registry/styles/style-{name}.css` to
+ * get the tailwind expansion for each `cn-*` token, then transform every .vue
+ * and .ts file in `bases/<base>/ui` via vue-metamorph, replacing tokens with
+ * their expansions. Output goes to `apps/v4/styles/<base>-{name}/ui/**` which
+ * is treated as a build artifact and is fully overwritten on each run.
  */
 
-const SOURCE_BASE = 'reka'
-const SOURCE_UI_DIR = path.join('registry', 'bases', SOURCE_BASE, 'ui')
 const STYLES_CSS_DIR = path.join('registry', 'styles')
 const OUTPUT_BASE_DIR = 'styles'
-
-// Internal import prefix that points at the source-of-truth components.
-// Per-style outputs must reference their own sibling files instead of the
-// shared base, so we rewrite this prefix to `@/styles/reka-{style}/` below.
-const SOURCE_IMPORT_PREFIX = `@/registry/bases/${SOURCE_BASE}/`
 
 const TRANSFORMABLE_EXTENSIONS = new Set(['.vue', '.ts', '.tsx', '.js', '.jsx'])
 // Files inside source dirs that we never want to ship as part of a style output.
@@ -62,16 +57,23 @@ async function normalizeLineEndings(files: string[]) {
   }))
 }
 
-export async function buildStyles() {
-  const cwd = process.cwd()
-  const sourceUiAbs = path.resolve(cwd, SOURCE_UI_DIR)
+interface StyleStats {
+  name: string
+  tokenCount: number
+  transformedFiles: number
+  totalReplacements: number
+}
 
-  // eslint-disable-next-line no-console
-  console.log('\n🎨 Building per-style component outputs...')
+export async function buildBaseStyles(base: RegistryBase, cwd = process.cwd()) {
+  const sourceUiDir = path.join('registry', base.path, 'ui')
+  const sourceUiAbs = path.resolve(cwd, sourceUiDir)
+
+  // Internal import prefix for UI components copied into each style.
+  // Other shared base folders (such as `lib/`) are not copied, so they keep
+  // their shared path.
+  const sourceImportPrefix = `@/registry/${base.path}/ui/`
 
   const sourceFiles = await walkFiles(sourceUiAbs)
-  // eslint-disable-next-line no-console
-  console.log(`   Found ${sourceFiles.length} source files in ${SOURCE_UI_DIR}`)
 
   // Read & cache all source contents once. They're shared across styles.
   const sourceCache = new Map<string, string>()
@@ -80,17 +82,18 @@ export async function buildStyles() {
     sourceCache.set(abs, content)
   }))
 
+  const styles: StyleStats[] = []
   for (const style of STYLES) {
     const cssPath = path.resolve(cwd, STYLES_CSS_DIR, `style-${style.name}.css`)
     const css = await fs.readFile(cssPath, 'utf8')
     const styleMap = createStyleMap(css)
     const tokenCount = Object.keys(styleMap).length
 
-    const outDir = path.resolve(cwd, OUTPUT_BASE_DIR, `${SOURCE_BASE}-${style.name}`, 'ui')
+    const outDir = path.resolve(cwd, OUTPUT_BASE_DIR, `${base.name}-${style.name}`, 'ui')
     await rimraf(outDir)
     await fs.mkdir(outDir, { recursive: true })
 
-    const targetImportPrefix = `@/${OUTPUT_BASE_DIR}/${SOURCE_BASE}-${style.name}/`
+    const targetImportPrefix = `@/${OUTPUT_BASE_DIR}/${base.name}-${style.name}/ui/`
 
     let transformedFiles = 0
     let totalReplacements = 0
@@ -125,10 +128,10 @@ export async function buildStyles() {
         outContent = source
       }
 
-      // Rewrite internal references from the shared base to this style's
+      // Rewrite internal UI references from the shared base to this style's
       // own directory so generated files are self-contained.
-      if (outContent.includes(SOURCE_IMPORT_PREFIX)) {
-        outContent = outContent.split(SOURCE_IMPORT_PREFIX).join(targetImportPrefix)
+      if (outContent.includes(sourceImportPrefix)) {
+        outContent = outContent.split(sourceImportPrefix).join(targetImportPrefix)
       }
 
       const destAbs = path.join(outDir, relPath)
@@ -136,10 +139,27 @@ export async function buildStyles() {
       await fs.writeFile(destAbs, outContent, 'utf8')
     }
 
+    styles.push({ name: `${base.name}-${style.name}`, tokenCount, transformedFiles, totalReplacements })
+  }
+
+  return { sourceDir: sourceUiDir, sourceCount: sourceFiles.length, styles }
+}
+
+export async function buildStyles() {
+  const cwd = process.cwd()
+
+  // eslint-disable-next-line no-console
+  console.log('\n🎨 Building per-style component outputs...')
+
+  for (const base of configuredBases) {
+    const { sourceDir, sourceCount, styles } = await buildBaseStyles(base, cwd)
+
     // eslint-disable-next-line no-console
-    console.log(
-      `   ✅ reka-${style.name}: ${tokenCount} tokens, transformed ${transformedFiles} files, ${totalReplacements} replacements`,
-    )
+    console.log(`   Found ${sourceCount} source files in ${sourceDir}`)
+    for (const { name, tokenCount, transformedFiles, totalReplacements } of styles) {
+      // eslint-disable-next-line no-console
+      console.log(`   ✅ ${name}: ${tokenCount} tokens, transformed ${transformedFiles} files, ${totalReplacements} replacements`)
+    }
   }
 
   // eslint --fix the generated output so it matches the project's antfu/eslint
@@ -148,7 +168,7 @@ export async function buildStyles() {
   // eslint-disable-next-line no-console
   console.log('   🧹 Running eslint --fix on generated output...')
   try {
-    await runEslintFix([`${OUTPUT_BASE_DIR}/${SOURCE_BASE}-*/ui/**/*.{ts,vue}`], cwd)
+    await runEslintFix(configuredBases.map(base => `${OUTPUT_BASE_DIR}/${base.name}-*/ui/**/*.{ts,vue}`), cwd)
   }
   catch (err: any) {
     // eslint --fix exits non-zero when there are unfixable warnings — that's

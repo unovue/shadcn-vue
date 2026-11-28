@@ -1,0 +1,20 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-rhea/ui/aspect-ratio/AspectRatio.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = withDefaults(defineProps<{\n  ratio?: number\n  class?: HTMLAttributes['class']\n}>(), {\n  ratio: 1,\n})\n</script>\n\n<template>\n  <div\n    data-slot=\"aspect-ratio\"\n    :style=\"{ '--ratio': ratio }\"\n    :class=\"cn('relative aspect-(--ratio)', props.class)\"\n  >\n    <div class=\"absolute inset-0\">\n      <slot />\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-rhea/ui/aspect-ratio/index.ts",
+      "content": "export { default as AspectRatio } from './AspectRatio.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

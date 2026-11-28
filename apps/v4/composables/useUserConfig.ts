@@ -1,11 +1,11 @@
-import { createSharedComposable, isClient, watchImmediate } from '@vueuse/core'
+import { createSharedComposable, isClient, useMounted, watchImmediate } from '@vueuse/core'
+import { DEFAULT_BASE, parseDocsPage, resolveBase, USER_CONFIG_COOKIE } from '@/lib/docs-base'
 import { baseColors } from '~/registry/_legacy-base-colors'
 
 const THEMES = baseColors.filter(
   theme => !['slate', 'stone', 'gray', 'zinc'].includes(theme.name),
 ).map(theme => theme.name)
 
-const COOKIE_NAME = 'user_config'
 export type Layout = 'fixed' | 'full'
 export type PackageManager = 'pnpm' | 'npm' | 'yarn' | 'bun'
 export type InstallationType = 'cli' | 'manual'
@@ -16,8 +16,9 @@ export const useConfig = createSharedComposable(() => {
     packageManager: PackageManager
     installationType: InstallationType
     activeTheme: typeof THEMES[number]
+    base?: string
   }>(
-    COOKIE_NAME,
+    USER_CONFIG_COOKIE,
     {
       default: () => ({ layout: 'full', packageManager: 'pnpm', installationType: 'cli', activeTheme: 'neutral' }),
       path: '/',
@@ -58,3 +59,12 @@ export const useConfig = createSharedComposable(() => {
     isLayoutFull,
   }
 })
+
+// Apply the cookie choice after hydration because prerendered pages have no cookie.
+export function useDocsBase() {
+  const route = useRoute()
+  const { config } = useConfig()
+  const isMounted = useMounted()
+
+  return computed(() => parseDocsPage(route.path)?.base ?? (isMounted.value ? resolveBase(config.value.base) : DEFAULT_BASE))
+}

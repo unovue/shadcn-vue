@@ -17,6 +17,12 @@ export const BASES = [
     description: "Optimized for fast development, easy maintenance, and accessibility.",
     dependencies: ["reka-ui"],
   },
+  {
+    name: "vase",
+    label: "Vase UI",
+    description: "Components for building accessible web apps and design systems.",
+    dependencies: ["@vase-ui/vue"],
+  },
 ] as const
 
 // Available visual styles

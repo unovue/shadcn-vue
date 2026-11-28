@@ -1,0 +1,74 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "combobox",
+  "dependencies": [
+    "@vase-ui/vue",
+    "cn"
+  ],
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-lyra/ui/combobox/Combobox.vue",
+      "content": "<script setup lang=\"ts\" generic=\"Value, Multiple extends boolean | undefined = false, Item = Value\">\nimport type { ComboboxRootEmits, ComboboxRootProps } from '@vase-ui/vue/combobox'\nimport { Combobox } from '@vase-ui/vue/combobox'\n\ninterface Props extends /* @vue-ignore */ ComboboxRootProps<Value, Multiple, Item> {}\ninterface Emits extends /* @vue-ignore */ ComboboxRootEmits<Value, Multiple> {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Combobox.Root data-slot=\"combobox\">\n    <slot />\n  </Combobox.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxAnchor.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <Combobox.InputGroup\n    data-slot=\"combobox-anchor\"\n    :class=\"cn('', props.class)\"\n  >\n    <slot />\n  </Combobox.InputGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxEmpty.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxEmptyProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ComboboxEmptyProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Combobox.Empty\n    data-slot=\"combobox-empty\"\n    :class=\"cn('text-muted-foreground hidden w-full justify-center py-2 text-center text-xs group-data-empty/combobox-content:flex', props.class)\"\n  >\n    <slot />\n  </Combobox.Empty>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxGroup.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxGroupProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ComboboxGroupProps {\n  class?: HTMLAttributes['class']\n  heading?: string\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Combobox.Group\n    data-slot=\"combobox-group\"\n    :class=\"cn('overflow-hidden text-foreground', props.class)\"\n  >\n    <Combobox.GroupLabel v-if=\"heading\" class=\"text-muted-foreground px-2 py-2 text-xs\">\n      {{ heading }}\n    </Combobox.GroupLabel>\n    <slot />\n  </Combobox.Group>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxInput.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxInputProps } from '@vase-ui/vue/combobox'\n\nimport type { HTMLAttributes } from 'vue'\nimport { SearchIcon } from '@lucide/vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\nimport { InputGroup, InputGroupAddon } from '@/styles/vase-lyra/ui/input-group'\n\ninterface Props extends /* @vue-ignore */ ComboboxInputProps {\n  class?: HTMLAttributes['class']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <InputGroup class=\"w-auto\">\n    <InputGroupAddon>\n      <SearchIcon class=\"size-4 shrink-0 opacity-50\" />\n    </InputGroupAddon>\n    <Combobox.Input\n      data-slot=\"combobox-input\"\n      :class=\"cn('flex-1 outline-hidden disabled:cursor-not-allowed disabled:opacity-50', props.class)\"\n      v-bind=\"$attrs\"\n    />\n  </InputGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxItem.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxItemProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ComboboxItemProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Combobox.Item\n    data-slot=\"combobox-item\"\n    :class=\"cn('data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground gap-2 rounded-none py-2 pr-8 pl-2 text-xs [&_svg:not([class*=size-])]:size-4 group/combobox-item relative flex w-full cursor-default items-center outline-hidden select-none aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0', props.class)\"\n  >\n    <slot />\n  </Combobox.Item>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxItemIndicator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from 'vue'\nimport { cn } from 'cn'\n\nconst props = defineProps<{\n  class?: HTMLAttributes['class']\n}>()\n</script>\n\n<template>\n  <span\n    data-slot=\"combobox-item-indicator\"\n    :class=\"cn('pointer-events-none absolute right-2 flex size-4 items-center justify-center group-aria-[selected=false]/combobox-item:hidden', props.class)\"\n  >\n    <slot />\n  </span>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxList.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxPopupProps, ComboboxPositionerProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ComboboxPopupProps {\n  class?: HTMLAttributes['class']\n  side?: ComboboxPositionerProps['side']\n  sideOffset?: ComboboxPositionerProps['sideOffset']\n  align?: ComboboxPositionerProps['align']\n  alignOffset?: ComboboxPositionerProps['alignOffset']\n}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\nconst props = withDefaults(defineProps<Props>(), {\n  side: 'bottom',\n  sideOffset: 4,\n  align: 'center',\n  alignOffset: 0,\n})\n\nfunction onBeforeEnter(el: Element) {\n  el.removeAttribute('data-closed')\n  el.setAttribute('data-open', '')\n}\n\nfunction onBeforeLeave(el: Element) {\n  el.removeAttribute('data-open')\n  el.setAttribute('data-closed', '')\n}\n</script>\n\n<template>\n  <Combobox.Portal>\n    <Combobox.Positioner\n      :side=\"side\"\n      :side-offset=\"sideOffset\"\n      :align=\"align\"\n      :align-offset=\"alignOffset\"\n      class=\"isolate z-50\"\n    >\n      <Transition @before-enter=\"onBeforeEnter\" @before-leave=\"onBeforeLeave\">\n        <Combobox.Popup\n          data-slot=\"combobox-content\"\n          v-bind=\"$attrs\"\n          :class=\"cn('bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 *:data-[slot=input-group]:bg-input/30 *:data-[slot=input-group]:border-input/30 overflow-hidden rounded-none shadow-md ring-1 duration-100 *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8 *:data-[slot=input-group]:shadow-none data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 cn-menu-target cn-menu-translucent group/combobox-content relative z-50 max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-(--anchor-width) origin-(--transform-origin)', props.class)\"\n        >\n          <slot />\n        </Combobox.Popup>\n      </Transition>\n    </Combobox.Positioner>\n  </Combobox.Portal>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxSeparator.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxSeparatorProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ComboboxSeparatorProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Combobox.Separator\n    data-slot=\"combobox-separator\"\n    :class=\"cn('bg-border -mx-1 h-px', props.class)\"\n  />\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxTriggerProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ ComboboxTriggerProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Combobox.Trigger\n    ref=\"part\"\n    data-slot=\"combobox-trigger\"\n    :class=\"cn('[&_svg:not([class*=size-])]:size-4', props.class)\"\n  >\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Combobox.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/ComboboxViewport.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { ComboboxListProps } from '@vase-ui/vue/combobox'\nimport type { HTMLAttributes } from 'vue'\nimport { Combobox } from '@vase-ui/vue/combobox'\nimport { cn } from 'cn'\n\ninterface Props extends /* @vue-ignore */ ComboboxListProps {\n  class?: HTMLAttributes['class']\n}\n\nconst props = defineProps<Props>()\n</script>\n\n<template>\n  <Combobox.List\n    data-slot=\"combobox-viewport\"\n    :class=\"cn('no-scrollbar max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1 overflow-y-auto data-empty:p-0', props.class)\"\n  >\n    <slot />\n    <template v-if=\"$slots.item\" #item=\"slotProps\">\n      <slot name=\"item\" v-bind=\"slotProps\" />\n    </template>\n  </Combobox.List>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-lyra/ui/combobox/index.ts",
+      "content": "import { Combobox as VaseCombobox } from '@vase-ui/vue/combobox'\n\nexport { default as Combobox } from './Combobox.vue'\nexport { default as ComboboxAnchor } from './ComboboxAnchor.vue'\nexport { default as ComboboxEmpty } from './ComboboxEmpty.vue'\nexport { default as ComboboxGroup } from './ComboboxGroup.vue'\nexport { default as ComboboxInput } from './ComboboxInput.vue'\nexport { default as ComboboxItem } from './ComboboxItem.vue'\nexport { default as ComboboxItemIndicator } from './ComboboxItemIndicator.vue'\nexport { default as ComboboxList } from './ComboboxList.vue'\nexport { default as ComboboxSeparator } from './ComboboxSeparator.vue'\nexport { default as ComboboxTrigger } from './ComboboxTrigger.vue'\nexport { default as ComboboxViewport } from './ComboboxViewport.vue'\n\nexport const ComboboxCancel = VaseCombobox.Clear\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

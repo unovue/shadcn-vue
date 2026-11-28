@@ -1,0 +1,129 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { toast } from 'vue-sonner'
+import { Button } from '@/styles/vase-nova/ui/button'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/styles/vase-nova/ui/dialog'
+import {
+  Questionnaire,
+  QuestionnaireActions,
+  QuestionnaireChoice,
+  QuestionnaireChoices,
+  QuestionnaireDescription,
+  QuestionnaireError,
+  QuestionnaireItem,
+  QuestionnaireNext,
+  QuestionnairePrevious,
+  QuestionnaireProgress,
+  QuestionnaireSubmit,
+  QuestionnaireTitle,
+} from '@/styles/vase-nova/ui/questionnaire'
+
+const items = [
+  { name: 'scope', required: true },
+  { name: 'tests', required: true },
+] as const
+
+const open = ref(false)
+
+function handleSubmit(event: Event) {
+  event.preventDefault()
+
+  const formData = new FormData(event.target as HTMLFormElement)
+
+  open.value = false
+  toast('Clarification sent', {
+    description: `Scope: ${formData.get('scope') ?? 'None'} · Verification: ${formData.get('tests') ?? 'None'}`,
+  })
+}
+</script>
+
+<template>
+  <Dialog v-model:open="open">
+    <DialogTrigger>
+      <template #element="{ props, elementRef }">
+        <Button v-bind="props" :ref="elementRef" variant="outline">
+          Open clarification
+        </Button>
+      </template>
+    </DialogTrigger>
+    <DialogContent>
+      <Questionnaire default-item="scope" :items="items" @submit="handleSubmit">
+        <QuestionnaireItem name="scope" required>
+          <DialogHeader>
+            <QuestionnaireProgress />
+            <QuestionnaireTitle :as="DialogTitle">
+              Which files are in scope?
+            </QuestionnaireTitle>
+            <QuestionnaireDescription :as="DialogDescription">
+              Choose how broadly the agent can update the workspace.
+            </QuestionnaireDescription>
+          </DialogHeader>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="component">
+              Component only
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="feature">
+              Complete feature directory
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="workspace">
+              Any related workspace file
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
+
+        <QuestionnaireItem name="tests" required>
+          <DialogHeader>
+            <QuestionnaireProgress />
+            <QuestionnaireTitle :as="DialogTitle">
+              How much verification is needed?
+            </QuestionnaireTitle>
+            <QuestionnaireDescription :as="DialogDescription">
+              Choose the checks the agent should run before handoff.
+            </QuestionnaireDescription>
+          </DialogHeader>
+          <QuestionnaireChoices>
+            <QuestionnaireChoice value="targeted">
+              Targeted tests
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="package">
+              Package tests
+            </QuestionnaireChoice>
+            <QuestionnaireChoice value="full">
+              Full workspace verification
+            </QuestionnaireChoice>
+          </QuestionnaireChoices>
+          <QuestionnaireError />
+        </QuestionnaireItem>
+
+        <DialogFooter>
+          <DialogClose>
+            <template #element="{ props, elementRef }">
+              <Button v-bind="props" :ref="elementRef" type="button" variant="outline">
+                Cancel
+              </Button>
+            </template>
+          </DialogClose>
+          <QuestionnaireActions>
+            <QuestionnairePrevious />
+            <QuestionnaireNext>
+              Next
+            </QuestionnaireNext>
+            <QuestionnaireSubmit>
+              Send answer
+            </QuestionnaireSubmit>
+          </QuestionnaireActions>
+        </DialogFooter>
+      </Questionnaire>
+    </DialogContent>
+  </Dialog>
+</template>

@@ -1,0 +1,134 @@
+---
+title: Drawer
+description: A drawer component for mobile devices.
+component: true
+links:
+  doc: https://vase-ui.com/components/drawer
+  api: https://vase-ui.com/components/drawer#api-reference
+---
+
+::component-preview
+---
+name: DrawerDemo
+description: A drawer component.
+---
+::
+
+## Installation
+
+:::::code-tabs
+
+:::tabs-list
+
+  ::tabs-trigger{value="cli"}
+  CLI
+  ::
+
+  ::tabs-trigger{value="manual"}
+  Manual
+  ::
+
+:::
+
+::tabs-content{value="cli"}
+
+```bash
+npx shadcn-vue@latest add drawer
+```
+
+::
+
+::::tabs-content{value="manual"}
+  :::steps
+    ::step
+    Install the following dependencies:
+    ::
+
+    ```bash
+    npm install @vase-ui/vue
+    ```
+
+    ::step
+    Copy and paste the [GitHub source code](https://github.com/unovue/shadcn-vue/tree/dev/apps/v4/styles/vase-vega/ui/drawer) into your project.
+    ::
+
+    ::step
+    Update the import paths to match your project setup.
+    ::
+  :::
+::::
+
+:::::
+
+## Usage
+
+```vue showLineNumbers
+<script setup lang="ts">
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
+</script>
+
+<template>
+  <Drawer>
+    <DrawerTrigger>Open</DrawerTrigger>
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+        <DrawerDescription>
+          This action cannot be undone.
+        </DrawerDescription>
+      </DrawerHeader>
+      <DrawerFooter>
+        <Button>Submit</Button>
+        <DrawerClose>
+          <template #element="{ props, elementRef }">
+            <Button v-bind="props" :ref="elementRef" variant="outline">
+              Cancel
+            </Button>
+          </template>
+        </DrawerClose>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</template>
+```
+
+## Example
+
+### Scrollable Content
+
+Keep actions visible while the content scrolls.
+
+::component-preview
+---
+name: DrawerScrollableContent
+---
+::
+
+### Sides
+
+Use the `swipe-direction` prop to set the direction the drawer swipes toward to dismiss. The drawer is anchored to the edge it dismisses toward, so `up` opens a drawer along the top edge and `down` opens one along the bottom edge. Available options are `up`, `right`, `down`, and `left`.
+
+::component-preview
+---
+name: DrawerSides
+---
+::
+
+### Responsive Modal (Dialog & Drawer)
+
+Use a `Drawer` component for smaller viewport sizes and a `Dialog` component otherwise. This can be further made reusable by using slots for various parts of the modal.
+
+::component-preview
+---
+name: DialogResponsive
+---
+::

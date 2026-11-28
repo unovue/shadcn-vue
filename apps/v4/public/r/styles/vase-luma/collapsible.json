@@ -1,0 +1,30 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "collapsible",
+  "dependencies": [
+    "@vase-ui/vue"
+  ],
+  "files": [
+    {
+      "path": "styles/vase-luma/ui/collapsible/Collapsible.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleRootEmits, CollapsibleRootProps } from '@vase-ui/vue/collapsible'\nimport { Collapsible } from '@vase-ui/vue/collapsible'\n\ninterface Props extends /* @vue-ignore */ CollapsibleRootProps {}\ninterface Emits extends /* @vue-ignore */ CollapsibleRootEmits {}\n\ndefineProps<Props>()\ndefineEmits<Emits>()\n</script>\n\n<template>\n  <Collapsible.Root v-slot=\"slotProps\" data-slot=\"collapsible\">\n    <slot v-bind=\"slotProps\" />\n  </Collapsible.Root>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-luma/ui/collapsible/CollapsibleContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsiblePanelProps } from '@vase-ui/vue/collapsible'\nimport { Collapsible } from '@vase-ui/vue/collapsible'\n\ninterface Props extends /* @vue-ignore */ CollapsiblePanelProps {}\n\ndefineOptions({\n  inheritAttrs: false,\n})\n\ndefineProps<Props>()\n</script>\n\n<template>\n  <Transition\n    enter-active-class=\"overflow-hidden transition-[height] duration-200 ease-out\"\n    leave-active-class=\"overflow-hidden transition-[height] duration-200 ease-out\"\n    enter-from-class=\"h-0\"\n    enter-to-class=\"h-(--collapsible-panel-height)\"\n    leave-from-class=\"h-(--collapsible-panel-height)\"\n    leave-to-class=\"h-0\"\n  >\n    <Collapsible.Panel data-slot=\"collapsible-content\" v-bind=\"$attrs\">\n      <slot />\n    </Collapsible.Panel>\n  </Transition>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-luma/ui/collapsible/CollapsibleTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { CollapsibleTriggerProps } from '@vase-ui/vue/collapsible'\nimport { Collapsible } from '@vase-ui/vue/collapsible'\nimport { computed, useTemplateRef } from 'vue'\n\ninterface Props extends /* @vue-ignore */ CollapsibleTriggerProps {}\n\ndefineProps<Props>()\n\nconst part = useTemplateRef<{ element: Element | null }>('part')\n// An outer trigger that renders this wrapper in its element slot reads the element of the part.\ndefineExpose({ element: computed(() => part.value?.element ?? null) })\n</script>\n\n<template>\n  <Collapsible.Trigger ref=\"part\" data-slot=\"collapsible-trigger\">\n    <template v-if=\"$slots.element\" #element=\"slotProps\">\n      <slot name=\"element\" v-bind=\"slotProps\" />\n    </template>\n    <slot />\n  </Collapsible.Trigger>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "styles/vase-luma/ui/collapsible/index.ts",
+      "content": "export { default as Collapsible } from './Collapsible.vue'\nexport { default as CollapsibleContent } from './CollapsibleContent.vue'\nexport { default as CollapsibleTrigger } from './CollapsibleTrigger.vue'\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
